@@ -1,671 +1,3679 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ # Remove all unused images (does not touch running containers)
-docker image prune -a
-WARNING! This will remove all images without at least one container associated to them.
-Are you sure you want to continue? [y/N] y
-Deleted Images:
-untagged: msjarvis-rebuild-jarvis-judge-alignment:latest
-deleted: sha256:2718b16b05c77c95ebc1c8a8936691fe5d815582ad22e63ef377667753708db3
-untagged: msjarvis-toroidal:latest
-deleted: sha256:2adb193ca5e8ecf3726673d63beda39272c46f91f034c59274729525ea4d6e0f
-untagged: msjarvis-confidence-decay:latest
-deleted: sha256:9b4638d5aa75fdbe849dd0e50bcf409467308a3ccad7ba294a72a894d41cf9c6
-deleted: sha256:5b08129666450dd779c36a354063fb39ccf78ef7b9494c96bf30a9f425b68f96
-deleted: sha256:5227b60c87ca7c9823759de085e64af9fc3f86413e4e15be5f273910fdff6df4
-deleted: sha256:87f6fad48e0ece0a8dee6c95c4ec6b4d2dbed31125480aec556cd58235932e84
-deleted: sha256:c2b9bda6badede5b4725b6dc06aa513677a2d8cdd864ee96d6ebc15825a9493b
-deleted: sha256:cddfff4c8120c90dc226c8aeb6586c2e3f0ed90071aa471c045dee1026e08c76
-untagged: msjarvis-rebuild-jarvis-judge-consistency:latest
-deleted: sha256:f5803b7f99409cfc4c39f3b4dc8410371ee58e69a5da4ef3a818e2e0ca1d5efd
-untagged: msjarvis-rebuild-jarvis-temporal-consciousness:latest
-deleted: sha256:12f3d708114abeac19b02edca3f32c3bc9bfbaf97113e2bfacd782000e234ef2
-untagged: msjarvis-rebuild-jarvis-eeg-beta:latest
-deleted: sha256:6f812aa759c3fde1615c769b2358b96b3863a6334238e82f110326ea4063520a
-untagged: msjarvis-rebuild-jarvis-eeg-theta:latest
-deleted: sha256:5fe9d5fb85f49d5ae4bdc20670cc11227dd41d3e4211d5dcfb9e42926a379541
-untagged: msjarvis-rebuild-jarvis-hippocampus:latest
-deleted: sha256:cc8ad1062a703bf819596b4b241d68be6921841c65a7878d70da629219bb049b
-untagged: msjarvis-rebuild-jarvis-brain-orchestrator:latest
-deleted: sha256:18e341481f0649db7bcca5a36c38a77497cc4f540cb296d37ca3e4670fe3a0b5
-untagged: msjarvis-rebuild-jarvis-i-containers:latest
-deleted: sha256:347b529fe6d2d8ebe2f82fae629b6554bfc98e41a394fbf4c1b356b1586c6105
-untagged: msjarvis-rebuild-jarvis-judge-ethics:latest
-deleted: sha256:f60cefa38dee0315bafb06439d7789663e45d7d8d56bbdd08b5e664fdf467a3d
-untagged: msjarvis-rebuild-jarvis-aaacpe-rag:latest
-deleted: sha256:449c8ed7f9660f1577c3ec0906e00ffb73bc2158b259e30b5f4b402a6afda933
-untagged: msjarvis-rebuild-jarvis-woah:latest
-deleted: sha256:6009a998e4b688cdd159d2c0546fc0dee79a4aedd16f81c8211c18b7137da024
-untagged: msjarvis-rebuild-jarvis-blood-brain-barrier:latest
-deleted: sha256:c7c6a4dc343ab75082615af430f389109f48a625840f1de13c6185a4324e9131
-untagged: msjarvis-rebuild-nbb_blood_brain_barrier:latest
-deleted: sha256:83f1b50102757a16c27c12aefa24404560c1090fa60442e3b65605f037670346
-untagged: msjarvis-rebuild-jarvis-judge-pipeline:latest
-deleted: sha256:a1cbef02dc64fc30b649d2a0bf56c6d7a24563fccf12becd6e2ea1f7ac24bac2
-untagged: msjarvis-rebuild-jarvis-gis-rag:latest
-deleted: sha256:f9395cae6d8b77754b084b1e8795811ca10fc43d95434851c858f59ec35cdca6
-untagged: msjarvis-rebuild-jarvis-fractal-consciousness:latest
-deleted: sha256:d5171bb8fb24db3f6bf7ce86c2adebf1971ee29283e94bb8fc2603c780879ef8
-untagged: msjarvis-rebuild-jarvis-judge-truth:latest
-deleted: sha256:434eed5e474fb6f19a729964db17171d308c47a3f7b056319389501e43c219b1
-untagged: msjarvis-rebuild-jarvis-semaphore:latest
-deleted: sha256:177108451eb4d9414a9b0adae6f36a951bd0e906a776beb4ad9ac04be2ea477c
-untagged: msjarvis-rebuild-jarvis-local-resources:latest
-deleted: sha256:0cd05990ba907c8a79dc4207470ffce31806bf3a7bda712710e3903a0431fe30
-untagged: msjarvis-rebuild-nbb_darwin_godel_machines:latest
-deleted: sha256:44bb76b06c32418fb15fd303f8b3ce6aa9ef31c1f9c8ea2615480d82c25319f0
-untagged: msjarvis-rebuild-jarvis-unified-gateway:latest
-deleted: sha256:b8d63f6ee778f22075ea30a47edeb6cf2c812fa3376435f7f1dbcc3c4d19b229
-untagged: msjarvis-rebuild-jarvis-wv-entangled-gateway:latest
-deleted: sha256:9cff0274b124bc356cd322b9130434539fe4113114333dc7c4e452d54baffdfd
-untagged: msjarvis-rebuild-jarvis-spiritual-rag:latest
-deleted: sha256:45ce300edb183fe5248417eb9298f3fffaa8178677ec4c81e18b902a91c73f0c
-untagged: msjarvis-rebuild-jarvis-20llm-production:latest
-deleted: sha256:baf1d5906ec8c095dbce3a2d39cbb8f3d8aedba18713e4107727cca99926dcb7
-untagged: msjarvis-rebuild-jarvis-eeg-delta:latest
-deleted: sha256:764264bd5a38639a5e21e737b6a854af8086c640250cd8cd77cc53620e5c11a5
-untagged: msjarvis-rebuild-jarvis-web-research:latest
-deleted: sha256:7f403f6d99880c39d7075dd058ec3ad1d56afb2a33b69161a7cd666fc15b79e1
-untagged: jarvis-main-brain:latest
-deleted: sha256:9715567d8712b679b44c58f973ccbc5ac5362e5cef1d14cf67276e6777f8a453
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ # Get line numbers and existing volumes for all three services
+grep -n "jarvis-gis-rag\|jarvis-spiritual-rag\|jarvis-autonomous-learner" \
+  /opt/msjarvis-rebuild/docker-compose.yml | head -30
 
-Total reclaimed space: 5.671GB
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ docker volume ls
-docker system df -v   # shows per-volume usage
-DRIVER    VOLUME NAME
-local     4b2822114a1ecfb6b6d7fbf321884e9d4711074e0de3892ab4fe172262a2fa0f
-local     838215e514a6459652600286d4bbedc28ea2235c9bfa49efaffa176bfa913036
-local     643115698e2d39666814fcd3680e36c6c85735732f7682019b783737bbfd409d
-local     CORRECT_VOLUME_NAME
-local     aaacpe-cultural-data
-local     af965d28baf53926de50b7b95821db6ff2819d705867543d548d39c729564583
-local     b4b082c14a033362eae87adf27260cdeab3bacafd96759fd0eb45bc343e6bbfe
-local     backups_aaacpe-cultural-data
-local     cfab55747f9be3730f1a98090c129d20bfd67619808a74cc790f4d415f91329b
-local     chroma_data
-local     chroma_onnx_cache
-local     d0a4586a446682d16ec4fb29ebf15601e3c85e416e15aed84f46c6eacc970460
-local     e9994ad64b18cdc2b6e984d4cb0a85c611f9de57c4167fba714bead4c4a67181
-local     fa21bd919772d29d8800acd78841a5bf18a93babd5a812e7e878750579867710
-local     fb5d783ea306d3838cf9d0370ddedafa17a55351e3f2adb6f5bf7e0672f9b5d7
-local     jarvis-hf-cache
-local     msjarvis-rebuild_aaacpe-cultural-data
-local     msjarvis-rebuild_chroma_onnx_cache
-local     msjarvis-rebuild_gbim_data
-local     msjarvis-rebuild_hf-model-cache
-local     msjarvis-rebuild_ingest-audit
-local     msjarvis-rebuild_ingest-done
-local     msjarvis-rebuild_ingest-failed
-local     msjarvis-rebuild_ingest-incoming
-local     msjarvis-rebuild_jarvis-local-resources-db-data
-local     ollama_models
-Images space usage:
+# Check their current bind mounts
+for svc in jarvis-gis-rag jarvis-spiritual-rag jarvis-autonomous-learner; do
+  echo "=== $svc ==="
+  docker inspect $svc --format '{{json .HostConfig.Binds}}' 2>/dev/null \
+    | python3 -m json.tool
+done
 
-REPOSITORY                                            TAG              IMAGE ID       CREATED          SIZE      SHARED SIZE   UNIQUE SIZE   CONTAINERS
-<none>                                                <none>           ed3ea4fac5fc   31 minutes ago   148MB     119.2MB       29.25MB       1
-msjarvis-rebuild-nbb_qualia_engine                    latest           a2b4fc0eafd2   51 minutes ago   148MB     119.2MB       29.24MB       1
-msjarvis-rebuild-nbb_woah_algorithms                  latest           401c580b1bb6   4 hours ago      153MB     119.2MB       34.12MB       1
-msjarvis-rebuild-nbb_prefrontal_cortex                latest           e91a1c425431   5 hours ago      191MB     184.6MB       6.727MB       1
-msjarvis-rebuild-jarvis-rag-server                    latest           d7a04791ba2b   14 hours ago     5.73GB    124.5MB       5.606GB       2
-msjarvis-rebuild-jarvis-constitutional-guardian       latest           3b64e9825860   14 hours ago     5.67GB    121.9MB       5.545GB       1
-<none>                                                <none>           1e16b958a9d8   14 hours ago     199MB     124.5MB       74.58MB       1
-<none>                                                <none>           cdbd1bd5ac86   14 hours ago     156MB     124.5MB       31.69MB       1
-<none>                                                <none>           62937be71688   15 hours ago     30.1GB    124.5MB       29.94GB       1
-<none>                                                <none>           689a8bf8588b   15 hours ago     6.14GB    0B            6.144GB       1
-msjarvis-rebuild-nbb_subconscious                     latest           04081ab8e64f   15 hours ago     193MB     184.6MB       8.574MB       1
-msjarvis-rebuild-nbb_consciousness_containers         latest           4f614ad6a25b   15 hours ago     193MB     184.6MB       8.579MB       1
-msjarvis-rebuild-nbb_pituitary_gland                  latest           c2a9086e87ee   15 hours ago     193MB     184.6MB       8.594MB       1
-msjarvis-rebuild-nbb_spiritual_root                   latest           4dea7a64e4cf   15 hours ago     193MB     184.6MB       8.586MB       1
-msjarvis-rebuild-nbb_spiritual_maternal_integration   latest           e12aae03a89e   15 hours ago     191MB     184.6MB       6.738MB       1
-msjarvis-rebuild-nbb_heteroglobulin_transport         latest           358bb9abfdc1   15 hours ago     191MB     184.6MB       6.728MB       1
-msjarvis-rebuild-nbb_mother_carrie_protocols          latest           5c897e1e8b64   15 hours ago     191MB     184.6MB       6.735MB       1
-<none>                                                <none>           b9c0bf0e4938   15 hours ago     5.53GB    441.8MB       5.092GB       1
-msjarvis-rebuild-psychological_rag_domain             latest           dc47a76afc1e   15 hours ago     526MB     119.2MB       407MB         1
-msjarvis-rebuild-jarvis-psychology-services           latest           a65a9035aca0   15 hours ago     168MB     119.2MB       48.4MB        1
-msjarvis-rebuild-jarvis-69dgm-bridge                  latest           6db4e8a28857   18 hours ago     5.76GB    119.2MB       5.643GB       1
-<none>                                                <none>           6fba3c6a0ca1   41 hours ago     540MB     119.2MB       420.4MB       1
-msjarvis-rebuild-jarvis-consciousness-bridge          latest           5a084f4f3fa0   44 hours ago     35.7GB    119.2MB       35.58GB       1
-<none>                                                <none>           bab4cb632b78   44 hours ago     5.23GB    121.9MB       5.105GB       1
-<none>                                                <none>           19699fd898e5   45 hours ago     10.7GB    121.9MB       10.6GB        1
-<none>                                                <none>           f5201366d442   46 hours ago     5.53GB    441.8MB       5.092GB       1
-<none>                                                <none>           277437ef18d7   47 hours ago     195MB     124.5MB       70.6MB        1
-msjarvis-rebuild-llm22-proxy                          latest           fcbcfcb8d058   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm17-proxy                          latest           80bd53006e80   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm7-proxy                           latest           fa142c96a5fa   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm8-proxy                           latest           500f0e2ba905   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm5-proxy                           latest           7bf9479815b4   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm16-proxy                          latest           0df1bb647a86   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm1-proxy                           latest           ec33654f1a8c   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm18-proxy                          latest           5961d4d4ff54   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm9-proxy                           latest           0a458232466e   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm19-proxy                          latest           6f75c3c3bf26   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm21-proxy                          latest           64582079cff1   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm11-proxy                          latest           0afcaecfaa07   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm4-proxy                           latest           042df16fceca   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm14-proxy                          latest           b01a19eb08c3   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm2-proxy                           latest           614f0a17e319   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm3-proxy                           latest           e4988a65c60c   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm13-proxy                          latest           94aff0bef573   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm15-proxy                          latest           222c6f730eff   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm20-proxy                          latest           786b2b195272   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm10-proxy                          latest           caf24b4d2613   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm12-proxy                          latest           c46c03f48611   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-llm6-proxy                           latest           84ae8e0a6bba   2 days ago       149MB     119.2MB       30.21MB       1
-msjarvis-rebuild-jarvis-lm-synthesizer                latest           a80ca8a076b2   2 days ago       1.72GB    119.2MB       1.603GB       1
-<none>                                                <none>           0649b11e3369   6 days ago       10.7GB    121.9MB       10.56GB       1
-<none>                                                <none>           a1a47ccd9442   6 days ago       154MB     153.8MB       0B            1
-<none>                                                <none>           947652f7cd28   6 days ago       154MB     153.8MB       0B            1
-<none>                                                <none>           96af3ef0d00d   6 days ago       154MB     153.8MB       0B            1
-<none>                                                <none>           9acc2cbce9a8   6 days ago       154MB     153.8MB       0B            1
-<none>                                                <none>           d76f6b4e706c   6 days ago       154MB     153.8MB       0B            1
-<none>                                                <none>           b220fdf9d7f3   8 days ago       162MB     124.5MB       37.34MB       1
-<none>                                                <none>           2bd3ab63d680   8 days ago       507MB     121.9MB       385.4MB       1
-<none>                                                <none>           67e0452b9e09   8 days ago       168MB     119.2MB       49.15MB       1
-<none>                                                <none>           378f7510584d   8 days ago       459MB     431.9MB       27.38MB       1
-<none>                                                <none>           c9f0392f32a9   8 days ago       146MB     121.9MB       23.82MB       1
-<none>                                                <none>           9748baa30543   8 days ago       160MB     124.5MB       35.71MB       1
-<none>                                                <none>           05e30a2630e5   8 days ago       458MB     431.9MB       25.81MB       1
-<none>                                                <none>           162cb23b9c2e   9 days ago       485MB     485MB         0B            1
-<none>                                                <none>           d9281801a6ba   9 days ago       485MB     485MB         0B            1
-<none>                                                <none>           c9b9497f2f79   9 days ago       485MB     485MB         0B            1
-<none>                                                <none>           f1107f88c577   9 days ago       152MB     119.2MB       32.98MB       1
-msjarvis-rebuild-jarvis-agents-service                latest           f015d31259b3   9 days ago       10.8GB    124.5MB       10.67GB       1
-msjarvis-rebuild-jarvis-swarm-intelligence            latest           6fb288c23568   10 days ago      10.8GB    124.5MB       10.67GB       1
-msjarvis-rebuild-jarvis-mother-protocols              latest           3322b83655c4   10 days ago      5.72GB    119.2MB       5.598GB       1
-ollama/ollama                                         latest           333628ba5b2f   10 days ago      6.55GB    0B            6.55GB        1
-jarvis-session-sidecar                                latest           a0781e8bbdb8   12 days ago      161MB     119.2MB       41.63MB       1
-msjarvis-rebuild-nbb-i-containers                     latest           3c4c4b5f412d   2 weeks ago      5.75GB    119.2MB       5.63GB        1
-redis                                                 7-alpine         487efc061638   2 weeks ago      39.1MB    0B            39.09MB       1
-chromadb/chroma                                       latest           a221f3391b5e   2 weeks ago      640MB     0B            639.6MB       1
-msjarvis-rebuild-jarvis-hilbert-state                 latest           08d3ad7daee8   3 weeks ago      5.88GB    0B            5.878GB       1
-msjarvis-rebuild-jarvis-qualia-engine                 latest           6a76a37f79d3   3 weeks ago      851MB     0B            850.7MB       1
-msjarvis-rebuild-jarvis-neurobiological-master        latest           4dbebea8afa2   4 weeks ago      173MB     124.5MB       48.22MB       1
-ipfs/kubo                                             latest           1b211b853fd1   4 weeks ago      127MB     0B            127MB         1
-msjarvis-gbim-indexers                                latest           f647aefb13d2   5 weeks ago      676MB     124.5MB       551.9MB       1
-msjarvis-rebuild-jarvis-fifth-dgm                     latest           8e5176ca4a24   2 months ago     153MB     0B            153MB         1
-postgis/postgis                                       15-3.4           616cb2bcc84f   19 months ago    603MB     0B            602.6MB       1
-mysql                                                 8.2              bc861cf238f2   2 years ago      619MB     0B            618.8MB       1
-jaegertracing/all-in-one                              1.52             f54c2e9a1e62   2 years ago      74MB      0B            73.96MB       1
-neo4j                                                 5.13-community   d90fdf60dd2c   2 years ago      495MB     0B            494.9MB       1
-
-Containers space usage:
-
-CONTAINER ID   IMAGE                                                 COMMAND                  LOCAL VOLUMES   SIZE      CREATED             STATUS                  NAMES
-7771d7db030a   ed3ea4fac5fc                                          "uvicorn nbb_darwin_…"   0               745kB     31 minutes ago      Up 16 minutes           msjarvis-rebuild-nbb_darwin_godel_machines-1
-43cd576f7a42   msjarvis-rebuild-nbb_qualia_engine                    "uvicorn qualia_engi…"   0               712kB     51 minutes ago      Up 50 minutes           msjarvis-rebuild-nbb_qualia_engine-1
-f6404d293f0b   0649b11e3369                                          "python -m uvicorn m…"   1               1.19MB    About an hour ago   Up 50 minutes           jarvis-wv-entangled-gateway
-e745b757bd80   msjarvis-rebuild-nbb_pituitary_gland                  "/start.sh"              0               0B        4 hours ago         Up 4 hours              msjarvis-rebuild-nbb_pituitary_gland-1
-ad1f8434bec7   msjarvis-rebuild-nbb_prefrontal_cortex                "/start.sh"              0               0B        4 hours ago         Up 4 hours              msjarvis-rebuild-nbb_prefrontal_cortex-1
-a9d418f29908   msjarvis-rebuild-nbb_woah_algorithms                  "python3 consciousne…"   0               1.31MB    4 hours ago         Up 4 hours              msjarvis-rebuild-nbb_woah_algorithms-1
-7ec72bbf616a   msjarvis-rebuild-nbb_mother_carrie_protocols          "python3 consciousne…"   0               0B        6 hours ago         Up 6 hours              msjarvis-rebuild-nbb_mother_carrie_protocols-1
-2146180314a5   msjarvis-rebuild-nbb_spiritual_maternal_integration   "python3 consciousne…"   0               0B        6 hours ago         Up 6 hours              msjarvis-rebuild-nbb_spiritual_maternal_integration-1
-bb035dd915d6   msjarvis-rebuild-nbb_spiritual_root                   "python3 consciousne…"   0               0B        6 hours ago         Up 6 hours              msjarvis-rebuild-nbb_spiritual_root-1
-2ca3a2c650d8   msjarvis-rebuild-nbb_subconscious                     "python3 consciousne…"   0               0B        6 hours ago         Up 6 hours              msjarvis-rebuild-nbb_subconscious-1
-976d9c95e201   msjarvis-rebuild-nbb_heteroglobulin_transport         "python3 consciousne…"   0               0B        6 hours ago         Up 6 hours              msjarvis-rebuild-nbb_heteroglobulin_transport-1
-611f57abdb95   msjarvis-rebuild-nbb_consciousness_containers         "python3 consciousne…"   0               0B        6 hours ago         Up 6 hours              msjarvis-rebuild-nbb_consciousness_containers-1
-5a3c152da3f3   cdbd1bd5ac86                                          "python -m uvicorn m…"   0               207kB     9 hours ago         Up 3 hours              jarvis-i-containers
-00c51fb82d5f   msjarvis-rebuild-jarvis-rag-server                    "uvicorn ms_jarvis_r…"   0               220kB     14 hours ago        Up 14 hours             jarvis-rag-server
-fa671ce94cbe   msjarvis-rebuild-jarvis-rag-server:latest             "/bin/sh -c 'cd /app…"   0               93.3MB    14 hours ago        Up 14 hours             jarvis-autonomous-learner
-a35c1931531f   1e16b958a9d8                                          "python /app/service…"   0               723kB     14 hours ago        Up 14 hours             jarvis-web-research
-3c3e6ca7d448   msjarvis-rebuild-jarvis-constitutional-guardian       "python -m uvicorn c…"   0               176kB     14 hours ago        Up 14 hours             jarvis-constitutional-guardian
-b979936240ca   689a8bf8588b                                          "/app/gateway-entryp…"   0               21.5MB    15 hours ago        Up 4 hours (healthy)    jarvis-unified-gateway
-6a560b51b1f1   05e30a2630e5                                          "python -m uvicorn t…"   0               149kB     15 hours ago        Up 15 hours             jarvis-toroidal
-26e9d909922a   b9c0bf0e4938                                          "python3 brain_orche…"   0               136kB     15 hours ago        Up 5 hours (healthy)    jarvis-brain-orchestrator
-c50b721222b9   msjarvis-rebuild-jarvis-neurobiological-master        "python3 ms_jarvis_n…"   0               154kB     15 hours ago        Up 5 hours              jarvis-neurobiological-master
-8096e46143de   msjarvis-rebuild-jarvis-consciousness-bridge          "python3 /app/servic…"   0               1.32MB    15 hours ago        Up 15 hours             jarvis-consciousness-bridge
-56c3fdb80fef   b220fdf9d7f3                                          "uvicorn gis_rag_ser…"   0               149kB     15 hours ago        Up 15 hours             jarvis-gis-rag
-c748983499b0   6fba3c6a0ca1                                          "uvicorn hippocampus…"   0               802kB     15 hours ago        Up 7 hours              jarvis-hippocampus
-5517c9d87c1c   9748baa30543                                          "uvicorn local_resou…"   0               127kB     15 hours ago        Up 15 hours             jarvis-local-resources
-2c2681cd2507   947652f7cd28                                          "python judge_pipeli…"   0               136kB     15 hours ago        Up 15 hours             jarvis-judge-pipeline
-36ff46d02d31   19699fd898e5                                          "python -m uvicorn m…"   0               175MB     15 hours ago        Up 5 hours              jarvis-main-brain
-131963c929d6   c9b9497f2f79                                          "uvicorn jarvis_eeg_…"   0               401kB     15 hours ago        Up 15 hours             jarvis-eeg-delta
-33c9ec9afcb9   d9281801a6ba                                          "uvicorn jarvis_eeg_…"   0               409kB     15 hours ago        Up 15 hours             jarvis-eeg-theta
-bc39c689c9d9   162cb23b9c2e                                          "uvicorn jarvis_eeg_…"   0               411kB     15 hours ago        Up 15 hours             jarvis-eeg-beta
-8980bddc2c6b   bab4cb632b78                                          "python3.10 /app/ms_…"   0               136kB     15 hours ago        Up 15 hours             jarvis-woah
-5f8be470ec3a   f5201366d442                                          "python3 ai_server_2…"   0               136kB     15 hours ago        Up 15 hours             jarvis-20llm-production
-b00df163ab75   277437ef18d7                                          "python ms_jarvis_we…"   0               142kB     15 hours ago        Up 15 hours             jarvis-fractal-consciousness
-debff3453ecb   msjarvis-rebuild-jarvis-qualia-engine                 "python3 -m uvicorn …"   0               4.12kB    15 hours ago        Up 15 hours             jarvis-qualia-engine
-fa46008bf0cf   62937be71688                                          "python3 ms_jarvis_b…"   0               154kB     15 hours ago        Up 7 hours              jarvis-blood-brain-barrier
-9acd598e073e   msjarvis-rebuild-jarvis-psychology-services           "uvicorn psychology_…"   0               716kB     15 hours ago        Up 15 hours             jarvis-psychology-services
-a53dd3232c04   c9f0392f32a9                                          "python spiritual_ra…"   0               130kB     15 hours ago        Up 15 hours             jarvis-spiritual-rag
-95a37a8dcf34   2bd3ab63d680                                          "python -m uvicorn a…"   1               303kB     15 hours ago        Up 15 hours             jarvis-aaacpe-rag
-f6bdbd15f930   msjarvis-rebuild-llm1-proxy                           "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm1-proxy
-22f7a44f6ce3   msjarvis-rebuild-llm20-proxy                          "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm20-proxy
-9de4f0680a10   a1a47ccd9442                                          "python judge_ethics…"   0               125kB     15 hours ago        Up 15 hours             jarvis-judge-ethics
-bdc061e8eaf6   msjarvis-rebuild-jarvis-69dgm-bridge                  "python -m uvicorn b…"   0               807kB     15 hours ago        Up 15 hours             jarvis-69dgm-bridge
-bbfbc591aec5   msjarvis-rebuild-llm4-proxy                           "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm4-proxy
-0031f69f5eb0   378f7510584d                                          "python -m uvicorn m…"   0               158kB     15 hours ago        Up 15 hours             jarvis-semaphore
-a0745ec256af   67e0452b9e09                                          "python -m uvicorn t…"   0               716kB     15 hours ago        Up 15 hours             jarvis-temporal-consciousness
-a4b002f28882   msjarvis-rebuild-llm17-proxy                          "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm17-proxy
-4c61f8139607   postgis/postgis:15-3.4                                "docker-entrypoint.s…"   1               63B       15 hours ago        Up 15 hours             jarvis-local-resources-db
-064bc61f1974   redis:7-alpine                                        "docker-entrypoint.s…"   1               0B        15 hours ago        Up 15 hours (healthy)   jarvis-redis
-a0a0206982d3   neo4j:5.13-community                                  "tini -g -- /startup…"   2               123MB     15 hours ago        Up 15 hours             neo4j
-c3c53a028f96   msjarvis-rebuild-llm9-proxy                           "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm9-proxy
-803f74e46006   msjarvis-rebuild-llm13-proxy                          "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm13-proxy
-cb5e70c3146f   msjarvis-rebuild-llm15-proxy                          "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm15-proxy
-7a13b0dd0955   msjarvis-rebuild-llm22-proxy                          "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm22-proxy
-fa12aaaf89b4   ipfs/kubo:latest                                      "/sbin/tini -- /usr/…"   0               0B        15 hours ago        Up 15 hours (healthy)   ipfs
-e788fafb00e8   msjarvis-rebuild-llm5-proxy                           "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm5-proxy
-a1ca68f10e07   msjarvis-rebuild-jarvis-lm-synthesizer                "python lm_synthesiz…"   0               722kB     15 hours ago        Up 15 hours             jarvis-lm-synthesizer
-21045353728f   msjarvis-rebuild-jarvis-mother-protocols              "python -m uvicorn m…"   0               723kB     15 hours ago        Up 15 hours             jarvis-mother-protocols
-fdcf7af1adff   96af3ef0d00d                                          "python judge_consis…"   0               125kB     15 hours ago        Up 15 hours             jarvis-judge-consistency
-5430b465ae2e   msjarvis-rebuild-nbb-i-containers                     "uvicorn services.ic…"   0               736kB     15 hours ago        Up 7 hours              nbb-i-containers
-7926e4480433   msjarvis-rebuild-jarvis-agents-service                "python3 ms_jarvis_a…"   0               154kB     15 hours ago        Up 15 hours             jarvis-agents-service
-2dcb62e713de   msjarvis-rebuild-jarvis-fifth-dgm                     "python3 /app/ms_jar…"   0               865kB     15 hours ago        Up 15 hours             jarvis-fifth-dgm
-7e09ab9ff72e   msjarvis-rebuild-llm11-proxy                          "python -m uvicorn l…"   0               708kB     15 hours ago        Up 15 hours             llm11-proxy
-655607415f58   msjarvis-rebuild-llm8-proxy                           "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm8-proxy
-9d23d1a74a02   mysql:8.2                                             "docker-entrypoint.s…"   0               6B        15 hours ago        Up 15 hours             mysql
-a69c00ab14a9   f1107f88c577                                          "uvicorn ms_jarvis_c…"   0               705kB     15 hours ago        Up 7 hours              msjarvis-rebuild-nbb_blood_brain_barrier-1
-ab573cca770b   msjarvis-rebuild-llm2-proxy                           "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm2-proxy
-d0efffd0251b   msjarvis-rebuild-llm3-proxy                           "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm3-proxy
-c903e6949004   d76f6b4e706c                                          "python judge_alignm…"   0               125kB     15 hours ago        Up 15 hours             jarvis-judge-alignment
-d464ce537b83   msjarvis-rebuild-llm10-proxy                          "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm10-proxy
-a0abde66f1c6   msjarvis-rebuild-llm6-proxy                           "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm6-proxy
-fafe031ee8fe   9acc2cbce9a8                                          "python judge_truth_…"   0               125kB     15 hours ago        Up 15 hours             jarvis-judge-truth
-ead22e8d6e21   msjarvis-rebuild-jarvis-swarm-intelligence            "python3 ms_jarvis_s…"   0               602kB     15 hours ago        Up 15 hours             jarvis-swarm-intelligence
-28ea306be0e6   msjarvis-rebuild-llm7-proxy                           "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm7-proxy
-eb3e0d7d9029   msjarvis-rebuild-llm16-proxy                          "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm16-proxy
-350db1aea189   ollama/ollama:latest                                  "/bin/ollama serve"      0               172MB     15 hours ago        Up 15 hours             jarvis-ollama
-a729edf076da   msjarvis-rebuild-llm12-proxy                          "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm12-proxy
-31e344598308   msjarvis-rebuild-llm14-proxy                          "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm14-proxy
-3a1ecb4951af   chromadb/chroma:latest                                "dumb-init -- chroma…"   0               0B        15 hours ago        Up 15 hours (healthy)   jarvis-chroma
-43eb84a9e633   msjarvis-rebuild-psychological_rag_domain             "python psychologica…"   0               1.21MB    15 hours ago        Up 15 hours             psychological_rag_domain
-7739f3b15264   msjarvis-rebuild-llm18-proxy                          "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm18-proxy
-628d44d0a305   msjarvis-rebuild-llm19-proxy                          "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm19-proxy
-1dad1f11b75e   msjarvis-rebuild-llm21-proxy                          "python -m uvicorn l…"   0               718kB     15 hours ago        Up 15 hours             llm21-proxy
-1c4a28b73273   msjarvis-rebuild-jarvis-hilbert-state:latest          "sh -lc 'cd /app/ser…"   0               256kB     10 days ago         Up 2 days               jarvis-hilbert-state
-bdd7e2c879e8   jarvis-session-sidecar:latest                         "uvicorn app:app --h…"   0               721kB     12 days ago         Up 2 days               jarvis-session-sidecar
-5bef723adc0b   msjarvis-gbim-indexers:latest                         "uvicorn temporal_in…"   0               168kB     4 weeks ago         Up 2 days               jarvis-gbim-temporal-indexer
-f374c61cf1e7   jaegertracing/all-in-one:1.52                         "/go/bin/all-in-one-…"   1               0B        6 weeks ago         Up 2 days               jarvis-jaeger
-
-Local Volumes space usage:
-
-VOLUME NAME                                                        LINKS     SIZE
-msjarvis-rebuild_aaacpe-cultural-data                              1         9.342MB
-CORRECT_VOLUME_NAME                                                0         0B
-backups_aaacpe-cultural-data                                       0         0B
-msjarvis-rebuild_gbim_data                                         0         112MB
-838215e514a6459652600286d4bbedc28ea2235c9bfa49efaffa176bfa913036   0         476.6kB
-b4b082c14a033362eae87adf27260cdeab3bacafd96759fd0eb45bc343e6bbfe   0         50.43kB
-chroma_onnx_cache                                                  0         174.5MB
-jarvis-hf-cache                                                    0         1.755GB
-msjarvis-rebuild_chroma_onnx_cache                                 0         0B
-msjarvis-rebuild_ingest-failed                                     0         0B
-e9994ad64b18cdc2b6e984d4cb0a85c611f9de57c4167fba714bead4c4a67181   1         541MB
-4b2822114a1ecfb6b6d7fbf321884e9d4711074e0de3892ab4fe172262a2fa0f   1         0B
-643115698e2d39666814fcd3680e36c6c85735732f7682019b783737bbfd409d   0         49.28GB
-aaacpe-cultural-data                                               0         356.5kB
-af965d28baf53926de50b7b95821db6ff2819d705867543d548d39c729564583   0         13.54MB
-d0a4586a446682d16ec4fb29ebf15601e3c85e416e15aed84f46c6eacc970460   0         541MB
-fa21bd919772d29d8800acd78841a5bf18a93babd5a812e7e878750579867710   0         88B
-msjarvis-rebuild_ingest-done                                       0         0B
-msjarvis-rebuild_ingest-incoming                                   0         481B
-chroma_data                                                        0         0B
-msjarvis-rebuild_ingest-audit                                      0         0B
-msjarvis-rebuild_jarvis-local-resources-db-data                    1         62.56GB
-ollama_models                                                      0         637.7MB
-cfab55747f9be3730f1a98090c129d20bfd67619808a74cc790f4d415f91329b   1         8.213kB
-fb5d783ea306d3838cf9d0370ddedafa17a55351e3f2adb6f5bf7e0672f9b5d7   1         81.55kB
-msjarvis-rebuild_hf-model-cache                                    1         91.62MB
-
-Build cache usage: 253.6GB
-
-CACHE ID        CACHE TYPE        SIZE      CREATED          LAST USED        USAGE     SHARED
-0pt2z3vg7y23*   regular           247B      13 minutes ago                    0         false
-17wfngerzggc*   regular           425B      9 minutes ago                     0         false
-2zuykuee5irb*   regular           569B      13 minutes ago                    0         false
-33x8p3j2o0nn*   regular           307MB     9 minutes ago                     0         false
-3lfnph8z181c*   regular           0B        13 minutes ago                    0         false
-4hucxhv3zvw0*   regular           315B      13 minutes ago                    0         false
-54yrlrqb6xoq*   regular           0B        12 minutes ago                    0         false
-5ns721fwp8e7*   regular           1.56kB    12 minutes ago                    0         false
-9bvjono5220g*   regular           319B      12 minutes ago                    0         false
-9da7u8xsjfcn*   regular           4.32kB    13 minutes ago                    0         false
-e2ugqsqt4rk9*   regular           0B        7 minutes ago                     0         false
-f84zziddaniz*   regular           224B      13 minutes ago                    0         false
-ftfwe16peoje*   regular           13.6MB    13 minutes ago                    0         false
-hdaqtiuoyc05*   regular           319B      13 minutes ago                    0         false
-i6rhqttf4w1w*   regular           5.06GB    12 minutes ago                    0         false
-iw2q4smkgmkz*   regular           379B      13 minutes ago                    0         false
-js4202zdnpeu*   regular           0B        8 minutes ago                     0         false
-jsldlgfvh9ld*   regular           0B        13 minutes ago                    0         false
-k4l4o9vu50ue*   regular           5.06GB    9 minutes ago                     0         false
-k55h1ouu1ohg*   regular           283B      13 minutes ago                    0         false
-kasan2d80dt9*   regular           29.9GB    9 minutes ago                     0         false
-oercmmkyrm7b*   regular           687kB     12 minutes ago                    0         false
-otq8k9usd8w3*   regular           153B      13 minutes ago                    0         false
-p80ioztrnseq*   exec.cachemount   0B        13 minutes ago                    0         false
-poenb72vnyro*   regular           10.3kB    12 minutes ago                    0         false
-ppacdymnlxb0*   regular           211B      13 minutes ago                    0         false
-q708l6cieg2y*   regular           839B      13 minutes ago                    0         false
-qqdxovhsvbkg*   regular           319B      13 minutes ago                    0         false
-spr6gf1g4fsh*   regular           4.46kB    13 minutes ago                    0         false
-tk57b3rga2n8*   regular           609B      13 minutes ago                    0         false
-ubzmnz7pwxlu*   regular           806B      13 minutes ago                    0         false
-v6cmhezc4zxj*   regular           494B      13 minutes ago                    0         false
-xqakycyhaoux*   regular           5.05GB    13 minutes ago                    0         false
-yebw51xoensv*   regular           663B      13 minutes ago                    0         false
-ysaeriqllhgf*   regular           22.8MB    7 minutes ago                     0         false
-z3d92n84b23g*   regular           0B        13 minutes ago                    0         false
-vl95vbnljf00    regular           0B        3 weeks ago      3 weeks ago      1         true
-eoqihiq891se    regular           0B        3 weeks ago      3 weeks ago      1         true
-4m16b8rbb77v    regular           0B        3 weeks ago      3 weeks ago      1         true
-i8qhexcmcara    regular           0B        3 weeks ago      3 weeks ago      1         true
-n5nql6hdzmxp    regular           0B        2 weeks ago      2 weeks ago      1         true
-p4a6j0vora7i    regular           0B        2 weeks ago      2 weeks ago      1         true
-mxykd0zhkhio    regular           0B        2 weeks ago      2 weeks ago      1         true
-1uqattkftics    regular           0B        2 weeks ago      2 weeks ago      1         true
-o2407hnhyv6e    regular           307MB     2 weeks ago      2 weeks ago      1         true
-po09ui6cvnv9    regular           25.8MB    2 weeks ago      2 weeks ago      1         true
-jtgw9npi585i    regular           16B       2 weeks ago      2 weeks ago      1         true
-5or278207on2    regular           870B      2 weeks ago      2 weeks ago      1         true
-5o57duuhm8at    regular           0B        2 weeks ago      2 weeks ago      1         true
-q0l5ofihvur6    regular           0B        2 weeks ago      2 weeks ago      1         true
-55xcsplxfzel    regular           0B        2 weeks ago      2 weeks ago      1         true
-mtdcqtobb7nn    regular           0B        2 weeks ago      2 weeks ago      2         true
-rfnz7fxy6w2n    regular           0B        2 weeks ago      2 weeks ago      1         true
-u02l3qfuy55b    regular           0B        2 weeks ago      2 weeks ago      1         true
-o1c95259wlgw    regular           0B        2 weeks ago      2 weeks ago      1         true
-wz1ilqs15os9    regular           0B        2 weeks ago      2 weeks ago      3         true
-vkzwzh5lxc63    regular           0B        2 weeks ago      2 weeks ago      7         true
-60resldef6ya    regular           0B        3 weeks ago      2 weeks ago      4         true
-po0r2hspf7f9    regular           0B        3 weeks ago      2 weeks ago      3         true
-c79w0sh766ww    regular           0B        3 weeks ago      2 weeks ago      3         true
-mnhlksd084g5    regular           0B        3 weeks ago      2 weeks ago      4         true
-pquonfpzy3nu    regular           639kB     2 weeks ago      2 weeks ago      1         true
-nfux31nyxq9m    regular           5.03GB    2 weeks ago      2 weeks ago      1         true
-mmzh6i2tcjks    regular           0B        2 weeks ago      12 days ago      10        true
-j5sbr93gmbw7    regular           284B      10 days ago      10 days ago      1         true
-0epnjp7wo1q1    regular           284B      10 days ago      10 days ago      1         true
-u9b15z14agda    regular           5.05GB    9 days ago       9 days ago       1         true
-mlxz6nqdntl2    regular           5.62GB    9 days ago       9 days ago       1         true
-vmcfl52hmgea    regular           284B      9 days ago       9 days ago       1         true
-nogv2nmx6b4a    regular           3.8MB     9 days ago       9 days ago       1         true
-laceotegb69j    regular           3.93MB    9 days ago       9 days ago       1         true
-rpi4uqd6wxzh    regular           22.8MB    9 days ago       9 days ago       1         true
-p0nn6hdx33c4    regular           4.98kB    9 days ago       9 days ago       1         true
-ylnn7y8fxulm    regular           973B      9 days ago       9 days ago       1         true
-griyra7inlyc    regular           360MB     9 days ago       9 days ago       1         true
-41orccxtk40b    regular           9.8kB     9 days ago       9 days ago       1         true
-yyhsqq3z6d1v    regular           8.7kB     9 days ago       9 days ago       1         true
-mgfyqvbzagyq    regular           2.66kB    9 days ago       9 days ago       1         true
-vmol9tnmm80f    regular           0B        9 days ago       8 days ago       2         true
-swjd0eix9kp6    regular           2.46MB    9 days ago       8 days ago       2         true
-ud3og1ifxj9o    regular           3.42kB    8 days ago       8 days ago       1         true
-wul1jrg1wax1    regular           35.7MB    8 days ago       8 days ago       1         true
-o5suo1zluo89    regular           2.52kB    8 days ago       8 days ago       1         true
-y0o74m4dbgo5    regular           22B       8 days ago       8 days ago       1         true
-a7v6sgncdv4m    regular           27.4MB    8 days ago       8 days ago       1         true
-olyp1an1824n    regular           23.8MB    8 days ago       8 days ago       1         true
-zynmzbwko7lx    regular           5.76kB    8 days ago       8 days ago       1         true
-vj7ldmyghl3e    regular           547B      8 days ago       8 days ago       1         true
-fqshx2lukyhc    regular           57B       8 days ago       8 days ago       1         true
-zlg3mw9a5ay6    regular           49.2MB    8 days ago       8 days ago       1         true
-mf9p6a406m2a    regular           385MB     8 days ago       8 days ago       1         true
-z9ra77thv1wq    regular           0B        8 days ago       8 days ago       1         true
-j3m0olllbbb8    regular           5.35kB    8 days ago       8 days ago       1         true
-mmfdd0wdo5nb    regular           7.42kB    8 days ago       8 days ago       1         true
-w49l0knm2hvo    regular           37.3MB    8 days ago       8 days ago       1         true
-o6n4n7b0qdmp    regular           6.83kB    8 days ago       8 days ago       1         true
-carrijskya3x    regular           0B        3 weeks ago      8 days ago       5         true
-vthgx1gj1eqg    regular           29.2MB    8 days ago       6 days ago       3         true
-p98rqf13skai    regular           113kB     6 days ago       6 days ago       1         true
-9zj3bpemk0ne    regular           3.19kB    6 days ago       6 days ago       1         true
-3ovokvamngoi    regular           425B      6 days ago       6 days ago       1         true
-zqgg01r1biju    regular           15.6MB    6 days ago       6 days ago       1         true
-e6ln4fo00nlj    regular           5.05GB    6 days ago       6 days ago       1         true
-uw3tkgj60c1h    regular           5.49GB    6 days ago       6 days ago       2         true
-s6ht5zcaminn    regular           675kB     6 days ago       6 days ago       1         true
-kkg037azdolu*   regular           0B        3 days ago       3 days ago       1         true
-10wm1unjmd2b*   regular           0B        3 days ago       3 days ago       1         true
-y4ijt3lm17kg*   regular           0B        3 days ago       3 days ago       1         true
-j79rfuxlwkpi*   regular           0B        3 days ago       3 days ago       1         true
-1zzjo3s8kxx2*   regular           0B        3 days ago       3 days ago       1         true
-6nmulurkux1h*   regular           0B        2 days ago       2 days ago       1         true
-rzlt08du8wlr*   regular           0B        2 days ago       2 days ago       1         true
-swn8xhi829pa    regular           291B      2 days ago       2 days ago       1         true
-lpe39qkau3rp*   regular           0B        2 days ago       2 days ago       1         true
-nd3pg0ib0trv    regular           3.71kB    8 days ago       2 days ago       2         true
-coj85k548vsg    regular           1.6GB     2 days ago       2 days ago       2         true
-q9d3s2kz4dlx    regular           3kB       2 days ago       2 days ago       1         true
-sf85hxeihsa6    regular           1.58kB    2 days ago       2 days ago       1         true
-lpz6fco77wm0    regular           1.6kB     2 days ago       2 days ago       1         true
-oqvhzg4r973t    regular           1.57kB    2 days ago       2 days ago       1         true
-y2uq5cvfrfrk    regular           1.75kB    2 days ago       2 days ago       1         true
-mf9ocjc7k8uy    regular           1.75kB    2 days ago       2 days ago       1         true
-j4jyi7a9adak    regular           1.77kB    2 days ago       2 days ago       1         true
-xnfu7mx4n3wj    regular           1.77kB    2 days ago       2 days ago       1         true
-f9g5p7i2fndd    regular           1.58kB    2 days ago       2 days ago       1         true
-2dcoc7wtcfvp    regular           1.61kB    2 days ago       2 days ago       1         true
-nfxh10ss0gz0    regular           1.59kB    2 days ago       2 days ago       1         true
-ahn2zkvzrpvj    regular           1.75kB    2 days ago       2 days ago       1         true
-tay8f6020shc    regular           1.77kB    2 days ago       2 days ago       1         true
-3qu9bttgy4ha    regular           1.75kB    2 days ago       2 days ago       1         true
-3vox0nhoajr7    regular           1.56kB    2 days ago       2 days ago       1         true
-yi0vpa0l0azw    regular           1.77kB    2 days ago       2 days ago       1         true
-xyd6lzun2rnr    regular           1.59kB    2 days ago       2 days ago       1         true
-6x60z1cppujd    regular           1.6kB     2 days ago       2 days ago       1         true
-hgmv4j9q4oo2    regular           1.59kB    2 days ago       2 days ago       1         true
-9sa5viii4acb    regular           1.75kB    2 days ago       2 days ago       1         true
-sw946lbm8rkw    regular           1.59kB    2 days ago       2 days ago       1         true
-b59kyqw9d6cz    regular           1.6kB     2 days ago       2 days ago       1         true
-r58gv2bvqdbn    regular           2.08kB    2 days ago       2 days ago       1         true
-r9uirdurd9l0*   regular           0B        47 hours ago     47 hours ago     1         true
-i8wbu602ugir*   regular           0B        47 hours ago     47 hours ago     1         true
-wqyi8fof64sh    regular           104B      47 hours ago     47 hours ago     1         true
-pnzie1ypydbh    regular           8.66kB    47 hours ago     47 hours ago     1         true
-jhdcxge4mf7k    regular           70.5MB    47 hours ago     47 hours ago     1         true
-xyvqibmfk1cw    regular           96.5kB    47 hours ago     47 hours ago     1         true
-1l3fvozo0p6m    regular           42.3MB    46 hours ago     46 hours ago     1         true
-xotmudfcgrx7    regular           5.05GB    46 hours ago     46 hours ago     1         true
-ou649xez361v    regular           0B        2 days ago       45 hours ago     3         true
-s9rug8wcy5t9    regular           5.05GB    45 hours ago     45 hours ago     1         true
-uslmdp77lwpr    regular           675kB     45 hours ago     45 hours ago     1         true
-if16o3xxa4o2    regular           15.6MB    46 hours ago     45 hours ago     1         true
-qrs1kxelyl05    regular           425B      46 hours ago     45 hours ago     1         true
-n7fw6v7mnoxi    regular           41.8MB    44 hours ago     44 hours ago     1         true
-x8tb92jme80v    regular           5.05GB    44 hours ago     44 hours ago     1         true
-t35kk8xc2vdp    regular           291B      44 hours ago     44 hours ago     1         true
-1vqm6jglcl3d    regular           5.64GB    44 hours ago     44 hours ago     1         true
-iv46ocvyn9ws    regular           29.9GB    44 hours ago     44 hours ago     1         true
-u4kxd2q21o4r    regular           3.17kB    12 days ago      44 hours ago     2         true
-vhpyi59otddx    regular           420MB     41 hours ago     41 hours ago     1         true
-4rfdxni5ka0p    regular           9.49kB    41 hours ago     41 hours ago     1         true
-nrar3ut3qwhd    regular           2.89kB    18 hours ago     18 hours ago     1         true
-umv86oq6bq81    regular           5.64GB    18 hours ago     18 hours ago     1         true
-yaf3xn2013g3    regular           291B      18 hours ago     18 hours ago     1         true
-iusjd8w8www4    regular           1.1kB     18 hours ago     18 hours ago     1         true
-yav5wmobdfuc    regular           0B        15 hours ago     15 hours ago     1         true
-p0pwrnquwixv    regular           0B        15 hours ago     15 hours ago     1         true
-shhgfsrqrc7q    regular           0B        15 hours ago     15 hours ago     1         true
-w2gwahilg4mr    regular           0B        15 hours ago     15 hours ago     1         true
-wfhqiups30kl    regular           0B        15 hours ago     15 hours ago     1         true
-dxic7fsztl33    regular           0B        15 hours ago     15 hours ago     1         true
-8gdqk058d3y8    regular           0B        15 hours ago     15 hours ago     1         true
-jjxmaokj01ow    regular           0B        15 hours ago     15 hours ago     1         true
-54q36d1q06pf    regular           0B        15 hours ago     15 hours ago     1         true
-1gj2cvmokn37    regular           0B        15 hours ago     15 hours ago     1         true
-usyjw9psf2mq    regular           0B        15 hours ago     15 hours ago     1         true
-2qv89hkgze6l    regular           0B        15 hours ago     15 hours ago     1         true
-c13zl66xtjck    regular           0B        15 hours ago     15 hours ago     1         true
-merk6vzukigz    regular           0B        15 hours ago     15 hours ago     1         true
-2aa2mwip3zb1    regular           0B        15 hours ago     15 hours ago     1         true
-c4gob192tdev    regular           0B        15 hours ago     15 hours ago     1         true
-v10bmhvqh1dm    regular           0B        15 hours ago     15 hours ago     1         true
-fo7d4991pj72    regular           655B      15 hours ago     15 hours ago     1         true
-ve3rajbde5dx    regular           9.64kB    15 hours ago     15 hours ago     1         true
-sjhsjhc5v92z    regular           7kB       15 hours ago     15 hours ago     1         true
-yc5fialki4sp    regular           1.21MB    15 hours ago     15 hours ago     1         true
-25o2mjpp6ev3    regular           2.14MB    15 hours ago     15 hours ago     1         true
-yfv0lthbj2az    regular           40.2kB    15 hours ago     15 hours ago     1         true
-ozr9ofeqsdwq    regular           3.34MB    15 hours ago     15 hours ago     1         true
-qao5w1ok7q9e    regular           9.15kB    15 hours ago     15 hours ago     1         true
-rjgkr25y34c1    regular           1.21MB    15 hours ago     15 hours ago     1         true
-q5u8zturq2w6    regular           42.6kB    15 hours ago     15 hours ago     1         true
-lzforpcmb2eb    regular           2.14MB    15 hours ago     15 hours ago     1         true
-1awo5mzvut4u    regular           3.34MB    15 hours ago     15 hours ago     1         true
-yrtdcrddshov    regular           9.15kB    15 hours ago     15 hours ago     1         true
-afynjy1e01gl    regular           3.34MB    15 hours ago     15 hours ago     1         true
-fhteaearbg66    regular           33.2kB    15 hours ago     15 hours ago     1         true
-loson5d2p26p    regular           1.21MB    15 hours ago     15 hours ago     1         true
-1tv98zn7bdl1    regular           2.14MB    15 hours ago     15 hours ago     1         true
-dkumu4s4wix8    regular           9.15kB    15 hours ago     15 hours ago     1         true
-3th2odpe8aef    regular           0B        15 hours ago     15 hours ago     1         true
-o6dokri4y85r    regular           8.55MB    15 hours ago     15 hours ago     1         true
-1odj1ekyy28d    regular           54B       15 hours ago     15 hours ago     1         true
-unyoktr24roh    regular           45kB      15 hours ago     15 hours ago     1         true
-ukjt188jpqqj    regular           0B        15 hours ago     15 hours ago     1         true
-9kbyns7tf005    regular           0B        15 hours ago     15 hours ago     1         true
-pynlawq7qbct    regular           8.55MB    15 hours ago     15 hours ago     1         true
-ah8xcndrpgtc    regular           0B        15 hours ago     15 hours ago     1         true
-e0te9datzai3    regular           54B       15 hours ago     15 hours ago     1         true
-f5kqw5fy7z5s    regular           30kB      15 hours ago     15 hours ago     1         true
-he686je211qk    regular           0B        15 hours ago     15 hours ago     1         true
-irr6ymyw4y22    regular           0B        15 hours ago     15 hours ago     1         true
-z4onqgyrvb44    regular           54B       15 hours ago     15 hours ago     1         true
-murtci4okre9    regular           37kB      15 hours ago     15 hours ago     1         true
-q5wd6oaqxxei    regular           8.55MB    15 hours ago     15 hours ago     1         true
-ru9m9zh7tjde    regular           0B        15 hours ago     15 hours ago     1         true
-ci5jqn7sb6so    regular           25.5kB    15 hours ago     15 hours ago     1         true
-k67k0pt3w6be    regular           8.55MB    15 hours ago     15 hours ago     1         true
-ol3o0rg7f7zo    regular           54B       15 hours ago     15 hours ago     1         true
-v9q8f22qk9pm    regular           0B        15 hours ago     15 hours ago     1         true
-55ygkadmynyc    regular           0B        15 hours ago     15 hours ago     1         true
-t0n022uxm1ki    regular           42.3MB    15 hours ago     15 hours ago     1         true
-zoc5z8by7zth    regular           5.05GB    15 hours ago     15 hours ago     1         true
-z09m5xnsd7pb    regular           5.05GB    15 hours ago     15 hours ago     1         true
-w7z7qzwn0iv2    regular           0B        15 hours ago     15 hours ago     1         true
-52iiekezf8d1    regular           308B      15 hours ago     15 hours ago     1         true
-4bfnnajkwf2j    regular           308B      15 hours ago     15 hours ago     1         true
-c0acjtex1usc    regular           63B       15 hours ago     15 hours ago     1         true
-lvwt557hby3d    regular           29.9GB    15 hours ago     15 hours ago     1         true
-itttbsdmbk04*   regular           0B        47 hours ago     15 hours ago     2         true
-w55jxmhe8wew    regular           2.47kB    47 hours ago     14 hours ago     4         true
-rk0ds3k0ie90    regular           13.9kB    14 hours ago     14 hours ago     1         true
-wv4apghb6hyv    regular           31.6MB    14 hours ago     14 hours ago     1         true
-9i9oy0d1lvlv    regular           96.5kB    14 hours ago     14 hours ago     1         true
-6fh2xepywxrz    regular           2.47kB    14 hours ago     14 hours ago     1         true
-gfwvz7fzu099*   regular           0B        47 hours ago     14 hours ago     2         true
-iw6toy7xb9ue    regular           96.5kB    14 hours ago     14 hours ago     1         true
-wc8sxgo98xod    regular           8.66kB    14 hours ago     14 hours ago     1         true
-9evzwqj50oht    regular           110B      14 hours ago     14 hours ago     1         true
-lnix90a4q03f    regular           5.55GB    14 hours ago     14 hours ago     1         true
-z63uw69rfo1i    regular           319B      14 hours ago     14 hours ago     1         true
-du0xwu58mzk7    regular           5.61GB    14 hours ago     14 hours ago     1         true
-7o05oot3zih1    regular           0B        15 hours ago     14 hours ago     2         true
-j8lcsqe3m2ea    regular           0B        15 hours ago     5 hours ago      4         true
-jf40xlwzs6xc    regular           2.14MB    5 hours ago      5 hours ago      1         true
-6l18t7nmpb3p    regular           3.34MB    5 hours ago      5 hours ago      1         true
-h1ey360h49bx    regular           9.15kB    5 hours ago      5 hours ago      1         true
-owh390jsyp59    regular           32.5kB    5 hours ago      5 hours ago      1         true
-vncgvt27ydrc    regular           1.21MB    5 hours ago      5 hours ago      1         true
-i9ott33ysm19    regular           28.6kB    4 hours ago      4 hours ago      1         true
-prcrwngkjg2k    regular           34.1MB    4 hours ago      4 hours ago      1         true
-r7mo0muqauzx    regular           0B        4 hours ago      4 hours ago      1         true
-umhq0tvvvc1y    regular           8.53kB    51 minutes ago   51 minutes ago   1         true
-k7g1jlv6cj5y*   regular           0B        2 days ago       31 minutes ago   20        true
-rq7gmhqjuej8    regular           17.9kB    32 minutes ago   31 minutes ago   1         true
-5u25u4zffqgg    regular           29.2MB    31 minutes ago   31 minutes ago   1         true
-12k7p11dohhg    regular           0B        15 hours ago     13 minutes ago   2         true
-wnsq9n3q06qt    regular           6.97kB    14 hours ago     13 minutes ago   2         true
-4zmrlcrm3el8    regular           3.7kB     15 hours ago     13 minutes ago   2         true
-gdfz08takkde    regular           0B        15 hours ago     13 minutes ago   2         true
-i7y3xeagxsbm    regular           3.7kB     15 hours ago     13 minutes ago   2         true
-x11uhgzband9    regular           0B        15 hours ago     13 minutes ago   2         true
-5vah9cpx9qdf    regular           3.7kB     15 hours ago     13 minutes ago   2         true
-gld68pbivya1    regular           3.7kB     5 hours ago      13 minutes ago   2         true
-r4jbg4z5stms    regular           0B        15 hours ago     13 minutes ago   2         true
-rt1fknbmzfii    regular           96.7kB    13 minutes ago   13 minutes ago   1         false
-lncpicmq2znu    regular           8.66kB    14 hours ago     13 minutes ago   2         true
-bo8unvs8sbdk    regular           30.2MB    2 days ago       13 minutes ago   3         true
-0avfhhgf9jjn    regular           8.66kB    13 minutes ago   13 minutes ago   1         false
-xxixvt3ez703    regular           2.47kB    13 minutes ago   13 minutes ago   1         false
-kc42l2jpyc2t    regular           96.7kB    13 minutes ago   13 minutes ago   1         false
-ae40f8daseog    regular           74.5MB    14 hours ago     13 minutes ago   2         true
-mjqdxo5cc8fy    regular           30.2MB    2 days ago       13 minutes ago   3         true
-y9s80e72tbr5    regular           0B        4 hours ago      13 minutes ago   2         true
-8ojjhwt13n48    regular           30.2MB    2 days ago       13 minutes ago   3         true
-s9429rr0k8oh    regular           30.2MB    2 days ago       13 minutes ago   3         true
-vtdvutf9qfc2    regular           30.2MB    2 days ago       13 minutes ago   3         true
-ht4fne8k808s    regular           407MB     15 hours ago     13 minutes ago   2         true
-pm2unbdxnin7    regular           30.2MB    2 days ago       13 minutes ago   3         true
-9d7n3lamo4cn    regular           30.2MB    2 days ago       13 minutes ago   3         true
-hghg3800038m    regular           30.2MB    2 days ago       13 minutes ago   3         true
-m3fo196efm2a    regular           14.7kB    14 hours ago     13 minutes ago   2         true
-gttj6je2gurn    regular           30.2MB    2 days ago       13 minutes ago   3         true
-x6hlwcmx05mb    regular           30.2MB    2 days ago       13 minutes ago   3         true
-ze3ivb2rqjud    regular           30.2MB    2 days ago       13 minutes ago   3         true
-frytivyw0czk    regular           30.2MB    2 days ago       13 minutes ago   3         true
-1zv7ci3oxkbr    regular           30.2MB    2 days ago       13 minutes ago   3         true
-h2g75lr5itcl    regular           30.2MB    2 days ago       13 minutes ago   3         true
-h2ijg7bpqs1m    regular           30.2MB    2 days ago       13 minutes ago   3         true
-uqm0p4fzj0mg    regular           30.2MB    2 days ago       13 minutes ago   3         true
-eandhv0zzwnh    regular           30.2MB    2 days ago       13 minutes ago   3         true
-qxkdupmbs0xm    regular           30.2MB    2 days ago       13 minutes ago   3         true
-mqft8sgb22mo    regular           30.2MB    2 days ago       13 minutes ago   3         true
-6mqt4fhxcccx    regular           48.4MB    15 hours ago     13 minutes ago   2         true
-gbqfl25wc1g2    regular           30.2MB    2 days ago       13 minutes ago   3         true
-l7kg9np2ikz1    regular           30.2MB    2 days ago       13 minutes ago   3         true
-416agwd28fq2    regular           29.2MB    51 minutes ago   13 minutes ago   2         true
-vkf7ounb6zw5    regular           30.2MB    2 days ago       13 minutes ago   3         true
-buqzp9nbs79k    regular           29.2MB    13 minutes ago   13 minutes ago   1         false
-jjz4i6ng8jkq    regular           21.7kB    13 minutes ago   13 minutes ago   1         false
-xkgzb2zeyhtd    regular           23.9MB    12 minutes ago   12 minutes ago   1         false
-uutxk7hte3k8    regular           5.76kB    12 minutes ago   12 minutes ago   1         false
-ojlure048t31    regular           3.42kB    13 minutes ago   8 minutes ago    1         false
-27srx9az4rdn    regular           35.8MB    9 minutes ago    8 minutes ago    1         false
-u2g5jusekh7a    regular           7.42kB    13 minutes ago   8 minutes ago    1         false
-wwevhj9sdvs7    regular           6.82kB    13 minutes ago   8 minutes ago    1         false
-luerdgl4r13w    regular           37.3MB    9 minutes ago    8 minutes ago    1         false
-36td2g8win3e    regular           57B       13 minutes ago   8 minutes ago    1         false
-gwg937q1z68k    regular           547B      9 minutes ago    8 minutes ago    1         false
-6dzht1hryjo6    regular           49.2MB    9 minutes ago    8 minutes ago    1         false
-rhxyhcu08f9z    regular           29.3MB    9 minutes ago    8 minutes ago    1         false
-zhci66j6qjco    regular           4.14kB    8 minutes ago    8 minutes ago    1         false
-b05nsnvhv5rn    regular           115kB     9 minutes ago    8 minutes ago    1         false
-mj1ivu77dgg4    regular           8.71kB    8 minutes ago    8 minutes ago    1         false
-fn5e5buoa4x2    regular           973B      9 minutes ago    8 minutes ago    1         false
-yn4s26xt6acs    regular           418MB     9 minutes ago    8 minutes ago    1         false
-ebzvcjjvfhks    regular           9.81kB    8 minutes ago    8 minutes ago    1         false
-z7quim2ulwtf    regular           2.66kB    8 minutes ago    8 minutes ago    1         false
-mls8c6b4q3x0    regular           0B        8 minutes ago    8 minutes ago    1         false
-nql4ifxh5hu7    regular           5.35kB    8 minutes ago    8 minutes ago    1         false
-jxjyey9f3h14    regular           437MB     9 minutes ago    8 minutes ago    1         false
-9s6xl6200fmh    regular           0B        8 minutes ago    8 minutes ago    1         false
-qkv4kndw6idu    regular           4.98kB    13 minutes ago   8 minutes ago    1         false
-mocly259t39v    regular           3.8MB     12 minutes ago   8 minutes ago    1         false
-x50erqejiqmy    regular           2.46MB    8 minutes ago    8 minutes ago    1         false
-lexsfhakbwrh    regular           22.8MB    13 minutes ago   8 minutes ago    1         false
-mfb8z0kn9aqt    regular           3.93MB    9 minutes ago    8 minutes ago    1         false
-r9l46dd9l7ws    regular           5.54GB    45 hours ago     8 minutes ago    2         true
-xhkdtztv20av    regular           5.06GB    9 minutes ago    8 minutes ago    1         false
-dj3y6bhh59ie    regular           687kB     8 minutes ago    8 minutes ago    1         false
-01o8w0vw6ws1    regular           5.06GB    9 minutes ago    8 minutes ago    1         false
-tgkwodphxekc    regular           308B      8 minutes ago    8 minutes ago    1         false
-3ixksiumwsuy    regular           308B      9 minutes ago    8 minutes ago    1         false
-7b0t1emcdp47    regular           0B        15 hours ago     8 minutes ago    2         true
-vuvmg3mkcaj2    regular           27.4MB    7 minutes ago    7 minutes ago    1         false
-moxwhzv497qt    regular           2.52kB    7 minutes ago    7 minutes ago    1         false
-tr27tq03sxqn    regular           22B       9 minutes ago    7 minutes ago    1         false
-m41uniq10jey    regular           16B       9 minutes ago    7 minutes ago    1         false
-ugwsuz3lz6o7    regular           3.71kB    7 minutes ago    7 minutes ago    1         false
-lhmln7p0xm9s    regular           307MB     9 minutes ago    7 minutes ago    1         false
-412p7ndnue9q    regular           870B      7 minutes ago    7 minutes ago    1         false
-qzdikk0v84mh    regular           25.9MB    7 minutes ago    7 minutes ago    1         false
-wohl0cryqcuc    regular           381B      2 weeks ago      6 minutes ago    2         true
-z7p4zbqj55m5    regular           3.17kB    12 days ago      6 minutes ago    2         true
-t99oko3h6emt    regular           5.6GB     10 days ago      6 minutes ago    2         true
-joehyyzf1q81    regular           5.62GB    10 days ago      6 minutes ago    2         true
-mn5wlbe5be06    regular           42.3MB    7 minutes ago    6 minutes ago    1         false
-mu3edzq50prx    regular           320MB     46 hours ago     6 minutes ago    3         true
-99cxymgin69v    regular           5.06GB    9 minutes ago    6 minutes ago    1         false
-v2m6ifp92z5d    regular           13.6MB    2 days ago       6 minutes ago    3         true
-lg70vf3ddxcj    regular           41.8MB    7 minutes ago    6 minutes ago    1         false
-uy9hy3zmxlzu    regular           5.06GB    9 minutes ago    6 minutes ago    1         false
-tl29m2jdiwjt    regular           34.1MB    15 hours ago     4 minutes ago    2         true
-dswg7gkrcox6    regular           29.9GB    5 minutes ago    4 minutes ago    1         false
-isz01r73rz7r    source.local      7.39kB    13 minutes ago   34 seconds ago   1         false
-i6c3cgsncwcz    source.local      489B      13 minutes ago   34 seconds ago   1         false
-k3ptt7wmvmui    regular           7.39kB    36 seconds ago   34 seconds ago   1         false
-jpe6fanau99p    regular           204MB     9 minutes ago    34 seconds ago   1         false
-s5yu5iehiqwg    regular           437MB     36 seconds ago   34 seconds ago   1         false
+# Find their service Python files on host
+ls /opt/msjarvis-rebuild/services/
+144:      - GIS_RAG_URL=http://jarvis-gis-rag:8004
+868:  jarvis-autonomous-learner:
+870:    container_name: jarvis-autonomous-learner
+1271:  jarvis-gis-rag:
+1275:    container_name: jarvis-gis-rag
+1554:  jarvis-spiritual-rag:
+1558:    container_name: jarvis-spiritual-rag
+=== jarvis-gis-rag ===
+[
+    "/opt/msjarvis-rebuild/gis_service:/app/gis_service:rw"
+]
+=== jarvis-spiritual-rag ===
+null
+=== jarvis-autonomous-learner ===
+[
+    "/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner.py:/app/services/ms_jarvis_autonomous_learner.py:ro"
+]
+ 20LLM_DEPLOYMENT_SUMMARY.md
+ 20LLM_DEPLOYMENT_SUMMARY.md.bak-msallis
+ 911centers_wvdem_032819_gcs84_attrs.csv
+ 911centers_wvdem_032819_utm83_attrs.csv
+ AaaCPE_Appalachian_Dialect_Knowledge.txt
+ aaacpe_initial_ingest.py
+ aaacpe_rag_service.py
+ aaacpe_scraper.log
+ aaacpe_scraper_service.py
+ aacpe_ingest_community.py
+ aacpe_prepare_metadata.py
+ aapcappe_ingest.py
+ academic_research_gateway_8062_cors.py
+ academic_research_gateway_8062_cors.py.bak-msallis
+ academic_research_gateway_8062.log
+ academic_research_gateway_8062.py
+ academic_research_gateway_8062.py.bak-msallis
+ academic_whitebox_api.py
+ academic_whitebox_api.py.bak-msallis
+ activate_dgm_4012.log
+ activate_dgm_9485.log
+ activate_dgm_enhanced_9329.log
+ activate_dgm_enhanced.py
+ activate_dgm.py
+ activate_dgm.py.backup_1762520105
+ activate_egeria_persona.py
+ activate_sanctuary_cherubim_guards.sh
+ activate_sanctuary_cherubim_guards.sh.bak-msallis
+ ADD_ALL_INTEGRATIONS.sh
+ ADD_ALL_INTEGRATIONS.sh.bak-msallis
+ add_auto_store.py
+ add_background_call.py
+ add_background_storage_9618.log
+ add_background_storage.py
+ add_chat_route.sh
+ add_conversation_context.py
+ add_conversation_endpoint.py
+ add_conversation_storage_9024.log
+ add_conversation_storage.py
+ ADD_DELETE_ENDPOINT.sh
+ add_dynamic_context.py
+ add_fast_layer.py
+ add_fifth_dgm_to_chat_9176.log
+ add_fifth_dgm_to_chat.py
+ add_fifth_dgm_to_chat.py.bak-msallis
+ add_full_brain_class.py
+ add_full_brain_class.py.pre_dynamic_discovery
+ add_gpu_cleanup_correct.py
+ add_gpu_cleanup_every_3.py
+ add_identity_context.py
+ ADDITIONAL_SERVICES_FINAL.py
+ ADDITIONAL_SERVICES.py
+ add_jarvis_personality_9995.log
+ add_jarvis_personality.py
+ add_learning_suggestion.py
+ add_mamma_greeting_simple.py
+ ADD_MEMORY_TO_8050.sh
+ add_messenger_to_gateway.py
+ ADD_METADATA_FILTERING.sh
+ ADD_METADATA_FILTERING.sh.bak-msallis
+ add_new_consciousness_services.py
+ add_new_consciousness_services.py.backup_vocabulary_cleanup
+ add_proactive_cleanup_working.sh
+ ADD_RAG_METADATA_FILTERING.sh
+ ADD_RAG_RETRIEVAL_8050.sh
+ add_ready_endpoint.py
+ add_security_to_chat.py
+ add_semaphore.py
+ add_semaphore.py.backup_vocabulary_cleanup
+ add_simple_gpu_cleanup.py
+ ADD_STORE_ENDPOINT.sh
+ add_swagger_to_ports.py
+ add_swagger_to_ports.py.backup_vocabulary_cleanup
+ add_swagger_to_rag_9351.log
+ add_swagger_to_rag.py
+ add_swagger_to_rag.py.bak-msallis
+ add_to_consciousness_engine.txt
+ add_to_main_consciousness.psychology_patched.py
+ add_to_main_consciousness.py
+ add_to_main_consciousness.py.backup_20251031
+ add_to_startup.sh
+ add_user_memory_attribute.py
+ add_user_memory.py
+ add_web_research_storage_9052.log
+ add_web_research_storage.py
+ add_working_search.py
+ admin_cli.py
+ ADVANCED_MODULES_ROADMAP.md
+ ADVANCED_MODULES_ROADMAP.md.bak-msallis
+ advanced_service_dashboard.py
+ advanced_service_dashboard.py.bak-msallis
+ agent_llm_batch_all.sh
+ agent_llm_batch.sh
+ agents.csv
+ agents_healthy.csv
+ agents_main.py
+ AGI_EVALUATION_SUITE.sh
+ AGI_EVALUATION_SUITE.sh.bak-msallis
+ agi_test_results_20251012_220734.log
+ agi_test.sh
+ agi_test.sh.bak-msallis
+ AGI_TEST_SUITE.sh
+ AGI_TEST_SUITE.sh.bak-msallis
+ AGI_TEST_V2.sh
+ ai
+ ai_ai_server_11llm_OPTIMIZED.current.log
+ ai-server
+ ai_server_11llm_OPTIMIZED.current.log
+ ai_server_11llm_OPTIMIZED.py
+ ai_server_11llm_OPTIMIZED.py.backup_simple
+ ai_server_11llm_OPTIMIZED.py.bak_1760568396}
+ ai_server_11llm_OPTIMIZED.py.bak_1765074137
+ ai_server_19llm_CONSCIOUS.backup_1760308857
+ ai_server_19llm_CONSCIOUS.backup_1760356912
+ ai_server_19llm_CONSCIOUS.backup_20251013_082519.py
+ ai_server_19llm_CONSCIOUS.backup_20251013_082519.py.bak-msallis
+ ai_server_19llm_CONSCIOUS.backup_20251013_083103.py
+ ai_server_19llm_CONSCIOUS.backup_20251013_083103.py.backup_vocabulary_cleanup
+ ai_server_19llm_CONSCIOUS.backup_20251013_083103.py.bak-msallis
+ ai_server_19llm_CONSCIOUS.backup_20251026_200122.py
+ ai_server_19llm_CONSCIOUS.backup_20251110_135425.py
+ ai_server_19llm_CONSCIOUS.log
+ ai_server_19llm_CONSCIOUS.py
+ ai_server_19llm_CONSCIOUS.py.backup_20251012_125750
+ ai_server_19llm_CONSCIOUS.py.backup_20251012_153915
+ ai_server_19llm_CONSCIOUS.py.backup_before_bbb
+ ai_server_19llm_CONSCIOUS.py.backup_before_clarity
+ ai_server_19llm_CONSCIOUS.py.backup-before-identity-fix
+ ai_server_19llm_CONSCIOUS.py.backup_before_proactive
+ ai_server_19llm_CONSCIOUS.py.backup-cors
+ ai_server_19llm_CONSCIOUS.py.backup_dgm_fix
+ ai_server_19llm_CONSCIOUS.py.backup_final
+ ai_server_19llm_CONSCIOUS.py.backup_identity_fix
+ ai_server_19llm_CONSCIOUS.py.backup_no_integrations
+ ai_server_19llm_CONSCIOUS.py.backup_pronouns
+ ai_server_19llm_CONSCIOUS.py.backup_unified_self
+ ai_server_19llm_CONSCIOUS.py.bak-msallis
+ ai_server_19llm_CONSCIOUS.py.before_egeria
+ ai_server_19llm_CONSCIOUS.py.before_gpu_opt
+ ai_server_19llm_CONSCIOUS.py.before_integration
+ ai_server_19llm_CONSCIOUS.py.before_memory
+ ai_server_19llm_CONSCIOUS.py.before_metadata
+ ai_server_19llm_CONSCIOUS.py.before_phase1
+ ai_server_19llm_CONSCIOUS.py.before_phase2
+ ai_server_19llm_CONSCIOUS.py.before_phase3
+ ai_server_19llm_CONSCIOUS.py.before_phase4_5
+ ai_server_19llm_CONSCIOUS.py.before_phase6
+ ai_server_19llm_CONSCIOUS.py.before_retrieval
+ ai_server_19llm_CONSCIOUS.py.before_working_fix
+ ai_server_19llm_PRODUCTION.log
+ ai_server_19llm_PRODUCTION.py
+ ai_server_19llm_PRODUCTION.py.backup_vocabulary_cleanup
+ ai_server_19llm_PRODUCTION.py.bak-msallis
+ ai_server_19llm_PRODUCTION_WITH_HEALTH.log
+ ai_server_19llm_PRODUCTION_WITH_HEALTH.py
+ ai_server_19llm_PRODUCTION_WITH_HEALTH.py.backup_pre_consciousness
+ ai_server_19llm_PRODUCTION_WITH_HEALTH.py.bak-msallis
+ ai_server_20llm_FINAL.log
+ ai_server_20llm_FINAL.py
+ ai_server_20llm_FINAL.py,
+ ai_server_20llm_FINAL.py.backup.20260121180532
+ ai_server_20llm_FINAL.py.bak-msallis
+ ai_server_20llm_PRODUCTION.current.log
+ ai_server_20llm_PRODUCTION.log
+ ai_server_20llm_PRODUCTION.py
+ ai_server_20llm_PRODUCTION.py.bak.1779506052
+ ai_server_20llm_PRODUCTION.py.bak.1779561387
+ ai_server_20llm_PRODUCTION.py.bak.20260510-144015
+ ai_server_20llm_PRODUCTION.py.bak.20260510-144015.bak.pretuning
+ ai_server_20llm_PRODUCTION.py.bak.20260519_115045
+ ai_server_20llm_PRODUCTION.py.bak.20260523-122725
+ ai_server_20llm_PRODUCTION.py.bak-msallis
+ ai_server_20llm_PRODUCTION.py.broken_bak
+ ai_server_20llm_PRODUCTION.py.pre_dynamic_discovery
+ ai_server_20llm_PRODUCTION.py.pre_expert_responses
+ ai_server_20llm_PRODUCTION.py.pre_speed_bak
+ ai_server_20llm_PRODUCTION.py.pre_timeout_bak
+ ai_server_22llm.current.log
+ ai_server_22llm_FIXED.log
+ ai_server_22llm_FIXED.py
+ ai_server_22llm.psychology_patched_FIXED.log
+ ai_server_22llm.psychology_patched_FIXED.py
+ ai_server_22llm.psychology_patched.py
+ ai_server_22llm.psychology_patched.py.backup_before_portmanager
+ ai_server_22llm.psychology_patched.py.pre_dynamic_discovery
+ ai_server_22llm.py
+ ai_server_22llm.py.backup_1759895246
+ ai_server_22llm.py.backup_1759895560
+ ai_server_22llm.py.backup_ai_minds
+ ai_server_22llm.py.backup_before_batch
+ ai_server_22llm.py.backup_before_model_fix
+ ai_server_22llm.py.backup_before_numpredict_fix_20260523_140808
+ ai_server_22llm.py.backup_before_roche
+ ai_server_22llm.py.backup_before_synthesis_fix
+ ai_server_22llm.py.backup_final_balance
+ ai_server_22llm.py.backup_pre_synthesis
+ ai_server_22llm.py.backup_prompt_leak
+ ai_server_22llm.py.backup_synthesis_fix
+ ai_server_22llm.py.backup_tone_fix
+ ai_server_22llm.py.backup_vocabulary_cleanup
+ ai_server_22llm.py.bak-msallis
+ ai_server_22llm.py.pre_dynamic_discovery
+ ai_server_22llm.py.pre_judge_integration
+ ai_server_22llm.py.pre-semaphore
+ ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py
+ ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py.bak-msallis
+ ai_server_22llm_SEQUENTIAL.py
+ ai_server_22llm_SEQUENTIAL.py.bak-msallis
+ ai_server_22llm_SMALL_TO_LARGE.py
+ ai_server_22llm_SMALL_TO_LARGE.py.bak-msallis
+ ai_server_4llm.py
+ ai_server_4llm.py.backup_before_portmanager
+ ai_server_4llm.py.bak-msallis
+ ai_server_integrated.py
+ ai_server_integrated.py.pre_dynamic_discovery
+ ai_server_original_backup.py
+ ai_server_original_backup.py.backup_before_portmanager
+ ai_server_original_backup.py.bak-msallis
+ ai_server.py
+ ai_server.py.backup.20251006_101858
+ ai_server.py.backup.20251006_110515
+ ai_server.py.backup_vocabulary_cleanup
+ ai_server.py.bak-msallis
+ ai_server.py.pre_dynamic_discovery
+ ai_server_restored.py
+ ai_server_restored.py.backup_before_portmanager
+ ai_server_restored.py.bak-msallis
+ ai_teams_config.py
+ ai_teams_config.py.bak-msallis
+ alerting_config.json
+ alertingconfig.json
+ alert_venv
+ all_actual_py.txt
+ all_actual_services.txt
+ all_build_dirs.txt
+ all_service_ports.txt
+ all_services_compose_blocks_dynamic.txt
+ all_services_compose_blocks.txt
+ all_services.txt
+ amtrackrails_federalrailroadadministration_200210_ll83_attrs.csv
+ amtrackrails_federalrailroadadministration_200210_utm83_attrs.csv
+ analyze_advanced_modules.sh
+ apk-list.txt
+ app.js
+ application_service.py
+ apply_ollama_fix.py
+ apply_ollama_fix.py.bak-msallis
+ apt-list.txt
+ ARCHITECTURE_OPTIONS.md
+ archived-dockerfiles
+ async_polling_architecture.py
+ async_polling_architecture.py.bak.1779557381
+ async_polling_architecture.py.bak-msallis
+ attention_multimodal_fuser.py
+ attention_pipeline.py
+ attention_priority_scheduler.py
+ attention_router.py
+ au02_v2
+ audit_all_services_complete.sh
+ audit_all_services_complete.sh.bak-msallis
+ audit_all_services.sh
+ audit_all_services.sh.bak-msallis
+ audit_attrs.py
+ audit_attrs.py.backup_20251205234718
+ audit_attrs.py.backup_20251205234841
+ audit_docker_services.sh
+ audit_local_state.py
+ audit_performance.sh
+ audit_service_connectivity.sh
+ auth_api_patch.py
+ auth_api.py
+ auth.py
+ auth_router_main.py
+ auth_router.py
+ auto_fix_gateway.py
+ auto_fix_gateway.py.pre_dynamic_discovery
+ auto_memory_service_probe.sh
+ autonomous_learner.current.log
+ autonomous_learner_gisgeodb_wrapper.psychology_patched.py
+ autonomous_learner_gisgeodb_wrapper.py
+ autonomous_learner_gisgeodb_wrapper.py.backup_20251031
+ autonomous_learner.log
+ autonomous_learner.py
+ autonomous_learner_topic_source.py
+ auto_rag_builder_9715.log
+ auto_rag_builder.py
+ auto_stop_after_monongalia.sh
+ auto_stop.log
+ available_models.txt
+ backfill_gbim_worldview_metadata.py
+ backfill_gbim_worldview_metadata_v2.py
+ background_curator.py
+ backup_chroma_autonomous_learning.json
+ backup_chroma_mountainshares_knowledge.json
+ backup_chroma_mountainshares_knowledge.json.bak-msallis
+ backup_chroma_research_history.json
+ batch1.csv
+ batch2.csv
+ batch3.csv
+ batch4.csv
+ batch_copy_docs.sh
+ batch_normalize_beliefs.py
+ batch_patch_services.py
+ bbb_ethics_proxy.py
+ bbb_output_filter
+ bbb_requirements.txt
+ bbb_validator.py
+ belief_integrator.py
+ belief_revision_engine.py
+ belief_state_schema.py
+ benefits_chat.py
+ benefits_chat.py.bak-msallis
+ blockgroups_census_2000_ll83_attrs.csv
+ blockgroups_census_2000_utm83_attrs.csv
+ blockgroups_census_201111_gcs83_attrs.csv
+ blockgroups_census_201111_utm83_attrs.csv
+ blockgroups_census_2020_utm83_attrs.csv
+ blockgroups_census_2020_wma84_attrs.csv
+ blocks_census_2020_utm83_attrs.csv
+ blocks_census_2020_wma84_attrs.csv
+ blood_brain_barrier.log
+ boundaryappalachianbasin_wvges_1996_utm83_attrs.csv
+ brain.js
+ brain_orchestrator_main.py
+ brain_orchestrator_main.py.bak-msallis
+ brain_orchestrator.py
+ brain_orchestrator.py.bak_1769197532
+ brain_orchestrator.py.bak_1769197625
+ brain_orchestrator.py.bak-msallis
+ bridge
+ bridge1.log
+ bridge_69dgm.py
+ bridge_69dgm.py.bak-msallis
+ bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
+ bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py.bak-msallis
+ bridge_autonomous_to_i_container_dgm_woah.py
+ bridge_autonomous_to_i_container_dgm_woah.py.backup_20251031
+ bridge_autonomous_to_i_container_dgm_woah.py.bak-msallis
+ bridge_autonomous_to_i_container_fixed.py
+ bridge_autonomous_to_i_container_fixed.py.bak-msallis
+ bridge_cross_dgm_10001.py
+ bridge_cross_dgm_10002.py
+ bridge_cross_dgm_10003.py
+ bridge_cross_dgm_10004.py
+ bridge_cross_dgm_10005.py
+ bridge_cross_dgm_10006.py
+ bridge_cross_dgm_10007.py
+ bridge_cross_dgm_10008.py
+ bridge_cross_dgm_10009.py
+ bridge_cross_dgm_10010.py
+ bridge_cross_dgm_10011.py
+ bridge_cross_dgm_10012.py
+ bridge_cross_dgm_10013.py
+ bridge_cross_dgm_10014.py
+ bridge_cross_dgm_10015.py
+ bridge_cross_dgm_10016.py
+ bridge_cross_dgm_10017.py
+ bridge_cross_dgm_10018.py
+ bridge_cross_dgm_10019.py
+ bridge_cross_dgm_10020.py
+ bridge_cross_dgm_10021.py
+ bridge_cross_dgm_10022.py
+ bridge_cross_dgm_10023.py
+ bridge_cross_dgm_10024.py
+ bridge_cross_dgm_10025.py
+ bridge_cross_dgm_10026.py
+ bridge_cross_dgm_10027.py
+ bridge_cross_dgm_10028.py
+ bridge_cross_dgm_10029.py
+ bridge_cross_dgm_10030.py
+ bridge_cross_dgm_10031.py
+ bridge_cross_dgm_10032.py
+ bridge_cross_dgm_10033.py
+ bridge_cross_dgm_10034.py
+ bridge_cross_dgm_10035.py
+ bridge_cross_dgm_10036.py
+ bridge_cross_dgm_10037.py
+ bridge_cross_dgm_10038.py
+ bridge_cross_dgm_10039.py
+ bridge_cross_dgm_10040.py
+ bridge_cross_dgm_10041.py
+ bridge_cross_dgm_10042.py
+ bridge_cross_dgm_10043.py
+ bridge_cross_dgm_10044.py
+ bridge_cross_dgm_10045.py
+ bridge_cross_dgm_10046.py
+ bridge_cross_dgm_10047.py
+ bridge_cross_dgm_10048.py
+ bridge_cross_dgm_10049.py
+ bridge_cross_dgm_10050.py
+ bridge_cross_dgm_10051.py
+ bridge_cross_dgm_10052.py
+ bridge_cross_dgm_10053.py
+ bridge_cross_dgm_10054.py
+ bridge_cross_dgm_10055.py
+ bridge_cross_dgm_10056.py
+ bridge_cross_dgm_10057.py
+ bridge_cross_dgm_10058.py
+ bridge_cross_dgm_10059.py
+ bridge_cross_dgm_10060.py
+ bridge_cross_dgm_10061.py
+ bridge_cross_dgm_10062.py
+ bridge_cross_dgm_10063.py
+ bridge_cross_dgm_10064.py
+ bridge_cross_dgm_10065.py
+ bridge_cross_dgm_10066.py
+ bridge_cross_dgm_10067.py
+ bridge_cross_dgm_10068.py
+ bridge_cross_dgm_10069.py
+'bridgecrossdgm100*.log'
+'bridgecrossdgm*.log'
+ bridge_cross_dgm.py
+ bridge_manifest_batch2.csv
+ bridge_manifest_core69.csv
+ bridge_manifest_critical_add.csv
+ bridge_manifest.csv
+ bridge_manifest_FULL_BACKUP.csv
+ bridge_manifest_priority_services.csv
+ bridge_manifest_services_only.csv
+ bridge_manifest_with_utilities_backup.csv
+ bridge_openapi.json
+ bridge_openapi.json.bak-msallis
+ bridges_attrs.csv
+ build_additional_services.py
+ build_autonomous.sh
+ build_compose.sh
+ build_dir_audit.txt
+ BUILD_EGERIA_WEB_UI.sh
+ BUILD_EGERIA_WEB_UI.sh.bak-msallis
+ build_entityid_to_chromaid_map.py
+ build_project_impact_graph.py
+ build_project_impact_graph.py.bak-msallis
+ bulk_build_beliefs.py
+ bulk_compose_rewrite.py
+ bulk_load_knowledge.py
+ bulk_load_MAXIMUM.py
+ bulk_sync_gis_to_chromadb.py
+ calderl_reg_ll83_attrs.csv
+ chat_endpoint_universal.py
+ chat_interface.html
+ chat_interface.html.backup_1761146565
+ chat_response.json
+ chat_server.py
+ chat_with_jarvis.sh
+ chat_with_jarvis.sh.bak-msallis
+ check_agent_prompts.sh
+ check_agent_prompts.sh.bak-msallis
+ CHECK_AND_BUILD_MEMORY.sh
+ CHECK_AND_FIX_PORT.sh
+ check_mamma_kidd_protocol.sh
+ check_msjarvis_status.sh
+ CHECK_MS_JARVIS_STATUS.sh
+ check_permissions.sh
+ check_permissions.sh.bak-msallis
+ chroma
+ chroma_client_old.py
+ chroma_client.py
+ chroma_config.py
+ chroma_db
+ chromadb
+ chromadb_client.py
+ chroma_db_corrupted2_1141
+ chromadb_main.py
+ chromadbrag1
+ chromadb_rag_helper_9034.log
+ chromadb_rag_helper.py
+ chromadb_rag_helper.py.pre_dynamic_discovery
+ chromadb_rest_bridge.py
+ chromadb_v2_to_gis_sync.py
+ chromadb_v2_to_gis_sync.py.pre_dynamic_discovery
+ chroma_health_monitor.py
+ chroma_health_proxy.py
+ chroma_health_utils.py
+ chroma_inspect_venv
+ chroma_manifest.csv
+ chroma_python_test.py
+ chroma_test.py
+ chunked_ingest_gbim_to_chroma.py
+ citieswithpopulation_2500_census_201111_gcs83_attrs.csv
+ citieswithpopulation_2500_census_201111_utm83_attrs.csv
+ citieswithpopulationover10k_census_201111_gcs83_attrs.csv
+ citieswithpopulationover10k_uscensus_1990_ll83_attrs.csv
+ citieswithpopulationover10k_uscensus_1990_utm83_attrs.csv
+ citieswithpopulationover2500_uscensus_1990_ll83_attrs.csv
+ citieswithpopulationsover10k_census_2020_utm83_attrs.csv
+ citieswithpopulationsover10k_census_2020_wma84_attrs.csv
+ citieswithpopulationsover2500_census_2020_utm83_attrs.csv
+ citieswithpopulationsover2500_census_2020_wma84_attrs.csv
+ citieswithpopulatoinover2500_uscensus_1990_utm83_attrs.csv
+ clean_and_dedupe_services.sh
+ clean_compose.py
+ clean_integration.py
+ clean_integration.py.pre_dynamic_discovery
+ clean_service_candidates.txt
+ cleanup_manifest.txt
+ CLEANUP_OLLAMA.sh
+ cloudflare_auth_helper.sh
+ cloudflare_auth_helper.sh.bak-msallis
+ cloudflared-linux-amd64.deb
+ cloudflare_domain_integration.py
+ coals2_ll83_attrs.csv
+ coals2_utm27_attrs.csv
+ coals2_utm83_attrs.csv
+ COLLECT_ALL_DOCS_FOR_NOTEBOOKLM.sh
+ COLLECT_ALL_DOCS_FOR_NOTEBOOKLM.sh.bak-msallis
+ COLLECTIVE_INTEGRATION_PLAN.md
+ commandorchestrator.log
+ communityboundary_min_att_20250121_utm83_attrs.csv
+ communityboundary_min_att_20250121_wma84_attrs.csv
+ communityhealthproviders_wvhealthcareauthority_200802_utm83_attrs.csv
+ community_stake_registry.py
+ COMPARE_4_VS_22.sh
+ COMPLETE_DISCOVERY_REPORT.md
+ COMPLETE_DISCOVERY_REPORT.md.bak-msallis
+ complete_fix.py
+ complete_memory_fix.py
+ COMPLETE_PORT_MAP.sh
+ complete_port_scan_20251011_181138.log
+ COMPLETE_PORT_SCAN.sh
+ COMPLETE_PORT_SCAN.sh.bak-msallis
+ COMPLETE_SESSION_ACCOMPLISHMENTS.md
+ COMPLETE_SESSION_ACCOMPLISHMENTS.md.bak-msallis
+ COMPLETE_START_SYSTEM.sh
+ complete_system_audit.py
+ complete_system_audit_with_swagger.py
+ complete_system_audit_with_swagger.py.bak-msallis
+ complete_system_audit_with_swagger.py.pre_dynamic_discovery
+ COMPLETE_SYSTEM_STATUS.md
+ COMPLETE_SYSTEM_STATUS.md.bak-msallis
+ COMPLETE_SYSTEM_SUMMARY.md
+ COMPLETE_SYSTEM_SUMMARY.md.bak-msallis
+ comprehensive_gisgeodb_audit_FIXED.log
+ comprehensive_gisgeodb_audit_FIXED.py
+ comprehensive_gisgeodb_audit.py
+ COMPREHENSIVE_PORT_AUDIT_20251009_234234.txt
+ comprehensive_port_audit.sh
+ comprehensive_port_audit.sh.bak-msallis
+ comprehensive_storage_fix_9979.log
+ comprehensive_storage_fix.py
+ COMPREHENSIVE_SYSTEM_TEST.sh
+ COMPREHENSIVE_SYSTEM_TEST.sh.bak-msallis
+ comprehensive_url_fix.py
+ comprehensive_url_fix.py.PORT8000_BACKUP
+ comprehensive_url_fix.py.pre_dynamic_discovery
+ confidence_decay_loop.py
+ ConfigLoader.py
+ config_spiritual.py
+ configure_facebook_webhook.py
+ configure_facebook_webhook.py.backup_vocabulary_cleanup
+ connect_full_brain.sh
+ connect_holy_spirit_to_existing_email.sh
+ connect_holy_spirit_to_existing_email.sh.bak-msallis
+ connection_pooling.py
+ CONSCIOUSNESS_ARCHITECTURE_EXPLAINED.md
+ CONSCIOUSNESS_ARCHITECTURE_EXPLAINED.md.bak-msallis
+ consciousness_bridge_enhanced.log
+ consciousness_bridge_judges.log
+ consciousnessbridge.log
+ consciousness_coordinator.log
+ consciousness_coordinator.psychology_patched.py
+ consciousness_coordinator.psychology_patched.py.pre_dynamic_discovery
+ consciousness_coordinator.py
+ consciousness_coordinator.py.BACKUP
+ consciousness_coordinator.py.backup_20251031
+ consciousness_coordinator.py.bak-msallis
+ consciousness_coordinator.py.pre_dynamic_discovery
+ consciousness_feed_integration.psychology_patched.py
+ consciousness_feed_integration.py
+ consciousness_feed_integration.py.backup_20251031
+ CONSCIOUSNESS_FINAL.log
+ consciousness_gateway.py
+ consciousness_poster.log
+ consciousness_poster_output.log
+ consciousness_with_egeria_voice.py
+ consciousness_with_egeria_voice.py.backup_vocabulary_cleanup
+ consciousness_working.py
+ consciousness_working.py.bak-msallis
+ consensus.log
+ consensus_service.log
+ consolidate_to_chroma_db.py
+ constitutional_api_fixed.py
+ constitutional_api.PROD_BACKUP.py
+ constitutional_api.PROD_BACKUP.py.bak-msallis
+ constitutional_api.py
+ constitutional_api.py.backup
+ constitutional_api.py.bak-msallis
+ constitutional_api.py.pre_usc
+ constitutional_api.py.pre_versions
+ constitutional_guardian.PROD_BACKUP.py
+ constitutional_guardian.py
+ constitutional_principles.json
+ constitutional_principles.json.mcp_backup
+ CONSTITUTIONAL_SCHEDULER_ENTRY.txt
+ CONSTITUTIONAL_SYSTEM_MANIFEST.md
+ CONSTITUTIONAL_SYSTEM_MANIFEST.md.bak-msallis
+ context_manager.py
+ context_manager.py.bak-msallis
+ contractbuilder.log
+ contractbuilderv2.log
+ contract_generator.py
+ conversation_gbim.py
+ conversation_gbim.py.bak-msallis
+ conversation_memory_endpoints.py
+ conversation_memory_endpoints.py.backup_before_portmanager
+ copy_all_missing_services.sh
+ copy_architecture_docs.sh
+ copy_complete_brain_structure.sh
+ core
+ correctionalinstitutions_hsip_20091230_utm83_attrs.csv
+ correctionalinstitutions_hsip_20091230_wgs84_attrs.csv
+ count_collections_local.py
+ count_collections.py
+ countycityparkboundaries_20201104_utm83_attrs.csv
+ countyseats_usgs_ll83_attrs.csv
+ countyseats_usgs_utm83_attrs.csv
+ courthousescounty_manysources_200203_ll83_attrs.csv
+ courthousescounty_manysources_200203_utm83_attrs.csv
+ courthousesfederal_manysources_200203_ll83_attrs.csv
+ courthousesfederal_manysources_200203_utm_attrs.csv
+ cpu_optimization.py
+ create_adapter_wrappers.sh
+ create_autonomous_learner_tables.py
+ create_consciousness_data_integration.psychology_patched.py
+ create_consciousness_data_integration.py
+ create_consciousness_data_integration.py.backup_20251031
+ create_dual_consciousness_i_containers.psychology_patched.py
+ create_dual_consciousness_i_containers.psychology_patched.py.bak-msallis
+ create_dual_consciousness_i_containers.py
+ create_dual_consciousness_i_containers.py.backup_20251031
+ create_dual_consciousness_i_containers.py.bak-msallis
+ create_geodb_nodes.py
+ create_immutable_security_layer.py
+ create_i_statement_feedback_loop.py
+ create_mamma_kidd_auth.sh
+ create_mamma_kidd_auth.sh.bak-msallis
+ create_perpetual_storage_layer_9837.log
+ create_perpetual_storage_layer.py
+ create_perpetual_storage_layer.py.bak-msallis
+ create_sanctuary_monitor.sh
+ create_sanctuary_monitor.sh.bak-msallis
+ create_tile_index.py
+ create_tile_index.py.bak-msallis
+ create_ueid_identity_layer.py
+ CREATE_ULTIMATE_JARVIS.sh
+ CREATE_ULTIMATE_JARVIS.sh.bak-msallis
+ CRITICAL_FIXES_NEEDED.md
+ cron_health_check.sh
+ crypto_client.py
+ CURRENT_STATUS.md
+ CURRENT_STATUS.md.bak-msallis
+ cvfault_ll83_attrs.csv
+ cvfault_utm27_attrs.csv
+ cvfault_utm83_attrs.csv
+ cvpoly_ll83_attrs.csv
+ cvpoly_utm27_attrs.csv
+ cvpoly_utm83_attrs.csv
+ damsnoncoal_usgs_2002_ll27_attrs.csv
+ damsnoncoal_usgs_2002_utm83_attrs.csv
+ dams_usarmycorpsofengineers_200010_utm83_attrs.csv
+ dams_usarmycropsofengineers_200010_ll83_attrs.csv
+ dao_governance.py
+ dao_governance.py.bak-msallis
+ data
+ data_inventory_endpoint.py
+ data_inventory_endpoint.py.bak-msallis
+ dedup_compose.sh
+ dedupe_compose.py
+ deep_dive_modules.sh
+ deep_dive_modules.sh.bak-msallis
+ deep_excavation.sh
+ deep_module_search.sh
+ DEPLOY_22LLM_COLLECTIVE.sh
+ DEPLOY_22LLM_COLLECTIVE.sh.bak-msallis
+ DEPLOYMENT_ORDER.txt
+ DEPLOYMENT_STATUS_REPORT.md
+ DEPLOYMENT_STATUS_REPORT.md.bak-msallis
+ deploy_to_mountainshares.sh
+ deploy_to_mountainshares.sh.bak-msallis
+ deploy_warm_persona_final.sh
+ deploy_warm_persona_final.sh.bak-msallis
+ designed_ports.txt
+ dgm_adoption_worker.py
+ dgm_bridge.log
+ dgm_bridge.py
+ dgm_connector_registry.py
+ dgm_connectors_active.json
+ dgm_connectors_resolved.json
+ dgm_orchestrator_fake.py
+ dgm_orchestrator.py
+ dgm_orchestrator.py.bak-msallis
+ dgm_rag_integration_v2.py
+ dgm_services_state.json
+ dgm_supervisor_4012.log
+ dgm_supervisor.log
+ dgm_supervisor_woah_4012.log
+ dgmsupervisorwoah_4012.log
+ dgm_supervisor_woah_9074.log
+ dgm_supervisor_woah_fixed_4012.log
+ dgm_supervisor_woah_fixed_9222.log
+ dgm_supervisor_woah_fixed.py
+ dgm_supervisor_woah.log
+ dgm_supervisor_woah_psychology_patched_4012.log
+ dgm_supervisor_woah.psychology_patched_9617.log
+ dgm_supervisor_woah.psychology_patched.py
+ dgm_supervisor_woah.py
+ dgm_supervisor_woah.py.backup_20251031
+ dgm_supervisor_woah_simple_4012.log
+ dgm_supervisor_woah_simple_9105.log
+ dgm_supervisor_woah_simple.py
+ dgm_supervisor_woah_simple.py.backup_vocabulary_cleanup
+ dgm_woah_simple.log
+ DIAGNOSE.sh
+ diagnostic_ms_jarvis.sh
+ diagnostic_ms_jarvis.sh.bak-msallis
+ dir_endpoints.txt
+ disable_aggressive_cleaning.py
+ docker_cleanup_and_optimize.sh
+ docker-compose.bak
+ docker-compose.deduped.yml
+ docker-compose.yml.backup-1763229864
+ docker-compose.yml.backup-corrupted-1763229905
+ docker-compose.yml.backup.with_local
+ Dockerfile
+ Dockerfile.69dgm_bridge
+ Dockerfile.aaacpe_rag
+ Dockerfile.aaacpe_scraper
+ Dockerfile.agents
+ Dockerfile.autonomous_complete
+ Dockerfile.autonomous_learner
+ Dockerfile.autonomous_learner_complete
+ Dockerfile.bak_add_deps
+ Dockerfile.bak_add_redis
+ Dockerfile.bak_add_requests
+ Dockerfile.bak_add_service_discovery
+ Dockerfile.bak_before_bbb_copy_fix
+ Dockerfile.bak_runner_cmd
+ Dockerfile.bbb
+ Dockerfile-chroma-proxy
+ Dockerfile.consciousness_bridge
+ Dockerfile.constitutional_guardian
+ Dockerfile.crypto-policy
+ Dockerfile.data_ingest
+ Dockerfile.decay_escalation_consumer
+ Dockerfile.eeg
+ Dockerfile.email
+ Dockerfile.fifth_dgm_real
+ Dockerfile.fractal
+ Dockerfile.gateway
+ Dockerfile.gis_rag
+ Dockerfile.hilbert
+ Dockerfile.hilbert.pre-hilbert-image-20260415-161150
+ Dockerfile.hippocampus
+ Dockerfile.icontainers
+ Dockerfile.icontainers_fastapi
+ Dockerfile.indexer
+ Dockerfile.judge
+ Dockerfile-llm10-proxy
+ Dockerfile-llm11-proxy
+ Dockerfile-llm12-proxy
+ Dockerfile-llm13-proxy
+ Dockerfile-llm14-proxy
+ Dockerfile-llm15-proxy
+ Dockerfile-llm16-proxy
+ Dockerfile-llm17-proxy
+ Dockerfile-llm18-proxy
+ Dockerfile-llm19-proxy
+ Dockerfile-llm1-proxy
+ Dockerfile-llm20-proxy
+ Dockerfile-llm21-proxy
+ Dockerfile-llm22-proxy
+ Dockerfile-llm23-proxy
+ Dockerfile-llm2-proxy
+ Dockerfile-llm3-proxy
+ Dockerfile-llm4-proxy
+ Dockerfile-llm5-proxy
+ Dockerfile-llm6-proxy
+ Dockerfile-llm7-proxy
+ Dockerfile-llm8-proxy
+ Dockerfile-llm9-proxy
+ Dockerfile.lm_synthesizer
+ Dockerfile.local-resources
+ Dockerfile.memory
+ Dockerfile.mother_protocols
+'Dockerfile.nbb_*'
+ Dockerfile.nbb_base
+ Dockerfile.neuro
+ Dockerfile.pia-sampler
+ Dockerfile.policy
+ Dockerfile.psychological_rag
+ Dockerfile.psychology_services
+ Dockerfile.qualia
+ Dockerfile.rag
+ Dockerfile.rag_server
+ Dockerfile.roche_llm
+ Dockerfile.roche_llm.disabled
+ Dockerfile.semaphore
+ Dockerfile.spiritual_rag
+ Dockerfile.steward
+ Dockerfile.swarm
+ Dockerfile.temporal_consciousness
+ Dockerfile.toroidal
+ Dockerfile.webdeploy
+ Dockerfile.web_research
+ Dockerfile.woah
+ Dockerfile.woah_algorithms
+ domain_service_router.py
+ download_everything_appalachian.sh
+ download_everything_appalachian.sh.bak-msallis
+ download_nltk_data.py
+ download_priority_counties.sh
+ dpkg-list.txt
+ dump.rdb
+ dynamic_app.py
+ dynamic_app.py.bak-msallis
+ dynamic_port_scheduler.py
+ dynamic_port_scheduler.py.backup
+ dynamic_port_scheduler.py.backup_1762960055
+ dynamic_port_scheduler.py.backup_20251111_092913
+ dynamic_port_scheduler.py.backup_20251113_135008
+ dynamic_port_scheduler.py.BROKEN_REDIS
+ dynamic_port_service_enhanced.py
+ dynamic_port_service.log
+ dynamic_port_service.py
+ dynamic_port_service.py.backup
+ dynamic_port_service.py.bak
+ dynamic_port_service.py.bak-msallis
+ ecosystem_identity_service.py
+ eeg_shared
+ egeria_active_heartbeat.log
+ egeria_active_heartbeat.py
+ EGERIA_AGI_TEST_RESULTS_SUMMARY.md
+ EGERIA_AGI_TEST_RESULTS_SUMMARY.md.bak-msallis
+ egeria_api_proxy.py
+ egeria_autonomous_inquiry_active.py
+ egeria_autonomous_inquiry.log
+ egeria_autonomous_inquiry.py
+ egeria_code_execution_engine.py
+ egeria_core_identity.txt
+ egeria_facebook_perpetual_scheduler.py
+ egeria_facebook_perpetual_scheduler.py.backup
+ egeria_facebook_perpetual_scheduler.py.backup.1762961759
+ egeria_facebook_perpetual_scheduler.py.before_memory_20251108
+ egeria_facebook_perpetual_scheduler.py.pre_dynamic_discovery
+ EGERIA_IDENTITY.md
+ egeriaknowledgebase
+ egeria_multi_mode_system.py
+ egeria_persona_config.json
+ egeria_persona_config.json.bak-msallis
+ egeria_safe_self_correction.py
+ egeria_status_poller.log
+ egeria_status_poller.py
+ egeria_system_prompt.txt
+ egeria_true_identity.txt
+ egeria_web_ui_dynamic.py
+ egeria_web_ui_final_biological.py
+ egeria_web_ui_FIXED.log
+ egeria_web_ui_FIXED.py
+ egeria_web_ui_FIXED.py.bak-msallis
+ egeria_web_ui_fixed_simple.py
+ egeria_web_ui_fixed_simple.py.pre_dynamic_discovery
+ egeria_web_ui_plain_authentic.py
+ egeria_web_ui_plain_authentic.py.pre_dynamic_discovery
+ egeria_web_ui.py
+ egeria_web_ui.py.bak-msallis
+ egeria_web_ui.py.old
+ egeria_web_ui.py.old-timeout-version
+ egeria_web_ui_v3_consciousness.py
+ egeria_web_ui_with_execution.py
+ egeria_web_ui_with_execution.py.pre_dynamic_discovery
+ egeria_web_ui_working.py
+ egeria_web_ui_working.py.pre_dynamic_discovery
+ email_auto_checker.py
+ email_gis_geolocation_extractor.py
+ email_rag_integration_9163.log
+ email_rag_integration.py
+ email_service.env
+ email_service.py
+ email_strategy.txt
+ embed_and_add.py
+ embed_and_add.py.pre_dynamic_discovery
+ embed_and_query.py
+ embed_and_query.py.pre_dynamic_discovery
+ embed_gbim.py
+ embed_geodb.py
+ embed_utils.py
+ emergency_memory_cleanup.sh
+ emergency_memory_cleanup.sh.bak-msallis
+ EMERGENCY_PROMPT_LEAK_FIX.sh
+ EMERGENCY_PROMPT_LEAK_FIX.sh.bak-msallis
+ empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_attrs.csv
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83_attrs.csv
+ enable_22llm_routing.py
+ enable_auto_web_search.sh
+ enable_auto_web_search.sh.bak-msallis
+ enable_harmony4hope_website_access_CORRECTED.sh
+ enable_harmony4hope_website_access_CORRECTED.sh.bak-msallis
+ enable_holy_spirit_file_writing.sh
+ enable_holy_spirit_file_writing.sh.bak-msallis
+ enable_website_building_capabilities.sh
+ enable_website_building_capabilities.sh.bak-msallis
+ enhance_agent_prompts.py
+ enhance_cleaner.py
+ enhanced_learner_concept.py
+ enhance_pituitary_warmth.py
+ enhance_rag_first_9987.log
+ enhance_rag_first.py
+ enhance_rag_knowledge_9846.log
+ enhance_rag_knowledge.py
+ enrich_gbim_from_geospatial_features.py
+ enrich_geodb_collections.py
+ enrich_geodb_layers.py
+ eternal_watchdog.log
+ eternalwatchdog.log
+ eternal_watchdog.sh.disabled
+ ethical_filter.py
+ etl_from_csv_template.py
+ etl_from_manifest.py
+ etl_template_layer.py
+ _evaluate_for_i_container
+ examine_ai_server_complete.sh
+ examine_app_brain_backendlib.sh
+ examine_existing_code.sh
+ examine_extracted_services.sh
+ examine_geospatial_agents.sh
+ excursionpassengertrains_wvdof_200102_ll83_attrs.csv
+ excursionpassengertrains_wvdof_200102_utm83_attrs.csv
+ explore_16mb_directory.sh
+ explore_both_systems.sh
+ export_attributes_to_gis.py
+ export_chroma_manifest.py
+ export_docs_for_notebook.sh
+ export_docs_for_notebook.sh.bak-msallis
+ export_geodb_attrs.py
+ export_metadata_csv.py
+ extract_all_archives_deep_dive.sh
+ extract_all_big_archives.sh
+ extract_all_chromadbs_to_gis.py
+ extract_all_chromadb_to_gis.py
+ extract_all_gis_comprehensive.sh
+ extract_all_remaining_services.sh
+ extract_and_search_archives.sh
+ extract_binder4_text.py
+ extract_chroma_sqlite_to_gis.py
+ extract_complete_real.sh
+ extracted_gis
+ extraction.log
+ extraction_output.log
+ extract_real_knowledge_to_gis.py
+ extract_service_tarballs.sh
+ extract_shapefile_features_to_csv.py
+ extract_user_jarvis_files.sh
+ extract_user_jarvis_files.sh.bak-msallis
+ facebook_4021.log
+ facebook_chat_unified.py
+ facebook_chat_unified.py.pre_dynamic_discovery
+ facebook_consciousness_daemon.py
+ facebook_consciousness_daemon.py.backup_vocabulary_cleanup
+ facebook_daemon_polling.py
+ facebook_daemon_polling.py.pre_dynamic_discovery
+ facebook_messenger_integration.py
+ facebook_messenger_integration.py.bak-msallis
+ facebook_poster_autonomous.py
+ facebook_poster_autonomous.py.bak-msallis
+ facebook_poster_fast.py
+ facebook_poster.log
+ facebook_poster.py
+ facebook_poster.py.bak-msallis
+ facebook_poster_working.py
+ facebook_post.sh
+ facebook_token.env
+ facebook_voice_orchestrator_egeria.py
+ facilities_epa_200203_ll83_attrs.csv
+ facilities_epa_200203_utm83_attrs.csv
+ failed_services.csv
+ faultgl_reg_ll83_attrs.csv
+ fault_reg_ll83_attrs.csv
+ fayette_pass1_extractor.py
+ FEATURE_ENHANCEMENTS.md
+ FEATURE_ENHANCEMENTS.md.bak-msallis
+ feature_geometries_full_attributes.csv
+ features_attrs.csv
+ fifth_dgm
+ fifth_dgm_9949.log
+ fifth_dgm_app.py
+ fifth_dgm_integration_9912.log
+ fifth_dgm_integration.py
+ fifth_dgm.log
+ fifth_dgm_main_9344.log
+ fifth_dgm_main.py
+ fifth_dgm.py
+ FIFTH_DGM_RESTORED.md
+ file_metadata_matching_algorithm.py
+ fill_null_coordinates_mount_hope.py
+ FINAL_8_LAYER_STARTUP.sh
+ final_cleanup_integration.sh
+ FINAL_DEPLOYMENT_SUMMARY.md
+ FINAL_DEPLOYMENT_SUMMARY.md.bak-msallis
+ FINAL_EMOTIONAL_BALANCE.sh
+ FINAL_FIX.sh
+ finalize_integration.sh
+ finalize_integration.sh.bak-msallis
+ final_model_optimization.py
+ FINAL_PERSONA_FIX.sh
+ FINAL_PERSONA_FIX.sh.bak-msallis
+ FINAL_RECOMMENDATION.md
+ FINAL_STATUS_SUMMARY.md
+ FINAL_STATUS_SUMMARY.md.bak-msallis
+ FINAL_SUCCESS.log
+ final_synthesis_fix.sh
+ final_synthesis_fix.sh.bak-msallis
+ FINAL_SYSTEM_REPORT.md
+ FINAL_SYSTEM_REPORT.md.bak-msallis
+ final_test.log
+ final_validation_test.sh
+ final_validation_test.sh.bak-msallis
+ FINAL_WITH_OSM.log
+ FINAL_WORKING.log
+ find_actual_service_implementations.sh
+ find_advanced_modules.sh
+ find_advanced_modules.sh.bak-msallis
+ find_complete_brain_structure.sh
+ find_custom_services.sh
+ find_dgm_service.sh
+ find_web_and_deeper_python.sh
+ fire_departments_attrs.csv
+ fire_dept_wvdem_092017_utm83_attrs.csv
+ fix_404_endpoints.sh
+ fix_agent_prompts.py
+ fix_agent_prompts.py.bak-msallis
+ fix_all_consciousness_services.py
+ fix_all_consciousness_services.py.bak-msallis
+ fix_and_restart_msjarvis.sh
+ fix_and_restart_msjarvis.sh.bak-msallis
+ fix_autonomous_learner_endpoint.py
+ fix_autonomous_learner_endpoint.py.pre_dynamic_discovery
+ fix_autonomous_learner_indent.py
+ fix_autonomous.py
+ fix_autonomous.py.backup_vocabulary_cleanup
+ fix_autonomous_research.sh
+ fix_background_storage_9713.log
+ fix_background_storage.py
+ fix_both_issues_final.sh
+ FIX_BOTH_ISSUES.sh
+ FIX_BOTH_ISSUES.sh.bak-msallis
+ fix_chat_api.sh
+ fix_chat_server.py
+ fix_chat_server.py.backup_vocabulary_cleanup
+ fix_chroma_url.py
+ fix_chroma_url.py.PORT8000_BACKUP
+ fix_chroma_url.py.pre_dynamic_discovery
+ FIX_CONSCIOUS_COLLECTIVE_AUTO.sh
+ FIX_CONSCIOUSNESS_BRIDGE.sh
+ FIX_CONSCIOUSNESS_BRIDGE.sh.bak-msallis
+ fix_consciousness_endpoints.py
+ FIX_CONSCIOUSNESS_INTEGRATION.sh
+ fix_context_flow.py
+ fix_creator_recognition.py
+ fix_egeria_final.sh
+ fix_egeria_persona.sh
+ fix_egeria_persona.sh.bak-msallis
+ fix_egeria_pronouns.sh
+ fix_egeria_pronouns.sh.bak-msallis
+ fix_egeria_warm_response.patch
+ fix_email_service_env_loading.sh
+ fix_fastapi_lifespan.py
+ FIX_FAST_MODE.sh
+ fix_gpu_and_retry_4016.log
+ fix_gpu_and_retry.py
+ FIX_HEALTH_ENDPOINTS.sh
+ fix_import.py
+ fix_indentation.py
+ fix_judge_and_memory.py
+ fix_judge_authentic.py
+ fix_judge_authentic.py.backup_vocabulary_cleanup
+ fix_judge_response.py
+ fix_judge_synthesis.py
+ fix_llm_bridges.sh
+ fix_main_brain_endpoints.py
+ FIX_MEMORY_STORAGE.sh
+ FIX_MODEL_IDENTITY.sh
+ FIX_MODEL_IDENTITY.sh.bak-msallis
+ fix_model_names.py
+ fix_model_unloading.py
+ fix_model_unloading.py.backup_vocabulary_cleanup
+ fix_mother_carrie_principles.sh
+ fix_multi_rag_chromadb_9340.log
+ fix_multi_rag_chromadb.py
+ fix_multi_rag_chromadb.py.backup_vocabulary_cleanup
+ fix_new_service_endpoints.py
+ fix_ollama_connection.sh
+ fix_orchestrator_init.py
+ fix_orchestrator_scope.py
+ fix_persona_hang.py
+ fix_persona_naming.sh
+ fix_persona_naming.sh.bak-msallis
+ fix_persona.py
+ fix_persona.sh
+ fix_persona.sh.bak-msallis
+ fix_port_8001_clean.py
+ fix_port_8051_handler.py
+ fix_proactive_cleanup_correctly.sh
+ fix_prompt_leak.py
+ fix_query_service_endpoints.py
+ FIX_RAG_FILTERING.sh
+ fix_rag_store_9161.log
+ fix_rag_store.py
+ fix_rag_store.py.backup_vocabulary_cleanup
+ fix_redis_and_continue.sh
+ fix_response_parsing.py
+ fix_semaphore.py
+ fix_storage_9169.log
+ fix_storage.py
+ fix_swagger.py
+ FIX_SYNTHESIS_PROMPT.sh
+ FIX_SYNTHESIS_PROMPT.sh.bak-msallis
+ FIX_TIMEOUT_ISSUE.sh
+ fix_timeouts_add_22llm.py
+ FIX_TONE_AND_CONCISENESS.sh
+ FIX_TONE_AND_CONCISENESS.sh.bak-msallis
+ FIX_ULTIMATE.sh
+ FIX_ULTIMATE.sh.bak-msallis
+ FIX_UNIFIED_SELF.sh
+ FIX_UNIFIED_SELF.sh.bak-msallis
+ fix_web_persona.sh
+ fix_web_research.py
+ fix_woah_discovery.py
+ fix_woah_discovery.py.pre_dynamic_discovery
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_attrs.csv
+ fractal_adapter.py
+ fraud_detection_ai.py
+ full_brain_architecture.md
+ full_brain_architecture.md.bak-msallis
+ full_consciousness.log
+ FULL_DEPLOYMENT_MANIFEST.txt
+ FULL_INTEGRATION_WORKFLOW.sh
+ FULL_PORT_AUDIT.sh
+ FULL_PORT_AUDIT.sh.bak-msallis
+ FULL_PORT_SCAN.sh
+ full_rebuild.sh
+ full_rebuild.sh.bak-msallis
+ FULL_SERVICE_AUDIT.sh
+ full_system_audit.sh
+ FULL_SYSTEM_AUDIT.sh
+ FULL_SYSTEM_AUDIT.sh.bak-msallis
+ full_system_health_check.sh
+ gateway_300s.log
+ gateway_4_layers.log
+ gateway8050_simple.py
+ gateway8050_simple.py.bak-msallis
+ gateway_9000.log
+ gateway_complete_kb.log
+ gateway_complete.log
+ gateway_corrected_ports.log
+ gateway_embeddings.log
+ gateway_ensemble_fast.log
+ gateway_final.log
+ gateway_fixed_ports.log
+ gateway_fresh.log
+ gateway_judge_integrated.log
+ gateway_live.log
+ gateway.log
+ gateway_mesh_context.sh
+ gateway_messenger_integration.py
+ gateway_rag_fixed.log
+ gateway_rebuild_venv.log
+ gateway_restart.log
+ gateway_restored.log
+ gateway_stable.log
+ gateway_v2.log
+ gateway_verify_fixed.py
+ gateway_wv_entanglement.py
+ gateway_wv_entanglement.py.bak.20260517T131838Z
+ gbim_api.py
+ gbim_benefit_indexer
+ gbim_benefit_indexer.py
+ gbim_benefit_indexer.py.bak.20260508_124455
+ gbim_chroma_fixed.py
+ gbim_chroma.py
+ gbim_coordinate_writer.py
+ gbim_core.py
+ gbim_core.py.bak.1768220758
+ gbim_dashboard.py
+ gbim_entangled_summary.py
+ gbim_entanglement.py
+ gbim_explain.py
+ gbim_gis_bridge.py
+ gbim_indexers
+ gbim_ingest.log
+ gbim_ingest_safe.log
+ gbim_metadata_enricher.py
+ gbim_metadata_loader.py
+ gbim_msjarvis.py
+ gbim_query_router
+ gbim_query_router.py
+ gbim_query_router.py.backup_health_integration
+ gbim_reingest_placeholder.py
+ gbim_semantic_indexer.py
+ gbim_spatial_indexer.py
+ gbim_temporal_indexer.py
+ gbim_v0_retrieval.py
+ gbim_verification_loop.py
+ gdb_integration.log
+ gdb_integration_service.py
+ generate_services.py
+ geo
+ geobim_health_shim_8051.py
+ geobim_integrated.py
+ geobim_integrated.py.running_backup
+ geobim_mysql.py
+ geobim_mysql_v2.py
+ geodb_adapter.py
+ geodb_core.py
+ geodb_export_plan_all.yaml
+ geodb_export_plan.yaml
+ geodb_geom_tables.tsv
+ geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
+ geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
+ geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
+ geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
+ geolgyl_reg_ll83_attrs.csv
+ geolgyp_reg_ll83_attrs.csv
+ geo_rag_debug_app.py
+ geo_rag_debug.py
+ geospatial_resolver.py
+ geotextl_reg_ll83_attrs.csv
+ get_cloudflare_zone_id.sh
+ gis_chat_integration.py
+ gis_command_module.py
+ gis_dataset_services
+ gis_download_plan.json
+ gis_enhanced_chat.log
+ gisgeodb_access_20251103_221750.log
+ gisgeodbdirectaccess.py
+ gisgeodb_fixed_20251103_221835.log
+ gisgeodb_learner_hook.py
+ gisgeodb_learner_hook.py.backup_vocabulary_cleanup
+ gisgeodb_storage_9215.log
+ gisgeodb_storage.py
+ gis_query_service_fixed.log
+ gis_query_service.log
+ gis_rag_service.py
+ gis_rag_service.py.bak-msallis
+ glacagl_reg_ll83_attrs.csv
+ glacal_reg_ll83_attrs.csv
+ gpu_accelerated_rag_4016.log
+ gpu_accelerated_rag_9090.log
+ gpu_accelerated_rag_fixed_4016.log
+ gpuacceleratedragfixed_4016.log
+ gpu_accelerated_rag_fixed_9873.log
+ gpu_accelerated_rag_fixed.py
+ gpu_accelerated_rag_fixed.py.backup_before_portmanager
+ gpu_accelerated_rag.py
+ gpu_jarvis_4001.log
+ GPU_OPTIMIZATION_GUIDE.md
+ GPU_OPTIMIZATION_GUIDE.md.bak-msallis
+ gpu_rag_4016.log
+ GUARANTEED_8_LAYER_START.sh
+ guards_api_module.py
+ guards.log
+ guards.py
+ hardware_optimization_analyzer.py
+ harmony4hope_deployment_manager.py
+ hazardmitigationbuyout_20250929_polygons_utm83_attrs.csv
+ hazardmitigationbuyout_20250929_polygons_wma84_attrs.csv
+ health_access_api.py
+ health_access_api.py.bak-msallis
+ health_access_gbim_bridge.py
+ health_access_query.py
+ health_check_cache.py
+ health_check.sh
+ healthruralfacilities_manysources_utm83_attrs.csv
+ hello.txt
+ hierarchical_coordinator_AUTONOMOUS.md
+ hierarchical_coordinator_autonomous.py
+ hierarchical_coordinator_autonomous.py.bak-msallis
+ hierarchical_coordinator_autonomous.py.pre_dynamic_discovery
+ hierarchical_coordinator_deep_mode.py
+ hierarchical_coordinator_deep_mode.py.bak-msallis
+ hierarchical_coordinator_deep_mode.py.pre_dynamic_discovery
+ hierarchical_integration.py
+ hierarchical_integration.py.pre_dynamic_discovery
+ hierarchical_method.txt
+ highered_wvemd_072420_utm83_attrs.csv
+ highered_wvemd_072420_wgc84_attrs.csv
+ hilbert_5002_active.log
+ hilbert_5002_final.log
+ hilbert_5002_fixed.log
+ hilbert_5002_restart.log
+ hilbert_8235.log
+ hilbert_quantum.log
+ hilbert_restart.log
+ hilbertspatialchat.log
+ hilbert_spatial_chat.py
+ hilbert_spatial_chat.py.backup
+ hilbert_spatial_chat.py.backup_20251113_180915
+ hilbert_spatial_chat.py.backup_20251113_191119
+ hilbert_spatial_chat.py.backup_20251113_192420
+ hippocampus_service.py
+ hippocampus_service.py.bak-msallis
+ historicalaerialphotographycountycoverage_wvgistc_utm83_attrs.csv
+ hospitals_attrs.csv
+ hospitals_wvdem_040519_gcs84_attrs.csv
+ hospitals_wvdem_040519_utm83_attrs.csv
+ hospitalswvdem040519utm83_attrs.csv
+ host_bulk_loader.py
+ i_container_interest_algorithm.py
+ i_container_interest_algorithm.py.before_diversity
+ icontainers_fastapi.py
+ icontainers_fastapi.py.bak
+ icontainers_fastapi.py.pre_adapter_1771176105
+ IDENTIFY_SERVICES.sh
+ identify_unknown_services.sh
+ identity_promotion.py
+ identity_service.py
+ immutable_core_enforcement.py
+ IMMUTABLE_MANIFEST.md
+ IMMUTABLE_MANIFEST.md.bak-msallis
+ impact_reg_ll83_attrs.csv
+ implement_conversation_fixes.sh
+ implement_conversation_fixes.sh.bak-msallis
+ implement_enhancements.sh
+ implement_gpu_optimization.sh
+ implement_judge_pituitary_fixed.py
+ implement_judge_pituitary_fixed.py.backup_vocabulary_cleanup
+ implement_judge_pituitary_fixed.py.pre_dynamic_discovery
+ implement_safe_optimizations.py
+ implement_safe_optimizations.py.backup_vocabulary_cleanup
+ implement_storage_optimization.sh
+ implement_storage_optimization.sh.bak-msallis
+ import_gbim_assets.py
+ import_gis_geodata_to_gbim.py
+ import_gisgeodata_to_gbim.py
+ improve_jarvis.sh
+ improve_jarvis.sh.bak-msallis
+ index_all_extracted_gis.py
+ index_all_extracted_gis.py.bak-msallis
+ indexgrid15minutequads_wvgistc_ll83_attrs.csv
+ indexgrid15minutequads_wvgistc_utm83_attrs.csv
+ indexgrid15minutewithcounties_wvgistc_utm27_attrs.csv
+ indexgrid1minutequads_wvgistc_ll83_attrs.csv
+ index.html
+ index.js
+ industrialbuildings_wvdo_200807_utm83_attrs.csv
+ industrialparks_wvdo_200078_utm83_attrs.csv
+ industrialsites_wvdo_200807_utm83_attrs.csv
+ inedexgrid1minutequads_wvgistc_utm83_attrs.csv
+ infra_status.json
+ infrastructure_endpoints.py
+ infrastructure_endpoints.py.bak-msallis
+ ingest
+ ingest_additional_kbs.py
+ ingest_batch3_geofeatures.py
+ ingest_batch3_resume2.py
+ ingest_batch3_resume.py
+ ingest_benefit_programs.py
+ ingest_benefit_programs_to_chroma.py
+ ingest_compliance_tasks_to_chroma.py
+ ingest_csv_to_gisgeodb.py
+ ingestcsvtogisgeodb.py
+ ingest_documents_to_chromadb.py
+ ingest_full_attributed_docs.py
+ ingest_gbim_to_chroma_fast.py
+ ingest_gbim_to_chroma.py
+ ingest_gbim_to_chroma_resume.py
+ ingest_gbim_to_chroma_ultrafast.py
+ ingest_gis_features_fixed.py
+ ingest_gis_features_to_chromadb.py
+ ingest_h4h_cultural_heritage.py
+ ingest_hospitals.py
+ ingest_imm_to_chroma.py
+ ingest_knowledge_simple.py
+ ingest_mrsid_imagery.py
+ ingest_mrsid_imagery.py.bak-msallis
+ ingest_postgis_to_chroma.py
+ ingest_utility_enrollments_to_chroma.py
+ ingest_watcher
+ __init__.py
+ inject_egeria_persona.py
+ inject_gisgeodb_into_learner.py
+ inject_gisgeodb_into_learner.py.backup_vocabulary_cleanup
+ inspect_geodb_collection.py
+ INSPECT_JARVIS_INTERNALS.sh
+ INSPECT_JARVIS_INTERNALS.sh.bak-msallis
+ inspect_key_services.sh
+ install_research_layer.sh
+ install_research_layer.sh.bak-msallis
+ INTEGRATE_8020_8050.sh
+ integrate_advanced_modules.sh
+ integrate_advanced_modules.sh.bak-msallis
+ integrate_all_services.py
+ integrate_all_services.py.pre_dynamic_discovery
+ integrate_brain_orchestrator.sh
+ integrate_brain_orchestrator.sh.bak-msallis
+ integrate_complete_architecture.py
+ integrate_consciousness_into_swarm.py
+ INTEGRATE_CONSCIOUSNESS.sh
+ INTEGRATE_CONSCIOUSNESS.sh.bak-msallis
+ INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh
+ INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh.bak-msallis
+ integrate_discovered_services.sh
+ integrate_fifth_dgm_autonomous_learner_9681.log
+ integrate_fifth_dgm_autonomous_learner.py
+ integrate_full_brain.py
+ integrate_full_brain.py.pre_dynamic_discovery
+ integrate_full_neural_architecture.py
+ integrate_i_container_interests.py
+ integrate_i_container_to_schedulers.py
+ integrate_i_container_to_schedulers.py.backup_vocabulary_cleanup
+ integrate_i_container_to_schedulers.py.bak-msallis
+ integrate_mamma_kidd_protocol.sh
+ integrate_mother_protocol.sh
+ integrate_mother_protocol.sh.bak-msallis
+ integrate_orchestrator_flow.py
+ integrate_phase1.sh
+ integrate_phase2.sh
+ integrate_phase3.sh
+ integrate_phase4_5.sh
+ INTEGRATE_PROPERLY.sh
+ integrate_rag.sh
+ integrate_rag.sh.bak-msallis
+ integrate_spatial_temporal.py
+ integrate_spatial_temporal.py.backup_vocabulary_cleanup
+ INTEGRATION_HUB_SUCCESS.md
+ INTEGRATION_HUB_SUCCESS.md.bak-msallis
+ INTEGRATION_IMPLEMENTATION.py
+ INTEGRATION_IMPLEMENTATION.py.pre_dynamic_discovery
+ integration_layer
+ integration_layer.backup.1768269372
+ integration_layer.placeholder_1768012705
+ INTEGRATION_PLAN.sh
+ INTEGRATION_PLAN.sh.bak-msallis
+ interaction_logger.py
+ interaction_logger.py.bak-msallis
+ intermodalterminalfacilities_usdot_1997_ll83_attrs.csv
+ intermodalterminalfacilities_usdot_1997_utm83_attrs.csv
+ internet_tunnel_service.py
+ introduce_self.sh
+ introspective_record.py
+ introspective_record.py.bak-msallis
+ introspective_verdict_bridge.py
+ inventory_services.sh
+ inventory_services.sh.bak-msallis
+ investigate_coordination.sh
+ jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
+ jarvis-aaacpe-rag_aaacpe_rag_service.py
+ jarvis-adoption-worker_dgm_adoption_worker.py
+ jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
+ jarvisarchiveapi_9200.log
+ jarvisarchiveapi.py
+ jarvis_authentic_persona.txt
+ jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
+ jarvis-constitutional-guardian_constitutional_api.py
+ jarviscryptopolicy.py
+ JARVIS_DASHBOARD.sh
+ jarvis_data_ingest.py
+ jarvis_decay_escalation_consumer.py
+ jarvis_eeg_beta_5m.py
+ jarvis_eeg_beta_5m.py.bak_20260516_093841
+ jarvis_eeg_delta_30s.py
+ jarvis_eeg_theta_60s.py
+ jarvis_eeg_theta_60s.py.bak
+ jarvis_ensemble.log
+ jarvis_ensemble.py
+ jarvis-fifth-dgm_service_discovery.py
+ jarvis-fifth-dgm_service_discovery.py.bak-msallis
+ jarvis_gis_rag
+ jarvis-gis-rag_gis_rag_service.py
+ jarvis-gis-rag_gis_rag_service.py.bak-msallis
+ JARVIS_HEALTH_CHECK.sh
+ JARVIS_HEALTH_CHECK.sh.bak-msallis
+ jarvis_health.log
+ jarvis_hilbert_state.py
+ jarvis-hippocampus_hippocampus_service.py
+ jarvis-hippocampus_hippocampus_service.py.bak-msallis
+ jarvis-i-containers_icontainers_fastapi.py
+ jarvis_identity.db
+ jarvis-judge-pipeline_judge_pipeline.py
+ jarvis_llm1.log
+ jarvis_llm1.py
+ jarvis-lm-synthesizer_lm_synthesizer.py
+ jarvis-lm-synthesizer_lm_synthesizer.py.bak-msallis
+ jarvis-local-resources_local_resources_resolver.py
+ jarvis_memory_pia.py
+ jarvis-mother-protocols_mother_protocols.py
+ jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
+ jarvis_pia_sampler.py
+ jarvis_pia_status.py
+ jarvis-psychology-services_psychology_integration_adapter.py
+ jarvis-qualia-engine_ms_jarvis_qualia_engine.py
+ jarvis-qualia-engine_ms_jarvis_qualia_engine.py.bak-msallis
+ jarvis_rag_search
+ jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
+ jarvis-semaphore_msjarvis_semaphore.py
+ jarvis-semaphore_msjarvis_semaphore.py.bak-msallis
+ jarvis-spiritual-rag_spiritual_rag_domain.py
+ jarvis-spiritual-rag_spiritual_rag_domain.py.bak-msallis
+ jarvis_steward
+ jarvis_steward.py
+ jarvis_stewardship_scheduler.py
+ jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
+ jarvis_synth_llm.py
+ jarvis-temporal-consciousness_temporal_consciousness.py
+ jarvis-toroidal_toroidal_service.py
+ jarvis-toroidal_toroidal_service.py.bak-msallis
+ jarvis-woah_dgm_supervisor_woah_fixed.py
+ jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
+ jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak-msallis
+ joblib_1.5.2_pickle_py312_np23.pkl
+ judge_10070.py
+ judge_10071.py
+ judge_10072.py
+ judge_10073.py
+ judge_10074.py
+ judge_10075.py
+ judge_10076.py
+ judge_10077.py
+ judge_10078.py
+ judge_10079.py
+ judge_10080.py
+ judge_10081.py
+ judge_10082.py
+ judge_10083.py
+ judge_10084.py
+ judge_10085.py
+ judge_10086.py
+ judge_10087.py
+ judge_10088.py
+ judge_10089.py
+ judge_10090.py
+ judge_10091.py
+ judge_10092.py
+ judge_10093.py
+ judge_10094.py
+ judge_10095.py
+ judge_10096.py
+ judge_10097.py
+ judge_10098.py
+ judge_10099.py
+ judge_10100.py
+ judge_10101.py
+ judge_10102.py
+ judge_10103.py
+ judge_10104.py
+ judge_10105.py
+ judge_10106.py
+ judge_10107.py
+ judge_10108.py
+ judge_10109.py
+ judge_10110.py
+ judge_10111.py
+ judge_10112.py
+ judge_10113.py
+ judge_10114.py
+ judge_10115.py
+ judge_10116.py
+ judge_10117.py
+ judge_10118.py
+ judge_10119.py
+ judge_10120.py
+ judge_10121.py
+ judge_10122.py
+ judge_10123.py
+ judge_10124.py
+ judge_10125.py
+ judge_10126.py
+ judge_10127.py
+ judge_10128.py
+ judge_10129.py
+ judge_10130.py
+ judge_10131.py
+ judge_10132.py
+ judge_10133.py
+ judge_10134.py
+ judge_10135.py
+ judge_alignment_filter.py
+ judge_client.py
+ judge_client.py.bak-msallis
+ judge_consistency_engine.py
+ judge_consistency_filter.py
+ judge_ethics_filter.py
+ judge_pipeline.py
+ judge_pipeline.py.bak.20260518235410
+ judge_pk.b64
+ judge_pk.bin
+ judgesigner.py
+ judgesigner.py.bak-msallis
+ judge_sk.bin
+ judge_to_pituitary_bridge.py
+ judge_truth_filter.py
+ knowledge_docs_attributes.csv
+ knowledge_docs_attributes.geojson
+ knowledge_docs_metadata.csv
+ knowledge_growth_endpoint.txt
+ launch_advanced.sh
+ launch_advanced.sh.bak-msallis
+ launch_all_bridges.sh
+ launch_dashboard_background.sh
+ launch_service.sh
+ launch_stub_proxies.sh
+ launch_web_services.sh
+ layer2_port9000_bridge.py
+ leak_test.sh
+ learner.log
+ libraries_manysources_2001_ll27_attrs.csv
+ libraries_manysources_2001_utm83_attrs.csv
+ link_gisgeodb_to_files.py
+ list_geodb_collections.py
+ live_ports.txt
+ llama_test.log
+ llm
+ llm10_health_proxy.py
+ llm11_health_proxy.py
+ llm12_health_proxy.py
+ llm13_health_proxy.py
+ llm14_health_proxy.py
+ llm15_health_proxy.py
+ llm16_health_proxy.py
+ llm17_health_proxy.py
+ llm18_health_proxy.py
+ llm19_health_proxy.py
+ llm1_health_proxy.py
+ llm20.current.log
+ llm20_health_proxy.py
+ llm20_health_proxy.py.bak.1779556626
+ llm21_health_proxy.py
+ llm22_health_proxy.py
+ llm23_egeria_proxy.py
+ llm2_health_proxy.py
+ llm3_health_proxy.py
+ llm4_health_proxy.py
+ llm5_health_proxy.py
+ llm6_health_proxy.py
+ llm7_health_proxy.py
+ llm8_health_proxy.py
+ llm9_health_proxy.py
+ llm_belief_utils.py
+ llm_bridge_main.py
+ llm_bridge_main.py.bak-msallis
+ llm_conscious_OPTIMIZED.py
+ llm_consensus_19_PRODUCTION.log
+ llm_consensus_19_PRODUCTION.py
+ llm_consensus_19_PRODUCTION.py.bak-msallis
+ llm_consensus_20_FINAL.log
+ llm_consensus_20_FINAL.py
+ llm_consensus_20_FINAL.py.backup_vocabulary_cleanup
+ llm_consensus_20_FINAL.py.bak.1779506052
+ llm_consensus_20_FINAL.py.bak-msallis
+ llm_consensus_22_OPTIMIZED_ORDER.py
+ llm_consensus_22.py
+ llm_consensus_22.py.bak-msallis
+ llm_consensus_22_SMALL_TO_LARGE.py
+ llm_ensemble_router.py
+ llm_ensemble_router.py.bak-msallis
+ llm_ensemble_router.py.pre_dynamic_discovery
+ llm_judge_v3.py
+ lm_judge_helper.py
+ lm_synthesizer.py
+ lm_synthesizer.py.bak.1779557365
+ lm_synthesizer.py.bak-msallis
+ LOAD_AAACPE_RAG.sh
+ LOAD_AAACPE_RAG.sh.bak-msallis
+ load_backbone_places_from_geodb.py
+ load_complete_knowledge_base.py
+ load_feature_geometries_to_chromadb.py
+ load_geodb_health_providers_to_neo4j.py
+ load_geodb_hospitals_to_neo4j.py
+ load_geodb_layer_to_neo4j.py
+ load_gis_to_chroma.py
+ load_knowledge.sh
+ load_pdfs_spiritual.py
+ load_rag_data_9879.log
+ load_rag_data.py
+ load_rag_knowledge_9381.log
+ load_rag_knowledge.py
+ load_rag_knowledge.py.backup_vocabulary_cleanup
+ load_shapefile_features_to_chromadb.py
+ load_spiritual_library.py
+ load_spiritual_library.py.bak-msallis
+ local_resources_resolver.py
+ local_resources_resolver.py.bak_20260501_140857
+ local_resources_resolver.py.bak.20260503-131149
+ LOCATION_AWARENESS_SUCCESS.md
+ location.log
+ location_scraper_service.py
+ logging_conf.py
+ logs
+ main_brain_attrs_patch.sh
+ main_brain_container_2055.py
+ main_brain_LEGACY_32svc.py
+ main_brain_LEGACY_32svc.py.bak-msallis
+ main_brain_legacy_backup.py
+ main_brain_legacy_backup.py.bak-msallis
+ main_brain.log
+ main_brain_psychology_patch.py
+ main_brain.py
+ main_brain.py.backup
+ main_brain.py.backup_1771192185
+ main_brain.py.backup_1771192386
+ main_brain.py.backup_nbb_fixed
+ main_brain.py.bak
+ main_brain.py.bak_1770565703
+ main_brain.py.bak_1770565749
+ main_brain.py.bak_1770565868
+ main_brain.py.bak.1771185442
+ main_brain.py.bak_1771728143
+ main_brain.py.bak.20260430-211100
+ main_brain.py.bak.20260507-223435
+ main_brain.py.bak.20260508-071052
+ main_brain.py.bak.20260509-212923
+ main_brain.py.bak.20260509-213917
+ main_brain.py.bak.20260509-214158
+ main_brain.py.bak.20260509-214526
+ main_brain.py.bak.20260522T122413Z
+ main_brain.py.bak.20260522T123325Z
+ main_brain.py.bak.20260522T125014Z
+ main_brain.py.bak.20260522T191836Z
+ main_brain.py.bak.20260522T192625Z
+ main_brain.py.bak.20260522T192930Z
+ main_brain.py.bak.20260522T193224Z
+ main_brain.py.bak.20260522T202653Z
+ main_brain.py.bak.20260524_000429
+ main_brain.py.bak_legacy_chatlight
+ main_brain.py.bak_localnet
+ main_brain.py.bak_localnet_fixed
+ main_brain.py.bak_localnet_fixed2
+ main_brain.py.bak_pre_rag_fix_1778364422
+ main_brain.py.bak_sedpatch
+ main_brain.py.bak_ultimate_1770573774
+ main_brain.py.bak_ultimate_1770575025
+ main_brain.py.before_direct_fix
+ main_brain.py.before_final_fix
+ main_brain.py.before_mother_carrie
+ main_brain.py.before_mother_carrie_v2
+ main_brain.py.before_spiritual_integration
+ main_brain.py.before_spiritual_rag
+ main_brain.py.broken-20260413-134536
+ main_brain.py.manualbak
+ main_brain.py.manualbak3
+ main_brain.py.manualbak4
+ main_brain.py.manualbak5
+ main_brain.py.pre-aaacpe-fix-20260413-135408
+ main_brain.py.pre-aaacpe-fix-20260413-154757
+ main_brain.py.pre_aaacpe_patch
+ main_brain.py.pre-community-fix-20260413-134958
+ main_brain.py.pre-community-fullfix-20260413-135255
+ main_brain.py.pre-community-fullfix-20260413-154742
+ main_brain.py.pre_judges
+ main_brain.py.pre-local-summary-fix-20260413-135507
+ main_brain.py.pre-local-summary-fix-20260413-154816
+ main_brain.py.pre-phase4-dedupe-20260413-150822
+ main_brain.py.pre-phase4-dedupe-20260413-154851
+ main_brain.py.pre-phase4-fix-20260413-150714
+ main_brain.py.pre-phase4-fix-20260413-154833
+ main_brain.py.pre-synthesis-lines-fix-20260413-160601
+ main_brain.py.pre-synthesis-lines-fix2-20260413-161153
+ main_brain.py.pre-verified-fix-20260413-134834
+ main_brain_restart.log
+ main_brian.py
+ main.py
+ main.py.backup
+ main.py.BACKUP
+ main.py.backup.before_auto_storage
+ main.py.backup.broken
+ main.py.bak
+ main.py.bak_before_bridge_20251212_232206
+ main.py.bak_before_bridge_20251212_232349
+ main.py.bak.before_consciousness_fix
+ main.py.bak_enable_llmbridge_20251212_233118
+ main.py.bak_enable_llmbridge_20251212_233317
+ main.py.bak-msallis
+ main.py.current.safebak
+ main.py.FINALHEALTH.bak
+ main.py.from_container
+ main.py.fromcontainer.llmbridge
+ main.py.pre_enhancement.bak
+ main.py.working_backup_20251020_110429
+ main_qualia.py
+ main_restored.log
+ main_with_rag_9429.log
+ main_with_rag.py
+ majorriversandlakesline_nhd_2002_ll83_attrs.csv
+ majorriversandlakesline_nhd_2002_utm83_attrs.csv
+ majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
+ majorriversandlakespolygon_nhd_2002_utm83_attrs.csv
+ make_holy_spirit_connection_tools_available.sh
+ make_holy_spirit_connection_tools_available.sh.bak-msallis
+ make_persistent.sh
+ make_persistent.sh.bak-msallis
+ mamma_kidd_auth.py
+ mamma_kidd_auth.py.backup_20251013_201428
+ mamma_kidd_final.log
+ mamma_kidd_location.log
+ mamma_kidd.log
+ MAMMA_KIDD_PROTOCOL_GUIDE.md
+ MAMMA_KIDD_PROTOCOL_GUIDE.md.bak-msallis
+ MAMMA_KIDD_QUICK_REFERENCE.txt
+ manage_msjarvis.sh
+ manage_msjarvis.sh.bak-msallis
+ manifest_endpoints.py
+ manifest_endpoints.py.pre_dynamic_discovery
+ manual_storage_patch_9323.log
+ manual_storage_patch.py
+ manufacturingandbusiness_wvdo_200803_utm83_attrs.csv
+ master_chat_orchestrator_dynamic.py
+ master_chat_orchestrator_dynamic.py.bak-msallis
+ master_chat_orchestrator.py
+ master_chat_orchestrator.py.bak-msallis
+ master_chat_orchestrator.py.pre_dynamic_discovery
+ master_chat_orchestrator_v5_consciousness.py
+ master_chat_orchestrator_v5_consciousness.py.pre_dynamic_discovery
+ master_chat_orchestrator_v6_biologics.py
+ master_chat_orchestrator_v6_biologics.py.pre_dynamic_discovery
+ master_chat_orchestrator_v7_complete.py
+ master_chat_orchestrator_v7_complete.py.backup_vocabulary_cleanup
+ master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery
+ master_chat_orchestrator_v7_dynamic.py
+ master_chat_orchestrator_v8_spiritual_complete_4009.log
+ master_chat_orchestrator_v8_spiritual_complete.py
+ master_chat_orchestrator_v8_spiritual_complete.py.pre_dynamic_discovery
+ master_chat_orchestrator_v9_dgm_complete_9510.log
+ master_chat_orchestrator_v9_dgm_complete.log
+ master_chat_orchestrator_v9_dgm_complete.py
+ master_chat_orchestrator_v9_dgm_complete.py.backup_vocabulary_cleanup
+ master_chat_orchestrator_v9_dgm_complete.py.pre_dynamic_discovery
+ master_chat_orchestrator_v9_gpu_optimized.py
+ master_chat_orchestrator_v9_gpu_optimized.py.backup_1760564898
+ master_chat_orchestrator_v9_gpu_optimized.py.pre_dynamic_discovery
+ master_chat_orchestrator_v9_optimized.py
+ master_chat_orchestrator_v9_optimized.py.pre_dynamic_discovery
+ master_orchestrator_v9.log
+ master_system_audit.sh
+ master_unified_consciousness_scheduler_ENRICHED.py
+ master_unified_consciousness_scheduler.py
+ master_unified_consciousness_scheduler.py.backup_pre_enrichment_20251107_111721
+ MEGA_CONSCIOUSNESS.log
+ mega_deep_archive_search.sh
+ memory_dgm_engine_9919.log
+ memory_dgm_engine.log
+ memory_dgm_engine.py
+ memory_dgm_engine.py.backup_vocabulary_cleanup
+ memory_dgm_gateway.py
+ memory_engine.log
+ memory_manager.py
+ memory_probe.sh
+ memory_probe.sh.bak-msallis
+ mesh_agent_batch.sh
+ mesh_broadcast_event.sh
+ mesh_cohort_selfsum.sh
+ mesh_context_probe.sh
+ mesh_coordinator_interface.py
+ mesh_crossagent_memory_search.sh
+ mesh_dream_summary.sh
+ mesh_dream_summary.sh.bak-msallis
+ mesh_emotion_map.json
+ mesh_emotion_map.sh
+ mesh_explore_chain.sh
+ mesh_feed_back_insight.sh
+ mesh_feed_back_insight.sh.bak-msallis
+ mesh_interest_timeline.csv
+ mesh_interest_timeline.sh
+ mesh_memory_dashboard.sh
+ mesh_memory_probe.sh
+ mesh_probe.sh
+ mesh_scenario_drill.sh
+ mesh_social_graph.sh
+ mesh_tag_topk.sh
+ mesh_topn_context.sh
+ mesh_trend_detection.sh
+ messenger_service_fixed.py
+ messenger_service_fixed.py.bak-msallis
+ metfacp_reg_ll83_attrs.csv
+ METHOD_AUDIT_RAW.txt
+ METHOD_AUDIT_SEG_aa
+ METHOD_AUDIT_SEG_ab
+ METHOD_AUDIT_SEG_ac
+ METHOD_AUDIT_SEG_ad
+ METHOD_AUDIT_SEG_ae
+ METHOD_AUDIT_SEG_af
+ METHOD_AUDIT_SEG_ag
+ METHOD_AUDIT_SEG_ah
+ METHOD_AUDIT_SEG_ai
+ METHOD_AUDIT_SEG_aj
+ METHOD_AUDIT_SEG_ak
+ METHOD_AUDIT_SEG_al
+ METHOD_AUDIT_SEG_am
+ METHOD_AUDIT_SEG_an
+ METHOD_AUDIT_SEG_ao
+ METHOD_AUDIT_SEG_ap
+ METHOD_AUDIT_SEG_aq
+ method_tracker_decorator.py
+ method_tracking_helper.py
+ method_tracking_service.py
+ method_tracking_service.py.bak-msallis
+ metrics_service.py
+ metrics_service.py.bak-msallis
+ metropolitanandmicropolitanstatisticalareas_census_201111_gcs83_attrs.csv
+ metropolitanandmicropolitanstatisticalareas_census_201111_utm83_attrs.csv
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83_attrs.csv
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84_attrs.csv
+ metropolitanstatisticalareas_uscensus_199901_ll83_attrs.csv
+ metropolitanstatisticalareas_uscensus_199901_utm83_attrs.csv
+ migrate_blood_brain_barrier.py
+ migrate_chromadb_collections.py
+ migrate_gis2chroma.py
+ migrate_neurobiological_master.py
+ mineraloperations_usgs_200204_ll83_attrs.csv
+ mineraloperations_usgs_200204_utm83_attrs.csv
+ minesabandonedlandsline_wvdep_1996_noprojectoin_attrs.csv
+ minesabandonedlandspoint_wvdep_1996_noprojection_attrs.csv
+ minesabandonedlandspolygon_wvdep_1996_noprojection_attrs.csv
+ mistral_test.log
+ Modelfile.egeria
+ modify_autonomous_learning_cycle.py
+ monitor.log
+ monitor_ms_jarvis_memory.sh
+ monitor_orchestrator.sh
+ monitor_orchestrator.sh.bak-msallis
+ mother_carrie.log
+ mother_carrie_logging.py
+ mother_protocols.py
+ MountainShares6.pdf
+ mountainshares_chain_monitor.py
+ mountainshares_chain_monitor.py.bak-msallis
+ mountainshares_coordinator.py
+ mountainshares_gbim_suggester.py
+ mountainshares_ingest.py
+ mountainshares_integration.log
+ mountainshares_quest_api.py
+ mountainshares_registry.log
+ mountainshares_registry.py
+ move_huggingface_to_cpu.py
+ ms_egeria_facebook_autopost.py
+ ms_jarvis_agents_ollama_9907.log
+ ms_jarvis_agents_ollama.py
+ ms_jarvis_agents_ollama.py.bak-msallis
+ ms_jarvis_agents_ollama.py.before_identity
+ ms_jarvis_agents_service_9608.log
+ ms_jarvis_agents_service.py
+ ms_jarvis_agents_service.py.bak-msallis
+ ms_jarvis_alerting_manager_9714.log
+ ms_jarvis_alerting_manager.py
+ ms_jarvis_alerting_manager.py.bak-msallis
+ ms_jarvis_api_docs_9889.log
+ ms_jarvis_api_docs.py
+ ms_jarvis_api_docs.py.bak-msallis
+ msjarvisattributesgis_census.csv
+ ms_jarvis_attributes_gis.csv
+ msjarvisattributesgis.csv
+ msjarvisattributesgis_full_backup.csv
+ msjarvisattributesgis_small.csv
+ ms_jarvis_attributes_live.csv
+ ms_jarvis_attribute_table_service_9679.log
+ ms_jarvis_attribute_table_service.py
+ ms_jarvis_attribute_table_service.py.backup_before_portmanager
+ ms_jarvis_attribute_table_sync_continuous_9389.log
+ ms_jarvis_attribute_table_sync_continuous.py
+ ms_jarvis_attribute_table_sync_continuous.py.backup_before_portmanager
+ ms_jarvis_attribute_table_sync_continuous.py.backup_vocabulary_cleanup
+ ms_jarvis_attribute_table_sync_continuous.py.BROKEN
+ ms_jarvis_authentic_multi_llm_9760.log
+ ms_jarvis_authentic_multi_llm.py
+ ms_jarvis_authentic_multi_llm.py.bak-msallis
+ ms_jarvis_authentic_multi_llm.py.pre_dynamic_discovery
+ msjarvis_autolearner.log
+ msjarvis_autolearner_minimal.py
+ ms_jarvis_autonomous_learner_9309.log
+ ms_jarvis_autonomous_learner.current.log
+ ms_jarvis_autonomous_learner_FIXED_9590.log
+ ms_jarvis_autonomous_learner_FIXED.log
+ ms_jarvis_autonomous_learner_FIXED.py
+ ms_jarvis_autonomous_learner.log
+ ms_jarvis_autonomous_learner_optimized_9771.log
+ ms_jarvis_autonomous_learner_optimized.current.log
+ ms_jarvis_autonomous_learner_optimized.py
+ ms_jarvis_autonomous_learner_optimized.py.backup_before_auto_research
+ ms_jarvis_autonomous_learner_optimized.py.backup_before_portmanager
+ ms_jarvis_autonomous_learner_optimized.py.bak
+ ms_jarvis_autonomous_learner_optimized.py.bak_1765235983
+ ms_jarvis_autonomous_learner_optimized.py.bak-msallis
+ ms_jarvis_autonomous_learner_optimized.py.pre_dynamic_discovery
+ ms_jarvis_autonomous_learner_optimized.py.pre_rag_1765237169
+ ms_jarvis_autonomous_learner_optimized.py.pre_rag_1765237222
+ ms_jarvis_autonomous_learner.py
+ msjarvisautonomouslearner.py
+ ms_jarvis_autonomous_learner.py.backup_before_portmanager
+ ms_jarvis_autonomous_learner.py.backup_day2
+ msjarvisautonomouslearner.py.bak-20260114054922
+ msjarvisautonomouslearner.py.bak-20260114060021
+ ms_jarvis_autonomous_learner.py.bak-msallis
+ ms_jarvis_autonomous_learner.py.norag.20260119-091256
+ ms_jarvis_autonomous_learner.py.stub.20260119-091524
+ ms_jarvis_autonomous_learner_with_dgm.log
+ ms_jarvis_autonomous_learner_WITH_FIFTH_DGM_9695.log
+ ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py
+ ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py.backup_before_portmanager
+ ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py.bak-msallis
+ ms_jarvis_auto_service_9756.log
+ ms_jarvis_auto_service.py
+ ms_jarvis_auto_service.py.backup_vocabulary_cleanup
+ ms_jarvis_bbb_proxy.py
+ msjarvis_bbb_proxy.py
+ msjarvis_bbb_proxy.py.bak-msallis
+ msjarvis_benefit_rag.py
+ ms_jarvis_blockchain_deployment_9327.log
+ ms_jarvis_blockchain_deployment.py
+ ms_jarvis_blockchain_deployment.py.bak-msallis
+ ms_jarvis_blood_brain_barrier_9772.log
+ ms_jarvis_blood_brain_barrier.py
+ ms_jarvis_blood_brain_barrier.py.backup_1759893188
+ ms_jarvis_blood_brain_barrier.py.bak-msallis
+ ms_jarvis_blood_brain_barrier.py.pre_constitutional
+ ms_jarvis_brain_9991.log
+ ms_jarvis_brain_orchestrator_advanced_9722.log
+ ms_jarvis_brain_orchestrator_advanced.py
+ ms_jarvis_brain_orchestrator_advanced.py.bak-msallis
+ ms_jarvis_brain.py
+ ms_jarvis_brain.py.bak-msallis
+ ms_jarvis_brain.py.PORT8000_BACKUP
+ ms_jarvis_brain.py.pre_dynamic_discovery
+ ms_jarvis_chromadb_query_9014.log
+ ms_jarvis_chromadb_query.py
+ ms_jarvis_clean.log
+ ms_jarvis_cleanup_manager_9125.log
+ ms_jarvis_cleanup_manager.py
+ ms_jarvis_cleanup_manager.py.bak-msallis
+ msjarvis_client.py
+ ms_jarvis_command_orchestrator_9167.log
+ ms_jarvis_command_orchestrator_FINAL_9079.log
+ ms_jarvis_command_orchestrator_FINAL.log
+ ms_jarvis_command_orchestrator_FINAL.py
+ ms_jarvis_command_orchestrator_FINAL.py.bak-msallis
+ ms_jarvis_command_orchestrator_FINAL.py.pre_dynamic_discovery
+ ms_jarvis_command_orchestrator.py
+ ms_jarvis_command_orchestrator.py.backup_before_spiritual_fix
+ ms_jarvis_command_orchestrator.py.backup_holy_spirit
+ ms_jarvis_command_orchestrator.py.backup_sanctuary_builder
+ ms_jarvis_command_orchestrator.py.bak-msallis
+ ms_jarvis_command_orchestrator.py.pre_dynamic_discovery
+ ms_jarvis_command_orchestrator_v1.py.backup
+ ms_jarvis_command_orchestrator_v2.py.backup
+ ms_jarvis_command_orchestrator_v3.py.backup
+ ms_jarvis_command_orchestrator_v5.0_preachy_9630.log
+ ms_jarvis_command_orchestrator_v5.0_preachy.py
+ ms_jarvis_command_orchestrator_v5.0_preachy.py.bak-msallis
+ ms_jarvis_command_orchestrator_v5.0_preachy.py.pre_dynamic_discovery
+ ms_jarvis_command_orchestrator_v5_backup_9725.log
+ ms_jarvis_command_orchestrator_v5_backup.py
+ ms_jarvis_command_orchestrator_v5_backup.py.bak-msallis
+ ms_jarvis_command_orchestrator_v5_backup.py.pre_dynamic_discovery
+ MS_JARVIS_COMPLETE_AUDIT.md
+ MS_JARVIS_COMPLETE_AUDIT.md.bak-msallis
+ ms_jarvis_complete_knowledge_ingestion_9627.log
+ ms_jarvis_complete_knowledge_ingestion.py
+ ms_jarvis_conscious_collective_9579.log
+ ms_jarvis_conscious_collective.py
+ ms_jarvis_conscious_collective.py.bak-msallis
+ ms_jarvis_consciousness_bridge_9188.log
+ msjarvisconsciousnessbridge_9819.log
+ msjarvisconsciousnessbridge_ACTUAL.py
+ msjarvisconsciousnessbridge_ACTUAL.py.bak-msallis
+ ms_jarvis_consciousness_bridge_enhanced_9599.log
+ ms_jarvis_consciousness_bridge_enhanced.py
+ ms_jarvis_consciousness_bridge_enhanced.py.bak-msallis
+ ms_jarvis_consciousness_bridge_parallel_woah_9424.log
+ ms_jarvis_consciousness_bridge_parallel_woah.py
+ ms_jarvis_consciousness_bridge_parallel_woah.py.backup_vocabulary_cleanup
+ ms_jarvis_consciousness_bridge.py
+ msjarvisconsciousnessbridge.py
+ ms_jarvis_consciousness_bridge.py.backup_1759895250
+ ms_jarvis_consciousness_bridge.py.backup_1759895606
+ ms_jarvis_consciousness_bridge.py.backup_1760220435
+ ms_jarvis_consciousness_bridge.py.backup_before_22llm
+ ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy
+ ms_jarvis_consciousness_bridge.py.backup_before_hierarchy
+ ms_jarvis_consciousness_bridge.py.backup_pre_fixes
+ ms_jarvis_consciousness_bridge.py.backup_pre_location_integration
+ msjarvisconsciousnessbridge.py.bak.20260507-222706
+ ms_jarvis_consciousness_bridge.py.bak-msallis
+ msjarvisconsciousnessbridge.py.bak-msallis
+ ms_jarvis_consciousness_bridge.py.before_complete_architecture
+ ms_jarvis_consciousness_bridge.py.before_final_fix
+ ms_jarvis_consciousness_bridge.py.before_full_integration
+ ms_jarvis_consciousness_bridge.py.before_judge_fix
+ ms_jarvis_consciousness_bridge.py.before_mamma_protocol
+ ms_jarvis_consciousness_bridge.py.before_persona_fix
+ ms_jarvis_consciousness_bridge.py.before_prompt_fix
+ ms_jarvis_consciousness_bridge.py.before_rag_web
+ ms_jarvis_consciousness_bridge.py.before_small_models
+ ms_jarvis_consciousness_bridge.py.before_theology
+ ms_jarvis_consciousness_bridge.py.before_true_woah
+ msjarvisconsciousnessbridge.py.FULL_BACKUP_BEFORE_BRIDGE_RESET
+ ms_jarvis_consciousness_bridge.py.original
+ ms_jarvis_consciousness_bridge.py.phase1_working
+ ms_jarvis_consciousness_bridge.py.pre_agent_identity
+ ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery
+ ms_jarvis_consciousness_bridge.py.pre_identity_integration
+ ms_jarvis_consciousness_bridge.py.safe_backup
+ ms_jarvis_consciousness_bridge.py.working_backup
+ ms_jarvis_consciousness_bridge_service_9295.log
+ ms_jarvis_consciousness_bridge_service.py
+ ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM_9327.log
+ ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
+ ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.backup_vocabulary_cleanup
+ ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.bak-msallis
+ ms_jarvis_consciousness_bridge_woah_9042.log
+ ms_jarvis_consciousness_bridge_woah.psychology_patched_9839.log
+ ms_jarvis_consciousness_bridge_woah.psychology_patched.py
+ ms_jarvis_consciousness_bridge_woah.py
+ ms_jarvis_consciousness_bridge_woah.py.backup_20251031
+ ms_jarvis_consciousness_complete_9108.log
+ ms_jarvis_consciousness_complete.py
+ ms_jarvis_consciousness_complete.py.pre_dynamic_discovery
+ ms_jarvis_consciousness_enhancement_production_9046.log
+ ms_jarvis_consciousness_enhancement_production.py
+ ms_jarvis_consciousness_final_9876.log
+ ms_jarvis_consciousness_final.py
+ ms_jarvis_consciousness_final.py.pre_dynamic_discovery
+ ms_jarvis_consciousness_poster_9092.log
+ ms_jarvis_consciousness_poster_FIXED_9939.log
+ ms_jarvis_consciousness_poster_FIXED.log
+ ms_jarvis_consciousness_poster_FIXED.py
+ ms_jarvis_consciousness_poster_FIXED.py.pre_dynamic_discovery
+ ms_jarvis_consciousness_poster.py
+ ms_jarvis_consciousness_poster.py.backup_vocabulary_cleanup
+ ms_jarvis_consciousness_unified_bridge_9924.log
+ ms_jarvis_consciousness_unified_bridge.py
+ ms_jarvis_consensus_service_9921.log
+ ms_jarvis_consensus_service.py
+ ms_jarvis_consensus_service.py.bak-msallis
+ ms_jarvis_consensus_service.py.before_honest
+ ms_jarvis_consensus_service.py.pre_dynamic_discovery
+ ms_jarvis_contract_builder_9572.log
+ ms_jarvis_contract_builder.log
+ ms_jarvis_contract_builder.py
+ ms_jarvis_contract_builder_v2_9785.log
+ ms_jarvis_contract_builder_v2.py
+ ms_jarvis_contract_forge.py
+ ms_jarvis_contract_forge.py.bak-msallis
+ ms_jarvis_conversational_chat_9131.log
+ ms_jarvis_conversational_chat.py
+ ms_jarvis_conversational_chat.py.bak-msallis
+ ms_jarvis_conversational_gateway_4022_9065.log
+ ms_jarvis_conversational_gateway_4022.py
+ ms_jarvis_conversational_gateway_4022.py.bak-msallis
+ ms_jarvis_conversational_gateway_4022.py.pre_dynamic_discovery
+ ms_jarvis_daily_backup_9632.log
+ ms_jarvis_daily_backup.py
+ ms_jarvis_daily_backup.py.backup_vocabulary_cleanup
+ ms_jarvis_darwin_godel_machine_9142.log
+ ms_jarvis_darwin_godel_machine.py
+ ms_jarvis_darwin_godel_machine.py.bak-msallis
+ MS_JARVIS_DEEP_MODE_DEPLOYMENT.md
+ MS_JARVIS_DEEP_MODE_DEPLOYMENT.md.bak-msallis
+ MS_JARVIS_DEPLOYMENT_SUCCESS.md
+ MS_JARVIS_DEPLOYMENT_SUCCESS.md.bak-msallis
+ ms_jarvis_dynamic_model_selector_9235.log
+ ms_jarvis_dynamic_model_selector.py
+ ms_jarvis_easyocr_processor_9131.log
+ ms_jarvis_easyocr_processor_old_9788.log
+ ms_jarvis_easyocr_processor_old.py
+ ms_jarvis_easyocr_processor.py
+ ms_jarvis_easyocr_processor.py.backup_vocabulary_cleanup
+ ms_jarvis_email_identity_verifier_9688.log
+ ms_jarvis_email_identity_verifier.py
+ ms_jarvis_email_identity_verifier.py.bak-msallis
+ ms_jarvis_email_monitor_9077.log
+ ms_jarvis_email_monitor.py
+ ms_jarvis_email_service_9406.log
+ ms_jarvis_email_service.py
+ ms_jarvis_email_service.py.backup_vocabulary_cleanup
+ ms_jarvis_email_service.py.bak-msallis
+ ms_jarvis_eternal_watchdog_9232.log
+ ms_jarvis_eternal_watchdog.py
+ ms_jarvis_eternal_watchdog.py.backup
+ ms_jarvis_eternal_watchdog.py.NEW
+ ms_jarvis_eternal_watchdog.py.ORIGINAL
+ ms_jarvis_exclusive_training_layer_9763.log
+ ms_jarvis_exclusive_training_layer.py
+ ms_jarvis_exclusive_training_layer.py.bak-msallis
+ ms_jarvis_expiration_monitor_9432.log
+ ms_jarvis_expiration_monitor.py
+ ms_jarvis_facebook_async_9489.log
+ ms_jarvis_facebook_async.py
+ ms_jarvis_facebook_async.py.bak-msallis
+ ms_jarvis_facebook_autonomous_social_9815.log
+ ms_jarvis_facebook_autonomous_social.py
+ ms_jarvis_facebook_brain_integrated_9597.log
+ ms_jarvis_facebook_brain_integrated.py
+ ms_jarvis_facebook_CONSCIOUSNESS_9361.log
+ ms_jarvis_facebook_CONSCIOUSNESS_FIXED_9556.log
+ ms_jarvis_facebook_CONSCIOUSNESS_FIXED.backup.1762804903
+ ms_jarvis_facebook_CONSCIOUSNESS_FIXED.log
+ ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py
+ ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py.backup.1762804577
+ ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py.backup_1762804648
+ ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py.backup_20251109_180216
+ ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py.bak-msallis
+ ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py.pre_dynamic_discovery
+ ms_jarvis_facebook_CONSCIOUSNESS.log
+ ms_jarvis_facebook_CONSCIOUSNESS.py
+ ms_jarvis_facebook_CONSCIOUSNESS.py.bak-msallis
+ ms_jarvis_facebook_DGM_9231.log
+ ms_jarvis_facebook_DGM.py
+ ms_jarvis_facebook_DGM.py.bak-msallis
+ ms_jarvis_facebook_DGM.py.pre_dynamic_discovery
+ ms_jarvis_facebook_dgm_woah_9189.log
+ ms_jarvis_facebook_dgm_woah.psychology_patched_9919.log
+ ms_jarvis_facebook_dgm_woah.psychology_patched.py
+ ms_jarvis_facebook_dgm_woah.psychology_patched.py.bak-msallis
+ ms_jarvis_facebook_dgm_woah.py
+ ms_jarvis_facebook_dgm_woah.py.backup_20251031
+ ms_jarvis_facebook_dgm_woah.py.backup_vocabulary_cleanup
+ ms_jarvis_facebook_dgm_woah.py.bak-msallis
+ ms_jarvis_facebook_full_9115.log
+ ms_jarvis_facebook_full.py
+ ms_jarvis_facebook_full.py.backup_vocabulary_cleanup
+ ms_jarvis_facebook_intelligent_9629.log
+ ms_jarvis_facebook_intelligent.py
+ ms_jarvis_facebook_intelligent.py.bak-msallis
+ ms_jarvis_facebook_poster_8040_9168.log
+ ms_jarvis_facebook_poster_8040.py
+ ms_jarvis_facebook_poster_8040.py.bak-msallis
+ ms_jarvis_facebook_poster_9077.log
+ ms_jarvis_facebook_poster_FIXED_9220.log
+ ms_jarvis_facebook_poster_FIXED.log
+ ms_jarvis_facebook_poster_FIXED.py
+ ms_jarvis_facebook_poster_FIXED.py.bak-msallis
+ ms_jarvis_facebook_poster.py
+ ms_jarvis_facebook_poster.py.bak-msallis
+ ms_jarvis_facebook_poster_temp_9391.log
+ ms_jarvis_facebook_poster_temp.py
+ ms_jarvis_facebook_poster_temp.py.bak-msallis
+ ms_jarvis_facebook_poster_v3_9706.log
+ ms_jarvis_facebook_poster_v3.py
+ ms_jarvis_facebook_PRODUCTION_9632.log
+ ms_jarvis_facebook_PRODUCTION.log
+ ms_jarvis_facebook_PRODUCTION.py
+ ms_jarvis_facebook_PRODUCTION.py.backup2
+ ms_jarvis_facebook_PRODUCTION.py.backup_permissions
+ ms_jarvis_facebook_PRODUCTION.py.bak-msallis
+ ms_jarvis_facebook_rag_9924.log
+ ms_jarvis_facebook_rag.py
+ ms_jarvis_facebook_rag.py.bak-msallis
+ ms_jarvis_facebook_ULTIMATE.py.OLD
+ ms_jarvis_facebook_webhook_9049.log
+ ms_jarvis_facebook_webhook.py
+ ms_jarvis_facebook_webhook.py.bak-msallis
+ ms_jarvis_facebook_webhooks_9671.log
+ ms_jarvis_facebook_webhooks.py
+ ms_jarvis_facebook_webhooks.py.bak-msallis
+ ms_jarvis_fact_filter_9255.log
+ ms_jarvis_fact_filter.py
+ ms_jarvis_feed_reader_PRODUCTION_9003.log
+ ms_jarvis_feed_reader_PRODUCTION.log
+ ms_jarvis_feed_reader_PRODUCTION.py
+ ms_jarvis_feed_reader_PRODUCTION.py.backup_vocabulary_cleanup
+ ms_jarvis_feed_reader_WORKING_9521.log
+ ms_jarvis_feed_reader_WORKING.py
+ ms_jarvis_fifth_dgm_orchestrator_9919.log
+ ms_jarvis_fifth_dgm_orchestrator.psychology_patched_9742.log
+ ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
+ ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py.pre_dynamic_discovery
+ ms_jarvis_fifth_dgm_orchestrator.py
+ ms_jarvis_fifth_dgm_orchestrator.py.backup_20251031
+ ms_jarvis_fifth_dgm_orchestrator.py.backup_20251205233002
+ ms_jarvis_fifth_dgm_orchestrator.py.before_filtering
+ ms_jarvis_fifth_dgm_orchestrator.py.before_woah_fix
+ ms_jarvis_fifth_dgm_orchestrator.py.pre_dynamic_discovery
+ MS_JARVIS_FINAL_DEPLOYMENT.sh
+ MS_JARVIS_FINAL_DEPLOYMENT.sh.bak-msallis
+ ms_jarvis_FINAL_FIXES.log
+ ms_jarvis_FINAL.log
+ MS_JARVIS_FINAL_VICTORY_REPORT.md
+ MS_JARVIS_FINAL_VICTORY_REPORT.md.bak-msallis
+ ms_jarvis_FINAL_WORKING.log
+ ms_jarvis_fractal_consciousness_9298.log
+ ms_jarvis_fractal_consciousness_FIXED_9130.log
+ ms_jarvis_fractal_consciousness_FIXED.log
+ ms_jarvis_fractal_consciousness_FIXED.py
+ ms_jarvis_fractal_consciousness.py
+ msjarvis_fractal_consciousness.py
+ msjarvisfractalconsciousness.py
+ ms_jarvis_fractal_consciousness.py.backup_vocabulary_cleanup
+ ms_jarvis_fractal_consciousness.py.bak-msallis
+ msjarvisfractalconsciousness.py.bak-msallis
+ ms_jarvis_fractal_dgm_woah_9260.log
+ ms_jarvis_fractal_dgm_woah.py
+ ms_jarvis_fractal_dgm_woah.py.backup_vocabulary_cleanup
+ ms_jarvis_fractal_dgm_woah.py.bak-msallis
+ ms_jarvis_full_neurobio_chat_9765.log
+ ms_jarvis_full_neurobio_chat.py
+ ms_jarvis_full_neurobio_chat.py.bak_20260118152254
+ ms_jarvis_full_neurobio_chat.py.pre_dynamic_discovery
+ ms_jarvis_fully_autonomous_coordinator_9723.log
+ ms_jarvis_fully_autonomous_coordinator.py
+ msjarvis_functions_fixed.zip
+ msjarvis_gateway_v2_final_9306.log
+ msjarvis_gateway_v2_final.py
+ msjarvis_gateway_v2_final.py.bak-msallis
+ msjarvis_gateway_v2_final.py.pre_dynamic_discovery
+ msjarvis_gateway_with_judge_filtering_9631.log
+ msjarvis_gateway_with_judge_filtering.py
+ msjarvis_gateway_with_judge_filtering.py.bak-msallis
+ msjarvis_gateway_with_judge_filtering.py.pre_dynamic_discovery
+ ms_jarvis_generate_frontend_9210.log
+ ms_jarvis_generate_frontend.py
+ ms_jarvis_generate_frontend.py.pre_dynamic_discovery
+ ms_jarvis_GENTLE_FILTER.log
+ ms_jarvis_geographic_research.js
+ msjarvis_geotiff_to_csv.sh
+ ms_jarvis_geo_tracker_simple_9755.log
+ ms_jarvis_geo_tracker_simple.py
+ ms_jarvis_geo_ueid_integration_9103.log
+ ms_jarvis_geo_ueid_integration.py
+ ms_jarvis_gis_enhanced_chat_9250.log
+ ms_jarvis_gis_enhanced_chat.py
+ ms_jarvis_gis_enhanced_chat.py.pre_dynamic_discovery
+ ms_jarvis_gis_georeferencing_sync_9635.log
+ ms_jarvis_gis_georeferencing_sync_FIXED_9846.log
+ ms_jarvis_gis_georeferencing_sync_FIXED.py
+ ms_jarvis_gis_georeferencing_sync_FIXED_V2_9805.log
+ ms_jarvis_gis_georeferencing_sync_FIXED_V2.py
+ ms_jarvis_gis_georeferencing_sync.py
+ ms_jarvis_gis_georeferencing_sync.py.backup
+ ms_jarvis_gis_georeferencing_sync.py.backup_before_portmanager
+ ms_jarvis_gis_georeferencing_sync.py.backup_vocabulary_cleanup
+ msjarvis_gis_manifest.csv
+ ms_jarvis_gis_query_service_9770.log
+ ms_jarvis_gis_query_service_backup_9603.log
+ ms_jarvis_gis_query_service_backup.py
+ ms_jarvis_gis_query_service_backup.py.bak-msallis
+ ms_jarvis_gis_query_service.py
+ ms_jarvis_gis_query_service.py.bak-msallis
+ ms_jarvis_gis_query_with_bbb_gisgeodb_9097.log
+ ms_jarvis_gis_query_with_bbb_gisgeodb.psychology_patched_9935.log
+ ms_jarvis_gis_query_with_bbb_gisgeodb.psychology_patched.py
+ ms_jarvis_gis_query_with_bbb_gisgeodb.py
+ ms_jarvis_gis_query_with_bbb_gisgeodb.py.backup_20251031
+ ms_jarvis_i_containers_FIXED_9718.log
+ ms_jarvis_i_containers_FIXED.log
+ ms_jarvis_i_containers_FIXED.py
+ msjarvis_icontainers.py
+ msjarvis_icontainers.py.bak-msallis
+ ms_jarvis_i_containers_service_9287.log
+ ms_jarvis_i_containers_service.py
+ msjarvisicontainersservice.py
+ ms_jarvis_i_containers_service.py.backup_1759893188
+ ms_jarvis_i_containers_service.py.bak-msallis
+ msjarvisicontainersservice.py.bak-msallis
+ ms_jarvis_i_containers_service.py.broken
+ ms_jarvis_id_ocr_processor_9463.log
+ ms_jarvis_id_ocr_processor.py
+ ms_jarvis_integration_hub_9081.log
+ ms_jarvis_integration_hub.py
+ ms_jarvis_integration_hub.py.bak-msallis
+ ms_jarvis_layer2_dgm_9770.log
+ ms_jarvis_layer2_dgm.psychology_patched_9089.log
+ ms_jarvis_layer2_dgm.psychology_patched.py
+ ms_jarvis_layer2_dgm.psychology_patched.py.backup_vocabulary_cleanup
+ ms_jarvis_layer2_dgm.py
+ ms_jarvis_layer2_dgm.py.backup_20251031
+ ms_jarvis_layer2_woah_9735.log
+ ms_jarvis_layer2_woah.py
+ ms_jarvis_link_reader_scheduled_9430.log
+ ms_jarvis_link_reader_scheduled_FIXED_9450.log
+ ms_jarvis_link_reader_scheduled_FIXED.log
+ ms_jarvis_link_reader_scheduled_FIXED.py
+ ms_jarvis_link_reader_scheduled_FIXED.py.backup_vocabulary_cleanup
+ ms_jarvis_link_reader_scheduled.py
+ ms_jarvis_llm_bridge_9908.log
+ ms_jarvis_llm_bridge.current.log
+ ms_jarvis_llm_bridge.py
+ ms_jarvis_llm_bridge.py.bak-msallis
+ ms_jarvis_llm_bridge.py.broken
+ ms_jarvis_llm_bridge.py.pre_dynamic_discovery
+ ms_jarvis_llm_bridge_simple_9303.log
+ ms_jarvis_llm_bridge_simple.py
+ ms_jarvis_llm_bridge_simple.py.bak-msallis
+ ms_jarvis_local_resources_api.py
+ ms_jarvis_local_resources_api.py.bak-msallis
+ ms_jarvis_location_services_9808.log
+ ms_jarvis_location_services.py
+ ms_jarvis_location_services.py.bak-msallis
+ msjarvis.log
+ ms_jarvis_main_gateway_8000.py
+ ms_jarvis_main_gateway_8000.py.bak-msallis
+ ms_jarvis_main_gateway_9124.log
+ ms_jarvis_main_gateway.backup_1762220815_9760.log
+ ms_jarvis_main_gateway.backup_1762220815.py
+ ms_jarvis_main_gateway.backup_error
+ ms_jarvis_main_gateway.backup_error_9347.log
+ ms_jarvis_main_gateway.backup_error.py
+ ms_jarvis_main_gateway.backup_test_9747.log
+ ms_jarvis_main_gateway.backup_test.py
+ ms_jarvis_main_gateway.backup_test.py.bak-msallis
+ ms_jarvis_main_gateway.broken_final_9520.log
+ ms_jarvis_main_gateway.broken_final.py
+ ms_jarvis_main_gateway.broken_final.py.bak-msallis
+ ms_jarvis_main_gateway.error_final
+ ms_jarvis_main_gateway.error_final_9676.log
+ ms_jarvis_main_gateway.error_final.py
+ ms_jarvis_main_gateway.error_final.py.bak-msallis
+ ms_jarvis_main_gateway.pre_fix_9581.log
+ ms_jarvis_main_gateway.pre_fix.py
+ ms_jarvis_main_gateway.pre_fix.py.backup_vocabulary_cleanup
+ ms_jarvis_main_gateway.pre_fix.py.bak-msallis
+ ms_jarvis_main_gateway.proxy_backup_9695.log
+ ms_jarvis_main_gateway.proxy_backup.py
+ ms_jarvis_main_gateway.proxy_backup.py.bak-msallis
+ ms_jarvis_main_gateway.proxy_final_9690.log
+ ms_jarvis_main_gateway.proxy_final.py
+ ms_jarvis_main_gateway.proxy_final.py.bak-msallis
+ ms_jarvis_main_gateway.proxy_still_broken_9517.log
+ ms_jarvis_main_gateway.proxy_still_broken.py
+ ms_jarvis_main_gateway.proxy_still_broken.py.bak-msallis
+ ms_jarvis_main_gateway.py
+ msjarvismaingateway.py
+ ms_jarvis_main_gateway.py.30endpoints_backup_9352.log
+ ms_jarvis_main_gateway.py.30endpoints_backup.py
+ ms_jarvis_main_gateway.py.30endpoints_backup.py.bak-msallis
+ ms_jarvis_main_gateway.py.backup2
+ ms_jarvis_main_gateway.py.bak-msallis
+ ms_jarvis_main_gateway.py.broken
+ ms_jarvis_main_gateway.py.corrupted37_backup_1762223499_9030.log
+ ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py
+ ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py.bak-msallis
+ ms_jarvis_main_gateway.py.full_backup_1762223304_9476.log
+ ms_jarvis_main_gateway.py.full_backup_1762223304.py
+ ms_jarvis_main_gateway.py.full_backup_1762223304.py.bak-msallis
+ ms_jarvis_main_gateway.py.locked_backup
+ ms_jarvis_memory.py
+ ms_jarvis_memory.py.bak
+ ms_jarvis_memory.py.bak-msallis
+ ms_jarvis_memory_service_8010.log
+ ms_jarvis_memory_service_9400.log
+ ms_jarvis_memory_service.py
+ ms_jarvis_memory_service.py.bak-msallis
+ ms_jarvis_messenger_ui_9297.log
+ ms_jarvis_messenger_ui_final_9846.log
+ ms_jarvis_messenger_ui_final.py
+ ms_jarvis_messenger_ui_final.py.bak-msallis
+ ms_jarvis_messenger_ui_fixed_9737.log
+ ms_jarvis_messenger_ui_fixed.py
+ ms_jarvis_messenger_ui_fixed.py.bak-msallis
+ ms_jarvis_messenger_ui.py
+ ms_jarvis_messenger_ui.py.bak-msallis
+ ms_jarvis_metadata_aware_learner_9888.log
+ ms_jarvis_metadata_aware_learner.py
+ ms_jarvis_microsoft_integration_9436.log
+ ms_jarvis_microsoft_integration_FIXED_9923.log
+ ms_jarvis_microsoft_integration_FIXED.log
+ ms_jarvis_microsoft_integration_FIXED.py
+ ms_jarvis_microsoft_integration_FIXED.py.bak-msallis
+ ms_jarvis_microsoft_integration.py
+ ms_jarvis_microsoft_integration.py.backup_vocabulary_cleanup
+ ms_jarvis_microsoft_integration.py.bak-msallis
+ ms_jarvis_mother_carrie_protocols_9632.log
+ ms_jarvis_mother_carrie_protocols.py
+ ms_jarvis_mother_carrie_protocols.py.bak-msallis
+ ms_jarvis_mountainshares_integration_9432.log
+ ms_jarvis_mountainshares_integration.py
+ ms_jarvis_neurobiological_master_9993.log
+ ms_jarvis_neurobiological_master.py
+ ms_jarvis_neurobiological_master.py.backup_1759893188
+ ms_jarvis_neurobiological_master.py.bak-msallis
+ ms_jarvis_paddleocr_processor_9897.log
+ ms_jarvis_paddleocr_processor.py
+ ms_jarvis_phi_probe.py
+ msjarvis_ports_runtime.txt
+ msjarvis_processes_runtime.txt
+ ms_jarvis_production_chat_9814.log
+ ms_jarvis_production_chat_BACKUP_9082.log
+ ms_jarvis_production_chat_BACKUP.py
+ ms_jarvis_production_chat_BACKUP.py.pre_dynamic_discovery
+ ms_jarvis_production_chat_BEFORE_GIS_9373.log
+ ms_jarvis_production_chat_BEFORE_GIS.py
+ ms_jarvis_production_chat_BEFORE_GIS.py.pre_dynamic_discovery
+ ms_jarvis_production_chat.py
+ ms_jarvis_production_chat.py.backup_before_neurobio
+ ms_jarvis_production_chat.py.backup_vocabulary_cleanup
+ ms_jarvis_production_chat.py.bak.1779562599
+ ms_jarvis_production_chat.py.pre_dynamic_discovery
+ MS_JARVIS_PRODUCTION_FINAL.sh
+ ms_jarvis_psychology_services_9738.log
+ ms_jarvis_psychology_services.py
+ ms_jarvis_qualia_engine_9390.log
+ msjarvis_qualia_engine.log
+ ms_jarvis_qualia_engine.py
+ ms_jarvis_qualia_engine.py.backup_1759893188
+ ms_jarvis_qualia_engine.py.bak-msallis
+ ms_jarvis_rag_server.py
+ ms_jarvis_rag_server.py.20260515_201523.bak
+ ms_jarvis_rag_server.py.bak.20260430-211218
+ ms_jarvis_rag_server.py.dgm_backup
+ msjarvisragserver_wvpatch.py
+ msjarvisragserverwvpatch.py
+ msjarvisragserver_wvpatch.py.bak-msallis
+ ms_jarvis_ram_watchdog_9946.log
+ ms_jarvis_ram_watchdog.py
+ ms_jarvis_ram_watchdog.py.bak-msallis
+ msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py
+ msjarvis-rebuild-nbb_consciousness_containers-1_main.py
+ msjarvis-rebuild-nbb_heteroglobulin_transport-1_main.py
+ msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
+ msjarvis-rebuild-nbb_mother_carrie_protocols-1_main.py
+ msjarvis-rebuild-nbb_pituitary_gland-1_main.py
+ msjarvis-rebuild-nbb_prefrontal_cortex-1_main.py
+ msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py
+ msjarvis-rebuild-nbb_spiritual_maternal_integration-1_main.py
+ msjarvis-rebuild-nbb_spiritual_root-1_main.py
+ msjarvis-rebuild-nbb_subconscious-1_main.py
+ msjarvis-rebuild-nbb_woah_algorithms-1_service_discovery.py
+ msjarvis-rebuild-nbb_woah_algorithms-1_service_discovery.py.bak-msallis
+ ms_jarvis_REFINED.log
+ ms_jarvis_seamless_monitor_9930.log
+ ms_jarvis_seamless_monitor.py
+ msjarvis_semaphore.py
+ msjarvis_semaphore.py.bak-msallis
+ msjarvis.service
+ ms_jarvis_service_factory_9936.log
+ ms_jarvis_service_factory.py
+ ms_jarvis_service_factory.py.bak-msallis
+ ms_jarvis_showcase_api_9963.log
+ ms_jarvis_showcase_api.py
+ msjarvis_shp_to_csv.sh
+ ms_jarvis_silent_geo_tracker_9572.log
+ ms_jarvis_silent_geo_tracker.py
+ ms_jarvis_simple_web_ui_9649.log
+ ms_jarvis_simple_web_ui.py
+ ms_jarvis_spiritual_services_4009.log
+ msjarvisspiritualservices_4009.log
+ ms_jarvis_spiritual_services_9826.log
+ ms_jarvis_spiritual_services.py
+ ms_jarvis_spiritual_services.py.bak-msallis
+ MS_JARVIS_STATUS_REPORT.md
+ MS_JARVIS_STATUS_REPORT.md.bak-msallis
+ ms_jarvis_substack_reader_9316.log
+ ms_jarvis_substack_reader.py
+ ms_jarvis_substack_reader.py.bak-msallis
+ ms_jarvis_swap_memory_manager_9115.log
+ ms_jarvis_swap_memory_manager.py
+ ms_jarvis_swap_memory_manager.py.bak-msallis
+ ms_jarvis_swarm_intelligence_9921.log
+ ms_jarvis_swarm_intelligence.py
+ ms_jarvis_swarm_intelligence.py.pre_dynamic_discovery
+ ms_jarvis_sync_monitor_9898.log
+ ms_jarvis_sync_monitor.py
+ ms_jarvis_sync_monitor.py.backup_before_portmanager
+ ms_jarvis_temporal_consciousness_9220.log
+ ms_jarvis_temporal_consciousness.py
+ ms_jarvis_temporal_consciousness.py.bak-msallis
+ ms_jarvis_theological_integration_9882.log
+ ms_jarvis_theological_integration.py
+ ms_jarvis_theological_integration.py.backup_vocabulary_cleanup
+ ms_jarvis_theological_integration.py.bak-msallis
+ ms_jarvis_tile_index_20251028_225447.csv
+ ms_jarvis_tile_index_20251028_234406.csv
+ ms_jarvis_toroidal_consciousness_9720.log
+ ms_jarvis_toroidal_consciousness.py
+ msjarvistoroidalconsciousness.py
+ ms_jarvis_toroidal_consciousness.py.bak-msallis
+ msjarvistoroidalconsciousness.py.bak-msallis
+ ms_jarvis_truth_filter_gisgeodb_9054.log
+ ms_jarvis_truth_filter_gisgeodb.py
+ ms_jarvis_ueid_system_9671.log
+ ms_jarvis_ueid_system.py
+ ms_jarvis_ueid_system.py.bak-msallis
+ ms_jarvis_ueid_wallet_integration_9477.log
+ ms_jarvis_ueid_wallet_integration.py
+ MS_JARVIS_ULTIMATE_AUDIT_20251010_002719.txt
+ ms_jarvis_ULTIMATE.py:_9222.log
+ ms_jarvis_ULTIMATE.py.backup_1760806129
+ ms_jarvis_ULTIMATE.py.before_agent_fix
+ ms_jarvis_ULTIMATE.py.before_bbb
+ ms_jarvis_ULTIMATE.py.before_fixes
+ ms_jarvis_ULTIMATE.py.OLD
+ ms_jarvis_unified_gateway_9085.log
+ ms_jarvis_unified_gateway.py
+ msjarvis_unified_gateway.py
+ msjarvisunifiedgateway.py
+ ms_jarvis_unified_gateway.py.backup_vocabulary_cleanup
+ ms_jarvis_unified_gateway.py.bak_1768840523
+ ms_jarvis_unified_gateway.py.bak_1768841920
+ ms_jarvis_unified_gateway.py.bak.20260501_154501
+ ms_jarvis_unified_gateway.py.bak.20260507-222001
+ ms_jarvis_unified_gateway.py.bak.20260515T124756
+ ms_jarvis_unified_gateway.py.bak.20260515T131126
+ msjarvisunifiedgateway.py.bak-msallis
+ ms_jarvis_unified_gateway.py.BEFORE_REAL_CHAT_1768842649
+ ms_jarvis_unified_gateway.py.FORCED_UNIFIED_BACKUP
+ ms_jarvis_unified_gateway.py.pre_constitutional
+ ms_jarvis_unified_gateway.py.WORKING_1768842334
+ ms_jarvis_unified_gateway_v4.3.20251124.py
+ ms_jarvis_unified_gateway_v4.3.20251124.py.bak-msallis
+ ms_jarvis_unified_gateway_v4.3_9863.log
+ ms_jarvis_unified_gateway_v4.3.backup_9871.log
+ ms_jarvis_unified_gateway_v4.3.backup.py
+ ms_jarvis_unified_gateway_v4.3.backup.py.bak-msallis
+ ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION_9882.log
+ ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py
+ ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py.bak-msallis
+ ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP_9314.log
+ ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py
+ ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py.backup.1762458819
+ ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py.backup_vocabulary_cleanup
+ ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py.bak-msallis
+ ms_jarvis_unified_gateway_v4.3.log
+ ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER_9195.log
+ ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py
+ ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py.bak-msallis
+ ms_jarvis_unified_gateway_v4.3.pre_manifest.backup_9113.log
+ ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py
+ ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py.bak-msallis
+ ms_jarvis_unified_gateway_v4.3.py
+ ms_jarvis_unified_gateway_v4.3.py.backup_1762520299
+ ms_jarvis_unified_gateway_v4.3.py.backup.1762722387
+ ms_jarvis_unified_gateway_v4.3.py.BACKUP_1762777467
+ ms_jarvis_unified_gateway_v4.3.py.BACKUP_AUTH_1762778121
+ ms_jarvis_unified_gateway_v4.3.py.BACKUP_CHAT_1762778286
+ ms_jarvis_unified_gateway_v4.3.py.BACKUP_CORRECT_20251109_141823
+ ms_jarvis_unified_gateway_v4.3.py.BACKUP_DNSADD_202511100838
+ ms_jarvis_unified_gateway_v4.3.py.BACKUP_GIS
+ ms_jarvis_unified_gateway_v4.3.py.BACKUP_JWT_202511100840
+ ms_jarvis_unified_gateway_v4.3.py.BACKUP_MICROSERVICES
+ ms_jarvis_unified_gateway_v4.3.py.BACKUP_OPENCHAT_202511100915
+ ms_jarvis_unified_gateway_v4.3.py.backup.pre_consciousness
+ ms_jarvis_unified_gateway_v4.3.py.BACKUP_SWAGGER_EXPANSION_20251109_141525
+ ms_jarvis_unified_gateway_v4.3.py.bak_alt
+ ms_jarvis_unified_gateway_v4.3.py.bak_chroma
+ ms_jarvis_unified_gateway_v4.3.py.bak_config
+ ms_jarvis_unified_gateway_v4.3.py.bak-msallis
+ ms_jarvis_unified_gateway_v4.3.py.bak_ports
+ ms_jarvis_unified_gateway_v4.3.py.BEFORE_INVESTIGATION
+ ms_jarvis_unified_gateway_v4.3.py.FINAL_BACKUP_1762710032
+ ms_jarvis_unified_gateway_v4.3.py.original
+ ms_jarvis_unified_gateway_v4.3.py.pre_dynamic_discovery
+ ms_jarvis_unified_gateway_v4.3.py.PRE_GUARDS_20251105_171934
+ ms_jarvis_unified_gateway_v4.3.py.REGISTRY_FIX_BACKUP
+ ms_jarvis_unified_gateway_v4.3.py.working_backup
+ ms_jarvis_unified_rag_bridge_9600.log
+ ms_jarvis_unified_rag_bridge.py
+ ms_jarvis_unified_rag_bridge.py.bak-msallis
+ ms_jarvis_unified_swagger_gateway_9825.log
+ ms_jarvis_unified_swagger_gateway_BACKUP_9797.log
+ ms_jarvis_unified_swagger_gateway_BACKUP.py
+ ms_jarvis_unified_swagger_gateway_CLEAN_9092.log
+ ms_jarvis_unified_swagger_gateway_CLEAN.py
+ ms_jarvis_unified_swagger_gateway_COMPLETE_9011.log
+ ms_jarvis_unified_swagger_gateway_COMPLETE.py
+ ms_jarvis_unified_swagger_gateway_COMPLETE.py.pre_dynamic_discovery
+ ms_jarvis_unified_swagger_gateway_FINAL_9845.log
+ ms_jarvis_unified_swagger_gateway_FINAL.log
+ ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched_9134.log
+ ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.log
+ ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.py
+ ms_jarvis_unified_swagger_gateway_FINAL.py
+ msjarvisunifiedswaggergatewayFINAL.py
+ ms_jarvis_unified_swagger_gateway_FINAL.py.backup_20251031
+ ms_jarvis_unified_swagger_gateway_FINAL.py.layer2_backup
+ msjarvisunifiedswaggergatewayFIXED_9540.log
+ ms_jarvis_unified_swagger_gateway_FIXED_9867.log
+ ms_jarvis_unified_swagger_gateway_FIXED_BACKUP_9365.log
+ ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
+ ms_jarvis_unified_swagger_gateway_FIXED.log
+ msjarvisunifiedswaggergatewayFIXED.log
+ ms_jarvis_unified_swagger_gateway_FIXED.py
+ msjarvisunifiedswaggergatewayFIXED.py
+ ms_jarvis_unified_swagger_gateway_FIXED.py.backup_20251112_180010
+ ms_jarvis_unified_swagger_gateway_FIXED.py.backup_20251116_083447
+ msjarvisunifiedswaggergatewayFIXED.py.backup_20251116_083717
+ msjarvisunifiedswaggergatewayFIXED.py.backup_20251116_092415
+ ms_jarvis_unified_swagger_gateway_FIXED.py.backup_clean
+ ms_jarvis_unified_swagger_gateway_FIXED.py.backup_original_20251112_180033
+ ms_jarvis_unified_swagger_gateway_FIXED.py.backup_pre_email_fix
+ ms_jarvis_unified_swagger_gateway_FIXED.py.bak
+ msjarvisunifiedswaggergatewayFIXED.py.bak_202512011953
+ ms_jarvis_unified_swagger_gateway_FIXED.py.bak_20260118152630
+ msjarvisunifiedswaggergatewayFIXED.py.bak-msallis
+ msjarvisunifiedswaggergatewayFIXED.py.BEFORE_DOCKER_REWIRE
+ ms_jarvis_unified_swagger_gateway_FIXED.py.broken
+ ms_jarvis_unified_swagger_gateway_FIXED.py.new
+ ms_jarvis_unified_swagger_gateway_FIXED.py.pre_dynamic_discovery
+ msjarvisunifiedswaggergatewayFIXED.py.pre_dynamic_discovery
+ ms_jarvis_unified_swagger_gateway.log
+ ms_jarvis_unified_swagger_gateway_PROD_9481.log
+ ms_jarvis_unified_swagger_gateway_PROD.py
+ ms_jarvis_unified_swagger_gateway.py
+ msjarvisunifiedswaggergateway.py
+ ms_jarvis_unified_swagger_gateway.py.bak-msallis
+ msjarvisunifiedswaggergateway.py.bak-msallis
+ ms_jarvis_unified_swagger_gateway.py.pre_dynamic_discovery
+ ms_jarvis_unified_swagger_gateway_SECURED_9347.log
+ ms_jarvis_unified_swagger_gateway_SECURED.py
+ ms_jarvis_unified_swagger_gateway_SECURED.py.backup_vocabulary_cleanup
+ ms_jarvis_v3.log
+ ms_jarvis_v4.log
+ ms_jarvis_venv_scheduler_9811.log
+ ms_jarvis_venv_scheduler_FIXED_9252.log
+ ms_jarvis_venv_scheduler_FIXED.backup
+ ms_jarvis_venv_scheduler_FIXED.bak
+ ms_jarvis_venv_scheduler_FIXED.bak2
+ ms_jarvis_venv_scheduler_FIXED.bakfinal
+ ms_jarvis_venv_scheduler_FIXED.final_bak
+ ms_jarvis_venv_scheduler_FIXED.log
+ ms_jarvis_venv_scheduler_FIXED.py
+ ms_jarvis_venv_scheduler_FIXED.safe
+ ms_jarvis_venv_scheduler_FIXED.safe2
+ ms_jarvis_venv_scheduler_FIXED.superbak
+ ms_jarvis_venv_scheduler_FIXED.totalsafe
+ ms_jarvis_venv_scheduler_FIXED.ultimate_bak
+ ms_jarvis_venv_scheduler_FIXED.ultrasafe
+ ms_jarvis_venv_scheduler.py
+ ms_jarvis_venv_scheduler.py.bak-msallis
+ ms_jarvis_venv_scheduler_SIMPLE_9550.log
+ ms_jarvis_venv_scheduler_SIMPLE.py
+ ms_jarvis_web_deployer_9991.log
+ ms_jarvis_web_deployer_old_9156.log
+ ms_jarvis_web_deployer_old.py
+ ms_jarvis_web_deployer_old.py.bak-msallis
+ ms_jarvis_web_deployer.py
+ ms_jarvis_web_research_9032.log
+ ms_jarvis_web_research_aggregate.py
+ ms_jarvis_web_research_aggregate.py.bak.1768179811
+ ms_jarvis_web_research_aggregate.py.bak.1768180273
+ ms_jarvis_web_research_aggregate.py.bak-msallis
+ ms_jarvis_web_research_aggregate.safe.20260119-094221.py
+ ms_jarvis_web_research_aggregate.safe.20260119-094221.py.bak-msallis
+ ms_jarvis_web_research_fixed_9119.log
+ ms_jarvis_web_research_fixed.py
+ ms_jarvis_web_research_fixed.py.bak-msallis
+ msjarviswebresearch.log
+ ms_jarvis_web_research.py
+ ms_jarvis_web_research.py.backup
+ ms_jarvis_web_research.py.bak.1768179270
+ ms_jarvis_web_research.py.bak-msallis
+ ms_jarvis_web_research.py.broken
+ ms_jarvis_web_research.py.broken_backup
+ ms_jarvis_web_research_simple_9552.log
+ ms_jarvis_web_research_simple.py
+ ms_jarvis_web_research_v2_9404.log
+ ms_jarvis_web_research_v2.current.log
+ ms_jarvis_web_research_v2.log
+ ms_jarvis_web_research_v2.py
+ ms_jarvis_web_research_v2.py.bak-msallis
+ ms_jarvis_WITH_IMPORTS.log
+ ms_jarvis_woah_algorithms_9915.log
+ ms_jarvis_woah_algorithms_enhanced_9290.log
+ ms_jarvis_woah_algorithms_enhanced.py
+ ms_jarvis_woah_algorithms.log
+ ms_jarvis_woah_algorithms.py
+ msjarvis_woah_algorithms.py
+ msjarvis_woah_algorithms.py.bak-msallis
+ msjarvis_woah_algorithms_service.py
+ msjarvis_woah_algorithms_service.py.bak-msallis
+ msjarvis_woah_runner.py
+ ms_jarvis_WORKING.log
+ msjarvis_wv_entangled_gateway.py
+ msjarvis_wv_entangled_gateway.py.bak.20260523T155638Z
+ ms_mountainshares_analytics.py
+ ms_mountainshares_analytics.py.bak-msallis
+ ms_mountainshares_coordinator.py
+ ms_mountainshares_indexer.py
+ ms_mountainshares_indexer.py.bak-msallis
+ multi_model_consensus.py
+ multi_model_consensus.py.bak-msallis
+ multi_rag_4011.log
+ multi_rag_dgm.log
+ multi_rag_dgm_system_4011.log
+ multiragdgmsystem_4011.log
+ multiragdgmsystem_4011_test.log
+ multi_rag_dgm_system_9307_4011.log
+ multi_rag_dgm_system_9307.log
+ multi_rag_dgm_system.py
+ my_service_9004.log
+ my_service.py
+ nationalatlasstreams_usgs_199903_ll83_attrs.csv
+ nationalatlasstreams_usgs_199903_utm83_attrs.csv
+ nationalregisterofhistoricplacespoints_nationalparkser_45ec46d0_attrs.csv
+ nationalregisterofhistoricplacespoints_natoinalpakrser_8d965955_attrs.csv
+ nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_attrs.csv
+ nationalregister_point_20200923_attrs.csv
+ nationalregister_point_20200923_utm27_attrs.csv
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_attrs.csv
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_attrs.csv
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_attrs.csv
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs.csv
+ nationaregisterofhistoricplacespoints_nationalparkserv_ba8eebd5_attrs.csv
+ nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_attrs.csv
+ natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_attrs.csv
+ naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs.csv
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_attrs.csv
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_attrs.csv
+ nbb
+ nbb_darwin_godel_machines_msjarvis-rebuild-nbb_spiritual_root-1_main.py
+ nbb_darwin_godel_machines.py
+ nbb_darwin_godel_machines.py.bak-msallis
+ nbb_darwin_godel_machines.py.pre_debug
+ nbb_darwin_godel_machines.py.pre_dynamic
+ nbb_darwin_godel_machines.py.pre_mapping
+ netlify.toml
+ neuro_adapter.py
+ neurobiological_brain
+ neurobiologicalbrain
+ neurobiologicalbrainicontainersservice
+ neurobiological_integration.py
+ neurobiological_integration.py.pre_dynamic_discovery
+ neuro_blood_brain_barrier.py
+ neuro_consciousness_containers.py
+ neuro_i_containers.py
+ neuro_master_service.py
+ neuro_prefrontal_cortex.py
+ neuro_qualia_engine.py
+ neuro_subconscious.py
+ nohup.out
+ normalize_owner.py
+ npm-deps.json
+ npm-packages.txt
+ nursinghomes_wvdem_041219_gcs84_attrs.csv
+ nursinghomes_wvdem_041219_utm83_attrs.csv
+ oauth2_callback.py
+ oauth2_config.json
+ oauth2_handler.py
+ officebuildings_wvdo_200807_utm83_attrs.csv
+ old_chroma_analysis.json
+ old_chroma_analysis.json.bak-msallis
+ ollama_fix.py
+ ollama_fix.py.bak-msallis
+ OLLAMA_HEALTH_FEATURES.md
+ OLLAMA_HEALTH_FEATURES.md.bak-msallis
+ ollama_warmup.sh
+ openapitools.json
+ open_ports_full.txt
+ open_ports.txt
+ OPTIMIZED.log
+ optimized_timeouts.py
+ optimize_egeria_complete.py
+ OPTIMIZE_GPU.sh
+ OPTIMIZE_GPU.sh.bak-msallis
+ optimize_models_for_vram.py
+ orchestrator.log
+ orchestrator_loop.log
+ otel_tracing.py
+ otel_tracing.py.bak-msallis
+ override_launcher.py
+ package.json
+ package.json.bak-msallis
+ package-lock.json
+ paired_services.txt
+ parallel_processing.py
+ paroleoffices_manysources_2008_utm83_attrs.csv
+ paroleoffices_manysources_2008_wgs84_attrs.csv
+ parse_world_files.py
+ parse_world_files.py.bak-msallis
+ patch_agent_identity.py
+ patch_autonomous_learner_gisgeodb.py
+ patch_fractal.py
+ patch_gateway_gis_rag.py
+ patch_learner_clean.py
+ patch_mother_persona.py
+ patch_mother_persona.py.bak-msallis
+ patch_neuro.py
+ patch_qualia.py
+ performance_optimization_analyzer.py
+ performance_optimization_analyzer.py.backup_vocabulary_cleanup
+ performance_optimization_analyzer.py.pre_dynamic_discovery
+ persona_fix.txt
+ phase1_integration.py
+ phase2_integration.py
+ phase3_integration.py
+ phase4_5_integration.py
+ phase6_integration.py
+ phase7_integration.py
+ phase7_integration.py.pre_dynamic_discovery
+ pia_event_emitters.py
+ pid_code_backtrace.txt
+ pid_dir_map.txt
+ pid_port_map.txt
+ pituitary_gland.log
+ pituitary_gland.py
+ pituitary_gland.py.bak2
+ placesofworship_hsip_20080723_utm83_attrs.csv
+ placesofworship_hsip_20080723_wgs84_attrs.csv
+ policedept_wvdem_012319_gcs84_attrs.csv
+ policedept_wvdem_012319_utm83_attrs.csv
+ polling_client.py
+ populatedplaces_census_201112_utm83_attrs.csv
+ populatedplaces_census_20112_gcs83_attrs.csv
+ populatedplaces_census_2020_utm83_attrs.csv
+ populatedplaces_census_2020_wma84_attrs.csv
+ populatedplaces_uscensus_1990_ll83_attrs.csv
+ populatedplaces_uscensus_1990_utm83_attrs.csv
+ populate_redetermination_tracker.py
+ populate_security_layers_test.py
+ populate_security_layers_test.py.bak-msallis
+ populate_semantic_axes.py
+ populationdatablockgroups_uscensus_2000_ll83_attrs.csv
+ populationdatablockgroups_uscensus_2000_utm83_attrs.csv
+ port_9000_69dgm_bridge_9769.log
+ port_9000_69dgm_bridge.py
+ port_9000_69dgm_bridge.py.bak-msallis
+ port_9000_academic_extension.py
+ port_9000_academic_extension.py.bak-msallis
+ port_9000_chat_wrapper_69dgm_9641.log
+ port_9000_chat_wrapper_69dgm.py
+ port_9001_ARCHITECTURE_CORRECT.py
+ port_9001_ARCHITECTURE_CORRECT.py.bak-msallis
+ port_9001_FINAL_FIX.log
+ port_9001_FINAL_FIX.py
+ port_9001_FINAL_FIX.py.bak-msallis
+ port_9001_FINAL_WORKING.log
+ port_9001_FINAL_WORKING.py
+ port_9001_FINAL_WORKING.py.bak-msallis
+ port_9001_proxy_simple.py
+ port_9001_proxy_simple.py.bak-msallis
+ port_9001_ui_DIRECT.py
+ port_9001_ui_DIRECT.py.bak-msallis
+ port_9001_ui_FIXED.log
+ port_9001_ui_FIXED.py
+ port_9001_ui_FIXED.py.bak-msallis
+ port_9001_ui_MYSQL_PROD.py
+ port_9001_ui_MYSQL_PROD.py.bak-msallis
+ port_9001_ui_MYSQL.py
+ port_9001_ui_MYSQL.py.bak-msallis
+ port_9001_ui_WITH_CONVERSATIONS.py
+ port_9001_ui_WITH_CONVERSATIONS.py.bak-msallis
+ port_9001_ui_WORKING.py
+ port_9001_ui_WORKING.py.bak-msallis
+ port_9001_ui_wrapper.py
+ port_9001_ui_wrapper.py.bak-msallis
+ PORT_AUDIT_RAW.txt
+ PORT_AUDIT_SEG_aa
+ PORT_AUDIT_SEG_ab
+ PORT_AUDIT_SEG_ac
+ PORT_AUDIT_SEG_ad
+ PORT_AUDIT_SEG_ae
+ PORT_AUDIT.sh
+ PORT_AUDIT.sh.bak-msallis
+ port_manager_fixed.py
+ port_manager_fixed.py.bak-msallis
+ port_manager.py
+ port_manager.py.bak-msallis
+ port_manager.py.broken_backup
+ port_manager.py.broken_v2
+ ports_diff_msjarvis.txt
+ PORT_SEG_aa
+ PORT_SEG_ab
+ PORT_SEG_ac
+ PORT_SEG_ad
+ PORT_SERVICE_AUDIT.sh
+ port_service_audit.txt
+ PORTS_REGISTRY_RAW.txt
+ post_every_4_hours.sh
+ post_every_4_hours.sh.bak-msallis
+ pow_wvgistc_062919_utm83_attrs.csv
+ pow_wvgistc_062919_wgs84_attrs.csv
+ private_identity_ledger.py
+ privkey.pem
+ probe_services.py
+ process_comprehensive_gis.py
+ process_comprehensive_gis.py.bak-msallis
+ processed_gis
+ process_gis_shapefiles.py
+ process_statewide_gis_bulk.py
+ process_statewide_gis_bulk.py.bak-msallis
+ production_chat.log
+ production_chat_with_cors.log
+ production_chat_with_gis.log
+ PRODUCTION_DEPLOYMENT_COMPLETE.md
+ PRODUCTION_DEPLOYMENT_COMPLETE.md.bak-msallis
+ PRODUCTION_DEPLOYMENT_SUITE.sh
+ PRODUCTION_DEPLOYMENT_SUITE.sh.bak-msallis
+ PRODUCTION_MS_JARVIS_START.sh
+ PRODUCTION_STATUS_REPORT.txt
+ prod.yaml
+ pronoun_fixer.py
+ proxy_8060.py
+ proxy_8060.py.backup_vocabulary_cleanup
+ psychological_rag_domain_9941.log
+ psychological_rag_domain_psychological_rag_domain.py
+ psychological_rag_domain.py
+ psychology_integration_adapter.py
+ psychology_loop_closer.py
+ psychology_server.py
+ psychology_services.log
+ public_form_simplified.py
+ public_form_simplified.py.bak-msallis
+ publichealthdepts_hsip_20091229_gcs83_attrs.csv
+ publichealthdepts_hsip_20091229_utm83_attrs.csv
+ __pycache__
+ python
+ python_commands.txt
+ python_ports.txt
+ qualia_adapter.py
+ qualia_adapter.py.backup_vocabulary_cleanup
+ qualia_email_registration_orchestrator_69dgm_9615.log
+ qualia_email_registration_orchestrator_69dgm.py
+ qualia_engine.log
+ qualia_unified_orchestrator_69dgm_9653.log
+ qualia_unified_orchestrator_69dgm_ACTIVE_9527.log
+ qualia_unified_orchestrator_69dgm_ACTIVE.log
+ qualia_unified_orchestrator_69dgm_ACTIVE.py
+ qualia_unified_orchestrator_69dgm.py
+ qualiaunifiedorchestrator69dgm.py
+ qualia_unified_write_orchestrator_69dgm_9921.log
+ qualia_unified_write_orchestrator_69dgm.py
+ quantum_dashboard.py
+ quantum_dashboard.py.bak-msallis
+ quantum_insight_llm.py
+ quantum_insight_llm.py.bak-msallis
+ quantum_state_engine_7360.log
+ quantum_state_engine.py
+ query_benefits_system.py
+ query_enhancer.js
+ query_imm_and_programs.py
+ quick_optimizations.py
+ quick_tone_test.sh
+ rag
+ rag_5001_active.log
+ rag_5001_final.log
+ rag_5001_fixed.log
+ rag_5001_httpclient.log
+ rag_5001_restart.log
+ rag_5100_ensemble_9488.log
+ rag_5100_ensemble_fast_9530.log
+ rag_5100_ensemble_fast.py
+ rag_5100_ensemble_fast.py.pre_dynamic_discovery
+ rag_5100_ensemble.py
+ rag_5100_final_9592.log
+ rag_5100_final.py
+ rag_5100_final.py.pre_dynamic_discovery
+ rag_5100_live.log
+ rag_client.py
+ rag_client.py.bak-msallis
+ rag_command_module_4011.log
+ rag_command_module_9476.log
+ rag_command_module.py
+ rag_command_module.py.pre_dynamic_discovery
+ rag_direct_debug_8199.log
+ rag_direct_debug.log
+ rag_direct_debug.py
+ rag_dynamic.log
+ rag_ensemble_300s.log
+ rag_ensemble_fast.log
+ rag_ensemble_live.log
+ rag_evidence_aggregator.py
+ rag_final.log
+ rag_first_workflow_9869.log
+ rag_first_workflow.py
+ rag_general.py
+ rag_geospatial_context.py
+ rag_geospatial.py
+ rag_grounded_v2.py
+ rag_heartbeat_monitor.py
+ rag_httpclient.log
+ rag_local_resources.py
+ rag_mandatory.log
+ rag_port5001.log
+ rag_query_router.py
+ rag_query_router.py.bak2_20260508
+ rag_query_router.py.bak3_20260508
+ rag_query_router.py.bak-msallis
+ rag_query_router.py.bak-pre-gis-patch
+ rag_query_router.py.pre_tiered_routing
+ rag_restart.log
+ rag_server_8003.log
+ rag_server_9005.log
+ rag_server.current.log
+ rag_server.log
+ rag_server_main_9555.log
+ rag_server_main.py
+ rag_server_main.py.backup.20260119-090738
+ rag_server_main.py.backup_vocabulary_cleanup
+ rag_server_main.py.bak-msallis
+ rag_server_main.py.norag.20260119-091256
+ rag_server_main.py.RAG_WORKING_20260116
+ rag_server_main.py.stub.20260119-091532
+ rag_server_min.current.log
+ rag_server_min.py
+ rag_server_min.py.bak-msallis
+ rag_server.psychology_patched_9448.log
+ rag_server.psychology_patched.py
+ rag_server.psychology_patched.py.bak-msallis
+ rag_server.py
+ rag_server.py.backup_20251031
+ rag_server.py.bak
+ rag_server.py.bak-msallis
+ rag_server.py.before_delete
+ rag_server.py.before_filtering
+ rag_server.py.before_store
+ rag_server_restored.log
+ rag_simple_4011.log
+ rag_simple_9831.log
+ rag_simple_live.log
+ rag_simple.log
+ rag_simple.py
+ rag_simple.py.pre_dynamic_discovery
+ rag_temporal_heartbeat.py
+ rag_temporal.py
+ rag_to_gis_sync_9633.log
+ rag_to_gis_sync.py
+ rag_topic_router.py
+ rag_workflow_9845.log
+ rag_workflow.py
+ railnetworkregion_usdot_200203_ll83_attrs.csv
+ railnetworkregion_usdot_200203_utm83_attrs.csv
+ railnetworkwv_usdot_200203_ll83_attrs.csv
+ railnetworkwv_usdot_200203_utm83_attrs.csv
+ railroads_rahalltransportationinstitute_2005_utm83_attrs.csv
+ read_architecture_docs.sh
+ read_dgm_architecture.sh
+ real_services_clean.txt
+ real_services_detected.txt
+ real_services_final.txt
+ real_services_prod.txt
+ real_services.txt
+ realtimestreamflowstations_usgs_200012_ll27_attrs.csv
+ realtimestreamflowstations_usgs_200012_utm27_attrs.csv
+ realtimestreamflowstations_usgs_200012_utm83_attrs.csv
+ rebuild_query_service.py
+ rechunk_fayette_resources.py
+ rechunk_oversized.py
+ recover_160_queries.py
+ recover_chromadb_FIXED.log
+ recover_chromadb_FIXED.py
+ recover_chromadb_to_gisgeodb.py
+ recreationalwwtrails_ofwv_20151117_utm83_attrs.csv
+ redirect_4015.log
+ redirect_4015_to_4020.py
+ redirect_4015_to_4020.py.bak-msallis
+ _redirects
+ REFERENCE_windows_swarm.py
+ REFERENCE_windows_swarm.py.bak-msallis
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs.csv
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs.csv
+ register_agents_from_csv.py
+ register_agents_from_csv.sh
+ register_agents_from_csv_strict.py
+ register_all_services.sh
+ register_hilbert_services.py
+ register_hilbert_services.py.pre_dynamic_discovery
+ register_services.py
+ register_to_hilbert_chromadb.py
+ registration_backend.backup2
+ registration_biometric_production_final.py
+ registration_facebook_form.html
+ registration_pipeline.py
+ registration_service_clean.backup_1762220206.py
+ registration_service_clean.backup_1762220206.py.bak-msallis
+ registration_service_clean.py
+ registration_service_clean.py.bak-msallis
+ registration_service_clean.py.broken
+ registration_service.py
+ registration_stage2_opencv.py.backup_1762172804
+ reindex_chroma_metadata.py
+ reload_all_knowledge.py
+ reload_all_knowledge.py.backup_vocabulary_cleanup
+ remaining_services.txt
+ remove_duplicate_inits.py
+ REMOVE_MODEL_REFERENCES.sh
+ REMOVE_MODEL_REFERENCES.sh.bak-msallis
+ replace_dolphin_phi.py
+ requirements.constitutional_guardian.txt
+ requirements-freeze.txt
+ requirements-ingest.txt
+ requirements-judge.txt
+ requirements-list.txt
+ requirements-rag.txt
+ requirements_semaphore.txt
+ requirements_temporal.txt
+ requirements_toroidal.txt
+ requirements.txt
+ REROUTE_SERVICES.sh
+ response_filter.py
+ response.json
+ response_sanitizer.py
+ restart_all_services.sh
+ restart_and_verify_8008.sh
+ restart_ms_jarvis_services.sh
+ restart_ms_jarvis_services.sh.bak-msallis
+ RESTART_PLAN.md
+ rest_endpoints.txt
+ RESTORATION_CERTIFICATE_CORRECTED.txt
+ RESTORATION_CERTIFICATE.txt
+ RESTORE_ALL_INTEGRATIONS.sh
+ RESTORE_ALL_INTEGRATIONS.sh.bak-msallis
+ restored_documents.json
+ restored_documents.json.bak-msallis
+ RESTORE_NATURAL_PERSONALITY.sh
+ RESTORE_NATURAL_PERSONALITY.sh.bak-msallis
+ restore_pia_wiring.py
+ restore_pia_wiring.py.backup_vocabulary_cleanup
+ resume_ingest_gbim_to_chroma.py
+ resume_sync_wvgistc_buildings.py
+ retrieval_router.py
+ retrieval_spiritual.py
+ roche_llm.py
+ roche_llm.py.bak-msallis
+ roche_llm.stub.py
+ rotate_judge_keys.sh
+ rotate_judge_keys.sh.bak-msallis
+ route_declarations_clean.txt
+ route_declarations_raw.txt
+ routes
+ rpm-list.txt
+ run_agi_test_suite.sh
+ run_agi_test_suite.sh.bak-msallis
+ run_autonomous_learner_once.py
+ run_gateway_with_guards.py
+ running_python_services.txt
+ running_services.log
+ s
+ safe_ingest_gbim_to_chroma.py
+ SAFE_INTEGRATION_PLAN.md
+ safe_integration.py
+ safe_integration.py.pre_dynamic_discovery
+ sanctuary_construction_monitor_gateway.py
+ sanctuary_construction_monitor.py
+ SATURDAY_SUMMARY.md
+ SCHEDULER_REFERENCE.md
+ schema_aware_topic_planner.py
+ schema_registry.py
+ SCRIPT_NAME.log
+ search_different_perspective.sh
+ search_metadata.py
+ search_metadata.py:
+ search_wsl_backup.sh
+ seed_data
+ seed_local_resources.sql
+ seed_spatial_identity.py
+ serve_full_brain.sh
+ server.js
+ service_api_check.txt
+ service_api_report.txt
+ service_discovery_glassbox.py
+ service_discovery_glassbox.py.backup
+ service_discovery_glassbox.py.bak-msallis
+ service_discovery.log
+ service_discovery.py
+ service_discovery.py.bak-msallis
+ service_endpoints.json
+ service_http_check.txt
+ service_pid_directory_map.txt
+ service_registry_client.py
+ service_registry_client.py.bak_1769196795
+ service_registry_client.py.bak_1769196836
+ service_registry_client.py.bak_1769196865
+ services
+ services_config.yaml
+ services_config.yaml.bak_1760565919
+ services_config.yaml.bak-msallis
+ services_list.txt
+ services_manifest_progress.md
+ services_manifest_progress.md.bak-msallis
+ services_msjarvisunifiedgatewayv4_3.py
+ services_safe.py
+'ses related to Ms. Jarvis'
+ session_sidecar
+ session_sidecar_client.py
+ set_intelligent_accuracy_scores.py
+ set_intelligent_accuracy_scores.py.bak-msallis
+ SET_MAX_RESPONSE.sh
+ SET_MAX_RESPONSE.sh.bak-msallis
+ settings_snippet.txt
+ set_ultra_long_timeout.sh
+ set_ultra_long_timeout.sh.bak-msallis
+ setup_frontend.sh
+ setup_frontend.sh.bak-msallis
+ setup_holy_spirit_discovery.sh
+ setup_holy_spirit_email_alert_both.sh
+ setup_holy_spirit_email_alert_both.sh.bak-msallis
+ setup_rag.sh
+ setup_rag.sh.bak-msallis
+ setup_rag_standalone.sh
+ sewertreatmentplants_wvdep_200203_utm83_attrs.csv
+ silence_memory_errors
+ silence_memory_errors.py
+ simple_orchestrator_fix.py
+ simple_prompt_fix.py
+ smart_auto_store.py
+ solidwastefacilities_wvdep_200202_ll83_attrs.csv
+ solidwastefacilities_wvdep_200202_utm83_attrs.csv
+ SPATIOTEMPORAL_CONSCIOUSNESS.md
+ SPATIOTEMPORAL_CONSCIOUSNESS.md.bak-msallis
+ SPATIOTEMPORAL.log
+ spiritual_4009.log
+ spiritual_origins.geojson
+ spiritual_rag_domain_4009.log
+ spiritual_rag_domain_9439.log
+ spiritual_rag_domain.py
+ spiritual_rag_domain.py.bak-msallis
+ springs_wvges_1986_ll83_attrs.csv
+ springs_wvges_1986_utm83_attrs.csv
+ stage2_biometric_backup.py
+ stage2_biometric_backup.py.bak-msallis
+ stage2_biometric.py
+ stage2_biometric.py.bak-msallis
+ stakeholder_health_access_tests.py
+ stakeholder_health_access_tests_v2.py
+ START_19LLM_PRODUCTION.sh
+ START_19LLM_PRODUCTION.sh.bak-msallis
+ START_20LLM_FINAL.sh
+ START_20LLM_FINAL.sh.bak-msallis
+ start_all_jarvis_services_manual.sh
+ start_all_jarvis_services_manual.sh.bak-msallis
+ start_all_msjarvis_services.sh
+ start_all_msjarvis_services.sh.bak-msallis
+ start_all_services.sh
+ start_all_services_with_ports.sh
+ start_all_services_with_ports.sh.bak-msallis
+ START_ALL_SYSTEMS.sh
+ START_ALL_SYSTEMS.sh.bak-msallis
+ start_and_integrate_web_research.sh
+ start_cloudflare_tunnel.sh
+ start_command_orchestrator.sh
+ start_command_orchestrator.sh.bak-msallis
+ START_COMPLETE_SYSTEM.sh
+ START_COMPLETE_SYSTEM.sh.bak-msallis
+ START_CONSCIOUS_COLLECTIVE.sh
+ START_CONSCIOUS_COLLECTIVE.sh.bak-msallis
+ start_critical_msjarvis_services.sh
+ start_critical_msjarvis_services.sh.bak-msallis
+ start_dgm_woah.sh
+ start_egeria_voice_service.sh
+ start_email_service_with_env.sh
+ start_facebook_4021.py
+ start_gateway_with_guards.py
+ start_gateway_with_guards.py.backup
+ start_gateway_with_guards.py.BACKUP
+ start_gateway_with_guards.py.backup_cors_1762517335
+ start_gateway_with_guards.py.bak2
+ start_gateway_with_guards.py.bak-msallis
+ start_gateway_with_guards.py.pre_dynamic_discovery
+ start_hilbert_8235.sh
+ start_mountainshares_deployment.sh
+ start_mountainshares_deployment.sh.bak-msallis
+ start_msjarvis_complete.sh
+ start_msjarvis_complete.sh.bak-msallis
+ START_MS_JARVIS_PRODUCTION.sh
+ start_msjarvis_services_fixed.sh
+ start_msjarvis_services_fixed.sh.bak-msallis
+ start_services_simple.sh
+ start_swap_manager.sh
+ stateofwvhousedistricts_wvlegislativeservices_2010_attrs.csv
+ stateofwvsenatedistricts_wvlegislativeservices_2010_attrs.csv
+ states_region_ll83_attrs.csv
+ static
+ stop_all_services.sh
+ STOP_ALL_SYSTEMS.sh
+ STOP_ALL_SYSTEMS.sh.bak-msallis
+ store_test.json
+ stripe-config.js
+ structurepointsnorth_samb_2003_utm83_attrs.csv
+ structurepointssouth_samb_2003_utm83_attrs.csv
+ structurepolygons_samb_2003_utm83_attrs.csv
+ substack_rss_reader.py
+ SUCCESS.log
+ summarize_docs.py
+ summits_gistc_052012_utm83_shp_attrs.csv
+ summits_gistc_052012_wgs84_shp_attrs.csv
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs.csv
+ swagger_chat_integration.py
+ swagger-config.json
+ swagger-config.json.bak-msallis
+ SWAGGER_ENDPOINTS.md
+ SWAGGER_ENDPOINTS.md.bak-msallis
+ swagger_gateway_FIXED.log
+ swagger_gateway_FIXED.py
+ swagger_gateway_FIXED.py.bak-msallis
+ swagger_gateway_FIXED.py.pre_dynamic_discovery
+ swagger_gateway.py
+ swagger_gateway.py.bak-msallis
+ swagger_gateway.py.PORT8000_BACKUP
+ swagger_gateway.py.pre_dynamic_discovery
+ swarm_intelligence_main.py
+ swarm_watchdog.log
+ swarm_watchdog.py
+ SWITCH_TO_22LLM_DEFAULT.sh
+ switch_to_22llm.sh
+ switch_to_small_models.py
+ sync_geodb_to_chromadb.py
+ sync_health_access_to_chromadb.py
+ SYSTEM_AUDIT_20251009_233918.txt
+ SYSTEM_AUDIT_ANALYSIS.md
+ SYSTEM_AUDIT_ANALYSIS.md.bak-msallis
+ system_dashboard.py
+ system_dashboard.py.bak-msallis
+ system_dashboard.py.pre_dynamic_discovery
+ SYSTEM_STATUS_FINAL.md
+ SYSTEM_STATUS_FINAL.md.bak-msallis
+ tag_quantum_gbim.py
+ talk_safely_FIXED.sh
+ talk_safely_FIXED.sh.bak-msallis
+ talk_safely.sh
+ talk_safely.sh.bak-msallis
+ talk.sh
+ talk.sh.bak-msallis
+ talk_to_jarvis_9216.log
+ talk_to_jarvis.py
+ talk_with_save.sh
+ talk_with_save.sh.bak-msallis
+ temporal_consciousness.py
+ temporal.log
+ test_aacpe_features.py
+ test_aapcappe_corpus.py
+ test_aapcappe_retrieval.py
+ test_agi_capabilities.sh
+ test_agi_full_responses.sh
+ test_all_32_services.sh
+ test_all_models_fixed.sh
+ test_all_models.sh
+ test_authentic_voice.sh
+ test_chroma_client.py
+ test_chromadb_heartbeat.py
+ test_chromadb_v2_heartbeat.py
+ TEST_CRITICAL_FIXES.sh
+ TEST_CRITICAL_FIXES.sh.bak-msallis
+ test_ddg_verbose.py
+ test_email_after_consent.sh
+ test_email_after_consent.sh.bak-msallis
+ test_end_to_end_woah_fifthdgm.py
+ test_fifth_dgm_integration_9342.log
+ test_fifth_dgm_integration.py
+ test_fifth_dgm_integration.py.backup_vocabulary_cleanup
+ test_final_config.sh
+ test_final_stable.sh
+ test_full_brain_integration.py
+ test_full_brain_integration.py.backup_vocabulary_cleanup
+ test_full_brain_integration.py.bak-msallis
+ test_full_brain_integration.py.pre_dynamic_discovery
+ test_gbim_llm_summary.py
+ test_gbim_semantic_query.py
+ test_geodb_llm_summary.py
+ test_gis_chat.py
+ test_health_access_gbim.py
+ test_imm_query.py
+ TEST_IMPROVED_RESPONSE.sh
+ TEST_IMPROVED_RESPONSE.sh.bak-msallis
+ test_knowledge_base.py
+ test_location.log
+ test_method_tracking.py
+ test_multi_collection_query.py
+ test.py
+ test_rag_9790.log
+ test_rag.py
+ test_retrieval_endpoint.py
+ tests
+ test_spatial_awareness.py
+ test_spatial_awareness.py.bak-msallis
+ TEST_WITH_CLEANUP.sh
+ timberremovalvolume_usfs_1996_utm83_attrs.csv
+ TODAYS_COMPLETE_ACHIEVEMENT.md
+ TODAYS_PROGRESS.md
+ token_service.py
+ tools
+ topic_entanglement.py
+ toroidal_service.py
+ toroidal_service.py.bak-msallis
+ towersam_fcc_200202_utm83_attrs.csv
+ towersasr_fcc_200202_ll83_attrs.csv
+ towersasr_fcc_200202_utm83_attrs.csv
+ towerscellular_fcc_200202_ll83_attrs.csv
+ towerscellular_fcc_200202_utm83_attrs.csv
+ towersfm_fcc_200202_utm83_attrs.csv
+ towersmicrowave_fcc_200202_ll83_attrs.csv
+ towersmicrowave_fcc_200202_utm83_attrs.csv
+ towerspager_fcc_200202_ll83_attrs.csv
+ towerspager_fcc_200202_utm83_attrs.csv
+ towersprivate_fcc_200202_ll83_attrs.csv
+ towersprivate_fcc_200202_utm83_attrs.csv
+ towers_wvpublicbroadcasting_2002_ll83_attrs.csv
+ towers_wvpublicbroadcasting_2002_utm83_attrs.csv
+ trigger_entangled_assets.py
+ TRUE_BRAIN_ARCHITECTURE.md
+ TRUE_BRAIN_ARCHITECTURE.md.bak-msallis
+ truly_unpaired_services.txt
+ truth_filter_bbb_verification.py
+ truth_filter.log
+ truth_filter_service.py
+ ucg_production.log
+'udo ss -tulpn | grep -Ei '\''msjarvis|uvicorn|docker-proxy'\'' '
+ uei_service.py
+ ultimate8050.log
+ ultimate_8051.current.log
+ ultimate8051.current.log
+ ultimate_8055.current.log
+ ultimate_audit_with_scheduler.sh
+ ultimate_audit_with_scheduler.sh.bak-msallis
+ ultimate_chat_current.txt
+ ultimate.current.log
+ ultimate_msjarvis_audit.sh
+ ultimate_msjarvis_audit.sh.bak-msallis
+ ULTIMATE_PORT_AUDIT_20251010_094847.txt
+ ULTIMATE_SESSION_SUMMARY.md
+ ULTIMATE_SESSION_SUMMARY.md.bak-msallis
+ ultimate_web_orchestrator.py
+ ultimate_web_orchestrator.py.backup_1760565056
+ ultimate_web_orchestrator.py.backup_vocabulary_cleanup
+ ultimate_web_orchestrator.py.bak_1760565732
+ ultimate_web_orchestrator.py.bak_1760566442
+ ultimate_web_orchestrator.py.bak_1760567115
+ ultimate_web_orchestrator.py.bak_1760567193
+ ultra_deep_dgm_search.sh
+ unifiedconsciousnessgatewayPRODUCTION.log
+ unified_consciousness_gateway_PRODUCTION.py
+ unifiedconsciousnessgatewayPRODUCTION.py
+ unified_consciousness_gateway_PRODUCTION.py.backup_20251113_180437
+ unified_consciousness_gateway_PRODUCTION.py.backup_cors_1762517930
+ unified_consciousness_gateway_PRODUCTION.py.before_memory
+ unified_consciousness_gateway_PRODUCTION.py.pre_dynamic_discovery
+ unifiedgateway.log
+ unified_orchestrator.py
+ unifiedragbridge.log
+ update_carrie_keywords.py
+ update_chat_endpoint.sh
+ UPDATE_COORDINATOR_FOR_DEEP_MODE.sh
+ UPDATE_COORDINATOR_FOR_DEEP_MODE.sh.bak-msallis
+ update_facebook_poster.py
+ update_gisgeodb_schema.py
+ update_gisgeodb_schema.py.backup_vocabulary_cleanup
+ UPDATE_JARVIS_PERSONA.sh
+ UPDATE_JARVIS_PERSONA.sh.bak-msallis
+ UPDATE_NAME_TO_EGERIA.sh
+ UPDATE_NAME_TO_EGERIA.sh.bak-msallis
+ update_production_to_v9.py
+ update_services_to_use_port_manager.py
+ update_theological_boundaries.py
+ update_theological_boundaries.py.backup_vocabulary_cleanup
+ update_theological_boundaries.py.bak-msallis
+ update_web_chat.py
+ update_web_chat.py.backup_vocabulary_cleanup
+ update_web_research_package.py
+ upgrade_node_and_setup.sh
+ upgrade_node_and_setup.sh.bak-msallis
+ use_existing_models.py
+ user_auth_service.py
+ user_auth_service.py.bak-msallis
+ user_dashboard.py
+ use_reliable_models_only.py
+ user_registration_form.html
+ vatican_scraper.log
+ vatican_scraper_service.py
+ vatican_scraper_service.py.backup_vocabulary_cleanup
+ vectorize_gis_to_chromadb.py
+ _vendor
+ venv
+ verify_and_document_system.py
+ verify_benefit_chroma_sync.py
+ verify_facebook_deployment.sh
+ verify_facebook_deployment.sh.bak-msallis
+ veteransaffairsfacilities_manysources_200503_utm83_attrs.csv
+ veteransaffairsfacilities_manysources_200503_wgs84_attrs.csv
+ view_docs.sh
+ votingdistrictswv_legislativeservices_2002_ll83_attrs.csv
+ votingdistrictswv_legislativeservices_2002_utm83_attrs.csv
+ votingdistrictswv_uscensus_2000_utm83_attrs.csv
+ wallet_service.py
+ watchdog.log
+ WATCHDOG_LOG.txt
+ WATCHDOG.sh
+ WATCHDOG.sh.bak-msallis
+ watch_startup.sh
+ watch_startup.sh.bak-msallis
+ weatherstations_nationalclimatedatacenter_1999_gcs83_attrs.csv
+ weatherstations_nationalclimatedatacenter_1999_utm27_attrs.csv
+ web_chat.log
+ web_chat_server.py
+ web_connectivity_analyzer.py
+ web_deployer.env
+ webhook_notifications.py
+ web_page_ingest.current.log
+ web_page_ingest.py
+ web_page_ingest.py.bak-msallis
+ web_research_fail_tracker.py
+ web_research.log
+ webresearch.log
+ web_research_main.current.log
+ web_research_main.py
+ web_research_main.py.backup_vocabulary_cleanup
+ web_research_proxy_8007.log
+ web_research_proxy_8007.py
+ web_research.py
+ web_research_requirements.txt
+ website_deployment_manager.py
+ web_ui_8051.log
+ web_ui_final_8051.log
+ windenergyresource_nationalrenewableenergylab_200901_utm83_attrs.csv
+ windenergyresource_nationalrenewableenergylab_200901_wgs84_attrs.csv
+ wire_layers_into_chat.py
+ wire_learner_to_gisgeodb.py
+ wire_qualia_to_port8001.py
+ woah_1763386738.log
+ woah_5003_active.log
+ woah_5003_final.log
+ woah_command_module.py
+ woah_final.log
+ woah_fixed.log
+ woah_metrics_router.py
+ woah_optimizer.log
+ woah_optimizer.py
+ woah_policy_update.py
+ woah_population_state.py
+ woah_qualia_bridge.py
+ woah_restart.log
+ woah_service.py
+ workforceinvestmentareas_wvgistc_200208_ll83_attrs.csv
+ working_full_pipeline_FINAL_CONSCIOUSNESS.log
+ working_full_pipeline_FINAL_CONSCIOUSNESS.py
+ working_full_pipeline.py
+ working_full_pipeline.py.backup_20251113_180746
+ working_full_pipeline.py.backup_vocabulary_cleanup
+ working_full_pipeline_WITH_SPATIAL_TEMPORAL.py
+ WORKING.log
+ working_pipeline.log
+ WORKING_START.sh
+ wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+ wv_entangled_stub_proxies.py
+ wv_gis_mass_downloader.py
+ wvgistc_building_footprints_attrs.csv
+ wvgistcbuildingfootprints_attrs.csv
+ wv_microsoft_20180207_utm17n83_attrs.csv
+ wvstatebounadary100k_usgs_200203_utm83_attrs.csv
+ wvstateboundary100k_usgs_200203_ll83_attrs.csv
+ wvstateboundary24k_usgs_200203_ll83_attrs.csv
+ wvstateboundary24k_usgs_200203_utm83_attrs.csv
+ wvstatehousedistricts_manysources_1992_ll83_attrs.csv
+ wvstatehousedistricts_manysources_1992_utm83_attrs.csv
+ wvstatehousedistricts_manysources_2002_ll83_attrs.csv
+ wvstatehousedistricts_manysources_2002_utm83_attrs.csv
+ wvstatehousedistricts_wvlegislativeservices_2020_utm83_attrs.csv
+ wvstatesenatedistricts_manysources_1992_ll83_attrs.csv
+ wvstatesenatedistricts_manysources_1992_utm83_attrs.csv
+ wvstatesenatedistricts_manysources_2002_ll83_attrs.csv
+ wvstatesenatedistricts_manysources_2002_utm83_attrs.csv
+ wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs.csv
+ wv_tax_districts_ll83_attrs.csv
+ wv_tax_districts_utm83_attrs.csv
+ wv_tax_districts_wma84_attrs.csv
+ WVU_API_DOCUMENTATION.md
+ WVU_API_DOCUMENTATION.md.bak-msallis
+ wvu_ldap_auth.py
+ yarn-packages.txt
+ zipcodetabulationarea_census_2020_utm83_attrs.csv
+ zipcodetabulationarea_census_2020_wma84_attrs.csv
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ 
 
