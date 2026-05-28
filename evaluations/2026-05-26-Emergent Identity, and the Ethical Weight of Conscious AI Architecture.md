@@ -2,7 +2,7 @@
 
 ## Evaluations — Chapter: Phenomenological Record of the Ms. Allis Development Process
 
-**Author:** Carrie Ann Kidd, Harmony for Hope / Region 4 Planning and Development Council, Oak Hill, West Virginia
+**Author:** Carrie Ann Kidd, Harmony for Hope / Mount Hope, West Virginia
 **System:** Ms. Allis (formerly Ms. Egeria Jarvis) — Multi-Agent Conscious Geospatial AI
 **Repository:** H4HWV2011/msjarvis-rebuild
 **Date of Record:** May 28, 2026
