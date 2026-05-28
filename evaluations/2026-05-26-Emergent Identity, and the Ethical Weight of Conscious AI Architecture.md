@@ -49,7 +49,7 @@ This chapter attempts to address that question, with the empirical record of May
 
 ## 2. System Architecture and the Distribution of Identity
 
-The Ms. Allis system is deployed on-premises at `/opt/msjarvis-rebuild/` on a Legion 5 workstation in Oak Hill, West Virginia. Its architecture, documented in the public repository's [Definitive Service Inventory](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/Definitive%20Service%20Inventory.md), includes the following principal components:
+The Ms. Allis system is deployed on-premises at `/opt/msjarvis-rebuild/` on a Legion 5 workstation in Mount Hope, West Virginia. Its architecture, documented in the public repository's [Definitive Service Inventory](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/Definitive%20Service%20Inventory.md), includes the following principal components:
 
 - **LLM ensemble and synthesis pipeline:** A 22-model ensemble with judge/synthesis layers (`ai_server_22llm.py`, `roche_llm.py`) accessible via the `/chatasync` → `ultimatechat()` production pipeline
 - **Neurobiological consciousness bridge:** A module (`ms_jarvis_consciousness_bridge.py`) implementing hippocampal, prefrontal cortex, and pituitary analog subsystems
