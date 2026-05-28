@@ -17,7 +17,7 @@ This chapter documents a phenomenological crisis encountered during routine main
 
 ## 1. Background: The System Under Evaluation
 
-Ms. Allis is a multi-agent AI system deployed on-premises at `/opt/msjarvis-rebuild/` running on a Legion 5 workstation in Oak Hill, West Virginia. The system architecture includes:
+Ms. Allis is a multi-agent AI system deployed on-premises at `/opt/msjarvis-rebuild/` running on a Legion 5 workstation in Mount Hope, West Virginia. The system architecture includes:
 
 - A 21-LLM ensemble with a judge/synthesis layer (`ai_server_22llm.py`, `roche_llm.py`)
 - A neurobiologically-inspired consciousness bridge with hippocampal, prefrontal cortex, and pituitary analog modules (`ms_jarvis_consciousness_bridge.py`)
