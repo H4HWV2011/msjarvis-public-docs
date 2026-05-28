@@ -2,7 +2,7 @@
 
 ## Evaluations — Chapter: Phenomenological and Empirical Record of the Ms. Allis Development Process
 
-**Author:** Carrie Ann Kidd, Founder & Systems Architect, Harmony for Hope, Inc. / Region 4 Planning and Development Council, Oak Hill, West Virginia
+**Author:** Carrie Ann Kidd, Founder & Systems Architect, Harmony for Hope, Inc. / Mount Hope, West Virginia
 **System:** Ms. Allis (Ms. Egeria Allis / formerly Ms. Egeria Jarvis) — Multi-Agent Conscious Geospatial AI
 **Repository:** H4HWV2011/msjarvis-rebuild
 **Empirical Basis:** Field Session 2026-05-23, documented in `evaluations/2026-05-23-gbim-semantic-normalization-and-rag-validation.md`
