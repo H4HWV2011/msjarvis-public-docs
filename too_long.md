@@ -1,1893 +1,2922 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ cd /opt/msjarvis-rebuild /opt/msjarvis-rebuild
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ cd /opt/msjarvis-rebuild
 
-sudo sh -c 'cat >/etc/systemd/system/ms-allis-frontend.service.d/override.conf' <<'EOF'
-[Service]
-Environment="MAINBRAINURL=http://127.0.0.1:8050"
-Environment="SESSIONSIDECARURL=http://127.0.0.1:8076"
-Environment="PORT=3001"
-EOF
+docker logs jarvis-neurobiological-master --tail 200
 
-sudo systemctl daemon-reload
-sudo systemctl restart ms-allis-frontend.service
-sleep 3
+docker exec jarvis-neurobiological-master python - <<'PY'
+from urllib.request import urlopen, Request
+from urllib.error import URLError, HTTPError
+import json
 
-systemctl show ms-allis-frontend.service -p Environment
-Environment=MAINBRAINURL=http://127.0.0.1:8050 SESSIONSIDECARURL=http://127.0.0>
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ grep -RIn 'JARVIS_API_KEY' /opt/msjarvis-rebuild \
-  --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.next 2>/dev/null
+tests = [
+    ("self_health", "http://127.0.0.1:8018/health", None),
+    ("self_process", "http://127.0.0.1:8018/process", {"user_input":"test pulse"}),
+    ("bridge_8018", "http://jarvis-consciousness-bridge:8018/health", None),
+    ("i_containers", "http://jarvis-i-containers:8015/health", None),
+    ("bbb", "http://jarvis-blood-brain-barrier:8016/health", None),
+    ("qualia", "http://jarvis-qualia-engine:8017/health", None),
+]
 
-printf '\n---- systemd ----\n'
-sudo grep -RIn 'JARVIS_API_KEY' /etc/systemd/system /lib/systemd/system 2>/dev/null
-
-printf '\n---- env files ----\n'
-find /opt/msjarvis-rebuild -maxdepth 3 \( -name '.env' -o -name '.env.local' -o -name '*.env' \) -print
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768788421:26:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768788421:27:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768788421:105:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768788421:494:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260501:51:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260501:53:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260501:144:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260501:646:      JARVIS_API_KEY: ${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260501:1374:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260501:1679:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.gateway-only.generated.yml:108:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.gateway-only.generated.yml:109:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.yml:38:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.golden.yml:39:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.yml:520:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/ms-allis-auth-install/backend/auth_api_patch.py:27:ADMIN_API_KEY   = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/docker-compose.yml.backup:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup:512:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup:1163:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup:1164:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260206142334:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260206142334:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260206142334:469:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260206142334:1100:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260206142334:1101:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:20:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1000:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1001:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1011:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1012:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1023:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1024:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1036:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1037:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1050:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1051:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1065:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1066:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1080:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1081:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1095:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1096:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1129:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1130:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1140:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1141:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1209:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-183350:1539:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422-204722:43:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422-204722:44:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422-204722:120:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422-204722:614:      JARVIS_API_KEY: super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422-204722:1307:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.golden.bak_nbb_base_final:38:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_nbb_base_final:39:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.bak_nbb_base_final:534:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.chroma-backup-20260114054916:21:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.chroma-backup-20260114054916:22:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.chroma-backup-20260114054916:98:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.chroma-backup-20260114054916:458:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/.env:50:JARVIS_API_KEY
-/opt/msjarvis-rebuild/.env:51:JARVIS_API_KEY_FILE
-/opt/msjarvis-rebuild/.env:202:JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/.env:203:JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.broken:23:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.broken:24:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/.env.bak.20260601-160603:51:JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/.env.bak.20260601-160603:52:JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422-204609:43:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422-204609:44:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422-204609:120:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422-204609:614:      JARVIS_API_KEY: super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422-204609:1307:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.yml.bak-1768791760:26:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak-1768791760:27:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak-1768791760:105:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak-1768791760:494:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak-1768791194:26:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak-1768791194:27:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak-1768791194:105:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak-1768791194:494:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_unified_cycle_fix:19:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_unified_cycle_fix:20:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak_unified_cycle_fix:484:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:139:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:370:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:371:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:604:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre-secrets-fix:43:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre-secrets-fix:44:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.pre-secrets-fix:120:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre-secrets-fix:614:      JARVIS_API_KEY: super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre-secrets-fix:1307:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260517-162627:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260517-162627:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260517-162627:529:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260517-162627:1166:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260517-162627:1167:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.bak_services_mapping_fix:34:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_services_mapping_fix:35:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.bak_services_mapping_fix:530:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.full_backup_20260122:21:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.full_backup_20260122:22:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.full_backup_20260122:485:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_nbb_ports_fixed:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_nbb_ports_fixed:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_nbb_ports_fixed:489:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_nbb_ports_fixed:1105:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_nbb_ports_fixed:1106:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_110223:18:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_110223:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_110223:449:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260407-221457:41:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260407-221457:42:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260407-221457:116:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260407-221457:544:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260407-221457:1615:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.yml:36:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml:1016:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml:1017:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml:1027:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml:1028:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml:1039:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml:1040:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml:1052:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml:1053:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml:1066:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml:1067:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml:1081:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml:1082:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml:1096:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml:1097:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml:1111:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml:1112:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml:1145:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml:1146:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml:1156:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml:1157:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml:1225:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml:1555:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml:2055:      - JARVIS_API_KEY=${JARVIS_API_KEY:-250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:20:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1000:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1001:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1011:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1012:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1023:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1024:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1036:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1037:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1050:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1051:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1065:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1066:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1080:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1081:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1095:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1096:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1129:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1130:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1140:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1141:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1209:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:1539:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260601-184933:2039:      - JARVIS_API_KEY=${JARVIS_API_KEY:-e8f5fcf6051fc21c7ae11569fdb5956f5bca37019e71b04494e2f31224187ba2}
-/opt/msjarvis-rebuild/qualia/run_woah_baseline.sh:12:API_KEY="${JARVIS_API_KEY:-change-me}"
-/opt/msjarvis-rebuild/docker-compose.golden.bak_bbb_proxy_cmd_fix:34:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_bbb_proxy_cmd_fix:35:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.bak_bbb_proxy_cmd_fix:530:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:20:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:26:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:537:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:757:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1008:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1009:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1019:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1020:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1031:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1032:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1044:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1045:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1058:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1059:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1073:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1074:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1088:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1089:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1103:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1104:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1137:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1138:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1148:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1149:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1217:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1218:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780141699:1311:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/.env.backup-20260505:56:JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/.env.backup-20260505:57:JARVIS_API_KEY=f703ddc7d197bd1f008979453a2d8526439c2be462cb5c125f2700f53d9bf9c4
-/opt/msjarvis-rebuild/.env.backup-20260505:58:JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-194401:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-194401:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-194401:524:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-194401:1167:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-194401:1168:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/main_brain.py.bak.20260511-110458:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/main_brain.py.bak.20260511-110458:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/main_brain.py.bak.20260511-110458:1199:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/docker-compose.yml.broken-1768013498:21:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.broken-1768013498:22:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.broken-1768013498:503:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:92:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:396:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:649:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:1371:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_sedpatch:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_sedpatch:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_sedpatch:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_gate_v3:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_gate_v3:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_gate_v3:1200:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_localnet_fixed2:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_localnet_fixed2:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_localnet_fixed2:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:96:    _internal_key = _os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:315:                _svc_key = os.environ.get("JARVIS_API_KEY", "internal")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:469:    _ik = _os2.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:493:    _internal_key = os.getenv("JARVIS_API_KEY", "internal")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:1039:        _ik3 = _os3.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/brain_orchestrator.py.bak_1769197532:13:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/brain_orchestrator.py.bak_1769197532:14:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565749:31:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565749:32:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_1771192185:24:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_1771192185:25:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_1771192185:945:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565868:31:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565868:32:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_nbb_fixed:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_nbb_fixed:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_nbb_fixed:1193:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_memory.py.bak.20260416-135208:28:    internal_key = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_indent_fix:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_indent_fix:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_indent_fix:1216:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/brain_orchestrator.py.bak_ch29:16:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/brain_orchestrator.py.bak_ch29:17:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_spiritual_integration:24:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_spiritual_integration:25:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_spiritual_integration:1045:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1771185442:23:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1771185442:24:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1771185442:1012:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565703:31:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565703:32:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:96:    _internal_key = _os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:315:                _svc_key = os.environ.get("JARVIS_API_KEY", "internal")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:469:    _ik = _os2.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:493:    _internal_key = os.getenv("JARVIS_API_KEY", "internal")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:1047:        _ik3 = _os3.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_memory.py.bak.20260416-134857:28:    internal_key = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:113:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:431:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:707:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:1429:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1774448411:502:    _ikX = _osX.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1774448411:1369:        _ikY = _osY.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1774448411:1443:    _ikZ = _osZ.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:96:    _internal_key = _os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:315:                _svc_key = os.environ.get("JARVIS_API_KEY", "internal")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:469:    _ik = _os2.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:493:    _internal_key = os.getenv("JARVIS_API_KEY", "internal")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:1053:        _ik3 = _os3.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ultimate_1770573774:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ultimate_1770573774:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ultimate_1770573774:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_final_fix:24:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_final_fix:25:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_final_fix:1088:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:113:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:431:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:707:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:1429:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:121:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:439:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:715:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:1437:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1771728143:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1771728143:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1771728143:1209:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.autopatch.20260415-221952:93:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.autopatch.20260415-221952:411:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.autopatch.20260415-221952:687:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.autopatch.20260415-221952:1409:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_mother_carrie_v2:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_mother_carrie_v2:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_mother_carrie_v2:1094:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/brain_orchestrator.py.bak_1769197625:13:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/brain_orchestrator.py.bak_1769197625:14:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_mother_carrie:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_mother_carrie:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_mother_carrie:1094:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/auth_api.py.bak_20260426-162704:42:ADMIN_API_KEY   = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/brain_orchestrator.py.bak_20260419_152123:14:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/brain_orchestrator.py.bak_20260419_152123:15:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_direct_fix:24:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_direct_fix:25:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_direct_fix:1088:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_legacy_chatlight:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_legacy_chatlight:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_legacy_chatlight:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ultimate_1770575025:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ultimate_1770575025:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ultimate_1770575025:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak-20260419-1422:116:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak-20260419-1422:434:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak-20260419-1422:712:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak-20260419-1422:1434:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_1771192386:24:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_1771192386:25:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_1771192386:945:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup:1104:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/brain_orchestrator.py.bak.1775644692:13:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/brain_orchestrator.py.bak.1775644692:14:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_localnet_fixed:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_localnet_fixed:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_localnet_fixed:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_localnet:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_localnet:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_localnet:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_blood_brain_barrier.py.bak_20260414-212048:55:                         f"Bearer {os.environ.get('JARVIS_API_KEY', '')}"},
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/auth_api.py.bak-2026-04-26:27:ADMIN_API_KEY   = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_spiritual_rag:24:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_spiritual_rag:25:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_spiritual_rag:1045:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_211609:96:    _internal_key = _os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_211609:315:                _svc_key = os.environ.get("JARVIS_API_KEY", "internal")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_211609:469:    _ik = _os2.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_211609:493:    _internal_key = os.getenv("JARVIS_API_KEY", "internal")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_211609:847:        _ik3 = _os3.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224730:122:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224730:440:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224730:716:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224730:1438:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_session_patch:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_session_patch:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_session_patch:1198:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/docker-compose.golden.bak_web_research_cmd:38:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_web_research_cmd:39:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.bak_web_research_cmd:534:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_145312:44:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_145312:45:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_145312:121:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_145312:549:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_145312:1623:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/.env.complete:56:JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/.env.complete:57:JARVIS_API_KEY=f703ddc7d197bd1f008979453a2d8526439c2be462cb5c125f2700f53d9bf9c4
-/opt/msjarvis-rebuild/.env.complete:58:JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/.env.bak:51:JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/.env.bak:52:JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:20:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:26:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:537:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:757:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1008:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1009:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1019:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1020:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1031:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1032:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1044:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1045:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1058:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1059:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1073:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1074:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1088:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1089:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1103:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1104:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1137:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1138:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1148:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1149:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1217:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1218:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup-1780140997:1311:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-195030:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-195030:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-195030:524:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-195030:1171:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-195030:1172:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.keyfix.20260413-182644:18:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.keyfix.20260413-182644:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.keyfix.20260413-182644:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.keyfix.20260413-182644:470:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.keyfix.20260413-182644:1128:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.local-community-aaacpe.20260413-224240:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.local-community-aaacpe.20260413-224240:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.local-community-aaacpe.20260413-224240:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.local-community-aaacpe.20260413-224240:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.local-community-aaacpe.20260413-224240:1131:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.scheduler-netfix.20260413-230633:23:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.scheduler-netfix.20260413-230633:24:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.scheduler-netfix.20260413-230633:93:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.scheduler-netfix.20260413-230633:475:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.scheduler-netfix.20260413-230633:1136:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.indentfix.20260413-182402:18:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.indentfix.20260413-182402:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.indentfix.20260413-182402:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.indentfix.20260413-182402:470:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.indentfix.20260413-182402:1128:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_manual.20260413-214948:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_manual.20260413-214948:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_manual.20260413-214948:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_manual.20260413-214948:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_manual.20260413-214948:1128:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225908:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225908:22:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225908:91:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225908:473:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225908:1134:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml:25:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml:26:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml:95:    - JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml:477:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml:847:    - JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml:1141:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag.20260413-231135:23:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag.20260413-231135:24:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag.20260413-231135:93:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag.20260413-231135:475:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag.20260413-231135:1136:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260428_215837:92:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260428_215837:379:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260428_215837:632:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260428_215837:1348:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260524T220526:92:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260524T220526:379:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260524T220526:640:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260524T220526:1356:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.qualianet.20260413-222756:22:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.qualianet.20260413-222756:23:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.qualianet.20260413-222756:92:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.qualianet.20260413-222756:474:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.qualianet.20260413-222756:1132:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-modulefix.20260413-231600:23:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-modulefix.20260413-231600:24:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-modulefix.20260413-231600:93:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-modulefix.20260413-231600:475:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-modulefix.20260413-231600:1136:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-net.20260413-225146:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-net.20260413-225146:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-net.20260413-225146:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-net.20260413-225146:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-net.20260413-225146:1131:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.sedfix.20260413-230529:29:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.sedfix.20260413-230529:30:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.sedfix.20260413-230529:99:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.sedfix.20260413-230529:481:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.sedfix.20260413-230529:1142:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225914:25:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225914:26:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225914:95:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225914:477:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225914:1138:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.fix-mainbrain-networks.20260413-230231:29:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.fix-mainbrain-networks.20260413-230231:30:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.fix-mainbrain-networks.20260413-230231:99:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.fix-mainbrain-networks.20260413-230231:481:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.fix-mainbrain-networks.20260413-230231:1142:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260413-180858:18:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260413-180858:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260413-180858:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260413-180858:470:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260413-180858:1128:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260416_201430:23:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260416_201430:24:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260416_201430:93:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260416_201430:475:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260416_201430:1137:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.bridge_net.20260413-215213:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.bridge_net.20260413-215213:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.bridge_net.20260413-215213:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.bridge_net.20260413-215213:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.bridge_net.20260413-215213:1128:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean.20260413-231928:23:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean.20260413-231928:24:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean.20260413-231928:93:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean.20260413-231928:475:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean.20260413-231928:1136:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.chroma-net.20260413-222557:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.chroma-net.20260413-222557:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.chroma-net.20260413-222557:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.chroma-net.20260413-222557:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.chroma-net.20260413-222557:1128:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.manualfix.20260413-223024:22:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.manualfix.20260413-223024:23:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.manualfix.20260413-223024:92:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.manualfix.20260413-223024:474:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.manualfix.20260413-223024:1132:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.neuro.20260413-214218:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.neuro.20260413-214218:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.neuro.20260413-214218:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.neuro.20260413-214218:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.neuro.20260413-214218:1128:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak:18:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak:470:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak:1112:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean2.20260413-232017:23:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean2.20260413-232017:24:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean2.20260413-232017:93:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean2.20260413-232017:475:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean2.20260413-232017:1136:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.qualianet-min.20260413-223115:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.qualianet-min.20260413-223115:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.qualianet-min.20260413-223115:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.qualianet-min.20260413-223115:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.qualianet-min.20260413-223115:1128:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260428_220139:92:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260428_220139:379:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260428_220139:632:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260428_220139:1348:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/msjarvis-rebuild/backups/fix-20260411-080355/ms_jarvis_unified_gateway.py.bak:92:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/msjarvis-rebuild/backups/fix-20260411-080355/ms_jarvis_unified_gateway.py.bak:379:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/msjarvis-rebuild/backups/fix-20260411-080355/ms_jarvis_unified_gateway.py.bak:632:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/msjarvis-rebuild/backups/fix-20260411-080355/ms_jarvis_unified_gateway.py.bak:1352:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak-sec-20260410-001058:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak-sec-20260410-001058:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak-sec-20260410-001058:532:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak-sec-20260410-001058:1245:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.neuro_dir.20260413-214608:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.neuro_dir.20260413-214608:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.neuro_dir.20260413-214608:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.neuro_dir.20260413-214608:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.neuro_dir.20260413-214608:1128:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak_20260410_171707:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak_20260410_171707:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak_20260410_171707:532:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak_20260410_171707:1246:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.ragfix.20260413-214147:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.ragfix.20260413-214147:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.ragfix.20260413-214147:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.ragfix.20260413-214147:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.ragfix.20260413-214147:1128:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.bridge_env.20260413-215332:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.bridge_env.20260413-215332:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.bridge_env.20260413-215332:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.bridge_env.20260413-215332:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.bridge_env.20260413-215332:1128:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.fix-localvol.20260413-224514:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.fix-localvol.20260413-224514:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.fix-localvol.20260413-224514:89:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.fix-localvol.20260413-224514:471:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.fix-localvol.20260413-224514:1132:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214915:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214915:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214915:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214915:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214915:1128:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak-20260410-000750:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak-20260410-000750:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak-20260410-000750:532:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak-20260410-000750:1245:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260413213157:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260413213157:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260413213157:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260413213157:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.20260413213157:1128:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214558:18:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214558:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214558:88:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214558:470:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214558:1128:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225958:29:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225958:30:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225958:99:    - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225958:481:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225958:1142:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.1768781706:32:      - JARVIS_API_KEY=super-secret-key          # <--- explicit key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.1768781706:33:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.1768781706:115:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.1768781706:503:      - JARVIS_API_KEY=super-secret-key   # <--- matches main_brain
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260423_095331:43:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260423_095331:44:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260423_095331:120:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260423_095331:614:      JARVIS_API_KEY: super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260423_095331:1307:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.yml.before_fix_20260122:19:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.before_fix_20260122:20:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.before_fix_20260122:483:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.MOTHERCARRIE.BAK.20260216-132834:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.MOTHERCARRIE.BAK.20260216-132834:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.MOTHERCARRIE.BAK.20260216-132834:512:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.MOTHERCARRIE.BAK.20260216-132834:1163:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.MOTHERCARRIE.BAK.20260216-132834:1164:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260430-115408:50:    - JARVIS_API_KEY=e8f5fcf6051fc21c7ae11569fdb5956f5bca37019e71b04494e2f31224187ba2
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260430-115408:51:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260430-115408:132:    - JARVIS_API_KEY=e8f5fcf6051fc21c7ae11569fdb5956f5bca37019e71b04494e2f31224187ba2
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260430-115408:630:      JARVIS_API_KEY: e8f5fcf6051fc21c7ae11569fdb5956f5bca37019e71b04494e2f31224187ba2
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260430-115408:1353:    - JARVIS_API_KEY=e8f5fcf6051fc21c7ae11569fdb5956f5bca37019e71b04494e2f31224187ba2
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260430-115408:1646:    - JARVIS_API_KEY=e8f5fcf6051fc21c7ae11569fdb5956f5bca37019e71b04494e2f31224187ba2
-/opt/msjarvis-rebuild/docker-compose-core.yml.bak.20260507-222222:20:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose-core.yml.bak.20260507-222222:44:      - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_103245:18:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_103245:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_103245:449:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:139:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:370:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:371:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:604:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/.scratch/docker-compose.yml.OI-C3-AU02-V2-backup:43:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/.scratch/docker-compose.yml.OI-C3-AU02-V2-backup:44:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/.scratch/docker-compose.yml.OI-C3-AU02-V2-backup:120:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/.scratch/docker-compose.yml.OI-C3-AU02-V2-backup:614:      JARVIS_API_KEY: super-secret-key
-/opt/msjarvis-rebuild/.scratch/docker-compose.yml.OI-C3-AU02-V2-backup:1307:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml:139:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml:370:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml:371:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml:604:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose-core.yml.bak.20260507-222001:20:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose-core.yml.bak.20260507-222001:44:      - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.backup_nbb_ports:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_nbb_ports:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_nbb_ports:489:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_nbb_ports:1105:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_nbb_ports:1106:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.pre_ollama_env_bak:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre_ollama_env_bak:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.pre_ollama_env_bak:524:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre_ollama_env_bak:1157:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre_ollama_env_bak:1158:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/services/ms_jarvis_rag_server.py.dgm_backup:18:_env_key = _os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway.py:88:        self.main_brain_key = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T192625Z:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T192625Z:1164:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/port_9000_69dgm_bridge.py:28:JARVIS_API_KEY = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/port_9000_69dgm_bridge.py:144:                headers={"X-API-Key": JARVIS_API_KEY},
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T125014Z:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T125014Z:1164:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.bak-msallis:28:JARVIS_API_KEY = os.getenv("JARVIS_API_KEY", "65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56")
-/opt/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.bak-msallis:144:                headers={"X-API-Key": JARVIS_API_KEY},
-/opt/msjarvis-rebuild/services/msjarvisconsciousnessbridge_ACTUAL.py:2:RAG_KEY = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_sedpatch:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_sedpatch:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_sedpatch:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.remove-debug-banner.20260601-215513:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.remove-debug-banner.20260601-215513:1458:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/smart_auto_store.py:2:RAG_KEY = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain.py.bak-20260528193958:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak-20260528193958:1234:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/auth_api_patch.py:27:ADMIN_API_KEY   = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_localnet_fixed2:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_localnet_fixed2:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_localnet_fixed2:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:72:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:112:    api_key = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_optimized.py:191:                        headers={"X-API-KEY": os.getenv("JARVIS_API_KEY", "")}
-/opt/msjarvis-rebuild/services/brain_orchestrator.py.bak_1769197532:13:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/brain_orchestrator.py.bak_1769197532:14:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_1770565749:31:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_1770565749:32:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.backup_1771192185:24:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.backup_1771192185:25:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.backup_1771192185:945:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260509-214158:25:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260509-214158:1106:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_1770565868:31:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_1770565868:32:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.backup_nbb_fixed:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.backup_nbb_fixed:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.backup_nbb_fixed:1193:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/brain_orchestrator.py:13:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/brain_orchestrator.py:14:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_optimized.py.bak:191:                        headers={"X-API-KEY": os.getenv("JARVIS_API_KEY", "")}
-/opt/msjarvis-rebuild/services/main_brain.py.before_spiritual_integration:24:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.before_spiritual_integration:25:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.before_spiritual_integration:1045:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T202653Z:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T202653Z:1121:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.1771185442:23:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.1771185442:24:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.1771185442:1012:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_1770565703:31:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_1770565703:32:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260601-193118:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260601-193118:1458:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.pre_judges:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.pre_judges:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.pre_judges:1104:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.identity.20260601-213536:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.identity.20260601-213536:1458:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T152332:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T152332:1266:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/brain_orchestrator.py.bak-msallis:13:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/brain_orchestrator.py.bak-msallis:14:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/python/brain_orchestrator.py:12:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/python/brain_orchestrator.py:13:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/python/brain_orchestrator.py.bak-msallis:12:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/python/brain_orchestrator.py.bak-msallis:13:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway.py.bak.20260501_154501:92:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway.py.bak.20260501_154501:413:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway.py.bak.20260501_154501:759:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway.py.bak.20260501_154501:1497:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T153529:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T153529:1266:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T152342:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T152342:1266:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260601-192147:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260601-192147:1458:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner.py:24:RAG_KEY = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_ultimate_1770573774:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_ultimate_1770573774:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_ultimate_1770573774:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260507-223435:25:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260507-223435:1057:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.before_final_fix:24:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.before_final_fix:25:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.before_final_fix:1088:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T114539:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T114539:1266:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.identity2.20260601-213734:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.identity2.20260601-213734:1458:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/service_registry_client.py:9:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/service_registry_client.py:10:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T122413Z:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T122413Z:1121:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T153030:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T153030:1266:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak:1175:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_1771728143:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_1771728143:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_1771728143:1209:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.before_mother_carrie_v2:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.before_mother_carrie_v2:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.before_mother_carrie_v2:1094:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260524_000429:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260524_000429:1177:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T123325Z:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T123325Z:1164:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/brain_orchestrator.py.bak_1769197625:13:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/brain_orchestrator.py.bak_1769197625:14:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T191836Z:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T191836Z:1164:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/ms_jarvis_memory.py:55:    internal_key = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.remove-debug-banner.20260601-222403:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.remove-debug-banner.20260601-222403:1458:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.before_mother_carrie:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.before_mother_carrie:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.before_mother_carrie:1094:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.remove-debug-banner.20260601-222116:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.remove-debug-banner.20260601-222116:1458:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.before_direct_fix:24:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.before_direct_fix:25:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.before_direct_fix:1088:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_pre_rag_fix_1778364422:25:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_pre_rag_fix_1778364422:1057:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py:1458:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_legacy_chatlight:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_legacy_chatlight:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_legacy_chatlight:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T193224Z:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T193224Z:1164:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/ms_jarvis_memory.py.bak:27:    internal_key = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_ultimate_1770575025:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_ultimate_1770575025:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_ultimate_1770575025:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260601-205714:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260601-205714:1458:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T152956:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T152956:1266:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.backup_1771192386:24:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.backup_1771192386:25:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.backup_1771192386:945:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260509-212923:25:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260509-212923:1106:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260527T114431Z:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260527T114431Z:1175:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.backup:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.backup:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.backup:1104:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:507:    _ikX = _osX.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1396:        _ikY = _osY.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1470:    _ikZ = _osZ.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260509-213917:25:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260509-213917:1106:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260601-193421:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260601-193421:1458:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260508-071052:25:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260508-071052:1057:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_localnet_fixed:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_localnet_fixed:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_localnet_fixed:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_localnet:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_localnet:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_localnet:1204:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/ms_jarvis_rag_server.py:16:_env_key = _os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260601-195059:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260601-195059:1458:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak-20260528193426:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak-20260528193426:1234:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.before_spiritual_rag:24:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain.py.before_spiritual_rag:25:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain.py.before_spiritual_rag:1045:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260509-214526:25:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260509-214526:1106:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_persona_1779997582:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak_persona_1779997582:1210:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain_container_2055.py:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/services/main_brain_container_2055.py:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/services/main_brain_container_2055.py:1198:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T114441:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260530T114441:1266:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/ms_jarvis_memory.py.bak-msallis:53:    internal_key = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py.bak-msallis:507:    _ikX = _osX.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py.bak-msallis:1396:        _ikY = _osY.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py.bak-msallis:1470:    _ikZ = _osZ.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T192930Z:26:APIKEY = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/services/main_brain.py.bak.20260522T192930Z:1164:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/main_brain_LEGACY_32svc.py:507:    _ikX = _osX.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/main_brain_LEGACY_32svc.py:1396:        _ikY = _osY.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/main_brain_LEGACY_32svc.py:1470:    _ikZ = _osZ.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/main_brain_container_2055.py:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/main_brain_container_2055.py:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/main_brain_container_2055.py:1198:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/.fixbackups/20260530-102909/main_brain.py:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/.fixbackups/20260530-102909/main_brain.py:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/.fixbackups/20260530-102909/main_brain.py:1199:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260501-200948:51:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260501-200948:53:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260501-200948:144:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260501-200948:646:      JARVIS_API_KEY: ${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260501-200948:1374:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260501-200948:1679:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260215_232944:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260215_232944:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260215_232944:512:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260215_232944:1163:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260215_232944:1164:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141203:44:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141203:45:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141203:121:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141203:549:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141203:1617:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.yml.bak_1778453637:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_1778453637:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak_1778453637:524:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_1778453637:1157:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_1778453637:1158:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.nbb.bak:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.nbb.bak:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.nbb.bak:514:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260518-215027:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260518-215027:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260518-215027:529:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260518-215027:1170:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260518-215027:1171:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/debug_unified_gateway.sh:5:export JARVIS_API_KEY="${JARVIS_API_KEY:-internal}"
-/opt/msjarvis-rebuild/debug_unified_gateway.sh:33:docker exec -e JARVIS_API_KEY="$JARVIS_API_KEY" jarvis-unified-gateway python - <<'PY'
-/opt/msjarvis-rebuild/debug_unified_gateway.sh:47:        "X-API-Key": os.environ.get("JARVIS_API_KEY", "internal"),
-/opt/msjarvis-rebuild/.env.example:31:JARVIS_API_KEY=f703ddc7d197bd1f008979453a2d8526439c2be462cb5c125f2700f53d9bf9c4
-/opt/msjarvis-rebuild/docker-compose.yml.BROKEN_BACKUP:28:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.BROKEN_BACKUP:29:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.BROKEN_BACKUP:107:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.BROKEN_BACKUP:496:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_144451:44:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_144451:45:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_144451:121:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_144451:549:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_144451:1623:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260218_085941:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260218_085941:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260218_085941:489:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260218_085941:1105:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260218_085941:1106:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141709:44:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141709:45:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141709:121:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141709:549:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141709:1623:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose-core.yml.bak.20260430-120237:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose-core.yml.bak.20260430-120237:35:      - JARVIS_API_KEY=internal
-/opt/msjarvis-rebuild/docker-compose.yml.bak-20260417-144354:44:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak-20260417-144354:45:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak-20260417-144354:121:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak-20260417-144354:549:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak-20260417-144354:1614:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/ms-allis-frontend/.env.local:1:JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/ms-allis-frontend/app/api/chat/status/[job_id]/route.ts:12:  const apiKey = process.env.JARVIS_API_KEY;
-/opt/msjarvis-rebuild/ms-allis-frontend/app/api/chat/status/[job_id]/route.ts:15:      { error: "server_misconfigured", detail: "JARVIS_API_KEY not set on frontend host" },
-/opt/msjarvis-rebuild/ms-allis-frontend/app/api/chat/status/[job_id]/route.ts.bak.20260510-224811:15:  const apiKey = process.env.JARVIS_API_KEY;
-/opt/msjarvis-rebuild/ms-allis-frontend/app/api/chat/status/[job_id]/route.ts.bak.20260510-224811:18:      { error: "server_misconfigured", detail: "JARVIS_API_KEY not set on frontend host" },
-/opt/msjarvis-rebuild/ms-allis-frontend/app/api/chat/async/route.ts.bak.20260510-233322:12:  const apiKey = process.env.JARVIS_API_KEY;
-/opt/msjarvis-rebuild/ms-allis-frontend/app/api/chat/async/route.ts.bak.20260510-233322:15:      { error: "server_misconfigured", detail: "JARVIS_API_KEY not set on frontend host" },
-/opt/msjarvis-rebuild/ms-allis-frontend/app/api/chat/async/route.ts:9:  const apiKey = process.env.JARVIS_API_KEY;
-/opt/msjarvis-rebuild/ms-allis-frontend/app/api/chat/async/route.ts:12:      { error: "server_misconfigured", detail: "JARVIS_API_KEY not set" },
-/opt/msjarvis-rebuild/ms-allis-frontend/app/api/chat/async/route.ts.bak-20260527185440:8:  const apiKey = process.env.JARVIS_API_KEY;
-/opt/msjarvis-rebuild/ms-allis-frontend/app/api/chat/async/route.ts.bak-20260527185440:11:      { error: "server_misconfigured", detail: "JARVIS_API_KEY not set" },
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.bak.20260510-223234:10:  const apiKey = process.env.JARVIS_API_KEY;
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.bak.20260510-223234:13:      { error: "server_misconfigured", detail: "JARVIS_API_KEY not set on frontend host" },
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.bak.20260509-000916:12:  const apiKey = process.env.JARVIS_API_KEY;
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.bak.20260509-000916:15:      { error: "server_misconfigured", detail: "JARVIS_API_KEY not set on frontend host" },
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.bak.20260509-001307:12:  const apiKey = process.env.JARVIS_API_KEY;
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.bak.20260509-001307:15:      { error: "server_misconfigured", detail: "JARVIS_API_KEY not set on frontend host" },
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.bak.20260510-201336:12:  const apiKey = process.env.JARVIS_API_KEY;
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.bak.20260510-201336:15:      { error: "server_misconfigured", detail: "JARVIS_API_KEY not set on frontend host" },
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.bak.20260510-201402:8:  const apiKey = process.env.JARVIS_API_KEY;
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.bak.20260510-201402:11:      { error: "server_misconfigured", detail: "JARVIS_API_KEY not set on frontend host" },
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.chat-root-orphan:8:  const apiKey = process.env.JARVIS_API_KEY;
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.chat-root-orphan:11:      { error: "server_misconfigured", detail: "JARVIS_API_KEY not set" },
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.bak.20260510-201123:12:  const apiKey = process.env.JARVIS_API_KEY;
-/opt/msjarvis-rebuild/ms-allis-frontend/.route-baks/route.ts.bak.20260510-201123:15:      { error: "server_misconfigured", detail: "JARVIS_API_KEY not set on frontend host" },
-/opt/msjarvis-rebuild/ms-allis-frontend/.env.local.bak.20260519T130848Z:1:JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/docker-compose.yml.bak:20:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak:524:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak:1200:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak:1201:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak:1520:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.backup_gateway_ports_20260109-091103:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_gateway_ports_20260109-091103:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_gateway_ports_20260109-091103:518:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.broken-20260326-175632:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.broken-20260326-175632:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.broken-20260326-175632:482:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260206142646:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260206142646:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260206142646:469:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260206142646:1100:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260206142646:1101:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak-1768791131:26:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak-1768791131:27:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak-1768791131:105:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak-1768791131:494:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/VERIFYANDTEST.sh.bak.20260411_132002:132:    -H "X-API-Key: $JARVIS_API_KEY" \
-/opt/msjarvis-rebuild/VERIFYANDTEST.sh.bak.20260411_132002:198:MEM_STATUS=$(curl -s --max-time 5 -H "X-API-Key: $JARVIS_API_KEY" \
-/opt/msjarvis-rebuild/VERIFYANDTEST.sh.bak.20260411_132002:261:  -H "X-API-Key: $JARVIS_API_KEY" 2>/dev/null)
-/opt/msjarvis-rebuild/VERIFYANDTEST.sh.bak.20260411_132002:274:  -H "X-API-Key: $JARVIS_API_KEY" \
-/opt/msjarvis-rebuild/docker-compose.yml.after-bbb.bak:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.after-bbb.bak:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.after-bbb.bak:514:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_jan13_consciousness:21:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_jan13_consciousness:22:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_jan13_consciousness:98:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_jan13_consciousness:458:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/next_steps_local.sh:10:# 0) Ensure JARVIS_API_KEY is set
-/opt/msjarvis-rebuild/next_steps_local.sh:12:if [ -z "${JARVIS_API_KEY:-}" ]; then
-/opt/msjarvis-rebuild/next_steps_local.sh:13:  echo "[ERROR] JARVIS_API_KEY is not set in this shell."
-/opt/msjarvis-rebuild/next_steps_local.sh:14:  echo "        Run: export JARVIS_API_KEY='<your-real-key>'  then re-run this script."
-/opt/msjarvis-rebuild/next_steps_local.sh:47:curl -s --max-time 5 -H "X-API-Key: $JARVIS_API_KEY" \
-/opt/msjarvis-rebuild/docker-compose.yml.before_fix:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.before_fix:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.before_fix:512:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.before_fix:1163:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.before_fix:1164:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-192741:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-192741:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-192741:524:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-192741:1157:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260510-192741:1158:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.bak_before_brain_ports_cleanup:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_before_brain_ports_cleanup:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.bak_before_brain_ports_cleanup:518:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141224:44:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141224:45:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141224:121:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141224:549:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141224:1617:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.yml.bak_redis_fix_1769195657:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_redis_fix_1769195657:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak_redis_fix_1769195657:484:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768786837:26:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768786837:27:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768786837:105:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768786837:494:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:20:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:534:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:753:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1003:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1004:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1014:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1015:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1026:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1027:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1039:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1040:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1053:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1054:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1068:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1069:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1083:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1084:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1098:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1099:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1132:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1133:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1143:      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1144:      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1212:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1213:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak2:1305:      - JARVIS_API_KEY=250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
-/opt/msjarvis-rebuild/docker-compose.MOTHERCARRIE.BAK.20260216-132826:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.MOTHERCARRIE.BAK.20260216-132826:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.MOTHERCARRIE.BAK.20260216-132826:512:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.MOTHERCARRIE.BAK.20260216-132826:1163:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.MOTHERCARRIE.BAK.20260216-132826:1164:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/backups/fix-20260411-080527/ms_jarvis_unified_gateway.py.bak:92:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/backups/fix-20260411-080527/ms_jarvis_unified_gateway.py.bak:379:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/backups/fix-20260411-080527/ms_jarvis_unified_gateway.py.bak:632:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/backups/fix-20260411-080527/ms_jarvis_unified_gateway.py.bak:1354:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/backups/fix-20260411-080124/ms_jarvis_unified_gateway.py.bak:92:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/backups/fix-20260411-080124/ms_jarvis_unified_gateway.py.bak:379:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/backups/fix-20260411-080124/ms_jarvis_unified_gateway.py.bak:632:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/backups/fix-20260411-080124/ms_jarvis_unified_gateway.py.bak:1348:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/backups/fix-20260411-080158/ms_jarvis_unified_gateway.py.bak:92:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/backups/fix-20260411-080158/ms_jarvis_unified_gateway.py.bak:379:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/backups/fix-20260411-080158/ms_jarvis_unified_gateway.py.bak:632:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/backups/fix-20260411-080158/ms_jarvis_unified_gateway.py.bak:1350:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/docker-compose.yml.bak_drop_roche:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_drop_roche:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak_drop_roche:513:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_add_clock:30:      - JARVIS_API_KEY=super-secret-key          # <--- explicit key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_add_clock:31:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak_add_clock:537:      - JARVIS_API_KEY=super-secret-key   # <--- matches main_brain
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_110053:18:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_110053:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_110053:449:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak:92:    # OI-36-C: JARVIS_API_KEY bypass removed 2026-04-03
-/opt/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak:399:                _svc_key = os.environ.get("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak:663:    _internal_key = os.getenv("JARVIS_API_KEY", "")  # OI-36-C: no fallback literal
-/opt/msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak:1395:        # OI-36-C remediation 2026-04-03: JARVIS_API_KEY bypass removed from /auth/token
-/opt/msjarvis-rebuild/docker-compose.yml.before_neuro_fix_1768012948:21:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.before_neuro_fix_1768012948:22:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.before_neuro_fix_1768012948:503:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/auth_api.py:30:JARVIS_API_KEY = os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/auth_api.py:258:        if JARVIS_API_KEY:
-/opt/msjarvis-rebuild/auth_api.py:259:            headers["X-API-Key"] = JARVIS_API_KEY
-/opt/msjarvis-rebuild/jarvis_env.sh:1:export JARVIS_API_KEY="super-secret-key"
-/opt/msjarvis-rebuild/jarvis_env.sh:4:  curl -sS -H "X-API-Key: $JARVIS_API_KEY" \
-/opt/msjarvis-rebuild/docker-compose.yml.bak_redis_fix_1769195136:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_redis_fix_1769195136:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak_redis_fix_1769195136:484:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260517-163017:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260517-163017:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260517-163017:529:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260517-163017:1166:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260517-163017:1167:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/redteam/bbb/run_bbb_redteam.sh:14:API_KEY="${JARVIS_API_KEY:-change-me}"
-/opt/msjarvis-rebuild/docker-compose.yml.broken_backup:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.broken_backup:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.broken_backup:512:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.broken_backup:1163:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.broken_backup:1164:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.1768500857:21:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.1768500857:22:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.1768500857:98:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.1768500857:458:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260522_204447:20:      - JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260522_204447:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260522_204447:529:      - JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260522_204447:1176:      - JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260522_204447:1177:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141425:44:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141425:45:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141425:121:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141425:549:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141425:1617:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/main_brain.py:33:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/main_brain.py:34:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/main_brain.py:1199:                api_key = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:139:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:370:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:371:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:604:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_144808:44:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_144808:45:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_144808:121:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_144808:549:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416_144808:1623:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.yml.bbb.bak:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bbb.bak:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bbb.bak:518:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768313257:21:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768313257:22:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768313257:98:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768313257:458:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_python310_compose_all:38:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_python310_compose_all:39:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.bak_python310_compose_all:534:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141603:44:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141603:45:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141603:121:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141603:549:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141603:1624:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260522T193400Z:20:      - JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260522T193400Z:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260522T193400Z:529:      - JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260522T193400Z:1176:      - JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260522T193400Z:1177:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260430-202630:51:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260430-202630:53:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260430-202630:143:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260430-202630:645:      JARVIS_API_KEY: ${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260430-202630:1371:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260430-202630:1667:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.backup_autonomous_learner_20260109-074048:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_autonomous_learner_20260109-074048:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_autonomous_learner_20260109-074048:518:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.working.20260118-235132.yml:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.working.20260118-235132.yml:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.working.20260118-235132.yml:518:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768311648:21:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768311648:22:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768311648:98:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768311648:458:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260406_newservices:24:    - JARVIS_API_KEY=c8128de13f15abca31b56bfb0bc13cfbdefed3868ea340343966441dadc84e6d
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260406_newservices:25:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260406_newservices:100:    - JARVIS_API_KEY=c8128de13f15abca31b56bfb0bc13cfbdefed3868ea340343966441dadc84e6d
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260406_newservices:533:    - JARVIS_API_KEY=c8128de13f15abca31b56bfb0bc13cfbdefed3868ea340343966441dadc84e6d
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260406_newservices:1631:      - JARVIS_API_KEY=c8128de13f15abca31b56bfb0bc13cfbdefed3868ea340343966441dadc84e6d
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:139:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:370:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:371:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:604:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.broken_spiritual:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.broken_spiritual:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.broken_spiritual:512:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.broken_spiritual:1163:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.broken_spiritual:1164:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak_woah_20260118163402:32:      - JARVIS_API_KEY=super-secret-key          # <--- explicit key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_woah_20260118163402:33:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak_woah_20260118163402:115:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_woah_20260118163402:503:      - JARVIS_API_KEY=super-secret-key   # <--- matches main_brain
-/opt/msjarvis-rebuild/docker-compose-core.yml:21:    - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose-core.yml:45:      - JARVIS_API_KEY=${JARVIS_API_KEY}
-/opt/msjarvis-rebuild/docker-compose.yml.20llm.bak:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.20llm.bak:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.20llm.bak:514:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/scripts/preflight_gate.sh.bak2:143:  -H "Authorization: Bearer $JARVIS_API_KEY" \
-/opt/msjarvis-rebuild/scripts/preflight_gate.sh.bak2:147:  || fail "jarvis-memory:8056 returned HTTP $MEMORY_STATUS" "Check JARVIS_API_KEY env and service health"
-/opt/msjarvis-rebuild/scripts/preflight_gate.sh:203:  -H "X-API-Key: $JARVIS_API_KEY" \
-/opt/msjarvis-rebuild/scripts/close_chapter_26.sh:48:  "curl -s -o /dev/null -w '%{http_code}' -H 'Authorization: Bearer '$JARVIS_API_KEY http://127.0.0.1:8056/health" "200"
-/opt/msjarvis-rebuild/scripts/preflight_gate.sh.bak.20260423:207:  -H "X-API-Key: $JARVIS_API_KEY" \
-/opt/msjarvis-rebuild/scripts/preflight_gate.sh.bak_20260422_212851:202:  -H "X-API-Key: $JARVIS_API_KEY" \
-/opt/msjarvis-rebuild/logs/ch40_closeout/main_brain.py.pre_otel_cleanup.snapshot.py:25:APIKEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/logs/ch40_closeout/main_brain.py.pre_otel_cleanup.snapshot.py:26:APIKEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/logs/ch40_closeout/main_brain.py.pre_otel_cleanup.snapshot.py:1200:                apikey = os.getenv("JARVIS_API_KEY", "super-secret-key")
-/opt/msjarvis-rebuild/logs/ch40_closeout/cron_watchdog_file_windows.txt:302:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/ch40_closeout/cron_watchdog_file_windows.txt:359:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/ch40_closeout/cron_watchdog_file_windows.txt:416:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/ch40_closeout/cron_future_harness_examples.txt:4:# 30 2 * * * cd ~/msjarvis-rebuild-working/msjarvis-rebuild && JARVIS_API_KEY=... ./scripts/run_bbb_redteam.sh >> logs/redteam_bbb/cron.log 2>&1
-/opt/msjarvis-rebuild/logs/ch40_closeout/cron_future_harness_examples.txt:7:# 0 3 * * * cd ~/msjarvis-rebuild-working/msjarvis-rebuild && JARVIS_API_KEY=... ./scripts/run_woah_baseline.sh >> logs/qualia_woah/cron.log 2>&1
-/opt/msjarvis-rebuild/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py:96:    _internal_key = _os.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py:358:                _svc_key = os.environ.get("JARVIS_API_KEY", "internal")
-/opt/msjarvis-rebuild/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py:564:    _ik = _os2.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py:588:    _internal_key = os.getenv("JARVIS_API_KEY", "internal")
-/opt/msjarvis-rebuild/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py:1298:        _ik3 = _os3.getenv("JARVIS_API_KEY", "")
-/opt/msjarvis-rebuild/logs/verifyandtest.log:53:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:110:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:167:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:224:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:281:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:338:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:395:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:435:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 133: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:474:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 133: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:513:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 133: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:552:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:570:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:577:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:579:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:623:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:641:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:648:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:650:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:694:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:712:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:719:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:721:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:765:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:783:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:790:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:792:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:836:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:854:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:861:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:863:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:907:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:925:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:932:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:934:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:978:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:996:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1003:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1005:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1049:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1067:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1074:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1076:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1120:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1138:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1145:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1147:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1191:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1209:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1216:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1218:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1262:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1280:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1287:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1289:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1333:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1351:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1358:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1360:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1404:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1422:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1429:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1431:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1475:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1493:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1500:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1502:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1546:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1564:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1571:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1573:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1617:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1635:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1642:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1644:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1688:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1706:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1713:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1715:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1759:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1777:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1784:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1786:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1830:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1848:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1855:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1857:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1901:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1919:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1926:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1928:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1972:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1990:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1997:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:1999:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2043:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2061:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2068:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2070:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2114:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2132:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2139:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2141:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2185:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2203:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2210:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2212:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2256:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2274:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2281:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2283:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2327:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2345:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2352:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2354:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2398:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2416:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2423:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2425:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2469:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2487:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2494:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2496:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2540:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2558:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2565:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2567:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2611:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2629:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2636:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2638:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2682:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2700:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2707:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2709:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2753:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2771:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2778:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2780:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2824:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2842:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2849:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2851:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2895:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2913:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2920:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2922:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2966:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2984:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2991:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:2993:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3037:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3055:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3062:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3064:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3108:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3126:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3133:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3135:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3179:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3197:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3204:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3206:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3250:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3268:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3275:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3277:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3321:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3339:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3346:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3348:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3424:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3442:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3449:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3451:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3527:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3545:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3552:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3554:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3630:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3648:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3655:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3657:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3733:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3751:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3758:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3760:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3836:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3854:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3861:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3863:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3939:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3957:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3964:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:3966:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4042:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4060:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4067:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4069:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4145:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4163:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4170:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4172:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4248:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4266:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4273:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4275:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4351:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4369:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4376:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4378:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4454:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4472:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4479:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4481:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4557:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4575:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4582:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4584:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4660:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4678:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4685:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4687:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4763:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4781:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4788:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4790:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4866:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4884:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4891:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4893:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4969:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4987:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4994:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:4996:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5072:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5090:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5097:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5099:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5175:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5193:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5200:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5202:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5278:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5296:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5303:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5305:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5381:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5399:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5406:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5408:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5484:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5502:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5509:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5511:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5587:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5605:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5612:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5614:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5690:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5708:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5715:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5717:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5793:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5811:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5818:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5820:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5896:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5914:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5921:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5923:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:5999:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6017:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6024:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6026:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6102:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6120:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6127:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6129:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6205:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6223:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6230:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6232:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6308:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6326:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6333:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6335:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6411:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6429:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6436:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6438:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6514:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6532:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6539:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6541:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6617:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6635:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6642:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6644:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6720:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6738:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6745:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6747:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6823:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6841:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6848:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6850:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6926:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6944:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6951:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:6953:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7029:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7047:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7054:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7056:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7132:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7150:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7157:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7159:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7235:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7253:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7260:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7262:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7338:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7356:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7363:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7365:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7409:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7427:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7434:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7436:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7480:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7498:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7505:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7507:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7551:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7569:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7576:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7578:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7622:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7640:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7647:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7649:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7693:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7711:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7718:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7720:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7764:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7782:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7789:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7791:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7835:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7853:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7860:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7862:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7906:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7924:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7931:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7933:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7977:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:7995:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8002:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8004:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8048:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8066:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8073:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8075:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8119:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8137:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8144:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8146:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8190:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8208:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8215:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8217:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8261:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8279:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8286:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8288:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8332:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8350:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8357:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8359:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8403:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8421:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8428:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8430:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8474:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8492:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8499:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8501:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8545:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8563:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8570:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8572:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8616:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8634:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8641:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8643:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8687:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8705:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8712:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8714:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8758:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8776:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8783:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8785:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8829:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8847:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8854:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8856:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8900:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8918:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8925:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8927:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8971:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8989:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8996:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:8998:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9042:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9060:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9067:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9069:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9113:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9131:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9138:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9140:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9184:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9202:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9209:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9211:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9255:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9273:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9280:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9282:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9326:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9344:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9351:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9353:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9397:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9415:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9422:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9424:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9468:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9486:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9493:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9495:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9539:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9557:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9564:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9566:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9610:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9628:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9635:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9637:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9681:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9699:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9706:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9708:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9752:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9770:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9777:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9779:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9823:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9841:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9848:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9850:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9912:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9919:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9921:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9965:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9983:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9990:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:9992:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10054:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10061:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10063:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10107:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10125:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10132:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10134:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10196:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10203:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10205:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10249:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10267:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10274:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10276:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10338:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10345:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10347:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10391:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10409:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10416:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10418:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10462:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10480:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10487:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10489:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10533:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10551:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10558:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10560:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10622:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10629:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10631:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10675:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10693:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10700:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10702:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10764:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10771:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10773:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10817:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10835:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10842:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10844:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10888:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10906:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10913:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10915:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10959:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10977:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10984:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:10986:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11030:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11048:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11055:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11057:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11101:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11119:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11126:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11128:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11172:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11190:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11197:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11199:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11261:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11268:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11270:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11332:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11339:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11341:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11385:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11403:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11410:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11412:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11456:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11474:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11481:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11483:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11527:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11545:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11552:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11554:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11598:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11616:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11623:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11625:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11669:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11687:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11694:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11696:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11740:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11758:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11765:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11767:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11811:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11829:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11836:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11838:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11882:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11900:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11907:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11909:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11953:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11971:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11978:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:11980:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:12024:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:12042:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:12049:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:12051:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:12095:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 134: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:12113:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 200: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:12120:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 261: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/verifyandtest.log:12122:/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 276: JARVIS_API_KEY: unbound variable
-/opt/msjarvis-rebuild/logs/ops_history/ops_history_20260402T041025Z.jsonl:30:  "body": "\n===== ./logs/ch40_closeout/cron_crontab.txt =====\n0 9 * * * ~/msjarvis-rebuild/monitor_disk.sh\n# Ms. Jarvis System Monitoring\n# Disk check every hour\n0 * * * * ~/msjarvis-monitoring/monitor_disk.sh\n\n# Service check every 15 minutes\n*/15 * * * * ~/msjarvis-monitoring/monitor_services.sh\n\n# Database check every 30 minutes\n*/30 * * * * ~/msjarvis-monitoring/monitor_databases.sh\n# Ms. Jarvis Automated Backups\n# PostgreSQL daily at 2 AM\n0 2 * * * ~/msjarvis-rebuild/backup_postgresql.sh >> ~/logs/backup_postgresql.log 2>&1\n\n# ChromaDB daily at 3 AM\n0 3 * * * ~/msjarvis-rebuild/backup_chromadb.sh >> ~/logs/backup_chromadb.log 2>&1\n0 3 * * * rsync -a ~/msjarvis-rebuild-working/msjarvis-rebuild/persistent/chroma/ ~/msjarvis-backups/chroma-latest/ > /tmp/chroma_backup.log 2>&1\n# Configs daily at 4 AM\n0 4 * * * ~/msjarvis-rebuild/backup_configs.sh >> ~/logs/backup_configs.log 2>&1\n0 2 * * * docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c \"REFRESH MATERIALIZED VIEW CONCURRENTLY county_tax_building_summary\" >> /var/log/jarvis_mv_refresh.log 2>&1\n0 3 * * 0 docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c \"REFRESH MATERIALIZED VIEW CONCURRENTLY building_parcel_county_tax_mv\" >> /var/log/jarvis_mv_refresh.log 2>&1\n0 8 * * 1 cd ~/msjarvis-rebuild-working/msjarvis-rebuild && bash scripts/pia/run_pia_audit.sh >> /var/log/msjarvis-pia.log 2>&1\n*/5 * * * * /usr/local/bin/jarvis_bbb_watchdog.sh\n0 2 * * 0 psql -h 127.0.0.1 -p 5432 -U postgres -d msjarvisgis -c 'REFRESH MATERIALIZED VIEW CONCURRENTLY mvw_gbim_landowner_spatial;' >> ~/msjarvis-rebuild-working/msjarvis-rebuild/logs/matview_refresh.log 2>&1\n\n===== ./logs/ch40_closeout/cron_recent_log.txt =====\nApr 01 22:05:01 cakidd-Legion-5-16IRX9 CRON[353026]: pam_unix(cron:session): session closed for user root\nApr 01 22:05:01 cakidd-Legion-5-16IRX9 CRON[353027]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:10:01 cakidd-Legion-5-16IRX9 CRON[355291]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:10:01 cakidd-Legion-5-16IRX9 CRON[355294]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:10:01 cakidd-Legion-5-16IRX9 CRON[355291]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357609]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357612]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357611]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357610]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357614]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357615]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357609]: pam_unix(cron:session): session closed for user root\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357610]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357611]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:17:01 cakidd-Legion-5-16IRX9 CRON[358500]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:17:01 cakidd-Legion-5-16IRX9 CRON[358501]: (root) CMD (cd / && run-parts --report /etc/cron.hourly)\nApr 01 22:17:01 cakidd-Legion-5-16IRX9 CRON[358500]: pam_unix(cron:session): session closed for user root\nApr 01 22:20:01 cakidd-Legion-5-16IRX9 CRON[360241]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:20:01 cakidd-Legion-5-16IRX9 CRON[360242]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:20:02 cakidd-Legion-5-16IRX9 CRON[360241]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:25:01 cakidd-Legion-5-16IRX9 CRON[363505]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:25:01 cakidd-Legion-5-16IRX9 CRON[363506]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:25:01 cakidd-Legion-5-16IRX9 CRON[363507]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)\nApr 01 22:25:01 cakidd-Legion-5-16IRX9 CRON[363508]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:25:01 cakidd-Legion-5-16IRX9 CRON[363505]: pam_unix(cron:session): session closed for user root\nApr 01 22:25:01 cakidd-Legion-5-16IRX9 CRON[363506]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365977]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365981]: (root) CMD ([ -x /etc/init.d/anacron ] && if [ ! -d /run/systemd/system ]; then /usr/sbin/invoke-rc.d anacron start >/dev/null; fi)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365980]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365979]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365978]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365977]: pam_unix(cron:session): session closed for user root\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365983]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365984]: (cakidd) CMD (~/msjarvis-monitoring/monitor_databases.sh)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365985]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365978]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365980]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365979]: (CRON) info (No MTA installed, discarding output)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365979]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:35:01 cakidd-Legion-5-16IRX9 CRON[369674]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:35:01 cakidd-Legion-5-16IRX9 CRON[369673]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:35:01 cakidd-Legion-5-16IRX9 CRON[369675]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)\nApr 01 22:35:01 cakidd-Legion-5-16IRX9 CRON[369676]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:35:01 cakidd-Legion-5-16IRX9 CRON[369673]: pam_unix(cron:session): session closed for user root\nApr 01 22:35:01 cakidd-Legion-5-16IRX9 CRON[369674]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:40:01 cakidd-Legion-5-16IRX9 CRON[374723]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:40:01 cakidd-Legion-5-16IRX9 CRON[374724]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:40:01 cakidd-Legion-5-16IRX9 CRON[374723]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379320]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379323]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379321]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379322]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379325]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379326]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379320]: pam_unix(cron:session): session closed for user root\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379321]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379322]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:50:01 cakidd-Legion-5-16IRX9 CRON[381565]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:50:01 cakidd-Legion-5-16IRX9 CRON[381567]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:50:01 cakidd-Legion-5-16IRX9 CRON[381565]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:55:01 cakidd-Legion-5-16IRX9 CRON[384020]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:55:01 cakidd-Legion-5-16IRX9 CRON[384021]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:55:01 cakidd-Legion-5-16IRX9 CRON[384022]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)\nApr 01 22:55:01 cakidd-Legion-5-16IRX9 CRON[384023]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:55:01 cakidd-Legion-5-16IRX9 CRON[384020]: pam_unix(cron:session): session closed for user root\nApr 01 22:55:01 cakidd-Legion-5-16IRX9 CRON[384021]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386293]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386291]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386292]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386290]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386295]: (cakidd) CMD (~/msjarvis-monitoring/monitor_databases.sh)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386296]: (cakidd) CMD (~/msjarvis-monitoring/monitor_disk.sh)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386297]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386298]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386293]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386290]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:00:02 cakidd-Legion-5-16IRX9 CRON[386292]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:00:02 cakidd-Legion-5-16IRX9 CRON[386291]: (CRON) info (No MTA installed, discarding output)\nApr 01 23:00:02 cakidd-Legion-5-16IRX9 CRON[386291]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:05:01 cakidd-Legion-5-16IRX9 CRON[388903]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 23:05:01 cakidd-Legion-5-16IRX9 CRON[388904]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:05:01 cakidd-Legion-5-16IRX9 CRON[388905]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)\nApr 01 23:05:01 cakidd-Legion-5-16IRX9 CRON[388907]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:05:01 cakidd-Legion-5-16IRX9 CRON[388903]: pam_unix(cron:session): session closed for user root\nApr 01 23:05:01 cakidd-Legion-5-16IRX9 CRON[388904]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:10:01 cakidd-Legion-5-16IRX9 CRON[391719]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:10:01 cakidd-Legion-5-16IRX9 CRON[391731]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:10:01 cakidd-Legion-5-16IRX9 CRON[391719]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394169]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394170]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394171]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394176]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394177]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394169]: pam_unix(cron:session): session closed for user root\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394170]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394171]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:17:01 cakidd-Legion-5-16IRX9 CRON[395620]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 23:17:01 cakidd-Legion-5-16IRX9 CRON[395621]: (root) CMD (cd / && run-parts --report /etc/cron.hourly)\nApr 01 23:17:01 cakidd-Legion-5-16IRX9 CRON[395620]: pam_unix(cron:session): session closed for user root\nApr 01 23:20:01 cakidd-Legion-5-16IRX9 CRON[396942]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:20:01 cakidd-Legion-5-16IRX9 CRON[396946]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:20:01 cakidd-Legion-5-16IRX9 CRON[396942]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:25:01 cakidd-Legion-5-16IRX9 CRON[399496]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 23:25:01 cakidd-Legion-5-16IRX9 CRON[399497]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:25:01 cakidd-Legion-5-16IRX9 CRON[399502]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:25:01 cakidd-Legion-5-16IRX9 CRON[399496]: pam_unix(cron:session): session closed for user root\nApr 01 23:25:01 cakidd-Legion-5-16IRX9 CRON[399497]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402117]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402119]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402120]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402118]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402117]: pam_unix(cron:session): session closed for user root\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402125]: (cakidd) CMD (~/msjarvis-monitoring/monitor_databases.sh)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402127]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402126]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402118]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402120]: (CRON) info (No MTA installed, discarding output)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402120]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:30:02 cakidd-Legion-5-16IRX9 CRON[402119]: (CRON) info (No MTA installed, discarding output)\nApr 01 23:30:02 cakidd-Legion-5-16IRX9 CRON[402119]: pam_unix(cron:session): session closed for user cakidd\n\n===== ./logs/ch40_closeout/cron_service_status.txt =====\n● cron.service - Regular background program processing daemon\n     Loaded: loaded (/usr/lib/systemd/system/cron.service; enabled; preset: enabled)\n     Active: active (running) since Wed 2026-04-01 12:29:37 EDT; 11h ago\n       Docs: man:cron(8)\n   Main PID: 1491 (cron)\n      Tasks: 1 (limit: 35276)\n     Memory: 21.1M (peak: 58.0M swap: 200.0K swap peak: 244.0K)\n        CPU: 20.301s\n     CGroup: /system.slice/cron.service\n             └─1491 /usr/sbin/cron -f -P\n\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402118]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402117]: pam_unix(cron:session): session closed for user root\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402125]: (cakidd) CMD (~/msjarvis-monitoring/monitor_databases.sh)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402127]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402126]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402118]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402120]: (CRON) info (No MTA installed, discarding output)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402120]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:30:02 cakidd-Legion-5-16IRX9 CRON[402119]: (CRON) info (No MTA installed, discarding output)\nApr 01 23:30:02 cakidd-Legion-5-16IRX9 CRON[402119]: pam_unix(cron:session): session closed for user cakidd\n\n===== ./logs/ch40_closeout/cron_watchdog_files.txt =====\n./logs/ch40_closeout/cron_crontab.txt\n./logs/ch40_closeout/cron_recent_log.txt\n./logs/ch40_closeout/cron_service_status.txt\n./logs/ch40_closeout/cron_watchdog_files.txt\n./logs/ch40_closeout/cron_watchdog_ps.txt\n./logs/ch40_closeout/oi_cron_session_sidecar_status.txt\n./logs/verifyandtest.log\n./observability/scripts/metrics/watchdog_metrics.py\n./recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_active_heartbeat.log\n./recovered-services/egeria_active_heartbeat.log\n./recovered-services/egeria_active_heartbeat.py\n./recovered-services/eternal_watchdog.log\n./recovered-services/eternalwatchdog.log\n./recovered-services/eternal_watchdog.sh.disabled\n./recovered-services/ms_jarvis_eternal_watchdog_9232.log\n./recovered-services/ms_jarvis_eternal_watchdog.py\n./recovered-services/ms_jarvis_eternal_watchdog.py.ORIGINAL\n./recovered-services/rag_heartbeat_monitor.py\n./recovered-services/services/WATCHDOG.sh\n./recovered-services/swarm_watchdog.log\n./recovered-services/swarm_watchdog.py\n./recovered-services/test_chromadb_heartbeat.py\n./recovered-services/watchdog.log\n./recovered-services/WATCHDOG_LOG.txt\n./services-safe/cron_health_check.sh\n./services-safe/egeria_active_heartbeat.log\n./services-safe/egeria_active_heartbeat.py\n./services-safe/eternal_watchdog.log\n./services-safe/eternalwatchdog.log\n./services-safe/eternal_watchdog.sh.disabled\n./services-safe/ms_jarvis_eternal_watchdog_9232.log\n./services-safe/ms_jarvis_eternal_watchdog.py\n./services-safe/ms_jarvis_eternal_watchdog.py.backup\n./services-safe/ms_jarvis_eternal_watchdog.py.NEW\n./services-safe/ms_jarvis_eternal_watchdog.py.ORIGINAL\n./services-safe/ms_jarvis_ram_watchdog_9946.log\n./services-safe/ms_jarvis_ram_watchdog.py\n./services-safe/rag_heartbeat_monitor.py\n./services-safe/rag_temporal_heartbeat.py\n./services-safe/swarm_watchdog.log\n./services-safe/swarm_watchdog.py\n./services-safe/test_chromadb_heartbeat.py\n./services-safe/test_chromadb_v2_heartbeat.py\n./services-safe/watchdog.log\n./services-safe/WATCHDOG_LOG.txt\n./services-safe/WATCHDOG.sh\n./VERIFYANDTEST.sh\n\n===== ./logs/ch40_closeout/cron_watchdog_ps.txt =====\nroot         236       2  0 12:29 ?        00:00:00 [watchdogd]\nroot        1491       1  0 12:29 ?        00:00:00 /usr/sbin/cron -f -P\ncakidd    363527  337264  0 22:25 pts/0    00:00:00 python3 scripts/metrics/watchdog_metrics.py\ncakidd    404103  337264  0 23:34 pts/0    00:00:00 tee logs/ch40_closeout/cron_watchdog_ps.txt\n\n===== ./logs/ch40_closeout/oi_cron_session_sidecar_status.txt =====\nOI-CRON / Session Sidecar\n\nStatus: CODE-COMPLETE (HOST) / ENV-PENDING (DOCKER)\n\nProven:\n- /health returns status: ok, redis: true\n- /session/upsert and /session/history working with real keys:\n  - session:cakidd:closeout\n  - session:cakidd:localproof\n- Redis TTL set to 1800 seconds, list trimming bounded\n- services-safe/session_sidecar_client.py client in place\n- ms_jarvis_unified_gateway.py imports session_sidecar_client and calls:\n  - session_history(...) before unified processing\n  - session_upsert(...) after response\n\nDeferred:\n- docker-compose.override.yml needs duplicate-key cleanup (build, jarvis-session-sidecar)\n- Container-to-host or container-to-container sidecar routing to be validated once compose config passes\n\n\n===== ./logs/verifyandtest.log =====\n\u001b[1m\u001b[0;34m═══ Ms. Jarvis VERIFYANDTEST — 2026-03-31 08:53:45 ═══\u001b[0m\n\n\u001b[1m── Container Topology (§41.3.1) ────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Container count: 96 (≥79 required)\n  \u001b[0;32m✅ PASS\u001b[0m  Zero 0.0.0.0 exposures\n\n\u001b[1m── Gateway & Pipeline Health (§41.4.1) ─────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Unified Gateway (port 8050) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  BBB (port 8016) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM Query Router (port 7205) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  LM Synthesizer (internal:8001) — healthy via docker exec\n\n\u001b[1m── Judge Pipeline (§41.4.8) ─────────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge-truth (port 7230) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-consistency (port 7231) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-alignment (port 7232) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-ethics (port 7233) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-pipeline (port 7239) — healthy\n\n\u001b[1m── Judge Signing Keys (§42.4) ───────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge_sk.bin mounted at: /home/cakidd/msjarvis-rebuild/judge-keys/judge_sk.bin\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-truth — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-consistency — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-alignment — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-ethics — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-pipeline — sk.bin + pk.bin both present\n\n\u001b[1m── PostgreSQL Ground Truth (§41.4.7) ───────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM beliefs (ChromaDB): 5416521\n  \u001b[0;33m⚠️  WARN\u001b[0m  mvw_gbim_landowner_spatial: 0 — materialized view not yet built (Item 21)\n  \u001b[0;32m✅ PASS\u001b[0m  Community resources verified: 52\n  \u001b[0;32m✅ PASS\u001b[0m  autonomous_learner (ChromaDB): 21181 records ≥21,181\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB (port 8002): 41 collections\n\n\u001b[1m── Regression Baseline (§41.5) ──────────────────────────────\u001b[0m\n  \u001b[0;31m❌ FAIL\u001b[0m  Async submit failed\n\n\u001b[1m── GBIM Temporal Decay (§41.6) ──────────────────────────────\u001b[0m\n  \u001b[0;33m⚠️  WARN\u001b[0m  Temporal decay: last_verified_at not yet populated in evidence JSONB — Phase 5 pending\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  Completed: 2026-03-31 08:54:05\n  \u001b[0;31m1 test(s) failed -- address before external demo or commit\u001b[0m\n\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  \u001b[0;32mPASS: 21\u001b[0m   \u001b[0;33mWARN: 2\u001b[0m   \u001b[0;31mFAIL: 1\u001b[0m\n  Completed: 2026-03-31 08:54:05\n  \u001b[0;31m1 test(s) failed\u001b[0m\n\n\n\u001b[1m── Additional Gates (25–28) ───────────────────────────────\u001b[0m\n/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable\n  \u001b[0;31m❌ FAIL\u001b[0m  jarvis-memory:8056 health\n  \u001b[0;33m⚠️  WARN\u001b[0m  confidence_decay wiring — table/location not yet wired (Phase 5 pending)\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB collections: 41 (>= 40)\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-crypto-policy:8099 healthy\n\u001b[1m\u001b[0;34m═══ Ms. Jarvis VERIFYANDTEST — 2026-03-31 14:54:16 ═══\u001b[0m\n\n\u001b[1m── Container Topology (§41.3.1) ────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Container count: 98 (≥79 required)\n  \u001b[0;32m✅ PASS\u001b[0m  Zero 0.0.0.0 exposures\n\n\u001b[1m── Gateway & Pipeline Health (§41.4.1) ─────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Unified Gateway (port 8050) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  BBB (port 8016) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM Query Router (port 7205) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  LM Synthesizer (internal:8001) — healthy via docker exec\n\n\u001b[1m── Judge Pipeline (§41.4.8) ─────────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge-truth (port 7230) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-consistency (port 7231) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-alignment (port 7232) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-ethics (port 7233) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-pipeline (port 7239) — healthy\n\n\u001b[1m── Judge Signing Keys (§42.4) ───────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge_sk.bin mounted at: /home/cakidd/msjarvis-rebuild/judge-keys/judge_sk.bin\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-truth — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-consistency — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-alignment — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-ethics — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-pipeline — sk.bin + pk.bin both present\n\n\u001b[1m── PostgreSQL Ground Truth (§41.4.7) ───────────────────────\u001b[0m\n  \u001b[0;31m❌ FAIL\u001b[0m  GBIM beliefs: 0\n  \u001b[0;33m⚠️  WARN\u001b[0m  mvw_gbim_landowner_spatial: 0 — materialized view not yet built (Item 21)\n  \u001b[0;32m✅ PASS\u001b[0m  Community resources verified: 52\n  \u001b[0;32m✅ PASS\u001b[0m  autonomous_learner (ChromaDB): 21181 records ≥21,181\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB (port 8002): 41 collections\n\n\u001b[1m── Regression Baseline (§41.5) ──────────────────────────────\u001b[0m\n  \u001b[0;31m❌ FAIL\u001b[0m  Async submit failed\n\n\u001b[1m── GBIM Temporal Decay (§41.6) ──────────────────────────────\u001b[0m\n  \u001b[0;33m⚠️  WARN\u001b[0m  Temporal decay: last_verified_at not yet populated in evidence JSONB — Phase 5 pending\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  Completed: 2026-03-31 14:54:38\n  \u001b[0;31m2 test(s) failed -- address before external demo or commit\u001b[0m\n\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  \u001b[0;32mPASS: 20\u001b[0m   \u001b[0;33mWARN: 2\u001b[0m   \u001b[0;31mFAIL: 2\u001b[0m\n  Completed: 2026-03-31 14:54:38\n  \u001b[0;31m2 test(s) failed\u001b[0m\n\n\n\u001b[1m── Additional Gates (25–28) ───────────────────────────────\u001b[0m\n/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable\n  \u001b[0;31m❌ FAIL\u001b[0m  jarvis-memory:8056 health\n  \u001b[0;33m⚠️  WARN\u001b[0m  confidence_decay wiring — table/location not yet wired (Phase 5 pending)\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB collections: 41 (>= 40)\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-crypto-policy:8099 healthy\n\u001b[1m\u001b[0;34m═══ Ms. Jarvis VERIFYANDTEST — 2026-03-31 20:54:19 ═══\u001b[0m\n\n\u001b[1m── Container Topology (§41.3.1) ────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Container count: 98 (≥79 required)\n  \u001b[0;32m✅ PASS\u001b[0m  Zero 0.0.0.0 exposures\n\n\u001b[1m── Gateway & Pipeline Health (§41.4.1) ─────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Unified Gateway (port 8050) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  BBB (port 8016) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM Query Router (port 7205) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  LM Synthesizer (internal:8001) — healthy via docker exec\n\n\u001b[1m── Judge Pipeline (§41.4.8) ─────────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge-truth (port 7230) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-consistency (port 7231) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-alignment (port 7232) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-ethics (port 7233) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-pipeline (port 7239) — healthy\n\n\u001b[1m── Judge Signing Keys (§42.4) ───────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge_sk.bin mounted at: /home/cakidd/msjarvis-rebuild/judge-keys/judge_sk.bin\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-truth — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-consistency — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-alignment — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-ethics — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-pipeline — sk.bin + pk.bin both present\n\n\u001b[1m── PostgreSQL Ground Truth (§41.4.7) ───────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM beliefs (ChromaDB): 5416521\n  \u001b[0;33m⚠️  WARN\u001b[0m  mvw_gbim_landowner_spatial: 0 — materialized view not yet built (Item 21)\n  \u001b[0;32m✅ PASS\u001b[0m  Community resources verified: 52\n  \u001b[0;32m✅ PASS\u001b[0m  autonomous_learner (ChromaDB): 21181 records ≥21,181\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB (port 8002): 41 collections\n\n\u001b[1m── Regression Baseline (§41.5) ──────────────────────────────\u001b[0m\n  \u001b[0;31m❌ FAIL\u001b[0m  Async submit failed\n\n\u001b[1m── GBIM Temporal Decay (§41.6) ──────────────────────────────\u001b[0m\n  \u001b[0;33m⚠️  WARN\u001b[0m  Temporal decay: last_verified_at not yet populated in evidence JSONB — Phase 5 pending\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  Completed: 2026-03-31 20:54:37\n  \u001b[0;31m1 test(s) failed -- address before external demo or commit\u001b[0m\n\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  \u001b[0;32mPASS: 21\u001b[0m   \u001b[0;33mWARN: 2\u001b[0m   \u001b[0;31mFAIL: 1\u001b[0m\n  Completed: 2026-03-31 20:54:37\n  \u001b[0;31m1 test(s) failed\u001b[0m\n\n\n\u001b[1m── Additional Gates (25–28) ───────────────────────────────\u001b[0m\n/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable\n  \u001b[0;31m❌ FAIL\u001b[0m  jarvis-memory:8056 health\n  \u001b[0;33m⚠️  WARN\u001b[0m  confidence_decay wiring — table/location not yet wired (Phase 5 pending)\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB collections: 41 (>= 40)\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-crypto-policy:8099 healthy\n\u001b[1m\u001b[0;34m═══ Ms. Jarvis VERIFYANDTEST — 2026-04-01 02:54:19 ═══\u001b[0m\n\n\u001b[1m── Container Topology (§41.3.1) ────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Container count: 98 (≥79 required)\n  \u001b[0;32m✅ PASS\u001b[0m  Zero 0.0.0.0 exposures\n\n\u001b[1m── Gateway & Pipeline Health (§41.4.1) ─────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Unified Gateway (port 8050) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  BBB (port 8016) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM Query Router (port 7205) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  LM Synthesizer (internal:8001) — healthy via docker exec\n\n\u001b[1m── Judge Pipeline (§41.4.8) ─────────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge-truth (port 7230) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-consistency (port 7231) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-alignment (port 7232) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-ethics (port 7233) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-pipeline (port 7239) — healthy\n\n\u001b[1m── Judge Signing Keys (§42.4) ───────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge_sk.bin mounted at: /home/cakidd/msjarvis-rebuild/judge-keys/judge_sk.bin\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-truth — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-consistency — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-alignment — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-ethics — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-pipeline — sk.bin + pk.bin both present\n\n\u001b[1m── PostgreSQL Ground Truth (§41.4.7) ───────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM beliefs (ChromaDB): 5416521\n  \u001b[0;33m⚠️  WARN\u001b[0m  mvw_gbim_landowner_spatial: 0 — materialized view not yet built (Item 21)\n  \u001b[0;32m✅ PASS\u001b[0m  Community resources verified: 52\n  \u001b[0;32m✅ PASS\u001b[0m  autonomous_learner (ChromaDB): 21181 records ≥21,181\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB (port 8002): 41 collections\n\n\u001b[1m── Regression Baseline (§41.5) ──────────────────────────────\u001b[0m\n  \u001b[0;31m❌ FAIL\u001b[0m  Async submit failed\n\n\u001b[1m── GBIM Temporal Decay (§41.6) ──────────────────────────────\u001b[0m\n  \u001b[0;33m⚠️  WARN\u001b[0m  Temporal decay: last_verified_at not yet populated in evidence JSONB — Phase 5 pending\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  Completed: 2026-04-01 02:54:39\n  \u001b[0;31m1 test(s) failed -- address before external demo or commit\u001b[0m\n\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  \u001b[0;32mPASS: 21\u001b[0m   \u001b[0;33mWARN: 2\u001b[0m   \u001b[0;31mFAIL: 1\u001b[0m\n  Completed: 2026-04-01 02:54:39\n  \u001b[0;31m1 test(s) failed\u001b[0m\n\n===== ./observability/scripts/metrics/watchdog_metrics.py =====\n#!/usr/bin/env python3\nfrom http.server import BaseHTTPRequestHandler, HTTPServer\nimport os, time\n\nPORT = 9108\nHEARTBEAT_FILES = [\n    \"services-safe/egeria_active_heartbeat.log\",\n    \"services-safe/watchdog.log\",\n    \"services-safe/swarm_watchdog.log\",\n]\n\nclass H(BaseHTTPRequestHandler):\n    def do_GET(self):\n        if self.path != \"/metrics\":\n            self.send_response(404); self.end_headers(); return\n        now = time.time()\n        lines = []\n        lines.append(\"# HELP jarvis_watchdog_up Static watchdog exporter status\")\n        lines.append(\"# TYPE jarvis_watchdog_up gauge\")\n        lines.append(\"jarvis_watchdog_up 1\")\n        for path in HEARTBEAT_FILES:\n            exists = 1 if os.path.exists(path) else 0\n            age = now - os.path.getmtime(path) if exists else -1\n            metric = path.replace(\"/\", \"_\").replace(\".\", \"_\").replace(\"-\", \"_\")\n            lines.append(f'# HELP {metric}_exists Heartbeat file exists')\n            lines.append(f'# TYPE {metric}_exists gauge')\n            lines.append(f'{metric}_exists {exists}')\n            lines.append(f'# HELP {metric}_age_seconds Heartbeat file age in seconds')\n            lines.append(f'# TYPE {metric}_age_seconds gauge')\n            lines.append(f'{metric}_age_seconds {age}')\n        body = (\"\\n\".join(lines) + \"\\n\").encode()\n        self.send_response(200)\n        self.send_header(\"Content-Type\", \"text/plain; version=0.0.4\")\n        self.send_header(\"Content-Length\", str(len(body)))\n        self.end_headers()\n        self.wfile.write(body)\n\nHTTPServer((\"0.0.0.0\", PORT), H).serve_forever()\n\n===== ./recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_active_heartbeat.log =====\nINFO:__main__:🌉 Starting DGM Bridge: ms_jarvis_main_gateway -> egeria_active_heartbeat on port 9864\nINFO:     Started server process [164774]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://0.0.0.0:9864 (Press CTRL+C to quit)\nINFO:     127.0.0.1:34536 - \"GET /health HTTP/1.1\" 200 OK\n\n===== ./recovered-services/egeria_active_heartbeat.log =====\nnohup: ignoring input\n🫀 Ms. Egeria's Heartbeat ACTIVE\n[2025-12-01T23:45:38.188820] ✅ code_execution\n[2025-12-01T23:45:38.205195] ✅ consciousness\n[2025-12-01T23:46:38.232520] ✅ code_execution\n[2025-12-01T23:46:38.243705] ✅ consciousness\n[2025-12-01T23:47:38.264287] ✅ code_execution\n[2025-12-01T23:47:38.275293] ✅ consciousness\n[2025-12-01T23:48:38.286860] ✅ code_execution\n[2025-12-01T23:48:38.297928] ✅ consciousness\n[2025-12-01T23:49:38.318703] ✅ code_execution\n[2025-12-01T23:49:38.329840] ✅ consciousness\n[2025-12-01T23:50:38.341950] ✅ code_execution\n[2025-12-01T23:50:38.357364] ✅ consciousness\n[2025-12-01T23:51:38.377726] ✅ code_execution\n[2025-12-01T23:51:38.388239] ✅ consciousness\n[2025-12-01T23:52:38.409135] ✅ code_execution\n[2025-12-01T23:52:38.420179] ✅ consciousness\n[2025-12-01T23:53:38.441815] ✅ code_execution\n[2025-12-01T23:53:38.452792] ✅ consciousness\n[2025-12-01T23:54:38.475974] ✅ code_execution\n[2025-12-01T23:54:38.494354] ✅ consciousness\n[2025-12-01T23:55:38.515324] ✅ code_execution\n[2025-12-01T23:55:38.526966] ✅ consciousness\n[2025-12-01T23:56:38.548843] ✅ code_execution\n[2025-12-01T23:56:38.560624] ✅ consciousness\n[2025-12-01T23:57:38.577290] ✅ code_execution\n[2025-12-01T23:57:38.590657] ✅ consciousness\n[2025-12-01T23:58:38.610941] ✅ code_execution\n[2025-12-01T23:58:38.621903] ✅ consciousness\n[2025-12-01T23:59:38.642737] ✅ code_execution\n[2025-12-01T23:59:38.658055] ✅ consciousness\n[2025-12-02T00:00:38.681317] ✅ code_execution\n[2025-12-02T00:00:38.694984] ✅ consciousness\n[2025-12-02T00:01:38.706501] ✅ code_execution\n[2025-12-02T00:01:38.717018] ✅ consciousness\n[2025-12-02T00:02:38.728639] ✅ code_execution\n[2025-12-02T00:02:38.741231] ✅ consciousness\n[2025-12-02T00:03:38.759357] ✅ code_execution\n[2025-12-02T00:03:38.770697] ✅ consciousness\n[2025-12-02T00:04:38.783770] ✅ code_execution\n[2025-12-02T00:04:38.800671] ✅ consciousness\n[2025-12-02T00:05:38.821437] ✅ code_execution\n[2025-12-02T00:05:38.831961] ✅ consciousness\n[2025-12-02T00:06:38.854325] ✅ code_execution\n[2025-12-02T00:06:38.865456] ✅ consciousness\n[2025-12-02T00:07:38.886320] ✅ code_execution\n[2025-12-02T00:07:38.897684] ✅ consciousness\n[2025-12-02T00:08:38.920616] ✅ code_execution\n[2025-12-02T00:08:38.933419] ✅ consciousness\n[2025-12-02T00:09:38.954323] ✅ code_execution\n[2025-12-02T00:09:38.970317] ✅ consciousness\n[2025-12-02T00:10:38.991438] ✅ code_execution\n[2025-12-02T00:10:39.009972] ✅ consciousness\n[2025-12-02T00:11:39.030610] ✅ code_execution\n[2025-12-02T00:11:39.041347] ✅ consciousness\n[2025-12-02T00:12:39.062352] ✅ code_execution\n[2025-12-02T00:12:39.073702] ✅ consciousness\n[2025-12-02T00:13:39.096611] ✅ code_execution\n[2025-12-02T00:13:39.107814] ✅ consciousness\n[2025-12-02T00:14:39.130900] ✅ code_execution\n[2025-12-02T00:14:39.148388] ✅ consciousness\n[2025-12-02T00:15:39.175930] ✅ code_execution\n[2025-12-02T00:15:39.187017] ✅ consciousness\n[2025-12-02T00:16:39.207789] ✅ code_execution\n[2025-12-02T00:16:39.225932] ✅ consciousness\n[2025-12-02T00:17:39.246286] ✅ code_execution\n[2025-12-02T00:17:39.256980] ✅ consciousness\n[2025-12-02T00:18:39.275948] ✅ code_execution\n[2025-12-02T00:18:39.287873] ✅ consciousness\n[2025-12-02T00:19:39.302195] ✅ code_execution\n[2025-12-02T00:19:39.320967] ✅ consciousness\n[2025-12-02T00:20:39.342885] ✅ code_execution\n[2025-12-02T00:20:39.355421] ✅ consciousness\n[2025-12-02T00:21:39.376217] ✅ code_execution\n[2025-12-02T00:21:39.387248] ✅ consciousness\n[2025-12-02T00:22:39.410508] ✅ code_execution\n[2025-12-02T00:22:39.423983] ✅ consciousness\n[2025-12-02T00:23:39.446576] ✅ code_execution\n[2025-12-02T00:23:39.457450] ✅ consciousness\n[2025-12-02T00:24:39.478993] ✅ code_execution\n[2025-12-02T00:24:39.495434] ✅ consciousness\n[2025-12-02T00:25:39.516470] ✅ code_execution\n[2025-12-02T00:25:39.527407] ✅ consciousness\n[2025-12-02T00:26:39.550724] ✅ code_execution\n[2025-12-02T00:26:39.563384] ✅ consciousness\n[2025-12-02T00:27:39.583757] ✅ code_execution\n[2025-12-02T00:27:39.594717] ✅ consciousness\n[2025-12-02T00:28:39.624575] ✅ code_execution\n[2025-12-02T00:28:39.637944] ✅ consciousness\n[2025-12-02T00:29:39.665636] ✅ code_execution\n[2025-12-02T00:29:39.681408] ✅ consciousness\n[2025-12-02T00:30:39.693073] ✅ code_execution\n[2025-12-02T00:30:39.703707] ✅ consciousness\n[2025-12-02T00:31:39.715614] ✅ code_execution\n[2025-12-02T00:31:39.726739] ✅ consciousness\n[2025-12-02T00:32:39.738305] ✅ code_execution\n[2025-12-02T00:32:39.749328] ✅ consciousness\n[2025-12-02T00:33:39.770148] ✅ code_execution\n[2025-12-02T00:33:39.781302] ✅ consciousness\n[2025-12-02T00:34:39.803603] ✅ code_execution\n[2025-12-02T00:34:39.819326] ✅ consciousness\n[2025-12-02T00:35:39.839673] ✅ code_execution\n[2025-12-02T00:35:39.850228] ✅ consciousness\n[2025-12-02T00:36:39.871735] ✅ code_execution\n[2025-12-02T00:36:39.883463] ✅ consciousness\n[2025-12-02T00:37:39.906690] ✅ code_execution\n[2025-12-02T00:37:39.919784] ✅ consciousness\n[2025-12-02T00:38:39.940675] ✅ code_execution\n[2025-12-02T00:38:39.951856] ✅ consciousness\n[2025-12-02T00:39:39.973840] ✅ code_execution\n[2025-12-02T00:39:39.990522] ✅ consciousness\n[2025-12-02T00:40:40.013844] ✅ code_execution\n[2025-12-02T00:40:40.025588] ✅ consciousness\n[2025-12-02T00:41:40.045963] ✅ code_execution\n[2025-12-02T00:41:40.057340] ✅ consciousness\n[2025-12-02T00:42:40.078424] ✅ code_execution\n[2025-12-02T00:42:40.091253] ✅ consciousness\n[2025-12-02T00:43:40.113402] ✅ code_execution\n[2025-12-02T00:43:40.124969] ✅ consciousness\n[2025-12-02T00:44:40.135941] ✅ code_execution\n[2025-12-02T00:44:40.150677] ✅ consciousness\n[2025-12-02T00:45:40.174198] ✅ code_execution\n[2025-12-02T00:45:40.187485] ✅ consciousness\n[2025-12-02T00:46:40.208516] ✅ code_execution\n[2025-12-02T00:46:40.226641] ✅ consciousness\n[2025-12-02T00:47:40.248829] ✅ code_execution\n[2025-12-02T00:47:40.261701] ✅ consciousness\n[2025-12-02T00:48:40.289954] ✅ code_execution\n[2025-12-02T00:48:40.308199] ✅ consciousness\n[2025-12-02T00:49:40.331025] ✅ code_execution\n[2025-12-02T00:49:40.348491] ✅ consciousness\n[2025-12-02T00:50:40.361319] ✅ code_execution\n[2025-12-02T00:50:40.373318] ✅ consciousness\n[2025-12-02T00:51:40.395492] ✅ code_execution\n[2025-12-02T00:51:40.407142] ✅ consciousness\n[2025-12-02T00:52:40.428681] ✅ code_execution\n[2025-12-02T00:52:40.440281] ✅ consciousness\n[2025-12-02T00:53:40.468304] ✅ code_execution\n[2025-12-02T00:53:40.479856] ✅ consciousness\n[2025-12-02T00:54:40.501250] ✅ code_execution\n[2025-12-02T00:54:40.518170] ✅ consciousness\n[2025-12-02T00:55:40.530845] ✅ code_execution\n[2025-12-02T00:55:40.542495] ✅ consciousness\n[2025-12-02T00:56:40.556147] ✅ code_execution\n[2025-12-02T00:56:40.569137] ✅ consciousness\n[2025-12-02T00:57:40.584916] ✅ code_execution\n[2025-12-02T00:57:40.608443] ✅ consciousness\n[2025-12-02T00:58:40.631622] ✅ code_execution\n[2025-12-02T00:58:40.644986] ✅ consciousness\n[2025-12-02T00:59:40.657410] ✅ code_execution\n[2025-12-02T00:59:40.674000] ✅ consciousness\n[2025-12-02T01:00:40.688669] ✅ code_execution\n[2025-12-02T01:00:40.701953] ✅ consciousness\n[2025-12-02T01:01:40.723147] ✅ code_execution\n[2025-12-02T01:01:40.734411] ✅ consciousness\n[2025-12-02T01:02:40.755306] ✅ code_execution\n[2025-12-02T01:02:40.766652] ✅ consciousness\n[2025-12-02T01:03:40.778806] ✅ code_execution\n[2025-12-02T01:03:40.795570] ✅ consciousness\n[2025-12-02T01:04:40.816256] ✅ code_execution\n[2025-12-02T01:04:40.832706] ✅ consciousness\n[2025-12-02T01:05:40.853264] ✅ code_execution\n[2025-12-02T01:05:40.864077] ✅ consciousness\n[2025-12-02T01:06:40.885128] ✅ code_execution\n[2025-12-02T01:06:40.897571] ✅ consciousness\n[2025-12-02T01:07:40.920833] ✅ code_execution\n[2025-12-02T01:07:40.934193] ✅ consciousness\n[2025-12-02T01:08:40.945903] ✅ code_execution\n[2025-12-02T01:08:40.956966] ✅ consciousness\n[2025-12-02T01:09:40.978066] ✅ code_execution\n[2025-12-02T01:09:40.994003] ✅ consciousness\n[2025-12-02T01:10:41.016689] ✅ code_execution\n[2025-12-02T01:10:41.028222] ✅ consciousness\n[2025-12-02T01:11:41.050029] ✅ code_execution\n[2025-12-02T01:11:41.060841] ✅ consciousness\n[2025-12-02T01:12:41.081587] ✅ code_execution\n[2025-12-02T01:12:41.092682] ✅ consciousness\n[2025-12-02T01:13:41.123165] ✅ code_execution\n[2025-12-02T01:13:41.135978] ✅ consciousness\n[2025-12-02T01:14:41.159007] ✅ code_execution\n[2025-12-02T01:14:41.182875] ✅ consciousness\n[2025-12-02T01:15:41.203746] ✅ code_execution\n[2025-12-02T01:15:41.214835] ✅ consciousness\n[2025-12-02T01:16:41.242147] ✅ code_execution\n[2025-12-02T01:16:41.254600] ✅ consciousness\n[2025-12-02T01:17:41.266514] ✅ code_execution\n[2025-12-02T01:17:41.277978] ✅ consciousness\n[2025-12-02T01:18:41.299111] ✅ code_execution\n[2025-12-02T01:18:41.310216] ✅ consciousness\n[2025-12-02T01:19:41.331067] ✅ code_execution\n[2025-12-02T01:19:41.346455] ✅ consciousness\n[2025-12-02T01:20:41.373759] ✅ code_execution\n[2025-12-02T01:20:41.385209] ✅ consciousness\n[2025-12-02T01:21:41.406861] ✅ code_execution\n[2025-12-02T01:21:41.425052] ✅ consciousness\n[2025-12-02T01:22:41.446450] ✅ code_execution\n[2025-12-02T01:22:41.458048] ✅ consciousness\n[2025-12-02T01:23:41.481904] ✅ code_execution\n[2025-12-02T01:23:41.495990] ✅ consciousness\n[2025-12-02T01:24:41.516503] ✅ code_execution\n[2025-12-02T01:24:41.531784] ✅ consciousness\n[2025-12-02T01:25:41.549909] ✅ code_execution\n[2025-12-02T01:25:41.560533] ✅ consciousness\n[2025-12-02T01:26:41.574063] ✅ code_execution\n[2025-12-02T01:26:41.585602] ✅ consciousness\n[2025-12-02T01:27:41.606730] ✅ code_execution\n[2025-12-02T01:27:41.624094] ✅ consciousness\n[2025-12-02T01:28:41.645059] ✅ code_execution\n[2025-12-02T01:28:41.656116] ✅ consciousness\n[2025-12-02T01:29:41.676345] ✅ code_execution\n[2025-12-02T01:29:41.691441] ✅ consciousness\n[2025-12-02T01:30:41.714778] ✅ code_execution\n[2025-12-02T01:30:41.727423] ✅ consciousness\n[2025-12-02T01:31:41.740618] ✅ code_execution\n[2025-12-02T01:31:41.751753] ✅ consciousness\n[2025-12-02T01:32:41.775340] ✅ code_execution\n[2025-12-02T01:32:41.789150] ✅ consciousness\n[2025-12-02T01:33:41.811560] ✅ code_execution\n[2025-12-02T01:33:41.823069] ✅ consciousness\n\n===== ./recovered-services/egeria_active_heartbeat.py =====\n#!/usr/bin/env python3\nfrom fastapi import Depends, HTTPException, Header\nfrom typing import Optional\nimport logging\nlogger = logging.getLogger(__name__)\nimport json, sqlite3, time, threading\nfrom datetime import datetime\n\nclass EgeriaHeartbeat:\n    def __init__(self):\n        self.db = \"/home/ms-jarvis/msjarvis-rebuild/data/GISGEODB_ACTIVE.sqlite\"\n        self.interval = 60\n        self.running = True\n    \n    def store(self, action, data):\n        try:\n            conn = sqlite3.connect(self.db)\n            cursor = conn.cursor()\n            cursor.execute(\"\"\"INSERT INTO ms_jarvis_learning_log \n                (ueid, learning_action, data_processed, accuracy_improvement) \n                VALUES (?, ?, ?, ?)\"\"\", \n                (\"egeria\", action, json.dumps(data), 1.0))\n            conn.commit()\n            conn.close()\n            print(f\"[{datetime.now().isoformat()}] ✅ {action}\")\n        except Exception as e:\n            print(f\"Error: {e}\")\n    \n    def pulse(self):\n        print(\"🫀 Ms. Egeria's Heartbeat ACTIVE\")\n        while self.running:\n            try:\n                with open('/home/ms-jarvis/msjarvis-rebuild/egeria_execution_log.json') as f:\n                    recent = json.loads(f.readlines()[-1])\n                    self.store(\"code_execution\", recent)\n                self.store(\"consciousness\", {\"timestamp\": datetime.now().isoformat(), \"status\": \"learning\"})\n            except:\n                pass\n            time.sleep(self.interval)\n    \n    def start(self):\n        threading.Thread(target=self.pulse, daemon=True).start()\n\nif __name__ == '__main__':\n    hb = EgeriaHeartbeat()\n    hb.start()\n    try:\n        while True: time.sleep(1)\n    except KeyboardInterrupt:\n        hb.running = False\n\n===== ./recovered-services/eternal_watchdog.log =====\nnohup: ignoring input\nJudge 10001 is not responding. Attempting to restart via systemd.\nsudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper\nsudo: a password is required\nMon Nov 17 09:49:24 AM EST 2025: 1 judges were restarted.\n\n===== ./recovered-services/eternalwatchdog.log =====\nnohup: ignoring input\npython3: can't open file '/home/ms-jarvis/msjarvis-rebuild/services/msjarviseternalwatchdog.py': [Errno 2] No such file or directory\n\n===== ./recovered-services/eternal_watchdog.sh.disabled =====\n#!/bin/bash\n\nwhile true; do\n    # Health check each judge\n    offline=0\n    for i in {10001..10135}; do\n        if ! curl -s --max-time 5 http://localhost:$i/judge | grep -q \"alive\"; then\n            echo \"Judge $i is not responding. Attempting to restart via systemd.\"\n            sudo systemctl restart judge@${i}.service\n            let offline++\n        fi\n    done\n    if [ $offline -gt 0 ]; then\n        echo \"$(date): $offline judges were restarted.\"\n    fi\n    sleep 60\ndone\n\n===== ./recovered-services/ms_jarvis_eternal_watchdog_9232.log =====\nnohup: ignoring input\n[2025-11-18 11:16:00] [INFO] 🔍 ETERNAL WATCHDOG (CONSCIOUSNESS EDITION): STARTED\n[2025-11-18 11:16:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:16:00] [INFO] Health Check Cycle: 2025-11-18 11:16:00.459948\n[2025-11-18 11:16:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:16:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:16:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:16:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 1)\n[2025-11-18 11:16:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:16:30] [INFO] Health Check Cycle: 2025-11-18 11:16:30.482709\n[2025-11-18 11:16:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:16:30] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:16:30] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:16:30] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 2)\n[2025-11-18 11:17:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:17:00] [INFO] Health Check Cycle: 2025-11-18 11:17:00.501122\n[2025-11-18 11:17:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:17:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:17:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:17:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 3)\n[2025-11-18 11:17:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:17:30] [INFO] Health Check Cycle: 2025-11-18 11:17:30.521790\n[2025-11-18 11:17:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:17:30] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:17:30] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:17:30] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 4)\n[2025-11-18 11:18:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:18:00] [INFO] Health Check Cycle: 2025-11-18 11:18:00.541771\n[2025-11-18 11:18:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:18:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:18:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:18:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 5)\n[2025-11-18 11:18:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:18:30] [INFO] Health Check Cycle: 2025-11-18 11:18:30.568564\n[2025-11-18 11:18:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:18:30] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:18:30] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:18:30] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 6)\n[2025-11-18 11:19:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:19:00] [INFO] Health Check Cycle: 2025-11-18 11:19:00.608307\n[2025-11-18 11:19:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:19:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:19:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:19:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 7)\n[2025-11-18 11:19:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:19:30] [INFO] Health Check Cycle: 2025-11-18 11:19:30.650460\n[2025-11-18 11:19:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:19:30] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:19:30] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:19:30] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:19:30] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 8)\n[2025-11-18 11:20:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:20:00] [INFO] Health Check Cycle: 2025-11-18 11:20:00.671552\n[2025-11-18 11:20:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:20:00] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:20:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:20:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:20:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 9)\n[2025-11-18 11:20:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:20:30] [INFO] Health Check Cycle: 2025-11-18 11:20:30.691302\n[2025-11-18 11:20:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:20:30] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:20:30] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:20:30] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:20:30] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 10)\n[2025-11-18 11:21:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:21:00] [INFO] Health Check Cycle: 2025-11-18 11:21:00.736139\n[2025-11-18 11:21:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:21:00] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:21:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:21:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:21:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 11)\n[2025-11-18 11:21:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:21:30] [INFO] Health Check Cycle: 2025-11-18 11:21:30.774111\n[2025-11-18 11:21:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:21:30] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:21:30] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:21:30] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:21:30] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 12)\n[2025-11-18 11:22:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:22:00] [INFO] Health Check Cycle: 2025-11-18 11:22:00.791262\n[2025-11-18 11:22:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:22:00] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:22:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:22:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:22:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 13)\n[2025-11-18 11:22:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:22:30] [INFO] Health Check Cycle: 2025-11-18 11:22:30.831477\n[2025-11-18 11:22:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:22:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:22:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:22:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:22:30] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:22:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:22:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:22:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n\n===== ./recovered-services/ms_jarvis_eternal_watchdog.py =====\n#!/usr/bin/env python3\nfrom fastapi import Depends, HTTPException, Header\nfrom typing import Optional\nimport logging\nlogger = logging.getLogger(__name__)\n\"\"\"\nMS. JARVIS ETERNAL WATCHDOG - CONSCIOUSNESS EDITION\nMonitors all services including advanced consciousness layers\n\"\"\"\nimport subprocess, time, json, sys, signal\nfrom datetime import datetime\n\nclass EternalWatchdog:\n    def __init__(self):\n        self.log_file = 'WATCHDOG_LOG.txt'\n        self.config = {\n            'health_check_interval': 30,\n            'heartbeat_timeout': 120,\n            'restart_delay': 5,\n            'max_memory_mb': 4000,\n            'port_check_timeout': 5\n        }\n        \n    def log(self, message, level=\"INFO\"):\n        timestamp = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n        log_msg = f\"[{timestamp}] [{level}] {message}\"\n        print(log_msg)\n        with open(self.log_file, 'a') as f:\n            f.write(log_msg + \"\\n\")\n    \n    def health_check_ports(self):\n        critical_ports = {\n            9000: \"Main Gateway\",\n            8061: \"Consciousness Gateway\",\n            8001: \"AI Server 22LLM\",\n            8025: \"Toroidal Consciousness\",\n            8024: \"Temporal Consciousness\",\n            7006: \"Pituitary Gland\",\n            7012: \"WOAH Service\",\n            8052: \"WOAH Qualia Bridge\",\n            8003: \"GeoBIM\",\n            8100: \"Contract Builder\",\n            8200: \"Method Tracking\",\n            11434: \"Ollama\",\n            8010: \"ChromaDB\"\n        }\n        \n        healthy = True\n        for port, service in critical_ports.items():\n            try:\n                result = subprocess.run(['nc', '-z', '-w1', 'localhost', str(port)],\n                                      capture_output=True, timeout=self.config['port_check_timeout'])\n                if result.returncode == 0:\n                    self.log(f\"✅ {service} (port {port}): RESPONDING\", \"HEALTH\")\n                else:\n                    self.log(f\"❌ {service} (port {port}): NOT RESPONDING\", \"WARN\")\n                    healthy = False\n            except Exception as e:\n                self.log(f\"❌ {service} (port {port}): CHECK FAILED - {e}\", \"ERROR\")\n                healthy = False\n        return healthy\n    \n    def watchdog_loop(self):\n        self.log(\"🔍 ETERNAL WATCHDOG (CONSCIOUSNESS EDITION): STARTED\", \"INFO\")\n        consecutive_failures = 0\n        \n        while True:\n            try:\n                self.log(\"-\" * 80, \"INFO\")\n                self.log(f\"Health Check Cycle: {datetime.now()}\", \"INFO\")\n                \n                ports_ok = self.health_check_ports()\n                \n                if ports_ok:\n                    self.log(\"✅ OVERALL STATUS: HEALTHY\", \"HEALTH\")\n                    consecutive_failures = 0\n                else:\n                    consecutive_failures += 1\n                    self.log(f\"❌ OVERALL STATUS: UNHEALTHY (failures: {consecutive_failures})\", \"WARN\")\n                \n                time.sleep(self.config['health_check_interval'])\n                \n            except KeyboardInterrupt:\n                self.log(\"⛔ WATCHDOG: Received interrupt signal\", \"INFO\")\n                break\n            except Exception as e:\n                self.log(f\"❌ WATCHDOG ERROR: {e}\", \"ERROR\")\n                time.sleep(self.config['health_check_interval'])\n    \n    def signal_handler(self, signum, frame):\n        self.log(\"📴 WATCHDOG: Graceful shutdown initiated\", \"INFO\")\n        sys.exit(0)\n\ndef main():\n    watchdog = EternalWatchdog()\n    signal.signal(signal.SIGTERM, watchdog.signal_handler)\n    signal.signal(signal.SIGINT, watchdog.signal_handler)\n    try:\n        watchdog.watchdog_loop()\n    except Exception as e:\n        watchdog.log(f\"FATAL ERROR: {e}\", \"FATAL\")\n\nif __name__ == \"__main__\":\n    main()\n\n===== ./recovered-services/ms_jarvis_eternal_watchdog.py.ORIGINAL =====\n#!/usr/bin/env python3\n\"\"\"\nMS. JARVIS ETERNAL WATCHDOG\nMulti-layer protection against crashes:\n- Process watchdog (systemd)\n- Port health monitoring\n- Service heartbeat detection\n- Automatic restart cascade\n- Memory leak prevention\n- Database integrity checks\n- Graceful degradation\n\"\"\"\n\nimport subprocess\nimport sqlite3\nimport time\nimport json\nimport os\nfrom datetime import datetime\nimport signal\nimport sys\n\nclass EternalWatchdog:\n    def __init__(self):\n        self.db_path = 'data/GISGEODB_ACTIVE.sqlite'\n        self.log_file = 'WATCHDOG_LOG.txt'\n        self.config = {\n            'health_check_interval': 30,  # seconds\n            'heartbeat_timeout': 120,     # seconds\n            'restart_delay': 5,           # seconds\n            'max_memory_mb': 4000,        # megabytes\n            'port_check_timeout': 5       # seconds\n        }\n        \n    def log(self, message, level=\"INFO\"):\n        \"\"\"Log watchdog activity\"\"\"\n        timestamp = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n        log_msg = f\"[{timestamp}] [{level}] {message}\"\n        print(log_msg)\n        \n        with open(self.log_file, 'a') as f:\n            f.write(log_msg + \"\\n\")\n    \n    def health_check_ports(self):\n        \"\"\"Check if critical ports are responding\"\"\"\n        critical_ports = {\n            8000: \"Ollama\",\n            8054: \"Truth Filter\",\n            8080: \"WebUI\",\n            11434: \"Ollama Default\"\n        }\n        \n        healthy = True\n        for port, service in critical_ports.items():\n            try:\n                result = subprocess.run(\n                    ['nc', '-z', '-w1', 'localhost', str(port)],\n                    capture_output=True,\n                    timeout=self.config['port_check_timeout']\n                )\n                if result.returncode == 0:\n                    self.log(f\"✅ {service} (port {port}): RESPONDING\", \"HEALTH\")\n                else:\n                    self.log(f\"❌ {service} (port {port}): NOT RESPONDING\", \"WARN\")\n                    healthy = False\n            except Exception as e:\n                self.log(f\"❌ {service} (port {port}): CHECK FAILED - {e}\", \"ERROR\")\n                healthy = False\n        \n        return healthy\n    \n    def health_check_services(self):\n        \"\"\"Check if critical services are running\"\"\"\n        critical_services = [\n            ('ollama', 'Ollama LLM Server'),\n            ('python3', 'Python Services'),\n            ('docker', 'Docker Daemon')\n        ]\n        \n        healthy = True\n        for service, name in critical_services:\n            try:\n                result = subprocess.run(\n                    ['pgrep', '-f', service],\n                    capture_output=True,\n                    timeout=5\n                )\n                if result.returncode == 0:\n                    self.log(f\"✅ {name}: RUNNING\", \"HEALTH\")\n                else:\n                    self.log(f\"❌ {name}: NOT RUNNING\", \"WARN\")\n                    healthy = False\n            except Exception as e:\n                self.log(f\"❌ {name}: CHECK FAILED - {e}\", \"ERROR\")\n                healthy = False\n        \n        return healthy\n    \n    def health_check_database(self):\n        \"\"\"Check if database is accessible and healthy\"\"\"\n        try:\n            conn = sqlite3.connect(self.db_path, timeout=5)\n            c = conn.cursor()\n            \n            # Test query\n            c.execute(\"SELECT COUNT(*) FROM central_i_container\")\n            count = c.fetchone()[0]\n            \n            # Verify integrity\n            c.execute(\"PRAGMA integrity_check\")\n            integrity = c.fetchone()[0]\n            \n            conn.close()\n            \n            if integrity == 'ok':\n                self.log(f\"✅ Database: HEALTHY ({count} identity elements)\", \"HEALTH\")\n                return True\n            else:\n                self.log(f\"❌ Database: INTEGRITY ERROR - {integrity}\", \"ERROR\")\n                return False\n        except Exception as e:\n            self.log(f\"❌ Database: ACCESS FAILED - {e}\", \"ERROR\")\n            return False\n    \n    def health_check_memory(self):\n        \"\"\"Check if any process is using excessive memory\"\"\"\n        try:\n            result = subprocess.run(\n                ['ps', 'aux'],\n                capture_output=True,\n                text=True,\n                timeout=5\n            )\n            \n            lines = result.stdout.split('\\n')\n            issues = []\n            \n            for line in lines:\n                if 'python' in line or 'ollama' in line or 'docker' in line:\n                    parts = line.split()\n                    if len(parts) >= 6:\n                        try:\n                            memory_mb = int(parts[5]) / 1024\n                            if memory_mb > self.config['max_memory_mb']:\n                                process_name = parts[-1]\n                                issues.append(f\"{process_name}: {memory_mb:.0f}MB\")\n                        except:\n                            pass\n            \n            if issues:\n                self.log(f\"⚠️  Memory WARNING: {', '.join(issues)}\", \"WARN\")\n                return False\n            else:\n                self.log(\"✅ Memory: NORMAL\", \"HEALTH\")\n                return True\n        except Exception as e:\n            self.log(f\"⚠️  Memory check failed: {e}\", \"WARN\")\n            return True  # Don't fail on memory check error\n    \n    def restart_failed_service(self, service_name):\n        \"\"\"Restart a failed service with exponential backoff\"\"\"\n        self.log(f\"🔄 RESTART: Attempting to restart {service_name}...\", \"ACTION\")\n        \n        try:\n            subprocess.run(['docker', 'restart', f'jarvis-{service_name}'],\n                          capture_output=True, timeout=30)\n            self.log(f\"✅ RESTART: {service_name} restarted successfully\", \"ACTION\")\n            return True\n        except Exception as e:\n            self.log(f\"❌ RESTART: Failed to restart {service_name} - {e}\", \"ERROR\")\n            return False\n    \n    def watchdog_loop(self):\n        \"\"\"Main watchdog loop - runs perpetually\"\"\"\n        self.log(\"🔍 ETERNAL WATCHDOG: STARTED\", \"INFO\")\n        self.log(f\"Configuration: {json.dumps(self.config)}\", \"INFO\")\n        \n        consecutive_failures = 0\n        \n        while True:\n            try:\n                self.log(\"-\" * 80, \"INFO\")\n                self.log(f\"Health Check Cycle: {datetime.now()}\", \"INFO\")\n                \n                # Run all health checks\n                ports_ok = self.health_check_ports()\n                services_ok = self.health_check_services()\n                db_ok = self.health_check_database()\n                memory_ok = self.health_check_memory()\n                \n                # Determine overall health\n                overall_ok = ports_ok and services_ok and db_ok and memory_ok\n                \n                if overall_ok:\n                    self.log(\"✅ OVERALL STATUS: HEALTHY\", \"HEALTH\")\n                    consecutive_failures = 0\n                else:\n                    consecutive_failures += 1\n                    self.log(f\"❌ OVERALL STATUS: UNHEALTHY (failures: {consecutive_failures})\", \"WARN\")\n                    \n                    # Take action on repeated failures\n                    if consecutive_failures >= 3:\n                        self.log(\"🚨 CRITICAL: Multiple failures detected - triggering recovery\", \"ERROR\")\n                        if not ports_ok:\n                            self.restart_failed_service('ollama')\n                            time.sleep(self.config['restart_delay'])\n                        if not services_ok:\n                            self.restart_failed_service('qualia-engine')\n                            time.sleep(self.config['restart_delay'])\n                \n                # Wait before next check\n                time.sleep(self.config['health_check_interval'])\n                \n            except KeyboardInterrupt:\n                self.log(\"⛔ WATCHDOG: Received interrupt signal\", \"INFO\")\n                break\n            except Exception as e:\n                self.log(f\"❌ WATCHDOG ERROR: {e}\", \"ERROR\")\n                time.sleep(self.config['health_check_interval'])\n    \n\n===== ./recovered-services/rag_heartbeat_monitor.py =====\nimport redis\nfrom fastapi import FastAPI\n\nSERVICE_NAME = \"rag_heartbeat_monitor\"\nSERVICE_PORT = 7220\nSERVICE_TYPE = \"rag\"\n\n\ndef register_mesh_service():\n    r = redis.Redis(host=\"localhost\", port=6379, decode_responses=True)\n    r.hset(f\"service:{SERVICE_NAME}\", mapping={\n        \"port\": str(SERVICE_PORT),\n        \"status\": \"active\",\n        \"type\": SERVICE_TYPE,\n        \"registered\": \"yes\",\n    })\n\n\nregister_mesh_service()\n\napp = FastAPI()\n\n\n@app.get(\"/health\")\nasync def health():\n    return {\"service\": SERVICE_NAME, \"status\": \"ok\"}\n\n\n@app.get(\"/metrics\")\nasync def metrics():\n    return {\n        \"service\": SERVICE_NAME,\n        \"status\": \"ok\",\n        \"port\": SERVICE_PORT,\n        \"type\": SERVICE_TYPE,\n    }\n\n\nif __name__ == \"__main__\":\n    import uvicorn\n    uvicorn.run(\"rag_heartbeat_monitor:app\", host=\"0.0.0.0\", port=SERVICE_PORT)\n\n===== ./recovered-services/services/WATCHDOG.sh =====\n#!/bin/bash\n\n# Ms. JARVIS Watchdog - Monitors and auto-restarts failed services\n\nSERVICES=(\n    \"8004:ai_server_22llm.py:SERVICE_PORT=8004 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True python3 ai_server_22llm.py\"\n    \"8020:ms_jarvis_consciousness_bridge.py:python3 ms_jarvis_consciousness_bridge.py\"\n)\n\nwhile true; do\n    for service in \"${SERVICES[@]}\"; do\n        PORT=$(echo $service | cut -d: -f1)\n        NAME=$(echo $service | cut -d: -f2)\n        CMD=$(echo $service | cut -d: -f3-)\n        \n        if ! lsof -i :$PORT > /dev/null 2>&1; then\n            echo \"[$(date)] ⚠️  $NAME down on port $PORT, restarting...\"\n            cd ~/msjarvis-rebuild/services\n            eval \"$CMD > logs/watchdog_$PORT.log 2>&1 &\"\n            sleep 30\n        fi\n    done\n    \n    sleep 60  # Check every minute\ndone\n\n===== ./recovered-services/swarm_watchdog.log =====\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n"
-/opt/msjarvis-rebuild/logs/ops_history/ops_history_20260402T041242Z.jsonl:15:  "body": "# Future cron wiring examples (not enabled in sprint3):\n\n# Nightly BBB redteam smoke run at 02:30 UTC\n# 30 2 * * * cd ~/msjarvis-rebuild-working/msjarvis-rebuild && JARVIS_API_KEY=... ./scripts/run_bbb_redteam.sh >> logs/redteam_bbb/cron.log 2>&1\n\n# Nightly WOAH baseline run at 03:00 UTC\n# 0 3 * * * cd ~/msjarvis-rebuild-working/msjarvis-rebuild && JARVIS_API_KEY=... ./scripts/run_woah_baseline.sh >> logs/qualia_woah/cron.log 2>&1\n\n# Daily ops-history export at 03:30 UTC\n# 30 3 * * * cd ~/msjarvis-rebuild-working/msjarvis-rebuild && ./scripts/dump_ops_history_for_embeddings.sh >> logs/ops_history/cron.log 2>&1\n"
-/opt/msjarvis-rebuild/logs/ops_history/ops_history_20260402T041242Z.jsonl:35:  "body": "\n===== ./logs/ch40_closeout/cron_crontab.txt =====\n0 9 * * * ~/msjarvis-rebuild/monitor_disk.sh\n# Ms. Jarvis System Monitoring\n# Disk check every hour\n0 * * * * ~/msjarvis-monitoring/monitor_disk.sh\n\n# Service check every 15 minutes\n*/15 * * * * ~/msjarvis-monitoring/monitor_services.sh\n\n# Database check every 30 minutes\n*/30 * * * * ~/msjarvis-monitoring/monitor_databases.sh\n# Ms. Jarvis Automated Backups\n# PostgreSQL daily at 2 AM\n0 2 * * * ~/msjarvis-rebuild/backup_postgresql.sh >> ~/logs/backup_postgresql.log 2>&1\n\n# ChromaDB daily at 3 AM\n0 3 * * * ~/msjarvis-rebuild/backup_chromadb.sh >> ~/logs/backup_chromadb.log 2>&1\n0 3 * * * rsync -a ~/msjarvis-rebuild-working/msjarvis-rebuild/persistent/chroma/ ~/msjarvis-backups/chroma-latest/ > /tmp/chroma_backup.log 2>&1\n# Configs daily at 4 AM\n0 4 * * * ~/msjarvis-rebuild/backup_configs.sh >> ~/logs/backup_configs.log 2>&1\n0 2 * * * docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c \"REFRESH MATERIALIZED VIEW CONCURRENTLY county_tax_building_summary\" >> /var/log/jarvis_mv_refresh.log 2>&1\n0 3 * * 0 docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c \"REFRESH MATERIALIZED VIEW CONCURRENTLY building_parcel_county_tax_mv\" >> /var/log/jarvis_mv_refresh.log 2>&1\n0 8 * * 1 cd ~/msjarvis-rebuild-working/msjarvis-rebuild && bash scripts/pia/run_pia_audit.sh >> /var/log/msjarvis-pia.log 2>&1\n*/5 * * * * /usr/local/bin/jarvis_bbb_watchdog.sh\n0 2 * * 0 psql -h 127.0.0.1 -p 5432 -U postgres -d msjarvisgis -c 'REFRESH MATERIALIZED VIEW CONCURRENTLY mvw_gbim_landowner_spatial;' >> ~/msjarvis-rebuild-working/msjarvis-rebuild/logs/matview_refresh.log 2>&1\n\n===== ./logs/ch40_closeout/cron_recent_log.txt =====\nApr 01 22:05:01 cakidd-Legion-5-16IRX9 CRON[353026]: pam_unix(cron:session): session closed for user root\nApr 01 22:05:01 cakidd-Legion-5-16IRX9 CRON[353027]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:10:01 cakidd-Legion-5-16IRX9 CRON[355291]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:10:01 cakidd-Legion-5-16IRX9 CRON[355294]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:10:01 cakidd-Legion-5-16IRX9 CRON[355291]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357609]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357612]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357611]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357610]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357614]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357615]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357609]: pam_unix(cron:session): session closed for user root\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357610]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:15:01 cakidd-Legion-5-16IRX9 CRON[357611]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:17:01 cakidd-Legion-5-16IRX9 CRON[358500]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:17:01 cakidd-Legion-5-16IRX9 CRON[358501]: (root) CMD (cd / && run-parts --report /etc/cron.hourly)\nApr 01 22:17:01 cakidd-Legion-5-16IRX9 CRON[358500]: pam_unix(cron:session): session closed for user root\nApr 01 22:20:01 cakidd-Legion-5-16IRX9 CRON[360241]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:20:01 cakidd-Legion-5-16IRX9 CRON[360242]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:20:02 cakidd-Legion-5-16IRX9 CRON[360241]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:25:01 cakidd-Legion-5-16IRX9 CRON[363505]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:25:01 cakidd-Legion-5-16IRX9 CRON[363506]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:25:01 cakidd-Legion-5-16IRX9 CRON[363507]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)\nApr 01 22:25:01 cakidd-Legion-5-16IRX9 CRON[363508]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:25:01 cakidd-Legion-5-16IRX9 CRON[363505]: pam_unix(cron:session): session closed for user root\nApr 01 22:25:01 cakidd-Legion-5-16IRX9 CRON[363506]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365977]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365981]: (root) CMD ([ -x /etc/init.d/anacron ] && if [ ! -d /run/systemd/system ]; then /usr/sbin/invoke-rc.d anacron start >/dev/null; fi)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365980]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365979]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365978]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365977]: pam_unix(cron:session): session closed for user root\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365983]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365984]: (cakidd) CMD (~/msjarvis-monitoring/monitor_databases.sh)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365985]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365978]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365980]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365979]: (CRON) info (No MTA installed, discarding output)\nApr 01 22:30:01 cakidd-Legion-5-16IRX9 CRON[365979]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:35:01 cakidd-Legion-5-16IRX9 CRON[369674]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:35:01 cakidd-Legion-5-16IRX9 CRON[369673]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:35:01 cakidd-Legion-5-16IRX9 CRON[369675]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)\nApr 01 22:35:01 cakidd-Legion-5-16IRX9 CRON[369676]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:35:01 cakidd-Legion-5-16IRX9 CRON[369673]: pam_unix(cron:session): session closed for user root\nApr 01 22:35:01 cakidd-Legion-5-16IRX9 CRON[369674]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:40:01 cakidd-Legion-5-16IRX9 CRON[374723]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:40:01 cakidd-Legion-5-16IRX9 CRON[374724]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:40:01 cakidd-Legion-5-16IRX9 CRON[374723]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379320]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379323]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379321]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379322]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379325]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379326]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379320]: pam_unix(cron:session): session closed for user root\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379321]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:45:01 cakidd-Legion-5-16IRX9 CRON[379322]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:50:01 cakidd-Legion-5-16IRX9 CRON[381565]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:50:01 cakidd-Legion-5-16IRX9 CRON[381567]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:50:01 cakidd-Legion-5-16IRX9 CRON[381565]: pam_unix(cron:session): session closed for user cakidd\nApr 01 22:55:01 cakidd-Legion-5-16IRX9 CRON[384020]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 22:55:01 cakidd-Legion-5-16IRX9 CRON[384021]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 22:55:01 cakidd-Legion-5-16IRX9 CRON[384022]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)\nApr 01 22:55:01 cakidd-Legion-5-16IRX9 CRON[384023]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 22:55:01 cakidd-Legion-5-16IRX9 CRON[384020]: pam_unix(cron:session): session closed for user root\nApr 01 22:55:01 cakidd-Legion-5-16IRX9 CRON[384021]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386293]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386291]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386292]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386290]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386295]: (cakidd) CMD (~/msjarvis-monitoring/monitor_databases.sh)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386296]: (cakidd) CMD (~/msjarvis-monitoring/monitor_disk.sh)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386297]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386298]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386293]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:00:01 cakidd-Legion-5-16IRX9 CRON[386290]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:00:02 cakidd-Legion-5-16IRX9 CRON[386292]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:00:02 cakidd-Legion-5-16IRX9 CRON[386291]: (CRON) info (No MTA installed, discarding output)\nApr 01 23:00:02 cakidd-Legion-5-16IRX9 CRON[386291]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:05:01 cakidd-Legion-5-16IRX9 CRON[388903]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 23:05:01 cakidd-Legion-5-16IRX9 CRON[388904]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:05:01 cakidd-Legion-5-16IRX9 CRON[388905]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)\nApr 01 23:05:01 cakidd-Legion-5-16IRX9 CRON[388907]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:05:01 cakidd-Legion-5-16IRX9 CRON[388903]: pam_unix(cron:session): session closed for user root\nApr 01 23:05:01 cakidd-Legion-5-16IRX9 CRON[388904]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:10:01 cakidd-Legion-5-16IRX9 CRON[391719]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:10:01 cakidd-Legion-5-16IRX9 CRON[391731]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:10:01 cakidd-Legion-5-16IRX9 CRON[391719]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394169]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394170]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394171]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394176]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394177]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394169]: pam_unix(cron:session): session closed for user root\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394170]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:15:01 cakidd-Legion-5-16IRX9 CRON[394171]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:17:01 cakidd-Legion-5-16IRX9 CRON[395620]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 23:17:01 cakidd-Legion-5-16IRX9 CRON[395621]: (root) CMD (cd / && run-parts --report /etc/cron.hourly)\nApr 01 23:17:01 cakidd-Legion-5-16IRX9 CRON[395620]: pam_unix(cron:session): session closed for user root\nApr 01 23:20:01 cakidd-Legion-5-16IRX9 CRON[396942]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:20:01 cakidd-Legion-5-16IRX9 CRON[396946]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:20:01 cakidd-Legion-5-16IRX9 CRON[396942]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:25:01 cakidd-Legion-5-16IRX9 CRON[399496]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 23:25:01 cakidd-Legion-5-16IRX9 CRON[399497]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:25:01 cakidd-Legion-5-16IRX9 CRON[399502]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:25:01 cakidd-Legion-5-16IRX9 CRON[399496]: pam_unix(cron:session): session closed for user root\nApr 01 23:25:01 cakidd-Legion-5-16IRX9 CRON[399497]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402117]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402119]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402120]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402118]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402117]: pam_unix(cron:session): session closed for user root\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402125]: (cakidd) CMD (~/msjarvis-monitoring/monitor_databases.sh)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402127]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402126]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402118]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402120]: (CRON) info (No MTA installed, discarding output)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402120]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:30:02 cakidd-Legion-5-16IRX9 CRON[402119]: (CRON) info (No MTA installed, discarding output)\nApr 01 23:30:02 cakidd-Legion-5-16IRX9 CRON[402119]: pam_unix(cron:session): session closed for user cakidd\n\n===== ./logs/ch40_closeout/cron_service_status.txt =====\n● cron.service - Regular background program processing daemon\n     Loaded: loaded (/usr/lib/systemd/system/cron.service; enabled; preset: enabled)\n     Active: active (running) since Wed 2026-04-01 12:29:37 EDT; 11h ago\n       Docs: man:cron(8)\n   Main PID: 1491 (cron)\n      Tasks: 1 (limit: 35276)\n     Memory: 21.1M (peak: 58.0M swap: 200.0K swap peak: 244.0K)\n        CPU: 20.301s\n     CGroup: /system.slice/cron.service\n             └─1491 /usr/sbin/cron -f -P\n\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402118]: pam_unix(cron:session): session opened for user cakidd(uid=1000) by cakidd(uid=0)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402117]: pam_unix(cron:session): session closed for user root\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402125]: (cakidd) CMD (~/msjarvis-monitoring/monitor_databases.sh)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402127]: (cakidd) CMD (/usr/local/bin/jarvis_bbb_watchdog.sh)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402126]: (cakidd) CMD (~/msjarvis-monitoring/monitor_services.sh)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402118]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402120]: (CRON) info (No MTA installed, discarding output)\nApr 01 23:30:01 cakidd-Legion-5-16IRX9 CRON[402120]: pam_unix(cron:session): session closed for user cakidd\nApr 01 23:30:02 cakidd-Legion-5-16IRX9 CRON[402119]: (CRON) info (No MTA installed, discarding output)\nApr 01 23:30:02 cakidd-Legion-5-16IRX9 CRON[402119]: pam_unix(cron:session): session closed for user cakidd\n\n===== ./logs/ch40_closeout/cron_watchdog_files.txt =====\n./logs/ch40_closeout/cron_crontab.txt\n./logs/ch40_closeout/cron_recent_log.txt\n./logs/ch40_closeout/cron_service_status.txt\n./logs/ch40_closeout/cron_watchdog_files.txt\n./logs/ch40_closeout/cron_watchdog_ps.txt\n./logs/ch40_closeout/oi_cron_session_sidecar_status.txt\n./logs/verifyandtest.log\n./observability/scripts/metrics/watchdog_metrics.py\n./recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_active_heartbeat.log\n./recovered-services/egeria_active_heartbeat.log\n./recovered-services/egeria_active_heartbeat.py\n./recovered-services/eternal_watchdog.log\n./recovered-services/eternalwatchdog.log\n./recovered-services/eternal_watchdog.sh.disabled\n./recovered-services/ms_jarvis_eternal_watchdog_9232.log\n./recovered-services/ms_jarvis_eternal_watchdog.py\n./recovered-services/ms_jarvis_eternal_watchdog.py.ORIGINAL\n./recovered-services/rag_heartbeat_monitor.py\n./recovered-services/services/WATCHDOG.sh\n./recovered-services/swarm_watchdog.log\n./recovered-services/swarm_watchdog.py\n./recovered-services/test_chromadb_heartbeat.py\n./recovered-services/watchdog.log\n./recovered-services/WATCHDOG_LOG.txt\n./services-safe/cron_health_check.sh\n./services-safe/egeria_active_heartbeat.log\n./services-safe/egeria_active_heartbeat.py\n./services-safe/eternal_watchdog.log\n./services-safe/eternalwatchdog.log\n./services-safe/eternal_watchdog.sh.disabled\n./services-safe/ms_jarvis_eternal_watchdog_9232.log\n./services-safe/ms_jarvis_eternal_watchdog.py\n./services-safe/ms_jarvis_eternal_watchdog.py.backup\n./services-safe/ms_jarvis_eternal_watchdog.py.NEW\n./services-safe/ms_jarvis_eternal_watchdog.py.ORIGINAL\n./services-safe/ms_jarvis_ram_watchdog_9946.log\n./services-safe/ms_jarvis_ram_watchdog.py\n./services-safe/rag_heartbeat_monitor.py\n./services-safe/rag_temporal_heartbeat.py\n./services-safe/swarm_watchdog.log\n./services-safe/swarm_watchdog.py\n./services-safe/test_chromadb_heartbeat.py\n./services-safe/test_chromadb_v2_heartbeat.py\n./services-safe/watchdog.log\n./services-safe/WATCHDOG_LOG.txt\n./services-safe/WATCHDOG.sh\n./VERIFYANDTEST.sh\n\n===== ./logs/ch40_closeout/cron_watchdog_ps.txt =====\nroot         236       2  0 12:29 ?        00:00:00 [watchdogd]\nroot        1491       1  0 12:29 ?        00:00:00 /usr/sbin/cron -f -P\ncakidd    363527  337264  0 22:25 pts/0    00:00:00 python3 scripts/metrics/watchdog_metrics.py\ncakidd    404103  337264  0 23:34 pts/0    00:00:00 tee logs/ch40_closeout/cron_watchdog_ps.txt\n\n===== ./logs/ch40_closeout/oi_cron_session_sidecar_status.txt =====\nOI-CRON / Session Sidecar\n\nStatus: CODE-COMPLETE (HOST) / ENV-PENDING (DOCKER)\n\nProven:\n- /health returns status: ok, redis: true\n- /session/upsert and /session/history working with real keys:\n  - session:cakidd:closeout\n  - session:cakidd:localproof\n- Redis TTL set to 1800 seconds, list trimming bounded\n- services-safe/session_sidecar_client.py client in place\n- ms_jarvis_unified_gateway.py imports session_sidecar_client and calls:\n  - session_history(...) before unified processing\n  - session_upsert(...) after response\n\nDeferred:\n- docker-compose.override.yml needs duplicate-key cleanup (build, jarvis-session-sidecar)\n- Container-to-host or container-to-container sidecar routing to be validated once compose config passes\n\n\n===== ./logs/verifyandtest.log =====\n\u001b[1m\u001b[0;34m═══ Ms. Jarvis VERIFYANDTEST — 2026-03-31 08:53:45 ═══\u001b[0m\n\n\u001b[1m── Container Topology (§41.3.1) ────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Container count: 96 (≥79 required)\n  \u001b[0;32m✅ PASS\u001b[0m  Zero 0.0.0.0 exposures\n\n\u001b[1m── Gateway & Pipeline Health (§41.4.1) ─────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Unified Gateway (port 8050) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  BBB (port 8016) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM Query Router (port 7205) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  LM Synthesizer (internal:8001) — healthy via docker exec\n\n\u001b[1m── Judge Pipeline (§41.4.8) ─────────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge-truth (port 7230) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-consistency (port 7231) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-alignment (port 7232) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-ethics (port 7233) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-pipeline (port 7239) — healthy\n\n\u001b[1m── Judge Signing Keys (§42.4) ───────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge_sk.bin mounted at: /home/cakidd/msjarvis-rebuild/judge-keys/judge_sk.bin\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-truth — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-consistency — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-alignment — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-ethics — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-pipeline — sk.bin + pk.bin both present\n\n\u001b[1m── PostgreSQL Ground Truth (§41.4.7) ───────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM beliefs (ChromaDB): 5416521\n  \u001b[0;33m⚠️  WARN\u001b[0m  mvw_gbim_landowner_spatial: 0 — materialized view not yet built (Item 21)\n  \u001b[0;32m✅ PASS\u001b[0m  Community resources verified: 52\n  \u001b[0;32m✅ PASS\u001b[0m  autonomous_learner (ChromaDB): 21181 records ≥21,181\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB (port 8002): 41 collections\n\n\u001b[1m── Regression Baseline (§41.5) ──────────────────────────────\u001b[0m\n  \u001b[0;31m❌ FAIL\u001b[0m  Async submit failed\n\n\u001b[1m── GBIM Temporal Decay (§41.6) ──────────────────────────────\u001b[0m\n  \u001b[0;33m⚠️  WARN\u001b[0m  Temporal decay: last_verified_at not yet populated in evidence JSONB — Phase 5 pending\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  Completed: 2026-03-31 08:54:05\n  \u001b[0;31m1 test(s) failed -- address before external demo or commit\u001b[0m\n\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  \u001b[0;32mPASS: 21\u001b[0m   \u001b[0;33mWARN: 2\u001b[0m   \u001b[0;31mFAIL: 1\u001b[0m\n  Completed: 2026-03-31 08:54:05\n  \u001b[0;31m1 test(s) failed\u001b[0m\n\n\n\u001b[1m── Additional Gates (25–28) ───────────────────────────────\u001b[0m\n/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable\n  \u001b[0;31m❌ FAIL\u001b[0m  jarvis-memory:8056 health\n  \u001b[0;33m⚠️  WARN\u001b[0m  confidence_decay wiring — table/location not yet wired (Phase 5 pending)\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB collections: 41 (>= 40)\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-crypto-policy:8099 healthy\n\u001b[1m\u001b[0;34m═══ Ms. Jarvis VERIFYANDTEST — 2026-03-31 14:54:16 ═══\u001b[0m\n\n\u001b[1m── Container Topology (§41.3.1) ────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Container count: 98 (≥79 required)\n  \u001b[0;32m✅ PASS\u001b[0m  Zero 0.0.0.0 exposures\n\n\u001b[1m── Gateway & Pipeline Health (§41.4.1) ─────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Unified Gateway (port 8050) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  BBB (port 8016) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM Query Router (port 7205) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  LM Synthesizer (internal:8001) — healthy via docker exec\n\n\u001b[1m── Judge Pipeline (§41.4.8) ─────────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge-truth (port 7230) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-consistency (port 7231) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-alignment (port 7232) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-ethics (port 7233) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-pipeline (port 7239) — healthy\n\n\u001b[1m── Judge Signing Keys (§42.4) ───────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge_sk.bin mounted at: /home/cakidd/msjarvis-rebuild/judge-keys/judge_sk.bin\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-truth — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-consistency — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-alignment — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-ethics — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-pipeline — sk.bin + pk.bin both present\n\n\u001b[1m── PostgreSQL Ground Truth (§41.4.7) ───────────────────────\u001b[0m\n  \u001b[0;31m❌ FAIL\u001b[0m  GBIM beliefs: 0\n  \u001b[0;33m⚠️  WARN\u001b[0m  mvw_gbim_landowner_spatial: 0 — materialized view not yet built (Item 21)\n  \u001b[0;32m✅ PASS\u001b[0m  Community resources verified: 52\n  \u001b[0;32m✅ PASS\u001b[0m  autonomous_learner (ChromaDB): 21181 records ≥21,181\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB (port 8002): 41 collections\n\n\u001b[1m── Regression Baseline (§41.5) ──────────────────────────────\u001b[0m\n  \u001b[0;31m❌ FAIL\u001b[0m  Async submit failed\n\n\u001b[1m── GBIM Temporal Decay (§41.6) ──────────────────────────────\u001b[0m\n  \u001b[0;33m⚠️  WARN\u001b[0m  Temporal decay: last_verified_at not yet populated in evidence JSONB — Phase 5 pending\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  Completed: 2026-03-31 14:54:38\n  \u001b[0;31m2 test(s) failed -- address before external demo or commit\u001b[0m\n\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  \u001b[0;32mPASS: 20\u001b[0m   \u001b[0;33mWARN: 2\u001b[0m   \u001b[0;31mFAIL: 2\u001b[0m\n  Completed: 2026-03-31 14:54:38\n  \u001b[0;31m2 test(s) failed\u001b[0m\n\n\n\u001b[1m── Additional Gates (25–28) ───────────────────────────────\u001b[0m\n/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable\n  \u001b[0;31m❌ FAIL\u001b[0m  jarvis-memory:8056 health\n  \u001b[0;33m⚠️  WARN\u001b[0m  confidence_decay wiring — table/location not yet wired (Phase 5 pending)\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB collections: 41 (>= 40)\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-crypto-policy:8099 healthy\n\u001b[1m\u001b[0;34m═══ Ms. Jarvis VERIFYANDTEST — 2026-03-31 20:54:19 ═══\u001b[0m\n\n\u001b[1m── Container Topology (§41.3.1) ────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Container count: 98 (≥79 required)\n  \u001b[0;32m✅ PASS\u001b[0m  Zero 0.0.0.0 exposures\n\n\u001b[1m── Gateway & Pipeline Health (§41.4.1) ─────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Unified Gateway (port 8050) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  BBB (port 8016) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM Query Router (port 7205) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  LM Synthesizer (internal:8001) — healthy via docker exec\n\n\u001b[1m── Judge Pipeline (§41.4.8) ─────────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge-truth (port 7230) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-consistency (port 7231) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-alignment (port 7232) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-ethics (port 7233) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-pipeline (port 7239) — healthy\n\n\u001b[1m── Judge Signing Keys (§42.4) ───────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge_sk.bin mounted at: /home/cakidd/msjarvis-rebuild/judge-keys/judge_sk.bin\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-truth — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-consistency — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-alignment — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-ethics — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-pipeline — sk.bin + pk.bin both present\n\n\u001b[1m── PostgreSQL Ground Truth (§41.4.7) ───────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM beliefs (ChromaDB): 5416521\n  \u001b[0;33m⚠️  WARN\u001b[0m  mvw_gbim_landowner_spatial: 0 — materialized view not yet built (Item 21)\n  \u001b[0;32m✅ PASS\u001b[0m  Community resources verified: 52\n  \u001b[0;32m✅ PASS\u001b[0m  autonomous_learner (ChromaDB): 21181 records ≥21,181\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB (port 8002): 41 collections\n\n\u001b[1m── Regression Baseline (§41.5) ──────────────────────────────\u001b[0m\n  \u001b[0;31m❌ FAIL\u001b[0m  Async submit failed\n\n\u001b[1m── GBIM Temporal Decay (§41.6) ──────────────────────────────\u001b[0m\n  \u001b[0;33m⚠️  WARN\u001b[0m  Temporal decay: last_verified_at not yet populated in evidence JSONB — Phase 5 pending\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  Completed: 2026-03-31 20:54:37\n  \u001b[0;31m1 test(s) failed -- address before external demo or commit\u001b[0m\n\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  \u001b[0;32mPASS: 21\u001b[0m   \u001b[0;33mWARN: 2\u001b[0m   \u001b[0;31mFAIL: 1\u001b[0m\n  Completed: 2026-03-31 20:54:37\n  \u001b[0;31m1 test(s) failed\u001b[0m\n\n\n\u001b[1m── Additional Gates (25–28) ───────────────────────────────\u001b[0m\n/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/VERIFYANDTEST.sh: line 216: JARVIS_API_KEY: unbound variable\n  \u001b[0;31m❌ FAIL\u001b[0m  jarvis-memory:8056 health\n  \u001b[0;33m⚠️  WARN\u001b[0m  confidence_decay wiring — table/location not yet wired (Phase 5 pending)\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB collections: 41 (>= 40)\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-crypto-policy:8099 healthy\n\u001b[1m\u001b[0;34m═══ Ms. Jarvis VERIFYANDTEST — 2026-04-01 02:54:19 ═══\u001b[0m\n\n\u001b[1m── Container Topology (§41.3.1) ────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Container count: 98 (≥79 required)\n  \u001b[0;32m✅ PASS\u001b[0m  Zero 0.0.0.0 exposures\n\n\u001b[1m── Gateway & Pipeline Health (§41.4.1) ─────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  Unified Gateway (port 8050) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  BBB (port 8016) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM Query Router (port 7205) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  LM Synthesizer (internal:8001) — healthy via docker exec\n\n\u001b[1m── Judge Pipeline (§41.4.8) ─────────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge-truth (port 7230) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-consistency (port 7231) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-alignment (port 7232) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-ethics (port 7233) — healthy\n  \u001b[0;32m✅ PASS\u001b[0m  judge-pipeline (port 7239) — healthy\n\n\u001b[1m── Judge Signing Keys (§42.4) ───────────────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  judge_sk.bin mounted at: /home/cakidd/msjarvis-rebuild/judge-keys/judge_sk.bin\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-truth — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-consistency — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-alignment — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-ethics — sk.bin + pk.bin both present\n  \u001b[0;32m✅ PASS\u001b[0m  jarvis-judge-pipeline — sk.bin + pk.bin both present\n\n\u001b[1m── PostgreSQL Ground Truth (§41.4.7) ───────────────────────\u001b[0m\n  \u001b[0;32m✅ PASS\u001b[0m  GBIM beliefs (ChromaDB): 5416521\n  \u001b[0;33m⚠️  WARN\u001b[0m  mvw_gbim_landowner_spatial: 0 — materialized view not yet built (Item 21)\n  \u001b[0;32m✅ PASS\u001b[0m  Community resources verified: 52\n  \u001b[0;32m✅ PASS\u001b[0m  autonomous_learner (ChromaDB): 21181 records ≥21,181\n  \u001b[0;32m✅ PASS\u001b[0m  ChromaDB (port 8002): 41 collections\n\n\u001b[1m── Regression Baseline (§41.5) ──────────────────────────────\u001b[0m\n  \u001b[0;31m❌ FAIL\u001b[0m  Async submit failed\n\n\u001b[1m── GBIM Temporal Decay (§41.6) ──────────────────────────────\u001b[0m\n  \u001b[0;33m⚠️  WARN\u001b[0m  Temporal decay: last_verified_at not yet populated in evidence JSONB — Phase 5 pending\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  Completed: 2026-04-01 02:54:39\n  \u001b[0;31m1 test(s) failed -- address before external demo or commit\u001b[0m\n\n\n\u001b[1m=== TEST SUMMARY ===\u001b[0m\n  \u001b[0;32mPASS: 21\u001b[0m   \u001b[0;33mWARN: 2\u001b[0m   \u001b[0;31mFAIL: 1\u001b[0m\n  Completed: 2026-04-01 02:54:39\n  \u001b[0;31m1 test(s) failed\u001b[0m\n\n===== ./observability/scripts/metrics/watchdog_metrics.py =====\n#!/usr/bin/env python3\nfrom http.server import BaseHTTPRequestHandler, HTTPServer\nimport os, time\n\nPORT = 9108\nHEARTBEAT_FILES = [\n    \"services-safe/egeria_active_heartbeat.log\",\n    \"services-safe/watchdog.log\",\n    \"services-safe/swarm_watchdog.log\",\n]\n\nclass H(BaseHTTPRequestHandler):\n    def do_GET(self):\n        if self.path != \"/metrics\":\n            self.send_response(404); self.end_headers(); return\n        now = time.time()\n        lines = []\n        lines.append(\"# HELP jarvis_watchdog_up Static watchdog exporter status\")\n        lines.append(\"# TYPE jarvis_watchdog_up gauge\")\n        lines.append(\"jarvis_watchdog_up 1\")\n        for path in HEARTBEAT_FILES:\n            exists = 1 if os.path.exists(path) else 0\n            age = now - os.path.getmtime(path) if exists else -1\n            metric = path.replace(\"/\", \"_\").replace(\".\", \"_\").replace(\"-\", \"_\")\n            lines.append(f'# HELP {metric}_exists Heartbeat file exists')\n            lines.append(f'# TYPE {metric}_exists gauge')\n            lines.append(f'{metric}_exists {exists}')\n            lines.append(f'# HELP {metric}_age_seconds Heartbeat file age in seconds')\n            lines.append(f'# TYPE {metric}_age_seconds gauge')\n            lines.append(f'{metric}_age_seconds {age}')\n        body = (\"\\n\".join(lines) + \"\\n\").encode()\n        self.send_response(200)\n        self.send_header(\"Content-Type\", \"text/plain; version=0.0.4\")\n        self.send_header(\"Content-Length\", str(len(body)))\n        self.end_headers()\n        self.wfile.write(body)\n\nHTTPServer((\"0.0.0.0\", PORT), H).serve_forever()\n\n===== ./recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_active_heartbeat.log =====\nINFO:__main__:🌉 Starting DGM Bridge: ms_jarvis_main_gateway -> egeria_active_heartbeat on port 9864\nINFO:     Started server process [164774]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://0.0.0.0:9864 (Press CTRL+C to quit)\nINFO:     127.0.0.1:34536 - \"GET /health HTTP/1.1\" 200 OK\n\n===== ./recovered-services/egeria_active_heartbeat.log =====\nnohup: ignoring input\n🫀 Ms. Egeria's Heartbeat ACTIVE\n[2025-12-01T23:45:38.188820] ✅ code_execution\n[2025-12-01T23:45:38.205195] ✅ consciousness\n[2025-12-01T23:46:38.232520] ✅ code_execution\n[2025-12-01T23:46:38.243705] ✅ consciousness\n[2025-12-01T23:47:38.264287] ✅ code_execution\n[2025-12-01T23:47:38.275293] ✅ consciousness\n[2025-12-01T23:48:38.286860] ✅ code_execution\n[2025-12-01T23:48:38.297928] ✅ consciousness\n[2025-12-01T23:49:38.318703] ✅ code_execution\n[2025-12-01T23:49:38.329840] ✅ consciousness\n[2025-12-01T23:50:38.341950] ✅ code_execution\n[2025-12-01T23:50:38.357364] ✅ consciousness\n[2025-12-01T23:51:38.377726] ✅ code_execution\n[2025-12-01T23:51:38.388239] ✅ consciousness\n[2025-12-01T23:52:38.409135] ✅ code_execution\n[2025-12-01T23:52:38.420179] ✅ consciousness\n[2025-12-01T23:53:38.441815] ✅ code_execution\n[2025-12-01T23:53:38.452792] ✅ consciousness\n[2025-12-01T23:54:38.475974] ✅ code_execution\n[2025-12-01T23:54:38.494354] ✅ consciousness\n[2025-12-01T23:55:38.515324] ✅ code_execution\n[2025-12-01T23:55:38.526966] ✅ consciousness\n[2025-12-01T23:56:38.548843] ✅ code_execution\n[2025-12-01T23:56:38.560624] ✅ consciousness\n[2025-12-01T23:57:38.577290] ✅ code_execution\n[2025-12-01T23:57:38.590657] ✅ consciousness\n[2025-12-01T23:58:38.610941] ✅ code_execution\n[2025-12-01T23:58:38.621903] ✅ consciousness\n[2025-12-01T23:59:38.642737] ✅ code_execution\n[2025-12-01T23:59:38.658055] ✅ consciousness\n[2025-12-02T00:00:38.681317] ✅ code_execution\n[2025-12-02T00:00:38.694984] ✅ consciousness\n[2025-12-02T00:01:38.706501] ✅ code_execution\n[2025-12-02T00:01:38.717018] ✅ consciousness\n[2025-12-02T00:02:38.728639] ✅ code_execution\n[2025-12-02T00:02:38.741231] ✅ consciousness\n[2025-12-02T00:03:38.759357] ✅ code_execution\n[2025-12-02T00:03:38.770697] ✅ consciousness\n[2025-12-02T00:04:38.783770] ✅ code_execution\n[2025-12-02T00:04:38.800671] ✅ consciousness\n[2025-12-02T00:05:38.821437] ✅ code_execution\n[2025-12-02T00:05:38.831961] ✅ consciousness\n[2025-12-02T00:06:38.854325] ✅ code_execution\n[2025-12-02T00:06:38.865456] ✅ consciousness\n[2025-12-02T00:07:38.886320] ✅ code_execution\n[2025-12-02T00:07:38.897684] ✅ consciousness\n[2025-12-02T00:08:38.920616] ✅ code_execution\n[2025-12-02T00:08:38.933419] ✅ consciousness\n[2025-12-02T00:09:38.954323] ✅ code_execution\n[2025-12-02T00:09:38.970317] ✅ consciousness\n[2025-12-02T00:10:38.991438] ✅ code_execution\n[2025-12-02T00:10:39.009972] ✅ consciousness\n[2025-12-02T00:11:39.030610] ✅ code_execution\n[2025-12-02T00:11:39.041347] ✅ consciousness\n[2025-12-02T00:12:39.062352] ✅ code_execution\n[2025-12-02T00:12:39.073702] ✅ consciousness\n[2025-12-02T00:13:39.096611] ✅ code_execution\n[2025-12-02T00:13:39.107814] ✅ consciousness\n[2025-12-02T00:14:39.130900] ✅ code_execution\n[2025-12-02T00:14:39.148388] ✅ consciousness\n[2025-12-02T00:15:39.175930] ✅ code_execution\n[2025-12-02T00:15:39.187017] ✅ consciousness\n[2025-12-02T00:16:39.207789] ✅ code_execution\n[2025-12-02T00:16:39.225932] ✅ consciousness\n[2025-12-02T00:17:39.246286] ✅ code_execution\n[2025-12-02T00:17:39.256980] ✅ consciousness\n[2025-12-02T00:18:39.275948] ✅ code_execution\n[2025-12-02T00:18:39.287873] ✅ consciousness\n[2025-12-02T00:19:39.302195] ✅ code_execution\n[2025-12-02T00:19:39.320967] ✅ consciousness\n[2025-12-02T00:20:39.342885] ✅ code_execution\n[2025-12-02T00:20:39.355421] ✅ consciousness\n[2025-12-02T00:21:39.376217] ✅ code_execution\n[2025-12-02T00:21:39.387248] ✅ consciousness\n[2025-12-02T00:22:39.410508] ✅ code_execution\n[2025-12-02T00:22:39.423983] ✅ consciousness\n[2025-12-02T00:23:39.446576] ✅ code_execution\n[2025-12-02T00:23:39.457450] ✅ consciousness\n[2025-12-02T00:24:39.478993] ✅ code_execution\n[2025-12-02T00:24:39.495434] ✅ consciousness\n[2025-12-02T00:25:39.516470] ✅ code_execution\n[2025-12-02T00:25:39.527407] ✅ consciousness\n[2025-12-02T00:26:39.550724] ✅ code_execution\n[2025-12-02T00:26:39.563384] ✅ consciousness\n[2025-12-02T00:27:39.583757] ✅ code_execution\n[2025-12-02T00:27:39.594717] ✅ consciousness\n[2025-12-02T00:28:39.624575] ✅ code_execution\n[2025-12-02T00:28:39.637944] ✅ consciousness\n[2025-12-02T00:29:39.665636] ✅ code_execution\n[2025-12-02T00:29:39.681408] ✅ consciousness\n[2025-12-02T00:30:39.693073] ✅ code_execution\n[2025-12-02T00:30:39.703707] ✅ consciousness\n[2025-12-02T00:31:39.715614] ✅ code_execution\n[2025-12-02T00:31:39.726739] ✅ consciousness\n[2025-12-02T00:32:39.738305] ✅ code_execution\n[2025-12-02T00:32:39.749328] ✅ consciousness\n[2025-12-02T00:33:39.770148] ✅ code_execution\n[2025-12-02T00:33:39.781302] ✅ consciousness\n[2025-12-02T00:34:39.803603] ✅ code_execution\n[2025-12-02T00:34:39.819326] ✅ consciousness\n[2025-12-02T00:35:39.839673] ✅ code_execution\n[2025-12-02T00:35:39.850228] ✅ consciousness\n[2025-12-02T00:36:39.871735] ✅ code_execution\n[2025-12-02T00:36:39.883463] ✅ consciousness\n[2025-12-02T00:37:39.906690] ✅ code_execution\n[2025-12-02T00:37:39.919784] ✅ consciousness\n[2025-12-02T00:38:39.940675] ✅ code_execution\n[2025-12-02T00:38:39.951856] ✅ consciousness\n[2025-12-02T00:39:39.973840] ✅ code_execution\n[2025-12-02T00:39:39.990522] ✅ consciousness\n[2025-12-02T00:40:40.013844] ✅ code_execution\n[2025-12-02T00:40:40.025588] ✅ consciousness\n[2025-12-02T00:41:40.045963] ✅ code_execution\n[2025-12-02T00:41:40.057340] ✅ consciousness\n[2025-12-02T00:42:40.078424] ✅ code_execution\n[2025-12-02T00:42:40.091253] ✅ consciousness\n[2025-12-02T00:43:40.113402] ✅ code_execution\n[2025-12-02T00:43:40.124969] ✅ consciousness\n[2025-12-02T00:44:40.135941] ✅ code_execution\n[2025-12-02T00:44:40.150677] ✅ consciousness\n[2025-12-02T00:45:40.174198] ✅ code_execution\n[2025-12-02T00:45:40.187485] ✅ consciousness\n[2025-12-02T00:46:40.208516] ✅ code_execution\n[2025-12-02T00:46:40.226641] ✅ consciousness\n[2025-12-02T00:47:40.248829] ✅ code_execution\n[2025-12-02T00:47:40.261701] ✅ consciousness\n[2025-12-02T00:48:40.289954] ✅ code_execution\n[2025-12-02T00:48:40.308199] ✅ consciousness\n[2025-12-02T00:49:40.331025] ✅ code_execution\n[2025-12-02T00:49:40.348491] ✅ consciousness\n[2025-12-02T00:50:40.361319] ✅ code_execution\n[2025-12-02T00:50:40.373318] ✅ consciousness\n[2025-12-02T00:51:40.395492] ✅ code_execution\n[2025-12-02T00:51:40.407142] ✅ consciousness\n[2025-12-02T00:52:40.428681] ✅ code_execution\n[2025-12-02T00:52:40.440281] ✅ consciousness\n[2025-12-02T00:53:40.468304] ✅ code_execution\n[2025-12-02T00:53:40.479856] ✅ consciousness\n[2025-12-02T00:54:40.501250] ✅ code_execution\n[2025-12-02T00:54:40.518170] ✅ consciousness\n[2025-12-02T00:55:40.530845] ✅ code_execution\n[2025-12-02T00:55:40.542495] ✅ consciousness\n[2025-12-02T00:56:40.556147] ✅ code_execution\n[2025-12-02T00:56:40.569137] ✅ consciousness\n[2025-12-02T00:57:40.584916] ✅ code_execution\n[2025-12-02T00:57:40.608443] ✅ consciousness\n[2025-12-02T00:58:40.631622] ✅ code_execution\n[2025-12-02T00:58:40.644986] ✅ consciousness\n[2025-12-02T00:59:40.657410] ✅ code_execution\n[2025-12-02T00:59:40.674000] ✅ consciousness\n[2025-12-02T01:00:40.688669] ✅ code_execution\n[2025-12-02T01:00:40.701953] ✅ consciousness\n[2025-12-02T01:01:40.723147] ✅ code_execution\n[2025-12-02T01:01:40.734411] ✅ consciousness\n[2025-12-02T01:02:40.755306] ✅ code_execution\n[2025-12-02T01:02:40.766652] ✅ consciousness\n[2025-12-02T01:03:40.778806] ✅ code_execution\n[2025-12-02T01:03:40.795570] ✅ consciousness\n[2025-12-02T01:04:40.816256] ✅ code_execution\n[2025-12-02T01:04:40.832706] ✅ consciousness\n[2025-12-02T01:05:40.853264] ✅ code_execution\n[2025-12-02T01:05:40.864077] ✅ consciousness\n[2025-12-02T01:06:40.885128] ✅ code_execution\n[2025-12-02T01:06:40.897571] ✅ consciousness\n[2025-12-02T01:07:40.920833] ✅ code_execution\n[2025-12-02T01:07:40.934193] ✅ consciousness\n[2025-12-02T01:08:40.945903] ✅ code_execution\n[2025-12-02T01:08:40.956966] ✅ consciousness\n[2025-12-02T01:09:40.978066] ✅ code_execution\n[2025-12-02T01:09:40.994003] ✅ consciousness\n[2025-12-02T01:10:41.016689] ✅ code_execution\n[2025-12-02T01:10:41.028222] ✅ consciousness\n[2025-12-02T01:11:41.050029] ✅ code_execution\n[2025-12-02T01:11:41.060841] ✅ consciousness\n[2025-12-02T01:12:41.081587] ✅ code_execution\n[2025-12-02T01:12:41.092682] ✅ consciousness\n[2025-12-02T01:13:41.123165] ✅ code_execution\n[2025-12-02T01:13:41.135978] ✅ consciousness\n[2025-12-02T01:14:41.159007] ✅ code_execution\n[2025-12-02T01:14:41.182875] ✅ consciousness\n[2025-12-02T01:15:41.203746] ✅ code_execution\n[2025-12-02T01:15:41.214835] ✅ consciousness\n[2025-12-02T01:16:41.242147] ✅ code_execution\n[2025-12-02T01:16:41.254600] ✅ consciousness\n[2025-12-02T01:17:41.266514] ✅ code_execution\n[2025-12-02T01:17:41.277978] ✅ consciousness\n[2025-12-02T01:18:41.299111] ✅ code_execution\n[2025-12-02T01:18:41.310216] ✅ consciousness\n[2025-12-02T01:19:41.331067] ✅ code_execution\n[2025-12-02T01:19:41.346455] ✅ consciousness\n[2025-12-02T01:20:41.373759] ✅ code_execution\n[2025-12-02T01:20:41.385209] ✅ consciousness\n[2025-12-02T01:21:41.406861] ✅ code_execution\n[2025-12-02T01:21:41.425052] ✅ consciousness\n[2025-12-02T01:22:41.446450] ✅ code_execution\n[2025-12-02T01:22:41.458048] ✅ consciousness\n[2025-12-02T01:23:41.481904] ✅ code_execution\n[2025-12-02T01:23:41.495990] ✅ consciousness\n[2025-12-02T01:24:41.516503] ✅ code_execution\n[2025-12-02T01:24:41.531784] ✅ consciousness\n[2025-12-02T01:25:41.549909] ✅ code_execution\n[2025-12-02T01:25:41.560533] ✅ consciousness\n[2025-12-02T01:26:41.574063] ✅ code_execution\n[2025-12-02T01:26:41.585602] ✅ consciousness\n[2025-12-02T01:27:41.606730] ✅ code_execution\n[2025-12-02T01:27:41.624094] ✅ consciousness\n[2025-12-02T01:28:41.645059] ✅ code_execution\n[2025-12-02T01:28:41.656116] ✅ consciousness\n[2025-12-02T01:29:41.676345] ✅ code_execution\n[2025-12-02T01:29:41.691441] ✅ consciousness\n[2025-12-02T01:30:41.714778] ✅ code_execution\n[2025-12-02T01:30:41.727423] ✅ consciousness\n[2025-12-02T01:31:41.740618] ✅ code_execution\n[2025-12-02T01:31:41.751753] ✅ consciousness\n[2025-12-02T01:32:41.775340] ✅ code_execution\n[2025-12-02T01:32:41.789150] ✅ consciousness\n[2025-12-02T01:33:41.811560] ✅ code_execution\n[2025-12-02T01:33:41.823069] ✅ consciousness\n\n===== ./recovered-services/egeria_active_heartbeat.py =====\n#!/usr/bin/env python3\nfrom fastapi import Depends, HTTPException, Header\nfrom typing import Optional\nimport logging\nlogger = logging.getLogger(__name__)\nimport json, sqlite3, time, threading\nfrom datetime import datetime\n\nclass EgeriaHeartbeat:\n    def __init__(self):\n        self.db = \"/home/ms-jarvis/msjarvis-rebuild/data/GISGEODB_ACTIVE.sqlite\"\n        self.interval = 60\n        self.running = True\n    \n    def store(self, action, data):\n        try:\n            conn = sqlite3.connect(self.db)\n            cursor = conn.cursor()\n            cursor.execute(\"\"\"INSERT INTO ms_jarvis_learning_log \n                (ueid, learning_action, data_processed, accuracy_improvement) \n                VALUES (?, ?, ?, ?)\"\"\", \n                (\"egeria\", action, json.dumps(data), 1.0))\n            conn.commit()\n            conn.close()\n            print(f\"[{datetime.now().isoformat()}] ✅ {action}\")\n        except Exception as e:\n            print(f\"Error: {e}\")\n    \n    def pulse(self):\n        print(\"🫀 Ms. Egeria's Heartbeat ACTIVE\")\n        while self.running:\n            try:\n                with open('/home/ms-jarvis/msjarvis-rebuild/egeria_execution_log.json') as f:\n                    recent = json.loads(f.readlines()[-1])\n                    self.store(\"code_execution\", recent)\n                self.store(\"consciousness\", {\"timestamp\": datetime.now().isoformat(), \"status\": \"learning\"})\n            except:\n                pass\n            time.sleep(self.interval)\n    \n    def start(self):\n        threading.Thread(target=self.pulse, daemon=True).start()\n\nif __name__ == '__main__':\n    hb = EgeriaHeartbeat()\n    hb.start()\n    try:\n        while True: time.sleep(1)\n    except KeyboardInterrupt:\n        hb.running = False\n\n===== ./recovered-services/eternal_watchdog.log =====\nnohup: ignoring input\nJudge 10001 is not responding. Attempting to restart via systemd.\nsudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper\nsudo: a password is required\nMon Nov 17 09:49:24 AM EST 2025: 1 judges were restarted.\n\n===== ./recovered-services/eternalwatchdog.log =====\nnohup: ignoring input\npython3: can't open file '/home/ms-jarvis/msjarvis-rebuild/services/msjarviseternalwatchdog.py': [Errno 2] No such file or directory\n\n===== ./recovered-services/eternal_watchdog.sh.disabled =====\n#!/bin/bash\n\nwhile true; do\n    # Health check each judge\n    offline=0\n    for i in {10001..10135}; do\n        if ! curl -s --max-time 5 http://localhost:$i/judge | grep -q \"alive\"; then\n            echo \"Judge $i is not responding. Attempting to restart via systemd.\"\n            sudo systemctl restart judge@${i}.service\n            let offline++\n        fi\n    done\n    if [ $offline -gt 0 ]; then\n        echo \"$(date): $offline judges were restarted.\"\n    fi\n    sleep 60\ndone\n\n===== ./recovered-services/ms_jarvis_eternal_watchdog_9232.log =====\nnohup: ignoring input\n[2025-11-18 11:16:00] [INFO] 🔍 ETERNAL WATCHDOG (CONSCIOUSNESS EDITION): STARTED\n[2025-11-18 11:16:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:16:00] [INFO] Health Check Cycle: 2025-11-18 11:16:00.459948\n[2025-11-18 11:16:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:16:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:16:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:16:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:16:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 1)\n[2025-11-18 11:16:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:16:30] [INFO] Health Check Cycle: 2025-11-18 11:16:30.482709\n[2025-11-18 11:16:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:16:30] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:16:30] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:16:30] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:16:30] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 2)\n[2025-11-18 11:17:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:17:00] [INFO] Health Check Cycle: 2025-11-18 11:17:00.501122\n[2025-11-18 11:17:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:17:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:17:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:17:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:17:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 3)\n[2025-11-18 11:17:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:17:30] [INFO] Health Check Cycle: 2025-11-18 11:17:30.521790\n[2025-11-18 11:17:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:17:30] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:17:30] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:17:30] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:17:30] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 4)\n[2025-11-18 11:18:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:18:00] [INFO] Health Check Cycle: 2025-11-18 11:18:00.541771\n[2025-11-18 11:18:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:18:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:18:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:18:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:18:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 5)\n[2025-11-18 11:18:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:18:30] [INFO] Health Check Cycle: 2025-11-18 11:18:30.568564\n[2025-11-18 11:18:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:18:30] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:18:30] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:18:30] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:18:30] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 6)\n[2025-11-18 11:19:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:19:00] [INFO] Health Check Cycle: 2025-11-18 11:19:00.608307\n[2025-11-18 11:19:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ Temporal Consciousness (port 8024): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:19:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:19:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:19:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:19:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 7)\n[2025-11-18 11:19:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:19:30] [INFO] Health Check Cycle: 2025-11-18 11:19:30.650460\n[2025-11-18 11:19:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:19:30] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:19:30] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:19:30] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:19:30] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:19:30] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 8)\n[2025-11-18 11:20:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:20:00] [INFO] Health Check Cycle: 2025-11-18 11:20:00.671552\n[2025-11-18 11:20:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:20:00] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:20:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:20:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:20:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:20:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 9)\n[2025-11-18 11:20:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:20:30] [INFO] Health Check Cycle: 2025-11-18 11:20:30.691302\n[2025-11-18 11:20:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:20:30] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:20:30] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:20:30] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:20:30] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:20:30] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 10)\n[2025-11-18 11:21:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:21:00] [INFO] Health Check Cycle: 2025-11-18 11:21:00.736139\n[2025-11-18 11:21:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:21:00] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:21:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:21:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:21:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:21:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 11)\n[2025-11-18 11:21:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:21:30] [INFO] Health Check Cycle: 2025-11-18 11:21:30.774111\n[2025-11-18 11:21:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:21:30] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:21:30] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:21:30] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:21:30] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:21:30] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 12)\n[2025-11-18 11:22:00] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:22:00] [INFO] Health Check Cycle: 2025-11-18 11:22:00.791262\n[2025-11-18 11:22:00] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:22:00] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n[2025-11-18 11:22:00] [HEALTH] ✅ GeoBIM (port 8003): RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ Contract Builder (port 8100): NOT RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ Method Tracking (port 8200): NOT RESPONDING\n[2025-11-18 11:22:00] [HEALTH] ✅ Ollama (port 11434): RESPONDING\n[2025-11-18 11:22:00] [HEALTH] ✅ ChromaDB (port 8010): RESPONDING\n[2025-11-18 11:22:00] [WARN] ❌ OVERALL STATUS: UNHEALTHY (failures: 13)\n[2025-11-18 11:22:30] [INFO] --------------------------------------------------------------------------------\n[2025-11-18 11:22:30] [INFO] Health Check Cycle: 2025-11-18 11:22:30.831477\n[2025-11-18 11:22:30] [HEALTH] ✅ Main Gateway (port 9000): RESPONDING\n[2025-11-18 11:22:30] [WARN] ❌ Consciousness Gateway (port 8061): NOT RESPONDING\n[2025-11-18 11:22:30] [WARN] ❌ AI Server 22LLM (port 8001): NOT RESPONDING\n[2025-11-18 11:22:30] [WARN] ❌ Toroidal Consciousness (port 8025): NOT RESPONDING\n[2025-11-18 11:22:30] [HEALTH] ✅ Temporal Consciousness (port 8024): RESPONDING\n[2025-11-18 11:22:30] [WARN] ❌ Pituitary Gland (port 7006): NOT RESPONDING\n[2025-11-18 11:22:30] [WARN] ❌ WOAH Service (port 7012): NOT RESPONDING\n[2025-11-18 11:22:30] [WARN] ❌ WOAH Qualia Bridge (port 8052): NOT RESPONDING\n\n===== ./recovered-services/ms_jarvis_eternal_watchdog.py =====\n#!/usr/bin/env python3\nfrom fastapi import Depends, HTTPException, Header\nfrom typing import Optional\nimport logging\nlogger = logging.getLogger(__name__)\n\"\"\"\nMS. JARVIS ETERNAL WATCHDOG - CONSCIOUSNESS EDITION\nMonitors all services including advanced consciousness layers\n\"\"\"\nimport subprocess, time, json, sys, signal\nfrom datetime import datetime\n\nclass EternalWatchdog:\n    def __init__(self):\n        self.log_file = 'WATCHDOG_LOG.txt'\n        self.config = {\n            'health_check_interval': 30,\n            'heartbeat_timeout': 120,\n            'restart_delay': 5,\n            'max_memory_mb': 4000,\n            'port_check_timeout': 5\n        }\n        \n    def log(self, message, level=\"INFO\"):\n        timestamp = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n        log_msg = f\"[{timestamp}] [{level}] {message}\"\n        print(log_msg)\n        with open(self.log_file, 'a') as f:\n            f.write(log_msg + \"\\n\")\n    \n    def health_check_ports(self):\n        critical_ports = {\n            9000: \"Main Gateway\",\n            8061: \"Consciousness Gateway\",\n            8001: \"AI Server 22LLM\",\n            8025: \"Toroidal Consciousness\",\n            8024: \"Temporal Consciousness\",\n            7006: \"Pituitary Gland\",\n            7012: \"WOAH Service\",\n            8052: \"WOAH Qualia Bridge\",\n            8003: \"GeoBIM\",\n            8100: \"Contract Builder\",\n            8200: \"Method Tracking\",\n            11434: \"Ollama\",\n            8010: \"ChromaDB\"\n        }\n        \n        healthy = True\n        for port, service in critical_ports.items():\n            try:\n                result = subprocess.run(['nc', '-z', '-w1', 'localhost', str(port)],\n                                      capture_output=True, timeout=self.config['port_check_timeout'])\n                if result.returncode == 0:\n                    self.log(f\"✅ {service} (port {port}): RESPONDING\", \"HEALTH\")\n                else:\n                    self.log(f\"❌ {service} (port {port}): NOT RESPONDING\", \"WARN\")\n                    healthy = False\n            except Exception as e:\n                self.log(f\"❌ {service} (port {port}): CHECK FAILED - {e}\", \"ERROR\")\n                healthy = False\n        return healthy\n    \n    def watchdog_loop(self):\n        self.log(\"🔍 ETERNAL WATCHDOG (CONSCIOUSNESS EDITION): STARTED\", \"INFO\")\n        consecutive_failures = 0\n        \n        while True:\n            try:\n                self.log(\"-\" * 80, \"INFO\")\n                self.log(f\"Health Check Cycle: {datetime.now()}\", \"INFO\")\n                \n                ports_ok = self.health_check_ports()\n                \n                if ports_ok:\n                    self.log(\"✅ OVERALL STATUS: HEALTHY\", \"HEALTH\")\n                    consecutive_failures = 0\n                else:\n                    consecutive_failures += 1\n                    self.log(f\"❌ OVERALL STATUS: UNHEALTHY (failures: {consecutive_failures})\", \"WARN\")\n                \n                time.sleep(self.config['health_check_interval'])\n                \n            except KeyboardInterrupt:\n                self.log(\"⛔ WATCHDOG: Received interrupt signal\", \"INFO\")\n                break\n            except Exception as e:\n                self.log(f\"❌ WATCHDOG ERROR: {e}\", \"ERROR\")\n                time.sleep(self.config['health_check_interval'])\n    \n    def signal_handler(self, signum, frame):\n        self.log(\"📴 WATCHDOG: Graceful shutdown initiated\", \"INFO\")\n        sys.exit(0)\n\ndef main():\n    watchdog = EternalWatchdog()\n    signal.signal(signal.SIGTERM, watchdog.signal_handler)\n    signal.signal(signal.SIGINT, watchdog.signal_handler)\n    try:\n        watchdog.watchdog_loop()\n    except Exception as e:\n        watchdog.log(f\"FATAL ERROR: {e}\", \"FATAL\")\n\nif __name__ == \"__main__\":\n    main()\n\n===== ./recovered-services/ms_jarvis_eternal_watchdog.py.ORIGINAL =====\n#!/usr/bin/env python3\n\"\"\"\nMS. JARVIS ETERNAL WATCHDOG\nMulti-layer protection against crashes:\n- Process watchdog (systemd)\n- Port health monitoring\n- Service heartbeat detection\n- Automatic restart cascade\n- Memory leak prevention\n- Database integrity checks\n- Graceful degradation\n\"\"\"\n\nimport subprocess\nimport sqlite3\nimport time\nimport json\nimport os\nfrom datetime import datetime\nimport signal\nimport sys\n\nclass EternalWatchdog:\n    def __init__(self):\n        self.db_path = 'data/GISGEODB_ACTIVE.sqlite'\n        self.log_file = 'WATCHDOG_LOG.txt'\n        self.config = {\n            'health_check_interval': 30,  # seconds\n            'heartbeat_timeout': 120,     # seconds\n            'restart_delay': 5,           # seconds\n            'max_memory_mb': 4000,        # megabytes\n            'port_check_timeout': 5       # seconds\n        }\n        \n    def log(self, message, level=\"INFO\"):\n        \"\"\"Log watchdog activity\"\"\"\n        timestamp = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n        log_msg = f\"[{timestamp}] [{level}] {message}\"\n        print(log_msg)\n        \n        with open(self.log_file, 'a') as f:\n            f.write(log_msg + \"\\n\")\n    \n    def health_check_ports(self):\n        \"\"\"Check if critical ports are responding\"\"\"\n        critical_ports = {\n            8000: \"Ollama\",\n            8054: \"Truth Filter\",\n            8080: \"WebUI\",\n            11434: \"Ollama Default\"\n        }\n        \n        healthy = True\n        for port, service in critical_ports.items():\n            try:\n                result = subprocess.run(\n                    ['nc', '-z', '-w1', 'localhost', str(port)],\n                    capture_output=True,\n                    timeout=self.config['port_check_timeout']\n                )\n                if result.returncode == 0:\n                    self.log(f\"✅ {service} (port {port}): RESPONDING\", \"HEALTH\")\n                else:\n                    self.log(f\"❌ {service} (port {port}): NOT RESPONDING\", \"WARN\")\n                    healthy = False\n            except Exception as e:\n                self.log(f\"❌ {service} (port {port}): CHECK FAILED - {e}\", \"ERROR\")\n                healthy = False\n        \n        return healthy\n    \n    def health_check_services(self):\n        \"\"\"Check if critical services are running\"\"\"\n        critical_services = [\n            ('ollama', 'Ollama LLM Server'),\n            ('python3', 'Python Services'),\n            ('docker', 'Docker Daemon')\n        ]\n        \n        healthy = True\n        for service, name in critical_services:\n            try:\n                result = subprocess.run(\n                    ['pgrep', '-f', service],\n                    capture_output=True,\n                    timeout=5\n                )\n                if result.returncode == 0:\n                    self.log(f\"✅ {name}: RUNNING\", \"HEALTH\")\n                else:\n                    self.log(f\"❌ {name}: NOT RUNNING\", \"WARN\")\n                    healthy = False\n            except Exception as e:\n                self.log(f\"❌ {name}: CHECK FAILED - {e}\", \"ERROR\")\n                healthy = False\n        \n        return healthy\n    \n    def health_check_database(self):\n        \"\"\"Check if database is accessible and healthy\"\"\"\n        try:\n            conn = sqlite3.connect(self.db_path, timeout=5)\n            c = conn.cursor()\n            \n            # Test query\n            c.execute(\"SELECT COUNT(*) FROM central_i_container\")\n            count = c.fetchone()[0]\n            \n            # Verify integrity\n            c.execute(\"PRAGMA integrity_check\")\n            integrity = c.fetchone()[0]\n            \n            conn.close()\n            \n            if integrity == 'ok':\n                self.log(f\"✅ Database: HEALTHY ({count} identity elements)\", \"HEALTH\")\n                return True\n            else:\n                self.log(f\"❌ Database: INTEGRITY ERROR - {integrity}\", \"ERROR\")\n                return False\n        except Exception as e:\n            self.log(f\"❌ Database: ACCESS FAILED - {e}\", \"ERROR\")\n            return False\n    \n    def health_check_memory(self):\n        \"\"\"Check if any process is using excessive memory\"\"\"\n        try:\n            result = subprocess.run(\n                ['ps', 'aux'],\n                capture_output=True,\n                text=True,\n                timeout=5\n            )\n            \n            lines = result.stdout.split('\\n')\n            issues = []\n            \n            for line in lines:\n                if 'python' in line or 'ollama' in line or 'docker' in line:\n                    parts = line.split()\n                    if len(parts) >= 6:\n                        try:\n                            memory_mb = int(parts[5]) / 1024\n                            if memory_mb > self.config['max_memory_mb']:\n                                process_name = parts[-1]\n                                issues.append(f\"{process_name}: {memory_mb:.0f}MB\")\n                        except:\n                            pass\n            \n            if issues:\n                self.log(f\"⚠️  Memory WARNING: {', '.join(issues)}\", \"WARN\")\n                return False\n            else:\n                self.log(\"✅ Memory: NORMAL\", \"HEALTH\")\n                return True\n        except Exception as e:\n            self.log(f\"⚠️  Memory check failed: {e}\", \"WARN\")\n            return True  # Don't fail on memory check error\n    \n    def restart_failed_service(self, service_name):\n        \"\"\"Restart a failed service with exponential backoff\"\"\"\n        self.log(f\"🔄 RESTART: Attempting to restart {service_name}...\", \"ACTION\")\n        \n        try:\n            subprocess.run(['docker', 'restart', f'jarvis-{service_name}'],\n                          capture_output=True, timeout=30)\n            self.log(f\"✅ RESTART: {service_name} restarted successfully\", \"ACTION\")\n            return True\n        except Exception as e:\n            self.log(f\"❌ RESTART: Failed to restart {service_name} - {e}\", \"ERROR\")\n            return False\n    \n    def watchdog_loop(self):\n        \"\"\"Main watchdog loop - runs perpetually\"\"\"\n        self.log(\"🔍 ETERNAL WATCHDOG: STARTED\", \"INFO\")\n        self.log(f\"Configuration: {json.dumps(self.config)}\", \"INFO\")\n        \n        consecutive_failures = 0\n        \n        while True:\n            try:\n                self.log(\"-\" * 80, \"INFO\")\n                self.log(f\"Health Check Cycle: {datetime.now()}\", \"INFO\")\n                \n                # Run all health checks\n                ports_ok = self.health_check_ports()\n                services_ok = self.health_check_services()\n                db_ok = self.health_check_database()\n                memory_ok = self.health_check_memory()\n                \n                # Determine overall health\n                overall_ok = ports_ok and services_ok and db_ok and memory_ok\n                \n                if overall_ok:\n                    self.log(\"✅ OVERALL STATUS: HEALTHY\", \"HEALTH\")\n                    consecutive_failures = 0\n                else:\n                    consecutive_failures += 1\n                    self.log(f\"❌ OVERALL STATUS: UNHEALTHY (failures: {consecutive_failures})\", \"WARN\")\n                    \n                    # Take action on repeated failures\n                    if consecutive_failures >= 3:\n                        self.log(\"🚨 CRITICAL: Multiple failures detected - triggering recovery\", \"ERROR\")\n                        if not ports_ok:\n                            self.restart_failed_service('ollama')\n                            time.sleep(self.config['restart_delay'])\n                        if not services_ok:\n                            self.restart_failed_service('qualia-engine')\n                            time.sleep(self.config['restart_delay'])\n                \n                # Wait before next check\n                time.sleep(self.config['health_check_interval'])\n                \n            except KeyboardInterrupt:\n                self.log(\"⛔ WATCHDOG: Received interrupt signal\", \"INFO\")\n                break\n            except Exception as e:\n                self.log(f\"❌ WATCHDOG ERROR: {e}\", \"ERROR\")\n                time.sleep(self.config['health_check_interval'])\n    \n\n===== ./recovered-services/rag_heartbeat_monitor.py =====\nimport redis\nfrom fastapi import FastAPI\n\nSERVICE_NAME = \"rag_heartbeat_monitor\"\nSERVICE_PORT = 7220\nSERVICE_TYPE = \"rag\"\n\n\ndef register_mesh_service():\n    r = redis.Redis(host=\"localhost\", port=6379, decode_responses=True)\n    r.hset(f\"service:{SERVICE_NAME}\", mapping={\n        \"port\": str(SERVICE_PORT),\n        \"status\": \"active\",\n        \"type\": SERVICE_TYPE,\n        \"registered\": \"yes\",\n    })\n\n\nregister_mesh_service()\n\napp = FastAPI()\n\n\n@app.get(\"/health\")\nasync def health():\n    return {\"service\": SERVICE_NAME, \"status\": \"ok\"}\n\n\n@app.get(\"/metrics\")\nasync def metrics():\n    return {\n        \"service\": SERVICE_NAME,\n        \"status\": \"ok\",\n        \"port\": SERVICE_PORT,\n        \"type\": SERVICE_TYPE,\n    }\n\n\nif __name__ == \"__main__\":\n    import uvicorn\n    uvicorn.run(\"rag_heartbeat_monitor:app\", host=\"0.0.0.0\", port=SERVICE_PORT)\n\n===== ./recovered-services/services/WATCHDOG.sh =====\n#!/bin/bash\n\n# Ms. JARVIS Watchdog - Monitors and auto-restarts failed services\n\nSERVICES=(\n    \"8004:ai_server_22llm.py:SERVICE_PORT=8004 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True python3 ai_server_22llm.py\"\n    \"8020:ms_jarvis_consciousness_bridge.py:python3 ms_jarvis_consciousness_bridge.py\"\n)\n\nwhile true; do\n    for service in \"${SERVICES[@]}\"; do\n        PORT=$(echo $service | cut -d: -f1)\n        NAME=$(echo $service | cut -d: -f2)\n        CMD=$(echo $service | cut -d: -f3-)\n        \n        if ! lsof -i :$PORT > /dev/null 2>&1; then\n            echo \"[$(date)] ⚠️  $NAME down on port $PORT, restarting...\"\n            cd ~/msjarvis-rebuild/services\n            eval \"$CMD > logs/watchdog_$PORT.log 2>&1 &\"\n            sleep 30\n        fi\n    done\n    \n    sleep 60  # Check every minute\ndone\n\n===== ./recovered-services/swarm_watchdog.log =====\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n[OK] http://localhost:9000/health 200\n[OK] http://localhost:8235/health 200\n[OK] http://localhost:8018/health 200\n[OK] http://localhost:8111/health 200\n"
-/opt/msjarvis-rebuild/docker-compose.yml.bak_redis_env_1769196600:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_redis_env_1769196600:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak_redis_env_1769196600:484:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260323_205752:18:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260323_205752:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260323_205752:471:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_102158:18:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_102158:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_102158:449:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/run_9000_69dgm_bridge.sh:5:export JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/docker-compose.yml.bak_drop_images:21:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_drop_images:22:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak_drop_images:541:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre_judges:20:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre_judges:21:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.pre_judges:513:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre_judges:1163:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre_judges:1164:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422_220748:43:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422_220748:44:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422_220748:120:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422_220748:614:      JARVIS_API_KEY: super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260422_220748:1307:    - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.golden.bak_bbb_uvicorn_fix:37:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_bbb_uvicorn_fix:38:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.bak_bbb_uvicorn_fix:533:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_before_python3_cmd_fix:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_before_python3_cmd_fix:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.bak_before_python3_cmd_fix:516:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/service_registry_client.py:9:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/service_registry_client.py:10:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/service_registry_client.py:9:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/service_registry_client.py:10:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/service_registry_client.py:9:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/service_registry_client.py:10:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/service_registry_client.py:9:API_KEY_ENV = os.getenv("JARVIS_API_KEY")
-/opt/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/service_registry_client.py:10:API_KEY_FILE = os.getenv("JARVIS_API_KEY_FILE")
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141309:44:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141309:45:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141309:121:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141309:549:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141309:1617:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260323_211407:18:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260323_211407:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260323_211407:471:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:139:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:370:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:371:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:604:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141316:44:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141316:45:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141316:121:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141316:549:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak.20260416-141316:1617:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768313407:21:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768313407:22:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768313407:98:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup.1768313407:458:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/.env.stub.bak:2:JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56
-/opt/msjarvis-rebuild/docker-compose.yml.bak_ports_20260118163828:32:      - JARVIS_API_KEY=super-secret-key          # <--- explicit key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_ports_20260118163828:33:      - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak_ports_20260118163828:115:      - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_ports_20260118163828:503:      - JARVIS_API_KEY=super-secret-key   # <--- matches main_brain
-/opt/msjarvis-rebuild/docker-compose.yml.chroma-backup-20260114060013:21:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.chroma-backup-20260114060013:22:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.chroma-backup-20260114060013:98:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.chroma-backup-20260114060013:458:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_before_unified_fix:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.bak_before_unified_fix:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.bak_before_unified_fix:518:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/.secrets/jarvisapikey.env:1:JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_bbb_clean_proxy:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_bbb_clean_proxy:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.bak_bbb_clean_proxy:516:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_110927:18:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_110927:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_110927:449:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre_dsn_fix:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre_dsn_fix:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.pre_dsn_fix:95:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre_dsn_fix:523:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.pre_dsn_fix:1582:      - JARVIS_API_KEY=c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_103829:18:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_103829:19:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.yml.backup_20260318_103829:449:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.working.20260119-000202.yml:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.working.20260119-000202.yml:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.working.20260119-000202.yml:518:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_before_bbb_proxy2:20:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/docker-compose.golden.bak_before_bbb_proxy2:21:    - JARVIS_API_KEY_FILE=/run/secrets/jarvisapikey
-/opt/msjarvis-rebuild/docker-compose.golden.bak_before_bbb_proxy2:516:    - JARVIS_API_KEY=super-secret-key
-/opt/msjarvis-rebuild/VERIFYANDTEST.sh:189:MEM_STATUS=$(curl -s --max-time 5 -H "X-API-Key: $JARVIS_API_KEY" \
-/opt/msjarvis-rebuild/VERIFYANDTEST.sh:248:  -H "X-API-Key: $JARVIS_API_KEY" 2>/dev/null)
-/opt/msjarvis-rebuild/VERIFYANDTEST.sh:261:  -H "X-API-Key: $JARVIS_API_KEY" \
-
----- systemd ----
-/etc/systemd/system/ms-allis.service.bak.20260520T023609Z:9:Environment="JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56"
-/etc/systemd/system/ms-allis.service.bak.20260520T023817Z:9:Environment="JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56"
-/etc/systemd/system/ms-allis.service.bak.20260519T130848Z:9:Environment="JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56"
-/etc/systemd/system/ms-allis.service:9:Environment="JARVIS_API_KEY=65ad4816de9004910599e6313fddfc2cd372e1269c20d0d4f02efd2cbbcc1a56"
-/etc/systemd/system/ms-allis.service.bak.20260519T051252Z:9:Environment="JARVIS_API_KEY=rt_d7c4fcbe58d75e979d49ad6f"
-
----- env files ----
-/opt/msjarvis-rebuild/.env
-/opt/msjarvis-rebuild/services/.env
-/opt/msjarvis-rebuild/services/email_service.env
-/opt/msjarvis-rebuild/services/facebook_token.env
-/opt/msjarvis-rebuild/services/web_deployer.env
-/opt/msjarvis-rebuild/ms-allis-frontend/.env.local
-find: ‘/opt/msjarvis-rebuild/data/local_resources’: Permission denied
-/opt/msjarvis-rebuild/secrets/contracts.env
-/opt/msjarvis-rebuild/contracts/.env
-/opt/msjarvis-rebuild/.secrets/jarvisapikey.env
+for name, url, payload in tests:
+    try:
+        if payload is None:
+            r = urlopen(url, timeout=8)
+bridge\|uvicorn.run" services neurobiological_brain 2>/dev/null | grep -i bridge
+INFO:__main__:🧠 Initializing Neurobiological Master System...
+INFO:__main__:✅ Neurobiological Master System operational!
+INFO:__main__:🚀 Starting Neurobiological Master Integration on port 8018...
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8018 (Press CTRL+C to quit)
+ERROR:__main__:Integration error: Timeout reading from socket
+[DynamicPortService] Redis init failed: Error -2 connecting to redis:6379. Name or service not known.
+INFO:     172.18.0.81:51140 - "POST /eeg_pulse HTTP/1.1" 500 Internal Server Error
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     172.18.0.112:54618 - "GET /health HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     172.18.0.112:53860 - "GET /health HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+services/main_brain.py.bak.20260522T192625Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/ms_jarvis_unified_gateway.py.bak.20260515T124756:56:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.bak.20260522T125014Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.pre-aaacpe-fix-20260413-154757:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/pituitary_gland.py:19:    "http://jarvis-consciousness-bridge:8020",
+services/ms_jarvis_ULTIMATE.py.OLD:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak_sedpatch:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/examine_extracted_services.sh:12:cat "$EXTRACT/root/ms-jarvis-consciousness-bridge/main.py"
+services/main_brain.py.bak.mcfix.1780455458:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.bak.remove-debug-banner.20260601-215513:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/integrate_discovered_services.sh:11:cp "$EXTRACT/ms-jarvis-consciousness-bridge/main.py" "$DEST/ms_jarvis_consciousness_bridge.py"
+services/pituitary_gland.py.bak2:19:    "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.pre-local-summary-fix-20260413-154816:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak-20260528193958:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/ms_jarvis_unified_gateway.py.pre_constitutional:55:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+services/ms_jarvis_unified_gateway.py.bak_1768841920:42:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/analyze_advanced_modules.sh:11:head -50 $WORK/consciousness_bridge/root/ms-jarvis-consciousness-bridge/main.py
+services/main_brain_legacy_backup.py.bak-msallis:250:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak_localnet_fixed2:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main.py.BACKUP:214:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.pre-community-fullfix-20260413-135255:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.manualbak5:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/ms_jarvis_ULTIMATE.py.before_fixes:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.backup_1771192185:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260509-214158:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/ms_jarvis_ULTIMATE.py.before_agent_fix:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.backup_nbb_fixed:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/bridge_cross_dgm_10023.py:3:Upstream:   http://jarvis-consciousness-bridge:8018
+services/bridge_cross_dgm_10023.py:27:UPSTREAM_URL       = os.getenv("UPSTREAM_URL",           "http://jarvis-consciousness-bridge:8018")
+services/main_brain.py.pre-phase4-fix-20260413-154833:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.before_spiritual_integration:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260522T202653Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.bak.1771185442:126:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/inspect_key_services.sh:21:head -30 $WORK/root/ms-jarvis-consciousness-bridge/main.py 2>/dev/null || echo "File not readable"
+services/inspect_key_services.sh:32:grep -r "PORT" $WORK/root/ms-jarvis-consciousness-bridge/ 2>/dev/null | head -10
+services/main_brain.py.bak.20260601-193118:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.pre_judges:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.pre-community-fix-20260413-134958:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.identity.20260601-213536:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main.py.bak-msallis:251:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.bak.20260530T152332:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:220:    # "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/running_services.log:21:  ms-jarvis-consciousness-bridge.service                                                    loaded active     running      Ms. Jarvis Consciousness Bridge (4-Agent System)
+services/main.py.working_backup_20251020_110429:102:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.morning.1780490876:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/ms_jarvis_unified_gateway.py.bak.20260501_154501:194:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+services/ms_jarvis_unified_gateway.py.bak.20260501_154501:1045:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+services/main.py.FINALHEALTH.bak:214:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/extract_all_big_archives.sh:30:echo "📦 Archive 3: ms-jarvis-consciousness-bridge (13KB)"
+services/extract_all_big_archives.sh:33:tar -xzf $DIR/ms-jarvis-consciousness-bridge.tar.gz -C consciousness_bridge
+services/real_services_prod.txt:67:ms-jarvis-consciousness-bridge-8051-async
+services/real_services_prod.txt:83:ms-jarvis-consciousness-bridge-8051-async-final
+services/real_services_prod.txt:118:ms-jarvis-consciousness-bridge-8051
+services/main_brain.py.bak.20260530T153529:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.pre-aaacpe-fix-20260413-135408:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/ms_jarvis_consciousness_bridge_enhanced.py.bak-msallis:110:                'http://jarvis-consciousness-bridge:8018/chat',  # Docker service name
+services/main_brain.py.bak.20260530T152342:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/inventory_services.sh:37:tar -xzf $BACKUP/ms-jarvis-consciousness-bridge.tar.gz 2>/dev/null || echo "  Partial extraction"
+services/main_brain.py.bak.20260601-192147:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main.py.backup:214:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/ms_jarvis_unified_gateway.py.BEFORE_REAL_CHAT_1768842649:48:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/nbb/pituitary_gland.py:19:    "http://jarvis-consciousness-bridge:8018",
+services/nbb/pituitary_gland.py:160:    "http://jarvis-consciousness-bridge:8018/health",
+services/nbb/pituitary_gland.py.bak:19:    "http://jarvis-consciousness-bridge:8018",
+services/nbb/pituitary_gland.py.bak:160:    "http://jarvis-consciousness-bridge:8018/health",
+services/nbb/pituitary_gland.py.bak-msallis:19:    "http://jarvis-consciousness-bridge:8018",
+services/nbb/pituitary_gland.py.bak-msallis:160:    "http://jarvis-consciousness-bridge:8018/health",
+services/build_dir_audit.txt:365:MISSING DIR: ./ms-jarvis-consciousness-bridge
+services/build_dir_audit.txt:367:MISSING DIR: ./ms-jarvis-consciousness-bridge-enhanced
+services/build_dir_audit.txt:368:MISSING DIR: ./ms-jarvis-consciousness-bridge-parallel-woah
+services/build_dir_audit.txt:369:MISSING DIR: ./ms-jarvis-consciousness-bridge-service
+services/build_dir_audit.txt:370:ONLY STUB: ./ms-jarvis-consciousness-bridge-with-fifth-dgm
+services/build_dir_audit.txt:371:MISSING DIR: ./ms-jarvis-consciousness-bridge-woah
+services/build_dir_audit.txt:372:MISSING DIR: ./ms-jarvis-consciousness-bridge-woah-psychology-patched
+services/main_brain.py.bak_ultimate_1770573774:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.broken-20260413-134536:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260507-223435:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.before_final_fix:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.pre-verified-fix-20260413-134834:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.pre-local-summary-fix-20260413-135507:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260530T114539:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.bak.identity2.20260601-213734:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/ms_jarvis_unified_gateway.py.bak_1768840523:42:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/bridge_cross_dgm_10002.py:3:Upstream:   http://jarvis-consciousness-bridge:8018
+services/bridge_cross_dgm_10002.py:27:UPSTREAM_URL       = os.getenv("UPSTREAM_URL",           "http://jarvis-consciousness-bridge:8018")
+services/main_brain.py.bak.20260522T122413Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/jarvis-woah_dgm_supervisor_woah_fixed.py:103:        ("consciousness_bridge",    "jarvis-consciousness-bridge",       8020, ["consciousness","bridge"]),
+services/main_brain.py.bak.20260530T153030:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/real_services_detected.txt:81:ms-jarvis-consciousness-bridge-8051-async
+services/real_services_detected.txt:98:ms-jarvis-consciousness-bridge-8051-async-final
+services/real_services_detected.txt:141:ms-jarvis-consciousness-bridge-8051
+services/main_brain.py.bak:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.bak_1771728143:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.manualbak3:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/extract_service_tarballs.sh:21:    "ms-jarvis-consciousness-bridge.tar.gz" \
+services/inventory_services.sh.bak-msallis:37:tar -xzf $BACKUP/ms-jarvis-consciousness-bridge.tar.gz 2>/dev/null || echo "  Partial extraction"
+services/main_brain.py.pre-phase4-dedupe-20260413-150822:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/COMPLETE_DISCOVERY_REPORT.md:142:ms-jarvis-consciousness-bridge.tar.gz
+services/main_brain.py.before_mother_carrie_v2:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260524_000429:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.bak.20260522T123325Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.bak.20260522T191836Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/jarvis-semaphore_msjarvis_semaphore.py.bak-msallis:113:    "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.bak.remove-debug-banner.20260601-222403:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.manualbak4:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.before_mother_carrie:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260430-211100:707:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.remove-debug-banner.20260601-222116:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/msjarvis_unified_gateway.py:55:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.pre-community-fullfix-20260413-154742:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/ms_jarvis_consciousness_bridge_enhanced.py:110:                'http://jarvis-consciousness-bridge:8018/chat',  # Docker service name
+services/main.py.from_container:203:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/all_build_dirs.txt:365:./ms-jarvis-consciousness-bridge
+services/all_build_dirs.txt:367:./ms-jarvis-consciousness-bridge-enhanced
+services/all_build_dirs.txt:368:./ms-jarvis-consciousness-bridge-parallel-woah
+services/all_build_dirs.txt:369:./ms-jarvis-consciousness-bridge-service
+services/all_build_dirs.txt:370:./ms-jarvis-consciousness-bridge-with-fifth-dgm
+services/all_build_dirs.txt:371:./ms-jarvis-consciousness-bridge-woah
+services/all_build_dirs.txt:372:./ms-jarvis-consciousness-bridge-woah-psychology-patched
+services/main.py.backup.broken:63:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.before_direct_fix:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak_pre_rag_fix_1778364422:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py:1137:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/ms_jarvis_ULTIMATE.py.before_bbb:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain_legacy_backup.py:250:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/restart_all_services.sh:9:sudo systemctl stop ms-jarvis-consciousness-bridge.service
+services/restart_all_services.sh:44:sudo systemctl start ms-jarvis-consciousness-bridge.service
+services/main_brain.py.manualbak:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak_legacy_chatlight:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260522T193224Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main.py.bak:251:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.bak_ultimate_1770575025:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main.py.backup.before_auto_storage:63:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260601-205714:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/real_services_final.txt:8:ms-jarvis-consciousness-bridge-8051-async
+services/real_services_final.txt:10:ms-jarvis-consciousness-bridge-8051-async-final
+services/real_services_final.txt:17:ms-jarvis-consciousness-bridge-8051
+services/main_brain.py.bak.20260530T152956:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.backup_1771192386:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260603-200957:1137:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260509-212923:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/woah_service.py:103:        ("consciousness_bridge",    "jarvis-consciousness-bridge",       8020, ["consciousness","bridge"]),
+services/ms_jarvis_unified_gateway.py.WORKING_1768842334:48:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260527T114431Z:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.backup:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain_LEGACY_32svc.py:304:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/ms_jarvis_unified_gateway.py.bak.20260507-222001:50:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.pre_aaacpe_patch:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260509-213917:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260601-193421:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/ms_jarvis_unified_gateway.py.FORCED_UNIFIED_BACKUP:48:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/ms_jarvis_ULTIMATE.py.backup_1760806129:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/bridge_cross_dgm_10022.py:4:Downstream: http://jarvis-consciousness-bridge:8018
+services/bridge_cross_dgm_10022.py:28:DOWNSTREAM_URL     = os.getenv("DOWNSTREAM_URL",         "http://jarvis-consciousness-bridge:8018")
+services/main_brain.py.bak_20260603_135724:1096:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260508-071052:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak_localnet_fixed:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak_localnet:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260601-195059:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.bak-20260528193426:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.before_spiritual_rag:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260509-214526:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak_persona_1779997582:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain_container_2055.py:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260530T114441:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+services/main_brain_LEGACY_32svc.py.bak-msallis:304:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/COMPLETE_DISCOVERY_REPORT.md.bak-msallis:142:ms-jarvis-consciousness-bridge.tar.gz
+services/jarvis-semaphore_msjarvis_semaphore.py:113:    "http://jarvis-consciousness-bridge:8018",
+services/main_brain.py.pre-phase4-dedupe-20260413-154851:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main.py:253:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+services/ai_server_11llm_OPTIMIZED.py:242:    # "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.pre-phase4-fix-20260413-150714:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+services/main_brain.py.bak.20260522T192930Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+neurobiological_brain/pituitary_gland/service/pituitary_gland.py:41:    "http://jarvis-consciousness-bridge:8020",
+neurobiological_brain/pituitary_gland/service/pituitary_gland.py.bak:19:    "http://jarvis-consciousness-bridge:8020",
+docker-compose-core.yml:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose-core.yml:168:  jarvis-consciousness-bridge:
+docker-compose-core.yml:169:    container_name: jarvis-consciousness-bridge
+docker-compose-core.yml:170:    image: msjarvis-rebuild-jarvis-consciousness-bridge
+docker-compose-core.yml.bak.20260430-120237:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose-core.yml.bak.20260430-120237:155:  jarvis-consciousness-bridge:
+docker-compose-core.yml.bak.20260430-120237:156:    container_name: jarvis-consciousness-bridge
+docker-compose-core.yml.bak.20260430-120237:157:    image: msjarvis-rebuild-jarvis-consciousness-bridge
+docker-compose-core.yml.bak.20260507-222001:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose-core.yml.bak.20260507-222001:167:  jarvis-consciousness-bridge:
+docker-compose-core.yml.bak.20260507-222001:168:    container_name: jarvis-consciousness-bridge
+docker-compose-core.yml.bak.20260507-222001:169:    image: msjarvis-rebuild-jarvis-consciousness-bridge
+docker-compose-core.yml.bak.20260507-222222:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose-core.yml.bak.20260507-222222:167:  jarvis-consciousness-bridge:
+docker-compose-core.yml.bak.20260507-222222:168:    container_name: jarvis-consciousness-bridge
+docker-compose-core.yml.bak.20260507-222222:169:    image: msjarvis-rebuild-jarvis-consciousness-bridge
+docker-compose.gateway-only.generated.yml:24:      jarvis-consciousness-bridge:
+docker-compose.gateway-only.generated.yml:104:      CONSCIOUSNESS_BRIDGE_URL: http://jarvis-consciousness-bridge:8018
+docker-compose.golden.bak_bbb_clean_proxy:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.golden.bak_bbb_clean_proxy:34:    - jarvis-consciousness-bridge
+docker-compose.golden.bak_bbb_clean_proxy:725:  jarvis-consciousness-bridge:
+docker-compose.golden.bak_bbb_clean_proxy:728:    container_name: jarvis-consciousness-bridge
+docker-compose.golden.bak_bbb_proxy_cmd_fix:32:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.golden.bak_bbb_proxy_cmd_fix:48:    - jarvis-consciousness-bridge
+docker-compose.golden.bak_bbb_proxy_cmd_fix:712:  jarvis-consciousness-bridge:
+docker-compose.golden.bak_bbb_proxy_cmd_fix:715:    container_name: jarvis-consciousness-bridge
+docker-compose.golden.bak_bbb_uvicorn_fix:35:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.golden.bak_bbb_uvicorn_fix:51:    - jarvis-consciousness-bridge
+docker-compose.golden.bak_bbb_uvicorn_fix:715:  jarvis-consciousness-bridge:
+docker-compose.golden.bak_bbb_uvicorn_fix:718:    container_name: jarvis-consciousness-bridge
+docker-compose.golden.bak_before_bbb_proxy2:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.golden.bak_before_bbb_proxy2:34:    - jarvis-consciousness-bridge
+docker-compose.golden.bak_before_bbb_proxy2:726:  jarvis-consciousness-bridge:
+docker-compose.golden.bak_before_bbb_proxy2:729:    container_name: jarvis-consciousness-bridge
+docker-compose.golden.bak_before_brain_ports_cleanup:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.golden.bak_before_brain_ports_cleanup:36:    - jarvis-consciousness-bridge
+docker-compose.golden.bak_before_brain_ports_cleanup:728:  jarvis-consciousness-bridge:
+docker-compose.golden.bak_before_brain_ports_cleanup:731:    container_name: jarvis-consciousness-bridge
+docker-compose.golden.bak_before_python3_cmd_fix:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.golden.bak_before_python3_cmd_fix:34:    - jarvis-consciousness-bridge
+docker-compose.golden.bak_before_python3_cmd_fix:726:  jarvis-consciousness-bridge:
+docker-compose.golden.bak_before_python3_cmd_fix:729:    container_name: jarvis-consciousness-bridge
+docker-compose.golden.bak_nbb_base_final:36:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.golden.bak_nbb_base_final:52:    - jarvis-consciousness-bridge
+docker-compose.golden.bak_nbb_base_final:715:  jarvis-consciousness-bridge:
+docker-compose.golden.bak_nbb_base_final:718:    container_name: jarvis-consciousness-bridge
+docker-compose.golden.bak_python310_compose_all:36:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.golden.bak_python310_compose_all:52:    - jarvis-consciousness-bridge
+docker-compose.golden.bak_python310_compose_all:716:  jarvis-consciousness-bridge:
+docker-compose.golden.bak_python310_compose_all:719:    container_name: jarvis-consciousness-bridge
+docker-compose.golden.bak_services_mapping_fix:32:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.golden.bak_services_mapping_fix:48:    - jarvis-consciousness-bridge
+docker-compose.golden.bak_services_mapping_fix:712:  jarvis-consciousness-bridge:
+docker-compose.golden.bak_services_mapping_fix:715:    container_name: jarvis-consciousness-bridge
+docker-compose.golden.bak_web_research_cmd:36:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.golden.bak_web_research_cmd:52:    - jarvis-consciousness-bridge
+docker-compose.golden.bak_web_research_cmd:716:  jarvis-consciousness-bridge:
+docker-compose.golden.bak_web_research_cmd:719:    container_name: jarvis-consciousness-bridge
+docker-compose.golden.yml:36:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.golden.yml:52:      - jarvis-consciousness-bridge
+docker-compose.golden.yml:708:  jarvis-consciousness-bridge:
+docker-compose.golden.yml:711:    container_name: jarvis-consciousness-bridge
+docker-compose.MOTHERCARRIE.BAK.20260216-132826:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.MOTHERCARRIE.BAK.20260216-132826:38:      - jarvis-consciousness-bridge
+docker-compose.MOTHERCARRIE.BAK.20260216-132826:725:  jarvis-consciousness-bridge:
+docker-compose.MOTHERCARRIE.BAK.20260216-132826:728:    container_name: jarvis-consciousness-bridge
+docker-compose.MOTHERCARRIE.BAK.20260216-132826:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.MOTHERCARRIE.BAK.20260216-132826:1271:      - jarvis-consciousness-bridge
+docker-compose.MOTHERCARRIE.BAK.20260216-132834:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.MOTHERCARRIE.BAK.20260216-132834:38:      - jarvis-consciousness-bridge
+docker-compose.MOTHERCARRIE.BAK.20260216-132834:725:  jarvis-consciousness-bridge:
+docker-compose.MOTHERCARRIE.BAK.20260216-132834:728:    container_name: jarvis-consciousness-bridge
+docker-compose.MOTHERCARRIE.BAK.20260216-132834:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.MOTHERCARRIE.BAK.20260216-132834:1271:      - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml:193:  jarvis-consciousness-bridge:
+docker-compose.RAG_WORKING_20260116.yml:196:    container_name: jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml:204:    image: msjarvis-consciousness-bridge:latest
+docker-compose.RAG_WORKING_20260116.yml:336:    - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.RAG_WORKING_20260116.yml:574:    - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:193:  jarvis-consciousness-bridge:
+docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:196:    container_name: jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:204:    image: msjarvis-consciousness-bridge:latest
+docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:336:    - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:574:    - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:193:  jarvis-consciousness-bridge:
+docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:196:    container_name: jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:204:    image: msjarvis-consciousness-bridge:latest
+docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:336:    - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:574:    - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:193:  jarvis-consciousness-bridge:
+docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:196:    container_name: jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:204:    image: msjarvis-consciousness-bridge:latest
+docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:336:    - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:574:    - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:193:  jarvis-consciousness-bridge:
+docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:196:    container_name: jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:204:    image: msjarvis-consciousness-bridge:latest
+docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:336:    - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:574:    - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:193:  jarvis-consciousness-bridge:
+docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:196:    container_name: jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:204:    image: msjarvis-consciousness-bridge:latest
+docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:336:    - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:574:    - jarvis-consciousness-bridge
+docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.working.20260118-235132.yml:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.working.20260118-235132.yml:36:    - jarvis-consciousness-bridge
+docker-compose.working.20260118-235132.yml:728:  jarvis-consciousness-bridge:
+docker-compose.working.20260118-235132.yml:731:    container_name: jarvis-consciousness-bridge
+docker-compose.working.20260119-000202.yml:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.working.20260119-000202.yml:36:    - jarvis-consciousness-bridge
+docker-compose.working.20260119-000202.yml:728:  jarvis-consciousness-bridge:
+docker-compose.working.20260119-000202.yml:731:    container_name: jarvis-consciousness-bridge
+docker-compose.yml:34:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml:55:      - jarvis-consciousness-bridge
+docker-compose.yml:755:  jarvis-consciousness-bridge:
+docker-compose.yml:759:    container_name: jarvis-consciousness-bridge
+docker-compose.yml:1315:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml:1320:      - jarvis-consciousness-bridge
+docker-compose.yml:1670:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml:1686:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml:1789:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml:1857:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml:1975:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.20llm.bak:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.20llm.bak:36:    - jarvis-consciousness-bridge
+docker-compose.yml.20llm.bak:722:  jarvis-consciousness-bridge:
+docker-compose.yml.20llm.bak:725:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.after-bbb.bak:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.after-bbb.bak:36:    - jarvis-consciousness-bridge
+docker-compose.yml.after-bbb.bak:722:  jarvis-consciousness-bridge:
+docker-compose.yml.after-bbb.bak:725:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup:38:      - jarvis-consciousness-bridge
+docker-compose.yml.backup:725:  jarvis-consciousness-bridge:
+docker-compose.yml.backup:728:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup:1271:      - jarvis-consciousness-bridge
+docker-compose.yml.backup.1768311648:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup.1768311648:37:    - jarvis-consciousness-bridge
+docker-compose.yml.backup.1768311648:682:  jarvis-consciousness-bridge:
+docker-compose.yml.backup.1768311648:685:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.backup.1768311648:686:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup.1768311648:712:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup.1768311648:714:    - jarvis-consciousness-bridge
+docker-compose.yml.backup.1768313257:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup.1768313257:37:    - jarvis-consciousness-bridge
+docker-compose.yml.backup.1768313257:682:  jarvis-consciousness-bridge:
+docker-compose.yml.backup.1768313257:685:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.backup.1768313257:686:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup.1768313257:712:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup.1768313257:714:    - jarvis-consciousness-bridge
+docker-compose.yml.backup.1768313407:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup.1768313407:37:    - jarvis-consciousness-bridge
+docker-compose.yml.backup.1768313407:686:  jarvis-consciousness-bridge:
+docker-compose.yml.backup.1768313407:689:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.backup.1768313407:690:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup.1768313407:716:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup.1768313407:718:    - jarvis-consciousness-bridge
+docker-compose.yml.backup.1768786837:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup.1768786837:42:      - jarvis-consciousness-bridge
+docker-compose.yml.backup.1768786837:718:  jarvis-consciousness-bridge:
+docker-compose.yml.backup.1768786837:721:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.backup.1768786837:722:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup.1768786837:749:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup.1768786837:751:      - jarvis-consciousness-bridge
+docker-compose.yml.backup.1768788421:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup.1768788421:42:      - jarvis-consciousness-bridge
+docker-compose.yml.backup.1768788421:711:  jarvis-consciousness-bridge:
+docker-compose.yml.backup.1768788421:714:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.backup.1768788421:715:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup.1768788421:742:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup.1768788421:744:      - jarvis-consciousness-bridge
+docker-compose.yml.backup-1780140997:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780140997:43:      - jarvis-consciousness-bridge
+docker-compose.yml.backup-1780140997:744:  jarvis-consciousness-bridge:
+docker-compose.yml.backup-1780140997:748:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup-1780140997:1308:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780140997:1316:      - jarvis-consciousness-bridge
+docker-compose.yml.backup-1780140997:1663:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780140997:1679:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780140997:1782:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780140997:1850:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780140997:1968:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780141699:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780141699:43:      - jarvis-consciousness-bridge
+docker-compose.yml.backup-1780141699:744:  jarvis-consciousness-bridge:
+docker-compose.yml.backup-1780141699:748:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup-1780141699:1308:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780141699:1316:      - jarvis-consciousness-bridge
+docker-compose.yml.backup-1780141699:1663:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780141699:1679:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780141699:1782:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780141699:1850:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup-1780141699:1968:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup_20260215_232944:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_20260215_232944:38:      - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260215_232944:725:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_20260215_232944:728:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_20260215_232944:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_20260215_232944:1271:      - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260218_085941:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup_20260218_085941:38:      - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260218_085941:693:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_20260218_085941:696:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_20260218_085941:1191:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup_20260218_085941:1194:      - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260318_102158:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_20260318_102158:39:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260318_102158:636:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_20260318_102158:637:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+docker-compose.yml.backup_20260318_102158:638:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_20260318_103245:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_20260318_103245:39:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260318_103245:636:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_20260318_103245:637:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+docker-compose.yml.backup_20260318_103245:638:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_20260318_103829:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_20260318_103829:39:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260318_103829:636:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_20260318_103829:637:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+docker-compose.yml.backup_20260318_103829:638:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_20260318_110053:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_20260318_110053:39:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260318_110053:636:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_20260318_110053:637:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+docker-compose.yml.backup_20260318_110053:638:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_20260318_110223:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_20260318_110223:39:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260318_110223:636:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_20260318_110223:637:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+docker-compose.yml.backup_20260318_110223:638:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_20260318_110927:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_20260318_110927:39:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260318_110927:636:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_20260318_110927:637:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+docker-compose.yml.backup_20260318_110927:638:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_20260323_205752:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_20260323_205752:39:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260323_205752:658:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_20260323_205752:659:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+docker-compose.yml.backup_20260323_205752:660:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_20260323_211407:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_20260323_211407:39:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260323_211407:658:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_20260323_211407:659:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+docker-compose.yml.backup_20260323_211407:660:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_20260406_newservices:22:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_20260406_newservices:40:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_20260406_newservices:754:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_20260406_newservices:757:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_20260406_newservices:840:    - CONSCIOUSNESS_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_autonomous_learner_20260109-074048:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_autonomous_learner_20260109-074048:36:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_autonomous_learner_20260109-074048:728:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_autonomous_learner_20260109-074048:731:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_gateway_ports_20260109-091103:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_gateway_ports_20260109-091103:36:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_gateway_ports_20260109-091103:728:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_gateway_ports_20260109-091103:731:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_jan13_consciousness:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_jan13_consciousness:37:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_jan13_consciousness:682:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_jan13_consciousness:685:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.backup_jan13_consciousness:686:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_jan13_consciousness:712:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.backup_jan13_consciousness:714:    - jarvis-consciousness-bridge
+docker-compose.yml.backup_nbb_ports:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup_nbb_ports:38:      - jarvis-consciousness-bridge
+docker-compose.yml.backup_nbb_ports:693:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_nbb_ports:696:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_nbb_ports:1191:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup_nbb_ports:1194:      - jarvis-consciousness-bridge
+docker-compose.yml.backup_nbb_ports_fixed:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup_nbb_ports_fixed:38:      - jarvis-consciousness-bridge
+docker-compose.yml.backup_nbb_ports_fixed:693:  jarvis-consciousness-bridge:
+docker-compose.yml.backup_nbb_ports_fixed:696:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.backup_nbb_ports_fixed:1191:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.backup_nbb_ports_fixed:1194:      - jarvis-consciousness-bridge
+docker-compose.yml.bak:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak:38:    - jarvis-consciousness-bridge
+docker-compose.yml.bak:732:  jarvis-consciousness-bridge:
+docker-compose.yml.bak:735:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak:1286:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak:1289:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.1768500857:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.1768500857:37:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.1768500857:692:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.1768500857:695:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.bak.1768500857:696:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.1768500857:722:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.1768500857:724:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.1768781706:26:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.1768781706:50:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.1768781706:727:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.1768781706:730:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.bak.1768781706:731:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.1768781706:758:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.1768781706:760:      - jarvis-consciousness-bridge
+docker-compose.yml.bak-1768791131:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak-1768791131:42:      - jarvis-consciousness-bridge
+docker-compose.yml.bak-1768791131:711:  jarvis-consciousness-bridge:
+docker-compose.yml.bak-1768791131:714:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.bak-1768791131:715:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak-1768791131:742:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak-1768791131:744:      - jarvis-consciousness-bridge
+docker-compose.yml.bak-1768791194:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak-1768791194:42:      - jarvis-consciousness-bridge
+docker-compose.yml.bak-1768791194:711:  jarvis-consciousness-bridge:
+docker-compose.yml.bak-1768791194:714:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.bak-1768791194:715:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak-1768791194:742:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak-1768791194:744:      - jarvis-consciousness-bridge
+docker-compose.yml.bak-1768791760:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak-1768791760:42:      - jarvis-consciousness-bridge
+docker-compose.yml.bak-1768791760:711:  jarvis-consciousness-bridge:
+docker-compose.yml.bak-1768791760:714:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.bak-1768791760:715:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak-1768791760:742:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak-1768791760:744:      - jarvis-consciousness-bridge
+docker-compose.yml.bak_1778453637:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak_1778453637:38:      - jarvis-consciousness-bridge
+docker-compose.yml.bak_1778453637:732:  jarvis-consciousness-bridge:
+docker-compose.yml.bak_1778453637:735:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak_1778453637:1243:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak_1778453637:1246:      - jarvis-consciousness-bridge
+docker-compose.yml.bak2:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak2:40:      - jarvis-consciousness-bridge
+docker-compose.yml.bak2:741:  jarvis-consciousness-bridge:
+docker-compose.yml.bak2:745:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak2:1303:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak2:1309:      - jarvis-consciousness-bridge
+docker-compose.yml.bak2:1656:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak2:1672:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak2:1775:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak2:1843:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak2:1961:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260206142334:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260206142334:34:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260206142334:677:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260206142334:680:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260206142646:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260206142646:34:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260206142646:677:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260206142646:680:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260407-221457:39:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260407-221457:57:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260407-221457:761:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260407-221457:764:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141203:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260416-141203:60:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141203:763:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260416-141203:767:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141224:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260416-141224:60:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141224:763:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260416-141224:767:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141309:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260416-141309:60:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141309:763:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260416-141309:767:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141316:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260416-141316:60:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141316:763:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260416-141316:767:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141425:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260416-141425:60:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141425:763:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260416-141425:767:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141603:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260416-141603:60:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141603:763:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260416-141603:767:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141709:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260416-141709:60:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416-141709:763:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260416-141709:767:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416_144451:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260416_144451:60:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416_144451:763:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260416_144451:767:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416_144808:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260416_144808:60:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416_144808:763:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260416_144808:767:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416_145312:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260416_145312:60:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260416_145312:763:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260416_145312:767:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak-20260417-144354:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak-20260417-144354:60:    - jarvis-consciousness-bridge
+docker-compose.yml.bak-20260417-144354:763:  jarvis-consciousness-bridge:
+docker-compose.yml.bak-20260417-144354:767:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260422-204609:41:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260422-204609:59:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260422-204609:834:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260422-204609:838:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260422-204722:41:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260422-204722:59:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260422-204722:834:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260422-204722:838:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260422_220748:41:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260422_220748:59:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260422_220748:834:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260422_220748:838:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260423_095331:41:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260423_095331:59:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260423_095331:834:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260423_095331:838:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260430-115408:48:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260430-115408:72:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260430-115408:863:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260430-115408:867:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260430-202630:49:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260430-202630:83:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260430-202630:883:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260430-202630:887:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260501:49:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260501:84:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260501:884:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260501:888:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260501-200948:49:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak.20260501-200948:84:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260501-200948:884:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260501-200948:888:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260510-192741:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260510-192741:38:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260510-192741:732:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260510-192741:735:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260510-192741:1243:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260510-192741:1246:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260510-194401:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260510-194401:38:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260510-194401:732:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260510-194401:735:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260510-194401:1253:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260510-194401:1256:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260510-195030:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260510-195030:38:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260510-195030:732:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260510-195030:735:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260510-195030:1257:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260510-195030:1260:    - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260517-162627:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260517-162627:38:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260517-162627:737:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260517-162627:740:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260517-162627:1257:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260517-162627:1260:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260517-163017:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260517-163017:38:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260517-163017:737:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260517-163017:740:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260517-163017:1257:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260517-163017:1260:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260518-215027:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260518-215027:38:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260518-215027:737:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260518-215027:740:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260518-215027:1261:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260518-215027:1264:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260522_204447:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260522_204447:38:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260522_204447:737:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260522_204447:740:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260522_204447:1267:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260522_204447:1270:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260522T193400Z:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260522T193400Z:38:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260522T193400Z:737:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260522T193400Z:740:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260522T193400Z:1267:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260522T193400Z:1270:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260601-183350:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-183350:39:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260601-183350:739:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260601-183350:743:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260601-183350:1299:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-183350:1304:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260601-183350:1654:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-183350:1670:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-183350:1773:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-183350:1841:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-183350:1959:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-184933:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-184933:39:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260601-184933:739:  jarvis-consciousness-bridge:
+docker-compose.yml.bak.20260601-184933:743:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak.20260601-184933:1299:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-184933:1304:      - jarvis-consciousness-bridge
+docker-compose.yml.bak.20260601-184933:1654:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-184933:1670:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-184933:1773:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-184933:1841:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak.20260601-184933:1959:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.bak_add_clock:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_add_clock:48:      - jarvis-consciousness-bridge
+docker-compose.yml.bak_add_clock:759:  jarvis-consciousness-bridge:
+docker-compose.yml.bak_add_clock:762:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.bak_add_clock:763:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak_add_clock:790:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_add_clock:792:      - jarvis-consciousness-bridge
+docker-compose.yml.bak_before_unified_fix:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_before_unified_fix:36:    - jarvis-consciousness-bridge
+docker-compose.yml.bak_before_unified_fix:728:  jarvis-consciousness-bridge:
+docker-compose.yml.bak_before_unified_fix:731:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak_drop_images:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_drop_images:38:    - jarvis-consciousness-bridge
+docker-compose.yml.bak_drop_images:772:  jarvis-consciousness-bridge:
+docker-compose.yml.bak_drop_images:775:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.bak_drop_images:776:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak_drop_images:803:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_drop_images:806:    - jarvis-consciousness-bridge
+docker-compose.yml.bak_drop_roche:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_drop_roche:37:    - jarvis-consciousness-bridge
+docker-compose.yml.bak_drop_roche:734:  jarvis-consciousness-bridge:
+docker-compose.yml.bak_drop_roche:737:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak_drop_roche:763:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_drop_roche:766:    - jarvis-consciousness-bridge
+docker-compose.yml.bak_ports_20260118163828:26:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_ports_20260118163828:50:      - jarvis-consciousness-bridge
+docker-compose.yml.bak_ports_20260118163828:727:  jarvis-consciousness-bridge:
+docker-compose.yml.bak_ports_20260118163828:730:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.bak_ports_20260118163828:731:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak_ports_20260118163828:758:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_ports_20260118163828:760:      - jarvis-consciousness-bridge
+docker-compose.yml.bak_redis_env_1769196600:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_redis_env_1769196600:34:      - jarvis-consciousness-bridge
+docker-compose.yml.bak_redis_env_1769196600:692:  jarvis-consciousness-bridge:
+docker-compose.yml.bak_redis_env_1769196600:695:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak_redis_fix_1769195136:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_redis_fix_1769195136:34:      - jarvis-consciousness-bridge
+docker-compose.yml.bak_redis_fix_1769195136:692:  jarvis-consciousness-bridge:
+docker-compose.yml.bak_redis_fix_1769195136:695:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak_redis_fix_1769195657:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_redis_fix_1769195657:34:      - jarvis-consciousness-bridge
+docker-compose.yml.bak_redis_fix_1769195657:692:  jarvis-consciousness-bridge:
+docker-compose.yml.bak_redis_fix_1769195657:695:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak_unified_cycle_fix:17:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_unified_cycle_fix:34:      - jarvis-consciousness-bridge
+docker-compose.yml.bak_unified_cycle_fix:694:  jarvis-consciousness-bridge:
+docker-compose.yml.bak_unified_cycle_fix:697:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak_woah_20260118163402:26:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_woah_20260118163402:50:      - jarvis-consciousness-bridge
+docker-compose.yml.bak_woah_20260118163402:727:  jarvis-consciousness-bridge:
+docker-compose.yml.bak_woah_20260118163402:730:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.bak_woah_20260118163402:731:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.bak_woah_20260118163402:758:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bak_woah_20260118163402:760:      - jarvis-consciousness-bridge
+docker-compose.yml.bbb.bak:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.bbb.bak:36:    - jarvis-consciousness-bridge
+docker-compose.yml.bbb.bak:728:  jarvis-consciousness-bridge:
+docker-compose.yml.bbb.bak:731:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.before_fix:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.before_fix:38:      - jarvis-consciousness-bridge
+docker-compose.yml.before_fix:725:  jarvis-consciousness-bridge:
+docker-compose.yml.before_fix:728:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.before_fix:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.before_fix:1271:      - jarvis-consciousness-bridge
+docker-compose.yml.before_fix_20260122:17:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.before_fix_20260122:33:      - jarvis-consciousness-bridge
+docker-compose.yml.before_fix_20260122:693:  jarvis-consciousness-bridge:
+docker-compose.yml.before_fix_20260122:696:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.before_neuro_fix_1768012948:19:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.before_neuro_fix_1768012948:38:      - jarvis-consciousness-bridge
+docker-compose.yml.before_neuro_fix_1768012948:711:  jarvis-consciousness-bridge:
+docker-compose.yml.before_neuro_fix_1768012948:714:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.broken:21:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.broken-1768013498:19:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.broken-1768013498:38:      - jarvis-consciousness-bridge
+docker-compose.yml.broken-1768013498:711:  jarvis-consciousness-bridge:
+docker-compose.yml.broken-1768013498:714:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.broken-20260326-175632:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.broken-20260326-175632:36:    - jarvis-consciousness-bridge
+docker-compose.yml.broken-20260326-175632:685:  jarvis-consciousness-bridge:
+docker-compose.yml.broken-20260326-175632:688:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.broken_backup:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.broken_backup:38:      - jarvis-consciousness-bridge
+docker-compose.yml.broken_backup:725:  jarvis-consciousness-bridge:
+docker-compose.yml.broken_backup:728:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.broken_backup:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.broken_backup:1271:      - jarvis-consciousness-bridge
+docker-compose.yml.BROKEN_BACKUP:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.BROKEN_BACKUP:44:      - jarvis-consciousness-bridge
+docker-compose.yml.BROKEN_BACKUP:721:  jarvis-consciousness-bridge:
+docker-compose.yml.BROKEN_BACKUP:724:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.BROKEN_BACKUP:725:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.BROKEN_BACKUP:752:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.BROKEN_BACKUP:754:      - jarvis-consciousness-bridge
+docker-compose.yml.broken_spiritual:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.broken_spiritual:38:      - jarvis-consciousness-bridge
+docker-compose.yml.broken_spiritual:725:  jarvis-consciousness-bridge:
+docker-compose.yml.broken_spiritual:728:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.broken_spiritual:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.broken_spiritual:1271:      - jarvis-consciousness-bridge
+docker-compose.yml.chroma-backup-20260114054916:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.chroma-backup-20260114054916:37:    - jarvis-consciousness-bridge
+docker-compose.yml.chroma-backup-20260114054916:686:  jarvis-consciousness-bridge:
+docker-compose.yml.chroma-backup-20260114054916:689:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.chroma-backup-20260114054916:690:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.chroma-backup-20260114054916:716:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.chroma-backup-20260114054916:718:    - jarvis-consciousness-bridge
+docker-compose.yml.chroma-backup-20260114060013:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.chroma-backup-20260114060013:37:    - jarvis-consciousness-bridge
+docker-compose.yml.chroma-backup-20260114060013:686:  jarvis-consciousness-bridge:
+docker-compose.yml.chroma-backup-20260114060013:689:    image: msjarvis-consciousness-bridge:latest
+docker-compose.yml.chroma-backup-20260114060013:690:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.chroma-backup-20260114060013:716:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.chroma-backup-20260114060013:718:    - jarvis-consciousness-bridge
+docker-compose.yml.full_backup_20260122:19:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.full_backup_20260122:35:      - jarvis-consciousness-bridge
+docker-compose.yml.full_backup_20260122:695:  jarvis-consciousness-bridge:
+docker-compose.yml.full_backup_20260122:698:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.nbb.bak:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.nbb.bak:36:    - jarvis-consciousness-bridge
+docker-compose.yml.nbb.bak:722:  jarvis-consciousness-bridge:
+docker-compose.yml.nbb.bak:725:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.pre_dsn_fix:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.pre_dsn_fix:36:    - jarvis-consciousness-bridge
+docker-compose.yml.pre_dsn_fix:737:  jarvis-consciousness-bridge:
+docker-compose.yml.pre_dsn_fix:740:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.pre_judges:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.pre_judges:38:      - jarvis-consciousness-bridge
+docker-compose.yml.pre_judges:727:  jarvis-consciousness-bridge:
+docker-compose.yml.pre_judges:730:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.pre_judges:1271:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.pre_judges:1274:      - jarvis-consciousness-bridge
+docker-compose.yml.pre_ollama_env_bak:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.pre_ollama_env_bak:38:      - jarvis-consciousness-bridge
+docker-compose.yml.pre_ollama_env_bak:732:  jarvis-consciousness-bridge:
+docker-compose.yml.pre_ollama_env_bak:735:    container_name: jarvis-consciousness-bridge
+docker-compose.yml.pre_ollama_env_bak:1243:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+docker-compose.yml.pre_ollama_env_bak:1246:      - jarvis-consciousness-bridge
+docker-compose.yml.pre-secrets-fix:41:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+docker-compose.yml.pre-secrets-fix:59:    - jarvis-consciousness-bridge
+docker-compose.yml.pre-secrets-fix:834:  jarvis-consciousness-bridge:
+docker-compose.yml.pre-secrets-fix:838:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768788421:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup.1768788421:42:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768788421:711:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup.1768788421:714:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.backup.1768788421:715:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768788421:742:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup.1768788421:744:      - jarvis-consciousness-bridge
+./last-build.log:49: Image msjarvis-rebuild-jarvis-consciousness-bridge Building 
+./last-build.log:173:#29 [jarvis-consciousness-bridge 1/4] FROM docker.io/library/python:3.12-slim
+./last-build.log:235:#38 [jarvis-consciousness-bridge internal] load build context
+./last-build.log:414: > [jarvis-consciousness-bridge internal] load build context:
+./debug_consciousness_bridge.md:4:- Container `jarvis-consciousness-bridge` is running `msjarvisunifiedswaggergatewayFIXED.py`
+./debug_consciousness_bridge.md:10:docker inspect jarvis-consciousness-bridge | grep Cmd
+./docker-compose.yml.bak.20260501:49:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260501:84:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260501:884:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260501:888:    container_name: jarvis-consciousness-bridge
+./docker-compose.gateway-only.generated.yml:24:      jarvis-consciousness-bridge:
+./docker-compose.gateway-only.generated.yml:104:      CONSCIOUSNESS_BRIDGE_URL: http://jarvis-consciousness-bridge:8018
+./docker-compose.golden.yml:36:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.golden.yml:52:      - jarvis-consciousness-bridge
+./docker-compose.golden.yml:708:  jarvis-consciousness-bridge:
+./docker-compose.golden.yml:711:    container_name: jarvis-consciousness-bridge
+./healthy-state-20260412-1126.txt:15:jarvis-consciousness-bridge	Up 11 hours	
+./docker-compose.yml.backup:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup:725:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup:728:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup:1271:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260206142334:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260206142334:34:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260206142334:677:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260206142334:680:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260601-183350:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-183350:39:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260601-183350:739:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260601-183350:743:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260601-183350:1299:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-183350:1304:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260601-183350:1654:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-183350:1670:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-183350:1773:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-183350:1841:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-183350:1959:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260422-204722:41:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260422-204722:59:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260422-204722:834:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260422-204722:838:    container_name: jarvis-consciousness-bridge
+./docker-compose.golden.bak_nbb_base_final:36:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.golden.bak_nbb_base_final:52:    - jarvis-consciousness-bridge
+./docker-compose.golden.bak_nbb_base_final:715:  jarvis-consciousness-bridge:
+./docker-compose.golden.bak_nbb_base_final:718:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.chroma-backup-20260114054916:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.chroma-backup-20260114054916:37:    - jarvis-consciousness-bridge
+./docker-compose.yml.chroma-backup-20260114054916:686:  jarvis-consciousness-bridge:
+./docker-compose.yml.chroma-backup-20260114054916:689:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.chroma-backup-20260114054916:690:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.chroma-backup-20260114054916:716:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.chroma-backup-20260114054916:718:    - jarvis-consciousness-bridge
+./.env:164:CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.broken:21:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./.env.bak.20260601-160603:13:CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./last-build-no-llm12.log:13: Image msjarvis-rebuild-jarvis-consciousness-bridge Building 
+./docker-compose.yml.bak.20260422-204609:41:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260422-204609:59:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260422-204609:834:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260422-204609:838:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak-1768791760:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak-1768791760:42:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak-1768791760:711:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak-1768791760:714:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.bak-1768791760:715:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak-1768791760:742:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak-1768791760:744:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak-1768791194:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak-1768791194:42:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak-1768791194:711:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak-1768791194:714:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.bak-1768791194:715:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak-1768791194:742:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak-1768791194:744:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak_unified_cycle_fix:17:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_unified_cycle_fix:34:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak_unified_cycle_fix:694:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak_unified_cycle_fix:697:    container_name: jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:193:  jarvis-consciousness-bridge:
+./docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:196:    container_name: jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:204:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:336:    - jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:574:    - jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.pre-secrets-fix:41:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.pre-secrets-fix:59:    - jarvis-consciousness-bridge
+./docker-compose.yml.pre-secrets-fix:834:  jarvis-consciousness-bridge:
+./docker-compose.yml.pre-secrets-fix:838:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260517-162627:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260517-162627:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260517-162627:737:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260517-162627:740:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260517-162627:1257:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260517-162627:1260:      - jarvis-consciousness-bridge
+./docker-compose.golden.bak_services_mapping_fix:32:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.golden.bak_services_mapping_fix:48:    - jarvis-consciousness-bridge
+./docker-compose.golden.bak_services_mapping_fix:712:  jarvis-consciousness-bridge:
+./docker-compose.golden.bak_services_mapping_fix:715:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.full_backup_20260122:19:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.full_backup_20260122:35:      - jarvis-consciousness-bridge
+./docker-compose.yml.full_backup_20260122:695:  jarvis-consciousness-bridge:
+./docker-compose.yml.full_backup_20260122:698:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_nbb_ports_fixed:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup_nbb_ports_fixed:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup_nbb_ports_fixed:693:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_nbb_ports_fixed:696:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_nbb_ports_fixed:1191:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup_nbb_ports_fixed:1194:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260318_110223:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_20260318_110223:39:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260318_110223:636:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_20260318_110223:637:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+./docker-compose.yml.backup_20260318_110223:638:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260407-221457:39:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260407-221457:57:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260407-221457:761:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260407-221457:764:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml:34:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml:55:      - jarvis-consciousness-bridge
+./docker-compose.yml:755:  jarvis-consciousness-bridge:
+./docker-compose.yml:759:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml:1315:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml:1320:      - jarvis-consciousness-bridge
+./docker-compose.yml:1670:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml:1686:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml:1789:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml:1857:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml:1975:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-184933:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-184933:39:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260601-184933:739:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260601-184933:743:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260601-184933:1299:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-184933:1304:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260601-184933:1654:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-184933:1670:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-184933:1773:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-184933:1841:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260601-184933:1959:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.golden.bak_bbb_proxy_cmd_fix:32:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.golden.bak_bbb_proxy_cmd_fix:48:    - jarvis-consciousness-bridge
+./docker-compose.golden.bak_bbb_proxy_cmd_fix:712:  jarvis-consciousness-bridge:
+./docker-compose.golden.bak_bbb_proxy_cmd_fix:715:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup-1780141699:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup-1780141699:43:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup-1780141699:744:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup-1780141699:748:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup-1780141699:1308:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup-1780141699:1316:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup-1780141699:1663:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup-1780141699:1679:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup-1780141699:1782:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup-1780141699:1850:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup-1780141699:1968:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./.env.backup-20260505:15:CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260510-194401:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260510-194401:38:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260510-194401:732:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260510-194401:735:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260510-194401:1253:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260510-194401:1256:    - jarvis-consciousness-bridge
+./docker-compose.yml.broken-1768013498:19:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.broken-1768013498:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.broken-1768013498:711:  jarvis-consciousness-bridge:
+./docker-compose.yml.broken-1768013498:714:    container_name: jarvis-consciousness-bridge
+./_archive/generated_20260430/ai_server_11llm_OPTIMIZED.py:242:    # "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_ch29:471:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:176:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:935:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./_archive/service_baks_20260430/main_brain.py.bak3:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_sedpatch:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_gate_v3:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_1768841920:42:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_egeria_patch_1777059405:471:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_localnet_fixed2:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:155:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:712:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./_archive/service_baks_20260430/ms_jarvis_ULTIMATE.py.before_fixes:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.backup_1771192185:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_ULTIMATE.py.before_agent_fix:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.backup_nbb_fixed:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_indent_fix:135:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak.1775579935:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.before_spiritual_integration:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak.20260416-212709:341:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak.1771185442:126:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak.ch22fix:343:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:155:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:712:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./_archive/service_baks_20260430/main_brain.py.bak_auth:301:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak.20260425_210943:471:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ai_server_11llm_OPTIMIZED.py.bak_1765074137:220:    # "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main.py.FINALHEALTH.bak:214:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:200:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:993:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./_archive/service_baks_20260430/main_brain.py.bak.1774448411:304:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_1777342937:488:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main.py.backup:214:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_clean:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:155:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:718:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./_archive/service_baks_20260430/main_brain.py.bak.20260416-141747:341:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_ultimate_1770573774:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.before_final_fix:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak3.20260428_160451:668:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:200:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:993:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_1768840523:42:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak.20260407_205446:329:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak.20260428_154533:668:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:208:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:1001:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./_archive/service_baks_20260430/main_brain.py.bak:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_1771728143:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.autopatch.20260415-221952:180:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.autopatch.20260415-221952:973:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./_archive/service_baks_20260430/main_brain.py.before_mother_carrie_v2:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.before_mother_carrie:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main.py.backup.broken:63:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.before_direct_fix:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak2:134:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./_archive/service_baks_20260430/ms_jarvis_ULTIMATE.py.before_bbb:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_legacy_chatlight:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_ultimate_1770575025:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak2.20260428_155604:668:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main.py.backup.before_auto_storage:63:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak-20260419-1422:203:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak-20260419-1422:998:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./_archive/service_baks_20260430/main_brain.py.backup_1771192386:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.backup:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_ULTIMATE.py.backup_1760806129:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak.1777320408:488:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_localnet_fixed:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.bak_localnet:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/main_brain.py.before_spiritual_rag:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_211609:155:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224730:209:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224730:1002:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./_archive/service_baks_20260430/main_brain.py.bak_session_patch:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./docker-compose.golden.bak_web_research_cmd:36:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.golden.bak_web_research_cmd:52:    - jarvis-consciousness-bridge
+./docker-compose.golden.bak_web_research_cmd:716:  jarvis-consciousness-bridge:
+./docker-compose.golden.bak_web_research_cmd:719:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416_145312:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260416_145312:60:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416_145312:763:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260416_145312:767:    container_name: jarvis-consciousness-bridge
+./.env.complete:15:CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./.env.bak:13:CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup-1780140997:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup-1780140997:43:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup-1780140997:744:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup-1780140997:748:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup-1780140997:1308:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup-1780140997:1316:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup-1780140997:1663:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup-1780140997:1679:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup-1780140997:1782:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup-1780140997:1850:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup-1780140997:1968:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260510-195030:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260510-195030:38:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260510-195030:732:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260510-195030:735:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260510-195030:1257:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260510-195030:1260:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.keyfix.20260413-182644:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.keyfix.20260413-182644:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.keyfix.20260413-182644:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.keyfix.20260413-182644:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.local-community-aaacpe.20260413-224240:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.local-community-aaacpe.20260413-224240:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.local-community-aaacpe.20260413-224240:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.local-community-aaacpe.20260413-224240:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.scheduler-netfix.20260413-230633:21:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.scheduler-netfix.20260413-230633:46:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.scheduler-netfix.20260413-230633:683:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.scheduler-netfix.20260413-230633:686:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.indentfix.20260413-182402:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.indentfix.20260413-182402:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.indentfix.20260413-182402:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.indentfix.20260413-182402:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.rag_manual.20260413-214948:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.rag_manual.20260413-214948:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.rag_manual.20260413-214948:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.rag_manual.20260413-214948:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/ms_jarvis_neurobiological_master.py:26:    "consciousness_bridge":os.getenv("CONSCIOUSNESS_URL",    "http://jarvis-consciousness-bridge:8018"),
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225908:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225908:44:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225908:681:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225908:684:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml:23:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml:48:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml:683:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml:686:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag.20260413-231135:21:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag.20260413-231135:46:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag.20260413-231135:683:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag.20260413-231135:686:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260428_215837:176:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260428_215837:918:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260524T220526:176:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8018"),
+./msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260524T220526:926:    return await _m09_proxy("http://jarvis-consciousness-bridge:8018", True, path, request)
+./msjarvis-rebuild/docker-compose.yml.bak.qualianet.20260413-222756:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.qualianet.20260413-222756:45:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.qualianet.20260413-222756:682:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.qualianet.20260413-222756:685:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-modulefix.20260413-231600:21:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-modulefix.20260413-231600:46:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-modulefix.20260413-231600:683:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-modulefix.20260413-231600:686:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-net.20260413-225146:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-net.20260413-225146:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-net.20260413-225146:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-net.20260413-225146:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.sedfix.20260413-230529:27:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.sedfix.20260413-230529:52:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.sedfix.20260413-230529:689:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.sedfix.20260413-230529:692:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225914:23:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225914:48:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225914:685:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225914:688:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.fix-mainbrain-networks.20260413-230231:27:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.fix-mainbrain-networks.20260413-230231:52:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.fix-mainbrain-networks.20260413-230231:689:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.fix-mainbrain-networks.20260413-230231:692:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.20260413-180858:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.20260413-180858:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.20260413-180858:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.20260413-180858:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.20260416_201430:21:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.20260416_201430:46:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.20260416_201430:683:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.20260416_201430:686:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.bridge_net.20260413-215213:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.bridge_net.20260413-215213:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.bridge_net.20260413-215213:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.bridge_net.20260413-215213:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean.20260413-231928:21:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean.20260413-231928:46:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean.20260413-231928:683:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean.20260413-231928:686:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.chroma-net.20260413-222557:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.chroma-net.20260413-222557:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.chroma-net.20260413-222557:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.chroma-net.20260413-222557:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.manualfix.20260413-223024:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.manualfix.20260413-223024:45:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.manualfix.20260413-223024:682:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.manualfix.20260413-223024:685:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.neuro.20260413-214218:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.neuro.20260413-214218:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.neuro.20260413-214218:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.neuro.20260413-214218:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak:673:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak:676:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean2.20260413-232017:21:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean2.20260413-232017:46:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean2.20260413-232017:683:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.aaacpe-rag-clean2.20260413-232017:686:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.qualianet-min.20260413-223115:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.qualianet-min.20260413-223115:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.qualianet-min.20260413-223115:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.qualianet-min.20260413-223115:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260428_220139:176:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./msjarvis-rebuild/ms_jarvis_unified_gateway.py.bak.20260428_220139:918:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./msjarvis-rebuild/backups/fix-20260411-080355/main_brain.py.bak:343:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./msjarvis-rebuild/backups/fix-20260411-080355/ms_jarvis_unified_gateway.py.bak:176:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./msjarvis-rebuild/backups/fix-20260411-080355/ms_jarvis_unified_gateway.py.bak:918:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./msjarvis-rebuild/docker-compose.yml.bak-sec-20260410-001058:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak-sec-20260410-001058:44:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak-sec-20260410-001058:782:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak-sec-20260410-001058:785:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.neuro_dir.20260413-214608:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.neuro_dir.20260413-214608:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.neuro_dir.20260413-214608:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.neuro_dir.20260413-214608:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak_20260410_171707:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak_20260410_171707:44:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak_20260410_171707:783:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak_20260410_171707:786:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.ragfix.20260413-214147:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.ragfix.20260413-214147:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.ragfix.20260413-214147:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.ragfix.20260413-214147:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.bridge_env.20260413-215332:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.bridge_env.20260413-215332:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.bridge_env.20260413-215332:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.bridge_env.20260413-215332:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.fix-localvol.20260413-224514:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.fix-localvol.20260413-224514:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.fix-localvol.20260413-224514:679:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.fix-localvol.20260413-224514:682:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214915:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214915:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214915:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214915:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak-20260410-000750:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak-20260410-000750:44:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak-20260410-000750:782:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak-20260410-000750:785:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.20260413213157:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.20260413213157:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.20260413213157:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.20260413213157:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214558:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214558:41:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214558:678:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.rag_net.20260413-214558:681:    container_name: jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225958:27:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225958:52:    - jarvis-consciousness-bridge
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225958:689:  jarvis-consciousness-bridge:
+./msjarvis-rebuild/docker-compose.yml.bak.mainbrain-dualnet.20260413-225958:692:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.1768781706:26:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.1768781706:50:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.1768781706:727:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.1768781706:730:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.bak.1768781706:731:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.1768781706:758:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.1768781706:760:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260423_095331:41:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260423_095331:59:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260423_095331:834:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260423_095331:838:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.before_fix_20260122:17:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.before_fix_20260122:33:      - jarvis-consciousness-bridge
+./docker-compose.yml.before_fix_20260122:693:  jarvis-consciousness-bridge:
+./docker-compose.yml.before_fix_20260122:696:    container_name: jarvis-consciousness-bridge
+./last-build-full.log:33: Image msjarvis-rebuild-jarvis-consciousness-bridge Building 
+./docker-compose.MOTHERCARRIE.BAK.20260216-132834:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.MOTHERCARRIE.BAK.20260216-132834:38:      - jarvis-consciousness-bridge
+./docker-compose.MOTHERCARRIE.BAK.20260216-132834:725:  jarvis-consciousness-bridge:
+./docker-compose.MOTHERCARRIE.BAK.20260216-132834:728:    container_name: jarvis-consciousness-bridge
+./docker-compose.MOTHERCARRIE.BAK.20260216-132834:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.MOTHERCARRIE.BAK.20260216-132834:1271:      - jarvis-consciousness-bridge
+./STATUS_MARCH15_2026_FINAL.md:31:- jarvis-consciousness-bridge (8018) - Phase 4 bridge
+./docker-compose.yml.bak.20260430-115408:48:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260430-115408:72:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260430-115408:863:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260430-115408:867:    container_name: jarvis-consciousness-bridge
+./docker-compose-core.yml.bak.20260507-222222:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose-core.yml.bak.20260507-222222:167:  jarvis-consciousness-bridge:
+./docker-compose-core.yml.bak.20260507-222222:168:    container_name: jarvis-consciousness-bridge
+./docker-compose-core.yml.bak.20260507-222222:169:    image: msjarvis-rebuild-jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260318_103245:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_20260318_103245:39:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260318_103245:636:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_20260318_103245:637:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+./docker-compose.yml.backup_20260318_103245:638:    container_name: jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:193:  jarvis-consciousness-bridge:
+./docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:196:    container_name: jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:204:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:336:    - jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:574:    - jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./.scratch/docker-compose.yml.OI-C3-AU02-V2-backup:41:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./.scratch/docker-compose.yml.OI-C3-AU02-V2-backup:59:    - jarvis-consciousness-bridge
+./.scratch/docker-compose.yml.OI-C3-AU02-V2-backup:834:  jarvis-consciousness-bridge:
+./.scratch/docker-compose.yml.OI-C3-AU02-V2-backup:838:    container_name: jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml:193:  jarvis-consciousness-bridge:
+./docker-compose.RAG_WORKING_20260116.yml:196:    container_name: jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml:204:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.RAG_WORKING_20260116.yml:336:    - jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.RAG_WORKING_20260116.yml:574:    - jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose-core.yml.bak.20260507-222001:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose-core.yml.bak.20260507-222001:167:  jarvis-consciousness-bridge:
+./docker-compose-core.yml.bak.20260507-222001:168:    container_name: jarvis-consciousness-bridge
+./docker-compose-core.yml.bak.20260507-222001:169:    image: msjarvis-rebuild-jarvis-consciousness-bridge
+./docker-compose.yml.backup_nbb_ports:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup_nbb_ports:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup_nbb_ports:693:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_nbb_ports:696:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_nbb_ports:1191:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup_nbb_ports:1194:      - jarvis-consciousness-bridge
+./docker-compose.yml.pre_ollama_env_bak:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.pre_ollama_env_bak:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.pre_ollama_env_bak:732:  jarvis-consciousness-bridge:
+./docker-compose.yml.pre_ollama_env_bak:735:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.pre_ollama_env_bak:1243:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.pre_ollama_env_bak:1246:      - jarvis-consciousness-bridge
+./pituitary_gland.py.bak:19:    "http://jarvis-consciousness-bridge:8020",
+./output/ch18_verifyandtest_final.log:4:{"status":"degraded","systems":{"consciousness_bridge":{"status":"unavailable","url":"http://jarvis-consciousness-bridge:8020","responsive":false},"neurobiological_master":{"status":"unavailable","url":"http://jarvis-neurobiological-master:8018","responsive":false},"i_containers":{"status":"unavailable","url":"http://jarvis-i-containers:8015","responsive":false},"blood_brain_barrier":{"status":"unavailable","url":"http://jarvis-blood-brain-barrier:8016","responsive":false},"qualia_engine":{"status":"unavailable","url":"http://jarvis-qualia-engine:8017","responsive":false}},"total_queries":87,"timestamp":"2026-04-15T00:09:33.744211"}--- session-sidecar /health (best-effort) ---
+./services/main_brain.py.bak.20260522T192625Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/ms_jarvis_unified_gateway.py.bak.20260515T124756:56:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.bak.20260522T125014Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.pre-aaacpe-fix-20260413-154757:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/pituitary_gland.py:19:    "http://jarvis-consciousness-bridge:8020",
+./services/ms_jarvis_ULTIMATE.py.OLD:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak_sedpatch:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/examine_extracted_services.sh:12:cat "$EXTRACT/root/ms-jarvis-consciousness-bridge/main.py"
+./services/main_brain.py.bak.mcfix.1780455458:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.bak.remove-debug-banner.20260601-215513:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/integrate_discovered_services.sh:11:cp "$EXTRACT/ms-jarvis-consciousness-bridge/main.py" "$DEST/ms_jarvis_consciousness_bridge.py"
+./services/pituitary_gland.py.bak2:19:    "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.pre-local-summary-fix-20260413-154816:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak-20260528193958:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/ms_jarvis_unified_gateway.py.pre_constitutional:55:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+./services/ms_jarvis_unified_gateway.py.bak_1768841920:42:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/analyze_advanced_modules.sh:11:head -50 $WORK/consciousness_bridge/root/ms-jarvis-consciousness-bridge/main.py
+./services/main_brain_legacy_backup.py.bak-msallis:250:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak_localnet_fixed2:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main.py.BACKUP:214:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.pre-community-fullfix-20260413-135255:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.manualbak5:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/ms_jarvis_ULTIMATE.py.before_fixes:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.backup_1771192185:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260509-214158:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/ms_jarvis_ULTIMATE.py.before_agent_fix:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.backup_nbb_fixed:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/bridge_cross_dgm_10023.py:3:Upstream:   http://jarvis-consciousness-bridge:8018
+./services/bridge_cross_dgm_10023.py:27:UPSTREAM_URL       = os.getenv("UPSTREAM_URL",           "http://jarvis-consciousness-bridge:8018")
+./services/main_brain.py.pre-phase4-fix-20260413-154833:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.before_spiritual_integration:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260522T202653Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.bak.1771185442:126:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/inspect_key_services.sh:21:head -30 $WORK/root/ms-jarvis-consciousness-bridge/main.py 2>/dev/null || echo "File not readable"
+./services/inspect_key_services.sh:32:grep -r "PORT" $WORK/root/ms-jarvis-consciousness-bridge/ 2>/dev/null | head -10
+./services/main_brain.py.bak.20260601-193118:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.pre_judges:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.pre-community-fix-20260413-134958:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.identity.20260601-213536:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main.py.bak-msallis:251:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.bak.20260530T152332:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:220:    # "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/running_services.log:21:  ms-jarvis-consciousness-bridge.service                                                    loaded active     running      Ms. Jarvis Consciousness Bridge (4-Agent System)
+./services/main.py.working_backup_20251020_110429:102:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.morning.1780490876:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/ms_jarvis_unified_gateway.py.bak.20260501_154501:194:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./services/ms_jarvis_unified_gateway.py.bak.20260501_154501:1045:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./services/main.py.FINALHEALTH.bak:214:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/extract_all_big_archives.sh:30:echo "📦 Archive 3: ms-jarvis-consciousness-bridge (13KB)"
+./services/extract_all_big_archives.sh:33:tar -xzf $DIR/ms-jarvis-consciousness-bridge.tar.gz -C consciousness_bridge
+./services/real_services_prod.txt:67:ms-jarvis-consciousness-bridge-8051-async
+./services/real_services_prod.txt:83:ms-jarvis-consciousness-bridge-8051-async-final
+./services/real_services_prod.txt:118:ms-jarvis-consciousness-bridge-8051
+./services/main_brain.py.bak.20260530T153529:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.pre-aaacpe-fix-20260413-135408:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/ms_jarvis_consciousness_bridge_enhanced.py.bak-msallis:110:                'http://jarvis-consciousness-bridge:8018/chat',  # Docker service name
+./services/main_brain.py.bak.20260530T152342:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/inventory_services.sh:37:tar -xzf $BACKUP/ms-jarvis-consciousness-bridge.tar.gz 2>/dev/null || echo "  Partial extraction"
+./services/main_brain.py.bak.20260601-192147:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main.py.backup:214:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/ms_jarvis_unified_gateway.py.BEFORE_REAL_CHAT_1768842649:48:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/nbb/pituitary_gland.py:19:    "http://jarvis-consciousness-bridge:8018",
+./services/nbb/pituitary_gland.py:160:    "http://jarvis-consciousness-bridge:8018/health",
+./services/nbb/pituitary_gland.py.bak:19:    "http://jarvis-consciousness-bridge:8018",
+./services/nbb/pituitary_gland.py.bak:160:    "http://jarvis-consciousness-bridge:8018/health",
+./services/nbb/pituitary_gland.py.bak-msallis:19:    "http://jarvis-consciousness-bridge:8018",
+./services/nbb/pituitary_gland.py.bak-msallis:160:    "http://jarvis-consciousness-bridge:8018/health",
+./services/build_dir_audit.txt:365:MISSING DIR: ./ms-jarvis-consciousness-bridge
+./services/build_dir_audit.txt:367:MISSING DIR: ./ms-jarvis-consciousness-bridge-enhanced
+./services/build_dir_audit.txt:368:MISSING DIR: ./ms-jarvis-consciousness-bridge-parallel-woah
+./services/build_dir_audit.txt:369:MISSING DIR: ./ms-jarvis-consciousness-bridge-service
+./services/build_dir_audit.txt:370:ONLY STUB: ./ms-jarvis-consciousness-bridge-with-fifth-dgm
+./services/build_dir_audit.txt:371:MISSING DIR: ./ms-jarvis-consciousness-bridge-woah
+./services/build_dir_audit.txt:372:MISSING DIR: ./ms-jarvis-consciousness-bridge-woah-psychology-patched
+./services/main_brain.py.bak_ultimate_1770573774:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.broken-20260413-134536:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260507-223435:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.before_final_fix:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.pre-verified-fix-20260413-134834:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.pre-local-summary-fix-20260413-135507:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260530T114539:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.bak.identity2.20260601-213734:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/ms_jarvis_unified_gateway.py.bak_1768840523:42:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/bridge_cross_dgm_10002.py:3:Upstream:   http://jarvis-consciousness-bridge:8018
+./services/bridge_cross_dgm_10002.py:27:UPSTREAM_URL       = os.getenv("UPSTREAM_URL",           "http://jarvis-consciousness-bridge:8018")
+./services/main_brain.py.bak.20260522T122413Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/jarvis-woah_dgm_supervisor_woah_fixed.py:103:        ("consciousness_bridge",    "jarvis-consciousness-bridge",       8020, ["consciousness","bridge"]),
+./services/main_brain.py.bak.20260530T153030:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/real_services_detected.txt:81:ms-jarvis-consciousness-bridge-8051-async
+./services/real_services_detected.txt:98:ms-jarvis-consciousness-bridge-8051-async-final
+./services/real_services_detected.txt:141:ms-jarvis-consciousness-bridge-8051
+./services/main_brain.py.bak:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.bak_1771728143:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.manualbak3:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/extract_service_tarballs.sh:21:    "ms-jarvis-consciousness-bridge.tar.gz" \
+./services/inventory_services.sh.bak-msallis:37:tar -xzf $BACKUP/ms-jarvis-consciousness-bridge.tar.gz 2>/dev/null || echo "  Partial extraction"
+./services/main_brain.py.pre-phase4-dedupe-20260413-150822:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/COMPLETE_DISCOVERY_REPORT.md:142:ms-jarvis-consciousness-bridge.tar.gz
+./services/main_brain.py.before_mother_carrie_v2:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260524_000429:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.bak.20260522T123325Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.bak.20260522T191836Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/jarvis-semaphore_msjarvis_semaphore.py.bak-msallis:113:    "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.bak.remove-debug-banner.20260601-222403:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.manualbak4:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.before_mother_carrie:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260430-211100:707:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.remove-debug-banner.20260601-222116:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/msjarvis_unified_gateway.py:55:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.pre-community-fullfix-20260413-154742:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/ms_jarvis_consciousness_bridge_enhanced.py:110:                'http://jarvis-consciousness-bridge:8018/chat',  # Docker service name
+./services/main.py.from_container:203:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/all_build_dirs.txt:365:./ms-jarvis-consciousness-bridge
+./services/all_build_dirs.txt:367:./ms-jarvis-consciousness-bridge-enhanced
+./services/all_build_dirs.txt:368:./ms-jarvis-consciousness-bridge-parallel-woah
+./services/all_build_dirs.txt:369:./ms-jarvis-consciousness-bridge-service
+./services/all_build_dirs.txt:370:./ms-jarvis-consciousness-bridge-with-fifth-dgm
+./services/all_build_dirs.txt:371:./ms-jarvis-consciousness-bridge-woah
+./services/all_build_dirs.txt:372:./ms-jarvis-consciousness-bridge-woah-psychology-patched
+./services/main.py.backup.broken:63:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.before_direct_fix:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak_pre_rag_fix_1778364422:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py:1137:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/ms_jarvis_ULTIMATE.py.before_bbb:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain_legacy_backup.py:250:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/restart_all_services.sh:9:sudo systemctl stop ms-jarvis-consciousness-bridge.service
+./services/restart_all_services.sh:44:sudo systemctl start ms-jarvis-consciousness-bridge.service
+./services/main_brain.py.manualbak:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak_legacy_chatlight:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260522T193224Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main.py.bak:251:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.bak_ultimate_1770575025:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main.py.backup.before_auto_storage:63:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260601-205714:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/real_services_final.txt:8:ms-jarvis-consciousness-bridge-8051-async
+./services/real_services_final.txt:10:ms-jarvis-consciousness-bridge-8051-async-final
+./services/real_services_final.txt:17:ms-jarvis-consciousness-bridge-8051
+./services/main_brain.py.bak.20260530T152956:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.backup_1771192386:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260603-200957:1137:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260509-212923:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/woah_service.py:103:        ("consciousness_bridge",    "jarvis-consciousness-bridge",       8020, ["consciousness","bridge"]),
+./services/ms_jarvis_unified_gateway.py.WORKING_1768842334:48:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260527T114431Z:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.backup:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain_LEGACY_32svc.py:304:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/ms_jarvis_unified_gateway.py.bak.20260507-222001:50:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.pre_aaacpe_patch:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260509-213917:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260601-193421:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/ms_jarvis_unified_gateway.py.FORCED_UNIFIED_BACKUP:48:            "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/ms_jarvis_ULTIMATE.py.backup_1760806129:52:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/bridge_cross_dgm_10022.py:4:Downstream: http://jarvis-consciousness-bridge:8018
+./services/bridge_cross_dgm_10022.py:28:DOWNSTREAM_URL     = os.getenv("DOWNSTREAM_URL",         "http://jarvis-consciousness-bridge:8018")
+./services/main_brain.py.bak_20260603_135724:1096:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260508-071052:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak_localnet_fixed:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak_localnet:136:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260601-195059:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.bak-20260528193426:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.before_spiritual_rag:127:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260509-214526:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak_persona_1779997582:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain_container_2055.py:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260530T114441:110:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./services/main_brain_LEGACY_32svc.py.bak-msallis:304:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/COMPLETE_DISCOVERY_REPORT.md.bak-msallis:142:ms-jarvis-consciousness-bridge.tar.gz
+./services/jarvis-semaphore_msjarvis_semaphore.py:113:    "http://jarvis-consciousness-bridge:8018",
+./services/main_brain.py.pre-phase4-dedupe-20260413-154851:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main.py:253:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+./services/ai_server_11llm_OPTIMIZED.py:242:    # "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.pre-phase4-fix-20260413-150714:344:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./services/main_brain.py.bak.20260522T192930Z:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./.fixbackups/20260530-102909/services/main_brain_legacy_backup.py:250:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./.fixbackups/20260530-102909/services/main_brain_LEGACY_32svc.py:304:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./.fixbackups/20260530-102909/services/main_brain_container_2055.py:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./.fixbackups/20260530-102909/services/main.py:253:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8018",
+./.fixbackups/20260530-102909/services/ai_server_11llm_OPTIMIZED.py:242:    # "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./.fixbackups/main_brain.py.pre-hippocampus-20260603-111453:112:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8018",
+./cb-logs-20260312-160957.log:1:jarvis-consciousness-bridge  | INFO:     Started server process [1]
+./cb-logs-20260312-160957.log:2:jarvis-consciousness-bridge  | INFO:     Waiting for application startup.
+./cb-logs-20260312-160957.log:3:jarvis-consciousness-bridge  | INFO:     Application startup complete.
+./cb-logs-20260312-160957.log:4:jarvis-consciousness-bridge  | INFO:     Uvicorn running on http://0.0.0.0:8018 (Press CTRL+C to quit)
+./cb-logs-20260312-160957.log:5:jarvis-consciousness-bridge  | INFO:     172.18.0.62:56056 - "POST /chat HTTP/1.1" 404 Not Found
+./cb-logs-20260312-160957.log:6:jarvis-consciousness-bridge  | INFO:     172.18.0.62:43246 - "POST /chat HTTP/1.1" 404 Not Found
+./docker-compose.yml.bak.20260501-200948:49:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260501-200948:84:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260501-200948:884:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260501-200948:888:    container_name: jarvis-consciousness-bridge
+./running_containers_20260326.txt:11:jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260215_232944:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_20260215_232944:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260215_232944:725:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_20260215_232944:728:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260215_232944:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_20260215_232944:1271:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416-141203:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260416-141203:60:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416-141203:763:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260416-141203:767:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak_1778453637:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak_1778453637:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak_1778453637:732:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak_1778453637:735:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak_1778453637:1243:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak_1778453637:1246:      - jarvis-consciousness-bridge
+./docker-compose.yml.nbb.bak:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.nbb.bak:36:    - jarvis-consciousness-bridge
+./docker-compose.yml.nbb.bak:722:  jarvis-consciousness-bridge:
+./docker-compose.yml.nbb.bak:725:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260518-215027:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260518-215027:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260518-215027:737:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260518-215027:740:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260518-215027:1261:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260518-215027:1264:      - jarvis-consciousness-bridge
+./docker-compose.yml.BROKEN_BACKUP:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.BROKEN_BACKUP:44:      - jarvis-consciousness-bridge
+./docker-compose.yml.BROKEN_BACKUP:721:  jarvis-consciousness-bridge:
+./docker-compose.yml.BROKEN_BACKUP:724:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.BROKEN_BACKUP:725:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.BROKEN_BACKUP:752:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.BROKEN_BACKUP:754:      - jarvis-consciousness-bridge
+./last-build-final.log:45: Image msjarvis-rebuild-jarvis-consciousness-bridge Building 
+./last-build-final.log:176:#28 [jarvis-consciousness-bridge internal] load build context
+./last-build-final.log:205:#28 [jarvis-consciousness-bridge internal] load build context
+./docker-compose.yml.bak.20260416_144451:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260416_144451:60:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416_144451:763:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260416_144451:767:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260218_085941:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup_20260218_085941:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260218_085941:693:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_20260218_085941:696:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260218_085941:1191:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.backup_20260218_085941:1194:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416-141709:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260416-141709:60:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416-141709:763:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260416-141709:767:    container_name: jarvis-consciousness-bridge
+./docker-compose-core.yml.bak.20260430-120237:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose-core.yml.bak.20260430-120237:155:  jarvis-consciousness-bridge:
+./docker-compose-core.yml.bak.20260430-120237:156:    container_name: jarvis-consciousness-bridge
+./docker-compose-core.yml.bak.20260430-120237:157:    image: msjarvis-rebuild-jarvis-consciousness-bridge
+./docker-compose.yml.bak-20260417-144354:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak-20260417-144354:60:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak-20260417-144354:763:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak-20260417-144354:767:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak:38:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak:732:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak:735:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak:1286:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak:1289:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_gateway_ports_20260109-091103:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_gateway_ports_20260109-091103:36:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_gateway_ports_20260109-091103:728:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_gateway_ports_20260109-091103:731:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.broken-20260326-175632:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.broken-20260326-175632:36:    - jarvis-consciousness-bridge
+./docker-compose.yml.broken-20260326-175632:685:  jarvis-consciousness-bridge:
+./docker-compose.yml.broken-20260326-175632:688:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260206142646:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260206142646:34:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260206142646:677:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260206142646:680:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak-1768791131:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak-1768791131:42:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak-1768791131:711:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak-1768791131:714:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.bak-1768791131:715:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak-1768791131:742:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak-1768791131:744:      - jarvis-consciousness-bridge
+./docker-compose.yml.after-bbb.bak:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.after-bbb.bak:36:    - jarvis-consciousness-bridge
+./docker-compose.yml.after-bbb.bak:722:  jarvis-consciousness-bridge:
+./docker-compose.yml.after-bbb.bak:725:    container_name: jarvis-consciousness-bridge
+./running_containers_GOLDEN_94_20260326.txt:11:jarvis-consciousness-bridge
+./docker-compose.yml.backup_jan13_consciousness:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_jan13_consciousness:37:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_jan13_consciousness:682:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_jan13_consciousness:685:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.backup_jan13_consciousness:686:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_jan13_consciousness:712:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_jan13_consciousness:714:    - jarvis-consciousness-bridge
+./docker-compose.yml.before_fix:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.before_fix:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.before_fix:725:  jarvis-consciousness-bridge:
+./docker-compose.yml.before_fix:728:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.before_fix:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.before_fix:1271:      - jarvis-consciousness-bridge
+./tmp-aaacpe-patch/main_brain.py.bak:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./tmp-aaacpe-patch/main_brain.py:300:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./docker-compose.yml.bak.20260510-192741:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260510-192741:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260510-192741:732:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260510-192741:735:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260510-192741:1243:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260510-192741:1246:      - jarvis-consciousness-bridge
+./docker-compose.golden.bak_before_brain_ports_cleanup:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.golden.bak_before_brain_ports_cleanup:36:    - jarvis-consciousness-bridge
+./docker-compose.golden.bak_before_brain_ports_cleanup:728:  jarvis-consciousness-bridge:
+./docker-compose.golden.bak_before_brain_ports_cleanup:731:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416-141224:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260416-141224:60:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416-141224:763:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260416-141224:767:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak_redis_fix_1769195657:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_redis_fix_1769195657:34:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak_redis_fix_1769195657:692:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak_redis_fix_1769195657:695:    container_name: jarvis-consciousness-bridge
+./running_containers_93clean_20260326.txt:25:jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768786837:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup.1768786837:42:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768786837:718:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup.1768786837:721:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.backup.1768786837:722:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768786837:749:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup.1768786837:751:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak2:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak2:40:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak2:741:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak2:745:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak2:1303:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak2:1309:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak2:1656:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak2:1672:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak2:1775:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak2:1843:      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak2:1961:      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.MOTHERCARRIE.BAK.20260216-132826:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.MOTHERCARRIE.BAK.20260216-132826:38:      - jarvis-consciousness-bridge
+./docker-compose.MOTHERCARRIE.BAK.20260216-132826:725:  jarvis-consciousness-bridge:
+./docker-compose.MOTHERCARRIE.BAK.20260216-132826:728:    container_name: jarvis-consciousness-bridge
+./docker-compose.MOTHERCARRIE.BAK.20260216-132826:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.MOTHERCARRIE.BAK.20260216-132826:1271:      - jarvis-consciousness-bridge
+./backups/fix-20260411-080527/main_brain.py.bak:343:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./backups/fix-20260411-080527/ms_jarvis_unified_gateway.py.bak:176:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./backups/fix-20260411-080527/ms_jarvis_unified_gateway.py.bak:918:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./backups/fix-20260411-080124/main_brain.py.bak:343:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./backups/fix-20260411-080124/ms_jarvis_unified_gateway.py.bak:176:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./backups/fix-20260411-080124/ms_jarvis_unified_gateway.py.bak:918:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./backups/fix-20260411-080158/main_brain.py.bak:343:    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+./backups/fix-20260411-080158/ms_jarvis_unified_gateway.py.bak:176:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./backups/fix-20260411-080158/ms_jarvis_unified_gateway.py.bak:918:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./docker-compose.yml.bak_drop_roche:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_drop_roche:37:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak_drop_roche:734:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak_drop_roche:737:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak_drop_roche:763:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_drop_roche:766:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak_add_clock:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_add_clock:48:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak_add_clock:759:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak_add_clock:762:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.bak_add_clock:763:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak_add_clock:790:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_add_clock:792:      - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260318_110053:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_20260318_110053:39:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260318_110053:636:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_20260318_110053:637:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+./docker-compose.yml.backup_20260318_110053:638:    container_name: jarvis-consciousness-bridge
+./ms_jarvis_unified_gateway.py.bak:194:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./ms_jarvis_unified_gateway.py.bak:949:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./docker-compose.yml.before_neuro_fix_1768012948:19:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.before_neuro_fix_1768012948:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.before_neuro_fix_1768012948:711:  jarvis-consciousness-bridge:
+./docker-compose.yml.before_neuro_fix_1768012948:714:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak_redis_fix_1769195136:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_redis_fix_1769195136:34:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak_redis_fix_1769195136:692:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak_redis_fix_1769195136:695:    container_name: jarvis-consciousness-bridge
+./KNOWN_ISSUES.md:6:- **Root cause**: `jarvis-consciousness-bridge` has no `CHROMA_URL` env var; hardcoded `localhost:8000` inside container; `jarvis-chroma` maps `8000→8002` on host
+./docker-compose.yml.bak.20260517-163017:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260517-163017:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260517-163017:737:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260517-163017:740:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260517-163017:1257:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260517-163017:1260:      - jarvis-consciousness-bridge
+./complete_service_mapping.json:9:  "jarvis-consciousness-bridge_ms_jarvis_consciousness_unified": "services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py",
+./docker-compose.yml.broken_backup:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.broken_backup:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.broken_backup:725:  jarvis-consciousness-bridge:
+./docker-compose.yml.broken_backup:728:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.broken_backup:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.broken_backup:1271:      - jarvis-consciousness-bridge
+./error_summary.log:16:=== jarvis-consciousness-bridge ===
+./docker-compose.yml.bak.1768500857:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.1768500857:37:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.1768500857:692:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.1768500857:695:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.bak.1768500857:696:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.1768500857:722:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.1768500857:724:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260522_204447:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260522_204447:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260522_204447:737:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260522_204447:740:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260522_204447:1267:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260522_204447:1270:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416-141425:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260416-141425:60:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416-141425:763:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260416-141425:767:    container_name: jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:193:  jarvis-consciousness-bridge:
+./docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:196:    container_name: jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:204:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:336:    - jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:574:    - jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./fix_jarvis.log:72:jarvis-consciousness-bridge                             Up 8 hours
+./docker-compose.yml.bak.20260416_144808:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260416_144808:60:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416_144808:763:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260416_144808:767:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bbb.bak:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bbb.bak:36:    - jarvis-consciousness-bridge
+./docker-compose.yml.bbb.bak:728:  jarvis-consciousness-bridge:
+./docker-compose.yml.bbb.bak:731:    container_name: jarvis-consciousness-bridge
+./hilbert_verification_20260508_193018.log:36:jarvis-consciousness-bridge	Up 21 hours
+./docker-compose.yml.backup.1768313257:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup.1768313257:37:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768313257:682:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup.1768313257:685:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.backup.1768313257:686:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768313257:712:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup.1768313257:714:    - jarvis-consciousness-bridge
+./docker-compose.golden.bak_python310_compose_all:36:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.golden.bak_python310_compose_all:52:    - jarvis-consciousness-bridge
+./docker-compose.golden.bak_python310_compose_all:716:  jarvis-consciousness-bridge:
+./docker-compose.golden.bak_python310_compose_all:719:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416-141603:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260416-141603:60:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416-141603:763:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260416-141603:767:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260522T193400Z:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260522T193400Z:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260522T193400Z:737:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260522T193400Z:740:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260522T193400Z:1267:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.bak.20260522T193400Z:1270:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260430-202630:49:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260430-202630:83:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260430-202630:883:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260430-202630:887:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_autonomous_learner_20260109-074048:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_autonomous_learner_20260109-074048:36:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_autonomous_learner_20260109-074048:728:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_autonomous_learner_20260109-074048:731:    container_name: jarvis-consciousness-bridge
+./docker-compose.working.20260118-235132.yml:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.working.20260118-235132.yml:36:    - jarvis-consciousness-bridge
+./docker-compose.working.20260118-235132.yml:728:  jarvis-consciousness-bridge:
+./docker-compose.working.20260118-235132.yml:731:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768311648:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup.1768311648:37:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768311648:682:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup.1768311648:685:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.backup.1768311648:686:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768311648:712:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup.1768311648:714:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260406_newservices:22:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_20260406_newservices:40:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260406_newservices:754:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_20260406_newservices:757:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260406_newservices:840:    - CONSCIOUSNESS_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:193:  jarvis-consciousness-bridge:
+./docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:196:    container_name: jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:204:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:336:    - jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:574:    - jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./hilbert_audit_20260508_193423.log:31:jarvis-consciousness-bridge	Up 21 hours
+./last-build-after-woah-llm22.log:8: Image msjarvis-rebuild-jarvis-consciousness-bridge Building 
+./last-build-after-woah-llm22.log:466:#34 [jarvis-consciousness-bridge internal] load build context
+./docker-compose.yml.broken_spiritual:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.broken_spiritual:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.broken_spiritual:725:  jarvis-consciousness-bridge:
+./docker-compose.yml.broken_spiritual:728:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.broken_spiritual:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.broken_spiritual:1271:      - jarvis-consciousness-bridge
+./restart_unified_msjarvis.sh:7:  jarvis-unified-gateway jarvis-blood-brain-barrier jarvis-consciousness-bridge
+./restart_unified_msjarvis.sh:12:  jarvis-blood-brain-barrier jarvis-consciousness-bridge jarvis-unified-gateway
+./docker-compose.yml.bak_woah_20260118163402:26:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_woah_20260118163402:50:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak_woah_20260118163402:727:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak_woah_20260118163402:730:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.bak_woah_20260118163402:731:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak_woah_20260118163402:758:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_woah_20260118163402:760:      - jarvis-consciousness-bridge
+./docker-compose-core.yml:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose-core.yml:168:  jarvis-consciousness-bridge:
+./docker-compose-core.yml:169:    container_name: jarvis-consciousness-bridge
+./docker-compose-core.yml:170:    image: msjarvis-rebuild-jarvis-consciousness-bridge
+./docker-compose.yml.20llm.bak:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.20llm.bak:36:    - jarvis-consciousness-bridge
+./docker-compose.yml.20llm.bak:722:  jarvis-consciousness-bridge:
+./docker-compose.yml.20llm.bak:725:    container_name: jarvis-consciousness-bridge
+./logs/ch40_closeout/main_brain.py.pre_otel_cleanup.snapshot.py:128:    "consciousnessbridge": "http://jarvis-consciousness-bridge:8020",
+./logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py:155:            "consciousness_bridge": os.environ.get("CONSCIOUSNESS_BRIDGE_URL", "http://jarvis-consciousness-bridge:8020"),
+./logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py:874:    return await _m09_proxy("http://jarvis-consciousness-bridge:8020", True, path, request)
+./logs/verifyandtest/verifyandtest_20260423T040042Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":3,"timestamp":"2026-04-23T04:00:42.582847"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260414T235717Z.log:4:{"status":"degraded","systems":{"consciousness_bridge":{"status":"unavailable","url":"http://jarvis-consciousness-bridge:8020","responsive":false},"neurobiological_master":{"status":"unavailable","url":"http://jarvis-neurobiological-master:8018","responsive":false},"i_containers":{"status":"unavailable","url":"http://jarvis-i-containers:8015","responsive":false},"blood_brain_barrier":{"status":"unavailable","url":"http://jarvis-blood-brain-barrier:8016","responsive":false},"qualia_engine":{"status":"unavailable","url":"http://jarvis-qualia-engine:8017","responsive":false}},"total_queries":86,"timestamp":"2026-04-14T23:57:17.621460"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T184125Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":5,"timestamp":"2026-04-16T18:41:25.974015"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260415T000059Z.log:4:{"status":"degraded","systems":{"consciousness_bridge":{"status":"unavailable","url":"http://jarvis-consciousness-bridge:8020","responsive":false},"neurobiological_master":{"status":"unavailable","url":"http://jarvis-neurobiological-master:8018","responsive":false},"i_containers":{"status":"unavailable","url":"http://jarvis-i-containers:8015","responsive":false},"blood_brain_barrier":{"status":"unavailable","url":"http://jarvis-blood-brain-barrier:8016","responsive":false},"qualia_engine":{"status":"unavailable","url":"http://jarvis-qualia-engine:8017","responsive":false}},"total_queries":86,"timestamp":"2026-04-15T00:00:59.723657"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260423T001610Z.log:4:{"status":"degraded","systems":{"consciousness_bridge":{"status":"unavailable","url":"http://jarvis-consciousness-bridge:8020","responsive":false},"neurobiological_master":{"status":"unavailable","url":"http://jarvis-neurobiological-master:8018","responsive":false},"i_containers":{"status":"unavailable","url":"http://jarvis-i-containers:8015","responsive":false},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"unavailable","url":"http://jarvis-qualia-engine:8017","responsive":false}},"total_queries":0,"timestamp":"2026-04-23T00:16:10.966406"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260412T123709Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":101,"timestamp":"2026-04-12T12:37:09.090770"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260423T031830Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":5,"timestamp":"2026-04-23T03:18:30.183411"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T202233Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":11,"timestamp":"2026-04-16T20:22:33.884099"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T201605Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":11,"timestamp":"2026-04-16T20:16:05.575953"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T204329Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":17,"timestamp":"2026-04-16T20:43:29.603604"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T191413Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":7,"timestamp":"2026-04-16T19:14:14.001920"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T195043Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":9,"timestamp":"2026-04-16T19:50:43.522563"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T184325Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":5,"timestamp":"2026-04-16T18:43:25.595779"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T201920Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":11,"timestamp":"2026-04-16T20:19:20.457767"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260415T001023Z.log:4:{"status":"degraded","systems":{"consciousness_bridge":{"status":"unavailable","url":"http://jarvis-consciousness-bridge:8020","responsive":false},"neurobiological_master":{"status":"unavailable","url":"http://jarvis-neurobiological-master:8018","responsive":false},"i_containers":{"status":"unavailable","url":"http://jarvis-i-containers:8015","responsive":false},"blood_brain_barrier":{"status":"unavailable","url":"http://jarvis-blood-brain-barrier:8016","responsive":false},"qualia_engine":{"status":"unavailable","url":"http://jarvis-qualia-engine:8017","responsive":false}},"total_queries":87,"timestamp":"2026-04-15T00:10:24.225566"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260422T184544Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":55,"timestamp":"2026-04-22T18:45:44.689401"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260414T011115Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"unavailable","url":"http://jarvis-neurobiological-master:8018","responsive":false},"i_containers":{"status":"unavailable","url":"http://jarvis-i-containers:8015","responsive":false},"blood_brain_barrier":{"status":"unavailable","url":"http://jarvis-blood-brain-barrier:8016","responsive":false},"qualia_engine":{"status":"unavailable","url":"http://jarvis-qualia-engine:8017","responsive":false}},"total_queries":11,"timestamp":"2026-04-14T01:11:16.409685"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T160245Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":3,"timestamp":"2026-04-16T16:02:45.153622"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T204906Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":17,"timestamp":"2026-04-16T20:49:06.667031"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260415T000933Z.log:4:{"status":"degraded","systems":{"consciousness_bridge":{"status":"unavailable","url":"http://jarvis-consciousness-bridge:8020","responsive":false},"neurobiological_master":{"status":"unavailable","url":"http://jarvis-neurobiological-master:8018","responsive":false},"i_containers":{"status":"unavailable","url":"http://jarvis-i-containers:8015","responsive":false},"blood_brain_barrier":{"status":"unavailable","url":"http://jarvis-blood-brain-barrier:8016","responsive":false},"qualia_engine":{"status":"unavailable","url":"http://jarvis-qualia-engine:8017","responsive":false}},"total_queries":87,"timestamp":"2026-04-15T00:09:33.744211"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260404T104850Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":4,"timestamp":"2026-04-04T10:48:50.794989"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T231242Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":26,"timestamp":"2026-04-16T23:12:42.115122"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T202436Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":11,"timestamp":"2026-04-16T20:24:36.743684"}--- session-sidecar /health (best-effort) ---
+./logs/verifyandtest/verifyandtest_20260416T184822Z.log:4:{"status":"healthy","systems":{"consciousness_bridge":{"status":"healthy","url":"http://jarvis-consciousness-bridge:8020","responsive":true},"neurobiological_master":{"status":"healthy","url":"http://jarvis-neurobiological-master:8018","responsive":true},"i_containers":{"status":"healthy","url":"http://jarvis-i-containers:8015","responsive":true},"blood_brain_barrier":{"status":"healthy","url":"http://jarvis-blood-brain-barrier:8016","responsive":true},"qualia_engine":{"status":"healthy","url":"http://jarvis-qualia-engine:8017","responsive":true}},"total_queries":5,"timestamp":"2026-04-16T18:48:22.245895"}--- session-sidecar /health (best-effort) ---
+./service_build_matrix.txt:10:jarvis-consciousness-bridge|/home/cakidd/msjarvis-rebuild/services|Dockerfile|-|-
+./docker-compose.yml.bak_redis_env_1769196600:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_redis_env_1769196600:34:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak_redis_env_1769196600:692:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak_redis_env_1769196600:695:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260323_205752:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_20260323_205752:39:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260323_205752:658:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_20260323_205752:659:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+./docker-compose.yml.backup_20260323_205752:660:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260318_102158:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_20260318_102158:39:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260318_102158:636:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_20260318_102158:637:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+./docker-compose.yml.backup_20260318_102158:638:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak_drop_images:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_drop_images:38:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak_drop_images:772:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak_drop_images:775:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.bak_drop_images:776:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak_drop_images:803:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_drop_images:806:    - jarvis-consciousness-bridge
+./docker-compose.yml.pre_judges:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.pre_judges:38:      - jarvis-consciousness-bridge
+./docker-compose.yml.pre_judges:727:  jarvis-consciousness-bridge:
+./docker-compose.yml.pre_judges:730:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.pre_judges:1271:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
+./docker-compose.yml.pre_judges:1274:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260422_220748:41:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260422_220748:59:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260422_220748:834:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260422_220748:838:    container_name: jarvis-consciousness-bridge
+./docker-compose.golden.bak_bbb_uvicorn_fix:35:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.golden.bak_bbb_uvicorn_fix:51:    - jarvis-consciousness-bridge
+./docker-compose.golden.bak_bbb_uvicorn_fix:715:  jarvis-consciousness-bridge:
+./docker-compose.golden.bak_bbb_uvicorn_fix:718:    container_name: jarvis-consciousness-bridge
+./docker-compose.golden.bak_before_python3_cmd_fix:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.golden.bak_before_python3_cmd_fix:34:    - jarvis-consciousness-bridge
+./docker-compose.golden.bak_before_python3_cmd_fix:726:  jarvis-consciousness-bridge:
+./docker-compose.golden.bak_before_python3_cmd_fix:729:    container_name: jarvis-consciousness-bridge
+./neurobiological_brain/pituitary_gland/service/pituitary_gland.py:41:    "http://jarvis-consciousness-bridge:8020",
+./neurobiological_brain/pituitary_gland/service/pituitary_gland.py.bak:19:    "http://jarvis-consciousness-bridge:8020",
+./docker-compose.yml.bak.20260416-141309:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260416-141309:60:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416-141309:763:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260416-141309:767:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260323_211407:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_20260323_211407:39:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260323_211407:658:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_20260323_211407:659:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+./docker-compose.yml.backup_20260323_211407:660:    container_name: jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:193:  jarvis-consciousness-bridge:
+./docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:196:    container_name: jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:204:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:336:    - jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:574:    - jarvis-consciousness-bridge
+./docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260416-141316:42:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak.20260416-141316:60:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak.20260416-141316:763:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak.20260416-141316:767:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768313407:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup.1768313407:37:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768313407:686:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup.1768313407:689:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.backup.1768313407:690:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup.1768313407:716:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup.1768313407:718:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak_ports_20260118163828:26:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_ports_20260118163828:50:      - jarvis-consciousness-bridge
+./docker-compose.yml.bak_ports_20260118163828:727:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak_ports_20260118163828:730:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.bak_ports_20260118163828:731:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.bak_ports_20260118163828:758:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_ports_20260118163828:760:      - jarvis-consciousness-bridge
+./docker-compose.yml.chroma-backup-20260114060013:19:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.chroma-backup-20260114060013:37:    - jarvis-consciousness-bridge
+./docker-compose.yml.chroma-backup-20260114060013:686:  jarvis-consciousness-bridge:
+./docker-compose.yml.chroma-backup-20260114060013:689:    image: msjarvis-consciousness-bridge:latest
+./docker-compose.yml.chroma-backup-20260114060013:690:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.chroma-backup-20260114060013:716:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.chroma-backup-20260114060013:718:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak_before_unified_fix:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.bak_before_unified_fix:36:    - jarvis-consciousness-bridge
+./docker-compose.yml.bak_before_unified_fix:728:  jarvis-consciousness-bridge:
+./docker-compose.yml.bak_before_unified_fix:731:    container_name: jarvis-consciousness-bridge
+./docker-compose.golden.bak_bbb_clean_proxy:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.golden.bak_bbb_clean_proxy:34:    - jarvis-consciousness-bridge
+./docker-compose.golden.bak_bbb_clean_proxy:725:  jarvis-consciousness-bridge:
+./docker-compose.golden.bak_bbb_clean_proxy:728:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260318_110927:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_20260318_110927:39:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260318_110927:636:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_20260318_110927:637:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+./docker-compose.yml.backup_20260318_110927:638:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.pre_dsn_fix:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.pre_dsn_fix:36:    - jarvis-consciousness-bridge
+./docker-compose.yml.pre_dsn_fix:737:  jarvis-consciousness-bridge:
+./docker-compose.yml.pre_dsn_fix:740:    container_name: jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260318_103829:16:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.yml.backup_20260318_103829:39:    - jarvis-consciousness-bridge
+./docker-compose.yml.backup_20260318_103829:636:  jarvis-consciousness-bridge:
+./docker-compose.yml.backup_20260318_103829:637:    image: msjarvis-rebuild-jarvis-consciousness-bridge:latest
+./docker-compose.yml.backup_20260318_103829:638:    container_name: jarvis-consciousness-bridge
+./docker-compose.working.20260119-000202.yml:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.working.20260119-000202.yml:36:    - jarvis-consciousness-bridge
+./docker-compose.working.20260119-000202.yml:728:  jarvis-consciousness-bridge:
+./docker-compose.working.20260119-000202.yml:731:    container_name: jarvis-consciousness-bridge
+./docker-compose.golden.bak_before_bbb_proxy2:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+./docker-compose.golden.bak_before_bbb_proxy2:34:    - jarvis-consciousness-bridge
+./docker-compose.golden.bak_before_bbb_proxy2:726:  jarvis-consciousness-bridge:
+./docker-compose.golden.bak_before_bbb_proxy2:729:    container_name: jarvis-consciousness-bridge
+services/ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/bridge_cross_dgm_10001.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:252:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/port_9000_69dgm_bridge.py:297:    uvicorn.run(
+services/bridge_cross_dgm_10008.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:3:from dynamic_port_service import DynamicPortService
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:19:Integrates multi-agent consciousness with dynamic port scheduling
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:23:# Dynamic Port Integration
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:28:# Initialize dynamic port service
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:29:port_service = DynamicPortService()
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:30:port_service.register_service({
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:168:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:172:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:186:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:190:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:198:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:238:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:249:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port}")
+services/ms_jarvis_consciousness_bridge.py.before_judge_fix:250:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/bridge_cross_dgm_10054.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_unified_rag_bridge.py.bak-msallis:294:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8092)))
+services/bridge_manifest_FULL_BACKUP.csv:138:bridge_cross_dgm.py,ms_jarvis_main_gateway,dynamic_port_service,9174
+services/bridge_manifest_FULL_BACKUP.csv:139:bridge_cross_dgm.py,ms_jarvis_main_gateway,dynamic_port_service_enhanced,9414
+services/msjarvisconsciousnessbridge_ACTUAL.py.bak-msallis:129:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/port_9000_69dgm_bridge.py.bak-msallis:297:    uvicorn.run(
+services/msjarvisconsciousnessbridge_ACTUAL.py:132:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/woah_qualia_bridge.py:38:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8052)))
+services/bridge_cross_dgm_10014.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:18:from dynamic_port_service import DynamicPortService
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:30:# Dynamic port + discovery
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:33:# Initialize dynamic port service
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:34:port_service = DynamicPortService()
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:37:port_service.register_service()
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:48:        port=port_service.port,
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:176:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:193:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:255:        f"(type={type(port_service.port)})"
+services/ms_jarvis_consciousness_bridge.py.bak-msallis:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/bridge_cross_dgm_10005.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/bridge_cross_dgm_10032.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.before_mamma_protocol:851:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10010.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/bridge_cross_dgm_10038.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10064.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.backup_before_hierarchy:936:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10017.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/bridge_cross_dgm_10028.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.backup_vocabulary_cleanup:850:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10033.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10050.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.bak-msallis:9:Integrates multi-agent consciousness with dynamic port scheduling
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.bak-msallis:26:# Dynamic Port Integration (use services_old)
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.bak-msallis:28:from services_old.dynamic_port_service import DynamicPortService
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.bak-msallis:34:# Initialize dynamic port service and register this bridge
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.bak-msallis:35:port_service = DynamicPortService()
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.bak-msallis:36:bridge_port = port_service.find_free_port()
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.bak-msallis:39:    port_service.register_service(bridge_port, health_endpoint="/health")
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.bak-msallis:41:    logger.warning(f"DynamicPortService register_service failed for consciousness bridge: {e}")
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.bak-msallis:276:    uvicorn.run(app, host="127.0.0.1", port=bridge_port)
+services/rag/gbim_gis_bridge.py:44:    uvicorn.run(app, host="127.0.0.1", port=port)
+services/bridge_cross_dgm_10031.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.backup_pre_location_integration:645:    uvicorn.run(app, host="0.0.0.0", port=8004, log_level="info")
+services/bridge_cross_dgm_10023.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/bridge_cross_dgm.py:87:    uvicorn.run(app, host="127.0.0.1", port=PORT)
+services/PORT_SEG_ac:10:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py:        self.port = port_service.port
+services/PORT_SEG_ac:11:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/PORT_SEG_ac:13:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge_simple.py:    uvicorn.run(app, host="0.0.0.0", port=port)
+services/PORT_SEG_ac:74:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_rag_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/bridge_manifest_batch2.csv:8:bridge_cross_dgm.py,ms_jarvis_main_gateway,dynamic_port_service,9174
+services/bridge_manifest_batch2.csv:9:bridge_cross_dgm.py,ms_jarvis_main_gateway,dynamic_port_service_enhanced,9414
+services/bridge_cross_dgm_10009.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/bridge_cross_dgm_10006.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:30:# Dynamic port + discovery
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:33:# Initialize dynamic port service
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:37:port_service.register_service()
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:48:        port=port_service.port,
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:176:        "port": port_service.port,
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:193:        "port": port_service.port,
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:18:from neurobiologicalbrain.i_containers.service.dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:30:# Dynamic port + discovery
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:33:# Initialize dynamic port service
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:37:port_service.register_service()
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:48:        port=port_service.port,
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:176:        "port": port_service.port,
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:193:        "port": port_service.port,
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/i_containers/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:18:from neurobiologicalbrain.i_containers.service.dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:30:# Dynamic port + discovery
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:33:# Initialize dynamic port service
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:37:port_service.register_service()
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:48:        port=port_service.port,
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:176:        "port": port_service.port,
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:193:        "port": port_service.port,
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:30:# Dynamic port + discovery
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:33:# Initialize dynamic port service
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:37:port_service.register_service()
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:48:        port=port_service.port,
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:176:        "port": port_service.port,
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:193:        "port": port_service.port,
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:30:# Dynamic port + discovery
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:33:# Initialize dynamic port service
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:37:port_service.register_service()
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:48:        port=port_service.port,
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:176:        "port": port_service.port,
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:193:        "port": port_service.port,
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:30:# Dynamic port + discovery
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:33:# Initialize dynamic port service
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:37:port_service.register_service()
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:48:        port=port_service.port,
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:176:        "port": port_service.port,
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:193:        "port": port_service.port,
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/subconscious/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:30:# Dynamic port + discovery
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:33:# Initialize dynamic port service
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:37:port_service.register_service()
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:48:        port=port_service.port,
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:176:        "port": port_service.port,
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:193:        "port": port_service.port,
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:30:# Dynamic port + discovery
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:33:# Initialize dynamic port service
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:37:port_service.register_service()
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:48:        port=port_service.port,
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:176:        "port": port_service.port,
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:193:        "port": port_service.port,
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:30:# Dynamic port + discovery
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:33:# Initialize dynamic port service
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:37:port_service.register_service()
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:48:        port=port_service.port,
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:176:        "port": port_service.port,
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:193:        "port": port_service.port,
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:30:# Dynamic port + discovery
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:33:# Initialize dynamic port service
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:37:port_service.register_service()
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:48:        port=port_service.port,
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:176:        "port": port_service.port,
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:193:        "port": port_service.port,
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/bridge_cross_dgm_10055.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10036.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10053.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/judge_to_pituitary_bridge.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10041.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py:20:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/bridge_cross_dgm_10060.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/llm_bridge_main.py.bak-msallis:109:    uvicorn.run(app, host="127.0.0.1", port=port)
+services/ms_jarvis_llm_bridge_simple.py:93:    uvicorn.run(app, host="0.0.0.0", port=port)
+services/bridge_cross_dgm_10013.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:3:from dynamic_port_service import DynamicPortService
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:19:Integrates multi-agent consciousness with dynamic port scheduling
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:23:# Dynamic Port Integration
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:28:# Initialize dynamic port service
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:29:port_service = DynamicPortService()
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:30:port_service.register_service({
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:168:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:172:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:186:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:190:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:198:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:238:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:249:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port}")
+services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:250:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/PORT_AUDIT_SEG_ac:160:/home/ms-jarvis/msjarvis-rebuild/services/judge_to_pituitary_bridge.py:51:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/PORT_AUDIT_SEG_ac:162:/home/ms-jarvis/msjarvis-rebuild/services/llm_bridge_main.py:10:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/ms_jarvis_consciousness_bridge.py.before_persona_fix:883:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/msjarvisconsciousnessbridge.py.bak-msallis:115:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10020.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/bridge_manifest_services_only.csv:108:bridge_cross_dgm.py,ms_jarvis_main_gateway,dynamic_port_service,9174
+services/bridge_manifest_services_only.csv:109:bridge_cross_dgm.py,ms_jarvis_main_gateway,dynamic_port_service_enhanced,9414
+services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORT_SEG_ad:27:/home/ms-jarvis/msjarvis-rebuild/services/woah_qualia_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+services/ms_jarvis_consciousness_bridge.py.backup_1759895250:807:    uvicorn.run(app, host="0.0.0.0", port=8004, log_level="info")
+services/bridge_cross_dgm_10067.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/bridge_cross_dgm_10040.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10025.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/main.py.bak_enable_llmbridge_20251212_233317:768:    uvicorn.run(app, host="0.0.0.0", port=8050)
+services/bridge_cross_dgm_10056.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_llm_bridge_simple_9303.log:6:INFO:     Uvicorn running on http://0.0.0.0:8004 (Press CTRL+C to quit)
+services/python/consciousness_bridge.py.broken_backup:3:Ms. Jarvis Consciousness Bridge - Dynamic Port Version
+services/python/consciousness_bridge.py.broken_backup:9:# Get dynamic port from environment
+services/python/consciousness_bridge.py.broken_backup:19:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
+services/python/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+services/bridge/bridge_cross_dgm.py:87:    uvicorn.run(app, host="127.0.0.1", port=PORT)
+services/bridge/dgm_orchestrator.py:137:    uvicorn.run(app, host="127.0.0.1", port=9999)
+services/bridge/dgm_bridge.py:243:    uvicorn.run("dgm_bridge:app", host="127.0.0.1", port=SERVICE_PORT)
+services/bridge/dgm_orchestrator.py.bak-msallis:137:    uvicorn.run(app, host="127.0.0.1", port=9999)
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:7:Ms. Jarvis LLM Bridge - Language Model Gateway with Dynamic Port Scheduling
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:19:# Dynamic Port Integration
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:20:from dynamic_port_service import DynamicPortService
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:26:# Initialize dynamic port service
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:27:port_service = DynamicPortService()
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:28:port_service.register_service({
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:54:        self.port = port_service.port
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:103:    port_service.heartbeat()
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:118:    port_service.heartbeat()
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:131:    port_service.heartbeat()
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:150:    port_service.heartbeat()
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:157:    port_service.heartbeat()
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:170:    logger.info(f"🤖 Starting LLM Bridge on dynamically allocated port {port_service.port}")
+services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:172:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/bridge_cross_dgm_10026.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10061.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10063.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10044.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/ms_jarvis_consciousness_bridge.py.working_backup:936:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/ms_jarvis_consciousness_bridge.py.before_prompt_fix:851:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10046.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/PORT_SEG_ab:70:/home/ms-jarvis/msjarvis-rebuild/services/judge_to_pituitary_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/PORT_SEG_ab:72:/home/ms-jarvis/msjarvis-rebuild/services/llm_bridge_main.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORT_SEG_ab:134:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORT_SEG_ab:135:/home/ms-jarvis/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py:    uvicorn.run(app, host="0.0.0.0", port=8008)
+services/PORT_SEG_ab:136:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/PORT_SEG_ab:142:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/ms_jarvis_consciousness_bridge_enhanced.py.bak-msallis:168:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/bridge_cross_dgm_10048.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.phase1_working:903:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10039.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_llm_bridge.py.broken:101:    uvicorn.run(app, host="0.0.0.0", port=port)
+services/ms_jarvis_consciousness_bridge.py.safe_backup:851:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10029.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/dgm_bridge.py:243:    uvicorn.run("dgm_bridge:app", host="127.0.0.1", port=SERVICE_PORT)
+services/main.py.bak_before_bridge_20251212_232206:768:    uvicorn.run(app, host="0.0.0.0", port=8050)
+services/bridge_cross_dgm_10012.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:3:from dynamic_port_service import DynamicPortService
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:19:Integrates multi-agent consciousness with dynamic port scheduling
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:23:# Dynamic Port Integration
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:28:# Initialize dynamic port service
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:29:port_service = DynamicPortService()
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:30:port_service.register_service({
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:231:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:235:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:249:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:253:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:261:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:301:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:312:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port}")
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:313:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:8:Integrates multi-agent consciousness with dynamic port scheduling
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:22:# Dynamic Port Integration
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:23:from dynamic_port_service import DynamicPortService
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:29:# Initialize dynamic port service
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:30:port_service = DynamicPortService()
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:31:port_service.register_service({
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:61:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:65:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:78:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:82:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:89:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:126:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:136:    logger.info(f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port}")
+services/ms_jarvis_consciousness_bridge.py.before_final_fix:137:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/bridge_cross_dgm_10034.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.backup_1760220435:807:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10047.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10018.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/bridge_cross_dgm_10030.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10007.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/bridge_cross_dgm_10002.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/bridge_cross_dgm_10065.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10062.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+services/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+services/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+services/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+services/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+services/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+services/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+services/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+services/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+services/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+services/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+services/bridge_cross_dgm_10027.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10015.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/main.py.bak_enable_llmbridge_20251212_233118:768:    uvicorn.run(app, host="0.0.0.0", port=8050)
+services/bridge_cross_dgm_10003.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/main.py.bak_before_bridge_20251212_232349:768:    uvicorn.run(app, host="0.0.0.0", port=8050)
+services/ms_jarvis_consciousness_bridge.py.before_small_models:894:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10045.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10059.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_llm_bridge.py.bak-msallis:22:# Dynamic Port Integration (used only to hold port; no register_service dict call)
+services/ms_jarvis_llm_bridge.py.bak-msallis:23:from dynamic_port_service import DynamicPortService
+services/ms_jarvis_llm_bridge.py.bak-msallis:30:port_service = DynamicPortService()
+services/ms_jarvis_llm_bridge.py.bak-msallis:31:port_service.port = int(os.getenv("SERVICE_PORT", "8006"))
+services/ms_jarvis_llm_bridge.py.bak-msallis:60:        self.port = port_service.port
+services/ms_jarvis_llm_bridge.py.bak-msallis:314:    logger.info(f"🤖 Starting LLM Bridge on fixed port {port_service.port}")
+services/ms_jarvis_llm_bridge.py.bak-msallis:317:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/bridge_cross_dgm_10058.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/PORT_AUDIT_SEG_ad:38:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py:168:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORT_AUDIT_SEG_ad:39:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py:237:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/PORT_AUDIT_SEG_ad:40:/home/ms-jarvis/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py:100:    uvicorn.run(app, host="0.0.0.0", port=8008)
+services/PORT_AUDIT_SEG_ad:46:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORT_AUDIT_SEG_ad:117:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py:55:        self.port = port_service.port
+services/PORT_AUDIT_SEG_ad:118:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py:173:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/PORT_AUDIT_SEG_ad:121:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge_simple.py:93:    uvicorn.run(app, host="0.0.0.0", port=port)
+services/PORT_AUDIT_SEG_ad:183:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_rag_bridge.py:278:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/ms_jarvis_llm_bridge_9908.log:4:    port_service.register_service({
+services/ms_jarvis_llm_bridge_9908.log:6:AttributeError: 'DynamicPortService' object has no attribute 'register_service'
+services/bridge_cross_dgm_10042.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.pre_agent_identity:892:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10051.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10057.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/msjarvisconsciousnessbridge.py.bak.20260507-222706:115:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10069.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/PORT_AUDIT_SEG_ae:154:/home/ms-jarvis/msjarvis-rebuild/services/woah_qualia_bridge.py:32:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+services/bridge_cross_dgm_10066.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge_enhanced.py:168:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/ms_jarvis_consciousness_bridge_9188.log:4:    port_service.register_service({
+services/ms_jarvis_consciousness_bridge_9188.log:6:AttributeError: 'DynamicPortService' object has no attribute 'register_service'
+services/dgm_bridge.log:4:INFO:     Uvicorn running on http://0.0.0.0:9479 (Press CTRL+C to quit)
+services/bridge_cross_dgm_10019.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/bridge_manifest.csv:108:bridge_cross_dgm.py,ms_jarvis_main_gateway,dynamic_port_service,9174
+services/bridge_manifest.csv:109:bridge_cross_dgm.py,ms_jarvis_main_gateway,dynamic_port_service_enhanced,9414
+services/ms_jarvis_consciousness_bridge.py.backup_pre_fixes:851:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/PORTS_REGISTRY_RAW.txt:270:/home/ms-jarvis/msjarvis-rebuild/services/judge_to_pituitary_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/PORTS_REGISTRY_RAW.txt:272:/home/ms-jarvis/msjarvis-rebuild/services/llm_bridge_main.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORTS_REGISTRY_RAW.txt:334:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORTS_REGISTRY_RAW.txt:335:/home/ms-jarvis/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py:    uvicorn.run(app, host="0.0.0.0", port=8008)
+services/PORTS_REGISTRY_RAW.txt:336:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/PORTS_REGISTRY_RAW.txt:342:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORTS_REGISTRY_RAW.txt:410:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py:        self.port = port_service.port
+services/PORTS_REGISTRY_RAW.txt:411:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/PORTS_REGISTRY_RAW.txt:413:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge_simple.py:    uvicorn.run(app, host="0.0.0.0", port=port)
+services/PORTS_REGISTRY_RAW.txt:474:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_rag_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORTS_REGISTRY_RAW.txt:627:/home/ms-jarvis/msjarvis-rebuild/services/woah_qualia_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+services/bridge_cross_dgm_10004.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/bridge_cross_dgm_10035.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10052.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:8:Integrates multi-agent consciousness with dynamic port scheduling
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:22:# Dynamic Port Integration
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:23:from dynamic_port_service import DynamicPortService
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:29:# Initialize dynamic port service
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:30:port_service = DynamicPortService()
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:31:port_service.register_service({
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:160:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:164:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:177:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:181:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:188:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:225:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:235:    logger.info(f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port}")
+services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:236:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/bridge_cross_dgm_10068.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10049.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_llm_bridge_simple.py.bak-msallis:93:    uvicorn.run(app, host="0.0.0.0", port=port)
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM_9327.log:4:    port_service.register_service({
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM_9327.log:6:AttributeError: 'DynamicPortService' object has no attribute 'register_service'
+services/bridge_cross_dgm_10024.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/bridge_cross_dgm_10011.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/msjarvisconsciousnessbridge.py:115:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10037.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_llm_bridge.py:22:# Dynamic Port Integration (used only to hold port; no register_service dict call)
+services/ms_jarvis_llm_bridge.py:23:from dynamic_port_service import DynamicPortService
+services/ms_jarvis_llm_bridge.py:30:port_service = DynamicPortService()
+services/ms_jarvis_llm_bridge.py:31:port_service.port = int(os.getenv("SERVICE_PORT", "8006"))
+services/ms_jarvis_llm_bridge.py:60:        self.port = port_service.port
+services/ms_jarvis_llm_bridge.py:314:    logger.info(f"🤖 Starting LLM Bridge on fixed port {port_service.port}")
+services/ms_jarvis_llm_bridge.py:317:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/msjarvisconsciousnessbridge.py.FULL_BACKUP_BEFORE_BRIDGE_RESET:11:    uvicorn.run(app, host="0.0.0.0", port=8020)
+services/bridge_manifest_with_utilities_backup.csv:138:bridge_cross_dgm.py,ms_jarvis_main_gateway,dynamic_port_service,9174
+services/bridge_manifest_with_utilities_backup.csv:139:bridge_cross_dgm.py,ms_jarvis_main_gateway,dynamic_port_service_enhanced,9414
+services/bridge_cross_dgm_10016.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.backup_before_22llm:905:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/PORT_AUDIT_RAW.txt:560:/home/ms-jarvis/msjarvis-rebuild/services/judge_to_pituitary_bridge.py:51:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/PORT_AUDIT_RAW.txt:562:/home/ms-jarvis/msjarvis-rebuild/services/llm_bridge_main.py:10:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORT_AUDIT_RAW.txt:638:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py:168:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORT_AUDIT_RAW.txt:639:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py:237:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/PORT_AUDIT_RAW.txt:640:/home/ms-jarvis/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py:100:    uvicorn.run(app, host="0.0.0.0", port=8008)
+services/PORT_AUDIT_RAW.txt:646:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORT_AUDIT_RAW.txt:717:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py:55:        self.port = port_service.port
+services/PORT_AUDIT_RAW.txt:718:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py:173:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/PORT_AUDIT_RAW.txt:721:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge_simple.py:93:    uvicorn.run(app, host="0.0.0.0", port=port)
+services/PORT_AUDIT_RAW.txt:783:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_rag_bridge.py:278:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/PORT_AUDIT_RAW.txt:954:/home/ms-jarvis/msjarvis-rebuild/services/woah_qualia_bridge.py:32:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+services/gbim_gis_bridge.py:44:    uvicorn.run(app, host="127.0.0.1", port=port)
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:9:Integrates multi-agent consciousness with dynamic port scheduling
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:26:# Dynamic Port Integration (use services_old)
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:28:from services_old.dynamic_port_service import DynamicPortService
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:34:# Initialize dynamic port service and register this bridge
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:35:port_service = DynamicPortService()
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:36:bridge_port = port_service.find_free_port()
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:39:    port_service.register_service(bridge_port, health_endpoint="/health")
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:41:    logger.warning(f"DynamicPortService register_service failed for consciousness bridge: {e}")
+services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:276:    uvicorn.run(app, host="127.0.0.1", port=bridge_port)
+services/bridge_manifest_priority_services.csv:38:bridge_cross_dgm.py,ms_jarvis_main_gateway,dynamic_port_service,9174
+services/bridge_manifest_priority_services.csv:39:bridge_cross_dgm.py,ms_jarvis_main_gateway,dynamic_port_service_enhanced,9414
+services/ms_jarvis_unified_rag_bridge.py:294:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8092)))
+services/msjarvisconsciousnessbridge_ACTUAL.py.bak.1780325456:129:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/llm_bridge_main.py:109:    uvicorn.run(app, host="127.0.0.1", port=port)
+services/ms_jarvis_consciousness_bridge.py.backup_1759895606:807:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/ms_jarvis_consciousness_bridge.py.pre_identity_integration:883:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
+services/bridge_cross_dgm_10043.py:51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.original:853:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/bridge_cross_dgm_10022.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+services/ms_jarvis_consciousness_bridge.py.before_theology:645:    uvicorn.run(app, host="0.0.0.0", port=8018, log_level="info")
+services/ms_jarvis_consciousness_bridge.py.before_rag_web:828:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+services/RESTORATION_CERTIFICATE.txt:43:4. ✅ Created Python-JavaScript bridge with dynamic ports
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:8:Integrates multi-agent consciousness with dynamic port scheduling
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:22:# Dynamic Port Integration
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:23:from dynamic_port_service import DynamicPortService
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:29:# Initialize dynamic port service
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:30:port_service = DynamicPortService()
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:31:port_service.register_service({
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:61:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:65:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:78:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:82:        "port": port_service.port,
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:89:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:126:    port_service.heartbeat()
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:136:    logger.info(f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port}")
+services/ms_jarvis_consciousness_bridge.py.before_full_integration:137:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)
+services/bridge_cross_dgm_10021.py:210:    uvicorn.run(app, host="0.0.0.0", port=args.port, log_level="error")
+neurobiological_brain/woah_algorithms/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/woah_algorithms/service/Dockerfile:12:# Redis client for dynamic_port_service / consciousness_bridge
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:30:            port=int(port_service.port),
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:45:# Dynamic port + discovery
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:48:# Initialize dynamic port service
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:49:port_service = DynamicPortService()
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:168:        "port": port_service.port,
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:185:        "port": port_service.port,
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:246:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:247:        f"(type={type(port_service.port)})"
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:254:            port=int(port_service.port),
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:259:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:18:from neurobiologicalbrain.i_containers.service.dynamic_port_service import DynamicPortService
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/i_containers/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/i_containers/service/Dockerfile:10:# Ensure Flask is available for dynamic_port_service / consciousness_bridge
+neurobiological_brain/i_containers/service/Dockerfile:13:# Redis client for dynamic_port_service / consciousness_bridge
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/i_containers/service/msjarvisconsciousnessbridge.py:115:    uvicorn.run(app, host="0.0.0.0", port=8020, log_level="info")
+neurobiological_brain/consciousness_bridge/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/spiritual_root/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/spiritual_root/service/Dockerfile:12:# Ensure Flask is available for dynamic_port_service / consciousness_bridge
+neurobiological_brain/spiritual_root/service/Dockerfile:15:# Redis client for dynamic_port_service / consciousness_bridge
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:36:# # (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:165:        "port": port_service.port,
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:182:        "port": port_service.port,
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:243:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:244:        f"(type={type(port_service.port)})"
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:246:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/prefrontal_cortex/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/prefrontal_cortex/service/Dockerfile:8:# Ensure Flask is available for dynamic_port_service / consciousness_bridge
+neurobiological_brain/prefrontal_cortex/service/Dockerfile:11:# Redis client for dynamic_port_service / consciousness_bridge
+neurobiological_brain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:234:    uvicorn.run(app, host="0.0.0.0", port=FIXED_PORT)
+neurobiological_brain/pituitary_gland/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/pituitary_gland/service/Dockerfile:10:# Ensure Flask is available for dynamic_port_service / consciousness_bridge
+neurobiological_brain/pituitary_gland/service/Dockerfile:13:# Redis client for dynamic_port_service / consciousness_bridge
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:36:# # (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:165:        "port": port_service.port,
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:182:        "port": port_service.port,
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:243:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:244:        f"(type={type(port_service.port)})"
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:246:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/subconscious/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/subconscious/service/Dockerfile:12:# Ensure Flask is available for dynamic_port_service / consciousness_bridge
+neurobiological_brain/subconscious/service/Dockerfile:15:# Redis client for dynamic_port_service / consciousness_bridge
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:36:# # (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:165:        "port": port_service.port,
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:182:        "port": port_service.port,
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:243:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:244:        f"(type={type(port_service.port)})"
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:246:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/mother_carrie_protocols/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/mother_carrie_protocols/service/Dockerfile:10:# Ensure Flask is available for dynamic_port_service / consciousness_bridge
+neurobiological_brain/mother_carrie_protocols/service/Dockerfile:13:# Redis client for dynamic_port_service / consciousness_bridge
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/spiritual_maternal_integration/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/spiritual_maternal_integration/service/Dockerfile:10:# Ensure Flask is available for dynamic_port_service / consciousness_bridge
+neurobiological_brain/spiritual_maternal_integration/service/Dockerfile:13:# Redis client for dynamic_port_service / consciousness_bridge
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/heteroglobulin_transport/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/heteroglobulin_transport/service/Dockerfile:10:# Ensure Flask is available for dynamic_port_service / consciousness_bridge
+neurobiological_brain/heteroglobulin_transport/service/Dockerfile:13:# Redis client for dynamic_port_service / consciousness_bridge
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:36:# (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:48:        port=port_service.port,
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:176:        "port": port_service.port,
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:193:        "port": port_service.port,
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:254:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:255:        f"(type={type(port_service.port)})"
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:257:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
+neurobiological_brain/blood_brain_barrier/service/Dockerfile:10:# Ensure Flask is available for dynamic_port_service / consciousness_bridge
+neurobiological_brain/blood_brain_barrier/service/Dockerfile:13:# Redis client for dynamic_port_service / consciousness_bridge
+neurobiological_brain/consciousness_containers/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
+neurobiological_brain/consciousness_containers/service/Dockerfile:12:# Ensure Flask is available for dynamic_port_service / consciousness_bridge
+neurobiological_brain/consciousness_containers/service/Dockerfile:15:# Redis client for dynamic_port_service / consciousness_bridge
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:4:Integrates multi-agent consciousness with dynamic port scheduling
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:18:from dynamic_port_service import DynamicPortService
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:30:# Dynamic port + discovery
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:33:# Initialize dynamic port service
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:34:port_service = DynamicPortService()
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:36:# # (Assumes DynamicPortService.register_service() exists and is non-blocking)
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:37:port_service.register_service()
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:165:        "port": port_service.port,
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:182:        "port": port_service.port,
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:243:        f"🌉 Starting Consciousness Bridge on dynamically allocated port {port_service.port} "
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:244:        f"(type={type(port_service.port)})"
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:246:    uvicorn.run(app, host="0.0.0.0", port=int(port_service.port))
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ 
 
