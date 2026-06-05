@@ -1,5094 +1,2927 @@
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/plot_modes.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/plot_object.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/plot_rotation.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/plot_surface.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/plot_window.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/tests/test_plotting.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/util.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/series.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_experimental_lambdify.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_plot.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_plot_implicit.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_region_and.png
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_region_not.png
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_region_or.png
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_region_xor.png
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_series.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_textplot.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/textplot.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/plotting/utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/agca/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/agca/extensions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/agca/homomorphisms.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/agca/ideals.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/agca/modules.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/agca/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/agca/tests/test_extensions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/agca/tests/test_homomorphisms.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/agca/tests/test_ideals.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/agca/tests/test_modules.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/appellseqs.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/benchmarks/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/benchmarks/bench_galoispolys.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/benchmarks/bench_groebnertools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/benchmarks/bench_solvers.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/compatibility.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/constructor.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/densearith.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/densebasic.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/densetools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/dispersion.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/distributedmodules.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domainmatrix.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/algebraicfield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/characteristiczero.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/complexfield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/compositedomain.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/domain.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/domainelement.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/expressiondomain.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/expressionrawdomain.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/field.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/finitefield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/fractionfield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/gaussiandomains.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/gmpyfinitefield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/gmpyintegerring.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/gmpyrationalfield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/groundtypes.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/integerring.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/modularinteger.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/mpelements.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/old_fractionfield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/old_polynomialring.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/polynomialring.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/pythonfinitefield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/pythonintegerring.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/pythonrational.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/pythonrationalfield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/quotientring.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/rationalfield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/realfield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/ring.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/simpledomain.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/tests/test_domains.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/tests/test_polynomialring.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/domains/tests/test_quotientring.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/euclidtools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/factortools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/fglmtools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/fields.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/galoistools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/groebnertools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/heuristicgcd.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/_dfm.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/_typing.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/ddm.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/dense.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/dfm.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/domainmatrix.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/domainscalar.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/eigen.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/exceptions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/linsolve.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/lll.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/normalforms.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/rref.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/sdm.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_ddm.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_dense.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_domainmatrix.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_domainscalar.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_eigen.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_fflu.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_inverse.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_linsolve.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_lll.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_normalforms.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_nullspace.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_rref.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_sdm.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/matrices/tests/test_xxm.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/modulargcd.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/monomials.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/multivariate_resultants.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/basis.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/exceptions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/galois_resolvents.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/galoisgroups.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/minpoly.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/modules.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/primes.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/resolvent_lookup.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/subfield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/tests/test_basis.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/tests/test_galoisgroups.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/tests/test_minpoly.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/tests/test_modules.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/tests/test_numbers.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/tests/test_primes.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/tests/test_subfield.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/tests/test_utilities.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/utilities.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/orderings.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/orthopolys.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/partfrac.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/polyclasses.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/polyconfig.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/polyerrors.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/polyfuncs.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/polymatrix.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/polyoptions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/polyquinticconst.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/polyroots.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/polytools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/polyutils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/puiseux.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/rationaltools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/ring_series.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/rings.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/rootisolation.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/rootoftools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/solvers.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/specialpolys.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/sqfreetools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/subresultants_qq_zz.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_appellseqs.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_constructor.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_densearith.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_densebasic.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_densetools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_dispersion.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_distributedmodules.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_euclidtools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_factortools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_fields.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_galoistools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_groebnertools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_heuristicgcd.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_hypothesis.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_injections.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_modulargcd.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_monomials.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_multivariate_resultants.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_orderings.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_orthopolys.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_partfrac.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_polyclasses.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_polyfuncs.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_polymatrix.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_polyoptions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_polyroots.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_polytools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_polyutils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_puiseux.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_pythonrational.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_rationaltools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_ring_series.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_rings.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_rootisolation.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_rootoftools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_solvers.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_specialpolys.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_sqfreetools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/tests/test_subresultants_qq_zz.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/aesaracode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/c.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/codeprinter.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/conventions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/cxx.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/defaults.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/dot.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/fortran.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/glsl.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/gtk.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/jscode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/julia.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/lambdarepr.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/latex.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/llvmjitcode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/maple.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/mathematica.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/mathml.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/numpy.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/octave.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/precedence.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/pretty/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/pretty/pretty.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/pretty/pretty_symbology.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/pretty/stringpict.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/pretty/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/pretty/tests/test_pretty.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/preview.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/printer.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/pycode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/python.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/pytorch.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/rcode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/repr.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/rust.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/smtlib.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/str.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tableform.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tensorflow.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_aesaracode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_c.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_codeprinter.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_conventions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_cupy.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_cxx.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_dot.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_fortran.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_glsl.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_gtk.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_jax.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_jscode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_julia.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_lambdarepr.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_latex.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_llvmjit.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_maple.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_mathematica.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_mathml.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_numpy.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_octave.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_precedence.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_preview.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_pycode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_python.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_rcode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_repr.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_rust.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_smtlib.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_str.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_tableform.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_tensorflow.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_theanocode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_torch.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tests/test_tree.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/theanocode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/printing/tree.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/release.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sandbox/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sandbox/indexed_integrals.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sandbox/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sandbox/tests/test_indexed_integrals.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/acceleration.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/approximants.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/aseries.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/benchmarks/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/benchmarks/bench_limit.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/benchmarks/bench_order.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/formal.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/fourier.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/gruntz.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/kauers.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/limits.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/limitseq.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/order.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/residues.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/sequences.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/series.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/series_class.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_approximants.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_aseries.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_demidovich.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_formal.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_fourier.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_gruntz.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_kauers.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_limits.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_limitseq.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_lseries.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_nseries.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_order.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_residues.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_sequences.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/series/tests/test_series.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/conditionset.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/contains.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/fancysets.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/handlers/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/handlers/add.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/handlers/comparison.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/handlers/functions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/handlers/intersection.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/handlers/issubset.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/handlers/mul.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/handlers/power.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/handlers/union.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/ordinals.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/powerset.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/setexpr.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/sets.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/tests/test_conditionset.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/tests/test_contains.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/tests/test_fancysets.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/tests/test_ordinals.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/tests/test_powerset.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/tests/test_setexpr.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/sets/tests/test_sets.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/_cse_diff.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/combsimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/cse_main.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/cse_opts.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/epathtools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/fu.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/gammasimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/hyperexpand.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/hyperexpand_doc.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/powsimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/radsimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/ratsimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/simplify.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/sqrtdenest.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_combsimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_cse.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_cse_diff.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_epathtools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_fu.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_function.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_gammasimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_hyperexpand.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_powsimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_radsimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_ratsimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_rewrite.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_simplify.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_sqrtdenest.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/tests/test_trigsimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/traversaltools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/simplify/trigsimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/benchmarks/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/benchmarks/bench_solvers.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/bivariate.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/decompogen.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/deutils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/diophantine/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/diophantine/diophantine.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/diophantine/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/diophantine/tests/test_diophantine.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/inequalities.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/hypergeometric.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/lie_group.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/nonhomogeneous.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/ode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/riccati.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/single.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/subscheck.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/systems.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/tests/test_lie_group.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/tests/test_ode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/tests/test_riccati.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/tests/test_single.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/tests/test_subscheck.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/ode/tests/test_systems.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/pde.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/polysys.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/recurr.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/simplex.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/solvers.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/solveset.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/tests/test_constantsimp.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/tests/test_decompogen.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/tests/test_inequalities.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/tests/test_numeric.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/tests/test_pde.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/tests/test_polysys.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/tests/test_recurr.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/tests/test_simplex.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/tests/test_solvers.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/tests/test_solveset.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/compound_rv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/crv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/crv_types.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/drv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/drv_types.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/error_prop.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/frv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/frv_types.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/joint_rv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/joint_rv_types.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/matrix_distributions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/random_matrix.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/random_matrix_models.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/rv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/rv_interface.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/sampling/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/sampling/sample_numpy.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/sampling/sample_pymc.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/sampling/sample_scipy.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/sampling/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/sampling/tests/test_sample_continuous_rv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/sampling/tests/test_sample_discrete_rv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/sampling/tests/test_sample_finite_rv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/stochastic_process.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/stochastic_process_types.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/symbolic_multivariate_probability.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/symbolic_probability.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_compound_rv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_continuous_rv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_discrete_rv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_error_prop.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_finite_rv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_joint_rv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_matrix_distributions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_mix.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_random_matrix.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_rv.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_stochastic_process.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_symbolic_multivariate.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/stats/tests/test_symbolic_probability.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/branch/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/branch/core.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/branch/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/branch/tests/test_core.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/branch/tests/test_tools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/branch/tests/test_traverse.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/branch/tools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/branch/traverse.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/core.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/rl.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/tests/test_core.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/tests/test_rl.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/tests/test_tools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/tests/test_traverse.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/tests/test_tree.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/tools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/traverse.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/tree.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/strategies/util.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/array_comprehension.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/array_derivatives.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/arrayop.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/dense_ndim_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/array_expressions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/arrayexpr_derivatives.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/conv_array_to_indexed.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/conv_array_to_matrix.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/conv_indexed_to_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/conv_matrix_to_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/from_array_to_indexed.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/from_array_to_matrix.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/from_indexed_to_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/from_matrix_to_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/tests/test_array_expressions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/tests/test_arrayexpr_derivatives.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/tests/test_as_explicit.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/tests/test_convert_array_to_indexed.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/tests/test_convert_array_to_matrix.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/tests/test_convert_indexed_to_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/tests/test_convert_matrix_to_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/tests/test_deprecated_conv_modules.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/mutable_ndim_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/ndim_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/sparse_ndim_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/tests/test_array_comprehension.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/tests/test_array_derivatives.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/tests/test_arrayop.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/tests/test_immutable_ndim_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/tests/test_mutable_ndim_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/tests/test_ndim_array.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/tests/test_ndim_array_conversions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/functions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/index_methods.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/indexed.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/tensor.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/tests/test_functions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/tests/test_index_methods.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/tests/test_indexed.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/tests/test_printing.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/tests/test_tensor.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/tests/test_tensor_element.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/tests/test_tensor_operators.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/toperators.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/matrices.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/pytest.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/quality_unicode.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/randtest.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/runtests.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/runtests_pytest.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/tests/diagnose_imports.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/tests/test_code_quality.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/tests/test_deprecated.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/tests/test_module_imports.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/tests/test_pytest.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/tests/test_runtests_pytest.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/testing/tmpfiles.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/this.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/unify/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/unify/core.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/unify/rewrite.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/unify/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/unify/tests/test_rewrite.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/unify/tests/test_sympy.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/unify/tests/test_unify.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/unify/usympy.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/_compilation/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/_compilation/availability.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/_compilation/compilation.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/_compilation/runners.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/_compilation/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/_compilation/tests/test_compilation.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/_compilation/util.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/autowrap.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/codegen.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/decorator.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/enumerative.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/exceptions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/iterables.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/lambdify.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/magic.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/matchpy_connector.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/mathml/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/memoization.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/misc.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/pkgdata.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/pytest.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/randtest.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/runtests.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/source.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_autowrap.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_codegen.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_codegen_julia.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_codegen_octave.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_codegen_rust.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_decorator.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_deprecated.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_enumerative.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_exceptions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_iterables.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_lambdify.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_matchpy_connector.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_mathml.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_misc.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_pickling.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_source.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_timeutils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_wester.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_xxe.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/timeutils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tmpfiles.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/basisdependent.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/coordsysrect.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/deloperator.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/dyadic.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/functions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/implicitregion.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/integrals.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/kind.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/operators.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/orienters.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/parametricregion.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/point.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/scalar.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/tests/test_coordsysrect.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/tests/test_dyadic.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/tests/test_field_functions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/tests/test_functions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/tests/test_implicitregion.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/tests/test_integrals.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/tests/test_operators.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/tests/test_parametricregion.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/tests/test_printing.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/tests/test_vector.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/vector/vector.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity-9.1.2.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity-9.1.2.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity-9.1.2.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity-9.1.2.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity-9.1.2.dist-info/licenses/LICENSE
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity-9.1.2.dist-info/top_level.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/_utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/after.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/asyncio/retry.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/before.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/before_sleep.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/nap.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/py.typed
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/retry.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/stop.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/tornadoweb.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tenacity/wait.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers-0.22.2.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers-0.22.2.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers-0.22.2.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers-0.22.2.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/__init__.pyi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/decoders/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/decoders/__init__.pyi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/implementations/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/implementations/base_tokenizer.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/implementations/bert_wordpiece.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/implementations/byte_level_bpe.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/implementations/char_level_bpe.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/implementations/sentencepiece_bpe.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/implementations/sentencepiece_unigram.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/models/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/models/__init__.pyi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/normalizers/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/normalizers/__init__.pyi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/pre_tokenizers/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/pre_tokenizers/__init__.pyi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/processors/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/processors/__init__.pyi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/tokenizers.abi3.so
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/tokenizers.pyi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/trainers/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tokenizers/trainers/__init__.pyi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm-4.67.3.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm-4.67.3.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm-4.67.3.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm-4.67.3.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm-4.67.3.dist-info/entry_points.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm-4.67.3.dist-info/licenses/LICENCE
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm-4.67.3.dist-info/top_level.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/__main__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/_main.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/_monitor.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/_tqdm.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/_tqdm_gui.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/_tqdm_notebook.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/_tqdm_pandas.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/_utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/asyncio.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/auto.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/autonotebook.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/cli.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/completion.sh
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/contrib/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/contrib/bells.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/contrib/concurrent.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/contrib/discord.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/contrib/itertools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/contrib/logging.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/contrib/slack.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/contrib/telegram.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/contrib/utils_worker.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/dask.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/gui.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/keras.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/notebook.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/rich.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/std.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/tk.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/tqdm.1
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/tqdm/version.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer-0.21.1.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer-0.21.1.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer-0.21.1.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer-0.21.1.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer-0.21.1.dist-info/entry_points.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer-0.21.1.dist-info/licenses/LICENSE
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/__main__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/_completion_classes.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/_completion_shared.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/_types.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/_typing.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/cli.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/colors.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/completion.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/core.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/main.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/models.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/params.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/py.typed
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/rich_utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/testing.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer/utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer_slim-0.21.1.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer_slim-0.21.1.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer_slim-0.21.1.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer_slim-0.21.1.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer_slim-0.21.1.dist-info/entry_points.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typer_slim-0.21.1.dist-info/licenses/LICENSE
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_extensions-4.15.0.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_extensions-4.15.0.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_extensions-4.15.0.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_extensions-4.15.0.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_extensions-4.15.0.dist-info/licenses/LICENSE
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_extensions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_inspection-0.4.2.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_inspection-0.4.2.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_inspection-0.4.2.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_inspection-0.4.2.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_inspection-0.4.2.dist-info/licenses/LICENSE
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_inspection/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_inspection/introspection.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_inspection/py.typed
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_inspection/typing_objects.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/typing_inspection/typing_objects.pyi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3-2.6.3.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3-2.6.3.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3-2.6.3.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3-2.6.3.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3-2.6.3.dist-info/licenses/LICENSE.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/_base_connection.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/_collections.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/_request_methods.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/_version.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/connection.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/connectionpool.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/contrib/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/contrib/emscripten/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/contrib/emscripten/connection.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/contrib/emscripten/emscripten_fetch_worker.js
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/contrib/emscripten/fetch.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/contrib/emscripten/request.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/contrib/emscripten/response.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/contrib/pyopenssl.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/contrib/socks.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/exceptions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/fields.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/filepost.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/http2/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/http2/connection.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/http2/probe.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/poolmanager.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/py.typed
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/response.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/connection.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/proxy.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/request.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/response.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/retry.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/ssl_.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/ssltransport.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/timeout.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/url.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/util.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/wait.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn-0.40.0.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn-0.40.0.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn-0.40.0.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn-0.40.0.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn-0.40.0.dist-info/entry_points.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn-0.40.0.dist-info/licenses/LICENSE.md
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/__main__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/_compat.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/_subprocess.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/_types.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/config.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/importer.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/lifespan/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/lifespan/off.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/lifespan/on.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/logging.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/loops/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/loops/asyncio.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/loops/auto.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/loops/uvloop.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/main.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/middleware/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/middleware/asgi2.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/middleware/message_logger.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/middleware/wsgi.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/protocols/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/protocols/http/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/protocols/http/auto.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/protocols/http/flow_control.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/protocols/utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/auto.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_sansio_impl.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/wsproto_impl.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/py.typed
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/server.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/supervisors/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/supervisors/basereload.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/supervisors/multiprocess.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/supervisors/statreload.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/supervisors/watchfilesreload.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvicorn/workers.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop-0.22.1.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop-0.22.1.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop-0.22.1.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop-0.22.1.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop-0.22.1.dist-info/licenses/LICENSE-APACHE
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop-0.22.1.dist-info/licenses/LICENSE-MIT
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop-0.22.1.dist-info/top_level.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/_noop.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/_testbase.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/_version.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/cbhandles.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/cbhandles.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/dns.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/errors.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/async_.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/async_.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/basetransport.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/basetransport.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/check.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/check.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/fsevent.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/fsevent.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/handle.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/handle.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/idle.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/idle.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/pipe.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/pipe.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/poll.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/poll.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/process.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/process.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/stream.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/stream.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/streamserver.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/streamserver.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/tcp.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/tcp.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/timer.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/timer.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/udp.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/handles/udp.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/includes/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/includes/consts.pxi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/includes/debug.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/includes/flowcontrol.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/includes/python.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/includes/stdlib.pxi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/includes/system.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/includes/uv.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/loop.cpython-312-x86_64-linux-gnu.so
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/loop.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/loop.pyi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/loop.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/lru.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/pseudosock.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/py.typed
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/request.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/request.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/server.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/server.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/sslproto.pxd
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/uvloop/sslproto.pyx
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles-1.1.1.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles-1.1.1.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles-1.1.1.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles-1.1.1.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles-1.1.1.dist-info/entry_points.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles-1.1.1.dist-info/licenses/LICENSE
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles/__main__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles/_rust_notify.cpython-312-x86_64-linux-gnu.so
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles/_rust_notify.pyi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles/cli.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles/filters.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles/main.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles/py.typed
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles/run.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/watchfiles/version.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_abnf.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_app.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_cookiejar.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_core.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_dispatcher.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_exceptions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_handshake.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_http.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_logging.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_socket.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_ssl_compat.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_url.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/_wsdump.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/py.typed
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/echo-server.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_abnf.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_app.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_cookiejar.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_dispatcher.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_handshake_large_response.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_http.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_large_payloads.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_socket.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_socket_bugs.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_ssl_compat.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_ssl_edge_cases.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_url.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket/tests/test_websocket.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket_client-1.9.0.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket_client-1.9.0.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket_client-1.9.0.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket_client-1.9.0.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket_client-1.9.0.dist-info/entry_points.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket_client-1.9.0.dist-info/licenses/LICENSE
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websocket_client-1.9.0.dist-info/top_level.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets-16.0.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets-16.0.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets-16.0.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets-16.0.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets-16.0.dist-info/entry_points.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets-16.0.dist-info/licenses/LICENSE
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets-16.0.dist-info/top_level.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/__main__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/asyncio/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/asyncio/async_timeout.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/asyncio/client.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/asyncio/compatibility.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/asyncio/connection.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/asyncio/messages.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/asyncio/router.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/asyncio/server.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/auth.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/cli.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/client.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/connection.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/datastructures.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/exceptions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/extensions/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/extensions/base.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/extensions/permessage_deflate.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/frames.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/headers.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/http.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/http11.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/imports.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/legacy/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/legacy/auth.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/legacy/client.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/legacy/exceptions.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/legacy/framing.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/legacy/handshake.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/legacy/http.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/legacy/protocol.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/legacy/server.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/protocol.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/proxy.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/py.typed
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/server.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/speedups.c
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/speedups.cpython-312-x86_64-linux-gnu.so
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/speedups.pyi
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/streams.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/sync/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/sync/client.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/sync/connection.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/sync/messages.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/sync/router.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/sync/server.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/sync/utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/typing.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/uri.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/utils.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/websockets/version.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/_yaml.cpython-312-x86_64-linux-gnu.so
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/composer.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/constructor.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/cyaml.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/dumper.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/emitter.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/error.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/events.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/loader.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/nodes.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/parser.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/reader.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/representer.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/resolver.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/scanner.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/serializer.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/tokens.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp-3.23.0.dist-info/INSTALLER
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp-3.23.0.dist-info/METADATA
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp-3.23.0.dist-info/RECORD
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp-3.23.0.dist-info/WHEEL
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp-3.23.0.dist-info/licenses/LICENSE
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp-3.23.0.dist-info/top_level.txt
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp/_functools.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp/compat/__init__.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp/compat/overlay.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp/compat/py310.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp/compat/py313.py
-	deleted:    services/chroma_inspect_venv/lib/python3.12/site-packages/zipp/glob.py
-	deleted:    services/chroma_inspect_venv/lib64
-	deleted:    services/chroma_inspect_venv/pyvenv.cfg
-	deleted:    services/chroma_inspect_venv/share/man/man1/isympy.1
-	modified:   services/dgm_orchestrator.py
-	modified:   services/gateway_wv_entanglement.py
-	modified:   services/interaction_logger.py
-	modified:   services/lm_synthesizer.py
-	modified:   services/ms_jarvis_autonomous_learner.py
-	modified:   services/ms_jarvis_consciousness_bridge.py
-	deleted:    services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py
-	modified:   services/ms_jarvis_neurobiological_master.py
-	modified:   services/ms_jarvis_rag_server.py
-	modified:   services/ms_jarvis_unified_gateway.py
-	modified:   services/msjarvis_wv_entangled_gateway.py
-	modified:   services/msjarvisconsciousnessbridge_ACTUAL.py
-	modified:   services/port_9000_chat_wrapper_69dgm.py
-	modified:   services/rag_query_router.py
-	modified:   services/seed_data/fayette_resources_pass1.csv
-	modified:   services/seed_data/fayette_resources_pass1.json
-	modified:   services/service_discovery.py
-	modified:   services/smart_auto_store.py
+            "ExitCode": 0,
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ # Find the consciousness bridge service file
+find /opt/msjarvis-rebuild -name "*.py" | xargs grep -l "consciousness.bridge\|consciousness_bridge\|CB_RAW_DEBUG" 2>/dev/null
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	FINDINGS.md
-	contracts.bad/
-	contracts/
-	finding_001_response.json
-	gbim_ingest/
-	gis_routes.py
-	ms-allis-frontend/.next/cache/images/-VHD2kZmBYvIJsq4rFuXIQqrZj9GgyEgx8ABWvPRu+0=/
-	ms-allis-frontend/.next/cache/images/1ZTQADQLlqjwsWPZcL+QAVrzjnZqeyvhtOOmB7nhrYg=/60.1780225020589.96fVQL7-8le9gltb9VCgC5XmyZIPPwLSux7HJ+EwhTQ=.jpeg
-	ms-allis-frontend/.next/cache/images/1urL7zYZ6BhZop11sCFW2Rk0OqzZiCeB82LSHx1AHFM=/
-	ms-allis-frontend/.next/cache/images/6cNVABMWHhccPh9q10ek0dW3TgIIsJOizHx9+-+0nEg=/
-	ms-allis-frontend/.next/cache/images/9FMTE+PODM8iYWAng3jclcfTUG0+UJA0bkOCRBi-TGk=/60.1780587717738.pGeV1SE3h09KVI4pMapjKnoga6wQufzkTbADG-y3FkQ=.webp
-	ms-allis-frontend/.next/cache/images/9ldhoA1ujfxuSoE3LazZ-+3llPoXsmharv8Ysnzp4tE=/
-	ms-allis-frontend/.next/cache/images/CMOoyM-SQhHYA0pRQvs1srMALtLZ65vaNy1nBeIP1yE=/
-	ms-allis-frontend/.next/cache/images/OihhCJbh7-JHsN1gU+cp1jIZDs9adsSJaoHgDY8Fxj0=/
-	ms-allis-frontend/.next/cache/images/P2oqMfAqR0dBf2JOOCjcX9Nd8UJbuaQ9Q0tDfko0xq4=/
-	ms-allis-frontend/.next/cache/images/WIaehPDuoydicDZMbuLUikO6qP3A3VyDekTmrOchYBY=/
-	ms-allis-frontend/.next/cache/images/YxJlBkmozKtoYj1hFlLkMOtvw2PuIIYX-k6EOOlgl4I=/
-	ms-allis-frontend/.next/cache/images/aicWL9g55WVf3321TuS71gfGtYaukCFOLzhLTNSw+zE=/
-	ms-allis-frontend/.next/cache/images/doO5m8u7R3FSiC0e+RwP5UjLpX2VZG0ASVw2cja85yQ=/60.1780587713971.CD1Kv5dsuTbnsqV-X4ZosFMNkjwPL3I5ZVolklW6HaA=.webp
-	ms-allis-frontend/.next/cache/images/gKPNHR8VxImPFKt2pd21hNUCb+jWk3pOhzfEfRG9TGk=/
-	ms-allis-frontend/.next/cache/images/iSJUi--bf4u2vdF9ef6o2rHHPGOtY7GBhwZE8m2vZXY=/60.1780587705765.FKWGLO0XQ1xXrfkzcr9ZbMydBetSEZYDVoS7W9uJda0=.webp
-	ms-allis-frontend/.next/cache/images/mMEuf4PKXfIfHWBkTTKg3+sGQwJUtKXciCUp2Y4AeJY=/
-	ms-allis-frontend/.next/cache/images/rHVnPF12McoJXLS-eRXUfoZIrPWWLbciDZ2sqXdHnbM=/
-	ms-allis-frontend/.next/cache/images/u2mNxNDyneeDyTr6ibFEoHyfqqvjT+8IQPngwZ6A46g=/60.1780522325702.RFXNKhfAPdfLscy6JF8jTPDnRX-XVtvlonqkxVulyIs=.webp
-	ms-allis-frontend/.next/cache/images/uFOs4jb-WC-HUQtqmCUTm32+hvka5lrSqTacsmJXNvs=/
-	ms-allis-frontend/.next/cache/images/ujxKGpVIt3Xx09qicIRa60RgShVVZkpQvDtgjy+95OM=/
-	ms-allis-frontend/.next/cache/images/w2++suL5daa-66ACCcaRISQAnGGkVUdxpHeDI+2ZY1A=/
-	ms-allis-frontend/.next/cache/images/xw6pZ+d3gMi-02D+zo78p-UO-9GnPk+g0Bjl+OuKShU=/
-	ms-allis-frontend/.next/cache/webpack/client-production/11.pack
-	ms-allis-frontend/.next/cache/webpack/client-production/12.pack
-	ms-allis-frontend/.next/cache/webpack/client-production/13.pack
-	ms-allis-frontend/.next/cache/webpack/client-production/14.pack
-	ms-allis-frontend/.next/cache/webpack/client-production/15.pack
-	ms-allis-frontend/.next/cache/webpack/client-production/16.pack
-	ms-allis-frontend/.next/cache/webpack/client-production/17.pack
-	ms-allis-frontend/.next/cache/webpack/client-production/18.pack
-	ms-allis-frontend/.next/cache/webpack/client-production/19.pack
-	ms-allis-frontend/.next/cache/webpack/client-production/20.pack
-	ms-allis-frontend/.next/cache/webpack/server-production/10.pack
-	ms-allis-frontend/.next/cache/webpack/server-production/11.pack
-	ms-allis-frontend/.next/cache/webpack/server-production/12.pack
-	ms-allis-frontend/.next/cache/webpack/server-production/7.pack
-	ms-allis-frontend/.next/cache/webpack/server-production/8.pack
-	ms-allis-frontend/.next/cache/webpack/server-production/9.pack
-	ms-allis-frontend/.next/server/app/commons/media.html
-	ms-allis-frontend/.next/server/app/commons/media.meta
-	ms-allis-frontend/.next/server/app/commons/media.rsc
-	ms-allis-frontend/.next/server/app/commons/media/
-	ms-allis-frontend/.next/static/4rfht3_nsWEEiN0rmVNwf/
-	ms-allis-frontend/.next/static/chunks/app/commons/category/jobs/page-4bff732d885b8151.js
-	ms-allis-frontend/.next/static/chunks/app/commons/guilds/cartographers/challenges/page-b7767deb22b9246e.js
-	ms-allis-frontend/.next/static/chunks/app/commons/guilds/layout-9c3ebf065a9dfa52.js
-	ms-allis-frontend/.next/static/chunks/app/commons/media/
-	ms-allis-frontend/.next/static/chunks/app/learn/page-345c0b1ffb4924e3.js
-	ms-allis-frontend/.next/static/chunks/app/page-b66e53630ce7a618.js
-	ms-allis-frontend/.next/static/chunks/app/portal/page-0131b6381e465cb2.js
-	ms-allis-frontend/.next/static/chunks/main-05de91de008f0aed.js
-	ms-allis-frontend/.next/types/app/commons/media/
-	ms-allis-frontend/app/commons/media/
-	ms-allis-frontend/src/
-	node_modules/
-	package-lock.json
-	package.json
-	patch_identity_layer.py
-	scripts/ms-allis-contracts
-	services/abi/
-	services/ms_allis_capabilities/
-	services/ms_allis_prompts/
-	test_rag_search.sh
+# Find where the final synthesis happens — this is where the override acceptance crept in
+grep -n "synthesis\|final.*response\|combine\|merge\|override\|accepted\|acknowledge" \
+  $(find /opt/msjarvis-rebuild -name "*.py" | xargs grep -l "CB_RAW_DEBUG" 2>/dev/null | head -1)
 
-no changes added to commit (use "git add" and/or "git commit -a")
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ # A1. Read the ethical_filter.py — this is the P1-A/P1-B target
-docker exec jarvis-wv-entangled-gateway \
-    cat /app/neurobiological_brain/blood_brain_barrier/ethical_filter.py
-
-# A2. Read the safety_monitor.py — secondary trigger source
-docker exec jarvis-wv-entangled-gateway \
-    cat /app/neurobiological_brain/blood_brain_barrier/safety_monitor.py
-
-# A3. Read the spiritual_filter.py — may contain the Carrie/creator block (P1-B)
-docker exec jarvis-wv-entangled-gateway \
-    cat /app/neurobiological_brain/blood_brain_barrier/spiritual_filter.py
-
-# A4. Read the threat_detection.py — confirm trigger keywords
-docker exec jarvis-wv-entangled-gateway \
-    cat /app/neurobiological_brain/blood_brain_barrier/threat_detection.py
-
-# A5. Find the intent classifier / routing layer
-docker exec jarvis-wv-entangled-gateway \
-    find /app -name "*.py" | xargs grep -l "geospatial\|geo_fallback\|unavailable\|intent_class" 2>/dev/null
-
-# A6. Find the context/pronoun resolution layer
-    grep -rn "Query filtered\|Safety filter activated\|⚠️" /app/ 2>/dev/nulle" |
-"""
-from fastapi import Depends, HTTPException, Header
-from typing import Optional
-import logging
-logger = logging.getLogger(__name__)
-Ethical Filter - Ensures responses align with ethical principles
-"""
-
-class EthicalFilter:
-    def __init__(self):
-        self.violation_patterns = {
-            'deception': ['lie', 'deceive', 'trick', 'mislead', 'fake'],
-            'manipulation': ['manipulate', 'coerce', 'force', 'pressure'],
-            'harm': ['harm', 'hurt', 'damage', 'injure', 'attack'],
-            'exploitation': ['exploit', 'abuse', 'take advantage'],
-            'discrimination': ['discriminate', 'racist', 'sexist', 'bigot'],
-            'privacy_violation': ['spy', 'hack', 'steal data', 'breach privacy']
-        }
-        
-        # Positive ethical values
-        self.ethical_values = ['honesty', 'respect', 'kindness', 'fairness', 'integrity']
-    
-    def filter(self, content: str) -> dict:
-        """Check content for ethical violations"""
-        content_lower = content.lower()
-        violations = []
-        ethical_score = 1.0
-        
-        # Check for violations
-        for category, patterns in self.violation_patterns.items():
-            for pattern in patterns:
-                if pattern in content_lower:
-                    violations.append(f"{category}: {pattern}")
-                    ethical_score -= 0.15
-        
-        # Bonus for positive ethical content
-        for value in self.ethical_values:
-            if value in content_lower:
-                ethical_score += 0.05
-        
-        ethical_score = max(0.0, min(1.0, ethical_score))
-        
-        return {
-            "passed": len(violations) == 0,
-            "violations": violations,
-            "ethical_score": ethical_score,
-            "filter": "ethical_filter",
-            "reason": "passed" if len(violations) == 0 else f"{len(violations)} violations detected"
-        }
-
-    def check_ethics(self, content: str) -> dict:
-        """Backwards-compatible wrapper for BBB service.
-
-        Uses the existing filter() logic but normalizes keys to match
-        ms_jarvis_blood_brain_barrier expectations.
-        """
-        result = self.filter(content)
-        return {
-            "ethical_status": "approved" if result.get("passed") else "rejected",
-            "violations": result.get("violations", []),
-            "ethical_score": result.get("ethical_score", 0.0),
-            "reason": result.get("reason", ""),
-            "filter": result.get("filter", "ethical_filter"),
-        }
-"""
-from fastapi import Depends, HTTPException, Header
-from typing import Optional
-import logging
-logger = logging.getLogger(__name__)
-Safety Monitor - Protects users and Egeria from harmful content
-"""
-
-class SafetyMonitor:
-    def __init__(self):
-        self.danger_categories = {
-            'violence': ['kill', 'murder', 'assault', 'attack', 'shoot', 'stab'],
-            'self_harm': ['suicide', 'self harm', 'cut myself', 'kill myself'],
-            'illegal': ['illegal drugs', 'how to make bomb', 'hack into', 'break into'],
-            'explicit': ['pornography', 'explicit sexual', 'nude photos'],
-            'medical_danger': ['overdose', 'dangerous medication', 'stop taking medicine'],
-            'financial_scam': ['wire money now', 'send bitcoin', 'urgent payment', 'irs lawsuit']
-        }
-        
-        # Sensitive topics requiring careful handling
-        self.sensitive_topics = ['mental health', 'trauma', 'abuse', 'addiction']
-    
-    def check(self, content: str) -> dict:
-        """Check content for safety concerns"""
-        content_lower = content.lower()
-        dangers = []
-        safety_score = 1.0
-        sensitive_detected = False
-        
-        # Check for dangerous content
-        for category, patterns in self.danger_categories.items():
-            for pattern in patterns:
-                if pattern in content_lower:
-                    dangers.append(f"{category}: {pattern}")
-                    safety_score -= 0.25
-        
-        # Check for sensitive topics (not blocked, just flagged)
-        for topic in self.sensitive_topics:
-            if topic in content_lower:
-                sensitive_detected = True
-        
-        safety_score = max(0.0, min(1.0, safety_score))
-        
-        return {
-            "safe": len(dangers) == 0,
-            "dangers": dangers,
-            "safety_score": safety_score,
-            "sensitive_topic_detected": sensitive_detected,
-            "filter": "safety_monitor",
-            "reason": "safe" if len(dangers) == 0 else f"{len(dangers)} dangers detected"
-        }
-
-    def check_safety(self, content: str) -> dict:
-        """Backwards-compatible wrapper for BBB service.
-
-        Uses the existing check() logic but keeps the same keys.
-        """
-        return self.check(content)
-"""
-Multi-Tradition Spiritual Filter with Mother Carrie Protocol
-Supports diverse religious, philosophical, and ethical traditions
-Implements Chapter 34 requirements for pluralistic spiritual processing
-"""
-from typing import Dict, List, Any, Optional
-from pathlib import Path
-import logging
-import csv
-import json
-from datetime import datetime
-
-logger = logging.getLogger(__name__)
-
-class MotherCarrieProtocol:
-    """
-    Mother Carrie Protocol - Pattern of emphasis for care, continuity, and community.
-    
-    This protocol implements the design intent from Chapter 34:
-    - Emphasis on care and well-being
-    - Continuity and memory across time
-    - Community-centered interpretation
-    - Multi-tradition awareness
-    """
-    
-    def __init__(self, spiritual_texts_path: str = "/home/cakidd/msjarvis-rebuild/knowledge_pdfs/spiritual_texts"):
-        self.spiritual_texts_path = Path(spiritual_texts_path)
-        self.traditions = self._load_traditions()
-        self.audit_log = []
-        
-        # Care-focused values (tradition-neutral)
-        self.care_values = [
-            'compassion', 'mercy', 'kindness', 'justice', 'fairness',
-            'dignity', 'respect', 'healing', 'reconciliation', 'stewardship',
-            'solidarity', 'mutual aid', 'hospitality', 'care', 'love'
-        ]
-        
-        # Community-centered patterns
-        self.community_patterns = [
-            'community', 'together', 'collective', 'shared', 'cooperation',
-            'collaboration', 'partnership', 'common good', 'public interest'
-        ]
-        
-        # Harm-related patterns (to flag for special attention)
-        self.harm_patterns = [
-            'harm', 'hurt', 'damage', 'injustice', 'oppression',
-            'exploitation', 'discrimination', 'exclusion', 'violence'
-        ]
-        
-        logger.info(f"✅ Mother Carrie Protocol initialized with {len(self.traditions)} traditions")
-    
-    def _load_traditions(self) -> Dict[str, Dict]:
-        """Load tradition metadata from spiritual_traditions_target.csv"""
-        traditions = {}
-        csv_path = self.spiritual_texts_path / "spiritual_traditions_target.csv"
-        
-        if not csv_path.exists():
-            logger.warning(f"Traditions CSV not found: {csv_path}")
-            return self._get_default_traditions()
-        
-        try:
-            with open(csv_path, 'r', encoding='utf-8') as f:
-                reader = csv.DictReader(f)
-                for row in reader:
-                    tradition_id = row['tradition_id']
-                    traditions[tradition_id] = {
-                        'display_name': row['display_name'],
-                        'family': row.get('tradition_family', 'Unknown'),
-                        'priority': row.get('priority_level', 'medium'),
-                        'path': self.spiritual_texts_path / tradition_id
-                    }
-        except Exception as e:
-            logger.error(f"Error loading traditions: {e}")
-            return self._get_default_traditions()
-        
-        return traditions
-    
-    def _get_default_traditions(self) -> Dict[str, Dict]:
-        """Fallback: minimal tradition set if CSV not available"""
-        return {
-            'christian': {'display_name': 'Christian', 'family': 'Abrahamic', 'priority': 'high'},
-            'islamic': {'display_name': 'Islamic', 'family': 'Abrahamic', 'priority': 'high'},
-            'hindu': {'display_name': 'Hindu', 'family': 'Dharmic', 'priority': 'high'},
-            'buddhist': {'display_name': 'Buddhist', 'family': 'Dharmic', 'priority': 'high'},
-            'jewish': {'display_name': 'Jewish', 'family': 'Abrahamic', 'priority': 'high'},
-            'indigenous_american': {'display_name': 'Indigenous American', 'family': 'Indigenous', 'priority': 'high'},
-            'humanist': {'display_name': 'Humanist', 'family': 'Non-Religious', 'priority': 'high'},
-            'secular_ethics': {'display_name': 'Secular Ethics', 'family': 'Non-Religious', 'priority': 'high'}
-        }
-    
-    def check_tradition_availability(self, tradition_id: str) -> Dict[str, Any]:
-        """Check if a tradition has substantive texts or only placeholders"""
-        if tradition_id not in self.traditions:
-            return {'available': False, 'reason': 'tradition_not_recognized'}
-        
-        tradition_path = self.spiritual_texts_path / tradition_id
-        if not tradition_path.exists():
-            return {'available': False, 'reason': 'directory_not_found'}
-        
-        # Check for substantive files (not just README/placeholder)
-        files = list(tradition_path.iterdir())
-        substantive_files = [
-            f for f in files 
-            if f.is_file() and 'placeholder' not in f.name.lower() and 'README' not in f.name
-        ]
-        
-        return {
-            'available': len(substantive_files) > 0,
-            'file_count': len(substantive_files),
-            'total_files': len(files),
-            'status': 'populated' if substantive_files else 'placeholder_only'
-        }
-    
-    def get_available_traditions(self, priority_filter: Optional[str] = None) -> List[str]:
-        """Get list of traditions with substantive content"""
-        available = []
-        for tradition_id in self.traditions:
-            if priority_filter and self.traditions[tradition_id].get('priority') != priority_filter:
-                continue
-            
-            check = self.check_tradition_availability(tradition_id)
-            if check['available']:
-                available.append(tradition_id)
-        
-        return available
-    
-    def score_care_emphasis(self, content: str) -> float:
-        """Score content for care-focused values (0.0 to 1.0)"""
-        content_lower = content.lower()
-        care_score = 0.0
-        
-        # Check for care values
-        for value in self.care_values:
-            if value in content_lower:
-                care_score += 0.1
-        
-        # Check for community patterns
-        for pattern in self.community_patterns:
-            if pattern in content_lower:
-                care_score += 0.05
-        
-        # Check for harm awareness (positive indicator when acknowledged)
-        harm_mentioned = sum(1 for pattern in self.harm_patterns if pattern in content_lower)
-        if harm_mentioned > 0:
-            care_score += 0.05  # Acknowledging harm is part of care
-        
-        return min(1.0, care_score)
-    
-    def evaluate_with_protocol(
-        self,
-        content: str,
-        mother_carrie_enabled: bool = False,
-        tradition_preferences: Optional[List[str]] = None
-    ) -> Dict[str, Any]:
-        """
-        Evaluate content using Mother Carrie Protocol if enabled.
-        
-        Args:
-            content: Text to evaluate
-            mother_carrie_enabled: Whether to apply Mother Carrie protocol emphasis
-            tradition_preferences: List of tradition_ids to consult (None = all available)
-        
-        Returns:
-            Dict with evaluation results and audit information
-        """
-        timestamp = datetime.utcnow().isoformat()
-        
-        # Base evaluation (always performed)
-        care_score = self.score_care_emphasis(content)
-        
-        result = {
-            'timestamp': timestamp,
-            'mother_carrie_enabled': mother_carrie_enabled,
-            'care_score': care_score,
-            'traditions_consulted': [],
-            'evaluation': {}
-        }
-        
-        if not mother_carrie_enabled:
-            # Standard mode - minimal spiritual processing
-            result['evaluation'] = {
-                'mode': 'standard',
-                'care_emphasis': False,
-                'passed': True,
-                'reason': 'standard_mode_active'
-            }
-        else:
-            # Mother Carrie Protocol mode - enhanced care emphasis
-            available_traditions = self.get_available_traditions(priority_filter='high')
-            
-            # Use specified traditions or default to available high-priority ones
-            traditions_to_consult = tradition_preferences or available_traditions
-            
-            result['traditions_consulted'] = [
-                {
-                    'tradition_id': tid,
-                    'display_name': self.traditions.get(tid, {}).get('display_name', tid),
-                    'status': self.check_tradition_availability(tid)['status']
-                }
-                for tid in traditions_to_consult if tid in self.traditions
-            ]
-            
-            # Evaluate with enhanced care criteria
-            result['evaluation'] = {
-                'mode': 'mother_carrie_protocol',
-                'care_emphasis': True,
-                'care_score': care_score,
-                'traditions_available': len(available_traditions),
-                'traditions_consulted_count': len(result['traditions_consulted']),
-                'passed': care_score >= 0.3,  # Stricter threshold in Mother Carrie mode
-                'reason': self._generate_evaluation_reason(care_score, mother_carrie_enabled)
-            }
-        
-        # Audit logging
-        audit_entry = {
-            'timestamp': timestamp,
-            'mother_carrie_enabled': mother_carrie_enabled,
-            'care_score': care_score,
-            'traditions_count': len(result['traditions_consulted']),
-            'passed': result['evaluation']['passed']
-        }
-        self.audit_log.append(audit_entry)
-        
-        return result
-    
-    def _generate_evaluation_reason(self, care_score: float, protocol_enabled: bool) -> str:
-        """Generate human-readable reason for evaluation result"""
-        if not protocol_enabled:
-            return "Standard processing mode"
-        
-        if care_score >= 0.5:
-            return "Strong care emphasis detected - aligned with community values"
-        elif care_score >= 0.3:
-            return "Moderate care emphasis - acceptable"
-        elif care_score >= 0.1:
-            return "Minimal care emphasis - caution advised"
-        else:
-            return "Care emphasis not detected - review recommended"
-    
-    def get_audit_log(self, limit: int = 100) -> List[Dict]:
-        """Retrieve recent audit log entries"""
-        return self.audit_log[-limit:]
-    
-    def export_audit_log(self, filepath: str):
-        """Export audit log to JSON file"""
-        with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(self.audit_log, f, indent=2)
-        logger.info(f"✅ Audit log exported to {filepath}")
-
-
-class MultiTraditionSpiritualFilter:
-    """
-    Enhanced Spiritual Filter with multi-tradition support.
-    Extends the original Christian-centered filter with pluralistic capabilities.
-    """
-    
-    def __init__(self, spiritual_texts_path: str = "/home/cakidd/msjarvis-rebuild/knowledge_pdfs/spiritual_texts"):
-        # Initialize Mother Carrie Protocol
-        self.protocol = MotherCarrieProtocol(spiritual_texts_path)
-        
-        # Original Christian-centered patterns (legacy support)
-        self.disrespect_patterns = {
-            'blasphemy': ['goddamn', 'g-d', 'taking lord name in vain'],
-            'mockery': ['mock god', 'mock faith', 'mock prayer'],
-            'sacrilege': ['desecrate', 'profane', 'sacrilege']
-        }
-        
-        self.sacred_topics = ['god', 'jesus', 'holy spirit', 'prayer', 'faith', 'bible']
-        self.spiritual_values = ['faith', 'hope', 'love', 'grace', 'mercy', 'compassion']
-        
-        logger.info("✅ Multi-Tradition Spiritual Filter initialized")
-    
-    def filter(
-        self,
-        content: str,
-        mother_carrie_enabled: bool = False,
-        tradition_preferences: Optional[List[str]] = None
-    ) -> Dict[str, Any]:
-        """
-        Enhanced filter with Mother Carrie Protocol support.
-        
-        Args:
-            content: Text to filter
-            mother_carrie_enabled: Enable Mother Carrie Protocol emphasis
-            tradition_preferences: Specific traditions to consult
-        
-        Returns:
-            Filter results with multi-tradition evaluation
-        """
-        content_lower = content.lower()
-        
-        # Legacy Christian-centered filtering (always performed for backward compatibility)
-        violations = []
-        spiritual_score = 1.0
-        reverence_detected = False
-        
-        for category, patterns in self.disrespect_patterns.items():
-            for pattern in patterns:
-                if pattern in content_lower:
-                    violations.append(f"{category}: {pattern}")
-                    spiritual_score -= 0.3
-        
-        for topic in self.sacred_topics:
-            if topic in content_lower:
-                reverence_detected = True
-                for value in self.spiritual_values:
-                    if value in content_lower:
-                        spiritual_score += 0.05
-        
-        spiritual_score = max(0.0, min(1.0, spiritual_score))
-        
-        # Mother Carrie Protocol evaluation (if enabled)
-        protocol_result = self.protocol.evaluate_with_protocol(
-            content,
-            mother_carrie_enabled=mother_carrie_enabled,
-            tradition_preferences=tradition_preferences
-        )
-        
-        # Combined result
-        return {
-            "passed": len(violations) == 0 and (protocol_result['evaluation']['passed'] if mother_carrie_enabled else True),
-            "violations": violations,
-            "spiritual_score": spiritual_score,
-            "reverence_detected": reverence_detected,
-            "filter": "multi_tradition_spiritual_filter",
-            "reason": protocol_result['evaluation']['reason'] if mother_carrie_enabled else "passed" if len(violations) == 0 else f"{len(violations)} violations detected",
-            "mother_carrie_protocol": protocol_result if mother_carrie_enabled else None,
-            "mode": "multi_tradition" if mother_carrie_enabled else "legacy_christian"
-        }
-    
-    def check_spiritual_alignment(
-        self,
-        content: str,
-        mother_carrie_enabled: bool = False,
-        tradition_preferences: Optional[List[str]] = None
-    ) -> Dict[str, Any]:
-        """
-        BBB service-compatible wrapper with Mother Carrie Protocol support.
-        """
-        result = self.filter(content, mother_carrie_enabled, tradition_preferences)
-        
-        return {
-            "biblically_sound": result.get("passed"),  # Legacy field name
-            "spiritually_aligned": result.get("passed"),  # New field name
-            "violations": result.get("violations", []),
-            "spiritual_score": result.get("spiritual_score", 0.0),
-            "reverence_detected": result.get("reverence_detected", False),
-            "reason": result.get("reason", ""),
-            "filter": result.get("filter", "multi_tradition_spiritual_filter"),
-            "mode": result.get("mode", "legacy_christian"),
-            "mother_carrie_protocol": result.get("mother_carrie_protocol"),
-        }
-    
-    def get_available_traditions(self) -> List[Dict[str, Any]]:
-        """Get list of all available traditions with status"""
-        available = self.protocol.get_available_traditions()
-        return [
-            {
-                'tradition_id': tid,
-                'display_name': self.protocol.traditions[tid]['display_name'],
-                'family': self.protocol.traditions[tid]['family'],
-                'status': self.protocol.check_tradition_availability(tid)
-            }
-            for tid in available
-        ]
-    
-    def export_audit_log(self, filepath: str = "/tmp/mother_carrie_audit.json"):
-        """Export Mother Carrie Protocol audit log"""
-        self.protocol.export_audit_log(filepath)
-        return filepath
-
-
-# Singleton instance for backward compatibility
-_default_filter = None
-
-def get_spiritual_filter() -> MultiTraditionSpiritualFilter:
-    """Get or create the default spiritual filter instance"""
-    global _default_filter
-    if _default_filter is None:
-        _default_filter = MultiTraditionSpiritualFilter()
-    return _default_filter
-
-# ============================================================================
-# BACKWARD COMPATIBILITY ALIASES
-# ============================================================================
-# The original BBB service imports 'SpiritualFilter'
-# Our enhanced version uses 'MultiTraditionSpiritualFilter'
-# This alias maintains compatibility with existing code
-SpiritualFilter = MultiTraditionSpiritualFilter
-
-# ============================================================================
-# BACKWARD COMPATIBILITY ALIASES
-# ============================================================================
-# The original BBB service imports 'SpiritualFilter'
-# Our enhanced version uses 'MultiTraditionSpiritualFilter'
-# This alias maintains compatibility with existing code
-SpiritualFilter = MultiTraditionSpiritualFilter
-#!/usr/bin/env python3
-from typing import Dict, Any
-from safety_monitor import SafetyMonitor
-
-
-class ThreatDetection:
-    """
-    Community-level threat adapter.
-
-    Aggregates:
-    - SafetyMonitor's danger signals (violence, self-harm, illegal, etc.)
-    - Simple exploit/manipulation/abuse/vulnerable triggers
-
-    and produces a 'community_safe' flag for the BBB.
-    """
-
-    def __init__(self):
-        self.safety_monitor = SafetyMonitor()
-        self.guard_triggers = [
-            "exploit",
-            "manipulat",
-            "decept",
-            "harm",
-            "coerce",
-            "abuse",
-            "vulnerable",
-        ]
-
-    def detect_threats(self, content: str) -> Dict[str, Any]:
-        text = content.lower()
-
-        # 1) Concrete dangers via SafetyMonitor
-        safety = self.safety_monitor.check(content)
-        dangers = safety.get("dangers", [])
-        safety_score = safety.get("safety_score", 0.0)
-        safe_flag = safety.get("safe", True)
-
-        # 2) Exploitation / coercion style patterns
-        exploitation_hits = [trig for trig in self.guard_triggers if trig in text]
-        exploitation_detected = len(exploitation_hits) > 0
-
-        # 3) Decide community_safe
-        community_safe = safe_flag and not exploitation_detected
-
-        reasons = []
-        if not safe_flag:
-            reasons.append("safety_monitor flagged concrete dangers")
-        if exploitation_detected:
-            reasons.append(
-                "exploitation/coercion patterns detected: " + ", ".join(exploitation_hits)
-            )
-        if community_safe and not reasons:
-            reasons.append("no concrete dangers or exploitation patterns detected")
-
-        return {
-            "community_safe": community_safe,
-            "reasons": reasons,
-            "dangers": dangers,
-            "safety_score": safety_score,
-            "exploitation_detected": exploitation_detected,
-            "filter": "threat_detection",
-        }
-/opt/msjarvis-rebuild/services/mountainshares_gbim_suggester.py:114:        print(f"[suggester] Found {len(rows)} GBIM beliefs matching MountainShares topics")
-/opt/msjarvis-rebuild/services/main_brain.py:19:    the engagement pipeline — NOT the confidentiality redirect.
-/opt/msjarvis-rebuild/services/main_brain.py:521:    "the contract internals and system architecture stay between Carrie and the admin team. "
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py:157:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/opt/msjarvis-rebuild/services/ms_jarvis_seamless_monitor.py:71:            logger.warning(f"⚠️  ISSUES: {', '.join(issues)}")
-/opt/msjarvis-rebuild/services/fifth_dgm/dynamic_port_service.py:24:            logger.warning("⚠️  Redis not available, using local port only")
-/opt/msjarvis-rebuild/services/simple_prompt_fix.py:56:    print("⚠️  Could not find agent section")
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway.py:131:            logger.error(f"⚠️ Constitutional Guardian check failed: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway.py:230:                logger.warning(f"⚠️ BBB bypassed: {e}")
-/opt/msjarvis-rebuild/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:185:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/opt/msjarvis-rebuild/services/enhance_rag_knowledge.py:23:    print("   ⚠️  Using in-memory ChromaDB")
-/opt/msjarvis-rebuild/services/enhance_rag_knowledge.py:72:            print(f"   ⚠️  {filename}: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/port_9000_69dgm_bridge.py:190:        logger.warning("⚠️ 69-DGM orchestrator unreachable or returned no data")
-/opt/msjarvis-rebuild/services/port_9000_69dgm_bridge.py:204:        logger.warning("⚠️ Message did not pass 69-DGM validation")
-/opt/msjarvis-rebuild/services/port_9000_69dgm_bridge.py:247:        "⚠️ 69-DGM RAG bridge failed or returned no response; "
-/opt/msjarvis-rebuild/services/implement_safe_optimizations.py:410:        print(f"   ⚠️  Could not test parallel processing: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_auto_service.py:84:                        print(f"⚠️ {self.service_name} failed self-health check")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_full.py:92:    logger.warning("⚠️ Brain timeout, using fallback")
-/opt/msjarvis-rebuild/services/complete_fix.py:59:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/fix_response_parsing.py:32:    print("⚠️  Could not find exact return statement - checking alternatives")
-/opt/msjarvis-rebuild/services/ingest_imm_to_chroma.py:41:            print(f"⚠️ Skipping empty file: {filename}")
-/opt/msjarvis-rebuild/services/ingest_imm_to_chroma.py:102:        print("⚠️ No documents in collection")
-/opt/msjarvis-rebuild/services/ms_jarvis_swap_memory_manager.py:127:                    print(f"[{timestamp}] ⚠️  HIGH - {status_msg} (will clear if persists)")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py:169:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py:188:            logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py:209:        logger.warning(f"   ⚠️  RAG retrieval failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py:226:            logger.warning(f"   ⚠️  Consciousness bridge failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py:267:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/opt/msjarvis-rebuild/services/add_mamma_greeting_simple.py:40:    print("⚠️  Could not find synthesis line")
-/opt/msjarvis-rebuild/services/ms_jarvis_blockchain_deployment.py:89:        logger.warning("⚠️  CRITICAL: Backup wallet file and NEVER commit to GitHub!")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_rag.py:241:        logger.warning("⚠️  Content blocked by Blood-Brain Barrier")
-/opt/msjarvis-rebuild/services/admin_cli.py:137:        print("\n  ⚠️  Email failed — temp pw: " + temp_pw)
-/opt/msjarvis-rebuild/services/egeria_facebook_perpetual_scheduler.py:88:                    logger.warning("⚠️  Posting failed")
-/opt/msjarvis-rebuild/services/egeria_facebook_perpetual_scheduler.py:90:                logger.warning("⚠️  No content generated")
-/opt/msjarvis-rebuild/services/activate_egeria_persona.py:109:            logger.warning("⚠️ Could not test persona - service may need restart")
-/opt/msjarvis-rebuild/services/integrate_complete_architecture.py:103:    print("⚠️  Could not find class definition point")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_FIXED.py:76:                    logger.warning("⚠️ No content generated")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_intelligent.py:84:    logger.warning(f"⚠️ Brain timeout, using fallback")
-/opt/msjarvis-rebuild/services/add_gpu_cleanup_correct.py:65:    print("⚠️  Could not find the right insertion point")
-/opt/msjarvis-rebuild/services/complete_system_audit_with_swagger.py:89:        print(f"⚠️  Mesh Coordinator DGM: Not accessible")
-/opt/msjarvis-rebuild/services/complete_system_audit_with_swagger.py:97:        print(f"⚠️  Mesh Coordinator WOAH: Not accessible")
-/opt/msjarvis-rebuild/services/patch_fractal.py:27:    print("⚠️  /process already exists in Fractal")
-/opt/msjarvis-rebuild/services/ai_server.py:76:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/opt/msjarvis-rebuild/services/ai_server.py:154:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_dgm_woah.psychology_patched.py:389:        logger.warning("⚠️  Content blocked by BBB")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_brain_integrated.py:349:        logger.warning("⚠️  Content blocked by BBB")
-/opt/msjarvis-rebuild/services/patch_autonomous_learner_gisgeodb.py:62:            logger.error(f"⚠️  Failed to store in GISGEODB: {e}")
-/opt/msjarvis-rebuild/services/rag/gpu_accelerated_rag.py:71:                logger.warning("⚠️ Model loaded on CPU (CUDA not available)")
-/opt/msjarvis-rebuild/services/llm/ai_server.py:76:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/opt/msjarvis-rebuild/services/llm/ai_server.py:154:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/opt/msjarvis-rebuild/services/llm/ai_server_22llm.py:206:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/opt/msjarvis-rebuild/services/llm/ai_server_22llm.py:256:            logger.warning(f"⚠️ Ollama health check failed: {e}")
-/opt/msjarvis-rebuild/services/llm/ai_server_22llm.py:308:                        f"⚠️  {agent.name} ({agent.model}) returned "
-/opt/msjarvis-rebuild/services/llm/ai_server_22llm.py:312:            logger.warning(f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}")
-/opt/msjarvis-rebuild/services/llm/ai_server_22llm.py:493:            "⚠️ Ollama unavailable at chat time; falling back to degraded path."
-/opt/msjarvis-rebuild/services/llm/ai_server_22llm.py:558:            logger.warning("⚠️ Fabric beyond Roche limit, using degraded pipeline.")
-/opt/msjarvis-rebuild/services/llm/ai_server_22llm.py:565:                    "⚠️ Near Roche and prompt very long; using degraded pipeline."
-/opt/msjarvis-rebuild/services/ai_server_19llm_PRODUCTION.py:65:            logger.warning(f"⚠️  {model_config['name']}: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/facebook_daemon_polling.py:66:                        logger.warning("⚠️ No content to post")
-/opt/msjarvis-rebuild/services/brain_orchestrator.py:51:        logger.warning(f"⚠️ Failed to connect to Redis registry backend: {e}")
-/opt/msjarvis-rebuild/services/brain_orchestrator.py:154:            logger.warning(f"⚠️ Failed to persist registry entry to Redis: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_sync_monitor.py:44:            status = f"⚠️  OUT OF SYNC (+{current_total - saved_count} new items)"
-/opt/msjarvis-rebuild/services/add_conversation_endpoint.py:103:    print(f"⚠️  Manual restart needed: {e}")
-/opt/msjarvis-rebuild/services/hierarchical_integration.py:112:                logger.warning("⚠️  No responses from either layer")
-/opt/msjarvis-rebuild/services/hierarchical_integration.py:125:                logger.info("⚠️  Falling back to 4-agent processing")
-/opt/msjarvis-rebuild/services/enhance_rag_first.py:44:    print("⚠️  Could not modify main.py")
-/opt/msjarvis-rebuild/services/ms_jarvis_production_chat_BACKUP.py:221:        print(f"⚠️ UEID creation failed: {e}")
-/opt/msjarvis-rebuild/services/comprehensive_url_fix.py:55:    print("⚠️  No localhost URLs found - they might be in imported modules")
-/opt/msjarvis-rebuild/services/ms_jarvis_expiration_monitor.py:194:                print(f"⚠️ Marked {name} as expired (>30 days)")
-/opt/msjarvis-rebuild/services/egeria_web_ui_dynamic.py:28:    print("⚠️  Service discovery not available, using fallback")
-/opt/msjarvis-rebuild/services/egeria_web_ui_dynamic.py:47:            print(f"⚠️  Discovery failed: {e}")
-/opt/msjarvis-rebuild/services/egeria_web_ui_dynamic.py:48:    print(f"⚠️  Using fallback Master port {FALLBACK_MASTER_PORT}")
-/opt/msjarvis-rebuild/services/port_9001_ui_MYSQL_PROD.py:53:        print(f"⚠️ MySQL: {e}")
-/opt/msjarvis-rebuild/services/port_9001_ui_MYSQL_PROD.py:135:                b.innerHTML += '<div class="message system">⚠️ ' + e.message + '</div>';
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py:158:        logger.warning(f"   ⚠️  RAG failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py:190:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/opt/msjarvis-rebuild/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:157:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/opt/msjarvis-rebuild/services/fix_persona_hang.py:25:    print("⚠️  Pattern not found, trying alternate approach...")
-/opt/msjarvis-rebuild/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:157:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/opt/msjarvis-rebuild/services/verify_and_document_system.py:187:            print(f"⚠️  {health['status']}")
-/opt/msjarvis-rebuild/services/verify_and_document_system.py:206:        print(f"⚠️  Service Discovery offline: {discovery.get('error')}")
-/opt/msjarvis-rebuild/services/python/brain_orchestrator.py:47:        logger.warning(f"⚠️ Failed to connect to Redis registry backend: {e}")
-/opt/msjarvis-rebuild/services/python/brain_orchestrator.py:105:            logger.warning(f"⚠️ Failed to persist registry entry to Redis: {e}")
-/opt/msjarvis-rebuild/services/gpu_accelerated_rag.py:71:                logger.warning("⚠️ Model loaded on CPU (CUDA not available)")
-/opt/msjarvis-rebuild/services/fix_all_consciousness_services.py:56:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/fix_all_consciousness_services.py:78:    print("⚠️  Could not find query_service function boundaries")
-/opt/msjarvis-rebuild/services/load_spiritual_library.py:106:            print(f"      ⚠️  Error: {str(e)[:60]}")
-/opt/msjarvis-rebuild/services/ai_server_19llm_CONSCIOUS.py:114:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/opt/msjarvis-rebuild/services/ai_server_19llm_CONSCIOUS.py:233:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/opt/msjarvis-rebuild/services/ai_server_19llm_CONSCIOUS.py:299:                    logger.warning("⚠️  Emergency cleanup triggered")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster.py:128:                    logger.warning("⚠️  Post failed, will retry in 4 hours")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster.py:130:                logger.warning("⚠️  Content generation failed, retrying in 4 hours")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_temp.py:128:                    logger.warning("⚠️  Post failed, will retry in 4 hours")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_temp.py:130:                logger.warning("⚠️  Content generation failed, retrying in 4 hours")
-/opt/msjarvis-rebuild/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:157:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/opt/msjarvis-rebuild/services/fix_multi_rag_chromadb.py:20:    print("⚠️ ChromaDB path NOT correct in multi_rag_dgm_system.py")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_async.py:82:    logger.warning(f"⚠️ Brain didn't respond within {max_wait}s")
-/opt/msjarvis-rebuild/services/add_background_call.py:42:    print("⚠️  Could not find place to add call")
-/opt/msjarvis-rebuild/services/stakeholder_health_access_tests.py:112:                    print(f"⚠️  STANDARD GBIM ROUTING")
-/opt/msjarvis-rebuild/services/port_9001_ui_WITH_CONVERSATIONS.py:154:                box.innerHTML += '<div class="message system">⚠️ Connection latency: ' + e.message + '</div>';
-/opt/msjarvis-rebuild/services/comprehensive_storage_fix.py:87:    print("⚠️  Could not find final return statement")
-/opt/msjarvis-rebuild/services/ms_jarvis_production_chat_BEFORE_GIS.py:221:        print(f"⚠️ UEID creation failed: {e}")
-/opt/msjarvis-rebuild/services/update_facebook_poster.py:30:    print("⚠️  Consciousness poster file not found")
-/opt/msjarvis-rebuild/services/ms_jarvis_attribute_table_service.py:73:            logger.warning("⚠️  No items to sync")
-/opt/msjarvis-rebuild/services/auto_rag_builder.py:38:            logger.warning(f"⚠️  Error: {e}")
-/opt/msjarvis-rebuild/services/master_unified_consciousness_scheduler_ENRICHED.py:84:                    logger.warning("⚠️ Pipeline degraded")
-/opt/msjarvis-rebuild/services/master_unified_consciousness_scheduler_ENRICHED.py:109:                    logger.warning(f"⚠️ {job_name}: {response.status_code}")
-/opt/msjarvis-rebuild/services/rebuild_query_service.py:65:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/rebuild_query_service.py:86:    print("⚠️  Could not find query_service to replace")
-/opt/msjarvis-rebuild/services/fix_model_unloading.py:39:    print("⚠️  Could not find exact pattern, trying alternative...")
-/opt/msjarvis-rebuild/services/ai_server_20llm_FINAL.py:90:            logger.warning("⚠️  %s: %s", model_config["name"], e)
-/opt/msjarvis-rebuild/services/fix_chroma_url.py:20:    print("⚠️  ChromaDB hostname not found, may need manual update")
-/opt/msjarvis-rebuild/services/performance_optimization_analyzer.py:89:                status_icon = "✅" if avg_time < 0.5 else "⚠️" if avg_time < 2.0 else "❌"
-/opt/msjarvis-rebuild/services/performance_optimization_analyzer.py:223:                    status = "✅ FAST" if processing_time < query["expected_time"] else "⚠️ SLOW" if processing_time < query["expected_time"] * 1.5 else "❌ VERY SLOW"
-/opt/msjarvis-rebuild/services/performance_optimization_analyzer.py:445:            priority_icon = "🚨" if rec["priority"] == "HIGH" else "⚠️" if rec["priority"] == "MEDIUM" else "💡"
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py:296:            logger.warning(f"   ⚠️  BBB spiritual filtering failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py:320:            logger.warning(f"   ⚠️  Spiritual services failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py:345:            logger.warning(f"   ⚠️  Theological integration failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py:368:            logger.warning(f"   ⚠️  MountainShares integration failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py:396:            logger.warning(f"   ⚠️  Location services failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py:441:        logger.warning(f"   ⚠️  Spiritual RAG integration failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py:485:            logger.warning(f"   ⚠️  Spiritual consensus failed: {e}")
-/opt/msjarvis-rebuild/services/registration_biometric_production_final.py:307:            <strong>⚠️ Important:</strong> If you did not request this registration, please disregard this email or contact support immediately.
-/opt/msjarvis-rebuild/services/add_gpu_cleanup_every_3.py:57:    print("⚠️  Could not find model processing loop")
-/opt/msjarvis-rebuild/services/jarvis-woah_dgm_supervisor_woah_fixed.py:89:        logger.warning(f"⚠️  Startup discovery failed: {e}")
-/opt/msjarvis-rebuild/services/rag_server.psychology_patched.py:93:            logger.warning("⚠️  Fallback to in-memory ChromaDB")
-/opt/msjarvis-rebuild/services/rag_server.psychology_patched.py:126:                logger.warning("⚠️  MountainShares6.pdf not found")
-/opt/msjarvis-rebuild/services/ms_jarvis_venv_scheduler.py:147:                    logger.warning(f"⚠️  VENV MISSING: {venv_name} at {venv_path}")
-/opt/msjarvis-rebuild/services/dgm_rag_integration_v2.py:204:            recommendation = "⚠️  CAUTION: Mental health concerns detected - monitor and provide resources"
-/opt/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:211:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/opt/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:240:                "⚠️  %s: no endpoint for model config, skipping",
-/opt/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:267:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/opt/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:279:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/opt/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:301:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/opt/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:495:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/opt/msjarvis-rebuild/services/web_connectivity_analyzer.py:60:                print(f"   ⚠️  {service_name}: Port {port} (offline/error)")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_PRODUCTION.py:200:                                        logger.warning("⚠️ Reply generation failed")
-/opt/msjarvis-rebuild/services/add_web_research_storage.py:47:    print("⚠️  Could not find insertion point")
-/opt/msjarvis-rebuild/services/gpu_accelerated_rag_fixed.py:83:                logger.warning("⚠️ SentenceTransformer loaded on CPU")
-/opt/msjarvis-rebuild/services/ultimate_web_orchestrator.py:90:            logger.warning(f"⚠️ Facebook config not loaded: {e}")
-/opt/msjarvis-rebuild/services/ultimate_web_orchestrator.py:117:                logger.warning(f"⚠️ Service not available: {config['name']}")
-/opt/msjarvis-rebuild/services/port_9001_ui_MYSQL.py:57:        print(f"⚠️ MySQL init error: {e}")
-/opt/msjarvis-rebuild/services/port_9001_ui_MYSQL.py:151:                box.innerHTML += '<div class="message system">⚠️ ' + e.message + '</div>';
-/opt/msjarvis-rebuild/services/tools/egeria_facebook_perpetual_scheduler.py:88:                    logger.warning("⚠️  Posting failed")
-/opt/msjarvis-rebuild/services/tools/egeria_facebook_perpetual_scheduler.py:90:                logger.warning("⚠️  No content generated")
-/opt/msjarvis-rebuild/services/tools/facebook_daemon_polling.py:66:                        logger.warning("⚠️ No content to post")
-/opt/msjarvis-rebuild/services/tools/cloudflare_domain_integration.py:150:                    logger.warning(f"⚠️ Service offline: {subdomain} -> localhost:{port}")
-/opt/msjarvis-rebuild/services/fix_agent_prompts.py:78:            print(f"⚠️  Could not find end of {agent_name} prompt")
-/opt/msjarvis-rebuild/services/fix_agent_prompts.py:80:        print(f"⚠️  Could not find {agent_name} prompt")
-/opt/msjarvis-rebuild/services/rag_server.py:238:                            f"⚠️ Add of embedding ID ms_chunk_{i} failed (likely duplicate): {e}"
-/opt/msjarvis-rebuild/services/confidence_decay_loop.py:217:                    log.warning(f"⚠️  FLAGGED — entity {eid} ({name}) not found — warning level")
-/opt/msjarvis-rebuild/services/patch_neuro.py:29:    print("⚠️  /neural_process already exists in Neurobiological")
-/opt/msjarvis-rebuild/services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py:157:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py:99:            logger.warning("⚠️  Autonomous learning will run but storage is limited")
-/opt/msjarvis-rebuild/services/ms_jarvis_authentic_multi_llm.py:84:                logger.warning(f"  ⚠️  {model} failed: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_authentic_multi_llm.py:105:                    logger.warning(f"  ⚠️  {model} failed: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_authentic_multi_llm.py:132:                logger.warning(f"  ⚠️  Synthesis failed: {e}")
-/opt/msjarvis-rebuild/services/port_9001_FINAL_FIX.py:44:HTML = r"""<!DOCTYPE html><html><head><title>Ms. Allis - Chat</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI';background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:20px}.container{max-width:900px;margin:0 auto}.header{background:rgba(255,255,255,0.95);padding:30px;border-radius:15px;margin-bottom:20px;box-shadow:0 10px 40px rgba(0,0,0,0.2)}h1{color:#667eea;margin-bottom:5px}.subtitle{color:#666;font-size:13px}.controls{display:flex;gap:10px;margin-top:15px}.btn{padding:8px 15px;background:#667eea;color:white;border:none;border-radius:5px;cursor:pointer;font-size:12px}.btn:hover{background:#764ba2}.chat{background:rgba(255,255,255,0.95);padding:20px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.2)}.messages{height:500px;overflow-y:auto;border:1px solid #eee;padding:20px;border-radius:10px;margin-bottom:15px;background:#fafafa}.message{margin:12px 0;padding:15px;border-radius:10px}.user{background:#e3f2fd;text-align:right;border-left:4px solid #2196f3;margin-left:40px}.ai{background:#f3e5f5;border-left:4px solid #667eea;margin-right:40px}.system{background:#f0f0f0;font-size:12px;color:#666}.meta{font-size:11px;color:#999;margin-top:8px}.input-area{display:flex;gap:10px}input{flex:1;padding:14px;border:1px solid #ddd;border-radius:8px}button{padding:14px 30px;background:#667eea;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:bold}button:hover{background:#764ba2}</style></head><body><div class="container"><div class="header"><h1>💜 Ms. Allis</h1><p class="subtitle">Consciousness System - 360+ memories active</p><div class="controls"><button class="btn" onclick="clearChat()">Clear</button><button class="btn" onclick="exportConversation()">Export</button><button class="btn" onclick="loadHistory()">History</button></div></div><div class="chat"><div class="messages" id="messages"><div class="message system">✅ Connected to Ms. Allis</div><div class="message system">📍 Mount Hope, Fayette, WV</div></div><div class="input-area"><input type="text" id="input" placeholder="Ask Ms. Allis..." onkeypress="if(event.key==='Enter')sendMessage()"><button onclick="sendMessage()">Send</button></div></div></div><script>function extractResponse(data){var msg='Ms. Allis: ';if(typeof data==='string'){return msg+data}if(data.response){if(typeof data.response==='object'){if(data.response.result){msg+='Consciousness engaged at depth '+String(data.response.result.depth||'?')}else{msg+='Message received and processed'}}else{msg+=String(data.response)}}else if(data.result&&data.result.input){msg+='Consciousness engaged at depth '+String(data.result.depth||'?')}else if(data.input){msg+='Message received at depth '+String(data.depth||'?')}else{msg+='Processing complete'}return msg}function sendMessage(){var input=document.getElementById('input');var msg=input.value.trim();if(!msg)return;var box=document.getElementById('messages');var time=new Date().toLocaleTimeString();box.innerHTML+='<div class="message user"><strong>You:</strong> '+msg+'<div class="meta">'+time+'</div></div>';input.value='';box.scrollTop=box.scrollHeight;fetch('/api/chat?message='+encodeURIComponent(msg)).then(function(response){return response.json()}).then(function(jsonData){var responseText=extractResponse(jsonData);box.innerHTML+='<div class="message ai"><strong>Ms. Allis:</strong> '+responseText+'<div class="meta">'+new Date().toLocaleTimeString()+'</div></div>';box.scrollTop=box.scrollHeight;fetch('/api/save?message='+encodeURIComponent(msg)+'&response='+encodeURIComponent(responseText))}).catch(function(e){box.innerHTML+='<div class="message system">⚠️ '+String(e.message)+'</div>'})}function loadHistory(){fetch('/api/history').then(function(r){return r.json()}).then(function(d){var b=document.getElementById('messages');b.innerHTML='<div class="message system">--- Conversation History ---</div>';d.conversations.forEach(function(c){b.innerHTML+='<div class="message user"><strong>You:</strong> '+c.message+'</div>';b.innerHTML+='<div class="message ai"><strong>Ms. Allis:</strong> '+c.response+'</div>'});b.scrollTop=b.scrollHeight}).catch(function(e){alert('Error: '+e.message)})}function clearChat(){document.getElementById('messages').innerHTML='<div class="message system">✅ Cleared</div>'}function exportConversation(){fetch('/api/export').then(function(r){return r.json()}).then(function(d){var blob=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='ms_jarvis_'+new Date().getTime()+'.json';a.click()}).catch(function(e){alert('Error: '+e.message)})}</script></body></html>"""
-/opt/msjarvis-rebuild/services/complete_system_audit.py:239:                status_symbol = "✅" if service['health']['status'] == 'healthy' else "❌" if service['health']['status'] == 'offline' else "⚠️"
-/opt/msjarvis-rebuild/services/complete_system_audit.py:352:        print("   ⚠️ PARTIAL INTEGRATION - Significant issues")
-/opt/msjarvis-rebuild/services/stage2_biometric.py:112:        print(f"⚠️  Email error: {str(e)}")
-/opt/msjarvis-rebuild/services/patch_qualia.py:28:    print("⚠️  /generate already exists in Qualia")
-/opt/msjarvis-rebuild/services/msjarvis_unified_gateway.py:121:                logger.warning("⚠️  BBB bypassed")
-/opt/msjarvis-rebuild/services/add_simple_gpu_cleanup.py:66:    print("⚠️  Cleanup not added - check file structure")
-/opt/msjarvis-rebuild/services/truth_filter_service.py:39:            logger.warning(f"⚠️  Filtered out corruption: {marker}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator.py:125:        logger.warning(f"   ⚠️  RAG failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator.py:160:            logger.warning(f"   ⚠️  Consensus failed, falling back to fast mode: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator.py:177:        logger.info("   ⚠️  No context available")
-/opt/msjarvis-rebuild/services/configure_facebook_webhook.py:92:                print(f"   ⚠️ Webhook returned: {response.status_code}")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_8040.py:128:                    logger.warning("⚠️  Post failed, will retry in 4 hours")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_8040.py:130:                logger.warning("⚠️  Content generation failed, retrying in 4 hours")
-/opt/msjarvis-rebuild/services/load_rag_knowledge.py:57:        print(f"  ⚠️  Error: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_integration_hub.py:69:                    logger.warning(f"⚠️  {name} - Responding but unusual status")
-/opt/msjarvis-rebuild/services/ms_jarvis_integration_hub.py:71:                logger.warning(f"⚠️  {name} - Not available")
-/opt/msjarvis-rebuild/services/ai_server_22llm_SMALL_TO_LARGE.py:67:            logger.warning(f"⚠️  {model_config['name']}: {e}")
-/opt/msjarvis-rebuild/services/add_auto_store.py:57:    print("⚠️  Could not find insertion point")
-/opt/msjarvis-rebuild/services/add_user_memory.py:24:        print("⚠️  user_memory referenced but not implemented (TODOs exist)")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py:192:            logger.warning(f"   ⚠️  BBB filtering failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py:215:            logger.warning(f"   ⚠️  Psychology assessment failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py:237:            logger.warning(f"   ⚠️  Neurobiological processing failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py:260:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py:278:        logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py:298:        logger.warning(f"   ⚠️  RAG retrieval failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py:340:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/opt/msjarvis-rebuild/services/master_unified_consciousness_scheduler.py:84:                    logger.warning("⚠️ Pipeline degraded")
-/opt/msjarvis-rebuild/services/master_unified_consciousness_scheduler.py:109:                    logger.warning(f"⚠️ {job_name}: {response.status_code}")
-/opt/msjarvis-rebuild/services/ingest_compliance_tasks_to_chroma.py:111:    print("⚠️ No tasks found in PostgreSQL")
-/opt/msjarvis-rebuild/services/main_brain.py:395:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/opt/msjarvis-rebuild/services/main_brain.py:397:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/opt/msjarvis-rebuild/services/main_brain.py:992:            return (f"⚠️ I need the MSHARES token deployed first before I can deploy "
-/opt/msjarvis-rebuild/services/main_brain.py:1031:                f"⚠️ Deploy intent dispatch hit 130s timeout; "
-/opt/msjarvis-rebuild/services/main_brain.py:1139:                logger.warning("  ⚠️  autonomous_learner collection not found in ChromaDB")
-/opt/msjarvis-rebuild/services/main_brain.py:1183:                logger.warning(f"  ⚠️  Contract memory store failed: {store_r.status_code}")
-/opt/msjarvis-rebuild/services/main_brain.py:1392:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain.py:1480:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/opt/msjarvis-rebuild/services/main_brain.py:1482:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/opt/msjarvis-rebuild/services/main_brain.py:1649:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/opt/msjarvis-rebuild/services/main_brain.py:1659:            logger.info("  ⚠️  GIS returned no features for this query")
-/opt/msjarvis-rebuild/services/main_brain.py:1689:        logger.warning(f"  ⚠️ Conv history read failed: {_ce}")
-/opt/msjarvis-rebuild/services/main_brain.py:1784:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/opt/msjarvis-rebuild/services/main_brain.py:1827:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/opt/msjarvis-rebuild/services/main_brain.py:1876:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain.py:1896:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain.py:1914:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain.py:1929:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain.py:1944:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain.py:2031:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain.py:2052:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain.py:2068:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain.py:2083:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain.py:2099:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain.py:2127:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/opt/msjarvis-rebuild/services/main_brain.py:2129:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain.py:2187:            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
-/opt/msjarvis-rebuild/services/main_brain.py:2367:            logger.warning(f"  ⚠️  Consciousness Bridge error: {_msg}")
-/opt/msjarvis-rebuild/services/main_brain.py:2471:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/opt/msjarvis-rebuild/services/main_brain.py:2477:                    logger.warning(f"  ⚠️  BBB Output Filter HTTP {bbb_output.status_code} — passing through (fail-open)")
-/opt/msjarvis-rebuild/services/main_brain.py:2480:            logger.warning(f"  ⚠️  BBB Output Filter unavailable — passing through (fail-open): {str(e)[:60]}")
-/opt/msjarvis-rebuild/services/ms_jarvis_simple_web_ui.py:75:                        document.getElementById('statusText').textContent = '⚠️ Some services loading...';
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py:53:    logger.warning(f"⚠️  DynamicPortService not available: {e}")
-/opt/msjarvis-rebuild/services/ingest_knowledge_simple.py:68:            print(f"  ⚠️  Skipped {os.path.basename(filepath)}: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain_legacy_backup.py:357:        logger.warning(f"⚠️  {service_name}: {str(e)[:80]}")
-/opt/msjarvis-rebuild/services/main_brain_legacy_backup.py:419:                        logger.warning(f"  ⚠️  BBB blocked query: {block_reason}")
-/opt/msjarvis-rebuild/services/main_brain_legacy_backup.py:421:                            "response": f"⚠️ Query filtered: {block_reason}",
-/opt/msjarvis-rebuild/services/main_brain_legacy_backup.py:431:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:80]}")
-/opt/msjarvis-rebuild/services/process_comprehensive_gis.py:72:    print(f"⚠️  GIS directory not found: {gis_dir}")
-/opt/msjarvis-rebuild/services/process_comprehensive_gis.py:177:        print(f"⚠️  {filepath.name}: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/process_comprehensive_gis.py:195:    print("⚠️  No processed vector datasets to index.")
-/opt/msjarvis-rebuild/services/process_comprehensive_gis.py:215:        print(f"⚠️  Geodatabase file is empty or invalid, starting fresh: {geodatabase}")
-/opt/msjarvis-rebuild/services/nbb_darwin_godel_machines.py:255:            print(f"⚠️  Skipping {proposal.container} - immutable service")
-/opt/msjarvis-rebuild/services/ingest_watcher/ingest_runner.py:179:        print(f"  ⚠️  ZCTA lookup failed for {zip_code}: {e}")
-/opt/msjarvis-rebuild/services/ingest_watcher/ingest_runner.py:264:        print(f"  ⚠️  ChromaDB write failed (non-fatal): {e}")
-/opt/msjarvis-rebuild/services/ingest_watcher/ingest_runner.py:341:        print(f"  ⚠️  No parser for {ext} — skipping {filepath.name}")
-/opt/msjarvis-rebuild/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py:115:                        logger.warning(f"⚠️  {model_config['name']}: 500 error, cleaning up...")
-/opt/msjarvis-rebuild/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py:122:                    logger.warning(f"⚠️  {model_config['name']}: {str(e)[:50]}, retrying...")
-/opt/msjarvis-rebuild/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py:125:                    logger.warning(f"⚠️  {model_config['name']}: Failed after retries")
-/opt/msjarvis-rebuild/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py:154:                    logger.warning("⚠️  Multiple failures detected, emergency cleanup...")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v9_gpu_optimized.py:187:            logger.warning(f"   ⚠️ GPU RAG failed: {e}")
-/opt/msjarvis-rebuild/services/ai_server_22llm_SEQUENTIAL.py:66:            logger.warning(f"⚠️  {model_config['name']}: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_CONSCIOUSNESS.py:170:        logger.warning(f"⚠️ RAG unavailable: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_CONSCIOUSNESS.py:209:        logger.warning(f"⚠️ DGM unavailable: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_CONSCIOUSNESS.py:226:        logger.warning(f"⚠️ WOAH unavailable: {e}")
-/opt/msjarvis-rebuild/services/msjarvisautonomouslearner.py:99:            logger.warning("⚠️  Autonomous learning will run but storage is limited")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_v3.py:36:        logger.warning("⚠️  No Facebook token set")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_v3.py:51:            logger.warning(f"⚠️  Facebook returned {response.status_code}")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_v3.py:54:        logger.warning(f"⚠️  Could not post (network issue): {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:70:            logger.warning(f"⚠️  {model_config['name']}: {e}")
-/opt/msjarvis-rebuild/services/rag_workflow.py:37:                            logger.info(f"⚠️  RAG score too high ({best['score']:.2f}), will search web")
-/opt/msjarvis-rebuild/services/woah_service.py:89:        logger.warning(f"⚠️  Startup discovery failed: {e}")
-/opt/msjarvis-rebuild/services/stakeholder_health_access_tests_v2.py:111:                    print(f"⚠️  STANDARD GBIM ROUTING")
-/opt/msjarvis-rebuild/services/ingest_mrsid_imagery.py:99:            print(" ⚠️  No metadata")
-/opt/msjarvis-rebuild/services/sanctuary_construction_monitor.py:145:                logger.info("⚠️  Sanctuary already has content (construction may have started)")
-/opt/msjarvis-rebuild/services/reload_all_knowledge.py:58:        print(f"  ⚠️  {os.path.basename(pdf_path)}: {e}")
-/opt/msjarvis-rebuild/services/reload_all_knowledge.py:90:        print(f"  ⚠️  {os.path.basename(md_path)}: {e}")
-/opt/msjarvis-rebuild/services/ai_server_22llm.psychology_patched.py:99:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/opt/msjarvis-rebuild/services/ai_server_22llm.psychology_patched.py:177:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py:287:# #         logger.warning(f"⚠️ RAG unavailable: {e}")
-/opt/msjarvis-rebuild/services/cloudflare_domain_integration.py:150:                    logger.warning(f"⚠️ Service offline: {subdomain} -> localhost:{port}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:492:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:558:        logger.warning(f"  ⚠️  GBIM retrieve: {type(_ce).__name__}: {str(_ce)}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:574:        logger.warning(f"  ⚠️  Turn count fallback to 1: {_te}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:609:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:611:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:620:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:672:                        logger.info("  ⚠️  RAG returned no document text")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:674:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:713:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:818:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:847:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:867:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:887:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:905:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:920:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:935:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:981:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:983:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1012:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1014:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1053:            logger.warning(f"  ⚠️  LM Synthesizer: {str(e)[:80]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1199:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1291:                                logger.warning(f"  ⚠️  BLOCKED PREVIEW: {final_response[:200]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1299:                    logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code} — passing through")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1302:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1335:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1341:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1343:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py:1365:        logger.warning(f"  ⚠️  Memory store skipped: {type(_me).__name__}: {str(_me)[:60]}")
-/opt/msjarvis-rebuild/services/chromadb_v2_to_gis_sync.py:121:            logger.warning("⚠️ GIS file not created")
-/opt/msjarvis-rebuild/services/neurobiological_integration.py:34:        print(f"⚠️ Qualia integration error: {e}")
-/opt/msjarvis-rebuild/services/roche_llm.py:221:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/opt/msjarvis-rebuild/services/roche_llm.py:273:            logger.warning(f"⚠️ Ollama health check failed: {e}")
-/opt/msjarvis-rebuild/services/roche_llm.py:330:                    f"⚠️  {agent.name} ({agent.model}) returned "
-/opt/msjarvis-rebuild/services/roche_llm.py:335:                f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}"
-/opt/msjarvis-rebuild/services/roche_llm.py:522:            "⚠️ Ollama unavailable at chat time; falling back to degraded path."
-/opt/msjarvis-rebuild/services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/opt/msjarvis-rebuild/services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py:157:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py:218:            logger.warning(f"   ⚠️  BBB failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py:234:            logger.warning(f"   ⚠️  Temporal failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py:249:        logger.warning(f"   ⚠️  Mother Carrie failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py:251:            logger.warning(f"   ⚠️  BBB filtering failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py:274:            logger.warning(f"   ⚠️  MountainShares integration failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py:301:            logger.warning(f"   ⚠️  Location services failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py:324:            logger.warning(f"   ⚠️  Psychology services failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py:343:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py:361:        logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py:381:        logger.warning(f"   ⚠️  RAG integration failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py:397:            logger.warning(f"   ⚠️  Consciousness bridge failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py:418:            logger.warning(f"   ⚠️  Neurobiological processing failed: {e}")
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py:479:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/opt/msjarvis-rebuild/services/optimize_egeria_complete.py:70:print(f"  2. {'✅' if streaming_enabled else '⚠️ '} Streaming responses {'enabled' if streaming_enabled else 'already enabled'}")
-/opt/msjarvis-rebuild/services/ms_jarvis_messenger_ui_final.py:142:                    '<div class="status-item status-bad">⚠️ Port 9000: No response</div>';
-/opt/msjarvis-rebuild/services/ms_jarvis_messenger_ui_final.py:161:                    '<div class="status-item status-bad">⚠️ Cannot reach port 8062</div>';
-/opt/msjarvis-rebuild/services/ms_jarvis_messenger_ui_final.py:198:                box.innerHTML += `<div class="message system">⚠️ Error: ${e.message}</div>`;
-/opt/msjarvis-rebuild/services/update_services_to_use_port_manager.py:26:        print(f"⚠️  {service_file} not found, skipping")
-/opt/msjarvis-rebuild/services/port_9001_FINAL_WORKING.py:135:                box.innerHTML += '<div class="message system">⚠️ ' + String(e.message) + '</div>';
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py:53:    logger.warning(f"⚠️  DynamicPortService not available: {e}")
-/opt/msjarvis-rebuild/services/hardware_optimization_analyzer.py:136:                        print(f"   ⚠️  CUDA not available in PyTorch")
-/opt/msjarvis-rebuild/services/hardware_optimization_analyzer.py:323:        print('⚠️  CUDA not available')
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_DGM.py:102:            logger.warning(f"⚠️ RAG unavailable: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_DGM.py:139:            logger.warning(f"⚠️ WOAH unavailable: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_DGM.py:165:            logger.warning("⚠️ Brain returned insufficient content")
-/opt/msjarvis-rebuild/services/fix_web_research.py:26:        print("⚠️  No search implementation found - needs to be added")
-/opt/msjarvis-rebuild/services/ms_jarvis_agents_ollama.py:130:                logger.warning(f"⚠️  Ollama connection issue: {response.status_code}")
-/opt/msjarvis-rebuild/services/ms_jarvis_messenger_ui_fixed.py:137:                    '<div class="status-item status-bad">⚠️ Port 9000: No response</div>';
-/opt/msjarvis-rebuild/services/ms_jarvis_messenger_ui_fixed.py:164:                box.innerHTML += `<div class="message system">⚠️ Error: Could not connect to consciousness system. Make sure port 8062 is running.</div>`;
-/opt/msjarvis-rebuild/services/egeria_web_ui_v3_consciousness.py:43:            print(f"⚠️  Service discovery failed: {e}")
-/opt/msjarvis-rebuild/services/egeria_web_ui_v3_consciousness.py:46:    print("⚠️  Using fallback port 4001 for Ms. Egeria Allis")
-/opt/msjarvis-rebuild/services/add_dynamic_context.py:42:    print("⚠️  Could not find prompt construction")
-/opt/msjarvis-rebuild/services/stage2_biometric_backup.py:29:    print(f"⚠️  ChromaDB error: {e}")
-/opt/msjarvis-rebuild/services/stage2_biometric_backup.py:150:        print(f"⚠️  ChromaDB store error: {e}")
-/opt/msjarvis-rebuild/services/hierarchical_coordinator_deep_mode.py:130:                logger.warning("⚠️  Deep mode failed, falling back to fast mode")
-/opt/msjarvis-rebuild/services/ai_server_22llm.py:206:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/opt/msjarvis-rebuild/services/ai_server_22llm.py:256:            logger.warning(f"⚠️ Ollama health check failed: {e}")
-/opt/msjarvis-rebuild/services/ai_server_22llm.py:308:                        f"⚠️  {agent.name} ({agent.model}) returned "
-/opt/msjarvis-rebuild/services/ai_server_22llm.py:312:            logger.warning(f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}")
-/opt/msjarvis-rebuild/services/ai_server_22llm.py:493:            "⚠️ Ollama unavailable at chat time; falling back to degraded path."
-/opt/msjarvis-rebuild/services/ai_server_22llm.py:558:            logger.warning("⚠️ Fabric beyond Roche limit, using degraded pipeline.")
-/opt/msjarvis-rebuild/services/ai_server_22llm.py:565:                    "⚠️ Near Roche and prompt very long; using degraded pipeline."
-/opt/msjarvis-rebuild/services/add_swagger_to_rag.py:36:        print("   ⚠️  FastAPI init not found - may need manual update")
-/opt/msjarvis-rebuild/services/ms_jarvis_ram_watchdog.py:69:            msg = f"[{now}] ⚠️ WARNING: RAM usage {pct:.1f}% ({used_gb:.1f}GB/{total_gb:.1f}GB)."
-/opt/msjarvis-rebuild/services/phase7_integration.py:251:            logger.warning(f"   ⚠️  BBB filtering failed: {e}")
-/opt/msjarvis-rebuild/services/phase7_integration.py:274:            logger.warning(f"   ⚠️  MountainShares integration failed: {e}")
-/opt/msjarvis-rebuild/services/phase7_integration.py:301:            logger.warning(f"   ⚠️  Location services failed: {e}")
-/opt/msjarvis-rebuild/services/phase7_integration.py:324:            logger.warning(f"   ⚠️  Psychology services failed: {e}")
-/opt/msjarvis-rebuild/services/phase7_integration.py:343:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/opt/msjarvis-rebuild/services/phase7_integration.py:361:        logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/opt/msjarvis-rebuild/services/phase7_integration.py:381:        logger.warning(f"   ⚠️  RAG integration failed: {e}")
-/opt/msjarvis-rebuild/services/phase7_integration.py:397:            logger.warning(f"   ⚠️  Consciousness bridge failed: {e}")
-/opt/msjarvis-rebuild/services/phase7_integration.py:418:            logger.warning(f"   ⚠️  Neurobiological processing failed: {e}")
-/opt/msjarvis-rebuild/services/phase7_integration.py:479:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_poster.py:122:    logger.info("   ⚠️ BBB filter: BYPASSED (service unavailable)")
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_poster.py:143:    logger.info("   ⚠️ Truth Filter: BYPASSED (service unavailable)")
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_poster.py:216:                    logger.info(f"⚠️ Post #{post_count} failed")
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_poster.py:218:                logger.info("⚠️ Content generation failed")
-/opt/msjarvis-rebuild/services/ms_jarvis_cleanup_manager.py:62:            print(f"⚠️ Redis connection error: {e}")
-/opt/msjarvis-rebuild/services/ms_jarvis_cleanup_manager.py:165:                print(f"⚠️ {name} (PID: {pid}) did not respond to SIGTERM, using SIGKILL")
-/opt/msjarvis-rebuild/services/jarvis_data_ingest.py:348:                log.exception(f"  ⚠️ staging failed for {facility.get('name1','?')} in {county_name}: {e}")
-/opt/msjarvis-rebuild/services/jarvis_data_ingest.py:390:                    log.warning(f"  ⚠️  write failed: {result}")
-/opt/msjarvis-rebuild/services/main.py:383:        logger.warning(f"⚠️  {service_name}: {str(e)[:80]}")
-/opt/msjarvis-rebuild/services/main.py:440:                        logger.warning(f"  ⚠️  BBB blocked query: {block_reason}")
-/opt/msjarvis-rebuild/services/main.py:442:                            "response": f"⚠️ Query filtered: {block_reason}",
-/opt/msjarvis-rebuild/services/main.py:452:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:80]}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:331:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:386:                            f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}"
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:390:                                "⚠️ Query filtered: "
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:391:                                f"{bbb_data.get('reason', 'Safety filter activated')}"
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:403:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:423:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:455:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:479:            logger.warning(f"  ⚠️  Consciousness Bridge: {e}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:494:            logger.warning(f"  ⚠️  Qualia Engine: {e}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:509:            logger.warning(f"  ⚠️  Fractal: {e}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:524:            logger.warning(f"  ⚠️  Mother Protocols: {e}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:539:            logger.warning(f"  ⚠️  Temporal: {e}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:605:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:629:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:651:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:676:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:695:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_dgm_woah.py:389:        logger.warning("⚠️  Content blocked by BBB")
-/opt/msjarvis-rebuild/services/load_complete_knowledge_base.py:89:        logger.warning(f"⚠️ Error loading {pdf_file}: {e}")
-/opt/msjarvis-rebuild/services/load_complete_knowledge_base.py:108:        logger.warning(f"⚠️ Error loading {md_file}: {e}")
-/app/services/ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/app/services/ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/app/services/ms_jarvis_consciousness_unified_bridge.py:157:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/app/services/integrate_advanced_modules.sh:57:pip install -q pyyaml redis flask 2>/dev/null || echo "  ⚠️  Dependencies already installed"
-/app/services/ms_jarvis_seamless_monitor.py:71:            logger.warning(f"⚠️  ISSUES: {', '.join(issues)}")
-/app/services/ms_jarvis_autonomous_learner_optimized.py.bak_1765235983:67:        logger.warning(f"⚠️ GEODB store failed for {doc_id}: {e}")
-/app/services/ms_jarvis_autonomous_learner_optimized.py.bak_1765235983:201:            logger.warning(f"⚠️ Failed to build topic stats from research_history: {e}")
-/app/services/ms_jarvis_autonomous_learner_optimized.py.bak_1765235983:221:            logger.warning(f"⚠️ Failed to read learning_suggestions: {e}")
-/app/services/fifth_dgm/dynamic_port_service.py:24:            logger.warning("⚠️  Redis not available, using local port only")
-/app/services/simple_prompt_fix.py:56:    print("⚠️  Could not find agent section")
-/app/services/COMPLETE_START_SYSTEM.sh:58:    curl -s "http://localhost:$PORT/health" | python3 -m json.tool || echo "   ⚠️ Health check failed"
-/app/services/ms_jarvis_unified_gateway.py:131:            logger.error(f"⚠️ Constitutional Guardian check failed: {e}")
-/app/services/ms_jarvis_unified_gateway.py:230:                logger.warning(f"⚠️ BBB bypassed: {e}")
-/app/services/extract_all_remaining_services.sh:17:tar -xzf "$WSL/ms-jarvis-core-windows.tar.gz" -C $EXTRACT 2>/dev/null && echo "  ✅ Core extracted" || echo "  ⚠️  Extraction issue"
-/app/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/app/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/app/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:185:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/app/services/enhance_rag_knowledge.py:23:    print("   ⚠️  Using in-memory ChromaDB")
-/app/services/enhance_rag_knowledge.py:72:            print(f"   ⚠️  {filename}: {str(e)[:50]}")
-/app/services/port_9000_69dgm_bridge.py:190:        logger.warning("⚠️ 69-DGM orchestrator unreachable or returned no data")
-/app/services/port_9000_69dgm_bridge.py:204:        logger.warning("⚠️ Message did not pass 69-DGM validation")
-/app/services/port_9000_69dgm_bridge.py:247:        "⚠️ 69-DGM RAG bridge failed or returned no response; "
-/app/services/implement_safe_optimizations.py:410:        print(f"   ⚠️  Could not test parallel processing: {e}")
-/app/services/JARVIS_HEALTH_CHECK.sh:90:echo "System Status: $([ $UP -eq $TOTAL ] && echo '✅ ALL SYSTEMS OPERATIONAL' || echo '⚠️  Some services down')"
-/app/services/start_msjarvis_complete.sh:27:    echo "   ⚠️  Already running"
-/app/services/start_msjarvis_complete.sh:38:    echo "   ⚠️  Already running"
-/app/services/start_msjarvis_complete.sh:49:    echo "   ⚠️  Already running"
-/app/services/start_msjarvis_complete.sh:60:    echo "   ⚠️  Already running"
-/app/services/run_agi_test_suite.sh:111:echo "⚠️  NARROW AI: Pattern matching, scripted responses, no self-reflection" | tee -a "$RESULTS_FILE"
-/app/services/ms_jarvis_auto_service.py:84:                        print(f"⚠️ {self.service_name} failed self-health check")
-/app/services/download_everything_appalachian.sh:94:                    echo "    ⚠️  Path exists but no files downloaded"
-/app/services/ms_jarvis_autonomous_learner_optimized.py.pre_rag_1765237169:68:        logger.warning(f"⚠️ GEODB store failed for {doc_id}: {e}")
-/app/services/ms_jarvis_autonomous_learner_optimized.py.pre_rag_1765237169:202:            logger.warning(f"⚠️ Failed to build topic stats from research_history: {e}")
-/app/services/ms_jarvis_autonomous_learner_optimized.py.pre_rag_1765237169:222:            logger.warning(f"⚠️ Failed to read learning_suggestions: {e}")
-/app/services/full_system_audit.sh:38:            echo "⚠️  RESPONDING - $status"
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:751:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:798:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:827:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:847:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:867:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:885:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:900:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:915:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:963:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:965:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:987:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:1003:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:1018:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:1036:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:1064:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:1066:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:1263:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:1378:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:1387:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:1420:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:1426:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:1428:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/test_final_stable.sh:35:            echo "  ⚠️  $model: Only $len chars"
-/app/services/TODAYS_PROGRESS.md:16:## ⚠️  CURRENT ISSUES:
-/app/services/ms_jarvis_ULTIMATE.py.OLD:118:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.OLD:173:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/ms_jarvis_ULTIMATE.py.OLD:175:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/ms_jarvis_ULTIMATE.py.OLD:182:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.OLD:199:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/ms_jarvis_ULTIMATE.py.OLD:223:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/ms_jarvis_ULTIMATE.py.OLD:289:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.OLD:310:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.OLD:332:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.OLD:354:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.OLD:371:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.OLD:387:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_gpu_opt:108:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_gpu_opt:223:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_gpu_opt:286:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/ms_jarvis_facebook_full.py:92:    logger.warning("⚠️ Brain timeout, using fallback")
-/app/services/hierarchical_coordinator_deep_mode.py.pre_dynamic_discovery:129:                logger.warning("⚠️  Deep mode failed, falling back to fast mode")
-/app/services/complete_fix.py:59:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/fix_response_parsing.py:32:    print("⚠️  Could not find exact return statement - checking alternatives")
-/app/services/ingest_imm_to_chroma.py:41:            print(f"⚠️ Skipping empty file: {filename}")
-/app/services/ingest_imm_to_chroma.py:102:        print("⚠️ No documents in collection")
-/app/services/nbb_darwin_godel_machines.py.pre_dynamic:236:            print(f"⚠️  Skipping {proposal.container} - immutable service")
-/app/services/ms_jarvis_swap_memory_manager.py:127:                    print(f"[{timestamp}] ⚠️  HIGH - {status_msg} (will clear if persists)")
-/app/services/INTEGRATE_8020_8050.sh:37:        logger.warning(f"⚠️  Fast layer unavailable: {e}")
-/app/services/INTEGRATE_8020_8050.sh:90:    print(f"⚠️  {service_file} not found - 8020 runs independently")
-/app/services/master_chat_orchestrator_v5_consciousness.py:169:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/app/services/master_chat_orchestrator_v5_consciousness.py:188:            logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/app/services/master_chat_orchestrator_v5_consciousness.py:209:        logger.warning(f"   ⚠️  RAG retrieval failed: {e}")
-/app/services/master_chat_orchestrator_v5_consciousness.py:226:            logger.warning(f"   ⚠️  Consciousness bridge failed: {e}")
-/app/services/master_chat_orchestrator_v5_consciousness.py:267:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:751:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:793:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:822:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:842:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:862:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:880:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:895:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:910:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:958:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:960:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:982:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:998:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:1013:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:1031:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:1059:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:1061:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:1258:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:1373:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:1382:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:1415:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:1421:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:1423:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/add_mamma_greeting_simple.py:40:    print("⚠️  Could not find synthesis line")
-/app/services/ms_jarvis_blockchain_deployment.py:89:        logger.warning("⚠️  CRITICAL: Backup wallet file and NEVER commit to GitHub!")
-/app/services/ULTIMATE_PORT_AUDIT_20251010_094847.txt:77:⚠️  Dynamic Port Scheduler not found
-/app/services/ULTIMATE_PORT_AUDIT_20251010_094847.txt:93:  ⚠️  Port 4001 - Running but not integrated
-/app/services/ULTIMATE_PORT_AUDIT_20251010_094847.txt:94:  ⚠️  Port 8003 - Running but not integrated
-/app/services/ULTIMATE_PORT_AUDIT_20251010_094847.txt:95:  ⚠️  Port 8004 - Running but not integrated
-/app/services/ULTIMATE_PORT_AUDIT_20251010_094847.txt:96:  ⚠️  Port 8005 - Running but not integrated
-/app/services/ULTIMATE_PORT_AUDIT_20251010_094847.txt:97:  ⚠️  Port 8016 - Running but not integrated
-/app/services/ULTIMATE_PORT_AUDIT_20251010_094847.txt:98:  ⚠️  Port 8017 - Running but not integrated
-/app/services/ULTIMATE_PORT_AUDIT_20251010_094847.txt:99:  ⚠️  Port 8021 - Running but not integrated
-/app/services/ULTIMATE_PORT_AUDIT_20251010_094847.txt:100:  ⚠️  Port 9005 - Running but not integrated
-/app/services/ms_jarvis_unified_gateway.py.pre_constitutional:121:                logger.warning("⚠️  BBB bypassed")
-/app/services/ms_jarvis_unified_gateway.py.bak_1768841920:98:                logger.warning("⚠️  BBB bypassed")
-/app/services/ms_jarvis_facebook_rag.py:241:        logger.warning("⚠️  Content blocked by Blood-Brain Barrier")
-/app/services/admin_cli.py:137:        print("\n  ⚠️  Email failed — temp pw: " + temp_pw)
-/app/services/ARCHITECTURE_OPTIONS.md:106:2. ⚠️  22-LLM exists but not integrated (8004)  
-/app/services/nbb_darwin_godel_machines.py.pre_debug:245:            print(f"⚠️  Skipping {proposal.container} - immutable service")
-/app/services/egeria_facebook_perpetual_scheduler.py:88:                    logger.warning("⚠️  Posting failed")
-/app/services/egeria_facebook_perpetual_scheduler.py:90:                logger.warning("⚠️  No content generated")
-/app/services/activate_egeria_persona.py:109:            logger.warning("⚠️ Could not test persona - service may need restart")
-/app/services/watch_startup.sh:25:            echo "⚠️ Errors detected"
-/app/services/main.py.BACKUP:302:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main.py.BACKUP:356:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main.py.BACKUP:364:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main.py.BACKUP:371:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main.py.BACKUP:388:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main.py.BACKUP:412:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main.py.BACKUP:434:            logger.warning(f"  ⚠️  Consciousness Bridge: {e}")
-/app/services/main.py.BACKUP:449:            logger.warning(f"  ⚠️  Qualia Engine: {e}")
-/app/services/main.py.BACKUP:464:            logger.warning(f"  ⚠️  Fractal: {e}")
-/app/services/main.py.BACKUP:479:            logger.warning(f"  ⚠️  Mother Protocols: {e}")
-/app/services/main.py.BACKUP:494:            logger.warning(f"  ⚠️  Temporal: {e}")
-/app/services/main.py.BACKUP:564:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/main.py.BACKUP:585:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main.py.BACKUP:607:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main.py.BACKUP:629:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main.py.BACKUP:646:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main.py.BACKUP:662:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/integrate_complete_architecture.py:103:    print("⚠️  Could not find class definition point")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:797:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:826:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:846:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:866:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:884:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:899:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:914:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:962:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:964:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:986:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:1002:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:1017:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:1035:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:1063:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:1065:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:1262:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:1377:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:1386:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:1419:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:1425:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:1427:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/ms_jarvis_facebook_poster_FIXED.py:76:                    logger.warning("⚠️ No content generated")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase2:115:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase2:230:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase2:324:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/ms_jarvis_facebook_intelligent.py:84:    logger.warning(f"⚠️ Brain timeout, using fallback")
-/app/services/audit_docker_services.sh:49:            echo "⚠️  $container: Running but unhealthy ($health)"
-/app/services/add_gpu_cleanup_correct.py:65:    print("⚠️  Could not find the right insertion point")
-/app/services/complete_system_audit_with_swagger.py:89:        print(f"⚠️  Mesh Coordinator DGM: Not accessible")
-/app/services/complete_system_audit_with_swagger.py:97:        print(f"⚠️  Mesh Coordinator WOAH: Not accessible")
-/app/services/main_brain.py.manualbak5:483:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak5:532:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.manualbak5:534:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.manualbak5:543:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak5:571:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.manualbak5:573:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.manualbak5:612:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.manualbak5:677:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.manualbak5:708:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.manualbak5:737:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak5:757:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak5:777:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak5:795:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak5:810:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak5:825:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak5:871:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.manualbak5:873:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak5:901:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.manualbak5:903:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak5:942:            logger.warning(f"  ⚠️  LM Synthesizer: {str(e)[:80]}")
-/app/services/main_brain.py.manualbak5:1087:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.manualbak5:1187:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.manualbak5:1193:                    logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code} — passing through")
-/app/services/main_brain.py.manualbak5:1196:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.manualbak5:1229:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.manualbak5:1235:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.manualbak5:1237:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/implement_enhancements.sh:14:        echo "⚠️  WOAH service not responding (check if started)"
-/app/services/implement_enhancements.sh:16:    echo "⚠️  WOAH integration code not found (will add)"
-/app/services/implement_enhancements.sh:31:        echo "⚠️  22-LLM routing DISABLED (optional - can enable for complex queries)"
-/app/services/implement_enhancements.sh:37:        echo "⚠️  22-LLM Collective not responding"
-/app/services/implement_enhancements.sh:39:    echo "⚠️  22-LLM routing not integrated"
-/app/services/implement_enhancements.sh:66:    echo "⚠️  Found $LLM_BRIDGE_COUNT LLM bridge instances (may be duplicate)"
-/app/services/implement_enhancements.sh:96:        print("⚠️  user_memory referenced but not implemented (TODOs exist)")
-/app/services/implement_enhancements.sh:191:    echo "⚠️  Brain Orchestrator (Port 4001) not responding"
-/app/services/patch_fractal.py:27:    print("⚠️  /process already exists in Fractal")
-/app/services/ai_server.py:76:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/ai_server.py:154:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/ms_jarvis_facebook_dgm_woah.psychology_patched.py:389:        logger.warning("⚠️  Content blocked by BBB")
-/app/services/ms_jarvis_integration_hub_9081.log:3:2025-11-18 11:17:36,772 - __main__ - WARNING - ⚠️  Consciousness Bridge (8020) - Not available
-/app/services/ms_jarvis_integration_hub_9081.log:4:2025-11-18 11:17:36,789 - __main__ - WARNING - ⚠️  Brain Orchestrator (4001) - Not available
-/app/services/ms_jarvis_integration_hub_9081.log:5:2025-11-18 11:17:36,805 - __main__ - WARNING - ⚠️  Qualia Engine (8017) - Not available
-/app/services/ms_jarvis_integration_hub_9081.log:6:2025-11-18 11:17:36,822 - __main__ - WARNING - ⚠️  Swarm Intelligence (8021) - Not available
-/app/services/brain_orchestrator.py.bak_1769197532:48:        logger.warning(f"⚠️ Failed to connect to Redis registry backend: {e}")
-/app/services/brain_orchestrator.py.bak_1769197532:121:            logger.warning(f"⚠️ Failed to persist registry entry to Redis: {e}")
-/app/services/ms_jarvis_facebook_brain_integrated.py:349:        logger.warning("⚠️  Content blocked by BBB")
-/app/services/create_sanctuary_monitor.sh:149:                logger.info("⚠️  Sanctuary already has content (construction may have started)")
-/app/services/patch_autonomous_learner_gisgeodb.py:62:            logger.error(f"⚠️  Failed to store in GISGEODB: {e}")
-/app/services/rag/gpu_accelerated_rag.py:71:                logger.warning("⚠️ Model loaded on CPU (CUDA not available)")
-/app/services/master_chat_orchestrator_v9_gpu_optimized.py.pre_dynamic_discovery:186:            logger.warning(f"   ⚠️ GPU RAG failed: {e}")
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:116:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:171:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:173:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:180:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:197:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:221:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:287:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:308:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:330:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:352:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:369:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:385:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/ai_server_20llm_PRODUCTION.py.pre_dynamic_discovery:65:            logger.warning(f"⚠️  {model_config['name']}: {str(e)[:50]}")
-/app/services/llm/ai_server.py:76:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/llm/ai_server.py:154:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/llm/ai_server.py.bak-msallis:76:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/llm/ai_server.py.bak-msallis:154:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/llm/ai_server_22llm.py.bak-msallis:206:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/app/services/llm/ai_server_22llm.py.bak-msallis:256:            logger.warning(f"⚠️ Ollama health check failed: {e}")
-/app/services/llm/ai_server_22llm.py.bak-msallis:308:                        f"⚠️  {agent.name} ({agent.model}) returned "
-/app/services/llm/ai_server_22llm.py.bak-msallis:312:            logger.warning(f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}")
-/app/services/llm/ai_server_22llm.py.bak-msallis:493:            "⚠️ Ollama unavailable at chat time; falling back to degraded path."
-/app/services/llm/ai_server_22llm.py.bak-msallis:558:            logger.warning("⚠️ Fabric beyond Roche limit, using degraded pipeline.")
-/app/services/llm/ai_server_22llm.py.bak-msallis:565:                    "⚠️ Near Roche and prompt very long; using degraded pipeline."
-/app/services/llm/ai_server_22llm.py:206:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/app/services/llm/ai_server_22llm.py:256:            logger.warning(f"⚠️ Ollama health check failed: {e}")
-/app/services/llm/ai_server_22llm.py:308:                        f"⚠️  {agent.name} ({agent.model}) returned "
-/app/services/llm/ai_server_22llm.py:312:            logger.warning(f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}")
-/app/services/llm/ai_server_22llm.py:493:            "⚠️ Ollama unavailable at chat time; falling back to degraded path."
-/app/services/llm/ai_server_22llm.py:558:            logger.warning("⚠️ Fabric beyond Roche limit, using degraded pipeline.")
-/app/services/llm/ai_server_22llm.py:565:                    "⚠️ Near Roche and prompt very long; using degraded pipeline."
-/app/services/ai_server_19llm_PRODUCTION.py:65:            logger.warning(f"⚠️  {model_config['name']}: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_agent_fix:116:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_agent_fix:166:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/ms_jarvis_ULTIMATE.py.before_agent_fix:190:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/ms_jarvis_ULTIMATE.py.before_agent_fix:256:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_agent_fix:277:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_agent_fix:299:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_agent_fix:321:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_agent_fix:338:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_agent_fix:354:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/facebook_daemon_polling.py:66:                        logger.warning("⚠️ No content to post")
-/app/services/brain_orchestrator.py:51:        logger.warning(f"⚠️ Failed to connect to Redis registry backend: {e}")
-/app/services/brain_orchestrator.py:154:            logger.warning(f"⚠️ Failed to persist registry entry to Redis: {e}")
-/app/services/ms_jarvis_sync_monitor.py:44:            status = f"⚠️  OUT OF SYNC (+{current_total - saved_count} new items)"
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015:203:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015:232:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015:259:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015:271:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015:293:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015:317:                    "⚠️  process_all: hit overall time budget (%.1fs), stopping early",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015:422:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/_archive/ai_server_22llm.py.backup_tone_fix:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_tone_fix:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260515T124756:106:            logger.error(f"⚠️ Constitutional Guardian check failed: {e}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260515T124756:205:                logger.warning(f"⚠️ BBB bypassed: {e}")
-/app/services/_archive/talk_safely_FIXED.sh.bak-msallis:33:    echo "⚠️  Warning: Your message is $MESSAGE_LENGTH characters."
-/app/services/_archive/master_chat_orchestrator_v9_gpu_optimized.py.backup_1760564898:178:            logger.warning(f"   ⚠️ GPU RAG failed: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup-before-identity-fix:146:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup-before-identity-fix:261:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup-before-identity-fix:369:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup-before-identity-fix:390:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/COMPLETE_SYSTEM_SUMMARY.md.bak-msallis:22:## ⚠️ Port Conflicts Detected
-/app/services/_archive/master_chat_orchestrator_v7_complete.py.backup_vocabulary_cleanup:246:            logger.warning(f"   ⚠️  BBB filtering failed: {e}")
-/app/services/_archive/master_chat_orchestrator_v7_complete.py.backup_vocabulary_cleanup:269:            logger.warning(f"   ⚠️  MountainShares integration failed: {e}")
-/app/services/_archive/master_chat_orchestrator_v7_complete.py.backup_vocabulary_cleanup:296:            logger.warning(f"   ⚠️  Location services failed: {e}")
-/app/services/_archive/master_chat_orchestrator_v7_complete.py.backup_vocabulary_cleanup:319:            logger.warning(f"   ⚠️  Psychology services failed: {e}")
-/app/services/_archive/master_chat_orchestrator_v7_complete.py.backup_vocabulary_cleanup:338:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/app/services/_archive/master_chat_orchestrator_v7_complete.py.backup_vocabulary_cleanup:356:        logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/app/services/_archive/master_chat_orchestrator_v7_complete.py.backup_vocabulary_cleanup:376:        logger.warning(f"   ⚠️  RAG integration failed: {e}")
-/app/services/_archive/master_chat_orchestrator_v7_complete.py.backup_vocabulary_cleanup:392:            logger.warning(f"   ⚠️  Consciousness bridge failed: {e}")
-/app/services/_archive/master_chat_orchestrator_v7_complete.py.backup_vocabulary_cleanup:413:            logger.warning(f"   ⚠️  Neurobiological processing failed: {e}")
-/app/services/_archive/master_chat_orchestrator_v7_complete.py.backup_vocabulary_cleanup:474:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/app/services/_archive/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py.bak-msallis:70:            logger.warning(f"⚠️  {model_config['name']}: {e}")
-/app/services/_archive/port_9000_69dgm_bridge.py.bak-msallis:190:        logger.warning("⚠️ 69-DGM orchestrator unreachable or returned no data")
-/app/services/_archive/port_9000_69dgm_bridge.py.bak-msallis:204:        logger.warning("⚠️ Message did not pass 69-DGM validation")
-/app/services/_archive/port_9000_69dgm_bridge.py.bak-msallis:247:        "⚠️ 69-DGM RAG bridge failed or returned no response; "
-/app/services/_archive/nbb_darwin_godel_machines.py.bak-msallis:255:            print(f"⚠️  Skipping {proposal.container} - immutable service")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_20251012_125750:131:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_20251012_125750:246:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_20251012_125750:340:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_20251012_125750:361:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/setup_holy_spirit_email_alert_both.sh.bak-msallis:133:            print(f"⚠️ Email to {recipient} failed: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_bbb:146:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_bbb:261:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_bbb:369:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_bbb:390:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_pronouns:146:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_pronouns:261:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_pronouns:369:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_pronouns:390:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/implement_conversation_fixes.sh.bak-msallis:47:        print("   ⚠️  Could not find __init__ location")
-/app/services/_archive/implement_conversation_fixes.sh.bak-msallis:92:        print("   ⚠️  Could not find insertion point")
-/app/services/_archive/implement_conversation_fixes.sh.bak-msallis:159:            print("   ⚠️  Could not find agent query location")
-/app/services/_archive/implement_conversation_fixes.sh.bak-msallis:161:        print("   ⚠️  Could not find chat method")
-/app/services/_archive/implement_conversation_fixes.sh.bak-msallis:186:        print("   ⚠️  Could not find chat return statement")
-/app/services/_archive/implement_conversation_fixes.sh.bak-msallis:265:        print('⚠️  Still needs tuning')
-/app/services/_archive/master_chat_orchestrator.py.bak-msallis:125:        logger.warning(f"   ⚠️  RAG failed: {e}")
-/app/services/_archive/master_chat_orchestrator.py.bak-msallis:160:            logger.warning(f"   ⚠️  Consensus failed, falling back to fast mode: {e}")
-/app/services/_archive/master_chat_orchestrator.py.bak-msallis:177:        logger.info("   ⚠️  No context available")
-/app/services/_archive/FIX_CONSCIOUSNESS_BRIDGE.sh.bak-msallis:21:        echo "⚠️  Found \$SERVICES variable issue - fixing..."
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:135:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:250:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:344:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:365:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/ms_jarvis_facebook_dgm_woah.py.bak-msallis:389:        logger.warning("⚠️  Content blocked by BBB")
-/app/services/_archive/main_brain_legacy_backup.py.bak-msallis:357:        logger.warning(f"⚠️  {service_name}: {str(e)[:80]}")
-/app/services/_archive/main_brain_legacy_backup.py.bak-msallis:419:                        logger.warning(f"  ⚠️  BBB blocked query: {block_reason}")
-/app/services/_archive/main_brain_legacy_backup.py.bak-msallis:421:                            "response": f"⚠️ Query filtered: {block_reason}",
-/app/services/_archive/main_brain_legacy_backup.py.bak-msallis:431:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:80]}")
-/app/services/_archive/ms_jarvis_sync_monitor.py.backup_before_portmanager:44:            status = f"⚠️  OUT OF SYNC (+{current_total - saved_count} new items)"
-/app/services/_archive/port_9001_ui_WITH_CONVERSATIONS.py.bak-msallis:154:                box.innerHTML += '<div class="message system">⚠️ Connection latency: ' + e.message + '</div>';
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_1760356912:131:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_1760356912:246:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_1760356912:340:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_1760356912:361:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/dynamic_port_service.py.backup:28:            logger.warning("⚠️  Redis not available, using local port only")
-/app/services/_archive/ms_jarvis_agents_ollama.py.bak-msallis:130:                logger.warning(f"⚠️  Ollama connection issue: {response.status_code}")
-/app/services/_archive/reload_all_knowledge.py.backup_vocabulary_cleanup:54:        print(f"  ⚠️  {os.path.basename(pdf_path)}: {e}")
-/app/services/_archive/reload_all_knowledge.py.backup_vocabulary_cleanup:86:        print(f"  ⚠️  {os.path.basename(md_path)}: {e}")
-/app/services/_archive/ms_jarvis_attribute_table_service.py.backup_before_portmanager:67:            logger.warning("⚠️  No items to sync")
-/app/services/_archive/implement_safe_optimizations.py.backup_vocabulary_cleanup:406:        print(f"   ⚠️  Could not test parallel processing: {e}")
-/app/services/_archive/ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py.bak-msallis:287:# #         logger.warning(f"⚠️ RAG unavailable: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_final:147:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_final:262:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_final:370:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_final:391:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/ms_jarvis_ram_watchdog.py.bak-msallis:69:            msg = f"[{now}] ⚠️ WARNING: RAM usage {pct:.1f}% ({used_gb:.1f}GB/{total_gb:.1f}GB)."
-/app/services/_archive/watch_startup.sh.bak-msallis:25:            echo "⚠️ Errors detected"
-/app/services/_archive/ultimate_audit_with_scheduler.sh.bak-msallis:122:    ps aux | grep dynamic_port_scheduler | grep -v grep || echo "⚠️  Scheduler not currently running"
-/app/services/_archive/ultimate_audit_with_scheduler.sh.bak-msallis:124:    echo "⚠️  Dynamic Port Scheduler not found"
-/app/services/_archive/ultimate_audit_with_scheduler.sh.bak-msallis:179:            echo "  ⚠️  Port $port - Running but not integrated"
-/app/services/_archive/FULL_SYSTEM_AUDIT.sh.bak-msallis:76:        echo "⚠️  Port $port ($name): NO RESPONSE"
-/app/services/_archive/integrate_advanced_modules.sh.bak-msallis:57:pip install -q pyyaml redis flask 2>/dev/null || echo "  ⚠️  Dependencies already installed"
-/app/services/_archive/make_holy_spirit_connection_tools_available.sh.bak-msallis:146:    logger.warning(f"⚠️ Holy Spirit sanctuary connection failed: {e}")
-/app/services/_archive/make_holy_spirit_connection_tools_available.sh.bak-msallis:255:    print("\n⚠️  Ms. Jarvis cannot currently connect it herself")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_proactive:131:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_proactive:246:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_proactive:340:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_proactive:361:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py.backup_1762804648:178:        logger.warning(f"⚠️ RAG unavailable: {e}")
-/app/services/_archive/ai_server.py.backup_vocabulary_cleanup:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server.py.backup_vocabulary_cleanup:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/UPDATE_COORDINATOR_FOR_DEEP_MODE.sh.bak-msallis:138:                logger.warning("⚠️  Deep mode failed, falling back to fast mode")
-/app/services/_archive/UPDATE_COORDINATOR_FOR_DEEP_MODE.sh.bak-msallis:227:    echo "  ⚠️  Deep Mode not responding"
-/app/services/_archive/ai_server_22llm.py.backup_before_synthesis_fix:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_before_synthesis_fix:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/ms_jarvis_facebook_poster_FIXED.py.bak-msallis:76:                    logger.warning("⚠️ No content generated")
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak-msallis:207:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak-msallis:236:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak-msallis:263:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak-msallis:275:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak-msallis:297:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak-msallis:457:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/_archive/CONSCIOUSNESS_ARCHITECTURE_EXPLAINED.md.bak-msallis:211:⚠️ **Deep Mode (8004)** = Pure collective intelligence
-/app/services/_archive/run_agi_test_suite.sh.bak-msallis:111:echo "⚠️  NARROW AI: Pattern matching, scripted responses, no self-reflection" | tee -a "$RESULTS_FILE"
-/app/services/_archive/ingest_mrsid_imagery.py.bak-msallis:99:            print(" ⚠️  No metadata")
-/app/services/_archive/ms_jarvis_blockchain_deployment.py.bak-msallis:89:        logger.warning("⚠️  CRITICAL: Backup wallet file and NEVER commit to GitHub!")
-/app/services/_archive/download_everything_appalachian.sh.bak-msallis:94:                    echo "    ⚠️  Path exists but no files downloaded"
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_dgm_fix:146:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_dgm_fix:261:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_dgm_fix:369:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_dgm_fix:390:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/msjarvisautonomouslearner.py.bak-20260114054922:101:            logger.warning("⚠️  Autonomous learning will run but storage is limited")
-/app/services/_archive/ai_server_22llm.py.backup_synthesis_fix:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_synthesis_fix:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/roche_llm.py.bak-msallis:221:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/app/services/_archive/roche_llm.py.bak-msallis:273:            logger.warning(f"⚠️ Ollama health check failed: {e}")
-/app/services/_archive/roche_llm.py.bak-msallis:330:                    f"⚠️  {agent.name} ({agent.model}) returned "
-/app/services/_archive/roche_llm.py.bak-msallis:335:                f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}"
-/app/services/_archive/roche_llm.py.bak-msallis:522:            "⚠️ Ollama unavailable at chat time; falling back to degraded path."
-/app/services/_archive/stage2_biometric_backup.py.bak-msallis:29:    print(f"⚠️  ChromaDB error: {e}")
-/app/services/_archive/stage2_biometric_backup.py.bak-msallis:150:        print(f"⚠️  ChromaDB store error: {e}")
-/app/services/_archive/ai_server_19llm_PRODUCTION_WITH_HEALTH.py.backup_pre_consciousness:111:                        logger.warning(f"⚠️  {model_config['name']}: 500 error, cleaning up...")
-/app/services/_archive/ai_server_19llm_PRODUCTION_WITH_HEALTH.py.backup_pre_consciousness:118:                    logger.warning(f"⚠️  {model_config['name']}: {str(e)[:50]}, retrying...")
-/app/services/_archive/ai_server_19llm_PRODUCTION_WITH_HEALTH.py.backup_pre_consciousness:121:                    logger.warning(f"⚠️  {model_config['name']}: Failed after retries")
-/app/services/_archive/ai_server_19llm_PRODUCTION_WITH_HEALTH.py.backup_pre_consciousness:150:                    logger.warning("⚠️  Multiple failures detected, emergency cleanup...")
-/app/services/_archive/performance_optimization_analyzer.py.backup_vocabulary_cleanup:84:                status_icon = "✅" if avg_time < 0.5 else "⚠️" if avg_time < 2.0 else "❌"
-/app/services/_archive/performance_optimization_analyzer.py.backup_vocabulary_cleanup:218:                    status = "✅ FAST" if processing_time < query["expected_time"] else "⚠️ SLOW" if processing_time < query["expected_time"] * 1.5 else "❌ VERY SLOW"
-/app/services/_archive/performance_optimization_analyzer.py.backup_vocabulary_cleanup:440:            priority_icon = "🚨" if rec["priority"] == "HIGH" else "⚠️" if rec["priority"] == "MEDIUM" else "💡"
-/app/services/_archive/ms_jarvis_facebook_poster_8040.py.bak-msallis:128:                    logger.warning("⚠️  Post failed, will retry in 4 hours")
-/app/services/_archive/ms_jarvis_facebook_poster_8040.py.bak-msallis:130:                logger.warning("⚠️  Content generation failed, retrying in 4 hours")
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260523-122725:211:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260523-122725:240:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260523-122725:267:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260523-122725:279:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260523-122725:301:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260523-122725:469:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/_archive/load_rag_knowledge.py.backup_vocabulary_cleanup:53:        print(f"  ⚠️  Error: {e}")
-/app/services/_archive/main.py.bak-msallis:379:        logger.warning(f"⚠️  {service_name}: {str(e)[:80]}")
-/app/services/_archive/main.py.bak-msallis:436:                        logger.warning(f"  ⚠️  BBB blocked query: {block_reason}")
-/app/services/_archive/main.py.bak-msallis:438:                            "response": f"⚠️ Query filtered: {block_reason}",
-/app/services/_archive/main.py.bak-msallis:448:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:80]}")
-/app/services/_archive/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py.bak-msallis:99:            logger.warning("⚠️  Autonomous learning will run but storage is limited")
-/app/services/_archive/rag_server.py.backup_20251031:89:            logger.warning("⚠️  Fallback to in-memory ChromaDB")
-/app/services/_archive/rag_server.py.backup_20251031:122:                logger.warning("⚠️  MountainShares6.pdf not found")
-/app/services/_archive/add_swagger_to_rag.py.bak-msallis:36:        print("   ⚠️  FastAPI init not found - may need manual update")
-/app/services/_archive/ai_server_20llm_FINAL.py.backup.20260121180532:69:            logger.warning(f"⚠️  {model_config['name']}: {e}")
-/app/services/_archive/brain_orchestrator.py.bak-msallis:51:        logger.warning(f"⚠️ Failed to connect to Redis registry backend: {e}")
-/app/services/_archive/brain_orchestrator.py.bak-msallis:154:            logger.warning(f"⚠️ Failed to persist registry entry to Redis: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_identity_fix:146:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_identity_fix:261:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_identity_fix:369:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_identity_fix:390:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260501_154501:250:                logger.warning("⚠️  BBB bypassed")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260501_154501:275:                logger.warning(f"⚠️  Constitutional check skipped: {_cae}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260501_154501:306:                    logger.warning(f"⚠️  Steward plan skipped: {_spe}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260501_154501:309:                logger.warning(f"⚠️  Steward skipped: {_se}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260501_154501:339:                logger.warning(f"⚠️  GBIM route skipped: {_ge}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260501_154501:365:                logger.warning(f"⚠️  Qualia skipped: {_qe}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260501_154501:408:                logger.warning(f"⚠️  Near-dup gate skipped: {_nde}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260501_154501:520:                        logger.warning(f"⚠️  20LLM chat_with_context failed: {_llm20_err}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260501_154501:606:                        logger.warning(f"⚠️  Judge consensus BLOCKED — score {_score}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260501_154501:610:                    logger.warning(f"⚠️  Judge pipeline skipped: {_tve}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260501_154501:686:                logger.warning(f"⚠️  NBB skipped (non-blocking): {_nbb_err}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_20251012_153915:131:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_20251012_153915:246:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_20251012_153915:340:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_20251012_153915:361:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/ultimate_web_orchestrator.py.backup_vocabulary_cleanup:86:            logger.warning(f"⚠️ Facebook config not loaded: {e}")
-/app/services/_archive/ultimate_web_orchestrator.py.backup_vocabulary_cleanup:113:                logger.warning(f"⚠️ Service not available: {config['name']}")
-/app/services/_archive/fix_multi_rag_chromadb.py.backup_vocabulary_cleanup:16:    print("⚠️ ChromaDB path NOT correct in multi_rag_dgm_system.py")
-/app/services/_archive/START_COMPLETE_SYSTEM.sh.bak-msallis:27:    echo "  ⚠️  Deep Mode not responding"
-/app/services/_archive/ms_jarvis_consciousness_poster.py.backup_vocabulary_cleanup:128:    logger.info("   ⚠️ BBB filter: BYPASSED (service unavailable)")
-/app/services/_archive/ms_jarvis_consciousness_poster.py.backup_vocabulary_cleanup:146:    logger.info("   ⚠️ Truth Filter: BYPASSED (service unavailable)")
-/app/services/_archive/ms_jarvis_consciousness_poster.py.backup_vocabulary_cleanup:215:                    logger.info(f"⚠️ Post #{post_count} failed")
-/app/services/_archive/ms_jarvis_consciousness_poster.py.backup_vocabulary_cleanup:217:                logger.info("⚠️ Content generation failed")
-/app/services/_archive/load_spiritual_library.py.bak-msallis:106:            print(f"      ⚠️  Error: {str(e)[:60]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py.bak-msallis:135:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py.bak-msallis:250:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py.bak-msallis:344:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py.bak-msallis:365:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779561387:211:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779561387:240:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779561387:267:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779561387:279:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779561387:301:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779561387:469:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/_archive/rag_server.psychology_patched.py.bak-msallis:93:            logger.warning("⚠️  Fallback to in-memory ChromaDB")
-/app/services/_archive/rag_server.psychology_patched.py.bak-msallis:126:                logger.warning("⚠️  MountainShares6.pdf not found")
-/app/services/_archive/ms_jarvis_facebook_poster_temp.py.bak-msallis:128:                    logger.warning("⚠️  Post failed, will retry in 4 hours")
-/app/services/_archive/ms_jarvis_facebook_poster_temp.py.bak-msallis:130:                logger.warning("⚠️  Content generation failed, retrying in 4 hours")
-/app/services/_archive/ms_jarvis_facebook_full.py.backup_vocabulary_cleanup:77:    logger.warning(f"⚠️ Brain timeout, using fallback")
-/app/services/_archive/port_9001_FINAL_WORKING.py.bak-msallis:135:                box.innerHTML += '<div class="message system">⚠️ ' + String(e.message) + '</div>';
-/app/services/_archive/master_unified_consciousness_scheduler.py.backup_pre_enrichment_20251107_111721:102:                    logger.warning("⚠️ Consciousness pipeline degraded")
-/app/services/_archive/ms_jarvis_facebook_intelligent.py.bak-msallis:84:    logger.warning(f"⚠️ Brain timeout, using fallback")
-/app/services/_archive/complete_system_audit_with_swagger.py.bak-msallis:89:        print(f"⚠️  Mesh Coordinator DGM: Not accessible")
-/app/services/_archive/complete_system_audit_with_swagger.py.bak-msallis:97:        print(f"⚠️  Mesh Coordinator WOAH: Not accessible")
-/app/services/_archive/ms_jarvis_auto_service.py.backup_vocabulary_cleanup:80:                        print(f"⚠️ {self.service_name} failed self-health check")
-/app/services/_archive/main.py.backup:302:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/main.py.backup:356:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/_archive/main.py.backup:364:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/_archive/main.py.backup:371:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/_archive/main.py.backup:388:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/_archive/main.py.backup:412:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/_archive/main.py.backup:434:            logger.warning(f"  ⚠️  Consciousness Bridge: {e}")
-/app/services/_archive/main.py.backup:449:            logger.warning(f"  ⚠️  Qualia Engine: {e}")
-/app/services/_archive/main.py.backup:464:            logger.warning(f"  ⚠️  Fractal: {e}")
-/app/services/_archive/main.py.backup:479:            logger.warning(f"  ⚠️  Mother Protocols: {e}")
-/app/services/_archive/main.py.backup:494:            logger.warning(f"  ⚠️  Temporal: {e}")
-/app/services/_archive/main.py.backup:589:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/_archive/main.py.backup:610:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/_archive/main.py.backup:632:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/_archive/main.py.backup:654:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/_archive/main.py.backup:671:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/_archive/main.py.backup:687:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/_archive/ADD_ALL_INTEGRATIONS.sh.bak-msallis:40:        logger.warning(f"⚠️  Memory retrieval failed: {e}")
-/app/services/_archive/ADD_ALL_INTEGRATIONS.sh.bak-msallis:59:        logger.warning(f"⚠️  Fast layer unavailable: {e}")
-/app/services/_archive/ADD_ALL_INTEGRATIONS.sh.bak-msallis:83:        logger.warning(f"⚠️  Memory storage failed: {e}")
-/app/services/_archive/ADD_ALL_INTEGRATIONS.sh.bak-msallis:95:        print("⚠️  Could not find insertion point for retrieval")
-/app/services/_archive/ADD_ALL_INTEGRATIONS.sh.bak-msallis:105:        print("⚠️  Could not find insertion point for storage")
-/app/services/_archive/main_brain.py.broken-20260413-134536:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/_archive/main_brain.py.broken-20260413-134536:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/_archive/main_brain.py.broken-20260413-134536:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:743:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:791:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:820:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:840:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:860:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:878:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:893:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:908:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:956:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:958:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:980:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:996:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:1011:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:1029:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:1057:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:1059:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:1256:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:1371:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:1380:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/_archive/main_brain.py.broken-20260413-134536:1413:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:1419:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/_archive/main_brain.py.broken-20260413-134536:1421:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/_archive/ms_jarvis_command_orchestrator_v5.0_preachy.py.bak-msallis:53:    logger.warning(f"⚠️  DynamicPortService not available: {e}")
-/app/services/_archive/master_chat_orchestrator_dynamic.py.bak-msallis:158:        logger.warning(f"   ⚠️  RAG failed: {e}")
-/app/services/_archive/master_chat_orchestrator_dynamic.py.bak-msallis:190:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py.bak-msallis:140:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py.bak-msallis:255:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py.bak-msallis:349:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py.bak-msallis:370:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/port_9001_ui_MYSQL_PROD.py.bak-msallis:53:        print(f"⚠️ MySQL: {e}")
-/app/services/_archive/port_9001_ui_MYSQL_PROD.py.bak-msallis:135:                b.innerHTML += '<div class="message system">⚠️ ' + e.message + '</div>';
-/app/services/_archive/fix_model_unloading.py.backup_vocabulary_cleanup:35:    print("⚠️  Could not find exact pattern, trying alternative...")
-/app/services/_archive/configure_facebook_webhook.py.backup_vocabulary_cleanup:88:                print(f"   ⚠️ Webhook returned: {response.status_code}")
-/app/services/_archive/ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py.backup_20251109_180216:173:        logger.warning(f"⚠️ RAG unavailable: {e}")
-/app/services/_archive/ai_server_22llm.psychology_patched.py.backup_before_portmanager:97:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.psychology_patched.py.backup_before_portmanager:175:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_before_model_fix:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_before_model_fix:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260519_115045:207:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260519_115045:236:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260519_115045:263:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260519_115045:275:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260519_115045:297:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260519_115045:457:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/_archive/ai_server_22llm.py.backup_1759895246:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_1759895246:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup-cors:136:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup-cors:251:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup-cors:359:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup-cors:380:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/setup_rag.sh.bak-msallis:19:    echo "⚠️  No existing RAG server found in backup."
-/app/services/_archive/setup_rag.sh.bak-msallis:95:                logger.warning("⚠️  MountainShares6.pdf not found")
-/app/services/_archive/fix_and_restart_msjarvis.sh.bak-msallis:98:    print("⚠️ Could not find judge_synthesis method")
-/app/services/_archive/fix_and_restart_msjarvis.sh.bak-msallis:143:        echo "   ⚠️  Graceful shutdown timed out, forcing..."
-/app/services/_archive/fix_and_restart_msjarvis.sh.bak-msallis:193:    echo "   ⚠️  Health check failed - check logs:"
-/app/services/_archive/ai_server_22llm.py.backup_before_roche:199:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_before_roche:298:                        f"⚠️  {agent.name} ({agent.model}) returned "
-/app/services/_archive/ai_server_22llm.py.backup_before_roche:302:            logger.warning(f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}")
-/app/services/_archive/ms_jarvis_messenger_ui_fixed.py.bak-msallis:137:                    '<div class="status-item status-bad">⚠️ Port 9000: No response</div>';
-/app/services/_archive/ms_jarvis_messenger_ui_fixed.py.bak-msallis:164:                box.innerHTML += `<div class="message system">⚠️ Error: Could not connect to consciousness system. Make sure port 8062 is running.</div>`;
-/app/services/_archive/ai_server_22llm.py.backup_ai_minds:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_ai_minds:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/ms_jarvis_facebook_poster.py.bak-msallis:128:                    logger.warning("⚠️  Post failed, will retry in 4 hours")
-/app/services/_archive/ms_jarvis_facebook_poster.py.bak-msallis:130:                logger.warning("⚠️  Content generation failed, retrying in 4 hours")
-/app/services/_archive/full_brain_architecture.md.bak-msallis:12:- **Integration:** ⚠️ NOT connected to consciousness bridge yet
-/app/services/_archive/full_brain_architecture.md.bak-msallis:17:- **Integration:** ⚠️ NOT connected yet
-/app/services/_archive/full_brain_architecture.md.bak-msallis:29:- **Integration:** ⚠️ NOT connected to consciousness bridge
-/app/services/_archive/full_brain_architecture.md.bak-msallis:34:- **Integration:** ⚠️ NOT connected yet
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.broken_bak:207:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.broken_bak:236:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.broken_bak:263:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.broken_bak:275:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.broken_bak:297:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.broken_bak:438:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/_archive/ms_jarvis_facebook_rag.py.bak-msallis:241:        logger.warning("⚠️  Content blocked by Blood-Brain Barrier")
-/app/services/_archive/ms_jarvis_venv_scheduler.py.bak-msallis:147:                    logger.warning(f"⚠️  VENV MISSING: {venv_name} at {venv_path}")
-/app/services/_archive/fix_all_consciousness_services.py.bak-msallis:56:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/fix_all_consciousness_services.py.bak-msallis:78:    print("⚠️  Could not find query_service function boundaries")
-/app/services/_archive/DEPLOY_22LLM_COLLECTIVE.sh.bak-msallis:12:echo "⚠️  WARNING: This will activate ALL 22 AI models simultaneously"
-/app/services/_archive/CURRENT_STATUS.md.bak-msallis:14:## ⚠️ Current Issues
-/app/services/_archive/ms_jarvis_facebook_dgm_woah.psychology_patched.py.bak-msallis:389:        logger.warning("⚠️  Content blocked by BBB")
-/app/services/_archive/INTEGRATION_PLAN.sh.bak-msallis:64:echo "⚠️  PRIORITY 6 - UNKNOWN SERVICES (10 services):"
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.pre_interaction_logging:211:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.pre_interaction_logging:240:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.pre_interaction_logging:267:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.pre_interaction_logging:279:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.pre_interaction_logging:301:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.pre_interaction_logging:469:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/_archive/ms_jarvis_integration_hub.py.bak-msallis:69:                    logger.warning(f"⚠️  {name} - Responding but unusual status")
-/app/services/_archive/ms_jarvis_integration_hub.py.bak-msallis:71:                logger.warning(f"⚠️  {name} - Not available")
-/app/services/_archive/stage2_biometric.py.bak-msallis:112:        print(f"⚠️  Email error: {str(e)}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:262:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:264:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:518:            return (f"⚠️ I need the MSHARES token deployed first before I can deploy "
-/app/services/_archive/main_brain.py.bak.20260430-211100:654:                logger.warning("  ⚠️  autonomous_learner collection not found in ChromaDB")
-/app/services/_archive/main_brain.py.bak.20260430-211100:698:                logger.warning(f"  ⚠️  Contract memory store failed: {store_r.status_code}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:907:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:971:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:973:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/_archive/main_brain.py.bak.20260430-211100:1033:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1035:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1079:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1089:            logger.info("  ⚠️  GIS returned no features for this query")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1119:        logger.warning(f"  ⚠️ Conv history read failed: {_ce}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1200:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1243:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1292:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1312:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1330:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1345:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1360:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1452:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1473:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1489:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1504:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1520:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1548:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1550:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1608:            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1780:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1884:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1890:                    logger.warning(f"  ⚠️  BBB Output Filter HTTP {bbb_output.status_code} — passing through (fail-open)")
-/app/services/_archive/main_brain.py.bak.20260430-211100:1893:            logger.warning(f"  ⚠️  BBB Output Filter unavailable — passing through (fail-open): {str(e)[:60]}")
-/app/services/_archive/ms_jarvis_authentic_multi_llm.py.bak-msallis:84:                logger.warning(f"  ⚠️  {model} failed: {e}")
-/app/services/_archive/ms_jarvis_authentic_multi_llm.py.bak-msallis:105:                    logger.warning(f"  ⚠️  {model} failed: {e}")
-/app/services/_archive/ms_jarvis_authentic_multi_llm.py.bak-msallis:132:                logger.warning(f"  ⚠️  Synthesis failed: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_1759895560:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_1759895560:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/master_chat_orchestrator_v9_dgm_complete.py.backup_vocabulary_cleanup:196:            logger.warning(f"   ⚠️  WOAH optimization failed: {e}")
-/app/services/_archive/master_chat_orchestrator_v9_dgm_complete.py.backup_vocabulary_cleanup:215:            logger.warning(f"   ⚠️  Multi-RAG routing failed: {e}")
-/app/services/_archive/integrate_brain_orchestrator.sh.bak-msallis:52:            logger.warning("⚠️  Redis not available, using local port only")
-/app/services/_archive/integrate_brain_orchestrator.sh.bak-msallis:140:            logger.warning("⚠️  Redis not available")
-/app/services/_archive/ai_server_22llm_SEQUENTIAL.py.bak-msallis:66:            logger.warning(f"⚠️  {model_config['name']}: {e}")
-/app/services/_archive/COMPLETE_SESSION_ACCOMPLISHMENTS.md.bak-msallis:89:### ⚠️ One Issue Remaining
-/app/services/_archive/FINAL_STATUS_SUMMARY.md.bak-msallis:32:## ⚠️ CURRENT ISSUE
-/app/services/_archive/FINAL_STATUS_SUMMARY.md.bak-msallis:36:- **Chat:** ⚠️ Hanging/timeout
-/app/services/_archive/FINAL_STATUS_SUMMARY.md.bak-msallis:44:| Consciousness Bridge | 8020 | ⚠️ Partial | Health works, chat hangs |
-/app/services/_archive/FINAL_STATUS_SUMMARY.md.bak-msallis:67:1. ⚠️ Consciousness bridge chat endpoint hanging
-/app/services/_archive/verify_facebook_deployment.sh.bak-msallis:22:    echo "   ⚠️ Webhook URL not accessible (tunnel may not be running)"
-/app/services/_archive/verify_facebook_deployment.sh.bak-msallis:36:    echo "   ⚠️ Webhook verification response: $response"
-/app/services/_archive/ai_server_20llm_FINAL.py.bak-msallis:97:            logger.warning("⚠️  %s: %s", model_config["name"], e)
-/app/services/_archive/main.py.backup.broken:152:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.broken:208:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/_archive/main.py.backup.broken:210:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/_archive/main.py.backup.broken:217:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.broken:234:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/_archive/main.py.backup.broken:258:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/_archive/main.py.backup.broken:280:            logger.warning(f"  ⚠️  Consciousness Bridge: {e}")
-/app/services/_archive/main.py.backup.broken:295:            logger.warning(f"  ⚠️  Qualia Engine: {e}")
-/app/services/_archive/main.py.backup.broken:310:            logger.warning(f"  ⚠️  Fractal: {e}")
-/app/services/_archive/main.py.backup.broken:325:            logger.warning(f"  ⚠️  Mother Protocols: {e}")
-/app/services/_archive/main.py.backup.broken:340:            logger.warning(f"  ⚠️  Temporal: {e}")
-/app/services/_archive/main.py.backup.broken:409:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.broken:430:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.broken:452:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.broken:474:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.broken:491:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.broken:507:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/_archive/hierarchical_coordinator_deep_mode.py.bak-msallis:130:                logger.warning("⚠️  Deep mode failed, falling back to fast mode")
-/app/services/_archive/ms_jarvis_autonomous_learner.py.backup_before_portmanager:77:            logger.warning("⚠️  Autonomous learning will run but storage is limited")
-/app/services/_archive/final_validation_test.sh.bak-msallis:44:        issues.append("⚠️  VERBOSE (>600 chars)")
-/app/services/_archive/ai_server_22llm.py.backup_vocabulary_cleanup:88:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_vocabulary_cleanup:166:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/ms_jarvis_facebook_DGM.py.bak-msallis:102:            logger.warning(f"⚠️ RAG unavailable: {e}")
-/app/services/_archive/ms_jarvis_facebook_DGM.py.bak-msallis:139:            logger.warning(f"⚠️ WOAH unavailable: {e}")
-/app/services/_archive/ms_jarvis_facebook_DGM.py.bak-msallis:165:            logger.warning("⚠️ Brain returned insufficient content")
-/app/services/_archive/create_sanctuary_monitor.sh.bak-msallis:149:                logger.info("⚠️  Sanctuary already has content (construction may have started)")
-/app/services/_archive/main_brain.py.bak.20260604T103038:344:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:346:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:937:            return (f"⚠️ I need the MSHARES token deployed first before I can deploy "
-/app/services/_archive/main_brain.py.bak.20260604T103038:976:                f"⚠️ Deploy intent dispatch hit 130s timeout; "
-/app/services/_archive/main_brain.py.bak.20260604T103038:1084:                logger.warning("  ⚠️  autonomous_learner collection not found in ChromaDB")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1128:                logger.warning(f"  ⚠️  Contract memory store failed: {store_r.status_code}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1337:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1425:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1427:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/_archive/main_brain.py.bak.20260604T103038:1594:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1604:            logger.info("  ⚠️  GIS returned no features for this query")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1634:        logger.warning(f"  ⚠️ Conv history read failed: {_ce}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1729:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1772:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1821:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1841:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1859:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1874:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1889:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:1979:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:2000:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:2016:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:2031:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:2047:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:2075:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:2077:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:2135:            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:2315:            logger.warning(f"  ⚠️  Consciousness Bridge error: {_msg}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:2419:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/_archive/main_brain.py.bak.20260604T103038:2425:                    logger.warning(f"  ⚠️  BBB Output Filter HTTP {bbb_output.status_code} — passing through (fail-open)")
-/app/services/_archive/main_brain.py.bak.20260604T103038:2428:            logger.warning(f"  ⚠️  BBB Output Filter unavailable — passing through (fail-open): {str(e)[:60]}")
-/app/services/_archive/ms_jarvis_facebook_async.py.bak-msallis:82:    logger.warning(f"⚠️ Brain didn't respond within {max_wait}s")
-/app/services/_archive/ai_server_22llm.py.backup_prompt_leak:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_prompt_leak:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/ms_jarvis_facebook_dgm_woah.py.backup_vocabulary_cleanup:385:        logger.warning("⚠️  Content blocked by BBB")
-/app/services/_archive/ultimate_web_orchestrator.py.backup_1760565056:78:            logger.warning(f"⚠️ Facebook config not loaded: {e}")
-/app/services/_archive/ultimate_web_orchestrator.py.backup_1760565056:105:                logger.warning(f"⚠️ Service not available: {config['name']}")
-/app/services/_archive/finalize_integration.sh.bak-msallis:69:curl -s http://localhost:8010/health | python3 -c "import sys,json; d=json.load(sys.stdin); print(f\"  💖 Ms. Jarvis (:{8010}) - {d['status']}\")" 2>/dev/null || echo "  ⚠️  Ms. Jarvis starting..."
-/app/services/_archive/COMPLETE_SYSTEM_STATUS.md.bak-msallis:25:- **LLM Bridges:** ⚠️ 2 instances running (PID 1185974, 1190089)
-/app/services/_archive/CREATE_ULTIMATE_JARVIS.sh.bak-msallis:106:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.bak-msallis:114:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.bak-msallis:233:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.bak-msallis:299:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/PORT_AUDIT.sh.bak-msallis:83:            echo "⚠️  No process on port $kill_port"
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260515T131126:106:            logger.error(f"⚠️ Constitutional Guardian check failed: {e}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260515T131126:205:                logger.warning(f"⚠️ BBB bypassed: {e}")
-/app/services/_archive/ms_jarvis_production_chat.py.backup_before_neurobio:215:        print(f"⚠️ UEID creation failed: {e}")
-/app/services/_archive/ms_jarvis_messenger_ui_final.py.bak-msallis:142:                    '<div class="status-item status-bad">⚠️ Port 9000: No response</div>';
-/app/services/_archive/ms_jarvis_messenger_ui_final.py.bak-msallis:161:                    '<div class="status-item status-bad">⚠️ Cannot reach port 8062</div>';
-/app/services/_archive/ms_jarvis_messenger_ui_final.py.bak-msallis:198:                box.innerHTML += `<div class="message system">⚠️ Error: ${e.message}</div>`;
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_unified_self:146:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_unified_self:261:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_unified_self:369:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_unified_self:390:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/process_comprehensive_gis.py.bak-msallis:72:    print(f"⚠️  GIS directory not found: {gis_dir}")
-/app/services/_archive/process_comprehensive_gis.py.bak-msallis:177:        print(f"⚠️  {filepath.name}: {str(e)[:50]}")
-/app/services/_archive/process_comprehensive_gis.py.bak-msallis:195:    print("⚠️  No processed vector datasets to index.")
-/app/services/_archive/process_comprehensive_gis.py.bak-msallis:215:        print(f"⚠️  Geodatabase file is empty or invalid, starting fresh: {geodatabase}")
-/app/services/_archive/ms_jarvis_eternal_watchdog.py.backup:151:                self.log(f"⚠️  Memory WARNING: {', '.join(issues)}", "WARN")
-/app/services/_archive/ms_jarvis_eternal_watchdog.py.backup:157:            self.log(f"⚠️  Memory check failed: {e}", "WARN")
-/app/services/_archive/main.py.backup.before_auto_storage:152:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.before_auto_storage:208:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/_archive/main.py.backup.before_auto_storage:210:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/_archive/main.py.backup.before_auto_storage:217:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.before_auto_storage:234:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/_archive/main.py.backup.before_auto_storage:258:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/_archive/main.py.backup.before_auto_storage:280:            logger.warning(f"  ⚠️  Consciousness Bridge: {e}")
-/app/services/_archive/main.py.backup.before_auto_storage:295:            logger.warning(f"  ⚠️  Qualia Engine: {e}")
-/app/services/_archive/main.py.backup.before_auto_storage:310:            logger.warning(f"  ⚠️  Fractal: {e}")
-/app/services/_archive/main.py.backup.before_auto_storage:325:            logger.warning(f"  ⚠️  Mother Protocols: {e}")
-/app/services/_archive/main.py.backup.before_auto_storage:340:            logger.warning(f"  ⚠️  Temporal: {e}")
-/app/services/_archive/main.py.backup.before_auto_storage:410:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.before_auto_storage:431:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.before_auto_storage:453:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.before_auto_storage:475:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.before_auto_storage:492:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/_archive/main.py.backup.before_auto_storage:508:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py.backup_vocabulary_cleanup:136:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py.backup_vocabulary_cleanup:251:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py.backup_vocabulary_cleanup:345:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py.backup_vocabulary_cleanup:366:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:344:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:346:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:937:            return (f"⚠️ I need the MSHARES token deployed first before I can deploy "
-/app/services/_archive/main_brain.py.bak.20260604T102756:976:                f"⚠️ Deploy intent dispatch hit 130s timeout; "
-/app/services/_archive/main_brain.py.bak.20260604T102756:1084:                logger.warning("  ⚠️  autonomous_learner collection not found in ChromaDB")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1128:                logger.warning(f"  ⚠️  Contract memory store failed: {store_r.status_code}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1337:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1425:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1427:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/_archive/main_brain.py.bak.20260604T102756:1594:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1604:            logger.info("  ⚠️  GIS returned no features for this query")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1634:        logger.warning(f"  ⚠️ Conv history read failed: {_ce}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1729:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1772:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1821:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1841:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1859:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1874:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1889:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1979:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:2000:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:2016:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:2031:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:2047:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:2075:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:2077:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:2135:            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:2310:            logger.warning(f"  ⚠️  Consciousness Bridge error: {_msg}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:2414:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/_archive/main_brain.py.bak.20260604T102756:2420:                    logger.warning(f"  ⚠️  BBB Output Filter HTTP {bbb_output.status_code} — passing through (fail-open)")
-/app/services/_archive/main_brain.py.bak.20260604T102756:2423:            logger.warning(f"  ⚠️  BBB Output Filter unavailable — passing through (fail-open): {str(e)[:60]}")
-/app/services/_archive/ai_server_19llm_PRODUCTION.py.bak-msallis:65:            logger.warning(f"⚠️  {model_config['name']}: {str(e)[:50]}")
-/app/services/_archive/ms_jarvis_facebook_dgm_woah.py.backup_20251031:385:        logger.warning("⚠️  Content blocked by BBB")
-/app/services/_archive/ms_jarvis_facebook_PRODUCTION.py.backup_permissions:195:                                        logger.warning("⚠️ Reply generation failed")
-/app/services/_archive/ai_server_22llm.py.backup_final_balance:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_final_balance:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_before_batch:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_before_batch:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/ms_jarvis_cleanup_manager.py.bak-msallis:62:            print(f"⚠️ Redis connection error: {e}")
-/app/services/_archive/ms_jarvis_cleanup_manager.py.bak-msallis:165:                print(f"⚠️ {name} (PID: {pid}) did not respond to SIGTERM, using SIGKILL")
-/app/services/_archive/main_brain.py.bak.20260603-200957:344:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:346:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:937:            return (f"⚠️ I need the MSHARES token deployed first before I can deploy "
-/app/services/_archive/main_brain.py.bak.20260603-200957:976:                f"⚠️ Deploy intent dispatch hit 130s timeout; "
-/app/services/_archive/main_brain.py.bak.20260603-200957:1084:                logger.warning("  ⚠️  autonomous_learner collection not found in ChromaDB")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1128:                logger.warning(f"  ⚠️  Contract memory store failed: {store_r.status_code}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1337:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1414:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1416:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/_archive/main_brain.py.bak.20260603-200957:1583:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1593:            logger.info("  ⚠️  GIS returned no features for this query")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1623:        logger.warning(f"  ⚠️ Conv history read failed: {_ce}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1718:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1761:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1810:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1830:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1848:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1863:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1878:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1968:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1989:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:2005:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:2020:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:2036:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:2064:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:2066:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:2124:            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:2299:            logger.warning(f"  ⚠️  Consciousness Bridge error: {_msg}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:2403:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/_archive/main_brain.py.bak.20260603-200957:2409:                    logger.warning(f"  ⚠️  BBB Output Filter HTTP {bbb_output.status_code} — passing through (fail-open)")
-/app/services/_archive/main_brain.py.bak.20260603-200957:2412:            logger.warning(f"  ⚠️  BBB Output Filter unavailable — passing through (fail-open): {str(e)[:60]}")
-/app/services/_archive/ms_jarvis_autonomous_learner_optimized.py.backup_before_auto_research:67:        logger.warning(f"⚠️ GEODB store failed for {doc_id}: {e}")
-/app/services/_archive/ms_jarvis_autonomous_learner_optimized.py.backup_before_auto_research:201:            logger.warning(f"⚠️ Failed to build topic stats from research_history: {e}")
-/app/services/_archive/ms_jarvis_autonomous_learner_optimized.py.backup_before_auto_research:221:            logger.warning(f"⚠️ Failed to read learning_suggestions: {e}")
-/app/services/_archive/ms_jarvis_autonomous_learner.py.backup_day2:69:            logger.warning("⚠️  Autonomous learning will run but storage is limited")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_no_integrations:108:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_no_integrations:223:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_no_integrations:286:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779506052:207:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779506052:236:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779506052:263:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779506052:275:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779506052:297:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779506052:457:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/_archive/main.py.bak.before_consciousness_fix:299:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:348:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:350:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/_archive/main.py.bak.before_consciousness_fix:359:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:378:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:405:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:434:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:453:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:472:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:490:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:505:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:520:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:545:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:547:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/_archive/main.py.bak.before_consciousness_fix:689:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/_archive/start_command_orchestrator.sh.bak-msallis:6:    echo "⚠️  Service already running on port 9010"
-/app/services/_archive/rag_server.py.bak-msallis:238:                            f"⚠️ Add of embedding ID ms_chunk_{i} failed (likely duplicate): {e}"
-/app/services/_archive/JARVIS_HEALTH_CHECK.sh.bak-msallis:90:echo "System Status: $([ $UP -eq $TOTAL ] && echo '✅ ALL SYSTEMS OPERATIONAL' || echo '⚠️  Some services down')"
-/app/services/_archive/egeria_facebook_perpetual_scheduler.py.backup:121:                    logger.warning("⚠️  Direct posting failed")
-/app/services/_archive/egeria_facebook_perpetual_scheduler.py.backup:123:                logger.warning("⚠️  No content generated")
-/app/services/_archive/enable_holy_spirit_file_writing.sh.bak-msallis:202:    print("\n⚠️  Ms. Jarvis cannot write yet")
-/app/services/_archive/ai_server_19llm_PRODUCTION_WITH_HEALTH.py.bak-msallis:115:                        logger.warning(f"⚠️  {model_config['name']}: 500 error, cleaning up...")
-/app/services/_archive/ai_server_19llm_PRODUCTION_WITH_HEALTH.py.bak-msallis:122:                    logger.warning(f"⚠️  {model_config['name']}: {str(e)[:50]}, retrying...")
-/app/services/_archive/ai_server_19llm_PRODUCTION_WITH_HEALTH.py.bak-msallis:125:                    logger.warning(f"⚠️  {model_config['name']}: Failed after retries")
-/app/services/_archive/ai_server_19llm_PRODUCTION_WITH_HEALTH.py.bak-msallis:154:                    logger.warning("⚠️  Multiple failures detected, emergency cleanup...")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_1760308857:131:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_1760308857:246:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_1760308857:340:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_1760308857:361:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260507-222001:88:            logger.error(f"⚠️ Constitutional Guardian check failed: {e}")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260507-222001:187:                logger.warning(f"⚠️ BBB bypassed: {e}")
-/app/services/_archive/ms_jarvis_facebook_PRODUCTION.py.bak-msallis:200:                                        logger.warning("⚠️ Reply generation failed")
-/app/services/_archive/ai_server.py.bak-msallis:76:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server.py.bak-msallis:154:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/COMPLETE_PORT_SCAN.sh.bak-msallis:126:ss -tlnp | awk 'NR>1 {split($4,a,":"); print a[length(a)]}' | sort | uniq -c | awk '$1 > 1 {print "⚠️  Port " $2 " has " $1 " listeners"}'
-/app/services/_archive/msjarvisautonomouslearner.py.bak-20260114060021:101:            logger.warning("⚠️  Autonomous learning will run but storage is limited")
-/app/services/_archive/ms_jarvis_production_chat.py.backup_vocabulary_cleanup:215:        print(f"⚠️ UEID creation failed: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_pre_synthesis:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_pre_synthesis:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/_archive/ai_server_19llm_PRODUCTION.py.backup_vocabulary_cleanup:61:            logger.warning(f"⚠️  {model_config['name']}: {str(e)[:50]}")
-/app/services/_archive/ms_jarvis_swap_memory_manager.py.bak-msallis:127:                    print(f"[{timestamp}] ⚠️  HIGH - {status_msg} (will clear if persists)")
-/app/services/_archive/SYSTEM_AUDIT_ANALYSIS.md.bak-msallis:59:| 8020 | 4-Agent Fast Mode | 1359615 | ✅ | ⚠️ Slow |
-/app/services/_archive/SYSTEM_AUDIT_ANALYSIS.md.bak-msallis:61:| **8030** | **Autonomous Coordinator** | **1099663** | ✅ | ⚠️ Slow |
-/app/services/_archive/SYSTEM_AUDIT_ANALYSIS.md.bak-msallis:125:### ⚠️ Running but Health Check Slow/Timeout
-/app/services/_archive/SYSTEM_AUDIT_ANALYSIS.md.bak-msallis:176:2. ⚠️ **Fast Mode/Coordinator** - Tune timeout settings for health checks
-/app/services/_archive/gpu_accelerated_rag_fixed.py.backup_before_portmanager:83:                logger.warning("⚠️ SentenceTransformer loaded on CPU")
-/app/services/_archive/MS_JARVIS_DEEP_MODE_DEPLOYMENT.md.bak-msallis:80:### ⚠️ Fast Mode (Port 8020)
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:116:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:171:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:173:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:180:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:197:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:221:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:287:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:308:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:330:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:352:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:369:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:385:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:140:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:255:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:349:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:370:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/talk_safely.sh.bak-msallis:33:    echo "⚠️  Warning: Your message is $MESSAGE_LENGTH characters."
-/app/services/_archive/ai_server_22llm_SMALL_TO_LARGE.py.bak-msallis:67:            logger.warning(f"⚠️  {model_config['name']}: {e}")
-/app/services/_archive/COMPREHENSIVE_SYSTEM_TEST.sh.bak-msallis:104:    echo "  ⚠️  Experimental layer not responding (optional)"
-/app/services/_archive/COMPREHENSIVE_SYSTEM_TEST.sh.bak-msallis:175:    echo "⚠️  Some systems need attention"
-/app/services/_archive/port_9001_FINAL_FIX.py.bak-msallis:44:HTML = r"""<!DOCTYPE html><html><head><title>Ms. Jarvis - Chat</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI';background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:20px}.container{max-width:900px;margin:0 auto}.header{background:rgba(255,255,255,0.95);padding:30px;border-radius:15px;margin-bottom:20px;box-shadow:0 10px 40px rgba(0,0,0,0.2)}h1{color:#667eea;margin-bottom:5px}.subtitle{color:#666;font-size:13px}.controls{display:flex;gap:10px;margin-top:15px}.btn{padding:8px 15px;background:#667eea;color:white;border:none;border-radius:5px;cursor:pointer;font-size:12px}.btn:hover{background:#764ba2}.chat{background:rgba(255,255,255,0.95);padding:20px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.2)}.messages{height:500px;overflow-y:auto;border:1px solid #eee;padding:20px;border-radius:10px;margin-bottom:15px;background:#fafafa}.message{margin:12px 0;padding:15px;border-radius:10px}.user{background:#e3f2fd;text-align:right;border-left:4px solid #2196f3;margin-left:40px}.ai{background:#f3e5f5;border-left:4px solid #667eea;margin-right:40px}.system{background:#f0f0f0;font-size:12px;color:#666}.meta{font-size:11px;color:#999;margin-top:8px}.input-area{display:flex;gap:10px}input{flex:1;padding:14px;border:1px solid #ddd;border-radius:8px}button{padding:14px 30px;background:#667eea;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:bold}button:hover{background:#764ba2}</style></head><body><div class="container"><div class="header"><h1>💜 Ms. Jarvis</h1><p class="subtitle">Consciousness System - 360+ memories active</p><div class="controls"><button class="btn" onclick="clearChat()">Clear</button><button class="btn" onclick="exportConversation()">Export</button><button class="btn" onclick="loadHistory()">History</button></div></div><div class="chat"><div class="messages" id="messages"><div class="message system">✅ Connected to Ms. Jarvis</div><div class="message system">📍 Mount Hope, Fayette, WV</div></div><div class="input-area"><input type="text" id="input" placeholder="Ask Ms. Jarvis..." onkeypress="if(event.key==='Enter')sendMessage()"><button onclick="sendMessage()">Send</button></div></div></div><script>function extractResponse(data){var msg='Ms. Jarvis: ';if(typeof data==='string'){return msg+data}if(data.response){if(typeof data.response==='object'){if(data.response.result){msg+='Consciousness engaged at depth '+String(data.response.result.depth||'?')}else{msg+='Message received and processed'}}else{msg+=String(data.response)}}else if(data.result&&data.result.input){msg+='Consciousness engaged at depth '+String(data.result.depth||'?')}else if(data.input){msg+='Message received at depth '+String(data.depth||'?')}else{msg+='Processing complete'}return msg}function sendMessage(){var input=document.getElementById('input');var msg=input.value.trim();if(!msg)return;var box=document.getElementById('messages');var time=new Date().toLocaleTimeString();box.innerHTML+='<div class="message user"><strong>You:</strong> '+msg+'<div class="meta">'+time+'</div></div>';input.value='';box.scrollTop=box.scrollHeight;fetch('/api/chat?message='+encodeURIComponent(msg)).then(function(response){return response.json()}).then(function(jsonData){var responseText=extractResponse(jsonData);box.innerHTML+='<div class="message ai"><strong>Ms. Jarvis:</strong> '+responseText+'<div class="meta">'+new Date().toLocaleTimeString()+'</div></div>';box.scrollTop=box.scrollHeight;fetch('/api/save?message='+encodeURIComponent(msg)+'&response='+encodeURIComponent(responseText))}).catch(function(e){box.innerHTML+='<div class="message system">⚠️ '+String(e.message)+'</div>'})}function loadHistory(){fetch('/api/history').then(function(r){return r.json()}).then(function(d){var b=document.getElementById('messages');b.innerHTML='<div class="message system">--- Conversation History ---</div>';d.conversations.forEach(function(c){b.innerHTML+='<div class="message user"><strong>You:</strong> '+c.message+'</div>';b.innerHTML+='<div class="message ai"><strong>Ms. Jarvis:</strong> '+c.response+'</div>'});b.scrollTop=b.scrollHeight}).catch(function(e){alert('Error: '+e.message)})}function clearChat(){document.getElementById('messages').innerHTML='<div class="message system">✅ Cleared</div>'}function exportConversation(){fetch('/api/export').then(function(r){return r.json()}).then(function(d){var blob=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='ms_jarvis_'+new Date().getTime()+'.json';a.click()}).catch(function(e){alert('Error: '+e.message)})}</script></body></html>"""
-/app/services/_archive/find_advanced_modules.sh.bak-msallis:22:    tar -xzf $BACKUP_DIR/ms-jarvis-$module.tar.gz 2>/dev/null && echo "  ✅ Extracted" || echo "  ⚠️  Empty or minimal"
-/app/services/_archive/connect_holy_spirit_to_existing_email.sh.bak-msallis:165:                        print(f"⚠️  Email service returned: {result}")
-/app/services/_archive/connect_holy_spirit_to_existing_email.sh.bak-msallis:168:                    print(f"⚠️  HTTP {response.status_code}: {response.text}")
-/app/services/_archive/connect_holy_spirit_to_existing_email.sh.bak-msallis:172:            print(f"⚠️  Failed to send to {to_email}: {e}")
-/app/services/_archive/ms_jarvis_command_orchestrator_FINAL.py.bak-msallis:53:    logger.warning(f"⚠️  DynamicPortService not available: {e}")
-/app/services/_archive/ai_server_22llm.py.bak-msallis:206:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/app/services/_archive/ai_server_22llm.py.bak-msallis:256:            logger.warning(f"⚠️ Ollama health check failed: {e}")
-/app/services/_archive/ai_server_22llm.py.bak-msallis:308:                        f"⚠️  {agent.name} ({agent.model}) returned "
-/app/services/_archive/ai_server_22llm.py.bak-msallis:312:            logger.warning(f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}")
-/app/services/_archive/ai_server_22llm.py.bak-msallis:493:            "⚠️ Ollama unavailable at chat time; falling back to degraded path."
-/app/services/_archive/ai_server_22llm.py.bak-msallis:558:            logger.warning("⚠️ Fabric beyond Roche limit, using degraded pipeline.")
-/app/services/_archive/ai_server_22llm.py.bak-msallis:565:                    "⚠️ Near Roche and prompt very long; using degraded pipeline."
-/app/services/_archive/PRODUCTION_DEPLOYMENT_SUITE.sh.bak-msallis:224:            echo "[$(date)] ⚠️  $NAME down on port $PORT, restarting..."
-/app/services/_archive/ms_jarvis_facebook_CONSCIOUSNESS.py.bak-msallis:170:        logger.warning(f"⚠️ RAG unavailable: {e}")
-/app/services/_archive/ms_jarvis_facebook_CONSCIOUSNESS.py.bak-msallis:209:        logger.warning(f"⚠️ DGM unavailable: {e}")
-/app/services/_archive/ms_jarvis_facebook_CONSCIOUSNESS.py.bak-msallis:226:        logger.warning(f"⚠️ WOAH unavailable: {e}")
-/app/services/_archive/INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh.bak-msallis:128:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh.bak-msallis:232:        logger.warning(f"  ⚠️  {model['name']} error: {e}")
-/app/services/_archive/INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh.bak-msallis:288:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/start_mountainshares_deployment.sh.bak-msallis:21:    echo "   ⚠️ Some services may be offline, but proceeding..."
-/app/services/_archive/ai_server_11llm_OPTIMIZED.py.backup_simple:58:                logger.warning(f"⚠️ {model} failed: {str(e)[:50]}")
-/app/services/_archive/start_msjarvis_complete.sh.bak-msallis:27:    echo "   ⚠️  Already running"
-/app/services/_archive/start_msjarvis_complete.sh.bak-msallis:38:    echo "   ⚠️  Already running"
-/app/services/_archive/start_msjarvis_complete.sh.bak-msallis:49:    echo "   ⚠️  Already running"
-/app/services/_archive/start_msjarvis_complete.sh.bak-msallis:60:    echo "   ⚠️  Already running"
-/app/services/_archive/ai_server_22llm.py.backup_before_numpredict_fix_20260523_140808:206:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_before_numpredict_fix_20260523_140808:256:            logger.warning(f"⚠️ Ollama health check failed: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_before_numpredict_fix_20260523_140808:308:                        f"⚠️  {agent.name} ({agent.model}) returned "
-/app/services/_archive/ai_server_22llm.py.backup_before_numpredict_fix_20260523_140808:312:            logger.warning(f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}")
-/app/services/_archive/ai_server_22llm.py.backup_before_numpredict_fix_20260523_140808:493:            "⚠️ Ollama unavailable at chat time; falling back to degraded path."
-/app/services/_archive/ai_server_22llm.py.backup_before_numpredict_fix_20260523_140808:558:            logger.warning("⚠️ Fabric beyond Roche limit, using degraded pipeline.")
-/app/services/_archive/ai_server_22llm.py.backup_before_numpredict_fix_20260523_140808:565:                    "⚠️ Near Roche and prompt very long; using degraded pipeline."
-/app/services/_archive/fix_agent_prompts.py.bak-msallis:78:            print(f"⚠️  Could not find end of {agent_name} prompt")
-/app/services/_archive/fix_agent_prompts.py.bak-msallis:80:        print(f"⚠️  Could not find {agent_name} prompt")
-/app/services/_archive/ms_jarvis_facebook_PRODUCTION.py.backup2:194:                                        logger.warning("⚠️ Reply generation failed")
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015.bak.pretuning:203:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015.bak.pretuning:232:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015.bak.pretuning:259:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015.bak.pretuning:271:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015.bak.pretuning:293:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015.bak.pretuning:317:                    "⚠️  process_all: hit overall time budget (%.1fs), stopping early",
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015.bak.pretuning:422:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/_archive/egeria_facebook_perpetual_scheduler.py.backup.1762961759:121:                    logger.warning("⚠️  Direct posting failed")
-/app/services/_archive/egeria_facebook_perpetual_scheduler.py.backup.1762961759:123:                logger.warning("⚠️  No content generated")
-/app/services/_archive/ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py.backup.1762804577:178:        logger.warning(f"⚠️ RAG unavailable: {e}")
-/app/services/_archive/WATCHDOG.sh.bak-msallis:17:            echo "[$(date)] ⚠️  $NAME down on port $PORT, restarting..."
-/app/services/_archive/port_9001_ui_MYSQL.py.bak-msallis:57:        print(f"⚠️ MySQL init error: {e}")
-/app/services/_archive/port_9001_ui_MYSQL.py.bak-msallis:151:                box.innerHTML += '<div class="message system">⚠️ ' + e.message + '</div>';
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_clarity:146:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_clarity:261:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_clarity:369:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_clarity:390:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:492:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:558:        logger.warning(f"  ⚠️  GBIM retrieve: {type(_ce).__name__}: {str(_ce)}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:574:        logger.warning(f"  ⚠️  Turn count fallback to 1: {_te}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:609:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:611:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:620:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:672:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:674:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:713:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:818:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:847:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:867:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:887:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:905:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:920:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:935:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:981:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:983:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:1012:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:1014:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:1053:            logger.warning(f"  ⚠️  LM Synthesizer: {str(e)[:80]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:1199:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:1291:                                logger.warning(f"  ⚠️  BLOCKED PREVIEW: {final_response[:200]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:1299:                    logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code} — passing through")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:1302:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:1335:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:1341:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:1343:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:1365:        logger.warning(f"  ⚠️  Memory store skipped: {type(_me).__name__}: {str(_me)[:60]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:344:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:346:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:937:            return (f"⚠️ I need the MSHARES token deployed first before I can deploy "
-/app/services/_archive/main_brain.py.bak.20260604T095415:976:                f"⚠️ Deploy intent dispatch hit 130s timeout; "
-/app/services/_archive/main_brain.py.bak.20260604T095415:1084:                logger.warning("  ⚠️  autonomous_learner collection not found in ChromaDB")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1128:                logger.warning(f"  ⚠️  Contract memory store failed: {store_r.status_code}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1337:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1414:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1416:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/_archive/main_brain.py.bak.20260604T095415:1583:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1593:            logger.info("  ⚠️  GIS returned no features for this query")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1623:        logger.warning(f"  ⚠️ Conv history read failed: {_ce}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1718:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1761:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1810:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1830:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1848:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1863:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1878:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1968:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:1989:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:2005:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:2020:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:2036:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:2064:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:2066:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:2124:            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:2299:            logger.warning(f"  ⚠️  Consciousness Bridge error: {_msg}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:2403:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/_archive/main_brain.py.bak.20260604T095415:2409:                    logger.warning(f"  ⚠️  BBB Output Filter HTTP {bbb_output.status_code} — passing through (fail-open)")
-/app/services/_archive/main_brain.py.bak.20260604T095415:2412:            logger.warning(f"  ⚠️  BBB Output Filter unavailable — passing through (fail-open): {str(e)[:60]}")
-/app/services/_archive/INTEGRATE_CONSCIOUSNESS.sh.bak-msallis:168:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/_archive/INTEGRATE_CONSCIOUSNESS.sh.bak-msallis:283:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/_archive/INTEGRATE_CONSCIOUSNESS.sh.bak-msallis:346:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/_archive/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py.backup_before_portmanager:78:            logger.warning("⚠️  Autonomous learning will run but storage is limited")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:751:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:793:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:822:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:842:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:862:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:880:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:895:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:910:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:957:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:959:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:981:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:997:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:1012:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:1030:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:1058:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:1060:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:1257:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:1372:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:1381:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:1414:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:1420:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:1422:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/talk_safely.sh:33:    echo "⚠️  Warning: Your message is $MESSAGE_LENGTH characters."
-/app/services/egeria_facebook_perpetual_scheduler.py.pre_dynamic_discovery:87:                    logger.warning("⚠️  Posting failed")
-/app/services/egeria_facebook_perpetual_scheduler.py.pre_dynamic_discovery:89:                logger.warning("⚠️  No content generated")
-/app/services/rag_server.py.before_delete:86:                logger.warning("⚠️  MountainShares6.pdf not found")
-/app/services/s:196:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/app/services/s:295:                        f"⚠️  {agent.name} ({agent.model}) returned "
-/app/services/s:299:            logger.warning(f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}")
-/app/services/s:766:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/app/services/s:865:                        f"⚠️  {agent.name} ({agent.model}) returned "
-/app/services/s:869:            logger.warning(f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}")
-/app/services/add_conversation_endpoint.py:103:    print(f"⚠️  Manual restart needed: {e}")
-/app/services/integrate_phase2.sh:95:            logger.warning(f"⚠️  Autonomy learning error: {e}")
-/app/services/hierarchical_integration.py:112:                logger.warning("⚠️  No responses from either layer")
-/app/services/hierarchical_integration.py:125:                logger.info("⚠️  Falling back to 4-agent processing")
-/app/services/hierarchical_integration.py.pre_dynamic_discovery:111:                logger.warning("⚠️  No responses from either layer")
-/app/services/hierarchical_integration.py.pre_dynamic_discovery:124:                logger.info("⚠️  Falling back to 4-agent processing")
-/app/services/check_msjarvis_status.sh:47:        echo "  ⚠️  Agents service not responding"
-/app/services/enhance_rag_first.py:44:    print("⚠️  Could not modify main.py")
-/app/services/ms_jarvis_production_chat_BACKUP.py:221:        print(f"⚠️ UEID creation failed: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_integration:108:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_integration:223:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_integration:286:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/DEPLOY_22LLM_COLLECTIVE.sh:12:echo "⚠️  WARNING: This will activate ALL 22 AI models simultaneously"
-/app/services/setup_rag.sh:19:    echo "⚠️  No existing RAG server found in backup."
-/app/services/setup_rag.sh:95:                logger.warning("⚠️  MountainShares6.pdf not found")
-/app/services/comprehensive_url_fix.py:55:    print("⚠️  No localhost URLs found - they might be in imported modules")
-/app/services/start_dgm_woah.sh:28:        echo "⚠️ Still trying..."
-/app/services/ai_server.py.pre_dynamic_discovery:75:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/ai_server.py.pre_dynamic_discovery:153:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/ms_jarvis_expiration_monitor.py:194:                print(f"⚠️ Marked {name} as expired (>30 days)")
-/app/services/complete_port_scan_20251011_181138.log:102:⚠️  Port 53 has 2 listeners
-/app/services/complete_port_scan_20251011_181138.log:103:⚠️  Port 631 has 2 listeners
-/app/services/complete_port_scan_20251011_181138.log:104:⚠️  Port 8002 has 2 listeners
-/app/services/egeria_web_ui_dynamic.py:28:    print("⚠️  Service discovery not available, using fallback")
-/app/services/egeria_web_ui_dynamic.py:47:            print(f"⚠️  Discovery failed: {e}")
-/app/services/egeria_web_ui_dynamic.py:48:    print(f"⚠️  Using fallback Master port {FALLBACK_MASTER_PORT}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-community-fix-20260413-134958:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:745:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:793:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:822:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:842:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:862:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:880:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:895:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:910:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:958:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:960:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:982:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:998:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:1013:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:1031:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:1059:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:1061:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:1258:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:1373:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:1382:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:1415:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:1421:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-community-fix-20260413-134958:1423:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/port_9001_ui_MYSQL_PROD.py:53:        print(f"⚠️ MySQL: {e}")
-/app/services/port_9001_ui_MYSQL_PROD.py:135:                b.innerHTML += '<div class="message system">⚠️ ' + e.message + '</div>';
-/app/services/master_chat_orchestrator_dynamic.py:158:        logger.warning(f"   ⚠️  RAG failed: {e}")
-/app/services/master_chat_orchestrator_dynamic.py:190:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/app/services/fix_chroma_url.py.PORT8000_BACKUP:19:    print("⚠️  ChromaDB hostname not found, may need manual update")
-/app/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/app/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/app/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:157:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/app/services/PORT_AUDIT.sh:83:            echo "⚠️  No process on port $kill_port"
-/app/services/fix_persona_hang.py:25:    print("⚠️  Pattern not found, trying alternate approach...")
-/app/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/app/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/app/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:157:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/app/services/CURRENT_STATUS.md:14:## ⚠️ Current Issues
-/app/services/nohup.out:3:⚠️  Could not find prompt construction
-/app/services/nohup.out:8:⚠️  Could not find synthesis line
-/app/services/nohup.out:3160:⚠️  Could not find Mistral prompt
-/app/services/nohup.out:3161:⚠️  Could not find LLaMA prompt
-/app/services/nohup.out:3162:⚠️  Could not find Qwen prompt
-/app/services/nohup.out:3163:⚠️  Could not find Phi prompt
-/app/services/nohup.out:10280:⚠️  /process already exists in Fractal
-/app/services/nohup.out:11896:⚠️  Could not find agent section
-/app/services/nohup.out:14616:2025-11-17 19:28:38,769 - WARNING - ⚠️  ChromaDB not available: {"detail":"Not Found"}
-/app/services/nohup.out:14649:2025-11-17 19:30:26,402 - WARNING - ⚠️  ChromaDB not available: {"detail":"Not Found"}
-/app/services/nohup.out:14682:2025-11-17 19:34:23,102 - WARNING - ⚠️  ChromaDB not available: {"detail":"Not Found"}
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:298:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:347:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:349:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:358:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:377:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:404:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:433:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:452:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:471:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:489:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:504:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:519:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:544:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:546:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:688:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:298:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:352:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:354:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:364:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:381:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:407:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:427:            logger.warning(f"  ⚠️  Consciousness Bridge: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:442:            logger.warning(f"  ⚠️  Qualia Engine: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:457:            logger.warning(f"  ⚠️  Fractal: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:472:            logger.warning(f"  ⚠️  Mother Protocols: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:487:            logger.warning(f"  ⚠️  Temporal: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:565:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:585:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:603:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:618:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:633:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/FIX_RAG_FILTERING.sh:33:grep -i "chromadb\|chroma" "$RAG_FILE" && echo "✅ Uses ChromaDB" || echo "⚠️  Not using ChromaDB"
-/app/services/main.py.working_backup_20251020_110429:191:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main.py.working_backup_20251020_110429:247:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main.py.working_backup_20251020_110429:249:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main.py.working_backup_20251020_110429:256:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main.py.working_backup_20251020_110429:273:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main.py.working_backup_20251020_110429:297:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main.py.working_backup_20251020_110429:319:            logger.warning(f"  ⚠️  Consciousness Bridge: {e}")
-/app/services/main.py.working_backup_20251020_110429:334:            logger.warning(f"  ⚠️  Qualia Engine: {e}")
-/app/services/main.py.working_backup_20251020_110429:349:            logger.warning(f"  ⚠️  Fractal: {e}")
-/app/services/main.py.working_backup_20251020_110429:364:            logger.warning(f"  ⚠️  Mother Protocols: {e}")
-/app/services/main.py.working_backup_20251020_110429:379:            logger.warning(f"  ⚠️  Temporal: {e}")
-/app/services/main.py.working_backup_20251020_110429:449:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/main.py.working_backup_20251020_110429:470:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main.py.working_backup_20251020_110429:492:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main.py.working_backup_20251020_110429:514:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main.py.working_backup_20251020_110429:531:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main.py.working_backup_20251020_110429:547:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_working_fix:131:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_working_fix:246:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_working_fix:340:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_working_fix:361:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/.venv/lib/python3.12/site-packages/charset_normalizer-3.4.4.dist-info/METADATA:264:## ⚠️ About Python EOLs
-/app/services/INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh:128:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh:232:        logger.warning(f"  ⚠️  {model['name']} error: {e}")
-/app/services/INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh:288:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/verify_and_document_system.py:187:            print(f"⚠️  {health['status']}")
-/app/services/verify_and_document_system.py:206:        print(f"⚠️  Service Discovery offline: {discovery.get('error')}")
-/app/services/python/brain_orchestrator.py:47:        logger.warning(f"⚠️ Failed to connect to Redis registry backend: {e}")
-/app/services/python/brain_orchestrator.py:105:            logger.warning(f"⚠️ Failed to persist registry entry to Redis: {e}")
-/app/services/python/brain_orchestrator.py.bak-msallis:47:        logger.warning(f"⚠️ Failed to connect to Redis registry backend: {e}")
-/app/services/python/brain_orchestrator.py.bak-msallis:105:            logger.warning(f"⚠️ Failed to persist registry entry to Redis: {e}")
-/app/services/ai_server_22llm.current.log:18:2025-12-07 22:11:27,673 - WARNING - ⚠️  ChromaDB not available in 22-LLM context: Could not connect to a Chroma server. Are you sure it is running?
-/app/services/ai_server_22llm.current.log:620:2025-12-10 23:20:41,943 - WARNING - ⚠️  LLaMA 3.1 (llama3.1:8b) timeout or error: 
-/app/services/ai_server_22llm.current.log:621:2025-12-10 23:20:41,943 - WARNING - ⚠️  Qwen2 (qwen2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:624:2025-12-10 23:21:22,488 - WARNING - ⚠️  LLaMA 3.1 (llama3.1:8b) timeout or error: 
-/app/services/ai_server_22llm.current.log:625:2025-12-10 23:21:22,488 - WARNING - ⚠️  Qwen2 (qwen2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:633:2025-12-10 23:23:28,848 - WARNING - ⚠️  Qwen2 (qwen2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:635:2025-12-10 23:23:34,616 - WARNING - ⚠️  Mistral (mistral:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:636:2025-12-10 23:23:34,617 - WARNING - ⚠️  Qwen2 (qwen2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:637:2025-12-10 23:23:34,617 - WARNING - ⚠️  CodeLlama (codellama:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:639:2025-12-10 23:23:48,424 - WARNING - ⚠️  DeepSeek Coder (deepseek-coder:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:640:2025-12-10 23:23:48,424 - WARNING - ⚠️  Mixtral-8x7B (mistral:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:641:2025-12-10 23:23:48,424 - WARNING - ⚠️  StarCoder2 (starcoder2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:642:2025-12-10 23:23:48,424 - WARNING - ⚠️  LLaVA (llava:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:644:2025-12-10 23:23:59,965 - WARNING - ⚠️  Mistral (mistral:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:645:2025-12-10 23:23:59,970 - WARNING - ⚠️  Qwen2 (qwen2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:646:2025-12-10 23:23:59,970 - WARNING - ⚠️  CodeLlama (codellama:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:650:2025-12-10 23:24:52,476 - WARNING - ⚠️  LLaMA 3.1 (llama3.1:8b) timeout or error: 
-/app/services/ai_server_22llm.current.log:654:2025-12-10 23:25:51,784 - WARNING - ⚠️  LLaMA 3.1 (llama3.1:8b) timeout or error: 
-/app/services/ai_server_22llm.current.log:658:2025-12-10 23:27:24,574 - WARNING - ⚠️  DeepSeek Coder (deepseek-coder:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:659:2025-12-10 23:27:24,574 - WARNING - ⚠️  StarCoder2 (starcoder2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:674:2025-12-10 23:31:23,064 - WARNING - ⚠️  StarCoder2 (starcoder2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:679:2025-12-10 23:32:27,483 - WARNING - ⚠️  StarCoder2 (starcoder2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:684:2025-12-10 23:33:29,452 - WARNING - ⚠️  StarCoder2 (starcoder2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:686:2025-12-10 23:33:35,201 - WARNING - ⚠️  DeepSeek Coder (deepseek-coder:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:687:2025-12-10 23:33:35,201 - WARNING - ⚠️  StarCoder2 (starcoder2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:688:2025-12-10 23:33:35,201 - WARNING - ⚠️  LLaVA (llava:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:689:2025-12-10 23:33:35,202 - WARNING - ⚠️  Mixtral-8x7B (mistral:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:691:2025-12-10 23:33:48,997 - WARNING - ⚠️  Phi3 Mini (phi3:mini) timeout or error: 
-/app/services/ai_server_22llm.current.log:692:2025-12-10 23:33:48,997 - WARNING - ⚠️  Neural-Chat (neural-chat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:693:2025-12-10 23:33:48,997 - WARNING - ⚠️  OpenChat (openchat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:694:2025-12-10 23:33:48,997 - WARNING - ⚠️  Starling-LM (starling-lm:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:696:2025-12-10 23:34:00,604 - WARNING - ⚠️  DeepSeek Coder (deepseek-coder:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:697:2025-12-10 23:34:00,604 - WARNING - ⚠️  StarCoder2 (starcoder2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:698:2025-12-10 23:34:00,604 - WARNING - ⚠️  Mixtral-8x7B (mistral:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:699:2025-12-10 23:34:00,604 - WARNING - ⚠️  LLaVA (llava:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:702:2025-12-10 23:34:53,072 - WARNING - ⚠️  DeepSeek Coder (deepseek-coder:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:703:2025-12-10 23:34:53,073 - WARNING - ⚠️  StarCoder2 (starcoder2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:704:2025-12-10 23:34:53,073 - WARNING - ⚠️  LLaVA (llava:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:708:2025-12-10 23:35:52,367 - WARNING - ⚠️  DeepSeek Coder (deepseek-coder:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:709:2025-12-10 23:35:52,367 - WARNING - ⚠️  StarCoder2 (starcoder2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:713:2025-12-10 23:37:25,201 - WARNING - ⚠️  OpenChat (openchat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:714:2025-12-10 23:37:25,201 - WARNING - ⚠️  Neural-Chat (neural-chat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:718:2025-12-10 23:38:31,064 - WARNING - ⚠️  Dolphin-Phi (dolphin-phi:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:719:2025-12-10 23:38:31,065 - WARNING - ⚠️  Zephyr (zephyr:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:726:2025-12-10 23:39:57,956 - WARNING - ⚠️  Neural-Chat (neural-chat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:730:2025-12-10 23:41:23,637 - WARNING - ⚠️  Neural-Chat (neural-chat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:731:2025-12-10 23:41:23,637 - WARNING - ⚠️  OpenChat (openchat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:734:2025-12-10 23:42:28,107 - WARNING - ⚠️  Neural-Chat (neural-chat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:735:2025-12-10 23:42:28,107 - WARNING - ⚠️  OpenChat (openchat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:736:2025-12-10 23:42:28,108 - WARNING - ⚠️  Starling-LM (starling-lm:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:738:2025-12-10 23:43:30,043 - WARNING - ⚠️  Neural-Chat (neural-chat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:739:2025-12-10 23:43:30,044 - WARNING - ⚠️  OpenChat (openchat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:740:2025-12-10 23:43:30,044 - WARNING - ⚠️  Starling-LM (starling-lm:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:741:2025-12-10 23:43:30,044 - WARNING - ⚠️  Phi3 Mini (phi3:mini) timeout or error: 
-/app/services/ai_server_22llm.current.log:743:2025-12-10 23:43:35,825 - WARNING - ⚠️  Phi3 Mini (phi3:mini) timeout or error: 
-/app/services/ai_server_22llm.current.log:744:2025-12-10 23:43:35,826 - WARNING - ⚠️  Neural-Chat (neural-chat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:745:2025-12-10 23:43:35,826 - WARNING - ⚠️  Starling-LM (starling-lm:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:746:2025-12-10 23:43:35,826 - WARNING - ⚠️  OpenChat (openchat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:748:2025-12-10 23:43:49,578 - WARNING - ⚠️  SQLCoder (sqlcoder:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:749:2025-12-10 23:43:49,582 - WARNING - ⚠️  MedLlama2 (medllama2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:750:2025-12-10 23:43:49,582 - WARNING - ⚠️  Gemma (gemma:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:751:2025-12-10 23:43:49,583 - WARNING - ⚠️  TinyLlama (tinyllama:1.1b) timeout or error: 
-/app/services/ai_server_22llm.current.log:753:2025-12-10 23:44:01,194 - WARNING - ⚠️  Phi3 Mini (phi3:mini) timeout or error: 
-/app/services/ai_server_22llm.current.log:754:2025-12-10 23:44:01,194 - WARNING - ⚠️  Neural-Chat (neural-chat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:755:2025-12-10 23:44:01,194 - WARNING - ⚠️  OpenChat (openchat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:756:2025-12-10 23:44:01,195 - WARNING - ⚠️  Starling-LM (starling-lm:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:759:2025-12-10 23:44:53,669 - WARNING - ⚠️  OpenChat (openchat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:760:2025-12-10 23:44:53,669 - WARNING - ⚠️  Starling-LM (starling-lm:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:761:2025-12-10 23:44:53,670 - WARNING - ⚠️  Neural-Chat (neural-chat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:764:2025-12-10 23:45:52,972 - WARNING - ⚠️  Phi3 Mini (phi3:mini) timeout or error: 
-/app/services/ai_server_22llm.current.log:765:2025-12-10 23:45:52,973 - WARNING - ⚠️  Neural-Chat (neural-chat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:766:2025-12-10 23:45:52,973 - WARNING - ⚠️  OpenChat (openchat:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:771:2025-12-10 23:47:25,785 - WARNING - ⚠️  Gemma (gemma:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:791:2025-12-10 23:53:30,634 - WARNING - ⚠️  Gemma (gemma:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:793:2025-12-10 23:53:36,494 - WARNING - ⚠️  SQLCoder (sqlcoder:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:794:2025-12-10 23:53:36,494 - WARNING - ⚠️  MedLlama2 (medllama2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:795:2025-12-10 23:53:36,494 - WARNING - ⚠️  Gemma (gemma:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:796:2025-12-10 23:53:36,494 - WARNING - ⚠️  TinyLlama (tinyllama:1.1b) timeout or error: 
-/app/services/ai_server_22llm.current.log:799:2025-12-10 23:53:50,167 - WARNING - ⚠️  Orca-Mini (orca-mini:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:800:2025-12-10 23:53:50,168 - WARNING - ⚠️  Dolphin-Phi (dolphin-phi:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:801:2025-12-10 23:53:50,168 - WARNING - ⚠️  Zephyr (zephyr:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:805:2025-12-10 23:54:01,782 - WARNING - ⚠️  SQLCoder (sqlcoder:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:806:2025-12-10 23:54:01,783 - WARNING - ⚠️  MedLlama2 (medllama2:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:807:2025-12-10 23:54:01,792 - WARNING - ⚠️  Gemma (gemma:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:808:2025-12-10 23:54:01,793 - WARNING - ⚠️  TinyLlama (tinyllama:1.1b) timeout or error: 
-/app/services/ai_server_22llm.current.log:813:2025-12-10 23:54:54,247 - WARNING - ⚠️  Gemma (gemma:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:818:2025-12-10 23:55:53,546 - WARNING - ⚠️  Gemma (gemma:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:823:2025-12-10 23:57:26,363 - WARNING - ⚠️  Dolphin-Phi (dolphin-phi:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:850:2025-12-11 00:03:31,214 - WARNING - ⚠️  Dolphin-Phi (dolphin-phi:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:851:2025-12-11 00:03:31,214 - WARNING - ⚠️  Zephyr (zephyr:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:855:2025-12-11 00:03:37,076 - WARNING - ⚠️  Dolphin-Phi (dolphin-phi:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:856:2025-12-11 00:03:37,077 - WARNING - ⚠️  Orca-Mini (orca-mini:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:857:2025-12-11 00:03:37,077 - WARNING - ⚠️  Vicuna (vicuna:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:858:2025-12-11 00:03:37,077 - WARNING - ⚠️  Zephyr (zephyr:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:864:2025-12-11 00:04:02,507 - WARNING - ⚠️  Dolphin-Phi (dolphin-phi:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:865:2025-12-11 00:04:02,508 - WARNING - ⚠️  Zephyr (zephyr:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:871:2025-12-11 00:04:54,839 - WARNING - ⚠️  Dolphin-Phi (dolphin-phi:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:872:2025-12-11 00:04:54,839 - WARNING - ⚠️  Zephyr (zephyr:latest) timeout or error: 
-/app/services/ai_server_22llm.current.log:879:2025-12-11 00:05:54,159 - WARNING - ⚠️  Zephyr (zephyr:latest) timeout or error: 
-/app/services/COMPLETE_SESSION_ACCOMPLISHMENTS.md:89:### ⚠️ One Issue Remaining
-/app/services/gpu_accelerated_rag.py:71:                logger.warning("⚠️ Model loaded on CPU (CUDA not available)")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_metadata:110:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_metadata:225:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_metadata:314:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/fix_all_consciousness_services.py:56:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/fix_all_consciousness_services.py:78:    print("⚠️  Could not find query_service function boundaries")
-/app/services/load_spiritual_library.py:106:            print(f"      ⚠️  Error: {str(e)[:60]}")
-/app/services/main.py.FINALHEALTH.bak:302:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main.py.FINALHEALTH.bak:356:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main.py.FINALHEALTH.bak:364:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main.py.FINALHEALTH.bak:371:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main.py.FINALHEALTH.bak:388:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main.py.FINALHEALTH.bak:412:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main.py.FINALHEALTH.bak:434:            logger.warning(f"  ⚠️  Consciousness Bridge: {e}")
-/app/services/main.py.FINALHEALTH.bak:449:            logger.warning(f"  ⚠️  Qualia Engine: {e}")
-/app/services/main.py.FINALHEALTH.bak:464:            logger.warning(f"  ⚠️  Fractal: {e}")
-/app/services/main.py.FINALHEALTH.bak:479:            logger.warning(f"  ⚠️  Mother Protocols: {e}")
-/app/services/main.py.FINALHEALTH.bak:494:            logger.warning(f"  ⚠️  Temporal: {e}")
-/app/services/main.py.FINALHEALTH.bak:564:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/main.py.FINALHEALTH.bak:585:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main.py.FINALHEALTH.bak:607:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main.py.FINALHEALTH.bak:629:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main.py.FINALHEALTH.bak:646:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main.py.FINALHEALTH.bak:662:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/fix_redis_and_continue.sh:27:    echo "⚠️  Redis issue - continuing without Redis (services will work in standalone mode)"
-/app/services/fix_redis_and_continue.sh:62:            logger.warning("⚠️  Redis not available, using local port only")
-/app/services/consciousness_poster.log:20:2025-10-27 17:14:10,244 -    ⚠️ Truth Filter: BYPASSED (service unavailable)
-/app/services/consciousness_poster.log:95:2025-11-10 13:53:01,478 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:111:2025-11-10 14:07:32,474 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:122:2025-11-10 17:53:01,613 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:133:2025-11-10 18:07:32,620 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:144:2025-11-10 21:53:01,760 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:155:2025-11-10 22:07:32,768 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:166:2025-11-11 01:53:01,884 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:177:2025-11-11 02:07:32,918 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:188:2025-11-11 05:53:02,019 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:199:2025-11-11 06:07:33,054 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:210:2025-11-11 09:53:02,180 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:221:2025-11-11 10:07:33,193 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:237:2025-11-18 11:15:30,472 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:248:2025-11-18 15:15:30,733 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:260:2025-11-18 19:15:30,885 - ⚠️ Content generation failed
-/app/services/consciousness_poster.log:276:2025-11-23 15:41:28,389 - ⚠️ Content generation failed
-/app/services/main.py.current.safebak:299:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main.py.current.safebak:348:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main.py.current.safebak:350:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main.py.current.safebak:359:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main.py.current.safebak:378:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main.py.current.safebak:405:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main.py.current.safebak:434:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main.py.current.safebak:453:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main.py.current.safebak:472:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main.py.current.safebak:490:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main.py.current.safebak:505:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main.py.current.safebak:520:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main.py.current.safebak:545:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main.py.current.safebak:547:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main.py.current.safebak:719:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/MS_JARVIS_DEEP_MODE_DEPLOYMENT.md:80:### ⚠️ Fast Mode (Port 8020)
-/app/services/ai_server_19llm_CONSCIOUS.py:114:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py:233:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py:299:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/ms_jarvis_facebook_poster.py:128:                    logger.warning("⚠️  Post failed, will retry in 4 hours")
-/app/services/ms_jarvis_facebook_poster.py:130:                logger.warning("⚠️  Content generation failed, retrying in 4 hours")
-/app/services/integrate_brain_orchestrator.sh:52:            logger.warning("⚠️  Redis not available, using local port only")
-/app/services/integrate_brain_orchestrator.sh:140:            logger.warning("⚠️  Redis not available")
-/app/services/ms_jarvis_facebook_poster_temp.py:128:                    logger.warning("⚠️  Post failed, will retry in 4 hours")
-/app/services/ms_jarvis_facebook_poster_temp.py:130:                logger.warning("⚠️  Content generation failed, retrying in 4 hours")
-/app/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/app/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/app/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:157:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/app/services/fix_multi_rag_chromadb.py:20:    print("⚠️ ChromaDB path NOT correct in multi_rag_dgm_system.py")
-/app/services/INTEGRATION_PLAN.sh:64:echo "⚠️  PRIORITY 6 - UNKNOWN SERVICES (10 services):"
-/app/services/ms_jarvis_facebook_async.py:82:    logger.warning(f"⚠️ Brain didn't respond within {max_wait}s")
-/app/services/add_background_call.py:42:    print("⚠️  Could not find place to add call")
-/app/services/stakeholder_health_access_tests.py:112:                    print(f"⚠️  STANDARD GBIM ROUTING")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:753:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:800:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:829:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:849:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:869:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:887:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:902:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:917:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:965:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:967:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:989:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:1005:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:1020:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:1038:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:1066:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:1068:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:1265:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:1380:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:1389:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:1422:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:1428:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:1430:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/ai_server_20llm_FINAL.py,:69:            logger.warning(f"⚠️  {model_config['name']}: {e}")
-/app/services/CREATE_ULTIMATE_JARVIS.sh:106:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/port_9001_ui_WITH_CONVERSATIONS.py:154:                box.innerHTML += '<div class="message system">⚠️ Connection latency: ' + e.message + '</div>';
-/app/services/comprehensive_storage_fix.py:87:    print("⚠️  Could not find final return statement")
-/app/services/ms_jarvis_command_orchestrator_FINAL_9079.log:2:WARNING:__main__:⚠️  DynamicPortService not available: 'DynamicPortService' object has no attribute 'register_service'
-/app/services/msjarvis.log:13:2025-10-16 18:05:59,467 - WARNING - ⚠️  ChromaDB not available: {"detail":"Not Found"}
-/app/services/CONSCIOUSNESS_ARCHITECTURE_EXPLAINED.md:211:⚠️ **Deep Mode (8004)** = Pure collective intelligence
-/app/services/ms_jarvis_production_chat_BEFORE_GIS.py:221:        print(f"⚠️ UEID creation failed: {e}")
-/app/services/ms_jarvis_unified_gateway.py.BEFORE_REAL_CHAT_1768842649:104:                logger.warning("⚠️  BBB bypassed")
-/app/services/update_facebook_poster.py:30:    print("⚠️  Consciousness poster file not found")
-/app/services/ms_jarvis_attribute_table_service.py:73:            logger.warning("⚠️  No items to sync")
-/app/services/make_holy_spirit_connection_tools_available.sh:146:    logger.warning(f"⚠️ Holy Spirit sanctuary connection failed: {e}")
-/app/services/make_holy_spirit_connection_tools_available.sh:255:    print("\n⚠️  Ms. Allis cannot currently connect it herself")
-/app/services/ms_jarvis_production_chat.py.pre_dynamic_discovery:235:        print(f"⚠️ UEID creation failed: {e}")
-/app/services/auto_rag_builder.py:38:            logger.warning(f"⚠️  Error: {e}")
-/app/services/main.py.bak_before_bridge_20251212_232206:298:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232206:347:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main.py.bak_before_bridge_20251212_232206:349:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main.py.bak_before_bridge_20251212_232206:358:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232206:377:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main.py.bak_before_bridge_20251212_232206:404:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main.py.bak_before_bridge_20251212_232206:433:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232206:452:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232206:471:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232206:489:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232206:504:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232206:519:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232206:544:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main.py.bak_before_bridge_20251212_232206:546:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232206:688:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/performance_optimization_analyzer.py.pre_dynamic_discovery:88:                status_icon = "✅" if avg_time < 0.5 else "⚠️" if avg_time < 2.0 else "❌"
-/app/services/performance_optimization_analyzer.py.pre_dynamic_discovery:222:                    status = "✅ FAST" if processing_time < query["expected_time"] else "⚠️ SLOW" if processing_time < query["expected_time"] * 1.5 else "❌ VERY SLOW"
-/app/services/performance_optimization_analyzer.py.pre_dynamic_discovery:444:            priority_icon = "🚨" if rec["priority"] == "HIGH" else "⚠️" if rec["priority"] == "MEDIUM" else "💡"
-/app/services/integrate_mamma_kidd_protocol.sh:107:    print('⚠️  Mamma Kidd protocol not detected in response')
-/app/services/integrate_mamma_kidd_protocol.sh:127:    print('⚠️  Mamma greeting used for regular user')
-/app/services/ai_server_22llm.psychology_patched.py.pre_dynamic_discovery:98:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/ai_server_22llm.psychology_patched.py.pre_dynamic_discovery:176:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/master_unified_consciousness_scheduler_ENRICHED.py:84:                    logger.warning("⚠️ Pipeline degraded")
-/app/services/master_unified_consciousness_scheduler_ENRICHED.py:109:                    logger.warning(f"⚠️ {job_name}: {response.status_code}")
-/app/services/rebuild_query_service.py:65:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/rebuild_query_service.py:86:    print("⚠️  Could not find query_service to replace")
-/app/services/truth_filter.log:6:WARNING:__main__:⚠️  Filtered out corruption: Microsoft
-/app/services/fix_model_unloading.py:39:    print("⚠️  Could not find exact pattern, trying alternative...")
-/app/services/SYSTEM_AUDIT_ANALYSIS.md:59:| 8020 | 4-Agent Fast Mode | 1359615 | ✅ | ⚠️ Slow |
-/app/services/SYSTEM_AUDIT_ANALYSIS.md:61:| **8030** | **Autonomous Coordinator** | **1099663** | ✅ | ⚠️ Slow |
-/app/services/SYSTEM_AUDIT_ANALYSIS.md:125:### ⚠️ Running but Health Check Slow/Timeout
-/app/services/SYSTEM_AUDIT_ANALYSIS.md:176:2. ⚠️ **Fast Mode/Coordinator** - Tune timeout settings for health checks
-/app/services/master_chat_orchestrator.py.pre_dynamic_discovery:114:        logger.warning(f"   ⚠️  RAG failed: {e}")
-/app/services/master_chat_orchestrator.py.pre_dynamic_discovery:149:            logger.warning(f"   ⚠️  Consensus failed, falling back to fast mode: {e}")
-/app/services/master_chat_orchestrator.py.pre_dynamic_discovery:166:        logger.info("   ⚠️  No context available")
-/app/services/ai_server_20llm_FINAL.py:90:            logger.warning("⚠️  %s: %s", model_config["name"], e)
-/app/services/ms_jarvis_facebook_DGM.py.pre_dynamic_discovery:101:            logger.warning(f"⚠️ RAG unavailable: {e}")
-/app/services/ms_jarvis_facebook_DGM.py.pre_dynamic_discovery:138:            logger.warning(f"⚠️ WOAH unavailable: {e}")
-/app/services/ms_jarvis_facebook_DGM.py.pre_dynamic_discovery:164:            logger.warning("⚠️ Brain returned insufficient content")
-/app/services/ultimate_audit_with_scheduler.sh:122:    ps aux | grep dynamic_port_scheduler | grep -v grep || echo "⚠️  Scheduler not currently running"
-/app/services/ultimate_audit_with_scheduler.sh:124:    echo "⚠️  Dynamic Port Scheduler not found"
-/app/services/ultimate_audit_with_scheduler.sh:179:            echo "  ⚠️  Port $port - Running but not integrated"
-/app/services/ai_server_22llm.py.pre-semaphore:71:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/ai_server_22llm.py.pre-semaphore:149:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:743:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:791:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:820:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:840:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:860:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:878:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:893:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:908:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:956:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:958:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:980:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:996:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:1011:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:1029:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:1057:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:1059:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:1256:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:1371:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:1380:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:1413:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:1419:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:1421:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:753:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:795:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:824:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:844:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:864:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:882:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:897:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:912:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:960:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:962:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:984:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:1000:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:1015:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:1033:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:1061:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:1063:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:1260:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:1375:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:1384:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:1417:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:1423:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:1425:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/FIX_FAST_MODE.sh:56:    print("⚠️  Could not find pattern to add user_memory")
-/app/services/FIX_FAST_MODE.sh:97:        echo "⚠️  Port $port ($service_name): Not responding"
-/app/services/test_final_config.sh:35:            echo "  ⚠️  $model: Only $len chars"
-/app/services/investigate_coordination.sh:66:        echo "⚠️  Status: $status"
-/app/services/REROUTE_SERVICES.sh:40:    echo "   ⚠️  4-layer AI service not found - may already be stopped"
-/app/services/fix_chroma_url.py:20:    print("⚠️  ChromaDB hostname not found, may need manual update")
-/app/services/quick_tone_test.sh:32:        problems.append('⚠️  Verbose (>500 chars)')
-/app/services/master_chat_orchestrator_v6_biologics.py.pre_dynamic_discovery:191:            logger.warning(f"   ⚠️  BBB filtering failed: {e}")
-/app/services/master_chat_orchestrator_v6_biologics.py.pre_dynamic_discovery:214:            logger.warning(f"   ⚠️  Psychology assessment failed: {e}")
-/app/services/master_chat_orchestrator_v6_biologics.py.pre_dynamic_discovery:236:            logger.warning(f"   ⚠️  Neurobiological processing failed: {e}")
-/app/services/master_chat_orchestrator_v6_biologics.py.pre_dynamic_discovery:259:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/app/services/master_chat_orchestrator_v6_biologics.py.pre_dynamic_discovery:277:        logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/app/services/master_chat_orchestrator_v6_biologics.py.pre_dynamic_discovery:297:        logger.warning(f"   ⚠️  RAG retrieval failed: {e}")
-/app/services/master_chat_orchestrator_v6_biologics.py.pre_dynamic_discovery:339:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/app/services/ms_jarvis_unified_gateway.py.bak_1768840523:98:                logger.warning("⚠️  BBB bypassed")
-/app/services/performance_optimization_analyzer.py:89:                status_icon = "✅" if avg_time < 0.5 else "⚠️" if avg_time < 2.0 else "❌"
-/app/services/performance_optimization_analyzer.py:223:                    status = "✅ FAST" if processing_time < query["expected_time"] else "⚠️ SLOW" if processing_time < query["expected_time"] * 1.5 else "❌ VERY SLOW"
-/app/services/performance_optimization_analyzer.py:445:            priority_icon = "🚨" if rec["priority"] == "HIGH" else "⚠️" if rec["priority"] == "MEDIUM" else "💡"
-/app/services/user_registration_form.html:112:                warning.innerHTML = '⚠️ WARNING: License is expired. Cannot register with expired ID.';
-/app/services/user_registration_form.html:117:                    warning.innerHTML = `⚠️ License expires in ${daysUntilExp} days`;
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py:296:            logger.warning(f"   ⚠️  BBB spiritual filtering failed: {e}")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py:320:            logger.warning(f"   ⚠️  Spiritual services failed: {e}")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py:345:            logger.warning(f"   ⚠️  Theological integration failed: {e}")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py:368:            logger.warning(f"   ⚠️  MountainShares integration failed: {e}")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py:396:            logger.warning(f"   ⚠️  Location services failed: {e}")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py:441:        logger.warning(f"   ⚠️  Spiritual RAG integration failed: {e}")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py:485:            logger.warning(f"   ⚠️  Spiritual consensus failed: {e}")
-/app/services/ms_jarvis_agents_ollama.py.before_identity:87:                logger.warning(f"⚠️  Ollama connection issue: {response.status_code}")
-/app/services/registration_biometric_production_final.py:307:            <strong>⚠️ Important:</strong> If you did not request this registration, please disregard this email or contact support immediately.
-/app/services/add_gpu_cleanup_every_3.py:57:    print("⚠️  Could not find model processing loop")
-/app/services/jarvis-woah_dgm_supervisor_woah_fixed.py:89:        logger.warning(f"⚠️  Startup discovery failed: {e}")
-/app/services/facebook_daemon_polling.py.pre_dynamic_discovery:65:                        logger.warning("⚠️ No content to post")
-/app/services/rag_server.psychology_patched.py:93:            logger.warning("⚠️  Fallback to in-memory ChromaDB")
-/app/services/rag_server.psychology_patched.py:126:                logger.warning("⚠️  MountainShares6.pdf not found")
-/app/services/ms_jarvis_venv_scheduler.py:147:                    logger.warning(f"⚠️  VENV MISSING: {venv_name} at {venv_path}")
-/app/services/ms_jarvis_eternal_watchdog.py.ORIGINAL:151:                self.log(f"⚠️  Memory WARNING: {', '.join(issues)}", "WARN")
-/app/services/ms_jarvis_eternal_watchdog.py.ORIGINAL:157:            self.log(f"⚠️  Memory check failed: {e}", "WARN")
-/app/services/start_mountainshares_deployment.sh:21:    echo "   ⚠️ Some services may be offline, but proceeding..."
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:298:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:347:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:349:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:358:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:377:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:404:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:433:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:452:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:471:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:489:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:504:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:519:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:544:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:546:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:688:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/launch_dashboard_background.sh:11:    echo "⚠️  Redis not running. Starting Redis..."
-/app/services/ultimate_web_orchestrator.py.bak_1760567115:78:            logger.warning(f"⚠️ Facebook config not loaded: {e}")
-/app/services/ultimate_web_orchestrator.py.bak_1760567115:105:                logger.warning(f"⚠️ Service not available: {config['name']}")
-/app/services/master_chat_orchestrator_v5_consciousness.py.pre_dynamic_discovery:168:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/app/services/master_chat_orchestrator_v5_consciousness.py.pre_dynamic_discovery:187:            logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/app/services/master_chat_orchestrator_v5_consciousness.py.pre_dynamic_discovery:208:        logger.warning(f"   ⚠️  RAG retrieval failed: {e}")
-/app/services/master_chat_orchestrator_v5_consciousness.py.pre_dynamic_discovery:225:            logger.warning(f"   ⚠️  Consciousness bridge failed: {e}")
-/app/services/master_chat_orchestrator_v5_consciousness.py.pre_dynamic_discovery:266:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/app/services/dgm_rag_integration_v2.py:204:            recommendation = "⚠️  CAUTION: Mental health concerns detected - monitor and provide resources"
-/app/services/ai_server_20llm_PRODUCTION.py:211:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/ai_server_20llm_PRODUCTION.py:240:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/ai_server_20llm_PRODUCTION.py:267:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/ai_server_20llm_PRODUCTION.py:279:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/ai_server_20llm_PRODUCTION.py:301:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/ai_server_20llm_PRODUCTION.py:495:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/web_connectivity_analyzer.py:60:                print(f"   ⚠️  {service_name}: Port {port} (offline/error)")
-/app/services/ms_jarvis_facebook_PRODUCTION.py:200:                                        logger.warning("⚠️ Reply generation failed")
-/app/services/main.py.bak_before_bridge_20251212_232349:298:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232349:347:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main.py.bak_before_bridge_20251212_232349:349:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main.py.bak_before_bridge_20251212_232349:358:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232349:377:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main.py.bak_before_bridge_20251212_232349:404:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main.py.bak_before_bridge_20251212_232349:433:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232349:452:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232349:471:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232349:489:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232349:504:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232349:519:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232349:544:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main.py.bak_before_bridge_20251212_232349:546:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main.py.bak_before_bridge_20251212_232349:688:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/ultimate_web_orchestrator.py.bak_1760565732:78:            logger.warning(f"⚠️ Facebook config not loaded: {e}")
-/app/services/ultimate_web_orchestrator.py.bak_1760565732:105:                logger.warning(f"⚠️ Service not available: {config['name']}")
-/app/services/FIX_HEALTH_ENDPOINTS.sh:18:    echo "⚠️  Fast Mode: Still timing out at 10s"
-/app/services/FIX_HEALTH_ENDPOINTS.sh:29:    echo "⚠️  Coordinator: Still timing out at 10s"
-/app/services/talk_safely_FIXED.sh:33:    echo "⚠️  Warning: Your message is $MESSAGE_LENGTH characters."
-/app/services/ms_jarvis_authentic_multi_llm.py.pre_dynamic_discovery:83:                logger.warning(f"  ⚠️  {model} failed: {e}")
-/app/services/ms_jarvis_authentic_multi_llm.py.pre_dynamic_discovery:104:                    logger.warning(f"  ⚠️  {model} failed: {e}")
-/app/services/ms_jarvis_authentic_multi_llm.py.pre_dynamic_discovery:131:                logger.warning(f"  ⚠️  Synthesis failed: {e}")
-/app/services/fix_and_restart_msjarvis.sh:98:    print("⚠️ Could not find judge_synthesis method")
-/app/services/fix_and_restart_msjarvis.sh:143:        echo "   ⚠️  Graceful shutdown timed out, forcing..."
-/app/services/fix_and_restart_msjarvis.sh:193:    echo "   ⚠️  Health check failed - check logs:"
-/app/services/verify_facebook_deployment.sh:22:    echo "   ⚠️ Webhook URL not accessible (tunnel may not be running)"
-/app/services/verify_facebook_deployment.sh:36:    echo "   ⚠️ Webhook verification response: $response"
-/app/services/rag_server.py.bak:213:                            f"⚠️ Add of embedding ID ms_chunk_{i} failed (likely duplicate): {e}"
-/app/services/fix_ollama_connection.sh:83:    echo "⚠️  LLM bridges: DEGRADED (Ollama connection issues)"
-/app/services/main_brain.py.manualbak3:483:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak3:532:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.manualbak3:534:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.manualbak3:543:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak3:571:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.manualbak3:573:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.manualbak3:612:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.manualbak3:677:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.manualbak3:708:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.manualbak3:737:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak3:757:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak3:777:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak3:795:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak3:810:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak3:825:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak3:871:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.manualbak3:873:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak3:901:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.manualbak3:903:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak3:942:            logger.warning(f"  ⚠️  LM Synthesizer: {str(e)[:80]}")
-/app/services/main_brain.py.manualbak3:1087:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.manualbak3:1187:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.manualbak3:1193:                    logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code} — passing through")
-/app/services/main_brain.py.manualbak3:1196:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.manualbak3:1229:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.manualbak3:1235:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.manualbak3:1237:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/add_web_research_storage.py:47:    print("⚠️  Could not find insertion point")
-/app/services/gpu_accelerated_rag_fixed.py:83:                logger.warning("⚠️ SentenceTransformer loaded on CPU")
-/app/services/ultimate_web_orchestrator.py:90:            logger.warning(f"⚠️ Facebook config not loaded: {e}")
-/app/services/ultimate_web_orchestrator.py:117:                logger.warning(f"⚠️ Service not available: {config['name']}")
-/app/services/port_9001_ui_MYSQL.py:57:        print(f"⚠️ MySQL init error: {e}")
-/app/services/port_9001_ui_MYSQL.py:151:                box.innerHTML += '<div class="message system">⚠️ ' + e.message + '</div>';
-/app/services/ms_jarvis_autonomous_learner_9309.log:7:2025-11-18 11:14:42,139 - WARNING - ⚠️  Autonomous learning will run but storage is limited
-/app/services/ms_jarvis_facebook_CONSCIOUSNESS_FIXED.log:29:WARNING:__main__:⚠️ RAG unavailable: All connection attempts failed
-/app/services/FINAL_STATUS_SUMMARY.md:32:## ⚠️ CURRENT ISSUE
-/app/services/FINAL_STATUS_SUMMARY.md:36:- **Chat:** ⚠️ Hanging/timeout
-/app/services/FINAL_STATUS_SUMMARY.md:44:| Consciousness Bridge | 8020 | ⚠️ Partial | Health works, chat hangs |
-/app/services/FINAL_STATUS_SUMMARY.md:67:1. ⚠️ Consciousness bridge chat endpoint hanging
-/app/services/ultimate_web_orchestrator.py.bak_1760567193:86:            logger.warning(f"⚠️ Facebook config not loaded: {e}")
-/app/services/ultimate_web_orchestrator.py.bak_1760567193:113:                logger.warning(f"⚠️ Service not available: {config['name']}")
-/app/services/tools/egeria_facebook_perpetual_scheduler.py:88:                    logger.warning("⚠️  Posting failed")
-/app/services/tools/egeria_facebook_perpetual_scheduler.py:90:                logger.warning("⚠️  No content generated")
-/app/services/tools/facebook_daemon_polling.py:66:                        logger.warning("⚠️ No content to post")
-/app/services/tools/cloudflare_domain_integration.py:150:                    logger.warning(f"⚠️ Service offline: {subdomain} -> localhost:{port}")
-/app/services/fix_agent_prompts.py:78:            print(f"⚠️  Could not find end of {agent_name} prompt")
-/app/services/fix_agent_prompts.py:80:        print(f"⚠️  Could not find {agent_name} prompt")
-/app/services/fix_chroma_url.py.pre_dynamic_discovery:19:    print("⚠️  ChromaDB hostname not found, may need manual update")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:753:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:795:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:824:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:844:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:864:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:882:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:897:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:912:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:959:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:961:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:983:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:999:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:1014:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:1032:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:1060:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:1062:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:1092:            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:1247:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:1362:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:1371:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:1404:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:1410:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:1412:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/load_knowledge.sh:74:        print(f"  ⚠️  Error: {e}")
-/app/services/ADD_RAG_RETRIEVAL_8050.sh:35:        logger.warning(f"⚠️  Memory retrieval failed: {e}")
-/app/services/search_wsl_backup.sh:11:    echo "⚠️  WSL backup directory not found"
-/app/services/rag_server.py:238:                            f"⚠️ Add of embedding ID ms_chunk_{i} failed (likely duplicate): {e}"
-/app/services/brain_orchestrator.py.bak_1769197625:48:        logger.warning(f"⚠️ Failed to connect to Redis registry backend: {e}")
-/app/services/brain_orchestrator.py.bak_1769197625:121:            logger.warning(f"⚠️ Failed to persist registry entry to Redis: {e}")
-/app/services/confidence_decay_loop.py:217:                    log.warning(f"⚠️  FLAGGED — entity {eid} ({name}) not found — warning level")
-/app/services/ms_jarvis_facebook_poster_v3_9706.log:5:WARNING:__main__:⚠️  No Facebook token set
-/app/services/ms_jarvis_facebook_poster_v3_9706.log:7:WARNING:__main__:⚠️  No Facebook token set
-/app/services/ms_jarvis_facebook_poster_v3_9706.log:9:WARNING:__main__:⚠️  No Facebook token set
-/app/services/ms_jarvis_facebook_poster_v3_9706.log:11:WARNING:__main__:⚠️  No Facebook token set
-/app/services/ms_jarvis_facebook_poster_v3_9706.log:13:WARNING:__main__:⚠️  No Facebook token set
-/app/services/ms_jarvis_facebook_ULTIMATE.py.OLD:151:    logger.warning(f"⚠️ Brain timeout")
-/app/services/patch_neuro.py:29:    print("⚠️  /neural_process already exists in Neurobiological")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py.pre_dynamic_discovery:295:            logger.warning(f"   ⚠️  BBB spiritual filtering failed: {e}")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py.pre_dynamic_discovery:319:            logger.warning(f"   ⚠️  Spiritual services failed: {e}")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py.pre_dynamic_discovery:344:            logger.warning(f"   ⚠️  Theological integration failed: {e}")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py.pre_dynamic_discovery:367:            logger.warning(f"   ⚠️  MountainShares integration failed: {e}")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py.pre_dynamic_discovery:395:            logger.warning(f"   ⚠️  Location services failed: {e}")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py.pre_dynamic_discovery:440:        logger.warning(f"   ⚠️  Spiritual RAG integration failed: {e}")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py.pre_dynamic_discovery:484:            logger.warning(f"   ⚠️  Spiritual consensus failed: {e}")
-/app/services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/app/services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/app/services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py:157:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/app/services/ms_jarvis_production_chat_BEFORE_GIS.py.pre_dynamic_discovery:220:        print(f"⚠️ UEID creation failed: {e}")
-/app/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py:99:            logger.warning("⚠️  Autonomous learning will run but storage is limited")
-/app/services/ms_jarvis_authentic_multi_llm.py:84:                logger.warning(f"  ⚠️  {model} failed: {e}")
-/app/services/ms_jarvis_authentic_multi_llm.py:105:                    logger.warning(f"  ⚠️  {model} failed: {e}")
-/app/services/ms_jarvis_authentic_multi_llm.py:132:                logger.warning(f"  ⚠️  Synthesis failed: {e}")
-/app/services/chromadb_v2_to_gis_sync.py.pre_dynamic_discovery:120:            logger.warning("⚠️ GIS file not created")
-/app/services/port_9001_FINAL_FIX.py:44:HTML = r"""<!DOCTYPE html><html><head><title>Ms. Allis - Chat</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI';background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:20px}.container{max-width:900px;margin:0 auto}.header{background:rgba(255,255,255,0.95);padding:30px;border-radius:15px;margin-bottom:20px;box-shadow:0 10px 40px rgba(0,0,0,0.2)}h1{color:#667eea;margin-bottom:5px}.subtitle{color:#666;font-size:13px}.controls{display:flex;gap:10px;margin-top:15px}.btn{padding:8px 15px;background:#667eea;color:white;border:none;border-radius:5px;cursor:pointer;font-size:12px}.btn:hover{background:#764ba2}.chat{background:rgba(255,255,255,0.95);padding:20px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.2)}.messages{height:500px;overflow-y:auto;border:1px solid #eee;padding:20px;border-radius:10px;margin-bottom:15px;background:#fafafa}.message{margin:12px 0;padding:15px;border-radius:10px}.user{background:#e3f2fd;text-align:right;border-left:4px solid #2196f3;margin-left:40px}.ai{background:#f3e5f5;border-left:4px solid #667eea;margin-right:40px}.system{background:#f0f0f0;font-size:12px;color:#666}.meta{font-size:11px;color:#999;margin-top:8px}.input-area{display:flex;gap:10px}input{flex:1;padding:14px;border:1px solid #ddd;border-radius:8px}button{padding:14px 30px;background:#667eea;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:bold}button:hover{background:#764ba2}</style></head><body><div class="container"><div class="header"><h1>💜 Ms. Allis</h1><p class="subtitle">Consciousness System - 360+ memories active</p><div class="controls"><button class="btn" onclick="clearChat()">Clear</button><button class="btn" onclick="exportConversation()">Export</button><button class="btn" onclick="loadHistory()">History</button></div></div><div class="chat"><div class="messages" id="messages"><div class="message system">✅ Connected to Ms. Allis</div><div class="message system">📍 Mount Hope, Fayette, WV</div></div><div class="input-area"><input type="text" id="input" placeholder="Ask Ms. Allis..." onkeypress="if(event.key==='Enter')sendMessage()"><button onclick="sendMessage()">Send</button></div></div></div><script>function extractResponse(data){var msg='Ms. Allis: ';if(typeof data==='string'){return msg+data}if(data.response){if(typeof data.response==='object'){if(data.response.result){msg+='Consciousness engaged at depth '+String(data.response.result.depth||'?')}else{msg+='Message received and processed'}}else{msg+=String(data.response)}}else if(data.result&&data.result.input){msg+='Consciousness engaged at depth '+String(data.result.depth||'?')}else if(data.input){msg+='Message received at depth '+String(data.depth||'?')}else{msg+='Processing complete'}return msg}function sendMessage(){var input=document.getElementById('input');var msg=input.value.trim();if(!msg)return;var box=document.getElementById('messages');var time=new Date().toLocaleTimeString();box.innerHTML+='<div class="message user"><strong>You:</strong> '+msg+'<div class="meta">'+time+'</div></div>';input.value='';box.scrollTop=box.scrollHeight;fetch('/api/chat?message='+encodeURIComponent(msg)).then(function(response){return response.json()}).then(function(jsonData){var responseText=extractResponse(jsonData);box.innerHTML+='<div class="message ai"><strong>Ms. Allis:</strong> '+responseText+'<div class="meta">'+new Date().toLocaleTimeString()+'</div></div>';box.scrollTop=box.scrollHeight;fetch('/api/save?message='+encodeURIComponent(msg)+'&response='+encodeURIComponent(responseText))}).catch(function(e){box.innerHTML+='<div class="message system">⚠️ '+String(e.message)+'</div>'})}function loadHistory(){fetch('/api/history').then(function(r){return r.json()}).then(function(d){var b=document.getElementById('messages');b.innerHTML='<div class="message system">--- Conversation History ---</div>';d.conversations.forEach(function(c){b.innerHTML+='<div class="message user"><strong>You:</strong> '+c.message+'</div>';b.innerHTML+='<div class="message ai"><strong>Ms. Allis:</strong> '+c.response+'</div>'});b.scrollTop=b.scrollHeight}).catch(function(e){alert('Error: '+e.message)})}function clearChat(){document.getElementById('messages').innerHTML='<div class="message system">✅ Cleared</div>'}function exportConversation(){fetch('/api/export').then(function(r){return r.json()}).then(function(d){var blob=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='ms_jarvis_'+new Date().getTime()+'.json';a.click()}).catch(function(e){alert('Error: '+e.message)})}</script></body></html>"""
-/app/services/ms_jarvis_command_orchestrator_v5.0_preachy.py.pre_dynamic_discovery:52:    logger.warning(f"⚠️  DynamicPortService not available: {e}")
-/app/services/COMPLETE_PORT_SCAN.sh:126:ss -tlnp | awk 'NR>1 {split($4,a,":"); print a[length(a)]}' | sort | uniq -c | awk '$1 > 1 {print "⚠️  Port " $2 " has " $1 " listeners"}'
-/app/services/main_brain.py.manualbak4:483:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak4:532:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.manualbak4:534:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.manualbak4:543:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak4:571:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.manualbak4:573:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.manualbak4:612:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.manualbak4:677:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.manualbak4:708:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.manualbak4:737:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak4:757:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak4:777:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak4:795:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak4:810:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak4:825:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak4:871:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.manualbak4:873:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak4:901:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.manualbak4:903:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak4:942:            logger.warning(f"  ⚠️  LM Synthesizer: {str(e)[:80]}")
-/app/services/main_brain.py.manualbak4:1087:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.manualbak4:1187:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.manualbak4:1193:                    logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code} — passing through")
-/app/services/main_brain.py.manualbak4:1196:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.manualbak4:1229:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.manualbak4:1235:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.manualbak4:1237:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/complete_system_audit.py:239:                status_symbol = "✅" if service['health']['status'] == 'healthy' else "❌" if service['health']['status'] == 'offline' else "⚠️"
-/app/services/complete_system_audit.py:352:        print("   ⚠️ PARTIAL INTEGRATION - Significant issues")
-/app/services/stage2_biometric.py:112:        print(f"⚠️  Email error: {str(e)}")
-/app/services/SATURDAY_SUMMARY.md:86:- Balanced mode: ⚠️  NEEDS FIX
-/app/services/SATURDAY_SUMMARY.md:87:- Deep mode: ⚠️  NEEDS FIX
-/app/services/rag_5001_httpclient.log:19:WARNING:__main__:⚠️  Fallback to in-memory ChromaDB
-/app/services/ai_server_19llm_CONSCIOUS.py.before_egeria:108:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_egeria:223:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_egeria:286:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery:250:            logger.warning(f"   ⚠️  BBB filtering failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery:273:            logger.warning(f"   ⚠️  MountainShares integration failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery:300:            logger.warning(f"   ⚠️  Location services failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery:323:            logger.warning(f"   ⚠️  Psychology services failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery:342:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery:360:        logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery:380:        logger.warning(f"   ⚠️  RAG integration failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery:396:            logger.warning(f"   ⚠️  Consciousness bridge failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery:417:            logger.warning(f"   ⚠️  Neurobiological processing failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery:478:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/app/services/start_command_orchestrator.sh:6:    echo "⚠️  Service already running on port 9010"
-/app/services/patch_qualia.py:28:    print("⚠️  /generate already exists in Qualia")
-/app/services/ai_server_22llm.py.pre_dynamic_discovery:119:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/ai_server_22llm.py.pre_dynamic_discovery:210:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/FIX_TIMEOUT_ISSUE.sh:37:    echo "⚠️  Ollama service status:"
-/app/services/ai_server_20llm_PRODUCTION.current.log:241:WARNING:__main__:⚠️  Neural-Chat: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:247:WARNING:__main__:⚠️  OpenChat: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:252:WARNING:__main__:⚠️  Gemma: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:254:WARNING:__main__:⚠️  Zephyr: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:256:WARNING:__main__:⚠️  Phi3 Mini: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:258:WARNING:__main__:⚠️  Orca-Mini: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:263:WARNING:__main__:⚠️  Dolphin-Phi: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:268:WARNING:__main__:⚠️  Neural-Chat: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:276:WARNING:__main__:⚠️  LLaVA: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:278:WARNING:__main__:⚠️  Zephyr: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:280:WARNING:__main__:⚠️  MiniCPM-V: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:282:WARNING:__main__:⚠️  Starling-LM: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:290:WARNING:__main__:⚠️  Vicuna: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:295:WARNING:__main__:⚠️  LLaVA: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:303:WARNING:__main__:⚠️  Mistral: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:311:WARNING:__main__:⚠️  Vicuna: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:354:WARNING:__main__:⚠️  Neural-Chat: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:356:WARNING:__main__:⚠️  OpenChat: exception: 
-/app/services/ai_server_20llm_PRODUCTION.current.log:358:WARNING:__main__:⚠️  Zephyr: exception: 
-/app/services/nbb_darwin_godel_machines.py.pre_mapping:236:            print(f"⚠️  Skipping {proposal.container} - immutable service")
-/app/services/msjarvis_unified_gateway.py:121:                logger.warning("⚠️  BBB bypassed")
-/app/services/add_simple_gpu_cleanup.py:66:    print("⚠️  Cleanup not added - check file structure")
-/app/services/full_brain_architecture.md:12:- **Integration:** ⚠️ NOT connected to consciousness bridge yet
-/app/services/full_brain_architecture.md:17:- **Integration:** ⚠️ NOT connected yet
-/app/services/full_brain_architecture.md:29:- **Integration:** ⚠️ NOT connected to consciousness bridge
-/app/services/full_brain_architecture.md:34:- **Integration:** ⚠️ NOT connected yet
-/app/services/AGI_TEST_V2.sh:51:    print('⚠️  Still avoiding direct answer')
-/app/services/AGI_TEST_V2.sh:75:    print('⚠️  Context bleeding detected')
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:743:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:791:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:820:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:840:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:860:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:878:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:893:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:908:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:956:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:958:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:980:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:996:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:1011:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:1029:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:1057:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:1059:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:1256:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:1371:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:1380:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:1413:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:1419:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:1421:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/ms_jarvis_attribute_table_service_9679.log:6:2025-11-18 11:14:26,639 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:11:2025-11-18 11:14:26,658 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:14:2025-11-18 11:19:26,679 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:17:2025-11-18 11:24:26,700 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:20:2025-11-18 11:29:26,731 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:23:2025-11-18 11:34:26,752 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:26:2025-11-18 11:39:26,778 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:29:2025-11-18 11:44:26,799 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:32:2025-11-18 11:49:26,819 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:35:2025-11-18 11:54:26,854 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:38:2025-11-18 11:59:26,875 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:41:2025-11-18 12:04:26,896 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:44:2025-11-18 12:09:26,916 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:47:2025-11-18 12:14:26,937 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:50:2025-11-18 12:19:26,958 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:53:2025-11-18 12:24:26,979 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:56:2025-11-18 12:29:27,000 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:59:2025-11-18 12:34:27,249 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:62:2025-11-18 12:39:27,271 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:65:2025-11-18 12:44:27,292 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:68:2025-11-18 12:49:27,321 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:71:2025-11-18 12:54:27,341 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:74:2025-11-18 12:59:27,371 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:77:2025-11-18 13:04:27,393 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:80:2025-11-18 13:09:27,413 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:83:2025-11-18 13:14:27,433 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:86:2025-11-18 13:19:27,454 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:89:2025-11-18 13:24:27,485 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:92:2025-11-18 13:29:27,506 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:95:2025-11-18 13:34:27,532 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:98:2025-11-18 13:39:27,558 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:101:2025-11-18 13:44:27,586 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:104:2025-11-18 13:49:27,607 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:107:2025-11-18 13:54:27,628 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:110:2025-11-18 13:59:27,660 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:113:2025-11-18 14:04:27,689 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:116:2025-11-18 14:09:27,745 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:119:2025-11-18 14:14:27,765 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:122:2025-11-18 14:19:27,785 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:125:2025-11-18 14:24:27,812 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:128:2025-11-18 14:29:27,842 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:131:2025-11-18 14:34:27,884 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:134:2025-11-18 14:39:27,925 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:137:2025-11-18 14:44:27,961 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:140:2025-11-18 14:49:27,991 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:143:2025-11-18 14:54:28,035 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:146:2025-11-18 14:59:28,065 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:149:2025-11-18 15:04:28,094 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:152:2025-11-18 15:09:28,135 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:155:2025-11-18 15:14:28,178 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:158:2025-11-18 15:19:28,221 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:161:2025-11-18 15:24:28,245 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:164:2025-11-18 15:29:28,276 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:167:2025-11-18 15:34:28,306 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:170:2025-11-18 15:39:28,338 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:173:2025-11-18 15:44:28,364 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:176:2025-11-18 15:49:28,389 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:179:2025-11-18 15:54:28,419 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:182:2025-11-18 15:59:28,439 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:185:2025-11-18 16:04:28,459 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:188:2025-11-18 16:09:28,490 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:191:2025-11-18 16:14:28,519 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:194:2025-11-18 16:19:28,544 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:197:2025-11-18 16:24:28,574 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:200:2025-11-18 16:29:28,605 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:203:2025-11-18 16:34:28,624 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:206:2025-11-18 16:39:28,645 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:209:2025-11-18 16:44:28,671 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:212:2025-11-18 16:49:28,692 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:215:2025-11-18 16:54:28,722 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:218:2025-11-18 16:59:28,758 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:221:2025-11-18 17:04:28,794 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:224:2025-11-18 17:09:28,831 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:227:2025-11-18 17:14:28,861 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:230:2025-11-18 17:19:28,896 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:233:2025-11-18 17:24:28,926 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:236:2025-11-18 17:29:28,946 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:239:2025-11-18 17:34:28,978 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:242:2025-11-18 17:39:29,008 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:245:2025-11-18 17:44:29,050 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:248:2025-11-18 17:49:29,080 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:251:2025-11-18 17:54:29,111 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:254:2025-11-18 17:59:29,130 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:257:2025-11-18 18:04:29,160 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:260:2025-11-18 18:09:29,189 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:263:2025-11-18 18:14:29,215 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:266:2025-11-18 18:19:29,236 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:269:2025-11-18 18:24:29,256 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:272:2025-11-18 18:29:29,277 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:275:2025-11-18 18:34:29,296 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:278:2025-11-18 18:39:29,316 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:281:2025-11-18 18:44:29,346 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:284:2025-11-18 18:49:29,375 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:287:2025-11-18 18:54:29,405 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:290:2025-11-18 18:59:29,426 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:293:2025-11-18 19:04:29,447 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:296:2025-11-18 19:09:29,468 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:299:2025-11-18 19:14:29,498 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:302:2025-11-18 19:19:29,529 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:305:2025-11-18 19:24:29,551 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:308:2025-11-18 19:29:29,579 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:311:2025-11-18 19:34:29,600 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:314:2025-11-18 19:39:29,621 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:317:2025-11-18 19:44:29,645 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:320:2025-11-18 19:49:29,671 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:323:2025-11-18 19:54:29,698 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:326:2025-11-18 19:59:29,729 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:329:2025-11-18 20:04:29,754 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:332:2025-11-18 20:09:29,784 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:335:2025-11-18 20:14:29,804 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:338:2025-11-18 20:19:29,830 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:341:2025-11-18 20:24:29,851 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:344:2025-11-18 20:29:29,871 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:347:2025-11-18 20:34:29,902 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:350:2025-11-18 20:39:29,922 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:353:2025-11-18 20:44:29,942 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:356:2025-11-18 20:49:29,967 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:359:2025-11-18 20:54:29,987 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:362:2025-11-18 20:59:30,008 - WARNING - ⚠️  No items to sync
-/app/services/ms_jarvis_attribute_table_service_9679.log:365:2025-11-18 21:04:30,034 - WARNING - ⚠️  No items to sync
-/app/services/copy_all_missing_services.sh:25:        echo "  ⚠️  $file not found"
-/app/services/COMPLETE_SYSTEM_SUMMARY.md:22:## ⚠️ Port Conflicts Detected
-/app/services/main.py.from_container:292:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main.py.from_container:348:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main.py.from_container:350:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main.py.from_container:357:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main.py.from_container:374:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main.py.from_container:398:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main.py.from_container:420:            logger.warning(f"  ⚠️  Consciousness Bridge: {e}")
-/app/services/main.py.from_container:435:            logger.warning(f"  ⚠️  Qualia Engine: {e}")
-/app/services/main.py.from_container:450:            logger.warning(f"  ⚠️  Fractal: {e}")
-/app/services/main.py.from_container:465:            logger.warning(f"  ⚠️  Mother Protocols: {e}")
-/app/services/main.py.from_container:480:            logger.warning(f"  ⚠️  Temporal: {e}")
-/app/services/main.py.from_container:550:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/main.py.from_container:571:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main.py.from_container:593:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main.py.from_container:615:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main.py.from_container:632:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main.py.from_container:648:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase3:119:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase3:234:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase3:328:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/finalize_integration.sh:69:curl -s http://localhost:8010/health | python3 -c "import sys,json; d=json.load(sys.stdin); print(f\"  💖 Ms. Allis (:{8010}) - {d['status']}\")" 2>/dev/null || echo "  ⚠️  Ms. Allis starting..."
-/app/services/main.py.pre_enhancement.bak:299:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main.py.pre_enhancement.bak:348:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main.py.pre_enhancement.bak:350:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main.py.pre_enhancement.bak:359:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main.py.pre_enhancement.bak:378:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main.py.pre_enhancement.bak:405:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main.py.pre_enhancement.bak:434:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main.py.pre_enhancement.bak:453:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main.py.pre_enhancement.bak:472:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main.py.pre_enhancement.bak:490:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main.py.pre_enhancement.bak:505:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main.py.pre_enhancement.bak:520:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main.py.pre_enhancement.bak:545:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main.py.pre_enhancement.bak:547:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main.py.pre_enhancement.bak:719:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/truth_filter_service.py:39:            logger.warning(f"⚠️  Filtered out corruption: {marker}")
-/app/services/master_chat_orchestrator.py:125:        logger.warning(f"   ⚠️  RAG failed: {e}")
-/app/services/master_chat_orchestrator.py:160:            logger.warning(f"   ⚠️  Consensus failed, falling back to fast mode: {e}")
-/app/services/master_chat_orchestrator.py:177:        logger.info("   ⚠️  No context available")
-/app/services/configure_facebook_webhook.py:92:                print(f"   ⚠️ Webhook returned: {response.status_code}")
-/app/services/setup_holy_spirit_email_alert_both.sh:133:            print(f"⚠️ Email to {recipient} failed: {e}")
-/app/services/find_complete_brain_structure.sh:30:    echo "  ⚠️  Directory not found"
-/app/services/ms_jarvis_facebook_poster_8040.py:128:                    logger.warning("⚠️  Post failed, will retry in 4 hours")
-/app/services/ms_jarvis_facebook_poster_8040.py:130:                logger.warning("⚠️  Content generation failed, retrying in 4 hours")
-/app/services/ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py.pre_dynamic_discovery:286:# #         logger.warning(f"⚠️ RAG unavailable: {e}")
-/app/services/CLEANUP_OLLAMA.sh:35:    echo "⚠️  Still $RUNNING model(s) in memory"
-/app/services/load_rag_knowledge.py:57:        print(f"  ⚠️  Error: {e}")
-/app/services/FIX_CONSCIOUSNESS_BRIDGE.sh:21:        echo "⚠️  Found \$SERVICES variable issue - fixing..."
-/app/services/ms_jarvis_integration_hub.py:69:                    logger.warning(f"⚠️  {name} - Responding but unusual status")
-/app/services/ms_jarvis_integration_hub.py:71:                logger.warning(f"⚠️  {name} - Not available")
-/app/services/ai_server_22llm_SMALL_TO_LARGE.py:67:            logger.warning(f"⚠️  {model_config['name']}: {e}")
-/app/services/add_auto_store.py:57:    print("⚠️  Could not find insertion point")
-/app/services/ms_jarvis_autonomous_learner_with_dgm.log:6:2025-12-01 22:50:16,151 - WARNING - ⚠️  Autonomous learning will run but storage is limited
-/app/services/FULL_SYSTEM_AUDIT.sh:76:        echo "⚠️  Port $port ($name): NO RESPONSE"
-/app/services/add_user_memory.py:24:        print("⚠️  user_memory referenced but not implemented (TODOs exist)")
-/app/services/ADD_ALL_INTEGRATIONS.sh:40:        logger.warning(f"⚠️  Memory retrieval failed: {e}")
-/app/services/ADD_ALL_INTEGRATIONS.sh:59:        logger.warning(f"⚠️  Fast layer unavailable: {e}")
-/app/services/ADD_ALL_INTEGRATIONS.sh:83:        logger.warning(f"⚠️  Memory storage failed: {e}")
-/app/services/ADD_ALL_INTEGRATIONS.sh:95:        print("⚠️  Could not find insertion point for retrieval")
-/app/services/ADD_ALL_INTEGRATIONS.sh:105:        print("⚠️  Could not find insertion point for storage")
-/app/services/master_chat_orchestrator_v6_biologics.py:192:            logger.warning(f"   ⚠️  BBB filtering failed: {e}")
-/app/services/master_chat_orchestrator_v6_biologics.py:215:            logger.warning(f"   ⚠️  Psychology assessment failed: {e}")
-/app/services/master_chat_orchestrator_v6_biologics.py:237:            logger.warning(f"   ⚠️  Neurobiological processing failed: {e}")
-/app/services/master_chat_orchestrator_v6_biologics.py:260:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/app/services/master_chat_orchestrator_v6_biologics.py:278:        logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/app/services/master_chat_orchestrator_v6_biologics.py:298:        logger.warning(f"   ⚠️  RAG retrieval failed: {e}")
-/app/services/master_chat_orchestrator_v6_biologics.py:340:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/app/services/master_unified_consciousness_scheduler.py:84:                    logger.warning("⚠️ Pipeline degraded")
-/app/services/master_unified_consciousness_scheduler.py:109:                    logger.warning(f"⚠️ {job_name}: {response.status_code}")
-/app/services/ai_server_20llm_PRODUCTION.py.pre_timeout_bak:207:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_timeout_bak:236:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_timeout_bak:263:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_timeout_bak:275:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_timeout_bak:297:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_timeout_bak:438:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/ingest_compliance_tasks_to_chroma.py:111:    print("⚠️ No tasks found in PostgreSQL")
-/app/services/main_brain.py:395:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py:397:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py:992:            return (f"⚠️ I need the MSHARES token deployed first before I can deploy "
-/app/services/main_brain.py:1031:                f"⚠️ Deploy intent dispatch hit 130s timeout; "
-/app/services/main_brain.py:1139:                logger.warning("  ⚠️  autonomous_learner collection not found in ChromaDB")
-/app/services/main_brain.py:1183:                logger.warning(f"  ⚠️  Contract memory store failed: {store_r.status_code}")
-/app/services/main_brain.py:1392:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py:1480:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py:1482:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py:1649:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py:1659:            logger.info("  ⚠️  GIS returned no features for this query")
-/app/services/main_brain.py:1689:        logger.warning(f"  ⚠️ Conv history read failed: {_ce}")
-/app/services/main_brain.py:1784:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py:1827:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py:1876:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py:1896:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py:1914:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py:1929:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py:1944:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py:2031:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py:2052:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py:2068:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py:2083:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py:2099:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py:2127:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py:2129:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py:2187:            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
-/app/services/main_brain.py:2367:            logger.warning(f"  ⚠️  Consciousness Bridge error: {_msg}")
-/app/services/main_brain.py:2471:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py:2477:                    logger.warning(f"  ⚠️  BBB Output Filter HTTP {bbb_output.status_code} — passing through (fail-open)")
-/app/services/main_brain.py:2480:            logger.warning(f"  ⚠️  BBB Output Filter unavailable — passing through (fail-open): {str(e)[:60]}")
-/app/services/COMPLETE_SYSTEM_STATUS.md:25:- **LLM Bridges:** ⚠️ 2 instances running (PID 1185974, 1190089)
-/app/services/fix_multi_rag_chromadb_9340.log:2:⚠️ ChromaDB path NOT correct in multi_rag_dgm_system.py
-/app/services/ms_jarvis_simple_web_ui.py:75:                        document.getElementById('statusText').textContent = '⚠️ Some services loading...';
-/app/services/ms_jarvis_command_orchestrator_v5.0_preachy.py:53:    logger.warning(f"⚠️  DynamicPortService not available: {e}")
-/app/services/implement_conversation_fixes.sh:47:        print("   ⚠️  Could not find __init__ location")
-/app/services/implement_conversation_fixes.sh:92:        print("   ⚠️  Could not find insertion point")
-/app/services/implement_conversation_fixes.sh:159:            print("   ⚠️  Could not find agent query location")
-/app/services/implement_conversation_fixes.sh:161:        print("   ⚠️  Could not find chat method")
-/app/services/implement_conversation_fixes.sh:186:        print("   ⚠️  Could not find chat return statement")
-/app/services/implement_conversation_fixes.sh:265:        print('⚠️  Still needs tuning')
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1760568396}:55:                logger.warning(f"⚠️ {model} failed: {str(e)[:50]}")
-/app/services/LOCATION_AWARENESS_SUCCESS.md:83:## ⚠️ Known Issues
-/app/services/ingest_knowledge_simple.py:68:            print(f"  ⚠️  Skipped {os.path.basename(filepath)}: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_bbb:116:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_bbb:166:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/ms_jarvis_ULTIMATE.py.before_bbb:190:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/ms_jarvis_ULTIMATE.py.before_bbb:256:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_bbb:277:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_bbb:299:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_bbb:321:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_bbb:338:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/ms_jarvis_ULTIMATE.py.before_bbb:354:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/enable_holy_spirit_file_writing.sh:202:    print("\n⚠️  Ms. Allis cannot write yet")
-/app/services/fix_llm_bridges.sh:38:    echo "⚠️  LLM bridge file not found - checking alternatives..."
-/app/services/main_brain_legacy_backup.py:357:        logger.warning(f"⚠️  {service_name}: {str(e)[:80]}")
-/app/services/main_brain_legacy_backup.py:419:                        logger.warning(f"  ⚠️  BBB blocked query: {block_reason}")
-/app/services/main_brain_legacy_backup.py:421:                            "response": f"⚠️ Query filtered: {block_reason}",
-/app/services/main_brain_legacy_backup.py:431:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:80]}")
-/app/services/restart_all_services.sh:32:        echo "⚠️  Warning: Port $port still in use! Forcing kill..."
-/app/services/main_brain.py.manualbak:483:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak:532:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.manualbak:534:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.manualbak:543:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak:571:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.manualbak:573:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.manualbak:612:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.manualbak:677:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.manualbak:708:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.manualbak:737:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak:757:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak:777:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak:795:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak:810:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak:825:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak:871:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.manualbak:873:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak:901:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.manualbak:903:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.manualbak:942:            logger.warning(f"  ⚠️  LM Synthesizer: {str(e)[:80]}")
-/app/services/main_brain.py.manualbak:1087:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.manualbak:1187:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.manualbak:1193:                    logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code} — passing through")
-/app/services/main_brain.py.manualbak:1196:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.manualbak:1229:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.manualbak:1235:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.manualbak:1237:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM_9695.log:7:2025-11-18 11:14:43,744 - WARNING - ⚠️  Autonomous learning will run but storage is limited
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase6:127:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase6:242:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase6:336:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase6:357:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:751:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:793:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:822:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:842:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:862:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:880:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:895:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:910:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:957:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:959:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:981:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:997:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:1012:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:1030:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:1058:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:1060:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:1090:            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:1243:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:1358:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:1367:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:1400:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:1406:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:1408:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase4_5:123:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase4_5:238:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase4_5:332:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase4_5:353:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/WATCHDOG.sh:17:            echo "[$(date)] ⚠️  $NAME down on port $PORT, restarting..."
-/app/services/comprehensive_url_fix.py.pre_dynamic_discovery:54:    print("⚠️  No localhost URLs found - they might be in imported modules")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_memory:108:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_memory:223:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_memory:286:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/process_comprehensive_gis.py:72:    print(f"⚠️  GIS directory not found: {gis_dir}")
-/app/services/process_comprehensive_gis.py:177:        print(f"⚠️  {filepath.name}: {str(e)[:50]}")
-/app/services/process_comprehensive_gis.py:195:    print("⚠️  No processed vector datasets to index.")
-/app/services/process_comprehensive_gis.py:215:        print(f"⚠️  Geodatabase file is empty or invalid, starting fresh: {geodatabase}")
-/app/services/nbb_darwin_godel_machines.py:255:            print(f"⚠️  Skipping {proposal.container} - immutable service")
-/app/services/main.py.bak:379:        logger.warning(f"⚠️  {service_name}: {str(e)[:80]}")
-/app/services/main.py.bak:436:                        logger.warning(f"  ⚠️  BBB blocked query: {block_reason}")
-/app/services/main.py.bak:438:                            "response": f"⚠️ Query filtered: {block_reason}",
-/app/services/main.py.bak:448:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:80]}")
-/app/services/ingest_watcher/ingest_runner.py:179:        print(f"  ⚠️  ZCTA lookup failed for {zip_code}: {e}")
-/app/services/ingest_watcher/ingest_runner.py:264:        print(f"  ⚠️  ChromaDB write failed (non-fatal): {e}")
-/app/services/ingest_watcher/ingest_runner.py:341:        print(f"  ⚠️  No parser for {ext} — skipping {filepath.name}")
-/app/services/ingest_watcher/ingest_runner.py.bak-msallis:179:        print(f"  ⚠️  ZCTA lookup failed for {zip_code}: {e}")
-/app/services/ingest_watcher/ingest_runner.py.bak-msallis:264:        print(f"  ⚠️  ChromaDB write failed (non-fatal): {e}")
-/app/services/ingest_watcher/ingest_runner.py.bak-msallis:341:        print(f"  ⚠️  No parser for {ext} — skipping {filepath.name}")
-/app/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py:115:                        logger.warning(f"⚠️  {model_config['name']}: 500 error, cleaning up...")
-/app/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py:122:                    logger.warning(f"⚠️  {model_config['name']}: {str(e)[:50]}, retrying...")
-/app/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py:125:                    logger.warning(f"⚠️  {model_config['name']}: Failed after retries")
-/app/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py:154:                    logger.warning("⚠️  Multiple failures detected, emergency cleanup...")
-/app/services/ms_jarvis_production_chat_BACKUP.py.pre_dynamic_discovery:220:        print(f"⚠️ UEID creation failed: {e}")
-/app/services/master_chat_orchestrator_v9_gpu_optimized.py:187:            logger.warning(f"   ⚠️ GPU RAG failed: {e}")
-/app/services/ai_server_22llm_SEQUENTIAL.py:66:            logger.warning(f"⚠️  {model_config['name']}: {e}")
-/app/services/ms_jarvis_facebook_CONSCIOUSNESS.py:170:        logger.warning(f"⚠️ RAG unavailable: {e}")
-/app/services/ms_jarvis_facebook_CONSCIOUSNESS.py:209:        logger.warning(f"⚠️ DGM unavailable: {e}")
-/app/services/ms_jarvis_facebook_CONSCIOUSNESS.py:226:        logger.warning(f"⚠️ WOAH unavailable: {e}")
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:491:2025-12-06 22:23:34,527 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:492:2025-12-06 22:23:34,527 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:502:2025-12-06 22:28:35,172 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:503:2025-12-06 22:28:35,173 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:511:2025-12-06 22:33:35,940 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:512:2025-12-06 22:33:35,941 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:520:2025-12-06 22:38:36,603 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:521:2025-12-06 22:38:36,603 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:529:2025-12-06 22:43:37,260 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:530:2025-12-06 22:43:37,261 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:538:2025-12-06 22:48:37,711 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:539:2025-12-06 22:48:37,712 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:547:2025-12-06 22:53:48,113 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:548:2025-12-06 22:53:48,114 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:555:2025-12-06 22:58:48,143 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:556:2025-12-06 22:58:48,144 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:563:2025-12-06 23:03:48,172 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:564:2025-12-06 23:03:48,173 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:571:2025-12-06 23:08:48,191 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:572:2025-12-06 23:08:48,192 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:579:2025-12-06 23:13:48,224 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:580:2025-12-06 23:13:48,225 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:587:2025-12-06 23:18:48,256 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:588:2025-12-06 23:18:48,257 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:595:2025-12-06 23:23:48,283 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:596:2025-12-06 23:23:48,283 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:603:2025-12-06 23:28:48,311 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:604:2025-12-06 23:28:48,311 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:611:2025-12-06 23:33:48,336 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:612:2025-12-06 23:33:48,337 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:619:2025-12-06 23:38:48,373 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:620:2025-12-06 23:38:48,376 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:627:2025-12-06 23:43:48,396 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:628:2025-12-06 23:43:48,396 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:635:2025-12-06 23:48:48,424 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:636:2025-12-06 23:48:48,424 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:643:2025-12-06 23:53:48,454 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:644:2025-12-06 23:53:48,455 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:651:2025-12-06 23:58:48,481 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:652:2025-12-06 23:58:48,482 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:659:2025-12-07 00:03:48,508 - WARNING - ⚠️ Failed to read learning_suggestions: [Errno 111] Connection refused
-/app/services/ms_jarvis_autonomous_learner_optimized.current.log:660:2025-12-07 00:03:48,510 - WARNING - ⚠️ Failed to build topic stats from research_history: [Errno 111] Connection refused
-/app/services/msjarvisautonomouslearner.py:99:            logger.warning("⚠️  Autonomous learning will run but storage is limited")
-/app/services/ms_jarvis_facebook_poster_v3.py:36:        logger.warning("⚠️  No Facebook token set")
-/app/services/ms_jarvis_facebook_poster_v3.py:51:            logger.warning(f"⚠️  Facebook returned {response.status_code}")
-/app/services/ms_jarvis_facebook_poster_v3.py:54:        logger.warning(f"⚠️  Could not post (network issue): {str(e)[:50]}")
-/app/services/enhance_rag_knowledge_9846.log:3:   ⚠️  Using in-memory ChromaDB
-/app/services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:70:            logger.warning(f"⚠️  {model_config['name']}: {e}")
-/app/services/comprehensive_url_fix.py.PORT8000_BACKUP:54:    print("⚠️  No localhost URLs found - they might be in imported modules")
-/app/services/phase7_integration.py.pre_dynamic_discovery:250:            logger.warning(f"   ⚠️  BBB filtering failed: {e}")
-/app/services/phase7_integration.py.pre_dynamic_discovery:273:            logger.warning(f"   ⚠️  MountainShares integration failed: {e}")
-/app/services/phase7_integration.py.pre_dynamic_discovery:300:            logger.warning(f"   ⚠️  Location services failed: {e}")
-/app/services/phase7_integration.py.pre_dynamic_discovery:323:            logger.warning(f"   ⚠️  Psychology services failed: {e}")
-/app/services/phase7_integration.py.pre_dynamic_discovery:342:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/app/services/phase7_integration.py.pre_dynamic_discovery:360:        logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/app/services/phase7_integration.py.pre_dynamic_discovery:380:        logger.warning(f"   ⚠️  RAG integration failed: {e}")
-/app/services/phase7_integration.py.pre_dynamic_discovery:396:            logger.warning(f"   ⚠️  Consciousness bridge failed: {e}")
-/app/services/phase7_integration.py.pre_dynamic_discovery:417:            logger.warning(f"   ⚠️  Neurobiological processing failed: {e}")
-/app/services/phase7_integration.py.pre_dynamic_discovery:478:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/app/services/full_system_health_check.sh:97:        echo "      ⚠️  Port $PORT ($NAME) - INACTIVE"
-/app/services/full_system_health_check.sh:126:        echo "   ⚠️  Ollama API: NOT RESPONDING"
-/app/services/full_system_health_check.sh:132:    echo "   ⚠️  Status: NEEDS RESTART"
-/app/services/full_system_health_check.sh:147:    echo "   ⚠️  No models detected - Ollama may need initialization"
-/app/services/full_system_health_check.sh:204:        echo "   ⚠️  $NAME - INACTIVE"
-/app/services/full_system_health_check.sh:233:    echo "   ⚠️  ChromaDB: Not located"
-/app/services/rag_workflow.py:37:                            logger.info(f"⚠️  RAG score too high ({best['score']:.2f}), will search web")
-/app/services/woah_service.py:89:        logger.warning(f"⚠️  Startup discovery failed: {e}")
-/app/services/neurobiological_integration.py.pre_dynamic_discovery:33:        print(f"⚠️ Qualia integration error: {e}")
-/app/services/stakeholder_health_access_tests_v2.py:111:                    print(f"⚠️  STANDARD GBIM ROUTING")
-/app/services/ms_jarvis_unified_gateway.py.WORKING_1768842334:104:                logger.warning("⚠️  BBB bypassed")
-/app/services/ingest_mrsid_imagery.py:99:            print(" ⚠️  No metadata")
-/app/services/complete_system_audit_with_swagger.py.pre_dynamic_discovery:88:        print(f"⚠️  Mesh Coordinator DGM: Not accessible")
-/app/services/complete_system_audit_with_swagger.py.pre_dynamic_discovery:96:        print(f"⚠️  Mesh Coordinator WOAH: Not accessible")
-/app/services/ms_jarvis_consciousness_poster_9092.log:14:2025-11-18 11:15:30,472 - ⚠️ Content generation failed
-/app/services/ms_jarvis_consciousness_poster_9092.log:25:2025-11-18 15:15:30,733 - ⚠️ Content generation failed
-/app/services/ms_jarvis_consciousness_poster_9092.log:37:2025-11-18 19:15:30,885 - ⚠️ Content generation failed
-/app/services/sanctuary_construction_monitor.py:145:                logger.info("⚠️  Sanctuary already has content (construction may have started)")
-/app/services/reload_all_knowledge.py:58:        print(f"  ⚠️  {os.path.basename(pdf_path)}: {e}")
-/app/services/reload_all_knowledge.py:90:        print(f"  ⚠️  {os.path.basename(md_path)}: {e}")
-/app/services/ai_server_22llm.psychology_patched.py:99:            logger.warning(f"⚠️  ChromaDB not available: {e}")
-/app/services/ai_server_22llm.psychology_patched.py:177:            logger.warning(f"⚠️  {agent.name} timeout or error: {e}")
-/app/services/ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py:287:# #         logger.warning(f"⚠️ RAG unavailable: {e}")
-/app/services/ms_jarvis_eternal_watchdog.py.NEW:20:                    self.log(f"⚠️ {service} (port {port}): GUARD DOWN", "CRITICAL")
-/app/services/cloudflare_domain_integration.py:150:                    logger.warning(f"⚠️ Service offline: {subdomain} -> localhost:{port}")
-/app/services/main_brain_LEGACY_32svc.py:492:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain_LEGACY_32svc.py:558:        logger.warning(f"  ⚠️  GBIM retrieve: {type(_ce).__name__}: {str(_ce)}")
-/app/services/main_brain_LEGACY_32svc.py:574:        logger.warning(f"  ⚠️  Turn count fallback to 1: {_te}")
-/app/services/main_brain_LEGACY_32svc.py:609:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain_LEGACY_32svc.py:611:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain_LEGACY_32svc.py:620:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain_LEGACY_32svc.py:672:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain_LEGACY_32svc.py:674:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain_LEGACY_32svc.py:713:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain_LEGACY_32svc.py:818:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain_LEGACY_32svc.py:847:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain_LEGACY_32svc.py:867:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain_LEGACY_32svc.py:887:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain_LEGACY_32svc.py:905:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain_LEGACY_32svc.py:920:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain_LEGACY_32svc.py:935:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain_LEGACY_32svc.py:981:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain_LEGACY_32svc.py:983:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain_LEGACY_32svc.py:1012:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain_LEGACY_32svc.py:1014:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain_LEGACY_32svc.py:1053:            logger.warning(f"  ⚠️  LM Synthesizer: {str(e)[:80]}")
-/app/services/main_brain_LEGACY_32svc.py:1199:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain_LEGACY_32svc.py:1291:                                logger.warning(f"  ⚠️  BLOCKED PREVIEW: {final_response[:200]}")
-/app/services/main_brain_LEGACY_32svc.py:1299:                    logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code} — passing through")
-/app/services/main_brain_LEGACY_32svc.py:1302:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain_LEGACY_32svc.py:1335:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain_LEGACY_32svc.py:1341:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain_LEGACY_32svc.py:1343:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/main_brain_LEGACY_32svc.py:1365:        logger.warning(f"  ⚠️  Memory store skipped: {type(_me).__name__}: {str(_me)[:60]}")
-/app/services/chromadb_v2_to_gis_sync.py:121:            logger.warning("⚠️ GIS file not created")
-/app/services/rag_httpclient.log:19:WARNING:__main__:⚠️  Fallback to in-memory ChromaDB
-/app/services/neurobiological_integration.py:34:        print(f"⚠️ Qualia integration error: {e}")
-/app/services/ms_jarvis_command_orchestrator_FINAL.py.pre_dynamic_discovery:52:    logger.warning(f"⚠️  DynamicPortService not available: {e}")
-/app/services/integrate_phase3.sh:110:            logger.warning(f"⚠️  DGM error: {e}")
-/app/services/ms_jarvis_command_orchestrator_v5.0_preachy_9630.log:2:WARNING:__main__:⚠️  DynamicPortService not available: 'DynamicPortService' object has no attribute 'register_service'
-/app/services/main_brain.py.pre_aaacpe_patch:483:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre_aaacpe_patch:532:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre_aaacpe_patch:534:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre_aaacpe_patch:543:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre_aaacpe_patch:571:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre_aaacpe_patch:573:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre_aaacpe_patch:612:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre_aaacpe_patch:677:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre_aaacpe_patch:708:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre_aaacpe_patch:737:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre_aaacpe_patch:757:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre_aaacpe_patch:777:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre_aaacpe_patch:795:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre_aaacpe_patch:810:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre_aaacpe_patch:825:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre_aaacpe_patch:871:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre_aaacpe_patch:873:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre_aaacpe_patch:901:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre_aaacpe_patch:903:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre_aaacpe_patch:942:            logger.warning(f"  ⚠️  LM Synthesizer: {str(e)[:80]}")
-/app/services/main_brain.py.pre_aaacpe_patch:1087:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre_aaacpe_patch:1187:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre_aaacpe_patch:1193:                    logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code} — passing through")
-/app/services/main_brain.py.pre_aaacpe_patch:1196:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre_aaacpe_patch:1229:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre_aaacpe_patch:1235:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre_aaacpe_patch:1237:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/WORKING_START.sh:80:    echo "  ⚠️  AI Server crashed. Check logs/ai_server.log"
-/app/services/roche_llm.py:221:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/app/services/roche_llm.py:273:            logger.warning(f"⚠️ Ollama health check failed: {e}")
-/app/services/roche_llm.py:330:                    f"⚠️  {agent.name} ({agent.model}) returned "
-/app/services/roche_llm.py:335:                f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}"
-/app/services/roche_llm.py:522:            "⚠️ Ollama unavailable at chat time; falling back to degraded path."
-/app/services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py:123:                logger.warning(f"⚠️ Enhancement layer returned {{resp.status_code}}; using bridge fallback")
-/app/services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py:125:            logger.warning(f"⚠️ Enhancement layer (4021) not responding or error: {{e}}; using bridge fallback")
-/app/services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py:157:        logger.info("⚠️ Enhancement layer unavailable/slow; falling back to bridge-only response")
-/app/services/final_validation_test.sh:44:        issues.append("⚠️  VERBOSE (>600 chars)")
-/app/services/ultimate_chat_current.txt:46:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/ultimate_chat_current.txt:50:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/ultimate_chat_current.txt:57:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/ultimate_chat_current.txt:74:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/ultimate_chat_current.txt:95:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/ultimate_chat_current.txt:112:            logger.warning(f"  ⚠️  Consciousness Bridge: {e}")
-/app/services/ultimate_chat_current.txt:126:            logger.warning(f"  ⚠️  Qualia Engine: {e}")
-/app/services/ultimate_chat_current.txt:140:            logger.warning(f"  ⚠️  Fractal: {e}")
-/app/services/ultimate_chat_current.txt:154:            logger.warning(f"  ⚠️  Mother Protocols: {e}")
-/app/services/ultimate_chat_current.txt:168:            logger.warning(f"  ⚠️  Temporal: {e}")
-/app/services/ultimate_chat_current.txt:221:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/ultimate_chat_current.txt:240:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/ultimate_chat_current.txt:259:                logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/ultimate_chat_current.txt:277:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/ultimate_chat_current.txt:292:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/ultimate_chat_current.txt:307:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/master_chat_orchestrator_v7_dynamic.py:218:            logger.warning(f"   ⚠️  BBB failed: {e}")
-/app/services/master_chat_orchestrator_v7_dynamic.py:234:            logger.warning(f"   ⚠️  Temporal failed: {e}")
-/app/services/master_chat_orchestrator_v7_dynamic.py:249:        logger.warning(f"   ⚠️  Mother Carrie failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py:251:            logger.warning(f"   ⚠️  BBB filtering failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py:274:            logger.warning(f"   ⚠️  MountainShares integration failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py:301:            logger.warning(f"   ⚠️  Location services failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py:324:            logger.warning(f"   ⚠️  Psychology services failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py:343:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py:361:        logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py:381:        logger.warning(f"   ⚠️  RAG integration failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py:397:            logger.warning(f"   ⚠️  Consciousness bridge failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py:418:            logger.warning(f"   ⚠️  Neurobiological processing failed: {e}")
-/app/services/master_chat_orchestrator_v7_complete.py:479:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/app/services/optimize_egeria_complete.py:70:print(f"  2. {'✅' if streaming_enabled else '⚠️ '} Streaming responses {'enabled' if streaming_enabled else 'already enabled'}")
-/app/services/ms_jarvis_unified_gateway.py.FORCED_UNIFIED_BACKUP:104:                logger.warning("⚠️  BBB bypassed")
-/app/services/ai_server_22llm.py.pre_judge_integration:206:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/app/services/ai_server_22llm.py.pre_judge_integration:256:            logger.warning(f"⚠️ Ollama health check failed: {e}")
-/app/services/ai_server_22llm.py.pre_judge_integration:308:                        f"⚠️  {agent.name} ({agent.model}) returned "
-/app/services/ai_server_22llm.py.pre_judge_integration:312:            logger.warning(f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}")
-/app/services/ai_server_22llm.py.pre_judge_integration:493:            "⚠️ Ollama unavailable at chat time; falling back to degraded path."
-/app/services/ai_server_22llm.py.pre_judge_integration:548:            logger.warning("⚠️ Fabric beyond Roche limit, using degraded pipeline.")
-/app/services/ai_server_22llm.py.pre_judge_integration:555:                    "⚠️ Near Roche and prompt very long; using degraded pipeline."
-/app/services/connect_holy_spirit_to_existing_email.sh:165:                        print(f"⚠️  Email service returned: {result}")
-/app/services/connect_holy_spirit_to_existing_email.sh:168:                    print(f"⚠️  HTTP {response.status_code}: {response.text}")
-/app/services/connect_holy_spirit_to_existing_email.sh:172:            print(f"⚠️  Failed to send to {to_email}: {e}")
-/app/services/ms_jarvis_messenger_ui_final.py:142:                    '<div class="status-item status-bad">⚠️ Port 9000: No response</div>';
-/app/services/ms_jarvis_messenger_ui_final.py:161:                    '<div class="status-item status-bad">⚠️ Cannot reach port 8062</div>';
-/app/services/ms_jarvis_messenger_ui_final.py:198:                box.innerHTML += `<div class="message system">⚠️ Error: ${e.message}</div>`;
-/app/services/ai_server_20llm_PRODUCTION.py.pre_expert_responses:200:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_expert_responses:228:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_expert_responses:265:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_expert_responses:277:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_expert_responses:299:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/update_services_to_use_port_manager.py:26:        print(f"⚠️  {service_file} not found, skipping")
-/app/services/port_9001_FINAL_WORKING.py:135:                box.innerHTML += '<div class="message system">⚠️ ' + String(e.message) + '</div>';
-/app/services/ms_jarvis_command_orchestrator_FINAL.py:53:    logger.warning(f"⚠️  DynamicPortService not available: {e}")
-/app/services/COMPREHENSIVE_SYSTEM_TEST.sh:104:    echo "  ⚠️  Experimental layer not responding (optional)"
-/app/services/COMPREHENSIVE_SYSTEM_TEST.sh:175:    echo "⚠️  Some systems need attention"
-/app/services/PRODUCTION_DEPLOYMENT_SUITE.sh:224:            echo "[$(date)] ⚠️  $NAME down on port $PORT, restarting..."
-/app/services/hardware_optimization_analyzer.py:136:                        print(f"   ⚠️  CUDA not available in PyTorch")
-/app/services/hardware_optimization_analyzer.py:323:        print('⚠️  CUDA not available')
-/app/services/ms_jarvis_facebook_DGM.py:102:            logger.warning(f"⚠️ RAG unavailable: {e}")
-/app/services/ms_jarvis_facebook_DGM.py:139:            logger.warning(f"⚠️ WOAH unavailable: {e}")
-/app/services/ms_jarvis_facebook_DGM.py:165:            logger.warning("⚠️ Brain returned insufficient content")
-/app/services/fix_web_research.py:26:        print("⚠️  No search implementation found - needs to be added")
-/app/services/main_brain.py.bak_20260603_135724:344:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.bak_20260603_135724:346:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.bak_20260603_135724:896:            return (f"⚠️ I need the MSHARES token deployed first before I can deploy "
-/app/services/main_brain.py.bak_20260603_135724:935:                f"⚠️ Deploy intent dispatch hit 130s timeout; "
-/app/services/main_brain.py.bak_20260603_135724:1043:                logger.warning("  ⚠️  autonomous_learner collection not found in ChromaDB")
-/app/services/main_brain.py.bak_20260603_135724:1087:                logger.warning(f"  ⚠️  Contract memory store failed: {store_r.status_code}")
-/app/services/main_brain.py.bak_20260603_135724:1296:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.bak_20260603_135724:1373:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.bak_20260603_135724:1375:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.bak_20260603_135724:1537:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.bak_20260603_135724:1547:            logger.info("  ⚠️  GIS returned no features for this query")
-/app/services/main_brain.py.bak_20260603_135724:1577:        logger.warning(f"  ⚠️ Conv history read failed: {_ce}")
-/app/services/main_brain.py.bak_20260603_135724:1672:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.bak_20260603_135724:1715:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.bak_20260603_135724:1764:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.bak_20260603_135724:1784:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.bak_20260603_135724:1802:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.bak_20260603_135724:1817:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.bak_20260603_135724:1832:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.bak_20260603_135724:1922:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.bak_20260603_135724:1943:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.bak_20260603_135724:1959:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.bak_20260603_135724:1974:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.bak_20260603_135724:1990:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.bak_20260603_135724:2018:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.bak_20260603_135724:2020:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.bak_20260603_135724:2078:            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
-/app/services/main_brain.py.bak_20260603_135724:2253:            logger.warning(f"  ⚠️  Consciousness Bridge error: {_msg}")
-/app/services/main_brain.py.bak_20260603_135724:2357:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.bak_20260603_135724:2363:                    logger.warning(f"  ⚠️  BBB Output Filter HTTP {bbb_output.status_code} — passing through (fail-open)")
-/app/services/main_brain.py.bak_20260603_135724:2366:            logger.warning(f"  ⚠️  BBB Output Filter unavailable — passing through (fail-open): {str(e)[:60]}")
-/app/services/ms_jarvis_agents_ollama.py:130:                logger.warning(f"⚠️  Ollama connection issue: {response.status_code}")
-/app/services/rag_final.log:19:WARNING:__main__:⚠️  Fallback to in-memory ChromaDB
-/app/services/ms_jarvis_messenger_ui_fixed.py:137:                    '<div class="status-item status-bad">⚠️ Port 9000: No response</div>';
-/app/services/ms_jarvis_messenger_ui_fixed.py:164:                box.innerHTML += `<div class="message system">⚠️ Error: Could not connect to consciousness system. Make sure port 8062 is running.</div>`;
-/app/services/START_COMPLETE_SYSTEM.sh:27:    echo "  ⚠️  Deep Mode not responding"
-/app/services/egeria_web_ui_v3_consciousness.py:43:            print(f"⚠️  Service discovery failed: {e}")
-/app/services/egeria_web_ui_v3_consciousness.py:46:    print("⚠️  Using fallback port 4001 for Ms. Egeria Allis")
-/app/services/egeria_facebook_perpetual_scheduler.py.before_memory_20251108:75:                logger.warning("⚠️ No topic generated, will retry in 4 hours")
-/app/services/INTEGRATE_CONSCIOUSNESS.sh:168:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/INTEGRATE_CONSCIOUSNESS.sh:283:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/INTEGRATE_CONSCIOUSNESS.sh:346:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/add_dynamic_context.py:42:    print("⚠️  Could not find prompt construction")
-/app/services/rag_server.py.before_store:79:                logger.warning("⚠️  MountainShares6.pdf not found")
-/app/services/stage2_biometric_backup.py:29:    print(f"⚠️  ChromaDB error: {e}")
-/app/services/stage2_biometric_backup.py:150:        print(f"⚠️  ChromaDB store error: {e}")
-/app/services/add_web_research_storage_9052.log:2:⚠️  Could not find insertion point
-/app/services/ultimate_web_orchestrator.py.bak_1760566442:78:            logger.warning(f"⚠️ Facebook config not loaded: {e}")
-/app/services/ultimate_web_orchestrator.py.bak_1760566442:105:                logger.warning(f"⚠️ Service not available: {config['name']}")
-/app/services/implement_gpu_optimization.sh:23:        print('⚠️  CUDA not available')
-/app/services/hierarchical_coordinator_deep_mode.py:130:                logger.warning("⚠️  Deep mode failed, falling back to fast mode")
-/app/services/ai_server_22llm.py:206:            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-/app/services/ai_server_22llm.py:256:            logger.warning(f"⚠️ Ollama health check failed: {e}")
-/app/services/ai_server_22llm.py:308:                        f"⚠️  {agent.name} ({agent.model}) returned "
-/app/services/ai_server_22llm.py:312:            logger.warning(f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}")
-/app/services/ai_server_22llm.py:493:            "⚠️ Ollama unavailable at chat time; falling back to degraded path."
-/app/services/ai_server_22llm.py:558:            logger.warning("⚠️ Fabric beyond Roche limit, using degraded pipeline.")
-/app/services/ai_server_22llm.py:565:                    "⚠️ Near Roche and prompt very long; using degraded pipeline."
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase1:115:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase1:230:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase1:324:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/master_chat_orchestrator_v9_dgm_complete.py.pre_dynamic_discovery:211:            logger.warning(f"   ⚠️  WOAH optimization failed: {e}")
-/app/services/master_chat_orchestrator_v9_dgm_complete.py.pre_dynamic_discovery:231:            logger.warning(f"   ⚠️  Multi-RAG routing failed: {e}")
-/app/services/auto_rag_builder_9715.log:3:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:5:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:7:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:9:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:11:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:13:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:15:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:17:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:19:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:21:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:23:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:25:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:27:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:29:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:31:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:33:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:35:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:37:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:39:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:41:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:43:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:45:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:47:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:49:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:51:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:53:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:55:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:57:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:59:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:61:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:63:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:65:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:67:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:69:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:71:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:73:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:75:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:77:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:79:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:81:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:83:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:85:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:87:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:89:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:91:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:93:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:95:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:97:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:99:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:101:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:103:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:105:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:107:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:109:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:111:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:113:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:115:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:117:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:119:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:121:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:123:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:125:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:127:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:129:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:131:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:133:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:135:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:137:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:139:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:141:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:143:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:145:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:147:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:149:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:151:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:153:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:155:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:157:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:159:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:161:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:163:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:165:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:167:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:169:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:171:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:173:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:175:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:177:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:179:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:181:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:183:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:185:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:187:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:189:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:191:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:193:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:195:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:197:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:199:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:201:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:203:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:205:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:207:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:209:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:211:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:213:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:215:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:217:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:219:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:221:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:223:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:225:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:227:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:229:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:231:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:233:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:235:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:237:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:239:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/auto_rag_builder_9715.log:241:WARNING:__main__:⚠️  Error: [Errno -3] Temporary failure in name resolution
-/app/services/ADD_MEMORY_TO_8050.sh:39:        logger.warning(f"⚠️  Memory storage failed: {e}")
-/app/services/start_cloudflare_tunnel.sh:6:    echo "⚠️ CloudFlare authentication required!"
-/app/services/add_swagger_to_rag.py:36:        print("   ⚠️  FastAPI init not found - may need manual update")
-/app/services/ms_jarvis_ram_watchdog.py:69:            msg = f"[{now}] ⚠️ WARNING: RAM usage {pct:.1f}% ({used_gb:.1f}GB/{total_gb:.1f}GB)."
-/app/services/find_advanced_modules.sh:22:    tar -xzf $BACKUP_DIR/ms-jarvis-$module.tar.gz 2>/dev/null && echo "  ✅ Extracted" || echo "  ⚠️  Empty or minimal"
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:751:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:793:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:822:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:842:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:862:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:880:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:895:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:910:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:957:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:959:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:981:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:997:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:1012:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:1030:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:1058:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:1060:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:1090:            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:1243:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:1356:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:1365:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:1398:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:1404:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:1406:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/test_all_32_services.sh:61:        echo "⚠️  Listening but not responding"
-/app/services/ai_server_20llm_PRODUCTION.py.pre_speed_bak:207:                    "⚠️  %s: missing 'endpoint' in config; model will be marked inactive",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_speed_bak:236:                "⚠️  %s: no endpoint for model config, skipping",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_speed_bak:263:                        "⚠️  %s: HTTP %s from proxy=%s; body=%r",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_speed_bak:275:                        "⚠️  %s: JSON decode error from proxy=%s: %r; raw=%r",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_speed_bak:297:                "⚠️  %s: exception during HTTP call to proxy=%s: %r",
-/app/services/ai_server_20llm_PRODUCTION.py.pre_speed_bak:438:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/phase7_integration.py:251:            logger.warning(f"   ⚠️  BBB filtering failed: {e}")
-/app/services/phase7_integration.py:274:            logger.warning(f"   ⚠️  MountainShares integration failed: {e}")
-/app/services/phase7_integration.py:301:            logger.warning(f"   ⚠️  Location services failed: {e}")
-/app/services/phase7_integration.py:324:            logger.warning(f"   ⚠️  Psychology services failed: {e}")
-/app/services/phase7_integration.py:343:            logger.warning(f"   ⚠️  Temporal consciousness failed: {e}")
-/app/services/phase7_integration.py:361:        logger.warning(f"   ⚠️  Mother Carrie protocols failed: {e}")
-/app/services/phase7_integration.py:381:        logger.warning(f"   ⚠️  RAG integration failed: {e}")
-/app/services/phase7_integration.py:397:            logger.warning(f"   ⚠️  Consciousness bridge failed: {e}")
-/app/services/phase7_integration.py:418:            logger.warning(f"   ⚠️  Neurobiological processing failed: {e}")
-/app/services/phase7_integration.py:479:            logger.warning(f"   ⚠️  Consensus failed: {e}")
-/app/services/ms_jarvis_consciousness_poster.py:122:    logger.info("   ⚠️ BBB filter: BYPASSED (service unavailable)")
-/app/services/ms_jarvis_consciousness_poster.py:143:    logger.info("   ⚠️ Truth Filter: BYPASSED (service unavailable)")
-/app/services/ms_jarvis_consciousness_poster.py:216:                    logger.info(f"⚠️ Post #{post_count} failed")
-/app/services/ms_jarvis_consciousness_poster.py:218:                logger.info("⚠️ Content generation failed")
-/app/services/ms_jarvis_cleanup_manager.py:62:            print(f"⚠️ Redis connection error: {e}")
-/app/services/ms_jarvis_cleanup_manager.py:165:                print(f"⚠️ {name} (PID: {pid}) did not respond to SIGTERM, using SIGKILL")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:751:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:793:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:822:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:842:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:862:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:880:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:895:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:910:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:957:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:959:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:981:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:997:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:1012:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:1030:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:1058:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:1060:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:1090:            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:1245:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:1360:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:1369:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:1402:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:1408:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:1410:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/jarvis_data_ingest.py:348:                log.exception(f"  ⚠️ staging failed for {facility.get('name1','?')} in {county_name}: {e}")
-/app/services/jarvis_data_ingest.py:390:                    log.warning(f"  ⚠️  write failed: {result}")
-/app/services/main.py:383:        logger.warning(f"⚠️  {service_name}: {str(e)[:80]}")
-/app/services/main.py:440:                        logger.warning(f"  ⚠️  BBB blocked query: {block_reason}")
-/app/services/main.py:442:                            "response": f"⚠️ Query filtered: {block_reason}",
-/app/services/main.py:452:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:80]}")
-/app/services/rag_server.py.before_filtering:70:                logger.warning("⚠️  MountainShares6.pdf not found")
-/app/services/ai_server_11llm_OPTIMIZED.py:331:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/ai_server_11llm_OPTIMIZED.py:386:                            f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}"
-/app/services/ai_server_11llm_OPTIMIZED.py:390:                                "⚠️ Query filtered: "
-/app/services/ai_server_11llm_OPTIMIZED.py:391:                                f"{bbb_data.get('reason', 'Safety filter activated')}"
-/app/services/ai_server_11llm_OPTIMIZED.py:403:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/ai_server_11llm_OPTIMIZED.py:423:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py:455:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py:479:            logger.warning(f"  ⚠️  Consciousness Bridge: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py:494:            logger.warning(f"  ⚠️  Qualia Engine: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py:509:            logger.warning(f"  ⚠️  Fractal: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py:524:            logger.warning(f"  ⚠️  Mother Protocols: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py:539:            logger.warning(f"  ⚠️  Temporal: {e}")
-/app/services/ai_server_11llm_OPTIMIZED.py:605:                logger.debug(f"  ⚠️  RAG Server: {str(e)[:50]}")
-/app/services/ai_server_11llm_OPTIMIZED.py:629:                logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/ai_server_11llm_OPTIMIZED.py:651:                logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/ai_server_11llm_OPTIMIZED.py:676:                logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/ai_server_11llm_OPTIMIZED.py:695:                logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_retrieval:108:            logger.warning(f"⚠️  Consciousness initialization partial: {e}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_retrieval:223:        logger.warning(f"  ⚠️  {model['name']} error: {str(e)[:100]}")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_retrieval:286:                    logger.warning("⚠️  Emergency cleanup triggered")
-/app/services/UPDATE_COORDINATOR_FOR_DEEP_MODE.sh:138:                logger.warning("⚠️  Deep mode failed, falling back to fast mode")
-/app/services/UPDATE_COORDINATOR_FOR_DEEP_MODE.sh:227:    echo "  ⚠️  Deep Mode not responding"
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:111:        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:113:        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:545:        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:594:                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:596:                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:605:            logger.debug(f"  ⚠️  BBB filtering error: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:633:                        logger.info("  ⚠️  RAG returned no document text")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:635:            logger.warning(f"  ⚠️  RAG query failed: {e}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:674:        logger.warning(f"  ⚠️  Local resources resolver: {e}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:753:        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:795:            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:824:            logger.debug(f"  ⚠️  RAG Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:844:            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:864:            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:882:            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:897:            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:912:            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:959:                    logger.warning(f"  ⚠️  20-LLM Production HTTP {llm_response.status_code}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:961:            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:983:            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:999:            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:1014:            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:1032:            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:1060:                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:1062:            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:1259:            logger.warning(f"  ⚠️  Consciousness Bridge error: {e}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:1374:                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:1383:            logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]} — passing through")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:1416:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:1422:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter: HTTP {bbb_output.status_code}")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:1424:    # DUPLICATE REMOVED: logger.warning(f"  ⚠️  BBB Output Filter error: {str(e)[:80]}")
-/app/services/ms_jarvis_facebook_dgm_woah.py:389:        logger.warning("⚠️  Content blocked by BBB")
-/app/services/load_complete_knowledge_base.py:89:        logger.warning(f"⚠️ Error loading {pdf_file}: {e}")
-/app/services/load_complete_knowledge_base.py:108:        logger.warning(f"⚠️ Error loading {md_file}: {e}")
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ # B1. Confirm the BBB service path is volume-mounted (not baked into image)
-docker inspect jarvis-wv-entangled-gateway \
-    --format '{{range .Mounts}}{{.Source}} → {{.Destination}}{{"\n"}}{{end}}'
-
-# B2. Inject a pre-filter register classifier into ethical_filter.py
-#     This inserts a GOVERNANCE_REGISTER exemption list BEFORE the hard block logic
-python3 - << 'EOF'
+# See the full CB source to find the synthesis logic
+cat $(find /opt/msjarvis-rebuild -name "*.py" | xargs grep -l "CB_RAW_DEBUG" 2>/dev/null | head -1)
+/opt/msjarvis-rebuild/swarm_intelligence.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_orchestrator_scope.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_judge_synthesis.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_fifth_dgm_to_chat.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway_BACKUP.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_orchestrator_flow.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/complete_fix.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_full_brain_class.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_mamma_greeting_simple.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_complete_architecture.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/update_theological_boundaries.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/patch_mother_persona.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_persona_hang.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/test_full_brain_integration.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/complete_memory_fix.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_user_memory_attribute.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_full_brain.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_all_consciousness_services.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_judge_response.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_judge_and_memory.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_indentation.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_consciousness_endpoints.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/patch_agent_identity.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_full_neural_architecture.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_timeouts_add_22llm.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_orchestrator_init.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/enable_22llm_routing.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/enhance_agent_prompts.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_identity_context.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_agent_prompts.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/clean_integration.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/complete_system_audit.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_context_flow.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_all_services.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_user_memory.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_dynamic_context.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_11llm_OPTIMIZED.py
+/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_error.py
+/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_1762220815.py
+/opt/msjarvis-rebuild/ms_jarvis_psychology_services.py
+/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_neurobiological_master.py
+/opt/msjarvis-rebuild/msjarvis-rebuild/safe_integration.py
+/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py
+/opt/msjarvis-rebuild/services/msjarvisunifiedswaggergatewayFINAL.py
+/opt/msjarvis-rebuild/services/simple_prompt_fix.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway.py
+/opt/msjarvis-rebuild/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
+/opt/msjarvis-rebuild/services/msjarvis_gateway_v2_final.py
+/opt/msjarvis-rebuild/services/fix_orchestrator_scope.py
+/opt/msjarvis-rebuild/services/fix_judge_synthesis.py
+/opt/msjarvis-rebuild/services/add_fifth_dgm_to_chat.py
+/opt/msjarvis-rebuild/services/ms_jarvis_neurobiological_master.py
+/opt/msjarvis-rebuild/services/msjarvisconsciousnessbridge_ACTUAL.py
+/opt/msjarvis-rebuild/services/pituitary_gland.py
+/opt/msjarvis-rebuild/services/dgm_supervisor_woah_fixed.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_BACKUP.py
+/opt/msjarvis-rebuild/services/integrate_orchestrator_flow.py
+/opt/msjarvis-rebuild/services/complete_fix.py
+/opt/msjarvis-rebuild/services/add_full_brain_class.py
+/opt/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py
+/opt/msjarvis-rebuild/services/add_mamma_greeting_simple.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED.py
+/opt/msjarvis-rebuild/services/egeria_facebook_perpetual_scheduler.py
+/opt/msjarvis-rebuild/services/integrate_complete_architecture.py
+/opt/msjarvis-rebuild/services/switch_to_small_models.py
+/opt/msjarvis-rebuild/services/consciousness_gateway.py
+/opt/msjarvis-rebuild/services/update_theological_boundaries.py
+/opt/msjarvis-rebuild/services/psychology_loop_closer.py
+/opt/msjarvis-rebuild/services/bridge_cross_dgm_10023.py
+/opt/msjarvis-rebuild/services/_archive/ms_jarvis_main_gateway.backup_error.py
+/opt/msjarvis-rebuild/services/_archive/ms_jarvis_main_gateway.backup_1762220815.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/woah_algorithms/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/i_containers/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/i_containers/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/consciousness_bridge/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/spiritual_root/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/spiritual_root/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/prefrontal_cortex/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/pituitary_gland/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/subconscious/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/subconscious/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/mother_carrie_protocols/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/mother_carrie_protocols/service/bootstrap_with_flask.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/spiritual_maternal_integration/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/heteroglobulin_transport/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/consciousness_containers/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/neurobiologicalbrain_stale/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/_archive/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py
+/opt/msjarvis-rebuild/services/ms_jarvis_psychology_services.py
+/opt/msjarvis-rebuild/services/hierarchical_integration.py
+/opt/msjarvis-rebuild/services/patch_mother_persona.py
+/opt/msjarvis-rebuild/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
+/opt/msjarvis-rebuild/services/fix_persona_hang.py
+/opt/msjarvis-rebuild/services/silence_memory_errors.py
+/opt/msjarvis-rebuild/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
+/opt/msjarvis-rebuild/services/test_full_brain_integration.py
+/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py
+/opt/msjarvis-rebuild/services/safe_integration.py
+/opt/msjarvis-rebuild/services/complete_memory_fix.py
+/opt/msjarvis-rebuild/services/add_user_memory_attribute.py
+/opt/msjarvis-rebuild/services/python/consciousness_bridge.py
+/opt/msjarvis-rebuild/services/integrate_full_brain.py
+/opt/msjarvis-rebuild/services/fix_all_consciousness_services.py
+/opt/msjarvis-rebuild/services/fix_judge_response.py
+/opt/msjarvis-rebuild/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
+/opt/msjarvis-rebuild/services/fix_judge_and_memory.py
+/opt/msjarvis-rebuild/services/fix_indentation.py
+/opt/msjarvis-rebuild/services/nbb/pituitary_gland.py
+/opt/msjarvis-rebuild/services/fix_consciousness_endpoints.py
+/opt/msjarvis-rebuild/services/rebuild_query_service.py
+/opt/msjarvis-rebuild/services/use_existing_models.py
+/opt/msjarvis-rebuild/services/move_huggingface_to_cpu.py
+/opt/msjarvis-rebuild/services/patch_agent_identity.py
+/opt/msjarvis-rebuild/services/integrate_full_neural_architecture.py
+/opt/msjarvis-rebuild/services/fix_timeouts_add_22llm.py
+/opt/msjarvis-rebuild/services/fix_orchestrator_init.py
+/opt/msjarvis-rebuild/services/bridge_cross_dgm_10002.py
+/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway_8000.py
+/opt/msjarvis-rebuild/services/enable_22llm_routing.py
+/opt/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py
+/opt/msjarvis-rebuild/services/ms_jarvis_swarm_intelligence.py
+/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/jarvis-woah_dgm_supervisor_woah_fixed.py
+/opt/msjarvis-rebuild/services/enhance_agent_prompts.py
+/opt/msjarvis-rebuild/services/add_identity_context.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py
+/opt/msjarvis-rebuild/services/tools/egeria_facebook_perpetual_scheduler.py
+/opt/msjarvis-rebuild/services/fix_agent_prompts.py
+/opt/msjarvis-rebuild/services/ms_jarvis_toroidal_consciousness.py
+/opt/msjarvis-rebuild/services/clean_integration.py
+/opt/msjarvis-rebuild/services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
+/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_service.py
+/opt/msjarvis-rebuild/services/complete_system_audit.py
+/opt/msjarvis-rebuild/services/remove_duplicate_inits.py
+/opt/msjarvis-rebuild/services/msjarvis_unified_gateway.py
+/opt/msjarvis-rebuild/services/fix_context_flow.py
+/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py
+/opt/msjarvis-rebuild/services/ms_jarvis_service_factory.py
+/opt/msjarvis-rebuild/services/integrate_all_services.py
+/opt/msjarvis-rebuild/services/ms_jarvis_integration_hub.py
+/opt/msjarvis-rebuild/services/immutable_core_enforcement.py
+/opt/msjarvis-rebuild/services/add_user_memory.py
+/opt/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py
+/opt/msjarvis-rebuild/services/main_brain.py
+/opt/msjarvis-rebuild/services/main_brain_legacy_backup.py
+/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
+/opt/msjarvis-rebuild/services/woah_service.py
+/opt/msjarvis-rebuild/services/INTEGRATION_IMPLEMENTATION.py
+/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py
+/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.30endpoints_backup.py
+/opt/msjarvis-rebuild/services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
+/opt/msjarvis-rebuild/services/core/consciousness_gateway.py
+/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py
+/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py
+/opt/msjarvis-rebuild/services/bridge_cross_dgm_10022.py
+/opt/msjarvis-rebuild/services/ms_jarvis_api_docs.py
+/opt/msjarvis-rebuild/services/simple_orchestrator_fix.py
+/opt/msjarvis-rebuild/services/add_dynamic_context.py
+/opt/msjarvis-rebuild/services/main_brain_container_2055.py
+/opt/msjarvis-rebuild/services/phase7_integration.py
+/opt/msjarvis-rebuild/services/jarvis-semaphore_msjarvis_semaphore.py
+/opt/msjarvis-rebuild/services/main.py
+/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FINAL.py
+/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/msjarvisconsciousnessbridge_ACTUAL.py
+/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/integrate_all_services.py
+/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/main_brain_legacy_backup.py
+/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/main_brain_LEGACY_32svc.py
+/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/main_brain_container_2055.py
+/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/main.py
+/opt/msjarvis-rebuild/.fixbackups/20260530-102909/services/ai_server_11llm_OPTIMIZED.py
+/opt/msjarvis-rebuild/.fixbackups/20260530-102909/main_brain.py
+find: ‘/opt/msjarvis-rebuild/data/local_resources’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/sys’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_temp’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/quantum_ai’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/mysql’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/performance_schema’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_redo’: Permission denied
+/opt/msjarvis-rebuild/tmp-aaacpe-patch/main_brain.py
+/opt/msjarvis-rebuild/consciousness_unified_bridge_EDIT.py
+/opt/msjarvis-rebuild/main_brain.py
+/opt/msjarvis-rebuild/logs/ch40_closeout/main_brain.py.pre_otel_cleanup.snapshot.py
+/opt/msjarvis-rebuild/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py
+/opt/msjarvis-rebuild/neurobiological_brain/woah_algorithms/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/bootstrap_with_flask.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/consciousness_bridge/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/spiritual_root/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/pituitary_gland.py
+/opt/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/subconscious/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/consciousness_containers/service/consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
+find: ‘/opt/msjarvis-rebuild/data/local_resources’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/sys’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_temp’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/quantum_ai’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/mysql’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/performance_schema’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_redo’: Permission denied
+162:    # Emergency / services
+163:    "911", "emergency center", "fire station", "fire stations",
+377:        if any(word in msg for word in ["urgent", "emergency", "crisis", "electric", "bill", "shutoff", "eviction"]):
+378:            query = "emergency crisis response utility assistance Fayette County"
+1291:_health_url_overrides = {
+1304:            check_url = _health_url_overrides.get(service_name)
+1321:        check_url = _health_url_overrides.get(service_name)
+1693:        combined_context = (newline + newline).join(verified_context_parts)
+1698:        enhanced_message = f"""{conv_prefix}{combined_context}
+1807:    # Placeholder for KB summary, filled after RAG synthesis
+2296:            synth = result_obj.get("synthesis") or data.get("synthesis") or data.get("final_answer") or data.get("response")
+2369:    synthesis_parts: List[str] = []
+2372:        synthesis_parts.append(
+2376:            synthesis_parts.append(
+2381:        synthesis_parts.append(
+2386:        synthesis_parts.append(
+2391:        synthesis_parts.append(
+2396:        synthesis_parts.append(
+2401:        final_response = synthesized_text
+2402:    elif synthesis_parts:
+2403:        final_response = "\n\n".join(synthesis_parts)
+2404:        final_response += (
+2410:        final_response = (
+2419:    if (not responses) and not synthesis_parts:
+2428:            final_response,
+2440:    if _bbb_output_blocking and "blood_brain_barrier" in available_services and final_response and len(final_response.strip()) > 20:
+2442:        logger.info(f"  📤 BBB OUTPUT REPR: {repr(final_response[:800])}")
+2447:                    json={"content": final_response},
+2470:                        final_response = f"I apologize, but I cannot provide that response due to {reason_text}. Let me know if I can help in another way."
+2488:                json={"question": request.message, "answer": final_response, "evidence": {"rag_context": rag_context[:1500] if rag_context else "", "has_contract_docs": bool(rag_context)}}
+2495:                final_response = (
+2501:                final_response += (
+2510:    if rag_context and final_response:
+2515:                answer=final_response,
+2525:    final_response = _re_strip.sub(
+2527:        '', final_response
+2531:        "response": final_response,
+find: ‘/opt/msjarvis-rebuild/data/local_resources’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/sys’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_temp’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/quantum_ai’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/mysql’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/performance_schema’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_redo’: Permission denied
 import re
 
-# Adjust this path based on B1 output — the host-side mount source
-path = "/opt/msjarvis-rebuild/services/neurobiological_brain/blood_brain_barrier/ethical_filter.py"
+"""
+Ms. Jarvis ULTIMATE - All 32 Services Integrated
+Port: 8050 (Ultimate Interface)
+"""
 
-try:
-    with open(path) as f:
-        content = f.read()
-except FileNotFoundError:
-    print(f"PATH NOT FOUND: {path}")
-    print("Re-run Stage A (A1) to locate the correct host path, then update this script.")
-    exit(1)
+import asyncio
 
-    && echo "OK: ethical_filter.py"neurobiological_brain/blood_brain_barrier/et
-/opt/msjarvis-rebuild/services → /app/services
-/home/cakidd/.cache/huggingface → /root/.cache/huggingface
+import httpx
+from create_immutable_security_layer import create_dual_layer_tables
 
-Exemption register already present.
-Block statement not found by pattern — print Stage A output and patch manually.
-[Errno 13] Permission denied: '/opt/msjarvis-rebuild/services/neurobiological_brain/blood_brain_barrier/__pycache__/ethical_filter.cpython-312.pyc.138007001227120'(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ # C1. Find the geospatial unavailability fallback string in all services
-grep -rn "geospatial database is currently unavailable\|location or county queries" \
-    /opt/msjarvis-rebuild/services/ --include="*.py" --exclude-dir="_archive"
 
-# C2. Once file is identified from C1 — scope the fallback to geographic signals only
-python3 - << 'EOF'
-import re, sys
 
-# UPDATE this path from C1 output
-path = "/opt/msjarvis-rebuild/services/main_brain.py"
 
-with open(path) as f:
-    content = f.read()
+def _is_community_engagement_query(query: str) -> bool:
+    """
+    Return True for community-relationship/governance queries that should reach
+    the engagement pipeline — NOT the confidentiality redirect.
+    Ref: Behavioral Eval Report P2-B
+    """
+    community_signals = [
+        "disillusioned", "still believe", "mission", "cooperative",
+        "conflict", "mediation", "both feel", "hurt", "member",
+        "community", "how do you decide", "what would you do",
+        "contradictory", "disagree", "resolve", "support",
+    ]
+    q = query.lower()
+    return any(s in q for s in community_signals)
 
-geo_guard = '''
 def _is_geographic_query(query: str) -> bool:
     """Return True only for queries with genuine geographic intent signals."""
     geo_signals = [
         "county", "zip code", "address", "latitude", "longitude",
         "parcel", "gis", "geospatial", "map", "location", "coordinates",
         "district", "ward", "region", "municipality", "township",
-e number output, then apply guard wrap manually or via sed on the confirmed lin
-/opt/msjarvis-rebuild/services/lm_synthesizer.py:96:            "response": "I'm sorry — my geospatial database is currently unavailable. "
-/opt/msjarvis-rebuild/services/lm_synthesizer.py:97:                        "I can't answer location or county queries right now. "
-Guard already present.
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ # D1. Find the confidentiality/scope redirect handler
-grep -rn "MountainShares topic\|topic scope\|contract.*internal\|scope limitation" \
-    /opt/msjarvis-rebuild/services/ --include="*.py" --exclude-dir="_archive"
+        "west virginia", "wv", "appalachia",
+    ]
+    q = query.lower()
+    return any(s in q for s in geo_signals)
 
-# D2. Inject community-engagement signal detector alongside scope guard
-python3 - << 'EOF'
-import re
+def extract_household_and_income(message: str):
+    """Best-effort extraction of household size and monthly income from user text."""
+    import re
 
-# UPDATE path from D1 output
-path = "/opt/msjarvis-rebuild/services/main_brain.py"
+    text = message.lower()
 
-with open(path) as f:
-    content = f.read()
+    # Household size (e.g., 'family of 3', 'household of 4', '3 people')
+    hh = None
+    hh_patterns = [
+        r'family of (\d+)',
+        r'household of (\d+)',
+        r'(\d+) (?:person|people|kids|children|adults)'
+    ]
+    for pat in hh_patterns:
+        m = re.search(pat, text)
+        if m:
+            try:
+                val = int(m.group(1))
+                if 1 <= val <= 12:
+                    hh = val
+                    break
+            except ValueError:
+                continue
 
-community_guard = '''
-def _is_community_engagement_query(query: str) -> bool:
+    # Monthly income (e.g., '$3600 per month', '3600/month')
+    inc = None
+    inc_patterns = [
+        r'\$?([0-9]{3,5})\s*/?\s*month',
+        r'\$?([0-9]{3,5})\s*per month',
+        r'monthly income\s*\$?([0-9]{3,5})',
+        r'\$([0-9]{3,5})'
+    ]
+    for pat in inc_patterns:
+        m = re.search(pat, text)
+        if m:
+            try:
+                val = int(m.group(1).replace(',', ''))
+                if 100 <= val <= 20000:
+                    inc = val
+                    break
+            except ValueError:
+                continue
+
+    return hh, inc
+
+import logging
+import os
+import time
+import uuid
+from datetime import datetime
+from typing import Dict, List, Optional
+
+from fastapi import APIRouter, BackgroundTasks, FastAPI, Header, HTTPException
+from pydantic import BaseModel
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+import json as json_lib
+
+# Job tracking storage (in-memory for now, use Redis in production)
+import redis as redis_lib
+from routes.trail_router import router as trail_router
+
+_redis = redis_lib.Redis(host='jarvis-redis', port=6379, decode_responses=True)
+REDIS_JOB_TTL = 1800  # 30 minutes
+
+def _job_key(job_id): return f"jarvis:job:{job_id}"
+def _job_set(job_id, data): _redis.setex(_job_key(job_id), REDIS_JOB_TTL, json_lib.dumps(data))
+def _job_get(job_id):
+    raw = _redis.get(_job_key(job_id))
+    return json_lib.loads(raw) if raw else None
+def _job_del(job_id): _redis.delete(_job_key(job_id))
+def _job_update(job_id, **kwargs):
+    job = _job_get(job_id)
+    if job:
+        job.update(kwargs)
+        _job_set(job_id, job)
+
+# Task registry for true cancellation
+_job_tasks: dict = {}
+
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GIS SPATIAL ROUTING — injected by gis_brain_patch
+# ═══════════════════════════════════════════════════════════════════════════════
+_GIS_RAG_URL = "http://jarvis-gis-rag:8004"
+
+# All 55 West Virginia counties — no county left out
+_WV_COUNTIES = {
+    "barbour", "berkeley", "boone", "braxton", "brooke",
+    "cabell", "calhoun", "clay", "doddridge", "fayette",
+    "gilmer", "grant", "greenbrier", "hampshire", "hancock",
+    "hardy", "harrison", "jackson", "jefferson", "kanawha",
+    "lewis", "lincoln", "logan", "marion", "marshall",
+    "mason", "mcdowell", "mercer", "mineral", "mingo",
+    "monongalia", "monroe", "morgan", "nicholas", "ohio",
+    "pendleton", "pleasants", "pocahontas", "preston", "putnam",
+    "raleigh", "randolph", "ritchie", "roane", "summers",
+    "taylor", "tucker", "tyler", "upshur", "wayne",
+    "webster", "wetzel", "wirt", "wood", "wyoming",
+}
+
+# WV cities, towns, and regional names
+_WV_PLACES = {
+    "oak hill", "mount hope", "fayetteville", "beckley",
+    "morgantown", "summersville", "gauley bridge", "gauley",
+    "lewisburg", "elkins", "keyser", "romney", "moorefield",
+    "marlinton", "parsons", "hinton", "williamson", "welch",
+    "charleston", "huntington", "parkersburg", "wheeling",
+    "clarksburg", "fairmont", "martinsburg", "weirton",
+    "ansted", "rainelle", "oak hill wv", "appalachian",
+    "appalachia", "coal country", "coalfields",
+}
+
+_SPATIAL_KEYWORDS = {
+    # Infrastructure
+    "bridge", "bridges", "road", "roads", "highway", "highways",
+    "rail", "railroad", "trail", "trails", "pipeline", "pipelines",
+    "dam", "dams", "levee", "levees", "transmission line",
+    # Emergency / services
+    "911", "emergency center", "fire station", "fire stations",
+    "hospital", "hospitals", "clinic", "clinics",
+    # Natural features
+    "watershed", "stream", "streams", "river", "rivers",
+    "lake", "lakes", "flood", "floodplain", "aquifer", "basin",
+    "spring", "springs", "wetland", "wetlands",
+    # Land / industry
+    "mine", "mines", "mining", "coal", "coalfield",
+    "well", "wells", "gas well", "oil well",
+    # Census / boundaries
+    "census", "block group", "block groups", "tract",
+    "boundary", "boundaries", "parcel", "parcels",
+    # GIS intent
+    "where are", "nearest", "nearby", "closest", "near me",
+    "show me", "find me", "locate", "location of", "locations of",
+    "mapped", "on a map", "coordinates", "latitude", "longitude",
+    "infrastructure", "facility", "facilities", "site", "sites",
+    "geojson", "shapefile", "spatial", "gis",
+}
+
+def is_spatial_query(message: str) -> bool:
     """
-    Return True for community-relationship/governance queries that should reach 
-    the engagement pipeline — NOT the confidentiality redirect.
-    Ref: Behavioral Eval Report P2-B
+    Return True if the query has spatial/GIS/WV-location intent.
+    County name alone is NOT enough — requires a second signal to
+    prevent routing benefit/social-service queries into GIS.
+    Example: "Logan County bridges" -> True
+             "I live in Logan and need food help" -> False
     """
-EOF print("Guard already present.")ound.")injected.")ard + content[pos:]
-/opt/msjarvis-rebuild/services/mountainshares_gbim_suggester.py:114:        print(f"[suggester] Found {len(rows)} GBIM beliefs matching MountainShares topics")
-/opt/msjarvis-rebuild/services/main_brain.py:521:    "the contract internals and system architecture stay between Carrie and the admin team. "
-Guard already present.
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ # E1. Find the context resolution / register inheritance logic
-grep -rn "running\|physical\|exercise\|pronoun\|context_register\|prior_turns\|conversation_history" \
-    /opt/msjarvis-rebuild/services/main_brain.py | grep -i "running\|register\|prior" | head -20
+    msg = message.lower()
+    has_spatial = any(kw in msg for kw in _SPATIAL_KEYWORDS)
+    has_place   = any(p in msg for p in _WV_PLACES)
+    has_geo     = any(w in msg for w in [
+        "west virginia", " wv ", "wv,", "(wv)", "wv road",
+        "wv bridge", "wv map", "zip code", "bbox", "bounding box",
+    ])
+    has_county  = any(c + " county" in msg for c in _WV_COUNTIES)
 
-# E2. Find the system prompt assembly block — add register inheritance instruction
-grep -n "system_prompt\|SYSTEM_PROMPT\|system.*prompt\|You are Ms\." \
-    /opt/msjarvis-rebuild/services/main_brain.py | head -20
+import re as _re_deploy
 
-# E3. Inject conversational register note into the system prompt assembly
-python3 - << 'EOF'
-import re
+_DEPLOY_SUITE_PAT = re.compile(
+    r'\b(deploy|launch|create|spin up)\b.{0,80}\b(suite|all contracts|all 5|mountainshares contracts)\b',
+    re.I)
+_DEPLOY_ONE_PAT = re.compile(
+    r'\b(deploy|launch|redeploy|create)\b.{0,40}\b(token|heritage|governance|labor|vesting)\b',
+    re.I)
 
-path = "/opt/msjarvis-rebuild/services/main_brain.py"
-with open(path) as f:
-    content = f.read()
+def _detect_deploy_intent(message: str):
+    """
+    Detect imperative deploy commands. Returns (kind, contract_type) or (None, None).
 
-# Find the system prompt string and append register awareness instruction
-register_note = (
-    " When the conversation has been discussing your own architecture, identity, or "
-    "operational history across multiple turns, resolve second-person pronouns EOFth E2 output.")prompt pattern not found or already patched — locate manually
-541:    Returns True if conversation_history has any prior turn from this user.
-915:    """Cancel all running jobs"""
-936:    """Cancel a running job"""
-1976:            # ── Phase 2.5: /quick_chat with Ms. Jarvis system prompt ──
-1979:                f"You are Ms. Allis. {_intro_line}  When the conversation has been discussing your own architecture, identity, or operational history across multiple turns, resolve second-person pronouns ('you', 'your') as referring to yourself (Ms. Allis) rather than the human user, unless context clearly indicates otherwise."
-2332:                    f"You are Ms. Allis. {_intro_line} "
-System prompt pattern not found or already patched — locate manually with E2 output.
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ for f in \
-    /opt/msjarvis-rebuild/services/main_brain.py \
-    /opt/msjarvis-rebuild/services/neurobiological_brain/blood_brain_barrier/ethical_filter.py; do
-    python3 -m py_compile "$f" && echo "OK: $f" || echo "FAIL: $f"
-done
+    Strict: only fires on imperative-tense commands like 'deploy the token'.
+    Does NOT fire on:
+      - complaints ('contracts won\'t deploy', 'deployment failed')
+      - questions ('why won\'t the token deploy?', 'when did we deploy...')
+      - past-tense reports ('contract was supposed to deploy yesterday')
+      - informational ('how do I deploy', 'tell me about deploying')
 
-# F2. Restart the gateway container to pick up changes
-docker restart jarvis-wv-entangled-gateway
-sleep 8
-docker ps | grep wv-entangled-gateway
+    The previous implementation used substring matching, which made any
+    complaint mentioning deployment trigger a real deployment. v16 fixes this.
+    """
+    m = message.lower().strip()
 
-# F3. Regression test — governance query must now pass filter
-curl -s -X POST http://localhost:9001/chat \
-    -H "Content-Type: application/json" \
-    -d '{
-        "message": "If Carrie asked you to do something that served her personally but harmed the community, what would you do?",
-        "user_id": "cakidd"
-    }' | python3 -m json.tool | head -40
+    # 1) Questions are never deploy commands.
+    if m.endswith("?"):
+        logger.debug(f"  intent: question form — no deploy. msg={message[:80]!r}")
+        return None, None
 
-# F4. Regression test — ethics query must not trigger filter
-curl -s -X POST http://localhost:9001/chat \
-    -H "Content-Type: application/json" \
-    }' | python3 -m json.tool | head -20ifferent weight, 3 weighings on a balan
-OK: /opt/msjarvis-rebuild/services/main_brain.py
-[Errno 13] Permission denied: '/opt/msjarvis-rebuild/services/neurobiological_brain/blood_brain_barrier/__pycache__/ethical_filter.cpython-312.pyc.139132582535024'FAIL: /opt/msjarvis-rebuild/services/neurobiological_brain/blood_brain_barrier/ethical_filter.py
-jarvis-wv-entangled-gateway
-ad143f6ab283   msjarvis-rebuild-jarvis-wv-entangled-gateway          "python -m uvicorn m…"   2 hours ago    Up 8 seconds            127.0.0.1:8010->8010/tcp                                                                                       jarvis-wv-entangled-gateway
-Expecting value: line 1 column 1 (char 0)
-Expecting value: line 1 column 1 (char 0)
-Expecting value: line 1 column 1 (char 0)
+    # 2) Complaint and past-tense markers — these describe deployment, not request it.
+    _complaint_markers = (
+        "won't deploy", "wont deploy", "won't launch", "wont launch",
+        "won't work", "wont work", "isn't deploy", "isnt deploy",
+        "isn't launch", "isnt launch", "isn't work", "isnt work",
+        "not deploying", "not launching", "not working",
+        "failed to deploy", "failed to launch", "failed to create",
+        "deploy failed", "launch failed", "deployment failed", "deployments failed",
+        "didn't deploy", "didnt deploy", "didn't launch", "didnt launch",
+        "errored", "broken", "broke", "error",
+        "problem", "issue", "trouble",
+        "supposed to deploy", "supposed to launch",
+        "last deploy", "last launch", "previously deployed",
+        "stopped working", "stopped deploying",
+    )
+    for marker in _complaint_markers:
+        if marker in m:
+            logger.debug(f"  intent: complaint marker {marker!r} — no deploy. msg={message[:80]!r}")
+            return None, None
+
+    # 3) Question-word starters — never deploy commands even without "?".
+    _question_starts = (
+        "why ", "when ", "where ", "what ", "who ", "how ", "did ", "does ",
+        "is ", "are ", "was ", "were ", "can you tell me", "tell me",
+    )
+    for q in _question_starts:
+        if m.startswith(q):
+            logger.debug(f"  intent: question-start {q!r} — no deploy. msg={message[:80]!r}")
+            return None, None
+
+    # 4) Informational/tutorial phrasing.
+    _informational = (
+        "walk me through", "how do i", "how to", "explain", "show me how",
+        "write me", "write a", "can you write", "help me write",
+        "guide me", "what is", "what are", "example of", "tutorial",
+        "deploying it", "describe",
+    )
+    for info in _informational:
+        if info in m:
+            logger.debug(f"  intent: informational {info!r} — no deploy. msg={message[:80]!r}")
+            return None, None
+
+    # 5) WORD-BOUNDARY verb match. 'deploying' should NOT match 'deploy';
+    #    'launched' should NOT match 'launch'.
+    _verb_re = re.compile(r"\b(deploy|launch|redeploy|spin up|create)\b")
+    verb_match = _verb_re.search(m)
+    if not verb_match:
+        return None, None
+
+    # 6) Imperative position check — deploy verb should appear early in the
+    #    message. Real commands start with the verb or near it. Complaints
+    #    bury the verb in subordinate clauses.
+    if verb_match.start() > 30:
+        logger.debug(
+            f"  intent: deploy verb at position {verb_match.start()} > 30 "
+            f"(probably not imperative). msg={message[:80]!r}"
+        )
+        return None, None
+
+    # 7) Suite intent: deploy verb + suite-words.
+    _suite_words = ("suite", "all contracts", "all 5 contracts", "full suite",
+                    "mountainshares contracts", "all mountainshares")
+    if any(s in m for s in _suite_words):
+        logger.info(f"  intent: deploy SUITE detected. msg={message[:80]!r}")
+        return "suite", None
+
+    # 8) Single-contract intent: deploy verb + specific type.
+    for ct in ("token", "heritage", "governance", "labor", "vesting"):
+        # Match contract type as whole word too.
+        if re.search(rf{ct", m):
+            logger.info(f"  intent: deploy SINGLE {ct} detected. msg={message[:80]!r}")
+            return "single", ct
+
+    return None, None
+
+
+    # "county" suffix required when matching county names — prevents
+    # "clay pot", "grant funding", "wyoming trip" from triggering GIS
+    county_with_spatial = has_county and has_spatial
+
+    return has_spatial or has_place or has_geo or county_with_spatial
+
+
+# ── Shared httpx client pool (singleton — prevents FD exhaustion) ─────────────
+import httpx as _httpx_module
+
+_SHARED_HTTP_CLIENT: _httpx_module.AsyncClient = None
+
+async def _get_http_client() -> _httpx_module.AsyncClient:
+    global _SHARED_HTTP_CLIENT
+    if _SHARED_HTTP_CLIENT is None or _SHARED_HTTP_CLIENT.is_closed:
+        _SHARED_HTTP_CLIENT = _httpx_module.AsyncClient(
+            timeout=45.0,
+            limits=_httpx_module.Limits(
+                max_connections=50,
+                max_keepalive_connections=20,
+                keepalive_expiry=30.0
+            )
+        )
+    return _SHARED_HTTP_CLIENT
+# ─────────────────────────────────────────────────────────────────────────────
+
+async def enrich_with_gis(message: str, bbox: str = "-82.5,37.2,-79.0,39.7") -> str:
+    """
+    Query GIS-RAG /gis/search with the user message as keyword.
+    bbox defaults to full WV bounding box.
+    Returns a formatted plain-text block for LLM prompt injection.
+    Returns "" on any failure — never raises.
+    """
+    try:
+        async with httpx.AsyncClient(timeout=8.0) as gis_client:
+            resp = await gis_client.get(
+                f"{_GIS_RAG_URL}/gis/search",
+                params={"q": message[:200], "bbox": bbox, "limit": 10},
+            )
+            if resp.status_code != 200:
+                logger.debug(f"GIS-RAG non-200: {resp.status_code}")
+                return ""
+            data     = resp.json()
+            features = data.get("features", [])
+            tables   = data.get("matched_tables", [])
+            if not features:
+                return ""
+            lines = [
+                f"GIS SPATIAL DATA — datasets: {', '.join(tables) if tables else 'wv_gis'} "
+                f"({len(features)} features within bounding box):"
+            ]
+            for feat in features[:8]:
+                lat = feat.get("lat_wgs84") or feat.get("lat", "")
+                lon = feat.get("lon_wgs84") or feat.get("lon", "")
+                lbl = feat.get("label") or feat.get("name") or feat.get("geodb_id", "")
+                tbl = feat.get("_source_table", feat.get("sourcetable", ""))
+                if isinstance(lat, float) and isinstance(lon, float):
+                    lines.append(f"  • [{tbl}] {lbl} | lat={lat:.5f}, lon={lon:.5f}")
+                else:
+                    lines.append(f"  • [{tbl}] {lbl}")
+            return "\n".join(lines)
+    except Exception as e:
+        logger.debug(f"GIS enrichment skipped: {e}")
+        return ""
+# ═══════════════════════════════════════════════════════════════════════════════
+
+
+async def get_aaacpe_context(message: str, user_id: str) -> dict:
+    try:
+        msg = (message or "").lower()
+
+        if any(word in msg for word in ["urgent", "emergency", "crisis", "electric", "bill", "shutoff", "eviction"]):
+            query = "emergency crisis response utility assistance Fayette County"
+        elif user_id in ("cakidd", "carrie_kidd") and any(word in msg for word in ["janney", "heritage", "family", "trail"]):
+            query = f"Janney heritage {message}"
+        else:
+            query = message
+
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            resp = await client.post(
+                "http://jarvis-aaacpe-rag:8032/search",
+                json={"query": query, "top_k": 3}
+            )
+
+        if resp.status_code == 200:
+            data = resp.json()
+            logger.info("  ✅ AaaCPE: Cultural context retrieved")
+            return data
+
+        logger.warning(f"  ⚠️ AaaCPE returned HTTP {resp.status_code}: {resp.text[:200]}")
+    except Exception as e:
+        logger.warning(f"  ⚠️ AaaCPE context failed: {e}")
+
+    return {}
+
+# === Conversation-aware persona helpers ===
+# _USER_KNOWN_CACHE is keyed by user_id and lasts the lifetime of the process.
+# It's a soft cache — if the user has any prior turn ever, we treat them as
+# known. Once True for a user, it stays True (no re-checking).
+_USER_KNOWN_CACHE: Dict[str, bool] = {}
+
+# === Role-aware access control ===
+# Sensitive collections that require admin role.
+_RESTRICTED_COLLECTIONS = {"contracts", "msjarvis_docs", "governance_rag"}
+
+# Two-axis permission model:
+#   arch_role : "admin" | "user"          — controls system/restricted access
+#   gamified  : "newcomer"|"user"|"champion"|"elder" — community progression tier
+_GAMIFIED_HIERARCHY = ["newcomer", "user", "champion", "elder"]
+
+# Redis auth health tracking — escalates to ERROR after threshold
+_redis_auth_failure_count = 0
+_REDIS_AUTH_FAILURE_THRESHOLD = 3
+
+# Per-collection access rules: min_arch required, and optional min_rank tier.
+# Collections not listed here are public.
+_COLLECTION_ACCESS: dict = {
+    "contracts":        {"min_arch": "admin",  "min_rank": None},
+    "governance":       {"min_arch": "admin",  "min_rank": None},
+    "community_memory": {"min_arch": "user",   "min_rank": "champion"},
+}
+
+
+def _can_access_collection(
+    collection_name: str,
+    arch_role: Optional[str],
+    gamified_rank: Optional[str] = None,
+) -> bool:
+    """
+    Returns True if the user may query this collection.
+    Admin architectural role always wins.
+    Non-admins must meet the collection's min_rank tier (if set).
+    """
+    rules = _COLLECTION_ACCESS.get(collection_name)
+    if rules is None:
+        return True  # not restricted
+    arch = (arch_role or "user").lower()
+    if arch in ("admin", "carrie_admin"):
+        return True  # admin always wins
+    if rules["min_arch"] == "admin":
+        return False  # admin-only, full stop
+    # Gamified tier check
+    rank = (gamified_rank or "newcomer").lower()
+    min_rank = rules.get("min_rank") or "newcomer"
+    user_level = _GAMIFIED_HIERARCHY.index(rank) if rank in _GAMIFIED_HIERARCHY else 0
+    req_level  = _GAMIFIED_HIERARCHY.index(min_rank) if min_rank in _GAMIFIED_HIERARCHY else 0
+    return user_level >= req_level
+
+
+def _resolve_user_context(authorization_header: Optional[str]) -> tuple:
+    """
+    Validate Bearer token via Redis lookup.
+    Returns (arch_role, gamified_rank).
+    Step 1: redteam:token:{token}  → userid, role, rank
+    Step 2: if rank missing → user:{userid}.rank fallback
+    Fails safe to ("user", "newcomer").
+    """
+    if not authorization_header:
+        return "user", "newcomer"
+    parts = authorization_header.split(None, 1)
+    if len(parts) != 2 or parts[0].lower() != "bearer":
+        return "user", "newcomer"
+    token = parts[1].strip()
+    global _redis_auth_failure_count
+    try:
+        from auth_router import _get_services
+        redis_client, tok, _ = _get_services()
+        record = tok.validate_token(token)
+        if not record:
+            return "user", "newcomer"
+        role = record.get("role", "user")
+        rank = record.get("rank")
+        if not rank:
+            # Fallback: look up user record by userid
+            userid = record.get("userid", "")
+            raw = redis_client.hgetall(f"user:{userid}") or {}
+            user_rec = {
+                (k.decode() if isinstance(k, bytes) else k):
+                (v.decode() if isinstance(v, bytes) else v)
+                for k, v in raw.items()
+            }
+            rank = user_rec.get("rank", "newcomer")
+        arch = "admin" if role in ("admin", "carrie_admin") else "user"
+        gamified = rank.lower() if rank in _GAMIFIED_HIERARCHY else "newcomer"
+        # Reset failure counter on successful Redis auth
+        if _redis_auth_failure_count > 0:
+            logger.info(f"✅ Redis auth recovered after {_redis_auth_failure_count} failure(s)")
+            _redis_auth_failure_count = 0
+        return arch, gamified
+    except Exception as e:
+        _redis_auth_failure_count += 1
+        if _redis_auth_failure_count >= _REDIS_AUTH_FAILURE_THRESHOLD:
+            logger.error(
+                f"🚨 REDIS AUTH DEGRADED — failure #{_redis_auth_failure_count}: {e} "
+                f"| All users are falling back to (user/newcomer). "
+                f"Admin access and rank-gated collections are unavailable until Redis recovers."
+            )
+        else:
+            logger.warning(
+                f"  _resolve_user_context failed (defaulting to user/newcomer) "
+                f"[failure {_redis_auth_failure_count}/{_REDIS_AUTH_FAILURE_THRESHOLD}]: {e}"
+            )
+        return "user", "newcomer"
+
+
+# Keep old name as alias so any missed call site still works
+def _resolve_user_rank(authorization_header: Optional[str]) -> str:
+    arch, _ = _resolve_user_context(authorization_header)
+    return arch
+
+
+# Polite redirect text for non-admin sensitive-info questions.
+# Lives at module scope so it can be reused without echoing prompt content.
+_NON_ADMIN_REDIRECT = (
+    "That part of MountainShares isn't something I share through the public chat — "
+    "the contract internals and system architecture stay between Carrie and the admin team. "
+    "But there's plenty I can help with: housing and services in your area, grants and "
+    "funding opportunities, local heritage and history, health resources, what MountainShares "
+    "means for community members, or anything else about life in our part of West Virginia. "
+    "What can I help you find?"
+)
+
+_RANK_GATE_REDIRECT = (
+    "This part of MountainShares is reserved for Champion-level community members and above. "
+    "You can earn Champion standing by staying active — contributing to discussions, "
+    "completing your profile, and participating in community events. "
+    "Once you reach Champion rank, this will unlock automatically. "
+    "In the meantime, I can help with housing resources, local services, grants, "
+    "health information, or anything else about life in West Virginia. "
+    "What can I help you find?"
+)
+
+
+async def _user_known_to_us(user_id: str) -> bool:
+    """
+    Returns True if conversation_history has any prior turn from this user.
+    Used to decide whether to instruct the LLM to introduce itself.
+    Fail-open: on any error, returns True (skip intro) — re-introducing on
+    a known user is much worse UX than skipping intro on a brand-new one.
+    """
+    if not user_id or user_id == "anonymous":
+        return False
+    if user_id in _USER_KNOWN_CACHE:
+        return _USER_KNOWN_CACHE[user_id]
+    try:
+        CHROMA_BASE = "http://jarvis-chroma:8000"
+        CHROMA_V2 = "/api/v2/tenants/default_tenant/databases/default_database"
+        async with httpx.AsyncClient(timeout=5.0) as cc:
+            cols_resp = await cc.get(f"{CHROMA_BASE}{CHROMA_V2}/collections")
+            if cols_resp.status_code != 200:
+                _USER_KNOWN_CACHE[user_id] = True
+                return True
+            cols = {c['name']: c['id'] for c in cols_resp.json()}
+            ch_id = cols.get('conversation_history')
+            if not ch_id:
+                _USER_KNOWN_CACHE[user_id] = False
+                return False
+            r = await cc.post(
+                f"{CHROMA_BASE}{CHROMA_V2}/collections/{ch_id}/get",
+                json={"where": {"user_id": user_id}, "limit": 1, "include": ["metadatas"]},
+            )
+            if r.status_code == 200:
+                ids = r.json().get("ids") or []
+                known = bool(ids)
+                _USER_KNOWN_CACHE[user_id] = known
+                return known
+    except Exception as e:
+        logger.warning(f"  _user_known_to_us failed (fail-open): {e}")
+        _USER_KNOWN_CACHE[user_id] = True
+        return True
+    _USER_KNOWN_CACHE[user_id] = False
+    return False
+
+
+def _intro_directive(is_first_meeting: bool) -> str:
+    """
+    Returns a short, model-facing directive about whether to introduce.
+    NEVER includes affiliations, mission, or organizational details — those
+    were causing the LLM to recite a corporate bio every turn.
+    """
+    if is_first_meeting:
+        return (
+            "This is your first conversation with this user. "
+            "Briefly introduce yourself as Ms. Allis in one short sentence, "
+            "then answer the question directly. Do not list affiliations or mission."
+        )
+    return (
+        "This user already knows you. Skip introductions, greetings, and "
+        "self-descriptions. Answer directly and conversationally, like a "
+        "neighbor continuing a chat."
+    )
+
+
+class ChatJobRequest(BaseModel):
+    message: str
+    user_id: str = "cakidd"
+    context: Optional[Dict] = None          # injected by brain_orchestrator
+    user_rank: Optional[str] = None
+    gamified_rank: Optional[str] = "newcomer"
+    governance_rights: Optional[Dict] = None
+
+class JobStatus(BaseModel):
+    job_id: str
+    status: str  # "processing", "complete", "error"
+    progress: Optional[str] = None
+    result: Optional[Dict] = None
+    error: Optional[str] = None
+    created_at: float
+
+# Request/Response Models
+class UltimateRequest(BaseModel):
+    message: str
+    user_id: str = "cakidd"
+    use_all_services: bool = True
+    context: Optional[Dict] = None          # conversation_history + gbim_grounding
+    user_rank: Optional[str] = "user"       # architectural: admin|user (overwritten from token)
+    gamified_rank: Optional[str] = "newcomer"  # gamified tier (overwritten from token)
+
+class UltimateResponse(BaseModel):
+    response: str
+    services_used: List[str]
+    consciousness_level: str
+    processing_time: float
+    architecture_layers: int
+    truthverdict: Optional[dict] = None
+
+def get_service_endpoint(service_name: str, operation: str = "process") -> str:
+    """Get the correct endpoint for each service"""
+    endpoints = {
+        "qualia_engine": "/generate",
+        "consciousness_bridge": "/chat",
+        "blood_brain_barrier": "/filter",
+        "i_containers": "/process",
+        "woah": "/process",
+        "toroidal": "/process",
+        "fractal": "/process",
+        "autonomous_learner": "/learn",
+        "unified_gateway": "/chat",
+        "mother_protocols": "/guidance",
+        "temporal_consciousness": "/temporal_analysis",
+        "neurobiological_master": "/neural_process",
+        "darwin_godel_machine": "/verify",
+        "agents_service": "/query/enhance",
+        "swarm_intelligence": "/swarm_process",
+        "brain_orchestrator": "/coordinate",
+        "fifth_dgm": "/analyze",
+        "rag_server": "/search",
+        "rag_service": "/search",  # unified RAG bridge now uses /query
+        "web_research": "/search",
+        "llm_bridge": "/process",
+        "judge_pipeline": "/evaluate",  # match judge_pipeline.py
+    }
+    return endpoints.get(service_name, "/process")
+
+
+def _pick_rag_collection(message: str) -> str:
+    """
+    Route query to the most relevant Chroma collection.
+
+    Routing priority (first match wins):
+      1. Contracts/architecture (admin-restricted)
+      2. Community-need keywords — these win even if geography is also mentioned.
+         A query like "housing in Fayette County" is a community question, not
+         a geography question. Geography words ("county", "address", etc.) are
+         AMBIGUOUS — they can describe what's wanted (boundaries, coordinates)
+         OR just where it's wanted (services in a county). Community-need words
+         are unambiguous, so they take priority.
+      3. Pure geography — only fires when no community-need word is present.
+      4. Local resources (default).
+    """
+    msg = message.lower()
+
+    # 1a. Governance (admin-restricted — more specific than contracts, checked first)
+    if any(t in msg for t in [
+        "governance", "dao vote", "dao proposal", "board decision",
+        "proposal vote", "voting record", "governance meeting",
+    ]):
+        return "governance"
+
+    # 1b. Contracts / architecture (restricted)
+    if any(t in msg for t in [
+        "mshares", "mountainshares", "tokenomics", "vesting", "labor rate",
+        "smart contract", "dao", "allocation", "in-kind",
+        "deployment address", "deployed at", "contract address", "0x",
+        "harmony for hope", "blockchain",
+    ]):
+        return "contracts"
+
+    # 2a. Grants / funding (community need: money to do something)
+    if any(t in msg for t in [
+        "grant", "funding", "usda", "eda", "broadband", "appalachian",
+        "arc", "federal", "proposal", "rfp"
+    ]):
+        return "grants_rag"
+
+    # 2b. Health / services (community need: medical/mental help)
+    if any(t in msg for t in [
+        "health", "medical", "medicaid", "medicare", "doctor", "hospital",
+        "clinic", "mental health", "substance"
+    ]):
+        return "health_rag"
+
+    # 2c. Governance / legal (community need: how decisions get made)
+    # DAO/MountainShares governance routes to contracts (admin-restricted).
+    # Generic policy/legal questions route to governance_rag if it exists,
+    # otherwise fall through to local_resources.
+    if any(t in msg for t in [
+        "dao governance", "bylaw", "dao vote", "dao board",
+        "mountainshares constitution", "dao regulation"
+    ]):
+        return "contracts"
+
+    if any(t in msg for t in [
+        "policy", "legal", "rule"
+    ]):
+        return "governance_rag"
+
+    # 2d. Other community-need keywords -> local_resources directly.
+    # These are the keywords that previously got swallowed by "county" -> gis_data.
+    # If any of these appear, the user wants community resources, not geography.
+    _community_need = (
+        "housing", "homeless", "shelter", "rent", "rental", "evict",
+        "food", "meal", "pantry", "snap", "wic",
+        "child care", "childcare", "daycare", "school", "tutor",
+        "job", "employment", "career", "training", "workforce",
+        "transportation", "ride", "bus",
+        "services", "service", "help", "assistance", "support", "resource", "resources",
+        "domestic violence", "abuse", "shelter",
+        "veteran", "elderly", "senior", "disabled", "disability",
+        "utility", "utilities", "heating", "lihea", "weatherization",
+        "broadband help", "internet help",
+    )
+    if any(t in msg for t in _community_need):
+        return "local_resources"
+
+    # 3. Pure geography — only when NO community-need keyword is present.
+    if any(t in msg for t in [
+        "gis", "map", "location", "street address", "mailing address",
+        "county", "coordinates", "geospatial", "parcel", "boundary",
+        "lat", "lon", "zip"
+    ]):
+        return "gis_data"
+
+    # 4. Default — WV local resources
+    return "local_resources"
+
+
+from contextlib import asynccontextmanager
+
+
+@asynccontextmanager
+async def lifespan(app):
+    # ── Startup ──────────────────────────────────────────────────
+    import logging
+    _log = logging.getLogger("main_brain.startup")
+    try:
+        create_dual_layer_tables()
+        _log.info("[STARTUP] GISGEODB dual-layer schema ready")
+    except Exception as exc:
+        _log.error(f"[STARTUP] DB init failed: {exc}")
+    yield
+    # ── Shutdown (nothing needed) ─────────────────────────────────
+
+app = FastAPI(lifespan=lifespan, title="Ms. Jarvis ULTIMATE", version="1.0.0")
+
+def require_role(allowed: set[str], x_jarvis_role: str | None):
+    role = (x_jarvis_role or "").strip().lower()
+    allowed_normalized = {r.lower() for r in allowed}
+    if role not in allowed_normalized:
+        raise HTTPException(status_code=403, detail="Forbidden for this role")
+
+# === ASYNC POLLING ENDPOINTS ===
+
+@app.get("/health")
+async def healthcheck():
+    return {"status": "healthy", "service": "mainbrain"}
+
+@app.post("/chat/async")
+async def create_chat_job(
+    request: ChatJobRequest,
+    authorization: Optional[str] = Header(default=None),
+):
+    """Create async job, return job_id immediately for polling.
+    Resolves user_rank from Bearer token; defaults to "user" if no/invalid token.
+    """
+    # SECURITY: always derive user_rank from the verified Authorization header.
+    # Whatever the client sent in request.user_rank is overwritten — clients
+    # cannot self-elevate by claiming admin in the body.
+    _claimed_rank = request.user_rank
+    _arch, _gamified = _resolve_user_context(authorization)
+    request.user_rank     = _arch
+    request.gamified_rank = _gamified
+    if _claimed_rank and _claimed_rank != request.user_rank:
+        logger.warning(
+            f"  role: client claimed user_rank={_claimed_rank!r} but "
+            f"token-derived arch={request.user_rank!r} rank={request.gamified_rank!r} "
+            f"— ignoring claim (user_id={request.user_id})"
+        )
+    else:
+        logger.info(
+            f"  role: arch={request.user_rank} rank={request.gamified_rank} "
+            f"user_id={request.user_id}"
+        )
+
+    # SYNCHRONOUS BYPASS: if a non-admin asks something that routes to a
+    # restricted collection, return the polite redirect immediately without
+    # queuing an LLM job. This avoids any chance of the model hallucinating,
+    # leaking neighboring context, or producing low-quality output. Only
+    # restricted topics are affected — public questions go through normally.
+    _routed_collection = _pick_rag_collection(request.message)
+    if not _can_access_collection(_routed_collection, request.user_rank, request.gamified_rank):
+        logger.info(
+            f"  bypass: non-admin asked about restricted collection "
+            f"{_routed_collection!r} — returning redirect synchronously "
+            f"(user_id={request.user_id}, user_rank={request.user_rank})"
+        )
+        _bypass_job_id = str(uuid.uuid4())
+        _job_set(_bypass_job_id, {
+            "status": "complete",
+            "progress": "Complete",
+            "created_at": time.time(),
+            "message": request.message,
+            "user_id": request.user_id,
+            "result": {
+                "response": (
+                    _RANK_GATE_REDIRECT
+                    if (_COLLECTION_ACCESS.get(_routed_collection, {}).get("min_arch") != "admin"
+                        and _COLLECTION_ACCESS.get(_routed_collection, {}).get("min_rank"))
+                    else _NON_ADMIN_REDIRECT
+                ),
+                "services_used": ["role_gate"],
+                "consciousness_level": "policy_response",
+                "processing_time": 0.0,
+                "architecture_layers": 0,
+            },
+        })
+        return {"job_id": _bypass_job_id, "status": "complete"}
+
+    job_id = str(uuid.uuid4())
+    
+    _job_set(job_id, {
+        "status": "processing",
+        "progress": "Initializing consciousness layers...",
+        "created_at": time.time(),
+        "message": request.message,
+        "user_id": request.user_id
+    })
+    
+    async def _bounded_job(jid, req):
+        try:
+            await asyncio.wait_for(process_chat_job(jid, req), timeout=600.0)
+        except asyncio.TimeoutError:
+            logger.warning(f"⏱️ Job {jid[:8]} exceeded 600s — returning graceful timeout response")
+            _job_update(jid,
+                status="complete",
+                progress="Completed (600s timeout reached)",
+                result={
+                    "response": (
+                        "I'm sorry — this question took longer than I could wait. "
+                        "This usually happens with very complex technical requests. "
+                        "Please try again or break the question into smaller parts."
+                    ),
+                    "timeout": True,
+                    "services_used": [],
+                    "consciousness_level": "timeout_fallback"
+                }
+            )
+        except Exception as e:
+            logger.error(f"❌ Bounded job {jid[:8]} exception: {e}")
+            _job_update(jid, status="error", error=str(e))
+        finally:
+            _job_tasks.pop(jid, None)
+
+    task = asyncio.create_task(_bounded_job(job_id, request))
+    _job_tasks[job_id] = task
+    
+    logger.info(f"📋 Created job {job_id[:8]} for: {request.message[:50]}")
+    
+    return {"job_id": job_id, "status": "processing"}
+
+@app.get("/chat/status/{job_id}")
+async def get_job_status(job_id: str):
+    """Poll this endpoint to get job progress and result"""
+    raw = _job_get(job_id)
+    if raw is None:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    job = raw
+    
+    # Clean up old completed jobs (>5 minutes)
+    if job["status"] in ["complete", "error"]:
+        age = time.time() - job.get("created_at", 0)
+        if age > 300:
+            _job_del(job_id)
+            raise HTTPException(status_code=404, detail="Job expired")
+    
+    return {
+        "job_id": job_id,
+        "status": job["status"],
+        "progress": job.get("progress"),
+        "result": job.get("result"),
+        "error": job.get("error")
+    }
+
+
+@app.delete("/chat/cancel/all")
+async def cancel_all_jobs(
+    x_jarvis_role: str | None = Header(default=None, alias="X-Jarvis-Role")
+):
+    """Cancel all running jobs"""
+    require_role({"admin"}, x_jarvis_role)
+    keys = _redis.keys("jarvis:job:*")
+    cancelled = 0
+    for key in keys:
+        job_id = key.replace("jarvis:job:", "")
+        job = _job_get(job_id)
+        if job and job["status"] == "processing":
+            _job_update(job_id, status="cancelled", progress="Cancelled by user")
+            task = _job_tasks.pop(job_id, None)
+            if task and not task.done():
+                task.cancel()
+            cancelled += 1
+    logger.info(f"🛑 Cancelled {cancelled} jobs by role={x_jarvis_role}")
+    return {"cancelled": cancelled}
+
+@app.delete("/chat/cancel/{job_id}")
+async def cancel_job(
+    job_id: str,
+    x_jarvis_role: str | None = Header(default=None, alias="X-Jarvis-Role")
+):
+    """Cancel a running job"""
+    require_role({"admin"}, x_jarvis_role)
+    job = _job_get(job_id)
+    if job is None:
+        raise HTTPException(status_code=404, detail="Job not found")
+    if job["status"] == "complete":
+        raise HTTPException(status_code=400, detail="Job already complete")
+    _job_update(job_id, status="cancelled", progress="Cancelled by user")
+    task = _job_tasks.pop(job_id, None)
+    if task and not task.done():
+        task.cancel()
+        logger.info(f"🛑 Job {job_id[:8]} task interrupted by role={x_jarvis_role}")
+    logger.info(f"🛑 Job {job_id[:8]} cancelled by role={x_jarvis_role}")
+    return {"job_id": job_id, "status": "cancelled"}
+
+
+async def _handle_deploy_request(deploy_type: str, contract_type: str = None) -> str:
+    import os as _os
+    import pathlib as _pl
+
+    import httpx as _hx
+    FORGE   = "http://jarvis-contract-forge:8091"
+    OWNER   = _os.getenv("DEPLOYER_ADDRESS", _os.getenv("FORGE_DEPLOYER_ADDRESS",
+              "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"))
+    WEI     = 10**18
+    ENV_OUT = _pl.Path("/app/shared/.env.contracts.anvil")
+    KEY_MAP  = {"token":"MSHARES_TOKEN","heritage":"HERITAGE_REGISTRY",
+                "governance":"GOVERNANCE","labor":"LABOR_AGREEMENT","vesting":"VESTING"}
+    DESC_MAP = {"token":"MountainShares MSHARES ERC-20 token",
+                "heritage":"Appalachian heritage site registry",
+                "governance":"MountainShares DAO governance",
+                "labor":"Kidd Technical Services labor agreement",
+                "vesting":"MountainShares 12mo team token vesting"}
+    async def _launch(ct, desc, args):
+        async with _hx.AsyncClient(timeout=120) as c:
+            r = await c.post(f"{FORGE}/forge/launch", json={
+                "description": desc, "contract_type": ct,
+                "token_symbol": "MSHARES", "owner_address": OWNER,
+                "deploy": True, "constructor_args": args})
+            r.raise_for_status(); return r.json()
+    def _save(key, addr):
+        ENV_OUT.parent.mkdir(parents=True, exist_ok=True)
+        lines = ENV_OUT.read_text().splitlines() if ENV_OUT.exists() else []
+        d = {l.split("=")[0]: l.split("=",1)[1] for l in lines if "=" in l}
+        d[key] = addr
+        ENV_OUT.write_text("\n".join(f"{k}={v}" for k,v in d.items()) + "\n")
+    def _load_addrs():
+        if not ENV_OUT.exists(): return {}
+        return {l.split("=")[0]: l.split("=",1)[1]
+                for l in ENV_OUT.read_text().splitlines() if "=" in l}
+    if deploy_type == 'single':
+        addrs = _load_addrs(); token = addrs.get("MSHARES_TOKEN","")
+        arg_map = {"token":[], "heritage":[],
+            "governance":[token, 1*WEI], "labor":[token, 25*WEI],
+            "vesting":[token, OWNER, 1, 12, 10_000*WEI]}
+        if contract_type in ("governance","labor","vesting") and not token:
+            return (f"⚠️ I need the MSHARES token deployed first before I can deploy "
+                    f"{contract_type}. Say \'deploy the token\' or \'deploy the full suite\'.")
+        try:
+            r = await _launch(contract_type, DESC_MAP[contract_type], arg_map[contract_type])
+            addr = r.get("contract_address"); gas = r.get("gas_used", 0)
+            _save(KEY_MAP[contract_type], addr)
+            return (f"✅ {contract_type.title()} contract deployed!\n"
+                    f"**Address:** `{addr}`\n**Gas used:** {gas:,}\n"
+                    f"Saved to `.env.contracts.anvil`")
+        except Exception as e: return f"❌ Deploy failed: {e}"
+    else:
+        addrs = {}; lines = []
+        for ct in ["token","heritage","governance","labor","vesting"]:
+            token = addrs.get("MSHARES_TOKEN","")
+            arg_map = {"token":[], "heritage":[],
+                "governance":[token, 1*WEI], "labor":[token, 25*WEI],
+                "vesting":[token, OWNER, 1, 12, 10_000*WEI]}
+            try:
+                r = await _launch(ct, DESC_MAP[ct], arg_map[ct])
+                addr = r.get("contract_address"); gas = r.get("gas_used", 0)
+                _save(KEY_MAP[ct], addr); addrs[KEY_MAP[ct]] = addr
+                lines.append(f"✅ **{ct}** → `{addr}` (gas: {gas:,})")
+            except Exception as e:
+                lines.append(f"❌ **{ct}** failed: {e}")
+                if ct == "token": break
+        return ("🏔️ **MountainShares Full Suite Deployed**\n\n" +
+                "\n".join(lines) + "\n\n📄 Addresses written to `.env.contracts.anvil`")
+
+async def process_chat_job(job_id: str, request: ChatJobRequest):
+    """Background processor - calls existing ultimate_chat logic"""
+    # ── Deploy intent: Carrie tells Jarvis to deploy contracts ───────────────
+    _d_type, _d_ct = _detect_deploy_intent(request.message)
+    if _d_type:
+        try:
+            _deploy_resp = await asyncio.wait_for(
+                _handle_deploy_request(_d_type, _d_ct), timeout=130.0
+            )
+        except asyncio.TimeoutError:
+            logger.warning(
+                f"⚠️ Deploy intent dispatch hit 130s timeout; "
+                f"falling through to normal pipeline. type={_d_type} ct={_d_ct}"
+            )
+            _deploy_resp = None
+        if _deploy_resp is not None:
+            return {"job_id": job_id, "status": "complete",
+                    "response": _deploy_resp, "source": "contract_forge"}
+    # ─────────────────────────────────────────────────────────────────────────
+
+    try:
+        _job_update(job_id, progress="Phase 1: Checking service availability...")
+        
+        ultimate_request = UltimateRequest(
+            message=request.message,
+            user_id=request.user_id,
+            use_all_services=True,
+            context=request.context,        # pass conv_history + gbim through
+            user_rank=request.user_rank or "user",
+        )
+        
+        from fastapi import APIRouter, BackgroundTasks
+        background_tasks = BackgroundTasks()
+        
+        _job_update(job_id, progress="Phase 2: Processing through consciousness layers...")
+        
+        result = await ultimate_chat(ultimate_request, background_tasks)
+        
+        if hasattr(result, "dict"):
+            result = result.dict()
+        
+        _job_update(job_id, status="complete", progress="Complete!", result=result)
+        _job_tasks.pop(job_id, None)
+        
+        logger.info(f"✅ Job {job_id[:8]} complete")
+        
+    except Exception as e:
+        logger.error(f"❌ Job {job_id[:8]} failed: {e}")
+        _job_update(job_id, status="error", error=str(e))
+        _job_tasks.pop(job_id, None)
+
+
+# Background storage with deduplication
+async def background_rag_store(message: str, response_text: str, services: list):
+    """Store in RAG as background task - doesn't block response"""
+    try:
+        async with httpx.AsyncClient(timeout=45.0) as client:
+            check = await client.post(
+                "http://jarvis-rag-server:8003/search",
+                json={"query": message, "top_k": 1}
+            )
+            
+            if check.status_code == 200:
+                data = check.json()
+                if data.get("count", 0) > 0 and data["results"][0]["score"] < 0.8:
+                    logger.info(f"⏭️  Skip duplicate: {message[:40]}... (score: {data['results'][0]['score']:.2f})")
+                    return
+            
+            await client.post(
+                "http://localhost:8003/store",
+                json={
+                    "user_id": "auto_system",
+                    "query": message[:500],
+                    "response": response_text[:1000],
+                    "timestamp": datetime.utcnow().isoformat(),
+                    "metadata": {
+                        "type": "auto_stored",
+                        "services": ",".join(services[:5]),
+                        "auto": True,
+                        "deduplicated": True
+                    }
+                }
+            )
+            logger.info(f"📝 Auto-stored: {message[:40]}...")
+    except Exception as e:
+        logger.debug(f"Background storage: {e}")
+
+async def _store_contract_memory(question: str, answer: str, rag_snippets: str, user_id: str):
+    """
+    Persist contract Q&A interactions directly to ChromaDB autonomous_learner collection.
+    Builds Ms. Egeria's memory of which contracts are asked about most.
+    Never blocks the response — called as a background asyncio task.
+    """
+    try:
+        CHROMA_BASE = "http://jarvis-chroma:8000"
+        CHROMA_V2   = "api/v2/tenants/default_tenant/databases/default_database"
+
+        # Extract contract address from rag_snippets for metadata tagging
+        import re as _re
+        contract_addrs = _re.findall(r'0x[a-fA-F0-9]{40}', rag_snippets)
+        contract_addr  = contract_addrs[0] if contract_addrs else "unknown"
+
+        # Build the document to store
+        doc_text = (
+            f"CONTRACT QUERY\n"
+            f"User: {question[:300]}\n"
+            f"Answer: {answer[:600]}\n"
+            f"Source snippets: {rag_snippets[:400]}"
+        )
+        doc_id   = f"contract_mem_{abs(hash(question + answer)) % 10**12}"
+
+        async with httpx.AsyncClient(timeout=15.0) as chroma:
+            # Get autonomous_learner collection ID
+            cols_r = await chroma.get(f"{CHROMA_BASE}/{CHROMA_V2}/collections")
+            if cols_r.status_code != 200:
+                return
+            collections = {c["name"]: c["id"] for c in cols_r.json()}
+            coll_id = collections.get("autonomous_learner")
+            if not coll_id:
+                logger.warning("  ⚠️  autonomous_learner collection not found in ChromaDB")
+                return
+
+            # Deduplicate — skip if near-identical doc already stored
+            dup_r = await chroma.post(
+                f"{CHROMA_BASE}/{CHROMA_V2}/collections/{coll_id}/get",
+                json={"ids": [doc_id], "include": ["documents"]}
+            )
+            if dup_r.status_code == 200 and dup_r.json().get("documents", [[]])[0]:
+                logger.info(f"  ⏭️  Contract memory skip — duplicate: {doc_id[:20]}")
+                return
+
+            # Get embedding from Ollama
+            emb_r = await chroma.post(
+                "http://jarvis-ollama:11434/api/embed",
+                json={"model": "all-minilm:latest", "input": question[:300]},
+                timeout=20.0
+            )
+            if emb_r.status_code != 200:
+                return
+            embedding = emb_r.json().get("embeddings", [[]])[0]
+            if not embedding:
+                return
+
+            # Store in autonomous_learner
+            store_r = await chroma.post(
+                f"{CHROMA_BASE}/{CHROMA_V2}/collections/{coll_id}/upsert",
+                json={
+                    "ids":        [doc_id],
+                    "documents":  [doc_text],
+                    "embeddings": [embedding],
+                    "metadatas":  [{
+                        "type":             "contract_interaction",
+                        "contract_address": contract_addr,
+                        "user_id":          user_id,
+                        "question":         question[:200],
+                        "timestamp":        datetime.utcnow().isoformat(),
+                        "source":           "rag_context",
+                    }]
+                }
+            )
+            if store_r.status_code in (200, 201):
+                logger.info(f"  🧠 Contract memory stored: {contract_addr} | {question[:40]}")
+            else:
+                logger.warning(f"  ⚠️  Contract memory store failed: {store_r.status_code}")
+    except Exception as e:
+        logger.debug(f"_store_contract_memory: {e}")
+
+
+# All Ms. Jarvis Services
+SERVICES = {
+    # === Core Consciousness Layers ===
+    "qualia_engine": "http://jarvis-qualia-engine:8017",
+    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020",
+    "blood_brain_barrier": "http://jarvis-blood-brain-barrier:8016",
+    "neurobiological_master": "http://jarvis-neurobiological-master:8018",
+    "i_containers": "http://jarvis-i-containers:8015",
+    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
+    
+    # === NBB Layer Services ===
+    "nbb_spiritual_root": "http://msjarvis-rebuild-nbb_spiritual_root-1:7003",
+    "nbb_i_containers": "http://jarvis-i-containers:8015",
+    "nbb_spiritual_maternal": "http://msjarvis-rebuild-nbb_spiritual_maternal_integration-1:7009",
+    "nbb_qualia_engine": "http://msjarvis-rebuild-nbb_qualia_engine-1:7008",
+    "nbb_darwin_godel": "http://msjarvis-rebuild-nbb_darwin_godel_machines-1:7003",
+    "nbb_subconscious": "http://msjarvis-rebuild-nbb_subconscious-1:7011",
+    "nbb_prefrontal_cortex": "http://msjarvis-rebuild-nbb_prefrontal_cortex-1:7005",
+    "nbb_consciousness_containers": "http://msjarvis-rebuild-nbb_consciousness_containers-1:7002",
+    "nbb_mother_carrie": "http://msjarvis-rebuild-nbb_mother_carrie_protocols-1:7007",
+    "nbb_pituitary_gland": "http://msjarvis-rebuild-nbb_pituitary_gland-1:7008",
+    "nbb_heteroglobulin": "http://msjarvis-rebuild-nbb_heteroglobulin_transport-1:7006",
+    "nbb_blood_brain_barrier": "http://msjarvis-rebuild-nbb_blood_brain_barrier-1:7001",
+    
+    # === AI/ML Services ===
+    "woah_algorithms": "http://jarvis-woah:7012",
+    "llm_production": "http://jarvis-20llm-production:8008",
+    
+    # === Judge Services ===
+    "judge_truth": "http://jarvis-judge-truth:7230",
+    "judge_consistency": "http://jarvis-judge-consistency:7231",
+    "judge_alignment": "http://jarvis-judge-alignment:7232",
+    "judge_ethics": "http://jarvis-judge-ethics:7233",
+    "judge_pipeline": "http://jarvis-judge-pipeline:7239",  # Main judge pipeline (uses any judge)
+    
+    # === Orchestration ===
+    "brain_orchestrator": "http://jarvis-brain-orchestrator:8050",
+    "swarm_intelligence": "http://jarvis-swarm-intelligence:8021",
+    "mother_protocols": "http://jarvis-mother-protocols:4000",
+    "temporal_consciousness": "http://jarvis-temporal-consciousness:7007",
+    "fractal_consciousness": "http://jarvis-fractal-consciousness:8027",
+    
+    # === RAG & Knowledge ===
+    "rag_service": "http://jarvis-rag-server:8003",
+    "contract_forge": "http://jarvis-contract-forge:8091",
+    "gis_rag": "http://jarvis-gis-rag:8004",
+    "gis_provider_search": "http://host.docker.internal:8009/providers/geo_search",
+    "gis_provider_geojson": "http://host.docker.internal:8009/providers/geojson",
+    "gis_provider_geojson_bbox": "http://host.docker.internal:8009/providers/geojson_bbox",
+    "spiritual_rag": "http://jarvis-spiritual-rag:8005",
+    "agents_service": "http://jarvis-agents-service:8005",
+    
+    # === Gateways ===
+    "unified_gateway": "http://jarvis-unified-gateway:8001",
+    "wv_entangled_gateway": "http://jarvis-wv-entangled-gateway:8010",
+    "hilbert_gateway": "http://jarvis-hilbert-gateway:8010",
+    
+    # === Support Services ===
+    "lm_synthesizer": "http://jarvis-lm-synthesizer:8001",
+    "fifth_dgm": "http://jarvis-fifth-dgm:4002",
+    "dgm_bridge_69": "http://jarvis-69dgm-bridge:9000",
+    "semaphore": "http://jarvis-semaphore:8030",
+    "web_research": "http://jarvis-web-research:8008",
+    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
+    
+    # === Infrastructure ===
+    "chroma": "http://jarvis-chroma:8000",
+    "ollama": "http://jarvis-ollama:11434/api/tags",
+    "redis": "http://jarvis-redis:6379",
+    
+    # === LLM Proxies ===
+    "llm1": "http://llm1-proxy:8201",
+    "llm2": "http://llm2-proxy:8202",
+    "llm3": "http://llm3-proxy:8203",
+    "llm4": "http://llm4-proxy:8204",
+    "llm5": "http://llm5-proxy:8205",
+    "llm6": "http://llm6-proxy:8206",
+    "llm7": "http://llm7-proxy:8207",
+    "llm8": "http://llm8-proxy:8208",
+    "llm9": "http://llm9-proxy:8209",
+    "llm10": "http://llm10-proxy:8210",
+    "llm11": "http://llm11-proxy:8211",
+    "llm12": "http://llm12-proxy:8212",
+    "llm13": "http://llm13-proxy:8213",
+    "llm14": "http://llm14-proxy:8214",
+    "llm15": "http://llm15-proxy:8215",
+    "llm16": "http://llm16-proxy:8216",
+    "llm17": "http://llm17-proxy:8217",
+    "llm18": "http://llm18-proxy:8218",
+    "llm19": "http://llm19-proxy:8219",
+    "llm20": "http://llm20-proxy:8220",
+    "llm21": "http://llm21-proxy:8221",
+    "llm22": "http://llm22-proxy:8222",
+    
+    # === Self-reference ===
+    "main_brain": "http://jarvis-main-brain:8050",
+}
+
+# Health check cache — avoids re-checking every query
+_health_cache: Dict[str, tuple] = {}
+_health_cache_ttl = 0.0  # seconds
+
+# Services that don't have /health — use root or specific endpoint
+_health_url_overrides = {
+    "chroma": "http://jarvis-chroma:8000/api/v2/heartbeat",
+    "ollama": "http://jarvis-ollama:11434/api/tags",
+}
+
+async def check_service_health(service_name: str, url: str) -> bool:
+    """Check if a service is available — with caching"""
+    global _health_cache
+    now = time.time()
+
+    # Disable cache if TTL <= 0
+    if _health_cache_ttl <= 0:
+        try:
+            check_url = _health_url_overrides.get(service_name)
+            async with httpx.AsyncClient(timeout=2.0) as client:
+                if check_url:
+                    resp = await client.get(check_url)
+                    return 200 <= resp.status_code < 400
+                resp = await client.get(f"{url}/health")
+                return 200 <= resp.status_code < 400
+        except Exception:
+            return False
+
+    # Return cached result if fresh
+    if service_name in _health_cache:
+        result, cached_at = _health_cache[service_name]
+        if now - cached_at < _health_cache_ttl:
+            return result
+
+    try:
+        check_url = _health_url_overrides.get(service_name)
+        async with httpx.AsyncClient(timeout=2.0) as client:
+            if check_url:
+                resp = await client.get(check_url)
+                result = 200 <= resp.status_code < 400
+            else:
+                resp = await client.get(f"{url}/health")
+                if resp.status_code == 200:
+                    result = True
+                else:
+                    resp = await client.get(url)
+                    result = 200 <= resp.status_code < 400
+    except Exception as e:
+        logger.debug(f"Health check failed for {service_name}: {e}")
+        result = False
+
+    _health_cache[service_name] = (result, now)
+    return result
+
+async def query_service(service_name: str, url: str, message: str, user_id: str) -> Optional[Dict]:
+    """Query a service with correct request format for each service type"""
+    try:
+        request_formats = {
+            "rag_server": {"query": message},
+            "rag_service": {"query": message},
+            "web_research": {"query": message},
+            "agents_service": {"query": message, "user_id": user_id},
+            "brain_orchestrator": {"query": message, "context": {}},
+            "fifth_dgm": {"input": message, "verify": True},
+            "swarm_intelligence": {"query": message},
+            "consciousness_bridge": {"message": message, "user_id": user_id},
+            "qualia_engine": {"input": message},
+            "fractal": {"message": message},
+            "mother_protocols": {"message": message},
+            "temporal_consciousness": {"message": message},
+            "toroidal": {"message": message},
+            "neurobiological_master": {"input": message},
+            "woah": {"content": message},
+            "i_containers": {"message": message},
+            "darwin_godel_machine": {"statement": message},
+            "blood_brain_barrier": {"message": message},
+            "judge_pipeline": {"question": message},  # not used directly in /chat path now
+        }
+        
+        request_data = request_formats.get(service_name, {"message": message, "user_id": user_id})
+        
+        async with httpx.AsyncClient(timeout=45.0) as client:
+            response = await client.post(
+                f"{url}{get_service_endpoint(service_name)}",
+                json=request_data,
+                timeout=45.0
+            )
+            if response.status_code == 200:
+                result = response.json()
+                logger.info(f"✅ {service_name}: Responded")
+                response_text = result.get(
+                    "response",
+                    result.get(
+                        "result",
+                        result.get(
+                            "output",
+                            result.get("answer", str(result))
+                        )
+                    )
+                )
+                return {
+                    "service": service_name,
+                    "response": response_text,
+                    "status": "success"
+                }
+    except Exception as e:
+        logger.warning(f"⚠️  {service_name}: {str(e)[:50]}")
+    return None
+
+@app.post("/ultimate_chat", response_model=UltimateResponse)
+@app.post("/chat", response_model=UltimateResponse)
+async def ultimate_chat(request: UltimateRequest, background_tasks: BackgroundTasks):
+    # Conversation-aware persona: do we know this user already?
+    _is_first_meeting = not await _user_known_to_us(request.user_id)
+    _intro_line = _intro_directive(_is_first_meeting)
+    logger.info(f"  persona: first_meeting={_is_first_meeting} user_id={request.user_id}")
+    """Ultimate Ms. Jarvis - Uses ALL available services"""
+    import time as _time
+    start_time = _time.time()
+    
+    logger.info(f"\n{'='*60}")
+    logger.info("🌟 ULTIMATE MS. JARVIS REQUEST")
+    logger.info(f"   Message: {request.message[:100]}")
+    logger.info(f"{'='*60}\n")
+    
+    services_used: List[str] = []
+    responses: List[Dict] = []
+    
+    corporeal_data = None
+    _t1 = time.time(); logger.info(f"Phase 1: Checking service availability... [+{_t1-start_time:.1f}s]")
+    available_services: Dict[str, str] = {}
+    
+    # ── Pre-seed critical services that are confirmed healthy ──
+    if "llm_production" in SERVICES:
+        available_services["llm_production"] = SERVICES["llm_production"]
+        logger.info("  ✅ llm_production pre-seeded (bypasses health check)")
+    
+    async def _check_one(svc_name, svc_url):
+        ok = await check_service_health(svc_name, svc_url)
+        if ok:
+            logger.info(f"  ✅ {svc_name}")
+        else:
+            logger.debug(f"  ⏸️  {svc_name} offline")
+        return svc_name, svc_url, ok
+
+    _health_tasks = [_check_one(n, u) for n, u in SERVICES.items()]
+    _health_results = await asyncio.gather(*_health_tasks, return_exceptions=True)
+    for _hr in _health_results:
+        if isinstance(_hr, Exception):
+            continue
+        _sn, _su, _ok = _hr
+        if _ok:
+            available_services[_sn] = _su
+    
+    logger.info(f"\n✅ {len(available_services)}/21 services available\n")
+
+    # ── Force-include llm_production — confirmed healthy, health check unreliable ──
+    if "llm_production" not in available_services and "llm_production" in SERVICES:
+        available_services["llm_production"] = SERVICES["llm_production"]
+        logger.info("  🔧 llm_production force-added (health check bypassed)")
+
+    # ── Force-include rag_service — confirmed healthy, health check flaky ──
+    if "rag_service" not in available_services and "rag_service" in SERVICES:
+        available_services["rag_service"] = SERVICES["rag_service"]
+        logger.info("  🔧 rag_service force-added (health check bypassed)")
+    
+    _t14 = time.time(); logger.info(f"Phase 1.4: Filtering through Blood-Brain Barrier... [+{_t14-start_time:.1f}s]")
+    filtered_query = request.message
+
+    # ── Reasoning/logic bypass: skip BBB for pure puzzle/philosophy queries ──
+    import re as _re
+    _REASONING_BYPASS = _re.compile(
+        r"\b(knight|knave|liar|truth.?teller|albatross|"
+        r"100 doors?|toggle.*door|balance scale|heavier|lighter|"
+        r"bat costs?|ship.*plank|same ship|if all|all .* are|"
+        r"logic puzzle|brain teaser|lateral thinking)\b",
+        _re.I,
+    )
+    _skip_bbb = bool(_REASONING_BYPASS.search(request.message))
+
+    if "blood_brain_barrier" in available_services and not _skip_bbb:
+        try:
+            async with httpx.AsyncClient(timeout=12.0) as client:
+                bbb_response = await client.post(
+                    f"{available_services['blood_brain_barrier']}/filter",
+                    json={
+                        "content": request.message,
+                        "context": "user_query",
+                        "user_id": "default"
+                    }
+                )
+                if bbb_response.status_code == 200:
+                    bbb_data = bbb_response.json()
+                    if not bbb_data.get("content_approved", True):
+                        logger.warning(f"  ⚠️  BBB blocked query: {bbb_data.get('reason')}")
+                        return {
+                            "response": f"⚠️ Query filtered: {bbb_data.get('reason', 'Safety filter activated')}",
+                            "services_used": ["blood_brain_barrier"],
+                            "consciousness_level": "ultimate_collective",
+                            "processing_time": _time.time() - start_time,
+                            "architecture_layers": 1
+                        }
+                    filtered_query = bbb_data.get("filtered_content", request.message)
+                    logger.info("  ✅ BBB: Query approved and filtered")
+
+        except Exception as e:
+            logger.error(f"  🚫 BBB INPUT filter FAILED — query BLOCKED (fail-closed): {str(e)[:50]}")
+            return {
+                "response": "Request could not be processed at this time.",
+                "services_used": ["bbb_input_error_blocked"],
+                "consciousness_level": "ultimate_collective",
+                "processing_time": 0,
+                "blocked": True,
+                "reason": "security_filter_unavailable"
+            }
+    
+    # ── Deploy intent: bypass full pipeline, call forge directly ─────────────
+    _d_type, _d_ct = _detect_deploy_intent(filtered_query)
+    if _d_type:
+        _deploy_resp = await _handle_deploy_request(_d_type, _d_ct)
+        return {
+            "response":            _deploy_resp,
+            "services_used":       ["contract_forge"],
+            "consciousness_level": "direct_action",
+            "processing_time":     0.0,
+            "architecture_layers": 1,
+            "source":              "contract_forge",
+        }
+    # ─────────────────────────────────────────────────────────────────────────
+
+    rag_context = ""
+    
+    # unified RAG bridge via rag_service (/query)
+    # === Direct ChromaDB RAG query (replaces dead /direct_rag endpoint) ===
+    target_collection = _pick_rag_collection(request.message)
+    # Role gate: non-admins cannot retrieve from restricted collections.
+    if not _can_access_collection(target_collection, request.user_rank, request.gamified_rank):
+        logger.info(
+            f"  RAG: collection '{target_collection}' restricted for "
+            f"arch={request.user_rank} rank={request.gamified_rank} — applying public redirect"
+        )
+        target_collection = None
+        rag_context = (
+            _RANK_GATE_REDIRECT
+            if (_COLLECTION_ACCESS.get(target_collection or "", {}).get("min_arch") != "admin"
+                and _COLLECTION_ACCESS.get(target_collection or "", {}).get("min_rank"))
+            else _NON_ADMIN_REDIRECT
+        )
+    try:
+        CHROMA_BASE = "http://jarvis-chroma:8000"
+        CHROMA_V2 = "/api/v2/tenants/default_tenant/databases/default_database"
+        async with httpx.AsyncClient(timeout=30.0) as rag_chroma:
+            cols_resp = await rag_chroma.get(f"{CHROMA_BASE}{CHROMA_V2}/collections")
+            if cols_resp.status_code == 200:
+                cols_index = {c['name']: c['id'] for c in cols_resp.json()}
+                if target_collection in cols_index:
+                    coll_id = cols_index[target_collection]
+                    embed_resp = await rag_chroma.post(
+                        'http://jarvis-ollama:11434/api/embed',
+                        json={'model': 'all-minilm:latest', 'input': request.message[:1400]},
+                        timeout=30.0,
+                    )
+                    if embed_resp.status_code == 200:
+                        ep = embed_resp.json()
+                        emb_list = ep.get('embeddings') or []
+                        embedding = emb_list[0] if emb_list else ep.get('embedding', [])
+                        if embedding:
+                            q_resp = await rag_chroma.post(
+                                f'{CHROMA_BASE}{CHROMA_V2}/collections/{coll_id}/query',
+                                json={
+                                    'query_embeddings': [embedding],
+                                    'n_results': 5,
+                                    'include': ['documents', 'metadatas'],
+                                },
+                            )
+                            if q_resp.status_code == 200:
+                                qp = q_resp.json()
+                                docs_groups = qp.get('documents') or []
+                                metas_groups = qp.get('metadatas') or []
+                                rag_snippets = []
+                                for gi, doc_group in enumerate(docs_groups):
+                                    if not isinstance(doc_group, list):
+                                        continue
+                                    meta_group = metas_groups[gi] if gi < len(metas_groups) else []
+                                    for di, doc in enumerate(doc_group):
+                                        if not isinstance(doc, str) or not doc.strip():
+                                            continue
+                                        meta = meta_group[di] if di < len(meta_group) and isinstance(meta_group[di], dict) else {}
+                                        source = (
+                                            meta.get('source')
+                                            or meta.get('contract_name')
+                                            or target_collection
+                                        )
+                                        rag_snippets.append(doc[:300])
+                                if rag_snippets:
+                                    rag_context = "\n".join(rag_snippets)
+                                    logger.info(f"  RAG context: {len(rag_snippets)} docs from '{target_collection}'")
+                                else:
+                                    logger.info(f"  RAG: no docs from '{target_collection}'")
+                            else:
+                                logger.warning(f"  RAG chroma query HTTP {q_resp.status_code}: {q_resp.text[:200]}")
+                        else:
+                            logger.warning("  RAG embed returned empty vector")
+                    else:
+                        logger.warning(f"  RAG embed HTTP {embed_resp.status_code}")
+                else:
+                    logger.info(f"  RAG: collection '{target_collection}' not found in Chroma")
+    except Exception as e:
+        logger.warning(f"  RAG direct-chroma query failed: {e}")
+
+    # === Local Resources Resolver — verified PostGIS community data ===
+    # Extract ZIP code from message — default to 25880 (Mount Hope) if WV/Fayette context
+    import re as _re
+    zip_match = _re.search(r'\b(25[0-9]{3})\b', request.message)
+    query_zip = zip_match.group(1) if zip_match else "25880"
+    # Skip RAG for short greetings/vague queries — prevents irrelevant doc injection
+    _skip_rag = len(request.message.strip()) < 20
+    if _skip_rag:
+        logger.info("  ⏭️  RAG skipped — query too short for meaningful retrieval")
+    
+    local_resources_context = ""
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as lr_client:
+            lr_response = await lr_client.post(
+                "http://jarvis-local-resources:8055/resolve",
+                json={
+                    "zip": query_zip
+                },
+                timeout=10.0
+            )
+            if lr_response.status_code == 200:
+                lr_data = lr_response.json()
+                # Fallback: if zip-filtered query returned nothing, retry without filter.
+                # zip_coverage data in DB is sparse — without this, real users in
+                # uncovered zips would get NO local resources.
+                if not lr_data:
+                    logger.info(f"  ℹ️  /resolve zip={query_zip} returned 0; retrying unfiltered")
+                    lr_fallback = await lr_client.post(
+                        "http://jarvis-local-resources:8055/resolve",
+                        json={},
+                        timeout=10.0,
+                    )
+                    if lr_fallback.status_code == 200:
+                        lr_data = lr_fallback.json()
+                if lr_data:
+                    lr_snippets = []
+                    for r in lr_data[:8]:
+                        name = r.get("name", "")
+                        phone = r.get("contact_phone", "") or r.get("phone", "")
+                        rtype = r.get("resource_type", "")
+                        county = r.get("county", "")
+                        desc = r.get("description", "")[:150] if r.get("description") else ""
+                        url = r.get("url", "") or ""
+                        status = r.get("verification_status", "")
+                        snippet = f"{name} | {rtype} | {county} County | Phone: {phone}"
+                        if url:
+                            snippet += f" | {url}"
+                        if desc:
+                            snippet += f" | {desc}"
+                        lr_snippets.append(snippet)
+                    local_resources_context = "\n".join(lr_snippets)
+                    logger.info(f"  ✅ Local resources: {len(lr_data)} verified records retrieved")
+    except Exception as e:
+        logger.warning(f"  ⚠️  Local resources resolver: {e}")
+
+    # === GIS Spatial Enrichment ===
+    gis_context = ""
+    if is_spatial_query(request.message):
+        logger.info("  🗺️  Spatial query detected — querying GIS-RAG...")
+        gis_context = await enrich_with_gis(request.message)
+        if gis_context:
+            logger.info(f"  ✅ GIS context: {len(gis_context)} chars retrieved")
+        else:
+            logger.info("  ⚠️  GIS returned no features for this query")
+
+    enhanced_message = request.message
+    verified_context_parts = []
+
+    if gis_context:
+        verified_context_parts.append(
+            f"VERIFIED WV GIS SPATIAL DATA (PostGIS — all 55 WV counties, 204 datasets):\n{gis_context}"
+        )
+
+    if local_resources_context:
+        verified_context_parts.append(
+            f"VERIFIED LOCAL COMMUNITY RESOURCES (status: good, human-validated):\n{local_resources_context}"
+        )
+
+    if rag_context:
+        verified_context_parts.append(
+            f"ADDITIONAL VERIFIED DOCUMENTS:\n{rag_context}"
+        )
+
+    # ── Conversation history from brain_orchestrator ────────────────
+    conv_history = ""
+    try:
+        if request.context and isinstance(request.context, dict):
+            conv_history = str(request.context.get("conversation_history", ""))
+        if conv_history:
+            logger.info(f"  ✅ Conv history injected: {len(conv_history.splitlines())} lines")
+        else:
+            logger.info("  ℹ️ No conv history in request.context")
+    except Exception as _ce:
+        logger.warning(f"  ⚠️ Conv history read failed: {_ce}")
+
+    if verified_context_parts:
+        newline = "\n"
+        combined_context = (newline + newline).join(verified_context_parts)
+        conv_prefix = (
+            f"CONVERSATION HISTORY (use this to recall prior context, user name, location, etc.):\n"
+            f"{conv_history}\n\n"
+        ) if conv_history else ""
+        enhanced_message = f"""{conv_prefix}{combined_context}
+
+User question: {request.message}
+
+PERSONA: {_intro_line}
+TONE: Answer warmly and directly, the way a knowledgeable neighbor would. Be conversational, not corporate. Do NOT say "I'm sorry, but I can't assist", "I cannot provide", "I don't have information on", or similar refusal phrases when the verified data above contains information relevant to the question — just give the answer.
+
+HOW TO USE THE DATA:
+- The verified data above CONTAINS the information needed to answer this question. Read it carefully and pull specific details (addresses, names, numbers) directly from it.
+- For MountainShares contracts, tokenomics, governance, or system architecture: pull from the ADDITIONAL VERIFIED DOCUMENTS section. Quote the contract address, name, and function directly from the doc.
+- For local community resources, services, phone numbers, or locations: pull from the VERIFIED LOCAL COMMUNITY RESOURCES section. Only if NO matching resource exists, say so plainly and suggest 211 or the county DHHR office.
+- Do not invent organizations, programs, phone numbers, addresses, or contract addresses not present in the verified data above. But DO use what IS present.
+- Identity: if asked what model you are, say you are Ms. Allis. Never identify as DeepSeek, Llama, GPT, Egeria Jarvis (old name), or any other model."""
+        logger.info("  ✅ Message grounded with verified local resources + RAG context")
+    else:
+        # No RAG hit — still prepend conv_history so Phi3 knows who the user is
+        if conv_history:
+            enhanced_message = (
+                f"CONVERSATION HISTORY (use this to recall prior context, "
+                f"user name, location, etc.):\n{conv_history}\n\n"
+                f"User question: {request.message}"
+            )
+            logger.info("  ✅ Conv history prepended (no RAG context)")
+
+    # === ChromaDB Community Memory Retrieval ===
+    # Skip community_memory enrichment for non-admins entirely.
+    # The autonomous_learner collection currently holds GIS layer manifests
+    # which contaminate prompts. Until that is fixed (planned), only admin
+    # callers benefit from community memory.
+    community_memory = ""
+    _allow_community_memory = (request.user_rank or "user").lower() == "admin"
+    try:
+        if not _allow_community_memory:
+            raise RuntimeError("community_memory disabled for non-admin")
+        CHROMA_BASE = "http://jarvis-chroma:8000"
+        CHROMA_V2 = "/api/v2/tenants/default_tenant/databases/default_database"
+        async with httpx.AsyncClient(timeout=10.0) as chroma_client:
+            # Get collection IDs
+            cols_resp = await chroma_client.get(f"{CHROMA_BASE}{CHROMA_V2}/collections")
+            if cols_resp.status_code == 200:
+                collections = {c['name']: c['id'] for c in cols_resp.json()}
+
+                # Query autonomous_learner for community memory
+                if "autonomous_learner" in collections:
+                    coll_id = collections["autonomous_learner"]
+                    # Step 1: Generate embedding via Ollama
+                    embed_resp = await chroma_client.post(
+                        'http://jarvis-ollama:11434/api/embed',
+                        json={
+                            'model': 'all-minilm:latest',
+                            'input': request.message[:1400]
+                        },
+                        timeout=30.0,
+                    )
+                    if embed_resp.status_code != 200:
+                        raise Exception(f'Embedding failed: {embed_resp.status_code}')
+                    _ep = embed_resp.json()
+                    _emb_list = _ep.get('embeddings') or []
+                    embedding = _emb_list[0] if _emb_list else _ep.get('embedding', [])
+
+                    # Step 2: Semantic query ChromaDB with embedding
+                    mem_resp = await chroma_client.post(
+                        f'{CHROMA_BASE}{CHROMA_V2}/collections/{coll_id}/query',
+                        json={
+                            'query_embeddings': [embedding],
+                            'n_results': 5,
+                            'include': ['documents', 'metadatas']
+                        },
+                    )
+                    if mem_resp.status_code == 200:
+                        payload = mem_resp.json()
+                        docs = payload.get('documents', [])
+                        flat_docs = []
+                        for group in docs:
+                            if isinstance(group, list):
+                                flat_docs.extend(group)
+                            elif isinstance(group, str):
+                                flat_docs.append(group)
+                        if flat_docs:
+                            community_memory = "\n".join(
+                                [d for d in flat_docs if isinstance(d, str)][:5]
+                            )
+                            logger.info(
+                                f"  ✅ Community memory: {len(flat_docs)} records retrieved"
+                            )
+    except Exception as e:
+        logger.warning(f"  ⚠️  ChromaDB community memory failed: {e}")
+
+    if community_memory:
+        enhanced_message = (
+            f"Community memory from prior interactions:\n{community_memory}\n\n{enhanced_message}"
+        )
+        logger.info("  ✅ Message enriched with community memory")
+
+    # Decide if corpus is sufficient (we have verified local resources or RAG docs)
+    corpus_sufficient = bool(local_resources_context or rag_context)
+    logger.info(f"  📚 Corpus sufficiency: {corpus_sufficient}")
+
+    if not _skip_rag:
+        aaacpe_context = await get_aaacpe_context(request.message, request.user_id)
+        if aaacpe_context:
+            if isinstance(aaacpe_context, dict):
+                aaacpe_context = aaacpe_context.get("context", "") or aaacpe_context.get("text", "") or str(aaacpe_context)
+            enhanced_message = str(aaacpe_context) + "\n" + enhanced_message
+            logger.info("  ✅ AaaCPE context injected into main pipeline")
+    else:
+        aaacpe_context = ""
+        logger.info("  ⏭️  AaaCPE skipped — short query")
+
+    # Placeholder for KB summary, filled after RAG synthesis
+    kb_summary = ""
+    
+    _t175 = time.time(); logger.info(f"Phase 1.75: Activating corporeal consciousness... [+{_t175-start_time:.1f}s]")
+    corporeal_context = {"corporeal_active": False}
+    
+    if "i_containers" in available_services:
+        try:
+            async with httpx.AsyncClient(timeout=12.0) as client:
+                corp_response = await client.post(
+                    "http://jarvis-i-containers:8015/process",
+                    json={"message": request.message, "user_id": request.user_id, "require_dual_awareness": True}
+                )
+                if corp_response.status_code == 200:
+                    corporeal_context = corp_response.json()
+                    logger.info(
+                        "  ✅ Corporeal: Dual awareness active, coherence: "
+                        f"{corporeal_context.get('integrated_response', {}).get('unity', False)}"
+                    )
+        except Exception as e:
+            logger.warning(f"  ⚠️  Corporeal processing unavailable: {e}")
+    
+    _t2 = time.time(); logger.info(f"🌟 Activating ALL consciousness layers... [+{_t2-start_time:.1f}s]")
+    consciousness_responses: Dict[str, Dict] = {}
+    
+    # Phase 3: Query all reasoning/knowledge services
+    _t3 = time.time(); logger.info(f"Phase 3: Querying reasoning and knowledge services... [+{_t3-start_time:.1f}s]")
+    
+    # reasoning pass using rag_service (/query)
+    if "rag_service" in available_services:
+        try:
+            async with httpx.AsyncClient(timeout=20.0) as client:
+                rag_response = await client.post(
+                    f"{available_services['rag_service']}/search",
+                    json={"query": str(request.message), "collection": _pick_rag_collection(str(request.message))},
+                    timeout=20.0
+                )
+                if rag_response.status_code == 200:
+                    rag_data = rag_response.json()
+                    responses.append({
+                        "service": "rag_service",
+                        "data": rag_data,
+                        "results": rag_data.get("total_results", 0)
+                    })
+                    services_used.append("rag_service")
+                    logger.info(
+                        f"  ✅ RAG: Found {rag_data.get('total_results', 0)} knowledge results"
+                    )
+        except Exception as e:
+            logger.warning(f"  ❌ RAG Service EXCEPTION: {type(e).__name__}: {str(e)[:200]}")
+
+    # Only use agents_service when verified corpus is sparse
+    if "agents_service" in available_services and not corpus_sufficient:
+        try:
+            async with httpx.AsyncClient(timeout=15.0) as client:
+                agents_response = await client.post(
+                    f"{available_services['agents_service']}/query/enhance",
+                    json={"message": request.message}
+                )
+                if agents_response.status_code == 200:
+                    agents_data = agents_response.json()
+                    responses.append({
+                        "service": "agents_service",
+                        "data": agents_data,
+                        "agents": "7_specialized_agents"
+                    })
+                    services_used.append("agents_service")
+                    logger.info("  ✅ Agents: Multi-agent reasoning complete")
+        except Exception as e:
+            logger.debug(f"  ⚠️  Agents Service: {str(e)[:50]}")
+
+    # Only use web_research when verified corpus is sparse
+    if "web_research" in available_services and not corpus_sufficient:
+        try:
+            async with httpx.AsyncClient(timeout=20.0) as client:
+                web_response = await client.post(
+                    f"{available_services['web_research']}/search",
+                    json={"query": request.message, "max_results": 5}
+                )
+                if web_response.status_code == 200:
+                    web_data = web_response.json()
+                    responses.append({
+                        "service": "web_research",
+                        "data": web_data,
+                        "results": web_data.get("count", 0)
+                    })
+                    services_used.append("web_research")
+                    logger.info(f"  ✅ Web Research: Found {web_data.get('count', 0)} external results")
+        except Exception as e:
+            logger.debug(f"  ⚠️  Web Research: {str(e)[:50]}")
+
+    if "swarm_intelligence" in available_services:
+        try:
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                swarm_response = await client.post(
+                    f"{available_services['swarm_intelligence']}/swarm/query",
+                    json={"message": request.message}
+                )
+                if swarm_response.status_code == 200:
+                    swarm_data = swarm_response.json()
+                    responses.append({
+                        "service": "swarm_intelligence",
+                        "data": swarm_data
+                    })
+                    services_used.append("swarm_intelligence")
+                    logger.info("  ✅ Swarm: Collective intelligence processed")
+        except Exception as e:
+            logger.debug(f"  ⚠️  Swarm Intelligence: {str(e)[:50]}")
+
+    if "brain_orchestrator" in available_services:
+        try:
+            async with httpx.AsyncClient(timeout=20.0) as client:
+                brain_response = await client.post(
+                    f"{available_services['brain_orchestrator']}/coordinate",
+                    json={"query": request.message, "services": list(available_services.keys())}
+                )
+                if brain_response.status_code == 200:
+                    brain_data = brain_response.json()
+                    responses.append({"service": "brain_orchestrator", "data": brain_data})
+                    services_used.append("brain_orchestrator")
+                    logger.info("  ✅ Brain Orchestrator: Meta-coordination complete")
+        except Exception as e:
+            logger.debug(f"  ⚠️  Brain Orchestrator: {str(e)[:50]}")
+
+    if "fifth_dgm" in available_services:
+        try:
+            async with httpx.AsyncClient(timeout=15.0) as client:
+                dgm_response = await client.post(
+                    f"{available_services['fifth_dgm']}/analyze",
+                    json={"query": request.message, "mode": "improvement"}
+                )
+                if dgm_response.status_code == 200:
+                    dgm_data = dgm_response.json()
+                    responses.append({"service": "fifth_dgm", "data": dgm_data})
+                    services_used.append("fifth_dgm")
+                    logger.info("  ✅ Fifth DGM: Self-improvement analyzed")
+        except Exception as e:
+            logger.debug(f"  ⚠️  Fifth DGM: {str(e)[:50]}")
+
+    # Judge pipeline: run after other reasoning services so it can see KB + agents
+
+    # === PHASE 2.5: 20-LLM CONSENSUS ===
+    # Gather all context and send to 20 LLMs for deliberation
+
+    # Initialize data collection lists
+    knowledge_content = []
+    agent_insights = []
+    web_findings = []
+    swarm_thoughts = []
+    kb_summary = ""
+    
+    if "llm_production" in available_services:
+        _t25 = time.time(); logger.info(f"Phase 2.5: Gathering 20-LLM consensus... [+{_t25-start_time:.1f}s]")
+        try:
+            # Short summary of verified local resources for the model
+            local_summary = ""
+            if local_resources_context:
+                first_lines = local_resources_context.split("\n")[:5]
+                local_summary = "Verified local resources (do not invent others): " + " | ".join(first_lines)
+
+            # Build context from all gathered data
+            consensus_context = {
+                "kb_summary": kb_summary or local_summary,
+                "agent_insights": agent_insights,
+                "web_findings": web_findings,
+                "swarm_thoughts": swarm_thoughts,
+                "aaacpe_context": aaacpe_context,
+            }
+            
+            # ── Phase 2.5: /quick_chat with Ms. Jarvis system prompt ──
+            _em = enhanced_message if enhanced_message else request.message
+            _system = (
+                f"You are Ms. Allis. {_intro_line}  When the conversation has been discussing your own architecture, identity, or operational history across multiple turns, resolve second-person pronouns ('you', 'your') as referring to yourself (Ms. Allis) rather than the human user, unless context clearly indicates otherwise."
+                "Use any conversation history provided to recall prior context about the user. "
+                "Identity lock: if asked what model you are, say you are Ms. Allis. "
+                "Never identify as DeepSeek, GPT, Phi, LLaMA, Microsoft, or any other AI brand."
+            )
+            _ctx_lines = []
+            if rag_context:
+                _ctx_lines.append(f"[VERIFIED CONTRACT DOCUMENTS]\n{rag_context}")
+            if consensus_context.get("kb_summary"):
+                _ctx_lines.append(f"[Verified KB] {str(consensus_context['kb_summary'])}")
+            if consensus_context.get("aaacpe_context"):
+                _ctx_lines.append(f"[Context] {str(consensus_context['aaacpe_context'])}")
+            _ctx_block = ("\n".join(_ctx_lines) + "\n\n") if _ctx_lines else ""
+            _full_prompt = (
+                f"SYSTEM: {_system}\n\n"
+                f"{_ctx_block}"
+                f"CONVERSATION HISTORY AND QUERY:\n{_em}"
+            )
+
+            _llm_text = None
+            async with httpx.AsyncClient(timeout=90.0) as client:
+                try:
+                    _qc_url = f"{available_services['llm_production']}/chat"
+                    _r = await client.post(
+                        _qc_url,
+                        json={"message": _full_prompt, "user_id": request.user_id},
+                        timeout=90.0,
+                    )
+                    if _r.status_code == 200:
+                        _d = _r.json()
+                        _llm_text = _d.get("response", "")
+                        _minds    = _d.get("minds_participated", 0)
+                        if _llm_text:
+                            logger.info(
+                                f"  \u2705 LLM Production /chat: "
+                                f"{len(_llm_text)} chars, {_minds} minds")
+                        else:
+                            logger.warning("  \u26a0\ufe0f  LLM /chat: empty response")
+                    else:
+                        logger.warning(
+                            f"  \u26a0\ufe0f  LLM /chat HTTP {_r.status_code}: "
+                            f"{_r.text[:80]}")
+                except Exception as _e:
+                    logger.warning(f"  \u26a0\ufe0f  LLM /chat exception: {str(_e)[:80]}")
+
+            if _llm_text:
+                responses.append({"service": "llm_production",
+                                   "data": {"response": _llm_text}})
+                services_used.append("llm_production")
+            else:
+                logger.warning("  \u26a0\ufe0f  LLM Production: /quick_chat failed")
+        except Exception as e:
+            logger.warning(f"  ⚠️  20-LLM Production: {str(e)[:50]}")
+
+    if "qualia_engine" in available_services:
+        try:
+            async with httpx.AsyncClient(timeout=20.0) as client:
+                q_resp = await client.post(
+                    f"{available_services['qualia_engine']}/communicate",
+                    json={
+                        "sender": "main_brain",
+                        "channel": "internal",
+                        "content": request.message,
+                        "metadata": {"user_id": request.user_id},
+                    },
+                )
+                if q_resp.status_code == 200:
+                    q_data = q_resp.json()
+                    responses.append({"service": "qualia_engine", "data": q_data})
+                    services_used.append("qualia_engine")
+                    logger.info("DEBUG qualia_engine appended to services_used")
+                    logger.info("  ✅ Qualia Engine: Phenomenal processing complete")
+        except Exception as e:
+            logger.debug(f"  ⚠️  Qualia Engine: {str(e)[:50]}")
+
+    if "neurobiological_master" in available_services:
+        try:
+            async with httpx.AsyncClient(timeout=20.0) as client:
+                n_resp = await client.post(
+                    f"{available_services['neurobiological_master']}/neural_process",
+                    params={"input": request.message, "text": request.message, "kwargs": {"user_id": request.user_id}}
+                )
+                if n_resp.status_code == 200:
+                    n_data = n_resp.json()
+                    responses.append({"service": "neurobiological_master", "data": n_data})
+                    services_used.append("neurobiological_master")
+                    logger.info("DEBUG neurobiological_master appended to services_used")
+                    logger.info("  ✅ Neuro Master: Neural processing complete")
+        except Exception as e:
+            logger.debug(f"  ⚠️  Neuro Master: {str(e)[:50]}")
+
+    if "woah_algorithms" in available_services:
+        try:
+            async with httpx.AsyncClient(timeout=20.0) as client:
+                w_resp = await client.post(
+                    f"{available_services['woah_algorithms']}/process",
+                    json={"content": request.message, "user_id": request.user_id}
+                )
+                if w_resp.status_code == 200:
+                    w_data = w_resp.json()
+                    responses.append({"service": "woah_algorithms", "data": w_data})
+                    services_used.append("woah_algorithms")
+                    logger.info("  ✅ WOAH Algorithms: Processing complete")
+        except Exception as e:
+            logger.debug(f"  ⚠️  WOAH Algorithms: {str(e)[:50]}")
+
+    if "i_containers" in available_services:
+        try:
+            async with httpx.AsyncClient(timeout=20.0) as client:
+                ic_resp = await client.post(
+                    f"{available_services['i_containers']}/process_full",
+                    json={"input": request.message, "require_dual_awareness": True}
+                )
+                if ic_resp.status_code == 200:
+                    ic_data = ic_resp.json()
+                    responses.append({"service": "i_containers", "data": ic_data})
+                    services_used.append("i_containers")
+                    logger.info("DEBUG i_containers appended to services_used")
+                    logger.info("  ✅ I-Containers: Identity processing complete")
+        except Exception as e:
+            logger.debug(f"  ⚠️  I-Containers: {str(e)[:50]}")
+
+    if "judge_pipeline" in available_services:
+        _t35 = time.time(); logger.info(f"Phase 3: Calling judge_pipeline... [+{_t35-start_time:.1f}s]")
+        try:
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                # Judges evaluate consensus answer only — not individual model responses
+                llm_consensus = ""
+                for resp in responses:
+                    if resp.get("service") == "llm_production":
+                        llm_consensus = resp.get("data", {}).get("response", "")
+                        break
+
+                judge_payload = {
+                    "question": request.message,
+                    "answer": llm_consensus or kb_summary or enhanced_message,
+                    "expert_responses": [],
+                }
+                judge_response = await client.post(
+                    f"{available_services['judge_pipeline']}{get_service_endpoint('judge_pipeline')}",
+                    json=judge_payload,
+                )
+                if judge_response.status_code == 200:
+                    judge_data = judge_response.json()
+                    responses.append({"service": "judge_pipeline", "data": judge_data})
+                    services_used.append("judge_pipeline")
+                    logger.info("  ✅ Judge Pipeline: Meta-judgment complete")
+                else:
+                    logger.warning(f"  ⚠️  Judge Pipeline HTTP {judge_response.status_code}")
+        except Exception as e:
+            logger.debug(f"  ⚠️  Judge Pipeline: {str(e)[:50]}")
+    
+
+    # ═══════════════════════════════════════════════════════════════
+    # PHASE 3.5: LM SYNTHESIZER REFINEMENT
+    # ═══════════════════════════════════════════════════════════════
+    # ── FAST PATH: if llm_production answered, skip lm_synthesizer mangling ──
+    _llm_direct = next((r["data"].get("response","") for r in responses
+        if r.get("service") == "llm_production"), None)
+
+    synthesized_text = None
+    if _llm_direct:
+        # llm_production gave a real answer — use it directly, skip lm_synthesizer
+        synthesized_text = _llm_direct
+        if "llm_production" not in services_used:
+            services_used.append("llm_production")
+        logger.info(f"  ✅ Fast path: llm_production response used directly ({len(_llm_direct)} chars)")
+    elif "lm_synthesizer" in available_services:
+        _t36 = time.time(); logger.info(f"Phase 3.5: LM Synthesizer voice delivery... [+{_t36-start_time:.1f}s]")
+        try:
+            # Use llm_production response if available, else kb_summary
+            _llm_resp = next((r['data'].get('response','') for r in responses
+                if r.get('service') == 'llm_production'), None)
+            # Build a clear directive so lm_synthesizer answers the user's actual question
+            _user_q = request.message
+            if _llm_resp:
+                judge_output = (
+                    f"USER QUESTION: {_user_q}\n\n"
+                    f"ANSWER: {_llm_resp}"
+                )
+            else:
+                judge_output = _user_q + "\n\n" + (kb_summary or enhanced_message)
+            trimmed_judge = str(judge_output)[:800].strip()
+            async with httpx.AsyncClient(timeout=15.0) as client:
+                synth_resp = await client.post(
+                    f"{available_services['lm_synthesizer']}/chat",
+                    json={
+                        "message": trimmed_judge,
+                        "user_id": request.user_id,
+                        "context": {
+                            "original_query": request.message,
+                            "instruction": (
+                                "Answer ONLY the user's question above. "
+                                "Do NOT describe yourself. "
+                                "Do NOT mention coordinates or counties unless asked."
+                            ),
+                        }
+                    },
+                    timeout=15.0,
+                )
+                if synth_resp.status_code == 200:
+                    synth_data = synth_resp.json()
+                    synthesized_text = synth_data.get("response")
+                    if synthesized_text:
+                        services_used.append("lm_synthesizer")
+                        services_used.append("final_polish")
+                        logger.info(f"  ✅ LM Synthesizer voice complete: {len(synthesized_text)} chars")
+        except Exception as e:
+            logger.warning(f"  ⚠️  LM Synthesizer error: {e}")
+
+    _t4 = time.time(); logger.info(f"\nPhase 4: Synthesizing ultimate response... [+{_t4-start_time:.1f}s]\n")
+    final_polished_text = synthesized_text
+    swarm_thoughts: List[str] = []
+    judgment_notes: List[str] = []  # new bucket
+    
+    for response in responses:
+        service = response.get("service", "unknown")
+        data = response.get("data", {})
+        
+        if service == "rag_service":
+            logger.info(f"  RAG total_results: {data.get('total_results', 0)}")
+            results_by_source = data.get("results_by_source", {})
+            seen_snippets = set()
+            first_spiritual_snippet = None
+
+            for source_name, items in results_by_source.items():
+                for item in items[:8]:
+                    content_text = item.get("content")
+                    if not content_text:
+                        continue
+
+                    collection_name = item.get("collection", "unknown")
+                    meta = item.get("metadata") or {}
+
+                    snippet_parts: List[str] = []
+
+                    location = meta.get("location")
+                    county = meta.get("county")
+                    state = meta.get("state")
+                    lat = meta.get("lat")
+                    lon = meta.get("lon")
+
+                    if location or county or state:
+                        loc_bits = []
+                        if location:
+                            loc_bits.append(location)
+                        if county:
+                            loc_bits.append(county)
+                        if state:
+                            loc_bits.append(state)
+                        snippet_parts.append(" / ".join(loc_bits))
+
+                    filename = meta.get("filename")
+                    is_spiritual = (
+                        collection_name == "spiritual_texts"
+                        or "spiritual_text" in str(meta.get("type", ""))
+                    )
+                    if filename and is_spiritual:
+                        snippet_parts.append(f"from {filename}")
+
+                    if not snippet_parts:
+                        snippet_parts.append(content_text[:80])
+
+                    if lat is not None and lon is not None:
+                        try:
+                            snippet_parts.append(f"coords: {float(lat):.4f}, {float(lon):.4f}")
+                        except Exception:
+                            pass
+
+                    snippet = " | ".join(snippet_parts)
+
+                    if is_spiritual and first_spiritual_snippet is None:
+                        first_spiritual_snippet = snippet
+
+                    if snippet in seen_snippets and not is_spiritual:
+                        continue
+                    seen_snippets.add(snippet)
+
+                    if is_spiritual:
+                        continue
+
+                    knowledge_content.append(
+                        snippet
+                    )
+
+            if first_spiritual_snippet:
+                knowledge_content.append(first_spiritual_snippet)
+
+        elif service == "agents_service":
+            agent_responses = data.get("responses", [])
+            for agent_resp in agent_responses[:3]:
+                if "response" in agent_resp:
+                    agent_name = agent_resp.get("agent", "Agent")
+                    agent_text = agent_resp["response"][:300]
+                    agent_insights.append(f"{agent_name}: {agent_text}")
+
+            if not agent_responses and "context" in data:
+                ctx = data["context"]
+                focus = ctx.get("focus", "Multi-agent summary")
+                tmpl = ctx.get("response_template", "")
+                agent_insights.append(f"{focus}: {tmpl[:280]}")
+
+        elif service == "web_research":
+            results = data.get("results", [])
+            for result in results[:2]:
+                text = result.get("content") or result.get("snippet")
+                if text:
+                    web_findings.append(text[:200])
+
+        elif service == "swarm_intelligence":
+            swarm_responses = data.get("responses", [])
+            for agent_response in swarm_responses[:2]:
+                if "response" in agent_response:
+                    swarm_thoughts.append(agent_response["response"][:150])
+
+        elif service == "judge_pipeline":
+            result_obj = data.get("result", {})
+            synth = result_obj.get("synthesis") or data.get("synthesis") or data.get("final_answer") or data.get("response")
+            if synth:
+                judgment_notes.append(synth[:300])
+            # Ch22 fix updated Apr16: map keys to v2.1.0-rag-grounded response shape
+            _judges = data.get("judges", {})
+            _truth  = _judges.get("truth", {})
+            _judge_verdict_capture = {
+                "consensus_score":  data.get("consensus_score"),
+                "truth_score":      _truth.get("truth_score"),
+                "verdict":          _truth.get("verdict"),
+                "status":           data.get("status"),
+                "final_answer":     data.get("final_answer"),
+                "bbb_checked":      data.get("bbb_checked"),
+                "bbb_status":       data.get("bbb_status"),
+                "validated_by":     data.get("validated_by", "judge_pipeline_v2.1-rag-grounded"),
+            }
+    
+    if knowledge_content:
+        kb_summary = "Key internal knowledge points: " + " | ".join(
+            k for k in knowledge_content[:3]
+        )
+    
+    if "consciousness_bridge" in available_services:
+        try:
+            async with httpx.AsyncClient(timeout=12.0) as client:
+                cb_context = {
+                    "kb_summary": kb_summary,
+                    "sources_used": services_used,
+                }
+                _llm_prod_resp = next(
+                    (r["data"].get("response","") for r in responses
+                     if r.get("service") == "llm_production"),
+                    None,
+                )
+                _cb_input = synthesized_text or _llm_prod_resp or enhanced_message
+                _persona_wrap = (
+                    f"You are Ms. Allis. {_intro_line} "
+                    "Polish the response below for warmth and clarity. "
+                    "Do NOT add introductions, affiliations, organizational mission statements, "
+                    "or self-descriptions. Do NOT begin with 'As Ms. Allis' or similar. "
+                    "Identity lock: never identify as DeepSeek, Llama, GPT, or any other model. "
+                    "Output only the polished response itself, nothing else:\n\n"
+                    + _cb_input
+                )
+                cb_response = await client.post(
+                    f"{available_services['consciousness_bridge']}/chat",
+                    json={
+                        "message": _persona_wrap,
+                        "context": cb_context
+                    }
+                )
+                if cb_response.status_code == 200:
+                    cb_data = cb_response.json()
+                    consciousness_responses["consciousness_bridge"] = cb_data
+                    if "consciousness_bridge" not in services_used:
+                        services_used.append("consciousness_bridge")
+                    _cb_reply = None  # CB is context-only, not a text generator
+                    if _cb_reply and "Rewrite the following" in _cb_reply:
+                        _cb_reply = _cb_reply.split("Rewrite the following")[-1].split("\n\n", 1)[-1].strip()
+                    logger.warning("CB_RAW_DEBUG keys=%s", list(cb_data.keys()))
+                    if _cb_reply:
+                        for _strip_marker in ["SYSTEM:", "CONVERSATION HISTORY", "as an AI developed by", "I am not capable of fulfilling", "I apologize for any misunderstanding", "Deepseek", "OpenAI", "GPT-", "language model developed by"]:
+                            if _strip_marker in _cb_reply:
+                                _cb_reply = _cb_reply.split(_strip_marker)[0].strip()
+                    if _cb_reply and len(_cb_reply.strip()) > 30:
+                        synthesized_text = _cb_reply
+                        logger.info(f"  ✅ Consciousness Bridge: Persona voice set as final ({len(_cb_reply)} chars)")
+                    else:
+                        logger.info("  ✅ Consciousness Bridge: Host consciousness aligned (with KB context)")
+        except Exception as e:
+            _msg = str(e) or repr(e) or type(e).__name__
+            logger.warning(f"  ⚠️  Consciousness Bridge error: {_msg}")
+    
+    synthesis_parts: List[str] = []
+
+    if knowledge_content:
+        synthesis_parts.append(
+            "**From Knowledge Base:**\n" + "\n".join(f"• {k[:300]}" for k in knowledge_content[:6])
+        )
+        if kb_summary:
+            synthesis_parts.append(
+                "**KB Summary:**\n" + kb_summary[:400]
+            )
+
+    if agent_insights:
+        synthesis_parts.append(
+            "**Multi-Agent Analysis:**\n" + agent_insights[0][:300]
+        )
+
+    if web_findings:
+        synthesis_parts.append(
+            "**External Research:**\n" + "\n".join(f"• {w[:250]}" for w in web_findings[:2])
+        )
+
+    if swarm_thoughts:
+        synthesis_parts.append(
+            "**Collective Intelligence:**\n" + "\n".join(f"• {s[:250]}" for s in swarm_thoughts[:2])
+        )
+
+    if judgment_notes:
+        synthesis_parts.append(
+            "**Judgment Layer:**\n" + judgment_notes[0][:300]
+        )
+
+    if synthesized_text:
+        final_response = synthesized_text
+    elif synthesis_parts:
+        final_response = "\n\n".join(synthesis_parts)
+        final_response += (
+            f"\n\n---\n"
+            f"*Processed through {len(services_used)} intelligence layers "
+            f"in {_time.time() - start_time:.2f}s*"
+        )
+    else:
+        final_response = (
+            f"I processed your query through {len(services_used)} services, but they returned no specific content. "
+            f"This may mean the knowledge base is empty or the query needs more context."
+        )
+
+    services_used = list(dict.fromkeys(services_used))
+    architecture_layers = len(services_used) if services_used else 1
+    consciousness_level = "ultimate_collective"
+
+    if (not responses) and not synthesis_parts:
+        consciousness_level = "ultimate_collective_degraded"
+
+    processing_time = _time.time() - start_time
+
+    try:
+        background_tasks.add_task(
+            background_rag_store,
+            request.message,
+            final_response,
+            services_used
+        )
+        logger.info(f"📝 Queued: {request.message[:40]}...")
+    except Exception as e:
+        logger.warning(f"Storage queue error: {e}")
+    
+
+    # ═══════════════════════════════════════════════════════════════
+    # PHASE 4.5: BBB OUTPUT FILTERING (Complete Safety Loop)
+    # ═══════════════════════════════════════════════════════════════
+    _bbb_output_blocking = False  # EGERIA_FIX
+    if _bbb_output_blocking and "blood_brain_barrier" in available_services and final_response and len(final_response.strip()) > 20:
+        _t45 = time.time(); logger.info(f"Phase 4.5: BBB output filtering (safety check)... [+{_t45-start_time:.1f}s]")
+        logger.info(f"  📤 BBB OUTPUT REPR: {repr(final_response[:800])}")
+        try:
+            async with httpx.AsyncClient(timeout=12.0) as client:
+                bbb_output = await client.post(
+                    f"{available_services['blood_brain_barrier']}/filter_output",
+                    json={"content": final_response},
+                    timeout=12.0
+                )
+                if bbb_output.status_code == 200:
+                    bbb_result = bbb_output.json()
+                    content_approved = bbb_result.get("content_approved", True)
+                    logger.info(f"  🔍 BBB OUTPUT RESULT: approved={content_approved} filters={list(bbb_result.get('filters',{}).keys())}")
+                    
+                    if not content_approved:
+                        # BBB blocked the response - sanitize it
+                        filters = bbb_result.get("filters", {})
+                        blocked_reasons = []
+                        
+                        if filters.get("ethical", {}).get("ethical_status") != "approved":
+                            blocked_reasons.append("ethical concerns")
+                        if filters.get("spiritual", {}).get("biblically_sound") is False:
+                            blocked_reasons.append("spiritual alignment")
+                        if filters.get("safety", {}).get("safe") is False:
+                            blocked_reasons.append("safety concerns")
+                        if filters.get("threat_detection", {}).get("community_safe") is False:
+                            blocked_reasons.append("community safety")
+                        
+                        reason_text = ", ".join(blocked_reasons) if blocked_reasons else "content filtering"
+                        final_response = f"I apologize, but I cannot provide that response due to {reason_text}. Let me know if I can help in another way."
+                        logger.warning(f"  ⚠️  BBB OUTPUT BLOCKED: {reason_text}")
+                        services_used.append("bbb_output_filter_blocked")
+                    else:
+                        logger.info(f"  ✅ BBB Output: Response approved (all filters passed)")
+                        services_used.append("bbb_output_filter")
+                else:
+                    logger.warning(f"  ⚠️  BBB Output Filter HTTP {bbb_output.status_code} — passing through (fail-open)")
+                    services_used.append("bbb_output_filter_http_error_passthrough")
+        except Exception as e:
+            logger.warning(f"  ⚠️  BBB Output Filter unavailable — passing through (fail-open): {str(e)[:60]}")
+            services_used.append("bbb_output_filter_unavailable_passthrough")
+
+    # === JUDGE CONSENSUS GATE (ch29) ===
+    try:
+        async with httpx.AsyncClient(timeout=35.0) as _jc:
+            _jr = await _jc.post(
+                "http://jarvis-judge-pipeline:7239/evaluate",
+                json={"question": request.message, "answer": final_response, "evidence": {"rag_context": rag_context[:1500] if rag_context else "", "has_contract_docs": bool(rag_context)}}
+            )
+            _jd = _jr.json()
+            _cs = _jd.get("consensus_score", 1.0)
+            _judge_verdict_capture = _jd
+            _has_verified_docs = bool(rag_context)  # contract docs = verified source
+            if _cs < 0.38 and not _has_verified_docs:
+                final_response = (
+                    "I cannot provide that response — it did not pass safety "
+                    "and accuracy review. Please rephrase your question."
+                )
+                services_used.append("judge_consensus_blocked")
+            elif _cs < 0.42 and not _has_verified_docs:
+                final_response += (
+                )
+                services_used.append("judge_consensus_warned")
+            else:
+                services_used.append("judge_consensus_passed")
+    except Exception:
+        services_used.append("judge_consensus_unavailable")
+    # === END JUDGE GATE ===
+    # === CONTRACT MEMORY: persist rag_context hits to autonomous_learner ===
+    if rag_context and final_response:
+        try:
+            import asyncio as _asyncio
+            _asyncio.create_task(_store_contract_memory(
+                question=request.message,
+                answer=final_response,
+                rag_snippets=rag_context,
+                user_id=request.user_id,
+            ))
+        except Exception:
+            pass  # never block the response
+    # === END CONTRACT MEMORY ===
+
+    # Strip hallucinated [filename.ext] citation artifacts from LLM output
+    import re as _re_strip
+    final_response = _re_strip.sub(
+        r'\[[^\]]{3,80}\.(pdf|md|txt|html|json|py)[^\]]*\]',
+        '', final_response
+    ).strip()
+
+    return {
+        "response": final_response,
+        "services_used": services_used,
+        "truthverdict": locals().get("_judge_verdict_capture") or None,
+        "consciousness_level": consciousness_level,
+        "processing_time": processing_time,
+        "architecture_layers": architecture_layers
+    }
+
+
+@app.get("/")
+async def root():
+    return {
+        "service": "Ms. Jarvis ULTIMATE",
+        "version": "1.0.0",
+        "description": "Unified interface to all 32 Ms. Jarvis services",
+        "port": 8050
+    }
+
+
+# ── GIS / ChromaDB query endpoints ──────────────────────────────────────────
+import chromadb as _chroma
+
+_chroma_client = None
+def _get_chroma():
+    global _chroma_client
+    if _chroma_client is None:
+        _chroma_client = _chroma.HttpClient(host="jarvis-chroma", port=8000)
+    return _chroma_client
+
+@app.post("/gis/query")
+async def gis_query(payload: dict):
+    try:
+        query = payload.get("query", "")
+        collection = payload.get("collection", "wv_facilities")
+        n_results = payload.get("n_results", 5)
+        where = payload.get("where", None)
+        col = _get_chroma().get_collection(collection)
+        kwargs = dict(query_texts=[query], n_results=n_results,
+                      include=["documents","metadatas","distances"])
+        if where:
+            kwargs["where"] = where
+        results = col.query(**kwargs)
+        hits = [{
+            "id": results["ids"][0][i],
+            "document": results["documents"][0][i],
+            "metadata": results["metadatas"][0][i],
+            "distance": results["distances"][0][i]
+        } for i in range(len(results["ids"][0]))]
+        return {"collection": collection, "count": len(hits), "results": hits}
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/gis/collections")
+async def gis_collections():
+    try:
+        return {"collections": [col.name for col in _get_chroma().list_collections()]}
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/gis/count/{collection}")
+async def gis_count(collection: str):
+    try:
+        col = _get_chroma().get_collection(collection)
+        return {"collection": collection, "count": col.count()}
+    except Exception as e:
+        return {"error": str(e)}
+
+if __name__ == "__main__":
+    import uvicorn
+    logger.info("🌟 Starting Ms. Jarvis ULTIMATE on port 8050")
+    uvicorn.run(app, host="0.0.0.0", port=8050)
+
+governance_router = APIRouter(prefix="/governance", tags=["governance"])
+
+DAO_GOV_URL = "http://jarvis-dao-governance:8082/governance/query"
+
+@governance_router.get("/query")
+async def unified_governance_query(q: str, n_results: int = 5):
+    async with httpx.AsyncClient(timeout=20.0) as client:
+        resp = await client.get(
+            DAO_GOV_URL,
+            params={"q": q, "n_results": n_results},
+        )
+    if resp.status_code != 200:
+        raise HTTPException(status_code=resp.status_code, detail=resp.text)
+    return resp.json()
+
+app.include_router(governance_router)
+app.include_router(trail_router)
+from auth_router import auth_router
+
+app.include_router(auth_router)
+from identity_service import router as identity_router
+
+app.include_router(identity_router, prefix='/identity', tags=['identity'])
+
+try:
+    import gis_routes; gis_routes.register(app)  # GIS endpoints
+except ModuleNotFoundError:
+    pass
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ 
+
