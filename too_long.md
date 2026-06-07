@@ -1,775 +1,1631 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ # main_brain.py has /chat/async — what serves /chat on port 8050?
-docker exec jarvis-main-brain \
-  grep -rn "@app.post.*\"/chat\"" /app/ 2>/dev/null
-/app/neurobiological_brain/i_containers/service/msjarvisconsciousnessbridge.py:106:@app.post("/chat")
-/app/neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:224:@app.post("/chat")
-/app/neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py:224:@app.post("/chat")
-/app/neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:227:@app.post("/chat")
-/app/neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:224:@app.post("/chat")
-/app/neurobiological_brain/pituitary_gland/service/pituitary_gland.py.bak:135:@app.post("/chat")
-/app/neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:224:@app.post("/chat")
-/app/neurobiological_brain/pituitary_gland/service/pituitary_gland.py:160:@app.post("/chat")
-/app/neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/neurobiological_brain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:213:@app.post("/chat")
-/app/neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_unified_bridge.py:93:@app.post("/chat")
-/app/services/ms_jarvis_production_chat.py:416:@app.post("/chat", response_model=ChatResponse)
-/app/services/ms_jarvis_unified_gateway.py:426:@app.post("/chat")
-/app/services/chat_server.py:11:@app.post("/chat")
-/app/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:93:@app.post("/chat")
-/app/services/main_with_rag.py:17:@app.post("/chat")
-/app/services/msjarvis_gateway_v2_final.py:58:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_bridge.py.before_judge_fix:235:@app.post("/chat")
-/app/services/add_fifth_dgm_to_chat.py:32:    modified_chat = '''@app.post("/chat", 
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-154757:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/main_brain.py.bak3:1397:@app.post("/chat", response_model=UltimateResponse)
-/app/services/msjarvisconsciousnessbridge_ACTUAL.py:122:@app.post("/chat")
-/app/services/pituitary_gland.py:135:@app.post("/chat")
-/app/services/ms_jarvis_ULTIMATE.py.OLD:121:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_19llm_CONSCIOUS.py.before_gpu_opt:246:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/hierarchical_coordinator_deep_mode.py.pre_dynamic_discovery:166:@app.post("/chat")
-/app/services/ai_server_integrated.py.pre_dynamic_discovery:20:@app.post("/chat")
-/app/services/master_chat_orchestrator_v5_consciousness.py:305:@app.post("/chat")
-/app/services/pituitary_gland.py.bak2:135:@app.post("/chat")
-/app/services/roche_llm.stub.py:17:@app.post("/chat", response_model=ChatResponse)
-/app/services/main_brain.py.pre-local-summary-fix-20260413-154816:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/woah_qualia_bridge.py:19:@app.post("/chat")
-/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:600:@app.post("/chat")
-/app/services/ms_jarvis_unified_gateway.py.pre_constitutional:189:@app.post("/chat")
-/app/services/ms_jarvis_unified_gateway.py.bak_1768841920:167:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_bridge.py.before_mamma_protocol:626:@app.post("/chat", 
-/app/services/main.py.BACKUP:304:@app.post("/chat", response_model=UltimateResponse)
-/app/services/main.py.BACKUP:1096:@app.post("/chat")
-/app/services/main_brain.py.pre-community-fullfix-20260413-135255:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/jarvis-lm-synthesizer_lm_synthesizer.py:59:@app.post("/chat")
-/app/services/dir_endpoints.txt:281:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py:335:@app.post("/chat")
-/app/services/dir_endpoints.txt:286:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:680:@app.post("/chat",
-/app/services/dir_endpoints.txt:310:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_22llm.py:369:@app.post("/chat")
-/app/services/dir_endpoints.txt:346:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_19llm_PRODUCTION.py:106:@app.post("/chat")
-/app/services/dir_endpoints.txt:361:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py:530:@app.post("/chat")
-/app/services/dir_endpoints.txt:381:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_production_chat.py:282:@app.post("/chat", response_model=ChatResponse)
-/app/services/dir_endpoints.txt:390:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_gateway.py:45:@app.post("/chat", tags=["Core"], summary="Process query", description="Send query to consciousness system")
-/app/services/dir_endpoints.txt:407:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:278:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/dir_endpoints.txt:411:/home/ms-jarvis/msjarvis-rebuild/services/ai_server.py:254:@app.post("/chat")
-/app/services/dir_endpoints.txt:412:/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py:15:@app.post("/chat")
-/app/services/dir_endpoints.txt:419:/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py:552:@app.post("/chat")
-/app/services/dir_endpoints.txt:441:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_full_neurobio_chat.py:93:@app.post("/chat", response_model=ChatResponse)
-/app/services/dir_endpoints.txt:453:/home/ms-jarvis/msjarvis-rebuild/services/chat_server.py:11:@app.post("/chat")
-/app/services/dir_endpoints.txt:461:/home/ms-jarvis/msjarvis-rebuild/services/redirect_4015_to_4020.py:22:@app.post("/chat")
-/app/services/dir_endpoints.txt:464:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_integration_hub.py:188:@app.post("/chat")
-/app/services/dir_endpoints.txt:493:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_final.py:139:@app.post("/chat", response_model=ChatResponse)
-/app/services/dir_endpoints.txt:515:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_conversational_chat.py:100:@app.post("/chat")
-/app/services/dir_endpoints.txt:522:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_optimized.py:272:@app.post("/chat")
-/app/services/dir_endpoints.txt:600:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:315:@app.post("/chat", response_model=UltimateResponse)
-/app/services/dir_endpoints.txt:602:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py:1101:@app.post("/chat")
-/app/services/dir_endpoints.txt:683:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_restored.py:382:@app.post("/chat")
-/app/services/dir_endpoints.txt:688:/home/ms-jarvis/msjarvis-rebuild/services/port_9001_proxy_simple.py:41:@app.post("/chat")
-/app/services/dir_endpoints.txt:690:/home/ms-jarvis/msjarvis-rebuild/services/hierarchical_coordinator_autonomous.py:404:@app.post("/chat", response_model=CoordinatorResponse)
-/app/services/dir_endpoints.txt:693:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_showcase_api.py:138:@app.post("/chat", response_model=ChatResponse, tags=["Conversation"])
-/app/services/dir_endpoints.txt:771:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py:222:@app.post("/chat")
-/app/services/dir_endpoints.txt:799:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py:84:@app.post("/chat")
-/app/services/dir_endpoints.txt:803:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_4llm.py:249:@app.post("/chat")
-/app/services/dir_endpoints.txt:841:/home/ms-jarvis/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py:84:@app.post("/chat", response_model=QueryResponse)
-/app/services/dir_endpoints.txt:993:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:113:@app.post("/chat")
-/app/services/dir_endpoints.txt:999:/home/ms-jarvis/msjarvis-rebuild/services/hilbert_spatial_chat.py:119:@app.post("/chat")
-/app/services/dir_endpoints.txt:1038:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_authentic_multi_llm.py:38:@app.post("/chat")
-/app/services/dir_endpoints.txt:1058:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py:546:@app.post("/chat")
-/app/services/dir_endpoints.txt:1071:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py:196:@app.post("/chat")
-/app/services/dir_endpoints.txt:1072:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_complete.py:126:@app.post("/chat", response_model=ChatResponse)
-/app/services/dir_endpoints.txt:1080:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_original_backup.py:249:@app.post("/chat")
-/app/services/dir_endpoints.txt:1084:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py:272:@app.post("/chat")
-/app/services/dir_endpoints.txt:1138:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py:119:@app.post("/chat", response_model=ChatResponse)
-/app/services/dir_endpoints.txt:1149:/home/ms-jarvis/msjarvis-rebuild/services/chat_endpoint_universal.py:23:@app.post("/chat")
-/app/services/dir_endpoints.txt:1214:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:273:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/dir_endpoints.txt:1241:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge_simple.py:36:@app.post("/chat")
-/app/services/dir_endpoints.txt:1258:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_integrated.py:20:@app.post("/chat")
-/app/services/dir_endpoints.txt:1265:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_gis_enhanced_chat.py:49:@app.post("/chat", response_model=ChatResponse)
-/app/services/dir_endpoints.txt:1268:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_22llm_SMALL_TO_LARGE.py:113:@app.post("/chat")
-/app/services/dir_endpoints.txt:1275:/home/ms-jarvis/msjarvis-rebuild/services/hierarchical_coordinator_deep_mode.py:166:@app.post("/chat")
-/app/services/dir_endpoints.txt:1279:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py:304:@app.post("/chat")
-/app/services/dir_endpoints.txt:1293:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_22llm_SEQUENTIAL.py:112:@app.post("/chat")
-/app/services/dir_endpoints.txt:1297:/home/ms-jarvis/msjarvis-rebuild/services/main.py:304:@app.post("/chat", response_model=UltimateResponse)
-/app/services/dir_endpoints.txt:1299:/home/ms-jarvis/msjarvis-rebuild/services/main.py:1096:@app.post("/chat")
-/app/services/dir_endpoints.txt:1304:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py:128:@app.post("/chat")
-/app/services/dir_endpoints.txt:1322:/home/ms-jarvis/msjarvis-rebuild/services/phase7_integration.py:530:@app.post("/chat")
-/app/services/dir_endpoints.txt:1369:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED.py:599:@app.post("/chat")
-/app/services/dir_endpoints.txt:1377:/home/ms-jarvis/msjarvis-rebuild/services/REFERENCE_windows_swarm.py:456:@app.post("/chat")
-/app/services/dir_endpoints.txt:1384:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py:389:@app.post("/chat")
-/app/services/dir_endpoints.txt:1473:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_20llm_FINAL.py:113:@app.post("/chat")
-/app/services/dir_endpoints.txt:1491:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_production_chat_BACKUP.py:267:@app.post("/chat", response_model=ChatResponse)
-/app/services/dir_endpoints.txt:1529:/home/ms-jarvis/msjarvis-rebuild/services/fix_port_8001_clean.py:45:@app.post("/chat")
-/app/services/dir_endpoints.txt:1531:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_22llm.psychology_patched.py:336:@app.post("/chat")
-/app/services/dir_endpoints.txt:1538:/home/ms-jarvis/msjarvis-rebuild/services/main_with_rag.py:17:@app.post("/chat")
-/app/services/dir_endpoints.txt:1546:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py:93:@app.post("/chat")
-/app/services/dir_endpoints.txt:1571:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_production_chat_BEFORE_GIS.py:267:@app.post("/chat", response_model=ChatResponse)
-/app/services/dir_endpoints.txt:1583:/home/ms-jarvis/msjarvis-rebuild/services/simple_orchestrator_fix.py:29:insert_point = content.find('@app.post("/chat"')
-/app/services/dir_endpoints.txt:1686:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_consciousness_enhancement_production.py:54:@app.post("/chat")
-/app/services/dir_endpoints.txt:1718:/home/ms-jarvis/msjarvis-rebuild/services/woah_qualia_bridge.py:16:@app.post("/chat")
-/app/services/dir_endpoints.txt:1753:/home/ms-jarvis/msjarvis-rebuild/services/msjarvisunifiedswaggergatewayFIXED.py:181:@app.post("/chat")
-/app/services/dir_endpoints.txt:1759:/home/ms-jarvis/msjarvis-rebuild/services/add_fifth_dgm_to_chat.py:32:    modified_chat = '''@app.post("/chat", 
-/app/services/dir_endpoints.txt:1815:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:106:@app.post("/chat")
-/app/services/dir_endpoints.txt:1843:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator.py:82:@app.post("/chat", response_model=ChatResponse)
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase2:253:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/consciousness_gateway.py:41:@app.post("/chat")
-/app/services/main_brain.py.manualbak5:487:@app.post("/chat", response_model=UltimateResponse)
-/app/services/gateway8050_simple.py:18:@app.post("/chat")
-/app/services/ai_server.py:255:@app.post("/chat")
-/app/services/ms_jarvis_ULTIMATE.py.before_fixes:119:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_20llm_PRODUCTION.py.pre_dynamic_discovery:106:@app.post("/chat")
-/app/services/llm/ai_server.py:255:@app.post("/chat")
-/app/services/llm/ai_server.py.bak-msallis:255:@app.post("/chat")
-/app/services/llm/ai_server_22llm.py.bak-msallis:544:@app.post("/chat")
-/app/services/llm/ai_server_22llm.py:544:@app.post("/chat")
-/app/services/ai_server_19llm_PRODUCTION.py:106:@app.post("/chat")
-/app/services/ms_jarvis_ULTIMATE.py.before_agent_fix:119:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015:409:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.backup_tone_fix:274:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260522T192625Z:1299:@app.post("/chat")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260515T124756:277:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup-before-identity-fix:284:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/main_brain.py.bak.20260522T125014Z:1299:@app.post("/chat")
-/app/services/_archive/BUILD_EGERIA_WEB_UI.sh.bak-msallis:307:@app.post("/chat")
-/app/services/_archive/hilbert_spatial_chat.py.backup:53:@app.post("/chat")
-/app/services/_archive/hilbert_spatial_chat.py.backup_20251113_191119:47:@app.post("/chat")
-/app/services/_archive/port_9001_proxy_simple.py.bak-msallis:41:@app.post("/chat")
-/app/services/_archive/master_chat_orchestrator_v7_complete.py.backup_vocabulary_cleanup:526:@app.post("/chat")
-/app/services/_archive/REFERENCE_windows_swarm.py.bak-msallis:456:@app.post("/chat")
-/app/services/_archive/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py.bak-msallis:116:@app.post("/chat")
-/app/services/_archive/msjarvisconsciousnessbridge_ACTUAL.py.bak-msallis:119:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_20251012_125750:269:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/msjarvisunifiedswaggergatewayFIXED.py.bak-msallis:120:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.mcfix.1780455458:1743:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.remove-debug-banner.20260601-215513:1623:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_bbb:284:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_pronouns:284:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/main_brain.py.bak-20260528193958:1395:@app.post("/chat")
-/app/services/_archive/implement_conversation_fixes.sh.bak-msallis:87:    chat_endpoint_pos = content.find('@app.post("/chat")')
-/app/services/_archive/master_chat_orchestrator.py.bak-msallis:93:@app.post("/chat", response_model=ChatResponse)
-/app/services/_archive/ms_jarvis_consciousness_bridge.py.bak-msallis:235:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:273:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/FIX_BOTH_ISSUES.sh.bak-msallis:184:@app.post("/chat")
-/app/services/_archive/main_brain_legacy_backup.py.bak-msallis:370:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/ms_jarvis_consciousness_bridge.py.backup_before_hierarchy:691:@app.post("/chat", 
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_1760356912:269:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/jarvis-lm-synthesizer_lm_synthesizer.py.bak-msallis:59:@app.post("/chat")
-/app/services/_archive/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.backup_vocabulary_cleanup:625:@app.post("/chat", 
-/app/services/_archive/hilbert_spatial_chat.py.backup_20251113_180915:45:@app.post("/chat")
-/app/services/_archive/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.bak-msallis:230:@app.post("/chat", 
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_final:285:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/ai_server_restored.py.bak-msallis:382:@app.post("/chat")
-/app/services/_archive/main_brain.py.backup_1771192185:1069:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260509-214158:1241:@app.post("/chat")
-/app/services/_archive/hierarchical_coordinator_autonomous.py.bak-msallis:405:@app.post("/chat", response_model=CoordinatorResponse)
-/app/services/_archive/msjarvisunifiedswaggergatewayFIXED.py.bak.20260528-183759:120:@app.post("/chat")
-/app/services/_archive/ms_jarvis_consciousness_bridge.py.backup_pre_location_integration:499:@app.post("/chat")
-/app/services/_archive/main_brain.py.backup_nbb_fixed:1327:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_proactive:269:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/ai_server.py.backup_vocabulary_cleanup:250:@app.post("/chat")
-/app/services/_archive/UPDATE_COORDINATOR_FOR_DEEP_MODE.sh.bak-msallis:175:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.backup_before_synthesis_fix:290:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260522T202653Z:1256:@app.post("/chat")
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak-msallis:444:@app.post("/chat")
-/app/services/_archive/gateway8050_simple.py.bak-msallis:18:@app.post("/chat")
-/app/services/_archive/ms_jarvis_consciousness_bridge.py.bak.20260603-210712:235:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_dgm_fix:284:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/main_brain.py.bak.1771185442:1136:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.backup_synthesis_fix:250:@app.post("/chat")
-/app/services/_archive/roche_llm.py.bak-msallis:574:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260601-193118:1619:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_PRODUCTION_WITH_HEALTH.py.backup_pre_consciousness:192:@app.post("/chat")
-/app/services/_archive/llm_bridge_main.py.bak-msallis:68:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.identity.20260601-213536:1623:@app.post("/chat")
-/app/services/_archive/msjarvisconsciousnessbridge.py.bak-msallis:106:@app.post("/chat")
-/app/services/_archive/ms_jarvis_consciousness_bridge.py.backup_1759895250:624:@app.post("/chat", 
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260523-122725:453:@app.post("/chat")
-/app/services/_archive/main.py.bak-msallis:391:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/ai_server_restored.py.backup_before_portmanager:381:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260530T152332:1427:@app.post("/chat")
-/app/services/_archive/ai_server_20llm_FINAL.py.backup.20260121180532:115:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_identity_fix:284:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/main_brain.py.bak.morning.1780490876:1743:@app.post("/chat")
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260501_154501:1276:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_20251012_153915:269:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/ai_server_original_backup.py.backup_before_portmanager:248:@app.post("/chat")
-/app/services/_archive/ultimate_web_orchestrator.py.backup_vocabulary_cleanup:11:@app.post("/chat")
-/app/services/_archive/ultimate_web_orchestrator.py.backup_vocabulary_cleanup:548:@app.post("/chat")
-/app/services/_archive/ai_server_4llm.py.bak-msallis:249:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py.bak-msallis:273:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779561387:453:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260530T153529:1427:@app.post("/chat")
-/app/services/_archive/ms_jarvis_consciousness_bridge_enhanced.py.bak-msallis:84:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260530T152342:1427:@app.post("/chat")
-/app/services/_archive/ms_jarvis_production_chat.py.bak-1780147934:344:@app.post("/chat", response_model=ChatResponse)
-/app/services/_archive/main_brain.py.bak.20260601-192147:1619:@app.post("/chat")
-/app/services/_archive/ms_jarvis_llm_bridge.py.broken:62:@app.post("/chat")
-/app/services/_archive/main.py.backup:304:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/main.py.backup:1193:@app.post("/chat")
-/app/services/_archive/ai_server.py.backup.20251006_101858:250:@app.post("/chat")
-/app/services/_archive/msjarvisunifiedswaggergatewayFIXED.py.backup_20251116_092415:183:@app.post("/chat")
-/app/services/_archive/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy:298:@app.post("/chat")
-/app/services/_archive/hilbert_spatial_chat.py.backup_20251113_192420:47:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/woah_algorithms/service/ms_jarvis_consciousness_bridge.py.bak-msallis:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/i_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/i_containers/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/spiritual_root/service/ms_jarvis_consciousness_bridge.py.bak-msallis:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/spiritual_root/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py.bak-msallis:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/pituitary_gland/service/ms_jarvis_consciousness_bridge.py.bak-msallis:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/subconscious/service/ms_jarvis_consciousness_bridge.py.bak-msallis:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/subconscious/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py.bak-msallis:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py.bak-msallis:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py.bak-msallis:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/consciousness_containers/service/ms_jarvis_consciousness_bridge.py.bak-msallis:235:@app.post("/chat")
-/app/services/_archive/neurobiologicalbrain_stale/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/services/_archive/main_brain.py.broken-20260413-134536:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/main_brain.py.bak.20260507-223435:1191:@app.post("/chat")
-/app/services/_archive/ms_jarvis_consciousness_bridge.py.backup_1760220435:624:@app.post("/chat", 
-/app/services/_archive/master_chat_orchestrator_dynamic.py.bak-msallis:119:@app.post("/chat", response_model=ChatResponse)
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py.bak-msallis:278:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/main_brain.py.bak.20260530T114539:1428:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_sedpatch:764:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_localnet_fixed2:764:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_1770565749:856:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_1770565749:881:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_1770565868:856:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_1770565868:881:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_1770565868:906:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_1770565703:820:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_ultimate_1770573774:764:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_1771728143:1343:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_pre_rag_fix_1778364422:1191:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_legacy_chatlight:764:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_ultimate_1770575025:764:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_20260603_135724:1300:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/bak_20260604/main_brain.py.bak_localnet_fixed:764:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_localnet:764:@app.post("/chat")
-/app/services/_archive/bak_20260604/main_brain.py.bak_persona_1779997582:1371:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.identity2.20260601-213734:1623:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.psychology_patched.py.backup_before_portmanager:335:@app.post("/chat")
-/app/services/_archive/redirect_4015_to_4020.py.bak-msallis:22:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260522T122413Z:1256:@app.post("/chat")
-/app/services/_archive/lm_synthesizer.py.bak-msallis:58:@app.post("/chat")
-/app/services/_archive/auth_api.py.bak-1780147852:230:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.backup_before_model_fix:290:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260530T153030:1427:@app.post("/chat")
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260519_115045:444:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.backup_1759895246:250:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup-cors:274:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/ms_jarvis_main_gateway_8000.py.bak-msallis:65:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.backup_before_roche:513:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.backup_ai_minds:250:@app.post("/chat")
-/app/services/_archive/ai_server_4llm.py.backup_before_portmanager:248:@app.post("/chat")
-/app/services/_archive/msjarvis_gateway_v2_final.py.bak-msallis:58:@app.post("/chat")
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.broken_bak:425:@app.post("/chat")
-/app/services/_archive/ms_jarvis_llm_bridge.py.bak-msallis:274:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260524_000429:1312:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260522T123325Z:1299:@app.post("/chat")
-/app/services/_archive/lm_synthesizer.py.bak.1779557365:49:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260522T191836Z:1299:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.remove-debug-banner.20260601-222403:1623:@app.post("/chat")
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.pre_interaction_logging:453:@app.post("/chat")
-/app/services/_archive/ms_jarvis_integration_hub.py.bak-msallis:188:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260430-211100:911:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/msjarvisconsciousnessbridge.py.bak.20260507-222706:106:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.remove-debug-banner.20260601-222116:1623:@app.post("/chat")
-/app/services/_archive/ms_jarvis_authentic_multi_llm.py.bak-msallis:39:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.backup_1759895560:250:@app.post("/chat")
-/app/services/_archive/master_chat_orchestrator_v9_dgm_complete.py.backup_vocabulary_cleanup:307:@app.post("/chat")
-/app/services/_archive/ai_server_22llm_SEQUENTIAL.py.bak-msallis:112:@app.post("/chat")
-/app/services/_archive/ms_jarvis_production_chat.py.bak-1780149349:349:@app.post("/chat", response_model=ChatResponse)
-/app/services/_archive/ai_server_20llm_FINAL.py.bak-msallis:155:@app.post("/chat")
-/app/services/_archive/main.py.backup.broken:156:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/add_fifth_dgm_to_chat.py.bak-msallis:32:    modified_chat = '''@app.post("/chat", 
-/app/services/_archive/hierarchical_coordinator_deep_mode.py.bak-msallis:167:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.backup_vocabulary_cleanup:299:@app.post("/chat")
-/app/services/_archive/ms_jarvis_consciousness_bridge.py.backup_pre_fixes:626:@app.post("/chat", 
-/app/services/_archive/main_brain.py.bak.20260604T103038:1341:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/ai_server_22llm.py.backup_prompt_leak:273:@app.post("/chat")
-/app/services/_archive/ms_jarvis_llm_bridge_simple.py.bak-msallis:36:@app.post("/chat")
-/app/services/_archive/CREATE_ULTIMATE_JARVIS.sh.bak-msallis:109:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.bak-msallis:257:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260515T131126:277:@app.post("/chat")
-/app/services/_archive/ms_jarvis_production_chat.py.backup_before_neurobio:262:@app.post("/chat", response_model=ChatResponse)
-/app/services/_archive/main_brain.py.bak.20260522T193224Z:1299:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_unified_self:284:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/ms_jarvis_production_chat.py.bak.1779562599:297:@app.post("/chat", response_model=ChatResponse)
-/app/services/_archive/main.py.backup.before_auto_storage:156:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py.backup_vocabulary_cleanup:274:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/main_brain.py.bak.20260601-205714:1623:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260604T102756:1341:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/ai_server_19llm_PRODUCTION.py.bak-msallis:106:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260530T152956:1427:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.backup_final_balance:274:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.backup_before_batch:285:@app.post("/chat")
-/app/services/_archive/ms_jarvis_consciousness_bridge.py.backup_before_22llm:660:@app.post("/chat", 
-/app/services/_archive/ms_jarvis_unified_gateway.py.backup_vocabulary_cleanup:40:@app.post("/chat", tags=["Core"], summary="Process query", description="Send query to consciousness system")
-/app/services/_archive/main_brain.py.backup_1771192386:1069:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260603-200957:1341:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/main_brain.py.bak.20260509-212923:1240:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_no_integrations:246:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.1779506052:444:@app.post("/chat")
-/app/services/_archive/main.py.bak.before_consciousness_fix:303:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/msjarvisconsciousnessbridge_ACTUAL.py.bak.1780325456:119:@app.post("/chat")
-/app/services/_archive/integrate_rag.sh.bak-msallis:262:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260527T114431Z:1336:@app.post("/chat")
-/app/services/_archive/main_brain.py.backup:1238:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_PRODUCTION_WITH_HEALTH.py.bak-msallis:196:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_1760308857:269:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/ms_jarvis_consciousness_bridge.py.backup_1759895606:624:@app.post("/chat", 
-/app/services/_archive/ms_jarvis_unified_gateway.py.bak.20260507-222001:259:@app.post("/chat")
-/app/services/_archive/ai_server_original_backup.py.bak-msallis:249:@app.post("/chat")
-/app/services/_archive/ai_server.py.bak-msallis:255:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260509-213917:1241:@app.post("/chat")
-/app/services/_archive/ms_jarvis_production_chat.py.backup_vocabulary_cleanup:262:@app.post("/chat", response_model=ChatResponse)
-/app/services/_archive/ai_server_22llm.py.backup_pre_synthesis:250:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260601-193421:1619:@app.post("/chat")
-/app/services/_archive/ms_jarvis_conversational_chat.py.bak-msallis:100:@app.post("/chat")
-/app/services/_archive/ai_server.py.backup.20251006_110515:203:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_PRODUCTION.py.backup_vocabulary_cleanup:102:@app.post("/chat")
-/app/services/_archive/ms_jarvis_ULTIMATE.py.backup_1760806129:119:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:278:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/ai_server_22llm_SMALL_TO_LARGE.py.bak-msallis:113:@app.post("/chat")
-/app/services/_archive/fix_persona.sh.bak-msallis:202:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260508-071052:1191:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.bak-msallis:544:@app.post("/chat")
-/app/services/_archive/INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh.bak-msallis:254:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/ai_server_11llm_OPTIMIZED.py.backup_simple:38:@app.post("/chat")
-/app/services/_archive/ai_server_11llm_OPTIMIZED.py.backup_simple:74:@app.post("/chat")
-/app/services/_archive/ai_server_22llm.py.backup_before_numpredict_fix_20260523_140808:544:@app.post("/chat")
-/app/services/_archive/ai_server_20llm_PRODUCTION.py.bak.20260510-144015.bak.pretuning:409:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260601-195059:1623:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak-20260528193426:1395:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260509-214526:1241:@app.post("/chat")
-/app/services/_archive/main_brain.py.bak.20260530T114441:1427:@app.post("/chat")
-/app/services/_archive/ai_server_19llm_CONSCIOUS.py.backup_before_clarity:284:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/improve_jarvis.sh.bak-msallis:200:@app.post("/chat")
-/app/services/_archive/main_brain_LEGACY_32svc.py.bak-msallis:496:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/main_brain.py.bak.20260604T095415:1341:@app.post("/chat", response_model=UltimateResponse)
-/app/services/_archive/INTEGRATE_CONSCIOUSNESS.sh.bak-msallis:306:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/_archive/main_brain.py.bak.20260522T192930Z:1299:@app.post("/chat")
-/app/services/main_brain.py.pre-phase4-fix-20260413-154833:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/s:510:@app.post("/chat")
-/app/services/s:1080:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_final.py.pre_dynamic_discovery:139:@app.post("/chat", response_model=ChatResponse)
-/app/services/main_brain.py.before_spiritual_integration:1177:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_complete.py.pre_dynamic_discovery:126:@app.post("/chat", response_model=ChatResponse)
-/app/services/ms_jarvis_production_chat_BACKUP.py:268:@app.post("/chat", response_model=ChatResponse)
-/app/services/ai_server_19llm_CONSCIOUS.py.before_integration:246:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/main_brain.py.pre_judges:1238:@app.post("/chat")
-/app/services/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py:11:@app.post("/chat")
-/app/services/ai_server.py.pre_dynamic_discovery:254:@app.post("/chat")
-/app/services/ms_jarvis_llm_bridge_simple.py:36:@app.post("/chat")
-/app/services/main_brain.py.bak2:1397:@app.post("/chat", response_model=UltimateResponse)
-/app/services/main_brain.py.pre-community-fix-20260413-134958:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ms_jarvis_consciousness_bridge.py.before_complete_architecture:235:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_bridge.py.before_persona_fix:658:@app.post("/chat", 
-/app/services/master_chat_orchestrator_dynamic.py:119:@app.post("/chat", response_model=ChatResponse)
-/app/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:93:@app.post("/chat")
-/app/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:93:@app.post("/chat")
-/app/services/main.py.bak_enable_llmbridge_20251212_233317:302:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:301:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1765074137:1038:@app.post("/chat")
-/app/services/main.py.working_backup_20251020_110429:195:@app.post("/chat", response_model=UltimateResponse)
-/app/services/main.py.working_backup_20251020_110429:981:@app.post("/chat")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_working_fix:269:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh:254:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/msjarvisunifiedswaggergatewayFIXED.py:185:@app.post("/chat")
-/app/services/master_chat_orchestrator_v9_optimized.py.pre_dynamic_discovery:272:@app.post("/chat")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_metadata:248:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/jarvis_steward.py:175:@app.post("/chat")
-/app/services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery:128:@app.post("/chat")
-/app/services/main.py.FINALHEALTH.bak:304:@app.post("/chat", response_model=UltimateResponse)
-/app/services/main.py.FINALHEALTH.bak:1096:@app.post("/chat")
-/app/services/ai/ai_server.py:456:@app.post("/chat")
-/app/services/ai/ai_server_simple.py.bak-msallis:193:@app.post("/chat")
-/app/services/ai/ai_server_simple.py:193:@app.post("/chat")
-/app/services/ai/ai_server.py.bak-msallis:456:@app.post("/chat")
-/app/services/main.py.current.safebak:303:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_19llm_CONSCIOUS.py:257:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:93:@app.post("/chat")
-/app/services/integrate_rag.sh:262:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_bridge.py.working_backup:691:@app.post("/chat", 
-/app/services/ms_jarvis_consciousness_bridge.py.before_prompt_fix:626:@app.post("/chat", 
-/app/services/ms_jarvis_full_neurobio_chat.py.pre_dynamic_discovery:93:@app.post("/chat", response_model=ChatResponse)
-/app/services/main_brain.py.pre-aaacpe-fix-20260413-135408:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_20llm_FINAL.py,:115:@app.post("/chat")
-/app/services/CREATE_ULTIMATE_JARVIS.sh:109:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ms_jarvis_gis_enhanced_chat.py.pre_dynamic_discovery:49:@app.post("/chat", response_model=ChatResponse)
-/app/services/ms_jarvis_consciousness_complete.py:127:@app.post("/chat", response_model=ChatResponse)
-/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py.bak_20260118152630:600:@app.post("/chat")
-/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py.pre_dynamic_discovery:599:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_bridge.py.phase1_working:660:@app.post("/chat", 
-/app/services/ms_jarvis_production_chat_BEFORE_GIS.py:268:@app.post("/chat", response_model=ChatResponse)
-/app/services/fix_chat_api.sh:16:@app.post("/chat")
-/app/services/ms_jarvis_unified_gateway.py.BEFORE_REAL_CHAT_1768842649:173:@app.post("/chat")
-/app/services/nbb/pituitary_gland.py:130:@app.post("/chat")
-/app/services/nbb/pituitary_gland.py.bak:130:@app.post("/chat")
-/app/services/nbb/pituitary_gland.py.bak-msallis:130:@app.post("/chat")
-/app/services/ms_jarvis_production_chat.py.pre_dynamic_discovery:282:@app.post("/chat", response_model=ChatResponse)
-/app/services/ms_jarvis_consciousness_bridge.py.safe_backup:626:@app.post("/chat", 
-/app/services/ms_jarvis_gis_enhanced_chat.py:50:@app.post("/chat", response_model=ChatResponse)
-/app/services/hierarchical_coordinator_autonomous.py.pre_dynamic_discovery:404:@app.post("/chat", response_model=CoordinatorResponse)
-/app/services/main.py.bak_before_bridge_20251212_232206:302:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_22llm.psychology_patched.py.pre_dynamic_discovery:336:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_bridge.py.before_final_fix:123:@app.post("/chat")
-/app/services/main_brain.py.before_final_fix:1220:@app.post("/chat")
-/app/services/master_chat_orchestrator.py.pre_dynamic_discovery:82:@app.post("/chat", response_model=ChatResponse)
-/app/services/ai_server_20llm_FINAL.py:148:@app.post("/chat")
-/app/services/ai_server_22llm.py.pre-semaphore:250:@app.post("/chat")
-/app/services/main_brain.py.pre-verified-fix-20260413-134834:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/main_brain.py.pre-local-summary-fix-20260413-135507:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/master_chat_orchestrator_v6_biologics.py.pre_dynamic_discovery:389:@app.post("/chat")
-/app/services/ms_jarvis_unified_gateway.py.bak_1768840523:167:@app.post("/chat")
-/app/services/ms_jarvis_unified_gateway.py.bak.gispath:339:@app.post("/chat")
-/app/services/ms_jarvis_main_gateway_8000.py:65:@app.post("/chat")
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py:547:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
-/app/services/msjarvis_gateway_v2_final.py.pre_dynamic_discovery:19:@app.post("/chat")
-/app/services/main.py.bak_enable_llmbridge_20251212_233118:302:@app.post("/chat", response_model=UltimateResponse)
-/app/services/REFERENCE_windows_swarm.py:456:@app.post("/chat")
-/app/services/master_chat_orchestrator_v5_consciousness.py.pre_dynamic_discovery:304:@app.post("/chat")
-/app/services/ai_server_20llm_PRODUCTION.py:592:@app.post("/chat")
-/app/services/main.py.bak_before_bridge_20251212_232349:302:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ms_jarvis_consciousness_bridge.py.before_small_models:660:@app.post("/chat", 
-/app/services/master_chat_orchestrator_v9_dgm_complete.py:204:@app.post("/chat")
-/app/services/msjarvismaingateway.py:116:@app.post("/chat")
-/app/services/main_brain.py.bak:1336:@app.post("/chat")
-/app/services/ms_jarvis_authentic_multi_llm.py.pre_dynamic_discovery:38:@app.post("/chat")
-/app/services/main_brain.py.manualbak3:487:@app.post("/chat", response_model=UltimateResponse)
-/app/services/msjarvisunifiedswaggergatewayFIXED.py.pre_dynamic_discovery:34:@app.post("/chat")
-/app/services/lm_synthesizer.py.bak.20260605_091035:75:@app.post("/chat")
-/app/services/ultimate_web_orchestrator.py:15:@app.post("/chat")
-/app/services/ultimate_web_orchestrator.py:552:@app.post("/chat")
-/app/services/improve_jarvis.sh:200:@app.post("/chat")
-/app/services/ultimate_web_orchestrator.py.bak_1760567193:11:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_enhancement_production.py:54:@app.post("/chat")
-/app/services/master_chat_orchestrator_v9_optimized.py:273:@app.post("/chat")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-150822:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/hierarchical_coordinator_autonomous.py:405:@app.post("/chat", response_model=CoordinatorResponse)
-/app/services/main_brain.py.before_mother_carrie_v2:1226:@app.post("/chat")
-/app/services/ms_jarvis_full_neurobio_chat.py.bak_20260118152254:94:@app.post("/chat", response_model=ChatResponse)
-/app/services/master_chat_orchestrator_v8_spiritual_complete.py.pre_dynamic_discovery:546:@app.post("/chat")
-/app/services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py:93:@app.post("/chat")
-/app/services/ms_jarvis_showcase_api.py:138:@app.post("/chat", response_model=ChatResponse, tags=["Conversation"])
-/app/services/ms_jarvis_production_chat_BEFORE_GIS.py.pre_dynamic_discovery:267:@app.post("/chat", response_model=ChatResponse)
-/app/services/ms_jarvis_authentic_multi_llm.py:39:@app.post("/chat")
-/app/services/main_brain.py.manualbak4:487:@app.post("/chat", response_model=UltimateResponse)
-/app/services/main_brain.py.before_mother_carrie:1226:@app.post("/chat")
-/app/services/ai_server_restored.py:382:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_bridge.py.pre_agent_identity:658:@app.post("/chat", 
-/app/services/ai_server_19llm_CONSCIOUS.py.before_egeria:246:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery:530:@app.post("/chat")
-/app/services/ai_server_22llm.py.pre_dynamic_discovery:369:@app.post("/chat")
-/app/services/ms_jarvis_full_neurobio_chat.py:116:@app.post("/chat", response_model=ChatResponse)
-/app/services/msjarvis_unified_gateway.py:199:@app.post("/chat")
-/app/services/main_brain.py.bak.20260605082241:1397:@app.post("/chat", response_model=UltimateResponse)
-/app/services/auth_api.py:230:@app.post("/chat")
-/app/services/msjarvisunifiedswaggergatewayFIXED.py.BEFORE_DOCKER_REWIRE:119:@app.post("/chat")
-/app/services/main_brain.py.pre-community-fullfix-20260413-154742:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/main_brain.py.bak.20260605_091035:1397:@app.post("/chat", response_model=UltimateResponse)
-/app/services/rest_endpoints.txt:35:./master_chat_orchestrator_v9_dgm_complete.py:335:@app.post("/chat")
-/app/services/rest_endpoints.txt:40:./ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:680:@app.post("/chat",
-/app/services/rest_endpoints.txt:64:./ai_server_22llm.py:369:@app.post("/chat")
-/app/services/rest_endpoints.txt:136:./ai_server_19llm_PRODUCTION.py:106:@app.post("/chat")
-/app/services/rest_endpoints.txt:178:./master_chat_orchestrator_v7_complete.py:530:@app.post("/chat")
-/app/services/rest_endpoints.txt:225:./ms_jarvis_production_chat.py:282:@app.post("/chat", response_model=ChatResponse)
-/app/services/rest_endpoints.txt:234:./ms_jarvis_unified_gateway.py:45:@app.post("/chat", tags=["Core"], summary="Process query", description="Send query to consciousness system")
-/app/services/rest_endpoints.txt:251:./ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:278:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/rest_endpoints.txt:255:./ai_server.py:254:@app.post("/chat")
-/app/services/rest_endpoints.txt:256:./ultimate_web_orchestrator.py:15:@app.post("/chat")
-/app/services/rest_endpoints.txt:263:./ultimate_web_orchestrator.py:552:@app.post("/chat")
-/app/services/rest_endpoints.txt:325:./ms_jarvis_full_neurobio_chat.py:93:@app.post("/chat", response_model=ChatResponse)
-/app/services/rest_endpoints.txt:337:./chat_server.py:11:@app.post("/chat")
-/app/services/rest_endpoints.txt:372:./redirect_4015_to_4020.py:22:@app.post("/chat")
-/app/services/rest_endpoints.txt:375:./ms_jarvis_integration_hub.py:188:@app.post("/chat")
-/app/services/rest_endpoints.txt:404:./ms_jarvis_consciousness_final.py:139:@app.post("/chat", response_model=ChatResponse)
-/app/services/rest_endpoints.txt:426:./ms_jarvis_conversational_chat.py:100:@app.post("/chat")
-/app/services/rest_endpoints.txt:433:./master_chat_orchestrator_v9_optimized.py:272:@app.post("/chat")
-/app/services/rest_endpoints.txt:511:./ai_server_11llm_OPTIMIZED.py:315:@app.post("/chat", response_model=UltimateResponse)
-/app/services/rest_endpoints.txt:513:./ai_server_11llm_OPTIMIZED.py:1101:@app.post("/chat")
-/app/services/rest_endpoints.txt:594:./ai_server_restored.py:382:@app.post("/chat")
-/app/services/rest_endpoints.txt:599:./port_9001_proxy_simple.py:41:@app.post("/chat")
-/app/services/rest_endpoints.txt:601:./hierarchical_coordinator_autonomous.py:404:@app.post("/chat", response_model=CoordinatorResponse)
-/app/services/rest_endpoints.txt:604:./ms_jarvis_showcase_api.py:138:@app.post("/chat", response_model=ChatResponse, tags=["Conversation"])
-/app/services/rest_endpoints.txt:682:./ms_jarvis_consciousness_bridge.py:222:@app.post("/chat")
-/app/services/rest_endpoints.txt:710:./ms_jarvis_consciousness_bridge_enhanced.py:84:@app.post("/chat")
-/app/services/rest_endpoints.txt:714:./ai_server_4llm.py:249:@app.post("/chat")
-/app/services/rest_endpoints.txt:752:./msjarvisconsciousnessbridge.py:84:@app.post("/chat", response_model=QueryResponse)
-/app/services/rest_endpoints.txt:761:./javascript/brain/brain/ai/ai_server.py:456:@app.post("/chat")
-/app/services/rest_endpoints.txt:766:./javascript/brain/brain/ai/ai_server_simple.py:193:@app.post("/chat")
-/app/services/rest_endpoints.txt:769:./javascript/brain/ai/ai_server.py:456:@app.post("/chat")
-/app/services/rest_endpoints.txt:774:./javascript/brain/ai/ai_server_simple.py:193:@app.post("/chat")
-/app/services/rest_endpoints.txt:928:./ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:113:@app.post("/chat")
-/app/services/rest_endpoints.txt:934:./hilbert_spatial_chat.py:119:@app.post("/chat")
-/app/services/rest_endpoints.txt:988:./ms_jarvis_authentic_multi_llm.py:38:@app.post("/chat")
-/app/services/rest_endpoints.txt:1008:./master_chat_orchestrator_v8_spiritual_complete.py:546:@app.post("/chat")
-/app/services/rest_endpoints.txt:1012:./ai/ai_server.py:456:@app.post("/chat")
-/app/services/rest_endpoints.txt:1017:./ai/ai_server_simple.py:193:@app.post("/chat")
-/app/services/rest_endpoints.txt:1029:./ai_server_19llm_PRODUCTION_WITH_HEALTH.py:196:@app.post("/chat")
-/app/services/rest_endpoints.txt:1030:./ms_jarvis_consciousness_complete.py:126:@app.post("/chat", response_model=ChatResponse)
-/app/services/rest_endpoints.txt:1038:./ai_server_original_backup.py:249:@app.post("/chat")
-/app/services/rest_endpoints.txt:1042:./master_chat_orchestrator_v7_dynamic.py:272:@app.post("/chat")
-/app/services/rest_endpoints.txt:1097:./master_chat_orchestrator_dynamic.py:119:@app.post("/chat", response_model=ChatResponse)
-/app/services/rest_endpoints.txt:1108:./chat_endpoint_universal.py:23:@app.post("/chat")
-/app/services/rest_endpoints.txt:1173:./ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:273:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/rest_endpoints.txt:1200:./ms_jarvis_llm_bridge_simple.py:36:@app.post("/chat")
-/app/services/rest_endpoints.txt:1217:./ai_server_integrated.py:20:@app.post("/chat")
-/app/services/rest_endpoints.txt:1224:./ms_jarvis_gis_enhanced_chat.py:49:@app.post("/chat", response_model=ChatResponse)
-/app/services/rest_endpoints.txt:1227:./backups/pre_integration_20251012_115827/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:629:@app.post("/chat", 
-/app/services/rest_endpoints.txt:1231:./backups/pre_integration_20251012_115827/ai_server_22llm.py:286:@app.post("/chat")
-/app/services/rest_endpoints.txt:1233:./backups/pre_integration_20251012_115827/ai_server_19llm_PRODUCTION.py:106:@app.post("/chat")
-/app/services/rest_endpoints.txt:1236:./backups/pre_integration_20251012_115827/ms_jarvis_unified_gateway.py:171:@app.post("/chat")
-/app/services/rest_endpoints.txt:1239:./backups/pre_integration_20251012_115827/ai_server.py:254:@app.post("/chat")
-/app/services/rest_endpoints.txt:1247:./backups/pre_integration_20251012_115827/ms_jarvis_integration_hub.py:188:@app.post("/chat")
-/app/services/rest_endpoints.txt:1257:./backups/pre_integration_20251012_115827/ai_server_restored.py:381:@app.post("/chat")
-/app/services/rest_endpoints.txt:1261:./backups/pre_integration_20251012_115827/hierarchical_coordinator_autonomous.py:404:@app.post("/chat", response_model=CoordinatorResponse)
-/app/services/rest_endpoints.txt:1265:./backups/pre_integration_20251012_115827/ms_jarvis_consciousness_bridge.py:628:@app.post("/chat", 
-/app/services/rest_endpoints.txt:1273:./backups/pre_integration_20251012_115827/ai_server_4llm.py:248:@app.post("/chat")
-/app/services/rest_endpoints.txt:1274:./backups/pre_integration_20251012_115827/ai_server_19llm_CONSCIOUS.py:252:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/rest_endpoints.txt:1278:./backups/pre_integration_20251012_115827/egeria_web_ui.py:177:@app.post("/chat")
-/app/services/rest_endpoints.txt:1281:./backups/pre_integration_20251012_115827/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:113:@app.post("/chat")
-/app/services/rest_endpoints.txt:1288:./backups/pre_integration_20251012_115827/ai_server_19llm_PRODUCTION_WITH_HEALTH.py:196:@app.post("/chat")
-/app/services/rest_endpoints.txt:1291:./backups/pre_integration_20251012_115827/ai_server_original_backup.py:248:@app.post("/chat")
-/app/services/rest_endpoints.txt:1295:./backups/pre_integration_20251012_115827/ms_jarvis_llm_bridge_simple.py:36:@app.post("/chat")
-/app/services/rest_endpoints.txt:1298:./backups/pre_integration_20251012_115827/ai_server_integrated.py:20:@app.post("/chat")
-/app/services/rest_endpoints.txt:1301:./backups/pre_integration_20251012_115827/ai_server_22llm_SMALL_TO_LARGE.py:113:@app.post("/chat")
-/app/services/rest_endpoints.txt:1303:./backups/pre_integration_20251012_115827/hierarchical_coordinator_deep_mode.py:166:@app.post("/chat")
-/app/services/rest_endpoints.txt:1305:./backups/pre_integration_20251012_115827/ai_server_22llm_SEQUENTIAL.py:112:@app.post("/chat")
-/app/services/rest_endpoints.txt:1308:./backups/pre_integration_20251012_115827/ms_jarvis_llm_bridge.py:36:@app.post("/chat")
-/app/services/rest_endpoints.txt:1315:./backups/pre_integration_20251012_115827/REFERENCE_windows_swarm.py:456:@app.post("/chat")
-/app/services/rest_endpoints.txt:1323:./backups/pre_integration_20251012_115827/ai_server_20llm_FINAL.py:113:@app.post("/chat")
-/app/services/rest_endpoints.txt:1335:./backups/pre_integration_20251012_115827/simple_orchestrator_fix.py:29:insert_point = content.find('@app.post("/chat"')
-/app/services/rest_endpoints.txt:1336:./backups/pre_integration_20251012_115827/ms_jarvis_ULTIMATE.py:95:@app.post("/chat", response_model=UltimateResponse)
-/app/services/rest_endpoints.txt:1342:./backups/pre_integration_20251012_115827/add_fifth_dgm_to_chat.py:32:    modified_chat = '''@app.post("/chat", 
-/app/services/rest_endpoints.txt:1344:./backups/pre_integration_20251012_115827/ai_server_20llm_PRODUCTION.py:106:@app.post("/chat")
-/app/services/rest_endpoints.txt:1349:./ai_server_22llm_SMALL_TO_LARGE.py:113:@app.post("/chat")
-/app/services/rest_endpoints.txt:1356:./hierarchical_coordinator_deep_mode.py:166:@app.post("/chat")
-/app/services/rest_endpoints.txt:1360:./master_chat_orchestrator_v5_consciousness.py:304:@app.post("/chat")
-/app/services/rest_endpoints.txt:1374:./ai_server_22llm_SEQUENTIAL.py:112:@app.post("/chat")
-/app/services/rest_endpoints.txt:1378:./main.py:304:@app.post("/chat", response_model=UltimateResponse)
-/app/services/rest_endpoints.txt:1380:./main.py:1096:@app.post("/chat")
-/app/services/rest_endpoints.txt:1385:./ms_jarvis_llm_bridge.py:128:@app.post("/chat")
-/app/services/rest_endpoints.txt:1403:./phase7_integration.py:530:@app.post("/chat")
-/app/services/rest_endpoints.txt:1450:./ms_jarvis_unified_swagger_gateway_FIXED.py:599:@app.post("/chat")
-/app/services/rest_endpoints.txt:1458:./REFERENCE_windows_swarm.py:456:@app.post("/chat")
-/app/services/rest_endpoints.txt:1465:./master_chat_orchestrator_v6_biologics.py:389:@app.post("/chat")
-/app/services/rest_endpoints.txt:1554:./ai_server_20llm_FINAL.py:113:@app.post("/chat")
-/app/services/rest_endpoints.txt:1572:./ms_jarvis_production_chat_BACKUP.py:267:@app.post("/chat", response_model=ChatResponse)
-/app/services/rest_endpoints.txt:1610:./fix_port_8001_clean.py:45:@app.post("/chat")
-/app/services/rest_endpoints.txt:1612:./ai_server_22llm.psychology_patched.py:336:@app.post("/chat")
-/app/services/rest_endpoints.txt:1619:./main_with_rag.py:17:@app.post("/chat")
-/app/services/rest_endpoints.txt:1627:./ms_jarvis_consciousness_unified_bridge.py:93:@app.post("/chat")
-/app/services/rest_endpoints.txt:1652:./ms_jarvis_production_chat_BEFORE_GIS.py:267:@app.post("/chat", response_model=ChatResponse)
-/app/services/rest_endpoints.txt:1664:./simple_orchestrator_fix.py:29:insert_point = content.find('@app.post("/chat"')
-/app/services/rest_endpoints.txt:1767:./ms_jarvis_consciousness_enhancement_production.py:54:@app.post("/chat")
-/app/services/rest_endpoints.txt:1799:./woah_qualia_bridge.py:16:@app.post("/chat")
-/app/services/rest_endpoints.txt:1834:./msjarvisunifiedswaggergatewayFIXED.py:181:@app.post("/chat")
-/app/services/rest_endpoints.txt:1840:./add_fifth_dgm_to_chat.py:32:    modified_chat = '''@app.post("/chat", 
-/app/services/rest_endpoints.txt:1896:./ai_server_20llm_PRODUCTION.py:106:@app.post("/chat")
-/app/services/rest_endpoints.txt:1924:./master_chat_orchestrator.py:82:@app.post("/chat", response_model=ChatResponse)
-/app/services/ms_jarvis_consciousness_bridge_enhanced.py:84:@app.post("/chat")
-/app/services/main.py.from_container:296:@app.post("/chat", response_model=UltimateResponse)
-/app/services/main.py.from_container:1082:@app.post("/chat")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase3:257:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/ai_server_original_backup.py:249:@app.post("/chat")
-/app/services/main.py.pre_enhancement.bak:303:@app.post("/chat", response_model=UltimateResponse)
-/app/services/master_chat_orchestrator.py:93:@app.post("/chat", response_model=ChatResponse)
-/app/services/ms_jarvis_integration_hub.py:188:@app.post("/chat")
-/app/services/ai_server_22llm_SMALL_TO_LARGE.py:113:@app.post("/chat")
-/app/services/main_brain.py.before_direct_fix:1220:@app.post("/chat")
-/app/services/main_brain.py.bak.gispath:1397:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery:222:@app.post("/chat")
-/app/services/master_chat_orchestrator_v6_biologics.py:390:@app.post("/chat")
-/app/services/main_brain.py.bak.20260605123530:1450:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_20llm_PRODUCTION.py.pre_timeout_bak:425:@app.post("/chat")
-/app/services/main_brain.py:1411:@app.post("/chat", response_model=UltimateResponse)
-/app/services/hilbert_spatial_chat.py:300:@app.post("/chat")
-/app/services/implement_conversation_fixes.sh:87:    chat_endpoint_pos = content.find('@app.post("/chat")')
-/app/services/ai_server_11llm_OPTIMIZED.py.bak_1760568396}:35:@app.post("/chat")
-/app/services/ms_jarvis_ULTIMATE.py.before_bbb:119:@app.post("/chat", response_model=UltimateResponse)
-/app/services/msjarvisconsciousnessbridge.py:106:@app.post("/chat")
-/app/services/main_brain_legacy_backup.py:370:@app.post("/chat", response_model=UltimateResponse)
-/app/services/main_brain.py.manualbak:487:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ms_jarvis_conversational_chat.py:100:@app.post("/chat")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase6:265:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/main_brain.py.pre-synthesis-lines-fix-20260413-160601:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase4_5:261:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/ms_jarvis_llm_bridge.py:274:@app.post("/chat")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_memory:246:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/main.py.bak:391:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py:196:@app.post("/chat")
-/app/services/ms_jarvis_production_chat_BACKUP.py.pre_dynamic_discovery:267:@app.post("/chat", response_model=ChatResponse)
-/app/services/ai_server_22llm_SEQUENTIAL.py:112:@app.post("/chat")
-/app/services/fix_port_8001_clean.py:45:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_unified_bridge.py.bak.1780618584:93:@app.post("/chat")
-/app/services/lm_synthesizer.py:78:@app.post("/chat")
-/app/services/FIX_BOTH_ISSUES.sh:184:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:230:@app.post("/chat", 
-/app/services/route_declarations_raw.txt:43:add_fifth_dgm_to_chat.py:32:    modified_chat = '''@app.post("/chat", 
-/app/services/route_declarations_raw.txt:51:ai_server_11llm_OPTIMIZED.py:335:@app.post("/chat", response_model=UltimateResponse)
-/app/services/route_declarations_raw.txt:53:ai_server_11llm_OPTIMIZED.py:1213:@app.post("/chat")
-/app/services/route_declarations_raw.txt:54:ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:273:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/route_declarations_raw.txt:57:ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:278:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/route_declarations_raw.txt:60:ai_server_19llm_CONSCIOUS.py:257:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/route_declarations_raw.txt:64:ai_server_19llm_PRODUCTION.py:106:@app.post("/chat")
-/app/services/route_declarations_raw.txt:66:ai_server_19llm_PRODUCTION_WITH_HEALTH.py:196:@app.post("/chat")
-/app/services/route_declarations_raw.txt:68:ai_server_20llm_FINAL.py:113:@app.post("/chat")
-/app/services/route_declarations_raw.txt:70:ai_server_20llm_PRODUCTION.py:176:@app.post("/chat")
-/app/services/route_declarations_raw.txt:72:ai_server_22llm.psychology_patched.py:337:@app.post("/chat")
-/app/services/route_declarations_raw.txt:74:ai_server_22llm.py:513:@app.post("/chat")
-/app/services/route_declarations_raw.txt:76:ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:113:@app.post("/chat")
-/app/services/route_declarations_raw.txt:78:ai_server_22llm_SEQUENTIAL.py:112:@app.post("/chat")
-/app/services/route_declarations_raw.txt:80:ai_server_22llm_SMALL_TO_LARGE.py:113:@app.post("/chat")
-/app/services/route_declarations_raw.txt:83:ai_server_4llm.py:249:@app.post("/chat")
-/app/services/route_declarations_raw.txt:84:ai_server_integrated.py:21:@app.post("/chat")
-/app/services/route_declarations_raw.txt:88:ai_server_original_backup.py:249:@app.post("/chat")
-/app/services/route_declarations_raw.txt:90:ai_server.py:255:@app.post("/chat")
-/app/services/route_declarations_raw.txt:93:ai_server_restored.py:382:@app.post("/chat")
-/app/services/route_declarations_raw.txt:397:chat_endpoint_universal.py:23:@app.post("/chat")
-/app/services/route_declarations_raw.txt:399:chat_server.py:11:@app.post("/chat")
-/app/services/route_declarations_raw.txt:482:fix_port_8001_clean.py:45:@app.post("/chat")
-/app/services/route_declarations_raw.txt:541:hierarchical_coordinator_autonomous.py:405:@app.post("/chat", response_model=CoordinatorResponse)
-/app/services/route_declarations_raw.txt:544:hierarchical_coordinator_deep_mode.py:167:@app.post("/chat")
-/app/services/route_declarations_raw.txt:550:hilbert_spatial_chat.py:300:@app.post("/chat")
-/app/services/route_declarations_raw.txt:883:main_with_rag.py:17:@app.post("/chat")
-/app/services/route_declarations_raw.txt:886:master_chat_orchestrator_dynamic.py:119:@app.post("/chat", response_model=ChatResponse)
-/app/services/route_declarations_raw.txt:889:master_chat_orchestrator.py:83:@app.post("/chat", response_model=ChatResponse)
-/app/services/route_declarations_raw.txt:903:master_chat_orchestrator_v5_consciousness.py:305:@app.post("/chat")
-/app/services/route_declarations_raw.txt:908:master_chat_orchestrator_v6_biologics.py:390:@app.post("/chat")
-/app/services/route_declarations_raw.txt:914:master_chat_orchestrator_v7_complete.py:531:@app.post("/chat")
-/app/services/route_declarations_raw.txt:918:master_chat_orchestrator_v7_dynamic.py:272:@app.post("/chat")
-/app/services/route_declarations_raw.txt:925:master_chat_orchestrator_v8_spiritual_complete.py:547:@app.post("/chat")
-/app/services/route_declarations_raw.txt:930:master_chat_orchestrator_v9_dgm_complete.py:204:@app.post("/chat")
-/app/services/route_declarations_raw.txt:938:master_chat_orchestrator_v9_optimized.py:273:@app.post("/chat")
-/app/services/route_declarations_raw.txt:985:ms_jarvis_authentic_multi_llm.py:39:@app.post("/chat")
-/app/services/route_declarations_raw.txt:1024:ms_jarvis_consciousness_bridge_enhanced.py:84:@app.post("/chat")
-/app/services/route_declarations_raw.txt:1029:ms_jarvis_consciousness_bridge.py:298:@app.post("/chat")
-/app/services/route_declarations_raw.txt:1030:msjarvisconsciousnessbridge.py:114:@app.post("/chat", response_model=QueryResponse)
-/app/services/route_declarations_raw.txt:1036:ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:230:@app.post("/chat", 
-/app/services/route_declarations_raw.txt:1037:ms_jarvis_consciousness_complete.py:127:@app.post("/chat", response_model=ChatResponse)
-/app/services/route_declarations_raw.txt:1039:ms_jarvis_consciousness_enhancement_production.py:54:@app.post("/chat")
-/app/services/route_declarations_raw.txt:1042:ms_jarvis_consciousness_final.py:140:@app.post("/chat", response_model=ChatResponse)
-/app/services/route_declarations_raw.txt:1047:ms_jarvis_consciousness_unified_bridge.py:93:@app.post("/chat")
-/app/services/route_declarations_raw.txt:1061:ms_jarvis_conversational_chat.py:100:@app.post("/chat")
-/app/services/route_declarations_raw.txt:1210:ms_jarvis_full_neurobio_chat.py:94:@app.post("/chat", response_model=ChatResponse)
-/app/services/route_declarations_raw.txt:1217:msjarvis_gateway_v2_final.py:58:@app.post("/chat")
-/app/services/route_declarations_raw.txt:1227:ms_jarvis_gis_enhanced_chat.py:50:@app.post("/chat", response_model=ChatResponse)
-/app/services/route_declarations_raw.txt:1246:ms_jarvis_integration_hub.py:188:@app.post("/chat")
-/app/services/route_declarations_raw.txt:1265:ms_jarvis_llm_bridge.py:133:@app.post("/chat")
-/app/services/route_declarations_raw.txt:1268:ms_jarvis_llm_bridge_simple.py:36:@app.post("/chat")
-/app/services/route_declarations_raw.txt:1277:ms_jarvis_main_gateway_8000.py:65:@app.post("/chat")
-/app/services/route_declarations_raw.txt:1548:ms_jarvis_production_chat_BACKUP.py:268:@app.post("/chat", response_model=ChatResponse)
-/app/services/route_declarations_raw.txt:1551:ms_jarvis_production_chat_BEFORE_GIS.py:268:@app.post("/chat", response_model=ChatResponse)
-/app/services/route_declarations_raw.txt:1554:ms_jarvis_production_chat.py:283:@app.post("/chat", response_model=ChatResponse)
-/app/services/route_declarations_raw.txt:1565:ms_jarvis_showcase_api.py:138:@app.post("/chat", response_model=ChatResponse, tags=["Conversation"])
-/app/services/route_declarations_raw.txt:1605:ms_jarvis_unified_gateway.py:45:@app.post("/chat", tags=["Core"], summary="Process query", description="Send query to consciousness system")
-/app/services/route_declarations_raw.txt:2009:ms_jarvis_unified_swagger_gateway_FIXED.py:600:@app.post("/chat")
-/app/services/route_declarations_raw.txt:2012:msjarvisunifiedswaggergatewayFIXED.py:113:@app.post("/chat")
-/app/services/route_declarations_raw.txt:2139:phase7_integration.py:531:@app.post("/chat")
-/app/services/route_declarations_raw.txt:2158:port_9001_proxy_simple.py:41:@app.post("/chat")
-/app/services/route_declarations_raw.txt:2259:redirect_4015_to_4020.py:22:@app.post("/chat")
-/app/services/route_declarations_raw.txt:2263:REFERENCE_windows_swarm.py:456:@app.post("/chat")
-/app/services/route_declarations_raw.txt:2283:simple_orchestrator_fix.py:29:insert_point = content.find('@app.post("/chat"')
-/app/services/route_declarations_raw.txt:2324:ultimate_web_orchestrator.py:15:@app.post("/chat")
-/app/services/route_declarations_raw.txt:2331:ultimate_web_orchestrator.py:552:@app.post("/chat")
-/app/services/route_declarations_raw.txt:2346:woah_qualia_bridge.py:19:@app.post("/chat")
-/app/services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:116:@app.post("/chat")
-/app/services/phase7_integration.py.pre_dynamic_discovery:530:@app.post("/chat")
-/app/services/ms_jarvis_unified_gateway.py.WORKING_1768842334:173:@app.post("/chat")
-/app/services/port_9001_proxy_simple.py:41:@app.post("/chat")
-/app/services/main_brain.py.bak.20260605103443:1450:@app.post("/chat", response_model=UltimateResponse)
-/app/services/llm_bridge_main.py:68:@app.post("/chat")
-/app/services/ai_server_22llm.psychology_patched.py:337:@app.post("/chat")
-/app/services/main_brain_LEGACY_32svc.py:496:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_4llm.py:249:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_bridge.py.pre_identity_integration:658:@app.post("/chat", 
-/app/services/main_brain.py.pre_aaacpe_patch:487:@app.post("/chat", response_model=UltimateResponse)
-/app/services/roche_llm.py:574:@app.post("/chat")
-/app/services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py:93:@app.post("/chat")
-/app/services/core/consciousness_gateway.py:41:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_bridge.py.original:624:@app.post("/chat", 
-/app/services/master_chat_orchestrator_v7_dynamic.py:272:@app.post("/chat")
-/app/services/master_chat_orchestrator_v7_complete.py:531:@app.post("/chat")
-/app/services/ms_jarvis_unified_gateway.py.FORCED_UNIFIED_BACKUP:173:@app.post("/chat")
-/app/services/ai_server_22llm.py.pre_judge_integration:534:@app.post("/chat")
-/app/services/ai_server_integrated.py:21:@app.post("/chat")
-/app/services/ai_server_20llm_PRODUCTION.py.pre_expert_responses:401:@app.post("/chat")
-/app/services/lm_synthesizer.py.bak.20260604T135122:75:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_bridge.py.before_theology:499:@app.post("/chat")
-/app/services/simple_orchestrator_fix.py:29:insert_point = content.find('@app.post("/chat"')
-/app/services/ms_jarvis_consciousness_bridge.py.before_rag_web:645:@app.post("/chat", 
-/app/services/ms_jarvis_consciousness_bridge.py.before_full_integration:123:@app.post("/chat")
-/app/services/INTEGRATE_CONSCIOUSNESS.sh:306:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/msjarvisunifiedswaggergatewayFIXED.py.bak_202512011953:112:@app.post("/chat")
-/app/services/ms_jarvis_production_chat.py.bak.gispath:349:@app.post("/chat", response_model=ChatResponse)
-/app/services/fix_persona.sh:202:@app.post("/chat")
-/app/services/hierarchical_coordinator_deep_mode.py:167:@app.post("/chat")
-/app/services/ai_server_22llm.py:544:@app.post("/chat")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_phase1:253:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/master_chat_orchestrator_v9_dgm_complete.py.pre_dynamic_discovery:335:@app.post("/chat")
-/app/services/main_brain.py.before_spiritual_rag:1177:@app.post("/chat")
-/app/services/chat_endpoint_universal.py:23:@app.post("/chat")
-/app/services/main_brain_container_2055.py:1332:@app.post("/chat")
-/app/services/main_brain.py.pre-synthesis-lines-fix2-20260413-161153:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_20llm_PRODUCTION.py.pre_speed_bak:425:@app.post("/chat")
-/app/services/phase7_integration.py:531:@app.post("/chat")
-/app/services/main_brain.py.pre-phase4-dedupe-20260413-154851:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/main.py:395:@app.post("/chat", response_model=UltimateResponse)
-/app/services/redirect_4015_to_4020.py:22:@app.post("/chat")
-/app/services/ai_server_11llm_OPTIMIZED.py:335:@app.post("/chat", response_model=UltimateResponse)
-/app/services/ai_server_11llm_OPTIMIZED.py:1213:@app.post("/chat")
-/app/services/ai_server_19llm_CONSCIOUS.py.before_retrieval:246:@app.post("/chat", response_model=ConsciousResponse)
-/app/services/UPDATE_COORDINATOR_FOR_DEEP_MODE.sh:175:@app.post("/chat")
-/app/services/main_brain.py.pre-phase4-fix-20260413-150714:549:@app.post("/chat", response_model=UltimateResponse)
-/app/services/BUILD_EGERIA_WEB_UI.sh:307:@app.post("/chat")
-/app/services/ms_jarvis_consciousness_final.py:140:@app.post("/chat", response_model=ChatResponse)
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ # Also check line 457 — the wv_entangled direct call in unified gateway
-docker exec jarvis-unified-gateway \
-  sed -n '450,475p' /app/services/ms_jarvis_unified_gateway.py
-        async with httpx.AsyncClient(timeout=420.0) as client:
-            _history = _load_beliefs(payload.user_id or "anonymous")
-            _augmented_message = (
-                f"[GBIM MEMORY — facts about the USER you are speaking with:\n{_history}\nEND GBIM MEMORY]\n\n{payload.message}"
-                if _history else payload.message
-            )
-            resp = await client.post(
-                "http://jarvis-wv-entangled-gateway:8010/chat_wv",
-                json={
-                    "message": _augmented_message,
-                    "user_id": payload.user_id,
-                    "context": {"conversation_history": _history},
-                    "nbb_state": {
-                        "conversation_history": _history,
-                        "gbim_ueid": "MS-FOUNDER-0001" if payload.user_id == "fc238378-14f5-FULL-UUID" else None,
-                    },
-                }
-            )
-            _resp = resp.json()
-            _save_belief(payload.user_id or "anonymous", payload.message, _resp.get("response",""))
-            return _resp
-    except httpx.TimeoutException:
-        logger.warning("Egeria timeout — falling back to standard pipeline")
-    except Exception as e:
-        logger.warning(f"Egeria error ({e}) — falling back to standard pipeline")
-    # ─────────────────────────────────────────────────────────────────
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ 
+crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # What frontend-related containers/services already exist?
+docker ps --format '{{.Names}}\t{{.Ports}}' | grep -iv "llm\|chroma\|nbb\|jarvis-[0-9]\|ollama\|redis\|postgres"
+jarvis-swarm-intelligence	8021/tcp
+jarvis-neurobiological-master	8018/tcp
+jarvis-agents-service	8005/tcp
+jarvis-unified-gateway	127.0.0.1:8001->8001/tcp
+jarvis-toroidal	127.0.0.1:8025->8025/tcp
+jarvis-woah	127.0.0.1:7012->7012/tcp
+jarvis-constitutional-guardian	127.0.0.1:8091->8091/tcp
+jarvis-fifth-dgm	127.0.0.1:4002->4002/tcp
+jarvis-i-containers	8015/tcp
+jarvis-psychology-services	127.0.0.1:8019->8019/tcp
+jarvis-lm-synthesizer	8001/tcp
+jarvis-main-brain	127.0.0.1:8050->8050/tcp
+jarvis-hilbert-state	127.0.0.1:8081->8081/tcp
+jarvis-qualia-engine	8017/tcp
+jarvis-eeg-delta	127.0.0.1:8073->8073/tcp
+jarvis-eeg-theta	127.0.0.1:8074->8074/tcp
+jarvis-autonomous-learner	8003/tcp, 127.0.0.1:8425->8425/tcp
+jarvis-rag-server	127.0.0.1:8003->8003/tcp
+jarvis-blood-brain-barrier	127.0.0.1:8016->8016/tcp
+jarvis-dgm-bridge-23	10023/tcp
+jarvis-dgm-bridge-22	10022/tcp
+jarvis-dgm-bridge-21	10021/tcp
+jarvis-dgm-bridge-19	10019/tcp
+jarvis-dgm-bridge-18	10018/tcp
+jarvis-dgm-bridge-17	10017/tcp
+jarvis-dgm-bridge-16	10016/tcp
+jarvis-dgm-bridge-13	10013/tcp
+jarvis-dgm-bridge-12	10012/tcp
+jarvis-dgm-bridge-11	10011/tcp
+jarvis-dgm-bridge-09	10009/tcp
+jarvis-dgm-bridge-08	10008/tcp
+jarvis-dgm-bridge-07	10007/tcp
+jarvis-dgm-bridge-05	10005/tcp
+jarvis-dgm-bridge-04	10004/tcp
+jarvis-dgm-bridge-03	10003/tcp
+jarvis-dgm-bridge-02	10002/tcp
+jarvis-dgm-bridge-01	10001/tcp
+jarvis-dgm-bridge-06	10006/tcp
+jarvis-dgm-bridge-10	10010/tcp
+jarvis-dgm-bridge-20	10020/tcp
+jarvis-fractal-consciousness	8002/tcp, 127.0.0.1:8027->8008/tcp
+jarvis-local-resources	127.0.0.1:8006->8006/tcp, 8035/tcp
+jarvis-judge-pipeline	127.0.0.1:7239->7239/tcp
+jarvis-hippocampus	127.0.0.1:8011->8011/tcp
+jarvis-gis-rag	127.0.0.1:8004->8004/tcp, 8044/tcp
+jarvis-wv-entangled-gateway	127.0.0.1:8010->8010/tcp
+jarvis-consciousness-bridge	127.0.0.1:8020->8018/tcp
+jarvis-brain-orchestrator	127.0.0.1:17260->7260/tcp
+jarvis-spiritual-rag	127.0.0.1:8005->8005/tcp
+jarvis-rag-router	8003/tcp, 127.0.0.1:5012->5001/tcp
+a273a1b67360_jarvis-aaacpe-rag	127.0.0.1:8032->8032/tcp
+1f9572f759ac_jarvis-auth-api	127.0.0.1:8096->8091/tcp
+36ed251382b5_ipfs	4001/tcp, 8080-8081/tcp, 4001/udp, 127.0.0.1:5002->5001/tcp
+jarvis-contracts	
+jarvis-phi-probe	127.0.0.1:8026->8025/tcp
+jarvis-web-research	8008/tcp
+jarvis-dgm-bridge-14	10014/tcp
+jarvis-dgm-bridge-15	10015/tcp
+jarvis-eeg-beta	127.0.0.1:8075->8075/tcp
+jarvis-local-resources-db	127.0.0.1:5435->5432/tcp
+jarvis-judge-ethics	127.0.0.1:7233->7233/tcp
+jarvis-judge-truth	127.0.0.1:7230->7230/tcp
+jarvis-judge-consistency	127.0.0.1:7231->7231/tcp
+mysql	33060/tcp, 127.0.0.1:3307->3306/tcp
+jarvis-judge-alignment	127.0.0.1:7232->7232/tcp
+neo4j	7473/tcp, 127.0.0.1:7687->7687/tcp, 127.0.0.1:7475->7474/tcp
+jarvis-mother-protocols	4000/tcp
+jarvis-semaphore	127.0.0.1:8030->8030/tcp
+psychological_rag_domain	9006/tcp, 127.0.0.1:9006->8006/tcp
+jarvis-temporal-consciousness	7007/tcp
+jarvis-session-sidecar	127.0.0.1:8060->8060/tcp, 8070/tcp
+jarvis-gbim-temporal-indexer	127.0.0.1:7211->8000/tcp
+jarvis-jaeger	4317-4318/tcp, 5775/udp, 5778/tcp, 9411/tcp, 14250/tcp, 14268/tcp, 6831-6832/udp, 127.0.0.1:16686->16686/tcp
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # What does the Caddy config currently route?
+docker exec $(docker ps -qf name=caddy) cat /etc/caddy/Caddyfile 2>/dev/null || \
+  find /opt/msjarvis-rebuild -name "Caddyfile" -o -name "caddy.conf" 2>/dev/null | xargs cat
+{
+	https_port 8443
+	auto_https off
+}
+
+:80, :8443 {
+	header {
+		Access-Control-Allow-Origin "*"
+		Access-Control-Allow-Methods "GET, POST, OPTIONS, DELETE, PUT"
+		Access-Control-Allow-Headers "Authorization, Content-Type, X-API-Key"
+		Access-Control-Max-Age "3600"
+	}
+
+	@chat_rate path /chat* /chat_wv*
+	rate_limit @chat_rate {
+		zone chat_zone {
+			key {remote_host}
+			events 60
+			window 1m
+		}
+	}
+
+	encode gzip
+
+	log {
+		output file /home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/logs/caddy_access.log
+		format json
+	}
+}
+
+dashboard.mountainshares.us {
+	reverse_proxy 127.0.0.1:3000
+}
+
+egeria.mountainshares.us:80, egeria.mountainshares.us:8443 {
+
+	@hastoken {
+		header Authorization *
+	}
+	@notoken {
+		not header Authorization *
+	}
+
+	# ── Portal API routes → 8095 ─────────────────────────────────────
+	handle /auth/portal/me* {
+		reverse_proxy 127.0.0.1:8095 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+			header_up X-Session-Token {http.request.header.X-Session-Token}
+		}
+	}
+
+		route /portal* {
+		handle @notoken {
+			respond `{"detail":"Not authenticated"}` 401
+		}
+		reverse_proxy 127.0.0.1:3001 {
+			header_up Authorization {http.request.header.Authorization}
+		}
+	}
+
+	route /admin* {
+		handle @notoken {
+			respond `{"detail":"Not authenticated"}` 401
+		}
+		reverse_proxy 127.0.0.1:3001 {
+			header_up Authorization {http.request.header.Authorization}
+		}
+	}
+
+	route /systems* {
+		handle @notoken {
+			respond `{"detail":"Not authenticated"}` 401
+		}
+		reverse_proxy 127.0.0.1:8010 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+	route /bbb-audit* {
+		handle @notoken {
+			respond `{"detail":"Not authenticated"}` 401
+		}
+		reverse_proxy 127.0.0.1:8010 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+	route /constitutional* {
+		handle @notoken {
+			respond `{"detail":"Not authenticated"}` 401
+		}
+		reverse_proxy 127.0.0.1:8010 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+
+	# Primary async chat endpoint → jarvis-main-brain
+	handle /api/chat/async {
+		handle @notoken {
+			respond `{"detail":"Not authenticated"}` 401
+		}
+		rewrite * /chat/async
+		reverse_proxy 127.0.0.1:8050 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-Api-Key {env.JARVIS_API_KEY}
+			transport http {
+				read_buffer 16384
+				response_header_timeout 300s
+				dial_timeout 10s
+			}
+		}
+	}
+
+	handle /api/chat/status/* {
+		handle @notoken {
+			respond `{"detail":"Not authenticated"}` 401
+		}
+		rewrite * /chat/status/{path.3}
+		reverse_proxy 127.0.0.1:8050 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-Api-Key {env.JARVIS_API_KEY}
+		}
+	}
+
+	# /chat is not a real 8018 endpoint
+	handle /chat {
+		respond `{"detail":"Not found"}` 404
+	}
+
+	# Primary AI chat endpoint
+	handle /chat_wv* {
+		handle @notoken {
+			respond `{"detail":"Not authenticated"}` 401
+		}
+		reverse_proxy 127.0.0.1:8010 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-Api-Key {env.JARVIS_API_KEY}
+			transport http {
+				read_buffer 16384
+				response_header_timeout 300s
+				dial_timeout 10s
+			}
+		}
+	}
+
+
+	handle /auth/apply* {
+		reverse_proxy 127.0.0.1:8095 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+	handle /auth/approve* {
+		reverse_proxy 127.0.0.1:8095 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+	handle /auth/deny* {
+		reverse_proxy 127.0.0.1:8095 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+	handle /auth/portal* {
+		reverse_proxy 127.0.0.1:8095 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+	handle /auth/applications* {
+		reverse_proxy 127.0.0.1:8095 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+	handle /auth/first-login* {
+		reverse_proxy 127.0.0.1:8095 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+	handle /auth/register* {
+		reverse_proxy 127.0.0.1:8095 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+	handle /auth/login* {
+		reverse_proxy 127.0.0.1:8095 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+	handle /auth/logout* {
+		reverse_proxy 127.0.0.1:8095 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+	handle /auth/me* {
+		reverse_proxy 127.0.0.1:8095 {
+			header_up Authorization {http.request.header.Authorization}
+			header_up X-API-Key {http.request.header.X-API-Key}
+		}
+	}
+
+	handle /auth* {
+		reverse_proxy 127.0.0.1:8092 {
+			header_up Authorization {http.request.header.Authorization}
+		}
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:3001
+	}
+
+	encode gzip
+
+	log {
+		output file /var/log/caddy/caddy_allis.log
+		format json
+	}
+}
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # Is there a frontend service defined in docker-compose already?
+grep -A 10 -i "frontend\|ui\|web\|react\|next\|static" \
+  /opt/msjarvis-rebuild/docker-compose.yml
+    build:
+      context: ./contracts
+      dockerfile: Dockerfile
+    container_name: jarvis-contracts
+    working_dir: /workspace
+    volumes:
+      - ./contracts:/workspace
+      - ./secrets/contracts.env:/workspace/.env:ro
+    environment:
+      - NODE_ENV=development
+    command: ["sleep", "infinity"]
+--
+    build:
+      context: .
+      dockerfile: Dockerfile.gateway
+    container_name: jarvis-unified-gateway
+    working_dir: /app/services
+    command:
+      - python3
+      - ms_jarvis_unified_gateway.py
+    ports:
+      - 127.0.0.1:8001:8001
+    environment:
+--
+      - nbb_pituitary_gland
+      - nbb_spiritual_maternal_integration
+      - nbb_subconscious
+      - jarvis-fifth-dgm
+      - jarvis-toroidal
+      - jarvis-psychology-services
+      - psychological_rag_domain
+      - jarvis-constitutional-guardian
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: .
+      dockerfile: Dockerfile.brain
+    container_name: jarvis-20llm-production
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    working_dir: /app/services
+    command:
+      - python3
+      - ai_server_20llm_PRODUCTION.py
+    expose:
+--
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jarvis-wv-entangled-gateway
+    working_dir: /app/services
+    command:
+      - python
+      - -m
+      - uvicorn
+      - msjarvis_wv_entangled_gateway:app
+      - --host
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm1-proxy
+    container_name: llm1-proxy
+    expose:
+      - "8201"
+    ports:
+      - 127.0.0.1:8201:8201
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm2-proxy
+    container_name: llm2-proxy
+    expose:
+      - "8202"
+    ports:
+      - 127.0.0.1:8202:8202
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm3-proxy
+    container_name: llm3-proxy
+    expose:
+      - "8203"
+    ports:
+      - 127.0.0.1:8203:8203
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm4-proxy
+    container_name: llm4-proxy
+    expose:
+      - "8204"
+    ports:
+      - 127.0.0.1:8204:8204
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm5-proxy
+    container_name: llm5-proxy
+    expose:
+      - "8205"
+    ports:
+      - 127.0.0.1:8205:8205
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm6-proxy
+    container_name: llm6-proxy
+    expose:
+      - "8206"
+    ports:
+      - 127.0.0.1:8206:8206
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm7-proxy
+    container_name: llm7-proxy
+    expose:
+      - "8207"
+    ports:
+      - 127.0.0.1:8207:8207
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm8-proxy
+    container_name: llm8-proxy
+    expose:
+      - "8208"
+    ports:
+      - 127.0.0.1:8208:8208
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm9-proxy
+    container_name: llm9-proxy
+    expose:
+      - "8209"
+    ports:
+      - 127.0.0.1:8209:8209
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm10-proxy
+    container_name: llm10-proxy
+    expose:
+      - "8210"
+    ports:
+      - 127.0.0.1:8210:8210
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm11-proxy
+    container_name: llm11-proxy
+    expose:
+      - "8211"
+    ports:
+      - 127.0.0.1:8211:8211
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm12-proxy
+    container_name: llm12-proxy
+    expose:
+      - "8212"
+    ports:
+      - 127.0.0.1:8212:8212
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm13-proxy
+    container_name: llm13-proxy
+    expose:
+      - "8213"
+    ports:
+      - 127.0.0.1:8213:8213
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm14-proxy
+    container_name: llm14-proxy
+    expose:
+      - "8214"
+    ports:
+      - 127.0.0.1:8214:8214
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm15-proxy
+    container_name: llm15-proxy
+    expose:
+      - "8215"
+    ports:
+      - 127.0.0.1:8215:8215
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm16-proxy
+    container_name: llm16-proxy
+    expose:
+      - "8216"
+    ports:
+      - 127.0.0.1:8216:8216
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm17-proxy
+    container_name: llm17-proxy
+    expose:
+      - "8217"
+    ports:
+      - 127.0.0.1:8217:8217
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm18-proxy
+    container_name: llm18-proxy
+    expose:
+      - "8218"
+    ports:
+      - 127.0.0.1:8218:8218
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm19-proxy
+    container_name: llm19-proxy
+    expose:
+      - "8219"
+    ports:
+      - 127.0.0.1:8219:8219
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm20-proxy
+    container_name: llm20-proxy
+    expose:
+      - "8220"
+    ports:
+      - 127.0.0.1:8220:8220
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm21-proxy
+    container_name: llm21-proxy
+    expose:
+      - "8221"
+    ports:
+      - 127.0.0.1:8221:8221
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile-llm22-proxy
+    container_name: llm22-proxy
+    expose:
+      - "8222"
+    ports:
+      - 127.0.0.1:8222:8222
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.lm_synthesizer
+    container_name: jarvis-lm-synthesizer
+    command:
+      - python
+      - lm_synthesizer.py
+    expose:
+      - "8001"
+    environment:
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.hippocampus
+    container_name: jarvis-hippocampus
+    working_dir: /app
+    command:
+      - uvicorn
+      - hippocampus_service:app
+      - --host
+      - 0.0.0.0
+      - --port
+--
+    build:
+      context: .
+      dockerfile: Dockerfile.brain
+    container_name: jarvis-brain-orchestrator
+    working_dir: /app/services
+    environment:
+      - SERVICE_PORT=7260
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - CLOCK_TS=1767812077
+      - HF_HUB_OFFLINE=1
+    command:
+--
+    build:
+      context: .
+      dockerfile: Dockerfile.agents
+    container_name: jarvis-agents-service
+    working_dir: /app/services
+    command:
+      - python3
+      - ms_jarvis_agents_service.py
+    expose:
+      - "8005"
+    environment:
+--
+  jarvis-web-research:
+    build:
+      context: ./services
+      dockerfile: Dockerfile.web_research
+    container_name: jarvis-web-research
+    expose:
+      - "8008"
+    environment:
+      - SERVICE_PORT=8008
+      - RAG_SERVER_URL=http://jarvis-rag-server:8003
+      - CLOCK_TS=1767812077
+      - HF_HUB_OFFLINE=1
+    command:
+      - python
+      - /app/services/ms_jarvis_web_research_simple.py
+    volumes:
+      - ./services/ms_jarvis_web_research_simple.py:/app/services/ms_jarvis_web_research_simple.py:ro
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+  jarvis-swarm-intelligence:
+    build:
+      context: .
+      dockerfile: Dockerfile.swarm
+    container_name: jarvis-swarm-intelligence
+    working_dir: /app/services
+    command:
+      - python3
+      - ms_jarvis_swarm_intelligence.py
+    expose:
+      - "8021"
+    environment:
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.fifth_dgm_real
+    container_name: jarvis-fifth-dgm
+    expose:
+      - "4002"
+    ports:
+      - 127.0.0.1:4002:4002
+    environment:
+      - FIFTH_DGM_PORT=4002
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.mother_protocols
+    container_name: jarvis-mother-protocols
+    expose:
+      - "4000"
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    environment:
+      CLOCK_TS: 1767812077
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.temporal_consciousness
+    container_name: jarvis-temporal-consciousness
+    expose:
+      - "7007"
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    environment:
+      CLOCK_TS: 1767812077
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.69dgm_bridge
+    container_name: jarvis-69dgm-bridge
+    expose:
+      - "9000"
+    ports:
+      - "127.0.0.1:9000:9000"
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.bbb
+    container_name: jarvis-blood-brain-barrier
+    working_dir: /app/services
+    command:
+      - python3
+      - ms_jarvis_blood_brain_barrier.py
+    environment:
+      - CLOCK_TS=1767812077
+      - HF_HUB_OFFLINE=1
+--
+    build:
+      context: .
+      dockerfile: Dockerfile.woah
+    container_name: jarvis-woah
+    expose:
+      - "7012"
+    ports:
+      - 127.0.0.1:7012:7012
+    environment:
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - SERVICE_PORT=7012
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.consciousness_bridge
+    container_name: jarvis-consciousness-bridge
+    command: python3 /app/services/ms_jarvis_consciousness_bridge.py
+    ports:
+      - "127.0.0.1:8020:8018"
+    environment:
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - WOAH_URL=http://jarvis-woah:7012
+      - CLOCK_TS=1767812077
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.qualia
+    container_name: jarvis-qualia-engine
+    expose:
+      - "8017"
+    environment:
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - CLOCK_TS=1767812077
+      - HF_HUB_OFFLINE=1
+    volumes:
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.icontainers_fastapi
+    container_name: jarvis-i-containers
+    expose:
+      - "8015"
+    environment:
+      - NBB_ICONTAINERS_URL=http://nbb-i-containers:7005
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.semaphore
+    container_name: jarvis-semaphore
+    expose:
+      - "8030"
+    ports:
+      - 127.0.0.1:8030:8030
+    networks:
+      - qualia-net
+    restart: unless-stopped
+--
+    build:
+      context: .
+      dockerfile: Dockerfile.neuro
+    container_name: jarvis-neurobiological-master
+    command:
+      - uvicorn
+      - services.ms_jarvis_neurobiological_master:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8018" 
+--
+    build:
+      context: ./services
+    container_name: jarvis-fractal-consciousness
+    ports:
+      - "127.0.0.1:8027:8008"
+    environment:
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - CLOCK_TS=1767812077
+      - HF_HUB_OFFLINE=1
+    volumes:
+      - ./services/msjarvis_fractal_consciousness.py:/app/msjarvis_fractal_consciousness.py:ro
+--
+    image: msjarvis-rebuild-jarvis-rag-server:latest
+    container_name: jarvis-autonomous-learner
+    command:
+      - /bin/sh
+      - -c
+      - cd /app/services && python3 -m uvicorn ms_jarvis_autonomous_learner:app --host 0.0.0.0 --port 8425
+    ports:
+      - "127.0.0.1:8425:8425"
+    expose:
+      - "8425"
+    environment:
+--
+    build:
+      context: .
+      dockerfile: Dockerfile.nbb_icontainers_fastapi
+    container_name: nbb-i-containers
+    expose:
+      - "7005"
+    ports:
+      - 127.0.0.1:8101:7005
+    networks:
+       qualia-net:
+         aliases:
+--
+    build: ./neurobiological_brain/consciousness_containers/service
+    ports:
+      - 127.0.0.1:8102:8010
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    volumes:
+      - ./services/neurobiological_brain/i_containers/i_container_1/memory_self.py:/app/services/neurobiological_brain/i_containers/i_container_1/memory_self.py:ro
+    environment:
+      CLOCK_TS: 1767812077
+      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
+--
+    build: ./neurobiological_brain/spiritual_root/service
+    ports:
+      - 127.0.0.1:8103:8010
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    environment:
+      SERVICE_PORT: "8010"
+      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
+      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
+      CLOCK_TS: 1767812077
+--
+    build: ./neurobiological_brain/woah_algorithms/service
+    ports:
+      - 127.0.0.1:8104:8010
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    environment:
+      CLOCK_TS: 1767812077
+      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
+      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
+  nbb_prefrontal_cortex:
+    build: ./neurobiological_brain/prefrontal_cortex/service
+    ports:
+      - 127.0.0.1:8105:7005
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    environment:
+      CLOCK_TS: 1767812077
+      SERVICE_REDIS_HOST: jarvis-redis
+      SERVICE_REDIS_PORT: 6379
+      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
+--
+    build: ./neurobiological_brain/heteroglobulin_transport/service
+    ports:
+      - 127.0.0.1:8106:8010
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    environment:
+      CLOCK_TS: 1767812077
+      SERVICE_REDIS_HOST: jarvis-redis
+      SERVICE_REDIS_PORT: 6379
+      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
+--
+    build: ./neurobiological_brain/mother_carrie_protocols/service
+    ports:
+      - 127.0.0.1:8107:8010
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    environment:
+      SERVICE_PORT: "8010"
+      CLOCK_TS: 1767812077
+      SERVICE_REDIS_HOST: jarvis-redis
+      SERVICE_REDIS_PORT: 6379
+--
+  nbb_pituitary_gland:
+    build: ./neurobiological_brain/pituitary_gland/service
+    ports:
+      - 127.0.0.1:8108:80
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    environment:
+      CLOCK_TS: 1767812077
+      WEB_CONCURRENCY: "1"
+      MAX_WORKERS: "1"
+      REDIS_URL: "redis://jarvis-redis:6379/0"
+      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
+      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
+      APP_MODULE: "pituitary_gland:app"
+  nbb_spiritual_maternal_integration:
+    build: ./neurobiological_brain/spiritual_maternal_integration/service
+    ports:
+      - 127.0.0.1:8109:8010
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    environment:
+      SERVICE_PORT: "8010"
+      CLOCK_TS: 1767812077
+      SERVICE_REDIS_HOST: jarvis-redis
+      SERVICE_REDIS_PORT: 6379
+--
+    build: ./neurobiological_brain/darwin_godel_machines/service
+    ports:
+      - 127.0.0.1:8302:8010
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    volumes:
+      - /opt/msjarvis-rebuild/services:/opt/msjarvis-rebuild/services
+      - ./neurobiological_brain/darwin_godel_machines/service/dgm_governance_view.json:/app/dgm_governance_view.json:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      CLOCK_TS: 1767812077
+  nbb_blood_brain_barrier:
+    build: ./neurobiological_brain/blood_brain_barrier/service
+    ports:
+      - 127.0.0.1:8301:8010
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    environment:
+      CLOCK_TS: 1767812077
+  nbb_subconscious:
+    build: ./neurobiological_brain/subconscious/service
+    ports:
+      - 127.0.0.1:8112:8010
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    environment:
+      CLOCK_TS: 1767812077
+      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
+      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
+  nbb_qualia_engine:
+    build: ./neurobiological_brain/qualia_engine/service
+    ports:
+      - 127.0.0.1:8303:8010
+    networks:
+      - qualia-net
+    restart: unless-stopped
+    environment:
+      CLOCK_TS: 1767812077
+      JARVIS_API_KEY: 250d77bc696f043ffe1ffc69a49d1ec3899b9a6bd37263bc11daa9a2bd4e7735
+      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
+  neo4j:
+--
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: jarvis-main-brain:latest
+    container_name: jarvis-main-brain
+    working_dir: /app/services
+    command:
+      - python
+      - -m
+      - uvicorn
+      - main_brain:app
+--
+    build:
+      context: .
+      dockerfile: Dockerfile.local_resources
+    container_name: jarvis-local-resources
+    working_dir: /app/services
+    expose:
+      - "8035"
+    ports:
+      - 127.0.0.1:8006:8006
+    environment:
+      - PYTHONPATH=/app/services
+--
+      - msjarvis-rebuild_jarvis-local-resources-db-data:/var/lib/postgresql/data
+    networks:
+      - qualia-net
+    restart: unless-stopped
+  jarvis-gis-rag:
+    build:
+      context: .
+      dockerfile: Dockerfile.gis_rag
+    container_name: jarvis-gis-rag
+    environment:
+      - CHROMA_HOST=172.18.0.2
+      - CHROMA_PORT=8000
+      - GIS_RAG_CHROMA_URL=http://jarvis-chroma:8000
+      - GIS_RAG_COLLECTION=geospatial_features
+      - GIS_EMBED_MODEL=all-minilm
+      - CLOCK_TS=1767812077
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.toroidal
+    image: msjarvis-toroidal:latest
+    container_name: jarvis-toroidal
+    ports:
+      - 127.0.0.1:8025:8025
+    environment:
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
+      - CLOCK_TS=1767812077
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.psychological_rag
+    container_name: psychological_rag_domain
+    working_dir: /app
+    command: ["python", "psychological_rag_domain.py"]
+    expose:
+      - "8006"
+    ports:
+      - 127.0.0.1:9006:8006
+    networks:
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.psychology_services
+    container_name: jarvis-psychology-services
+    working_dir: /app
+    command: ["uvicorn", "psychology_server:app", "--host", "0.0.0.0", "--port", "8019"]
+    expose:
+      - "8019"
+    ports:
+      - 127.0.0.1:8019:8019
+    environment:
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.constitutional_guardian
+    container_name: jarvis-constitutional-guardian
+    working_dir: /app
+    expose:
+      - "8091"
+    ports:
+      - 127.0.0.1:8091:8091
+    environment:
+      - SERVICE_PORT=8091
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.judge
+    container_name: jarvis-judge-truth
+    ports:
+      - "127.0.0.1:7230:7230"
+    volumes:
+      - /opt/msjarvis-rebuild/judge-keys/judge_sk.bin:/app/judge_sk.bin:ro
+      - /opt/msjarvis-rebuild/judge-keys/judge_pk.bin:/app/judge_pk.bin:ro
+    command:
+      - python
+      - judge_truth_filter.py
+    expose:
+      - "7230"
+    environment:
+      - SERVICE_NAME=judge_truth_filter
+      - SERVICE_PORT=7230
+      - CLOCK_TS=1767812077
+      - HF_HUB_OFFLINE=1
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.judge
+    container_name: jarvis-judge-consistency
+    ports:
+      - "127.0.0.1:7231:7231"
+    volumes:
+      - /opt/msjarvis-rebuild/judge-keys/judge_sk.bin:/app/judge_sk.bin:ro
+      - /opt/msjarvis-rebuild/judge-keys/judge_pk.bin:/app/judge_pk.bin:ro
+    command:
+      - python
+      - judge_consistency_engine.py
+    expose:
+      - "7231"
+    environment:
+      - SERVICE_NAME=judge_consistency_engine
+      - SERVICE_PORT=7231
+      - CLOCK_TS=1767812077
+      - HF_HUB_OFFLINE=1
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.judge
+    container_name: jarvis-judge-alignment
+    ports:
+      - "127.0.0.1:7232:7232"
+    volumes:
+      - /opt/msjarvis-rebuild/judge-keys/judge_sk.bin:/app/judge_sk.bin:ro
+      - /opt/msjarvis-rebuild/judge-keys/judge_pk.bin:/app/judge_pk.bin:ro
+    command:
+      - python
+      - judge_alignment_filter.py
+    expose:
+      - "7232"
+    environment:
+      - SERVICE_NAME=judge_alignment_filter
+      - SERVICE_PORT=7232
+      - CLOCK_TS=1767812077
+      - HF_HUB_OFFLINE=1
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.judge
+    container_name: jarvis-judge-ethics
+    ports:
+      - "127.0.0.1:7233:7233"
+    volumes:
+      - /opt/msjarvis-rebuild/judge-keys/judge_sk.bin:/app/judge_sk.bin:ro
+      - /opt/msjarvis-rebuild/judge-keys/judge_pk.bin:/app/judge_pk.bin:ro
+    command:
+      - python
+      - judge_ethics_filter.py
+    expose:
+      - "7233"
+    environment:
+      - SERVICE_NAME=judge_ethics_filter
+      - SERVICE_PORT=7233
+      - CLOCK_TS=1767812077
+      - HF_HUB_OFFLINE=1
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.judge
+    container_name: jarvis-judge-pipeline
+    ports:
+      - "127.0.0.1:7239:7239"
+    volumes:
+      - /opt/msjarvis-rebuild/judge-keys/judge_sk.bin:/app/judge_sk.bin:ro
+      - /opt/msjarvis-rebuild/judge-keys/judge_pk.bin:/app/judge_pk.bin:ro
+    command:
+      - python
+      - judge_pipeline.py
+    expose:
+      - "7239"
+    environment:
+      - SERVICE_NAME=judge_pipeline
+      - SERVICE_PORT=7239
+      - JUDGE_TRUTH_URL=http://jarvis-judge-truth:7230
+      - JUDGE_CONSISTENCY_URL=http://jarvis-judge-consistency:7231
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.aaacpe_rag
+    container_name: jarvis-aaacpe-rag
+    expose:
+      - "8032"
+    ports:
+      - 127.0.0.1:8032:8032
+    environment:
+      - SERVICE_PORT=8032
+      - CHROMA_HOST=172.18.0.2
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.rag_server
+    container_name: jarvis-rag-server
+    ports:
+      - "127.0.0.1:8003:8003"
+    expose:
+      - "8003"
+    environment:
+      - SERVICE_PORT=8003
+      - CHROMA_HOST=172.18.0.2
+--
+      - /home/cakidd/msjarvis-rebuild/data/mountainshares:/app/mountainshares_docs:ro
+      - /home/cakidd/msjarvis-rebuild/services/backup_chroma_mountainshares_knowledge.json:/app/backup_mountainshares.json:ro
+      - /opt/msjarvis-rebuild/services:/app/services
+    networks:
+      - qualia-net
+    restart: unless-stopped
+  jarvis-spiritual-rag:
+    build:
+      context: ./services
+      dockerfile: Dockerfile.spiritual_rag
+    container_name: jarvis-spiritual-rag
+    expose:
+      - "8005"
+    ports:
+      - 127.0.0.1:8005:8005
+    environment:
+      - SERVICE_PORT=8005
+      - CHROMA_HOST=172.18.0.2
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.eeg
+    command: uvicorn jarvis_eeg_delta_30s:app --host 0.0.0.0 --port 8073
+    container_name: jarvis-eeg-delta
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8073:8073/tcp"
+    networks:
+      - qualia-net
+    environment:
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.eeg
+    command: uvicorn jarvis_eeg_theta_60s:app --host 0.0.0.0 --port 8074
+    container_name: jarvis-eeg-theta
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8074:8074/tcp"
+    networks:
+      - qualia-net
+    environment:
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.eeg
+    command: uvicorn jarvis_eeg_beta_5m:app --host 0.0.0.0 --port 8075
+    container_name: jarvis-eeg-beta
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8075:8075/tcp"
+    networks:
+      - qualia-net
+    environment:
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-01
+    command: python3 bridge_cross_dgm_10001.py
+    expose: ["10001"]
+    environment:
+      - SERVICE_PORT=10001
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-judge-pipeline:7239
+      - DOWNSTREAM_URL=http://jarvis-neurobiological-master:8018
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-02
+    command: python3 bridge_cross_dgm_10002.py
+    expose: ["10002"]
+    environment:
+      - SERVICE_PORT=10002
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-qualia-engine:8017
+      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-03
+    command: python3 bridge_cross_dgm_10003.py
+    expose: ["10003"]
+    environment:
+      - SERVICE_PORT=10003
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+      - DOWNSTREAM_URL=http://jarvis-swarm-intelligence:8021
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-04
+    command: python3 bridge_cross_dgm_10004.py
+    expose: ["10004"]
+    environment:
+      - SERVICE_PORT=10004
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-swarm-intelligence:8021
+      - DOWNSTREAM_URL=http://jarvis-fractal-consciousness:8027
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-05
+    command: python3 bridge_cross_dgm_10005.py
+    expose: ["10005"]
+    environment:
+      - SERVICE_PORT=10005
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-fractal-consciousness:8027
+      - DOWNSTREAM_URL=http://jarvis-blood-brain-barrier:8016
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-06
+    command: python3 bridge_cross_dgm_10006.py
+    expose: ["10006"]
+    environment:
+      - SERVICE_PORT=10006
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-blood-brain-barrier:8016
+      - DOWNSTREAM_URL=http://jarvis-constitutional-guardian:8091
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-07
+    command: python3 bridge_cross_dgm_10007.py
+    expose: ["10007"]
+    environment:
+      - SERVICE_PORT=10007
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-constitutional-guardian:8091
+      - DOWNSTREAM_URL=http://jarvis-judge-pipeline:7239
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-08
+    command: python3 bridge_cross_dgm_10008.py
+    expose: ["10008"]
+    environment:
+      - SERVICE_PORT=10008
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-neurobiological-master:8018
+      - DOWNSTREAM_URL=http://jarvis-qualia-engine:8017
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-09
+    command: python3 bridge_cross_dgm_10009.py
+    expose: ["10009"]
+    environment:
+      - SERVICE_PORT=10009
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-eeg-beta:8030
+      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-10
+    command: python3 bridge_cross_dgm_10010.py
+    expose: ["10010"]
+    environment:
+      - SERVICE_PORT=10010
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-temporal-consciousness:8029
+      - DOWNSTREAM_URL=http://jarvis-fractal-consciousness:8027
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-11
+    command: python3 bridge_cross_dgm_10011.py
+    expose: ["10011"]
+    environment:
+      - SERVICE_PORT=10011
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-woah:8025
+      - DOWNSTREAM_URL=http://jarvis-swarm-intelligence:8021
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-12
+    command: python3 bridge_cross_dgm_10012.py
+    expose: ["10012"]
+    environment:
+      - SERVICE_PORT=10012
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-mother-protocols:8090
+      - DOWNSTREAM_URL=http://jarvis-constitutional-guardian:8091
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-13
+    command: python3 bridge_cross_dgm_10013.py
+    expose: ["10013"]
+    environment:
+      - SERVICE_PORT=10013
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-toroidal:8026
+      - DOWNSTREAM_URL=http://jarvis-consciousness-bridge:8018
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-14
+    command: python3 bridge_cross_dgm_10014.py
+    expose: ["10014"]
+    environment:
+      - SERVICE_PORT=10014
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-hippocampus:8023
+      - DOWNSTREAM_URL=http://jarvis-qualia-engine:8017
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-15
+    command: python3 bridge_cross_dgm_10015.py
+    expose: ["10015"]
+    environment:
+      - SERVICE_PORT=10015
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-semaphore:8022
+      - DOWNSTREAM_URL=http://jarvis-blood-brain-barrier:8016
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-16
+    command: python3 bridge_cross_dgm_10016.py
+    expose: ["10016"]
+    environment:
+      - SERVICE_PORT=10016
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-fifth-dgm:4002
+      - DOWNSTREAM_URL=http://jarvis-judge-pipeline:7239
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-17
+    command: python3 bridge_cross_dgm_10017.py
+    expose: ["10017"]
+    environment:
+      - SERVICE_PORT=10017
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-swarm-intelligence:8021
+      - DOWNSTREAM_URL=http://jarvis-constitutional-guardian:8091
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-18
+    command: python3 bridge_cross_dgm_10018.py
+    expose: ["10018"]
+    environment:
+      - SERVICE_PORT=10018
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-fractal-consciousness:8027
+      - DOWNSTREAM_URL=http://jarvis-qualia-engine:8017
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-19
+    command: python3 bridge_cross_dgm_10019.py
+    expose: ["10019"]
+    environment:
+      - SERVICE_PORT=10019
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-judge-pipeline:7239
+      - DOWNSTREAM_URL=http://jarvis-swarm-intelligence:8021
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-20
+    command: python3 bridge_cross_dgm_10020.py
+    expose: ["10020"]
+    environment:
+      - SERVICE_PORT=10020
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-consciousness-bridge:8018
+      - DOWNSTREAM_URL=http://jarvis-fractal-consciousness:8027
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-21
+    command: python3 bridge_cross_dgm_10021.py
+    expose: ["10021"]
+    environment:
+      - SERVICE_PORT=10021
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-constitutional-guardian:8091
+      - DOWNSTREAM_URL=http://jarvis-swarm-intelligence:8021
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-22
+    command: python3 bridge_cross_dgm_10022.py
+    expose: ["10022"]
+    environment:
+      - SERVICE_PORT=10022
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-blood-brain-barrier:8016
+      - DOWNSTREAM_URL=http://jarvis-fractal-consciousness:8027
+--
+    build: { context: ./services, dockerfile: Dockerfile.bridge }
+    container_name: jarvis-dgm-bridge-23
+    command: python3 bridge_cross_dgm_10023.py
+    expose: ["10023"]
+    environment:
+      - SERVICE_PORT=10023
+      - OLLAMA_HOST=http://jarvis-ollama:11434
+      - FRACTAL_URL=http://jarvis-fractal-consciousness:8027
+      - SWARM_URL=http://jarvis-swarm-intelligence:8021
+      - UPSTREAM_URL=http://jarvis-qualia-engine:8017
+      - DOWNSTREAM_URL=http://jarvis-swarm-intelligence:8021
+--
+    build:
+      context: .
+      dockerfile: Dockerfile.auth_api
+    container_name: jarvis-auth-api
+    ports:
+      - "127.0.0.1:8096:8091"
+    expose:
+      - "8091"
+    environment:
+      - SERVICE_PORT=8091
+      - REDIS_URL=redis://jarvis-redis:6379
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.phiprobe
+    container_name: jarvis-phi-probe
+    ports:
+      - "127.0.0.1:8026:8025"
+    networks:
+      - qualia-net
+    volumes:
+      - ./services/ms_jarvis_phi_probe.py:/app/ms_jarvis_phi_probe.py:ro
+    environment:
+--
+    build:
+      context: ./services
+      dockerfile: Dockerfile.rag_server
+    container_name: jarvis-rag-router
+    command: ["uvicorn", "rag_query_router:app", "--host", "0.0.0.0", "--port", "5001"]
+    environment:
+      - SERVICE_PORT=5001
+      - CHROMA_HOST=172.18.0.2
+      - CHROMA_PORT=8000
+    ports:
+      - "127.0.0.1:5012:5001"
+--
+  msjarvis-rebuild_jarvis-local-resources-db-data:
+    external: true
+  hf-model-cache:
+    driver: local
+secrets:
+  jarvisapikey:
+    file: .secrets/jarvisapikey.txt
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
 
