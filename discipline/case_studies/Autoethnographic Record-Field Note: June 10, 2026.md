@@ -37,7 +37,6 @@ This positionality is not a bias to be controlled for. It is the primary evident
 | Entangled Space paper (final draft) | Core theoretical framework document | SHA: 47c941c2f02bdff57d7429b518c0e57516cdf73c |
 | Federal regulations cited | HUD/IRC RV classification standards cited in public post | ~8:00–9:00 PM EDT, June 10, 2026 |
 | Facebook boundary event | Post by former organizational collaborator deleted from researcher's public wall; original block appears to have been circumvented via new/alternate account | ~9:00 PM EDT, June 10, 2026 |
-| Town Council meeting | Scheduled civic event requiring public comment preparation | June 11, 2026 |
 
 ---
 
