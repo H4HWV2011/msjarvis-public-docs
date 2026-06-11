@@ -86,5 +86,3 @@ Felt the pull to perform expertise for a local audience that might perceive thor
 ---
 
 *Authored by Carrie Ann Kidd — Mount Hope, West Virginia.*  
-*For inclusion in: discipline/case_studies/, H4HWV2011/msjarvis-public-docs*  
-*The ZIP code of H_App is 25880.*
