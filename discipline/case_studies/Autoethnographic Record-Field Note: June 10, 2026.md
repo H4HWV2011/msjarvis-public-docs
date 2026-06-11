@@ -17,7 +17,7 @@ Public comment research and civic intervention regarding RV/tiny home zoning cla
 ## Researcher Position
 
 - Returning researcher: left Mount Hope, developed external theoretical and technical frameworks (Quantarithmia, H_App, MountainShares, Ms Egeria Allis), and returned to the community as both analyst and resident
-- Founder and former operational lead, Harmony for Hope Inc. (H4H)
+- Founder and operational lead, Harmony for Hope Inc. (H4H)
 - Active PALCO caregiver
 - Fayette County resident and direct stakeholder in municipal land-use decisions
 - Author of the Entangled Space paper (final draft May 6, 2026) and the broader Quantarithmia framework
