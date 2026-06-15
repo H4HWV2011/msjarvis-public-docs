@@ -1,224 +1,231 @@
-# Mount Hope Heritage Infrastructure Workflow
+# Installation Workflow for Crew
 
 ## Purpose
-This document explains how the Mount Hope heritage infrastructure project is assembled, deployed, operated, and maintained so staff, partners, and volunteers can understand how the system works in practice. It translates the budget narrative into a field-ready workflow centered on the physical installations at 704 Main Street and the connected heritage assets along the Historic Walking Trail, the Fayette County Community Arts Center, and the Main Street corridor.
+This document is a plain-language field guide for the crew installing the public equipment. It explains what gets installed, the order of work, who is responsible for the installed equipment, and what must be checked before the site is considered ready for public use.
 
-## Project Objective
-The project creates a connected, living heritage and community information district by combining physical infrastructure, local connectivity, on-site hardware, and the in-kind digital platform layer. The funded equipment is one-time capital infrastructure intended to remain in service for at least five years, while software development, coordination, content, and community governance are supported through in-kind contributions.
+## Project Scope
+This installation covers public equipment located at 704 Main Street and connected public use points serving the walking trail, arts center, and downtown area. All installed hardware, network equipment, mounting hardware, power connections, and internet service needed for operation are the responsibility of H4H.
 
-## Operating Model
-The project operates in four layers:
+## Crew Goal
+The crew's job is to place, connect, secure, test, and document all equipment so the system is safe, stable, and ready for use. The work is complete only when each installed unit has power, network access, physical protection, and a verified public-facing function.
 
-1. Physical layer: kiosks, displays, enclosures, mounting systems, power, and related hardware.
-2. Connectivity layer: Starlink backhaul, local routing, and site-to-site or local network distribution.
-3. Platform layer: the ALLIS system and related service stack that delivers location-aware information, community content, and heritage interpretation.
-4. Community layer: H4H coordination, content stewardship, and MountainShares governance processes that keep the installations useful over time.
+## Responsibilities
 
-Each layer depends on the one before it. Hardware must be installed before networking can be stabilized, networking must be stable before digital services can be activated, and services must be active before community content can be presented reliably.
+| Area | Responsible party |
+|------|-------------------|
+| Equipment ownership | H4H |
+| Site access and approval | H4H |
+| Power and internet service | H4H |
+| Ongoing monthly internet cost | H4H |
+| Physical maintenance after installation | H4H |
+| Public content and updates | H4H |
+| Optional outside technical help | Only if separately contracted by H4H |
 
-## Roles and Responsibilities
+## Installation Order
+The crew should complete the work in the following order:
 
-| Role | Primary responsibility |
-|------|------------------------|
-| H4H leadership | Project oversight, local coordination, partner communication, site access, and stewardship |
-| Kidd's Technical Services | In-kind platform development, systems integration, deployment configuration, and technical operations |
-| H4H staff and founder team | Content preparation, heritage interpretation, testing support, and launch coordination |
-| MountainShares framework | Community governance structure, participatory input, and ongoing civic/community contribution model |
-| Installation support partners or volunteers | Physical setup assistance, site prep assistance, and field verification |
+1. Complete procurement and staging.
+2. Confirm the site list and equipment list.
+3. Unpack and inspect all hardware.
+4. Match each unit to its assigned location.
+5. Confirm power is available at each installation point.
+6. Confirm internet equipment is installed and active.
+7. Install brackets, mounts, enclosures, and protective hardware.
+8. Mount each device in its assigned location.
+9. Connect power and network lines.
+10. Power on each unit and confirm startup.
+11. Test the public function at each location.
+12. Label, photograph, and log each installed item.
+13. Report any incomplete work before leaving the site.
 
-## Workflow Phases
+## Step-by-Step Workflow
 
-### Phase 1: Planning and Asset Definition
-The team confirms what is being installed, where it will be installed, and what purpose each node serves. Every hardware line item should be tied to a specific function, location, and asset record before any purchase is made.
+### Phase 1: Procurement and Staging
+This phase takes place before any field installation begins. The purpose is to make sure every location has the correct equipment, all parts are present, and the crew is not forced to solve missing-item problems in the field.
 
-Key tasks:
-- Confirm the installation map for 704 Main Street, the Historic Walking Trail, the Arts Center, and Main Street touchpoints.
-- Assign each hardware item to a use case such as kiosk access, public display, networking, backhaul, or enclosure protection.
-- Create a basic asset register with item name, model, serial number, install location, warranty details, and responsible party.
-- Confirm which expenses are grant-funded capital costs and which are in-kind or operating costs.
+#### 1. Define Equipment by Location
+Each installation point must have a clear equipment assignment before purchasing begins.
 
-Deliverables:
-- Final equipment list.
-- Site map or installation plan.
-- Asset register.
-- Responsibility matrix.
+Checklist:
+- List every installation location.
+- Assign the main device for each location.
+- Assign mounting hardware for each location.
+- Assign protective hardware for each location.
+- Assign power and network components for each location.
 
-### Phase 2: Procurement and Receiving
-Once the equipment list is approved, all capital hardware is purchased, received, checked, and documented. The goal is to ensure every funded item can be traced from purchase through installation.
+#### 2. Build the Parts List
+A parts list must be prepared before ordering equipment. The list should be organized by location so the crew can easily stage and install site kits.
 
-Key tasks:
-- Order approved hardware and installation materials.
-- Receive shipments at the designated intake location.
-- Inspect for damage, missing parts, and environmental suitability.
-- Record serial numbers and assign internal asset IDs.
-- Separate grant-funded assets from in-kind tools, labor, and software contributions.
+Checklist:
+- Create a site ID for each location.
+- List each required item by site.
+- Record quantity needed.
+- Add notes for special mounting, weather protection, or power needs.
 
-Deliverables:
-- Receiving checklist.
-- Updated asset inventory.
-- Storage and staging plan.
+#### 3. Order and Receive Equipment
+All equipment should be checked as soon as it arrives. Missing or damaged parts should be documented before installation day.
 
-### Phase 3: Site Preparation
-Before devices are mounted, each site must be prepared to safely support equipment and connectivity. This phase reduces installation delays and prevents improvised field decisions.
+Checklist:
+- Match each delivered item to the parts list.
+- Inspect all packages for damage.
+- Check for missing hardware, cables, and accessories.
+- Record serial numbers for major equipment where available.
+- Separate damaged or incomplete items from field-ready items.
 
-Key tasks:
-- Verify power availability at each planned installation point.
-- Confirm mounting surfaces, line-of-sight needs, public accessibility, and weather exposure.
-- Install or prepare brackets, poles, anchors, conduit, or protective enclosures as needed.
-- Check whether each site needs ADA, visibility, or public-safety considerations addressed before activation.
+#### 4. Label and Stage Site Kits
+Each location should have a staged kit so the crew can move efficiently from one site to another.
 
-Deliverables:
-- Site readiness checklist for each node.
-- Power and mounting verification.
-- Installation staging schedule.
+Checklist:
+- Label each major device.
+- Pack each site's parts into a separate bin, box, or bundle.
+- Include fasteners, brackets, cables, and power accessories in the site kit.
+- Attach a printed copy of the site parts list to each kit.
+- Mark any item that is not yet ready for installation.
 
-### Phase 4: Network and Connectivity Setup
-After physical preparation, connectivity infrastructure is installed so all locations can communicate reliably. Starlink service is treated as the operational backhaul, but the hardware required to make use of that connection is part of the installed system.
+#### 5. Pre-Field Verification
+Before loading vehicles, a final check should confirm that every site kit is complete and every required tool is available.
 
-Key tasks:
-- Install and align the Starlink kit at the designated service location.
-- Configure router, firewall, and local distribution equipment.
-- Extend access from the main connection point to the devices or nodes that need service.
-- Test signal quality, stability, latency, and recovery after reboot or interruption.
+Checklist:
+- Confirm all site kits are complete.
+- Confirm all major devices are labeled.
+- Confirm all tools are on hand.
+- Confirm spare hardware and cable are available.
+- Confirm printed site notes, maps, and install instructions are packed.
 
-Deliverables:
-- Live internet backhaul.
-- Local network configuration record.
-- Basic network test report.
+### Phase 2: Confirm the Work Plan
+Before beginning installation, the crew reviews the location list, equipment list, and assignment for each item. No equipment should be mounted until the crew knows exactly where it belongs and what it is supposed to do.
 
-### Phase 5: Hardware Installation
-With connectivity available, the team installs the public-facing equipment and support systems. Each device should be mounted and documented as a permanent capital asset with a known purpose.
+Checklist:
+- Confirm the address and install points.
+- Confirm which devices go to which locations.
+- Confirm who is approving placement on site.
+- Confirm that all required tools and parts are on hand.
 
-Key tasks:
-- Mount kiosks, displays, and related equipment at approved locations.
-- Install weatherproof enclosures, cable protection, and power protection.
-- Label each device with an internal asset identifier.
-- Photograph completed installations for records and grant documentation.
+### Phase 3: Inspect Equipment
+Every item should be checked before it is carried into the field. The crew should look for damage, missing parts, incorrect models, or weather protection issues before installation begins.
 
-Deliverables:
-- Installed field hardware.
-- Photo record by location.
-- Updated asset log with final installed positions.
+Checklist:
+- Open and inspect each box.
+- Check for missing screws, brackets, cables, and power supplies.
+- Record model and serial number if available.
+- Set aside damaged or incomplete items.
 
-### Phase 6: Platform Integration
-Once hardware is online, the ALLIS platform and related digital services are connected to the physical installations. This is the in-kind technical layer that turns equipment into a working information district rather than passive signage.
+### Phase 4: Prepare the Site
+Each location must be ready before a device is mounted. This includes checking surface strength, weather exposure, trip hazards, line routing, and access to power.
 
-Key tasks:
-- Provision each device with the required software image or service configuration.
-- Connect devices to the platform stack and any approved knowledge, mapping, or content services.
-- Configure location-aware behavior so each node presents relevant information for its setting.
-- Enable remote administration, updates, and monitoring where appropriate.
+Checklist:
+- Check walls, poles, or other mounting surfaces.
+- Identify safe cable paths.
+- Confirm the location is visible and reachable for public use if required.
+- Confirm no unsafe conditions are present.
 
-Deliverables:
-- Activated application layer.
-- Node configuration record.
-- Remote support pathway.
+### Phase 5: Set Up Internet Equipment
+Internet service must be active before final testing of any public device. H4H is responsible for this service and for keeping it active after installation.
 
-### Phase 7: Content Preparation and Community Configuration
-Technical activation alone does not make the system useful. H4H and project partners prepare the heritage, cultural, and civic content that the public will actually encounter.
+Checklist:
+- Confirm the internet hardware is installed.
+- Confirm the connection is live.
+- Confirm the local network equipment is powered.
+- Confirm each installation point can reach the network if required.
 
-Key tasks:
-- Curate content for the walking trail, arts center, and Main Street corridor.
-- Define what information should appear at each site and in what format.
-- Establish a review process for content accuracy, tone, and public appropriateness.
-- Incorporate MountainShares governance or community input processes where applicable.
+### Phase 6: Install Mounts and Protection
+Before placing devices, the crew installs any brackets, enclosures, anchors, cable protection, and weather protection needed to keep the equipment secure.
 
-Deliverables:
-- Initial content set.
-- Content assignment by node or location.
-- Governance/update process.
+Checklist:
+- Install brackets and anchors.
+- Install protective housings where needed.
+- Secure exposed cables.
+- Check that all hardware is firmly attached.
 
-### Phase 8: Testing and Field Validation
-The team verifies that the system works under real-world conditions before public launch. This phase should be treated as acceptance testing, not a formality.
+### Phase 7: Mount the Devices
+After the site is prepared, each device is mounted in its assigned location. The crew should make sure the final placement matches visibility, safety, and access needs.
 
-Key tasks:
-- Test boot behavior, connectivity recovery, and software startup on every node.
-- Walk the physical route and verify the right content appears in the right place.
-- Test from the perspective of both visitors and residents.
-- Log issues and correct them before launch.
+Checklist:
+- Place the correct device in the correct location.
+- Check level, alignment, and height.
+- Confirm the unit is secure.
+- Confirm ventilation and weather protection are not blocked.
 
-Deliverables:
-- Punch list.
-- Corrective action log.
-- Launch approval checklist.
+### Phase 8: Connect Power and Network
+Once mounted, each unit is connected to power and network lines. Connections should be neat, protected, and easy to inspect later.
 
-### Phase 9: Launch and Public Use
-After validation, the system is placed into service as a public-facing heritage and community information district. The launch should also reinforce that the investment is physically anchored in Mount Hope.
+Checklist:
+- Connect power safely.
+- Connect network lines or wireless link hardware.
+- Protect all exposed lines.
+- Confirm no cable strain is present.
 
-Key tasks:
-- Activate all approved public nodes.
-- Provide local orientation for staff, volunteers, and partner organizations.
-- Announce the installation as a Mount Hope asset centered at 704 Main Street.
-- Capture photos, usage examples, and implementation notes for future grant packaging.
+### Phase 9: Start and Test Each Unit
+Each device must be powered on and tested before the crew leaves. A successful install means the unit starts correctly, connects correctly, and performs its intended public function.
 
-Deliverables:
-- Public activation.
-- Launch documentation.
-- Demonstration materials for future funding opportunities.
+Checklist:
+- Turn on the unit.
+- Confirm it boots normally.
+- Confirm it reaches the network if needed.
+- Confirm the display, controls, or public-facing function works.
+- Restart once if needed to verify stable startup.
 
-### Phase 10: Ongoing Operations and Maintenance
-Although recurring subscription fees are not part of this grant budget, the team still needs a clear operating model after launch. Ongoing support ensures the capital investment remains useful throughout its expected life.
+### Phase 10: Record the Installation
+Every completed install should be documented before closeout. This allows H4H to maintain the equipment, track issues, and verify what was placed where.
 
-Key tasks:
-- H4H manages site stewardship, local coordination, and operational continuity.
-- Starlink subscription and other recurring operating costs are covered outside the grant.
-- Kidd's Technical Services continues platform operations and technical support as an in-kind contribution under the existing relationship.
-- The team tracks hardware issues, damage, outages, and needed replacements over the installation lifespan.
+Checklist:
+- Apply an equipment label or ID.
+- Photograph the installed unit.
+- Record the final location.
+- Record any setup notes or known issues.
 
-Deliverables:
-- Maintenance log.
-- Incident response process.
-- Annual asset condition review.
+### Phase 11: Close Out the Site
+Before leaving, the crew should confirm whether the location is complete or whether a return visit is needed. Unfinished items should be listed clearly so there is no confusion later.
 
-## Assembly Sequence
-For field teams, the build sequence should be followed in this order:
+Checklist:
+- Confirm the site is clean and safe.
+- Remove packing material and unused parts.
+- Note any unfinished work.
+- Report any issue that prevents public use.
 
-1. Confirm site map and equipment assignments.
-2. Receive and log all hardware.
-3. Prepare each site for safe mounting and power access.
-4. Install Starlink and local network equipment.
-5. Mount kiosks, displays, and enclosures.
-6. Power on and connect each device.
-7. Deploy the platform configuration.
-8. Load and verify location-specific content.
-9. Run field testing at every site.
-10. Open the system for public use.
+## Minimum Acceptance Standard
+A location is considered complete only when all of the following are true:
 
-This sequence matters because upstream mistakes create downstream rework. For example, installing devices before confirming stable power and connectivity often forces duplicate labor and troubleshooting.
+- The correct equipment is installed in the correct place.
+- The unit is safely mounted and protected.
+- Power is connected and stable.
+- Internet access is available if required for that unit.
+- The unit performs its intended function.
+- The installation has been photographed and logged.
+- Any known issue has been reported to H4H.
 
-## Documentation Standards
-The team should maintain a simple but consistent documentation set so the project can be supported, repaired, and used as a reference implementation for larger corridor-scale grants.
+## Issues That Must Be Reported Immediately
+The crew should stop and report the issue if any of the following occur:
 
-Required records:
-- Asset inventory.
-- Purchase and receiving records.
-- Site readiness checklists.
-- Installation photos.
-- Network configuration notes.
-- Device configuration notes.
-- Content ownership and update notes.
-- Maintenance and incident log.
+- No safe mounting surface is available.
+- No usable power source is available.
+- Internet service is not active when needed for testing.
+- Equipment arrives damaged or incomplete.
+- A mounted unit cannot be secured safely.
+- Weather, public access, or building conditions prevent safe completion.
 
-## What the Grant Funds
-The grant funds the permanent physical infrastructure that makes the district possible. These are capital assets installed in Mount Hope and expected to provide multi-year public value.
+## Parts List Template
+The following table can be copied and filled out for each location or used as a master staging list.
 
-Funded category examples:
-- Public-facing hardware.
-- Network hardware and local distribution equipment.
-- Protective enclosures and mounting systems.
-- Supporting installation hardware required to place the system into service.
+| Site ID | Location | Item | Description | Qty | Notes |
+|---------|----------|------|-------------|-----|-------|
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
 
-## What Is In-Kind or Outside Grant Scope
-Several critical pieces of the operating model are intentionally outside the capital budget and should be communicated clearly to the team.
+## Site Kit Checklist
+Each site kit should include all parts needed for one location.
 
-In-kind or external support includes:
-- ALLIS platform development and ongoing operation through Kidd's Technical Services.
-- H4H staff and founder coordination time.
-- Heritage and community content development.
-- MountainShares governance framework.
-- Starlink recurring service costs as an operational expense covered outside the grant.
+- Main device.
+- Mounting hardware.
+- Fasteners and anchors.
+- Power supply or power accessories.
+- Network cable or wireless hardware.
+- Protective housing or enclosure if required.
+- Printed site parts list.
+- Printed install notes.
 
-## Strategic Use of the Installation
-This project should be understood internally as both a local public asset and a proof-of-capacity installation. The infrastructure stays in Mount Hope, but the completed implementation also serves as a reference site for future corridor-scale applications to the Appalachian Regional Commission, USDA Rural Development, and the Economic Development Administration.
-
-That means the team is not only building a working system. The team is also building a demonstrable model that shows funders the organization can scope, install, operate, and sustain heritage-linked community infrastructure in a credible way.
+## After Installation
+After the crew finishes the installation, H4H remains responsible for the equipment, internet service, ongoing costs, and future upkeep. Outside technical help may be brought in later only if H4H chooses to contract for it separately.
