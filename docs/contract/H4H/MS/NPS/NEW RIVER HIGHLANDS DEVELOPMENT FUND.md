@@ -106,6 +106,7 @@ This grant funds the capital equipment and professional installation for the pil
 | Contingency (15%)                                                       | $990   |
 | Total New River Highlands Ask                                           | $7,592 |
 
+
 All hardware items are one-time capital equipment costs with an estimated useful life of five or more years. The installation line reflects the requirements of working with live solar panel systems, LiFePO4 battery arrays, DC wiring, and outdoor weatherproof enclosures in a public location — work that requires an electrician with DC systems experience. The full installation workflow is documented and publicly available at github.com/H4HWV2011/msjarvis-public-docs.
 
 ---
