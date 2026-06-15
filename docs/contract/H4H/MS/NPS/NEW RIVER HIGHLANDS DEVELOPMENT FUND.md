@@ -90,22 +90,21 @@ This $7,592 grant funds the pilot deployment that makes every subsequent corrido
 
 This grant funds the capital equipment and professional installation for the pilot deployment node — the physical infrastructure the entire corridor framework depends on:
 
-|| Line Item                                                              | Cost   |
-| ----------------------------------------------------------------------- | ------ |
-| Starlink Standard 4X kit + mount                                        | $674   |
-| Beelink Mini S12 Pro mini PC — ALLIS server                             | $189   |
-| Network switch, UPS, surge protectors, cable management                 | $257   |
-| Raspberry Pi 5 starter kit (trailhead kiosk)                            | $120   |
-| Sixfab IP65 outdoor enclosure + hotspot sign + outdoor cable (kiosk)    | $134   |
-| Rich Solar MEGA 200W solar panel                                        | $199   |
-| ExpertPower MPPT controller + LiTime 100Ah battery + battery box        | $299   |
-| Pole mount + weatherproof enclosure + DC wiring + grounding hardware    | $235   |
-| LoRa node + antenna + solar support + enclosure + mounting hardware     | $195   |
-| Labels, fasteners, sealant, field supplies                              | $300   |
+| Line Item | Cost |
+|---|---|
+| Starlink Standard 4X kit + mount | $674 |
+| Beelink Mini S12 Pro mini PC — ALLIS server | $189 |
+| Network switch, UPS, surge protectors, cable management | $257 |
+| Raspberry Pi 5 starter kit (trailhead kiosk) | $120 |
+| Sixfab IP65 outdoor enclosure + hotspot sign + outdoor cable (kiosk) | $134 |
+| Rich Solar MEGA 200W solar panel | $199 |
+| ExpertPower MPPT controller + LiTime 100Ah battery + battery box | $299 |
+| Pole mount + weatherproof enclosure + DC wiring + grounding hardware | $235 |
+| LoRa node + antenna + solar support + enclosure + mounting hardware | $195 |
+| Labels, fasteners, sealant, field supplies | $300 |
 | Electrician installation — full day, structural assessment, contingency | $4,000 |
-| Contingency (15%)                                                       | $990   |
-| Total New River Highlands Ask                                           | $7,592 |
-
+| Contingency (15%) | $990 |
+| **Total New River Highlands Ask** | **$7,592** |
 
 All hardware items are one-time capital equipment costs with an estimated useful life of five or more years. The installation line reflects the requirements of working with live solar panel systems, LiFePO4 battery arrays, DC wiring, and outdoor weatherproof enclosures in a public location — work that requires an electrician with DC systems experience. The full installation workflow is documented and publicly available at github.com/H4HWV2011/msjarvis-public-docs.
 
