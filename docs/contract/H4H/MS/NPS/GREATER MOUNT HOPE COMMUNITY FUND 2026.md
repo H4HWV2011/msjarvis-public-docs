@@ -201,7 +201,7 @@ At least 12 community information posts (alerts, events, local resources) are pu
 | Labels, fasteners, sealant, field supplies                                              | $100    |
 | Electrician installation — both locations, full day, structural assessment, contingency | $3,500  |
 | Starry Eyes Media — website and landing page                                            | $4,000  |
-| Starlink monthly service — 1 year, 2 nodes (Mount Hope + Thurmond)                      | $2,880  |
+| Starlink monthly service — 1 year                                                       | $2,880  |
 | Contingency (15%)                                                                       | $1,808  |
 | Total GMHCDF Ask                                                                        | $16,589 |
 
