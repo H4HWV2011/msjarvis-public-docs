@@ -198,12 +198,12 @@ At least 12 community information posts (alerts, events, local resources) are pu
 | ExpertPower MPPT controller + LiTime 100Ah battery + battery box | $299 |
 | Pole mount + weatherproof enclosure + DC wiring + grounding hardware | $235 |
 | LoRa node + antenna + solar support + enclosure + mounting hardware | $195 |
-| Labels, fasteners, sealant, field supplies | $100 |
-| Electrician installation — both locations, full day, structural assessment, contingency | $3,500 |
+| Labels, fasteners, sealant, field supplies | $300 |
+| Electrician installation — both locations, full day, structural assessment, contingency | $4,000 |
 | Starry Eyes Media — website and landing page | $4,000 |
 | Starlink monthly service — 1 year (12 × $120) | $1,440 |
 | Contingency (15%) | $1,658 |
-| **Total GMHCDF Ask** | **$15,000** |
+| **Total GMHCDF Ask** | **$15,700** |
 
 ---
 
