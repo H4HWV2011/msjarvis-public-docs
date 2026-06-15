@@ -164,8 +164,6 @@ This grant is a capital and equipment investment — the category the New River 
 - ALLIS platform development and ongoing operation: Kidd's Technical Services (in-kind)
 - H4H founder and staff coordination time: in-kind
 - MountainShares platform and governance framework: in-kind
-- Backup generator for system power continuity during weather-related outages: in-kind
-- Starlink monthly service — 1 year: covered through H4H operational funds
 
 ---
 
