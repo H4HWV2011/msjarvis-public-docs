@@ -24,7 +24,7 @@ H4H's mission is to unite West Virginia through music, art, and Appalachian heri
 
 H4H's primary programs and assets include:
 
-**The Mount Hope Historic Walking Trail** — a 1.25-mile self-guided heritage trail through sixteen points of architectural significance tracing Mount Hope's evolution from Native American pathways to coal company town to modern municipality. The trail is supported by 48 interpretive signs and a printed brochure guide, and is currently discoverable through Google Maps and regional tourism platforms, generating 65 monthly trail seekers.
+**The Mount Hope Historic Walking Trail** — a 1.25-mile self-guided heritage trail through sixteen points of architectural significance tracing Mount Hope's evolution from Native American pathways to coal company town to modern municipality. The trail is supported by 48 interpretive signs and a printed brochure guide, and is currently discoverable through The Clio heritage app, https://theclio.com/entry/147083,  Google Maps and regional tourism platforms, generating 65 monthly trail seekers.
 
 **The Fayette County Community Arts Center (FCCAC)** — a community arts facility housed at 704 Main Street, supporting one resident artist and serving as a regional cultural programming venue.
 
