@@ -59,53 +59,53 @@ Location groups for this project:
 - Outdoor solar and communications mounting point.
 
 #### 2. Parts List for Procurement and Staging
-The following list should be used as the working procurement and staging list for the crew.
+The following list should be used as the working procurement and staging list for the crew. Where a real product page has already been verified, it is linked directly below. Where no exact product has been locked yet, the entry is marked for final source selection before ordering.
 
-| Site ID | Location | Item | Description | Qty |
-|---------|----------|------|-------------|-----|
-| FCCAC-01 | 704 Main Street | Starlink kit | Main Starlink internet hardware kit | 1 |
-| FCCAC-01 | 704 Main Street | Starlink mount | Roof, wall, or pole mount for Starlink dish | 1 |
-| FCCAC-01 | 704 Main Street | Router | Main internet router | 1 |
-| FCCAC-01 | 704 Main Street | Small network switch | Local wired distribution switch | 1 |
-| FCCAC-01 | 704 Main Street | Wi-Fi access point | Indoor wireless coverage unit if needed | 1 |
-| FCCAC-01 | 704 Main Street | Mini PC | Small edge computer or NUC-style unit | 1 |
-| FCCAC-01 | 704 Main Street | UPS battery backup | Small battery backup for router and mini PC | 1 |
-| FCCAC-01 | 704 Main Street | Surge protector | Power protection strip | 2 |
-| FCCAC-01 | 704 Main Street | Ethernet cable | Pre-made or bulk CAT6 cable | 4 |
-| FCCAC-01 | 704 Main Street | Cable clips and ties | Cable management supplies | 1 lot |
-| FCCAC-01 | 704 Main Street | Wall anchors and screws | Mounting fasteners | 1 lot |
-| FCCAC-01 | 704 Main Street | Conduit or raceway | Cable protection for exposed runs | 1 lot |
-| KIOSK-01 | Walking trail kiosk | Outdoor kiosk body or display housing | Public-facing kiosk or display structure | 1 |
-| KIOSK-01 | Walking trail kiosk | Kiosk mounting hardware | Base plate, anchors, bolts, or wall mount parts | 1 lot |
-| KIOSK-01 | Walking trail kiosk | Outdoor weatherproof enclosure | Lockable enclosure for equipment | 1 |
-| KIOSK-01 | Walking trail kiosk | Outdoor display or interface unit | Public-facing screen or device | 1 |
-| KIOSK-01 | Walking trail kiosk | Raspberry Pi | Small controller or receiver unit | 1 |
-| KIOSK-01 | Walking trail kiosk | Raspberry Pi power supply | Power adapter for Raspberry Pi | 1 |
-| KIOSK-01 | Walking trail kiosk | MicroSD card | Storage card for Raspberry Pi | 1 |
-| KIOSK-01 | Walking trail kiosk | Short HDMI or adapter cable | Display connection as needed | 1 |
-| KIOSK-01 | Walking trail kiosk | Outdoor power cable | Weather-rated power cable | 1 |
-| KIOSK-01 | Walking trail kiosk | Exterior cable gland set | Waterproof cable pass-through fittings | 1 set |
-| SOLAR-01 | Outdoor solar point | Solar panel | 200W solar panel | 1 |
-| SOLAR-01 | Outdoor solar point | Solar charge controller | Charge controller sized for the panel and battery | 1 |
-| SOLAR-01 | Outdoor solar point | Battery | 12V 100Ah battery | 1 |
-| SOLAR-01 | Outdoor solar point | Battery box | Weather-protected battery housing | 1 |
-| SOLAR-01 | Outdoor solar point | Pole or mounting frame | Support for solar panel and radio hardware | 1 |
-| SOLAR-01 | Outdoor solar point | Panel mounting brackets | Hardware for securing solar panel | 1 set |
-| SOLAR-01 | Outdoor solar point | Weatherproof electronics enclosure | Sealed box for power and communication parts | 1 |
-| SOLAR-01 | Outdoor solar point | Fuse block or inline fuses | Electrical protection hardware | 1 set |
-| SOLAR-01 | Outdoor solar point | DC wiring set | Power wire, terminals, and connectors | 1 lot |
-| SOLAR-01 | Outdoor solar point | Grounding hardware | Ground rod, clamp, and wire if required | 1 set |
-| SOLAR-01 | Outdoor solar point | Starlink receiver point hardware | Hardware needed at the outdoor receive point | 1 set |
-| LORA-01 | Outdoor communications point | LoRa node | LILYGO T-Beam or Heltec LoRa32 class device | 1 |
-| LORA-01 | Outdoor communications point | LoRa antenna | External or matched antenna | 1 |
-| LORA-01 | Outdoor communications point | Small solar support kit | Solar support for LoRa backup node | 1 |
-| LORA-01 | Outdoor communications point | LoRa enclosure | Small weatherproof box | 1 |
-| LORA-01 | Outdoor communications point | Pole clamps or mount straps | Hardware for mounting the node | 1 set |
-| ALL-LOC | All locations | Labels | Equipment ID labels | 1 lot |
-| ALL-LOC | All locations | Photo log sheet | Install record sheet | 1 set |
-| ALL-LOC | All locations | Spare fasteners | Spare screws, anchors, bolts, and washers | 1 lot |
-| ALL-LOC | All locations | Sealant | Outdoor weather sealant | 1 tube |
-| ALL-LOC | All locations | Electrical tape and heat shrink | Wire protection supplies | 1 lot |
+| Site ID | Location | Item | Description | Qty | Link status |
+|---------|----------|------|-------------|-----|-------------|
+| FCCAC-01 | 704 Main Street | Starlink kit | Main Starlink internet hardware kit | 1 | [Starlink Standard 4 X kit](https://www.homedepot.com/p/STARLINK-Standard-4-X-High-Speed-Low-Latency-Internet-Kit-Latest-Model-02534001/329052560) |
+| FCCAC-01 | 704 Main Street | Starlink mount | Roof, wall, or pole mount for Starlink dish | 1 | Final mount type must be chosen per site |
+| FCCAC-01 | 704 Main Street | Router | Main internet router | 1 | Included with Starlink kit |
+| FCCAC-01 | 704 Main Street | Small network switch | Local wired distribution switch | 1 | Exact switch model still needed |
+| FCCAC-01 | 704 Main Street | Wi-Fi access point | Indoor wireless coverage unit if needed | 1 | May not be needed until testing |
+| FCCAC-01 | 704 Main Street | Mini PC | Small edge computer or NUC-style unit | 1 | Exact mini PC model still needed |
+| FCCAC-01 | 704 Main Street | UPS battery backup | Small battery backup for router and mini PC | 1 | Exact UPS model still needed |
+| FCCAC-01 | 704 Main Street | Surge protector | Power protection strip | 2 | Exact surge strip model still needed |
+| FCCAC-01 | 704 Main Street | Ethernet cable | Pre-made or bulk CAT6 cable | 4 | Exact cable length and source still needed |
+| FCCAC-01 | 704 Main Street | Cable clips and ties | Cable management supplies | 1 lot | Exact source still needed |
+| FCCAC-01 | 704 Main Street | Wall anchors and screws | Mounting fasteners | 1 lot | Exact source still needed |
+| FCCAC-01 | 704 Main Street | Conduit or raceway | Cable protection for exposed runs | 1 lot | Exact source still needed |
+| KIOSK-01 | Walking trail kiosk | Outdoor kiosk body or display housing | Public-facing kiosk or display structure | 1 | Exact kiosk hardware still needed |
+| KIOSK-01 | Walking trail kiosk | Kiosk mounting hardware | Base plate, anchors, bolts, or wall mount parts | 1 lot | Depends on final kiosk design |
+| KIOSK-01 | Walking trail kiosk | Outdoor weatherproof enclosure | Lockable enclosure for equipment | 1 | [Sixfab IP65 enclosure](https://sixfab.com/product/raspberry-pi-ip65-outdoor-iot-project-enclosure/) |
+| KIOSK-01 | Walking trail kiosk | Outdoor display or interface unit | Public-facing screen or device | 1 | Exact display model still needed |
+| KIOSK-01 | Walking trail kiosk | Raspberry Pi | Small controller or receiver unit | 1 | Exact Pi listing still needed |
+| KIOSK-01 | Walking trail kiosk | Raspberry Pi power supply | Power adapter for Raspberry Pi | 1 | Exact source still needed |
+| KIOSK-01 | Walking trail kiosk | MicroSD card | Storage card for Raspberry Pi | 1 | Exact source still needed |
+| KIOSK-01 | Walking trail kiosk | Short HDMI or adapter cable | Display connection as needed | 1 | Exact source still needed |
+| KIOSK-01 | Walking trail kiosk | Outdoor power cable | Weather-rated power cable | 1 | Exact source still needed |
+| KIOSK-01 | Walking trail kiosk | Exterior cable gland set | Waterproof cable pass-through fittings | 1 set | Included with some enclosures; verify before ordering |
+| SOLAR-01 | Outdoor solar point | Solar panel | 200W solar panel | 1 | [Rich Solar MEGA 200](https://richsolar.com/products/mega-200-200-watt-12-volt-solar-panel) |
+| SOLAR-01 | Outdoor solar point | Solar charge controller | Charge controller sized for the panel and battery | 1 | Exact controller model still needed |
+| SOLAR-01 | Outdoor solar point | Battery | 12V 100Ah battery | 1 | Exact battery model still needed |
+| SOLAR-01 | Outdoor solar point | Battery box | Weather-protected battery housing | 1 | Exact box model still needed |
+| SOLAR-01 | Outdoor solar point | Pole or mounting frame | Support for solar panel and radio hardware | 1 | Exact mount still needed |
+| SOLAR-01 | Outdoor solar point | Panel mounting brackets | Hardware for securing solar panel | 1 set | Exact bracket set still needed |
+| SOLAR-01 | Outdoor solar point | Weatherproof electronics enclosure | Sealed box for power and communication parts | 1 | Exact enclosure still needed |
+| SOLAR-01 | Outdoor solar point | Fuse block or inline fuses | Electrical protection hardware | 1 set | Exact source still needed |
+| SOLAR-01 | Outdoor solar point | DC wiring set | Power wire, terminals, and connectors | 1 lot | Exact source still needed |
+| SOLAR-01 | Outdoor solar point | Grounding hardware | Ground rod, clamp, and wire if required | 1 set | Exact source still needed |
+| SOLAR-01 | Outdoor solar point | Starlink receiver point hardware | Hardware needed at the outdoor receive point | 1 set | Depends on final mount and enclosure layout |
+| LORA-01 | Outdoor communications point | LoRa node | LILYGO T-Beam or Heltec LoRa32 class device | 1 | Exact board revision still needed |
+| LORA-01 | Outdoor communications point | LoRa antenna | External or matched antenna | 1 | Exact antenna still needed |
+| LORA-01 | Outdoor communications point | Small solar support kit | Solar support for LoRa backup node | 1 | Exact source still needed |
+| LORA-01 | Outdoor communications point | LoRa enclosure | Small weatherproof box | 1 | Exact enclosure still needed |
+| LORA-01 | Outdoor communications point | Pole clamps or mount straps | Hardware for mounting the node | 1 set | Exact source still needed |
+| ALL-LOC | All locations | Labels | Equipment ID labels | 1 lot | Exact source still needed |
+| ALL-LOC | All locations | Photo log sheet | Install record sheet | 1 set | Internal print item |
+| ALL-LOC | All locations | Spare fasteners | Spare screws, anchors, bolts, and washers | 1 lot | Exact source still needed |
+| ALL-LOC | All locations | Sealant | Outdoor weather sealant | 1 tube | Exact source still needed |
+| ALL-LOC | All locations | Electrical tape and heat shrink | Wire protection supplies | 1 lot | Exact source still needed |
 
 #### 3. Receive and Inspect Equipment
 All equipment should be checked as soon as it arrives.
