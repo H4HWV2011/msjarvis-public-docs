@@ -9,20 +9,61 @@ This document expands on Phase 7 of the installation workflow. It explains what 
 
 ---
 
+## Site-Specific Context That Shapes Every Decision in This Phase
+
+Before reading the step sequence, the crew needs to understand two facts about this specific site that directly affect how Phase 7 is planned and executed.
+
+**Fact 1: The kiosk is less than 100 yards from 704 Main Street.**
+
+That distance is short enough that the Starlink router's Wi-Fi signal may reach the kiosk without any additional hardware at the kiosk at all. A standard Starlink router has an indoor range of 200 feet or more under ideal conditions. Outdoors, with clear line of sight, that range can extend considerably further. Under 100 yards is approximately 270 feet — at the outer edge of what a Starlink router might cover outdoors under favorable conditions, and well within range if the router is positioned near a window or exterior wall facing the kiosk.
+
+**Fact 2: There is a two-story building between the kiosk and 704 Main Street.**
+
+This changes everything about Fact 1. A two-story building in the signal path between the router and the kiosk is a significant obstruction. Wi-Fi signals, particularly the 5 GHz band that Starlink routers favor for performance, do not pass cleanly through masonry, brick, or dense wood-frame construction. The 2.4 GHz band penetrates solid structures better but still loses substantial signal strength through two exterior walls and the interior mass of a full building. Whether the kiosk receives a usable signal from the Starlink router depends on what that building is made of, where the router is placed inside 704 Main Street, and whether there is any partial line of sight around the edges of the building rather than directly through it.
+
+**What this means for the Phase 7 equipment list:**
+
+The Raspberry Pi, the MicroSD card, the power supply, and the display cable are on the current parts list because they were planned as the mechanism for delivering hotspot service at the kiosk. But if the Starlink router's signal reaches the kiosk reliably without any additional hardware — which is possible given the short distance, even with the obstruction — none of that equipment is needed. The public simply connects to the Starlink router's network from the kiosk, the same way they would from inside the building.
+
+**This means a signal test must happen before the equipment decision is final.**
+
+The signal test is Step 2 of this phase. It is the decision point that determines whether Steps 5 through 7 — which involve the Raspberry Pi — are performed at all, or whether an alternative approach is used instead. Do not order or stage the Raspberry Pi equipment until the signal test result is known, or be prepared to hold that equipment if the test shows it is not needed.
+
+---
+
 ## What Phase 7 Covers
 
 Phase 7 installs the public-facing hotspot equipment at the existing kiosk structure on the Mount Hope walking trail. This is the point in the installation that the public will actually interact with. Every other phase installs infrastructure that supports this location. This phase makes the service visible and accessible to the people the project is designed to serve.
 
-The equipment installed in this phase:
+**The equipment installed in this phase depends on the signal test result described in Step 2.**
 
+If the Starlink router signal reaches the kiosk reliably:
+- Wi-Fi hotspot sign (mounted at the kiosk for public visibility)
+- Outdoor power cable run is not needed for hotspot function, though it may still be needed for the LoRa node
+- No enclosure, no Raspberry Pi, no power supply, no MicroSD card
+
+If the signal does not reach the kiosk reliably, one of two paths is taken:
+
+**Path A — Outdoor Wi-Fi access point:**
+- Outdoor weatherproof Wi-Fi access point (TP-Link EAP225-Outdoor or equivalent)
+- Outdoor-rated PoE Ethernet cable run from the indoor switch to the access point
+- PoE injector or PoE-capable switch port at the indoor end
+- Mounting hardware for the access point at or near the kiosk
+- Wi-Fi hotspot sign
+
+**Path B — Raspberry Pi acting as a wireless bridge and access point:**
 - Raspberry Pi (installed inside the weatherproof outdoor enclosure)
-- MicroSD storage card (loaded into the Raspberry Pi)
-- Raspberry Pi power supply (connected to the outdoor power source)
-- Short HDMI or display adapter cable (as needed for any diagnostic display use)
+- MicroSD storage card (pre-imaged before site visit)
+- Raspberry Pi power supply
+- Short HDMI or display adapter cable (for diagnostic use if needed)
 - Outdoor weatherproof enclosure (Sixfab IP65 or equivalent)
 - Outdoor power cable (Southwire 12/3 SJTW or equivalent)
-- Exterior cable glands (for sealed cable entry)
-- Wi-Fi hotspot sign (mounted at the kiosk for public visibility)
+- Exterior cable glands
+- Wi-Fi hotspot sign
+
+Path A is the preferred option if the signal does not reach the kiosk. A purpose-built outdoor access point is more reliable, easier to maintain, and produces better coverage than a Raspberry Pi configured to replicate the same function. Path B is the fallback if Path A is not feasible for cost or procurement reasons at the time of installation.
+
+H4H makes the path decision after the signal test result is reported. The crew does not make this call independently.
 
 ---
 
@@ -33,9 +74,9 @@ Phase 7 cannot start until the following conditions from earlier phases are conf
 - The existing kiosk structure has been inspected and confirmed structurally sound (Phase 4).
 - The solar power system is installed and the charge controller shows the system is live (Phase 6).
 - The indoor Starlink internet connection is confirmed active (Phase 5).
-- The outdoor power cable path from the power source to the kiosk location has been confirmed clear and safe.
+- The outdoor power cable path from the power source to the kiosk location has been confirmed clear and safe if a cable run is required by the signal test outcome.
 
-If any of these conditions are not met, stop and report to H4H before proceeding. Installing hotspot equipment at a kiosk that has no power, no internet, or a structural problem creates a finished-looking installation that does not work — and diagnosing it later is harder than catching the dependency now.
+If any of these conditions are not met, stop and report to H4H before proceeding.
 
 ---
 
@@ -51,10 +92,10 @@ If any of these conditions are not met, stop and report to H4H before proceeding
 Push each structural post from multiple directions with firm, deliberate pressure. A sound post does not move. Any movement at the base — rocking, shifting, or soft give — indicates that the post base has degraded, whether from rot, heaved concrete, or corrosion of any metal anchor hardware. Check the post bases visually at ground level. Probe any area where the post contacts soil or a concrete pad with a pocket knife or a screwdriver tip. Sound wood resists the probe. Rotted wood yields to it.
 
 **Mounting surfaces:**
-Press firmly on the surfaces where the enclosure will be mounted. Solid surfaces do not flex or give. A surface that moves under hand pressure is not structurally adequate for an enclosure, regardless of how it looks. If the kiosk is wood-framed, check the grain direction and surface condition of the proposed mount panel. Check for delamination on plywood panels — five-year-old exterior plywood in a high-humidity environment may have edge delamination that is not visible from the face.
+Press firmly on the surfaces where any enclosure or access point will be mounted. Solid surfaces do not flex or give. A surface that moves under hand pressure is not structurally adequate for mounted hardware, regardless of how it looks. If the kiosk is wood-framed, check the grain direction and surface condition of the proposed mount panel. Check for delamination on plywood panels — five-year-old exterior plywood in a high-humidity environment may have edge delamination that is not visible from the face.
 
 **Roof or canopy:**
-The enclosure will be mounted in the area protected by the kiosk roof. Confirm the roof is intact, that there are no gaps or warped sections that would allow direct rainfall onto the equipment area, and that the roof attachment points are secure. Check the underside of the roof for water staining, which indicates past infiltration and may indicate ongoing risk.
+Confirm the roof is intact, that there are no gaps or warped sections that would allow direct rainfall onto the equipment area, and that the roof attachment points are secure. Check the underside of the roof for water staining, which indicates past infiltration and may indicate ongoing risk.
 
 **Existing hardware and signage:**
 Any fasteners, brackets, or signs already on the kiosk should be checked for security. A loose sign that falls onto newly mounted electronics is a preventable equipment damage event.
@@ -63,10 +104,9 @@ Any fasteners, brackets, or signs already on the kiosk should be checked for sec
 Five-year-old outdoor structures in West Virginia frequently house wasps, mud daubers, paper wasps, and occasionally rodents. Check enclosed spaces, underside cavities, and any hollow structural elements before beginning work. Do not reach into enclosed spaces without looking first.
 
 **Why this level of inspection is required on a structure H4H knows:**
-Knowing a structure's history is not the same as knowing its current condition. H4H installed this kiosk and has maintained the surrounding trail area, but the kiosk itself has not necessarily been assessed for mounting load readiness. The inspection is also the first time the crew is close to and handling the kiosk with the specific purpose of attaching hardware to it. Problems visible from a few feet away during a trail walk may not have triggered concern. Problems that appear when a crew member puts their hand on the post and feels it shift require immediate action.
+Knowing a structure's history is not the same as knowing its current condition. H4H installed this kiosk and has maintained the surrounding trail area, but the kiosk itself has not necessarily been assessed for mounting load readiness. Problems visible from a few feet away during a trail walk may not have triggered concern. Problems that appear when a crew member puts their hand on the post and feels it shift require immediate action.
 
 **What counts as a stop-and-report condition:**
-
 - Any post that moves under firm pressure.
 - Any mounting surface that flexes under hand pressure.
 - Any visible rot in structural members or mounting surfaces — probe anything suspicious.
@@ -77,152 +117,184 @@ Knowing a structure's history is not the same as knowing its current condition. 
 If any of these conditions exist, stop and contact H4H before mounting anything. The kiosk may need repair work before the installation continues. That work is not the crew's job to improvise — it is H4H's decision to authorize and scope.
 
 **What healthy condition looks like at five years:**
-A well-sited and constructed outdoor kiosk at five years in a protected trail location should still be fundamentally sound, with surface weathering (fading, minor surface checking in wood, some UV discoloration) that is cosmetic rather than structural. The inspection is not expected to find catastrophic failure — but it is designed to catch the specific degradation that five-year-old outdoor structures in this climate do develop and that does matter for a mounted electronics installation.
+A well-sited outdoor kiosk at five years in a protected trail location should still be fundamentally sound, with surface weathering — fading, minor surface checking in wood, some UV discoloration — that is cosmetic rather than structural. The inspection is not expected to find catastrophic failure, but it is designed to catch the specific degradation that five-year-old outdoor structures in this climate do develop and that matters for a mounted electronics installation.
 
-**Lesson for future sites:** At any future site where H4H installs equipment on an existing structure — regardless of how well H4H knows that structure — this inspection happens first. Age the structure appropriately: a two-year-old kiosk gets a lighter inspection than a five-year-old one. A ten-year-old one gets a heavier one. Document the inspection result, including the estimated remaining service life of the structure, so H4H can plan maintenance on the right timeline.
-
----
-
-### Step 2: Run the outdoor power cable to the kiosk
-
-**What to do:** Route the outdoor-rated power cable (12/3 SJTW or equivalent) from the power source — which in this installation is the solar system's power output via an appropriate DC-to-AC inverter or a directly supported DC power path — to the kiosk location. Secure the cable along its run using UV-rated clips or cable ties spaced no more than 24 inches apart. Protect any section of the cable that crosses an area where foot traffic occurs, by routing it above head height, below grade in conduit, or along a structure that keeps it out of the path of pedestrians.
-
-**Why at this stage:** Power must be at the kiosk before the enclosure is mounted and the Raspberry Pi is connected. Running the cable first establishes the power path and determines how much cable is needed. Cutting or connecting cable after the enclosure is already mounted in a tight space is significantly harder than routing the cable first while the enclosure is not yet in the way.
-
-**Why this specific cable type:** The Southwire Yellow Jacket 12/3 SJTW and comparable products are outdoor-rated, weather-resistant, and designed for use in conditions that include moisture, UV, and temperature variation. Standard indoor extension cord material will degrade in outdoor conditions within one to two seasons, develop cracked insulation, and create a shock hazard. The heavier gauge (12 AWG) is appropriate for a run that may be twenty feet or longer and ensures that voltage drop along the cable does not reduce the available power at the Raspberry Pi's power supply below its operating range.
-
-**What to check before moving on:** The cable is routed and secured along its full length. No section of the cable runs across a surface where it could be stepped on, driven over, or abraded by regular contact. The cable end at the kiosk has enough slack to reach the intended entry point on the enclosure without pulling tight.
-
-**Lesson for future sites:** Note the actual cable run length at this site and the voltage at the Raspberry Pi power supply under load. That measurement tells you whether 12 AWG was the right choice for this run length. For longer runs at future sites, a heavier gauge or a shorter run using local power may be required.
+**Lesson for future sites:** At any future site where H4H installs equipment on an existing structure, this inspection happens first regardless of how well H4H knows that structure. Age the inspection to the structure: a two-year-old kiosk gets a lighter check than a five-year-old one. Document the inspection result, including observations about remaining service life, so H4H can plan maintenance on the right timeline.
 
 ---
 
-### Step 3: Mount the weatherproof outdoor enclosure to the kiosk
+### Step 2: Signal test — determine whether the kiosk receives usable Wi-Fi from 704 Main Street
 
-**What to do:** Attach the Sixfab IP65 outdoor enclosure (or equivalent) to the kiosk mounting surface using fasteners appropriate for the surface material. At a wood kiosk, use stainless steel wood screws long enough to reach solid wood behind any surface treatment or paneling. At a metal kiosk, use stainless machine screws with backing nuts or self-tapping screws rated for the material thickness. Mount the enclosure at a height that:
+**What to do:** With the Starlink system active indoors at 704 Main Street, take a smartphone or laptop to the kiosk location and check the following:
 
-- Places the equipment inside within the protected area of the kiosk canopy or roof.
-- Keeps the cable entry ports accessible.
-- Is reachable for maintenance without a ladder, if possible.
-- Is not so low that it is at risk of direct contact with water pooling at the base of the kiosk.
+1. Can the Starlink router's Wi-Fi network be detected at the kiosk?
+2. If detected, what is the signal strength reading? On most devices, one or two bars is marginal. Three or more bars is usable.
+3. With the device connected to the Starlink network at the kiosk location, run a speed test. A result of at least 5 Mbps download is the minimum for a functional public hotspot. Below that, the connection is technically present but practically unreliable for general public use.
+4. Walk the full area around the kiosk that the public would occupy — not just the spot directly in front of it. If signal drops to one bar or disconnects at any point in that area, the coverage is inadequate.
 
-**Why the enclosure before the Pi:** The Raspberry Pi is a small, static-sensitive circuit board. It should not be handled in an outdoor field environment any longer than necessary. The enclosure provides the protected environment the Pi needs before the Pi is placed in it. Mount the housing first, confirm it is solid, then bring the Pi out of its protective packaging and place it inside.
+**Why this test must happen before any hardware at the kiosk is committed:**
+The two-story building between the kiosk and 704 Main Street may block the signal entirely, partially, or not at all depending on its construction and the router's placement. There is no way to know without testing. Ordering and installing a Raspberry Pi or an outdoor access point at the kiosk without first testing whether the router already reaches it is spending money and time on a problem that may not exist.
 
-**Why stainless fasteners:** Standard zinc or uncoated steel fasteners will rust in outdoor conditions. At an outdoor kiosk in a location with regular rainfall and humidity, rust begins within one to two seasons. Rusted fasteners are difficult to remove for maintenance and can stain the kiosk surface. Stainless steel fasteners cost marginally more and last significantly longer.
+**What the building between the sites means for signal behavior:**
+The two-story structure sitting in the signal path is the dominant factor in this test. Wi-Fi signal at 5 GHz — which Starlink routers favor for speed — loses roughly half its strength passing through a single standard interior wall, and significantly more through exterior walls and the mass of a full building. At 2.4 GHz the signal penetrates somewhat better but still degrades substantially. The likely outcome is that the signal is detectable at the kiosk but at reduced strength. Whether that reduced strength is adequate for public use is what the speed test determines, not the signal strength reading alone.
 
-**What to check before moving on:** The enclosure is solidly attached and does not rock or shift when pushed. The door opens fully without obstruction. The proposed cable entry points are facing in the direction the cable will come from.
+**Router placement at 704 Main Street matters:**
+If the Starlink router is placed on the side of the building that faces away from the kiosk, the signal must travel through the full building width before reaching the kiosk. If it is placed near a window or on the wall closest to the kiosk, the signal path through the building is shorter and the result may be significantly better. Before concluding that additional hardware is required, confirm where the router is placed and whether moving it closer to the kiosk-facing side of the building changes the signal test result.
+
+**Possible test outcomes and what each means:**
+
+| Test result | What it means | What happens next |
+|-------------|---------------|-------------------|
+| Strong signal, speed test passes at kiosk | Router reaches the kiosk without additional hardware | No enclosure, no Pi, no power run needed for hotspot. Mount sign and proceed to Phase 8. |
+| Weak signal, speed test marginal | Signal reaches the kiosk but is unreliable | Try moving the router closer to the kiosk-facing wall first. Retest. If still marginal, additional hardware is required. |
+| No signal or unusable signal | Building is blocking effectively | Additional hardware is required. Report to H4H for path decision before proceeding. |
+
+**What additional hardware options look like:**
+
+If additional hardware is required, the preferred option is a purpose-built outdoor Wi-Fi access point — such as a TP-Link EAP225-Outdoor or equivalent — mounted at or near the kiosk and connected via a weatherproof Ethernet cable run from the indoor switch at 704 Main Street. This runs Power over Ethernet (PoE) so only a single cable is needed. No enclosure, no Raspberry Pi, no separate power supply at the kiosk. The access point is designed for outdoor use, handles weather independently, and is straightforward to maintain.
+
+The Raspberry Pi path is a fallback option when the outdoor access point is not feasible for procurement or cost reasons. It requires more hardware, more installation steps, and more software configuration, and produces a result that is functionally similar but operationally more complex to maintain.
+
+**Report the test result to H4H before any additional hardware is installed.** The crew does not select the path independently.
 
 ---
 
-### Step 4: Install the cable glands
+### Step 3: If additional hardware is required — run the outdoor cable to the kiosk
 
-**What to do:** Install the cable glands in the enclosure entry ports before running any cables through them. Each cable entering the enclosure needs its own gland. Tighten the glands to the enclosure wall first, then route the cable through the gland, and tighten the gland around the cable last.
+**What to do:** If the signal test confirmed that additional hardware is needed at the kiosk, run the appropriate cable from 704 Main Street to the kiosk before mounting any hardware at the kiosk end.
 
-**Why glands before cables:** A cable gland installed with the cable already in place is harder to tighten correctly and may not seal fully against the cable jacket. Installing the gland body first, then threading the cable through it, allows the gland to compress evenly around the cable when tightened. The result is a seal that holds against water infiltration. A gland installed the other way may appear sealed but leak under sustained rain or condensation.
+**For the outdoor access point path (Path A):**
+Run a single outdoor-rated Cat6 Ethernet cable from the indoor network switch at 704 Main Street to the kiosk location. This cable carries both data and power via PoE. Use direct-burial rated or UV-jacketed outdoor Cat6 for any section that is exposed to weather or sunlight. Secure the cable along its run with UV-rated clips or cable ties spaced no more than 24 inches apart. Protect any section crossing pedestrian areas by routing above head height, below grade in conduit, or along a structure that keeps it out of the path of trail users.
 
-**What glands are needed:** At minimum, this installation requires one gland for the power cable entering the enclosure. If any additional cables enter the enclosure — such as a network cable from the indoor network — each needs its own gland. Any enclosure port that is not used should be plugged with the included blanking plug and sealed with outdoor sealant.
+**For the Raspberry Pi path (Path B):**
+Run an outdoor-rated 12/3 SJTW power cable from the solar system's AC output (via inverter) or from an appropriate DC power source to the kiosk. Additionally, if the Pi will connect to the indoor network via wired Ethernet rather than wireless, run an outdoor Cat6 cable as described above. If the Pi connects wirelessly, the power cable is the only run required.
 
-**Lesson for future sites:** The specific cable diameter matters for gland selection. The gland must match the outer diameter of the cable jacket to compress and seal correctly. At this site, document which gland size was used for the 12/3 SJTW cable, as that information directly applies to any future site using the same cable type.
+**Why cable runs happen before hardware is mounted at the kiosk:**
+Cable length is determined by the actual route the cable takes, not the straight-line distance. The route around structures, along surfaces, and through any conduit sections may be significantly longer than 100 yards of straight-line distance. Running the cable first establishes how much is needed and confirms the route is clear before the crew commits hardware to the kiosk end.
+
+**What to check before moving on:** The cable is routed and secured along its full length. No section crosses a pedestrian area without protection. The cable end at the kiosk has enough slack to reach the intended hardware mount point without pulling tight.
 
 ---
 
-### Step 5: Prepare the Raspberry Pi and storage card
+### Step 4: Mount the hardware at the kiosk
 
-**What to do:** Outside the enclosure, in a clean and dry working environment — this may mean the interior of a vehicle, a table in the building, or a staging area protected from wind and moisture — do the following:
+**This step varies by path.**
 
-- Confirm the MicroSD card has been imaged with the correct operating system and configuration before arrival at the site. If it has not been pre-imaged, this must happen before the Pi is placed in the enclosure.
+**If the signal test showed the router reaches the kiosk (no additional hardware needed):**
+There is nothing to mount in this step. Proceed to Step 7 — the sign.
+
+**Path A — Outdoor access point:**
+Mount the outdoor access point at the kiosk at a height and orientation that maximizes coverage of the area where trail users will stand. Most outdoor access points have a preferred orientation marked in their installation guide — follow it. Use stainless steel fasteners. Connect the PoE Ethernet cable to the access point's port. The access point will power on when the other end of the cable is connected to the PoE switch port or injector indoors.
+
+**Path B — Raspberry Pi in outdoor enclosure:**
+Mount the weatherproof outdoor enclosure (Sixfab IP65 or equivalent) to the kiosk mounting surface using stainless steel wood screws long enough to reach solid wood. Mount the enclosure at a height that is within the protected area of the kiosk canopy, reachable for maintenance without a ladder, and not so low that it risks direct water contact at its base.
+
+Install cable glands in the enclosure entry ports before running any cables through them. Each cable entering the enclosure needs its own gland. Tighten the gland body to the enclosure wall first, route the cable through it, and tighten the gland against the cable jacket last. Any unused ports must be plugged with the included blanking plug and sealed with outdoor sealant.
+
+**Why stainless fasteners at a five-year-old wood kiosk:**
+The existing fasteners in this kiosk have had five years of corrosion exposure. Any new fasteners added now should be stainless, both because the outdoor environment requires it and because mixing stainless with corroded zinc or galvanized hardware at the same location creates a galvanic corrosion situation that accelerates degradation of the non-stainless material. Use stainless throughout.
+
+---
+
+### Step 5: Prepare and install the Raspberry Pi (Path B only)
+
+**Skip this step if Path A or the direct-signal outcome applies.**
+
+**What to do:** Outside the enclosure, in a clean and protected environment — the interior of a vehicle, a table inside 704 Main Street, or a staging area shielded from wind and moisture — complete the following:
+
+- Confirm the MicroSD card was imaged with the correct operating system and hotspot configuration before arriving on site. If it was not pre-imaged, this must happen before the Pi is placed in the enclosure.
 - Insert the MicroSD card into the Raspberry Pi.
-- Confirm no physical damage to the Pi board — check for bent pins, cracked components, or missing connectors.
-- Connect the short HDMI or display adapter if a diagnostic display will be used during initial startup.
+- Inspect the Pi board for physical damage — bent pins, cracked components, or missing connectors.
+- Connect the short HDMI adapter if a diagnostic display will be used during initial startup.
 
-**Why pre-image the card before the site visit:** Imaging a MicroSD card requires a computer and takes time. Doing it on site in the field, particularly at an outdoor location, introduces risk of errors, interruptions, and delays. If the correct software is not on the card when the crew arrives, the hotspot will not function when power is applied in Phase 10, and the crew will either have to wait on site or return for a second visit. Pre-imaging is preparation that cannot be skipped.
+Place the Pi into the enclosure on the mounting standoffs. Secure it with the appropriate fasteners. Connect the power supply to the outdoor power cable. Connect the power supply output to the Pi's USB-C power input. If a wired network connection is being used, connect the Ethernet cable to the Pi's Ethernet port and route it through its own cable gland. Do not power on yet.
 
-**Why outside the enclosure:** The Raspberry Pi board is small and the enclosure mounting hardware — standoffs, screws, brackets — requires careful alignment. Handling these components in a protected environment reduces the risk of dropping the board, losing small fasteners, or incorrectly seating components. Once the Pi is mounted and the cables are connected, it should not need to be removed again unless there is a hardware failure.
+**Why the Pi is handled outside the enclosure:**
+The Pi board is small and its mounting hardware — standoffs, screws — requires careful alignment. Handling these components in a protected environment reduces the risk of dropping the board, losing small fasteners, or incorrectly seating the MicroSD card. Once mounted, the Pi should not need to be removed unless there is a hardware failure.
 
-**Lesson for future sites:** At this pilot site, document the specific operating system image used, the version number, and where the image file is stored in H4H's records. Every future site that uses a Raspberry Pi for a similar purpose should use the same base image unless there is a deliberate reason to change it. Consistent images make maintenance and troubleshooting consistent.
-
----
-
-### Step 6: Mount the Raspberry Pi inside the enclosure and connect power
-
-**What to do:** Place the Raspberry Pi into the enclosure on the mounting standoffs provided. Secure it with the appropriate fasteners. Connect the Raspberry Pi power supply to the outdoor power cable that was run in Step 2. Connect the power supply output to the Raspberry Pi's USB-C power input. Do not power on yet.
-
-**Why standoffs:** The Raspberry Pi board must not rest directly against the metal enclosure floor or against any surface that could cause an electrical short to the board's solder points. Standoffs hold the board above the enclosure floor by several millimeters, preventing contact and allowing air circulation under the board.
-
-**Why not power on yet:** The full connection sequence — power, network, and any additional connections — should be completed before power is applied for the first time. Powering on a partially connected system can cause the Pi to boot into an unexpected state that requires a manual reset. Complete all connections first, then power on in the sequence described in Phase 10.
-
-**What to check before moving on:** The Pi is secured on standoffs, the power supply is connected, and no cables are pinched against the enclosure edges or the board components.
+**Why not power on yet:**
+All connections must be complete before power is applied. The sequence is managed in Phase 10.
 
 ---
 
-### Step 7: Connect network cable if applicable
+### Step 6: Confirm indoor network configuration supports the kiosk path chosen
 
-**What to do:** If the kiosk hotspot is designed to receive its internet connection from the indoor network via a wired Ethernet connection, run that cable to the kiosk location and connect it to the Raspberry Pi's Ethernet port. Route the cable through its own cable gland. If the connection to the indoor network is wireless, confirm the Pi's wireless configuration was set up during the pre-imaging step.
+**What to do:** Before closing up any hardware at the kiosk, confirm the following at the indoor network equipment:
 
-**Why wired is preferable to wireless for this link:** A wired Ethernet connection between the indoor network and the Pi at the kiosk is more reliable than a wireless connection over that same distance. Wireless connections are subject to interference, signal fading, and configuration drift. A wired connection either works or it does not, and diagnosing a fault is straightforward. For a public-facing hotspot that needs to be reliably available, the wired option is worth the additional cable run if the distance and physical conditions allow it.
+**For Path A (outdoor access point):** Confirm the PoE switch port or PoE injector that the access point's cable connects to is active and that the access point receives power (its indicator light should be on). Confirm the access point is broadcasting a network with the correct name and password.
 
-**Why not discussed in more detail here:** The exact network architecture for this site — whether the Pi connects via wired or wireless to the indoor network, and what software it runs to create the public-facing hotspot — is a software configuration decision that is outside the scope of the physical installation workflow. That configuration should be documented separately and confirmed to be loaded on the MicroSD card before the site visit.
+**For Path B (Raspberry Pi):** Confirm the indoor network the Pi is connecting to — either via Ethernet or wireless — is active and that the Pi's configured network name matches it.
+
+**For the direct-signal outcome (no additional hardware):** Confirm the Starlink router's network name and password are what will be communicated to the public via the sign. The network name should be something recognizable as belonging to H4H and the trail project, not the default Starlink network name.
+
+**Why this step exists:** A hotspot sign pointing the public to a network that does not exist, or that requires a password the public does not have, is worse than no sign at all. It creates a failed expectation at the exact moment a community member tries to use the service for the first time. Confirm the network is correctly named and accessible before the sign goes up.
 
 ---
 
-### Step 8: Mount the hotspot sign at the kiosk
+### Step 7: Mount the hotspot sign at the kiosk
 
 **What to do:** Mount the Wi-Fi hotspot sign at the kiosk in a location that is:
 
 - Visible to a person approaching the kiosk from the walking trail.
 - At eye level or close to it for an adult standing in front of the kiosk.
 - Not obstructed by any other signage, hardware, or structural element.
-- Secured with fasteners appropriate for the kiosk surface.
+- Secured with stainless fasteners appropriate for the kiosk surface.
+
+The sign should include the network name the public will connect to. A generic Wi-Fi symbol without a network name leaves people guessing. A sign that says "Free Wi-Fi — connect to [network name]" tells them exactly what to do.
 
 Apply outdoor-rated sealant over any fastener holes drilled through the kiosk canopy or roof to prevent water infiltration at those points.
 
-**Why the sign is the last item in this phase:** All physical hardware is in place before the sign goes up. The sign communicates to the public that the service is here. Installing it before the hardware is in place and tested would be premature — if the service is not ready, the sign creates an expectation that cannot be fulfilled. The sign goes up when the hardware is in place and ready for the testing phase.
+**Why the sign is the last item in this phase:** All hardware is in place and the network is confirmed before the sign goes up. The sign tells the public the service is here. If the service is not yet confirmed ready, the sign creates a promise that cannot be kept. That damages community trust in the project and in H4H. The sign goes up when the service is ready, and not before.
 
-**What to check before moving on:** The sign is level, secure, and readable from the trail approach. The sign clearly indicates that a Wi-Fi hotspot is available at this location — not just a generic Wi-Fi symbol, but a sign that a person unfamiliar with the project can understand.
-
-**Lesson for future sites:** At this pilot site, note how people respond to the sign in the first weeks of operation. Does anyone stop and look for a network name? Do people understand that it is free? That feedback informs how signage is designed for future sites. The sign is not just a label — it is the first interaction the public has with the service.
+**Lesson for future sites:** Note how trail users respond to the sign in the first weeks of operation. Does the network name make sense to someone who knows nothing about the project? Do people understand it is free? That feedback shapes how signage is designed at future sites. The sign is the first interaction the public has with this service.
 
 ---
 
-### Step 9: Secure and protect all exposed wiring
+### Step 8: Secure and protect all exposed wiring
 
-**What to do:** Walk the full cable run from the power source to the kiosk and confirm the following:
+**What to do:** Walk the full cable run from 704 Main Street to the kiosk and confirm:
 
 - Every section of exposed cable is secured to a surface or structure.
-- No cable hangs freely in a location where wind, foot traffic, or equipment contact could pull it.
+- No cable hangs freely where wind, foot traffic, or equipment contact could pull it.
 - All connections at both ends of every cable are covered with appropriate strain relief.
-- Any cable passing through a hole in wood or metal is protected by a grommet or a sealed cable gland — not resting against the raw edge of the hole.
-- All cable glands on the enclosure are tightened against the cable jackets.
-- Outdoor sealant is applied to any cable entry point that is not fully sealed by the gland alone.
+- Any cable passing through a hole in wood or metal is protected by a grommet or sealed cable gland — not resting against the raw edge of the hole.
+- All cable glands on any enclosure are tightened against the cable jackets.
+- Outdoor sealant is applied to any cable entry point not fully sealed by the gland alone.
 
-**Why this step is its own item and not an afterthought:** Exposed cables in a public outdoor location are subject to forces that cables in an indoor installation are not. Wind causes cables to flex repeatedly at stress points, leading to fatigue failure over months. Curious hands sometimes pull at cables that look accessible. Animals, particularly rodents, investigate and sometimes chew cables that are at ground level or accessible. Rain drives into any opening that is not sealed. Making cable runs clean and fully protected at the time of installation is the difference between a system that runs for years and one that fails in the first season.
+**Why this step is its own item:** Exposed cables in a public outdoor location face forces that indoor cables do not. Wind causes repeated flexing at stress points. Curious hands pull at accessible cables. Rodents investigate cables at accessible heights. Rain infiltrates any unsealed opening. A cable run that is clean and fully protected at the time of installation is the difference between a system that runs for years and one that fails in its first season.
 
-**What a correctly completed Phase 7 looks like:** The outdoor enclosure is mounted solidly on the kiosk, sealed at all cable entry points, with the Raspberry Pi inside on standoffs and connected to power and network. The power cable is routed cleanly from the power source to the enclosure without loops or exposed connections at intermediate points. The hotspot sign is visible, level, and readable. No cables hang freely. The enclosure door latches closed without forcing. The kiosk looks maintained, intentional, and ready for public use.
+**What a correctly completed Phase 7 looks like:** Regardless of which path was taken, the kiosk area has a visible, legible hotspot sign. Any hardware added — whether an outdoor access point or a Raspberry Pi enclosure — is solidly mounted on the inspected and confirmed kiosk structure. All cables are secured along their runs without hanging sections or sharp bends. All outdoor penetrations and enclosure entries are sealed. The kiosk looks maintained, intentional, and ready for public use.
 
 ---
 
 ## What Happens If This Phase Is Rushed or Skipped in Part
 
-**Structural inspection skipped on an aged structure:** Five-year-old outdoor wood structures in high-humidity Appalachian climates develop rot at post bases, fastener points, and any location where water can pool or wick into end grain. These failure points are often not visible from standing height and are not apparent without probing. A post base that has lost 30 percent of its cross-section to rot may hold the original sign panel without any visible problem and still fail under the additional torque load of a mounted electronics enclosure in a wind event. The inspection described in Step 1 exists specifically to find these conditions before hardware is committed to the structure. Skipping it because the kiosk is familiar and trusted is the most common way this class of failure occurs — familiarity creates an assumption of soundness that a hands-on inspection might not support.
+**Signal test skipped, hardware ordered blind:** At under 100 yards with a two-story building in the path, the signal result is genuinely uncertain. If the test is skipped and hardware is ordered and installed based on an assumption, there is a meaningful probability that the hardware was unnecessary — or that the wrong hardware was chosen. Either outcome wastes money and crew time on a return visit.
 
-**Cable glands not fully tightened:** Moisture infiltration through a loose cable gland at a comparable installation caused a Raspberry Pi board failure at the USB-C power input connector within one year. The failure presented as intermittent power loss and was initially diagnosed as a power supply problem. Full diagnosis required removing and inspecting the board. The gland could have been tightened in under a minute at installation.
+**Structural inspection skipped on an aged structure:** Five-year-old outdoor wood structures in high-humidity Appalachian climates develop rot at post bases, fastener points, and anywhere water can pool or wick into end grain. A post base that has lost structural integrity may hold the original kiosk sign without visible problem and still fail under the additional load of mounted electronics in a wind event. Familiarity with the kiosk is not a substitute for probing the posts.
 
-**MicroSD not pre-imaged:** A crew that arrived on site without a pre-imaged card spent two hours imaging the card in the field using a laptop, consuming the afternoon and requiring the testing phase to be deferred to a return trip. The return trip cost a full day of crew time and delayed public availability of the service by two weeks.
+**Network name not confirmed before sign goes up:** A sign pointing to a default Starlink network name, or to a network that requires a password the public does not have, produces a failed first impression that is difficult to walk back once community members have encountered it.
 
-**Sign installed before testing:** A hotspot sign installed before the service was confirmed active at a similar site generated public complaints when users could not find a working network. Managing those complaints consumed time and damaged the community's confidence in the project. The sign should go up when the service is ready.
+**Cable glands not fully tightened:** Moisture infiltration through a loose gland causes gradual hardware degradation that presents as intermittent failures months after installation, not at the time the problem was created.
+
+**MicroSD not pre-imaged (Path B):** Imaging a card in the field on an outdoor site consumes hours and typically requires a return trip for the testing phase.
 
 ---
 
 ## What to Record When Phase 7 Is Complete
 
-Before moving to Phase 8, record and photograph the following:
+Before moving to Phase 8, record the following:
 
-- Raspberry Pi serial number and the MicroSD card image version loaded on it.
-- Photograph of the Pi inside the mounted enclosure before the door is closed.
-- Photograph of the sealed and closed enclosure on the kiosk.
-- Photograph of the cable run from the power source to the kiosk.
+- Signal test result: signal strength reading and speed test result at the kiosk location.
+- Router placement at 704 Main Street at the time of the signal test.
+- Path selected (direct signal / Path A / Path B) and the reason.
+- If Path A or B: hardware model and serial number of the access point or Raspberry Pi.
+- If Path B: MicroSD card image version.
+- Photograph of the kiosk structural inspection — post bases, mounting surface, roof underside.
+- Photograph of any hardware mounted at the kiosk before any enclosure is closed.
+- Photograph of sealed enclosure or mounted access point in final position.
 - Photograph of the hotspot sign in its installed position.
-- Note of the kiosk structural inspection result and any observations about kiosk condition.
+- Photograph of the cable run from 704 Main Street to the kiosk.
 - Note of any deviation from the planned installation and the reason for it.
 
 ---
@@ -231,10 +303,11 @@ Before moving to Phase 8, record and photograph the following:
 
 At future sites, the core lessons from this phase are:
 
-1. Structural inspection is not a formality on a structure you know. It is especially necessary on one you know, because familiarity creates assumptions that a hands-on inspection is designed to test. Five years of Appalachian weather changes a structure. Assess it accordingly.
-2. Pre-image the storage card before arriving on site. This is preparation, not optional.
-3. Cable glands must be tightened against the cable jacket, not just installed in the enclosure wall.
-4. Wired network connections are more reliable than wireless for the link between the indoor network and the kiosk Pi.
-5. The sign goes up after the hardware is in place and confirmed ready to test — not before.
-6. Clean cable runs in public outdoor spaces are not cosmetic. They are structural protection for the cable.
-7. This kiosk is the public face of the project. How it looks and how accessible it is matter to the community's trust in H4H and in this service.
+1. Test the signal before ordering hardware. A short distance and a known building obstruction produce an uncertain result that only a field test resolves. Assuming the answer costs money either way — either hardware bought unnecessarily, or a return trip to add hardware that was skipped.
+2. A two-story building between a router and a public hotspot location is a meaningful obstruction at 5 GHz and a partial obstruction at 2.4 GHz. Never assume signal passes through a building without testing it.
+3. Router placement inside the building matters. Closer to the wall facing the hotspot location means less building material in the signal path.
+4. A purpose-built outdoor access point is operationally simpler than a Raspberry Pi performing the same function. Prefer it when the budget allows.
+5. Structural inspection is especially necessary on a structure you know. Familiarity creates assumptions. Five years of Appalachian weather changes a structure. Assess it with your hands, not your memory.
+6. The network name on the sign must be the network name that actually works at the kiosk. Confirm this before the sign goes up.
+7. The sign goes up after the service is confirmed ready. Not before.
+8. This kiosk is the public face of the project. How it looks, how clear the signage is, and whether the service works on first contact all shape the community's trust in H4H and in everything that comes after this installation.
