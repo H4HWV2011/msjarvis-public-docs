@@ -12,7 +12,7 @@ The crew should plan around the following equipment groups:
 - Starlink internet hardware for the main building.
 - Local network equipment for distribution at the main building.
 - One small edge computer or mini PC at the main building.
-- One outdoor public kiosk or display point.
+- One existing outdoor kiosk location used as a hotspot point.
 - One outdoor Starlink receiver point with solar power support.
 - One LoRa backup communications node with solar support.
 - Supporting parts such as brackets, enclosures, poles, cable runs, anchors, conduit, weather protection, and power accessories.
@@ -75,11 +75,10 @@ The following list should be used as the working procurement and staging list fo
 | FCCAC-01 | 704 Main Street | Cable clips and ties | Cable management supplies | 1 lot | Exact source still needed |
 | FCCAC-01 | 704 Main Street | Wall anchors and screws | Mounting fasteners | 1 lot | Exact source still needed |
 | FCCAC-01 | 704 Main Street | Conduit or raceway | Cable protection for exposed runs | 1 lot | Exact source still needed |
-| KIOSK-01 | Walking trail kiosk | Outdoor kiosk body or display housing | Public-facing kiosk or display structure | 1 | Exact kiosk hardware still needed |
-| KIOSK-01 | Walking trail kiosk | Kiosk mounting hardware | Base plate, anchors, bolts, or wall mount parts | 1 lot | Depends on final kiosk design |
+| KIOSK-01 | Walking trail kiosk | Existing kiosk structure | Existing kiosk already on site | 1 | Existing asset, no purchase needed |
+| KIOSK-01 | Walking trail kiosk | Hotspot sign | Small Wi-Fi sign or Wi-Fi symbol sign | 1 | Final sign source still needed |
 | KIOSK-01 | Walking trail kiosk | Outdoor weatherproof enclosure | Lockable enclosure for equipment | 1 | [Sixfab IP65 enclosure](https://sixfab.com/product/raspberry-pi-ip65-outdoor-iot-project-enclosure/) |
-| KIOSK-01 | Walking trail kiosk | Outdoor display or interface unit | Public-facing screen or device | 1 | Exact display model still needed |
-| KIOSK-01 | Walking trail kiosk | Raspberry Pi | Small controller or receiver unit | 1 | Exact Pi listing still needed |
+| KIOSK-01 | Walking trail kiosk | Raspberry Pi | Small controller or receiver unit | 1 | Final source still needed |
 | KIOSK-01 | Walking trail kiosk | Raspberry Pi power supply | Power adapter for Raspberry Pi | 1 | Exact source still needed |
 | KIOSK-01 | Walking trail kiosk | MicroSD card | Storage card for Raspberry Pi | 1 | Exact source still needed |
 | KIOSK-01 | Walking trail kiosk | Short HDMI or adapter cable | Display connection as needed | 1 | Exact source still needed |
@@ -195,15 +194,14 @@ Checklist:
 - Install the weatherproof equipment enclosure.
 - Confirm secure weather protection.
 
-### Phase 7: Install Kiosk Equipment
-After support hardware is in place, install the outdoor kiosk equipment.
+### Phase 7: Install Kiosk Hotspot Equipment
+After support hardware is in place, install the hotspot equipment at the existing kiosk location.
 
 Checklist:
-- Mount the kiosk body or display structure.
+- Confirm the existing kiosk is structurally sound.
 - Install the outdoor enclosure.
-- Install the display or public interface unit.
-- Install the Raspberry Pi and storage card.
-- Connect the Pi to the display or interface hardware.
+- Install the Raspberry Pi and storage card if used for local control or monitoring.
+- Install the hotspot sign or Wi-Fi symbol sign.
 - Secure and protect all exposed wiring.
 
 ### Phase 8: Install Backup Communications Node
@@ -298,10 +296,9 @@ Each site kit should include all parts needed for one location.
 - Cable clips, ties, anchors, and screws.
 
 ### KIOSK-01 Outdoor Kiosk Kit
-- Kiosk body or display housing.
-- Mounting hardware.
+- Existing kiosk structure.
+- Hotspot sign.
 - Outdoor weatherproof enclosure.
-- Outdoor display or interface unit.
 - Raspberry Pi.
 - Raspberry Pi power supply.
 - MicroSD card.
