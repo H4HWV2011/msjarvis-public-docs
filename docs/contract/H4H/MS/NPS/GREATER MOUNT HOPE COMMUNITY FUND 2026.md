@@ -1,6 +1,6 @@
 # GREATER MOUNT HOPE COMMUNITY FUND
 ## Complete Final Application — Harmony for Hope, Inc.
-### Grant Ask: $13,700
+### Grant Ask: $15,000
 
 ---
 
@@ -58,7 +58,7 @@ Mount Hope Heritage Connectivity Infrastructure — FCCAC & Trail Node
 
 ### Grant Amount Requested
 
-$13,700
+$15,000
 
 ---
 
@@ -199,10 +199,11 @@ At least 12 community information posts (alerts, events, local resources) are pu
 | Pole mount + weatherproof enclosure + DC wiring + grounding hardware | $235 |
 | LoRa node + antenna + solar support + enclosure + mounting hardware | $195 |
 | Labels, fasteners, sealant, field supplies | $100 |
-| Licensed electrician installation — both locations, full day, structural assessment, contingency | $3,500 |
+| Electrician installation — both locations, full day, structural assessment, contingency | $3,500 |
 | Starry Eyes Media — website and landing page | $4,000 |
-| Contingency (15%) | $1,798 |
-| **Total GMHCDF Ask** | **$13,700** |
+| Starlink monthly service — 1 year (12 × $120) | $1,440 |
+| Contingency (15%) | $1,658 |
+| **Total GMHCDF Ask** | **$15,000** |
 
 ---
 
@@ -210,7 +211,7 @@ At least 12 community information posts (alerts, events, local resources) are pu
 
 This budget funds the physical infrastructure that enables Mount Hope's existing heritage assets — the Historic Walking Trail, the Fayette County Community Arts Center, and the Main Street corridor — to function as a connected, living heritage and community information district.
 
-All hardware line items are one-time capital costs for equipment with an estimated useful life of five or more years. There are no recurring subscription fees in this budget; Starlink monthly service is an H4H operational expense outside this grant.
+All hardware line items are one-time capital costs for equipment with an estimated useful life of five or more years. Starlink monthly service for the first year of operation is included as a grant-covered expense, ensuring the system is fully funded through the grant period and reportable through February 2027.
 
 The installation line of $3,500 reflects the actual requirements of this work. The installation involves a 12V 100Ah LiFePO4 battery system, live solar panel handling, DC fusing and wiring, outdoor weatherproof enclosures, a public structural assessment of the existing kiosk, and a LoRa radio node mounting in an elevated, weather-exposed location. These tasks require an electrician with DC systems experience, not general labor, and the budget reflects a full day of professional time plus contingency for kiosk structural conditions that cannot be fully assessed until the crew is on site.
 
@@ -223,7 +224,7 @@ The Starry Eyes Media line of $4,000 covers website and landing page development
 - Backup generator for system power continuity during weather-related outages: in-kind
 
 **Investment context:**
-The GMHCDF is not the only partner at this table. The WV Community Development Hub is actively networking H4H to Truist Foundation and other opportunities. President Brad Smith of Marshall University is engaged and awaiting a formal use case. NPS is ready to formalize corridor engagement. This $13,700 investment puts Mount Hope in the ground as the reference implementation — the proven anchor that makes every subsequent corridor grant to ARC, USDA, and EDA credible. The GMHCDF's dollars stay at 704 Main Street. The credibility they create travels the entire 53-mile corridor.
+The GMHCDF is not the only partner at this table. The WV Community Development Hub is actively networking H4H to Truist Foundation and other opportunities. President Brad Smith of Marshall University is engaged and awaiting a formal use case. NPS is ready to formalize corridor engagement. This $15,000 investment puts Mount Hope in the ground as the reference implementation — the proven anchor that makes every subsequent corridor grant to ARC, USDA, and EDA credible. The GMHCDF's dollars stay at 704 Main Street. The credibility they create travels the entire 53-mile corridor.
 
 ---
 
