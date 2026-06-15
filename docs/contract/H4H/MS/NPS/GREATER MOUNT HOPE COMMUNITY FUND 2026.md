@@ -28,9 +28,9 @@ H4H's primary programs and assets include:
 
 **The Fayette County Community Arts Center (FCCAC)** — a community arts facility housed at 704 Main Street, supporting one resident artist and serving as a regional cultural programming venue.
 
-**MountainShares Commons** — a community-owned local economy and heritage platform built and licensed to H4H as an in-kind contribution, serving Mount Hope and New River Gorge corridor communities. The platform is live and in active testing at https://egeria.mountainshares.us.
+**MountainShares Commons** — a community-serving local economy and heritage platform operated by H4H under a no-cost license, built to be shaped by and for the communities it serves. The platform is live and in active testing at https://egeria.mountainshares.us.
 
-H4H's technical infrastructure — the Artificial Learning & Location Intelligence System (ALLIS) — is owned and operated by KTS under contract to H4H and is currently live. H4H sponsors the MountainShares community deployment tier, which enables no-cost ALLIS node deployment in gateway communities along the corridor.
+H4H operates the Artificial Learning & Location Intelligence System (ALLIS) under a no-cost license — a locally hosted mesh intelligence platform currently live and in active testing. H4H sponsors the MountainShares community deployment tier, which enables no-cost ALLIS node deployment in gateway communities along the corridor.
 
 This project has been independently validated by Dr. Anurag K. Srivastava, Raymond J. Lane Professor and Chair of the Lane Department of Computer Science and Electrical Engineering at West Virginia University, who described the methodology as a sound approach to validating advanced AI models in a real-world, resource-constrained setting. The City of Mount Hope has committed a Letter of Support. The Town of Thurmond has issued a Letter of Support. New River Gorge National Park and Preserve has committed a Letter of Support pending Mount Hope's deployment confirmation. President Brad Smith of Marshall University is actively engaged and awaiting a formal use case submission. The WV Community Development Hub is in early engagement, actively networking H4H to additional funding opportunities.
 
