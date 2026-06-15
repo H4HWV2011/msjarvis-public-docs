@@ -161,7 +161,7 @@ Yes.
 
 ### Measurable Outcomes
 
-By February 28, 2027, the following outcomes will be documented and reportable to BAF:
+By February 28, 2027, the following outcomes will be documented and reportable to GMHCDF:
 
 **1. Infrastructure deployed and operational.**
 Server, Starlink equipment, and LoRa mesh are installed and functioning at both the FCCAC (704 Main) and the Historic Walking Trail kiosk. System uptime is logged from deployment date through grant close.
@@ -202,7 +202,7 @@ At least 12 community information posts (alerts, events, local resources) are pu
 | Licensed electrician installation — both locations, full day, structural assessment, contingency | $3,500 |
 | Starry Eyes Media — website and landing page | $4,000 |
 | Contingency (15%) | $1,798 |
-| **Total BAF Ask** | **$13,700** |
+| **Total GMHCDF Ask** | **$13,700** |
 
 ---
 
