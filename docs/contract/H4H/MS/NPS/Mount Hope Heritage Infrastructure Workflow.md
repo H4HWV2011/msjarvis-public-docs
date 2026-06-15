@@ -59,18 +59,18 @@ Location groups for this project:
 - Outdoor solar and communications mounting point.
 
 #### 2. Parts List for Procurement and Staging
-The following list should be used as the working procurement and staging list for the crew. Where a real product page has already been verified, it is linked directly below. Where no exact product has been locked yet, the entry is marked for final source selection before ordering.
+The following list should be used as the working procurement and staging list for the crew. Where a real product page has already been verified, it is linked directly below. Where no exact product has been locked yet, the entry includes an example link for discussion and later final source selection.
 
 | Site ID | Location | Item | Description | Qty | Link status |
 |---------|----------|------|-------------|-----|-------------|
 | FCCAC-01 | 704 Main Street | Starlink kit | Main Starlink internet hardware kit | 1 | [Starlink Standard 4 X kit](https://www.homedepot.com/p/STARLINK-Standard-4-X-High-Speed-Low-Latency-Internet-Kit-Latest-Model-02534001/329052560) |
-| FCCAC-01 | 704 Main Street | Starlink mount | Roof, wall, or pole mount for Starlink dish | 1 | Final mount type must be chosen per site |
+| FCCAC-01 | 704 Main Street | Starlink mount | Roof, wall, or pole mount for Starlink dish | 1 | Example mount types at [Starlink accessories listing](https://www.homedepot.com/b/STARLINK/N-5yc1vZya4) |
 | FCCAC-01 | 704 Main Street | Router | Main internet router | 1 | Included with Starlink kit |
-| FCCAC-01 | 704 Main Street | Small network switch | Local wired distribution switch | 1 | Exact switch model still needed |
+| FCCAC-01 | 704 Main Street | Small network switch | Local wired distribution switch | 1 | Example product class: [TP-Link TL-SG105 references](https://www.youtube.com/watch?v=Qc7S4fno_I8) |
 | FCCAC-01 | 704 Main Street | Wi-Fi access point | Indoor wireless coverage unit if needed | 1 | May not be needed until testing |
-| FCCAC-01 | 704 Main Street | Mini PC | Small edge computer or NUC-style unit | 1 | Exact mini PC model still needed |
-| FCCAC-01 | 704 Main Street | UPS battery backup | Small battery backup for router and mini PC | 1 | Exact UPS model still needed |
-| FCCAC-01 | 704 Main Street | Surge protector | Power protection strip | 2 | Exact surge strip model still needed |
+| FCCAC-01 | 704 Main Street | Mini PC | Small edge computer or NUC-style unit | 1 | Example class discussion: [Mini PCs under $250](https://www.youtube.com/watch?v=k7Q0VUEOAk0) |
+| FCCAC-01 | 704 Main Street | UPS battery backup | Small battery backup for router and mini PC | 1 | Example source still needs final selection |
+| FCCAC-01 | 704 Main Street | Surge protector | Power protection strip | 2 | Example source still needs final selection |
 | FCCAC-01 | 704 Main Street | Ethernet cable | Pre-made or bulk CAT6 cable | 4 | Exact cable length and source still needed |
 | FCCAC-01 | 704 Main Street | Cable clips and ties | Cable management supplies | 1 lot | Exact source still needed |
 | FCCAC-01 | 704 Main Street | Wall anchors and screws | Mounting fasteners | 1 lot | Exact source still needed |
@@ -78,27 +78,27 @@ The following list should be used as the working procurement and staging list fo
 | KIOSK-01 | Walking trail kiosk | Existing kiosk structure | Existing kiosk already on site | 1 | Existing asset, no purchase needed |
 | KIOSK-01 | Walking trail kiosk | Hotspot sign | Small Wi-Fi sign or Wi-Fi symbol sign | 1 | Final sign source still needed |
 | KIOSK-01 | Walking trail kiosk | Outdoor weatherproof enclosure | Lockable enclosure for equipment | 1 | [Sixfab IP65 enclosure](https://sixfab.com/product/raspberry-pi-ip65-outdoor-iot-project-enclosure/) |
-| KIOSK-01 | Walking trail kiosk | Raspberry Pi | Small controller or receiver unit | 1 | Final source still needed |
-| KIOSK-01 | Walking trail kiosk | Raspberry Pi power supply | Power adapter for Raspberry Pi | 1 | Exact source still needed |
-| KIOSK-01 | Walking trail kiosk | MicroSD card | Storage card for Raspberry Pi | 1 | Exact source still needed |
-| KIOSK-01 | Walking trail kiosk | Short HDMI or adapter cable | Display connection as needed | 1 | Exact source still needed |
+| KIOSK-01 | Walking trail kiosk | Raspberry Pi | Small controller or receiver unit | 1 | Example options: [Official Raspberry Pi 5 desktop kit accessories](https://www.adafruit.com/product/5824) and [Raspberry Pi 5 starter kit bundle](https://www.gigaparts.com/raspberry-pi-5-starter-kit-8gb-micro-sd-16gb-case-with-fan-hdmi-cable-psu-5-1v-5-0a-rpi5-starterkit-8g.html) |
+| KIOSK-01 | Walking trail kiosk | Raspberry Pi power supply | Power adapter for Raspberry Pi | 1 | Example included in [Adafruit Raspberry Pi 5 desktop kit accessories](https://www.adafruit.com/product/5824) |
+| KIOSK-01 | Walking trail kiosk | MicroSD card | Storage card for Raspberry Pi | 1 | Example included in [Adafruit Raspberry Pi 5 desktop kit accessories](https://www.adafruit.com/product/5824) |
+| KIOSK-01 | Walking trail kiosk | Short HDMI or adapter cable | Display connection as needed | 1 | Example included in [Gigaparts Raspberry Pi 5 starter kit bundle](https://www.gigaparts.com/raspberry-pi-5-starter-kit-8gb-micro-sd-16gb-case-with-fan-hdmi-cable-psu-5-1v-5-0a-rpi5-starterkit-8g.html) |
 | KIOSK-01 | Walking trail kiosk | Outdoor power cable | Weather-rated power cable | 1 | Exact source still needed |
-| KIOSK-01 | Walking trail kiosk | Exterior cable gland set | Waterproof cable pass-through fittings | 1 set | Included with some enclosures; verify before ordering |
+| KIOSK-01 | Walking trail kiosk | Exterior cable gland set | Waterproof cable pass-through fittings | 1 set | Included with some enclosures; verify against [Sixfab assembly instructions](https://docs.sixfab.com/page/raspberry-pi-ip54-outdoor-project-enclosure-assembly-instructions) |
 | SOLAR-01 | Outdoor solar point | Solar panel | 200W solar panel | 1 | [Rich Solar MEGA 200](https://richsolar.com/products/mega-200-200-watt-12-volt-solar-panel) |
-| SOLAR-01 | Outdoor solar point | Solar charge controller | Charge controller sized for the panel and battery | 1 | Exact controller model still needed |
-| SOLAR-01 | Outdoor solar point | Battery | 12V 100Ah battery | 1 | Exact battery model still needed |
+| SOLAR-01 | Outdoor solar point | Solar charge controller | Charge controller sized for the panel and battery | 1 | Example option: [ExpertPower 20A MPPT solar charge controller](https://www.expertpower.us/products/20a-mppt-solar-charge-controller-2) |
+| SOLAR-01 | Outdoor solar point | Battery | 12V 100Ah battery | 1 | Example options: [LiTime 12V 100Ah battery family](https://www.litime.com/collections/12v-100ah-batteries) or [Battle Born 100Ah 12V LiFePO4 battery](https://battlebornbatteries.com/products/100ah-12v-lifepo4-deep-cycle-battery) |
 | SOLAR-01 | Outdoor solar point | Battery box | Weather-protected battery housing | 1 | Exact box model still needed |
 | SOLAR-01 | Outdoor solar point | Pole or mounting frame | Support for solar panel and radio hardware | 1 | Exact mount still needed |
-| SOLAR-01 | Outdoor solar point | Panel mounting brackets | Hardware for securing solar panel | 1 set | Exact bracket set still needed |
-| SOLAR-01 | Outdoor solar point | Weatherproof electronics enclosure | Sealed box for power and communication parts | 1 | Exact enclosure still needed |
+| SOLAR-01 | Outdoor solar point | Panel mounting brackets | Hardware for securing solar panel | 1 set | See [Rich Solar panel family](https://richsolar.com/collections/solar-panels) for panel-related hardware context |
+| SOLAR-01 | Outdoor solar point | Weatherproof electronics enclosure | Sealed box for power and communication parts | 1 | Example outdoor enclosure family: [Sixfab enclosure category](https://sixfab.com/product-category/development-tools/enclosures/) |
 | SOLAR-01 | Outdoor solar point | Fuse block or inline fuses | Electrical protection hardware | 1 set | Exact source still needed |
 | SOLAR-01 | Outdoor solar point | DC wiring set | Power wire, terminals, and connectors | 1 lot | Exact source still needed |
 | SOLAR-01 | Outdoor solar point | Grounding hardware | Ground rod, clamp, and wire if required | 1 set | Exact source still needed |
-| SOLAR-01 | Outdoor solar point | Starlink receiver point hardware | Hardware needed at the outdoor receive point | 1 set | Depends on final mount and enclosure layout |
-| LORA-01 | Outdoor communications point | LoRa node | LILYGO T-Beam or Heltec LoRa32 class device | 1 | Exact board revision still needed |
-| LORA-01 | Outdoor communications point | LoRa antenna | External or matched antenna | 1 | Exact antenna still needed |
+| SOLAR-01 | Outdoor solar point | Starlink receiver point hardware | Hardware needed at the outdoor receive point | 1 set | Depends on final mount and enclosure layout; see [Starlink accessories listing](https://www.homedepot.com/b/STARLINK/N-5yc1vZya4) |
+| LORA-01 | Outdoor communications point | LoRa node | LILYGO T-Beam or Heltec LoRa32 class device | 1 | Example hardware guidance: [Meshtastic LoRa antenna and hardware notes](https://meshtastic.org/docs/hardware/antennas/lora-antenna/) |
+| LORA-01 | Outdoor communications point | LoRa antenna | External or matched antenna | 1 | Example antenna guidance: [LoRa antenna selection notes](https://meshtastic.org/docs/hardware/antennas/lora-antenna/) |
 | LORA-01 | Outdoor communications point | Small solar support kit | Solar support for LoRa backup node | 1 | Exact source still needed |
-| LORA-01 | Outdoor communications point | LoRa enclosure | Small weatherproof box | 1 | Exact enclosure still needed |
+| LORA-01 | Outdoor communications point | LoRa enclosure | Small weatherproof box | 1 | Example enclosure family: [Sixfab enclosure category](https://sixfab.com/product-category/development-tools/enclosures/) |
 | LORA-01 | Outdoor communications point | Pole clamps or mount straps | Hardware for mounting the node | 1 set | Exact source still needed |
 | ALL-LOC | All locations | Labels | Equipment ID labels | 1 lot | Exact source still needed |
 | ALL-LOC | All locations | Photo log sheet | Install record sheet | 1 set | Internal print item |
@@ -233,7 +233,7 @@ Checklist:
 - Confirm indoor network access.
 - Power on kiosk equipment.
 - Confirm the Raspberry Pi starts correctly.
-- Confirm the kiosk display or public function works.
+- Confirm the kiosk hotspot function works.
 - Confirm the LoRa backup node powers on.
 - Restart each main device once if needed to confirm stable startup.
 
@@ -336,9 +336,13 @@ This section is appended for ordering. The links below are live product pages fo
 | Internet uplink | Starlink Standard kit | Model 02534001, Internet #329052560, Store SKU #1011034206 | Home Depot | [Starlink Standard 4 X kit](https://www.homedepot.com/p/STARLINK-Standard-4-X-High-Speed-Low-Latency-Internet-Kit-Latest-Model-02534001/329052560) | Includes Starlink, power supply, cables, base, and router. Monthly service plan required. |
 | Solar panel | 200W solar panel | MEGA 200 | Rich Solar | [Rich Solar MEGA 200](https://richsolar.com/products/mega-200-200-watt-12-volt-solar-panel) | 200W panel only; battery and controller ordered separately unless a full kit is chosen. |
 | Outdoor enclosure | Raspberry Pi weatherproof enclosure | Sixfab IP65 Outdoor Project Enclosure | Sixfab | [Sixfab IP65 enclosure](https://sixfab.com/product/raspberry-pi-ip65-outdoor-iot-project-enclosure/) | Compatible with Raspberry Pi and outdoor cable routing. |
+| Battery example | 12V 100Ah LiFePO4 battery | 12V 100Ah class | LiTime | [LiTime 12V 100Ah family](https://www.litime.com/collections/12v-100ah-batteries) | Example family page for discussion; final exact battery selection still required. |
+| Battery example | 12V 100Ah LiFePO4 battery | 100Ah 12V | Battle Born | [Battle Born 100Ah 12V battery](https://battlebornbatteries.com/products/100ah-12v-lifepo4-deep-cycle-battery) | Premium example for discussion; higher-cost option. |
+| Charge controller example | 20A MPPT charge controller | 20A MPPT | ExpertPower | [ExpertPower 20A MPPT controller](https://www.expertpower.us/products/20a-mppt-solar-charge-controller-2) | Example controller class for discussion and comparison. |
+| Raspberry Pi example | Raspberry Pi bundle | Desktop kit accessories | Adafruit | [Official Raspberry Pi 5 desktop kit accessories](https://www.adafruit.com/product/5824) | Accessory example; Pi board sold separately. |
+| Raspberry Pi example | Raspberry Pi bundle | Starter Kit 8GB | Gigaparts | [Raspberry Pi 5 starter kit bundle](https://www.gigaparts.com/raspberry-pi-5-starter-kit-8gb-micro-sd-16gb-case-with-fan-hdmi-cable-psu-5-1v-5-0a-rpi5-starterkit-8g.html) | Example bundle for discussion. |
 
 ## Procurement Notes
-- The Starlink hardware link above is a real retail listing for the Standard 4 X kit and is the lowest-cost grounded starting point identified for this pilot. It is appropriate for a first site unless later traffic or uptime needs justify a business-class upgrade.
-- The Rich Solar panel link is a real manufacturer page for the 200W panel, but it is only the panel. Battery, controller, mounts, and wiring still need exact SKU selection.
-- The Sixfab enclosure link is a real product page for outdoor Raspberry Pi protection, but the Raspberry Pi board itself, storage card, power supply, and any display hardware still need exact SKU selection.
-- Before ordering, each remaining line item should be completed with the same fields used above: model, vendor, and direct purchase link.
+- The Starlink hardware link above is a real retail listing for the Standard 4 X kit and is the lowest-cost grounded starting point identified for this pilot.
+- The battery, controller, and Raspberry Pi example links are included as discussion-ready examples so the organization can review actual products before locking final SKUs.
+- Example links are not the same as final approval. H4H should still confirm compatibility, pricing, weather rating, and sourcing before purchase.
