@@ -1,6 +1,6 @@
 # GREATER MOUNT HOPE COMMUNITY FUND
 ## Complete Final Application — Harmony for Hope, Inc.
-### Grant Ask: $15,000
+### Grant Ask: $15,700
 
 ---
 
@@ -58,7 +58,7 @@ Mount Hope Heritage Connectivity Infrastructure — FCCAC & Trail Node
 
 ### Grant Amount Requested
 
-$15,000
+$15,700
 
 ---
 
@@ -224,7 +224,7 @@ The Starry Eyes Media line of $4,000 covers website and landing page development
 - Backup generator for system power continuity during weather-related outages: in-kind
 
 **Investment context:**
-The GMHCDF is not the only partner at this table. The WV Community Development Hub is actively networking H4H to Truist Foundation and other opportunities. President Brad Smith of Marshall University is engaged and awaiting a formal use case. NPS is ready to formalize corridor engagement. This $15,000 investment puts Mount Hope in the ground as the reference implementation — the proven anchor that makes every subsequent corridor grant to ARC, USDA, and EDA credible. The GMHCDF's dollars stay at 704 Main Street. The credibility they create travels the entire 53-mile corridor.
+The GMHCDF is not the only partner at this table. The WV Community Development Hub is actively networking H4H to Truist Foundation and other opportunities. President Brad Smith of Marshall University is engaged and awaiting a formal use case. NPS is ready to formalize corridor engagement. This $15,700 investment puts Mount Hope in the ground as the reference implementation — the proven anchor that makes every subsequent corridor grant to ARC, USDA, and EDA credible. The GMHCDF's dollars stay at 704 Main Street. The credibility they create travels the entire 53-mile corridor.
 
 ---
 
