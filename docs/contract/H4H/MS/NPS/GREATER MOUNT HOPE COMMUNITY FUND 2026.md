@@ -95,7 +95,7 @@ A LoRa (Long Range radio) mesh network with solar backup is installed across the
 **Component 5 — Starry Eyes Media Website and Landing Page**
 A public-facing website and community landing page is developed by Starry Eyes Media (Princeton, WV), a regional partner already engaged with and supporting this project. The landing page provides a digital front door for the trail, the arts center, and the ALLIS content layer — discoverable through Google for the visitors and residents who are already looking.
 
-**Component 6 — Licensed Electrician Installation**
+**Component 6 — Electrician Installation**
 Professional installation by an electrician with structural assessment of the existing kiosk location. Installation covers both the FCCAC indoor equipment point and the outdoor kiosk and solar hardware. The installation includes full-day coverage, kiosk structural assessment, weatherproofing, and contingency for any site conditions that require remediation before hardware is committed.
 
 **Timeline:**
