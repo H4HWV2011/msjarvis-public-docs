@@ -243,6 +243,9 @@ Confirming internet service is live before leaving the indoor location is not op
 
 ### Phase 6: Install Solar and Outdoor Support Hardware
 
+See the detailed phase document:
+[Phase 6: Install Solar and Outdoor Support Hardware](Phase%206.md)
+
 **Why this phase exists:** The outdoor kiosk equipment and the LoRa node both depend on power from the solar system. Installing the power infrastructure before the devices that use it means those devices can be connected and tested immediately after mounting, rather than waiting for power to be sorted out after the fact.
 
 Checklist:
@@ -262,6 +265,9 @@ The panel mounts before the brackets are locked because the panel position deter
 
 ### Phase 7: Install Kiosk Hotspot Equipment
 
+See the detailed phase document:
+[Phase 7: Install Kiosk Hotspot Equipment](Phase%207.md)
+
 **Why this phase exists:** The kiosk is the public-facing point of contact for people using the walking trail. It must be structurally sound, clearly marked, and fully functional before it is considered complete. Installing it after the power infrastructure is in place means the equipment inside the enclosure can be connected to power immediately and tested before the enclosure is sealed.
 
 Checklist:
@@ -279,6 +285,9 @@ The structural check happens first because an unstable kiosk is a public safety 
 
 ### Phase 8: Install Backup Communications Node
 
+See the detailed phase document:
+[Phase 8: Install Backup Communications Node](Phase%208.md)
+
 **Why this phase exists:** The LoRa node is the backup communication layer for the network. It is not the primary path, but it must be operational and protected independently from the main system. Installing it after the main outdoor hardware means it can share pole and mounting resources without competing for access during installation of higher-priority equipment.
 
 Checklist:
@@ -295,6 +304,10 @@ The node goes in before the antenna so the physical unit is stabilized before th
 ---
 
 ### Phase 9: Connect Power and Network
+
+See the detailed phase document:
+[Phase 9: Connect Power and Network](Phase%209.md)
+
 
 **Why this phase exists:** This phase is the point at which all installed hardware becomes a connected system rather than a collection of independent devices. Connections made without checking strain relief, weather sealing, and cable protection first are the most common source of failures that appear days or weeks after installation rather than immediately.
 
