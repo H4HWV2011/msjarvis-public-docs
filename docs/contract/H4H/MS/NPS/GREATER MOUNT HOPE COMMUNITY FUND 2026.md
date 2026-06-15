@@ -187,23 +187,23 @@ At least 12 community information posts (alerts, events, local resources) are pu
 
 ### Budget Table
 
-| Line Item | Cost |
-|---|---|
-| Starlink Standard 4X kit + mount (FCCAC) | $674 |
-| Beelink Mini S12 Pro mini PC (FCCAC) | $189 |
-| Network switch, UPS, surge protectors, cable management (FCCAC) | $257 |
-| Raspberry Pi 5 starter kit (kiosk) | $120 |
-| Sixfab IP65 outdoor enclosure + hotspot sign + outdoor cable (kiosk) | $134 |
-| Rich Solar MEGA 200W solar panel | $199 |
-| ExpertPower MPPT controller + LiTime 100Ah battery + battery box | $299 |
-| Pole mount + weatherproof enclosure + DC wiring + grounding hardware | $235 |
-| LoRa node + antenna + solar support + enclosure + mounting hardware | $195 |
-| Labels, fasteners, sealant, field supplies | $300 |
-| Electrician installation — both locations, full day, structural assessment, contingency | $4,000 |
-| Starry Eyes Media — website and landing page | $4,000 |
-| Starlink monthly service — 1 year (12 × $120) | $1,440 |
-| Contingency (15%) | $1,658 |
-| **Total GMHCDF Ask** | **$15,700** |
+| Line Item                                                                               | Cost    |
+| --------------------------------------------------------------------------------------- | ------- |
+| Starlink Standard 4X kit + mount (FCCAC)                                                | $674    |
+| Beelink Mini S12 Pro mini PC (FCCAC)                                                    | $189    |
+| Network switch, UPS, surge protectors, cable management (FCCAC)                         | $257    |
+| Raspberry Pi 5 starter kit (kiosk)                                                      | $120    |
+| Sixfab IP65 outdoor enclosure + hotspot sign + outdoor cable (kiosk)                    | $134    |
+| Rich Solar MEGA 200W solar panel                                                        | $199    |
+| ExpertPower MPPT controller + LiTime 100Ah battery + battery box                        | $299    |
+| Pole mount + weatherproof enclosure + DC wiring + grounding hardware                    | $235    |
+| LoRa node + antenna + solar support + enclosure + mounting hardware                     | $195    |
+| Labels, fasteners, sealant, field supplies                                              | $100    |
+| Electrician installation — both locations, full day, structural assessment, contingency | $3,500  |
+| Starry Eyes Media — website and landing page                                            | $4,000  |
+| Starlink monthly service — 1 year, 2 nodes (Mount Hope + Thurmond)                      | $2,880  |
+| Contingency (15%)                                                                       | $1,808  |
+| Total GMHCDF Ask                                                                        | $16,589 |
 
 ---
 
@@ -211,7 +211,7 @@ At least 12 community information posts (alerts, events, local resources) are pu
 
 This budget funds the physical infrastructure that enables Mount Hope's existing heritage assets — the Historic Walking Trail, the Fayette County Community Arts Center, and the Main Street corridor — to function as a connected, living heritage and community information district.
 
-All hardware line items are one-time capital costs for equipment with an estimated useful life of five or more years. Starlink monthly service for the first year of operation is included as a grant-covered expense, ensuring the system is fully funded through the grant period and reportable through February 2027.
+All hardware line items are one-time capital costs for equipment with an estimated useful life of five or more years. H4H operates a single Starlink account serving both the Mount Hope and Thurmond corridor nodes. The annual service cost of $2,880 reflects both deployments and is billed as a single operational expense to H4H. Both nodes go offline if the account lapses — the full year of service is required to fulfill this grant's deliverables through February 2027.
 
 The installation line of $4,000 reflects the actual requirements of this work. The installation involves a 12V 100Ah LiFePO4 battery system, live solar panel handling, DC fusing and wiring, outdoor weatherproof enclosures, a public structural assessment of the existing kiosk, and a LoRa radio node mounting in an elevated, weather-exposed location. These tasks require an electrician with DC systems experience, not general labor, and the budget reflects a full day of professional time plus contingency for kiosk structural conditions that cannot be fully assessed until the crew is on site.
 
