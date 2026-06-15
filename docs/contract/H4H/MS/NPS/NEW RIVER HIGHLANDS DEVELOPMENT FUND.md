@@ -90,7 +90,7 @@ This $9,500 grant funds the pilot deployment that makes every subsequent corrido
 
 This grant funds the capital equipment and professional installation for the pilot deployment node — the physical infrastructure the entire corridor framework depends on:
 
-|| Line Item                                                               | Cost   |
+|| Line Item                                                              | Cost   |
 | ----------------------------------------------------------------------- | ------ |
 | Starlink Standard 4X kit + mount                                        | $674   |
 | Beelink Mini S12 Pro mini PC — ALLIS server                             | $189   |
