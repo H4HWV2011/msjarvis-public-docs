@@ -216,7 +216,7 @@ The installation line of $3,500 reflects the actual requirements of this work. T
 
 The Starry Eyes Media line of $4,000 covers website and landing page development by a Princeton, WV regional partner already engaged with and supporting this project. The landing page is the digital front door that connects the 65 current monthly trail searchers — and future visitors — to the ALLIS content layer and community information.
 
-**In-kind contributions not funded by BAF:**
+**In-kind contributions not funded by GMHCDF:**
 - ALLIS platform development and ongoing operation: Kidd's Technical Services (in-kind under existing H4H–KTS relationship)
 - H4H founder and staff time for project coordination and community engagement: in-kind
 - MountainShares platform and governance framework: in-kind
