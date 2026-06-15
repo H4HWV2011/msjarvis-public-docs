@@ -66,7 +66,7 @@ $13,700
 
 Mount Hope is the "Phoenix City of the New River Gorge" — a coalfield community that rebuilt itself in brick and stone after the Fire of 1910 and now anchors the western gateway to New River Gorge National Park and Preserve, one of the fastest-growing national parks in the United States. The community's heritage is extraordinary. Its infrastructure has not kept pace.
 
-The Mount Hope Historic Walking Trail exists. Forty-eight interpretive signs stand along a 1.25-mile route through sixteen points of architectural significance. Brochures are printed. The story is written. And yet the infrastructure that would allow that story to reach people in the field — reliable connectivity, locally hosted digital content, a living heritage layer — does not yet exist.
+The Mount Hope Historic Walking Trail exists. Forty-eight interpretive signs are hung annually with support from the City of Mount Hope streets department along a 1.25-mile route through sixteen points of architectural significance. Brochures are printed. The story is written. And yet the infrastructure that would allow that story to reach people in the field — reliable connectivity, locally hosted digital content, a living heritage layer — does not yet exist.
 
 Currently, 65 people per month find the Historic Walking Trail through Google. They arrive, often with limited or no cell service, and encounter what the signs and brochures can offer. The deeper story — coal company history, the 1910 fire, the rail and labor narrative, the architectural significance of the buildings they are standing in — exists in research and in H4H's archives, but has no reliable delivery channel in the field.
 
