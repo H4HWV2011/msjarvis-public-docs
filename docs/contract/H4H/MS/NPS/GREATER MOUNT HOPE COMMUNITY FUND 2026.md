@@ -28,7 +28,7 @@ H4H's primary programs and assets include:
 
 **The Fayette County Community Arts Center (FCCAC)** — a community arts facility housed at 704 Main Street, supporting one resident artist and serving as a regional cultural programming venue.
 
-**MountainShares** — a community-owned local economy and heritage platform developed in partnership with Kidd's Technical Services (KTS) to serve Mount Hope and New River Gorge corridor communities. The platform is live and in active testing at https://egeria.mountainshares.us.
+**MountainShares Commons** — a community-owned local economy and heritage platform built and licensed to H4H as an in-kind contribution, serving Mount Hope and New River Gorge corridor communities. The platform is live and in active testing at https://egeria.mountainshares.us.
 
 H4H's technical infrastructure — the Artificial Learning & Location Intelligence System (ALLIS) — is owned and operated by KTS under contract to H4H and is currently live. H4H sponsors the MountainShares community deployment tier, which enables no-cost ALLIS node deployment in gateway communities along the corridor.
 
