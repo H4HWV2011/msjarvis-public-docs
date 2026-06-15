@@ -18,7 +18,7 @@ Nonprofit organization
 
 ### Organizational Narrative
 
-Harmony for Hope, Inc. (H4H) is a Mount Hope–based nonprofit founded in 2017 and incorporated under the laws of West Virginia as a 501(c)(3) organization. H4H is headquartered at 706–708 Main Street in Mount Hope, occupying a historic building currently in active rehabilitation and preservation as part of the long-term revitalization of the Mount Hope Main Street corridor.
+Harmony for Hope, Inc. (H4H) is a Mount Hope–based nonprofit founded in 2017 and incorporated under the laws of West Virginia as a 501(c)(3) organization. H4H is headquartered at 704 & 708 Main Street in Mount Hope, occupying a historic building currently in active rehabilitation and preservation as part of the long-term revitalization of the Mount Hope Main Street corridor.
 
 H4H's mission is to unite West Virginia through music, art, and Appalachian heritage through technology. In practice, H4H serves as both a cultural anchor and a community infrastructure builder in Mount Hope and the surrounding New River Gorge corridor.
 
