@@ -1,6 +1,6 @@
 # NEW RIVER HIGHLANDS DEVELOPMENT FUND — ECONOMIC DEVELOPMENT
 ## BAF Grant Application — Harmony for Hope, Inc.
-### Grant Ask: $9,500
+### Grant Ask: $7,592
 
 ---
 
@@ -41,7 +41,7 @@ New River Gorge Heritage & Visitor Connectivity Mesh Pilot — Gateway Communiti
 
 ## GRANT AMOUNT REQUESTED
 
-$9,500
+$7,592
 
 ---
 
@@ -84,7 +84,7 @@ A visitor who connects to a locally hosted ALLIS node at any point along the cor
 Every node in the mesh is governed by a simple written agreement between H4H, the node host, and the platform operator. Communities contribute site access and content priorities. The platform delivers what those communities choose — not what a distant platform company decides is relevant. This is tourism infrastructure that serves residents, not the other way around.
 
 **3. Seed investment that scales to the full corridor.**
-This $9,500 grant funds the pilot deployment that makes every subsequent corridor investment credible. When H4H approaches the Appalachian Regional Commission, USDA Rural Development, and the Economic Development Administration for corridor-scale expansion to Fayetteville, Oak Hill, Hinton, and Ansted, those applications rest on a working, documented, independently validated reference implementation. New River Highlands Development Fund dollars are the seed that grows the corridor.
+This $7,592 grant funds the pilot deployment that makes every subsequent corridor investment credible. When H4H approaches the Appalachian Regional Commission, USDA Rural Development, and the Economic Development Administration for corridor-scale expansion to Fayetteville, Oak Hill, Hinton, and Ansted, those applications rest on a working, documented, independently validated reference implementation. New River Highlands Development Fund dollars are the seed that grows the corridor.
 
 ### What the Grant Funds
 
@@ -136,7 +136,7 @@ Independent validation includes:
 - Every node added to the mesh multiplies the economic development impact of every existing node — visitors at any point in the corridor receive orientation to the full corridor.
 
 **Grant leverage and multiplier:**
-- This $9,500 seed investment is the documented reference implementation that enables H4H to pursue ARC, USDA Rural Development, and EDA corridor-scale grants — funding programs that require a working pilot as their foundation.
+- This $7,592 seed investment is the documented reference implementation that enables H4H to pursue ARC, USDA Rural Development, and EDA corridor-scale grants — funding programs that require a working pilot as their foundation.
 - New River Highlands Development Fund dollars create a documented regional multiplier, converting a Fayette County pilot into a nine-county corridor infrastructure network.
 
 ---
@@ -170,7 +170,7 @@ This grant is a capital and equipment investment — the category the New River 
 
 ## PARTIAL FUNDING
 
-If the full $9,500 is not available, H4H will prioritize in the following order, with all received funds deployed and documented:
+If the full $7,592 is not available, H4H will prioritize in the following order, with all received funds deployed and documented:
 
 1. **Core hardware (Starlink + server + networking)** — backbone first
 2. **Kiosk and solar hardware** — outdoor trailhead node second
