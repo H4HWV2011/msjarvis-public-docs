@@ -32,8 +32,6 @@ ALLIS runs on a production-stable, containerized microservices stack (Docker, Fa
 
 ## The Contract Relationship: KTS and H4H
 
-This is the most important structural fact for the SBA rep to understand clearly:
-
 | Entity | Type | Role |
 |---|---|---|
 | Kidd's Technical Services (KTS) | For-profit LLC, sole proprietor | Developer, IP owner, platform operator |
