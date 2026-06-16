@@ -74,7 +74,7 @@ KTS has a documented deployment workflow, crew-ready installation guides, and a 
 KTS requires server infrastructure, GIS workstation equipment, and field hardware to deliver geoanalytical services independently of the ALLIS platform deployment timeline. WVEDA's Equipment Loan Program ($50K–$2M, fixed rates as low as 3%) may be directly applicable.[3]
 
 ### Priority 3 — SAM Registration and Federal Contracting Readiness
-KTS should register in the **System for Award Management (SAM)** to be eligible for federal contracting, including potential NPS corridor contracts, USDA Rural Development technical assistance, and ARC-funded projects. T
+KTS should register in the **System for Award Management (SAM)** to be eligible for federal contracting, including potential NPS corridor contracts, USDA Rural Development technical assistance, and ARC-funded projects.
 
 ### Loan Programs to Explore
 | Program | Why Relevant |
