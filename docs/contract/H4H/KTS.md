@@ -41,7 +41,7 @@ ALLIS runs on a production-stable, containerized microservices stack (Docker, Fa
 
 KTS was contracted by H4H to build the MountainShares Commons. In doing so, KTS developed ALLIS as proprietary technology and licenses it back to H4H free of charge as a public-benefit contribution — a model similar to a technology company providing pro bono services to a nonprofit anchor tenant while retaining all commercial rights.
 
-**Why this matters for SBA:** KTS is not a nonprofit. It is not a subsidiary of H4H. It is the technology firm that built the platform underlying a growing regional coalition now supported by the City of Mount Hope, the Town of Thurmond, New River Gorge National Park, Marshall University (President Brad Smith, actively engaged), WV Community Development Hub, and WVU. That coalition's existence validates KTS's commercial market, but KTS's revenue is entirely independent of H4H's program.
+**Why this matters:** KTS is not a nonprofit. It is not a subsidiary of H4H. It is the technology firm that built the platform underlying a growing regional coalition now supported by the City of Mount Hope, the Town of Thurmond, New River Gorge National Park, Marshall University (President Brad Smith, actively engaged), WV Community Development Hub, and WVU. That coalition's existence validates KTS's commercial market, but KTS's revenue is entirely independent of H4H's program.
 
 ***
 
