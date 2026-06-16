@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-Kidd's Technical Services (KTS) is a sole-proprietor technology firm based in Oak Hill, West Virginia, operating as a for-profit geoanalytical and AI platform company. KTS is the sole owner and developer of **ALLIS** — the Artificial Learning & Location Intelligence System — a locally hosted, place-anchored AI platform with a documented founder investment of 6,515 hours (~$977,000 at $150/hour) fully auditable for grant in-kind match.
+Kidd's Technical Services (KTS) is a sole-proprietor technology firm based in Mount Hope, West Virginia, operating as a for-profit geoanalytical and AI platform company. KTS is the sole owner and developer of **ALLIS** — the Artificial Learning & Location Intelligence System — a locally hosted, place-anchored AI platform with a documented founder investment of 6,515 hours (~$977,000 at $150/hour) fully auditable for grant in-kind match.
 
 KTS is currently under a **Master Services Agreement with Harmony for Hope, Inc. (H4H)**, a 501(c)(3) nonprofit based in Mount Hope, WV, under which KTS developed and operates the **MountainShares Commons** platform. ALLIS is licensed to H4H at **no cost** as a public-benefit contribution — KTS retains full IP ownership. The commercial revenue model — paid nodes, cluster membership fees, and geospatial services contracts — targets regional businesses, public safety, healthcare, and infrastructure operators across southern West Virginia and the broader Appalachian corridor.
 
