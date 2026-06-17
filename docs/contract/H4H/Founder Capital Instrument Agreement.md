@@ -9,35 +9,35 @@
 
 ## 1. Parties and status
 
-This Founder Capital Instrument Agreement (the **Agreement**) is entered into by and between **Carrie Ann Kidd**, an individual resident of West Virginia (the **Founder**), and **Kidd's Technical Services, LLC**, a West Virginia limited liability company, once duly formed (the **Company**).[1]
+This Founder Capital Instrument Agreement (the **Agreement**) is entered into by and between **Carrie Ann Kidd**, an individual resident of West Virginia (the **Founder**), and **Kidd's Technical Services, LLC**, a West Virginia limited liability company, once duly formed (the **Company**).
 
 As of July 6, 2025, KTS is not yet registered with West Virginia, has no EIN, and currently exists as Carrie Kidd operating personally under a trade name. This Agreement is therefore drafted for adoption upon formation of the Company and execution by its duly authorized representative.
 
 ## 2. Purpose
 
-The purpose of this Agreement is to define the founder-capital portion of the Founder's pre-launch technical contribution as a private KTS-side capital instrument. The rights created under this Agreement are separate from Harmony for Hope, Inc., the MountainShares EMS system, the DUNA mutual-credit ledger, and MountainShares DAO participant account balances.[1][2]
+The purpose of this Agreement is to define the founder-capital portion of the Founder's pre-launch technical contribution as a private KTS-side capital instrument. The rights created under this Agreement are separate from Harmony for Hope, Inc., the MountainShares EMS system, the DUNA mutual-credit ledger, and MountainShares DAO participant account balances.
 
 ## 3. Recitals
 
-A. The Founder designed, built, and operated substantial technical infrastructure, software systems, geospatial systems, databases, documentation, governance architecture, and related project assets before Phase 0 activation of MountainShares.[1]
+A. The Founder designed, built, and operated substantial technical infrastructure, software systems, geospatial systems, databases, documentation, governance architecture, and related project assets before Phase 0 activation of MountainShares.
 
 B. The controlled contribution record reflects the Founder's documented pre-launch technical contribution at the agreed founder valuation framework in effect as of July 6, 2025.
 
-C. The controlled contribution allocation assigns **150 per hour** as charitable in-kind contribution value to Harmony for Hope, Inc. and **150 per hour** as deferred founder capital allocated to KTS, contingent on Phase 2 and phased over time, not as a lump sum.[1]
+C. The controlled contribution allocation assigns **150 per hour** as charitable in-kind contribution value to Harmony for Hope, Inc. and **150 per hour** as deferred founder capital allocated to KTS, contingent on Phase 2 and phased over time, not as a lump sum.
 
-D. This Agreement governs only the founder-capital side of that allocation.[1]
+D. This Agreement governs only the founder-capital side of that allocation.
 
 ## 4. Definitions
 
 For purposes of this Agreement:
 
-- **Founder Capital Hours** means the portion of the Founder's documented logged hours allocated to founder capital rather than charitable in-kind contribution, initially calculated using the 150 per hour founder-capital allocation.[1]
-- **Founder Capital Value** means the dollar value of the Founder Capital Hours, calculated from the documented hour total and the founder-capital rate in effect under the Canonical Facts Sheet or any later approved controlled-document update.[1]
+- **Founder Capital Hours** means the portion of the Founder's documented logged hours allocated to founder capital rather than charitable in-kind contribution, initially calculated using the 150 per hour founder-capital allocation.
+- **Founder Capital Value** means the dollar value of the Founder Capital Hours, calculated from the documented hour total and the founder-capital rate in effect under the Canonical Facts Sheet or any later approved controlled-document update.
 - **Company Instrument** means the private capital right created by this Agreement, whether documented as a capital account, profits interest, membership units, restricted units, phantom equity, revenue participation right, subordinated founder note, or another counsel-approved instrument under applicable law.
 
 ## 5. Grant of founder-capital instrument
 
-Subject to the Company's formation and formal approval under its organizational documents, the Company shall issue to the Founder a private founder-capital instrument in an initial amount equal to the documented Founder Capital Value arising from the Founder's pre-launch logged hours.[1]
+Subject to the Company's formation and formal approval under its organizational documents, the Company shall issue to the Founder a private founder-capital instrument in an initial amount equal to the documented Founder Capital Value arising from the Founder's pre-launch logged hours.
 
 Based on the controlled contribution record as maintained by the Founder and to be reconciled into the final company books upon formation, the initial Founder Capital Value shall be calculated from the documented Founder Capital Hours and the founder-capital rate then adopted in the controlling contribution schedule.
 
@@ -55,7 +55,7 @@ Unless and until the final form is selected, this Agreement expresses the econom
 
 ## 6. Separation from EMS and nonprofit operations
 
-The rights created by this Agreement are not EMS, are not M$, are not participant account balances, and are not administered through Harmony for Hope, Inc., the DUNA, or any MountainShares DAO reserve, liquidity, or participant conversion mechanism.[2][1]
+The rights created by this Agreement are not EMS, are not M$, are not participant account balances, and are not administered through Harmony for Hope, Inc., the DUNA, or any MountainShares DAO reserve, liquidity, or participant conversion mechanism.
 
 No right under this Agreement may be represented as:
 
@@ -63,9 +63,9 @@ No right under this Agreement may be represented as:
 - a founder-only EMS conversion right,
 - a charitable-program benefit,
 - an ownership right in the DUNA,
-- or an ownership right in the MountainShares treasury or participant mutual-credit pool.[2]
+- or an ownership right in the MountainShares treasury or participant mutual-credit pool.
 
-Nothing in this Agreement converts charitable contribution value into founder equity inside H4H or inside the EMS system.[1][2]
+Nothing in this Agreement converts charitable contribution value into founder equity inside H4H or inside the EMS system.
 
 ## 7. Vesting and payout principles
 
@@ -83,9 +83,9 @@ The final instrument may use milestone vesting, time vesting, profitability thre
 
 ## 8. Source of payment; no H4H obligation
 
-Harmony for Hope, Inc. is not a party to this Agreement and assumes no payment obligation under it.[1][2]
+Harmony for Hope, Inc. is not a party to this Agreement and assumes no payment obligation under it.
 
-The DUNA, the MountainShares DAO, the EMS treasury, and any participant reserve or liquidity mechanism are likewise not obligors under this Agreement.[2]
+The DUNA, the MountainShares DAO, the EMS treasury, and any participant reserve or liquidity mechanism are likewise not obligors under this Agreement.
 
 Any payments, distributions, redemptions, or repurchases made under the final executed version of this Agreement must come solely from legally available KTS-side sources, including:
 
@@ -103,7 +103,7 @@ This Agreement may be paired with one or more separate agreements governing:
 - assignment or confirmation of ownership of ALLIS / GBIM and related intellectual property,
 - licensing from KTS to H4H and the DUNA at arm's length,
 - master services or technical support arrangements,
-- and confidentiality, invention-assignment, and data-governance matters.[1][2]
+- and confidentiality, invention-assignment, and data-governance matters.
 
 Unless expressly stated otherwise in a separate signed writing, this Agreement does not itself transfer any intellectual property. It governs founder-capital economics only.
 
@@ -111,19 +111,19 @@ Unless expressly stated otherwise in a separate signed writing, this Agreement d
 
 Carrie Ann Kidd may hold roles on both sides of any H4H-KTS relationship, and related-party transactions shall be governed by a documented conflict-of-interest and recusal process. Accordingly, any H4H or DAO action touching this Agreement, any related KTS contract, or any later transition expenditure shall be approved under written conflict-of-interest and recusal procedures, with the Founder abstaining wherever required by law, fiduciary duty, or policy.
 
-Nothing in this Agreement grants the Founder any governance right in H4H, the DUNA, or the MountainShares DAO beyond whatever rights are separately conferred by their governing documents.[2]
+Nothing in this Agreement grants the Founder any governance right in H4H, the DUNA, or the MountainShares DAO beyond whatever rights are separately conferred by their governing documents.
 
 ## 11. Securities, tax, and regulatory matters
 
-This Agreement shall be finalized only after review by qualified counsel on securities, tax, nonprofit, benefits, and state-law implications.[1][2]
+This Agreement shall be finalized only after review by qualified counsel on securities, tax, nonprofit, benefits, and state-law implications.
 
-The final executed version should include all transfer restrictions, legends, tax-allocation provisions, valuation procedures, and exemption analyses required by the final selected instrument type and applicable law.[2]
+The final executed version should include all transfer restrictions, legends, tax-allocation provisions, valuation procedures, and exemption analyses required by the final selected instrument type and applicable law.
 
 ## 12. No resident or participant ownership implication
 
-No participant, resident, volunteer, EMS holder, or DAO voter acquires any direct or indirect ownership in KTS merely by participating in MountainShares, holding EMS, or interacting with H4H community programs.[2]
+No participant, resident, volunteer, EMS holder, or DAO voter acquires any direct or indirect ownership in KTS merely by participating in MountainShares, holding EMS, or interacting with H4H community programs.
 
-Likewise, the Founder's rights under this Agreement do not dilute, encumber, or convert any resident EMS balance into equity. Community EMS remains separate from this private founder-capital instrument.[2][1]
+Likewise, the Founder's rights under this Agreement do not dilute, encumber, or convert any resident EMS balance into equity. Community EMS remains separate from this private founder-capital instrument.
 
 ## 13. Conditions precedent
 
@@ -143,7 +143,7 @@ This Agreement shall be governed by and construed under the laws of the State of
 
 If KTS is formed first as an LLC and later converted into a corporation, public benefit corporation, or other permitted entity, the Founder Capital Value and related rights established under this Agreement shall survive that conversion and be assumed by the successor entity under equivalent economic terms, without being rerouted through EMS, H4H, or DAO participant systems.
 
-***
+---
 
 **Draft Signature Blocks**
 
