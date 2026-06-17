@@ -1,190 +1,273 @@
 # Statement of Work — SOW-001
-## The Commons Platform and MountainShares DAO Development
 
-**Issued Under:** Master Services Agreement between Harmony for Hope, Inc. and Kidd's Technical Services, effective July 6, 2025
+## Under Master Services Agreement  
+### Harmony for Hope, Inc. and Carrie Ann Kidd d/b/a Kidd’s Technical Services
 
----
-
-## Header
-
-| Field | Value |
-|---|---|
-| **SOW Number** | SOW-001 |
-| **Effective Date** | March 18, 2025 |
-| **Work Commenced** | March 23, 2025 |
-| **Estimated Completion** | November 30, 2027 |
-| **Client** | Harmony for Hope, Inc. ("H4H") |
-| **Contractor** | Kidd's Technical Services ("KTS") |
-| **SOW Status** | Addendum — memorializing work agreed March 18, 2025 and commenced March 23, 2025, predating the MSA executed July 6, 2025, which governs this SOW retroactively |
+**SOW Number:** SOW-001  
+**Version:** 1.0  
+**Date:** July 6, 2025  
+**Status:** Draft — For Board and Counsel Review  
+**Master Agreement:** Master Services Agreement between Harmony for Hope, Inc. and Carrie Ann Kidd d/b/a Kidd’s Technical Services  
+**Project Phase:** Phase 0 / Early Operational Deployment and Support
 
 ---
 
-## Recitals
+## 1. Parties
 
-The parties reached agreement on the scope described in this SOW on or around March 18, 2025. KTS commenced work on March 23, 2025. The Master Services Agreement between H4H and KTS was subsequently executed on July 6, 2025 and governs this SOW in full. This document is now executed as a formal Statement of Work under that MSA to memorialize the agreed scope, the in-kind compensation structure, and the intellectual property designations applicable to all work performed under this engagement.
+This Statement of Work (**SOW-001**) is entered into by and between **Harmony for Hope, Inc.** (**H4H**) and **Carrie Ann Kidd**, an individual doing business as **Kidd’s Technical Services** (**Contractor**), under the Master Services Agreement between the parties.
 
-This SOW governs KTS's development of The Commons platform and the MountainShares DAO for H4H. ALLIS (the Artificial Learning & Location Intelligence System) is owned solely by KTS and is not a deliverable under this SOW. Where ALLIS capabilities are integrated into The Commons platform, that integration is a licensed use governed by MSA Section 3, not a transfer of ownership. MS.FCCAC.ALLIS and MS.MHHWT.ALLIS appear in this SOW exclusively as Commons platform features — geographic nodes integrated into the H4H application — and not as hardware deployment work orders, which are governed by separate Corridor Partner Agreements.
-
----
-
-## Section 1 — Scope of Services
-
-KTS shall design, architect, develop, and deliver the following for H4H as part of the MountainShares program and The Commons platform:
-
-### 1.1 MountainShares Mutual Credit System
-
-Development of the MountainShares mutual credit system as a Web3 product for H4H, including:
-
-- Smart contract architecture and proof-of-concept (achieved July 4, 2025)
-- Mutual credit ledger backend architecture
-- Commons-based governance database schema
-- DAO governance structure, voting mechanics, and treasury management framework
-- Integration with geographic property data via the GBIM (Geographic Building Information Model)
-- Rewards program mechanics and participation tracking infrastructure
-- Audit logging for transparent, community-accountable resource allocation
-
-### 1.2 The Commons Platform
-
-Development of The Commons social media and community marketplace application operated by H4H as part of MountainShares, including:
-
-- Full microservices architecture (Docker, FastAPI, Uvicorn)
-- API gateway and unified endpoint architecture
-- Authentication, authorization, and access control middleware
-- Community participation features, member-facing interfaces, and governance tooling
-- Integration of MS.FCCAC.ALLIS (Fayette County Community Arts Center) as a named geographic node within The Commons platform UI
-- Integration of MS.MHHWT.ALLIS (Mount Hope Historic Walking Trail) as a named geographic node within The Commons platform UI
-- Location-aware community features and MountainShares participation hooks at each node location
-- Heritage and trail content delivery via The Commons interface at MS.MHHWT.ALLIS
-- Cultural programming, event, and community resource features at MS.FCCAC.ALLIS
-
-### 1.3 Ms. Jarvis Geospatial Intelligence Platform (Licensed Integration)
-
-Integration of ALLIS/Ms. Jarvis capabilities into The Commons ecosystem under the H4H License granted in MSA Section 3, including:
-
-- GBIM spatial data pipeline integration
-- GeoDB custom geographic database schema and PostGIS spatial indexing
-- ChromaDB vector database for LLM embedding optimization and semantic search
-- PostgreSQL spatial query optimization
-- Full system mesh integration (achieved December 25, 2025)
-
-### 1.4 Infrastructure and Systems Operations
-
-Ongoing infrastructure support as part of the development engagement, including:
-
-- ETL process development for geospatial source integration
-- Database migration scripts and data integrity testing
-- Real-time geographic data synchronization
-- Critical infrastructure recovery operations as required
-- System monitoring, error logging, and performance infrastructure
+The parties acknowledge that, as of the date of this SOW, Kidd’s Technical Services is not yet a separately formed legal entity. Unless and until a written assignment or novation is executed after lawful entity formation, all services under this SOW are performed by Carrie Ann Kidd personally.
 
 ---
 
-## Section 2 — Deliverables and Acceptance Criteria
+## 2. Purpose
 
-| # | Deliverable | Status | Acceptance Criteria |
-|---|---|---|---|
-| D-01 | MountainShares smart contract proof of concept | Completed July 4, 2025 | Smart contract system operational; mutual credit mechanics demonstrated |
-| D-02 | Mutual credit ledger backend and governance schema | Completed | Backend architecture operational; commons governance schema documented |
-| D-03 | Ms. Jarvis full system mesh integration | Completed December 25, 2025 | All microservices integrated; GBIM, GeoDB, ChromaDB, LLM layer operational |
-| D-04 | The Commons platform — core architecture | In progress | Microservices deployment functional; API gateway, auth, and member interfaces operational |
-| D-05 | MountainShares DAO governance and rewards platform | In progress | DAO voting mechanics live; rewards tracking and treasury management operational |
-| D-06 | MS.MHHWT.ALLIS Commons integration | In progress | Mount Hope Historic Walking Trail node visible and functional within The Commons UI; participation hooks live |
-| D-07 | MS.FCCAC.ALLIS Commons integration | In progress | FCCAC node visible and functional within The Commons UI; cultural programming and community resource features live |
-| D-08 | System documentation | Ongoing | Architecture, schema, API, and deployment documentation current and accessible |
+The purpose of this SOW is to define the operational, technical, maintenance, deployment, and support services required to move from initial system buildout into active early-stage program operations for H4H and MountainShares-related systems.
 
----
+This SOW is intended to cover the next layer of work after foundational setup, including:
 
-## Section 3 — Timeline
+- stabilization of deployed infrastructure,
+- ongoing software and data operations,
+- support for H4H program execution,
+- implementation of MountainShares operational functions,
+- and preparation for later transition into more formalized Commons and KTS-side structures.
 
-| Milestone | Date |
-|---|---|
-| Agreement reached | March 18, 2025 |
-| Work commenced | March 23, 2025 |
-| MSA executed (retroactively governs this SOW) | July 6, 2025 |
-| Smart contract proof of concept (D-01) | July 4, 2025 |
-| Full system mesh integration (D-03) | December 25, 2025 |
-| SOW-001 formally executed | April 18, 2026 |
-| The Commons platform — core architecture (D-04) | June 30, 2027 |
-| MountainShares DAO governance and rewards platform (D-05) | August 31, 2027 |
-| MS.MHHWT.ALLIS Commons integration (D-06) | September 30, 2027 |
-| MS.FCCAC.ALLIS Commons integration (D-07) | October 31, 2027 |
-| System documentation complete (D-08) | November 30, 2027 |
-| **Estimated completion** | **November 30, 2027** |
-
-*Milestones are estimates. Either party may propose adjustments in writing. Amendments require written consent of both parties per MSA Section 9.2.*
+This SOW does not create founder equity, participant equity, DAO equity, or any ownership right in H4H, the MountainShares Commons, or resident account systems.
 
 ---
 
-## Section 4 — Compensation
+## 3. Scope of Services
 
-All work performed by KTS under this SOW constitutes an **in-kind donation** by Kidd's Technical Services to Harmony for Hope, Inc. KTS receives no monetary compensation under this SOW.
+Contractor shall provide ongoing professional services that may include, without limitation:
 
-The fair market value of services contributed is documented in the Kidd's Technical Services Founder's Technical Investment Statement (March 13, 2026), on file with H4H, which records 6,067.5 hours at $150/hour through May 14, 2026, for a total documented in-kind contribution of $910,125. That document is incorporated by reference as supporting record of this SOW's compensation structure.
+- production and near-production systems support,
+- software maintenance and iterative improvement,
+- infrastructure monitoring and administration,
+- container and service management,
+- database administration and geospatial services support,
+- issue remediation and troubleshooting,
+- documentation maintenance,
+- partner and stakeholder technical support,
+- implementation assistance for H4H programs and demonstrations,
+- and planning support for lawful transition into later operating phases.
 
-H4H may recognize this contribution on its financial statements as donated services under applicable GAAP guidance and may use it as documented in-kind match for grant applications, consistent with the accounting treatment described in the Investment Statement. Neither party should treat this as a tax-deductible charitable contribution of services under IRC §170.
-
----
-
-## Section 5 — Work-for-Hire Designations
-
-Consistent with MSA Section 2.2 and 2.3, the following deliverables under this SOW are designated **work-for-hire** and are owned by Harmony for Hope, Inc. upon delivery:
-
-- D-01: MountainShares smart contract proof of concept
-- D-02: Mutual credit ledger backend and commons governance schema
-- D-05: MountainShares DAO governance and rewards platform
-- D-06: MS.MHHWT.ALLIS Commons platform integration features
-- D-07: MS.FCCAC.ALLIS Commons platform integration features
-- Application-layer features and configurations specific to The Commons UI (D-04)
-
-The following are **not** work-for-hire and remain the sole property of Kidd's Technical Services:
-
-- ALLIS in its entirety, including all components, architecture, models, data pipelines, and derivative works (D-03 and all Ms. Jarvis integration work)
-- Microservices deployment methodology, Docker configurations, and infrastructure tooling developed by KTS
-- Any ALLIS improvements or extensions made in the course of this engagement
-
-H4H's rights to ALLIS are exclusively those granted by the H4H License in MSA Section 3.
+Services under this SOW may include both scheduled and as-needed work reasonably necessary to keep early systems functional, secure, documented, and aligned with H4H’s nonprofit mission and program needs.
 
 ---
 
-## Section 6 — Special Conditions
+## 4. Service Areas
 
-**6.1 Retroactive Scope**
-This SOW memorializes an agreement reached on March 18, 2025 and work commenced March 23, 2025. The parties acknowledge that the MSA was not executed until July 6, 2025 and agree that the MSA governs this SOW and all work performed under it from March 23, 2025 forward.
+### 4.1 System Operations
 
-**6.2 ALLIS Remains Separate**
-Nothing in this SOW, and nothing in the history of work performed under it, transfers, assigns, encumbers, or modifies KTS's ownership of ALLIS. The MS. designations (MS.FCCAC.ALLIS, MS.MHHWT.ALLIS) identify ALLIS nodes operating under H4H's MountainShares Sponsorship Tier. They do not constitute H4H ownership of those nodes or of ALLIS.
+Contractor shall support the operation of systems used by H4H and MountainShares-related programs, which may include:
 
-**6.3 Web3 Product Designation**
-The Commons platform and MountainShares mutual credit system are being developed as a Web3 product for H4H. The parties acknowledge this designation for purposes of program documentation, grant applications, and partner communications. The specific blockchain architecture, token mechanics, and smart contract stack are documented in KTS's technical records and are incorporated by reference.
+- application uptime and service continuity,
+- environment configuration,
+- backups and recovery procedures,
+- software updates and configuration changes,
+- and issue response for core technical functions.
 
-**6.4 Node Integrations Are App Features**
-MS.FCCAC.ALLIS and MS.MHHWT.ALLIS appear in this SOW as Commons platform features. Physical hardware deployment for those nodes, site access, and Corridor Partner governance are governed by separate Corridor Partner Community Governance Agreements between KTS and the respective partner organizations.
+### 4.2 Platform Maintenance
 
-**6.5 Ongoing Nature**
-This SOW governs a continuous development engagement through the estimated completion date of November 30, 2027. Deliverables marked "in progress" shall be completed on the timeline specified in Section 3. Either party may propose amendments to scope, timeline, or deliverables by written notice; amendments require written consent of both parties per MSA Section 9.2.
+Contractor may maintain and improve:
+
+- APIs and service integrations,
+- geospatial pipelines and map services,
+- databases and structured data layers,
+- internal admin tools,
+- participant-facing applications,
+- and analytics or operational dashboards.
+
+### 4.3 Community Program Support
+
+Contractor may provide technical support for H4H community and program activities, including:
+
+- event or demonstration support,
+- partner-facing technical preparation,
+- program setup assistance,
+- onboarding-related technical tasks,
+- and adaptation of tools for practical field use.
+
+### 4.4 Documentation and Governance Alignment
+
+Contractor shall maintain reasonable documentation sufficient to support:
+
+- continuity of operations,
+- internal handoff and review,
+- grant and partner communications,
+- governance alignment,
+- and later structural transition work.
+
+This may include updates to inventories, service descriptions, operating procedures, implementation notes, and architecture summaries.
+
+### 4.5 Site and Infrastructure Support
+
+Where relevant, Contractor may support systems operating from or associated with H4H’s physical operations at **704 Main Street, Mount Hope, West Virginia**, including server and network-related functions approved by H4H.
 
 ---
 
-## Signatures
+## 5. Deliverables
 
-**Harmony for Hope, Inc.**
+Deliverables under this SOW may include, as applicable:
 
-Signature: ___________________________________   Date: ___________
+- functioning and maintained service environments,
+- updated software and configuration deployments,
+- technical fixes and issue-resolution outputs,
+- updated documentation and records,
+- geospatial and data-service updates,
+- operational support logs,
+- partner-ready demonstration environments,
+- and implementation materials reasonably related to the services.
 
-Printed Name: ___________________________________
+Because this SOW covers operational support and iterative deployment, deliverables may be recurring, rolling, or milestone-based rather than one-time final deliverables.
 
-Title: ___________________________________
-
----
-
-**Kidd's Technical Services**
-
-Signature: ___________________________________   Date: ___________
-
-Printed Name: Carrie Kidd
-
-Title: Owner / Operator
+Where needed, the parties may document additional milestone deliverables through written work updates, schedules, or amendments incorporated into this SOW.
 
 ---
 
-*This SOW is not effective until signed by authorized representatives of both parties. It is issued under and governed by the Master Services Agreement between Harmony for Hope, Inc. and Kidd's Technical Services, effective July 6, 2025. It is preceded by SOW-000, the initial project agreement effective March 18, 2025.*
+## 6. Compensation and Contribution Treatment
+
+### 6.1 Compensation Framework
+
+Compensation under this SOW shall be governed by the Master Services Agreement and any approved fee schedules, amendments, or related controlled documents adopted by H4H.
+
+### 6.2 Separation of Charitable and Private Value
+
+The parties acknowledge that work performed under this SOW may be tracked under two distinct categories:
+
+- charitable in-kind technical contribution to H4H, and
+- separate private founder-capital or deferred commercial value documented outside H4H.
+
+Those categories must remain separate in documentation, accounting treatment, and legal effect.
+
+### 6.3 No Equity Through This SOW
+
+No provision of this SOW converts work performed for H4H into founder equity through H4H, EMS, the MountainShares Commons, the DUNA, or any participant treasury or account system.
+
+Any founder-capital, deferred equity, appreciation-based right, or private KTS-side instrument must be documented separately through founder-side or KTS-side documentation and not through this SOW.
+
+### 6.4 Reimbursements and Cash Fees
+
+Approved cash fees, reimbursements, expense treatment, or later fee changes shall be documented in writing through an addendum, amendment, or approved operational schedule.
+
+---
+
+## 7. Operational Standards
+
+Contractor shall perform services in a professional and workmanlike manner consistent with the standard of care ordinarily exercised by similarly situated technical professionals.
+
+In carrying out this SOW, Contractor shall use reasonable efforts to ensure that systems are:
+
+- stable,
+- appropriately documented,
+- recoverable,
+- maintainable,
+- and aligned with program requirements and known legal constraints.
+
+Because some systems may be experimental, evolving, or in phased deployment, the parties acknowledge that staged refinement and iterative adjustment are normal features of the work.
+
+---
+
+## 8. Intellectual Property and Licensing
+
+Contractor retains all background intellectual property, including ALLIS, GBIM, related proprietary models, technical frameworks, commercial system elements, and pre-existing materials, except where expressly transferred in a separate signed writing.
+
+Use by H4H of Contractor-controlled proprietary systems under this SOW occurs under interim project-use rights and/or separate license arrangements where applicable.
+
+This SOW does not transfer ownership of ALLIS, GBIM, or related proprietary assets to H4H, the Commons, or any participant class.
+
+Any broader licensing relationship involving H4H, the MountainShares Commons, the DUNA, or a later-formed KTS entity shall be addressed in separate architecture, licensing, or commercial agreements.
+
+---
+
+## 9. Data, Security, and Access
+
+Contractor may access systems, records, credentials, and data reasonably necessary to perform the services under this SOW.
+
+Contractor shall:
+
+- use such access only for authorized work,
+- maintain reasonable security practices,
+- protect confidential and sensitive information,
+- document material operational configurations where reasonably necessary,
+- and support continuity and recovery planning.
+
+Where systems touch participant-facing features or benefits-sensitive program design, Contractor shall coordinate with H4H regarding privacy, governance, and safety requirements.
+
+---
+
+## 10. Related-Party Review and Recusal
+
+Because Carrie Ann Kidd may hold roles on both sides of the H4H–Contractor relationship, all approvals, amendments, expense actions, reimbursements, and related-party decisions under this SOW shall be subject to documented conflict-of-interest and recusal procedures.
+
+Where required by law, policy, fiduciary duty, or nonprofit compliance practice:
+
+- Carrie Ann Kidd shall abstain from approval decisions,
+- disinterested decision-makers shall review the matter,
+- and records sufficient for later audit shall be maintained.
+
+These procedures are a material condition of this SOW.
+
+---
+
+## 11. Alignment with MountainShares Structure
+
+The parties acknowledge the following structural principles governing the services described in this SOW:
+
+- H4H is the charitable anchor and sponsor.
+- The MountainShares Commons is the community governance and mutual-credit layer.
+- Community EMS and M$ are non-appreciating community instruments and not equity.
+- Any appreciating founder instrument belongs, if at all, on the KTS side under separate private documentation.
+- The founder’s role with respect to the Commons is steward, not owner.
+- Phase 2 transition costs relating to DUNA and KTS formation may later be funded from the Treasury Reserve under separately adopted rules and approvals.
+
+Nothing in this SOW shall be interpreted to alter those structural boundaries.
+
+---
+
+## 12. Term and Continuation
+
+This SOW becomes effective when signed by both parties and remains in effect until:
+
+- the described work is completed,
+- superseded by a later SOW or amendment,
+- terminated under the Master Services Agreement,
+- or otherwise ended by written agreement of the parties.
+
+The parties may continue rolling operational work under this SOW while documenting material scope changes through written updates, addenda, or successor SOWs.
+
+---
+
+## 13. Transition to Future Entity Structure
+
+If Kidd’s Technical Services is later formed as a separate legal entity, the parties may assign, novate, or replace this SOW by written agreement.
+
+Any such transition must:
+
+- identify the successor entity with specificity,
+- preserve H4H’s rights as to prior work and performance,
+- maintain conflict-of-interest and nonprofit compliance safeguards,
+- and avoid implying that a separate legal entity existed prior to formal formation.
+
+Until such written transition occurs, this SOW remains personal to Carrie Ann Kidd.
+
+---
+
+**Signature Blocks**
+
+**HARMONY FOR HOPE, INC.**  
+By: __________________________  
+Name: ________________________  
+Title: _________________________  
+Date: __________________
+
+**CONTRACTOR**  
+Carrie Ann Kidd  
+d/b/a Kidd’s Technical Services  
+Date: __________________
+
+---
+
+*Statement of Work — SOW-001*  
+*Under Master Services Agreement*  
+*Draft — Not legal, tax, securities, or benefits advice*
