@@ -1,287 +1,352 @@
 # MountainShares DAO Governance Charter
 
-> **Disciplinary Context: Appalachian Economic Commons**  
-> This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
-> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1, 2, and 5 frame governance, legal power, and economic parameters as jointly shaping how value and decision‑making move through specific Appalachian communities.  
-> - **P9 – Transparency and traceability:** Sections 3, 4, and 6 define hours, proposal lifecycles, public records, and reporting, making rules, votes, and parameter changes traceable over time.  
-> - **P16 – Power accountable to place:** Sections 2.1–2.5, 5, and 7 couple the legal umbrella, community roles, and AI advisory functions to documented scopes, vetoes, and sunset paths, keeping institutional power answerable to the communities served.  
-> - **Anti‑leakage and closed‑loop spending:** Sections 3 and 5.1–5.2 delineate what the DAO can and cannot decide about EMS→M$ rates, caps, and promo budgets, creating a governance envelope around anti‑leakage mechanisms and closed‑loop economic design.  
-> - **Bounty and corrective programs (implicit):** The proposal classes and decision scope in Sections 3–5 provide hooks for future bounty or corrective programs to be proposed, debated, and ratified under shared rules.
+## Harmony for Hope, Inc.  
+### MountainShares Commons / DUNA Governance Framework
 
-> **DRAFT – GOVERNANCE CHARTER**
->
-> This Charter describes the intended governance structure and processes for the MountainShares DAO.
-> It is a non‑binding design document for community review and legal vetting. In any conflict with
-> the MountainShares Terms and Conditions or applicable law, those higher‑level instruments control.
+**Version:** 1.0  
+**Date:** July 6, 2025  
+**Status:** Draft — For Board and Community Governance Review Prior to Phase 0 Activation  
+**Related Documents:** Terms and Conditions, Program Rules – Parameter Tables, MountainShares Phase 1: Economic Safety Specification, MountainShares Phase 2: Regional Growth Specification, MountainShares Phase 3: Surplus Distribution Specification, Risks and Limits, Architecture and Licensing, Founder Capital Instrument Agreement
 
 ---
 
-## 1. Purpose and Scope
+## Preamble
 
-The MountainShares DAO exists to:
+This Charter establishes the governance framework for the MountainShares Commons, a community-governed mutual-credit system operated through the MountainShares legal and governance structure for the benefit of residents, local institutions, and participating community partners.
 
-- Steward the rules and parameters of the MountainShares Program.  
-- Keep value, voice, and decision‑making rooted in Appalachian communities, beginning with the West Virginia pilot.  
-- Provide structured, transparent community input into key economic, technical, and cultural decisions.
+MountainShares is designed as a community system, not an equity vehicle. Its purpose is to support local participation, mutual aid, stewardship, accountability, and community-scale economic coordination through a benefits-sensitive, non-appreciating mutual-credit model.
 
-The DAO is **not** a bank, investment club, or vehicle for distributing profits. It does not create equity or ownership interests in any entity.
+Harmony for Hope, Inc. serves as the initial charitable anchor and operational sponsor for early-stage implementation. The MountainShares Commons is governed as a separate community commons structure operating through the DUNA legal wrapper, with H4H serving as initial sponsor during the transition period.
 
----
-
-## 2. Governance Roles
-
-### 2.1 Legal Umbrella
-
-- A separate nonprofit entity serves as the legal and regulatory umbrella for the MountainShares Program (nonprofit status, bank relationships, contracts, compliance).  
-- The legal umbrella may veto or override DAO decisions only where necessary to comply with law, funding conditions, or documented core safety obligations (for example, violating hard economic triggers or legal prohibitions).  
-- Day‑to‑day parameters are not set unilaterally by the legal umbrella; it implements rules and changes that emerge from DAO processes within the safety envelope.
-
-### 2.2 DAO Participants (UEI‑Based Members)
-
-- Each Unique Ecosystem Identifier (UEI) corresponds to one real human participant.  
-- A UEI becomes an eligible voting participant once contribution and tenure thresholds are met (see Section 3.1).  
-- DAO participants submit proposals, take part in discussion, and cast votes on matters within the DAO’s defined scope.  
-- **One‑UEI‑one‑vote** is the core rule: roles and titles do not change ballot weight.
-
-### 2.3 System Monitors (Early‑Phase)
-
-- Designated individuals or small teams with limited authority to:
-  - Apply urgent safety fixes.  
-  - Respond to clear abuse or exploits.  
-  - Execute technical changes already approved in principle by governance.  
-- Operate under explicit mandates, logging, and reporting requirements; subject to periodic review and eventual sunsetting as the DAO matures.
-
-### 2.4 Ms. Egeria Allis (AI Advisor and Enforcer)
-
-- Functions as a “glass‑box” advisory and enforcement layer.  
-- Monitors reserve ratios and other safety indicators, flags anomalies, enforces hard triggers, and surfaces analytics to the DAO.  
-- Cannot unilaterally change rules, mint tokens, or override legal constraints, but **can** automatically apply safety rules defined in the Economic Safety Specification (for example, tightening caps when reserve ratios fall).
-
-### 2.5 Community Roles: Stewards, Captains, Elders, Community Champions
-
-These roles are earned through participation, not purchased. They **do not** give extra votes; they give additional responsibilities and soft powers.
-
-#### 2.5.1 Stewards
-
-- **Eligibility (illustrative, subject to governance refinement):**
-  - Minimum 40 verified EMS hours over at least 3 months.  
-  - Active in the last 30 days (≥ 1 verified task and ≥ 1 transaction).  
-  - No unresolved sanctions for abuse, fraud, or major policy violations.  
-- **Responsibilities:**
-  - Welcome and orient new participants.  
-  - Help explain proposals, hard triggers, and parameter changes in plain language.  
-  - Surface local issues, bugs, and safety concerns into governance channels.  
-- **Soft powers:**
-  - Can help screen proposals for clarity and obvious conflicts before general voting.  
-  - May receive certain Ms. Allis alerts (for example, local anomalies) to help coordinate human response.
-
-#### 2.5.2 Captains
-
-- **Eligibility (illustrative):**
-  - Higher participation threshold, for example ≥ 150–200 verified EMS hours over ≥ 6–12 months.  
-  - Demonstrated experience coordinating local efforts (events, mapping, mutual aid, etc.).  
-  - At least one endorsement from a recognized local organization (business, nonprofit, school, EMS agency, etc.).  
-- **Responsibilities:**
-  - Serve as regional anchors (for a town, neighborhood, or corridor).  
-  - Convene discussions on proposals that materially affect their area.  
-  - Relay local conditions and feedback to the DAO, including KPI context.  
-  - Participate in post‑incident reviews when their region is impacted.  
-- **Soft powers:**
-  - Can submit regional proposals (for example, parameter tweaks or quests for a specific area).  
-  - Can request localized analytics from Ms. Allis within privacy and safety limits.
-
-#### 2.5.3 Elders
-
-- **Eligibility (illustrative):**
-  - Long‑term participation (for example ≥ 2 years of active engagement).  
-  - High, diverse EMS contribution (for example ≥ 500 hours across different types of commons work).  
-  - Nominated by multiple UEIs and confirmed by a super‑majority DAO vote.  
-- **Responsibilities:**
-  - Provide “constitutional review” on proposals that touch the Economic Safety Specification, DAO Charter, or core parameters.  
-  - Help maintain institutional memory (“we tried this; here’s what happened”).  
-  - Participate in major post‑incident reviews and advise on corrective actions.  
-- **Soft powers:**
-  - Their advisory notes are attached to constitutional‑level proposals before voting, so participants can see elder perspectives.  
-  - May sit on a small Safety and Ethics working group that Ms. Allis can flag when patterns raise ethical or legal concerns.
-
-#### 2.5.4 Phase 0 Community Champions (Red Team Founders)
-
-- **Eligibility (illustrative):**
-  - Invited security or red‑team participants during Phase 0 (Invite‑Only Beta).  
-  - Account age of at least 30 days since UEI creation.  
-  - Minimum 10 verified EMS hours of red‑teaming, testing, or feedback work logged in the recognition ledger.  
-  - Good standing: no unresolved sanctions for abuse, fraud, or major policy violations.  
-- **Responsibilities:**
-  - Conduct structured red‑team and security testing of treasury logic, protocol surfaces, and Ms. Allis enforcement behaviour, consistent with the Audit and Risk Management Plan and Economic Safety Specification.  
-  - Attempt to identify ways to misreport or miscompute reserve ratios, bypass caps or promo rules, abuse EMS logging, or compromise privacy and access controls, and then disclose findings through designated channels.  
-  - Participate in post‑incident reviews when incidents involve their testing domains and contribute to improvements in controls and playbooks.  
-- **Relationship to Other Roles:**
-  - Community Champions who continue contributing over time may also qualify as Stewards, Captains, or Elders under Sections 2.5.1–2.5.3.  
-  - These roles add responsibilities and soft influence only; Community Champions, like all participants, still have exactly one vote under the one‑UEI‑one‑vote rule.  
-- **Scope and Limits:**
-  - Red‑team work is treated as commons work and earns EMS hours but does not grant extra voting weight or any right to override hard safety constraints.  
-  - Community Champions cannot disable or weaken hard safety triggers, reserve‑ratio protections, or legal and benefits‑safety rules; they operate inside the same safety envelope as the rest of the DAO.
+This Charter is intended to ensure that governance authority over the commons is exercised for community benefit, with transparency, fiduciary discipline, and safeguards against private inurement, hidden extraction, or implied ownership claims over the commons, treasury, or resident economy.
 
 ---
 
-## 3. Membership, Hours, and Voting
+## 1. Governance Structure
 
-### 3.1 Recognition Ledger (EMS)
+### 1.1 The MountainShares Commons
 
-- The core unit of contribution in MountainShares is **hours**, recorded as Earned MountainShares (EMS) in the recognition ledger.  
-- EMS represent documented commons work (volunteering, testing, mapping, caregiving, cultural work, governance participation, etc.) and are not capped. They form a permanent record of “who did what, when, and where” in the ecosystem.
+The MountainShares Commons is the community-owned governance and mutual-credit system through which participants coordinate community activity, recognition, stewardship, and local exchange.
 
-### 3.2 Hours as the Basis of Voice
+The Commons includes:
 
-- Governance rights are grounded in **hours contributed**, not in money or token holdings.  
-- EMS totals and patterns are used to determine:
-  - Eligibility to vote (baseline participation thresholds).  
-  - Eligibility for roles such as Steward, Captain, Elder, or Community Champion.  
-  - Reputation and trust signals in proposal review and incident response.
+- the EMS recognition system,
+- the M$ closed-loop mutual-credit system,
+- governance participation and proposal processes,
+- treasury and reserve oversight,
+- participation-weight and benefits-safety rules,
+- and all resident-facing community economic functions.
 
-**Principle:** *You earn your say in this economy by contributing time and work to the commons.*
+The Commons is governed through the DUNA legal wrapper and is not a corporation organized for investor return, shareholder equity, or token appreciation.
 
-### 3.3 Eligibility for Voting Participation
+### 1.2 Role of Harmony for Hope, Inc.
 
-Initial eligibility (subject to refinement):
+Harmony for Hope, Inc. acts as the initial charitable anchor and implementation sponsor for MountainShares during the pre-spinout and early operational phases.
 
-- Account age: minimum 30 days since UEI creation.  
-- Contribution: minimum 10 EMS hours recorded in the recognition ledger.  
-- Good standing: no unresolved sanctions for abuse, fraud, or major policy violations.
+H4H may:
 
-### 3.4 One‑UEI‑One‑Vote Principle
+- host administration and compliance functions,
+- sponsor grant-funded development and community rollout,
+- maintain records and governance support infrastructure,
+- and provide oversight necessary for safe startup operations.
 
-- Each eligible UEI has exactly one vote in general DAO proposals.  
-- Identity aggregation or splitting is discouraged and may be mitigated through sybil‑resistance measures (for example, tiered verification for higher‑impact roles).  
-- Roles (Steward, Captain, Elder, Community Champion) do not change individual vote weight; they affect responsibilities and soft influence only.
+H4H does not own participant EMS balances, resident mutual-credit balances, or community governance power as private property. H4H does not issue founder equity through EMS, through the DAO, or through any resident-facing MountainShares account structure.
 
-### 3.5 Distinguishing Voice from Spendable Value
+### 1.3 Role of Kidd's Technical Services
 
-- EMS (hours) drive **voice** and governance standing.  
-- A separate, capped layer of spendable MountainShares (M$) provides **buying power** inside The Commons and is governed by reserve ratios and hard economic safety triggers.  
-- Large EMS balances (including founders’ EMS) do not automatically convert into uncapped spendable M$. Conversion is limited by rate and per‑user caps defined in the Economic Safety Specification.
+Kidd's Technical Services serves as the founder-side technical and commercial vehicle for proprietary systems, intellectual property, and commercial functions associated with ALLIS and related infrastructure.
 
----
+KTS is separate from the MountainShares Commons. Any founder capital, founder equity, commercial participation, licensing revenue, or private appreciation mechanism is handled through KTS-side instruments and agreements, not through EMS balances, not through the DUNA, and not through H4H-administered community accounts.
 
-## 4. Classes of Proposals and Lifecycle
+### 1.4 Founder Role
 
-### 4.1 Classes of Proposals
+The founder's role within the MountainShares Commons is **steward**, not owner.
 
-- **Operational Parameter Proposals**  
-  - Adjustments to base rates, caps, and promo budgets within safety bands.  
+The founder may hold leadership, design, technical, or governance roles, but those roles do not create ownership of:
 
-- **Policy and Program Proposals**  
-  - Changes to Program Rules categories, qualification criteria, and gamification mechanics.  
+- the Commons,
+- the DUNA,
+- the treasury,
+- resident EMS balances,
+- participant M$ balances,
+- or any community reserve.
 
-- **Constitutional Proposals**  
-  - Changes to the Economic Safety Specification, DAO Charter, or other core documents.  
-  - Require higher quorum and super‑majority thresholds and Elder review.
-
-### 4.2 Submission
-
-- Any eligible voting member may submit a proposal within defined categories.  
-- Proposals must include:
-  - Clear title and category.  
-  - Rationale and expected impact.  
-  - Concrete parameter changes or policy text where applicable.
-
-### 4.3 Review and Screening
-
-- System monitors, Stewards, Captains, Community Champions, or a governance working group may perform initial screening to:
-  - Check for conflicts with law, Terms, or hard triggers.  
-  - Consolidate duplicative proposals.  
-  - Provide non‑binding impact assessments (for example, reserve ratio implications, KPI effects).  
-- For constitutional proposals, Elders are invited to publish an advisory note before voting opens.
-
-### 4.4 Discussion and Amendment
-
-- Proposals enter a discussion period (for example, 7–21 days):  
-  - Comments and suggested amendments are recorded.  
-  - Proposers may revise based on community feedback.
-
-### 4.5 Voting
-
-- After discussion, proposals are opened for a defined voting window (for example, 5–14 days).  
-- Voting methods:
-  - Simple majority for low‑impact operational changes.  
-  - Super‑majority (for example, 66% in favor) for constitutional or high‑impact changes.  
-- Quorum thresholds (for example, 30% of eligible voters) must be met for validity.
-
-### 4.6 Implementation
-
-- If approved and not blocked for legal or safety reasons:
-  - Ms. Allis and designated operators apply the changes at the next epoch or defined activation date.  
-  - Implementation details (contracts touched, parameters updated) are documented in a public change log.
+Founder authority exists only to the extent granted by this Charter, the Program Rules, and duly adopted governance procedures.
 
 ---
 
-## 5. Decision‑Making Scope and Limits
+## 2. Foundational Principles
 
-### 5.1 DAO Scope (Can Decide)
+MountainShares governance shall be interpreted and administered according to the following principles:
 
-- Adjusting EMS → M$ base rate within defined bounds and safety thresholds.  
-- Adjusting per‑user caps and promo budgets within reserve‑safe ranges.  
-- Recognizing new categories of qualifying work and Tier 2 roles.  
-- Setting or updating game‑layer parameters (quests, ranks, value interactions).  
-- Recommending regional expansion and branch parameterization.  
-- Refining role criteria for Stewards, Captains, Elders, and Community Champions.
-
-### 5.2 Out‑of‑Scope (Cannot Decide)
-
-- Actions that violate applicable law or regulatory guidance.  
-- Minting beyond reserve‑ratio‑compliant levels.  
-- Disabling or weakening hard safety triggers and emergency protections.  
-- Using treasury assets for private benefit or unrelated purposes.  
-- Overriding core economic safety math or legal obligations encoded in higher‑level documents.
-
-If a proposal falls outside scope, it may be declined for implementation, with a public explanation.
+1. **Community purpose first.** The Commons exists for community benefit, not investor extraction.
+2. **No equity through the DAO.** Participation in MountainShares does not create equity or ownership interests in H4H, the DUNA, KTS, or any other entity.
+3. **Non-appreciating EMS design.** Community EMS and related mutual-credit balances are non-appreciating and are not designed as investment instruments.
+4. **Benefits-sensitive design.** The system shall be operated in a manner intended to protect vulnerable participants and reduce avoidable benefits-related harm.
+5. **Transparency and accountability.** Material governance rules, treasury conditions, and structural roles shall be disclosed in a clear and auditable manner.
+6. **Stewardship over control.** Leadership authority is held in trust for the Commons and may not be used to convert community systems into private founder or insider assets.
+7. **Separation of community and commercial systems.** The Commons, H4H charitable functions, and KTS commercial functions shall remain structurally distinct.
 
 ---
 
-## 6. Transparency and Accountability
+## 3. Nature of Participation
 
-### 6.1 Public Records
+### 3.1 No Equity or Ownership Interest
 
-- Governance proposals, discussions, and vote outcomes are published in a public repository (for example, a GitHub repo and on‑chain logs where feasible).  
-- Parameter changes include:
-  - Before/after values.  
-  - Effective dates.  
-  - References to the authorizing proposal.
+Participation in MountainShares, whether by earning EMS, holding M$, voting, volunteering, contributing labor, or engaging in governance, does not create:
 
-### 6.2 Reporting
+- an equity interest,
+- a securities interest,
+- a shareholder right,
+- a membership unit in KTS,
+- an ownership share in H4H,
+- an ownership interest in the DUNA,
+- or a direct claim on treasury assets except as expressly provided under duly adopted community rules.
 
-- Periodic governance reports summarize:
-  - Key decisions.  
-  - Participation metrics (turnout, quorum, diversity of participation).  
-  - Any legal or safety‑based vetoes and associated rationale.
+No governance weight, ledger participation, recognition score, or contribution history may be construed as private ownership of the Commons or of any entity associated with it.
 
-### 6.3 Conflict of Interest
+### 3.2 EMS and M$ as Community Instruments
 
-- DAO participants, Stewards, Captains, Elders, Community Champions, and monitors are encouraged to declare material conflicts (for example, business ties to proposals).  
-- The legal umbrella’s board and staff are subject to formal conflict‑of‑interest policies maintained separately in `legal/`.
+EMS and M$ are community program instruments used for recognition, participation, and mutual-credit coordination within MountainShares.
+
+They are not:
+
+- stock,
+- securities,
+- partnership interests,
+- investment contracts,
+- profit-sharing units,
+- or appreciation-bearing founder instruments.
+
+No participant may market, assign, or describe EMS or M$ as an equity-like financial instrument.
+
+### 3.3 Founder Participation
+
+The founder may participate in the Commons as a contributor, steward, proposer, voter, administrator, or technical operator, subject to the same structural rules that protect the Commons from private extraction.
+
+Any founder capital arrangement exists, if at all, outside this Charter and outside the community EMS system.
 
 ---
 
-## 7. Evolution of the DAO
+## 4. Governance Rights and Participation
 
-### 7.1 Early‑Phase Monitors and Guardrails
+### 4.1 Governance Eligibility
 
-- During early phases, monitors retain limited emergency powers and implementation discretion.  
-- The intent is to gradually reduce reliance on monitors as:
-  - Participation grows.  
-  - Systems are audited and hardened.  
-  - Community capacity for governance increases.
+Governance participation is available to eligible participants under the Program Rules and related specifications.
 
-### 7.2 Phase 0 (Invite‑Only Beta)
+Eligibility may be based on:
 
-- Before public availability, participation in the MountainShares DAO is limited to invited users (“Phase 0 Participants”).  
-- Phase 0 Participants are issued a wallet, a UEI, and access to the Ms. Allis chatbot UI via authenticated links.  
-- Interactions that qualify as testing, feedback, or commons work may be logged as EMS in the recognition ledger and count toward voting and role eligibility.  
-- Phase 0 security and red‑team participants may be designated as Community Champions under Section 2.5.4 and can earn founding voting eligibility through logged EMS hours during this period.
+- verified participation,
+- contribution history,
+- account standing,
+- activity thresholds,
+- stewardship roles,
+- and other objective criteria adopted by rule.
 
-### 7.3 Charter Amendments
+### 4.2 Voting Weight
 
-- Amendments to this Charter are treated as constitutional proposals and require:
-  - Higher quorum (for example, 40% of eligible voters).  
-  - Higher approval threshold (for example, 66% super‑majority).  
-  - Advisory review by Elders and non‑objection from the legal umbrella where required by law or safety constraints.
+Voting weight may reflect contribution, verified participation, activity, or role-based formulas established by the Program Rules.
+
+No voting formula may be used to convert governance participation into equity ownership or a private extraction right from the Commons.
+
+### 4.3 Proposal Rights
+
+Eligible participants may submit proposals, comments, amendments, and governance challenges as permitted by adopted rules.
+
+Proposal procedures shall include reasonable safeguards for:
+
+- transparency,
+- anti-abuse review,
+- conflict disclosure,
+- treasury impact review,
+- and benefits-safety review where relevant.
+
+### 4.4 Stewardship Roles
+
+The DAO may recognize stewardship roles for founders, administrators, safety officers, auditors, validators, working-group leads, and other governance contributors.
+
+Stewardship roles are functional positions of responsibility. They do not create ownership rights in the Commons or private entitlement to treasury appreciation.
+
+---
+
+## 5. Treasury and Reserve Oversight
+
+### 5.1 Community Treasury
+
+The MountainShares treasury exists to maintain system safety, liquidity management, program operations, reserve discipline, and approved community purposes.
+
+Treasury resources may be used only for authorized program purposes, including:
+
+- reserve maintenance,
+- approved program operations,
+- compliance and accounting,
+- community infrastructure,
+- approved safety mechanisms,
+- and authorized transition costs.
+
+### 5.2 Treasury Reserve
+
+The Treasury Reserve shall maintain designated reserve protections and operational safeguards as defined in the Program Rules and phase specifications.
+
+The Treasury Reserve may include allocations for Phase 2 transition costs, including:
+
+- DUNA formation and legal structuring,
+- KTS formation and organizational setup,
+- legal counsel,
+- valuation work,
+- compliance review,
+- and ongoing filings directly related to the lawful transition into the next operating phase.
+
+Such reserve use must be disclosed, approved, and accounted for under adopted governance procedures.
+
+### 5.3 No Private Founder Claim on Treasury
+
+No founder, steward, administrator, or insider has a private ownership claim on the treasury by virtue of role, authorship, technical contribution, or governance position.
+
+No founder-only EMS conversion path, special vault, private reserve carveout, or similar mechanism may be created through governance unless expressly authorized by a later governing document that preserves the non-equity character of the Commons and does not route private founder equity through the community system.
+
+---
+
+## 6. Separation of Systems
+
+### 6.1 Commons vs. Commercial Layer
+
+The MountainShares Commons and the KTS commercial layer are structurally distinct.
+
+The Commons governs:
+
+- EMS,
+- M$,
+- resident participation,
+- governance,
+- treasury oversight,
+- and benefits-sensitive community operations.
+
+KTS governs:
+
+- proprietary technical assets,
+- commercial licensing,
+- founder-side private capital arrangements,
+- and related commercial operations.
+
+### 6.2 Intellectual Property
+
+ALLIS and related proprietary systems may be owned, licensed, or administered through KTS or related commercial instruments, subject to separate agreements.
+
+Any use of such systems by H4H, the Commons, or the DUNA shall occur through arm's-length agreements, licenses, or service arrangements approved under applicable governance and conflict procedures.
+
+### 6.3 No Automatic Spillover
+
+No participant in the Commons acquires a direct or indirect ownership interest in KTS merely by participating in MountainShares.
+
+Likewise, no KTS capital instrument automatically grants governance control over the Commons except to the extent separately and expressly provided through community governance rules.
+
+---
+
+## 7. Conflict of Interest and Recusal
+
+### 7.1 General Rule
+
+Any person serving in dual or overlapping roles across H4H, the Commons, the DUNA, KTS, or related entities shall disclose material conflicts of interest.
+
+### 7.2 Founder and Related-Party Transactions
+
+Where the founder or any related party sits on both sides of a proposed transaction, vote, contract, license, or treasury action, the matter shall be subject to documented conflict-of-interest and recusal procedures.
+
+Such procedures shall include, as applicable:
+
+- disclosure of the relationship,
+- abstention from voting,
+- independent review,
+- written approval standards,
+- and retention of records sufficient for later audit.
+
+### 7.3 Related Agreements
+
+Any agreement involving H4H and KTS, H4H and the DUNA, KTS and the Commons, or founder-related private instruments shall be reviewed under related-party standards appropriate to the entity and transaction type.
+
+---
+
+## 8. Benefits-Sensitive Governance
+
+MountainShares shall be governed with special attention to benefits-sensitive design and participant vulnerability.
+
+Accordingly:
+
+- community EMS shall remain non-appreciating,
+- resident-facing systems shall avoid avoidable equity-like features,
+- governance changes with benefits implications shall receive heightened review,
+- and no participant class shall be forced into a structure that effectively converts community participation into speculative exposure.
+
+These protections apply to residents and participants generally and are not waived by founder status, stewardship role, or administrative access.
+
+---
+
+## 9. Transparency and Reporting
+
+### 9.1 Public Governance Transparency
+
+The Commons shall maintain governance transparency appropriate to its phase of operation, including publication or disclosure of:
+
+- core rules,
+- governance roles,
+- treasury policies,
+- reserve metrics,
+- conflict procedures,
+- and material structural relationships among H4H, the DUNA, and KTS.
+
+### 9.2 Founder and Steward Disclosure
+
+Where founder or steward roles materially affect governance, treasury, or contractual relationships, those roles shall be disclosed in a manner sufficient to inform participant understanding and later audit.
+
+### 9.3 Structural Disclosure
+
+Participants shall not be led to believe that:
+
+- EMS confers equity,
+- the DAO sells or grants ownership in any entity,
+- or founder private capital rights exist inside participant account systems.
+
+---
+
+## 10. Amendments
+
+This Charter may be amended only by the procedures set out in the Program Rules and associated governing documents.
+
+Any amendment affecting one or more of the following shall require heightened review:
+
+- the non-equity status of the Commons,
+- treasury reserve protections,
+- founder role definitions,
+- conflict-of-interest protections,
+- benefits-sensitive structures,
+- or the separation between community systems and KTS commercial instruments.
+
+No amendment may be interpreted to silently convert the Commons into an equity-bearing structure.
+
+---
+
+## 11. Governing Hierarchy
+
+In descending order of authority for matters addressed by this Charter:
+
+1. Applicable law.
+2. Terms and Conditions.
+3. Program Rules and Parameter Tables.
+4. This MountainShares DAO Governance Charter.
+5. Phase specifications and related governance documents.
+6. Operational policies, working rules, and administrative procedures.
+
+Where multiple documents appear to conflict, they shall be interpreted, to the maximum extent possible, in a manner that preserves:
+
+- the non-equity nature of the Commons,
+- the separation of H4H, DUNA, and KTS roles,
+- benefits-sensitive design,
+- and the founder's status as steward rather than owner.
+
+---
+
+*MountainShares DAO Governance Charter*  
+*Harmony for Hope, Inc. — initial sponsor*  
+*MountainShares Commons / DUNA governance framework*  
+*Draft — Not legal, tax, securities, or benefits advice*
