@@ -1,314 +1,266 @@
-# FTIS-001 - Founder's Technical Investment Statement
-## Kidd's Technical Services, LLC to Harmony for Hope
+# FTIS-001 — Founder’s Technical Investment Statement
 
-**Reporting Period:** March 23, 2025 – May 14, 2026
-**Total Hours Invested:** 6,067.5 hours
-**Hourly Rate (Fair Market Value):** $150/hour
-**Total Capital Contribution:** $910,125
+## Harmony for Hope, Inc.  
+### Carrie Ann Kidd d/b/a Kidd’s Technical Services
 
----
-
-## Executive Summary
-
-This document establishes the financial and technical scope of infrastructure development contributed by Kidd's Technical Services, LLC to Harmony for Hope (H4H) during the foundational phase of the MountainShares mutual credit system and Ms. Jarvis geospatial intelligence platform. This represents a documented commitment of human capital—now 6,067.5 hours, equivalent to approximately 3.0 years of full-time technical architecture work—applied directly to building commons-based economic infrastructure for Appalachian community stewardship.
+**Document Number:** FTIS-001  
+**Version:** 1.0  
+**Date:** July 6, 2025  
+**Status:** Draft — Internal Structural Alignment and Counsel Review  
+**Related Documents:** Master Services Agreement, SOW-000, SOW-001, KTS Relationship and Status Memorandum, Founder Capital Instrument Agreement, Fee Amendment FA-001
 
 ---
 
-## Investment Scope
+## 1. Purpose
 
-### Period Coverage
-- **Start Date:** March 23, 2025 (Project initiation)
-- **End Date:** May 14, 2026 (Current)
-- **Calendar Days:** 418 (March 23, 2025 – May 14, 2026)
+This Founder’s Technical Investment Statement records the economic characterization of technical labor, system development, infrastructure buildout, and related professional contribution performed by Carrie Ann Kidd in support of Harmony for Hope, Inc. and the MountainShares program environment.
 
-### Work Model
-- **Daily Commitment:** 16 hours/day, often extending past midnight
-- **Protected Hours:** 9:00am–1:30pm allocated to Medicaid Waiver care; all other waking hours dedicated to Ms. Jarvis and related infrastructure development
-- **No weekends/weekdays distinction** — continuous infrastructure-critical work supporting 24/7 system availability and rapid-response debugging cycles
+Its purpose is to distinguish, with precision, between:
 
----
+- charitable in-kind contribution made to H4H,
+- private founder-capital value that is not donated to H4H,
+- and future commercial or equity-side treatment that must exist, if at all, outside H4H and outside the community mutual-credit layer.
 
-### Intellectual Property Allocation
-The MountainShares mutual credit system and associated commons governance configurations are being developed for use by Harmony for Hope as part of its charitable mission. The Ms. Jarvis Geospatial Intelligence Platform is proprietary software owned by Kidd's Technical Services, LLC and is made available to Harmony for Hope under a non‑exclusive, royalty‑free license for use in support of MountainShares and related community benefit projects.
+This document is a classification and tracking instrument. It is not itself a grant of equity, a securities offering, a participant-facing investment document, or a completed entity-formation instrument.
 
 ---
 
-## Technical Infrastructure Delivered
+## 2. Parties and Present Legal Posture
 
-### 1. MountainShares Mutual Credit System
-- Smart contract system proof of concept (July 4, 2025)
-- Five smart contracts deployed to Arbitrum One mainnet (March 26, 2026)
-- Phase 1 Revision 2.0: restructured as community time bank with prepaid accounts (May 4, 2026)
-- Mutual credit ledger backend architecture
-- Commons-based governance database schema
-- Integration with geographic property data (GBIM)
+This statement concerns work performed by **Carrie Ann Kidd**, presently operating personally under the trade name **Kidd’s Technical Services**.
 
-### 2. Ms. Jarvis / Ms. Allis Geospatial Intelligence Platform
-- Full system integration achieved (December 25, 2025)
-- 112-container thesis-verified production baseline (April 16, 2026)
-- Microservices architecture (Docker, FastAPI, Uvicorn)
-- GBIM Integration: Geographic Building Information Model spatial data pipeline
-- GeoDB Development: Custom geographic database schema and PostGIS spatial indexing
-- ChromaDB Vector Database: LLM embedding optimization and semantic search (7,903,126 vectors audited May 6, 2026)
-- PostgreSQL Optimization: Spatial query performance tuning; split-brain two-container topology (April 23, 2026)
-- API Gateway: Unified FastAPI endpoint architecture with Caddy forward_auth perimeter
-- Authentication/Authorization: Middleware, XCaddy rate limiting, token enforcement across 5 public hostnames
-- System Monitoring: 40 preflight gates certified; VERIFYANDTEST.sh watchdog suite
+As of the date of this statement:
 
-### 3. Data Integration Pipelines
-- ETL process development for geospatial source integration
-- 20,593 landowner belief records ingested into PostGIS (March 20, 2026)
-- Database migration scripts and data integrity testing
-- Spatial data transformation and normalization
-- Real-time geographic data synchronization
+- KTS is not yet a separately formed West Virginia limited liability company,
+- KTS does not yet have a separate EIN,
+- and any reference in related documents to “Kidd’s Technical Services, LLC” should be read as requiring correction, amendment, or later novation unless and until lawful entity formation occurs.
 
-### 4. Community Governance Platform
-- Backend architecture for decentralized decision-making systems
-- Integration of geographic data with commons governance theory
-- Audit logging for transparent resource allocation
-- 207 verified local resources in Fayette County completeness benchmark
-
-### 5. Critical Infrastructure Recovery
-- September 11, 2025: System failure response and 10TB data recovery initiative
-- October 8, 2025: Hardware retrofit and system migration to Lenovo infrastructure
-- November 26–28, 2025: Complete base metal rebuild with comprehensive documentation
-- January 6, 2026: GPU/CPU communication debugging, OS reinstall, system stabilization
-
-### 6. Academic Research and Publication
-- Five papers published via Zenodo (April–May 2026)
-- Primary DOI registered: https://doi.org/10.5281/zenodo.20059834 (May 7, 2026)
-- Polymathmatic Geography discipline established as academic framework
-- WVU Raymond J. Lane Professor briefing materials prepared (May 12, 2026)
-- HGC-1 Hardware Architecture Specification initiated (May 7–9, 2026)
+Accordingly, all private-side rights, claims, and economic treatment described in this statement remain personal to Carrie Ann Kidd unless and until they are assigned in writing to a properly formed successor entity.
 
 ---
 
-## Valuation Methodology
+## 3. Background
 
-### Fair Market Value Calculation
+Harmony for Hope, Inc. is the charitable anchor through which current programmatic work has been conducted.
 
-**Hourly Rate:** $150/hour is established as fair market value for:
-- Senior geospatial systems architect (10+ years experience)
-- Expert-level PostGIS and spatial database design
-- Microservices architecture and DevOps expertise
-- LLM integration and AI orchestration
-- Python/Docker/PostgreSQL stack mastery
+Over time, Carrie Ann Kidd has contributed substantial technical labor and system-building work, including without limitation:
 
-This rate is consistent with:
-- Regional software architect rates in Appalachia
-- University research partnership rates for technical leadership
-- Grant-funded project consultant rates for specialized GIS work
+- software engineering,
+- systems architecture,
+- infrastructure buildout,
+- geospatial and AI systems development,
+- documentation,
+- program support,
+- server operations,
+- continuity planning,
+- and broader MountainShares-related technical design and execution.
 
-### Total Investment Calculation
-
-```text
-6,067.5 hours × $150/hour = $910,125
-```
-
-### Comparison to Traditional Contracting
-
-If this work had been contracted to external vendors:
-- Senior architect: $200–250/hour
-- Full systems team: $300–400/hour (3–4 person team)
-- Estimated external cost: $1.6M–2.4M over equivalent timeline
-
-This investment represents approximately 38–57% of equivalent external contracting costs.
+Because this work has both charitable and private-side structural implications, it must be divided into separate categories rather than treated as a single undifferentiated pool of value.
 
 ---
 
-## Equity & Governance Implications
+## 4. Core Classification Rule
 
-### Founder's Capital Account
+The governing rule of this statement is simple:
 
-This $910,125 constitutes founder's equity in MountainShares, not a charitable donation. It establishes:
+- the charitable portion belongs to H4H as in-kind contribution,
+- the private founder-capital portion does not belong to H4H,
+- and no instrument inside H4H, the MountainShares Commons, the DUNA, EMS, or participant balances may be used to convert the charitable portion into private founder equity.
 
-1. **Governance Authority:** Voting stake in community decision-making regarding mutual credit issuance, land trust acquisition, and resource allocation.
-2. **Veto Power:** Authority to prevent proposals that dilute commons principles or introduce extractive external capital.
-3. **Stakeholder Standing:** Legitimate seat at negotiation tables with county commissioners, WVDO, USDA Rural Development, and federal agencies.
-4. **Intellectual Property Stake:** Ownership interest in Ms. Jarvis / Ms. Allis platform infrastructure developed for the commons.
+This separation is mandatory for legal, accounting, governance, and structural integrity reasons.
 
-### Non-Dilutable Commons Investment
-
-Unlike venture capital, this investment:
-- Creates no debt obligation to repay
-- Transfers no control to external investors
-- Establishes no profit extraction mechanism
-- Remains permanently committed to community benefit
+No participant-facing or community-governed instrument should ever be used as the path for founder private capitalization.
 
 ---
 
-## Organizational Impact
+## 5. Rate Structure
 
-### For Harmony for Hope
+For internal valuation and tracking purposes, the technical contribution framework is as follows:
 
-- Demonstrated Capacity: Proof of ability to execute complex technical infrastructure projects.
-- Grant Readiness: Pre-investment evidence for federal and foundation funding applications (ARC, ESDA, USDA RD).
-- Institutional Capital: $910,125 in documented in-kind matching funds for grant proposals.
-- Risk Reduction: H4H has already invested 6,067.5 hours of expert-level time before external funding.
+- **Fair-market technical rate:** $300 per hour
+- **Charitable in-kind contribution rate to H4H:** $150 per hour
+- **Deferred founder-capital / private-side value rate:** $150 per hour
 
-### For MountainShares
+This framework reflects a split treatment in which one-half of the value is recognized as charitable contribution to H4H and one-half is reserved as separate private-side founder value, contingent on proper later documentation.
 
-- Economic Infrastructure: Foundation for mutual credit system serving West Virginia Appalachian communities.
-- Technology Asset: Scalable geospatial platform for land commons management, resource inventory, and community coordination.
-- Proof-of-Concept: Operational demonstration of commons-based technology replacing feudal or extractive models.
-
-### For AppalachianShares Regional Expansion
-
-- Replicable Architecture: Ms. Jarvis / Ms. Allis design can scale to regional mutual credit networks across Appalachia.
-- Documented Methodology: Complete development timeline and technical decisions available for knowledge transfer.
-- Community Precedent: Shows feasibility of member-led technical infrastructure development without dependence on venture capital.
+This statement does not authorize lump-sum conversion of the private-side portion into immediate equity.
 
 ---
 
-## Accounting Treatment
+## 6. Logged Work and Value Recognition
 
-### GAAP Recognition
+As of the current tracking cut-off reflected in the controlling internal facts record, logged technical hours total **6,067.5 hours**.
 
-Under Generally Accepted Accounting Principles (GAAP), this contribution qualifies as donated services:
-- Work requires specialized skills (geospatial AI, systems architecture).
-- Services would otherwise be purchased by the organization.
-- Fair market value can be reasonably estimated at $150/hour.
-- Should be recorded on Harmony for Hope's financial statements as:
-  - Debit: In-kind Revenue (Statement of Activities).
-  - Credit: In-kind Expense (Program Services).
+At the charitable in-kind rate of **$150 per hour**, the charitable contribution value recognized for tracking purposes is **$910,125**.
 
-### Tax Treatment (U.S. Federal)
+That charitable figure may be used, where proper, for:
 
-- Kidd's Technical Services, LLC: No income reported (work-for-equity, not compensation).
-- Kidd's Technical Services, LLC: No charitable deduction (IRS does not allow deduction for value of services, only out-of-pocket expenses).
-- Harmony for Hope: Can document as in-kind match for grants, but cannot claim charitable deduction to Kidd's founders.
-- Grant Match: Federal and foundation grants may accept this as match only if contributed before award date; retroactive match generally not accepted.
+- internal accounting support,
+- grant-match support,
+- valuation narratives,
+- and historical contribution records,
 
-### Why This Is NOT a Tax Deduction
+provided that H4H records and financial presentation remain accurate and do not mischaracterize charitable in-kind contribution as cash receipts or private equity.
 
-The IRS explicitly prohibits deduction of "the value of your time or services" under IRC §170. This applies regardless of:
-- Technical expertise level.
-- Fair market hourly rate.
-- Grant-funded status of the organization.
-- Community benefit of the work.
-
-This is a governance and economic reality issue, not a tax issue.
+The corresponding private-side half is not booked to H4H as founder equity and is not created by this statement as a present security.
 
 ---
 
-## Milestone Documentation
+## 7. Charitable In-Kind Portion
 
-| Date | Hours | Milestone | Impact |
-|---|---|---|---|
-| July 4, 2025 | 16 | MountainShares smart contract system proof of concept achieved | Proof of technical feasibility for mutual credit on blockchain |
-| Sept 11, 2025 | 16 | System failure response; 10TB external drive for data recovery | Infrastructure resilience improvements; capacity expansion |
-| Oct 8, 2025 | 16 | Hardware retrofit; migrated to Lenovo infrastructure | Hardware consolidation; system reliability improvements |
-| Nov 26–28, 2025 | 48 | Base metal rebuild; comprehensive documentation initiated | Complete system rewrite; documentation foundations established |
-| Dec 25, 2025 | 16 | Ms. Jarvis full system mesh achieved — all microservices integrated | Full operational integration of GBIM, GeoDB, ChromaDB, LLM layer |
-| Jan 6, 2026 | 16 | GPU/CPU communication bug; OS reinstall and stabilization | Hardware/software integration resolved; system stability improved |
-| Mar 13, 2026 | 3.5 | Contract document suite (SOW-001, COS-001, MSA, FA-001) committed | Governance documentation baseline established |
-| Mar 26, 2026 | 16 | MountainShares Phase 0 beta launch; five smart contracts deployed to Arbitrum One mainnet | Live production mutual credit infrastructure |
-| Apr 16, 2026 | 16 | Thesis container audit: 112 containers thesis-verified; production baseline confirmed | Academic and operational certification of full system scope |
-| May 4, 2026 | 16 | MountainShares Phase 1 Revision 2.0: restructured as community time bank with prepaid accounts | Core economic model finalized for community deployment |
+The charitable side of the contribution consists of technical labor and related professional services intentionally contributed to support H4H’s charitable mission, technical operations, and community-serving program buildout.
+
+That charitable portion:
+
+- is contributed to H4H,
+- may support grant-match and in-kind narratives where appropriate,
+- must be accounted for consistently with nonprofit financial treatment,
+- and does not create a private ownership claim against H4H.
+
+Once recognized as charitable contribution, that portion is not subject to later recapture through EMS appreciation, trust conversion, participant balances, DAO pathways, or similar internal mechanisms.
 
 ---
 
-## Monthly Investment Breakdown
+## 8. Private Founder-Capital Portion
 
-| Month | Hours This Month | Contribution This Month | Total Hours To Date | Total Contribution To Date |
-|---|---|---|---|---|
-| March 2025 | 144 | $21,600 | 144 | $21,600 |
-| April 2025 | 464 | $69,600 | 608 | $91,200 |
-| May 2025 | 448 | $67,200 | 1,056 | $158,400 |
-| June 2025 | 464 | $69,600 | 1,520 | $228,000 |
-| July 2025 | 464 | $69,600 | 1,984 | $297,600 |
-| August 2025 | 480 | $72,000 | 2,464 | $369,600 |
-| September 2025 | 480 | $72,000 | 2,944 | $441,600 |
-| October 2025 | 480 | $72,000 | 3,424 | $513,600 |
-| November 2025 | 432 | $64,800 | 3,856 | $578,400 |
-| December 2025 | 336 | $50,400 | 4,192 | $628,800 |
-| January 2026 | 352 | $52,800 | 4,544 | $681,600 |
-| February 2026 | 320 | $48,000 | 4,864 | $729,600 |
-| March 2026 | 291.5 | $43,725 | 5,155.5 | $773,325 |
-| April 2026 | 480 | $72,000 | 5,635.5 | $845,325 |
-| May 2026 (partial) | 432 | $64,800 | **6,067.5** | **$910,125** |
-| **TOTAL** | **6,067.5** | **$910,125** | **6,067.5** | **$910,125** |
+The private-side half of the contribution represents deferred founder-capital or founder-private economic value associated with the same underlying technical effort, but it is not donated to H4H.
 
-*All monthly figures sourced from `docs/KTS-detailed_timesheet_2025-2026.md` (canonical timesheet). May 2026 reflects the authoritative header total of 6,067.5 hours; full monthly reconciliation pending.*
+That private-side portion:
+
+- must be documented separately from charitable contribution,
+- belongs on the founder-private or KTS side of the structure,
+- may become the subject of later capitalization, licensing, equity, or commercial arrangements only through separate valid instruments,
+- and remains outside H4H unless and until lawfully addressed through arm’s-length agreements.
+
+At the present stage, because KTS is not yet a formed entity, this private-side position remains personal to Carrie Ann Kidd.
 
 ---
 
-## Supporting Documentation
+## 9. No Conversion Through EMS, Commons, or DAO Layer
 
-**Time Records:**
-- Canonical timesheet: `docs/KTS-detailed_timesheet_2025-2026.md` — single authoritative record with date-specific task descriptions through May 14, 2026 (6,067.5 hours).
-- Records include date-specific task descriptions, time blocks, and explicit days off, suitable for audit or grant review.
+For avoidance of doubt, this statement rejects any structure in which founder private value is routed through:
 
-**Technical Deliverables:**
-- Ms. Jarvis / Ms. Allis repository (112-container microservices architecture, GBIM, GeoDB, ChromaDB, LLM orchestration).
-- MountainShares smart contract and mutual credit ledger backend codebase (Arbitrum One mainnet).
-- Database schema documentation (PostGIS, ChromaDB, PostgreSQL split-brain topology).
-- Docker Compose configurations and deployment procedures.
-- API documentation (FastAPI endpoints, authentication, governance).
-- Academic publications: five papers deposited to Zenodo; primary DOI https://doi.org/10.5281/zenodo.20059834.
+- EMS balances,
+- vaulted EMS,
+- participant treasury mechanics,
+- resident accounts,
+- DAO governance participation,
+- or any community-issued mutual-credit mechanism.
 
-**Board Governance:**
-- Board resolution authorizing this statement.
-- Founder's equity account establishment.
-- Governance authority delegation records.
+Community EMS is a non-appreciating closed-loop community instrument. It is not founder equity, not deferred private capitalization, and not a lawful substitute for separate founder-side documentation.
+
+Any appreciating founder instrument, if later created, must exist exclusively on the founder-private or KTS side and never in resident hands.
 
 ---
 
-## Forward-Looking Implications
+## 10. Relationship to Future KTS Formation
 
-### Grant Applications
+The intended long-term structure places private founder-capital treatment, ALLIS-related proprietary ownership, and commercial engine functions on the KTS side.
 
-This updated statement supports funding requests by demonstrating:
-- Pre-award technical investment of $910,125 in founder time and infrastructure.
-- Capacity to execute complex infrastructure projects across a sustained period.
-- Institutional commitment to systems development independent of external capital.
-- Reduced risk for grant-funded work because core systems are already built and tested.
+However, because KTS is not yet formed, this statement does not pretend that such entity-level treatment already exists.
 
-Examples of eligible funding sources include:
-- USDA Rural Development grants (broadband, economic development).
-- ESRI grants for geospatial innovation in underserved communities.
-- Appalachian Regional Commission (ARC) funding.
-- Department of Energy community renewable energy projects.
-- Foundation funding for commons-based economics.
+Instead, this statement serves as an interim record that:
 
-### Scaling to AppalachianShares
+- preserves the separation between charitable and private value,
+- avoids inurement through H4H-administered community systems,
+- and allows future counsel-reviewed migration of private-side rights into a properly formed KTS entity, if and when such migration is lawfully completed.
 
-This infrastructure can be replicated across the broader Appalachian region with documented methodology and reduced development risk. Future implementations can:
-- Leverage the existing Ms. Jarvis / Ms. Allis code base.
-- Use proven Docker-based microservices deployment procedures.
-- Adapt geospatial data layers for new regional contexts.
-- Reduce time-to-implementation for additional communities.
-
-### Commons Governance Precedent
-
-This investment continues to establish a model for member-led technology development that:
-- Avoids venture capital extraction.
-- Builds community ownership of digital infrastructure.
-- Creates documented knowledge for replication.
-- Demonstrates cost efficiency vs. external contracting.
+No such migration is effective unless documented in writing after formation.
 
 ---
 
-## Conclusion
+## 11. Relationship to ALLIS and Proprietary Systems
 
-The 6,067.5 hours and $910,125 investment from Kidd's Technical Services, LLC to Harmony for Hope represents a foundational commitment to building commons-based economic infrastructure in Appalachia. This work is not a tax-deductible donation, but rather a founder's capital contribution establishing governance authority and equity stake in MountainShares.
+The work reflected in this statement includes, in substantial part, development and deployment associated with **Ms. Allis / ALLIS**, related GBIM structures, geospatial systems, software architecture, and operational technical infrastructure.
 
-This updated statement demonstrates:
-- Technical feasibility of commons-based technology platforms.
-- Organizational capacity to execute complex infrastructure projects over an extended period.
-- Genuine commitment to community stewardship over extractive models.
-- Economic efficiency relative to venture-backed alternatives.
+To the extent such work touches proprietary systems, this statement should not be read as transferring proprietary ownership to H4H merely because H4H benefits from the work or uses related systems in operations.
 
-As Harmony for Hope seeks federal and foundation funding, and as AppalachianShares expands across the region, this documented investment provides the credibility, matching funds documentation, and technical foundation necessary to attract larger-scale support while maintaining community ownership and governance control.
+Operational use, charitable deployment, and private ownership are separate concepts and must remain separately documented.
+
+Any longer-term production license, commercialization right, or ownership transfer must be governed by separate written instruments.
 
 ---
 
-**Document Prepared:** May 14, 2026
-**Reporting Entity:** Kidd's Technical Services, LLC
-**Recipient Organization:** Harmony for Hope, Inc.
-**Commons Initiative:** MountainShares Mutual Credit System
-**Engagement Model:** Founder's Equity Contribution (Non-Extractive)
+## 12. Governance and Conflict Procedures
+
+Because Carrie Ann Kidd may hold positions on both sides of the H4H–Contractor relationship, all use of this statement in accounting, contracting, board review, grants, later capitalization planning, or transition work must be subject to documented conflict-of-interest and recusal procedures.
+
+This includes:
+
+- review of contribution characterization,
+- approval of related-party agreements,
+- any later KTS-side capitalization documents,
+- and any Treasury-funded transition work connected to Phase 2 structuring.
+
+The existence of this statement does not waive or dilute nonprofit fiduciary obligations.
 
 ---
 
-*This statement is prepared for governance, grant application, and community transparency purposes. It does not constitute tax advice and does not establish any deductible contribution for federal tax purposes. All figures are based on documented timesheets and fair market value estimates for senior geospatial systems architecture services.*
+## 13. Phase 2 and Future Documentation
+
+Future documentation may include, as applicable:
+
+- founder-side capital instruments,
+- KTS formation documents,
+- IP assignment or confirmation instruments,
+- licensing agreements,
+- fee amendments,
+- transition memoranda,
+- and Treasury Reserve-supported Phase 2 legal and formation work.
+
+Any such future documents must preserve the distinctions established here:
+
+- H4H receives the charitable in-kind portion,
+- private founder-capital treatment stays outside H4H,
+- the Commons remains non-equity,
+- and the founder’s role in relation to the Commons is steward, not owner.
+
+---
+
+## 14. Accounting and Reporting Caution
+
+This statement is intended to support internal consistency, not to replace formal accounting judgment, tax advice, securities advice, or nonprofit compliance review.
+
+In particular:
+
+- charitable in-kind value must be recorded in a manner consistent with H4H’s actual books and reporting practices,
+- grant narratives should use only the charitable portion where match language requires charitable contribution,
+- and no public-facing document should collapse charitable contribution and founder private value into a single ownership narrative.
+
+Precision here is essential.
+
+---
+
+## 15. No Equity Created by This Statement
+
+This statement does not itself create:
+
+- equity in H4H,
+- equity in the MountainShares Commons,
+- equity in the DUNA,
+- membership units in a not-yet-formed KTS entity,
+- securities rights,
+- trust rights,
+- or participant-facing investment rights.
+
+Its function is to classify work already performed and preserve the legal separation required for later lawful structuring.
+
+---
+
+**Acknowledged by:**
+
+**Harmony for Hope, Inc.**  
+By: __________________________  
+Name: ________________________  
+Title: _________________________  
+Date: __________________
+
+**Founder / Contractor**  
+Carrie Ann Kidd  
+d/b/a Kidd’s Technical Services  
+Date: __________________
+
+---
+
+*FTIS-001 — Founder’s Technical Investment Statement*  
+*Draft — Not legal, tax, accounting, securities, or benefits advice*
