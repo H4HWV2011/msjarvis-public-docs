@@ -1,165 +1,227 @@
-# Architecture and Licensing Note
-*(Draft – For Discussion, Not Legal Advice)*
+# Architecture and Licensing
 
-This note explains how the Ms. Allis / GBIM stack, The Commons, and MountainShares are structured from an architecture and licensing perspective. It is meant to help partners, reviewers, and implementers understand what is open‑source, what is proprietary, and how patterns may be reused.
+## System Overview
 
----
+The MountainShares technology stack powers the MountainShares Commons (DUNA), providing the core technical infrastructure for the mutual-credit ledger, governance workflows, geospatial services, and community-facing applications.
 
-## 1. Architectural Layers
+The system is designed so that:
 
-From bottom to top, the overall system can be thought of as four main layers:
+- community mutual-credit (EMS and M$) remains non-appreciating and benefits-safe inside the Commons, and  
+- intellectual property, commercial operations, and founder-capital instruments reside on the Kidd’s Technical Services (KTS) side, under separate agreements and applicable legal frameworks.
 
-1. **Infrastructure and Storage**
-   - Databases, object storage, message queues, and related services.
-   - May include both cloud and on‑premise components at node partners (universities, agencies, organizations).
-
-2. **Ms. Allis / GBIM Platform**
-   - Core data schemas (GBIM), ingestion pipelines, indexing and query services, analytics logic, and node orchestration.
-   - Runs in multiple contexts:
-     - Central Commons / MountainShares services.
-     - University Commons Nodes.
-     - Government Commons Nodes.
-     - Other deployments supported by Kidd’s Technical Services (KTS).
-
-3. **The Commons Application Layer**
-   - User‑facing social–economic–digital platform: feeds, posts, comments, quests, governance surfaces, and related UI.
-   - Integrates with Ms. Allis / GBIM for data, metrics, and moderation surfaces.
-
-4. **MountainShares Program**
-   - Rewards and community‑credit system tied to The Commons.
-   - Economic design, Program Rules, treasury and reserve logic, and benefits‑sensitive safety mechanisms.
-
-Each layer may use a mix of open‑source, proprietary, and configuration‑only components.
+This chapter describes the high-level architecture and the licensing relationships among Harmony for Hope, Inc. (H4H), the DUNA/MountainShares Commons, and KTS.
 
 ---
 
-## 2. Open‑Source vs. Proprietary Components
+## Entities and Roles
 
-### 2.1 Open‑Source Components
+### Harmony for Hope, Inc. (H4H)
 
-The system relies on a number of open‑source tools and libraries, for example:
+H4H is a West Virginia 501(c)(3) public charity that serves as the initial charitable anchor and early implementation sponsor for MountainShares.
 
-- Databases and storage engines.
-- Message queues, search indexes, and geospatial tooling.
-- Frameworks and libraries used in Ms. Allis, The Commons, and related services.
+Within this architecture:
 
-Where code in this repository is explicitly marked with an open‑source license (for example, MIT, Apache‑2.0, or similar), it may be:
+- H4H operates programmatic and community-facing functions,
+- may host infrastructure during early phases,
+- administers grants and community partnerships,
+- and sponsors the Commons until the DUNA structure is fully stood up.
 
-- Forked and reused under the terms of that license.
-- Extended or adapted for other projects, including unrelated commons or data platforms.
+H4H does **not** own the Commons as private property, does **not** issue founder equity through EMS, and does **not** hold resident EMS or M$ balances as proprietary assets.
 
-Open‑source components remain governed by their respective licenses, regardless of how they are used in the overall system.
+### MountainShares Commons (DUNA)
 
-### 2.2 Proprietary Components (KTS / Ms. Allis / GBIM)
+The MountainShares Commons, organized through the DUNA legal wrapper, is the community layer that governs:
 
-Kidd’s Technical Services (KTS) retains intellectual property rights in:
+- the EMS recognition ledger,
+- M$ mutual-credit balances,
+- governance participation,
+- resident-facing programs,
+- and associated community data.
 
-- The **Ms. Allis / GBIM** platform implementation, including:
-  - proprietary schemas, data models, and ontology glue not released under a separate open‑source license;
-  - ingestion, indexing, and analytics code specific to Allis/GBIM;
-  - node orchestration, monitoring, and configuration used in supported deployments.
+The Commons is member-governed, benefits-sensitive, and non-equity. Participants hold program rights and mutual-credit balances, not ownership interests.
 
-- Integrations, connectors, and configuration bundles that bind Ms. Allis / GBIM to specific partners (universities, agencies, organizations).
+### Kidd’s Technical Services (KTS)
 
-Where portions of this implementation are made public, they may be:
+KTS is the founder-side technical and commercial vehicle through which:
 
-- Released under open‑source licenses (with explicit license headers); or
-- Published as documentation or examples, without granting a license to copy proprietary code.
+- ALLIS and GBIM intellectual property are held and commercialized,
+- technical operations and commercial services may be offered,
+- founder capital and any appreciating founder instruments are structured.
 
-Unless otherwise stated in a specific file or repository, Ms. Allis / GBIM code and configuration is proprietary to KTS.
+As of the current record, KTS is planned as a West Virginia for-profit LLC / PBC, to be formed. Until formation, references to “KTS” describe Carrie Ann Kidd operating personally and do not create a separate legal entity.
 
-### 2.3 The Commons and MountainShares Branding and Content
-
-Harmony for Hope and related entities retain rights in:
-
-- **Trademarks and branding**, including (without limitation):
-  - “The Commons”
-  - “MountainShares”
-  - “Ms. Allis”
-  - Logos, visual marks, and associated brand assets.
-
-- **Program documentation and content**, including:
-  - Terms of Use, Program Rules, guidelines, and agreements;
-  - curated narratives, quests, and educational materials.
-
-Use of these names, marks, or branded content in other projects requires permission, except where nominative or descriptive use is permitted under applicable law.
+KTS is structurally separate from H4H and the Commons. Any appreciating founder instrument lives on the KTS side and never in the hands of residents via community EMS.
 
 ---
 
-## 3. Reusing Patterns vs. Branding
+## Technical Architecture
 
-### 3.1 Patterns You May Reuse
+### Core Components
 
-The architecture and documentation in this repository are intended to share **patterns**, such as:
+The MountainShares stack includes, at a minimum:
 
-- GBIM‑style place‑aware, time‑aware data modeling.
-- Multi‑node “data commons” topologies (university nodes, government nodes, community nodes).
-- Governance structures around commons work, EMS recognition, and safety testing.
-- Moderation, safety, and participation frameworks.
+- **ALLIS (Artificial Learning Location Intelligence System)** — the core AI and geospatial reasoning engine.  
+- **GBIM (Geobelief Information Model)** — the structured belief and feature store used to represent geospatial and community knowledge.  
+- **Microservices and containerized services** — deployed via container orchestration, supporting APIs, background processing, and integrations.  
+- **Data stores** — including relational databases (e.g., PostgreSQL/PostGIS), object storage, and specialized indices for vector search and geospatial analytics.  
+- **Public-facing applications** — web and mobile interfaces for participants, administrators, and partners.
 
-Other projects may:
+The architecture is modular, with clear boundaries between:
 
-- Learn from and adapt these patterns to their own contexts.
-- Implement similar multi‑node architectures and commons governance models.
-- Use open‑source code provided under explicit licenses.
+- community-facing features (Commons layer), and
+- proprietary engines and commercial extensions (KTS layer).
 
-### 3.2 What You May Not Automatically Reuse
+### Deployment Model
 
-Without a separate license or agreement, other projects may **not**:
+The system is designed for deployment on infrastructure controlled by or on behalf of H4H and/or the Commons during early phases, with technical operations provided under agreements with KTS or directly by the founder in a pre-entity capacity.
 
-- Use the “Ms. Allis”, “MountainShares”, or “The Commons” names, logos, or marks in a way that implies endorsement, sponsorship, or affiliation.
-- Copy proprietary Ms. Allis / GBIM code, configuration, or integration bundles that are not explicitly open‑licensed.
-- Represent themselves as official nodes or partners in the MountainShares / Commons ecosystem without a documented agreement with Harmony for Hope and KTS.
+Over time, the intent is to:
 
----
-
-## 4. Ms. Allis / GBIM as a Service
-
-KTS offers **Ms. Allis / GBIM as a service** (“Allis/GBIM as a Service”) for organizations that want the architecture without rebuilding it from scratch.
-
-At a high level, this means:
-
-- KTS provides:
-  - deployment support for Ms. Allis / GBIM components;
-  - schema design and configuration aligned with partner needs;
-  - ongoing updates, maintenance, and monitoring support;
-  - integration with The Commons / MountainShares where applicable.
-
-- Partners provide:
-  - infrastructure (on‑premise or cloud);
-  - access to their own data sources, subject to their policies;
-  - governance and oversight for how outputs are used.
-
-Allis/GBIM as a Service can be used:
-
-- Within the MountainShares / Commons ecosystem (for example, as a University or Government Node).
-- Outside that ecosystem, for other data commons, research consortia, or public‑interest projects, under separate agreements.
+- maintain Commons-facing services in a manner accountable to community governance through the DUNA, and  
+- clearly separate KTS commercial deployments, pilots, or extended services from the core Commons infrastructure.
 
 ---
 
-## 5. Summary of Rights and Responsibilities
+## Intellectual Property Ownership
 
-- **Open‑source components**  
-  - Governed by their respective licenses.  
-  - Free to reuse under those terms.
+### ALLIS and GBIM
 
-- **KTS proprietary components (Ms. Allis / GBIM)**  
-  - Owned by KTS.  
-  - Licensed to partners under specific agreements (no‑fee or paid, depending on context).  
-  - Not automatically open for copying or redistribution.
+ALLIS, GBIM, and associated proprietary algorithms, models, and system designs are owned or controlled by KTS, subject to separate agreements.
 
-- **Harmony for Hope / MountainShares / The Commons branding and content**  
-  - Owned by Harmony for Hope and related entities.  
-  - Use requires permission, except for limited nominative or descriptive use.
+This includes:
 
-- **Patterns and architecture described in docs**  
-  - Shared to inspire and guide similar work.  
-  - May be adapted, but not passed off as “Ms. Allis”, “MountainShares”, or “The Commons” without authorization.
+- model architectures,
+- code,
+- schemas and ontologies unique to GBIM,
+- proprietary training pipelines,
+- and related documentation authored as part of the commercial system.
 
-Partners who wish to build on this stack or adapt it to new contexts are encouraged to:
+Community-facing use of ALLIS and GBIM occurs under license, not by transferring ownership of the underlying intellectual property to H4H or the Commons.
 
-- Reuse open‑source components as permitted;  
-- Treat these documents as architectural and governance patterns;  
-- Contact KTS and Harmony for Hope for branded partnerships, Allis/GBIM as a Service, or official node roles.
+### Community Data and Content
 
---- 
+Data and content contributed by participants, partners, and H4H through MountainShares are subject to:
+
+- privacy and data-governance rules,
+- program-specific data-sharing agreements,
+- and any applicable legal obligations.
+
+To the extent permitted by law and program rules, the Commons may:
+
+- store,
+- process,
+- analyze,
+- and visualize community data through ALLIS and GBIM,
+
+while remaining subject to:
+
+- data minimization,
+- ethical use,
+- and community-governance controls.
+
+Ownership of contributed content remains with the original owners except where explicitly licensed or transferred under separate agreements.
+
+---
+
+## Licensing Relationships
+
+### KTS to H4H
+
+KTS licenses ALLIS, GBIM, and related proprietary components to H4H under one or more agreements that may include:
+
+- a master license,
+- service or support agreements,
+- and supplemental data-processing or integration addenda.
+
+These agreements:
+
+- grant H4H rights necessary to operate MountainShares as a charitable program,
+- define permitted uses and limitations,
+- set out support and maintenance expectations,
+- and maintain clear separation between H4H’s charitable operations and KTS’s commercial interests.
+
+### KTS to DUNA / Commons
+
+KTS licenses ALLIS and related capabilities to the DUNA / MountainShares Commons at arm’s length, under terms designed to:
+
+- support community-governed operations,
+- protect residents and participants,
+- maintain transparency around system behavior and constraints,
+- and avoid embedding private founder equity into community EMS or governance flows.
+
+License terms may be:
+
+- cost-based or subsidized in early phases,
+- adjusted over time under community and sponsor review,
+- and tied to performance and safety benchmarks approved by governance.
+
+### H4H and DUNA Relationship
+
+H4H sponsors the initial deployment and operation of the Commons, with the DUNA providing the structural community governance layer.
+
+Over time, the relationship is expected to:
+
+- formalize the Commons’ legal structure through the DUNA,
+- define how H4H and the DUNA share responsibilities, data, and infrastructure,
+- and ensure that community governance has meaningful oversight of how the system operates on the ground.
+
+---
+
+## Non-Equity and Non-Inurement Safeguards
+
+This architecture and licensing structure is designed so that:
+
+- community EMS remains non-appreciating mutual credit,  
+- participant EMS and M$ balances are not equity,  
+- no founder equity is created inside H4H-administered programs, the DUNA, or EMS accounts,  
+- any appreciating founder instrument exists solely on the KTS side, under appropriate legal frameworks.
+
+Licensing fees, if any, paid by H4H or the DUNA to KTS must:
+
+- be arm’s length,
+- support program operation and sustainability,
+- and avoid creating private inurement or disguised equity within the charitable or commons layers.
+
+Founder capital instruments, if implemented, sit outside this architecture and are documented in separate KTS agreements.
+
+---
+
+## Conflict of Interest and Governance
+
+Because the founder may have roles in H4H, the Commons, and KTS, the following safeguards apply:
+
+- All H4H–KTS and DUNA–KTS agreements are subject to documented conflict-of-interest and recusal procedures.  
+- The founder abstains from governance decisions where she stands on both sides of the transaction, except as permitted by law and policy under defined recusal procedures.  
+- Key architectural and licensing decisions are documented, reviewable, and subject to community governance where they materially affect the Commons.
+
+No single individual may unilaterally change architectural or licensing terms in a way that undermines:
+
+- the non-equity commitment of the Commons,
+- benefits-sensitive design,
+- or the separation between community and commercial layers.
+
+---
+
+## Evolution and Change Management
+
+This Architecture and Licensing chapter is expected to evolve as:
+
+- KTS is formally formed and capitalized,
+- the DUNA is implemented and operational,
+- system metrics scale (e.g., services, features, and geospatial coverage),
+- and legal and regulatory contexts change.
+
+Any material change to:
+
+- IP ownership,
+- licensing terms between KTS and H4H or the DUNA,
+- the separation between community EMS and founder commercial instruments,
+
+must be recorded in updated governance documents and, where appropriate, subjected to community review and formalization under the governing amendment processes.
+
+---
+
+*Architecture and Licensing — MountainShares Commons*  
+*Harmony for Hope, Inc. (initial sponsor)*  
+*Kidd’s Technical Services (planned owner of ALLIS / GBIM)*  
+*Draft — Not legal, tax, securities, or benefits advice*
