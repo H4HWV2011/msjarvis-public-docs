@@ -96,7 +96,7 @@ The Phase 2 appreciation schedule (1 EMS = $10 USD equivalent, user-controlled o
 - Reversion is logged to the durable audit trail
 - The system returns to Phase 2 expansion parameters only after the 300% threshold is restored for two consecutive quarters
 
-Phase 3 buying-power expansion (1 EMS = $36.14) activates only when the Treasury Reserve Solvency Ratio reaches and sustains 500%.
+Phase 3 buying-power expansion (1 EMS = $the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date) activates only when the Treasury Reserve Solvency Ratio reaches and sustains 500%.
 
 Community EMS remains non-appreciating in the securities-law sense at all times — it does not function as an investment contract and carries no present appreciation claim that is vested or guaranteed. Any founder-side appreciating instrument exists exclusively on the KTS side under separate documentation.
 
@@ -118,7 +118,7 @@ The commons cannot function without H4H maintaining its legal and regulatory sta
 
 EMS buying-power expansion is conditionally active in Phase 2 at a 10× rate (1 EMS = $10 USD equivalent), subject to the reversion conditions in Section 2.2. No resident holds a vested right to this expanded buying power — conversion is user-initiated, optional, and incremental. The treasury pays USDC only for EMS that users actively choose to convert; vaulted EMS remains off-balance-sheet recognition until conversion.
 
-All EMS not yet converted continues to vault. If Phase 3 conditions are met (500% Treasury Reserve Solvency), vaulted EMS may be converted at 36.14×.
+All EMS not yet converted continues to vault. If Phase 3 conditions are met (500% Treasury Reserve Solvency), vaulted EMS may be converted at the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date×.
 
 ### 3.2 Global Base Rate at Phase 2 Scale
 
@@ -441,7 +441,7 @@ All Phase 1 dashboard features carry forward. Phase 2 adds:
 - No deferred compliance draws in an unresolved state
 - DAO advisory vote on Phase 3 readiness passes (simple majority; advisory only — binding criteria above govern)
 
-**Phase 3 Changes:** Treasury surplus distribution protocol activates; 500% Treasury Reserve Solvency Ratio becomes the new maintenance floor; community dividend engine becomes operational; EMS appreciation schedule advances to 36.14× for vaulted EMS not yet converted. See Phase 3 Specification.
+**Phase 3 Changes:** Treasury surplus distribution protocol activates; 500% Treasury Reserve Solvency Ratio becomes the new maintenance floor; community dividend engine becomes operational; EMS appreciation schedule advances to the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date× for vaulted EMS not yet converted. See Phase 3 Specification.
 
 ---
 
