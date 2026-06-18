@@ -70,11 +70,11 @@ MountainShares operates in clearly defined phases with automatic treasury-backed
   - Convert a small amount and test impact on benefits
   - Consult a benefits counselor to calculate safe amounts
   - Disable BSA protections if no longer receiving benefits
-  - Continue vaulting for Phase 3 (36.14× appreciation)
+  - Continue vaulting for Phase 3 (the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date× appreciation)
 
 **Phase 3 — Higher Appreciation (unlocks when treasury reserve ratio ≥ 1.50 for 60+ days)**
 
-- Conversion rate jumps to 1 EMS = $36.14 USD equivalent (36.14 × appreciation)
+- Conversion rate jumps to 1 EMS = $the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date USD equivalent (the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date × appreciation)
 - Same user-choice framework: convert all, some, or none
 - **You can re-enable BSA protections** if your situation changes (job loss, medical crisis, return to benefits)
 
@@ -116,7 +116,7 @@ MountainShares operates in clearly defined phases with automatic treasury-backed
 - Six months later, you lose the job and reapply for Medicaid → re-enable BSA protections
 
 **Scenario 3: Phase 3 unlocks and you have 200 vaulted EMS hours**
-- That's $7,228 potential value (200 × $36.140)
+- That's $7,228 potential value (200 × $the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date0)
 - You enable BSA, consult a benefits counselor
 - Counselor advises staged conversion: 50 EMS now, 50 EMS in 6 months, etc.
 - You execute the plan over 2 years to stay under SSI asset limits
