@@ -559,6 +559,7 @@ For a complete map of who participates in The Commons and MountainShares, see th
 | **Harmony for Hope, Inc. (H4H)** | Maintains all regulatory and legal standing required for commons operation; files Regulatory Compliance Draw Requests per Section 7A; submits Annual Regulatory Compliance Budget; flags emerging legislative and regulatory developments to the DAO; operates Ms. Allis / ALLIS node at 704 Main Street |
 | **Ms. Allis** | Enforces all hard triggers at statewide scale; monitors both reserve metrics daily; runs county activation pre-condition verification; manages deferral queue; publishes county-level and compliance dashboards; surfaces EMS appreciation gate status |
 | **Phase Management Controller** | Smart contract enforcing phase-based rules; processes ATM withdrawals; applies automatic phase transitions including reversion events; enforces both appreciation gate conditions |
+| **Federal Volunteer Service Rate (FVSR):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published FVSR.
 
 ---
 
