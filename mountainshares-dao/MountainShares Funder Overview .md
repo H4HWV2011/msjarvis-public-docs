@@ -1,276 +1,343 @@
-# MountainShares Funder Overview  
+# MountainShares Funder Overview
 *Harmony for Hope, Inc. – West Virginia Pilot*
+
+**Version:** 2.0
+**Date:** June 17, 2026
+**Status:** Funder-Facing Overview — Structural Rewrite
+**Scope:** West Virginia statewide — Phase 1 operational, Phase 2 and Phase 3 forward-looking
+**Related documents:** [MountainShares Program Rules](MountainShares%20Program%20Rules(Draft).md), [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md), [Phase 1 Specification](MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md), [Phase 2 Specification](MountainShares%20Phase%202%3A%20Regional%20Growth%20Specification.md), [Phase 3 Specification](MountainShares%20Phase%203%3A%20Surplus%20Distribution%20Specification.md), [Complete System Overview](MountainShares%3A%20Complete%20System%20Overview%20and%20Benefits.md), [DAO Governance Charter](MountainShares%20DAO%20Governance%20Charter.md)
+
+> **Entity Status Notice:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC and has no EIN. References to "KTS" in this document mean Carrie Ann Kidd personally, operating under that trade name. Formation of the WV LLC is the gating step before founder equity, ALLIS IP holding, and KTS-side capitalization instruments take legal effect. No part of the MountainShares community system creates a founder equity path through H4H or community EMS.
+
+> **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
+
+> **EMS Appreciation — Governing Rule:** Community EMS maintains stable baseline exchange value. Phase-based buying-power expansion rates are **inactive** unless and until the Treasury Reserve achieves the applicable solvency threshold (300% at Phase 2; 500% at Phase 3), all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. The system reverts automatically to prior-phase specifications if thresholds are not maintained. No resident holds a vested appreciation right prior to threshold clearance. Community EMS is non-appreciating in the securities-law sense at all times. Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
+
+---
 
 ## 1. Organizational Structure and Roles
 
-### 1.1 Harmony for Hope, Inc.
+### 1.1 The Three-Box Structure
 
-Harmony for Hope, Inc. (“Harmony for Hope” or “H4H”) is a 501(c)(3) nonprofit organization based in Mount Hope, West Virginia. Harmony for Hope is the program sponsor and legal operator of the MountainShares rewards program and The Commons ecosystem for the West Virginia pilot.
+MountainShares operates inside a three-box entity structure that is the legal and economic firewall keeping charitable, community, and founder interests properly separated. This structure is not cosmetic — it defines who holds what rights, who bears what obligations, and who receives what flows under which conditions.
 
-Harmony for Hope is responsible for:
+| Entity | Legal Form | Role | Key Constraint |
+|---|---|---|---|
+| **Harmony for Hope, Inc. (H4H)** | 501(c)(3) nonprofit | Charitable anchor; program sponsor; legal operator | Cannot be a path for founder equity; must operate within IRS nonprofit rules |
+| **MountainShares Commons / DUNA** | Decentralized community entity | Community-owned ledger, governance, and EMS/M$ system | Community EMS is non-appreciating; no surplus distributed before 500% treasury floor |
+| **Kidd's Technical Services (KTS)** | To-be-formed WV LLC/PBC | Founder commercial engine; ALLIS IP holder | Not yet formed; no EIN; founder rights do not activate until formation and registration |
 
-- **Program stewardship and compliance**  
-  - Owning and operating the MountainShares program as a charitable, community‑benefit initiative rather than a speculative financial product.  
-  - Ensuring that all activities comply with Applicable Law, payment‑provider terms, and nonprofit obligations, including IRS rules for 501(c)(3) organizations.  
-  - Approving and updating Program Rules, Phase Specifications, and DAO governance frameworks through the Board of Directors and designated committees.
+No mechanism in this structure creates a path by which founder value is realized through H4H or community EMS. Any such path found in operation is a Critical finding requiring immediate resolution.
 
-- **Treasury and reserve management**  
-  - Acting as fiduciary steward of MountainShares treasury reserves, which back the internal economic model.  
-  - Overseeing how fee revenue is allocated between treasury reserves, organizational operations, infrastructure, and community programs.  
-  - Ensuring that reserve‑ratio safety rules and phase thresholds (for example, 300% and 500% reserve coverage for later phases) are implemented and respected in practice.
+### 1.2 Harmony for Hope, Inc.
 
-- **Program operations and partnerships**  
-  - Managing relationships with local merchants, nonprofits, and public entities that participate in MountainShares and The Commons.  
-  - Coordinating on‑the‑ground programs, events, and outreach that connect the digital system to real community needs and specific places in West Virginia.  
-  - Serving as the primary point of contact for funders, regulators, and institutional partners.
+Harmony for Hope, Inc. ("H4H") is a 501(c)(3) nonprofit organization based in Mount Hope, West Virginia, and the program sponsor and legal operator of MountainShares and The Commons ecosystem for the West Virginia pilot.
 
-Harmony for Hope is not a bank, credit union, or investment advisor. It operates MountainShares as a community rewards and payment program within a closed loop, under nonprofit governance and legal constraints.
+H4H is responsible for:
 
-### 1.2 Kidd’s Technical Services, LLC
+- **Program stewardship and compliance:** Owning and operating MountainShares as a charitable, community-benefit initiative. Ensuring compliance with Applicable Law, payment-provider terms, and nonprofit obligations, including IRS rules for 501(c)(3) organizations. Approving and updating Program Rules, Phase Specifications, and DAO governance frameworks through the Board of Directors.
 
-Kidd’s Technical Services, LLC (“KTS”) is the independent technical firm that has designed and implemented the core infrastructure for MountainShares and Ms. Allis.
+- **Treasury and reserve management:** Acting as fiduciary steward of MountainShares treasury reserves. Overseeing fee revenue allocation across treasury reserves, organizational operations, infrastructure, and community programs. Ensuring that reserve-ratio safety rules and phase thresholds are implemented and respected in practice.
+
+- **Program operations and partnerships:** Managing relationships with local merchants, nonprofits, and public entities participating in MountainShares and The Commons. Coordinating on-the-ground programs, events, and outreach connecting the digital system to real community needs across West Virginia. Serving as the primary point of contact for funders, regulators, and institutional partners.
+
+- **Annual Regulatory Compliance Budget:** Filing an Annual Regulatory Compliance Budget with the DAO each year. Budget covers legal, regulatory, compliance, and KTS-related transition costs. Individual draws from the Treasury Reserve for approved budget items follow the governance process defined in Section 7A of the applicable Phase Specification.
+
+H4H is not a bank, credit union, or investment advisor. It operates MountainShares as a community rewards and prepaid-value program within a closed loop, under nonprofit governance and legal constraints.
+
+### 1.3 Kidd's Technical Services (KTS)
+
+Kidd's Technical Services ("KTS") is the technical firm that has designed and implemented the core infrastructure for MountainShares and Ms. Allis. KTS is currently not yet a registered West Virginia LLC and has no EIN. All present obligations and rights held under the KTS name belong to Carrie Ann Kidd personally until the LLC is formed.
 
 KTS has:
 
-- Designed and built the **Ms. Allis Geospatial Intelligence Platform**, including:  
-  - A microservices architecture orchestrating more than eighty services.  
-  - GBIM (Geographic Belief Information Model) for spatially aware knowledge.  
-  - GeoDB and PostGIS schemas for geographic data.  
-  - ChromaDB‑based vector search for semantic retrieval.  
-  - An LLM orchestration layer and API gateway for cross‑system coordination.
+- Designed and built the **Ms. Allis Geospatial Intelligence Platform**, including a microservices architecture orchestrating 80+ services, the Geographic Belief Information Model (GBIM) for spatially aware knowledge, GeoDB and PostGIS schemas, ChromaDB-based vector search, and the LLM orchestration layer and API gateway
+- Implemented the **MountainShares mutual-credit and rewards back end**, including EMS recognition and vaulting logic, PMS handling and fee flows, Phase Safety Specifications with reserve-ratio bands and hard triggers, and DAO and governance scaffolding integrated with Ms. Allis
+- Contributed **6,067.5 hours** of senior technical work between March 23, 2025 and May 14, 2026, valued at $150/hour for a documented capital contribution of **$910,125**, as detailed in the Founder's Technical Investment Statement
 
-- Implemented the **MountainShares mutual credit and rewards back end**, including:  
-  - EMS recognition and vaulting logic.  
-  - PMS handling and fee flows.  
-  - Phase 1 Economic Safety Specification with reserve‑ratio bands and hard triggers.  
-  - DAO and governance scaffolding integrated with Ms. Allis.
+IP structure:
+- The MountainShares mutual-credit system and commons governance configurations are developed for use by H4H as part of its charitable mission
+- The Ms. Allis / ALLIS Geospatial Intelligence Platform remains proprietary to KTS and is made available to H4H under a **non-exclusive, royalty-free license** for community-benefit deployments at 704 Main Street, Mount Hope, WV 25880
 
-- Contributed 6,067.5 hours of senior technical work between March 23, 2025 and May 14, 2026, valued at $150/hour for a documented capital contribution of $910,125, as detailed in the Founder's Technical Investment Statement.
+This is a founder's capital contribution into a commons infrastructure, not a venture-capital equity position or profit-extraction arrangement. Founder-side rights are documented separately from this document, require KTS LLC formation before activation, and are entirely outside H4H charitable assets and community EMS.
 
+### 1.4 MountainShares DAO and Ms. Allis
 
-Intellectual property is structured so that:
+MountainShares includes a DAO-style governance layer and a transparent AI assistant, Ms. Allis, both operating under H4H's legal framework.
 
-- The MountainShares mutual credit system and commons governance configurations are developed for use by Harmony for Hope as part of its charitable mission.  
-- The Ms. Allis Geospatial Intelligence Platform remains proprietary to KTS and is made available to Harmony for Hope under a **non‑exclusive, royalty‑free license** for community‑benefit deployments.
+**MountainShares Commons / DUNA:**
+- Provides community governance over adjustable parameters: EMS→M$ base rates, per-user caps, promo pool sizes, phase transition advisory votes, and certain program thresholds
+- Operates on a "one UEI = one vote" principle once minimum participation criteria are met, with super-majority and super-super-majority thresholds for structural or high-impact changes
+- Is explicitly constrained: cannot override hard triggers, reserve-ratio safety bands, or legal/compliance requirements. Hard triggers are automatic and non-overridable by any vote at any threshold.
 
-This reflects a founder’s capital contribution into a commons infrastructure, rather than a venture‑capital style equity position or profit‑extraction arrangement.
+**Ms. Allis (AI tooling layer):**
+- Acts as a "glass-box" AI advisor and operations assistant: monitoring reserve ratios and phase thresholds; calculating EMS recognition and vaulting status; suggesting parameter adjustments within allowed bands; flagging anomalies, abuse patterns, or safety issues for human review
+- Operates at 704 Main Street, Mount Hope, WV 25880
+- Has no independent legal status, cannot own assets, and cannot overrule H4H, the DAO, or applicable law
 
-### 1.3 MountainShares DAO and Ms. Allis
-
-MountainShares includes a DAO‑style governance layer and a transparent AI assistant, Ms. Allis, both operating under Harmony for Hope’s legal framework.
-
-- **MountainShares DAO**  
-  - Provides community governance over adjustable parameters such as EMS→M$ base rates, per‑user caps, promo pool sizes, and some program thresholds.  
-  - Operates on a “one UEI = one vote” principle once minimum participation and anti‑sybil criteria are met, with super‑majority thresholds for constitutional or high‑impact changes.  
-  - Is explicitly constrained by the Economic Safety Specification and Program Rules: it cannot override hard triggers, reserve‑ratio safety bands, or legal/compliance requirements.
-
-- **Ms. Allis (AI tooling layer)**  
-  - Acts as a “glass‑box” AI advisor and operations assistant:  
-    - Monitoring reserve ratios and phase thresholds.  
-    - Calculating EMS recognition and vaulting status.  
-    - Suggesting parameter adjustments within allowed bands.  
-    - Flagging anomalies, abuse patterns, or safety issues for human review.  
-  - May hold a MountainShares wallet and receive limited program rewards for useful system maintenance, under explicit caps and policies that prevent capture or undue influence.  
-  - Has no independent legal status, cannot own assets, and cannot overrule Harmony for Hope, the DAO, or applicable law.
-
-Harmony for Hope remains the final authority for legal, fiduciary, and mission‑aligned decisions while the DAO and Ms. Allis provide participatory and analytical capabilities inside that framework.
+H4H remains the final authority for legal, fiduciary, and mission-aligned decisions, while the DAO and Ms. Allis provide participatory and analytical capabilities inside that framework.
 
 ---
 
 ## 2. Program Model and Fee Structure
 
-MountainShares operates as a **closed‑loop rewards and payment system** with a dual‑token design:
+MountainShares operates as a **closed-loop rewards and prepaid-value system** with a two-layer design:
 
-- **Purchased MountainShares (PMS)** – value that users load with U.S. dollars via Stripe, immediately spendable inside the system according to Program Rules.  
-- **Earned MountainShares (EMS)** – credits granted for documented community contributions, which are first recorded in an unlimited recognition ledger and then partially converted into spendable M$ under strict caps and reserve‑linked rules.
+- **Purchased MountainShares (PMS / M$):** Value that users load with USD via approved payment channels, immediately spendable inside the system subject to Program Rules
+- **Earned MountainShares (EMS):** Credits granted for documented community contributions, recorded first in an unlimited recognition ledger, then partially converted into spendable M$ under strict caps and reserve-linked rules
 
-### 2.1 Fiat Loads (USD → PMS)
+### 2.1 Fee Overview
 
-When a user loads funds into MountainShares:
+All fee parameters are governed by FA-001 (Fee Amendment No. 1, effective June 2026) and the Program Rules – Parameter Tables. The governing values are:
 
-- The user selects a load amount (for example, **$100**) and receives exactly **100 M$** worth of PMS in their wallet. The internal account balance always matches the amount the user chose to load.  
-- Stripe processing fees (currently around 3.5% effective when combining percentage and flat components) are added on top of the $100 and are passed directly to the payment processor.  
-- Program fees totaling **3.05%** are also added on top of the load amount. These consist of:  
-  - **2.55%** program fee, which is split across multiple community‑aligned buckets.  
-  - **0.50%** additional fee, allocated entirely to the treasury reserve.
+| Fee Type | Current Rate | Primary Purpose |
+|---|---|---|
+| Load fee | 2.85% of fiat load | Operations, treasury, platform, community |
+| Internal transfer fee | 0.25% | Treasury Reserve (100%) |
+| Merchant fee | 1.80% | Treasury building through commerce |
+| ATM / refund fee | $1.25 flat per transaction | Treasury Reserve |
+| Supplemental treasury assessment | +0.55% of gross transaction volume | Treasury Reserve (supplemental, assessed on volume not fee revenue) |
 
-For every $1.00 loaded, the **2.55%** program fee (0.0255 USD) is allocated:
+### 2.2 Fee Revenue Allocation
 
-- 30% → **Harmony for Hope general operations** (core nonprofit capacity, administration, and staff).  
-- 30% → **Treasury Reserve** (backing assets that help keep the system within defined safety bands).  
-- 15% → **Infrastructure Development**, including ongoing hosting, maintenance, and development of Ms. Allis, GBIM, and the MountainShares back end.  
-  - 2% of this 15% stream is reserved for the **founding architect**, recognizing long‑term technical stewardship.  
-- 15% → **Community Projects**, such as local arts and preservation, mutual‑aid pilots, and project‑based initiatives.  
-- 10% → **Community Programs**, such as recurring programming, classes, and events.
+All collected fee revenue is allocated per the following fixed split:
 
-The additional **0.50%** program fee is:
+| Bucket | Allocation | Recipient / Purpose |
+|---|---|---|
+| 1 | 30% | Harmony for Hope, Inc. (H4H Operations) — nonprofit administration, staffing, compliance, legal, program delivery |
+| 2 | 30% | Treasury Reserve — grows backing reserve; supports phase transition thresholds and liquidity |
+| 3 | 15% | Platform Development — ongoing development of The Commons app, Ms. Allis infrastructure, technical systems |
+| 4 | 15% | Community Programs — education, mutual aid, time-banking, cultural preservation, and structured programming |
+| 5 | 10% | Community Projects — member-initiated or DAO-approved local projects within the West Virginia commons |
+| — | +0.55% | Treasury Reserve (Supplemental) — assessed separately on gross transaction volume |
 
-- 100% → **Treasury Reserve**.
+Governance floors that cannot be reduced by ordinary DAO vote:
+- Minimum Treasury Reserve allocation: 20%
+- Minimum H4H Operations allocation: 20%
 
-From the user’s perspective:
+Any reduction in either floor requires a 66% super-majority DAO vote, Board of Directors ratification, and minimum 30 days notice to users.
 
-- “Load $100” always results in a **100 M$** balance inside the app.  
-- Stripe and program fees are visible as costs added on top of the chosen load amount; they are not silently deducted from the user’s intended value.
+### 2.3 How Loads Work (User Experience)
 
-### 2.2 Internal Transfers (User → User)
+From the user's perspective: "Load $100" always results in a **100 M$ balance** inside the app. Load fee and any payment processor fee are visible costs added on top of the chosen load amount; they are not silently deducted from the user's intended value.
 
-For person‑to‑person transfers within MountainShares:
+### 2.4 Why This Fee Structure Matters to Funders
 
-- A **0.25%** transfer fee is applied to the transfer amount.  
-- 100% of this fee is allocated to the **Treasury Reserve**, providing a small continuous inflow of backing assets as value circulates locally.
+Every transaction type contributes to both operations and reserve growth:
+- Load fees fund operations and build reserves simultaneously
+- Transfer fees flow 100% to the Treasury Reserve
+- Merchant fees are the primary treasury-building mechanism as commerce scales
+- The +0.55% supplemental assessment creates continuous compounding reserve growth proportional to volume
 
-### 2.3 ATM / Cash‑Out (PMS → Cash)
-
-When users cash out part of the PMS value they originally loaded (where such cash‑out features are enabled):
-
-- A flat **$1.25** program fee is charged per ATM cash‑out transaction.  
-- Users also pay any surcharge imposed by the ATM operator; that surcharge is not program revenue.  
-- The $1.25 program fee is allocated 100% to the **Treasury Reserve**.
-
-Cash‑out is constrained by Program Rules, treasury availability, and regulatory requirements, and typically limited to the amount of originally loaded funds (less prior fees and adjustments).
-
-### 2.4 Merchant Payments (User → Local Merchant)
-
-When users pay local merchants through MountainShares:
-
-- A **1.75% merchant fee** is applied to the transaction.  
-- That 1.75% stream uses the **same allocation split** as the 2.55% load fee (Harmony for Hope, treasury reserve, infrastructure, community projects, community programs, with a controlled architect share embedded in infrastructure).  
-- Governance may authorize an additional **0.50%** to treasury reserve on merchant flows if risk models justify it, mirroring the load‑fee structure.  
-- Merchants receive the full tagged price of the sale; the fee is treated as a program‑level charge on top of the transaction amount.
-
-This structure is designed to:
-
-- Keep friction lower for local participants and merchants than at the “edges” of the system.  
-- Ensure that every load, transfer, cash‑out, and merchant transaction contributes in some way to reserves and community funding rather than flowing entirely to external processors.
+As MountainShares activity increases, the treasury grows. This compounding mechanism is central to the system's long-term sustainability and the path to Phase 2 and Phase 3 threshold clearance without requiring continuous external grant injections.
 
 ---
 
-## 3. EMS, PMS, Vaulting, and Phases
+## 3. EMS, PMS, Reserve Architecture, and Phases
 
-### 3.1 Recognition vs Spendable Layers
+### 3.1 The Two Reserve Metrics
+
+MountainShares monitors two distinct reserve ratios daily. Both are calculated and published by Ms. Allis. Both have automatic enforcement by the Phase Management Controller.
+
+**Operational Reserve Ratio** — governs day-to-day transaction safety, per-user caps, and commerce features:
+
+~~~
+Operational Reserve Ratio = Treasury USDC Reserve / Total Outstanding Spendable PMS (M$)
+~~~
+
+**Treasury Reserve Solvency Ratio** — governs EMS buying-power expansion and is the primary phase gate:
+
+~~~
+Treasury Reserve Solvency Ratio = Treasury Reserve / (Total Outstanding EMS + Total Outstanding M$)
+~~~
+
+These two ratios answer different safety questions. The Operational Reserve Ratio asks: *Can the system safely handle current spendable volume?* The Treasury Reserve Solvency Ratio asks: *Is the treasury strong enough to support a higher recognition-conversion schedule without structural risk?*
+
+### 3.2 Recognition vs. Spendable Layers
 
 MountainShares draws a clear distinction between:
+- An **unlimited recognition ledger** where all EMS are recorded (1 EMS hour per verified hour of community contribution, with UEI, geo, and timestamp metadata)
+- A **capped spendable layer** where some EMS hours are converted into spendable M$ under base-rate and per-user cap rules, governed by reserve-ratio bands
 
-- An **unlimited recognition ledger** where all EMS are recorded (1 EMS hour per verified hour of community contribution, with UEI, geo, and timestamp metadata).  
-- A **capped spendable layer** where some of those EMS hours are converted into spendable M$ under base‑rate and per‑user cap rules, governed by reserve‑ratio bands.
+This architecture lets the system recognize the full scope of community contribution — even when treasury conditions require tight caps on spendable conversions — and use the recognition ledger for governance, Phase 3 dividend eligibility (Participation Weight), and historical community record.
 
-This allows the system to:
+### 3.3 Vaulting and Unlocking
 
-- Recognize the full scope of community contribution, even when treasury conditions require tight caps on spendable rewards.  
-- Use the recognition ledger for governance, rank, and narrative purposes, without overextending financial promises.
+EMS credits flow through stages:
+1. Participant performs verified community work
+2. Work is logged into the EMS recognition ledger
+3. Program rules determine how much EMS may be converted into spendable M$ in the current epoch
+4. Conversion is subject to phase rules, reserve conditions, per-user caps, and benefits-sensitive protections
+5. Unconverted EMS remains vaulted — visible on dashboards, auditable, but not circulating
 
-### 3.2 Vaulting and Unlocking of EMS
+No participant is ever automatically converted. Each participant controls their own conversion timing. This is a hard guarantee — the Phase Management Controller cannot force conversion.
 
-During Phase 1 and possibly beyond:
+### 3.4 Phase-Gated EMS Buying-Power Schedule
 
-- EMS are **credited** to the recognition ledger as users participate in qualifying activities.  
-- Only a **portion** of EMS is immediately converted into spendable M$ each epoch, subject to:  
-  - The current **global base rate** (for example, 0.2 M$ per EMS hour at launch, bounded between 0.1 and 1.0).  
-  - **Per‑user tier caps** (for example, 40 M$/month for general participants, 80 M$/month for verified caregiving/high‑priority roles).  
-  - System‑wide reserve‑ratio bands.
+| Phase | EMS Buying-Power Rate | Treasury Reserve Solvency Gate | Reversion Trigger |
+|---|---|---|---|
+| **Phase 1 – Launch** | 1 EMS = $1.00 USD equivalent | Default | N/A |
+| **Phase 2 – Regional Growth** | 1 EMS = $10.00 USD equivalent | ≥ 300% for 2+ consecutive quarters; all formation fees paid | Ratio drops below 300% → automatic reversion to Phase 1 |
+| **Phase 3 – Surplus Distribution** | 1 EMS = **FVSR** in effect on Phase 3 activation date | ≥ 500% for 2+ consecutive quarters; all prior-phase transition costs paid | Ratio drops below 500% → reversion to Phase 2; below 300% → reversion to Phase 1 |
 
-The remainder of EMS may be held in a **vaulted** state:
+> **Federal Volunteer Service Rate (FVSR):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is **$36.14**. If Phase 3 activates in a later year, the applicable rate is that year's published FVSR. Ms. Allis surfaces the current FVSR on the dashboard each calendar year.
 
-- Visible to the user in dashboards (for transparency), but not yet spendable.  
-- Candidates for future unlocking if and when the system transitions to later phases and reserve coverage allows it.
+All reversion events are automatic, non-overridable by governance, logged to the durable audit trail, and communicated in plain language to all participants within 24 hours.
 
-### 3.3 Phase Thresholds and Unlock Logic
+### 3.5 Phase Transition Conditions (High-Level)
 
-The three internal phases of MountainShares are designed to link **in‑network buying power** and EMS unlocking to the strength of treasury reserves.
-
-- **Phase 1 – Launch (Default)**  
-  - Internal schedule: **1 M$ ≈ 1.00 USD** of in‑network buying power for eligible redemptions.  
-  - Only PMS is broadly spendable across the MountainShares app; EMS conversions are tightly capped and limited to specific in‑network contexts (see below).  
-  - Serves as the conservative starting point, with maximum emphasis on safety and stability.
-
-- **Phase 2 – Treasury Threshold (Aspirational but concrete)**  
-  - Activation condition: treasury reserves reach at least **300%** of total outstanding spendable M$ **when valued at the Phase 2 schedule (10 USD per M$)**, and remain above that threshold for a defined stability window.  
-  - Internal schedule: **1 M$ ≈ 10.00 USD** of in‑network buying power.  
-  - When Phase 2 is active:  
-    - A controlled subset of previously **vaulted EMS** can unlock into spendable M$ under carefully defined rules.  
-    - If the reserve ratio later falls below the 300% threshold, Phase 2 can suspend new unlocks or revert to stricter caps, and already unlocked balances can be subject to safely defined fallback behavior (for example, slowing further conversions rather than forced clawbacks).
-
-- **Phase 3 – Full‑Backing Target (Aspirational)**  
-  - Activation condition: treasury reserves reach at least **500%** of total outstanding spendable M$ **when valued at the Phase 3 schedule (34.70 USD per M$)**, again with a stability window.  
-  - Internal schedule: **1 M$ ≈ 34.70 USD** of in‑network buying power, initially aligned with national volunteer‑time valuation at the time the schedule is adopted.  
-  - Phase 3 is an aspirational design target, not a guarantee; it may be:  
-    - Narrowly applied to limited balances, cohorts, or use cases.  
-    - Delayed, restricted, or never activated if conditions are not sustainably met.  
-  - If reserves fall below the 500% threshold:  
-    - New Phase 3 unlocks halt automatically.  
-    - The system can tighten benefits back toward Phase 2 or Phase 1 schedules according to predefined, transparent fallback rules.
-
-At every phase, **automatic downward adjustments** and protections are built in; upward moves (unlocking, expanded buying power) require both the reserve thresholds and appropriate governance decisions.
-
-### 3.4 PMS vs EMS Usage and The Commons App
-
-MountainShares deliberately differentiates how PMS and EMS can be used, especially in early phases:
-
-- **Phase 1 – PMS usage**  
-  - PMS (loaded via Stripe) is spendable inside the broader MountainShares app ecosystem according to Program Rules.  
-  - PMS can be used for:  
-    - Purchases at participating local merchants inside the MountainShares network.  
-    - Internal transfers between users.  
-    - Other app‑enabled spend activities defined in Program Rules.
-
-- **Phase 1 – EMS usage**  
-  - EMS in Phase 1 are **not** broadly spendable across the entire payment network.  
-  - Converted EMS (the small portion that becomes spendable M$ under caps) are limited to specific in‑network use within **The Commons** app:  
-    - Access to community programs, events, education, cultural offerings, and historic trail interactions provided through The Commons.  
-    - Other commons‑oriented redemptions described in Program Rules.  
-  - EMS cannot be used for out‑of‑network cash‑outs or unconstrained retail spending during Phase 1, which protects benefits‑sensitive users and helps maintain anti‑leakage design.
-
-Over time, if the system reaches Phase 2 or beyond and reserves permit, governance may authorize carefully scoped expansions in where EMS‑linked M$ can be spent, including:
-
-- Gradual extension of EMS‑backed spending from The Commons app into the broader MountainShares merchant network.  
-- Application of higher internal buying‑power schedules to defined portions of EMS‑derived balances, under strict safety constraints.
-
-This phased approach ensures that **PMS** behaves like stored purchasing power loaded by the user, while **EMS** remains heavily constrained and targeted toward commons‑aligned uses until the system is demonstrably safe and adequately funded.
+| Criterion | Phase 1 → Phase 2 | Phase 2 → Phase 3 |
+|---|---|---|
+| Treasury Reserve Solvency Ratio | ≥ 300% for 2+ quarters | ≥ 500% for 2+ quarters |
+| Operational Reserve Ratio | ≥ 1.25 stable for 60+ days | ≥ 3.0 stable for 90+ days |
+| Active UEIs | ≥ 500 across ≥ 3 counties | ≥ 10,000 across ≥ 10 counties |
+| Monthly processed volume | To be defined | ≥ $2M USD statewide |
+| Prior-phase transition fees paid | Yes — required before Phase 2 rate activates | Yes — required before Phase 3 FVSR rate activates |
+| Regulatory standing | All WV and federal registrations current | All current; no unresolved deferred compliance draws |
 
 ---
 
-## 4. Founder’s Investment and Capacity
+## 4. Phase 3 Community Dividend — Funder Summary
 
-Kidd’s Technical Services, LLC has made a substantial **founder’s capital contribution** to MountainShares and Ms. Allis:
+The most distinctive long-horizon benefit of MountainShares is the Phase 3 community surplus distribution. Funders should understand it correctly to represent it accurately.
 
- - 6,067.5 hours of senior geospatial, AI, and systems architecture work from March 23, 2025 through May 14, 2026.
+### 4.1 What It Is
 
-  -  Valued at $150/hour, totaling $910,125 in documented founder's technical investment.
+The Phase 3 community dividend is a distribution of **real surplus above the permanent 500% treasury floor** after the floor has been maintained through a 7-year active accumulation period. It is:
 
-   - Detailed timesheets, monthly roll‑ups, and milestone logs are available to support grant audits and due diligence.
+- Not a speculative return
+- Not a token yield product
+- Not a founder extraction mechanism
+- Not guaranteed — it activates only if and when all threshold conditions are satisfied and the treasury generates genuine surplus above the floor
 
+It is a community distribution from genuine surplus, made to the people who actually built the commons.
 
-This contribution:
+### 4.2 How Eligibility Is Determined
 
-- Demonstrates significant **pre‑award investment** and technical capacity.  
-- Provides **in‑kind match documentation** for eligible grants that accept such match.  
-- Reduces technical risk for funders by showing that core infrastructure already exists and has been tested, rather than being hypothetical.
+Eligibility and distribution share are based entirely on **Participation Weight (PW)** — a score reflecting actual presence and community contribution over the 7-year accumulation window, not on financial stake:
 
-For KTS, this is treated as founder’s capital investment into a commons system; there is no charitable deduction claimed for the value of time, and no expectation of profit distributions from Harmony for Hope.
+~~~
+Participation Weight (PW) = Verified Months Active × Activity Multiplier
+~~~
+
+| Tier | Verified Active Months | Multiplier |
+|---|---|---|
+| Minimum | 1–6 months | 1.0× |
+| Regular | 7–24 months | 1.25× |
+| Sustained | 25–60 months | 1.5× |
+| Founding Deep | 61–84 months (≥ 5 years continuous) | 2.0× |
+
+This design ensures the people who showed up consistently — especially those who contributed during early, harder phases — receive a proportionally larger share of the surplus they helped create.
+
+### 4.3 Benefits-Sensitive Design in Phase 3
+
+Phase 3 adds specific protections for participants who receive means-tested public benefits:
+- 60-day advance notice before any distribution event fires
+- Projected allocation information provided before distribution
+- Strong advisement to consult a benefits counselor before electing USD cash-out
+- **EMS Recognition Bonus election** — an irrevocable per-event option to receive distribution as permanent recognition hours rather than M$ or USD, specifically designed for participants who need to avoid financial instrument receipts for benefits eligibility purposes
+
+### 4.4 Why It Matters to Funders
+
+The Phase 3 dividend inverts the Central Appalachian extraction model. Wealth generated within the commons stays within the commons — and eventually returns to the community members who kept it alive. For grant funders focused on wealth-building, asset development, or community economic sovereignty, Phase 3 is the structural answer to "what does this system actually build?"
 
 ---
 
-## 5. Use of Program Revenues (Charitable Intent)
+## 5. Founder's Technical Investment and Capacity Evidence
 
-Program revenues and related funds allocated to Harmony for Hope in connection with MountainShares are intended to support:
+KTS (Carrie Ann Kidd personally, pending LLC formation) has made a substantial founder's capital contribution to MountainShares and Ms. Allis:
 
-- **Harmony for Hope operations and staff**, which provide organizational backbone for community programming and technical stewardship.  
-- **Fayette County Community Arts Center** historic rehabilitation and ongoing cultural programming and maintenance.  
-- **Oakvale Area Outreach Team** staffing, daily operations, and project‑based outreach work.  
-- **Mount Hope Historic Walking Trail and Coalfield Chronicles Trail** expansion, wayfinding, interpretation, and associated programming.  
-- **In‑house IT, GIS, and infrastructure maintenance** for MountainShares, Ms. Allis, GBIM, and The Commons.
+- **6,067.5 hours** of senior geospatial, AI, and systems architecture work from March 23, 2025 through May 14, 2026
+- Valued at **$150/hour**, totaling a documented capital contribution of **$910,125**
+- Detailed timesheets, monthly roll-ups, and milestone logs are available to support grant audits and due diligence
+- Infrastructure is not hypothetical — the Ms. Allis node and server cluster are physically operational at 704 Main Street, Mount Hope, WV 25880
 
-These allocations describe a charitable and programmatic use of revenue; they do not create any right to profit or distributions for participants or funders.
+For funders, this contribution:
+- Demonstrates significant **pre-award investment** and real technical capacity
+- Provides **in-kind match documentation** for eligible grant programs accepting such match
+- Reduces technical risk — core infrastructure already exists and has been tested rather than being conceptual
+- Is treated as founder's capital into a commons system; no charitable deduction is claimed for the value of time, and no expectation of profit distributions from H4H is created by this contribution
 
 ---
 
-## 6. Summary for Funders
+## 6. Use of Program Revenues
 
-MountainShares is a community‑governed, nonprofit‑operated rewards and payment system that:
+Program revenues and related funds allocated to H4H in connection with MountainShares are intended to support:
 
-- Keeps value and decision‑making rooted in West Virginia communities, beginning with Mount Hope.  
-- Uses explicit safety math (reserve ratios, vaulting, and phase thresholds) to balance recognition of community work with conservative financial commitments.  
-- Channels program revenue to Harmony for Hope operations, treasury reserves, infrastructure, and local projects rather than to outside investors.  
-- Leverages a significant founder’s technical investment and a transparent AI assistant (Ms. Allis) to deliver glass‑box governance and operations.
+- **H4H operations and staff** — organizational backbone for community programming and technical stewardship
+- **704 Main Street / Fayette County Community Arts Center** — historic rehabilitation, cultural programming, ongoing maintenance, and Ms. Allis / ALLIS node operations
+- **Oakvale Area Outreach Team** — staffing, daily operations, and project-based outreach work
+- **Mount Hope Historic Walking Trail and Coalfield Chronicles Trail** — expansion, wayfinding, interpretation, and associated programming
+- **In-house IT, GIS, and infrastructure maintenance** — MountainShares, Ms. Allis, GBIM, and The Commons platform
 
-For funders, this overview provides a coherent picture of who operates MountainShares, how it is financed and safeguarded, how EMS and PMS behave across phases, and how the system supports long‑term community stewardship instead of extractive models.
+These allocations describe charitable and programmatic uses of revenue. They do not create any right to profit or distributions for participants or funders.
+
+---
+
+## 7. Governance and Automatic Constraints (Funder Summary)
+
+Funders should understand the difference between what the community can govern and what is locked by design.
+
+### 7.1 What Governance Can Adjust
+
+- Earning rates within approved ranges
+- Per-user and per-tier caps within safety bands
+- Promo pool targeting
+- County activation sequencing
+- Program category definitions
+- Annual Regulatory Compliance Budget approval
+- Certain allocation mechanics (subject to floors and super-majority thresholds)
+
+### 7.2 What Governance Cannot Override
+
+- Hard safety triggers — enforced automatically, non-overridable at any threshold
+- Reserve-based phase reversion — automatic, no vote required
+- Permanent Phase 3 500% treasury floor — cannot be lowered or distributed from
+- Benefits-Sensitive Account core protections
+- The three-box structural separation between H4H, commons, and KTS
+- Founder equity path prohibition through H4H or community EMS
+
+This constraint architecture is specifically designed to protect funders, participants, and charitable assets from governance capture, extraction, or well-intentioned but structurally unsound decisions. It is a feature, not a limitation.
+
+---
+
+## 8. Summary for Funders
+
+MountainShares is a community-governed, nonprofit-operated rewards and prepaid-value system that:
+
+- Keeps value and decision-making rooted in West Virginia communities, beginning with Mount Hope
+- Uses explicit safety math — two distinct reserve metrics, automatic reversion cascades, and non-overridable hard triggers — to balance community recognition with conservative financial commitments
+- Channels program revenue to H4H operations, treasury reserves, infrastructure, and local projects rather than to outside investors
+- Leverages a substantial, documented founder's technical investment ($910,125) and a transparent AI assistant (Ms. Allis) to deliver glass-box governance and operations
+- Provides a clear, reservation-tested path toward Phase 2 ($10 EMS buying power) and Phase 3 (FVSR) buying-power expansion — conditional, deferred, and reversion-protected, not speculative
+- Ends with a Phase 3 community surplus distribution designed to return genuine wealth to the people who built the commons — weighted by participation, protected for benefits-sensitive residents, and impossible to activate before the treasury is structurally strong enough to sustain it
+
+For funders, this overview provides a coherent picture of who operates MountainShares, how it is financed and safeguarded, how EMS and PMS behave across phases, how the entity structure prevents extraction, and how the system supports long-term community stewardship rather than speculative or extractive models.
+
+---
+
+## Appendix A: Definitions
+
+- **PMS / M$:** Purchased MountainShares; spendable network balance issued when USD is loaded into the system.
+- **EMS:** Earned MountainShares; recognition credits for verified community contribution.
+- **Operational Reserve Ratio:** Treasury USDC Reserve ÷ Total Outstanding Spendable PMS (M$). Governs day-to-day transaction safety and commerce features.
+- **Treasury Reserve Solvency Ratio:** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$). Governs EMS buying-power expansion and is the primary phase gate.
+- **FVSR (Federal Volunteer Service Rate):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS rate is the FVSR in effect on Phase 3 activation — not at document publication. Current 2026 rate: $36.14.
+- **UEI:** Unique Economic Identity; each participant's persistent identity in the system and governance structure.
+- **Participation Weight (PW):** Phase 3 dividend allocation score — Verified Months Active × Activity Multiplier.
+- **Benefits-Sensitive Account (BSA):** Enhanced-protection account for participants receiving or potentially receiving means-tested public benefits.
+- **EMS Recognition Bonus:** Phase 3 optional distribution form — permanent recognition hours instead of M$ or USD. Irrevocable per event. Not income or assets.
+- **Hard Trigger:** Automatic system rule enforced by Ms. Allis and the Phase Management Controller. Non-overridable by any governance vote at any threshold.
+- **Reversion Cascade:** Automatic return to prior-phase buying-power rules when reserve thresholds fall below the applicable floor.
+- **Structural Boundary Breach:** Any mechanism that creates founder equity through H4H, community EMS, or the community surplus pool.
+- **Three-Box Structure:** Entity wall separating H4H (charitable anchor), MountainShares Commons/DUNA (community ledger), and KTS (founder commercial engine).
+
+---
+
+*MountainShares Funder Overview — Version 2.0*
+*Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
+*Draft — Subject to H4H board review and legal counsel approval before reliance*
+
+---
+
+**End of MountainShares Funder Overview v2.0**
