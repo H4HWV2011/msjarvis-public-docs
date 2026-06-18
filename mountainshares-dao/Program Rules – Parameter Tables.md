@@ -8,9 +8,9 @@
 > - **Anti-leakage and closed-loop spending:** Conversion caps, reserve-ratio bands, internal phase schedules, and promo-pool limits collectively aim to keep value recirculating in the closed loop rather than spilling out via over-minting or unbounded cash-outs.
 > - **Bounty and corrective programs:** Promo-pool parameters and governance thresholds encode how targeted bonuses or "bounty-like" incentives can be safely activated or throttled in response to reserve bands and community decisions.
 
-**Version:** 3.0
-**Date:** June 17, 2026
-**Status:** DAO Governance Document — Structural Rewrite (securities framing + money-services relocation)
+**Version:** 3.1
+**Date:** June 18, 2026
+**Status:** DAO Governance Document — Structural Rewrite (securities framing + money-services relocation + connectivity allocation)
 **Scope:** West Virginia Statewide (Phase 1 baseline; Phase 2 and Phase 3 parameters included)
 **Related documents:** Phase 1 Specification, Phase 2 Specification, Phase 3 Specification, Program Rules, DAO Governance Charter, KPI Specification v3.0, H4H Canonical Facts Sheet, EMS Securities Treatment — Counsel Prep, Money-Services Entity Relocation Map
 
@@ -45,7 +45,8 @@ This document operates within the three-box entity structure governing MountainS
 |---|---|---|
 | 1.0 | March 16, 2026 | Initial release — Phase 1 parameter tables, reserve bands, fee structure, governance thresholds |
 | 2.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Added three-box structural framework; added Phase 2 and Phase 3 parameter tables; replaced hardcoded Phase 3 rate ($34.70 / $36.14) with Federal Volunteer Service Rate (FVSR) defined term; corrected dual reserve metric framework; added reversion cascade language; added KTS entity status notice; corrected server location to 704 Main Street |
-| 3.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Removed all "non-appreciating in the securities-law sense" assertions (own-the-appreciation decision; securities treatment placed under counsel review with no self-certified legal conclusion); relocated money-services licensing from H4H to the **MountainShares DAO / DUNA** as licensee of record; reframed Section 8 compliance draws into Stream N (H4H nonprofit) and Stream M (DUNA money-services); softened the EMS Recognition Bonus income/asset claim to benefits-counsel review; aligned with Phase 2 v3.0, Phase 3 v3.0, EMS Securities Treatment — Counsel Prep, and Money-Services Entity Relocation Map |
+| 3.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Removed all "non-appreciating in the securities-law sense" assertions (own-the-appreciation decision; securities treatment placed under counsel review with no self-certified legal conclusion); relocated money-services licensing from H4H to the **MountainShares DAO / DUNA** as licensee of record; reframed Section 8 compliance draws into Stream N (H4H nonprofit) and Stream M (DUNA money-services); softened the EMS Recognition Bonus income/asset claim to benefits-counsel review |
+| 3.1 | June 18, 2026 | Dedicated fee-allocation **Buckets 4 and 5 to Community Connectivity** — free public internet nodes (Wi-Fi and LoRa community mesh): Bucket 4 (15%) node operations, Bucket 5 (10%) node buildout. Removed education, mutual aid, cultural preservation, and member-initiated local projects as fee-funded purposes (these continue as EMS-earning activities and may be funded from H4H operations or grants). A combined 25% of fee revenue is now committed to free public internet |
 
 ---
 
@@ -197,12 +198,13 @@ All collected fee revenue (load fees, internal transfer fees, merchant fees, and
 | 1 | 30% | Harmony for Hope, Inc. (H4H Operations) | Covers nonprofit administration, staffing, compliance, legal, and program delivery costs |
 | 2 | 30% | Treasury Reserve | Grows the MountainShares backing reserve; supports phase transition thresholds and liquidity |
 | 3 | 15% | Platform Development | Funds ongoing development of The Commons app, Ms. Allis infrastructure, and technical systems |
-| 4 | 15% | Community Programs | Supports structured programs: education, mutual aid, time-banking, cultural preservation, etc. |
-| 5 | 10% | Community Projects | Funds member-initiated or DAO-approved local projects within the West Virginia commons |
+| 4 | 15% | Community Connectivity – Operations | Operates and sustains MountainShares free public internet nodes (Wi-Fi and LoRa community mesh): staffing, maintenance, monitoring, bandwidth and service costs, and keeping every node open to the public across West Virginia |
+| 5 | 10% | Community Connectivity – Infrastructure | Funds the buildout of MountainShares free public internet nodes: hardware, installation, site preparation, and expansion to new trailheads, civic sites, libraries, and community anchors across West Virginia |
 | — | +0.55% | Treasury Reserve (Supplemental) | An additional 0.55% of gross transaction volume accrues directly to the Treasury Reserve |
 
 > **Total standard split: 100% of collected fee revenue.**
 > The +0.55% supplemental treasury reserve is assessed separately on gross transaction volume (not fee revenue) and is in addition to the 30% Treasury Reserve bucket above.
+> **A combined 25% of fee revenue is dedicated to free public internet** — 15% to node operations (Bucket 4) and 10% to node buildout (Bucket 5). MountainShares free public internet nodes are community infrastructure: built, maintained, and kept open as a public good, never metered or paywalled.
 
 #### 4.3.2 Treasury Reserve Funding Sources
 
@@ -314,6 +316,7 @@ These allocation percentages are Program Rules parameters and may be adjusted th
 - **Federal Volunteer Service Rate (FVSR):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published FVSR. Ms. Allis surfaces the current FVSR on the dashboard each calendar year.
 - **EMS Buying-Power Expansion:** The conditional, reserve-gated schedule by which 1 EMS hour carries increasing USD-equivalent buying power as the commons matures through phases. Conditional, revocable, and not vested; subject to automatic reversion cascade. Securities treatment under counsel review.
 - **Reversion Cascade:** The automatic, no-vote-required process by which EMS buying-power expansion reverts to a prior phase's rate when the Treasury Reserve Solvency Ratio falls below the applicable phase threshold.
+- **Community Connectivity Nodes:** MountainShares free public internet nodes (Wi-Fi and LoRa community mesh) deployed at trailheads, civic sites, libraries, and community anchors across West Virginia. Funded by fee-allocation Bucket 4 (operations) and Bucket 5 (buildout); kept open to the public as a public good, never metered or paywalled.
 - **Compliance Draw:** Governed, transparent, bounded draw for documented and verified compliance costs; Stream N (H4H nonprofit) or Stream M (DUNA money-services); governed by Section 7A of each Phase Specification.
 - **Deferral Queue:** Ms. Allis-managed queue of approved but reserve-floor-constrained Compliance Draws that fire automatically when the treasury can accommodate them without breaching the applicable floor.
 - **Benefits-Sensitive Account (BSA):** A participant account flagged for enhanced protections due to the participant's receipt of means-tested benefits. PMS cash-out disabled by default; conversion timing participant-controlled; Phase 3 adds advance notice and EMS Recognition Bonus election option.
@@ -324,10 +327,10 @@ These allocation percentages are Program Rules parameters and may be adjusted th
 
 ---
 
-*Program Rules – Parameter Tables — Version 3.0*
+*Program Rules – Parameter Tables — Version 3.1*
 *Harmony for Hope, Inc. | MountainShares DAO / DUNA | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Subject to H4H board review, DAO governance, and legal counsel approval before reliance*
 
 ---
 
-**End of Program Rules – Parameter Tables v3.0**
+**End of Program Rules – Parameter Tables v3.1**
