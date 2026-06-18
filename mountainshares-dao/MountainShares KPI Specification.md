@@ -1,9 +1,11 @@
 # MountainShares KPI Specification — Phases 0 through 3, Years 1–5+
 
-**Version 2.0 | Phases 0–3 | Years 1 through 5+**
+**Version 3.0 | Phases 0–3 | Years 1 through 5+**
 **Document Owner:** Harmony for Hope, Inc.
 **Maintained at:** 704 Main Street, Mount Hope, West Virginia 25880
-**Companion documents:** Harmony for Hope Business Plan, MountainShares Business Plan, FA-001 Founder's Technical Investment Statement
+**Companion documents:** Harmony for Hope Business Plan, MountainShares Business Plan, FA-001 Fee Amendment, FTIS-001 Founder's Technical Investment Statement, H4H Canonical Facts Sheet
+
+> **Entity Status Notice — as of 2026-06-17:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC and has no EIN. References to "KTS" in this document mean Carrie Ann Kidd personally, operating under that trade name. Formation of the WV LLC is the gating step before founder equity, ALLIS IP holding, and KTS-side capitalization instruments take legal effect.
 
 ---
 
@@ -19,17 +21,86 @@ Anti-leakage and closed-loop spending are measured directly through monetary-hea
 
 ---
 
+## Structural Framework: Three-Box Architecture
+
+MountainShares operates within a defined three-entity structure. All KPIs must be interpreted within this framework.
+
+| Entity | Role | Relationship to EMS |
+|---|---|---|
+| Harmony for Hope, Inc. (H4H) | 501(c)(3) charitable anchor; program sponsor | Administers community layer; no founder equity |
+| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer | Community EMS is non-appreciating closed-loop mutual credit |
+| Kidd's Technical Services (KTS) | To-be-formed for-profit LLC/PBC; founder-owned commercial engine | Any appreciating founder instrument lives here only, never in resident hands |
+
+The separation between these three boxes is not administrative — it is the legal and structural basis upon which community EMS remains benefits-safe, non-equity, and free from inurement risk. No KPI or metric in this document should be interpreted to create founder equity inside H4H or the DUNA.
+
+---
+
+## EMS Appreciation: Reserve-Gated, Not Present Equity
+
+Community EMS maintains stable baseline exchange value throughout all phases. The system includes a buying-power expansion schedule, but that schedule is **strictly conditional** and does not represent a present appreciation right for any resident.
+
+### Governing Rule
+
+Community EMS appreciation is **deferred, conditional, and reserve-gated**. It does not function as an investment contract. No resident holds a vested appreciation right prior to threshold clearance.
+
+### Activation Thresholds
+
+| Phase | Treasury Reserve Requirement | Additional Condition |
+|---|---|---|
+| Phase 2 buying-power expansion | Reserve ≥ **300%** of total EMS + M$ outstanding | All Treasury Reserve-funded formation and transition fees fully paid |
+| Phase 3 buying-power expansion | Reserve ≥ **500%** of total EMS + M$ outstanding | Phase 2 conditions satisfied and sustained |
+
+### Reversion Mechanism
+
+If the Treasury Reserve metric falls below the applicable threshold — **below 300%** for Phase 2 expansions, or **below 500%** for Phase 3 expansions — the system **automatically reverts** to the prior-phase specification. This reversion:
+
+- suspends expanded buying power immediately,
+- restores baseline continuity-of-service parameters,
+- does not reduce or eliminate any resident's principal EMS balance,
+- and remains in effect until the reserve metric is restored to threshold for a minimum of two consecutive quarters.
+
+This mechanism ensures that no resident ever holds a vested right to appreciation that the Treasury cannot actually support.
+
+### Founder-Side Distinction
+
+The reserve-gated community buying-power expansion is a **community-layer benefit** — it is not founder private return and does not substitute for founder equity documentation. Any founder-side deferred capitalization remains exclusively on the KTS side under separate, counsel-reviewed documentation. No part of the reserve-gated appreciation schedule converts to founder private ownership through EMS.
+
+---
+
+## Treasury Reserve Solvency KPI (Core System Health Metric)
+
+This KPI is the single most critical metric in the entire specification. All phase-level economic decisions, buying-power expansion activations, reversion events, and Phase 3 transition approvals depend on it.
+
+**Definition.** Treasury Reserve Solvency Ratio = Treasury Reserve balance ÷ Total outstanding (EMS + M$).
+
+| KPI | Phase 2 Threshold | Phase 3 Threshold | Reversion Trigger |
+|---|---|---|---|
+| Treasury Reserve / (Total EMS + M$) | ≥ 300% | ≥ 500% | < 300% (Phase 2) / < 500% (Phase 3) |
+| Formation & transition fees paid from Reserve | Fully paid | Carried forward | System reverts if fees outstanding at activation |
+| Minimum consecutive quarters at threshold before activation | 2 quarters | 2 quarters | Immediate reversion if metric drops below floor |
+
+**Monitoring cadence:** Calculated and published monthly. Governance alert triggered at 325% (early-warning band for Phase 2) and 525% (early-warning band for Phase 3) to allow corrective action before reversion.
+
+**Dashboard display:** Reserve solvency ratio displayed as the primary top-of-dashboard metric in all phase dashboards, with clear visual bands:
+
+- Green: at or above threshold
+- Amber: within 25 percentage points below threshold (early-warning)
+- Red: below threshold (reversion active or imminent)
+
+---
+
 ## Overview
 
-This document defines Version 2.0 Key Performance Indicators for the MountainShares rollout across all four operational phases. The metrics are designed to:
+This document defines Version 3.0 Key Performance Indicators for the MountainShares rollout across all four operational phases. The metrics are designed to:
 
 - Monitor the economic health of the currency at each scale of operation.
 - Track adoption and retention of participants and organizations as the system grows.
 - Measure the usefulness of the system for commons work and local economic life at each phase.
 - Provide early signals of equity and structural impact in line with the MountainShares thesis.
+- Track Treasury Reserve solvency as the gating condition for any buying-power expansion.
 - Anchor the phased trajectory toward the inner-core sustainability threshold of approximately 315,800 active participants by the end of Year 5 (2030).
 
-Targets are provisional and must be revisited after 6 to 12 months of production data in each phase, with revisions documented in a KPI changelog and approved through the MountainShares DAO governance process.
+Targets are provisional and must be revisited after 6 to 12 months of production data in each phase, with revisions documented in a KPI changelog and approved through the MountainShares DUNA governance process.
 
 ---
 
@@ -67,7 +138,7 @@ Monetary health KPIs assess whether MountainShares circulate actively within the
 | Phase 3 ramp | 2029 | ≥ 1.7 |
 | Phase 3 mature | 2030+ | ≥ 2.0 |
 
-**Rationale.** Phase 0 velocity is intentionally low because the participant population is small and the merchant network is minimal — each unit may sit idle for weeks while testers explore the system. By Phase 1, each unit should circulate at least once monthly. By Phase 3 mature, units circulate twice monthly, indicating a healthy, deeply interconnected local economy.
+**Rationale.** Phase 0 velocity is intentionally low because the participant population is small and the merchant network is minimal. By Phase 1, each unit should circulate at least once monthly. By Phase 3 mature, units circulate twice monthly, indicating a healthy, deeply interconnected local economy.
 
 ### 1.2 Transaction Activity per Active Account
 
@@ -81,8 +152,6 @@ Monetary health KPIs assess whether MountainShares circulate actively within the
 | Phase 3 ramp | 2029 | ≥ 7 |
 | Phase 3 mature | 2030+ | ≥ 8 |
 
-**Rationale.** These targets emphasize typical engagement among active users and reduce sensitivity to a small number of high-volume accounts. The progression reflects deepening daily integration of MountainShares into community economic life.
-
 ### 1.3 Circulation Concentration
 
 **Definition.** Percentage of total monthly transaction value accounted for by the top 10 accounts (measured by total value sent plus received).
@@ -95,13 +164,9 @@ Monetary health KPIs assess whether MountainShares circulate actively within the
 | Phase 3 ramp | 2029 | ≤ 27% |
 | Phase 3 mature | 2030+ | ≤ 25% |
 
-**Rationale.** With only 100 users in Phase 0, the top 10 mathematically represent 10% of the population and concentration is expected to be high. As the network grows, concentration naturally decreases. By Phase 3 mature, no more than a quarter of transaction value should flow through the top 10 accounts.
-
 ---
 
 ## 2. Participation and Retention KPIs
-
-Participation and retention KPIs examine whether individuals are entering the system, engaging meaningfully, and remaining involved over time.
 
 ### 2.1 Monthly Active Users (MAU) Rate
 
@@ -115,8 +180,6 @@ Participation and retention KPIs examine whether individuals are entering the sy
 | Phase 3 ramp | 2029 | ≥ 45% |
 | Phase 3 mature | 2030+ | ≥ 50% |
 
-**Rationale.** Phase 0 MAU is high because invite-only participants are committed contributors. Phase 1 MAU naturally drops as the system opens to broader public enrollment that includes more casual users. By Phase 3 mature, half of all registered users should be active monthly — a strong indicator of platform stickiness.
-
 ### 2.2 New User Activation
 
 **Definition.** Percentage of new signups that complete both a first quest or qualifying contribution AND a first transaction within 14 days of registration.
@@ -129,11 +192,9 @@ Participation and retention KPIs examine whether individuals are entering the sy
 | Phase 3 ramp | 2029 | ≥ 55% |
 | Phase 3 mature | 2030+ | ≥ 60% |
 
-**Rationale.** Phase 0 onboarding is high-touch and high-conversion because every participant is recruited individually. As onboarding scales, conversion drops, then recovers as onboarding flows are refined and Community Champions become more effective at guided enrollment.
-
 ### 2.3 Retention of Core Contributors
 
-**Definition.** Percentage of users who accumulate at least 5 verified hours of EMS-earning or equivalent commons activity, AND remain active 6 months later (at least one verified task and one transaction in the preceding 30 days).
+**Definition.** Percentage of users who accumulate at least 5 verified hours of EMS-earning or equivalent commons activity, AND remain active 6 months later.
 
 | Phase | Year | Target 6-Month Retention |
 |---|---|---|
@@ -143,17 +204,13 @@ Participation and retention KPIs examine whether individuals are entering the sy
 | Phase 3 ramp | 2029 | ≥ 62% |
 | Phase 3 mature | 2030+ | ≥ 65% |
 
-**Rationale.** Core contributors are the human substrate that holds the commons together. Their continued participation is more critical to ecosystem health than raw new-user counts. The progression reflects deepening community attachment and the maturation of governance roles (Bronze through Elder).
-
 ---
 
 ## 3. Usefulness for People and Organizations
 
-Usefulness KPIs evaluate whether MountainShares is providing tangible value to participants and institutions, particularly in supporting commons and cultural work.
-
 ### 3.1 Active Organizations and Merchants
 
-**Definition.** Number of organizations (businesses, nonprofits, public entities) that both accept MountainShares as payment AND spend MountainShares at least once per month.
+**Definition.** Number of organizations that both accept MountainShares as payment AND spend MountainShares at least once per month.
 
 | Phase | Year | Target Active Organizations |
 |---|---|---|
@@ -162,8 +219,6 @@ Usefulness KPIs evaluate whether MountainShares is providing tangible value to p
 | Phase 2 | 2028 | ≥ 300 (target range 300–800) |
 | Phase 3 ramp | 2029 | ≥ 1,500 |
 | Phase 3 mature | 2030+ | ≥ 2,500 (Phase 3 ceiling up to 8,000) |
-
-**Rationale.** The objective at each scale is to establish a dense mesh of organizations that function as both sinks and sources of local liquidity. The progression from 5 to 8,000 reflects the geographic scaling from single-anchor (FCCAC) to county-scale (Fayette) to corridor-scale (gorge) to statewide.
 
 ### 3.2 Commons Work Hours Funded
 
@@ -177,11 +232,9 @@ Usefulness KPIs evaluate whether MountainShares is providing tangible value to p
 | Phase 3 ramp | 2029 | ≥ 7,500 |
 | Phase 3 mature | 2030+ | ≥ 10,000 |
 
-**Rationale.** This KPI aligns directly with the central thesis that the system should surface and reward under-valued community labor. Ten thousand verified hours per month at Phase 3 mature represents approximately 60 full-time-equivalent jobs of caregiving, mutual aid, heritage preservation, and education — work that traditional markets value at zero.
-
 ### 3.3 Value Interactions
 
-**Definition.** Number of high-value interactions per month as defined in Program Rules. These may include: help requests fulfilled, events and workshops attended, asset mappings or data validations completed, and verified mutual aid or peer-to-peer service exchanges.
+**Definition.** Number of high-value interactions per month as defined in Program Rules, including: help requests fulfilled, events and workshops attended, asset mappings or data validations completed, and verified mutual aid or peer-to-peer service exchanges.
 
 | Phase | Year | Target Value Interactions/Month |
 |---|---|---|
@@ -191,17 +244,13 @@ Usefulness KPIs evaluate whether MountainShares is providing tangible value to p
 | Phase 3 ramp | 2029 | ≥ 12,000 |
 | Phase 3 mature | 2030+ | ≥ 15,000 |
 
-**Rationale.** This metric emphasizes meaningful interactions rather than raw activity counts. The progression reflects increasing depth of community engagement as the platform becomes a regular feature of daily life.
-
 ---
 
 ## 4. Social and Economic Impact KPIs
 
-Impact KPIs measure the degree to which MountainShares strengthens local economic circulation and advances equity consistent with the project's mission.
-
 ### 4.1 Local Loop Depth
 
-**Definition.** Median number of local "hops" a unit of MountainShares passes through before being converted to fiat currency or leaving the defined region. A hop is one complete transfer from one user or organization to another within the region.
+**Definition.** Median number of local "hops" a unit of MountainShares passes through before being converted to fiat currency or leaving the defined region.
 
 | Phase | Year | Target Loop Depth |
 |---|---|---|
@@ -211,11 +260,9 @@ Impact KPIs measure the degree to which MountainShares strengthens local economi
 | Phase 3 ramp | 2029 | ≥ 3.5 |
 | Phase 3 mature | 2030+ | ≥ 4 |
 
-**Rationale.** Higher hop counts indicate stronger local multiplier effects and deeper recirculation of value within the community. Each hop represents a moment where value stays in the region rather than leaking out to extractive platforms.
-
 ### 4.2 Equity of Participation
 
-**Definition.** For designated target groups (low-income census tracts, rural communities, historically marginalized groups, Benefits-Sensitive Account holders), the equity ratio is computed as: (Share of active users and earned MountainShares in target groups) ÷ (Target groups' share of the local population).
+**Definition.** For designated target groups (low-income census tracts, rural communities, historically marginalized groups, Benefits-Sensitive Account holders), the equity ratio is: (Share of active users and earned MountainShares in target groups) ÷ (Target groups' share of the local population).
 
 | Phase | Year | Target Equity Ratio |
 |---|---|---|
@@ -225,21 +272,17 @@ Impact KPIs measure the degree to which MountainShares strengthens local economi
 | Phase 3 ramp | 2029 | 0.95–1.1 |
 | Phase 3 mature | 2030+ | 1.0–1.2 |
 
-**Rationale.** Values approaching or exceeding 1.0 indicate that groups most intended to benefit are participating at or above their population share. By Phase 3 mature, the equity ratio should slightly exceed proportional representation, confirming that the Benefits-Sensitive Account architecture is doing structural work to include populations excluded from other digital economies.
-
 ### 4.3 Institutional Adoption Milestones
 
-**Definition.** Number of formal agreements (MOUs, resolutions, contracts) with municipalities and other public entities, and with anchor organizations (major nonprofits, hospitals, universities, cooperatives) that explicitly commit to paying or accepting MountainShares for defined activities.
+**Definition.** Number of formal agreements (MOUs, resolutions, contracts) with municipalities, public entities, or anchor organizations that explicitly commit to paying or accepting MountainShares for defined activities.
 
 | Phase | Year | Target Institutional MOUs |
 |---|---|---|
-| Phase 0 | 2026 | ≥ 1 (FCCAC; NPS conceptual support documented) |
+| Phase 0 | 2026 | ≥ 1 (FCCAC; NPS support issued per Acting Supt. Bryan Wender letter 2026-06-16) |
 | Phase 1 | 2027 | ≥ 2 anchor MOUs |
 | Phase 2 | 2028 | ≥ 5 anchor MOUs, including ≥ 1 public entity |
 | Phase 3 ramp | 2029 | ≥ 8 anchor MOUs, including ≥ 1 public entity |
 | Phase 3 mature | 2030+ | ≥ 10 anchor MOUs, including ≥ 1 public entity |
-
-**Rationale.** Institutional participation is a critical indicator of long-term viability and integration into local systems. Each formal MOU represents an institutional anchor that becomes structurally difficult for any external competitor to displace.
 
 ---
 
@@ -247,10 +290,11 @@ Impact KPIs measure the degree to which MountainShares strengthens local economi
 
 ### 5.1 Phase 0 (2026, Year 1): Pilot and Red-Team Validation
 
-**Geographic Scope.** Mount Hope, Fayette County; FCCAC anchor; 704 Main Street operational hub.
+**Geographic Scope.** Mount Hope, Fayette County; FCCAC anchor; 704 Main Street operational hub and server-cluster location.
 **Target End-of-Year Participants.** ~100 (invite-only).
 **Target Merchants.** 5–15.
 **Reserve Backing Phase.** Foundation (initial reserve seeding).
+**EMS Appreciation Status.** Inactive. No threshold conditions met. Baseline exchange value only.
 
 **Phase 0 Function**
 
@@ -258,7 +302,7 @@ Phase 0 establishes the operational foundation for everything that follows. The 
 
 **Key Activities and Milestones**
 
-- FCCAC proof-of-concept ALLIS node deployed (Q2–Q3 2026).
+- FCCAC proof-of-concept Ms. Allis / ALLIS node deployed at 704 Main Street (Q2–Q3 2026).
 - First "Internet Bubble" demonstrating community-owned broadband and local data caching live at FCCAC.
 - Initial cohort of Benefits-Sensitive Account holders onboarded with full Plain Language Notices.
 - First 5 to 15 merchants enrolled at zero-cost entry under the MountainShares Sponsorship Tier.
@@ -266,7 +310,7 @@ Phase 0 establishes the operational foundation for everything that follows. The 
 - BSA architecture validated against real benefit-recipient scenarios (Q4 2026).
 - Founding badges issued to Phase 0 contributors.
 - First NPS/ARC grant application submitted for FCCAC restoration (Q3 2026).
-- First WV Children's Trust Fund application submitted for Oakvale Outreach (Q3 2026).
+- KTS entity formation and EIN procurement initiated; Treasury Reserve-funded where applicable and authorized (Q3–Q4 2026).
 
 **Financial Projections — Phase 0**
 
@@ -285,27 +329,17 @@ Phase 0 establishes the operational foundation for everything that follows. The 
 | Allocation to App Development (15%) | ~$176 |
 | Allocation to Community Projects (10%) | ~$118 |
 
-Phase 0 is not designed to be revenue-positive. Operations are primarily funded by the founder's in-kind technical investment and the Year 1 Seed Ask of $30,000 (from community foundations, small state innovation grants, and individual donors).
-
-**Validation Methods**
-
-- Manual review of every BSA-triggered protective action by Community Champions and benefits counselors.
-- Weekly Red-Team Onboarding sessions with structured failure-mode documentation.
-- Quarterly governance review of all preflight gate decisions logged to jarvis-memory:8056.
-- End-of-phase audit report covering economic geometry, identity geometry, and judge pipeline performance.
+Phase 0 is not designed to be revenue-positive. Operations are primarily funded by the founder's in-kind technical investment and the Year 1 Seed Ask of $30,000. Where lawfully authorized, procurement and formation costs (including KTS entity formation, legal counsel, and system procurement) may draw on the Treasury Reserve.
 
 ---
 
 ### 5.2 Phase 1 (2027, Year 2): Fayette County Rollout
 
-**Geographic Scope.** Full Fayette County; Mount Hope as reference implementation; FCCAC and 704 Main Street as physical anchors.
+**Geographic Scope.** Full Fayette County; 704 Main Street as physical anchor and server-cluster site.
 **Target End-of-Year Participants.** ~2,000.
 **Target Merchants.** 30–75.
-**Reserve Backing Phase.** Initial Build (100% backing maintained on PMS; reserve accumulates).
-
-**Phase 1 Function**
-
-Phase 1 is the first public launch and the proof that the system can operate at county scale outside the controlled conditions of the pilot. Mount Hope serves as the reference implementation that other corridor communities can observe and learn from. The Walking Trail, FCCAC, Oakvale program, and Harmony for Hope at 704 Main Street function together as a complete civic infrastructure stack visible to other municipalities and to federal partners.
+**Reserve Backing Phase.** Initial Build (100% backing maintained on PMS; reserve accumulates toward 300% threshold).
+**EMS Appreciation Status.** Inactive. Reserve accumulation underway; 300% threshold not yet reached.
 
 **Key Activities and Milestones**
 
@@ -315,7 +349,7 @@ Phase 1 is the first public launch and the proof that the system can operate at 
 - First commerce-tier transactions live; load fee, merchant fee, and internal transfer fee engines activated.
 - First government or university MOU signed (Q4 2027).
 - FCCAC resident artist program formally launched (Q1 2027).
-- Full corridor-scale ALLIS hardware procurement (Q4 2027), contingent on grant awards.
+- Full corridor-scale ALLIS hardware procurement (Q4 2027), contingent on grant awards; procurement costs drawn on Treasury Reserve where authorized.
 
 **Financial Projections — Phase 1**
 
@@ -334,25 +368,15 @@ Phase 1 is the first public launch and the proof that the system can operate at 
 | Allocation to App Development (15%) | ~$6,353 |
 | Allocation to Community Projects (10%) | ~$4,235 |
 
-**Validation Methods**
-
-- Quarterly KPI dashboard review against Phase 1 targets across all 12 KPIs.
-- Monthly BSA participation audit confirming no benefit-loss incidents.
-- End-of-phase merchant network analysis confirming dense mesh structure rather than hub-and-spoke.
-- Currency velocity analysis confirming healthy local circulation.
-
 ---
 
 ### 5.3 Phase 2 (2028, Year 3): New River Gorge Corridor Expansion
 
-**Geographic Scope.** Fayette, Raleigh, Summers, Mercer counties (gorge corridor); Thurmond, Fayetteville, Oak Hill, Hinton, and Ansted as additional ALLIS node sites.
+**Geographic Scope.** Fayette, Raleigh, Summers, Mercer counties (gorge corridor); Thurmond, Fayetteville, Oak Hill, Hinton, and Ansted as additional Ms. Allis / ALLIS node sites.
 **Target End-of-Year Participants.** ~15,000–40,000.
 **Target Merchants.** 300–800.
-**Reserve Backing Phase.** Active Build (300% backing target through fees + diaspora premium + grant inflows).
-
-**Phase 2 Function**
-
-Phase 2 extends the model from a single county to a regional corridor. Each gateway community along the 53-mile New River Gorge corridor hosts an ALLIS node, telling its own story on its own terms while participating in the shared MountainShares economy. The corridor pattern proves that the model scales without losing its place-bound character. Federal partnerships with the National Park Service and Appalachian Regional Commission move from conceptual support to formalized agreements.
+**Reserve Backing Phase.** Active Build — 300% backing target. All Treasury Reserve-funded transition and formation fees must be fully paid before buying-power expansion activates.
+**EMS Appreciation Status.** **Conditionally active** once: (a) Treasury Reserve ≥ 300% of total EMS + M$ outstanding, AND (b) all formation and transition fees have been paid from the Treasury Reserve. Until both conditions are met, baseline exchange value only. If reserve falls below 300%, system reverts automatically to Phase 1 parameters.
 
 **Key Activities and Milestones**
 
@@ -363,7 +387,8 @@ Phase 2 extends the model from a single county to a regional corridor. Each gate
 - Phase 2 commerce layer live; merchant network expands from 75 to 300+.
 - First NPS Corridor Partner Community Governance Agreement formalized.
 - Diaspora USD storefront launched in beta.
-- Regional Champions hired and onboarded across the corridor.
+- DUNA transition and KTS arm's-length structuring costs funded from Treasury Reserve where authorized.
+- Reserve solvency dashboard published publicly.
 
 **Financial Projections — Phase 2**
 
@@ -382,13 +407,6 @@ Phase 2 extends the model from a single county to a regional corridor. Each gate
 | Allocation to App Development (15%) | ~$200,550 |
 | Allocation to Community Projects (10%) | ~$133,700 |
 
-**Validation Methods**
-
-- Per-node KPI dashboard review (each gateway community evaluated independently and as part of the corridor system).
-- Quarterly cross-county equity analysis ensuring rural and urban participation tracks population shares.
-- MTL compliance audit confirming all state and federal financial regulations are met.
-- Diaspora engagement analysis confirming USD storefront generates the reserve premium structurally required for Phase 3.
-
 ---
 
 ### 5.4 Phase 3 (2029–2032+, Years 4–7+): Statewide Sustainability
@@ -396,7 +414,8 @@ Phase 2 extends the model from a single county to a regional corridor. Each gate
 Phase 3 unfolds across four operational sub-stages: ramp, threshold, safety margin, and mature.
 
 **Geographic Scope.** All 55 West Virginia counties; full diaspora engagement through USD storefront.
-**Reserve Backing Phase.** Full Sustainability (500% backing target reached and maintained from threshold year forward).
+**Reserve Backing Phase.** Full Sustainability — 500% backing target reached and maintained from threshold year forward.
+**EMS Appreciation Status.** **Conditionally active** once Treasury Reserve ≥ 500% of total EMS + M$ outstanding for two consecutive quarters. Reverts to Phase 2 parameters automatically if reserve falls below 500%. Reverts to Phase 1 parameters if reserve falls below 300%.
 
 #### Phase 3 Ramp (2029, Year 4)
 
@@ -409,7 +428,7 @@ Phase 3 unfolds across four operational sub-stages: ramp, threshold, safety marg
 - Regional Champion network expanded to all primary regional hubs.
 - Anchor MOUs signed with 3 to 5 universities and 2 to 3 hospitals.
 - Diaspora USD storefront fully operational; Appalachian Premium product line live.
-- App Development allocation funds first major platform redesign incorporating Phase 0–2 lessons.
+- Reserve solvency ratio monitored monthly against 500% target; early-warning alerts at 525%.
 
 **Financial Projections — Phase 3 Ramp**
 
@@ -437,8 +456,8 @@ Phase 3 unfolds across four operational sub-stages: ramp, threshold, safety marg
 
 - Inner-core sustainability threshold of 315,800 active participants reached.
 - 500% reserve floor structurally sustainable through combined inflows (fees + diaspora premium + grants + founder match).
+- EMS buying-power expansion confirmed active; reversion contingency documented and tested.
 - Project enters steady-state operations; emergency reserve protocols documented and tested.
-- All Phase 3 KPI targets met or exceeded.
 - Documentation handoff: full operational runbook published to GitHub; community governance fully takes responsibility for ongoing operations under H4H umbrella.
 
 **Financial Projections — Phase 3 Threshold**
@@ -463,7 +482,7 @@ Phase 3 unfolds across four operational sub-stages: ramp, threshold, safety marg
 **Target End-of-Year Participants.** ~383,000 (margin-of-safety target).
 **Target Merchants.** ~4,000.
 
-The safety margin year provides operational headroom against shock, seasonal variation, and unforeseen disruption. Reaching this target confirms the system has structural resilience beyond bare sustainability.
+The safety margin year provides operational headroom against shock, seasonal variation, and unforeseen disruption. Reaching this target confirms structural resilience beyond bare sustainability.
 
 **Financial Projections — Phase 3 Safety Margin**
 
@@ -506,13 +525,6 @@ Steady-state operations. All KPIs at or above Phase 3 mature targets. Reserve ba
 | Allocation to App Development (15%) | ~$6,981,000 |
 | Allocation to Community Projects (10%) | ~$4,654,000 |
 
-**Validation Methods (Phase 3)**
-
-- Continuous KPI dashboard published publicly with transparent time-series.
-- Annual third-party audit of reserve backing and BSA compliance.
-- Quarterly governance review with MountainShares DAO voting on parameter adjustments.
-- Annual report published to Harmony for Hope membership documenting performance against all targets.
-
 ---
 
 ## 6. Financial Projections Summary (All Phases)
@@ -533,7 +545,7 @@ All projections assume conservative-to-moderate adoption rates within the publis
 
 ## 7. Reserve Building Strategy
 
-The 500% reserve floor at Phase 3 mature requires approximately $300 million in liquid backing for the projected $60 million in M$ circulation. The reserve is built through four converging streams, each calibrated against the phase progression:
+The 500% reserve floor at Phase 3 mature requires approximately $300 million in liquid backing for the projected $60 million in M$ circulation. The reserve is built through four converging streams, each calibrated against the phase progression. **Before any EMS buying-power expansion may activate, all Treasury Reserve-funded formation, procurement, and transition costs must have been fully paid from the reserve, and the reserve must independently satisfy the applicable solvency ratio threshold.**
 
 **Stream 1: Transaction Fee Allocation (30% of Total Fee Revenue)**
 
@@ -565,11 +577,11 @@ Targeted grant programs aligned with phase progression:
 - National Endowment for the Arts (resident artist program, FCCAC)
 - Private foundations (Benedum, WV Community Foundation, Claude Worthington Benedum)
 
-The founder's documented in-kind investment serves as non-dilutable grant match across all applications.
+The founder's documented in-kind investment serves as non-dilutable grant match across all applications. Grant match uses the charitable in-kind portion ($150/hour donated to H4H) only — not the private founder-capital half.
 
 **Stream 4: Founder's Technical Investment Match**
 
-The founder's documented in-kind technical labor (currently approximately 5,991 hours valued at $898,650, projected to grow to ~$1.5 million by Phase 3 ramp) serves as non-dilutable equity and critical grant match. The match strengthens every federal and foundation grant application by demonstrating substantial sweat equity already committed to the project.
+The founder's documented in-kind technical labor (currently approximately 6,067.5 hours through 2026-05-14, valued at $910,125 at the charitable $150/hour rate) serves as non-dilutable grant match. The private-side half of the contribution is separately documented on the KTS side and does not flow through H4H or the reserve. Formation of KTS as a WV LLC is the gating step for founder-side capitalization instruments.
 
 **Combined Reserve Trajectory**
 
@@ -579,46 +591,56 @@ When all four streams converge through Phase 3 ramp and Phase 3 threshold, the r
 
 ## 8. Implementation and Dashboard Guidelines
 
-To operationalize these KPIs within the MountainShares stack:
-
 **Data Instrumentation**
 
 - Log all transactions with user/organization identifiers, timestamps, region tags, and transaction types (PMS vs EMS, commons vs commerce, BSA vs non-BSA).
-- Maintain explicit flags for: active user status, core contributor status, value interaction events, BSA protective actions, and judge gate decisions.
-- All logged events are signed using ML-DSA-65 post-quantum cryptographic signatures and written to the durable audit trail at jarvis-memory:8056.
+- Maintain explicit flags for: active user status, core contributor status, value interaction events, BSA protective actions, judge gate decisions, and reserve solvency ratio.
+- All logged events are signed using ML-DSA-65 post-quantum cryptographic signatures and written to the durable audit trail.
 
 **Dashboard Design**
 
-For each KPI, display:
+Primary (top-of-dashboard) metric: **Treasury Reserve Solvency Ratio** — displayed with green/amber/red bands as defined in the Treasury Reserve Solvency KPI section above.
+
+For each additional KPI, display:
 
 - Current value.
 - 3 to 6 month trend.
 - Target range for the current phase, with visual bands (green, orange, red).
 - Phase progression marker indicating position relative to the inner-core threshold (% of 315,800).
+- EMS appreciation status indicator: Inactive / Conditionally Active / Reversion Active.
 - Segment breakdowns by geography, organization type, and designated equity groups, where legally and ethically permissible.
 
 The dashboard should support both public-facing summary views (for community accountability) and detailed administrative views (for governance and program management).
 
 **Governance and Revision**
 
-- Treat this KPI set as a living specification subject to MountainShares DAO governance review.
+- Treat this KPI set as a living specification subject to MountainShares DUNA governance review.
 - Reassess thresholds after 6 to 12 months of live data in each phase, documenting revisions and rationale in a KPI changelog.
 - Use KPI trends to inform adjustments to current-phase parameters, outreach strategies, and next-phase planning.
 - Annual public report documents performance against all targets and identifies needed adjustments.
+- Any change to EMS appreciation thresholds, reserve floor percentages, or reversion triggers requires DUNA governance approval through formal proposal and quorum-verified vote.
 
 **Phase Transition Criteria**
 
 A transition from one phase to the next requires:
 
 - KPI dashboard showing at least 80% of phase-specific targets met for at least two consecutive quarters.
-- Reserve backing on track for the next phase's requirements.
+- Treasury Reserve solvency ratio on track for the next phase's requirements.
+- All outstanding Treasury Reserve-funded formation and procurement costs paid.
 - Documented operational readiness across technical, legal, and governance dimensions.
-- MountainShares DAO governance approval through formal proposal and quorum-verified vote.
+- MountainShares DUNA governance approval through formal proposal and quorum-verified vote.
+- Conflict-of-interest recusal documentation on file for any related-party approvals.
 
 ---
 
 ## 9. Closing Note
 
-These KPIs align measurement with the MountainShares thesis: building a resilient, equitable, commons-oriented economic layer that complements existing monetary systems while remaining grounded in real regional activity and structural constraints. The phase architecture ensures growth never outpaces sustainability, the BSA architecture ensures the most vulnerable participants remain protected, and the reserve building strategy ensures the system reaches the inner-core threshold of 315,800 active participants with the structural integrity to operate indefinitely thereafter.
+These KPIs align measurement with the MountainShares thesis: building a resilient, equitable, commons-oriented economic layer that complements existing monetary systems while remaining grounded in real regional activity and structural constraints. The phase architecture ensures growth never outpaces sustainability. The BSA architecture ensures the most vulnerable participants remain protected. The reserve solvency requirement ensures no resident ever holds an appreciation right the treasury cannot support. The three-box separation ensures the community commons remains free from founder equity and inurement risk.
 
 The threshold year is 2030. Every metric in this specification, every phase milestone, every financial projection, and every governance commitment points toward that date as the point at which MountainShares becomes structurally self-sustaining in West Virginia.
+
+---
+
+*MountainShares KPI Specification — Version 3.0*
+*Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
+*Draft — Subject to DUNA governance review and counsel approval before reliance*
