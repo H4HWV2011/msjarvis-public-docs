@@ -8,11 +8,11 @@
 > - **Anti-leakage and closed-loop spending:** Conversion caps, reserve-ratio bands, internal phase schedules, and promo-pool limits collectively aim to keep value recirculating in the closed loop rather than spilling out via over-minting or unbounded cash-outs.
 > - **Bounty and corrective programs:** Promo-pool parameters and governance thresholds encode how targeted bonuses or "bounty-like" incentives can be safely activated or throttled in response to reserve bands and community decisions.
 
-**Version:** 2.0
+**Version:** 3.0
 **Date:** June 17, 2026
-**Status:** DAO Governance Document — Structural Rewrite
+**Status:** DAO Governance Document — Structural Rewrite (securities framing + money-services relocation)
 **Scope:** West Virginia Statewide (Phase 1 baseline; Phase 2 and Phase 3 parameters included)
-**Related documents:** [Phase 1 Specification](MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md), [Phase 2 Specification](MountainShares%20Phase%202%3A%20Regional%20Growth%20Specification.md), [Phase 3 Specification](MountainShares%20Phase%203%3A%20Surplus%20Distribution%20Specification.md), [Program Rules](MountainShares%20Program%20Rules(Draft).md), [DAO Governance Charter](MountainShares%20DAO%20Governance%20Charter.md), [KPI Specification v3.0](MountainShares%20KPI%20Specification.md)
+**Related documents:** Phase 1 Specification, Phase 2 Specification, Phase 3 Specification, Program Rules, DAO Governance Charter, KPI Specification v3.0, H4H Canonical Facts Sheet, EMS Securities Treatment — Counsel Prep, Money-Services Entity Relocation Map
 
 > **DRAFT – LIVE PARAMETERS SUBJECT TO CHANGE**
 > This document presents the current operational parameters for MountainShares across all active phases (West Virginia pilot). It is incorporated by reference into `Program Rules.md` and each Phase Specification. In case of conflict, the applicable Phase Specification and Terms and Conditions control.
@@ -21,7 +21,9 @@
 
 > **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
 
-> **EMS Appreciation — Governing Rule:** Community EMS maintains stable baseline exchange value. Phase-based buying-power expansion rates are **inactive** unless and until the Treasury Reserve achieves the applicable solvency threshold (300% at Phase 2; 500% at Phase 3), all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. No resident holds a vested appreciation right prior to threshold clearance. Community EMS is non-appreciating in the securities-law sense at all times. Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
+> **Money-Services Notice:** The **MountainShares DAO / DUNA is the licensee of record** for money transmission (WV Money Transmitter License) and FinCEN Money Services Business registration; it holds the surety bond, runs the BSA/AML program, and receives the money-services Treasury Reserve draw. **Harmony for Hope, Inc. is not the money transmitter.** This structure is contingent on counsel confirming a license is required and that the WV Division of Financial Institutions will license the DUNA directly; otherwise a separate DUNA-controlled licensed entity substitutes for "DUNA."
+
+> **EMS Conversion — Governing Rule:** Community EMS maintains a stable baseline exchange value. Phase-based buying-power expansion rates are **inactive** unless and until the Treasury Reserve achieves the applicable solvency threshold (300% at Phase 2; 500% at Phase 3), all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. These rates are conditional, revocable, and not vested, and are realized only through participant-elected conversion; no resident holds a vested or guaranteed right to any buying-power rate. EMS confers no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity. **The securities-law treatment of EMS, M$, and the phase-based conversion mechanism is under review by securities counsel; this document makes no representation as to whether any of these is or is not a security or investment contract.** Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
 
 ---
 
@@ -31,9 +33,9 @@ This document operates within the three-box entity structure governing MountainS
 
 | Entity | Role | Parameter Relevance |
 |---|---|---|
-| Harmony for Hope, Inc. (H4H) | 501(c)(3) charitable anchor; program sponsor; legal operator | Receives 30% of fee revenue (Bucket 1); files Regulatory Compliance Draw Requests; submits Annual Regulatory Compliance Budget |
-| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer | EMS→M$ rates, per-user caps, reserve band table, promo pool, governance thresholds |
-| Kidd's Technical Services (KTS) | To-be-formed for-profit LLC/PBC; founder-owned commercial engine | Ms. Allis / ALLIS deployment at 704 Main Street; founder-side rights documented separately; no equity path through EMS or H4H |
+| Harmony for Hope, Inc. (H4H) | 501(c)(3) charitable anchor; program sponsor | Receives 30% of fee revenue (Bucket 1); maintains **its own** nonprofit compliance (Form 990, WV SOS annual report, registered agent, charitable registration). **Not the money transmitter.** |
+| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer **and licensed money-services function** | EMS→M$ rates, per-user caps, reserve band table, promo pool, governance thresholds; **licensee of record for WV MTL + FinCEN MSB; receives the money-services Treasury Reserve draw (Stream M)** |
+| Kidd's Technical Services (KTS) | To-be-formed for-profit LLC/PBC; founder-owned commercial engine | Ms. Allis / ALLIS deployment at 704 Main Street; founder-side rights documented separately; no equity path through EMS or H4H; holds no money-services license |
 
 ---
 
@@ -42,7 +44,8 @@ This document operates within the three-box entity structure governing MountainS
 | Version | Date | Summary |
 |---|---|---|
 | 1.0 | March 16, 2026 | Initial release — Phase 1 parameter tables, reserve bands, fee structure, governance thresholds |
-| 2.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Added three-box structural framework; added Phase 2 and Phase 3 parameter tables; replaced hardcoded Phase 3 rate ($34.70 / $36.14) with Federal Volunteer Service Rate (FVSR) defined term; corrected dual reserve metric framework (Operational Reserve Ratio / Treasury Reserve Solvency Ratio); added reversion cascade language; added KTS entity status notice; corrected server location to 704 Main Street; aligned with FA-001, Phase 2 v2.0, Phase 3 v2.0, and H4H Canonical Facts Sheet |
+| 2.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Added three-box structural framework; added Phase 2 and Phase 3 parameter tables; replaced hardcoded Phase 3 rate ($34.70 / $36.14) with Federal Volunteer Service Rate (FVSR) defined term; corrected dual reserve metric framework; added reversion cascade language; added KTS entity status notice; corrected server location to 704 Main Street |
+| 3.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Removed all "non-appreciating in the securities-law sense" assertions (own-the-appreciation decision; securities treatment placed under counsel review with no self-certified legal conclusion); relocated money-services licensing from H4H to the **MountainShares DAO / DUNA** as licensee of record; reframed Section 8 compliance draws into Stream N (H4H nonprofit) and Stream M (DUNA money-services); softened the EMS Recognition Bonus income/asset claim to benefits-counsel review; aligned with Phase 2 v3.0, Phase 3 v3.0, EMS Securities Treatment — Counsel Prep, and Money-Services Entity Relocation Map |
 
 ---
 
@@ -93,15 +96,15 @@ Ms. Allis recalculates the reserve ratio daily and applies the appropriate band 
 
 **Operational Reserve Ratio** governs day-to-day continuity of service, per-user caps, and phase commerce feature unlocks:
 
-~~~
+```
 Operational Reserve Ratio = Treasury USDC Reserve / Total Outstanding Spendable PMS (M$)
-~~~
+```
 
-**Treasury Reserve Solvency Ratio** governs EMS buying-power expansion and is the primary appreciation gate:
+**Treasury Reserve Solvency Ratio** governs EMS buying-power expansion and is the primary conversion gate:
 
-~~~
+```
 Treasury Reserve Solvency Ratio = Treasury Reserve / (Total Outstanding EMS + Total Outstanding M$)
-~~~
+```
 
 Both metrics are calculated daily by Ms. Allis, published on the dashboard with green/amber/red bands, and enforced by the Phase Management Controller.
 
@@ -126,7 +129,7 @@ Both metrics are calculated daily by Ms. Allis, published on the dashboard with 
 
 ### 2.4 Phase 3 Band Table
 
-| Operational Reserve Ratio | Treasury Reserve Solvency Ratio | Global Base Rate | Dividend Clock | EMS Buying-Power Status | Regulatory Compliance Draws | Action |
+| Operational Reserve Ratio | Treasury Reserve Solvency Ratio | Global Base Rate | Dividend Clock | EMS Buying-Power Status | Compliance Draws | Action |
 |---|---|---|---|---|---|---|
 | ≥ 5.0 | ≥ 500% | 2.0–3.0 M$/hr (DAO vote) | Running | Conditionally active — 1 EMS = FVSR | Available per Phase 3 §7A | DAO may vote to increase rate toward 3.0; surplus accumulates |
 | 4.0 – 4.99 | ≥ 500% | 1.5–2.0 M$/hr | Paused | Conditionally active | Queued per deferral rules | No new distributions; DAO notified |
@@ -139,7 +142,7 @@ Both metrics are calculated daily by Ms. Allis, published on the dashboard with 
 
 ## 3. EMS Buying-Power Expansion Schedule (Phase-Gated)
 
-> Community EMS is non-appreciating in the securities-law sense at all times. The schedules below are reserve-gated, deferred, conditional, and subject to automatic reversion. No resident holds a vested conversion right prior to threshold clearance.
+> The schedules below are reserve-gated, deferred, conditional, and subject to automatic reversion. No resident holds a vested conversion right prior to threshold clearance, and EMS confers no equity or ownership interest. The securities-law treatment of EMS and the phase-based conversion schedule is under review by securities counsel; this document makes no representation as to whether it is or is not a security or investment contract.
 
 | Phase | EMS Buying-Power Rate | Activation Gate | Reversion Trigger |
 |---|---|---|---|
@@ -167,7 +170,7 @@ Both metrics are calculated daily by Ms. Allis, published on the dashboard with 
 | Load fee | 2.85% of fiat load | USD → PMS loads |
 | Internal transfer fee | 0.25% | Eligible user-to-user transfers |
 | Merchant fee | 1.80% | Eligible purchases at accepting merchants |
-| ATM / refund fee | $1.25 USD (flat) | PMS cash-out transactions (where enabled) |
+| ATM / refund fee | $1.25 USD (flat) | PMS cash-out transactions (where enabled, under the DUNA's licensed rails) |
 
 ### 4.2 Promo / Bonus Pool
 
@@ -225,7 +228,7 @@ These allocation percentages are Program Rules parameters and may be adjusted th
 
 ## 5. PMS Load and Cash-Out Limits
 
-> Exact figures to be set in consultation with payment partners and compliance counsel. The KYC tier structure below is the governing framework; numeric values are placeholders pending regulatory guidance.
+> Exact figures to be set in consultation with payment partners and compliance counsel. The KYC tier structure below is the governing framework; numeric values are placeholders pending regulatory guidance. Cash-out is operated under the DUNA's licensed money-services rails.
 
 | Limit Type | Tier / KYC Level | Phase 1 Value | Phase 2 Value | Phase 3 Value |
 |---|---|---|---|---|
@@ -249,7 +252,7 @@ These allocation percentages are Program Rules parameters and may be adjusted th
 | EMS conversion timing | Participant-controlled | Participant-controlled | Participant-controlled; 60-day advance notice before distribution events |
 | Distribution form | N/A | N/A | M$ credit (default); USD cash-out (optional); EMS Recognition Bonus (optional, irrevocable per event) |
 
-> County-level variations may apply where legal counsel determines the statewide threshold is insufficient for a specific county benefit program mix. County-level variations are published in this table and reviewed quarterly.
+> County-level variations may apply where legal counsel determines the statewide threshold is insufficient for a specific county benefit program mix. County-level variations are published in this table and reviewed quarterly. Because the phase-based conversion rates increase realizable value, whether a vaulted-but-convertible balance is a countable resource or income for benefits purposes is under benefits-counsel review and should be confirmed before reliance.
 
 ---
 
@@ -270,9 +273,9 @@ These allocation percentages are Program Rules parameters and may be adjusted th
 
 ---
 
-## 8. Regulatory Compliance Reserve Draw Thresholds
+## 8. Compliance Draw Thresholds (Two Streams, All Phases)
 
-> These are the draw-size governance thresholds that apply across all phases. The reserve floor against which draws are calculated changes by phase (3.0 at Phase 2; 5.0 at Phase 3). Full draw process and eligible expenditure categories are defined in Section 7A of each Phase Specification.
+> Compliance funding runs in two streams. **Stream N — H4H Nonprofit Compliance:** Form 990, WV SOS annual report, registered agent, charitable registration; funded from H4H's 30% operational allocation; exception draws only. **Stream M — DUNA Money-Services Licensing:** WV MTL, surety bond, FinCEN MSB, BSA/AML program; the **MountainShares DAO / DUNA is the licensee of record and the applicant**, funded from the Treasury Reserve to the DUNA. The draw-size governance thresholds below apply to both streams. The reserve floor against which draws are calculated changes by phase (3.0 at Phase 2; 5.0 at Phase 3). Full draw process and eligible expenditure categories are defined in Section 7A of each Phase Specification.
 
 | Draw Amount | Comment Window | Approval Required | Reserve Floor Check |
 |---|---|---|---|
@@ -281,7 +284,7 @@ These allocation percentages are Program Rules parameters and may be adjusted th
 | > $50,000 | 14-day community comment window | 66% super-majority DAO vote | Ms. Allis verifies floor is maintained after draw |
 | Any — floor breach | N/A — draw deferred automatically | Deferred to deferral queue | Ms. Allis queues draw; fires automatically when floor is maintainable |
 
-> Annual Budget Pre-Approval: If H4H's Annual Regulatory Compliance Budget is DAO-approved, individual draws within approved categories and amounts may proceed through the 72-hour window regardless of size, provided Ms. Allis verification passes.
+> Annual Budget Pre-Approval: If the DUNA's Annual Money-Services Compliance Budget (Stream M) is DAO-approved, individual draws within approved categories and amounts may proceed through the 72-hour window regardless of size, provided Ms. Allis verification passes. H4H's Stream N nonprofit compliance is funded from its 30% operational allocation.
 
 ---
 
@@ -299,7 +302,7 @@ These allocation percentages are Program Rules parameters and may be adjusted th
 | Data stewardship layer | ≥ 500 place records at ≥ 60% recency | ≥ 5,000 place records at ≥ 65% recency |
 | Stage 3 commerce | N/A | Active and operating without systemic incidents |
 | DAO governance quorum | ≥ 30% on key votes | ≥ 40% on key votes |
-| Regulatory standing | All WV and federal registrations current | All WV and federal registrations current; no deferred compliance draws unresolved |
+| Regulatory standing | DUNA money-services registrations current; H4H nonprofit standing current | DUNA money-services registrations current; H4H nonprofit standing current; no deferred compliance draws unresolved |
 | DAO advisory vote | Simple majority (advisory) | Simple majority (advisory; binding criteria above govern) |
 
 ---
@@ -307,22 +310,24 @@ These allocation percentages are Program Rules parameters and may be adjusted th
 ## Appendix A: Definitions
 
 - **Operational Reserve Ratio:** Treasury USDC Reserve ÷ Total Outstanding Spendable PMS (M$). Governs day-to-day continuity of service, per-user caps, and phase commerce feature unlock.
-- **Treasury Reserve Solvency Ratio:** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$). Governs EMS buying-power expansion and is the primary appreciation gate.
+- **Treasury Reserve Solvency Ratio:** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$). Governs EMS buying-power expansion and is the primary conversion gate.
 - **Federal Volunteer Service Rate (FVSR):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published FVSR. Ms. Allis surfaces the current FVSR on the dashboard each calendar year.
-- **EMS Buying-Power Expansion:** The conditional, reserve-gated schedule by which 1 EMS hour carries increasing USD-equivalent buying power as the commons matures through phases. Non-appreciating in the securities-law sense; not vested; subject to automatic reversion cascade.
+- **EMS Buying-Power Expansion:** The conditional, reserve-gated schedule by which 1 EMS hour carries increasing USD-equivalent buying power as the commons matures through phases. Conditional, revocable, and not vested; subject to automatic reversion cascade. Securities treatment under counsel review.
 - **Reversion Cascade:** The automatic, no-vote-required process by which EMS buying-power expansion reverts to a prior phase's rate when the Treasury Reserve Solvency Ratio falls below the applicable phase threshold.
-- **Deferral Queue:** Ms. Allis-managed queue of approved but reserve-floor-constrained Regulatory Compliance Reserve Draws that fire automatically when the treasury can accommodate them without breaching the applicable floor.
+- **Compliance Draw:** Governed, transparent, bounded draw for documented and verified compliance costs; Stream N (H4H nonprofit) or Stream M (DUNA money-services); governed by Section 7A of each Phase Specification.
+- **Deferral Queue:** Ms. Allis-managed queue of approved but reserve-floor-constrained Compliance Draws that fire automatically when the treasury can accommodate them without breaching the applicable floor.
 - **Benefits-Sensitive Account (BSA):** A participant account flagged for enhanced protections due to the participant's receipt of means-tested benefits. PMS cash-out disabled by default; conversion timing participant-controlled; Phase 3 adds advance notice and EMS Recognition Bonus election option.
-- **EMS Recognition Bonus:** An optional Phase 3 distribution form in which a participant elects to convert their dividend into permanent EMS recognition hours rather than M$ or USD. Irrevocable once elected for a given distribution event; does not count as income or assets for any purpose.
+- **EMS Recognition Bonus:** An optional Phase 3 distribution form in which a participant elects to convert their dividend into permanent EMS recognition hours rather than M$ or USD. Irrevocable once elected for a given distribution event; income/asset treatment under benefits-counsel review.
 - **Hard Trigger:** A system rule enforced automatically by Ms. Allis and the Phase Management Controller that cannot be overridden by any DAO vote at any threshold. Hard triggers protect the structural integrity of the commons.
 - **Stage 3 Full Commerce:** Amazon-style full-commerce feature set of The Commons platform, unlocked when Operational Reserve Ratio ≥ 3.0 for 30+ consecutive days. Locks automatically if ratio drops below 2.0 for 7 consecutive days.
+- **WV Money Transmitter License (MTL) / FinCEN MSB Registration:** The state license and federal registration for money transmission; held by the MountainShares DAO / DUNA, not H4H.
 
 ---
 
-*Program Rules – Parameter Tables — Version 2.0*
-*Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
-*Draft — Subject to H4H board review and legal counsel approval before reliance*
+*Program Rules – Parameter Tables — Version 3.0*
+*Harmony for Hope, Inc. | MountainShares DAO / DUNA | 704 Main Street, Mount Hope, WV 25880*
+*Draft — Subject to H4H board review, DAO governance, and legal counsel approval before reliance*
 
 ---
 
-**End of Program Rules – Parameter Tables v2.0**
+**End of Program Rules – Parameter Tables v3.0**
