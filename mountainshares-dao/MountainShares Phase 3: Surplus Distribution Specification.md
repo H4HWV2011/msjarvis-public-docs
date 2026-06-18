@@ -8,9 +8,9 @@
 > - **Anti-leakage and closed-loop spending:** The 500% floor requirement (Section 3) and the surplus-only distribution rule (Section 5) operationalize anti-leakage at maturity: the commons never distributes its own backbone; it distributes only what it has grown above and beyond the floor.
 > - **Community wealth building:** The 7-year dividend cycle is the operational instantiation of the MountainShares founding purpose — building durable, community-held wealth in Central Appalachia that stays in Central Appalachia.
 
-**Version:** 3.0
-**Date:** June 17, 2026
-**Status:** DAO Governance Document — Structural Rewrite (securities framing + money-services relocation)
+**Version:** 3.1
+**Date:** June 18, 2026
+**Status:** DAO Governance Document — Structural Rewrite (securities framing + money-services relocation + connectivity allocation)
 **Scope:** West Virginia Statewide (Phase 3); Reserved for activation upon Phase 2 graduation
 **Related documents:** Phase 0 Specification, Phase 1 Specification, Phase 2 Specification, Program Rules, Program Rules – Parameter Tables, DAO Governance Charter, KPI Specification v3.0, Participation Map, FA-001 Fee Amendment, H4H Canonical Facts Sheet, EMS Securities Treatment — Counsel Prep, Money-Services Entity Relocation Map
 
@@ -44,7 +44,8 @@ No Phase 3 mechanism may create a path by which founder value is realized throug
 |---|---|---|
 | 1.0 | March 16, 2026 | Initial release — Phase 3 framework, 500% reserve floor, 7-year community dividend cycle, participation-weighted distribution, surplus governance, Regulatory Compliance Reserve Draw at Phase 3 scale |
 | 2.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Added dual reserve metric framework; corrected EMS appreciation framing to reserve-gated, deferred, conditional; added reversion trigger cascade (P3→P2→P1); added three-box structural framework; corrected server location to 704 Main Street; added KTS entity status notice; added Regulatory Compliance Clearance Report to pre-distribution checklist |
-| 3.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Removed all "non-appreciating in the securities-law sense" assertions (own-the-appreciation decision; securities/tax treatment placed under counsel review with no self-certified legal conclusion); relocated money-services licensing from H4H to the **MountainShares DAO / DUNA** as licensee of record; split Section 7A into Stream N (H4H nonprofit compliance) and Stream M (DUNA money-services); the DUNA issues the Regulatory Compliance Clearance Report and executes distribution/cash-out under its license; cleaned garbled FVSR rate strings and removed stray characters; aligned with EMS Securities Treatment — Counsel Prep and Money-Services Entity Relocation Map |
+| 3.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Removed all "non-appreciating in the securities-law sense" assertions (own-the-appreciation decision; securities/tax treatment placed under counsel review); relocated money-services licensing from H4H to the **MountainShares DAO / DUNA** as licensee of record; split Section 7A into Stream N (H4H nonprofit) and Stream M (DUNA money-services); the DUNA issues the Regulatory Compliance Clearance Report and executes distribution/cash-out under its license; cleaned garbled FVSR rate strings and removed stray characters; aligned with EMS Securities Treatment — Counsel Prep and Money-Services Entity Relocation Map |
+| 3.1 | June 18, 2026 | Updated fee revenue allocation: **Buckets 4 and 5 dedicated to Community Connectivity** — free public internet nodes (Wi-Fi and LoRa community mesh): Bucket 4 (15%) node operations, Bucket 5 (10%) node buildout (a combined 25% of fee revenue); removed education, mutual aid, cultural preservation, and member-initiated local projects as fee-funded purposes. Connectivity nodes are funded from the standard fee allocation, before surplus is calculated — they are not drawn from the surplus pool. Aligned with Program Rules – Parameter Tables v3.1 and Phase 2 v3.1 |
 
 ---
 
@@ -59,6 +60,7 @@ Phase 3 does not start from zero. It activates a community dividend engine on to
 - A mature three-stage commerce platform (Stage 3 full commerce) operating without systemic incidents
 - A regional Champion corps with verified multi-county governance presence
 - A living, verified data layer with ≥ 5,000 place records at ≥ 65% recency
+- A statewide network of free public internet nodes (Wi-Fi and LoRa community mesh) deployed across activated counties and funded by fee-allocation Buckets 4 and 5
 - A DAO with ≥ 40% quorum governance participation and a demonstrated multi-year track record
 - All required WV and federal money-services registrations and licenses (held by the DUNA) confirmed current and in good standing; H4H nonprofit standing current
 - A treasury that has grown above and beyond the 300% band through sustained fee revenue, merchant transaction volume, and community participation
@@ -204,9 +206,11 @@ Treasury Reserve Solvency Ratio = Treasury Reserve / (Total Outstanding EMS + To
 > | 1 | 30% | Harmony for Hope, Inc. (H4H Operations) |
 > | 2 | 30% | Treasury Reserve |
 > | 3 | 15% | Platform Development |
-> | 4 | 15% | Community Programs |
-> | 5 | 10% | Community Projects |
+> | 4 | 15% | Community Connectivity – Operations (free public internet nodes: staffing, maintenance, monitoring, service costs) |
+> | 5 | 10% | Community Connectivity – Infrastructure (free public internet node buildout: hardware, installation, expansion) |
 > | — | +0.55% | Supplemental Treasury Reserve (on gross transaction volume) |
+>
+> A combined 25% of fee revenue is dedicated to MountainShares free public internet nodes (Wi-Fi and LoRa community mesh), built and operated as a public good — never metered or paywalled. Connectivity is funded from the standard fee allocation **before surplus is calculated; it is not drawn from the surplus pool.** See Program Rules – Parameter Tables §4.3.
 
 ### 4.2 The 500% Floor: Why It Exists and What It Protects
 
@@ -215,7 +219,7 @@ The 500% floor is not arbitrary. It reflects the founding purpose of MountainSha
 **The floor protects against:**
 - Platform volatility: a sudden drop in transaction volume does not hollow out the treasury
 - Coordinated fraud or exploit: even a significant security incident cannot drain a 500%-backed reserve to zero
-- External economic shocks: coal collapse, opioid epidemic economic aftershocks, federal program changes — all documented risks in the Tacet region
+- External economic shocks: coal collapse, opioid epidemic economic aftershocks, federal program changes — all documented risks in the region
 - Regulatory cost spikes: a sudden federal or state licensing requirement at Phase 3 scale could represent a five- or six-figure cost; the floor ensures the treasury can absorb it without threatening the dividend
 - Time-value erosion: a 7-year accumulation window is only meaningful if the floor holds for 7 years
 
@@ -257,7 +261,7 @@ Surplus Pool = Total Treasury Backing Assets (USD)
                      in the Deferral Queue
 ```
 
-The surplus pool is the amount the treasury holds above the 500% floor, net of any queued compliance obligations. Queued draws are subtracted before the surplus pool is calculated — the commons does not distribute money it already owes to regulators.
+The surplus pool is the amount the treasury holds above the 500% floor, net of any queued compliance obligations. Queued draws are subtracted before the surplus pool is calculated — the commons does not distribute money it already owes to regulators. (Connectivity operations and buildout are funded from the standard fee allocation, not from this pool.)
 
 **Example:**
 - Total Backing Assets: $22,000,000
@@ -392,6 +396,7 @@ All Phase 1 and Phase 2 hard trigger rules carry forward unchanged. Phase 3 adds
 - Force any participant to convert vaulted EMS
 - Authorize Compliance Draws for ineligible purposes (Section 7A.3)
 - Block or delay a Compliance Draw that has met all conditions in Section 7A
+- Divert Bucket 4/5 connectivity funds to private benefit, or meter or paywall a free public internet node
 
 ---
 
@@ -509,6 +514,9 @@ All Phase 1 and Phase 2 dashboard features carry forward. Phase 3 adds:
 - 7-year surplus accumulation chart (historical, publicly visible)
 - Regulatory Compliance Clearance status (current / pending / flagged)
 
+**Connectivity (carried from Phase 2):**
+- Free public internet nodes online statewide, uptime, and Bucket 4/5 spend year-to-date (connectivity is a standard-allocation item, displayed separately from the surplus pool)
+
 **Participation:**
 - Total eligible UEIs (as of last calculation)
 - Distribution of participation weights across multiplier tiers (aggregate, anonymized)
@@ -526,7 +534,7 @@ All Phase 1 and Phase 2 dashboard features carry forward. Phase 3 adds:
 All Phase 1 and Phase 2 audit cadences carry forward. Phase 3 adds or adjusts:
 
 - **Daily:** Both reserve metrics calculated and published; dividend clock status updated; EMS buying-power expansion gate status confirmed
-- **Monthly:** Surplus pool calculation published in full; dividend clock status reported; participation weight calculation updated for all active UEIs; compliance draw status report; Treasury Reserve Solvency Ratio trend analysis
+- **Monthly:** Surplus pool calculation published in full; dividend clock status reported; participation weight calculation updated for all active UEIs; compliance draw status report; Treasury Reserve Solvency Ratio trend analysis; connectivity node status and Bucket 4/5 spend report
 - **Annually:** Full 7-year accumulation audit — independent review of surplus pool math, participation weight calculations, treasury health, and regulatory standing; the DUNA submits the Annual Money-Services Compliance Budget and H4H submits its Annual Nonprofit Compliance summary no later than 60 days before calendar year start; year-end governance report with dedicated regulatory standing section
 - **30 days before distribution:** Ms. Allis publishes full pre-distribution report: surplus pool, eligible UEIs, all PW scores (anonymized network view), individual projections in personal dashboards, Regulatory Compliance Clearance Report, and distribution conditions verification
 - **72 hours before distribution:** Final calculations published; DAO confirmation vote window opens
@@ -561,6 +569,7 @@ All Phase 1 and Phase 2 safety prohibitions carry forward unchanged. Phase 3 add
 | **Benefits Manipulation for Distribution** | No misrepresentation of benefits status to select a distribution form that would violate program rules | Cross-check + benefits counselor referral flag | Distribution hold + investigation |
 | **Compliance Draw Fraud** | No falsification of regulatory documents, invoices, or legislative citations to obtain a Compliance Draw | Document verification + external regulatory cross-check | Permanent governance suspension + legal referral |
 | **Distribution Record Tampering** | No attempt to alter, delete, or obscure any post-distribution record in the governance ledger | Immutable ledger verification + audit trail | Immediate account freeze + legal referral |
+| **Connectivity Misuse** | No diversion of Bucket 4/5 connectivity funds to private benefit, and no metering or paywalling of free public internet nodes | Public spend ledger + node audit | Critical finding; immediate resolution required |
 | **Structural Boundary Breach** | No mechanism that creates founder equity through H4H, community EMS, or the surplus pool | Audit + legal review | Critical finding; immediate resolution required |
 
 ---
@@ -613,7 +622,7 @@ All Phase 1 and Phase 2 definitions carry forward. Phase 3 adds or amends:
 - **500% Reserve Floor:** The permanent minimum treasury position in Phase 3; operational reserve ratio ≥ 5.0 at all times; non-negotiable, non-overridable by any vote
 - **Treasury Reserve Solvency Ratio (Phase 3 Gate):** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$). Phase 3 activation threshold: ≥ 500% with all prior-phase formation fees paid. Reversion trigger: < 500% (reverts to Phase 2 parameters); < 300% (reverts to Phase 1 parameters)
 - **EMS Buying-Power Expansion (Phase 3, Conditionally Active):** 1 EMS = the FVSR in effect on the Phase 3 activation date (2026: $36.14); user-initiated, optional, incremental. Active only while Treasury Reserve Solvency Ratio ≥ 500%. Not vested — subject to reversion cascade. Securities treatment under counsel review
-- **Surplus Pool:** Total treasury backing assets minus the 500% floor requirement minus any queued compliance draws; the only pool from which distributions may be drawn
+- **Surplus Pool:** Total treasury backing assets minus the 500% floor requirement minus any queued compliance draws; the only pool from which distributions may be drawn. Connectivity operations and buildout are funded from the standard fee allocation, not from the surplus pool
 - **7-Year Community Dividend Cycle:** The distribution rhythm — surplus accumulates for 7 years of active clock time, then distributes to eligible participants; clock resets after each distribution
 - **Dividend Clock:** The running counter of accumulated active days since Phase 3 activation (or since the last distribution); pauses if operational reserve ratio drops below 5.0 and resumes when ≥ 5.0 for ≥ 180 consecutive days; also pauses if Treasury Reserve Solvency Ratio falls below 500%
 - **Participation Weight (PW):** The individual score used to allocate dividend share — Verified Months Active × Activity Multiplier; reflects actual presence and contribution in the commons over the accumulation window
@@ -622,6 +631,7 @@ All Phase 1 and Phase 2 definitions carry forward. Phase 3 adds or amends:
 - **Founding Deep:** The highest participation tier — 61–84 verified active months (≥ 5 years); receives 2.0× activity multiplier
 - **EMS Recognition Bonus:** An optional distribution form in which a participant elects to convert their dividend into permanent EMS recognition hours; irrevocable once elected for a given distribution event; particularly appropriate for Benefits-Sensitive Account holders; income/asset treatment under benefits-counsel review
 - **Dividend Farming:** Fraudulent activity designed to artificially inflate Participation Weight; treated as a serious violation with permanent PW forfeiture
+- **Community Connectivity Nodes:** MountainShares free public internet nodes (Wi-Fi and LoRa community mesh) deployed at trailheads, civic sites, libraries, and community anchors across West Virginia. Funded by fee-allocation Bucket 4 (operations) and Bucket 5 (buildout) from the standard fee split — not from the surplus pool; kept open to the public as a public good, never metered or paywalled
 - **Regulatory Compliance Clearance Report:** Ms. Allis's mandatory pre-distribution verification that all compliance obligations are current — the DUNA's money-services licensure (WV MTL / FinCEN MSB) and H4H's nonprofit standing — all queued draws are accounted for in the surplus calculation, and no active regulatory matters could affect the distribution; a required condition precedent to distribution under Section 5.3
 - **Compliance Draw:** Governed, transparent, bounded draw from the Treasury Reserve for documented and verified compliance costs; Stream N (H4H nonprofit) or Stream M (DUNA money-services); governed by Section 7A
 - **Deferral Queue:** The Ms. Allis-managed queue of approved but reserve-floor-constrained Compliance Draws; draws fire automatically when the treasury can accommodate them without breaching the 5.0 floor; deferred draws are subtracted from the surplus pool before dividend calculation
@@ -680,6 +690,7 @@ The 500% floor is the lock on the door.
 The compliance funding mechanism is the key that keeps the door legally open.
 The 7-year clock is the promise kept.
 The participation-weight formula is the proof that it was built by the people who live here.
+The free public internet nodes are the commons keeping the lights — and the signal — on for everyone.
 The reversion cascade is the guarantee that no expansion right is ever promised before it is earned by the treasury.
 
 The recognition ledger is the permanent record that they were here, they did the work, and it mattered.
@@ -690,10 +701,10 @@ The recognition ledger is the permanent record that they were here, they did the
 
 ---
 
-*MountainShares Phase 3: Surplus Distribution Specification — Version 3.0*
+*MountainShares Phase 3: Surplus Distribution Specification — Version 3.1*
 *Harmony for Hope, Inc. | MountainShares DAO / DUNA | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Subject to H4H board review, DAO governance, and legal counsel approval before reliance*
 
 ---
 
-**End of MountainShares Phase 3: Surplus Distribution Specification v3.0**
+**End of MountainShares Phase 3: Surplus Distribution Specification v3.1**
