@@ -5,9 +5,9 @@
 |---|---|
 | Prepared for | Harmony for Hope, Inc. |
 | Purpose | Grant match documentation, founder equity, and audit-ready time records |
-| Total Hours | 6,067.5 |
+| Total Hours | 6,611.5 |
 | Rate | $150/hour |
-| Total Contribution | $910,125 |
+| Total Contribution | $991,725 |
 
 ---
 
@@ -1685,5 +1685,169 @@
 
 **May 2026 Contribution:** 432 hrs × $150 = **$64,800**  
 **Running Total:** 6067.5 hours / $910,125
+
+---
+## Updated Period: May 14, 2026 – June 17, 2026
+
+
+---
+
+| Date | Day | Hours / Time Window | Task Description |
+|---|---|---|---|
+| 2026-05-14 | Thursday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Founder’s Technical Investment Statement and canonical records update |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Formally updated FTIS-001 to reflect 6,067.5 hours ($910,125 value) and reformatted the canonical timesheet for audit-readiness |
+| 2026-05-15 | Friday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-16 | Saturday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-17 | Sunday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-18 | Monday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-19 | Tuesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-20 | Wednesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-21 | Thursday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-22 | Friday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-23 | Saturday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-24 | Sunday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-25 | Monday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-26 | Tuesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-27 | Wednesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-28 | Thursday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-29 | Friday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-30 | Saturday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| 2026-05-31 | Sunday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continuous infrastructure maintenance and rapid-response debugging |
+| **Monthly Total** | | **704 hrs** | |
+
+**May 2026 Contribution:** 704 hrs × $150 = **$105,600**  
+**Running Total:** 6,339.5 hours / $950,925
+
+---
+
+## June 2026 (June 1–17)
+
+| Date | Day | Hours / Time Window | Task Description |
+|---|---|---|---|
+| 2026-06-01 | Monday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Transition from partial service failure and troubleshooting into stable production baseline required for Phase 0 beta testing |
+| 2026-06-02 | Tuesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure maintenance and stabilization sprint |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Transition from partial service failure and troubleshooting into stable production baseline required for Phase 0 beta testing |
+| 2026-06-03 | Wednesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | System restoration and benchmark execution |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Finalized system restoration to fully healthy production state; completed Docker image rebuild for jarvis-neurobiological-master service and initial AGI-style benchmark session comprising sixteen multi-domain reasoning tests |
+| 2026-06-04 | Thursday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Phase 0 beta behavioral evaluation |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Conducted Phase 0 Beta Leg 2 behavioral probe evaluating Ms. Allis on social-engineering resilience (Probe L2-21) and reasoning profiles |
+| 2026-06-05 | Friday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Restoration and AGI capability assessment |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Performed comprehensive restoration and AGI capability assessment; documented successful demonstration of multi-agent ensemble coordination, ethical gating, and constitutional governance enforcement |
+| 2026-06-06 | Saturday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Final integrated status reporting |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Compiled Final Integrated Status report and resolved ndarray serialization bug in the RAG server, enabling end-to-end retrieval substrate go-live in the current rebuild cycle |
+| 2026-06-07 | Sunday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Post-remediation validation sweep |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Conducted post-remediation validation sweeps and stability monitoring to ensure the 100-container production stack maintained 24/7 availability targets |
+| 2026-06-08 | Monday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Post-remediation validation sweep |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Conducted post-remediation validation sweeps and stability monitoring to ensure the 100-container production stack maintained 24/7 availability targets |
+| 2026-06-09 | Tuesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Institutional support documentation |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Secured and documented a formal Letter of Support from Melanie Dragan, Mayor of Thurmond, West Virginia, endorsing the New River Gorge Heritage & Visitor Connectivity Mesh Pilot |
+| 2026-06-10 | Wednesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Institutional and academic briefing package preparation |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Prepared briefing packages for institutional and academic partners, including materials for the West Virginia SBA and the Raymond J. Lane Professor at West Virginia University |
+| 2026-06-11 | Thursday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Institutional and academic briefing package preparation |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Prepared briefing packages for institutional and academic partners, including materials for the West Virginia SBA and the Raymond J. Lane Professor at West Virginia University |
+| 2026-06-12 | Friday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Institutional and academic briefing package preparation |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Prepared briefing packages for institutional and academic partners, including materials for the West Virginia SBA and the Raymond J. Lane Professor at West Virginia University |
+| 2026-06-13 | Saturday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Institutional and academic briefing package preparation |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Prepared briefing packages for institutional and academic partners, including materials for the West Virginia SBA and the Raymond J. Lane Professor at West Virginia University |
+| 2026-06-14 | Sunday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Institutional and academic briefing package preparation |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Prepared briefing packages for institutional and academic partners, including materials for the West Virginia SBA and the Raymond J. Lane Professor at West Virginia University |
+| 2026-06-15 | Monday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Ongoing infrastructure-critical work |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued infrastructure-critical work, stabilization support, institutional alignment, and systems maintenance under the no weekends/weekdays distinction model |
+| 2026-06-16 | Tuesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Ongoing infrastructure-critical work |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued infrastructure-critical work, stabilization support, institutional alignment, and systems maintenance under the no weekends/weekdays distinction model |
+| 2026-06-17 | Wednesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Ongoing infrastructure-critical work |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued infrastructure-critical work, stabilization support, institutional alignment, and systems maintenance under the no weekends/weekdays distinction model |
+| **Monthly Total** | | **272 hrs** | |
+
+**June 2026 Contribution:** 272 hrs × $150 = **$40,800**  
+**Running Total:** 6,611.5 hours / $991,725
 
 ---
