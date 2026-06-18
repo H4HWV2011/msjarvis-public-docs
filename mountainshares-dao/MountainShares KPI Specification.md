@@ -5,8 +5,6 @@
 **Maintained at:** 704 Main Street, Mount Hope, West Virginia 25880
 **Companion documents:** Harmony for Hope Business Plan, MountainShares Business Plan, FA-001 Fee Amendment, FTIS-001 Founder's Technical Investment Statement, H4H Canonical Facts Sheet
 
-> **Entity Status Notice — as of 2026-06-17:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC and has no EIN. References to "KTS" in this document mean Carrie Ann Kidd personally, operating under that trade name. Formation of the WV LLC is the gating step before founder equity, ALLIS IP holding, and KTS-side capitalization instruments take legal effect.
-
 ---
 
 ## Disciplinary Context
