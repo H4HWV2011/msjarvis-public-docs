@@ -536,6 +536,8 @@ Every UEI can see (updated daily):
 
 - **Phase Management Controller:** Smart contract enforcing phase-based rules including PMS-only spending in Phase 1, ATM withdrawal processing, emergency pause mechanisms, and automatic phase transitions.
 
+- **Federal Volunteer Service Rate (FVSR):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published FVSR.
+
 ---
 
 ## Appendix C: Participation Roles Cross-Reference
