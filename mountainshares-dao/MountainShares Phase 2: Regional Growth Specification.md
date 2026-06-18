@@ -8,9 +8,9 @@
 > - **Anti-leakage and closed-loop spending:** The reserve-ratio-driven 300% band (Section 3) and the Stage 3 full-commerce unlock (Section 2) operationalize anti-leakage design at expanded geographic scale while keeping the closed loop anchored in verified backing assets.
 > - **Bounty and corrective programs:** Regional promo-pool rules (Section 5) and example governance scenarios (Appendix B) show how expansion bonuses and parameter changes remain bounded by safety math rather than becoming unconstrained growth incentives.
 
-**Version:** 3.0
-**Date:** June 17, 2026
-**Status:** DAO Governance Document — Structural Rewrite (securities framing + money-services relocation)
+**Version:** 3.1
+**Date:** June 18, 2026
+**Status:** DAO Governance Document — Structural Rewrite (securities framing + money-services relocation + connectivity allocation)
 **Scope:** West Virginia Statewide Expansion (Phase 2)
 **Related documents:** Phase 0 Specification, Phase 1 Specification, Phase 3 Specification, Program Rules, Program Rules – Parameter Tables, DAO Governance Charter, KPI Specification v3.0, FA-001 Fee Amendment, H4H Canonical Facts Sheet, EMS Securities Treatment — Counsel Prep, Money-Services Entity Relocation Map
 
@@ -44,7 +44,8 @@ No Phase 2 mechanism may create a path by which founder value is realized throug
 |---|---|---|
 | 1.0 | March 16, 2026 | Initial release — Phase 2 framework, 300% reserve band, statewide rollout, Stage 3 full-commerce unlock, regional governance expansion, Regulatory Compliance Reserve Draw mechanism |
 | 2.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Added dual reserve metric framework; corrected EMS appreciation framing to reserve-gated, deferred, conditional; added reversion trigger language; added three-box structural framework; corrected server location to 704 Main Street; added KTS entity status notice |
-| 3.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Removed all "non-appreciating in the securities-law sense" assertions (own-the-appreciation decision; securities treatment placed under counsel review with no self-certified legal conclusion); relocated money-services licensing from H4H to the **MountainShares DAO / DUNA** as licensee of record; split Section 7A into Stream N (H4H nonprofit compliance) and Stream M (DUNA money-services); added DUNA capitalization gate before cash-out activation; corrected FVSR definition placement and removed stray characters; aligned with EMS Securities Treatment — Counsel Prep and Money-Services Entity Relocation Map |
+| 3.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Removed all "non-appreciating in the securities-law sense" assertions (own-the-appreciation decision; securities treatment placed under counsel review); relocated money-services licensing from H4H to the **MountainShares DAO / DUNA** as licensee of record; split Section 7A into Stream N (H4H nonprofit compliance) and Stream M (DUNA money-services); added DUNA capitalization gate before cash-out activation; corrected FVSR definition placement and removed stray characters; aligned with EMS Securities Treatment — Counsel Prep and Money-Services Entity Relocation Map |
+| 3.1 | June 18, 2026 | Updated fee revenue allocation: **Buckets 4 and 5 dedicated to Community Connectivity** — free public internet nodes (Wi-Fi and LoRa community mesh): Bucket 4 (15%) node operations, Bucket 5 (10%) node buildout (a combined 25% of fee revenue); removed education, mutual aid, cultural preservation, and member-initiated local projects as fee-funded purposes. Added free public internet node deployment to the county-activation rollout. Aligned with Program Rules – Parameter Tables v3.1 |
 
 ---
 
@@ -204,9 +205,11 @@ Treasury Reserve Solvency Ratio = Treasury Reserve / (Total Outstanding EMS + To
 > | 1 | 30% | Harmony for Hope, Inc. (H4H Operations) |
 > | 2 | 30% | Treasury Reserve |
 > | 3 | 15% | Platform Development |
-> | 4 | 15% | Community Programs |
-> | 5 | 10% | Community Projects |
+> | 4 | 15% | Community Connectivity – Operations (free public internet nodes: staffing, maintenance, monitoring, service costs) |
+> | 5 | 10% | Community Connectivity – Infrastructure (free public internet node buildout: hardware, installation, expansion) |
 > | — | +0.55% | Supplemental Treasury Reserve (on gross transaction volume) |
+>
+> A combined 25% of fee revenue is dedicated to MountainShares free public internet nodes (Wi-Fi and LoRa community mesh), built and operated as a public good — never metered or paywalled. See Program Rules – Parameter Tables §4.3.
 
 ### 4.2 Treasury Reserve Draw Authority
 
@@ -246,6 +249,7 @@ All Phase 1 EMS categories carry forward unchanged. EMS earned in all categories
 | **Merchant Onboarding** | Recruiting, training, and onboarding new merchants in newly activated counties | 1 EMS hr per verified onboarding session |
 | **Stage 3 Commerce Support** | Full-commerce transaction facilitation, buyer/seller dispute resolution, marketplace quality review | 1 EMS hr per verified session |
 | **County Activation Leadership** | Leading ground-truthing campaigns in newly activated counties | Promo bonus when reserve permits |
+| **Connectivity Node Stewardship** | Siting, deploying, maintaining, and monitoring free public internet nodes (Wi-Fi and LoRa mesh) in the community | 1 EMS hr per verified session; funded operationally by Bucket 4 |
 
 ---
 
@@ -291,73 +295,49 @@ The commons must maintain two distinct kinds of legal standing. They are funded,
 
 The DUNA is the licensee/registrant of record for:
 
-- WV Money Transmitter License (application, renewal, the surety bond, the minimum net-worth maintenance)
-- FinCEN Money Services Business registration (Form 107) and the BSA/AML program (written program, compliance officer, training, independent review, SAR/CTR filing)
+- WV Money Transmitter License (application, renewal, the $300,000 surety bond, the $50,000 minimum net-worth maintenance)
+- FinCEN Money Services Business registration (Form 107) and BSA/AML program (written program, compliance officer, training, independent review, SAR/CTR filing)
 - Money-services legal counsel and any state-mandated examination fees
 - Costs arising from WV SB887/HB5179 or successor legislation
 
 **Named control persons / BSA-AML compliance officer:** the DUNA designates the responsible individual(s) required for licensure and FinCEN registration. These individuals are personally accountable to regulators for the AML program.
 
-**Capitalization gate:** the DUNA is capitalized from the Treasury Reserve sufficient to meet the surety bond and minimum net-worth requirements. **Phase 2 fiat cash-out does not activate until the DUNA holds the required license(s) and the capitalization is in place** — in addition to the existing "all formation costs paid before Phase 2 activation" gate.
+**Capitalization gate:** the DUNA is capitalized from the Treasury Reserve sufficient to meet the $300,000 surety bond and $50,000 net-worth requirement. **Phase 2 fiat cash-out does not activate until the DUNA holds the required license(s) and the capitalization is in place** — in addition to the existing "all formation costs paid before Phase 2 activation" gate.
 
-**Known regulatory landscape as of 2026 (DUNA obligations):**
-- **WV Money Transmitter License (WV Division of Financial Institutions):** initial application fee $1,000; surety bond $300,000 (annual premium typically $1,500–$9,000 depending on financial standing); minimum net worth $50,000; annual renewal $250 plus $20 per additional location. May be required before Phase 2 statewide transaction volume is legally permissible.
-- **FinCEN MSB Registration:** federal registration via Form 107 through BSA E-Filing; no federal filing fee; legal counsel to structure and file typically $2,000–$5,000.
-- **WV SB887 / HB5179 (2026 session):** active West Virginia legislation addressing money transmission and virtual currency. The DUNA must monitor it and flag compliance requirements to the DAO as soon as known.
-- **State and Federal Legal Counsel:** full MTL application legal support typically $5,000–$25,000; FinCEN registration support typically $2,000–$5,000.
+### 7A.3 Money-Services Compliance Draw (Treasury Reserve → DUNA)
 
-### 7A.3 Money-Services Compliance Draw — Eligible Expenditures (Stream M, Treasury Reserve → DUNA)
+The Money-Services Compliance Draw funds Stream M from the Treasury Reserve **to the DUNA** (not H4H). Eligible expenditures:
 
-| Category | Examples | Verification Required |
+| Category | Examples | Verification |
 |---|---|---|
-| **Licensing & Bonding** | WV MTL application/renewal fees, surety bond premium, minimum net-worth top-up | Filing/quote + fee receipt |
-| **Federal Registration** | FinCEN MSB registration legal costs, BSA/AML program build and independent review | Filed document + invoice |
-| **Legislative Compliance Response** | Costs from SB887/HB5179 or successors imposing new licensing/registration/structural requirements | Legislative citation + filing or invoice |
-| **Money-Services Legal Counsel** | Attorney fees specifically for MTL/MSB/BSA-AML compliance | Invoice specifying compliance scope; general retainer not eligible |
-| **Mandated Examination Fees** | Costs imposed by a regulator as a condition of examination | Regulatory demand + fee receipt |
-| **Participant Protection Legal Costs** | Legal costs to defend or maintain Benefits-Sensitive Account protections or participant data protections | Invoice specifying participant-protection scope |
+| Licensing & bonding | WV MTL application/renewal, surety bond premium, net-worth top-up | Filing/quote + receipt |
+| Federal registration | FinCEN MSB registration, BSA/AML program build and independent review | Filing + invoice |
+| Legislative response | Costs from SB887/HB5179 or successors | Legislative citation + invoice |
+| Money-services counsel | Attorney fees tied to MTL/MSB/BSA-AML compliance | Invoice specifying scope |
+| Mandated examination | Regulator-imposed examination fees | Regulatory demand + receipt |
 
-### 7A.4 What Is NOT Eligible
+Not eligible: DUNA general operating costs, platform development, marketing, voluntary consultations, or anything fundable from ordinary fee allocations without harm to compliance standing.
 
-- H4H or DUNA general operating expenses (staff, rent, utilities, equipment)
-- Voluntary legal consultations not tied to a specific regulatory requirement
-- Marketing, outreach, or community engagement costs
-- Technology development or platform infrastructure costs
-- Grant writing or fundraising costs
-- Any cost fundable through ordinary fee allocations without material harm to the ability to maintain commons compliance standing
+### 7A.4 Draw Process and Governance (applies to any draw)
 
-### 7A.5 Draw Process and Governance
+The applicant is the **DUNA** (Stream M) or **H4H** (Stream N exception only). Process unchanged from the prior Section 7A mechanics:
 
-The applicant is the **DUNA** (Stream M) or **H4H** (Stream N exception only).
+1. **Request** filed with supporting documentation and an attestation that the cost cannot be met from ordinary allocation without harm to compliance standing.
+2. **Ms. Allis verification** that the draw leaves both reserve metrics above their applicable phase floors, matches an eligible category, and is not a duplicate; result published within 24 hours.
+3. **Comment window + vote by size:** ≤ $10,000 — 72-hour comment, proceed absent objection vote; > $10,000–$50,000 — 7-day comment + simple-majority DUNA confirmation; > $50,000 — 14-day comment + 66% super-majority. (The full WV MTL initial engagement — application + first-year bond premium + counsel — may approach $30,000–$40,000; this is expected and is not blocked by the $50,000 tier.)
+4. **Draw and public record:** on approval, Ms. Allis executes the draw to the DUNA; recorded in the public governance ledger with amount, category, requirement, date, and confirmation status; proof of payment published within 30 days.
 
-**Step 1 — Request:** the applicant files a Compliance Draw Request with the DAO, including category, the specific regulatory body or legislation driving the cost, amount, supporting documentation, and attestation that the cost cannot be funded from ordinary allocation without material harm.
+### 7A.5 Annual Compliance Budget
 
-**Step 2 — Ms. Allis Verification:** Ms. Allis verifies the draw does not reduce either reserve metric below its applicable phase floor, the category matches 7A.3 (or Stream N nonprofit compliance), and the request is not a duplicate. Result published within 24 hours.
+The DUNA submits an Annual Money-Services Compliance Budget (Stream M); H4H submits its Annual Nonprofit Compliance summary (Stream N) for transparency. Both due 60 days before calendar-year start; DUNA budget subject to simple-majority confirmation. Approved-category draws then proceed through the 72-hour window regardless of size, provided Ms. Allis verification passes.
 
-**Step 3 — DAO Notification and Comment Window:**
-- ≤ $10,000: 72-hour comment window; applicant may proceed if no objection vote passes within the window
-- > $10,000 and ≤ $50,000: 7-day comment window + simple-majority DAO confirmation
-- > $50,000: 14-day comment window + 66% super-majority
+### 7A.6 Reserve Floor Protection
 
-> **Note on the $50,000 threshold:** the full WV MTL initial engagement — application fee, first-year surety bond premium, and legal counsel — could approach $30,000–$40,000 in a single engagement. This is expected. The $50,000 super-majority threshold is a safeguard for very large draws, not a barrier to necessary licensing.
+No draw — either stream — may reduce either reserve metric below its applicable phase floor. A draw that would breach a floor goes to the deferral queue and fires automatically when the treasury can accommodate it (approval valid 180 days). If deferral would lapse a **required license**, the DUNA notifies the regulator in writing, documents it in the governance ledger, and calls an emergency governance session within 48 hours.
 
-**Step 4 — Draw and Public Record:** on approval, Ms. Allis executes the draw to the applicant (the DUNA for Stream M). Recorded permanently in the public governance ledger with amount, category, requirement, date, and confirmation status. Proof of payment published within 30 days.
+### 7A.7 Transparency
 
-### 7A.6 Annual Compliance Budget
-
-The DUNA submits an Annual Money-Services Compliance Budget (Stream M); H4H submits an Annual Nonprofit Compliance summary (Stream N) for transparency. Both due no later than 60 days before the start of each calendar year; the DUNA budget is subject to simple-majority DAO approval. Approved-category draws then proceed through the 72-hour window regardless of size, provided Ms. Allis verification passes.
-
-### 7A.7 Reserve Floor Protection
-
-No draw — either stream — may reduce either reserve metric below its applicable phase floor. A draw that would breach a floor is automatically deferred to the deferral queue. **Deferral is not denial.** A deferred draw executes automatically as soon as the treasury can accommodate it without breaching the floor, subject to the original DAO approval remaining valid (expires after 180 days). If deferral would lapse a **required license**, the DUNA notifies the relevant regulatory body in writing, documents it in the governance ledger, and calls an emergency governance session within 48 hours.
-
-### 7A.8 Relationship to the Fee Revenue Allocation
-
-The Compliance Draw mechanism does not replace or reduce H4H's 30% operational allocation. Stream N recurring nonprofit costs are funded from that allocation; Stream M money-services costs are backstopped from the Treasury Reserve to the DUNA when front-loaded, irregular, volume-independent, or time-critical.
-
-### 7A.9 Transparency Commitment
-
-All draw requests published at submission; Ms. Allis verification within 24 hours; proof of payment within 30 days; a full annual draw summary in the year-end governance report; all known or anticipated regulatory requirements flagged no later than 90 days before a compliance deadline.
+All draw requests published at submission; Ms. Allis verification within 24 hours; proof of payment within 30 days; full annual draw summary in the year-end governance report; all known or anticipated regulatory requirements flagged no later than 90 days before a compliance deadline.
 
 ---
 
@@ -382,12 +362,13 @@ Before a new county activates, Ms. Allis verifies:
 - Treasury Reserve Solvency Ratio confirms Phase 2 gate remains open (≥ 300%)
 - DAO vote confirming readiness (simple majority)
 
-### 8.3 Regional Data Stewardship at Scale
+### 8.3 Regional Data Stewardship and Connectivity at Scale
 
 - Each newly activated county requires a minimum of 25 verified place records before first M$ transactions are enabled in that county.
 - Ms. Allis runs county-level data confidence scoring in addition to network-wide scoring.
 - Regional Champions (Tier 3) are the primary ground-truthing force in newly activated counties.
 - County activation is gated on data quality, not only on financial metrics.
+- As each county activates, MountainShares deploys **free public internet nodes** (Wi-Fi and LoRa community mesh) at trailheads, civic sites, libraries, and community anchors — funded by fee-allocation Buckets 4 (operations) and 5 (buildout) per Section 4.1 — and kept open to the public as a public good. Connectivity node buildout follows the same reserve-floor discipline as all other treasury-funded activity.
 
 ---
 
@@ -410,12 +391,14 @@ All Phase 1 dashboard features carry forward. Phase 2 adds:
 - Per-county operational reserve ratio contribution, active UEI count, merchant transaction volume
 - Per-county data stewardship KPIs: % records verified in last 12 months, records collected, ping response rate
 - County activation status and pre-condition checklist (publicly visible)
+- Free public internet node status per county: nodes deployed, nodes online, uptime
 
 **Regional:**
 - Statewide operational reserve ratio, backing assets, total outstanding M$, and 300% band proximity indicator
 - **Treasury Reserve Solvency Ratio** prominently displayed with Phase 2 (300%) and Phase 3 (500%) threshold markers
 - EMS buying-power expansion status: Active (P2) / Reverted / Pending P3
 - Stage 3 commerce unlock status and days at current ratio
+- Connectivity buildout: total nodes deployed statewide and Bucket 4/5 spend year-to-date
 - Phase 2 → Phase 3 graduation criteria checklist with current status (publicly visible)
 
 **Compliance:**
@@ -456,6 +439,7 @@ All Phase 1 safety prohibitions carry forward unchanged at statewide scale. Phas
 | **Tier Manipulation** | No falsification of multi-county Champion presence to qualify for Tier 3 | Geo audit + org co-sign verification | Tier demotion + account review |
 | **Merchant Shell Activity** | No fake merchants created to generate transaction volume toward graduation criteria | Transaction pattern analysis + site verification | Account freeze + report |
 | **Compliance Draw Fraud** | No falsification of regulatory documents or invoices to obtain a Compliance Draw | Document verification + external regulatory cross-check | Permanent governance suspension + legal referral |
+| **Connectivity Misuse** | No diversion of Bucket 4/5 connectivity funds to private benefit, and no metering or paywalling of free public internet nodes | Public spend ledger + node audit | Critical finding; immediate resolution required |
 | **Structural Boundary Breach** | No mechanism that creates founder equity through H4H or community EMS | Audit + legal review | Critical finding; immediate resolution required |
 
 ---
@@ -465,7 +449,7 @@ All Phase 1 safety prohibitions carry forward unchanged at statewide scale. Phas
 All Phase 1 audit cadences carry forward. Phase 2 adds or adjusts:
 
 - **Weekly:** County-level network snapshots added to standard weekly report; both reserve metrics published
-- **Monthly:** Per-county treasury audit included in full treasury audit; county activation pre-condition review; Compliance Draw status report; Treasury Reserve Solvency Ratio trend analysis
+- **Monthly:** Per-county treasury audit included in full treasury audit; county activation pre-condition review; Compliance Draw status report; Treasury Reserve Solvency Ratio trend analysis; connectivity node deployment and Bucket 4/5 spend report
 - **Quarterly:** Statewide external audit (goal: independent WV nonprofit or university partner); Tier 3 multi-county presence verification; county-specific Benefits-Sensitive Account review; review of any active or pending regulatory or legislative developments; EMS vaulted/converted balance reconciliation; DUNA licensure status review
 - **Annually:** DUNA submits Annual Money-Services Compliance Budget and H4H submits Annual Nonprofit Compliance summary to the DAO no later than 60 days before calendar year start
 - **At each county activation:** Pre-activation Ms. Allis verification report published publicly before DAO vote
@@ -480,7 +464,7 @@ All Phase 1 emergency powers carry forward. Phase 2 adds:
 - Tier 3 suspends automatically; Phase 1 thresholds reactivate
 - Stage 3 commerce features lock automatically
 - No new county activations until ratio recovers to ≥ 2.0 for 30+ consecutive days
-- All pending Compliance Draws are reviewed; draws that would breach the 3.0 floor are automatically deferred per Section 7A.7
+- All pending Compliance Draws are reviewed; draws that would breach the 3.0 floor are automatically deferred per Section 7A.6
 - Emergency governance session called within 48 hours
 
 ### 14.2 If Treasury Reserve Solvency Ratio Falls Below 300% (Reversion Event)
@@ -513,8 +497,9 @@ All Phase 1 definitions carry forward. Phase 2 adds or amends:
 - **Treasury Reserve Solvency Ratio (Phase 3 Gate):** ≥ 500%. Reversion trigger: < 500% (reverts to Phase 2 parameters); < 300% (reverts to Phase 1 parameters).
 - **EMS Buying-Power Expansion (Phase 2, Conditionally Active):** 1 EMS = $10 USD equivalent; user-initiated, optional, incremental. Active only while Treasury Reserve Solvency Ratio ≥ 300%. Not vested — subject to reversion. Securities treatment under counsel review.
 - **Federal Volunteer Service Rate (FVSR):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published FVSR.
+- **Community Connectivity Nodes:** MountainShares free public internet nodes (Wi-Fi and LoRa community mesh) deployed at trailheads, civic sites, libraries, and community anchors across West Virginia. Funded by fee-allocation Bucket 4 (operations) and Bucket 5 (buildout); kept open to the public as a public good, never metered or paywalled.
 - **Tier 3:** Regional Champion tier; requires multi-county geo-verified presence and DAO confirmation; highest earning tier in Phase 2; suspends automatically if operational reserve ratio < 1.5.
-- **County Activation:** Formal process by which a new county joins the MountainShares network, gated on data stewardship, merchant presence, regulatory compliance standing, and DAO vote.
+- **County Activation:** Formal process by which a new county joins the MountainShares network, gated on data stewardship, merchant presence, regulatory compliance standing, connectivity node deployment, and DAO vote.
 - **Stage 3 Full Commerce:** Amazon-style full-commerce feature set of The Commons platform, unlocked when operational reserve ratio ≥ 3.0 for 30+ consecutive days.
 - **Compliance Draw:** Governed, transparent, bounded draw from the Treasury Reserve for documented and verified compliance costs; Stream N (H4H nonprofit) or Stream M (DUNA money-services); governed by Section 7A.
 - **Deferral Queue:** Ms. Allis-managed queue of approved but reserve-floor-constrained draws that fire automatically when the treasury can accommodate them without breaching the applicable floor.
@@ -537,12 +522,12 @@ All Phase 1 definitions carry forward. Phase 2 adds or amends:
 - The DUNA notifies WV DFI that the application will be filed within 45 days and documents this in the governance ledger.
 - **Day 39:** Operational reserve ratio reaches 3.0. Ms. Allis fires the draw automatically. MTL application filed by the DUNA. Public governance ledger updated.
 
-**Month 6 of Phase 2 — County Activation:**
+**Month 6 of Phase 2 — County Activation and Connectivity:**
 
 - Operational reserve ratio = 3.1; Treasury Reserve Solvency Ratio = 320% (Phase 2 gate open)
 - Ms. Allis pre-condition verification for Summers County: passed (all metrics confirmed including Benefits-Sensitive cap review and solvency ratio confirmation)
 - DAO vote: 74% in favor
-- Summers County activates. New-county activation bonuses drawn from regional promo pool.
+- Summers County activates. New-county activation bonuses drawn from regional promo pool. Free public internet node buildout for the county trailhead and library is funded from Bucket 5, with operations funded from Bucket 4.
 
 ---
 
@@ -560,17 +545,17 @@ For a complete map of who participates in The Commons and MountainShares, see th
 | **Merchant** | Stage 3 commerce features expand available transaction types; fee structure unchanged; 30% of fees to Treasury Reserve |
 | **Harmony for Hope, Inc. (H4H)** | Charitable anchor and program sponsor; maintains its own nonprofit standing (Stream N); **not the money transmitter**; operates the Ms. Allis / ALLIS node at 704 Main Street |
 | **MountainShares DAO / DUNA** | Community governance and mutual-credit ledger; **money-services licensee of record (WV MTL / FinCEN MSB)**; holds the surety bond and BSA/AML program; files Money-Services Compliance Draw Requests (Stream M); submits the Annual Money-Services Compliance Budget; flags emerging legislative and regulatory developments |
-| **Ms. Allis** | Enforces all hard triggers at statewide scale; monitors both reserve metrics daily; runs county activation pre-condition verification; manages deferral queue; publishes county-level and compliance dashboards; surfaces EMS conversion gate status |
+| **Ms. Allis** | Enforces all hard triggers at statewide scale; monitors both reserve metrics daily; runs county activation pre-condition verification; manages deferral queue; publishes county-level, connectivity, and compliance dashboards; surfaces EMS conversion gate status |
 | **Phase Management Controller** | Smart contract enforcing phase-based rules; processes ATM withdrawals under the DUNA's licensed rails; applies automatic phase transitions including reversion events; enforces both gate conditions |
 
 ---
 
-*"The commons grows county by county, hand by hand. Ms. Allis watches the math so the growth stays honest. The DUNA holds the legal door open so the growth stays possible."*
+*"The commons grows county by county, hand by hand. Ms. Allis watches the math so the growth stays honest. The DUNA holds the legal door open so the growth stays possible. Every county that opens, opens its internet too."*
 
-*MountainShares Phase 2: Regional Growth Specification — Version 3.0*
+*MountainShares Phase 2: Regional Growth Specification — Version 3.1*
 *Harmony for Hope, Inc. | MountainShares DAO / DUNA | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Subject to H4H board review, DAO governance, and legal counsel approval before reliance*
 
 ---
 
-**End of MountainShares Phase 2: Regional Growth Specification v3.0**
+**End of MountainShares Phase 2: Regional Growth Specification v3.1**
