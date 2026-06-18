@@ -18,7 +18,7 @@
 
 > **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
 
-> **EMS Appreciation — Governing Rule:** Community EMS maintains stable baseline exchange value. The Phase 3 buying-power expansion schedule (1 EMS = $36.14 USD equivalent) is **inactive** unless and until the Treasury Reserve Solvency Ratio achieves and sustains 500% of total EMS + M$ outstanding, all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below 500%, the system automatically reverts to Phase 2 parameters; if it falls below 300%, the system reverts to Phase 1 parameters. No resident holds a vested appreciation right prior to threshold clearance. Community EMS is non-appreciating in the securities-law sense at all times — it does not function as an investment contract and carries no present appreciation claim a resident can realize. Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
+> **EMS Appreciation — Governing Rule:** Community EMS maintains stable baseline exchange value. The Phase 3 buying-power expansion schedule (1 EMS = $the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date USD equivalent) is **inactive** unless and until the Treasury Reserve Solvency Ratio achieves and sustains 500% of total EMS + M$ outstanding, all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below 500%, the system automatically reverts to Phase 2 parameters; if it falls below 300%, the system reverts to Phase 1 parameters. No resident holds a vested appreciation right prior to threshold clearance. Community EMS is non-appreciating in the securities-law sense at all times — it does not function as an investment contract and carries no present appreciation claim a resident can realize. Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
 
 ---
 
@@ -87,7 +87,7 @@ Both metrics are calculated daily by Ms. Allis, published on the dashboard with 
 
 ### 2.2 EMS Appreciation Status in Phase 3
 
-Phase 3 buying-power expansion is **conditionally active** at the 36.14× rate (1 EMS = $36.14 USD equivalent) only while the Treasury Reserve Solvency Ratio ≥ 500%. This is not a permanently vested right. No resident holds a vested conversion right at any point before threshold clearance.
+Phase 3 buying-power expansion is **conditionally active** at the the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date× rate (1 EMS = $the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date USD equivalent) only while the Treasury Reserve Solvency Ratio ≥ 500%. This is not a permanently vested right. No resident holds a vested conversion right at any point before threshold clearance.
 
 **Reversion cascade:**
 - If Treasury Reserve Solvency Ratio falls below 500%: system reverts to Phase 2 parameters (1 EMS = $10 rate, conditionally active at 300%)
@@ -119,7 +119,7 @@ All Phase 1 and Phase 2 hard trigger rules remain in force. They do not soften i
 
 ### 3.1 EMS Buying-Power Expansion (Phase 3, Conditionally Active)
 
-Phase 3 buying-power expansion is conditionally active at 36.14× (1 EMS = $36.14 USD equivalent), subject to the reversion cascade in Section 2.2. Conversion is user-initiated, optional, and incremental. The treasury pays USDC only for EMS that participants actively choose to convert; vaulted EMS remains off-balance-sheet recognition until conversion.
+Phase 3 buying-power expansion is conditionally active at the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date× (1 EMS = $the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date USD equivalent), subject to the reversion cascade in Section 2.2. Conversion is user-initiated, optional, and incremental. The treasury pays USDC only for EMS that participants actively choose to convert; vaulted EMS remains off-balance-sheet recognition until conversion.
 
 ### 3.2 Global Base Rate at Phase 3 Scale
 
@@ -149,7 +149,7 @@ All Phase 1 and Phase 2 Benefits-Sensitive Account protections carry forward unc
 
 | Operational Reserve Ratio | Treasury Reserve Solvency Ratio | Global Base Rate | Dividend Clock | EMS Buying-Power Status | Regulatory Compliance Draws | Action |
 |---|---|---|---|---|---|---|
-| ≥ 5.0 (500%) | ≥ 500% (P3 active) | 2.0–3.0 M$/hr (DAO vote) | Running | Conditionally active — 1 EMS = $36.14 | Available per Section 7A | DAO may vote to increase rate toward 3.0; surplus accumulates |
+| ≥ 5.0 (500%) | ≥ 500% (P3 active) | 2.0–3.0 M$/hr (DAO vote) | Running | Conditionally active — 1 EMS = $the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date | Available per Section 7A | DAO may vote to increase rate toward 3.0; surplus accumulates |
 | 4.0 – 4.99 | ≥ 500% | 1.5–2.0 M$/hr (DAO-controlled) | Paused | Conditionally active | Queued per deferral rules | No new distributions; existing commitments honored; DAO notified |
 | 3.0 – 3.99 | ≥ 500% | Phase 2 rates reactivate | Paused + alert | Conditionally active (P2 rate) | Queued per deferral rules | Phase 2 thresholds govern; dividend clock pauses; emergency review |
 | < 3.0 | Any | Phase 1/2 recovery rules | Paused + emergency | Phase 2 or P1 reversion as applicable | Emergency session required | Full emergency protocol; distribution commitments suspended |
@@ -604,7 +604,7 @@ All Phase 1 and Phase 2 definitions carry forward. Phase 3 adds or amends:
 
 - **500% Reserve Floor:** The permanent minimum treasury position in Phase 3; operational reserve ratio ≥ 5.0 at all times; non-negotiable, non-overridable by any vote
 - **Treasury Reserve Solvency Ratio (Phase 3 Gate):** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$). Phase 3 activation threshold: ≥ 500% with all prior-phase formation fees paid. Reversion trigger: < 500% (reverts to Phase 2 parameters); < 300% (reverts to Phase 1 parameters)
-- **EMS Buying-Power Expansion (Phase 3, Conditionally Active):** 1 EMS = $36.14 USD equivalent; user-initiated, optional, incremental. Active only while Treasury Reserve Solvency Ratio ≥ 500%. Not vested — subject to reversion cascade
+- **EMS Buying-Power Expansion (Phase 3, Conditionally Active):** 1 EMS = $the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date USD equivalent; user-initiated, optional, incremental. Active only while Treasury Reserve Solvency Ratio ≥ 500%. Not vested — subject to reversion cascade
 - **Surplus Pool:** Total treasury backing assets minus the 500% floor requirement minus any queued regulatory compliance draws; the only pool from which distributions may be drawn
 - **7-Year Community Dividend Cycle:** The distribution rhythm — surplus accumulates for 7 years of active clock time, then distributes to eligible participants; clock resets after each distribution
 - **Dividend Clock:** The running counter of accumulated active days since Phase 3 activation (or since the last distribution); pauses if operational reserve ratio drops below 5.0 and resumes when ≥ 5.0 for ≥ 180 consecutive days; also pauses if Treasury Reserve Solvency Ratio falls below 500%
