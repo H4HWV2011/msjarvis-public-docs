@@ -1,116 +1,367 @@
-## MountainShares: Complete System Overview and Benefits
+# MountainShares: Complete System Overview and Benefits
 
-### System Architecture
+> **Disciplinary Context: Appalachian Economic Commons**
+> This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:
+> - **P1 – Every where is entangled / Leakage and enclosure:** The MountainShares system must be read as a coupled whole — EMS recognition, PMS/M$ spending, treasury reserve math, governance, benefits-sensitive protections, and the entity structure all shape each other. Nothing about value circulation is isolated.
+> - **P9 – Transparency and traceability:** The complete system only works if reserve conditions, fee flows, conversion gates, compliance obligations, and governance actions are visible, auditable, and reconstructable over time.
+> - **P16 – Power accountable to place:** Operational authority must remain answerable to West Virginia communities, their legal realities, and their actual economic conditions. Returns must follow people, place, and participation — not speculation or remote extraction.
+> - **Anti-leakage and closed-loop spending:** The system is designed to keep value circulating inside the commons through bounded minting, reserve-gated conversion, phase-based scaling, and merchant/community recirculation.
+> - **Community wealth building:** MountainShares is designed not merely as a payment layer, but as a long-horizon community wealth architecture that preserves recognition, builds reserves, and ultimately returns surplus to the people who built the commons.
 
-MountainShares is a blockchain‑based rewards and community credits system deployed on Arbitrum One with IPFS‑based rewards tracking, developed and administered by Harmony for Hope, Inc., a 501(c)(3) nonprofit organization based in Mount Hope, West Virginia. The system operates as a time‑banking‑style rewards program where community participation generates MountainShares tokens whose effective in‑network buying power can change over time according to predefined program rules, treasury conditions, and reserve‑ratio‑based safety triggers, and which are only redeemable within The Commons ecosystem, subject to program rules and available offerings.
+**Version:** 2.0
+**Date:** June 17, 2026
+**Status:** System Overview — Structural Rewrite
+**Scope:** West Virginia statewide overview across Phase 1, Phase 2, and Phase 3
+**Related documents:** [MountainShares Program Rules](MountainShares%20Program%20Rules(Draft).md), [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md), [Phase 1 Specification](MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md), [Phase 2 Specification](MountainShares%20Phase%202%3A%20Regional%20Growth%20Specification.md), [Phase 3 Specification](MountainShares%20Phase%203%3A%20Surplus%20Distribution%20Specification.md), [DAO Governance Charter](MountainShares%20DAO%20Governance%20Charter.md), [KPI Specification v3.0](MountainShares%20KPI%20Specification.md), [FA-001 Fee Amendment](../contract/H4H/Fee%20Amendment%20-%20FA001.md)
 
-**Dual‑Token Structure:**
-- **Purchased MountainShares (PMS)**: Acquired with external currency through Stripe integration (2.85% loading fee), immediately spendable within The Commons network with approved local merchants and programs, with limited, fee‑based options for conversion back to U.S. dollars through designated partners, only up to the amount originally loaded (less fees) and only where such features are enabled under current Program Rules. PMS cash conversion does not include any phase‑based changes in internal buying power.
-- **Earned MountainShares (EMS)**: Generated through documented community participation tracked via IPFS, first recorded in an unlimited recognition ledger, and then converted into spendable M$ subject to reserve‑ratio‑based limits, base‑rate parameters, and per‑user caps. During Phase 1, EMS are partially “vaulted” and only a capped portion becomes spendable each epoch. EMS are not designed or intended for cash redemption, do not create any right to receive cash, and are intended solely for in‑network use within The Commons ecosystem under current Program Rules.
+> **Entity Status Notice:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC and has no EIN. References to "KTS" in this document mean Carrie Ann Kidd personally, operating under that trade name. Formation of the WV LLC is the gating step before founder equity, ALLIS IP holding, and KTS-side capitalization instruments take legal effect. No part of the MountainShares community system creates a founder equity path through H4H or community EMS.
 
-**Three‑Phase Economic Model:**
-- **Phase 1 (Launch):** Internal schedule defines 1 MountainShare of spendable M$ as having a 1 U.S. dollar equivalent buying power for eligible redemptions in the network, subject to a configurable global base rate (e.g., 0.2–1.0 M$ per EMS hour) and strict per‑user caps tied to the system’s reserve ratio.
-- **Phase 2 (Expanded Coverage):** Internal schedule defines 1 MountainShare as having a 10 U.S. dollar equivalent buying power within the network, applied only to spendable M$ that are enabled under Phase 2 rules, with continued use of reserve‑ratio‑gated base rates and caps.
-- **Phase 3 (Full backing target):** Internal schedule defines 1 MountainShare as having a 34.70 U.S. dollar equivalent buying power in the network, initially aligned with national estimates of volunteer time value at the time the schedule is adopted, and applied only to tightly controlled portions of spendable M$ under stricter reserve and safety conditions.
+> **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
 
-Hard economic safety triggers are enforced automatically by Ms. Allis and are not subject to DAO override. Phase 2 activates only when treasury reserves reach at least 300% of total outstanding spendable M$ calculated at the 10‑per‑M$ internal schedule, as measured under the program’s internal accounting policies and on‑chain reporting. Phase 3 activates only when treasury reserves reach at least 500% of total outstanding spendable M$ calculated at the 34.70‑per‑M$ internal schedule, measured on the same basis. These internal schedules and transitions are designed to provide treasury‑linked changes in defined in‑network buying power for MountainShares used in the network, rather than open‑ended speculative price movements or trading gains, and do not create any external market price, any right to profits or distributions, or any guarantee that a particular Phase will be reached or maintained. Phase 3 is an aspirational internal design target only and may be delayed, scoped to limited users, balances, or categories, or never activated.
+> **EMS Appreciation — Governing Rule:** Community EMS maintains stable baseline exchange value. Phase-based buying-power expansion schedules are **inactive** unless and until the Treasury Reserve achieves the applicable solvency threshold (300% at Phase 2; 500% at Phase 3), all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below the applicable threshold, the system automatically reverts to prior-phase specifications. No resident holds a vested appreciation right prior to threshold clearance. Community EMS is non-appreciating in the securities-law sense at all times. Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
 
-In addition to Phase triggers, Ms. Allis continuously enforces reserve‑ratio‑based adjustments to the global EMS→M$ base conversion rate, per‑user monthly caps, and promotional bonuses, tightening automatically when the reserve ratio falls and relaxing only when predefined safety thresholds have been met for a sustained period. The DAO can vote to move parameters upward within these safety bands but cannot disable or bypass automatic downward adjustments.
+---
 
-### Geographic and Cultural Grounding
+## 1. What MountainShares Is
 
-MountainShares is geofenced to West Virginia, embedding spatial justice commitments directly into the system architecture. This geographic constraint helps ensure the system serves its intended communities and is not positioned or marketed as a vehicle for placeless financial speculation.
+MountainShares is a community economic system built for West Virginia and the broader Appalachian commons. It combines a recognition ledger, a spendable community currency layer, a reserve-backed treasury, a merchant/community commerce network, and a governed path toward long-term community surplus distribution.
 
-Physical infrastructure includes QR code markers along the Mount Hope Historic Walking Trail, which connect to historical content via Clio.com integration, creating tangible entry points where digital economic participation connects to embodied place‑based experiences and historic preservation.
+The system is designed to do five things at once:
 
-### Core Benefits
+- Recognize real community labor that the formal market undervalues
+- Convert part of that recognized labor into bounded, spendable community buying power
+- Keep value circulating locally rather than leaking immediately out of the region
+- Build a durable treasury capable of surviving shocks, fraud attempts, and regulatory costs
+- Return real surplus to long-term participants only after the treasury is strong enough to do so safely
 
-#### 1. Non‑Extractive Wealth Building
+MountainShares is not a speculative token project. It is a governed mutual-credit and prepaid-value commons architecture with hard safety triggers, legal-operational boundaries, and an explicit anti-extraction design.
 
-MountainShares is designed to support forms of wealth that are harder to extract from the community in the way coal, timber, and labor have been historically. The value generated through community participation—knowledge, skills, relationships, cultural preservation—remains embodied in people and place rather than flowing to distant shareholders or extractive industries.
+---
 
-Unlike traditional employment where wages can be extracted as labor value, MountainShares rewards generate buying power that circulates within the local acceptance network, with each transaction intended to strengthen rather than deplete community economic capacity.
+## 2. The Three-Box Structure
 
-#### 2. Education as Economic Activity
+MountainShares operates inside a three-box entity structure. This structure is not cosmetic — it is the legal and economic firewall that keeps charitable, community, and founder interests properly separated.
 
-Time spent in educational activities—studying, teaching, tutoring, skill‑building—earns EMS hours that can be converted into spendable MountainShares under the current base rate and caps, treating education as currency‑generating community economic activity rather than unpaid preparation for future employment.
+| Entity | Role | What It Does |
+|---|---|---|
+| **Harmony for Hope, Inc. (H4H)** | 501(c)(3) charitable anchor; legal operator | Holds regulatory licenses, oversees compliance, operates the program framework, receives 30% of fee revenue for operations |
+| **MountainShares Commons / DUNA** | Community-owned ledger and governance layer | Holds UEIs, EMS recognition ledger, PMS/M$ system, DAO governance, participation records, and community surplus logic |
+| **Kidd's Technical Services (KTS)** | To-be-formed founder commercial engine | Holds founder-side commercial rights and ALLIS-related commercialization outside H4H and outside community EMS |
 
-The system rewards educational **process** (time invested) rather than credentials obtained, avoiding hierarchies of knowledge types and incentivizing genuine learning over credential optimization. Knowledge multiplication through teaching does not deplete the teacher's capacity, creating non‑zero‑sum dynamics inside the program.
+This structural wall matters because it keeps founder-side value from being realized through charitable assets or community labor credits. No EMS hour, no M$ balance, and no community surplus allocation is a founder equity path. Any mechanism that creates such a path is a structural boundary breach and must be treated as a Critical finding.
 
-#### 3. Historic and Cultural Preservation Revenue
+---
 
-Integration with The Clio Foundation's API via QR codes on the Mount Hope Historic Walking Trail enables monetization of historic preservation work through NFT creation. Revenue from historic data NFTs follows a 50% creator / 30% Clio / 20% MountainShares treasury split, creating potential sustainable funding for cultural preservation while compensating knowledge‑holders.
+## 3. The Two Currency Layers
 
-This model particularly benefits elders and tradition‑bearers whose cultural knowledge has historically been extracted without compensation. Oral histories, traditional practices, and place‑based knowledge become economically meaningful contributions that can generate ongoing program revenue when accessed or resold.
+MountainShares has two different kinds of value records. Understanding the distinction is essential.
 
-#### 4. Treasury‑Linked Increases in Buying Power
+### 3.1 PMS / M$ (Purchased MountainShares)
 
-If later Phases are activated under Program Rules and hard reserve thresholds are met, the internal buying power of previously earned spendable MountainShares may change for in‑network redemptions. Early participants may benefit under the Program Rules when the system moves between phases and the defined internal buying power of spendable M$ increases, providing additional recognition for early community‑builders within the program while still remaining bounded by reserve‑ratio‑driven caps and safety rails.
+PMS, denoted internally as **M$**, is the spendable network unit. It is created when a participant loads USD into the system through an approved payment channel. It can be used within the network for approved purchases, events, merchant transactions, and other eligible activities.
 
-Illustrative example (for internal redemption only): 520 hours of documented community participation in Phase 1 earn 520 EMS hours, of which a capped portion is converted into spendable M$ at the current base rate (for example, 0.2–1.0 M$ per hour), subject to a monthly per‑user limit. Under the three‑phase schedule, if Phase 2 were activated and applied to an eligible spendable M$ balance, each M$ in that balance would have a 10 U.S. dollar internal buying‑power equivalent for eligible in‑network redemptions, and if Phase 3 were activated and applied, a 34.70 U.S. dollar internal buying‑power equivalent, reflecting a 34.7x change in defined program value per M$. These figures are illustrative of internal redemption terms only, may never apply in practice, are further constrained by caps and reserve‑ratio safety rules, and do not represent investment returns, interest, or tradable market prices.
+Key traits:
+- Spendable in-network
+- Subject to fees, transaction limits, reserve checks, and compliance controls
+- Backed by treasury mechanics and governed by the Operational Reserve Ratio
+- Eligible, in limited circumstances, for conversion back to fiat subject to rules and availability
 
-#### 5. Time‑Based Rank Advancement
+### 3.2 EMS (Earned MountainShares)
 
-Participants build rank exclusively through time accumulated in documented community activities, not through money exchanged or invested. All documented hours of community participation enter the recognition ledger equally as EMS hours regardless of activity type. One hour of volunteering = one hour studying = one hour teaching = one hour attending community events = 1 EMS hour in the recognition system.
+EMS is the recognition layer. It records verified community contribution — caregiving, mutual aid, education, cultural preservation, mapping, governance work, and other approved activities. EMS begins in the recognition ledger and may later be converted into spendable M$ subject to reserve conditions and caps.
 
-Rank progression (Bronze → Silver → Gold → Champion) is determined solely by time contributed, ensuring egalitarian advancement pathways. Higher ranks unlock benefits including eligibility for voting membership in the MountainShares DAO, creating governance participation earned through community contribution rather than financial stake or investment.
+Key traits:
+- Starts as recognition, not spendable balance
+- Can be converted into spendable M$ only within strict program rules
+- Remains non-appreciating in the securities-law sense
+- Never creates a vested right to future higher conversion value
+- Serves as the historical record of who contributed and how
 
-#### 6. Local Economic Circulation
+The distinction is deliberate: PMS handles transactional utility; EMS handles recognition, memory, and bounded conversion.
 
-Transaction fee structures are designed to incentivize local spending over external extraction:
-- Loading U.S. dollars into the system: 2.85% fee.
-- Internal transfers between MountainShares participants: 0.25% fee.
-- Purchases at local accepting merchants: 1.80% merchant fee.
-- ATM withdrawals to external currency (where enabled): $1.25 flat fee, provided through designated partners and subject to program limitations, and limited to the amount originally loaded (less fees).
+---
 
-Revenue from fees supports treasury growth, system operations, and community programs rather than primarily flowing to distant payment processors or financial institutions. A separate promo and bonus pool, funded as a small percentage of monthly volume and capped by DAO‑set limits, enables targeted incentives without bypassing per‑user caps or reserve‑ratio safety rules. This creates positive feedback loops where system usage is intended to strengthen community capacity.
+## 4. The Reserve System
 
-#### 7. Emergency Response and Resilience
+The safety of MountainShares depends on reserve math that is continuously monitored by Ms. Allis. Two metrics govern the system.
 
-Integration with NOAA weather data and emergency alert systems enables automatic adjustment of economic incentives during crisis conditions. When severe weather threatens, the system can increase rewards for emergency preparedness activities within the available promo budget and within reserve‑ratio‑aware caps, coordinate resource distribution, and help sustain community activity when traditional infrastructure is disrupted.
+### 4.1 Operational Reserve Ratio
 
-This positions MountainShares as potential resilience infrastructure for times when external systems become unreliable—storms, economic crises, institutional failures—rather than merely a supplement to existing systems during stable periods.
+This metric governs day-to-day spending safety, caps, and commerce features.
 
-#### 8. Transparent Community Governance
+~~~
+Operational Reserve Ratio = Treasury USDC Reserve / Total Outstanding Spendable PMS (M$)
+~~~
 
-All governance decisions, treasury operations, smart contract logic, and system rules are intended to be publicly documented and auditable on‑chain and via IPFS. Community members can review fee structures, trace fund flows, examine transaction histories, and participate in governance proposals.
+This ratio determines whether the system can safely support its current spendable balances, whether higher earning caps are allowed, and whether more advanced commerce features remain unlocked.
 
-Rank‑based DAO voting membership ensures democratic participation earned through documented community contribution. Each UEI can ultimately receive one equal vote under the “one UEI = one vote” principle once minimum participation and anti‑sybil criteria are met, and governance rights are carefully scoped so that the DAO can vote to adjust rates and caps upward within safe envelopes but cannot override hard economic triggers, legal constraints, or safety prohibitions.
+### 4.2 Treasury Reserve Solvency Ratio
 
-#### 9. Decentralized Rewards Tracking
+This metric governs EMS buying-power expansion and the long-term maturity of the system.
 
-IPFS‑based rewards tracking creates permanent, distributed records of community participation that cannot be altered or deleted by any single authority. Each participant's contribution history, EMS hours, converted spendable M$, and rank progression is cryptographically verifiable and stored across the distributed network.
+~~~
+Treasury Reserve Solvency Ratio = Treasury Reserve / (Total Outstanding EMS + Total Outstanding M$)
+~~~
 
-This infrastructure helps ensure contribution records persist even if centralized servers fail, maintaining economic memory and participant standing through system disruptions or organizational transitions.
+This is the main gate for higher EMS conversion schedules. It also determines whether the system is eligible to enter later phases of development.
 
-#### 10. The Commons Marketplace Integration
+### 4.3 Why Two Ratios Exist
 
-MountainShares is designed to operate within The Commons Marketplace app (in development), which will integrate:
-- Marketplace for local goods/services exchange.
-- Social features connecting community members.
-- Event coordination and attendance tracking.
-- Historic trail navigation and QR code scanning via Clio.com.
-- Educational content and skill‑sharing.
-- Real‑time rewards tracking, reserve‑ratio dashboards, and rank visualization.
+The system needs two different safety views because spendable balances and recognition balances do different things. The Operational Reserve Ratio protects near-term liquidity and transaction safety. The Treasury Reserve Solvency Ratio protects the long-term integrity of the system's recognition-to-buying-power architecture.
 
-All MountainShares spending and redemption occurs within The Commons Marketplace ecosystem and its approved partners. Ms. Allis AI orchestrates cross‑platform operations, providing real‑time analytics, anomaly/fraud detection support, reserve‑ratio monitoring, community health tracking, and governance support.
+One ratio answers: *Can the system safely handle current spendable volume?*
+The other answers: *Is the treasury strong enough to support a higher recognition-conversion schedule without becoming structurally unsound?*
 
-#### 11. Professional Development Tracking
+---
 
-Participants accumulate verifiable records of skills development, volunteer hours, community contributions, and educational achievements stored on IPFS and blockchain. These cryptographically verifiable records can supplement traditional resumes with documented community impact, teaching experience, and civic engagement.
+## 5. The Three Phases
 
-For regions with limited formal employment opportunities, this creates alternative pathways to demonstrate capability and commitment that do not depend solely on traditional employment history or educational credentials.
+MountainShares scales through three governed phases. Each phase adds capacity, but only when reserve conditions are met.
 
-### Legal and Operational Framework
+### 5.1 Phase 1 — Launch and Safety
 
-MountainShares is intended to operate as a rewards and community trading program administered by a registered 501(c)(3) nonprofit, not as a bank account, deposit product, or investment vehicle. MountainShares are not legal tender, not bank deposits, not stored‑value products issued by a bank, and are not securities, investment contracts, or other regulated financial instruments. Participants opt into the system voluntarily, understanding that:
+Phase 1 is the launch and proving phase. It prioritizes bounded growth, strong safety controls, benefits-sensitive protections, and transparent reserve monitoring.
 
-- MountainShares function as rewards points with defined redemption mechanics within The Commons network and its approved partners.
-- Any change in effective internal buying power depends on treasury performance, reserve ratios, and community participation levels as defined in Program Rules and may not occur, and participants should not rely on any particular Phase transition, base rate, or internal value ever occurring when planning for essential expenses such as rent, food, or medical care.
-- The system may modify rules through documented governance processes, within the limits set by hard safety triggers that cannot be overridden by the DAO.
-- Participation may have tax implications requiring individual professional advice, and for individuals or households receiving means‑tested benefits (such as SSI, WV WORKS/TANF, SNAP, Medicaid, or child care subsidies), MountainShares may be treated as income, in‑kind support, or resources under applicable program rules and could affect eligibility or benefit amounts.
-- All activities must comply with applicable local, state, and federal regulations.
+Core Phase 1 characteristics:
+- EMS recognition converts into spendable M$ at conservative rates
+- Base rate range: 0.10–1.00 M$ per EMS hour
+- Typical per-user caps are low and tightly managed
+- Benefits-sensitive protections are strongest at this stage
+- Phase 1 internal baseline: 1 EMS = $1.00 equivalent
 
-Treasury operations, fee structures, conversion mechanisms, reserve‑ratio triggers, and safety rules are designed and maintained in consultation with legal and financial compliance advisors to help ensure the system operates within established regulatory frameworks while pursuing its community economic development mission.
+This phase proves that the system can operate without destabilizing itself.
 
-> This description is provided for academic and illustrative purposes as part of a thesis case study. It does not constitute investment advice, an offer to sell, or a solicitation of an offer to buy any token, security, or financial product, and should not be relied upon for any financial decision.
+### 5.2 Phase 2 — Regional Growth
+
+Phase 2 activates when the Treasury Reserve Solvency Ratio reaches 300% and all required formation and transition costs have been paid. At that point, the EMS buying-power schedule can become conditionally active at:
+
+- **1 EMS = $10.00 USD equivalent**
+
+Phase 2 characteristics:
+- Statewide rollout across West Virginia
+- Tier 3 Regional Champions introduced
+- Stage 3 commerce becomes available when operational conditions permit
+- More counties, more merchants, and a denser commons economy
+- Higher caps and a broader transaction network
+- Automatic reversion to Phase 1 if Treasury Reserve Solvency Ratio falls below 300%
+
+This is not a vested appreciation promise. It is a conditional rate that remains active only while the treasury remains above the threshold.
+
+### 5.3 Phase 3 — Surplus Distribution
+
+Phase 3 activates only when the Treasury Reserve Solvency Ratio reaches 500%, all prior-phase costs are paid, and the system has met maturity requirements across participation, volume, governance, and regulatory compliance.
+
+At Phase 3, the EMS buying-power schedule becomes conditionally active at:
+
+- **1 EMS = FVSR** (Federal Volunteer Service Rate in effect on the Phase 3 activation date)
+
+The current FVSR for 2026 is **$36.14**, but the governing rule is not a fixed dollar figure — it is the annual IRS-published Federal Volunteer Service Rate in effect at the time Phase 3 formally activates.
+
+Phase 3 adds:
+- A permanent 500% reserve floor
+- A 7-year community dividend cycle
+- Participation-weighted surplus distribution
+- A much stronger treasury expectation
+- Automatic reversion to Phase 2 if the Treasury Reserve Solvency Ratio falls below 500%
+- Automatic reversion to Phase 1 if it falls below 300%
+
+Phase 3 is the community wealth-building maturity phase. It is where the system can begin distributing true surplus — not speculative gains, but actual value above a hardened treasury floor.
+
+---
+
+## 6. How EMS Conversion Actually Works
+
+A common misunderstanding is that EMS automatically "becomes money." That is not how the system works.
+
+EMS moves through stages:
+
+1. A participant performs verified community work.
+2. That work is logged into the EMS recognition ledger.
+3. Program rules determine how much of that EMS may be converted into spendable M$.
+4. Conversion remains subject to phase rules, reserve conditions, per-user caps, and benefits-sensitive protections.
+5. Unconverted EMS may remain vaulted in the recognition ledger.
+
+This means:
+- Not every EMS hour becomes spendable at once
+- Higher conversion schedules do not activate unless treasury thresholds are satisfied
+- No participant is ever forced to convert
+- No participant holds a guaranteed right to future higher-rate conversion before threshold clearance
+
+In legal and structural terms, that is crucial. The system recognizes labor first, then allows bounded economic use under treasury-controlled conditions.
+
+---
+
+## 7. Fees, Treasury Growth, and Sustainability
+
+MountainShares uses fees to fund both operations and long-term reserve growth. This creates a compounding treasury model rather than a one-time subsidy model.
+
+### 7.1 Standard Fees
+
+| Fee Type | Current Rate | Function |
+|---|---|---|
+| Load fee | 2.85% | Supports operations, treasury, and platform funding when USD is loaded into PMS |
+| Internal transfer fee | 0.25% | Supports network maintenance on eligible user-to-user transactions |
+| Merchant fee | 1.80% | Primary treasury-building mechanism during real commerce |
+| ATM / refund fee | $1.25 flat | Supports reserve stability during cash-out events |
+
+### 7.2 Fee Allocation
+
+| Bucket | Allocation | Purpose |
+|---|---|---|
+| 1 | 30% | H4H operations |
+| 2 | 30% | Treasury Reserve |
+| 3 | 15% | Platform development |
+| 4 | 15% | Community programs |
+| 5 | 10% | Community projects |
+| — | +0.55% | Supplemental Treasury Reserve assessment on gross transaction volume |
+
+This allocation means the treasury grows not only through direct reserve funding but also through ordinary use of the system. As commerce increases, reserve strength can increase too.
+
+### 7.3 Why This Matters
+
+A commons cannot survive on idealism alone. It needs operating revenue, legal compliance funding, technical maintenance, and a reserve that grows as usage grows. The MountainShares fee structure is designed to make those things explicit rather than hidden.
+
+---
+
+## 8. Benefits-Sensitive Protections
+
+MountainShares is designed with specific protections for participants who rely on means-tested public benefits. These protections are not a side note — they are a central design feature.
+
+Core protections include:
+- PMS cash-out disabled by default
+- Participant-controlled conversion timing
+- Warning thresholds and soft caps
+- County-level variation if local benefits mixes require tighter rules
+- No forced disclosure of benefit status
+- No forced conversion at phase transitions
+
+Phase 3 adds:
+- 60-day advance notice before any distribution event
+- Projected allocation information before the distribution fires
+- Strong direction to consult a benefits counselor before electing USD cash-out
+- **EMS Recognition Bonus** as an alternative to M$ or USD receipt
+
+The EMS Recognition Bonus allows a participant to take their Phase 3 distribution as permanent recognition hours rather than as a financial instrument. That design exists specifically so a participant can still receive acknowledgment and historical credit without necessarily triggering the same risks as cash or spendable balance.
+
+---
+
+## 9. Governance and Automatic Constraints
+
+MountainShares uses governance, but not everything is governable. Some rules are intentionally outside ordinary vote control.
+
+### 9.1 What Governance Can Do
+
+The DAO and H4H governance layers can adjust:
+- Rates within approved ranges
+- Caps within approved safety bands
+- Promo pool targeting
+- County activation sequencing
+- Some allocation mechanics
+- Certain program categories and game parameters
+- Annual regulatory compliance budget approval
+- Future structural proposals, subject to heightened thresholds
+
+### 9.2 What Governance Cannot Do
+
+Governance cannot:
+- Override hard safety triggers
+- Force EMS conversion
+- Override reserve-based phase reversion
+- Lower the permanent Phase 3 500% floor
+- Create a founder equity path through H4H or community EMS
+- Distribute from the floor itself rather than from true surplus
+- Override benefits-sensitive protections except through the required super-majority and legal review process where such modification is even permitted
+
+This split matters because a commons without hard stops can vote itself into self-destruction. MountainShares is built to prevent that.
+
+---
+
+## 10. The Community Dividend in Phase 3
+
+The most distinctive long-term benefit of MountainShares is not simply higher EMS buying power. It is the Phase 3 community dividend.
+
+### 10.1 What the Dividend Is
+
+The dividend is a distribution of **real surplus above the 500% floor** after the treasury has remained healthy long enough to justify it. It is not a speculative return. It is not a token yield product. It is not founder extraction.
+
+It is a community distribution from genuine surplus.
+
+### 10.2 How It Works
+
+Phase 3 uses a 7-year dividend clock:
+- The clock starts when Phase 3 activates
+- It runs only while the treasury remains above the 500% floor
+- If the treasury drops below the threshold, the clock pauses
+- Once 7 years of active time have accumulated, a distribution event can occur if all preconditions are satisfied
+
+Eligibility is based on participation, not wealth. Each UEI's share depends on **Participation Weight**, which reflects verified months of activity and a multiplier for long-term sustained presence.
+
+That design ensures that the people who actually built the commons receive the surplus it generated.
+
+### 10.3 Why It Exists
+
+For generations, wealth extracted from Central Appalachia has left the region. MountainShares is designed to reverse that pattern. The dividend is the mechanism by which value that remains in the commons can eventually return to the people who kept it alive.
+
+---
+
+## 11. Why the System Is Different
+
+MountainShares differs from many digital currency or community credit systems because it combines:
+
+- A recognition layer and a transaction layer
+- Hard reserve-based safety math
+- Benefits-sensitive design
+- A nonprofit legal operator
+- A community governance layer
+- Automatic constraints on both treasury risk and founder extraction
+- A path to community surplus distribution only after strong reserve maturity
+
+In simpler terms, most systems choose one or two of these things. MountainShares tries to hold all of them together at once:
+- community recognition
+- practical spending utility
+- legal-operational realism
+- anti-extraction structure
+- long-horizon wealth building
+
+That is what makes it ambitious, but also what makes the documents and boundaries matter so much.
+
+---
+
+## 12. Core Benefits by Participant Type
+
+| Participant | Core Benefit |
+|---|---|
+| **General user** | Ability to earn recognition for real community work and convert part of that contribution into bounded local buying power |
+| **Benefits-sensitive participant** | Safer participation path with throttles, warnings, no forced cash-out, and Phase 3 EMS Recognition Bonus option |
+| **Merchant** | Access to a local spending network that keeps value circulating in the community |
+| **Community Champion / Regional Champion** | Higher cap tiers, governance standing, and leadership role in building the commons |
+| **H4H** | Sustainable operational funding and a transparent structure for legal compliance and community stewardship |
+| **Long-term participant** | In Phase 3, eligibility for participation-weighted community dividend from real surplus above the 500% floor |
+| **Community as a whole** | A system designed to retain value locally, build a reserve, and resist extraction |
+
+---
+
+## Appendix A: Definitions
+
+- **PMS / M$:** Purchased MountainShares; spendable network balance issued when USD is loaded into the system.
+- **EMS:** Earned MountainShares; recognition credits for verified community contribution.
+- **Operational Reserve Ratio:** Treasury USDC Reserve ÷ Total Outstanding Spendable PMS (M$).
+- **Treasury Reserve Solvency Ratio:** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$).
+- **FVSR (Federal Volunteer Service Rate):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14.
+- **UEI:** Unique Economic Identity; each participant's persistent identity in the system and governance structure.
+- **Benefits-Sensitive Account:** An account with enhanced protections for participants receiving or potentially receiving means-tested public benefits.
+- **EMS Recognition Bonus:** A Phase 3 distribution election allowing a participant to convert dividend allocation into permanent recognition hours rather than M$ or USD.
+- **Participation Weight (PW):** The score used in Phase 3 to determine a participant's share of the surplus distribution pool.
+- **Reversion Cascade:** The automatic return to prior-phase buying-power rules when reserve thresholds fall below the applicable floor.
+- **Hard Trigger:** An automatic system rule that governance cannot override.
+- **Structural Boundary Breach:** Any mechanism that creates founder equity through H4H, community EMS, or the community surplus pool.
+
+---
+
+*MountainShares: Complete System Overview and Benefits — Version 2.0*
+*Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
+*Draft — Subject to H4H board review and legal counsel approval before reliance*
+
+---
+
+**End of MountainShares: Complete System Overview and Benefits v2.0**
