@@ -8,19 +8,40 @@
 > - **Anti-leakage and closed-loop spending:** The 500% floor requirement (Section 3) and the surplus-only distribution rule (Section 5) operationalize anti-leakage at maturity: the commons never distributes its own backbone; it distributes only what it has grown above and beyond the floor.
 > - **Community wealth building:** The 7-year dividend cycle is the operational instantiation of the MountainShares founding purpose — building durable, community-held wealth in Central Appalachia that stays in Central Appalachia.
 
-**Version:** 1.0
-**Date:** March 16, 2026
-**Status:** DAO Governance Document — Draft for Founding Cohort Review
+**Version:** 2.0
+**Date:** June 17, 2026
+**Status:** DAO Governance Document — Structural Rewrite
 **Scope:** West Virginia Statewide (Phase 3); Reserved for activation upon Phase 2 graduation
-**Related documents:** [Phase 0 Specification](MountainShares%20Phase%200%3A%20Invite-Only%20Beta%20Specification.md), [Phase 1 Specification](MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md), [Phase 2 Specification](MountainShares%20Phase%202%3A%20Regional%20Growth%20Specification.md), [Program Rules](MountainShares%20Program%20Rules(Draft).md), [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md), [DAO Governance Charter](MountainShares%20DAO%20Governance%20Charter.md), [KPI Specification](MountainShares%20KPI%20Specification.md), [Participation Map](../the%20commons/Participation%20Map.md)
+**Related documents:** [Phase 0 Specification](MountainShares%20Phase%200%3A%20Invite-Only%20Beta%20Specification.md), [Phase 1 Specification](MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md), [Phase 2 Specification](MountainShares%20Phase%202%3A%20Regional%20Growth%20Specification.md), [Program Rules](MountainShares%20Program%20Rules(Draft).md), [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md), [DAO Governance Charter](MountainShares%20DAO%20Governance%20Charter.md), [KPI Specification v3.0](MountainShares%20KPI%20Specification.md), [Participation Map](../the%20commons/Participation%20Map.md), [FA-001 Fee Amendment](../contract/H4H/Fee%20Amendment%20-%20FA001.md)
+
+> **Entity Status Notice:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC and has no EIN. References to "KTS" in this document mean Carrie Ann Kidd personally, operating under that trade name. Formation of the WV LLC is the gating step before founder equity, ALLIS IP holding, and KTS-side capitalization instruments take legal effect. No Phase 3 mechanism creates a founder equity path through H4H or community EMS.
+
+> **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
+
+> **EMS Appreciation — Governing Rule:** Community EMS maintains stable baseline exchange value. The Phase 3 buying-power expansion schedule (1 EMS = $36.14 USD equivalent) is **inactive** unless and until the Treasury Reserve Solvency Ratio achieves and sustains 500% of total EMS + M$ outstanding, all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below 500%, the system automatically reverts to Phase 2 parameters; if it falls below 300%, the system reverts to Phase 1 parameters. No resident holds a vested appreciation right prior to threshold clearance. Community EMS is non-appreciating in the securities-law sense at all times — it does not function as an investment contract and carries no present appreciation claim a resident can realize. Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
+
+---
+
+## Structural Framework
+
+This specification operates within the three-box entity structure governing MountainShares. All Phase 3 design choices must preserve the walls between these entities.
+
+| Entity | Role | Phase 3 Relevance |
+|---|---|---|
+| Harmony for Hope, Inc. (H4H) | 501(c)(3) charitable anchor; program sponsor; legal operator | Maintains all regulatory licenses and compliance obligations at Phase 3 scale; files Regulatory Compliance Draw Requests; submits Annual Regulatory Compliance Budget; publishes Regulatory Compliance Clearance Report before each distribution event; receives 30% of fee revenue for operations |
+| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer | EMS recognition ledger, UEIs, PMS prepaid system, 7-year dividend clock, participation-weight engine, surplus pool governance, DAO distribution confirmation votes |
+| Kidd's Technical Services (KTS) | To-be-formed for-profit LLC/PBC; founder-owned commercial engine | Ms. Allis / ALLIS deployment at 704 Main Street; founder-side rights documented separately; no equity path through EMS, H4H, or the community dividend |
+
+No Phase 3 mechanism may create a path by which founder value is realized through H4H or community EMS. The surplus pool is a community asset. Any such path found in operation is a Critical finding requiring immediate resolution.
 
 ---
 
 ## Changelog
 
 | Version | Date | Summary |
-|---------|------|---------|
+|---|---|---|
 | 1.0 | March 16, 2026 | Initial release — Phase 3 framework, 500% reserve floor, 7-year community dividend cycle, participation-weighted distribution, surplus governance, Regulatory Compliance Reserve Draw at Phase 3 scale |
+| 2.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Added dual reserve metric framework (Operational Reserve Ratio / Treasury Reserve Solvency Ratio); corrected EMS appreciation framing to reserve-gated, deferred, conditional — not present floating value; added reversion trigger cascade (P3→P2→P1); added three-box structural framework; corrected server location to 704 Main Street; added KTS entity status notice; aligned with FA-001, Phase 2 v2.0, KPI Specification v3.0, and H4H Canonical Facts Sheet; added Regulatory Compliance Clearance Report to pre-distribution checklist |
 
 ---
 
@@ -29,7 +50,8 @@
 Phase 3 does not start from zero. It activates a community dividend engine on top of a mature, statewide, fully operational commons economy.
 
 **What Phase 2 produced:**
-- A statewide reserve-backed M$ economy operating at ≥ 3.0 reserve ratio (300% band) for 90+ consecutive days
+- A statewide reserve-backed M$ economy operating at ≥ 3.0 operational reserve ratio (300% band) for 90+ consecutive days
+- Treasury Reserve Solvency Ratio ≥ 500% of total EMS + M$ outstanding for 2+ consecutive quarters — the Phase 3 activation gate
 - ≥ 10,000 active UEIs across ≥ 10 active West Virginia counties
 - A mature three-stage commerce platform (Stage 3 full commerce) operating without systemic incidents
 - A regional Champion corps with verified multi-county governance presence
@@ -37,70 +59,153 @@ Phase 3 does not start from zero. It activates a community dividend engine on to
 - A DAO with ≥ 40% quorum governance participation and a demonstrated multi-year track record
 - All required WV and federal regulatory registrations and licenses confirmed current and in good standing
 - A treasury that has grown above and beyond the 300% band through sustained fee revenue, merchant transaction volume, and community participation
+- EMS buying-power expansion conditionally active at Phase 2 rate (1 EMS = $10) with reversion mechanics documented and audited
 
-All EMS hours, ranks, and badges from Phase 0, Phase 1, and Phase 2 carry forward permanently. Phase 3 does not reset the recognition ledger. It builds the dividend engine on top of everything that came before.
+All EMS hours, ranks, and badges from Phase 0, Phase 1, and Phase 2 carry forward permanently at stable baseline value. Phase 3 does not reset the recognition ledger. It builds the dividend engine on top of everything that came before.
 
 ---
 
 ## 2. Core Economic Principles at the 500% Band
 
-Phase 3 is defined by a new and permanent treasury floor: the **500% Reserve Floor**. This is the minimum treasury position the system must maintain at all times from the moment Phase 3 activates forward. The 500% floor is not a target — it is a hard floor below which no distribution may occur, below which the dividend clock pauses, and below which Phase 3 earning ceilings reduce automatically.
+Phase 3 is defined by two governing metrics operating simultaneously, with a permanent elevated floor.
 
-- **500% Floor is Permanent and Non-Negotiable:** Once Phase 3 activates, the treasury must hold ≥ 5.0 reserve ratio at all times. The DAO may not vote to lower this floor. Ms. Allis enforces it automatically. It cannot be overridden.
-- **Surplus is Defined as Excess Above 500%:** Any treasury position above 5.0 reserve ratio is surplus. Surplus accumulates. It does not distribute automatically — it distributes on the 7-year community dividend cycle defined in Section 5.
-- **Nothing Distributes Without Surplus:** A treasury at exactly 500% does not trigger distribution. Distribution requires that the surplus pool is sufficient to fund a meaningful dividend while maintaining ≥ 500% after distribution. Ms. Allis calculates this before every distribution event.
-- **Legal Operability Remains a Treasury Priority:** The commons cannot function without H4H maintaining its legal and regulatory standing. The Regulatory Compliance Reserve Draw mechanism (Section 7A) carries forward from Phase 2 with updated thresholds appropriate to Phase 3 scale. Regulatory compliance costs are infrastructure. They are funded before surplus accumulates, not from the surplus pool.
-- **Hard Triggers Remain Permanent:** All Phase 1 and Phase 2 hard trigger rules remain in force. They do not soften in Phase 3.
+### 2.1 Dual Reserve Metric Framework
+
+**Operational Reserve Ratio** governs day-to-day continuity of service, earning caps, and Phase 3 commerce features:
+
+~~~
+Operational Reserve Ratio = Treasury USDC Reserve / Total Outstanding Spendable PMS (M$)
+~~~
+
+**Treasury Reserve Solvency Ratio** governs EMS buying-power expansion, the dividend clock, and is the primary appreciation gate:
+
+~~~
+Treasury Reserve Solvency Ratio = Treasury Reserve / (Total Outstanding EMS + Total Outstanding M$)
+~~~
+
+Both metrics are calculated daily by Ms. Allis, published on the dashboard with green/amber/red bands, and enforced by the Phase Management Controller. A reader — including a funder, auditor, or regulator — can see on the face of the dashboard whether the dividend clock is running, whether the appreciation gate is open, and what the current reserve position is relative to all applicable thresholds.
+
+### 2.2 EMS Appreciation Status in Phase 3
+
+Phase 3 buying-power expansion is **conditionally active** at the 36.14× rate (1 EMS = $36.14 USD equivalent) only while the Treasury Reserve Solvency Ratio ≥ 500%. This is not a permanently vested right. No resident holds a vested conversion right at any point before threshold clearance.
+
+**Reversion cascade:**
+- If Treasury Reserve Solvency Ratio falls below 500%: system reverts to Phase 2 parameters (1 EMS = $10 rate, conditionally active at 300%)
+- If Treasury Reserve Solvency Ratio falls below 300%: system reverts to Phase 1 parameters (baseline rate only; no buying-power expansion)
+- No DAO vote is required for either reversion — they are automatic
+- No resident loses their principal EMS balance in any reversion scenario
+- Each reversion is logged to the durable audit trail with timestamp, triggering metric, and applicable restored parameters
+- The system re-advances to Phase 3 appreciation parameters only after the 500% threshold is restored for two consecutive quarters
+
+Community EMS remains non-appreciating in the securities-law sense at all times. It does not function as an investment contract and carries no present, vested, or guaranteed appreciation claim. Any founder-side appreciating instrument exists exclusively on the KTS side under separate documentation.
+
+### 2.3 The 500% Floor Is Permanent and Non-Negotiable
+
+Once Phase 3 activates, the 500% Reserve Floor governs all treasury operations. The DAO may not vote to lower this floor. Ms. Allis enforces it automatically. It cannot be overridden by any vote threshold.
+
+**Surplus** is defined as any treasury position above the 500% floor. Surplus accumulates. It does not distribute automatically — it distributes on the 7-year community dividend cycle defined in Section 5. A treasury at exactly 500% does not trigger distribution; distribution requires that the surplus pool is sufficient to fund a meaningful dividend while maintaining ≥ 500% after distribution.
+
+### 2.4 Legal Operability Remains a Treasury Priority
+
+The commons cannot function without H4H maintaining its legal and regulatory standing. The Regulatory Compliance Reserve Draw mechanism (Section 7A) carries forward from Phase 2 with the reserve floor updated to 5.0 (500%). Regulatory compliance costs are infrastructure. They are funded before surplus is calculated, not from the surplus pool.
+
+### 2.5 Hard Triggers Remain Permanent
+
+All Phase 1 and Phase 2 hard trigger rules remain in force. They do not soften in Phase 3.
 
 ---
 
-## 3. Reserve Bands and Conversion Rate Table (Phase 3)
+## 3. Reserve Bands and Earning Rate Table (Phase 3)
 
-### 3.1 Global Base Rate at Phase 3 Scale
+### 3.1 EMS Buying-Power Expansion (Phase 3, Conditionally Active)
 
-Phase 3 inherits Phase 2 rates at the 300% band as its floor. The Phase 3 ceiling rises as surplus accumulates above 500%.
+Phase 3 buying-power expansion is conditionally active at 36.14× (1 EMS = $36.14 USD equivalent), subject to the reversion cascade in Section 2.2. Conversion is user-initiated, optional, and incremental. The treasury pays USDC only for EMS that participants actively choose to convert; vaulted EMS remains off-balance-sheet recognition until conversion.
+
+### 3.2 Global Base Rate at Phase 3 Scale
 
 - **Floor:** 1.0 M$ per EMS hour (Phase 3 minimum; below this belongs to recovery scenarios)
-- **Ceiling:** 3.0 M$ per EMS hour (unlocked only at ≥ 500% reserve ratio, via DAO vote, when surplus pool is healthy)
-- **Range:** 1.0 – 3.0 M$ per EMS hour, governed by the table in Section 3.4
+- **Ceiling:** 3.0 M$ per EMS hour (unlocked only at ≥ 500% Treasury Reserve Solvency Ratio and ≥ 5.0 operational reserve ratio, via DAO vote, when surplus pool is healthy)
+- **Range:** 1.0 – 3.0 M$ per EMS hour, governed by the Phase 3 Safety Threshold Table in Section 3.4
 
-All current rates and caps are maintained in the [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md), which is the authoritative live reference for any value that may change through governance.
+All current rates and caps are maintained in the [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md).
 
-### 3.2 Per-User Convertible Caps (Monthly, Phase 3)
+### 3.3 Per-User Convertible Caps (Monthly, Phase 3)
 
 | User Tier | Definition | Monthly Cap (M$) | Weekly Cap | Daily Cap |
-|-----------|-----------|------------------|-----------|-----------|
-| **Tier 1** | General Commons, light EMS (non-mission-critical) | 120 M$ | 30 hrs | 6 hrs |
+|---|---|---|---|---|
+| **Tier 1** | General Commons participants | 120 M$ | 30 hrs | 6 hrs |
 | **Tier 2** | Verified EMS, caregiving, high-need community roles (geo+UEI validated) | 240 M$ | 60 hrs | 12 hrs |
 | **Tier 3** | Regional Champion, governance leadership, data stewardship anchor (DAO-confirmed) | 360 M$ | 90 hrs | 18 hrs |
 
-### 3.3 Benefits-Sensitive Account Protections (Phase 3)
+### 3.4 Benefits-Sensitive Account Protections (Phase 3)
 
 All Phase 1 and Phase 2 Benefits-Sensitive Account protections carry forward unchanged. Phase 3 adds:
-
 - **Dividend distribution notice:** Ms. Allis provides advance plain-language notice to all Benefits-Sensitive Account holders no less than 60 days before a distribution event, with projected allocation amounts and a strong advisement to consult a benefits counselor before choosing a distribution form.
-- **Distribution form flexibility:** Benefits-Sensitive Account holders may elect to receive their distribution as EMS Recognition Bonus (permanent recognition hours, not a financial instrument) rather than M$ or USD, specifically to protect benefits eligibility. This election is irrevocable once made for a given distribution event.
-- **No forced disclosure:** Participation in The Commons and receipt of a dividend distribution does not require disclosure of benefit status. Benefits-Sensitive Account protections are participant-controlled and opt-in.
+- **Distribution form flexibility:** Benefits-Sensitive Account holders may elect to receive their distribution as an EMS Recognition Bonus (permanent recognition hours, not a financial instrument) rather than M$ or USD, specifically to protect benefits eligibility. This election is irrevocable once made for a given distribution event.
+- **No forced conversion:** Participants who vaulted EMS in prior phases are never automatically converted; each participant controls their own conversion timing.
+- **No forced disclosure:** Participation in The Commons and receipt of a dividend distribution does not require disclosure of benefit status.
 
-### 3.4 Phase 3 Safety Threshold Table (Ms. Allis Enforces Automatically)
+### 3.5 Phase 3 Safety Threshold Table (Ms. Allis Enforces Automatically)
 
-| Reserve Ratio | Global Base Rate | Dividend Clock | Regulatory Compliance Draws | Action |
-|---------------|-----------------|---------------|---------------------------|--------|
-| ≥ 5.0 (500%) | 2.0–3.0 M$/hr (DAO vote) | Running | Available per Section 7A | DAO may vote to increase rate toward 3.0; surplus accumulates |
-| 4.0 – 4.99 | 1.5–2.0 M$/hr (DAO-controlled) | Paused | Queued per deferral rules | No new distributions; existing commitments honored; DAO notified |
-| 3.0 – 3.99 | Phase 2 rates reactivate | Paused + alert | Queued per deferral rules | Phase 2 thresholds govern; dividend clock pauses; emergency review |
-| < 3.0 | Phase 1/2 recovery rules | Paused + emergency | Emergency session required | Full emergency protocol; distribution commitments suspended |
+| Operational Reserve Ratio | Treasury Reserve Solvency Ratio | Global Base Rate | Dividend Clock | EMS Buying-Power Status | Regulatory Compliance Draws | Action |
+|---|---|---|---|---|---|---|
+| ≥ 5.0 (500%) | ≥ 500% (P3 active) | 2.0–3.0 M$/hr (DAO vote) | Running | Conditionally active — 1 EMS = $36.14 | Available per Section 7A | DAO may vote to increase rate toward 3.0; surplus accumulates |
+| 4.0 – 4.99 | ≥ 500% | 1.5–2.0 M$/hr (DAO-controlled) | Paused | Conditionally active | Queued per deferral rules | No new distributions; existing commitments honored; DAO notified |
+| 3.0 – 3.99 | ≥ 500% | Phase 2 rates reactivate | Paused + alert | Conditionally active (P2 rate) | Queued per deferral rules | Phase 2 thresholds govern; dividend clock pauses; emergency review |
+| < 3.0 | Any | Phase 1/2 recovery rules | Paused + emergency | Phase 2 or P1 reversion as applicable | Emergency session required | Full emergency protocol; distribution commitments suspended |
+| Any | < 500% | Phase 2 rates reactivate | Paused | **Reverted to Phase 2 — P3 expansion suspended** | Queued per deferral rules | Automatic reversion to Phase 2 parameters; no vote required |
+| Any | < 300% | Phase 1 rates reactivate | Paused + emergency | **Reverted to Phase 1 — all expansion suspended** | Emergency session required | Automatic reversion to Phase 1 parameters; full emergency protocol |
 
 **Automatic Trigger Logic:**
-- Ms. Allis recalculates reserve ratio daily.
-- If ratio drops below 5.0, dividend clock pauses immediately; Ms. Allis publishes plain-language notice to all eligible UEIs.
+- Ms. Allis recalculates both reserve metrics daily.
+- If operational reserve ratio drops below 5.0, dividend clock pauses immediately; Ms. Allis publishes plain-language notice to all eligible UEIs within 24 hours.
 - Clock resumes when ratio has held ≥ 5.0 for ≥ 180 consecutive days.
-- If ratio drops below 3.0, Phase 2 emergency protocols reactivate in full.
-- Regulatory Compliance Reserve Draws are calculated against the reserve ratio after draw. No draw may fire if it would push the ratio below 5.0. Draws that would breach the floor are automatically queued in the deferral queue per Section 7A.6.
+- If operational reserve ratio drops below 3.0, Phase 2 emergency protocols reactivate in full.
+- **If Treasury Reserve Solvency Ratio drops below 500%, Phase 3 buying-power expansion reverts to Phase 2 immediately — no DAO vote required.**
+- **If Treasury Reserve Solvency Ratio drops below 300%, all buying-power expansion reverts to Phase 1 — no DAO vote required.**
+- Regulatory Compliance Reserve Draws are calculated against the reserve ratio after draw. No draw may fire if it would push the operational reserve ratio below 5.0.
 
 ---
 
-## 4. The 500% Floor: Why It Exists and What It Protects
+## 4. Treasury Backing and Hard Reserve Thresholds (Phase 3)
+
+### 4.1 Reserve Metrics Definition
+
+**Operational Reserve Ratio:**
+
+~~~
+Operational Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
+~~~
+
+**Treasury Reserve Solvency Ratio:**
+
+~~~
+Treasury Reserve Solvency Ratio = Treasury Reserve / (Total Outstanding EMS + Total Outstanding M$)
+~~~
+
+**Backing Assets Include:**
+- USD load fees (users converting USD → M$)
+- Merchant transaction fees (1.80% of eligible M$ transactions)
+- Internal transfer fees (0.25%)
+- ATM/refund fees ($1.25 flat per cash-out transaction)
+- CLIO NFT revenue
+- DAO-approved grants or donations
+- Regional activation revenue and Stage 3 commerce transaction fees
+
+**Excludes:** EMS recognition hours (vaulted, not circulating supply), future promises, unfunded projections, speculative asset valuations.
+
+> **Fee Revenue Allocation:** All collected fees are allocated per [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md) Section 4.3:
+>
+> | Bucket | Allocation | Purpose |
+> |---|---|---|
+> | 1 | 30% | Harmony for Hope, Inc. (H4H Operations) |
+> | 2 | 30% | Treasury Reserve |
+> | 3 | 15% | Platform Development |
+> | 4 | 15% | Community Programs |
+> | 5 | 10% | Community Projects |
+> | — | +0.55% | Supplemental Treasury Reserve (on gross transaction volume) |
+
+### 4.2 The 500% Floor: Why It Exists and What It Protects
 
 The 500% floor is not arbitrary. It reflects the founding purpose of MountainShares: to build a commons that can survive extraction attempts, economic shocks, coordinated fraud, and the long-term volatility of a rural Appalachian economy — and still be standing to distribute to the community when the time comes.
 
@@ -111,9 +216,17 @@ The 500% floor is not arbitrary. It reflects the founding purpose of MountainSha
 - Regulatory cost spikes: a sudden federal or state licensing requirement at Phase 3 scale could represent a five- or six-figure cost; the floor ensures the treasury can absorb it without threatening the dividend
 - Time-value erosion: a 7-year accumulation window is only meaningful if the floor holds for 7 years
 
-**The floor is not punishment or hoarding.** It is the minimum structural condition for the commons to be durable enough to deliver on its promise. A treasury that can be hollowed by a single bad year is not a commons — it is a gamble. MountainShares is not a gamble. It is a covenant with the communities that built it.
+The floor is not punishment or hoarding. It is the minimum structural condition for the commons to be durable enough to deliver on its promise. For generations, the wealth produced in Central Appalachia has left. Coal left. Timber left. Gas left. The people stayed and the wealth didn't. The 500% floor is the mechanism that ensures this commons does not become one more extraction event wearing a different name.
 
-For generations, the wealth produced in Central Appalachia has left. Coal left. Timber left. Gas left. The people stayed and the wealth didn't. The 500% floor is the mechanism that ensures this commons does not become one more extraction event wearing a different name.
+### 4.3 Treasury Reserve Draw Authority (Phase 3)
+
+Two draw categories exist in Phase 3:
+
+**Category A — Automatic Safety Draws:** Ms. Allis draws from the Treasury Reserve automatically to maintain reserve ratio thresholds, fund verified EMS conversions within approved caps, and execute approved promo pool disbursements. These require no DAO vote.
+
+**Category B — Regulatory Compliance Reserve Draws:** H4H may draw from the Treasury Reserve for documented, verified regulatory compliance costs. Governed by Section 7A. No draw may reduce the operational reserve ratio below 5.0 (500%).
+
+The surplus pool does not fund regulatory compliance. The Reserve Draw mechanism funds regulatory compliance. The surplus pool funds community dividends. These two pools are structurally separate and Ms. Allis enforces that separation automatically.
 
 ---
 
@@ -121,10 +234,10 @@ For generations, the wealth produced in Central Appalachia has left. Coal left. 
 
 ### 5.1 The Dividend Clock
 
-The 7-year community dividend clock starts on the date Phase 3 formally activates — defined as: the DAO adoption vote on the Phase 3 Specification passes AND Ms. Allis confirms the reserve ratio has held ≥ 5.0 for 30+ consecutive days. The clock runs continuously from that date forward.
+The 7-year community dividend clock starts on the date Phase 3 formally activates — defined as: the DAO adoption vote on the Phase 3 Specification passes AND Ms. Allis confirms the operational reserve ratio has held ≥ 5.0 for 30+ consecutive days AND Treasury Reserve Solvency Ratio ≥ 500% with all prior-phase formation and transition costs paid.
 
 **Clock behavior:**
-- If the treasury holds ≥ 5.0 for the full 7-year window: distribution event triggers at Year 7, subject to Section 5.3 conditions.
+- If the treasury holds ≥ 5.0 operational reserve ratio for the full 7-year window: distribution event triggers at Year 7, subject to Section 5.3 conditions.
 - If the treasury drops below 5.0 at any point: the clock pauses at that date and resumes only when the treasury has held ≥ 5.0 for ≥ 180 consecutive days.
 - The Year 7 target date is not absolute — the distribution fires on the next eligible date after the full 7 years of accumulated clock time (accounting for any pause periods) is completed.
 - After each distribution event, the clock resets and runs for another 7 years.
@@ -134,12 +247,12 @@ The 7-year community dividend clock starts on the date Phase 3 formally activate
 
 The surplus pool available for distribution is calculated by Ms. Allis on the day of the distribution event:
 
-```
+~~~
 Surplus Pool = Total Treasury Backing Assets (USD)
                MINUS (5.0 × Total Outstanding Spendable M$)
                MINUS Any Approved but Unfired Regulatory Compliance Reserve Draws
                      in the Deferral Queue
-```
+~~~
 
 The surplus pool is the amount the treasury holds above the 500% floor, net of any queued regulatory compliance obligations. Queued draws are subtracted before the surplus pool is calculated — the commons does not distribute money it already owes to regulators.
 
@@ -154,20 +267,22 @@ The surplus pool is the amount the treasury holds above the 500% floor, net of a
 
 Before any distribution fires, Ms. Allis verifies all of the following:
 
-1. The treasury has held ≥ 5.0 for ≥ 180 consecutive days immediately before the distribution date.
-2. The surplus pool calculation (Section 5.2) yields a positive surplus net of queued regulatory draws.
-3. Distribution of the full surplus pool leaves the treasury at ≥ 5.0 after distribution.
-4. All queued Regulatory Compliance Reserve Draws have either fired or are accounted for in the surplus pool calculation.
-5. No active emergency governance session, active fraud investigation, or active security incident affecting the treasury.
-6. DAO distribution confirmation vote passes (simple majority). This is a confirmation vote — if conditions 1–5 are met, the DAO confirms timing and distribution mechanics. It is not a vote on whether the distribution occurs; that is determined by the conditions above.
+1. The operational reserve ratio has held ≥ 5.0 for ≥ 180 consecutive days immediately before the distribution date.
+2. The Treasury Reserve Solvency Ratio is ≥ 500% immediately before the distribution date.
+3. The surplus pool calculation (Section 5.2) yields a positive surplus net of queued regulatory draws.
+4. Distribution of the full surplus pool leaves the treasury at ≥ 5.0 operational reserve ratio after distribution.
+5. All queued Regulatory Compliance Reserve Draws have either fired or are accounted for in the surplus pool calculation.
+6. No active emergency governance session, active fraud investigation, or active security incident affecting the treasury.
+7. Ms. Allis publishes a Regulatory Compliance Clearance Report confirming all compliance obligations are current, all queued draws are accounted for, and no active regulatory investigations or examinations are pending that could affect the distribution.
+8. DAO distribution confirmation vote passes (simple majority). This is a confirmation vote — if conditions 1–7 are met, the DAO confirms timing and distribution mechanics. It is not a vote on whether the distribution occurs; that is determined by the conditions above.
 
-If any of conditions 1–5 are not met, the distribution is automatically deferred. Ms. Allis publishes a plain-language explanation to all eligible UEIs within 24 hours of the deferral determination.
+If any of conditions 1–7 are not met, the distribution is automatically deferred. Ms. Allis publishes a plain-language explanation to all eligible UEIs within 24 hours of the deferral determination.
 
 ### 5.4 Distribution Cadence After Phase 3 Activation
 
 - **First distribution:** Year 7 from Phase 3 activation (subject to clock rules above).
 - **Subsequent distributions:** Every 7 years thereafter, under the same conditions.
-- The distribution cadence does not accelerate. A period of very high surplus does not move the clock forward. The 7-year rhythm is intentional — it rewards durability and long-term participation, not short-term accumulation.
+- The distribution cadence does not accelerate. A period of very high surplus does not move the clock forward. The 7-year rhythm rewards durability and long-term participation, not short-term accumulation.
 - The DAO may not vote to shorten the 7-year interval. It may vote, by 75% super-majority, to extend the interval for a specific cycle if extraordinary circumstances warrant it — but it may not shorten it.
 
 ---
@@ -192,32 +307,32 @@ The 30-day minimum is a hard floor. A UEI that joined the system 29 days before 
 
 Eligible UEIs receive a share of the surplus pool proportional to their **Participation Weight (PW)**. PW is calculated by Ms. Allis as follows:
 
-```
+~~~
 Participation Weight (PW) =
   Verified Months Active (within the 7-year accumulation window)
   × Activity Multiplier
-```
+~~~
 
 **Verified Months Active:** The number of calendar months within the 7-year window in which the UEI logged ≥ 1 verified EMS hour OR completed ≥ 1 verified Commons transaction. Minimum: 1 month (the 30-day floor). Maximum: 84 months (7 years × 12 months).
 
 **Activity Multiplier:**
 
 | Participation Level | Verified Active Months | Multiplier |
-|--------------------|----------------------|-----------|
+|---|---|---|
 | **Minimum** | 1–6 months | 1.0× |
 | **Regular** | 7–24 months | 1.25× |
 | **Sustained** | 25–60 months | 1.5× |
 | **Founding Deep** | 61–84 months (≥ 5 years continuous) | 2.0× |
 
-The multiplier rewards long-term sustained participation. The people who have been building the commons from the beginning receive a proportionally larger share of the surplus they helped create. This is not a bonus — it is a recognition of who did the work.
+The multiplier rewards long-term sustained participation. The people who have been building the commons from the beginning receive a proportionally larger share of the surplus they helped create.
 
 ### 6.3 Allocation Formula
 
-```
+~~~
 Individual Allocation =
   (UEI Participation Weight / Sum of All Eligible PW)
   × Total Surplus Pool
-```
+~~~
 
 Ms. Allis calculates all PW scores, the total eligible PW pool, and each individual allocation before the distribution event. Preliminary calculations are published at least 30 days before distribution fires:
 - Network-wide aggregate view: publicly visible, anonymized
@@ -241,32 +356,39 @@ Distributions are issued in one of three forms, elected by the participant:
 
 ## 7. DAO Authority in Phase 3
 
-### 7.1 DAO Can Vote To Change (Requires Super-Majority, 66%+)
+### 7.1 DAO Can Vote To Change (Requires 75% Super-Majority)
 
-All Phase 1 and Phase 2 DAO authorities carry forward. Phase 3 adds:
+The following require the higher 75% threshold because they affect the fundamental structure of the dividend:
 
-✅ **Activity multiplier thresholds** (adjust month brackets for Regular, Sustained, Founding Deep), *subject to Ms. Allis verification that the change does not reduce the relative share of long-tenured participants below a governance-defined floor*
-✅ **Allocation form options** (add new forms, e.g., community project investment elections), *subject to legal review*
-✅ **Distribution confirmation timing** (within a 90-day governance window around the Year 7 date), *not the 7-year interval itself*
-✅ **Benefits-Sensitive Account distribution thresholds and election options** (county-specific adjustments), *subject to legal review*
-✅ **Surplus pool partial retention** (DAO may vote to retain a portion of surplus above 500% for a specific community infrastructure project rather than distributing it — requires 75% super-majority + published project specification + Ms. Allis confirmation that floor is maintained after retention)
-✅ **Annual Regulatory Compliance Budget** (approve H4H's submitted annual budget per Section 7A.5)
-✅ **Future phase initiation** (requires 75% super-majority + 90-day community comment period)
+- Surplus pool partial retention for community infrastructure (retain a portion of surplus for a specific named project rather than distributing it; requires published project specification and Ms. Allis floor verification)
+- Future phase initiation (any structural change beyond Phase 3; requires 90-day community comment period)
+- Distribution interval extension (for a specific cycle only, in extraordinary circumstances; may not shorten)
 
-### 7.2 DAO Cannot Override (Phase 3 Hard Triggers)
+### 7.2 DAO Can Vote To Change (Requires Super-Majority, 66%+)
+
+- Activity multiplier thresholds (adjust Verified Active Month brackets), subject to Ms. Allis verification that the change does not reduce the relative share of long-tenured participants below a governance-defined floor
+- Allocation form options (add new forms, e.g., community project investment elections), subject to legal review
+- Distribution confirmation timing (within a 90-day governance window around the Year 7 date), not the 7-year interval itself
+- Benefits-Sensitive Account distribution thresholds and election options (county-specific adjustments), subject to legal review
+- Annual Regulatory Compliance Budget (approve H4H's submitted annual budget per Section 7A.5)
+- **Treasury Reserve Solvency Ratio thresholds (500% Phase 3 maintenance floor)** require DUNA governance approval through formal proposal and quorum-verified vote; any proposed reduction requires additional legal review and is subject to the hard trigger prohibition below
+
+### 7.3 DAO Cannot Override (Phase 3 Hard Triggers)
 
 All Phase 1 and Phase 2 hard trigger rules carry forward unchanged. Phase 3 adds:
 
-❌ Reduce the 500% floor — permanently fixed; no vote can lower it
-❌ Shorten the 7-year distribution interval
-❌ Remove the 30-day minimum eligibility threshold
-❌ Distribute from the 500% floor itself — only surplus distributes
-❌ Override Ms. Allis pre-distribution verification (conditions 1–5 in Section 5.3 are automatic and non-overridable)
-❌ Alter the participation-weight calculation to remove or penalize any class of eligible participant based on tier, rank, county of residence, or benefits status
-❌ Allow distribution to suspended or frozen accounts
-❌ Override Benefits-Sensitive Account distribution protections without 75% super-majority + legal review
-❌ Authorize Regulatory Compliance Reserve Draws for ineligible purposes (Section 7A.3)
-❌ Block or delay a Regulatory Compliance Reserve Draw that has met all conditions in Section 7A
+- Reduce the 500% floor — permanently fixed; no vote can lower it
+- Shorten the 7-year distribution interval
+- Remove the 30-day minimum eligibility threshold
+- Distribute from the 500% floor itself — only surplus distributes
+- Override Ms. Allis pre-distribution verification (conditions 1–7 in Section 5.3 are automatic and non-overridable)
+- Alter the participation-weight calculation to remove or penalize any class of eligible participant based on tier, rank, county of residence, or benefits status
+- Allow distribution to suspended or frozen accounts
+- Override Benefits-Sensitive Account distribution protections without 75% super-majority + legal review
+- Override automatic reversion of EMS buying-power expansion when Treasury Reserve Solvency Ratio falls below 500% or 300%
+- Force any participant to convert vaulted EMS
+- Authorize Regulatory Compliance Reserve Draws for ineligible purposes (Section 7A.3)
+- Block or delay a Regulatory Compliance Reserve Draw that has met all conditions in Section 7A
 
 ---
 
@@ -274,13 +396,12 @@ All Phase 1 and Phase 2 hard trigger rules carry forward unchanged. Phase 3 adds
 
 ### 7A.1 Purpose and Scope
 
-Phase 3 does not reduce H4H's regulatory obligations — it expands them. At Phase 3 scale, the commons is a mature statewide economic system with a multi-year track record, a significant treasury, an active dividend cycle, and potentially the attention of federal and state regulators who have not previously engaged with a system of this type in West Virginia. H4H must maintain its legal and regulatory standing continuously and without interruption. A lapsed license, a missed federal filing, or an unmet regulatory requirement at Phase 3 scale does not merely inconvenience H4H — it threatens the dividend that the community has been building toward for seven years.
+Phase 3 does not reduce H4H's regulatory obligations — it expands them. At Phase 3 scale, the commons is a mature statewide economic system with a multi-year track record, a significant treasury, an active dividend cycle, and potentially the attention of federal and state regulators who have not previously engaged with a system of this type in West Virginia. A lapsed license, a missed federal filing, or an unmet regulatory requirement at Phase 3 scale does not merely inconvenience H4H — it threatens the dividend that the community has been building toward for seven years.
 
-The Regulatory Compliance Reserve Draw mechanism carries forward from Phase 2 with one structural change: the reserve floor against which draws are calculated is now **5.0 (500%)**, not 3.0. Everything else — eligible expenditures, draw process, annual budget, transparency commitments — carries forward from Phase 2 Section 7A with the following Phase 3-specific additions and updates.
+The Regulatory Compliance Reserve Draw mechanism carries forward from Phase 2 with one structural change: the reserve floor against which draws are calculated is now **5.0 (500%)**, not 3.0. Everything else — eligible expenditures, draw process, annual budget, transparency commitments — carries forward from Phase 2 Section 7A.
 
 **Phase 3-specific regulatory landscape additions:**
-
-- At Phase 3 scale, H4H may face federal or state regulatory examination as a functioning payment or credit system. Examination fees imposed by regulators are eligible draws per the categories below.
+- At Phase 3 scale, H4H may face federal or state regulatory examination as a functioning payment or credit system. Examination fees imposed by regulators are eligible draws.
 - The 7-year dividend distribution itself may trigger tax reporting obligations, legal counsel requirements, and participant notification costs. Legal costs specifically tied to structuring, reviewing, and executing the distribution in a legally compliant manner are eligible draws.
 - If WV SB887 or successor virtual currency legislation has imposed new licensing or reporting requirements by the time Phase 3 activates, all compliance costs arising from that legislation are eligible draws.
 - Multi-state expansion planning (if initiated by DAO vote) will generate new state registration and legal costs. These are eligible draws as they arise.
@@ -290,7 +411,7 @@ The Regulatory Compliance Reserve Draw mechanism carries forward from Phase 2 wi
 All Phase 2 Section 7A.2 categories carry forward. Phase 3 adds:
 
 | Category | Examples | Verification Required |
-|----------|---------|----------------------|
+|---|---|---|
 | **Dividend Distribution Legal Compliance** | Legal counsel for structuring and executing the 7-year distribution in compliance with applicable law; tax reporting requirements arising from distribution; participant notification compliance costs | Legal invoice specifying distribution compliance scope; regulatory filing if applicable |
 | **Federal or State Examination Fees** | Fees imposed by federal or state regulators as a condition of examination of a functioning payment, credit, or community currency system | Regulatory demand document + fee receipt |
 | **Multi-State Expansion Legal Costs** | State registration fees, registered agent fees, and initial legal counsel costs for any new state the DAO votes to expand into | DAO expansion vote record + legal invoice or filing receipt |
@@ -303,8 +424,7 @@ All Phase 2 Section 7A.3 exclusions carry forward unchanged. The surplus pool do
 ### 7A.4 Draw Process and Governance (Phase 3)
 
 All Phase 2 Section 7A.4 process steps carry forward. Phase 3 updates the reserve floor verification:
-
-- Ms. Allis verifies that the requested draw does not reduce the reserve ratio below **5.0 (500%)** after draw, not 3.0.
+- Ms. Allis verifies that the requested draw does not reduce the operational reserve ratio below **5.0 (500%)** after draw.
 - Dollar thresholds for DAO comment windows remain unchanged: ≤ $10,000 (72-hour window), $10,001–$50,000 (7-day window + simple majority), > $50,000 (14-day window + 66% super-majority).
 - All draws are recorded permanently in the public governance ledger.
 
@@ -313,22 +433,20 @@ All Phase 2 Section 7A.4 process steps carry forward. Phase 3 updates the reserv
 ### 7A.5 Annual Regulatory Compliance Budget (Phase 3)
 
 All Phase 2 Section 7A.5 provisions carry forward. Phase 3 adds:
-
 - The annual budget submission must include a specific line item for anticipated dividend distribution legal and compliance costs in any year in which a distribution is projected.
-- H4H must flag to the DAO any federal or state regulatory development that could affect the commons' legal standing at Phase 3 scale, no later than 90 days before a compliance deadline where the timeline permits. For regulatory developments that arise with less than 90 days' notice, H4H must flag to the DAO within 5 business days of becoming aware.
+- H4H must flag to the DAO any federal or state regulatory development that could affect the commons' legal standing at Phase 3 scale no later than 90 days before a compliance deadline. For regulatory developments that arise with less than 90 days' notice, H4H must flag to the DAO within 5 business days of becoming aware.
 
 ### 7A.6 Reserve Floor Protection (Phase 3)
 
-- No draw may reduce the reserve ratio below **5.0 (500%)**.
+- No draw may reduce the operational reserve ratio below **5.0 (500%)**.
 - Draws that would breach the floor are automatically queued in the deferral queue and fire when the treasury recovers.
-- Deferred draws are subtracted from the surplus pool calculation before any dividend distribution (Section 5.2) — the commons does not distribute surplus it already owes to regulators.
+- **Deferred draws are subtracted from the surplus pool calculation before any dividend distribution (Section 5.2) — the commons does not distribute surplus it already owes to regulators.**
 - DAO approvals for deferred draws expire after 180 days. H4H must resubmit if the draw has not fired within 180 days of approval.
 - If deferral would result in a lapse of a legally required license or registration, H4H calls an emergency governance session within 48 hours per Section 13.3.
 
 ### 7A.7 Relationship to the Surplus Pool and Dividend
 
 The Regulatory Compliance Reserve Draw and the community dividend are structurally separate:
-
 - **Regulatory compliance costs are paid before surplus is calculated.** The surplus pool formula in Section 5.2 subtracts queued regulatory draws before computing available surplus. Compliance comes first. The dividend distributes what is genuinely left over.
 - **The 30% H4H operational allocation from fee revenue remains the primary funding source for H4H operations.** The Reserve Draw backstops compliance costs that are front-loaded, irregular, or time-critical.
 - **The dividend is the promise. The compliance infrastructure is what makes the promise keepable.** Both are essential. Neither is optional.
@@ -336,9 +454,8 @@ The Regulatory Compliance Reserve Draw and the community dividend are structural
 ### 7A.8 Transparency Commitment (Phase 3)
 
 All Phase 2 Section 7A.8 transparency commitments carry forward. Phase 3 adds:
-
 - The annual year-end governance report must include a dedicated section on regulatory standing: all licenses and registrations current, all compliance draws made in the year, all regulatory developments being monitored, and H4H's assessment of the regulatory risk landscape for the coming year.
-- Before each distribution event, Ms. Allis publishes a Regulatory Compliance Clearance Report confirming that all compliance obligations are current, all queued draws are accounted for in the surplus calculation, and no active regulatory investigations or examinations are pending that could affect the distribution.
+- Before each distribution event, Ms. Allis publishes a **Regulatory Compliance Clearance Report** confirming that all compliance obligations are current, all queued draws are accounted for in the surplus calculation, and no active regulatory investigations or examinations are pending that could affect the distribution.
 
 ---
 
@@ -346,23 +463,21 @@ All Phase 2 Section 7A.8 transparency commitments carry forward. Phase 3 adds:
 
 ### 8.1 DAO Can Vote To Change (Requires 75% Super-Majority)
 
-The following require the higher 75% threshold because they affect the fundamental structure of the dividend:
-
-✅ **Surplus pool partial retention for community infrastructure** (retain a portion of surplus for a specific named project rather than distributing it; requires published project specification and Ms. Allis floor verification)
-✅ **Future phase initiation** (any structural change beyond Phase 3; requires 90-day community comment period)
-✅ **Distribution interval extension** (for a specific cycle only, in extraordinary circumstances; may not shorten)
+- Surplus pool partial retention for community infrastructure (retain a portion of surplus for a specific named project rather than distributing it; requires published project specification and Ms. Allis floor verification)
+- Future phase initiation (any structural change beyond Phase 3; requires 90-day community comment period)
+- Distribution interval extension (for a specific cycle only, in extraordinary circumstances; may not shorten)
 
 ### 8.2 DAO Can Vote To Change (Requires Super-Majority, 66%+)
 
-✅ **Activity multiplier thresholds** (adjust Verified Active Month brackets)
-✅ **Allocation form options** (add new distribution forms)
-✅ **Distribution confirmation timing** (within 90-day governance window)
-✅ **Benefits-Sensitive Account distribution thresholds**
-✅ **Annual Regulatory Compliance Budget approval**
+- Activity multiplier thresholds (adjust Verified Active Month brackets)
+- Allocation form options (add new distribution forms)
+- Distribution confirmation timing (within 90-day governance window)
+- Benefits-Sensitive Account distribution thresholds
+- Annual Regulatory Compliance Budget approval
 
 ### 8.3 DAO Cannot Override (Phase 3 Hard Triggers)
 
-All items listed in Section 7.2 are hard triggers. They cannot be reached by any vote threshold.
+All items listed in Section 7.3 are hard triggers. They cannot be reached by any vote threshold.
 
 ---
 
@@ -375,6 +490,11 @@ All Phase 1 and Phase 2 dashboard features carry forward. Phase 3 adds:
 - Days elapsed in current 7-year window
 - Cumulative pause days (displayed openly)
 - Projected distribution date (updated daily; marked "estimated — subject to treasury health")
+
+**Reserve Metrics (both displayed prominently):**
+- Operational Reserve Ratio with 5.0 floor marker and green/amber/red bands
+- Treasury Reserve Solvency Ratio with Phase 3 (500%) and Phase 2 (300%) threshold markers
+- EMS buying-power expansion status: Active (P3) / Reverted to P2 / Reverted to P1 / Pending
 
 **Surplus Pool:**
 - Current surplus pool calculation (updated daily): Total Backing Assets, 500% Floor Requirement, Queued Regulatory Draws, Net Surplus Available
@@ -395,10 +515,11 @@ All Phase 1 and Phase 2 dashboard features carry forward. Phase 3 adds:
 
 ## 10. Audit and Governance Cadence (Phase 3)
 
-All Phase 1 and Phase 2 audit cadences carry forward. Phase 3 adds:
+All Phase 1 and Phase 2 audit cadences carry forward. Phase 3 adds or adjusts:
 
-- **Monthly:** Surplus pool calculation published in full; dividend clock status reported; participation weight calculation updated for all active UEIs; regulatory compliance draw status report
-- **Annually:** Full 7-year accumulation audit — independent review of surplus pool math, participation weight calculations, treasury health, and regulatory standing; H4H submits Annual Regulatory Compliance Budget no later than 60 days before calendar year start
+- **Daily:** Both reserve metrics calculated and published; dividend clock status updated; EMS buying-power expansion gate status confirmed
+- **Monthly:** Surplus pool calculation published in full; dividend clock status reported; participation weight calculation updated for all active UEIs; regulatory compliance draw status report; Treasury Reserve Solvency Ratio trend analysis
+- **Annually:** Full 7-year accumulation audit — independent review of surplus pool math, participation weight calculations, treasury health, and regulatory standing; H4H submits Annual Regulatory Compliance Budget no later than 60 days before calendar year start; year-end governance report with dedicated regulatory standing section
 - **30 days before distribution:** Ms. Allis publishes full pre-distribution report: surplus pool, eligible UEIs, all PW scores (anonymized network view), individual projections in personal dashboards, Regulatory Compliance Clearance Report, and distribution conditions verification
 - **72 hours before distribution:** Final calculations published; DAO confirmation vote window opens
 - **Within 30 days post-distribution:** Full distribution record published permanently
@@ -409,7 +530,7 @@ All Phase 1 and Phase 2 audit cadences carry forward. Phase 3 adds:
 
 Phase 3 has no scheduled end. The commons is designed to operate at Phase 3 indefinitely, running 7-year dividend cycles for as long as the community sustains it.
 
-**Future phases**, if any, are reserved for governance decisions that cannot be anticipated at founding — for example, multi-state expansion beyond West Virginia, integration with other regional commons networks, or structural changes to the DAO governance model.
+Future phases, if any, are reserved for governance decisions that cannot be anticipated at founding — for example, multi-state expansion beyond West Virginia, integration with other regional commons networks, or structural changes to the DAO governance model.
 
 Any future phase that alters the 500% floor, the 7-year cycle, or the participation-weighted allocation formula requires:
 - 75% super-majority DAO vote
@@ -426,12 +547,13 @@ No future phase may remove the 500% floor, eliminate the 7-year cycle, or replac
 All Phase 1 and Phase 2 safety prohibitions carry forward unchanged. Phase 3 adds:
 
 | Category | Prohibition | Detection | Consequence |
-|----------|-----------|-----------|-------------|
+|---|---|---|---|
 | **Dividend Farming** | No account creation, activity simulation, or UEI multiplication designed to artificially inflate Participation Weight | PW anomaly detection + UEI graph analysis + geo verification | Account freeze + permanent PW forfeiture + investigation |
 | **Sybil Distribution Attack** | No coordinated creation of fake UEIs to claim disproportionate distribution share | Sybil pattern detection + social graph + geo cross-check | Mass account freeze + distribution hold pending full review |
 | **Benefits Manipulation for Distribution** | No misrepresentation of benefits status to select a distribution form that would violate program rules | Cross-check + benefits counselor referral flag | Distribution hold + investigation |
 | **Compliance Draw Fraud** | No falsification of regulatory documents, invoices, or legislative citations to obtain a Regulatory Compliance Reserve Draw | Document verification + external regulatory cross-check | Permanent H4H governance suspension + legal referral |
 | **Distribution Record Tampering** | No attempt to alter, delete, or obscure any post-distribution record in the governance ledger | Immutable ledger verification + audit trail | Immediate account freeze + legal referral |
+| **Structural Boundary Breach** | No mechanism that creates founder equity through H4H, community EMS, or the surplus pool | Audit + legal review | Critical finding; immediate resolution required |
 
 ---
 
@@ -439,26 +561,33 @@ All Phase 1 and Phase 2 safety prohibitions carry forward unchanged. Phase 3 add
 
 All Phase 1 and Phase 2 emergency powers carry forward. Phase 3 adds:
 
-### 13.1 If Reserve Ratio Falls Below 4.0 During a Distribution Year
+### 13.1 If Operational Reserve Ratio Falls Below 4.0 During a Distribution Year
 - Distribution deferred automatically
 - Ms. Allis notifies all eligible UEIs in plain language within 24 hours
 - Distribution clock pauses; resumes when ≥ 5.0 for ≥ 180 consecutive days
 - No clawback of previous completed distributions — completed distributions are permanent
 
-### 13.2 If a Distribution Fraud Event Is Detected Before Firing
+### 13.2 If Treasury Reserve Solvency Ratio Falls Below 500% (Reversion Event)
+- Phase 3 buying-power expansion reverts to Phase 2 parameters immediately
+- Dividend clock pauses
+- Reversion logged to durable audit trail with timestamp, current ratio, and triggering metric
+- Plain-language notice published to all participants
+- System returns to Phase 3 parameters only after 500% threshold is restored for two consecutive quarters
+
+### 13.3 If a Regulatory Compliance Deadline Cannot Be Met Due to Reserve Constraints
+- H4H calls an emergency governance session within 48 hours of identifying the conflict
+- Ms. Allis publishes plain-language explanation to all participants within 24 hours
+- DAO considers options: temporary minting reduction to accelerate reserve growth; emergency fundraising; phased draw; or governed operational pause in the affected jurisdiction
+- H4H notifies the relevant regulatory body in writing within 5 business days; documentation filed in the governance ledger
+- If a compliance lapse would affect the dividend, Ms. Allis publishes a specific notice to all eligible UEIs explaining the connection and the remediation plan
+
+### 13.4 If a Distribution Fraud Event Is Detected Before Firing
 - Distribution holds immediately pending investigation
 - Ms. Allis publishes anonymized incident notice within 24 hours
 - Emergency DAO session within 48 hours
 - Distribution fires only after investigation is resolved and DAO confirms clearance
 
-### 13.3 If a Regulatory Compliance Deadline Cannot Be Met Due to Reserve Constraints
-- H4H calls an emergency governance session within 48 hours of identifying the conflict
-- Ms. Allis publishes plain-language explanation to all participants
-- DAO considers options: temporary minting reduction to accelerate reserve growth; emergency fundraising; phased draw; or governed operational pause in the affected jurisdiction
-- H4H notifies the relevant regulatory body in writing within 5 business days; documentation filed in the governance ledger
-- If a compliance lapse would affect the dividend, Ms. Allis publishes a specific notice to all eligible UEIs explaining the connection and the remediation plan
-
-### 13.4 Graceful Shutdown Protocol
+### 13.5 Graceful Shutdown Protocol
 If the commons ever votes to wind down operations — which requires 75% super-majority + 180-day notice period + legal review — the following sequence governs:
 
 1. All Regulatory Compliance Reserve Draws in the deferral queue fire first, in order of regulatory priority
@@ -471,21 +600,23 @@ If the commons ever votes to wind down operations — which requires 75% super-m
 
 ## Appendix A: Definitions (Phase 3)
 
-All Phase 1 and Phase 2 definitions carry forward. Phase 3 adds:
+All Phase 1 and Phase 2 definitions carry forward. Phase 3 adds or amends:
 
-- **500% Reserve Floor:** The permanent minimum treasury position in Phase 3; reserve ratio ≥ 5.0 at all times; non-negotiable, non-overridable by any vote
+- **500% Reserve Floor:** The permanent minimum treasury position in Phase 3; operational reserve ratio ≥ 5.0 at all times; non-negotiable, non-overridable by any vote
+- **Treasury Reserve Solvency Ratio (Phase 3 Gate):** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$). Phase 3 activation threshold: ≥ 500% with all prior-phase formation fees paid. Reversion trigger: < 500% (reverts to Phase 2 parameters); < 300% (reverts to Phase 1 parameters)
+- **EMS Buying-Power Expansion (Phase 3, Conditionally Active):** 1 EMS = $36.14 USD equivalent; user-initiated, optional, incremental. Active only while Treasury Reserve Solvency Ratio ≥ 500%. Not vested — subject to reversion cascade
 - **Surplus Pool:** Total treasury backing assets minus the 500% floor requirement minus any queued regulatory compliance draws; the only pool from which distributions may be drawn
 - **7-Year Community Dividend Cycle:** The distribution rhythm — surplus accumulates for 7 years of active clock time, then distributes to eligible participants; clock resets after each distribution
-- **Dividend Clock:** The running counter of accumulated active days since Phase 3 activation (or since the last distribution); pauses if treasury drops below 5.0 and resumes when ≥ 5.0 for ≥ 180 consecutive days
+- **Dividend Clock:** The running counter of accumulated active days since Phase 3 activation (or since the last distribution); pauses if operational reserve ratio drops below 5.0 and resumes when ≥ 5.0 for ≥ 180 consecutive days; also pauses if Treasury Reserve Solvency Ratio falls below 500%
 - **Participation Weight (PW):** The individual score used to allocate dividend share — Verified Months Active × Activity Multiplier; reflects actual presence and contribution in the commons over the accumulation window
 - **Verified Months Active:** Calendar months within the 7-year window in which a UEI logged ≥ 1 EMS hour or ≥ 1 verified Commons transaction
 - **Activity Multiplier:** The tiered multiplier (1.0×–2.0×) applied to Verified Months Active based on length of sustained participation; rewards durability over speculation
 - **Founding Deep:** The highest participation tier — 61–84 verified active months (≥ 5 years); receives 2.0× activity multiplier
 - **EMS Recognition Bonus:** An optional distribution form in which a participant elects to convert their dividend into permanent EMS recognition hours; irrevocable once elected for a given distribution event; particularly appropriate for Benefits-Sensitive Account holders
 - **Dividend Farming:** Fraudulent activity designed to artificially inflate Participation Weight; treated as a serious violation with permanent PW forfeiture
-- **Regulatory Compliance Clearance Report:** Ms. Allis's pre-distribution verification that all compliance obligations are current, all queued draws are accounted for in the surplus calculation, and no active regulatory matters could affect the distribution
+- **Regulatory Compliance Clearance Report:** Ms. Allis's mandatory pre-distribution verification that all compliance obligations are current, all queued draws are accounted for in the surplus calculation, and no active regulatory matters could affect the distribution; a required condition precedent to distribution under Section 5.3
 - **Deferral Queue:** The Ms. Allis-managed queue of approved but reserve-floor-constrained Regulatory Compliance Reserve Draws; draws fire automatically when the treasury can accommodate them without breaching the 5.0 floor; deferred draws are subtracted from the surplus pool before dividend calculation
-- **Graceful Shutdown Protocol:** The governed wind-down sequence (Section 13.4) requiring 75% super-majority + 180-day notice; ensures all obligations are met and all remaining surplus is returned to participants before the commons closes
+- **Graceful Shutdown Protocol:** The governed wind-down sequence (Section 13.5) requiring 75% super-majority + 180-day notice; ensures all obligations are met and all remaining surplus is returned to participants before the commons closes
 
 ---
 
@@ -498,18 +629,19 @@ All Phase 1 and Phase 2 definitions carry forward. Phase 3 adds:
 - Treasury Backing Assets: $22,000,000
 - Total Outstanding Spendable M$: $3,000,000
 - 500% Floor Requirement: 5.0 × $3,000,000 = $15,000,000
-- Queued Regulatory Compliance Draws: $85,000 (annual bond renewal + legal compliance review for distribution)
+- Queued Regulatory Compliance Draws: $85,000 (annual bond renewal + distribution legal compliance review)
 - **Surplus Pool: $22,000,000 − $15,000,000 − $85,000 = $6,915,000**
 
 **Post-distribution treasury check:**
 - Queued draws fire first: $22,000,000 − $85,000 = $21,915,000 remaining before dividend
 - Dividend fires: $21,915,000 − $6,915,000 = $15,000,000 remaining
-- Reserve ratio after full distribution: $15,000,000 / $3,000,000 = **5.0 (exactly at floor)** ✓
+- Operational reserve ratio after full distribution: $15,000,000 / $3,000,000 = **5.0 (exactly at floor)** ✓
+- Treasury Reserve Solvency Ratio after distribution confirmed ≥ 500% ✓
 
 **Participant examples:**
 
 | UEI | Verified Active Months | Tier | Multiplier | PW |
-|-----|----------------------|------|-----------|-----|
+|---|---|---|---|---|
 | UEI A | 72 months | Founding Deep | 2.0× | 144 |
 | UEI B | 36 months | Sustained | 1.5× | 54 |
 | UEI C | 14 months | Regular | 1.25× | 17.5 |
@@ -521,7 +653,7 @@ All Phase 1 and Phase 2 definitions carry forward. Phase 3 adds:
 - **UEI C allocation:** (17.5 / 850,000) × $6,915,000 = **$142.22**
 - **UEI D allocation:** (3 / 850,000) × $6,915,000 = **$24.38**
 
-Every eligible participant receives something. The people who built it longest receive more. The regulatory draws are paid first. The floor holds. The clock resets. The commons continues.
+Every eligible participant receives something. The people who built it longest receive more. The regulatory draws are paid first. Both reserve metrics hold. The clock resets. The commons continues.
 
 ---
 
@@ -537,9 +669,16 @@ The 500% floor is the lock on the door.
 The Regulatory Compliance Reserve Draw is the key that keeps the door legally open.
 The 7-year clock is the promise kept.
 The participation-weight formula is the proof that it was built by the people who live here.
+The reversion cascade is the guarantee that no expansion right is ever promised before it is earned by the treasury.
 
 The recognition ledger is the permanent record that they were here, they did the work, and it mattered.
 
 *"Seven years of building. Then the commons pays its people. Then we build seven more."*
 
 *"The treasury holds what the community grew. The floor protects what we can never give back. The compliance infrastructure keeps the promise legal. The dividend returns what belongs to the people."*
+
+---
+
+*MountainShares Phase 3: Surplus Distribution Specification — Version 2.0*
+*Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
+*Draft — Subject to H4H board review and legal counsel
