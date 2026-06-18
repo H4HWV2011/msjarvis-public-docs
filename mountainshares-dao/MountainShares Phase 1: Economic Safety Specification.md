@@ -415,7 +415,7 @@ Phase 0 graduated to Phase 1 when the Pre-Launch Audit Report was finalized, all
 
 - **EMS unlocking:** Each user with vaulted EMS time credits receives a one-time opt-in prompt when Phase 2 activates. Users choose:
   - **Cash out now** at 10× appreciation (1 EMS = $10 USD equivalent)
-  - **Continue vaulting** for potential Phase 3 appreciation (36.14×)
+  - **Continue vaulting** for potential Phase 3 appreciation (the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date×)
   - **Partial conversion** — cash out X EMS hours, leave the rest vaulted
 - **No forced conversion:** Phase 2 unlocking does not automatically convert all EMS to spendable PMS
 - **Treasury impact:** Only EMS that users actively choose to convert is paid out from treasury USDC reserves
@@ -434,7 +434,7 @@ Phase 0 graduated to Phase 1 when the Pre-Launch Audit Report was finalized, all
 - DAO governance participation ≥ 40% quorum on key votes
 
 **Phase 3 Changes (contingent on threshold conditions above):**
-- EMS appreciation jumps to 36.14× (1 EMS = $36.14 USD equivalent)
+- EMS appreciation jumps to the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date× (1 EMS = $the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date USD equivalent)
 - Users with remaining vaulted EMS receive new opt-in prompt
 - **Reversion protection:** If Treasury Reserve Solvency Ratio falls below 500%, system automatically reverts to Phase 2 parameters; if it falls below 300%, system reverts to Phase 1 parameters
 
