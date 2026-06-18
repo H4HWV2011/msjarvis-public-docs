@@ -1,38 +1,26 @@
-# MountainShares Phase 1: Economic Safety Specification
+# MountainShares: Complete System Overview and Benefits
 
 > **Disciplinary Context: Appalachian Economic Commons**
 > This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:
-> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1–3 and 7–11 treat recognition, time credits, prepaid value, reserve ratios, and phase transitions as a single coupled system, explicitly tying minting and circulation to backing assets and regional program realities. See https://github.com/H4HWV2011/msallis-public-docs/blob/main/docs/Polymathmatical-Geography.md
-> - **P9 – Transparency and traceability:** Sections 3, 4, 9, and 10 define public reserve-ratio calculations, dashboards, audits, and governance cadences so that money creation, caps, and emergency actions are observable and reconstructable over time.
-> - **P16 – Power accountable to place:** Sections 2, 3, 5–7, and 11 bound DAO, Ms. Allis, and H4H authority inside hard economic and legal constraints, ensuring that decisions about rates, caps, and shutdowns answer to local solvency and community safety rather than abstract speculation.
-> - **Anti-leakage and closed-loop spending:** The separation of the time bank recognition ledger from capped, reserve-backed prepaid value (Section 1) and the reserve-ratio-driven phase transition table (Section 4) operationalize anti-leakage design and keep the closed loop anchored in real backing assets.
-> - **Bounty and corrective programs:** Promo-pool rules (Section 5) and example governance scenarios (Appendix B) show how targeted bonuses and parameter changes can be treated as bounded "bounties" aligned with safety math rather than unconstrained giveaways.
+> - **P1 – Every where is entangled / Leakage and enclosure:** The MountainShares system must be read as a coupled whole — EMS recognition, PMS/M$ spending, treasury reserve math, governance, benefits-sensitive protections, and the entity structure all shape each other. Nothing about value circulation is isolated.
+> - **P9 – Transparency and traceability:** The complete system only works if reserve conditions, fee flows, conversion gates, compliance obligations, and governance actions are visible, auditable, and reconstructable over time.
+> - **P16 – Power accountable to place:** Operational authority must remain answerable to West Virginia communities, their legal realities, and their actual economic conditions. Returns must follow people, place, and participation — not speculation or remote extraction.
+> - **Anti-leakage and closed-loop spending:** The system is designed to keep value circulating inside the commons through bounded minting, reserve-gated conversion, phase-based scaling, and merchant/community recirculation.
+> - **Community wealth building:** MountainShares is designed not merely as a payment layer, but as a long-horizon community wealth architecture that preserves recognition, builds reserves, and ultimately returns surplus to the people who built the commons.
 
-**Version:** 3.0
-**Date:** June 17, 2026
-**Status:** DAO Governance Document — Structural Rewrite
-**Scope:** West Virginia Pilot (Phase 1)
-**Related documents:** [Phase 0 Specification](MountainShares%20Phase%200%3A%20Invite-Only%20Beta%20Specification.md), [Program Rules](MountainShares%20Program%20Rules(Draft).md), [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md), [DAO Governance Charter](MountainShares%20DAO%20Governance%20Charter.md), [MountainShares Gamification: The Contribution Game](MountainShares%20Gamification%3A%20The%20Contribution%20Game.md), [KPI Specification v3.0](MountainShares%20KPI%20Specification.md), [FA-001 Fee Amendment](../contract/H4H/Fee%20Amendment%20-%20FA001.md)
+**Version:** 3.1
+**Date:** June 18, 2026
+**Status:** System Overview — Structural Rewrite (securities framing + money-services relocation + connectivity allocation)
+**Scope:** West Virginia statewide overview across Phase 1, Phase 2, and Phase 3
+**Related documents:** MountainShares Program Rules, Program Rules – Parameter Tables, Phase 1 Specification, Phase 2 Specification, Phase 3 Specification, DAO Governance Charter, KPI Specification v3.0, FA-001 Fee Amendment, H4H Canonical Facts Sheet, EMS Securities Treatment — Counsel Prep, Money-Services Entity Relocation Map
 
-> **Entity Status Notice:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC and has no EIN. References to "KTS" in this document mean Carrie Ann Kidd personally, operating under that trade name. Formation of the WV LLC is the gating step before founder equity, ALLIS IP holding, and KTS-side capitalization instruments take legal effect.
+> **Entity Status Notice:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC and has no EIN. References to "KTS" in this document mean Carrie Ann Kidd personally, operating under that trade name. Formation of the WV LLC is the gating step before founder equity, ALLIS IP holding, and KTS-side capitalization instruments take legal effect. No part of the MountainShares community system creates a founder equity path through H4H or community EMS.
 
 > **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
 
-> **EMS Appreciation — Governing Rule:** Community EMS maintains stable baseline exchange value throughout Phase 0 and Phase 1. Buying-power expansion schedules are **inactive** unless and until the Treasury Reserve achieves the applicable solvency threshold (300% of total EMS + M$ outstanding at Phase 2; 500% at Phase 3), all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below the applicable threshold, the system automatically reverts to prior-phase specifications to maintain continuity of service. No resident holds a vested appreciation right prior to threshold clearance. Community EMS is non-appreciating in the securities-law sense — it does not function as an investment contract and it carries no present appreciation claim a resident can realize. Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
+> **Money-Services Notice:** The **MountainShares DAO / DUNA is the licensee of record** for money transmission (WV Money Transmitter License) and FinCEN Money Services Business registration; it holds the surety bond, runs the BSA/AML program, and operates the fiat cash-out rails. **Harmony for Hope, Inc. is not the money transmitter.** This structure is contingent on counsel confirming a license is required and that the WV Division of Financial Institutions will license the DUNA directly; otherwise a separate DUNA-controlled licensed entity substitutes for "DUNA."
 
----
-
-## Structural Framework
-
-This specification operates within the three-box entity structure governing MountainShares. All Phase 1 design choices must preserve the walls between these entities.
-
-| Entity | Role | Phase 1 Relevance |
-|---|---|---|
-| Harmony for Hope, Inc. (H4H) | 501(c)(3) charitable anchor; program sponsor | Holds operational infrastructure at 704 Main Street; receives 30% of fee revenue for operations |
-| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer | EMS recognition ledger, UEIs, Community Champions, PMS prepaid system, DAO governance |
-| Kidd's Technical Services (KTS) | To-be-formed for-profit LLC/PBC; founder-owned commercial engine | Ms. Allis / ALLIS deployment; founder-side rights documented separately; no equity path through EMS |
-
-No Phase 1 mechanism may create a path by which founder value is realized through H4H or community EMS. Any such path found in operation or testing is a Critical finding requiring immediate resolution.
+> **EMS Conversion — Governing Rule:** Community EMS maintains a stable baseline exchange value. Phase-based buying-power expansion schedules are **inactive** unless and until the Treasury Reserve achieves the applicable solvency threshold (300% at Phase 2; 500% at Phase 3), all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below the applicable threshold, the system automatically reverts to prior-phase specifications. These rates are conditional, revocable, and not vested, and are realized only through participant-elected conversion; no resident holds a vested or guaranteed right to any buying-power rate. EMS confers no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity. **The securities-law treatment of EMS, M$, and the phase-based conversion mechanism is under review by securities counsel; this document makes no representation as to whether any of these is or is not a security or investment contract.** Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
 
 ---
 
@@ -40,529 +28,359 @@ No Phase 1 mechanism may create a path by which founder value is realized throug
 
 | Version | Date | Summary |
 |---|---|---|
-| 1.0 | January 15, 2026 | Initial release |
-| 1.1 | March 12, 2026 | Added Phase 0 foundation section; integrated gamification layer; added three-stage platform arc; added Community Champion role; added Benefits-Sensitive Account protections; added data stewardship KPIs |
-| 1.1 (corrected) | March 12, 2026 | Removed fabricated fee split percentages; fee allocation governed by existing smart contract structure and Parameter Tables |
-| 1.2 | March 13, 2026 | Added cross-references to Parameter Tables Section 4.3; updated fee revenue allocation (30% H4H / 30% Treasury Reserve / 15% Platform Development / 15% Community Programs / 10% Community Projects + 0.55% supplemental treasury reserve) |
-| 2.0 | May 4, 2026 | **MAJOR REVISION:** Restructured as community time bank with prepaid stored-value system; separated EMS (time credits, vaulted) from PMS (prepaid value, spendable); replaced variable base-rate model with phase-based treasury triggers; added user-choice framework for Phase 2/3 EMS conversion; clarified treasury mechanics; enhanced Benefits-Sensitive Account protections |
-| 3.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Corrected EMS appreciation framing to reserve-gated, deferred, conditional — not present floating value; added Treasury Reserve solvency gating section; added three-box structural framework; corrected server location to 704 Main Street; added KTS entity status notice; added reversion trigger language throughout; aligned with FA-001, KPI Specification v3.0, and H4H Canonical Facts Sheet |
+| 2.0 | June 17, 2026 | Structural rewrite — three-box framework, dual reserve metric framework, FVSR defined term, reversion cascade, phase overview, server location and KTS entity notices |
+| 3.0 | June 17, 2026 | Removed all "non-appreciating in the securities-law sense" assertions (own-the-appreciation decision; securities treatment under counsel review); relocated money-services licensing from H4H to the **MountainShares DAO / DUNA** as licensee of record; aligned with Phase 2 v3.0, Phase 3 v3.0, Parameter Tables v3.0, EMS Securities Treatment — Counsel Prep, and Money-Services Entity Relocation Map |
+| 3.1 | June 18, 2026 | Updated fee allocation: **Buckets 4 and 5 dedicated to Community Connectivity** — free public internet nodes (Wi-Fi and LoRa community mesh): Bucket 4 (15%) operations, Bucket 5 (10%) buildout (a combined 25% of fee revenue); removed education, mutual aid, cultural preservation, and member-initiated local projects as fee-funded purposes (they continue as EMS-earning activities and may be funded from H4H operations or grants). Aligned with Parameter Tables v3.1, Phase 2 v3.1, Phase 3 v3.1 |
 
 ---
 
-## 1. Foundation: What Phase 0 Built
+## 1. What MountainShares Is
 
-Phase 1 does not start from zero. It starts from a tested, red-teamed foundation built during Phase 0 (Invite-Only Beta) at 704 Main Street.
+MountainShares is a community economic system built for West Virginia and the broader Appalachian commons. It combines a recognition ledger, a spendable community currency layer, a reserve-backed treasury, a merchant/community commerce network, free public internet infrastructure, and a governed path toward long-term community surplus distribution.
 
-**MountainShares operates as a community time bank with a digital prepaid account system.** Like traditional time banks, MountainShares values **one hour of community service = one hour of community service**, regardless of the type of work performed. All participants exchange time and skill through a shared ledger of recognition hours (EMS time credits), which may later convert to stored value (PMS prepaid balances) usable for local goods and services — but only when the Treasury Reserve has satisfied the applicable solvency threshold and all formation costs have been paid.
+The system is designed to do five things at once:
 
-**What Phase 0 produced:**
-- A working **time bank recognition ledger** with real UEIs, real EMS time credits, and real geo-tagged activity
-- A red-teamed **prepaid stored-value wallet system** (PMS) with documented security findings and remediations
-- A cohort of Groundbreaker-rank participants who carry founding badges, founding **time credits**, and governance eligibility into Phase 1
-- A Phase 0 Pre-Launch Audit Report that serves as the permanent founding governance record
-- A tested Ms. Allis system with reserve ratio enforcement, Phase Management Controller integration, and chatbot interface
-- Validated data stewardship workflows and ground-truthing consent processes
-- Deployed smart contract infrastructure: Backbone Contract, Phase Management Controller, Treasury Monitor, Business Registry, and Stripe Payment Gateway integration
-- Confirmed Treasury Reserve solvency gating logic: buying-power expansion gates inactive, reversion trigger logic verified
+- Recognize real community labor that the formal market undervalues
+- Convert part of that recognized labor into bounded, spendable community buying power
+- Keep value circulating locally rather than leaking immediately out of the region
+- Build a durable treasury capable of surviving shocks, fraud attempts, and regulatory costs
+- Return real surplus to long-term participants only after the treasury is strong enough to do so safely
 
-All **time credits (EMS hours)** logged during Phase 0 carry forward permanently at stable baseline exchange value. Groundbreaker rank is locked. Founding badges are permanent.
+MountainShares is not a speculative token project. It is a governed mutual-credit and prepaid-value commons architecture with hard safety triggers, legal-operational boundaries, and an explicit anti-extraction design.
 
 ---
 
-## 2. Core Economic Principles
+## 2. The Three-Box Structure
 
-**Time Bank Foundation:**
-- MountainShares is a **community time bank** where participants exchange hours of service using accumulated time credits (EMS) as the unit of account.
-- All time is valued equally: one hour of caregiving = one hour of data stewardship = one hour of cultural preservation = one hour of governance participation.
-- Time credits (EMS) are **recognition of service rendered to the community**, not wages, income, or compensation for employment.
-- Prepaid stored value (PMS) represents a **digital prepaid account** funded by participant deposits, not a bank account or savings instrument.
+MountainShares operates inside a three-box entity structure. This structure is not cosmetic — it is the legal and economic firewall that keeps charitable, community, and founder interests properly separated.
 
-**EMS Is Non-Appreciating in Phase 1:**
+| Entity | Role | What It Does |
+|---|---|---|
+| **Harmony for Hope, Inc. (H4H)** | 501(c)(3) charitable anchor; program sponsor | Maintains **its own** nonprofit compliance (Form 990, WV SOS annual report, registered agent, charitable registration), oversees the program framework together with the DAO, receives 30% of fee revenue for operations. **Not the money transmitter.** |
+| **MountainShares Commons / DUNA** | Community-owned ledger and governance layer **and licensed money-services function** | Holds UEIs, EMS recognition ledger, PMS/M$ system, DAO governance, participation records, and community surplus logic; **is the licensee of record for the WV Money Transmitter License and FinCEN MSB registration; holds the surety bond and BSA/AML program; operates the fiat cash-out rails** |
+| **Kidd's Technical Services (KTS)** | To-be-formed founder commercial engine | Holds founder-side commercial rights and ALLIS-related commercialization outside H4H and outside community EMS; **holds no money-services license** |
 
-Community EMS is non-appreciating in Phase 1. The buying-power expansion schedule is inactive at this stage because the Treasury Reserve has not reached the Phase 2 activation threshold (300% of total EMS + M$ outstanding, with all formation and transition fees paid). No Phase 1 participant holds a vested appreciation right. EMS balances are stable-value time credits logged to the recognition ledger.
-
-If at any future point the reserve metric falls below an applicable threshold after a higher-phase expansion has activated, the system automatically reverts to prior-phase specifications — no resident loses their principal EMS balance, but expanded buying power is suspended until the threshold is restored for two consecutive quarters.
-
-**Two Parallel Systems:**
-
-- **Time Bank Recognition Ledger (Unlimited):** All EMS time credits logged on-chain with full UEI, geo, org, and timestamp data. No hard cap. Non-taxable time credits in the community time bank — not countable income for benefits purposes. Vaulted in Phase 1.
-
-- **Prepaid Stored Value (Capped & Reserve-Backed):** PMS represents **prepaid account balances** backed 1:1 by USDC reserves held in treasury contracts. Participants load PMS by depositing USD via Stripe Payment Gateway.
-
-**Hard Triggers (Automatic, Non-Negotiable):** Phase Management Controller and Ms. Allis enforce automatically; no DAO override possible for safety constraints.
-
-**Three-stage platform arc:** The Commons grows from barter/trade and Facebook Marketplace feel (Phase 1 early) through TikTok-style discovery (Phase 1 mature) to Amazon-style full commerce layer (Phase 2+). See [The Commons Gamification](../the%20commons/The%20Commons%20Gamification%3A%20The%20Daily%20Life%20Game.md) Section 2 for the full arc.
+This structural wall matters because it keeps founder-side value from being realized through charitable assets or community labor credits. No EMS hour, no M$ balance, and no community surplus allocation is a founder equity path. Any mechanism that creates such a path is a structural boundary breach and must be treated as a Critical finding.
 
 ---
 
-## 3. Time Credits vs. Prepaid Stored Value: The Two-Ledger System
+## 3. The Two Currency Layers
 
-### 3.1 Understanding the Distinction
+MountainShares has two different kinds of value records. Understanding the distinction is essential.
 
-MountainShares operates two parallel systems through a unified interface:
+### 3.1 PMS / M$ (Purchased MountainShares)
 
-| System | How Acquired | Phase 1 Status | Legal Character | Cash-Out |
-|---|---|---|---|---|
-| **EMS (Earned MountainShares) — Time Bank Credits** | Logged for verified community service hours | **Vaulted and locked** — visible on recognition ledger, not convertible to prepaid value in Phase 1 | **Non-taxable time credits** — not wages, not income, not countable assets for benefits purposes | **No** — vaulted until Phase 2+ user opt-in, contingent on reserve threshold |
-| **PMS (Personal MountainShares) — Prepaid Stored Value** | Purchased with USD via Stripe Payment Gateway; minted 1:1 at time of deposit | **Spendable immediately** in The Commons | **Prepaid stored-value account balance** — not a bank account, not a savings account | **Yes** — via ATM withdrawal with $2.50 fee, 500 PMS daily limit |
+PMS, denoted internally as **M$**, is the spendable network unit. It is created when a participant loads USD into the system through an approved payment channel. It can be used within the network for approved purchases, events, merchant transactions, and other eligible activities.
 
-### 3.2 Phase 1 Economic Flow (Time Bank Model)
+Key traits:
+- Spendable in-network
+- Subject to fees, transaction limits, reserve checks, and compliance controls
+- Backed by treasury mechanics and governed by the Operational Reserve Ratio
+- Eligible, in limited circumstances, for conversion back to fiat subject to rules and availability, operated under the DUNA's licensed money-services rails
 
-**Time credit earning:**
-- User performs 8 hours of verified caregiving → 8 EMS time credits logged to recognition ledger
-- These are reciprocal community service hours, not income
-- Time credits remain vaulted until Phase 2+ reserve threshold is met and user opts in
+### 3.2 EMS (Earned MountainShares)
 
-**Prepaid account loading:**
-- User deposits $100 USD via Stripe Payment Gateway
-- Treasury receives ~98 USDC (net of Stripe processing fees)
-- User receives 100 PMS prepaid stored value (minted 1:1)
+EMS is the recognition layer. It records verified community contribution — caregiving, mutual aid, education, cultural preservation, mapping, governance work, connectivity node stewardship, and other approved activities. EMS begins in the recognition ledger and may later be converted into spendable M$ subject to reserve conditions and caps.
 
-**Prepaid spending in The Commons:**
-- User spends 50 PMS at Nicholas Pharmacy
-- Pharmacy receives 50 PMS in their prepaid account
-- Transaction fee (1.80%) collected: 0.9 PMS
-- Fee split: 30% to Treasury Reserve, 30% to H4H Operations, 15% to Platform Development, 15% to Community Programs, 10% to Community Projects
+Key traits:
+- Starts as recognition, not spendable balance
+- Can be converted into spendable M$ only within strict program rules
+- Subject to conditional, reserve-gated, participant-elected conversion; confers no equity or ownership interest
+- Never creates a vested right to future higher conversion value before threshold clearance
+- Securities treatment under counsel review; this document makes no representation as to whether EMS or the conversion mechanism is or is not a security
+- Serves as the historical record of who contributed and how
 
-**Cash-out (ATM withdrawal):**
-- User requests $25 cash-out
-- 25 PMS deducted from prepaid balance; $2.50 withdrawal fee deducted
-- Treasury pays $22.50 USDC to user's linked bank account
-- Phase Management Controller's WITHDRAWALPROCESSORROLE processes transaction
-- 500 PMS daily withdrawal limit enforced
-
-**Result:** Time credits (EMS) accrue on the recognition ledger as non-taxable community service hours. Prepaid balances (PMS) hold stored value in digital prepaid accounts. Treasury holds USDC reserves backing prepaid balances 1:1. Time credits do not convert to prepaid value until Phase 2+ reserve threshold conditions are satisfied and user actively opts in.
-
-### 3.3 Per-User Prepaid Loading Caps (Monthly)
-
-| User Tier | Definition | Monthly PMS Loading Cap | Purpose |
-|---|---|---|---|
-| **Tier 1** | General Commons participants | 500 PMS/month | Standard cap for most users |
-| **Tier 2** | Verified community roles (caregivers, mutual aid workers, nonprofit staff with org co-sign + geo validation) | 1,000 PMS/month | Higher cap for high-need community roles |
-
-These caps apply to **loading PMS via USD deposits**, not to earning EMS time credits. Users can log unlimited EMS hours; time credits are vaulted and do not count against prepaid caps.
-
-All current caps are maintained in the [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md).
-
-### 3.4 Benefits-Sensitive Account Protections
-
-Participants receiving means-tested public benefits (SNAP, Medicaid, SSI, WV WORKS, etc.) are protected by default.
-
-**Time Bank Legal Protections:**
-- **Time credits (EMS) are not countable income:** Hours of community service logged to the time bank recognition ledger represent reciprocal non-monetary exchanges, non-taxable per IRS time banking precedent.
-- **Prepaid stored value (PMS) is not a bank account:** PMS balances are held in prepaid stored-value accounts, not savings or checking accounts.
-- **Phase 2+ conversion timing is participant-controlled:** When the reserve threshold is eventually met and Phase 2 activates, conversion of vaulted EMS to prepaid value is optional, incremental, and participant-timed — allowing benefits-sensitive participants to manage eligibility impact. No participant is ever forced to convert.
-
-**Additional Protections:**
-- Hard prepaid balance cap protecting benefits eligibility (DAO-governed, defaults to conservative level)
-- Throttled prepaid loading if balance approaches cap
-- No forced disclosure of benefit status
-- Ms. Allis proactive plain-language notice when approaching thresholds
-- Time credits remain vaulted by default — logging unlimited EMS does not create countable assets
-
-**Legal Review Before Launch:**
-- Time bank classification reviewed by qualified legal counsel.
-- Prepaid account classification confirmed not a "bank account" for benefits purposes.
-- H4H establishes referral partnerships with WV benefits counselors.
+The distinction is deliberate: PMS handles transactional utility; EMS handles recognition, memory, and bounded conversion.
 
 ---
 
-## 4. Treasury Backing & Phase-Based Safety Triggers
+## 4. The Reserve System
 
-### 4.1 Reserve Ratio and Treasury Management
+The safety of MountainShares depends on reserve math that is continuously monitored by Ms. Allis. Two metrics govern the system.
 
-Two reserve metrics govern the system:
+### 4.1 Operational Reserve Ratio
 
-**Operational Reserve Ratio (Phase 1 continuity):**
+This metric governs day-to-day spending safety, caps, and commerce features.
 
-~~~
-Operational Reserve Ratio = Treasury USDC Reserve / Total Outstanding Spendable PMS
-~~~
+```
+Operational Reserve Ratio = Treasury USDC Reserve / Total Outstanding Spendable PMS (M$)
+```
 
-This ratio governs day-to-day phase management and hard trigger enforcement during Phase 1.
+This ratio determines whether the system can safely support its current spendable balances, whether higher earning caps are allowed, and whether more advanced commerce features remain unlocked.
 
-**Treasury Reserve Solvency Ratio (Appreciation Gate):**
+### 4.2 Treasury Reserve Solvency Ratio
 
-~~~
+This metric governs EMS buying-power expansion and the long-term maturity of the system.
+
+```
 Treasury Reserve Solvency Ratio = Treasury Reserve / (Total Outstanding EMS + Total Outstanding M$)
-~~~
+```
 
-This ratio governs whether buying-power expansion is permitted to activate at all. It is the primary top-of-dashboard metric in the KPI Specification v3.0. No appreciation gate may open unless this ratio satisfies the applicable threshold and all formation/transition fees have been paid.
+This is the main gate for higher EMS conversion schedules. It also determines whether the system is eligible to enter later phases of development.
 
-| Gate | Threshold | Additional Condition |
+### 4.3 Why Two Ratios Exist
+
+The system needs two different safety views because spendable balances and recognition balances do different things. The Operational Reserve Ratio protects near-term liquidity and transaction safety. The Treasury Reserve Solvency Ratio protects the long-term integrity of the system's recognition-to-buying-power architecture.
+
+One ratio answers: *Can the system safely handle current spendable volume?*
+The other answers: *Is the treasury strong enough to support a higher recognition-conversion schedule without becoming structurally unsound?*
+
+---
+
+## 5. The Three Phases
+
+MountainShares scales through three governed phases. Each phase adds capacity, but only when reserve conditions are met.
+
+### 5.1 Phase 1 — Launch and Safety
+
+Phase 1 is the launch and proving phase. It prioritizes bounded growth, strong safety controls, benefits-sensitive protections, and transparent reserve monitoring.
+
+Core Phase 1 characteristics:
+- EMS recognition converts into spendable M$ at conservative rates
+- Base rate range: 0.10–1.00 M$ per EMS hour
+- Typical per-user caps are low and tightly managed
+- Benefits-sensitive protections are strongest at this stage
+- Phase 1 internal baseline: 1 EMS = $1.00 equivalent
+
+This phase proves that the system can operate without destabilizing itself.
+
+### 5.2 Phase 2 — Regional Growth
+
+Phase 2 activates when the Treasury Reserve Solvency Ratio reaches 300% and all required formation and transition costs have been paid. At that point, the EMS buying-power schedule can become conditionally active at:
+
+- **1 EMS = $10.00 USD equivalent**
+
+Phase 2 characteristics:
+- Statewide rollout across West Virginia
+- Free public internet nodes deployed as counties activate
+- Tier 3 Regional Champions introduced
+- Stage 3 commerce becomes available when operational conditions permit
+- More counties, more merchants, and a denser commons economy
+- Higher caps and a broader transaction network
+- Automatic reversion to Phase 1 if Treasury Reserve Solvency Ratio falls below 300%
+
+This is not a vested appreciation promise. It is a conditional rate that remains active only while the treasury remains above the threshold. The securities treatment of the schedule is under counsel review.
+
+### 5.3 Phase 3 — Surplus Distribution
+
+Phase 3 activates only when the Treasury Reserve Solvency Ratio reaches 500%, all prior-phase costs are paid, and the system has met maturity requirements across participation, volume, governance, and regulatory compliance.
+
+At Phase 3, the EMS buying-power schedule becomes conditionally active at:
+
+- **1 EMS = FVSR** (Federal Volunteer Service Rate in effect on the Phase 3 activation date)
+
+The current FVSR for 2026 is **$36.14**, but the governing rule is not a fixed dollar figure — it is the annual IRS-published Federal Volunteer Service Rate in effect at the time Phase 3 formally activates.
+
+Phase 3 adds:
+- A permanent 500% reserve floor
+- A 7-year community dividend cycle
+- Participation-weighted surplus distribution
+- A much stronger treasury expectation
+- Automatic reversion to Phase 2 if the Treasury Reserve Solvency Ratio falls below 500%
+- Automatic reversion to Phase 1 if it falls below 300%
+
+Phase 3 is the community wealth-building maturity phase. It is where the system can begin distributing true surplus — not speculative gains, but actual value above a hardened treasury floor.
+
+---
+
+## 6. How EMS Conversion Actually Works
+
+A common misunderstanding is that EMS automatically "becomes money." That is not how the system works.
+
+EMS moves through stages:
+
+1. A participant performs verified community work.
+2. That work is logged into the EMS recognition ledger.
+3. Program rules determine how much of that EMS may be converted into spendable M$.
+4. Conversion remains subject to phase rules, reserve conditions, per-user caps, and benefits-sensitive protections.
+5. Unconverted EMS may remain vaulted in the recognition ledger.
+
+This means:
+- Not every EMS hour becomes spendable at once
+- Higher conversion schedules do not activate unless treasury thresholds are satisfied
+- No participant is ever forced to convert
+- No participant holds a guaranteed right to future higher-rate conversion before threshold clearance
+
+In legal and structural terms, that is crucial. The system recognizes labor first, then allows bounded economic use under treasury-controlled conditions. The securities-law treatment of the conversion mechanism is under counsel review.
+
+---
+
+## 7. Fees, Treasury Growth, and Sustainability
+
+MountainShares uses fees to fund operations, long-term reserve growth, and free public internet infrastructure. This creates a compounding treasury model rather than a one-time subsidy model.
+
+### 7.1 Standard Fees
+
+| Fee Type | Current Rate | Function |
 |---|---|---|
-| Phase 2 buying-power expansion | ≥ **300%** | All Treasury Reserve-funded formation and transition fees fully paid |
-| Phase 3 buying-power expansion | ≥ **500%** | Phase 2 conditions satisfied and sustained for 2+ consecutive quarters |
-| Reversion to Phase 2 parameters | < **500%** | Automatic; no vote required |
-| Reversion to Phase 1 parameters | < **300%** | Automatic; no vote required |
+| Load fee | 2.85% | Supports operations, treasury, and platform funding when USD is loaded into PMS |
+| Internal transfer fee | 0.25% | Supports network maintenance on eligible user-to-user transactions |
+| Merchant fee | 1.80% | Primary treasury-building mechanism during real commerce |
+| ATM / refund fee | $1.25 flat | Supports reserve stability during cash-out events (operated under the DUNA's licensed rails) |
 
-**How the Treasury Builds:**
+### 7.2 Fee Allocation
 
-1. **Purchase/load flows:** Users pay fiat → Stripe processes → USDC deposited to treasury → PMS minted to user (1:1)
-2. **Fee revenue:** All transaction fees route per [Parameter Tables Section 4.3](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md):
-   - 30% → H4H Operations
-   - 30% → Treasury Reserve
-   - 15% → Platform Development
-   - 15% → Community Programs
-   - 10% → Community Projects
-   - +0.55% supplemental treasury reserve on gross transaction volume
-3. **Phase 1 PMS-only spending:** Only ATM withdrawals drain treasury USDC; internal spending recirculates
-4. **ATM withdrawal processing:** $2.50 standard withdrawal fee; 500 PMS daily limit; processed by WITHDRAWALPROCESSORROLE
-5. **Additional revenue:** CLIO NFT heritage revenue (50% creator / 30% platform / 20% treasury), DAO-approved grants, business verification flows
-
-**What does NOT count as treasury backing:**
-- EMS time credits (vaulted recognition, not circulating supply)
-- Future promises or pledged donations not yet received
-- Speculative asset valuations
-
-### 4.2 Operational Phase Transitions and Safety Bands (Phase 1)
-
-The Phase Management Controller enforces operational economic phases driven by the Operational Reserve Ratio. These bands govern continuity of service during Phase 1 and do not activate buying-power expansion — that is governed exclusively by the Treasury Reserve Solvency Ratio in Section 4.1 above.
-
-| Operational Reserve Ratio | Active Band | EMS Status | PMS Spending | PMS Cash-Out | Promo Bonuses |
-|---|---|---|---|---|---|
-| **< 0.75** | Emergency Floor | Vaulted | **Restricted** — daily caps reduced to 20–40 PMS/user | **Paused** | Frozen |
-| **0.75 – 0.99** | Phase 1 (Conservative) | Vaulted | Normal — monthly loading caps enforced | Active — $2.50 fee, 500 PMS daily limit | Paused |
-| **1.0 – 1.24** | Phase 1 (Healthy) | Vaulted | Increased caps possible via DAO vote (max 750/1,500 PMS) | Active | Enabled |
-| **≥ 1.25 sustained** | Phase 2 transition candidate | Per Treasury Reserve Solvency Ratio — see Section 4.1 | Full circulation | Active | Enabled |
-| **≥ 1.50 sustained** | Phase 3 transition candidate | Per Treasury Reserve Solvency Ratio — see Section 4.1 | Full circulation | Active | Enabled |
-
-> **Critical Distinction:** Reaching an operational reserve ratio of 1.25 or 1.50 does **not** itself activate EMS buying-power expansion. Activation requires the Treasury Reserve Solvency Ratio (Reserve ÷ Total EMS + M$) to meet the 300% or 500% threshold respectively, with all formation fees paid. The two metrics are separate and both must be satisfied.
-
-**Automatic Trigger Logic:**
-- Operational reserve ratio calculated as `Treasury USDC / Outstanding Spendable PMS`
-- EMS time credits are **not counted in the denominator** — they are vaulted recognition
-- Downward phase restrictions fire immediately when ratio drops; no DAO vote required
-- Upward phase unlocks for operational bands auto-apply when ratio sustained for 60+ consecutive days
-- EMS buying-power expansion activation follows the separate Treasury Reserve Solvency process
-
-**Phase 2 & 3 User Control (when applicable thresholds are eventually met):**
-- Users are **never forced** to cash out EMS
-- Each user individually decides how much vaulted EMS to convert at the phase-adjusted rate
-- Unconverted EMS remains vaulted
-- Treasury pays USDC at the phase rate; converted EMS is burned
-- Example: User has 100 EMS vaulted. Treasury Reserve Solvency Ratio reaches 300% and all fees are paid (Phase 2 gate opens). User chooses to convert 30 EMS → receives $300 USDC equivalent (30 × $10), pays $2.50 withdrawal fee, 70 EMS remain vaulted for potential Phase 3 appreciation.
-
-**Ms. Allis daily monitoring:**
-- Recalculates both reserve metrics every 24 hours
-- If either metric crosses a threshold boundary, new rules apply at next epoch (24–48 hour notice)
-- No human approval required for downward adjustments; they fire automatically
-- Publishes reserve solvency ratio prominently on dashboard with green/amber/red bands
-
----
-
-## 5. Monthly Promo & Bonus Pool
-
-### 5.1 Promo Pool Budget
-- **Source:** Allocated from Community Programs bucket (15% of fee revenue) per [Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md) Section 4.2.
-- **Max Size:** 2–3% of monthly processed volume, capped at X PMS/month (DAO sets X per Parameter Tables).
-- **Example:** If volume is 100k USD/month, promo pool ≤ 2–3k PMS/month.
-
-### 5.2 Bonus Rules
-- All bonuses draw from the pool.
-- Once pool is exhausted in a month, no new bonuses are offered until next cycle.
-- Bonuses are awarded as PMS (prepaid value), not EMS time credits — they count against monthly loading caps.
-- Bonuses pause automatically when operational reserve ratio < 1.0.
-- Quest completion rewards, seasonal campaign bonuses, and streak milestone rewards all draw from this pool.
-- Data stewardship verification rewards are funded separately per the smart contract structure.
-
----
-
-## 6. Time Bank Service Categories
-
-All categories log time credits to the recognition ledger at stable baseline value. One hour of any category = one time credit. No Phase 1 EMS balance carries a vested appreciation right.
-
-| Category | Examples | Notes |
+| Bucket | Allocation | Purpose |
 |---|---|---|
-| **Mutual Aid** | Caregiving, supply donation, transportation, neighbor support | Tier 2 eligible with org co-sign; 1 EMS hr per verified hour |
-| **Learning and Teaching** | Workshops, skill sessions, mentoring, learning modules | 1 EMS hr per verified hour |
-| **Cultural Preservation** | Clio trail markers, oral history, heritage events, traditions | 1 EMS hr per verified hour |
-| **Land and Mapping** | GIS validation, place record submission, parcel verification | 1 EMS hr per verified hour |
-| **Data Stewardship** | Ground-truthing, contact collection (with consent), Ms. Allis verification ping responses, record updates | EMS awarded per verified activity; verification rewards funded separately from promo pool |
-| **Community Events** | Commons-hosted events, volunteer hours, local programs | 1 EMS hr per verified hour |
-| **Governance Participation** | DAO votes, proposal review and feedback, governance sessions | 1 EMS hr per session |
-| **Emergency Preparedness** | Prep activities during active NOAA alert periods, resilience drills | 1 EMS hr per verified hour; promo bonus when reserve permits |
-| **Time Bank Goods Exchange** | Participant-produced items traded for time credits | **Labor-hour valuation only** — 1 hour of production labor = 1 EMS; material costs paid separately in USD; non-taxable per IRS time banking precedent |
-| **Marketplace Commerce** | Buying/selling goods and services at market prices using PMS | Transactions in PMS; no EMS earned unless service hours logged separately |
+| 1 | 30% | H4H operations |
+| 2 | 30% | Treasury Reserve |
+| 3 | 15% | Platform development |
+| 4 | 15% | Community Connectivity – Operations (free public internet nodes: staffing, maintenance, monitoring, service costs) |
+| 5 | 10% | Community Connectivity – Infrastructure (free public internet node buildout: hardware, installation, expansion) |
+| — | +0.55% | Supplemental Treasury Reserve assessment on gross transaction volume |
 
-### 6.1 Goods Exchanges in the Time Bank
+A combined 25% of fee revenue is dedicated to MountainShares free public internet nodes (Wi-Fi and LoRa community mesh), built and operated as a public good — never metered or paywalled. This allocation means the treasury grows not only through direct reserve funding but also through ordinary use of the system. As commerce increases, reserve strength can increase too.
 
-**1. Labor-Hour Valuation Only**
-Goods are valued by hours of labor invested to create them, not market price. Example: 2 hours making a quilt = 2 time credits.
+### 7.3 Why This Matters
 
-**2. Material Costs Paid Separately**
-Recipients pay producers in USD for material costs only; time credits cover labor only.
-
-**3. Participant-Produced Goods Preferred**
-Goods must be made/grown/harvested by the participant. Reselling store-bought goods is not a qualifying time bank exchange.
-
-**4. No Market-Value Haggling**
-Participants document labor hours, not negotiate market value.
-
-**5. Documentation Required**
-All goods exchanges log to Ms. Allis with: producer UEI, recipient UEI, item description, documented labor hours, material cost if any, timestamp.
-
-| Item | Labor Hours | Material Cost | Time Credits Earned | Cash Payment |
-|---|---|---|---|---|
-| 1 jar homemade pickles | 1 hour | $2 | 1 EMS | Recipient pays $2 USD |
-| Hand-sewn quilt | 20 hours | $40 | 20 EMS | Recipient pays $40 USD |
-| Firewood (1 cord) | 4 hours | $0 | 4 EMS | None |
-| Baked bread (2 loaves) | 1 hour | $3 | 1 EMS | Recipient pays $3 USD |
+A commons cannot survive on idealism alone. It needs operating revenue, legal compliance funding, technical maintenance, free public connectivity, and a reserve that grows as usage grows. The MountainShares fee structure is designed to make those things explicit rather than hidden.
 
 ---
 
-## 7. Data Stewardship and Ground Truthing
+## 8. Benefits-Sensitive Protections
 
-### 7.1 Ground Truthing Workflow
+MountainShares is designed with specific protections for participants who rely on means-tested public benefits. These protections are not a side note — they are a central design feature.
 
-1. Community Champions collect contact information for local places, businesses, organizations, and services with explicit opt-in consent documented at collection time.
-2. Ms. Allis runs automated verification pings every 6–12 months to each consenting record holder.
-3. When the record holder responds and confirms or updates their data, they earn EMS time credits at stable baseline value.
-4. Verification rewards are funded per the existing smart contract structure, separate from the promo pool.
+Core protections include:
+- PMS cash-out disabled by default
+- Participant-controlled conversion timing
+- Warning thresholds and soft caps
+- County-level variation if local benefits mixes require tighter rules
+- No forced disclosure of benefit status
+- No forced conversion at phase transitions
 
-### 7.2 Community Champion Role in Data Stewardship
+Phase 3 adds:
+- 60-day advance notice before any distribution event
+- Projected allocation information before the distribution fires
+- Strong direction to consult a benefits counselor before electing USD cash-out
+- **EMS Recognition Bonus** as an alternative to M$ or USD receipt
 
-| Phase | Primary Champion Focus |
+The EMS Recognition Bonus allows a participant to take their Phase 3 distribution as permanent recognition hours rather than as a financial instrument. That design exists specifically so a participant can still receive acknowledgment and historical credit without necessarily triggering the same risks as cash or spendable balance. Because the phase-based rates increase realizable value, whether a vaulted-but-convertible balance or a dividend allocation is a countable resource or income for benefits purposes is under benefits-counsel review and should be confirmed before reliance.
+
+---
+
+## 9. Governance and Automatic Constraints
+
+MountainShares uses governance, but not everything is governable. Some rules are intentionally outside ordinary vote control.
+
+### 9.1 What Governance Can Do
+
+The DAO and H4H governance layers can adjust:
+- Rates within approved ranges
+- Caps within approved safety bands
+- Promo pool targeting
+- County activation sequencing
+- Some allocation mechanics
+- Certain program categories and game parameters
+- Annual money-services compliance budget approval (DUNA, Stream M) and review of H4H's nonprofit-compliance summary (Stream N)
+- Future structural proposals, subject to heightened thresholds
+
+### 9.2 What Governance Cannot Do
+
+Governance cannot:
+- Override hard safety triggers
+- Force EMS conversion
+- Override reserve-based phase reversion
+- Lower the permanent Phase 3 500% floor
+- Create a founder equity path through H4H or community EMS
+- Distribute from the floor itself rather than from true surplus
+- Divert Bucket 4/5 connectivity funds to private benefit, or meter or paywall a free public internet node
+- Override benefits-sensitive protections except through the required super-majority and legal review process where such modification is even permitted
+
+This split matters because a commons without hard stops can vote itself into self-destruction. MountainShares is built to prevent that.
+
+---
+
+## 10. The Community Dividend in Phase 3
+
+The most distinctive long-term benefit of MountainShares is not simply higher EMS buying power. It is the Phase 3 community dividend.
+
+### 10.1 What the Dividend Is
+
+The dividend is a distribution of **real surplus above the 500% floor** after the treasury has remained healthy long enough to justify it. It is not a speculative return. It is not a token yield product. It is not founder extraction.
+
+It is a community distribution from genuine surplus.
+
+### 10.2 How It Works
+
+Phase 3 uses a 7-year dividend clock:
+- The clock starts when Phase 3 activates
+- It runs only while the treasury remains above the 500% floor
+- If the treasury drops below the threshold, the clock pauses
+- Once 7 years of active time have accumulated, a distribution event can occur if all preconditions are satisfied
+
+Eligibility is based on participation, not wealth. Each UEI's share depends on **Participation Weight**, which reflects verified months of activity and a multiplier for long-term sustained presence.
+
+That design ensures that the people who actually built the commons receive the surplus it generated. (Connectivity operations and buildout are funded from the standard fee allocation, before surplus is calculated — they are not drawn from the dividend pool.)
+
+### 10.3 Why It Exists
+
+For generations, wealth extracted from Central Appalachia has left the region. MountainShares is designed to reverse that pattern. The dividend is the mechanism by which value that remains in the commons can eventually return to the people who kept it alive.
+
+---
+
+## 11. Why the System Is Different
+
+MountainShares differs from many digital currency or community credit systems because it combines:
+
+- A recognition layer and a transaction layer
+- Hard reserve-based safety math
+- Benefits-sensitive design
+- A nonprofit charitable anchor (H4H) alongside a community-owned, licensed money-services layer (the DUNA)
+- A community governance layer
+- Free public internet as funded community infrastructure
+- Automatic constraints on both treasury risk and founder extraction
+- A path to community surplus distribution only after strong reserve maturity
+
+In simpler terms, most systems choose one or two of these things. MountainShares tries to hold all of them together at once:
+- community recognition
+- practical spending utility
+- legal-operational realism
+- anti-extraction structure
+- free public connectivity
+- long-horizon wealth building
+
+That is what makes it ambitious, but also what makes the documents and boundaries matter so much.
+
+---
+
+## 12. Core Benefits by Participant Type
+
+| Participant | Core Benefit |
 |---|---|
-| Phase 0 | Red-team security, governance document review |
-| Phase 1 (early) | Ground truthing — contact collection, place record verification |
-| Phase 1 (mature) | Community anchoring, onboarding, quest coordination |
-| Phase 2+ | Governance leadership, regional stewardship, data quality oversight |
-
-### 7.3 Data Stewardship KPIs
-
-Ms. Allis tracks and publishes:
-- % of active place records verified within the last 12 months
-- Response rate to Ms. Allis verification pings (rolling 6-month)
-- Total records collected, verified, and updated in current period
-- Number of active participants with Data Keeper or Living Map badges
-
----
-
-## 8. DAO Authority: What Can Change & How
-
-### 8.1 DAO Can Vote To Change (Requires Super-Majority, 66%+)
-
-- Prepaid loading caps (500/1,000 → 750/1,500 PMS/mo Tier 1/Tier 2), only if reserve ratio supports it
-- Tier assignment criteria
-- Promo pool budget, only if backing assets support it
-- Operational phase transition thresholds, only once system is stable and audited
-- Quest categories, seasonal campaigns, badge criteria, within reserve-ratio safety bands
-- Champion role scope and focus per phase, through standard proposal lifecycle
-- Fee revenue allocation percentages, subject to governance floors of 20% minimum for Treasury Reserve and 20% minimum for H4H Operations; requires 66% super-majority + Board ratification
-- Benefits-Sensitive Account balance caps, subject to legal review + 66% super-majority
-- **Treasury Reserve Solvency thresholds (300% Phase 2 / 500% Phase 3) require DUNA governance approval through formal proposal and quorum-verified vote; any proposed reduction requires additional legal review**
-
-### 8.2 DAO Cannot Override (Hard Trigger Rules)
-
-- Vote to mint PMS without 1:1 USDC reserve backing
-- Disable automatic phase restrictions when operational reserve ratio drops below threshold
-- Force users to convert vaulted EMS time credits to PMS prepaid value
-- Override Benefits-Sensitive Account protections without supermajority + legal review
-- Overrule legal / safety prohibitions (drugs, weapons, exploitation, etc.)
-- Remove consent requirements from data stewardship workflows
-- Alter smart-contracted fee rates outside the governance process defined in the Parameter Tables
-- Reduce Treasury Reserve allocation below 20% or H4H Operations below 20%
-- Bypass Phase Management Controller withdrawal limits or emergency pause mechanisms
-- Activate EMS buying-power expansion before Treasury Reserve Solvency Ratio meets applicable threshold with all formation fees paid
-
-### 8.3 Ms. Allis & Phase Management Controller Authority (Automatic, No Vote Needed)
-
-- Enforce reserve ratio checks every 24 hours; apply auto-phase-adjustments if thresholds crossed
-- Calculate and publish daily operational reserve ratio and Treasury Reserve Solvency Ratio; display both with green/amber/red bands
-- Flag and freeze accounts tied to illegal content or high-risk patterns
-- Tier assignments based on pre-agreed rules (org co-sign + geo verification)
-- Pause bonuses when operational reserve ratio < 1.0
-- Run data stewardship verification pings every 6–12 months; award EMS for verified responses
-- Surface plain-language notices to Benefits-Sensitive Account holders approaching thresholds
-- Confirm EMS buying-power expansion gates are inactive in Phase 1 and surface reversion status if applicable
-- Process ATM withdrawals via WITHDRAWALPROCESSORROLE (enforce $2.50 fee, 500 PMS daily limit)
-- Enforce Phase 1 PMS-only spending rules (EMS vaulting); unlock Phase 2/3 user-choice conversion only when both operational and solvency thresholds are met
-
----
-
-## 9. One UEI = One Vote
-
-- **Governance Token:** Each UEI receives 1 equal vote on all DAO proposals.
-- **Voting Rights:** After 30 days on-platform (anti-sybil) and minimum 10 EMS time credits logged (Bronze rank threshold).
-- **Vote Scope:** All items in Section 8.1; cannot vote on Section 8.2 (hard triggers) or illegal activity rules.
-- **Rank does not change vote weight.**
-
----
-
-## 10. Phase 0 → Phase 1 → Phase 2 Graduation Criteria
-
-### 10.1 Phase 0 → Phase 1 (Already Completed Before This Document)
-
-Phase 0 graduated to Phase 1 when the Pre-Launch Audit Report was finalized, all critical and high security findings were remediated, Treasury Reserve solvency gating logic was validated, and founding governance documents were approved by the founding cohort.
-
-### 10.2 Phase 1 → Phase 2 Graduation Criteria
-
-**Transition to Phase 2 only when ALL of the following hold:**
-
-- Operational reserve ratio stable ≥ 1.25 for 60+ consecutive days (no dips below threshold)
-- **Treasury Reserve Solvency Ratio ≥ 300% of total EMS + M$ outstanding for 2+ consecutive quarters**
-- **All Treasury Reserve-funded formation and transition fees (including KTS formation, DUNA structuring, legal counsel) fully paid from the reserve**
-- Monthly processed volume ≥ 200k USD
-- Active UEIs ≥ 2,000
-- Zero systemic fraud or reserve-threatening exploits
-- DAO governance participation ≥ 30% quorum on key votes
-- Data stewardship layer active: ≥ 500 verified place records with ≥ 60% verified in last 12 months
-- Benefits-Sensitive Account protections reviewed by legal counsel and confirmed compliant
-- Conflict-of-interest recusal documentation on file for all related-party approvals
-
-**Phase 2 Changes (contingent on threshold conditions above being met):**
-
-- **EMS unlocking:** Each user with vaulted EMS time credits receives a one-time opt-in prompt when Phase 2 activates. Users choose:
-  - **Cash out now** at 10× appreciation (1 EMS = $10 USD equivalent)
-  - **Continue vaulting** for potential Phase 3 appreciation (the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date×)
-  - **Partial conversion** — cash out X EMS hours, leave the rest vaulted
-- **No forced conversion:** Phase 2 unlocking does not automatically convert all EMS to spendable PMS
-- **Treasury impact:** Only EMS that users actively choose to convert is paid out from treasury USDC reserves
-- **Reversion protection:** If the Treasury Reserve Solvency Ratio falls below 300% after Phase 2 activates, the system automatically reverts to Phase 1 parameters; no resident loses their principal EMS balance
-
-### 10.3 Phase 2 → Phase 3 Graduation Criteria
-
-**Transition to Phase 3 only when ALL of the following hold:**
-
-- Operational reserve ratio stable ≥ 1.50 for 60+ consecutive days
-- **Treasury Reserve Solvency Ratio ≥ 500% of total EMS + M$ outstanding for 2+ consecutive quarters**
-- Monthly processed volume ≥ 500k USD
-- Active UEIs ≥ 5,000
-- Phase 2 EMS conversion opt-in rate ≥ 20%
-- Zero systemic fraud or reserve-threatening exploits
-- DAO governance participation ≥ 40% quorum on key votes
-
-**Phase 3 Changes (contingent on threshold conditions above):**
-- EMS appreciation jumps to the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date× (1 EMS = $the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date USD equivalent)
-- Users with remaining vaulted EMS receive new opt-in prompt
-- **Reversion protection:** If Treasury Reserve Solvency Ratio falls below 500%, system automatically reverts to Phase 2 parameters; if it falls below 300%, system reverts to Phase 1 parameters
-
----
-
-## 11. Safety Prohibitions (Hard-Coded, No Vote)
-
-| Category | Prohibition | Detection | Consequence |
-|---|---|---|---|
-| **Illegal Drugs** | Cannot buy/sell/promote illegal drugs or paraphernalia | Content filter + pattern matching + keyword flagging | Account freeze + report to authorities |
-| **Weapons** | Cannot facilitate illegal weapons transfers or trafficking | Content filter + geo + pattern | Account freeze + report |
-| **Exploitation** | No sexually explicit content, child abuse material, or coerced sex work | NLP + imagery scanning + manual review | Immediate permanent ban |
-| **Fraud/Forgery** | No fake documents, false UEI claims, or spoofed org identities | UEI registry verification + geo cross-check | Account freeze + investigation |
-| **Data Theft** | No unauthorized collection, export, or misuse of contact data or place records | Audit log anomaly detection | Account freeze + data remediation |
-| **Benefits Fraud** | No misrepresentation of benefits status to manipulate account tier, cap, or protections | Cross-check + manual review trigger | Account freeze + investigation |
-| **Structural Boundary Breach** | No mechanism that creates founder equity through H4H or community EMS | Audit + legal review | Critical finding; immediate resolution required |
-
----
-
-## 12. Transparency & Dashboards (Ms. Allis Public API)
-
-Every UEI can see (updated daily):
-
-**Personal:**
-- Time credits logged (EMS hours), prepaid balance (PMS), monthly loading budget remaining, tier status
-- Current rank, time credits to next rank, active badges and badges in progress
-- Data stewardship record count and verification ping history
-- Benefits-Sensitive Account status and prepaid balance threshold proximity (private, participant-only)
-
-**Network:**
-- **Operational Reserve Ratio** (Treasury USDC / Outstanding Spendable PMS) — with 7/30/90-day trend
-- **Treasury Reserve Solvency Ratio** (Reserve ÷ Total EMS + M$) — primary top-of-dashboard metric; green/amber/red bands
-- EMS buying-power expansion status: Inactive / Conditionally Active / Reversion Active
-- Phase 2 gate progress: % of way to 300% Treasury Reserve Solvency threshold
-- Active participant count, monthly EMS time credits logged, monthly PMS minted and spent
-- Phase status and phase unlock criteria progress
-
-**DAO:**
-- Current proposals, vote status, outcome history, policy changelog
-- Champion role scope for current phase
-- [Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md) current values and last-changed date
-
----
-
-## 13. Audit & Governance Cadence
-
-- **Daily:** Ms. Allis publishes both reserve ratios; auto-applies phase-triggered adjustments; runs data confidence scoring
-- **Weekly:** Network snapshot (active users, volume, PMS minted/spent, promo spend, data stewardship KPIs, phase status, solvency ratio trend)
-- **Monthly:** Full treasury audit (USDC reserves, PMS supply, EMS outstanding, reserve ratios, solvency threshold progress); DAO governance session
-- **Quarterly:** External audit by independent WV nonprofit (if funds permit); Champion role scope review; conflict-of-interest recusal documentation review
-- **Every 6–12 months:** Ms. Allis verification ping cycle for all consenting place records; KPI Specification review against live data
-
----
-
-## 14. Sunset & Emergency Powers
-
-### 14.1 If Operational Reserve Ratio Falls Below 0.5 (Critical)
-- Phase Management Controller automatically pauses all PMS minting and ATM withdrawals
-- Only USD loads via Stripe accepted (rebuilds treasury)
-- Data stewardship verification ping cycles continue — funded separately
-- Emergency governance session called within 48 hours
-- Options: (a) shut down gracefully and return remaining reserves to users pro-rata, (b) seek external funding, (c) reset with community consent
-
-### 14.2 If Ms. Allis Detects Coordinated Fraud or Attack
-- Affected accounts frozen pending review
-- Daily public reporting of incident (anonymized)
-- Emergency DAO vote on remediation (clawback, reset, shutdown)
-- Contact data and place records locked from export during active incident
-- Phase Management Controller may pause withdrawals if attack threatens treasury
-
-### 14.3 If Data Stewardship Breach Occurs
-- Contact data collection paused immediately
-- Affected record holders notified per Privacy Policy obligations
-- Incident logged publicly (anonymized)
-- Data stewardship verification paused until breach is remediated and reviewed
-
-### 14.4 If Treasury Reserve Solvency Ratio Falls Below Threshold Post-Expansion
-- System automatically reverts to prior-phase parameters
-- Expanded buying-power schedules suspended immediately
-- No resident loses principal EMS balance
-- Reversion logged to durable audit trail with timestamp
-- System returns to expanded parameters only after threshold is restored for 2 consecutive quarters
+| **General user** | Ability to earn recognition for real community work and convert part of that contribution into bounded local buying power |
+| **Benefits-sensitive participant** | Safer participation path with throttles, warnings, no forced cash-out, and Phase 3 EMS Recognition Bonus option |
+| **Merchant** | Access to a local spending network that keeps value circulating in the community |
+| **Community Champion / Regional Champion** | Higher cap tiers, governance standing, and leadership role in building the commons |
+| **H4H** | Sustainable operational funding and a transparent structure for legal compliance and community stewardship |
+| **Long-term participant** | In Phase 3, eligibility for participation-weighted community dividend from real surplus above the 500% floor |
+| **Community as a whole** | A system designed to retain value locally, build a reserve, resist extraction, and keep free public internet open to everyone as a public good |
 
 ---
 
 ## Appendix A: Definitions
 
-- **UEI:** Unique Entity Identifier (per user, including individuals and orgs)
-
-- **EMS (Earned MountainShares) — Time Bank Credits:** Hours of community service logged to the MountainShares time bank recognition ledger. Non-taxable per IRS time banking precedent. Vaulted in Phase 1. Non-appreciating in the securities-law sense — no present appreciation claim, no investment contract. Buying-power expansion is deferred, conditional, and reserve-gated: activates only when Treasury Reserve Solvency Ratio ≥ 300% (Phase 2) or ≥ 500% (Phase 3), all formation fees are paid, and no reversion event is active. Any appreciating founder-side instrument is documented separately on the KTS side only.
-
-- **PMS (Personal MountainShares) — Prepaid Stored Value:** Digital prepaid account balance funded by participant USD deposits. Backed 1:1 by USDC in treasury. Spendable in The Commons; cash-out via ATM with $2.50 fee and 500 PMS daily limit.
-
-- **Treasury Reserve Solvency Ratio:** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$). Primary appreciation-gate metric. Phase 2 threshold: ≥ 300%. Phase 3 threshold: ≥ 500%. Reversion triggers: < 300% (Phase 2 reverts) / < 500% (Phase 3 reverts).
-
-- **Operational Reserve Ratio:** Treasury USDC Reserve ÷ Total Outstanding Spendable PMS. Governs day-to-day continuity of service. EMS not included in denominator.
-
-- **Ms. Allis:** The AI enforcement and monitoring system operated by Carrie Ann Kidd / KTS at 704 Main Street. Enforces all hard triggers, calculates both reserve metrics daily, surfaces notices to Benefits-Sensitive Account holders, and publishes the public dashboard.
-
-- **Phase Management Controller:** Smart contract enforcing phase-based rules including PMS-only spending in Phase 1, ATM withdrawal processing, emergency pause mechanisms, and automatic phase transitions.
-
-- **Federal Volunteer Service Rate (FVSR):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published FVSR.
-
----
-
-## Appendix C: Participation Roles Cross-Reference
-
-For a complete map of who participates and what they receive, see the [Participation Map](../the%20commons/Participation%20Map.md).
-
-| Role | Economic Safety Relevance |
-|---|---|
-| **Commons User** | Subject to prepaid loading caps (Tier 1: 500 PMS/mo, Tier 2: 1,000 PMS/mo); earns unlimited EMS time credits at stable baseline value; Benefits-Sensitive Account protections available |
-| **Phase 0 Participant** | Founding EMS time credits and badges carry forward at stable baseline value; Groundbreaker rank permanent |
-| **Community Champion** | Primary ground-truthing and data stewardship force in Phase 1 early; earns EMS time credits for current phase focus; role evolves through governance |
-| **Safety Champion** | Ongoing post-Phase 0 safety review; monitors Phase Management Controller enforcement and both reserve metrics |
-| **Merchant** | Pays 1.80% transaction fee; 30% routes to Treasury Reserve; receives PMS in prepaid account |
-| **Ms. Allis** | Enforces all hard triggers; monitors both reserve metrics; surfaces appreciation gate status; publishes phase unlock countdown |
-| **Phase Management Controller** | Smart contract enforcing phase-based rules; processes ATM withdrawals; applies automatic phase transitions; enforces appreciation gate conditions |
-| **Stripe Payment Gateway** | Fiat-to-crypto onramp; processes USD deposits → USDC to treasury → PMS minted 1:1 |
+- **PMS / M$:** Purchased MountainShares; spendable network balance issued when USD is loaded into the system.
+- **EMS:** Earned MountainShares; recognition credits for verified community contribution. Conditional, reserve-gated, participant-elected conversion; not vested; confers no equity or ownership. Securities treatment under counsel review.
+- **Operational Reserve Ratio:** Treasury USDC Reserve ÷ Total Outstanding Spendable PMS (M$).
+- **Treasury Reserve Solvency Ratio:** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$).
+- **FVSR (Federal Volunteer Service Rate):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14.
+- **UEI:** Unique Economic Identity; each participant's persistent identity in the system and governance structure.
+- **Benefits-Sensitive Account:** An account with enhanced protections for participants receiving or potentially receiving means-tested public benefits.
+- **EMS Recognition Bonus:** A Phase 3 distribution election allowing a participant to convert dividend allocation into permanent recognition hours rather than M$ or USD. Income/asset treatment under benefits-counsel review.
+- **Participation Weight (PW):** The score used in Phase 3 to determine a participant's share of the surplus distribution pool.
+- **Community Connectivity Nodes:** MountainShares free public internet nodes (Wi-Fi and LoRa community mesh) deployed at trailheads, civic sites, libraries, and community anchors across West Virginia. Funded by fee-allocation Bucket 4 (operations) and Bucket 5 (buildout); kept open to the public as a public good, never metered or paywalled.
+- **Reversion Cascade:** The automatic return to prior-phase buying-power rules when reserve thresholds fall below the applicable floor.
+- **Hard Trigger:** An automatic system rule that governance cannot override.
+- **WV Money Transmitter License (MTL) / FinCEN MSB Registration:** The state license and federal registration for money transmission; held by the MountainShares DAO / DUNA, not H4H.
+- **Structural Boundary Breach:** Any mechanism that creates founder equity through H4H, community EMS, or the community surplus pool.
 
 ---
 
-*"People earn what they do. The commons holds what we decide together. Ms. Allis watches so nobody can wreck it."*
-
-*MountainShares Phase 1: Economic Safety Specification — Version 3.0*
-*Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
-*Draft — Subject to H4H board review and legal counsel approval before reliance*
+*MountainShares: Complete System Overview and Benefits — Version 3.1*
+*Harmony for Hope, Inc. | MountainShares DAO / DUNA | 704 Main Street, Mount Hope, WV 25880*
+*Draft — Subject to H4H board review, DAO governance, and legal counsel approval before reliance*
 
 ---
 
-**End of MountainShares Phase 1: Economic Safety Specification v3.0**
+**End of MountainShares: Complete System Overview and Benefits v3.1**
