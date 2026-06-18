@@ -617,6 +617,7 @@ All Phase 1 and Phase 2 definitions carry forward. Phase 3 adds or amends:
 - **Regulatory Compliance Clearance Report:** Ms. Allis's mandatory pre-distribution verification that all compliance obligations are current, all queued draws are accounted for in the surplus calculation, and no active regulatory matters could affect the distribution; a required condition precedent to distribution under Section 5.3
 - **Deferral Queue:** The Ms. Allis-managed queue of approved but reserve-floor-constrained Regulatory Compliance Reserve Draws; draws fire automatically when the treasury can accommodate them without breaching the 5.0 floor; deferred draws are subtracted from the surplus pool before dividend calculation
 - **Graceful Shutdown Protocol:** The governed wind-down sequence (Section 13.5) requiring 75% super-majority + 180-day notice; ensures all obligations are met and all remaining surplus is returned to participants before the commons closes
+- **Federal Volunteer Service Rate (FVSR):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published FVSR.
 
 ---
 
