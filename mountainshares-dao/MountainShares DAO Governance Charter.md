@@ -3,8 +3,8 @@
 ## Harmony for Hope, Inc.  
 ### MountainShares Commons / DUNA Governance Framework
 
-**Version:** 1.0  
-**Date:** July 6, 2025  
+**Version:** 1.1  
+**Date:** June 19, 2026  
 **Status:** Draft — For Board and Community Governance Review Prior to Phase 0 Activation  
 **Related Documents:** Terms and Conditions, Program Rules – Parameter Tables, MountainShares Phase 1: Economic Safety Specification, MountainShares Phase 2: Regional Growth Specification, MountainShares Phase 3: Surplus Distribution Specification, Risks and Limits, Architecture and Licensing, Founder Capital Instrument Agreement
 
@@ -14,7 +14,7 @@
 
 This Charter establishes the governance framework for the MountainShares Commons, a community-governed mutual-credit system operated through the MountainShares legal and governance structure for the benefit of residents, local institutions, and participating community partners.
 
-MountainShares is designed as a community system, not an equity vehicle. Its purpose is to support local participation, mutual aid, stewardship, accountability, and community-scale economic coordination through a benefits-sensitive, non-appreciating mutual-credit model.
+MountainShares is designed as a community system, not an equity vehicle. Its purpose is to support local participation, mutual aid, stewardship, accountability, and community-scale economic coordination through a benefits-sensitive mutual-credit model. Community EMS holders receive no equity, ownership, or profit-participation rights in H4H or KTS. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security.
 
 Harmony for Hope, Inc. serves as the initial charitable anchor and operational sponsor for early-stage implementation. The MountainShares Commons is governed as a separate community commons structure operating through the DUNA legal wrapper, with H4H serving as initial sponsor during the transition period.
 
@@ -41,7 +41,7 @@ The Commons is governed through the DUNA legal wrapper and is not a corporation 
 
 ### 1.2 Role of Harmony for Hope, Inc.
 
-Harmony for Hope, Inc. acts as the initial charitable anchor and implementation sponsor for MountainShares during the pre-spinout and early operational phases.
+Harmony for Hope, Inc. acts as the initial charitable anchor and implementation sponsor for MountainShares during the pre-spinout and early operational phases. H4H is not the money transmitter for MountainShares; that role belongs to the MountainShares DAO/DUNA as licensee of record.
 
 H4H may:
 
@@ -52,13 +52,17 @@ H4H may:
 
 H4H does not own participant EMS balances, resident mutual-credit balances, or community governance power as private property. H4H does not issue founder equity through EMS, through the DAO, or through any resident-facing MountainShares account structure.
 
-### 1.3 Role of Kidd's Technical Services
+### 1.3 Role of MountainShares DAO/DUNA as Money-Services Licensee
+
+The MountainShares DAO/DUNA is the licensee of record for money-services activities associated with MountainShares, including the West Virginia Money Transmitter License (WV MTL), the FinCEN MSB registration, the required surety bond, BSA/AML compliance program obligations, and the cash-out rails. All payment flows, fund custody, and regulatory money-services obligations run through the MountainShares DAO/DUNA as licensee. Users and counterparties should direct money-services inquiries to the DAO/DUNA compliance function.
+
+### 1.4 Role of Kidd's Technical Services
 
 Kidd's Technical Services serves as the founder-side technical and commercial vehicle for proprietary systems, intellectual property, and commercial functions associated with ALLIS and related infrastructure.
 
 KTS is separate from the MountainShares Commons. Any founder capital, founder equity, commercial participation, licensing revenue, or private appreciation mechanism is handled through KTS-side instruments and agreements, not through EMS balances, not through the DUNA, and not through H4H-administered community accounts.
 
-### 1.4 Founder Role
+### 1.5 Founder Role
 
 The founder's role within the MountainShares Commons is **steward**, not owner.
 
@@ -80,12 +84,12 @@ Founder authority exists only to the extent granted by this Charter, the Program
 MountainShares governance shall be interpreted and administered according to the following principles:
 
 1. **Community purpose first.** The Commons exists for community benefit, not investor extraction.
-2. **No equity through the DAO.** Participation in MountainShares does not create equity or ownership interests in H4H, the DUNA, KTS, or any other entity.
-3. **Non-appreciating EMS design.** Community EMS and related mutual-credit balances are non-appreciating and are not designed as investment instruments.
-4. **Benefits-sensitive design.** The system shall be operated in a manner intended to protect vulnerable participants and reduce avoidable benefits-related harm.
+2. **No equity through the DAO.** Participation in MountainShares does not create equity or ownership interests in H4H, the DUNA, KTS, or any other entity. Community EMS holders receive no equity, ownership, or profit-participation rights.
+3. **Securities-law treatment under review.** Securities-law treatment of EMS is under review by securities counsel; this Charter makes no representation as to whether EMS is or is not a security. The system includes a conditional, reserve-gated buying-power expansion schedule that does not represent a present appreciation right for any resident.
+4. **Benefits-sensitive design.** The system shall be operated in a manner intended to protect vulnerable participants and reduce avoidable benefits-related harm. Any benefits or tax consequences of MountainShares participation are under benefits-counsel review; no MountainShares-specific PLR has been obtained.
 5. **Transparency and accountability.** Material governance rules, treasury conditions, and structural roles shall be disclosed in a clear and auditable manner.
 6. **Stewardship over control.** Leadership authority is held in trust for the Commons and may not be used to convert community systems into private founder or insider assets.
-7. **Separation of community and commercial systems.** The Commons, H4H charitable functions, and KTS commercial functions shall remain structurally distinct.
+7. **Separation of community and commercial systems.** The Commons, H4H charitable functions, the DUNA as money-services licensee, and KTS commercial functions shall remain structurally distinct.
 
 ---
 
@@ -96,31 +100,34 @@ MountainShares governance shall be interpreted and administered according to the
 Participation in MountainShares, whether by earning EMS, holding M$, voting, volunteering, contributing labor, or engaging in governance, does not create:
 
 - an equity interest,
-- a securities interest,
 - a shareholder right,
 - a membership unit in KTS,
 - an ownership share in H4H,
 - an ownership interest in the DUNA,
 - or a direct claim on treasury assets except as expressly provided under duly adopted community rules.
 
-No governance weight, ledger participation, recognition score, or contribution history may be construed as private ownership of the Commons or of any entity associated with it.
+No governance weight, ledger participation, recognition score, or contribution history may be construed as private ownership of the Commons or of any entity associated with it. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security.
 
 ### 3.2 EMS and M$ as Community Instruments
 
 EMS and M$ are community program instruments used for recognition, participation, and mutual-credit coordination within MountainShares.
 
-They are not:
+They are not shares, stock, partnership interests, profit-sharing units, or appreciation-bearing founder instruments. Community EMS holders receive no equity, ownership, or profit-participation rights in H4H or KTS.
 
-- stock,
-- securities,
-- partnership interests,
-- investment contracts,
-- profit-sharing units,
-- or appreciation-bearing founder instruments.
+No participant may market, assign, or describe EMS or M$ as an equity-like financial instrument. Securities-law treatment of EMS and M$ is under review by securities counsel; this document makes no representation as to whether EMS or M$ is or is not a security.
 
-No participant may market, assign, or describe EMS or M$ as an equity-like financial instrument.
+### 3.3 Buying-Power Expansion: Conditional and Reserve-Gated
 
-### 3.3 Founder Participation
+The system includes a buying-power expansion schedule tied to phase activation thresholds. That schedule is strictly conditional, deferred, and reserve-gated. It does not represent a present appreciation right for any resident, and no resident holds a vested appreciation right prior to threshold clearance.
+
+Activation of expanded buying power requires:
+
+- Treasury Reserve at or above the applicable solvency threshold (≥ 300% for Phase 2; ≥ 500% for Phase 3) for at least two consecutive quarters, and
+- all Treasury Reserve-funded formation and transition fees fully paid.
+
+If the reserve falls below the applicable threshold, the system reverts automatically to prior-phase parameters. Any founder-side appreciation instrument exists, if at all, exclusively on the KTS side under separate, counsel-reviewed documentation.
+
+### 3.4 Founder Participation
 
 The founder may participate in the Commons as a contributor, steward, proposer, voter, administrator, or technical operator, subject to the same structural rules that protect the Commons from private extraction.
 
@@ -220,6 +227,7 @@ The Commons governs:
 - resident participation,
 - governance,
 - treasury oversight,
+- money-services licensing obligations (held by the DUNA as licensee of record),
 - and benefits-sensitive community operations.
 
 KTS governs:
@@ -273,10 +281,12 @@ MountainShares shall be governed with special attention to benefits-sensitive de
 
 Accordingly:
 
-- community EMS shall remain non-appreciating,
-- resident-facing systems shall avoid avoidable equity-like features,
-- governance changes with benefits implications shall receive heightened review,
+- community EMS buying-power expansion is conditional, deferred, and reserve-gated and does not represent a present appreciation right for any resident;
+- resident-facing systems shall avoid avoidable equity-like features;
+- governance changes with benefits implications shall receive heightened review;
 - and no participant class shall be forced into a structure that effectively converts community participation into speculative exposure.
+
+Any benefits or tax consequences of MountainShares participation are under benefits-counsel review; no MountainShares-specific Private Letter Ruling (PLR) has been obtained.
 
 These protections apply to residents and participants generally and are not waived by founder status, stewardship role, or administrative access.
 
@@ -303,9 +313,11 @@ Where founder or steward roles materially affect governance, treasury, or contra
 
 Participants shall not be led to believe that:
 
-- EMS confers equity,
+- EMS confers equity or ownership rights,
 - the DAO sells or grants ownership in any entity,
 - or founder private capital rights exist inside participant account systems.
+
+Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security.
 
 ---
 
@@ -315,14 +327,14 @@ This Charter may be amended only by the procedures set out in the Program Rules 
 
 Any amendment affecting one or more of the following shall require heightened review:
 
-- the non-equity status of the Commons,
+- the securities-law characterization or equity status of EMS or M$,
 - treasury reserve protections,
 - founder role definitions,
 - conflict-of-interest protections,
 - benefits-sensitive structures,
 - or the separation between community systems and KTS commercial instruments.
 
-No amendment may be interpreted to silently convert the Commons into an equity-bearing structure.
+No amendment may be interpreted to silently convert the Commons into an equity-bearing structure or to create undisclosed appreciation rights for any class of participant.
 
 ---
 
@@ -339,14 +351,15 @@ In descending order of authority for matters addressed by this Charter:
 
 Where multiple documents appear to conflict, they shall be interpreted, to the maximum extent possible, in a manner that preserves:
 
-- the non-equity nature of the Commons,
-- the separation of H4H, DUNA, and KTS roles,
-- benefits-sensitive design,
+- the no-equity character of community EMS and M$ participation;
+- the securities-law status of EMS and M$ as a matter under review by securities counsel, with no representation as to whether either is or is not a security;
+- the separation of H4H, the DUNA (as money-services licensee of record), and KTS roles;
+- benefits-sensitive design;
 - and the founder's status as steward rather than owner.
 
 ---
 
-*MountainShares DAO Governance Charter*  
+*MountainShares DAO Governance Charter — Version 1.1*  
 *Harmony for Hope, Inc. — initial sponsor*  
 *MountainShares Commons / DUNA governance framework*  
 *Draft — Not legal, tax, securities, or benefits advice*
