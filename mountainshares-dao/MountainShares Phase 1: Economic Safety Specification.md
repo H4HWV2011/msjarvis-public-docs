@@ -1,193 +1,3 @@
-# MountainShares Phase 1: Economic Safety Specification
-
-> **Disciplinary Context: Appalachian Economic Commons**
-> This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:
-> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1–3 and 7–11 treat recognition, time credits, prepaid value, reserve ratios, and phase transitions as a single coupled system, explicitly tying minting and circulation to backing assets and regional program realities.
-> - **P9 – Transparency and traceability:** Sections 3, 4, 9, and 10 define public reserve-ratio calculations, dashboards, audits, and governance cadences so that money creation, caps, and emergency actions are observable and reconstructable over time.
-> - **P16 – Power accountable to place:** Sections 2, 3, 5–7, and 11 bound DAO, Ms. Allis, and H4H authority inside hard economic and legal constraints, ensuring that decisions about rates, caps, and shutdowns answer to local solvency and community safety rather than abstract speculation.
-> - **Anti-leakage and closed-loop spending:** The separation of the time bank recognition ledger from capped, reserve-backed prepaid value (Section 1) and the reserve-ratio-driven phase transition table (Section 4) operationalize anti-leakage design and keep the closed loop anchored in real backing assets.
-> - **Bounty and corrective programs:** Promo-pool rules (Section 5) and example governance scenarios (Appendix B) show how targeted bonuses and parameter changes can be treated as bounded "bounties" aligned with safety math rather than unconstrained giveaways.
-
-**Version:** 3.1
-**Date:** June 18, 2026
-**Status:** DAO Governance Document — Structural Rewrite (securities framing + money-services relocation + connectivity allocation)
-**Scope:** West Virginia Pilot (Phase 1)
-**Related documents:** Phase 0 Specification, Program Rules, Program Rules – Parameter Tables, DAO Governance Charter, MountainShares Gamification: The Contribution Game, KPI Specification v3.0, FA-001 Fee Amendment, H4H Canonical Facts Sheet, EMS Securities Treatment — Counsel Prep, Money-Services Entity Relocation Map
-
-> **Entity Status Notice:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC and has no EIN. References to "KTS" in this document mean Carrie Ann Kidd personally, operating under that trade name. Formation of the WV LLC is the gating step before founder equity, ALLIS IP holding, and KTS-side capitalization instruments take legal effect.
-
-> **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
-
-> **Money-Services Notice:** The **MountainShares DAO / DUNA is the licensee of record** for money transmission (WV Money Transmitter License) and FinCEN Money Services Business registration; it holds the surety bond, runs the BSA/AML program, and operates the PMS cash-out / ATM withdrawal rails. **Harmony for Hope, Inc. is not the money transmitter.** This structure is contingent on counsel confirming a license is required and that the WV Division of Financial Institutions will license the DUNA directly; otherwise a separate DUNA-controlled licensed entity substitutes for "DUNA." Threshold question for counsel: whether Phase 1 PMS cash-out at current volumes requires licensing at all, or qualifies for a closed-loop / prepaid-access exemption.
-
-> **EMS Conversion — Governing Rule:** Community EMS maintains a stable baseline exchange value throughout Phase 0 and Phase 1. Buying-power expansion schedules are **inactive** unless and until the Treasury Reserve achieves the applicable solvency threshold (300% of total EMS + M$ outstanding at Phase 2; 500% at Phase 3), all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below the applicable threshold, the system automatically reverts to prior-phase specifications to maintain continuity of service. These rates are conditional, revocable, and not vested; no resident holds a vested or guaranteed right to any buying-power rate. EMS confers no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity. **The securities-law treatment of EMS, M$, and the phase-based conversion mechanism is under review by securities counsel; this document makes no representation as to whether any of these is or is not a security or investment contract.** Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
-
----
-
-## Structural Framework
-
-This specification operates within the three-box entity structure governing MountainShares. All Phase 1 design choices must preserve the walls between these entities.
-
-| Entity | Role | Phase 1 Relevance |
-|---|---|---|
-| Harmony for Hope, Inc. (H4H) | 501(c)(3) charitable anchor; program sponsor | Holds operational infrastructure at 704 Main Street; receives 30% of fee revenue for operations; maintains **its own** nonprofit compliance. **Not the money transmitter.** |
-| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer **and licensed money-services function** | EMS recognition ledger, UEIs, Community Champions, PMS prepaid system, DAO governance; **licensee of record for WV MTL + FinCEN MSB; holds the surety bond and BSA/AML program; operates the PMS cash-out / ATM rails** |
-| Kidd's Technical Services (KTS) | To-be-formed for-profit LLC/PBC; founder-owned commercial engine | Ms. Allis / ALLIS deployment; founder-side rights documented separately; no equity path through EMS; holds no money-services license |
-
-No Phase 1 mechanism may create a path by which founder value is realized through H4H or community EMS. Any such path found in operation or testing is a Critical finding requiring immediate resolution.
-
----
-
-## Changelog
-
-| Version | Date | Summary |
-|---|---|---|
-| 1.0 | January 15, 2026 | Initial release |
-| 1.1 | March 12, 2026 | Added Phase 0 foundation section; integrated gamification layer; added three-stage platform arc; added Community Champion role; added Benefits-Sensitive Account protections; added data stewardship KPIs |
-| 1.2 | March 13, 2026 | Added cross-references to Parameter Tables Section 4.3; updated fee revenue allocation |
-| 2.0 | May 4, 2026 | **MAJOR REVISION:** Restructured as community time bank with prepaid stored-value system; separated EMS (time credits, vaulted) from PMS (prepaid value, spendable); replaced variable base-rate model with phase-based treasury triggers; added user-choice framework for Phase 2/3 EMS conversion; clarified treasury mechanics; enhanced Benefits-Sensitive Account protections |
-| 3.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Corrected EMS appreciation framing to reserve-gated, deferred, conditional; added Treasury Reserve solvency gating section; added three-box structural framework; corrected server location to 704 Main Street; added KTS entity status notice; added reversion trigger language throughout |
-| 3.1 | June 18, 2026 | **STRUCTURAL REWRITE:** Removed "non-appreciating in the securities-law sense" assertions (own-the-appreciation decision; securities treatment under counsel review); added Money-Services Notice recording the **DUNA** as money-services licensee of record (cash-out operated under the DUNA's licensed rails); dedicated fee-allocation Buckets 4 and 5 to **Community Connectivity** (free public internet nodes); re-pointed the promo pool funding source off the former Community Programs bucket; softened absolute time-banking tax/benefits claims to counsel-review framing (no MountainShares-specific PLR); **reconciled the ATM/cash-out fee to $1.25 (was $2.50) to match Parameter Tables, Phase 2, and Phase 3**; cleaned garbled FVSR rate strings and stray characters in §10; aligned with Parameter Tables v3.1, Phase 2 v3.1, Phase 3 v3.1, EMS Securities Treatment — Counsel Prep, and Money-Services Entity Relocation Map |
-
----
-
-## 1. Foundation: What Phase 0 Built
-
-Phase 1 does not start from zero. It starts from a tested, red-teamed foundation built during Phase 0 (Invite-Only Beta) at 704 Main Street.
-
-**MountainShares operates as a community time bank with a digital prepaid account system.** Like traditional time banks, MountainShares values **one hour of community service = one hour of community service**, regardless of the type of work performed. All participants exchange time and skill through a shared ledger of recognition hours (EMS time credits), which may later convert to stored value (PMS prepaid balances) usable for local goods and services — but only when the Treasury Reserve has satisfied the applicable solvency threshold and all formation costs have been paid.
-
-**What Phase 0 produced:**
-- A working **time bank recognition ledger** with real UEIs, real EMS time credits, and real geo-tagged activity
-- A red-teamed **prepaid stored-value wallet system** (PMS) with documented security findings and remediations
-- A cohort of Groundbreaker-rank participants who carry founding badges, founding **time credits**, and governance eligibility into Phase 1
-- A Phase 0 Pre-Launch Audit Report that serves as the permanent founding governance record
-- A tested Ms. Allis system with reserve ratio enforcement, Phase Management Controller integration, and chatbot interface
-- Validated data stewardship workflows and ground-truthing consent processes
-- Deployed smart contract infrastructure: Backbone Contract, Phase Management Controller, Treasury Monitor, Business Registry, and Stripe Payment Gateway integration
-- Confirmed Treasury Reserve solvency gating logic: buying-power expansion gates inactive, reversion trigger logic verified
-
-All **time credits (EMS hours)** logged during Phase 0 carry forward permanently at stable baseline exchange value. Groundbreaker rank is locked. Founding badges are permanent.
-
----
-
-## 2. Core Economic Principles
-
-**Time Bank Foundation:**
-- MountainShares is a **community time bank** where participants exchange hours of service using accumulated time credits (EMS) as the unit of account.
-- All time is valued equally: one hour of caregiving = one hour of data stewardship = one hour of cultural preservation = one hour of governance participation.
-- Time credits (EMS) are **recognition of service rendered to the community**, not wages, income, or compensation for employment.
-- Prepaid stored value (PMS) represents a **digital prepaid account** funded by participant deposits, not a bank account or savings instrument.
-
-**EMS Buying-Power Is Inactive in Phase 1:**
-
-Community EMS holds a stable baseline value in Phase 1. The buying-power expansion schedule is inactive at this stage because the Treasury Reserve has not reached the Phase 2 activation threshold (300% of total EMS + M$ outstanding, with all formation and transition fees paid). No Phase 1 participant holds a vested conversion right. EMS balances are stable-value time credits logged to the recognition ledger. The securities-law treatment of EMS and the conversion mechanism is under review by securities counsel; this document makes no representation as to whether it is or is not a security or investment contract.
-
-If at any future point the reserve metric falls below an applicable threshold after a higher-phase expansion has activated, the system automatically reverts to prior-phase specifications — no resident loses their principal EMS balance, but expanded buying power is suspended until the threshold is restored for two consecutive quarters.
-
-**Two Parallel Systems:**
-
-- **Time Bank Recognition Ledger (Unlimited):** All EMS time credits logged on-chain with full UEI, geo, org, and timestamp data. No hard cap. Community time-bank credits; tax and benefits treatment under counsel review (no MountainShares-specific private letter ruling). Vaulted in Phase 1.
-
-- **Prepaid Stored Value (Capped & Reserve-Backed):** PMS represents **prepaid account balances** backed 1:1 by USDC reserves held in treasury contracts. Participants load PMS by depositing USD via Stripe Payment Gateway.
-
-**Hard Triggers (Automatic, Non-Negotiable):** Phase Management Controller and Ms. Allis enforce automatically; no DAO override possible for safety constraints.
-
-**Three-stage platform arc:** The Commons grows from barter/trade and Facebook Marketplace feel (Phase 1 early) through TikTok-style discovery (Phase 1 mature) to Amazon-style full commerce layer (Phase 2+). See The Commons Gamification Section 2 for the full arc.
-
----
-
-## 3. Time Credits vs. Prepaid Stored Value: The Two-Ledger System
-
-### 3.1 Understanding the Distinction
-
-MountainShares operates two parallel systems through a unified interface:
-
-| System | How Acquired | Phase 1 Status | Legal Character | Cash-Out |
-|---|---|---|---|---|
-| **EMS (Earned MountainShares) — Time Bank Credits** | Logged for verified community service hours | **Vaulted and locked** — visible on recognition ledger, not convertible to prepaid value in Phase 1 | **Community time-bank credits** — designed as reciprocal service recognition, not wages; tax and benefits treatment under counsel review | **No** — vaulted until Phase 2+ user opt-in, contingent on reserve threshold |
-| **PMS (Personal MountainShares) — Prepaid Stored Value** | Purchased with USD via Stripe Payment Gateway; minted 1:1 at time of deposit | **Spendable immediately** in The Commons | **Prepaid stored-value account balance** — not a bank account, not a savings account | **Yes** — via ATM withdrawal under the DUNA's licensed money-services rails, with $1.25 fee, 500 PMS daily limit |
-
-### 3.2 Phase 1 Economic Flow (Time Bank Model)
-
-**Time credit earning:**
-- User performs 8 hours of verified caregiving → 8 EMS time credits logged to recognition ledger
-- These are reciprocal community service hours, not income
-- Time credits remain vaulted until Phase 2+ reserve threshold is met and user opts in
-
-**Prepaid account loading:**
-- User deposits $100 USD via Stripe Payment Gateway
-- Treasury receives ~98 USDC (net of Stripe processing fees)
-- User receives 100 PMS prepaid stored value (minted 1:1)
-
-**Prepaid spending in The Commons:**
-- User spends 50 PMS at Nicholas Pharmacy
-- Pharmacy receives 50 PMS in their prepaid account
-- Transaction fee (1.80%) collected: 0.9 PMS
-- Fee split: 30% Treasury Reserve, 30% H4H Operations, 15% Platform Development, 15% Community Connectivity – Operations, 10% Community Connectivity – Infrastructure
-
-**Cash-out (ATM withdrawal):**
-- User requests $25 cash-out
-- 25 PMS deducted from prepaid balance; $1.25 withdrawal fee deducted
-- Treasury pays $23.75 USDC to user's linked bank account
-- Phase Management Controller's WITHDRAWALPROCESSORROLE processes the transaction under the DUNA's licensed money-services rails
-- 500 PMS daily withdrawal limit enforced
-
-**Result:** Time credits (EMS) accrue on the recognition ledger as community time-bank credits. Prepaid balances (PMS) hold stored value in digital prepaid accounts. Treasury holds USDC reserves backing prepaid balances 1:1. Time credits do not convert to prepaid value until Phase 2+ reserve threshold conditions are satisfied and the user actively opts in.
-
-### 3.3 Per-User Prepaid Loading Caps (Monthly)
-
-| User Tier | Definition | Monthly PMS Loading Cap | Purpose |
-|---|---|---|---|
-| **Tier 1** | General Commons participants | 500 PMS/month | Standard cap for most users |
-| **Tier 2** | Verified community roles (caregivers, mutual aid workers, nonprofit staff with org co-sign + geo validation) | 1,000 PMS/month | Higher cap for high-need community roles |
-
-These caps apply to **loading PMS via USD deposits**, not to earning EMS time credits. Users can log unlimited EMS hours; time credits are vaulted and do not count against prepaid caps.
-
-All current caps are maintained in the Program Rules – Parameter Tables.
-
-### 3.4 Benefits-Sensitive Account Protections
-
-Participants receiving means-tested public benefits (SNAP, Medicaid, SSI, WV WORKS, etc.) are protected by default.
-
-**Time Bank Legal Posture (under counsel review):**
-- **Time credits (EMS) are designed as reciprocal community service, not income:** Hours logged to the time bank recognition ledger represent reciprocal non-monetary exchanges. The time-banking tax and benefits treatment is under counsel review and has no MountainShares-specific private letter ruling; participants should consult a benefits counselor.
-- **Prepaid stored value (PMS) is not a bank account:** PMS balances are held in prepaid stored-value accounts, not savings or checking accounts.
-- **Phase 2+ conversion timing is participant-controlled:** When the reserve threshold is eventually met and Phase 2 activates, conversion of vaulted EMS to prepaid value is optional, incremental, and participant-timed — allowing benefits-sensitive participants to manage eligibility impact. No participant is ever forced to convert.
-
-**Additional Protections:**
-- Hard prepaid balance cap protecting benefits eligibility (DAO-governed, defaults to conservative level)
-- Throttled prepaid loading if balance approaches cap
-- No forced disclosure of benefit status
-- Ms. Allis proactive plain-language notice when approaching thresholds
-- Time credits remain vaulted by default — logging unlimited EMS does not create spendable balance
-
-**Legal Review Before Launch:**
-- Time bank classification under qualified legal counsel review.
-- Prepaid account classification under review with counsel as to whether it is a "bank account" for benefits purposes.
-- H4H establishes referral partnerships with WV benefits counselors.
-
----
-
-## 4. Treasury Backing & Phase-Based Safety Triggers
-
-### 4.1 Reserve Ratio and Treasury Management
-
-Two reserve metrics govern the system:
-
-**Operational Reserve Ratio (Phase 1 continuity):**
-
-```
-Operational Reserve Ratio = Treasury USDC Reserve / Total Outstanding Spendable PMS
-```
-
-This ratio governs day-to-day phase management and hard trigger enforcement during Phase 1.
-
-**Treasury Reserve Solvency Ratio (Conversion Gate):**
-
-```
-Treasury Reserve Solvency Ratio = Treasury Reserve / (Total Outstanding EMS + Total Outstanding M$)
-```
 
 This ratio governs whether buying-power expansion is permitted to activate at all. It is the primary top-of-dashboard metric in the KPI Specification v3.0. No conversion gate may open unless this ratio satisfies the applicable threshold and all formation/transition fees have been paid.
 
@@ -419,7 +229,7 @@ Phase 0 graduated to Phase 1 when the Pre-Launch Audit Report was finalized, all
 
 - **EMS unlocking:** Each user with vaulted EMS time credits receives a one-time opt-in prompt when Phase 2 activates. Users choose:
   - **Cash out now** at the Phase 2 rate (1 EMS = $10 USD equivalent)
-  - **Continue vaulting** for potential Phase 3 conversion (the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date)
+  - **Continue vaulting** for potential Phase 3 conversion at the Independent Sector / Do Good Institute Value of Volunteer Time (BLS-derived) in effect on the Phase 3 activation date
   - **Partial conversion** — cash out X EMS hours, leave the rest vaulted
 - **No forced conversion:** Phase 2 unlocking does not automatically convert all EMS to spendable PMS
 - **Treasury impact:** Only EMS that users actively choose to convert is paid out from treasury USDC reserves
@@ -438,7 +248,7 @@ Phase 0 graduated to Phase 1 when the Pre-Launch Audit Report was finalized, all
 - DAO governance participation ≥ 40% quorum on key votes
 
 **Phase 3 Changes (contingent on threshold conditions above):**
-- EMS buying-power advances to the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date (1 EMS = the FVSR; 2026: $36.14)
+- EMS buying-power advances to the Independent Sector / Do Good Institute Value of Volunteer Time (BLS-derived, not a federal or IRS rate) in effect on the Phase 3 activation date (1 EMS = the FVSR; 2026: $36.14)
 - Users with remaining vaulted EMS receive a new opt-in prompt
 - **Reversion protection:** If Treasury Reserve Solvency Ratio falls below 500%, system automatically reverts to Phase 2 parameters; if it falls below 300%, system reverts to Phase 1 parameters
 
@@ -546,7 +356,7 @@ Every UEI can see (updated daily):
 
 - **WV Money Transmitter License (MTL) / FinCEN MSB Registration:** The state license and federal registration for money transmission; held by the MountainShares DAO / DUNA, not H4H.
 
-- **Federal Volunteer Service Rate (FVSR):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published FVSR.
+- **FVSR (Volunteer Time Value Rate):** The Independent Sector / Do Good Institute Value of Volunteer Time — a BLS-derived rate published annually by Independent Sector and the Do Good Institute. Not a federal or IRS rate. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published Independent Sector value.
 
 ---
 
@@ -569,10 +379,10 @@ For a complete map of who participates and what they receive, see the Participat
 
 *"People earn what they do. The commons holds what we decide together. Ms. Allis watches so nobody can wreck it."*
 
-*MountainShares Phase 1: Economic Safety Specification — Version 3.1*
+*MountainShares Phase 1: Economic Safety Specification — Version 3.2*
 *Harmony for Hope, Inc. | MountainShares DAO / DUNA | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Subject to H4H board review, DAO governance, and legal counsel approval before reliance*
 
 ---
 
-**End of MountainShares Phase 1: Economic Safety Specification v3.1**
+**End of MountainShares Phase 1: Economic Safety Specification v3.2**
