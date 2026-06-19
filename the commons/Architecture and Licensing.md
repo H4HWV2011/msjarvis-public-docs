@@ -6,8 +6,8 @@ The MountainShares technology stack powers the MountainShares Commons (DUNA), pr
 
 The system is designed so that:
 
-- community mutual-credit (EMS and M$) remains non-appreciating and benefits-safe inside the Commons, and  
-- intellectual property, commercial operations, and founder-capital instruments reside on the Kidd’s Technical Services (KTS) side, under separate agreements and applicable legal frameworks.
+- community mutual credit (EMS and M$) remains benefits-safe inside the Commons, with its securities-law treatment under review by securities counsel, and
+- intellectual property, commercial operations, and founder-capital instruments reside on the Kidd's Technical Services (KTS) side, under separate agreements and applicable legal frameworks.
 
 This chapter describes the high-level architecture and the licensing relationships among Harmony for Hope, Inc. (H4H), the DUNA/MountainShares Commons, and KTS.
 
@@ -40,7 +40,7 @@ The MountainShares Commons, organized through the DUNA legal wrapper, is the com
 
 The Commons is member-governed, benefits-sensitive, and non-equity. Participants hold program rights and mutual-credit balances, not ownership interests.
 
-### Kidd’s Technical Services (KTS)
+### Kidd's Technical Services (KTS)
 
 KTS is the founder-side technical and commercial vehicle through which:
 
@@ -48,7 +48,7 @@ KTS is the founder-side technical and commercial vehicle through which:
 - technical operations and commercial services may be offered,
 - founder capital and any appreciating founder instruments are structured.
 
-As of the current record, KTS is planned as a West Virginia for-profit LLC / PBC, to be formed. Until formation, references to “KTS” describe Carrie Ann Kidd operating personally and do not create a separate legal entity.
+As of the current record, KTS is planned as a West Virginia for-profit LLC / PBC, to be formed. Until formation, references to "KTS" describe Carrie Ann Kidd operating personally and do not create a separate legal entity.
 
 KTS is structurally separate from H4H and the Commons. Any appreciating founder instrument lives on the KTS side and never in the hands of residents via community EMS.
 
@@ -60,10 +60,10 @@ KTS is structurally separate from H4H and the Commons. Any appreciating founder 
 
 The MountainShares stack includes, at a minimum:
 
-- **ALLIS (Artificial Learning Location Intelligence System)** — the core AI and geospatial reasoning engine.  
-- **GBIM (Geobelief Information Model)** — the structured belief and feature store used to represent geospatial and community knowledge.  
-- **Microservices and containerized services** — deployed via container orchestration, supporting APIs, background processing, and integrations.  
-- **Data stores** — including relational databases (e.g., PostgreSQL/PostGIS), object storage, and specialized indices for vector search and geospatial analytics.  
+- **ALLIS (Artificial Learning Location Intelligence System)** — the core AI and geospatial reasoning engine.
+- **GBIM (Geobelief Information Model)** — the structured belief and feature store used to represent geospatial and community knowledge.
+- **Microservices and containerized services** — deployed via container orchestration, supporting APIs, background processing, and integrations.
+- **Data stores** — including relational databases (e.g., PostgreSQL/PostGIS), object storage, and specialized indices for vector search and geospatial analytics.
 - **Public-facing applications** — web and mobile interfaces for participants, administrators, and partners.
 
 The architecture is modular, with clear boundaries between:
@@ -77,7 +77,7 @@ The system is designed for deployment on infrastructure controlled by or on beha
 
 Over time, the intent is to:
 
-- maintain Commons-facing services in a manner accountable to community governance through the DUNA, and  
+- maintain Commons-facing services in a manner accountable to community governance through the DUNA, and
 - clearly separate KTS commercial deployments, pilots, or extended services from the core Commons infrastructure.
 
 ---
@@ -138,11 +138,11 @@ These agreements:
 - grant H4H rights necessary to operate MountainShares as a charitable program,
 - define permitted uses and limitations,
 - set out support and maintenance expectations,
-- and maintain clear separation between H4H’s charitable operations and KTS’s commercial interests.
+- and maintain clear separation between H4H's charitable operations and KTS's commercial interests.
 
 ### KTS to DUNA / Commons
 
-KTS licenses ALLIS and related capabilities to the DUNA / MountainShares Commons at arm’s length, under terms designed to:
+KTS licenses ALLIS and related capabilities to the DUNA / MountainShares Commons at arm's length, under terms designed to:
 
 - support community-governed operations,
 - protect residents and participants,
@@ -161,7 +161,7 @@ H4H sponsors the initial deployment and operation of the Commons, with the DUNA 
 
 Over time, the relationship is expected to:
 
-- formalize the Commons’ legal structure through the DUNA,
+- formalize the Commons' legal structure through the DUNA,
 - define how H4H and the DUNA share responsibilities, data, and infrastructure,
 - and ensure that community governance has meaningful oversight of how the system operates on the ground.
 
@@ -171,14 +171,14 @@ Over time, the relationship is expected to:
 
 This architecture and licensing structure is designed so that:
 
-- community EMS remains non-appreciating mutual credit,  
-- participant EMS and M$ balances are not equity,  
-- no founder equity is created inside H4H-administered programs, the DUNA, or EMS accounts,  
+- community mutual credit (EMS and M$) remains benefits-safe inside the Commons, with its securities-law treatment under review by securities counsel,
+- participant EMS and M$ balances are not equity,
+- no founder equity is created inside H4H-administered programs, the DUNA, or EMS accounts,
 - any appreciating founder instrument exists solely on the KTS side, under appropriate legal frameworks.
 
 Licensing fees, if any, paid by H4H or the DUNA to KTS must:
 
-- be arm’s length,
+- be arm's length,
 - support program operation and sustainability,
 - and avoid creating private inurement or disguised equity within the charitable or commons layers.
 
@@ -190,8 +190,8 @@ Founder capital instruments, if implemented, sit outside this architecture and a
 
 Because the founder may have roles in H4H, the Commons, and KTS, the following safeguards apply:
 
-- All H4H–KTS and DUNA–KTS agreements are subject to documented conflict-of-interest and recusal procedures.  
-- The founder abstains from governance decisions where she stands on both sides of the transaction, except as permitted by law and policy under defined recusal procedures.  
+- All H4H–KTS and DUNA–KTS agreements are subject to documented conflict-of-interest and recusal procedures.
+- The founder abstains from governance decisions where she stands on both sides of the transaction, except as permitted by law and policy under defined recusal procedures.
 - Key architectural and licensing decisions are documented, reviewable, and subject to community governance where they materially affect the Commons.
 
 No single individual may unilaterally change architectural or licensing terms in a way that undermines:
@@ -221,7 +221,20 @@ must be recorded in updated governance documents and, where appropriate, subject
 
 ---
 
-*Architecture and Licensing — MountainShares Commons*  
-*Harmony for Hope, Inc. (initial sponsor)*  
-*Kidd’s Technical Services (planned owner of ALLIS / GBIM)*  
+### Changelog
+
+| Version | Date | Summary |
+|---|---|---|
+| 1.0 | Prior | Initial draft |
+| 1.1 | June 19, 2026 | **Amendment A — two spots:** (1) §System Overview bullet 1 — removed "non-appreciating"; replaced with "remains benefits-safe inside the Commons, with its securities-law treatment under review by securities counsel." (2) §Non-Equity and Non-Inurement Safeguards bullet 1 — same reframe applied. All other structural no-equity language unchanged. |
+
+---
+
+*Architecture and Licensing — MountainShares Commons*
+*Harmony for Hope, Inc. (initial sponsor)*
+*Kidd's Technical Services (planned owner of ALLIS / GBIM)*
 *Draft — Not legal, tax, securities, or benefits advice*
+
+---
+
+**End of Architecture and Licensing v1.1**
