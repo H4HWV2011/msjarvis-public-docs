@@ -1,19 +1,20 @@
 # Fee Amendment — FA-001
 
-## Under Master Services Agreement  
-### Harmony for Hope, Inc. and Carrie Ann Kidd d/b/a Kidd’s Technical Services
+## Under Master Services Agreement
+### Harmony for Hope, Inc. and Carrie Ann Kidd d/b/a Kidd's Technical Services
 
-**Amendment Number:** FA-001  
-**Version:** 1.0  
-**Date:** July 6, 2025  
-**Status:** Draft — Structural Rewrite for Board and Counsel Review  
+**Amendment Number:** FA-001
+**Version:** 1.1
+**Date:** July 6, 2025
+**Amended:** June 19, 2026
+**Status:** Draft — Structural Rewrite for Board and Counsel Review
 **Related Documents:** Master Services Agreement, SOW-000, SOW-001, FTIS-001, KTS Relationship and Status Memorandum
 
 ---
 
 ## 1. Purpose
 
-This Fee Amendment (**FA-001**) amends and clarifies the compensation, value-allocation, and technical-support treatment applicable to work performed by **Carrie Ann Kidd d/b/a Kidd’s Technical Services** for **Harmony for Hope, Inc.** under the Master Services Agreement and related Statements of Work.
+This Fee Amendment (**FA-001**) amends and clarifies the compensation, value-allocation, and technical-support treatment applicable to work performed by **Carrie Ann Kidd d/b/a Kidd's Technical Services** for **Harmony for Hope, Inc.** under the Master Services Agreement and related Statements of Work.
 
 This amendment is intended to correct and replace any prior drafting logic that could be read to:
 
@@ -22,21 +23,21 @@ This amendment is intended to correct and replace any prior drafting logic that 
 - imply that KTS is already a formed limited liability company when it is not,
 - or misstate the physical server location associated with H4H operations.
 
-This amendment establishes a cleaner structure: charitable value remains charitable, community instruments remain non-equity, and any appreciating founder-side instrument belongs outside H4H and outside the resident-facing Commons.
+This amendment establishes a cleaner structure: charitable value remains charitable, community instruments confer no equity or ownership interest, and any appreciating founder-side instrument belongs outside H4H and outside the resident-facing Commons.
 
 ---
 
 ## 2. Parties and Current Entity Status
 
-This amendment is between **Harmony for Hope, Inc.** and **Carrie Ann Kidd**, an individual doing business as **Kidd’s Technical Services**.
+This amendment is between **Harmony for Hope, Inc.** and **Carrie Ann Kidd**, an individual doing business as **Kidd's Technical Services**.
 
 As of the date of this amendment:
 
-- Kidd’s Technical Services is not yet a separately formed West Virginia limited liability company,
+- Kidd's Technical Services is not yet a separately formed West Virginia limited liability company,
 - no separate KTS EIN has yet been issued,
 - and all rights and obligations described here run to Carrie Ann Kidd personally unless and until a later written assignment, amendment, or novation is executed after lawful entity formation.
 
-Any reference in earlier documents to **Kidd’s Technical Services, LLC** should be treated as requiring conforming correction.
+Any reference in earlier documents to **Kidd's Technical Services, LLC** should be treated as requiring conforming correction.
 
 ---
 
@@ -77,7 +78,7 @@ This amendment expressly rejects any compensation model in which founder value a
 - resident account balances,
 - or any similar H4H-administered or Commons-administered instrument.
 
-Community EMS is a non-appreciating, closed-loop mutual-credit instrument of the community layer. It is not a private investment mechanism and not a lawful founder-capital surrogate.
+Community EMS is a closed-loop mutual-credit instrument of the community layer that confers no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity. The securities-law treatment of community EMS is under review by securities counsel; this document makes no representation as to whether it is or is not a security. Community EMS is not a private investment mechanism and not a lawful founder-capital surrogate.
 
 Any appreciating founder-side instrument, if one is later created under counsel-reviewed documentation, must exist solely outside the community system and never in resident hands.
 
@@ -140,7 +141,7 @@ These may include, as applicable:
 - valuation and appraisal work,
 - filing and compliance costs,
 - licensing and procurement costs related to transition architecture,
-- and other approved formation or implementation expenses necessary to move from the current H4H-operated structure into the later arm’s-length configuration.
+- and other approved formation or implementation expenses necessary to move from the current H4H-operated structure into the later arm's-length configuration.
 
 This Treasury Reserve concept applies to transition and procurement costs only where properly authorized. It does not create founder ownership rights inside the community system.
 
@@ -229,18 +230,31 @@ Its purpose is corrective, clarifying, and structural.
 
 **Accepted and Agreed:**
 
-**HARMONY FOR HOPE, INC.**  
-By: __________________________  
-Name: ________________________  
-Title: _________________________  
+**HARMONY FOR HOPE, INC.**
+By: __________________________
+Name: ________________________
+Title: _________________________
 Date: __________________
 
-**CONTRACTOR**  
-Carrie Ann Kidd  
-d/b/a Kidd’s Technical Services  
+**CONTRACTOR**
+Carrie Ann Kidd
+d/b/a Kidd's Technical Services
 Date: __________________
 
 ---
 
-*Fee Amendment — FA-001*  
+### Changelog
+
+| Version | Date | Summary |
+|---|---|---|
+| 1.0 | July 6, 2025 | Initial draft |
+| 1.1 | June 19, 2026 | **Amendment A:** Removed "non-appreciating, closed-loop mutual-credit instrument" characterization from §5; replaced with no-equity disclaimer + "securities-law treatment under review by securities counsel; this document makes no representation as to whether it is or is not a security." §1 "community instruments remain non-equity," §13 superseded-error list, and §14 "securities rights" scope language left as-is (structural/limiting language, not securities-law assertions). |
+
+---
+
+*Fee Amendment — FA-001*
 *Draft — Not legal, tax, accounting, securities, or benefits advice*
+
+---
+
+**End of FA-001 v1.1**
