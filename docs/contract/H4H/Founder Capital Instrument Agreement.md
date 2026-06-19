@@ -2,10 +2,11 @@
 
 ## Kidd's Technical Services / Carrie Ann Kidd
 
-**Document Type:** Draft private founder-capital instrument  
-**Version:** 1.1  
-**Date:** July 6, 2025  
-**Status:** Draft for counsel review; adopted only upon entity formation and execution  
+**Document Type:** Draft private founder-capital instrument
+**Version:** 1.2
+**Date:** July 6, 2025
+**Amended:** June 19, 2026
+**Status:** Draft for counsel review; adopted only upon entity formation and execution
 
 ## 1. Parties and status
 
@@ -32,14 +33,14 @@ D. This Agreement governs only the founder-capital side of that allocation.
 For purposes of this Agreement:
 
 - **Founder Capital Hours** means the portion of the Founder's documented logged hours allocated to founder capital rather than charitable in-kind contribution, initially calculated using the 150 per hour founder-capital allocation.
-- **Founder Capital Value** means the dollar value of the Founder Capital Hours, calculated from the documented hour total and the founder-capital rate in effect under the Canonical Facts Sheet or any later approved controlled-document update.
+- **Founder Capital Value** means the dollar value of the Founder Capital Hours, calculated from the documented hour total and the founder-capital rate in effect under **FTIS-001 §5** or any later approved controlled-document update.
 - **Company Instrument** means the private capital right created by this Agreement, whether documented as a capital account, profits interest, membership units, restricted units, phantom equity, revenue participation right, subordinated founder note, or another counsel-approved instrument under applicable law.
 
 ## 5. Grant of founder-capital instrument
 
 Subject to the Company's formation and formal approval under its organizational documents, the Company shall issue to the Founder a private founder-capital instrument in an initial amount equal to the documented Founder Capital Value arising from the Founder's pre-launch logged hours.
 
-Based on the controlled contribution record as maintained by the Founder and to be reconciled into the final company books upon formation, the initial Founder Capital Value shall be calculated from the documented Founder Capital Hours and the founder-capital rate then adopted in the controlling contribution schedule.
+Based on the controlled contribution record as maintained by the Founder and to be reconciled into the final company books upon formation, the initial Founder Capital Value shall be calculated from the documented Founder Capital Hours and the founder-capital rate then adopted in **FTIS-001 §5**.
 
 The Company Instrument may be implemented in one of the following forms, as selected by counsel and reflected in the Company's governing documents:
 
@@ -132,7 +133,7 @@ No final execution of this Agreement shall occur until all of the following have
 1. KTS has been duly formed and is in good standing.
 2. KTS has obtained an EIN and adopted governing organizational documents.
 3. Counsel has selected the final instrument type.
-4. The parties have aligned this Agreement with the controlling contribution values maintained in the company records.
+4. The parties have aligned this Agreement with the controlling contribution values maintained in **FTIS-001 §5** and the company records.
 5. H4H and DAO-side conflict-of-interest procedures are documented and ready to apply to any related-party approvals.
 
 ## 14. Governing law
@@ -147,13 +148,32 @@ If KTS is formed first as an LLC and later converted into a corporation, public 
 
 **Draft Signature Blocks**
 
-**FOUNDER:**  
-Carrie Ann Kidd  
+**FOUNDER:**
+Carrie Ann Kidd
 Date: __________________
 
-**COMPANY:**  
-Kidd's Technical Services, LLC  
-By: __________________________  
-Name: ________________________  
-Title: _________________________  
+**COMPANY:**
+Kidd's Technical Services, LLC
+By: __________________________
+Name: ________________________
+Title: _________________________
 Date: __________________
+
+---
+
+### Changelog
+
+| Version | Date | Summary |
+|---|---|---|
+| 1.0 | Prior | Initial draft |
+| 1.1 | July 6, 2025 | Structural rewrite; KTS entity-status clarification |
+| 1.2 | June 19, 2026 | **Amendment G:** §4 `Founder Capital Value` definition — replaced "the Canonical Facts Sheet or any later approved controlled-document update" with "FTIS-001 §5 or any later approved controlled-document update." §5 second paragraph — replaced "the controlling contribution schedule" with "FTIS-001 §5." §13 condition 4 — added explicit FTIS-001 §5 citation alongside "company records." |
+
+---
+
+*Founder Capital Instrument Agreement*
+*Draft — Not legal, tax, accounting, securities, or benefits advice*
+
+---
+
+**End of Founder Capital Instrument Agreement v1.2**
