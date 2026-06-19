@@ -6,14 +6,15 @@
 **From:** Kidd's Technical Services (KTS)
 **To:** Harmony for Hope, Inc. (H4H)
 **Date:** July 5, 2025
+**Amended:** June 19, 2026
 **Re:** Expansion of MountainShares / The Commons Engagement to Include ALLIS Development
-**Original Contract / Agreement Reference:** [SOW:000]
+**Original Contract / Agreement Reference:** SOW-000
 
 ---
 
 ## 1. Background
 
-The original scope of work between Kidd's Technical Services and Harmony for Hope, Inc. established KTS as the technology operator and framework developer for the **MountainShares / The Commons** initiative — a community intelligence and commons-stewardship program anchored at 706 Main Street, Mount Hope, West Virginia. That engagement defined deliverables around the conceptual framework, governance documentation, Corridor Partner agreement instruments, and program architecture, with a contracted end date of **September 25, 2025**.
+The original scope of work between Kidd's Technical Services and Harmony for Hope, Inc. established KTS as the technology operator and framework developer for the **MountainShares / The Commons** initiative — a community intelligence and commons-stewardship program anchored at **704 Main Street, Mount Hope, West Virginia**. That engagement defined deliverables around the conceptual framework, governance documentation, Corridor Partner agreement instruments, and program architecture, with a contracted end date of **September 25, 2025**.
 
 ---
 
@@ -21,7 +22,7 @@ The original scope of work between Kidd's Technical Services and Harmony for Hop
 
 During the course of the engagement, the operational and geographic conditions in Mount Hope, WV were determined to be sufficient to support a **live, physical deployment** of the Artificial Learning & Location Intelligence System (ALLIS) — the technology layer underlying the MountainShares / The Commons program. Specifically:
 
-- The H4H program office at 706 Main Street provides a KTS-controlled deployment point requiring no third-party negotiation.
+- The H4H program office at **704 Main Street** provides a KTS-controlled deployment point requiring no third-party negotiation.
 - The existing Mount Hope Historic Walking Trail trailhead kiosk on the adjacent bank parking lot provides a natural public-facing heritage node location, consistent with the trail's existing Clio app integration and NPS-recognized interpretive infrastructure.
 
 Developing ALLIS as a live system — rather than a documented framework only — materially advances the program's proof-of-concept goals and positions H4H as the operator of the **reference implementation** for all future MS.___.ALLIS corridor nodes. This decision was reached collaboratively between KTS and H4H leadership and reflects program maturation, not a failure of original planning.
@@ -36,7 +37,7 @@ Developing ALLIS as a live system — rather than a documented framework only �
 
 | Item | Description |
 |------|-------------|
-| ALLIS Node Cluster Design | Design and specification of the MS.MHHWT.ALLIS heritage-node cluster (706 Main St, trailhead kiosk) |
+| ALLIS Node Cluster Design | Design and specification of the MS.MHHWT.ALLIS heritage-node cluster (704 Main St, trailhead kiosk) |
 | Hardware Specification & Procurement Support | Identification of Prism units, SKLink infrastructure, and weatherproof node hardware appropriate to each deployment point |
 | Node Deployment Planning | Site-specific installation plans for each of the three nodes, including power, mounting, and line-of-sight assessment |
 | Local-First Intelligence Configuration | Configuration of locally hosted AI/ML inference layer consistent with ALLIS data stewardship commitments |
@@ -71,7 +72,7 @@ None.
 
 ## 5. Cost Impact
 
-The cost basis for all technical work performed under this engagement — including the expanded scope described in this Change of Scope Request — is documented in the Founder's Technical Investment Statement (FTIS), prepared by Kidd's Technical Services, LLC and dated March 13, 2026, reflecting 6,067.5 hours of contributed technical labor at a fair market value of $150/hour ($910,125 total) for the period March 23, 2025 through May 14, 2026.
+The cost basis for all technical work performed under this engagement — including the expanded scope described in this Change of Scope Request — is documented in the Founder's Technical Investment Statement (FTIS-001), prepared by Kidd's Technical Services, LLC and dated March 13, 2026, reflecting 6,067.5 hours of contributed technical labor at a fair market value of $150/hour ($910,125 total) for the period March 23, 2025 through May 14, 2026.
 
 No cash payment is due to KTS as a result of this Change of Scope Request. Hardware procurement costs, if any, shall be addressed in a separate Fee Amendment (FA-001) and are not included in any existing fixed-fee or contributed-labor arrangement unless explicitly stated therein.
 
@@ -79,7 +80,7 @@ No cash payment is due to KTS as a result of this Change of Scope Request. Hardw
 
 ## 6. Assumptions and Conditions
 
-1. Access to 706 Main Street for node installation is controlled by H4H and requires no additional permission process.
+1. Access to **704 Main Street** for node installation is controlled by H4H and requires no additional permission process.
 2. Access to the trailhead kiosk location on the bank parking lot requires written permission from the property owner and/or the City of Mount Hope, to be secured by H4H no later than October 15, 2027.
 3. KTS retains ownership of all hardware until full payment has been received, at which point hardware ownership transfers to H4H per the terms of the original MSA.
 4. This COS does not alter the data stewardship, liability, or intellectual property terms of the original agreement.
@@ -117,4 +118,18 @@ Date: ___________________________
 
 ---
 
-*COS-001 | KTS → H4H | Issued July 5, 2025 *
+### Changelog
+
+| Version | Date | Summary |
+|---|---|---|
+| 1.0 | July 5, 2025 | Initial draft |
+| 1.1 | June 19, 2026 | **Amendment A — address corrected:** "706 Main Street" → "704 Main Street" in §1 (Background), §2 (Reason for Change, first bullet), §3a (ALLIS Node Cluster Design table row), and §6 condition 1. **Amendment B — reference format corrected:** "SOW:000" → "SOW-000" in header. |
+
+---
+
+*COS-001 | KTS → H4H | Issued July 5, 2025*
+*Draft — Not legal, tax, accounting, securities, or benefits advice*
+
+---
+
+**End of COS-001 v1.1**
