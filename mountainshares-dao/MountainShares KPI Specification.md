@@ -1,9 +1,9 @@
 # MountainShares KPI Specification — Phases 0 through 3, Years 1–5+
 
-**Version 3.0 | Phases 0–3 | Years 1 through 5+**
+**Version 3.1 | Phases 0–3 | Years 1 through 5+**
 **Document Owner:** Harmony for Hope, Inc.
 **Maintained at:** 704 Main Street, Mount Hope, West Virginia 25880
-**Companion documents:** Harmony for Hope Business Plan, MountainShares Business Plan, FA-001 Fee Amendment, FTIS-001 Founder's Technical Investment Statement, H4H Canonical Facts Sheet
+**Companion documents:** Harmony for Hope Business Plan, MountainShares Business Plan, FA-001 Fee Amendment, FTIS-001 Founder's Technical Investment Statement
 
 ---
 
@@ -26,10 +26,10 @@ MountainShares operates within a defined three-entity structure. All KPIs must b
 | Entity | Role | Relationship to EMS |
 |---|---|---|
 | Harmony for Hope, Inc. (H4H) | 501(c)(3) charitable anchor; program sponsor | Administers community layer; no founder equity |
-| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer | Community EMS is non-appreciating closed-loop mutual credit |
+| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer | Community EMS holders receive no equity, ownership, or profit-participation rights; securities-law treatment under review by securities counsel |
 | Kidd's Technical Services (KTS) | To-be-formed for-profit LLC/PBC; founder-owned commercial engine | Any appreciating founder instrument lives here only, never in resident hands |
 
-The separation between these three boxes is not administrative — it is the legal and structural basis upon which community EMS remains benefits-safe, non-equity, and free from inurement risk. No KPI or metric in this document should be interpreted to create founder equity inside H4H or the DUNA.
+The separation between these three boxes is not administrative — it is the legal and structural basis upon which community EMS remains benefits-safe, non-equity, and free from inurement risk. No KPI or metric in this document should be interpreted to create founder equity inside H4H or the DUNA. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security.
 
 ---
 
@@ -39,7 +39,7 @@ Community EMS maintains stable baseline exchange value throughout all phases. Th
 
 ### Governing Rule
 
-Community EMS appreciation is **deferred, conditional, and reserve-gated**. It does not function as an investment contract. No resident holds a vested appreciation right prior to threshold clearance.
+Community EMS appreciation is **deferred, conditional, and reserve-gated**. Community EMS holders do not receive equity, ownership, or profit-participation rights in H4H or KTS. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security. No resident holds a vested appreciation right prior to threshold clearance.
 
 ### Activation Thresholds
 
@@ -89,7 +89,7 @@ This KPI is the single most critical metric in the entire specification. All pha
 
 ## Overview
 
-This document defines Version 3.0 Key Performance Indicators for the MountainShares rollout across all four operational phases. The metrics are designed to:
+This document defines Version 3.1 Key Performance Indicators for the MountainShares rollout across all four operational phases. The metrics are designed to:
 
 - Monitor the economic health of the currency at each scale of operation.
 - Track adoption and retention of participants and organizations as the system grows.
@@ -323,9 +323,11 @@ Phase 0 establishes the operational foundation for everything that follows. The 
 | **Total Phase 0 fee revenue** | **~$1,175** |
 | Allocation to Treasury Reserve (30%) | ~$353 |
 | Allocation to H4H Operations (30%) | ~$353 |
-| Allocation to Community Programs (15%) | ~$176 |
+| Allocation to Community Connectivity – Operations (15%) | ~$176 |
 | Allocation to App Development (15%) | ~$176 |
-| Allocation to Community Projects (10%) | ~$118 |
+| Allocation to Community Connectivity – Infrastructure (10%) | ~$118 |
+
+> **Community Connectivity Note:** The Community Connectivity – Operations and Community Connectivity – Infrastructure buckets together represent 25% of fee revenue. These funds support public-good connectivity and are permanently public-facing and never paywalled. Education, mutual aid, and cultural preservation remain EMS-earning activities, but are not separate fee-revenue buckets.
 
 Phase 0 is not designed to be revenue-positive. Operations are primarily funded by the founder's in-kind technical investment and the Year 1 Seed Ask of $30,000. Where lawfully authorized, procurement and formation costs (including KTS entity formation, legal counsel, and system procurement) may draw on the Treasury Reserve.
 
@@ -362,9 +364,11 @@ Phase 0 is not designed to be revenue-positive. Operations are primarily funded 
 | **Total Phase 1 fee revenue** | **~$42,350** |
 | Allocation to Treasury Reserve (30%) | ~$12,705 |
 | Allocation to H4H Operations (30%) | ~$12,705 |
-| Allocation to Community Programs (15%) | ~$6,353 |
+| Allocation to Community Connectivity – Operations (15%) | ~$6,353 |
 | Allocation to App Development (15%) | ~$6,353 |
-| Allocation to Community Projects (10%) | ~$4,235 |
+| Allocation to Community Connectivity – Infrastructure (10%) | ~$4,235 |
+
+> **Community Connectivity Note:** The Community Connectivity – Operations and Community Connectivity – Infrastructure buckets together represent 25% of fee revenue. These funds support public-good connectivity and are permanently public-facing and never paywalled. Education, mutual aid, and cultural preservation remain EMS-earning activities, but are not separate fee-revenue buckets.
 
 ---
 
@@ -401,9 +405,11 @@ Phase 0 is not designed to be revenue-positive. Operations are primarily funded 
 | **Total Phase 2 fee revenue** | **~$1,337,000** |
 | Allocation to Treasury Reserve (30%) | ~$401,100 |
 | Allocation to H4H Operations (30%) | ~$401,100 |
-| Allocation to Community Programs (15%) | ~$200,550 |
+| Allocation to Community Connectivity – Operations (15%) | ~$200,550 |
 | Allocation to App Development (15%) | ~$200,550 |
-| Allocation to Community Projects (10%) | ~$133,700 |
+| Allocation to Community Connectivity – Infrastructure (10%) | ~$133,700 |
+
+> **Community Connectivity Note:** The Community Connectivity – Operations and Community Connectivity – Infrastructure buckets together represent 25% of fee revenue. These funds support public-good connectivity and are permanently public-facing and never paywalled. Education, mutual aid, and cultural preservation remain EMS-earning activities, but are not separate fee-revenue buckets.
 
 ---
 
@@ -441,9 +447,11 @@ Phase 3 unfolds across four operational sub-stages: ramp, threshold, safety marg
 | **Total Phase 3 Ramp fee revenue** | **~$8,180,800** |
 | Allocation to Treasury Reserve (30%) | ~$2,454,240 |
 | Allocation to H4H Operations (30%) | ~$2,454,240 |
-| Allocation to Community Programs (15%) | ~$1,227,120 |
+| Allocation to Community Connectivity – Operations (15%) | ~$1,227,120 |
 | Allocation to App Development (15%) | ~$1,227,120 |
-| Allocation to Community Projects (10%) | ~$818,080 |
+| Allocation to Community Connectivity – Infrastructure (10%) | ~$818,080 |
+
+> **Community Connectivity Note:** The Community Connectivity – Operations and Community Connectivity – Infrastructure buckets together represent 25% of fee revenue. These funds support public-good connectivity and are permanently public-facing and never paywalled. Education, mutual aid, and cultural preservation remain EMS-earning activities, but are not separate fee-revenue buckets.
 
 #### Phase 3 Threshold (2030, Year 5)
 
@@ -471,9 +479,11 @@ Phase 3 unfolds across four operational sub-stages: ramp, threshold, safety marg
 | **Total Phase 3 Threshold fee revenue** | **~$24,009,700** |
 | Allocation to Treasury Reserve (30%) | ~$7,202,910 |
 | Allocation to H4H Operations (30%) | ~$7,202,910 |
-| Allocation to Community Programs (15%) | ~$3,601,455 |
+| Allocation to Community Connectivity – Operations (15%) | ~$3,601,455 |
 | Allocation to App Development (15%) | ~$3,601,455 |
-| Allocation to Community Projects (10%) | ~$2,400,970 |
+| Allocation to Community Connectivity – Infrastructure (10%) | ~$2,400,970 |
+
+> **Community Connectivity Note:** The Community Connectivity – Operations and Community Connectivity – Infrastructure buckets together represent 25% of fee revenue. These funds support public-good connectivity and are permanently public-facing and never paywalled. Education, mutual aid, and cultural preservation remain EMS-earning activities, but are not separate fee-revenue buckets.
 
 #### Phase 3 Safety Margin (2031, Year 6)
 
@@ -495,16 +505,18 @@ The safety margin year provides operational headroom against shock, seasonal var
 | **Total Phase 3 Safety Margin fee revenue** | **~$37,930,050** |
 | Allocation to Treasury Reserve (30%) | ~$11,379,015 |
 | Allocation to H4H Operations (30%) | ~$11,379,015 |
-| Allocation to Community Programs (15%) | ~$5,689,508 |
+| Allocation to Community Connectivity – Operations (15%) | ~$5,689,508 |
 | Allocation to App Development (15%) | ~$5,689,508 |
-| Allocation to Community Projects (10%) | ~$3,793,005 |
+| Allocation to Community Connectivity – Infrastructure (10%) | ~$3,793,005 |
+
+> **Community Connectivity Note:** The Community Connectivity – Operations and Community Connectivity – Infrastructure buckets together represent 25% of fee revenue. These funds support public-good connectivity and are permanently public-facing and never paywalled. Education, mutual aid, and cultural preservation remain EMS-earning activities, but are not separate fee-revenue buckets.
 
 #### Phase 3 Mature (2032+, Year 7+)
 
 **Target Participants.** 400,000 or more sustained.
 **Target Merchants.** Up to 8,000.
 
-Steady-state operations. All KPIs at or above Phase 3 mature targets. Reserve backing stable at 500%. Treasury surplus accumulating beyond reserve requirements; surplus directed into expanded Community Projects, additional ALLIS infrastructure, and corridor extensions into adjacent Appalachian states.
+Steady-state operations. All KPIs at or above Phase 3 mature targets. Reserve backing stable at 500%. Treasury surplus accumulating beyond reserve requirements; surplus directed into expanded Community Connectivity infrastructure and operations, additional ALLIS infrastructure, and corridor extensions into adjacent Appalachian states.
 
 **Financial Projections — Phase 3 Mature (steady-state)**
 
@@ -519,9 +531,11 @@ Steady-state operations. All KPIs at or above Phase 3 mature targets. Reserve ba
 | **Total Phase 3 Mature fee revenue** | **~$46,540,000** |
 | Allocation to Treasury Reserve (30%) | ~$13,962,000 |
 | Allocation to H4H Operations (30%) | ~$13,962,000 |
-| Allocation to Community Programs (15%) | ~$6,981,000 |
+| Allocation to Community Connectivity – Operations (15%) | ~$6,981,000 |
 | Allocation to App Development (15%) | ~$6,981,000 |
-| Allocation to Community Projects (10%) | ~$4,654,000 |
+| Allocation to Community Connectivity – Infrastructure (10%) | ~$4,654,000 |
+
+> **Community Connectivity Note:** The Community Connectivity – Operations and Community Connectivity – Infrastructure buckets together represent 25% of fee revenue. These funds support public-good connectivity and are permanently public-facing and never paywalled. Education, mutual aid, and cultural preservation remain EMS-earning activities, but are not separate fee-revenue buckets.
 
 ---
 
@@ -633,12 +647,12 @@ A transition from one phase to the next requires:
 
 ## 9. Closing Note
 
-These KPIs align measurement with the MountainShares thesis: building a resilient, equitable, commons-oriented economic layer that complements existing monetary systems while remaining grounded in real regional activity and structural constraints. The phase architecture ensures growth never outpaces sustainability. The BSA architecture ensures the most vulnerable participants remain protected. The reserve solvency requirement ensures no resident ever holds an appreciation right the treasury cannot support. The three-box separation ensures the community commons remains free from founder equity and inurement risk.
+These KPIs align measurement with the MountainShares thesis: building a resilient, equitable, commons-oriented economic layer that complements existing monetary systems while remaining grounded in real regional activity and structural constraints. The phase architecture ensures growth never outpaces sustainability. The BSA architecture ensures the most vulnerable participants remain protected. The reserve solvency requirement ensures no resident ever holds an appreciation right the treasury cannot support. The three-box separation ensures the community commons remains free from founder equity and inurement risk. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security.
 
 The threshold year is 2030. Every metric in this specification, every phase milestone, every financial projection, and every governance commitment points toward that date as the point at which MountainShares becomes structurally self-sustaining in West Virginia.
 
 ---
 
-*MountainShares KPI Specification — Version 3.0*
+*MountainShares KPI Specification — Version 3.1*
 *Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Subject to DUNA governance review and counsel approval before reliance*
