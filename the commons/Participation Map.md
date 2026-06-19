@@ -1,6 +1,13 @@
 # Participation Map — Roles and Documents
 *(Draft for Discussion – Not Legal Advice)*
 
+> **Program Notices**
+>
+> - **Entity status:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC. All present KTS rights and obligations belong to Carrie Ann Kidd personally. KTS LLC formation is required before founder-side equity and IP-holding instruments take effect.
+> - **Money services:** The **MountainShares DAO/DUNA** — not Harmony for Hope, Inc. — is the licensee of record for the West Virginia Money Transmitter License and FinCEN MSB registration. H4H is the charitable program sponsor and legal operator of MountainShares but is not the money transmitter.
+> - **EMS:** Earned MountainShares (EMS) is a closed-loop community mutual-credit recognition. EMS confers no equity, ownership, or profit-participation rights. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security.
+> - **Harmony for Hope** was established in 2011 and received 501(c)(3) status effective March 16, 2017.
+
 This overview maps the main participation roles in The Commons and MountainShares ecosystem and shows which documents apply to each role, what participants do, what they receive, and what they are *not*.
 
 ---
@@ -21,7 +28,7 @@ This overview maps the main participation roles in The Commons and MountainShare
   - post, share, and react to content;
   - participate in quests, events, and local projects;
   - interact with community members, merchants, and organizations.
-- Earn **Earned MountainShares (EMS)** hours through defined Program activities, quests, and value interactions, logged permanently in the recognition ledger.
+- Earn **Earned MountainShares (EMS)** hours through defined Program activities, quests, and value interactions, logged permanently in the recognition ledger. EMS is a closed-loop community mutual-credit recognition; it confers no equity, ownership, or profit-participation rights.
 - Build rank (Newcomer → Bronze → Silver → Gold → Champion) through accumulated EMS hours — earning governance standing and role eligibility over time.
 - Participate in governance features (for example, voting or feedback mechanisms) once Bronze rank is reached (10 EMS hours + 30 days account age).
 
@@ -29,14 +36,14 @@ This overview maps the main participation roles in The Commons and MountainShare
 
 - Access to The Commons social–economic–digital platform.
 - Ability to post content and participate in community spaces within the Community Guidelines.
-- Potential to earn EMS and, where permitted, spendable M$ within Program limits and reserve ratio bands.
+- Potential to earn EMS and, where permitted, spendable M$ within Program limits and reserve-ratio bands.
 - Rank progression, badges, and recognition in the MountainShares contribution game.
 - Access to governance and feedback tools as defined by Program Rules.
 
 ### What They Are Not
 
 - Not employees or agents of Harmony for Hope or the MountainShares DAO by virtue of using the Platform.
-- Not investors solely by holding or earning MountainShares units.
+- Not holders of equity, ownership, or profit-participation rights by virtue of holding or earning EMS or M$. Securities-law treatment of EMS and M$ is under review by securities counsel; this document makes no representation as to whether either is or is not a security.
 - Not entitled to any specific amount of EMS, MountainShares, rewards, or governance influence beyond what is defined in the Terms and Program Rules.
 
 ---
@@ -94,7 +101,7 @@ This overview maps the main participation roles in The Commons and MountainShare
 
 ### What They Get
 
-- Recognition of their time and contributions as **EMS hours**, logged in the recognition ledger as commons work.
+- Recognition of their time and contributions as **EMS hours**, logged in the recognition ledger as commons work. EMS is a closed-loop community mutual-credit recognition; it confers no equity, ownership, or profit-participation rights. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security.
 - Founding badges recognizing their role in building the system before public launch.
 - The ability (where rules allow) to use EMS for governance and limited internal conversions, subject to Program Rules.
 - Public or semi-public acknowledgment (where safe and consented) as Community Champions.
@@ -113,7 +120,7 @@ This overview maps the main participation roles in The Commons and MountainShare
 
 - All documents applicable to Community Champions (above)
 - [Safety Champion Participation Agreement](../mountainshares-dao/Safety%20Champion%20Program%20.md) (individual + Safety Champion Organization)
-- Any institutional MOUs or agreements between Harmony for Hope, KTS, and the Safety Champion Organization
+- Any institutional MOUs or agreements between Harmony for Hope, KTS (not yet a formed WV LLC; see Program Notice above), and the Safety Champion Organization
 
 ### What They Do
 
@@ -127,7 +134,7 @@ This overview maps the main participation roles in The Commons and MountainShare
 
 ### What They Get
 
-- EMS recognition for safety-testing work, associated with their personal UEI and, when rules allow, aggregated to the organization's UEI.
+- EMS recognition for safety-testing work, associated with their personal UEI and, when rules allow, aggregated to the organization's UEI. EMS is a closed-loop community mutual-credit recognition; it confers no equity, ownership, or profit-participation rights. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security.
 - Safety Champion Founder badge (Phase 0) — permanent founding recognition.
 - A defined role and relationship between their organization and Harmony for Hope for AI and program safety work.
 - Opportunities for co-authored reports, case studies, or academic and institutional recognition, where appropriate.
@@ -168,7 +175,7 @@ This overview maps the main participation roles in The Commons and MountainShare
 
 ### What They Are Not
 
-- Not issuers, brokers, or financial intermediaries for MountainShares.
+- Not issuers, brokers, or financial intermediaries for MountainShares. Money-services activities associated with MountainShares — including payment transmission — are operated by the **MountainShares DAO/DUNA** as the licensee of record for the West Virginia Money Transmitter License and FinCEN MSB registration. Harmony for Hope, Inc. is the program sponsor but is not the money transmitter.
 - Not required to redeem M$ for USD on demand — redemption and cash-out processes are governed by Program Rules and payment partner terms.
 - Not entitled to governance voting rights solely by virtue of being a merchant (merchants who are also commons participants with a UEI follow the standard one-UEI-one-vote rule).
 - Not partners or co-owners of Harmony for Hope, the MountainShares DAO, or any underlying assets.
@@ -180,7 +187,7 @@ This overview maps the main participation roles in The Commons and MountainShare
 ### Applicable Documents
 
 - [University Commons Node Partnership Overview](University%20Commons%20Node%20Partnership%20Overview.md)
-- Node Operations MOU between H4H, KTS, and the University
+- Node Operations MOU between H4H, KTS (not yet a formed WV LLC; see Program Notice above), and the University
 - Data Sharing Agreement (DSA) / Data Use Agreement (DUA)
 - [The Commons – Terms of Use](The%20Commons%20%E2%80%93%20Terms%20of%20Use.md) and MountainShares Terms (for platform interaction)
 - Any internal University data-governance and research-ethics policies
@@ -217,7 +224,7 @@ This overview maps the main participation roles in The Commons and MountainShare
 ### Applicable Documents
 
 - [Government Commons Node & Ms. Allis Partnership Overview](Government%20Commons%20Node%20%26%20Ms.%20Allis%20Partnership%20Overview.md)
-- Node Operations MOU or inter-agency agreement between H4H, KTS, and the Agency
+- Node Operations MOU or inter-agency agreement between H4H, KTS (not yet a formed WV LLC; see Program Notice above), and the Agency
 - Data Sharing / Data Use Agreements (Agency ↔ H4H/KTS)
 - [The Commons – Terms of Use](The%20Commons%20%E2%80%93%20Terms%20of%20Use.md) and MountainShares Terms (for platform interaction)
 - Applicable statutes, regulations, and Agency data-governance policies
@@ -275,9 +282,29 @@ This overview maps the main participation roles in The Commons and MountainShare
 - Not an ultimate authority or owner of any system component, treasury asset, or governance process.
 - Not able to unilaterally change rules, mint tokens, or override legal constraints or human governance decisions.
 - Not granted ownership interest in Harmony for Hope, the MountainShares DAO, or any underlying assets.
-- Not a financial intermediary, broker, or investment advisor.
+- Not a financial intermediary, broker, investment advisor, or money transmitter. Money-services activities associated with MountainShares are operated by the **MountainShares DAO/DUNA** as licensee of record; Ms. Allis is a monitoring and advisory layer only.
 - Her wallet participation cannot be used to override, capture, or unduly influence governance — caps, clawback conditions, and audit requirements ensure this.
 
 ---
 
 *This map is a living document. As new roles, partnerships, and participation pathways are defined through governance, this document will be updated to reflect them.*
+
+---
+
+### Changelog
+
+| Version | Date | Summary |
+|---|---|---|
+| 1.0 | Prior | Initial draft |
+| 1.1 | June 19, 2026 | **Amendment A — Program Notices block added** at top: KTS entity-status, DUNA money-services licensee, EMS securities-counsel-review, H4H founding year. **Amendment B — §1 "What They Are Not" updated:** "Not investors solely by holding or earning" replaced with neutral no-equity statement plus securities-counsel-review notice. **Amendment C — §3 / §4 EMS descriptions updated:** closed-loop mutual-credit framing and securities-counsel-review notice added to each "What They Get" section. **Amendment D — §4 / §6 / §7 applicable-documents lines updated:** KTS pre-formation parenthetical added. **Amendment E — §5 Merchant "What They Are Not" updated:** DUNA named as money-services licensee of record (WV MTL, FinCEN MSB); H4H confirmed as not the money transmitter. **Amendment F — §8 Ms. Allis "What She Is Not" updated:** "not a money transmitter" added; DUNA named as licensee of record. Naming already correct throughout (Ms. Allis used correctly; no "Ms. Jarvis" or "Egeria" instances present). |
+
+---
+
+*Participation Map — Roles and Documents*
+*Harmony for Hope, Inc. — The Commons / MountainShares*
+*Established 2011 · 501(c)(3) effective March 16, 2017*
+*Draft — Not Legal, Tax, Securities, or Benefits Advice*
+
+---
+
+**End of Participation Map v1.1**
