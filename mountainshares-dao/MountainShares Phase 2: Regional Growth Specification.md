@@ -1,191 +1,3 @@
-# MountainShares Phase 2: Regional Growth Specification
-
-> **Disciplinary Context: Appalachian Economic Commons**
-> This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:
-> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1–3 and 7–11 treat regional expansion, statewide reserve architecture, and the 300% treasury band as a single coupled system, explicitly tying minting ceilings and merchant network growth to real backing assets and graduated community trust.
-> - **P9 – Transparency and traceability:** Sections 3, 4, 9, and 10 define public reserve-ratio calculations at the 300% band, statewide dashboards, and governance cadences so that every treasury position is observable and reconstructable over time.
-> - **P16 – Power accountable to place:** Sections 2, 3, 5–7, and 11 bound DAO, Ms. Allis, and H4H authority inside hard economic and legal constraints at regional scale, ensuring that decisions about rates, caps, statewide rollout, and new region eligibility answer to local solvency and community safety.
-> - **Anti-leakage and closed-loop spending:** The reserve-ratio-driven 300% band (Section 3) and the Stage 3 full-commerce unlock (Section 2) operationalize anti-leakage design at expanded geographic scale while keeping the closed loop anchored in verified backing assets.
-> - **Bounty and corrective programs:** Regional promo-pool rules (Section 5) and example governance scenarios (Appendix B) show how expansion bonuses and parameter changes remain bounded by safety math rather than becoming unconstrained growth incentives.
-
-**Version:** 3.1
-**Date:** June 18, 2026
-**Status:** DAO Governance Document — Structural Rewrite (securities framing + money-services relocation + connectivity allocation)
-**Scope:** West Virginia Statewide Expansion (Phase 2)
-**Related documents:** Phase 0 Specification, Phase 1 Specification, Phase 3 Specification, Program Rules, Program Rules – Parameter Tables, DAO Governance Charter, KPI Specification v3.0, FA-001 Fee Amendment, H4H Canonical Facts Sheet, EMS Securities Treatment — Counsel Prep, Money-Services Entity Relocation Map
-
-> **Entity Status Notice:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC and has no EIN. References to "KTS" in this document mean Carrie Ann Kidd personally, operating under that trade name. Formation of the WV LLC is the gating step before founder equity, ALLIS IP holding, and KTS-side capitalization instruments take legal effect. No Phase 2 mechanism creates a founder equity path through H4H or community EMS.
-
-> **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
-
-> **Money-Services Notice:** The **MountainShares DAO / DUNA is the licensee of record** for money transmission (WV Money Transmitter License) and FinCEN Money Services Business registration. The DUNA holds the surety bond, runs the BSA/AML program, and operates the fiat cash-out rails. **Harmony for Hope, Inc. is not the money transmitter.** Phase 2 fiat cash-out does not activate until the DUNA holds the required license(s) and the capitalization (surety bond + minimum net worth) is in place. This structure is contingent on counsel confirming (a) that a money-transmitter license is required at all, and (b) that the WV Division of Financial Institutions will license the DUNA directly with a workable BSA/AML control-person structure. If either fails, a separate DUNA-controlled licensed entity substitutes for "DUNA" throughout.
-
-> **EMS Conversion — Governing Rule:** Community EMS maintains a stable baseline exchange value. Phase-based buying-power expansion schedules are **inactive** unless and until the Treasury Reserve achieves the applicable solvency threshold (300% of total EMS + M$ outstanding at Phase 2; 500% at Phase 3), all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below the applicable threshold, the system automatically reverts to prior-phase specifications to maintain continuity of service. These rates are conditional, revocable, and not vested, and are realized only through deliberate, participant-elected conversion; no resident holds a vested or guaranteed right to any buying-power rate. EMS confers no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity. **The securities-law treatment of EMS, M$, and the phase-based conversion mechanism is under review by securities counsel; this document makes no representation as to whether any of these is or is not a security or investment contract.** Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
-
----
-
-## Structural Framework
-
-This specification operates within the three-box entity structure governing MountainShares. All Phase 2 design choices must preserve the walls between these entities.
-
-| Entity | Role | Phase 2 Relevance |
-|---|---|---|
-| Harmony for Hope, Inc. (H4H) | 501(c)(3) charitable anchor; program sponsor | Maintains **its own** nonprofit compliance only (IRS Form 990, WV SOS annual report, registered agent, charitable registration); receives 30% of fee revenue for operations. **Not the money transmitter.** |
-| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer **and licensed money-services function** | EMS recognition ledger, UEIs, PMS prepaid system, statewide county activation, DAO governance, Tier 3 Regional Champions; **licensee of record for the WV MTL + FinCEN MSB; holds the surety bond and BSA/AML program; operates the fiat cash-out rails; receives the money-services Treasury Reserve draw** |
-| Kidd's Technical Services (KTS) | To-be-formed for-profit LLC/PBC; founder-owned commercial engine | Ms. Allis / ALLIS deployment at 704 Main Street; founder-side rights documented separately; no equity path through EMS or H4H; **holds no money-services license** |
-
-No Phase 2 mechanism may create a path by which founder value is realized through H4H or community EMS. Any such path found in operation is a Critical finding requiring immediate resolution.
-
----
-
-## Changelog
-
-| Version | Date | Summary |
-|---|---|---|
-| 1.0 | March 16, 2026 | Initial release — Phase 2 framework, 300% reserve band, statewide rollout, Stage 3 full-commerce unlock, regional governance expansion, Regulatory Compliance Reserve Draw mechanism |
-| 2.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Added dual reserve metric framework; corrected EMS appreciation framing to reserve-gated, deferred, conditional; added reversion trigger language; added three-box structural framework; corrected server location to 704 Main Street; added KTS entity status notice |
-| 3.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Removed all "non-appreciating in the securities-law sense" assertions (own-the-appreciation decision; securities treatment placed under counsel review); relocated money-services licensing from H4H to the **MountainShares DAO / DUNA** as licensee of record; split Section 7A into Stream N (H4H nonprofit compliance) and Stream M (DUNA money-services); added DUNA capitalization gate before cash-out activation; corrected FVSR definition placement and removed stray characters; aligned with EMS Securities Treatment — Counsel Prep and Money-Services Entity Relocation Map |
-| 3.1 | June 18, 2026 | Updated fee revenue allocation: **Buckets 4 and 5 dedicated to Community Connectivity** — free public internet nodes (Wi-Fi and LoRa community mesh): Bucket 4 (15%) node operations, Bucket 5 (10%) node buildout (a combined 25% of fee revenue); removed education, mutual aid, cultural preservation, and member-initiated local projects as fee-funded purposes. Added free public internet node deployment to the county-activation rollout. Aligned with Program Rules – Parameter Tables v3.1 |
-
----
-
-## 1. Foundation: What Phase 1 Built
-
-Phase 2 does not start from zero. It starts from a proven, community-validated foundation built during Phase 1 at 704 Main Street and across Fayette County.
-
-**What Phase 1 produced:**
-- A fully operational reserve-backed M$ economy with a tested safety threshold system enforced by Ms. Allis
-- A mature recognition ledger with thousands of verified UEIs, geo-tagged EMS hours, and real merchant transaction history
-- A statewide merchant network capable of supporting Stage 3 full-commerce activity
-- A graduated Champion corps ready to shift from data stewardship to regional governance leadership
-- A reserve ratio that has held stable at ≥ 1.25 operational and ≥ 300% Treasury Reserve Solvency for 60+ consecutive days, meeting all Phase 2 graduation criteria
-- A verified data stewardship layer with ≥ 500 active place records at ≥ 60% recency
-- A DAO with demonstrated quorum and a governance track record
-- Benefits-Sensitive Account protections under benefits-counsel review (final confirmation pending, given the phase-based conversion rates)
-- Confirmed buying-power expansion gate logic: Phase 2 gate opens only after the Treasury Reserve Solvency Ratio meets the 300% threshold with all formation fees paid
-- All KTS formation and H4H/DUNA transition costs paid from the Treasury Reserve before Phase 2 activation, and DUNA money-services licensure and capitalization in place before Phase 2 cash-out
-
-All EMS hours, ranks, and badges from Phase 0 and Phase 1 carry forward permanently at stable baseline value. Groundbreaker and Phase 1 founding badges are locked. The founding governance record is permanently anchored in the Phase 0 Pre-Launch Audit Report.
-
----
-
-## 2. Core Economic Principles at the 300% Band
-
-Phase 2 is defined by two governing thresholds operating simultaneously.
-
-### 2.1 Dual Reserve Metric Framework
-
-**Operational Reserve Ratio** governs day-to-day continuity of service, per-user caps, and Phase 2 commerce feature unlock:
-
-```
-Operational Reserve Ratio = Treasury USDC Reserve / Total Outstanding Spendable PMS (M$)
-```
-
-**Treasury Reserve Solvency Ratio** governs EMS buying-power expansion and is the primary conversion gate:
-
-```
-Treasury Reserve Solvency Ratio = Treasury Reserve / (Total Outstanding EMS + Total Outstanding M$)
-```
-
-Both metrics are calculated daily by Ms. Allis, published on the dashboard with green/amber/red bands, and enforced by the Phase Management Controller. A reader — including a funder, auditor, or regulator — can see on the face of the dashboard whether any conversion gate is open or closed.
-
-### 2.2 EMS Conversion Status in Phase 2
-
-Phase 2 buying-power expansion activated because the Treasury Reserve Solvency Ratio reached 300% of total EMS + M$ outstanding **and** all Treasury Reserve-funded formation and transition costs were paid. That activation condition is documented in the Phase 1 → Phase 2 graduation record.
-
-The Phase 2 conversion schedule (1 EMS = $10 USD equivalent, user-controlled opt-in) is therefore **conditionally active** — not permanently vested. If the Treasury Reserve Solvency Ratio falls below 300%, the system automatically reverts to Phase 1 parameters:
-
-- Expanded buying-power schedules suspend immediately
-- No resident loses their principal EMS balance
-- Reversion is logged to the durable audit trail
-- The system returns to Phase 2 expansion parameters only after the 300% threshold is restored for two consecutive quarters
-
-Phase 3 buying-power expansion (1 EMS = the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date) activates only when the Treasury Reserve Solvency Ratio reaches and sustains 500%.
-
-These rates are conditional, revocable, and not vested, and are realized only through participant-elected conversion. EMS confers no equity or ownership interest. The securities-law treatment of EMS and the phase-based conversion mechanism is under review by securities counsel; this document makes no representation as to whether it is or is not a security or investment contract. Any founder-side appreciating instrument exists exclusively on the KTS side under separate documentation.
-
-### 2.3 Three-Stage Platform Arc
-
-- **Stage 1** (barter/trade): Phase 0 and Phase 1 early
-- **Stage 2** (discovery/TikTok-style): Phase 1 mature and Phase 2 entry; operational reserve ratio ≥ 1.5
-- **Stage 3** (full commerce/Amazon-style): Phase 2 confirmed; operational reserve ratio ≥ 3.0 for 30+ consecutive days
-
-### 2.4 Legal Operability as a Treasury Priority
-
-The commons cannot function unless both legal-standing obligations are maintained: H4H's own nonprofit standing, and the DUNA's money-services licensure. Treasury reserve funds are available, through the governed and transparent process defined in Section 7A, to cover verified compliance costs that are prerequisites to MountainShares operating legally at Phase 2 scale and beyond. This is legal infrastructure, not discretionary spending.
-
----
-
-## 3. EMS Conversion Rates and Per-User Caps (Phase 2)
-
-### 3.1 Phase 2 EMS Buying-Power Expansion (Conditionally Active)
-
-EMS buying-power expansion is conditionally active in Phase 2 at a 10× rate (1 EMS = $10 USD equivalent), subject to the reversion conditions in Section 2.2. No resident holds a vested right to this expanded buying power — conversion is user-initiated, optional, and incremental. The treasury pays USDC only for EMS that users actively choose to convert; vaulted EMS remains off-balance-sheet recognition until conversion.
-
-All EMS not yet converted continues to vault. If Phase 3 conditions are met (500% Treasury Reserve Solvency), vaulted EMS may be converted at the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date.
-
-### 3.2 Global Base Rate at Phase 2 Scale
-
-- **Floor:** 0.5 M$ per EMS hour (Phase 2 minimum; lower rates belong to Phase 1 recovery scenarios only)
-- **Ceiling:** 2.0 M$ per EMS hour (unlocked only at ≥ 300% operational reserve ratio, via DAO vote)
-- **Range:** 0.5 – 2.0 M$ per EMS hour, governed by the Phase 2 Safety Threshold Table in Section 3.4
-
-All current rates and caps are maintained in the Program Rules – Parameter Tables.
-
-### 3.3 Per-User Convertible Caps (Monthly, Phase 2)
-
-| User Tier | Definition | Monthly Cap (M$) | Weekly Cap | Daily Cap |
-|---|---|---|---|---|
-| **Tier 1** | General Commons participants | 80 M$ | 20 hrs | 3–4 hrs |
-| **Tier 2** | Verified EMS, caregiving, high-need community roles (geo+UEI validated) | 160 M$ | 40 hrs | 8 hrs |
-| **Tier 3** | Regional Champion, governance leadership, data stewardship anchor (DAO-confirmed) | 240 M$ | 60 hrs | 12 hrs |
-
-**Tier 3 is new in Phase 2.** Tier 3 assignment requires: Phase 1 Champion history + DAO confirmation vote + Ms. Allis geo-activity verification across ≥ 2 counties.
-
-### 3.4 Benefits-Sensitive Account Protections (Phase 2)
-
-All Phase 1 Benefits-Sensitive Account protections carry forward unchanged. EMS conversion in Phase 2 is participant-timed and incremental, allowing benefits-sensitive participants to manage eligibility impact. Because the phase-based conversion rates increase realizable value, the question of whether vaulted-but-convertible EMS is a countable resource for SSI/Medicaid is under benefits-counsel review and should be confirmed (ideally by a private letter ruling) before reliance. Phase 2 adds:
-
-- **Statewide legal review:** Before any new county activates, Benefits-Sensitive Account thresholds are reviewed against that county's predominant benefits mix.
-- **County-level cap variation:** Ms. Allis may apply county-specific Benefits-Sensitive caps where legal counsel determines the statewide threshold is insufficient for a specific program mix. County-level variations are published in the Parameter Tables and reviewed quarterly.
-- **No forced conversion at Phase 2 activation:** Participants who vaulted EMS in Phase 1 are never automatically converted; each participant controls their own conversion timing.
-- **No forced disclosure:** Participation in The Commons does not require disclosure of benefit status at any tier.
-
-### 3.5 Phase 2 Safety Threshold Table (Ms. Allis Enforces Automatically)
-
-| Operational Reserve Ratio | Treasury Reserve Solvency Ratio | Global Base Rate | Tier 1 Cap | Tier 2 Cap | Tier 3 Cap | Stage 3 Commerce | EMS Buying-Power Status | Action |
-|---|---|---|---|---|---|---|---|---|
-| ≥ 3.0 (300%) | ≥ 300% (P2 active) | 1.5–2.0 M$/hr (DAO vote) | 80 M$/mo | 160 M$/mo | 240 M$/mo | Fully unlocked | Conditionally active — 1 EMS = $10 | DAO may vote to increase rate toward 2.0 |
-| 2.0 – 2.99 | ≥ 300% | 1.0–1.5 M$/hr (DAO-controlled) | 80 M$/mo | 120 M$/mo | 180 M$/mo | Unlocked (monitored) | Conditionally active | DAO can vote to hold or increase if trend stable |
-| 1.5 – 1.99 | ≥ 300% | 0.5–1.0 M$/hr (DAO-controlled) | 80 M$/mo | 100 M$/mo | 140 M$/mo | Stage 2 only | Conditionally active | DAO can vote to hold steady; Stage 3 gated |
-| < 1.5 | Any | Phase 1 thresholds reactivate | Phase 1 caps | Phase 1 caps | Tier 3 paused | Stage 2 only | Suspended pending recovery | Auto-revert to Phase 1 safety rules; Tier 3 suspended |
-| Any | < 300% | Phase 1 thresholds reactivate | Phase 1 caps | Phase 1 caps | Tier 3 paused | Stage 2 only | **Reverted to Phase 1 — buying-power expansion suspended** | Automatic reversion; no vote required |
-
-**Automatic Trigger Logic:**
-- Ms. Allis recalculates both reserve metrics daily.
-- If operational reserve ratio drops below 1.5, Phase 2 Tier 3 suspends automatically and Phase 1 thresholds reactivate.
-- If operational reserve ratio drops below 0.75, Phase 1 emergency floor fires.
-- Stage 3 commerce features lock automatically if operational reserve ratio drops below 2.0 for 7 consecutive days.
-- **If Treasury Reserve Solvency Ratio drops below 300%, buying-power expansion reverts to Phase 1 immediately — no DAO vote required.**
-- Money-Services Compliance Draws and any nonprofit-compliance draws (Section 7A) are calculated against both reserve ratios after draw, not before. No draw may fire if it would push either metric below its applicable phase floor.
-
----
-
-## 4. Treasury Backing and Hard Reserve Thresholds (Phase 2)
-
-### 4.1 Reserve Metrics Definition
-
-**Operational Reserve Ratio:**
-
-```
-Operational Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
-```
-
-**Treasury Reserve Solvency Ratio:**
-
-```
-Treasury Reserve Solvency Ratio = Treasury Reserve / (Total Outstanding EMS + Total Outstanding M$)
-```
 
 **Backing Assets Include:**
 - USD load fees (users converting USD → M$)
@@ -320,7 +132,7 @@ Not eligible: DUNA general operating costs, platform development, marketing, vol
 
 ### 7A.4 Draw Process and Governance (applies to any draw)
 
-The applicant is the **DUNA** (Stream M) or **H4H** (Stream N exception only). Process unchanged from the prior Section 7A mechanics:
+The applicant is the **DUNA** (Stream M) or **H4H** (Stream N exception only). Process:
 
 1. **Request** filed with supporting documentation and an attestation that the cost cannot be met from ordinary allocation without harm to compliance standing.
 2. **Ms. Allis verification** that the draw leaves both reserve metrics above their applicable phase floors, matches an eligible category, and is not a duplicate; result published within 24 hours.
@@ -425,7 +237,7 @@ All Phase 1 dashboard features carry forward. Phase 2 adds:
 - No deferred compliance draws in an unresolved state
 - DAO advisory vote on Phase 3 readiness passes (simple majority; advisory only — binding criteria above govern)
 
-**Phase 3 Changes:** Treasury surplus distribution protocol activates; 500% Treasury Reserve Solvency Ratio becomes the new maintenance floor; community dividend engine becomes operational; EMS buying-power advances to the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date for vaulted EMS not yet converted. See Phase 3 Specification.
+**Phase 3 Changes:** Treasury surplus distribution protocol activates; 500% Treasury Reserve Solvency Ratio becomes the new maintenance floor; community dividend engine becomes operational; EMS buying-power advances to the Independent Sector / Do Good Institute Value of Volunteer Time (BLS-derived, not a federal or IRS rate) in effect on the Phase 3 activation date for vaulted EMS not yet converted. See Phase 3 Specification.
 
 ---
 
@@ -496,7 +308,7 @@ All Phase 1 definitions carry forward. Phase 2 adds or amends:
 - **Treasury Reserve Solvency Ratio (Phase 2 Gate):** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$). Phase 2 activation threshold: ≥ 300% with all formation fees paid. Reversion trigger: < 300%.
 - **Treasury Reserve Solvency Ratio (Phase 3 Gate):** ≥ 500%. Reversion trigger: < 500% (reverts to Phase 2 parameters); < 300% (reverts to Phase 1 parameters).
 - **EMS Buying-Power Expansion (Phase 2, Conditionally Active):** 1 EMS = $10 USD equivalent; user-initiated, optional, incremental. Active only while Treasury Reserve Solvency Ratio ≥ 300%. Not vested — subject to reversion. Securities treatment under counsel review.
-- **Federal Volunteer Service Rate (FVSR):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published FVSR.
+- **FVSR (Volunteer Time Value Rate):** The Independent Sector / Do Good Institute Value of Volunteer Time — a BLS-derived rate published annually by Independent Sector and the Do Good Institute. Not a federal or IRS rate. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published Independent Sector value.
 - **Community Connectivity Nodes:** MountainShares free public internet nodes (Wi-Fi and LoRa community mesh) deployed at trailheads, civic sites, libraries, and community anchors across West Virginia. Funded by fee-allocation Bucket 4 (operations) and Bucket 5 (buildout); kept open to the public as a public good, never metered or paywalled.
 - **Tier 3:** Regional Champion tier; requires multi-county geo-verified presence and DAO confirmation; highest earning tier in Phase 2; suspends automatically if operational reserve ratio < 1.5.
 - **County Activation:** Formal process by which a new county joins the MountainShares network, gated on data stewardship, merchant presence, regulatory compliance standing, connectivity node deployment, and DAO vote.
@@ -552,10 +364,10 @@ For a complete map of who participates in The Commons and MountainShares, see th
 
 *"The commons grows county by county, hand by hand. Ms. Allis watches the math so the growth stays honest. The DUNA holds the legal door open so the growth stays possible. Every county that opens, opens its internet too."*
 
-*MountainShares Phase 2: Regional Growth Specification — Version 3.1*
+*MountainShares Phase 2: Regional Growth Specification — Version 3.2*
 *Harmony for Hope, Inc. | MountainShares DAO / DUNA | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Subject to H4H board review, DAO governance, and legal counsel approval before reliance*
 
 ---
 
-**End of MountainShares Phase 2: Regional Growth Specification v3.1**
+**End of MountainShares Phase 2: Regional Growth Specification v3.2**
