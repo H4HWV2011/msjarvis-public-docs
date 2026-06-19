@@ -8,8 +8,8 @@
 > - **Anti-leakage and closed-loop spending:** The emphasis on reserve-backed operation, fee-flow auditing (2.1), and reserve-ratio monitoring (3.1) supports anti-leakage design by verifying that the closed-loop instrument behaves as documented.
 > - **Bounties and corrective action:** Post-incident reviews and risk-register updates (5.2–5.3, 4) create structured hooks where future bounty or corrective programs can be anchored to specific failure modes and mitigations.
 
-**Version:** 2.0
-**Date:** June 17, 2026
+**Version:** 2.1
+**Date:** June 19, 2026
 **Status:** DAO Governance Document — Structural Rewrite
 **Scope:** West Virginia statewide — Phase 1 operational, Phase 2 and Phase 3 forward-looking
 **Related documents:** [Program Rules](MountainShares%20Program%20Rules(Draft).md), [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md), [Phase 1 Specification](MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md), [Phase 2 Specification](MountainShares%20Phase%202%3A%20Regional%20Growth%20Specification.md), [Phase 3 Specification](MountainShares%20Phase%203%3A%20Surplus%20Distribution%20Specification.md), [DAO Governance Charter](MountainShares%20DAO%20Governance%20Charter.md), [KPI Specification v3.0](MountainShares%20KPI%20Specification.md)
@@ -54,7 +54,7 @@ The Audit and Risk Management Plan is designed to:
 - Operational Reserve Ratio calculations, band assignments, and reporting
 - Treasury Reserve Solvency Ratio calculations and phase-gate verification
 - Fee flows — load fees, merchant fees, transfer fees, ATM/refund fees, supplemental treasury assessment
-- Fee revenue allocation accuracy across all five buckets (H4H Operations 30%, Treasury Reserve 30%, Platform Development 15%, Community Programs 15%, Community Projects 10%) plus the +0.55% supplemental
+- Fee revenue allocation accuracy across all five buckets (H4H Operations 30%, Treasury Reserve 30%, Platform Development 15%, Community Connectivity – Operations 15%, Community Connectivity – Infrastructure 10%) plus the +0.55% supplemental; Community Connectivity buckets 4 and 5 combined represent 25% of fee revenue dedicated to public-good connectivity programs and infrastructure that are permanently available and never paywalled
 - PMS load and cash-out records
 - Regulatory Compliance Reserve Draw requests and deferral queue status
 - Annual Regulatory Compliance Budget submissions and approvals
@@ -162,7 +162,7 @@ Ms. Allis performs the following checks continuously or on defined intervals:
 | Fee allocation accuracy check | Daily | Any deviation from documented split triggers automatic hold and alert |
 | Regulatory Compliance Reserve Draw queue | Daily | Deferred draws auto-fire when floor is maintainable; alert on any queue aging >30 days |
 | Infrastructure performance | Continuous | Error rate >1%; latency >3×baseline; node availability <99.5% |
-| FVSR update detection | Annually (IRS publish date) | Dashboard updated automatically; DAO notified if Phase 3 rate would change |
+| FVSR update detection | Annually (Independent Sector / Do Good Institute publish date) | Dashboard updated automatically; DAO notified if Phase 3 rate would change |
 
 Alerts are routed to:
 - System monitors (real-time dashboard at 704 Main Street)
@@ -196,7 +196,7 @@ The program maintains a living risk register. Each entry includes description, p
 | Treasury Reserve Solvency Ratio falls below 500% (Phase 3) | Critical | Automatic Phase 3 reversion to Phase 2; 500% permanent floor |
 | Operational Reserve Ratio falls below 0.75 | High | Band D automatic tightening; promo freeze; governance alert |
 | Mis-configured per-user caps allow over-minting | High | Parameter Tables governance; Ms. Allis cap enforcement; daily reconciliation |
-| Unsustainable promo pool spend | Medium | Reserve-band promo state controls; monthly promo pool reconciliation |
+| Unsustainable promo pool spend | Medium | Reserve-band promo state controls; monthly promo pool reconciliation; promo pool drawn from Platform Development or Treasury Reserve, never from Community Connectivity buckets |
 | Phase transition cost underfunding | High | Annual Regulatory Compliance Budget; draw queue tracking; pre-payment gate before higher rate activates |
 
 ### 4.2 Technical Risks
@@ -225,11 +225,11 @@ The program maintains a living risk register. Each entry includes description, p
 
 | Risk | Severity | Primary Control |
 |---|---|---|
-| EMS misclassified as a security | Critical | Non-appreciation guarantee; securities-law structural controls; legal review of all phase documents |
+| EMS securities-law classification | Critical | Securities-law treatment under review by securities counsel; no-equity structure; legal review of all phase documents |
 | State or federal regulatory action on payment system | High | H4H compliance program; payment partner agreements; proactive regulatory engagement |
 | Benefits impact on BSA participants | High | BSA protections; advance notice; EMS Recognition Bonus; benefits counselor referrals |
 | KTS rights activation before LLC formation | High | KTS formation gate; no founder equity through H4H or EMS |
-| Phase 3 dividend misclassified as taxable income | High | Legal review before Phase 3 activation; participant communications |
+| Phase 3 dividend tax treatment | High | Legal review before Phase 3 activation; participant communications; benefits-counsel review for BSA participants |
 | Nonprofit compliance failure (IRS 501(c)(3)) | Critical | Annual governance review with legal counsel; minimum allocation floors |
 
 ### 4.5 Governance Risks
@@ -245,7 +245,7 @@ The program maintains a living risk register. Each entry includes description, p
 
 | Risk | Severity | Primary Control |
 |---|---|---|
-| Public misunderstanding of EMS as speculative investment | High | Plain-language communications; EMS appreciation governing rule prominently published |
+| Public misunderstanding of EMS as speculative investment | High | Plain-language communications; EMS appreciation governing rule prominently published; securities-law-under-review notice in all program documents |
 | Misuse or abuse incidents becoming public | Medium | Incident response protocol; transparent post-incident reporting |
 | Phase 3 dividend not activating after community expectations set | Medium | Conservative public communications; clear conditional framing in all documents |
 
@@ -374,7 +374,8 @@ Any material changes are documented with version numbers, dates, and a brief cha
 | Version | Date | Summary |
 |---|---|---|
 | 1.0 | March 16, 2026 | Initial release |
-| 2.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Added dual reserve metric framework (Operational Reserve Ratio / Treasury Reserve Solvency Ratio); added Phase 2 and Phase 3 monitoring thresholds; added hard trigger event special protocol; added BSA compliance audit track; added structural boundary audit section; added Phase 3 Participation Weight audit requirements; corrected Phase 3 rate reference from hardcoded $34.70 to FVSR defined term (currently $36.14 for 2026); added seven-year retention schedule; corrected server location to 704 Main Street; added KTS entity status notice; aligned with Phase 2 v2.0, Phase 3 v2.0, Parameter Tables v2.0, Program Rules v2.0, and H4H Canonical Facts Sheet |
+| 2.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Added dual reserve metric framework (Operational Reserve Ratio / Treasury Reserve Solvency Ratio); added Phase 2 and Phase 3 monitoring thresholds; added hard trigger event special protocol; added BSA compliance audit track; added structural boundary audit section; added Phase 3 Participation Weight audit requirements; corrected Phase 3 rate reference from hardcoded $34.70 to FVSR defined term (currently $36.14 for 2026); added seven-year retention schedule; corrected server location to 704 Main Street; added KTS entity status notice; aligned with Phase 2 v2.0, Phase 3 v2.0, Parameter Tables v2.0, Program Rules v2.0 |
+| 2.1 | June 19, 2026 | **Amendment C/E/G:** Renamed fee buckets 4–5 to Community Connectivity – Operations and – Infrastructure; added combined-25%-public-good note; re-pointed promo pool note off Community Connectivity buckets; replaced "IRS-published standard rate" / "Federal Volunteer Service Rate" with Independent Sector / Do Good Institute Value of Volunteer Time (BLS-derived) in §3.1 monitor table and Appendix A; deleted ", H4H Canonical Facts Sheet" from v2.0 changelog alignment line; updated §4.4 EMS risk row and §4.6 reputational risk row to securities-under-review language |
 
 ---
 
@@ -382,24 +383,25 @@ Any material changes are documented with version numbers, dates, and a brief cha
 
 - **Operational Reserve Ratio:** Treasury USDC Reserve ÷ Total Outstanding Spendable PMS (M$). Governs day-to-day transaction safety, per-user caps, and commerce features.
 - **Treasury Reserve Solvency Ratio:** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$). Governs EMS buying-power expansion and is the primary phase gate.
-- **FVSR (Federal Volunteer Service Rate):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on Phase 3 activation — not at document publication. The current rate (2026) is $36.14.
+- **FVSR (Volunteer Time Value Rate):** The Independent Sector / Do Good Institute Value of Volunteer Time — a BLS-derived rate published annually by Independent Sector and the Do Good Institute. Not a federal or IRS rate. The Phase 3 EMS buying-power rate is the FVSR in effect on Phase 3 activation — not at document publication. The current rate (2026) is $36.14.
+- **Community Connectivity Buckets:** Fee buckets 4 (Community Connectivity – Operations, 15%) and 5 (Community Connectivity – Infrastructure, 10%), together representing 25% of fee revenue dedicated to public-good connectivity programs and infrastructure permanently available to all participants and never paywalled.
 - **Phase Management Controller:** The automated system component that enforces hard triggers, reversion cascades, and reserve-band parameter adjustments. Non-overridable by any governance vote at any threshold.
 - **Hard Trigger:** A system rule enforced automatically by Ms. Allis and the Phase Management Controller. Cannot be overridden by any DAO vote, H4H Board decision, or other governance mechanism.
 - **Reversion Cascade:** The automatic return to prior-phase buying-power rules when the Treasury Reserve Solvency Ratio falls below the applicable floor.
 - **Structural Boundary Breach:** Any mechanism that creates founder equity through H4H, community EMS, or the community surplus pool. Classified as Level 4 Critical incident regardless of financial magnitude.
 - **Durable Audit Trail:** The combination of internal audit logs, IPFS-anchored governance records, and Ms. Allis automated event logs that together constitute the reconstructable history of MountainShares operations.
 - **Benefits-Sensitive Account (BSA):** An account with enhanced protections for participants receiving or potentially receiving means-tested public benefits.
-- **EMS Recognition Bonus:** Phase 3 optional distribution form — permanent recognition hours instead of M$ or USD; irrevocable per event; not income or assets for any purpose.
+- **EMS Recognition Bonus:** Phase 3 optional distribution form — permanent recognition hours instead of M$ or USD; irrevocable per event; not income or assets for any purpose; any benefits or tax treatment under benefits-counsel review.
 - **Participation Weight (PW):** Phase 3 dividend allocation score — Verified Months Active × Activity Multiplier.
 - **Dividend Farming:** Simulating or fabricating community activity to artificially inflate Participation Weight. Prohibited; subject to permanent PW forfeiture.
-- **Three-Box Structure:** Entity wall separating H4H (charitable anchor), MountainShares Commons/DUNA (community ledger), and KTS (founder commercial engine).
+- **Three-Box Structure:** Entity wall separating H4H (charitable anchor), MountainShares Commons/DUNA (community ledger and money-services licensee of record), and KTS (founder commercial engine).
 
 ---
 
-*Audit and Risk Management Plan — Version 2.0*
+*Audit and Risk Management Plan — Version 2.1*
 *Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Subject to H4H board review and legal counsel approval before reliance*
 
 ---
 
-**End of Audit and Risk Management Plan v2.0**
+**End of Audit and Risk Management Plan v2.1**
