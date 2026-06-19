@@ -2,8 +2,8 @@
 
 *(Draft — For Discussion, Not Legal Advice)*
 
-**Version:** 2.0
-**Date:** June 17, 2026
+**Version:** 2.1
+**Date:** June 19, 2026
 **Status:** Plain Language Participant Notice — Structural Rewrite
 **Scope:** West Virginia statewide — all phases
 **Related documents:** [BSA — Benefits-Sensitive Accounts](BSA-Benefits%E2%80%91Sensitive%20Accounts%20.md), [Program Rules](../mountainshares-dao/MountainShares%20Program%20Rules(Draft).md), [Program Rules – Parameter Tables](../mountainshares-dao/Program%20Rules%20%E2%80%93%20Parameter%20Tables.md), [Phase 1 Specification](../mountainshares-dao/MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md), [Phase 2 Specification](../mountainshares-dao/MountainShares%20Phase%202%3A%20Regional%20Growth%20Specification.md), [Phase 3 Specification](../mountainshares-dao/MountainShares%20Phase%203%3A%20Surplus%20Distribution%20Specification.md), [DAO Governance Charter](../mountainshares-dao/MountainShares%20DAO%20Governance%20Charter.md), [Audit and Risk Management Plan](../mountainshares-dao/Audit%20and%20Risk%20Management%20Plan.md)
@@ -15,7 +15,7 @@ This document summarizes key risks and limits for people and institutions partic
 > **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
 
 > **STRUCTURAL RISK STATEMENT — READ THIS FIRST:**
-> MountainShares EMS recognition credits are non-appreciating in the securities-law sense at all times. No EMS balance, M$ balance, or Commons account is an equity instrument, a security, or a guaranteed-appreciation asset. Phase-based EMS buying-power expansion rates are **conditional and revocable** — not guaranteed. They activate only when the Treasury Reserve Solvency Ratio achieves the applicable threshold (300% for Phase 2; 500% for Phase 3) and all formation and transition costs have been paid. If the ratio falls below the threshold, the system automatically reverts to prior-phase parameters — non-overridable by any governance vote. No participant holds a vested right to Phase 2 or Phase 3 rates prior to threshold clearance. No appreciating or equity instrument reaches any participant through H4H, community EMS, or any Commons account. This is not a hedge, a qualification, or a limitation of a promise — it is the governing design.
+> Community EMS and M$ confer no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity. The securities-law treatment of EMS and M$ is under review by securities counsel; this document makes no representation as to whether either is or is not a security or investment contract. Phase-based EMS buying-power expansion rates are **conditional and revocable** — not guaranteed. They activate only when the Treasury Reserve Solvency Ratio achieves the applicable threshold (300% for Phase 2; 500% for Phase 3) and all formation and transition costs have been paid. If the ratio falls below the threshold, the system automatically reverts to prior-phase parameters — non-overridable by any governance vote. No participant holds a vested right to Phase 2 or Phase 3 rates prior to threshold clearance. No equity instrument reaches any participant through H4H, community EMS, or any Commons account. This is not a hedge, a qualification, or a limitation of a promise — it is the governing design.
 
 ---
 
@@ -48,9 +48,9 @@ Participants are responsible for understanding how income, assets, or in-kind su
 
 ### 1.2 Tax Considerations
 
-EMS recognition credits, M$ balances, and related activities may have tax implications depending on jurisdiction and the specific nature of each participant's activity. The time banking legal framework — under which vaulted EMS credits are treated as non-taxable reciprocal community service exchanges while unconverted — is the basis of the system's design, but this framework has not been confirmed by a private letter ruling specific to MountainShares.
+EMS recognition credits, M$ balances, and related activities may have tax implications depending on jurisdiction and the specific nature of each participant's activity. The time banking legal framework — under which vaulted EMS credits are structured as reciprocal community service exchanges while unconverted — is the basis of the system's design. The income and tax treatment of vaulted EMS credits, conversions, and distributions is under benefits-counsel review; no MountainShares-specific Private Letter Ruling has been obtained. This framework has not been confirmed by a private letter ruling specific to MountainShares, and individual tax treatment depends on individual circumstances.
 
-**Income may arise at conversion, not at earning.** Converting EMS to M$ or to USD creates income in the month of conversion. Vaulted, unconverted EMS does not constitute income or a countable asset under the time banking framework — but individual tax treatment depends on individual circumstances.
+**Income may arise at conversion, not at earning.** Converting EMS to M$ or to USD creates income in the month of conversion. Vaulted, unconverted EMS does not constitute income or a countable asset under the time banking framework — but individual tax treatment depends on individual circumstances and should be confirmed with a qualified advisor.
 
 The MountainShares Program does not provide personalized tax advice. Participants and partner organizations are responsible for their own tax treatment and reporting.
 
@@ -78,8 +78,9 @@ Earned MountainShares (EMS) represent verified hours of community contribution r
 
 - Not wages, salaries, or employment benefits
 - Not a promise of financial return
-- Not an equity instrument or a security
 - Not convertible to cash at any rate until the participant elects conversion and the applicable phase threshold is active
+
+EMS and M$ confer no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity. The securities-law treatment of EMS and M$ is under review by securities counsel; this document makes no representation as to whether either is or is not a security.
 
 EMS do not create an employment relationship with H4H, the DAO, KTS, or any partner.
 
@@ -91,7 +92,7 @@ Previous versions of this document referenced a "Founder's EMS Vesting Schedule"
 
 **The correct current structure is:**
 
-- Community EMS — earned by all participants through verified community contribution — is governed by the Program Rules, the applicable Phase Specification, and this document. Community EMS is non-appreciating at all times. No vesting schedule creates separate conversion rights for community EMS that deviate from the phase-threshold-gated framework described throughout this document.
+- Community EMS — earned by all participants through verified community contribution — is governed by the Program Rules, the applicable Phase Specification, and this document. Community EMS confers no equity or ownership interest; the securities-law treatment of community EMS is under review by securities counsel and this document makes no representation as to whether it is or is not a security. No vesting schedule creates separate conversion rights for community EMS that deviate from the phase-threshold-gated framework described throughout this document.
 - Founder-side rights — if any — exist exclusively on the KTS side of the three-box structure (H4H / Commons / KTS), under separate counsel-reviewed documentation that is not part of the community EMS system. Those rights do not activate before KTS is formed as a WV LLC with an EIN. No founder-side instrument reaches participants through H4H or community EMS.
 
 Any document, instrument, or communication that references a "Founder's EMS Vesting Schedule" as creating separate conversion rights within the community EMS system is superseded by this structural clarification. If you have questions about how this affects a specific document you have received, contact H4H at 704 Main Street, Mount Hope, WV 25880.
@@ -152,13 +153,13 @@ These mechanisms can affect how and when participants can use MountainShares eve
 
 Risks related to system functionality depend on two distinct metrics, both calculated daily by Ms. Allis:
 
-~~~
+```
 Operational Reserve Ratio = Treasury USDC Reserve / Total Outstanding Spendable PMS (M$)
-~~~
+```
 
-~~~
+```
 Treasury Reserve Solvency Ratio = Treasury Reserve / (Total Outstanding EMS + Total Outstanding M$)
-~~~
+```
 
 Participants can monitor both metrics on the public DAO dashboard. No personal data is displayed on the dashboard — only aggregate system metrics and band status.
 
@@ -253,7 +254,7 @@ Participation is voluntary and at each participant's own risk within the limits 
 | Structural boundary breach | Level 4 Critical incident protocol; annual legal review | Report concerns to H4H or via Champion reporting channel |
 | Service discontinuation | Material change notice per Terms | Review governing documents; do not treat M$ as long-term savings |
 | Governance outcome not preferred | Hard constraints protect participants from capture; one-UEI one-vote | Participate in governance; understand hard constraints cannot be overridden |
-| Tax liability on conversion | Income arises at conversion, not at earning | Consult a qualified tax advisor before Phase 2/3 conversion elections |
+| Tax liability on conversion | Income arises at conversion, not at earning; benefits-counsel review applies | Consult a qualified tax advisor before Phase 2/3 conversion elections |
 
 ---
 
@@ -263,13 +264,14 @@ Participation is voluntary and at each participant's own risk within the limits 
 |---|---|---|
 | 1.0 | Early 2026 | Initial draft |
 | 2.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Removed Founder's EMS Vesting Schedule framing; replaced with corrected three-box structure explanation; added Treasury Reserve Solvency Ratio and Operational Reserve Ratio definitions; added Phase 2/3 conditional rate table with reversion language; added Phase reversion is not a failure section; added structural boundary breach risk section; corrected Phase 3 rate reference from hardcoded dollar figure to FVSR defined term (currently $36.14 for 2026); added entity status and server location notices; added Structural Risk Statement header; added Risk Summary Table; aligned with Phase 2 v2.0, Phase 3 v2.0, Program Rules v2.0, BSA v4.0, Audit and Risk Management Plan v2.0 |
+| 2.1 | June 19, 2026 | **Amendment A:** Removed "non-appreciating in the securities-law sense" from Structural Risk Statement and §2.2; removed self-certified "a security" assertions from Structural Risk Statement and §2.1; replaced throughout with no-equity disclaimer + "securities-law treatment under review by securities counsel; this document makes no representation as to whether it is or is not a security"; softened absolute "non-taxable reciprocal community service exchanges" claim in §1.2 to "under benefits-counsel review; no MountainShares-specific PLR obtained." FVSR attribution confirmed clean — no IRS-published-rate language present. |
 
 ---
 
-*Risks and Limits — Plain Language Overview — Version 2.0*
+*Risks and Limits — Plain Language Overview — Version 2.1*
 *Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
 *Draft — For Discussion, Not Legal Advice*
 
 ---
 
-**End of Risks and Limits v2.0**
+**End of Risks and Limits v2.1**
