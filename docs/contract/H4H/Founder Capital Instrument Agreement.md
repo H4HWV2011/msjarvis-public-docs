@@ -3,7 +3,7 @@
 ## Kidd's Technical Services / Carrie Ann Kidd
 
 **Document Type:** Draft private founder-capital instrument
-**Version:** 1.2
+**Version:** 1.4
 **Date:** July 6, 2025
 **Amended:** June 19, 2026
 **Status:** Draft for counsel review; adopted only upon entity formation and execution
@@ -24,7 +24,7 @@ A. The Founder designed, built, and operated substantial technical infrastructur
 
 B. The controlled contribution record reflects the Founder's documented pre-launch technical contribution at the agreed founder valuation framework in effect as of July 6, 2025.
 
-C. The controlled contribution allocation assigns **150 per hour** as charitable in-kind contribution value to Harmony for Hope, Inc. and **150 per hour** as deferred founder capital allocated to KTS, contingent on Phase 2 and phased over time, not as a lump sum.
+C. The controlled contribution allocation assigns **$150/hour** as charitable in-kind contribution value to Harmony for Hope, Inc. and **$150/hour** as deferred founder capital allocated to KTS, contingent on Phase 2 and phased over time, not as a lump sum.
 
 D. This Agreement governs only the founder-capital side of that allocation.
 
@@ -32,15 +32,15 @@ D. This Agreement governs only the founder-capital side of that allocation.
 
 For purposes of this Agreement:
 
-- **Founder Capital Hours** means the portion of the Founder's documented logged hours allocated to founder capital rather than charitable in-kind contribution, initially calculated using the 150 per hour founder-capital allocation.
-- **Founder Capital Value** means the dollar value of the Founder Capital Hours, calculated from the documented hour total and the founder-capital rate in effect under **FTIS-001 §5** or any later approved controlled-document update.
+- **Founder Capital Hours** means the portion of the Founder's documented logged hours allocated to founder capital rather than charitable in-kind contribution, initially calculated using the **$150/hour** founder-capital allocation.
+- **Founder Capital Value** means the dollar value of the Founder Capital Hours, calculated from the documented hour total and the founder-capital rate in effect under the controlled contribution record and valuation framework in effect as of July 6, 2025, as subsequently formalized in **FTIS-001 §5** (adopted June 2026) or any later approved controlled-document update.
 - **Company Instrument** means the private capital right created by this Agreement, whether documented as a capital account, profits interest, membership units, restricted units, phantom equity, revenue participation right, subordinated founder note, or another counsel-approved instrument under applicable law.
 
 ## 5. Grant of founder-capital instrument
 
 Subject to the Company's formation and formal approval under its organizational documents, the Company shall issue to the Founder a private founder-capital instrument in an initial amount equal to the documented Founder Capital Value arising from the Founder's pre-launch logged hours.
 
-Based on the controlled contribution record as maintained by the Founder and to be reconciled into the final company books upon formation, the initial Founder Capital Value shall be calculated from the documented Founder Capital Hours and the founder-capital rate then adopted in **FTIS-001 §5**.
+Based on the controlled contribution record as maintained by the Founder and to be reconciled into the final company books upon formation, the initial Founder Capital Value shall be calculated from the documented Founder Capital Hours and the founder-capital rate documented in the controlled contribution record as of July 6, 2025, subsequently formalized in **FTIS-001 §5** (adopted June 2026).
 
 The Company Instrument may be implemented in one of the following forms, as selected by counsel and reflected in the Company's governing documents:
 
@@ -110,7 +110,7 @@ Unless expressly stated otherwise in a separate signed writing, this Agreement d
 
 ## 10. Governance and conflict management
 
-Carrie Ann Kidd may hold roles on both sides of any H4H-KTS relationship, and related-party transactions shall be governed by a documented conflict-of-interest and recusal process. Accordingly, any H4H or DAO action touching this Agreement, any related KTS contract, or any later transition expenditure shall be approved under written conflict-of-interest and recusal procedures, with the Founder abstaining wherever required by law, fiduciary duty, or policy.
+Carrie Ann Kidd may hold roles on both sides of any H4H-KTS relationship, and related-party transactions shall be governed by the **Conflict-of-Interest and Recusal Policy** (adopted June 2026). Accordingly, any H4H or DAO action touching this Agreement, any related KTS contract, or any later transition expenditure shall be approved under that Policy's written conflict-of-interest and recusal procedures, with the Founder abstaining wherever required by law, fiduciary duty, or policy.
 
 Nothing in this Agreement grants the Founder any governance right in H4H, the DUNA, or the MountainShares DAO beyond whatever rights are separately conferred by their governing documents.
 
@@ -133,8 +133,8 @@ No final execution of this Agreement shall occur until all of the following have
 1. KTS has been duly formed and is in good standing.
 2. KTS has obtained an EIN and adopted governing organizational documents.
 3. Counsel has selected the final instrument type.
-4. The parties have aligned this Agreement with the controlling contribution values maintained in **FTIS-001 §5** and the company records.
-5. H4H and DAO-side conflict-of-interest procedures are documented and ready to apply to any related-party approvals.
+4. The parties have aligned this Agreement with the controlling contribution values documented in the Founder's contribution record and, as formalized, **FTIS-001 §5** (adopted June 2026), and the company records.
+5. H4H and DAO-side conflict-of-interest procedures under the **Conflict-of-Interest and Recusal Policy** (adopted June 2026) are documented and ready to apply to any related-party approvals.
 
 ## 14. Governing law
 
@@ -168,6 +168,8 @@ Date: __________________
 | 1.0 | Prior | Initial draft |
 | 1.1 | July 6, 2025 | Structural rewrite; KTS entity-status clarification |
 | 1.2 | June 19, 2026 | **Amendment G:** §4 `Founder Capital Value` definition — replaced "the Canonical Facts Sheet or any later approved controlled-document update" with "FTIS-001 §5 or any later approved controlled-document update." §5 second paragraph — replaced "the controlling contribution schedule" with "FTIS-001 §5." §13 condition 4 — added explicit FTIS-001 §5 citation alongside "company records." |
+| 1.3 | June 19, 2026 | **Date-anachronism correction:** §4, §5, and §13 condition 4 — reworked FTIS-001 §5 citations to accurately reflect that FTIS-001 was adopted June 2026, not extant at the July 6, 2025 document date; body now reads "controlled contribution record and valuation framework in effect as of July 6, 2025, as subsequently formalized in FTIS-001 §5 (adopted June 2026)" so the July 2025 instrument no longer implies a forward reference to a document that did not yet exist. |
+| 1.4 | June 19, 2026 | **Polish:** §3C and §4 — rate notation standardized to "$150/hour" to match FTIS-001 §5 notation (was "150 per hour"). §10 — generic "documented conflict-of-interest and recusal procedures" resolved to the **Conflict-of-Interest and Recusal Policy** (adopted June 2026) by name. §13 condition 5 — same named-document cross-reference added. |
 
 ---
 
@@ -176,4 +178,4 @@ Date: __________________
 
 ---
 
-**End of Founder Capital Instrument Agreement v1.2**
+**End of Founder Capital Instrument Agreement v1.4**
