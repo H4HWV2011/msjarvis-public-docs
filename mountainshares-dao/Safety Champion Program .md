@@ -6,8 +6,8 @@
 > - **P9 – Transparency and traceability:** EMS recognition for Champion work creates a documented, traceable record of who identified what, when, and how it was resolved. Safety work is not invisible labor — it is commons contribution.
 > - **P16 – Power accountable to place:** Champions are WV residents and WV-grounded institutions. Their role exists specifically to make the system answerable to the people and places it serves, not to external benchmarks or remote reviewers.
 
-**Version:** 2.0
-**Date:** June 17, 2026
+**Version:** 2.1
+**Date:** June 19, 2026
 **Status:** DAO Governance Document — Structural Rewrite
 **Scope:** West Virginia statewide — Phase 1 operational, Phase 2 and Phase 3 forward-looking
 **Related documents:** [DAO Governance Charter](MountainShares%20DAO%20Governance%20Charter.md), [Audit and Risk Management Plan](Audit%20and%20Risk%20Management%20Plan.md), [Phase 1 Specification](MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md), [KPI Specification v3.0](MountainShares%20KPI%20Specification.md), [Complete System Overview](MountainShares%3A%20Complete%20System%20Overview%20and%20Benefits.md)
@@ -16,7 +16,9 @@
 
 > **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
 
-> **EMS Recognition — Governing Rule:** EMS credits earned through Champion work are recognition credits for verified community contribution. They are non-appreciating in the securities-law sense at all times. Phase-based EMS buying-power expansion rates are inactive unless and until the applicable Treasury Reserve Solvency Ratio threshold has been cleared (300% for Phase 2; 500% for Phase 3) and all formation and transition costs have been paid. No Champion holds a vested appreciation right prior to threshold clearance.
+> **Money-Services Notice:** The MountainShares DAO/DUNA — not H4H — is the licensee of record for money-services activities associated with MountainShares, including the West Virginia Money Transmitter License (WV MTL), the FinCEN MSB registration, the required surety bond, BSA/AML compliance program obligations, and the cash-out rails. H4H is the charitable program sponsor and legal operator of MountainShares but is not the money transmitter. All payment flows, fund custody, and regulatory money-services obligations run through the MountainShares DAO/DUNA as licensee.
+
+> **EMS Recognition — Governing Rule:** EMS credits earned through Champion work are recognition credits for verified community contribution. Community EMS holders receive no equity, ownership, or profit-participation rights in H4H or KTS. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security. Phase-based EMS buying-power expansion rates are inactive unless and until the applicable Treasury Reserve Solvency Ratio threshold has been cleared (300% for Phase 2; 500% for Phase 3) and all formation and transition costs have been paid. No Champion holds a vested appreciation right prior to threshold clearance.
 
 ---
 
@@ -49,7 +51,7 @@ Community Champions serve as a structured **resident red team** — a designated
 - **Resource verification:** Reviewing Ms. Allis recommendations and knowledge base entries for their county or region; flagging outdated, missing, or inaccurate information
 - **Participant experience review:** Testing how MountainShares behaves for real households — including benefits-sensitive participants, rural participants, participants with limited connectivity, and participants navigating complex family economic situations
 - **Design gap identification:** Identifying places where program rules, interface design, or Ms. Allis logic disadvantages particular groups, geographies, or economic circumstances
-- **Benefits interaction review:** Monitoring for any cases where MountainShares activity — even within the Benefits-Sensitive Account protections — may interact unexpectedly with specific county-level or program-specific benefits rules
+- **Benefits interaction review:** Monitoring for any cases where MountainShares activity — even within the Benefits-Sensitive Account protections — may interact unexpectedly with specific county-level or program-specific benefits rules; any benefits or tax consequences of MountainShares participation are under benefits-counsel review and no MountainShares-specific PLR has been obtained
 - **Reporting:** Submitting structured safety reports through the Champion reporting channel to the Steward team and, where appropriate, the DAO governance dashboard
 
 ### 2.3 How They Are Recognized
@@ -63,7 +65,7 @@ Community Champion work is verified community labor. It is recognized as follows
 | Governance voice | Direct reporting channel to the Steward team | Reports are not routed through general community comment; they receive a designated response SLA |
 | Participation Weight | Champion months count toward Phase 3 Participation Weight accumulation | Sustained Champion participation builds Phase 3 eligibility on the same terms as all participation |
 
-EMS earned through Champion work is not wages, not employment income, and not investment. It is commons contribution recognition, subject to all governing EMS rules.
+EMS earned through Champion work is not wages and not employment income. It is commons contribution recognition, subject to all governing EMS rules. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security. Any benefits or tax consequences of EMS recognition are under benefits-counsel review; no MountainShares-specific PLR has been obtained.
 
 ### 2.4 Scope and Limitations
 
@@ -97,7 +99,7 @@ Safety Champions take on deeper, more technical safety review in addition to Com
 - **Protocol and administrative controls review:** Testing whether operational controls — benefits-sensitive account protections, EMS cap enforcement, fee routing — behave as documented in the Program Rules and Phase Specifications
 - **Data access and privacy review:** Reviewing how personal data, contribution metadata, and UEI records are stored, accessed, and protected at 704 Main Street and in IPFS-anchored records
 - **Ms. Allis integration review:** Testing how Ms. Allis interacts with on-chain and platform components; identifying cases where automated reasoning or knowledge base content produces unsafe, biased, or incorrect outputs for WV-specific contexts
-- **Benefits intersection analysis:** Providing formal analysis of how MountainShares activity intersects with specific WV-administered and federally-administered benefits programs — Medicaid, SNAP, WV Works, SSI, SSDI, housing assistance, and others
+- **Benefits intersection analysis:** Providing formal analysis of how MountainShares activity intersects with specific WV-administered and federally-administered benefits programs — Medicaid, SNAP, WV Works, SSI, SSDI, housing assistance, and others; all such analyses are advisory and any benefits or tax conclusions remain under benefits-counsel review
 
 ### 3.3 How Institutions Participate
 
@@ -116,7 +118,7 @@ Staff, students, or affiliates of a Safety Champion Organization may then serve 
 | Recognition Type | Mechanism | Notes |
 |---|---|---|
 | EMS recognition | Logged as verified EMS hours at the current base rate | Same governing rules as all EMS recognition |
-| Institutional EMS aggregation | Safety Champion Organization UEI receives aggregated contribution credit | Per agreement terms; does not create institutional equity |
+| Institutional EMS aggregation | Safety Champion Organization UEI receives aggregated contribution credit | Per agreement terms; does not create institutional equity or ownership interest |
 | Public recognition | Named as Safety Champion Organization in governance reports and program materials (with consent) | Opt-in per use |
 | Formal governance participation | Safety Champion Organizations are eligible to receive formal governance observer status in DAO governance sessions | Observer status only — no voting rights beyond standard UEI participation |
 | Capstone and practicum pathways | Formal framework for academic capstones, practicums, or fellowships structured around Champion work | Documented via Safety Champion Agreement |
@@ -158,10 +160,11 @@ Champion work EMS recognition follows all governing EMS rules without exception.
 - EMS earned through Champion work is subject to the same per-user monthly caps as all other EMS
 - Phase-based buying-power expansion does not apply to Champion EMS more favorably than to any other EMS
 - No Champion EMS balance creates a vested right to future higher conversion value
+- Community EMS holders receive no equity, ownership, or profit-participation rights in H4H or KTS; securities-law treatment of EMS is under review by securities counsel and this document makes no representation as to whether EMS is or is not a security
 - Aggregated institutional EMS (Safety Champion Organization UEI) is subject to institutional-scale caps defined in the Safety Champion Agreement — it does not accumulate unbounded
 - Benefits-Sensitive Account rules apply to Champion participants who carry BSA flags — Champion status does not exempt a participant from BSA protections
 
-Champion EMS recognition is not income, not wages, and not an investment instrument. It is recognition of verified community contribution to the commons, documented in the EMS ledger, visible on the participant's dashboard, and governed by all Program Rules.
+Champion EMS recognition is not income and not wages. It is recognition of verified community contribution to the commons, documented in the EMS ledger, visible on the participant's dashboard, and governed by all Program Rules. Any benefits or tax consequences of EMS recognition are under benefits-counsel review; no MountainShares-specific PLR has been obtained.
 
 ---
 
@@ -197,7 +200,7 @@ Any material change to Champion recognition rates, reporting SLAs, scope of acce
 - **Safety Champion:** An individual serving in a formal role at a Safety Champion Organization who participates as a Community Champion and provides deeper technical, legal, or research-level safety review.
 - **Safety Champion Organization:** A WV-grounded institution that signs a Safety Champion Agreement and authorizes its staff, students, or affiliates to serve as Safety Champions.
 - **Safety Champion Agreement:** The governing document for institutional participation in the program. Defines scope, access, EMS aggregation terms, conflict-of-interest disclosure, and reporting obligations.
-- **EMS (Earned MountainShares):** Recognition credits for verified community contribution. Non-appreciating. Subject to all Program Rules and phase conditions. Not wages, not income, not investment.
+- **EMS (Earned MountainShares):** Recognition credits for verified community contribution. Community EMS holders receive no equity, ownership, or profit-participation rights in H4H or KTS. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security. Subject to all Program Rules and phase conditions. Not wages, not income.
 - **Resident Red Team:** The Community Champion role, framed as a structured adversarial review function — participants are specifically looking for what is wrong, missing, or harmful, not just confirming that things are working.
 - **Steward Team:** The H4H-designated operational team responsible for Champion report triage, response, and escalation.
 - **Non-Retaliation Guarantee:** H4H Board policy protecting Champions from adverse program consequences for submitting safety reports. Not subject to DAO override.
@@ -206,10 +209,10 @@ Any material change to Champion recognition rates, reporting SLAs, scope of acce
 
 ---
 
-*Safety Champion Program — Version 2.0*
+*Safety Champion Program — Version 2.1*
 *Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Subject to H4H board review and legal counsel approval before reliance*
 
 ---
 
-**End of Safety Champion Program v2.0**
+**End of Safety Champion Program v2.1**
