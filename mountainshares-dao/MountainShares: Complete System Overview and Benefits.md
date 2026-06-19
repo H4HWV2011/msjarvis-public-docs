@@ -8,11 +8,11 @@
 > - **Anti-leakage and closed-loop spending:** The system is designed to keep value circulating inside the commons through bounded minting, reserve-gated conversion, phase-based scaling, and merchant/community recirculation.
 > - **Community wealth building:** MountainShares is designed not merely as a payment layer, but as a long-horizon community wealth architecture that preserves recognition, builds reserves, and ultimately returns surplus to the people who built the commons.
 
-**Version:** 3.1
-**Date:** June 18, 2026
+**Version:** 3.2
+**Date:** June 19, 2026
 **Status:** System Overview — Structural Rewrite (securities framing + money-services relocation + connectivity allocation)
 **Scope:** West Virginia statewide overview across Phase 1, Phase 2, and Phase 3
-**Related documents:** MountainShares Program Rules, Program Rules – Parameter Tables, Phase 1 Specification, Phase 2 Specification, Phase 3 Specification, DAO Governance Charter, KPI Specification v3.0, FA-001 Fee Amendment, H4H Canonical Facts Sheet, EMS Securities Treatment — Counsel Prep, Money-Services Entity Relocation Map
+**Related documents:** MountainShares Program Rules, Program Rules – Parameter Tables, Phase 1 Specification, Phase 2 Specification, Phase 3 Specification, DAO Governance Charter, KPI Specification v3.0, FA-001 Fee Amendment, EMS Securities Treatment — Counsel Prep, Money-Services Entity Relocation Map
 
 > **Entity Status Notice:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC and has no EIN. References to "KTS" in this document mean Carrie Ann Kidd personally, operating under that trade name. Formation of the WV LLC is the gating step before founder equity, ALLIS IP holding, and KTS-side capitalization instruments take legal effect. No part of the MountainShares community system creates a founder equity path through H4H or community EMS.
 
@@ -31,6 +31,7 @@
 | 2.0 | June 17, 2026 | Structural rewrite — three-box framework, dual reserve metric framework, FVSR defined term, reversion cascade, phase overview, server location and KTS entity notices |
 | 3.0 | June 17, 2026 | Removed all "non-appreciating in the securities-law sense" assertions (own-the-appreciation decision; securities treatment under counsel review); relocated money-services licensing from H4H to the **MountainShares DAO / DUNA** as licensee of record; aligned with Phase 2 v3.0, Phase 3 v3.0, Parameter Tables v3.0, EMS Securities Treatment — Counsel Prep, and Money-Services Entity Relocation Map |
 | 3.1 | June 18, 2026 | Updated fee allocation: **Buckets 4 and 5 dedicated to Community Connectivity** — free public internet nodes (Wi-Fi and LoRa community mesh): Bucket 4 (15%) operations, Bucket 5 (10%) buildout (a combined 25% of fee revenue); removed education, mutual aid, cultural preservation, and member-initiated local projects as fee-funded purposes (they continue as EMS-earning activities and may be funded from H4H operations or grants). Aligned with Parameter Tables v3.1, Phase 2 v3.1, Phase 3 v3.1 |
+| 3.2 | June 19, 2026 | **Amendment E/G:** Replaced "Federal Volunteer Service Rate / IRS-published standard rate" in §5.3 body text and Appendix A FVSR definition with **Independent Sector / Do Good Institute Value of Volunteer Time, BLS-derived, not a federal or IRS rate**; deleted "H4H Canonical Facts Sheet" from Related documents line |
 
 ---
 
@@ -167,9 +168,9 @@ Phase 3 activates only when the Treasury Reserve Solvency Ratio reaches 500%, al
 
 At Phase 3, the EMS buying-power schedule becomes conditionally active at:
 
-- **1 EMS = FVSR** (Federal Volunteer Service Rate in effect on the Phase 3 activation date)
+- **1 EMS = the Independent Sector / Do Good Institute Value of Volunteer Time** in effect on the Phase 3 activation date
 
-The current FVSR for 2026 is **$36.14**, but the governing rule is not a fixed dollar figure — it is the annual IRS-published Federal Volunteer Service Rate in effect at the time Phase 3 formally activates.
+The Independent Sector / Do Good Institute Value of Volunteer Time is a BLS-derived rate published annually by Independent Sector and the Do Good Institute — not a federal or IRS-published rate. The current rate for 2026 is **$36.14**, but the governing rule is not a fixed dollar figure: it is the Independent Sector / Do Good Institute rate in effect on the date Phase 3 formally activates.
 
 Phase 3 adds:
 - A permanent 500% reserve floor
@@ -364,10 +365,10 @@ That is what makes it ambitious, but also what makes the documents and boundarie
 - **EMS:** Earned MountainShares; recognition credits for verified community contribution. Conditional, reserve-gated, participant-elected conversion; not vested; confers no equity or ownership. Securities treatment under counsel review.
 - **Operational Reserve Ratio:** Treasury USDC Reserve ÷ Total Outstanding Spendable PMS (M$).
 - **Treasury Reserve Solvency Ratio:** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$).
-- **FVSR (Federal Volunteer Service Rate):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14.
+- **FVSR (Volunteer Time Value Rate):** The Independent Sector / Do Good Institute Value of Volunteer Time — a BLS-derived rate published annually by Independent Sector and the Do Good Institute. Not a federal or IRS rate. The Phase 3 EMS buying-power rate is the rate in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published Independent Sector value.
 - **UEI:** Unique Economic Identity; each participant's persistent identity in the system and governance structure.
 - **Benefits-Sensitive Account:** An account with enhanced protections for participants receiving or potentially receiving means-tested public benefits.
-- **EMS Recognition Bonus:** A Phase 3 distribution election allowing a participant to convert dividend allocation into permanent recognition hours rather than M$ or USD. Income/asset treatment under benefits-counsel review.
+- **EMS Recognition Bonus:** A Phase 3 distribution election allowing a participant to convert dividend allocation into permanent recognition hours rather than M$ or USD. Income/asset treatment under benefits-counsel review; no MountainShares-specific PLR obtained.
 - **Participation Weight (PW):** The score used in Phase 3 to determine a participant's share of the surplus distribution pool.
 - **Community Connectivity Nodes:** MountainShares free public internet nodes (Wi-Fi and LoRa community mesh) deployed at trailheads, civic sites, libraries, and community anchors across West Virginia. Funded by fee-allocation Bucket 4 (operations) and Bucket 5 (buildout); kept open to the public as a public good, never metered or paywalled.
 - **Reversion Cascade:** The automatic return to prior-phase buying-power rules when reserve thresholds fall below the applicable floor.
@@ -377,10 +378,10 @@ That is what makes it ambitious, but also what makes the documents and boundarie
 
 ---
 
-*MountainShares: Complete System Overview and Benefits — Version 3.1*
+*MountainShares: Complete System Overview and Benefits — Version 3.2*
 *Harmony for Hope, Inc. | MountainShares DAO / DUNA | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Subject to H4H board review, DAO governance, and legal counsel approval before reliance*
 
 ---
 
-**End of MountainShares: Complete System Overview and Benefits v3.1**
+**End of MountainShares: Complete System Overview and Benefits v3.2**
