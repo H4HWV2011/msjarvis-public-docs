@@ -8,8 +8,8 @@
 > - **Anti-leakage and closed-loop spending:** Phase 0 deliberately restricts EMS-to-spendable-M$ conversion and prohibits external cash-out to protect the closed loop before the treasury is sufficiently backed. PMS loads may be enabled for select participants on a case-by-case basis under system monitor approval.
 > - **Bounty and corrective programs:** Red-team and security testing in Phase 0 is the first structured bounty program — logged, rewarded with EMS, and used to harden the system before public launch.
 
-**Version:** 2.0
-**Date:** June 17, 2026
+**Version:** 2.1
+**Date:** June 19, 2026
 **Status:** DAO Governance Document — Structural Rewrite
 **Scope:** West Virginia Pilot — Invite-Only Beta
 **Incorporated by reference into:** MountainShares DAO Governance Charter (Section 7.2), MountainShares Phase 1 Economic Safety Specification, MountainShares Program Rules
@@ -18,7 +18,9 @@
 
 > **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
 
-> **EMS Appreciation Notice:** Community EMS maintains stable baseline exchange value throughout Phase 0 and Phase 1. Buying-power expansion schedules are **inactive** unless and until the Treasury Reserve achieves the applicable solvency threshold (300% of total EMS + M$ outstanding at Phase 2; 500% at Phase 3), all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below the applicable threshold, the system automatically reverts to prior-phase specifications to maintain continuity of service. No resident holds a vested appreciation right prior to threshold clearance. Phase 0 EMS hours are baseline mutual-credit units only — they carry no present appreciation right, no conversion right to fiat, and no equity interest of any kind.
+> **Money-Services Notice:** The MountainShares DAO/DUNA — not H4H — is the licensee of record for money-services activities associated with MountainShares, including the West Virginia Money Transmitter License (WV MTL), the FinCEN MSB registration, the required surety bond, BSA/AML compliance program obligations, and the cash-out rails. H4H is the charitable program sponsor and legal operator of MountainShares but is not the money transmitter. All payment flows, fund custody, and regulatory money-services obligations run through the MountainShares DAO/DUNA as licensee. Users and counterparties should direct money-services inquiries to the DAO/DUNA compliance function.
+
+> **EMS Appreciation Notice:** Community EMS maintains stable baseline exchange value throughout Phase 0 and Phase 1. Community EMS holders receive no equity, ownership, or profit-participation rights in H4H or KTS. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security. Buying-power expansion schedules are **inactive** unless and until the Treasury Reserve achieves the applicable solvency threshold (300% of total EMS + M$ outstanding at Phase 2; 500% at Phase 3), all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below the applicable threshold, the system automatically reverts to prior-phase specifications to maintain continuity of service. No resident holds a vested appreciation right prior to threshold clearance. Phase 0 EMS hours are baseline mutual-credit units only — they carry no present appreciation right and no conversion right to fiat.
 
 ---
 
@@ -28,8 +30,8 @@ This specification operates within the three-box entity structure governing Moun
 
 | Entity | Role | Phase 0 Relevance |
 |---|---|---|
-| Harmony for Hope, Inc. (H4H) | 501(c)(3) charitable anchor; program sponsor | Holds governance authority during Phase 0; authorizes Phase 1 launch |
-| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer | EMS ledger, UEIs, Community Champions, voting eligibility |
+| Harmony for Hope, Inc. (H4H) | 501(c)(3) charitable anchor; program sponsor; not the money transmitter | Holds governance authority during Phase 0; authorizes Phase 1 launch |
+| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer; money-services licensee of record (WV MTL, FinCEN MSB, surety bond, BSA/AML, cash-out rails) | EMS ledger, UEIs, Community Champions, voting eligibility |
 | Kidd's Technical Services (KTS) | To-be-formed for-profit LLC/PBC; founder-owned commercial engine | Ms. Allis / ALLIS deployment at 704 Main Street; founder-side rights documented separately |
 
 No Phase 0 mechanism may create a path by which founder value is realized through H4H or community EMS. Any such path found in testing is a **Critical** security finding requiring resolution before Phase 1 launch.
@@ -57,7 +59,7 @@ Phase 0 does **not** constitute public availability of MountainShares. No public
 
 Phase 0 participants are selected by Harmony for Hope and designated system monitors. Invitation categories include:
 
-- **Security and red-team participants** — developers, systems testers, and security researchers invited to probe treasury logic, EMS logging, reserve ratio enforcement, Treasury Reserve solvency gating, smart contract surfaces, and Ms. Allis behavior.
+- **Security and red-team participants** — developers, systems testers, and security researchers invited to probe treasury logic, EMS logging, reserve ratio enforcement, Treasury Reserve solvency gating, reversion trigger logic, smart contract surfaces, and Ms. Allis behavior.
 - **Community anchor participants** — local trusted community members, nonprofit partners, and local business representatives in the Mount Hope area invited to test real-world UX, onboarding flows, and EMS earning activities.
 - **Internal team participants** — Harmony for Hope staff, KTS technical contributors (currently Carrie Ann Kidd personally), and governance document reviewers.
 
@@ -70,7 +72,7 @@ Upon invitation and acceptance:
 - Access to Phase 0 documentation, testing guides, and red-team scope documents.
 - EMS hours logged in the **recognition ledger** for qualifying Phase 0 activities (see Section 4).
 
-Phase 0 EMS hours are baseline mutual-credit units. They carry no present appreciation right, no conversion right, no equity interest, and no cash value.
+Phase 0 EMS hours are baseline mutual-credit units. They carry no present appreciation right, no conversion right, and no equity, ownership, or profit-participation rights in H4H or KTS. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security. Any benefits or tax consequences of EMS accumulation are under benefits-counsel review; no MountainShares-specific PLR has been obtained.
 
 ### 2.3 Community Champions
 
@@ -79,7 +81,7 @@ Phase 0 security and red-team participants may be designated as **Community Cham
 - Recognizes their foundational role in hardening the system.
 - Gives them founding governance eligibility (1 UEI = 1 vote) once standard eligibility criteria are met (30 days account age + 10 EMS hours).
 - Does **not** grant extra voting weight, override capability, or exemption from hard safety triggers.
-- Does **not** create any financial right, equity interest, expectation of profit, or claim against KTS, H4H, or the DUNA.
+- Does **not** create any financial right, equity interest, profit-participation right, expectation of profit, or claim against KTS, H4H, or the DUNA.
 
 ---
 
@@ -93,7 +95,7 @@ All qualifying Phase 0 activity is logged in the **unlimited recognition ledger*
 
 ### 3.2 EMS Value and Appreciation Status
 
-Community EMS during Phase 0 is **non-appreciating**. The system's buying-power expansion schedule is inactive at this stage. Specifically:
+Community EMS holders receive no equity, ownership, or profit-participation rights in H4H or KTS. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security. The system's buying-power expansion schedule is inactive during Phase 0. Specifically:
 
 - **Phase 2 buying-power expansion** requires Treasury Reserve ≥ 300% of total EMS + M$ outstanding, with all Treasury Reserve-funded formation and transition fees fully paid. That condition is not met in Phase 0.
 - **Phase 3 buying-power expansion** requires Treasury Reserve ≥ 500% of total EMS + M$ outstanding. That condition is not met in Phase 0.
@@ -140,7 +142,7 @@ EMS hours may be logged for the following Phase 0 activities:
 - **Recognition rate:** 1 EMS hour per 1 documented qualifying hour — same as Phase 1.
 - **Conversion to spendable M$:** Disabled by default during Phase 0 (see Section 3.3).
 - All EMS logged in Phase 0 carries forward to Phase 1 at stable baseline exchange value and counts toward voting eligibility, role eligibility, and rank progression.
-- No Phase 0 EMS balance carries a vested appreciation right or conversion right to fiat.
+- No Phase 0 EMS balance carries a vested appreciation right, conversion right to fiat, equity interest, or profit-participation right. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security.
 
 ---
 
@@ -247,6 +249,6 @@ Consistent with P9 (Transparency and traceability):
 
 *"The commons is built before it is opened. Phase 0 is the building."*
 
-*MountainShares Phase 0: Invite-Only Beta Specification — Version 2.0*
+*MountainShares Phase 0: Invite-Only Beta Specification — Version 2.1*
 *Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Subject to H4H board review and legal counsel approval before reliance*
