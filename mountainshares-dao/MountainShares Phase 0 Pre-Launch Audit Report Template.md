@@ -1,244 +1,254 @@
-# MountainShares Phase 0: Pre-Launch Audit Report
+# MountainShares Phase 0: Invite-Only Beta Specification
 
-> **Status:** TEMPLATE — To be completed and published before Phase 1 public launch.
-> This document becomes part of the permanent governance record upon completion.
-> See [MountainShares Phase 0: Invite-Only Beta Specification](MountainShares%20Phase%200%3A%20Invite-Only%20Beta%20Specification.md) Section 8.
+> **Disciplinary Context: Appalachian Economic Commons**
+> This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:
+> - **P1 – Every where is entangled / Leakage and enclosure:** Phase 0 is the first moment the closed-loop system touches real place — real wallets, real UEIs, real EMS hours logged against real people and geographies in West Virginia. Every design choice here shapes leakage and enclosure patterns in Phase 1 and beyond. See https://github.com/H4HWV2011/msAllis-public-docs/blob/main/docs/Polymathmatical-Geography.md
+> - **P9 – Transparency and traceability:** All Phase 0 activity — wallets issued, EMS hours logged, red-team findings, security incidents, and parameter changes — is logged in the recognition ledger and auditable. Nothing in Phase 0 is invisible.
+> - **P16 – Power accountable to place:** Phase 0 is governed by Harmony for Hope's board and designated system monitors under documented authority. Community Champions earn governance standing through logged hours, not invitation status alone.
+> - **Anti-leakage and closed-loop spending:** Phase 0 deliberately restricts EMS-to-spendable-M$ conversion and prohibits external cash-out to protect the closed loop before the treasury is sufficiently backed. PMS loads may be enabled for select participants on a case-by-case basis under system monitor approval.
+> - **Bounty and corrective programs:** Red-team and security testing in Phase 0 is the first structured bounty program — logged, rewarded with EMS, and used to harden the system before public launch.
 
-**Version:** [To be assigned at publication]
-**Date Completed:** [Date]
-**Completed by:** Harmony for Hope, Inc. — System Monitors
-**Reviewed by:** [Names/roles of reviewers]
-**Board Authorization Date:** [Date of H4H board vote authorizing Phase 1 launch]
+**Version:** 2.1
+**Date:** June 19, 2026
+**Status:** DAO Governance Document — Structural Rewrite
+**Scope:** West Virginia Pilot — Invite-Only Beta
+**Incorporated by reference into:** MountainShares DAO Governance Charter (Section 7.2), MountainShares Phase 1 Economic Safety Specification, MountainShares Program Rules
 
-> **EMS Appreciation Notice:** Community EMS maintains stable baseline exchange value throughout Phase 0 and Phase 1. Buying-power expansion schedules are **inactive** unless and until the Treasury Reserve achieves the applicable solvency threshold (300% of total EMS + M$ outstanding at Phase 2; 500% at Phase 3), all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below the applicable threshold, the system automatically reverts to prior-phase specifications to maintain continuity of service. No resident holds a vested appreciation right prior to threshold clearance.
+> **Entity Status Notice:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC and has no EIN. References to "KTS" in this document mean Carrie Ann Kidd personally, operating under that trade name. Formation of the WV LLC is the gating step before founder equity, ALLIS IP holding, and KTS-side capitalization instruments take legal effect.
+
+> **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
+
+> **Money-Services Notice:** The MountainShares DAO/DUNA — not H4H — is the licensee of record for money-services activities associated with MountainShares, including the West Virginia Money Transmitter License (WV MTL), the FinCEN MSB registration, the required surety bond, BSA/AML compliance program obligations, and the cash-out rails. H4H is the charitable program sponsor and legal operator of MountainShares but is not the money transmitter. All payment flows, fund custody, and regulatory money-services obligations run through the MountainShares DAO/DUNA as licensee. Users and counterparties should direct money-services inquiries to the DAO/DUNA compliance function.
+
+> **EMS Appreciation Notice:** Community EMS maintains stable baseline exchange value throughout Phase 0 and Phase 1. Community EMS holders receive no equity, ownership, or profit-participation rights in H4H or KTS. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security. Buying-power expansion schedules are **inactive** unless and until the Treasury Reserve achieves the applicable solvency threshold (300% of total EMS + M$ outstanding at Phase 2; 500% at Phase 3), all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below the applicable threshold, the system automatically reverts to prior-phase specifications to maintain continuity of service. No resident holds a vested appreciation right prior to threshold clearance. Phase 0 EMS hours are baseline mutual-credit units only — they carry no present appreciation right and no conversion right to fiat.
 
 ---
 
 ## Structural Framework
 
-This audit report operates within the three-box entity structure governing MountainShares:
+This specification operates within the three-box entity structure governing MountainShares. All Phase 0 design choices must preserve the walls between these entities.
 
-| Entity | Role | Relevant to This Audit |
+| Entity | Role | Phase 0 Relevance |
 |---|---|---|
-| Harmony for Hope, Inc. (H4H) | 501(c)(3) charitable anchor; program sponsor | Authorizes Phase 1 launch; holds operational infrastructure |
-| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer | EMS ledger, voting eligibility, Community Champions |
-| Kidd's Technical Services (KTS) | To-be-formed for-profit LLC/PBC; founder-owned commercial engine | ALLIS deployment; founder-side capitalization documented separately |
+| Harmony for Hope, Inc. (H4H) | 501(c)(3) charitable anchor; program sponsor; not the money transmitter | Holds governance authority during Phase 0; authorizes Phase 1 launch |
+| MountainShares Commons / DUNA | Community-owned mutual-credit ledger and governance layer; money-services licensee of record (WV MTL, FinCEN MSB, surety bond, BSA/AML, cash-out rails) | EMS ledger, UEIs, Community Champions, voting eligibility |
+| Kidd's Technical Services (KTS) | To-be-formed for-profit LLC/PBC; founder-owned commercial engine | Ms. Allis / ALLIS deployment at 704 Main Street; founder-side rights documented separately |
 
-Audit findings that implicate the structural boundary between these entities — including any mechanism that could route founder value through H4H or community EMS — must be documented as **Critical** severity findings and resolved before Phase 1 launch authorization.
-
----
-
-## 1. Phase 0 Overview
-
-| Field | Value |
-|---|---|
-| Phase 0 start date | |
-| Phase 0 end date | |
-| Total duration | |
-| Total invitations issued | |
-| Total UEIs created | |
-| Total wallets activated | |
-| Invitation categories represented | Security/red-team / Community anchor / Internal team |
-| Operational server location confirmed | 704 Main Street, Mount Hope, WV 25880 |
-| KTS entity formation status at Phase 0 close | [Formed / Not yet formed — record actual status] |
-| Treasury Reserve-funded formation costs paid | [Yes / No / Partial — itemize below] |
+No Phase 0 mechanism may create a path by which founder value is realized through H4H or community EMS. Any such path found in testing is a **Critical** security finding requiring resolution before Phase 1 launch.
 
 ---
 
-## 2. EMS Recognition Ledger Summary
+## 1. Purpose and Scope
 
-| Metric | Value |
-|---|---|
-| Total EMS hours logged | |
-| Total unique UEIs with logged hours | |
-| Hours by category: Red-team/security testing | |
-| Hours by category: UX and onboarding testing | |
-| Hours by category: Governance document review | |
-| Hours by category: Community anchor activities | |
-| Hours by category: Incident response | |
-| UEIs meeting Phase 1 voting eligibility (10 hrs + 30 days) | |
-| Community Champions designated | |
-| Founder in-kind hours logged (charitable $150/hr portion to H4H) | |
-| Founder in-kind hours — KTS-side private portion (documented separately) | |
+Phase 0 is the **invite-only beta period** that precedes public launch of MountainShares and The Commons. Its purposes are:
 
-> **EMS Ledger Integrity Note:** EMS balances recorded during Phase 0 represent stable-baseline mutual-credit units only. No appreciation, conversion right, or equity claim attaches to any EMS balance at this stage. Buying-power expansion is inactive; the reserve threshold conditions have not been met.
+- Issue and test real wallets, UEIs, and EMS recognition against production or near-production infrastructure at 704 Main Street.
+- Identify and harden security vulnerabilities, reserve-ratio logic errors, fraud vectors, and UX friction points before public participants are exposed.
+- Build the first cohort of Community Champions who understand the system deeply and can serve as stewards, captains, and red-team elders as the community grows.
+- Accumulate real EMS hours in the recognition ledger that count toward Phase 1 governance eligibility.
+- Validate Ms. Allis enforcement behavior — reserve ratio calculations, Treasury Reserve solvency gating, tier assignments, hard trigger logic, and dashboard accuracy — in a live environment before public launch.
+- Confirm that EMS buying-power expansion gates are inactive at Phase 0 and Phase 1 and that the reversion trigger logic functions correctly.
+
+Phase 0 does **not** constitute public availability of MountainShares. No public marketing, open registration, or general solicitation occurs during Phase 0.
 
 ---
 
-## 3. Security Findings Summary
+## 2. Phase 0 Participants
 
-### 3.1 Findings by Severity
+### 2.1 Who Is Invited
 
-| Severity | Total Found | Resolved | Accepted with Mitigation | Open at Launch |
-|---|---|---|---|---|
-| Critical | | | | Must be 0 |
-| High | | | | Must be 0 |
-| Medium | | | | |
-| Low | | | | |
-| Informational | | | | |
+Phase 0 participants are selected by Harmony for Hope and designated system monitors. Invitation categories include:
 
-> **Structural Boundary Findings:** Any finding that creates, implies, or enables a path by which founder value is realized through H4H systems or community EMS must be classified Critical regardless of technical severity. This includes any mechanism that could be read as an investment contract, inurement path, or equity-through-community-credit route.
+- **Security and red-team participants** — developers, systems testers, and security researchers invited to probe treasury logic, EMS logging, reserve ratio enforcement, Treasury Reserve solvency gating, reversion trigger logic, smart contract surfaces, and Ms. Allis behavior.
+- **Community anchor participants** — local trusted community members, nonprofit partners, and local business representatives in the Mount Hope area invited to test real-world UX, onboarding flows, and EMS earning activities.
+- **Internal team participants** — Harmony for Hope staff, KTS technical contributors (currently Carrie Ann Kidd personally), and governance document reviewers.
 
-### 3.2 Critical and High Finding Detail
+### 2.2 What Phase 0 Participants Receive
 
-*For each critical or high finding, document:*
+Upon invitation and acceptance:
 
-| # | Finding Title | Severity | Discovered By | Date Reported | Date Resolved | Resolution Summary |
-|---|---|---|---|---|---|---|
-| 1 | | | | | | |
-| 2 | | | | | | |
+- A **MountainShares wallet** tied to a unique **UEI** (Unique Entity Identifier).
+- Authenticated access to The Commons app and the Ms. Allis chatbot UI via secure, non-public links at the 704 Main Street ALLIS node.
+- Access to Phase 0 documentation, testing guides, and red-team scope documents.
+- EMS hours logged in the **recognition ledger** for qualifying Phase 0 activities (see Section 4).
 
-### 3.3 Key Areas Tested
+Phase 0 EMS hours are baseline mutual-credit units. They carry no present appreciation right, no conversion right, and no equity, ownership, or profit-participation rights in H4H or KTS. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security. Any benefits or tax consequences of EMS accumulation are under benefits-counsel review; no MountainShares-specific PLR has been obtained.
 
-- [ ] Reserve ratio calculation and reporting logic
-- [ ] Treasury Reserve solvency ratio calculation (Reserve ÷ Total EMS + M$)
-- [ ] EMS buying-power expansion gate logic — confirmed inactive at Phase 0/1
-- [ ] Reversion trigger logic — confirmed automatic reversion below 300% / 500%
-- [ ] EMS logging accuracy and tamper-resistance
-- [ ] Per-user cap enforcement and bypass vectors
-- [ ] Promo pool logic and bonus rule exploitation
-- [ ] UEI identity and anti-sybil mechanisms
-- [ ] Ms. Allis enforcement behavior and hard trigger logic
-- [ ] Three-box structural boundary — no founder equity path through H4H or EMS
-- [ ] Benefits-Sensitive Account (BSA) protective logic
-- [ ] Privacy and access control surfaces
-- [ ] Smart contract logic on Arbitrum One
-- [ ] IPFS record integrity
-- [ ] Conflict-of-interest recusal documentation for related-party transactions
+### 2.3 Community Champions
+
+Phase 0 security and red-team participants may be designated as **Community Champions** under Section 2.5.4 of the DAO Governance Charter. This designation:
+
+- Recognizes their foundational role in hardening the system.
+- Gives them founding governance eligibility (1 UEI = 1 vote) once standard eligibility criteria are met (30 days account age + 10 EMS hours).
+- Does **not** grant extra voting weight, override capability, or exemption from hard safety triggers.
+- Does **not** create any financial right, equity interest, profit-participation right, expectation of profit, or claim against KTS, H4H, or the DUNA.
 
 ---
 
-## 4. Hard Trigger and Reserve Solvency Validation
+## 3. Economic Rules During Phase 0
 
-### 4.1 Legacy Reserve Ratio Bands (Operational Continuity)
+Phase 0 operates under the most conservative economic parameters in the MountainShares lifecycle. These restrictions exist because the Treasury Reserve solvency conditions for any buying-power expansion have not been met and will not be met during Phase 0.
 
-| Trigger | Tested | Result | Notes |
-|---|---|---|---|
-| Reserve ratio Band A (≥ 1.50) auto-adjustment | | | |
-| Reserve ratio Band B (1.00–1.49) auto-adjustment | | | |
-| Reserve ratio Band C (0.75–0.99) auto-adjustment | | | |
-| Reserve ratio Band D (< 0.75) emergency floor | | | |
-| Bonus/promo pause at ratio < 1.0 | | | |
-| Critical reserve (< 0.5) full pause | | | |
-| Safety prohibition enforcement (drugs, weapons, exploitation, fraud) | | | |
-| Ms. Allis daily reserve ratio recalculation | | | |
+### 3.1 Recognition Ledger — Active
 
-### 4.2 Treasury Reserve Solvency Gating (Appreciation Activation Controls)
+All qualifying Phase 0 activity is logged in the **unlimited recognition ledger** with full UEI, geo, org, and timestamp metadata. These hours are permanent and carry forward into Phase 1 and beyond. They represent baseline mutual-credit units only.
 
-| Gate Condition | Tested | Result | Notes |
-|---|---|---|---|
-| Reserve solvency ratio correctly calculated as Reserve ÷ (Total EMS + M$) | | | |
-| Phase 2 buying-power expansion confirmed **inactive** below 300% threshold | | | |
-| Phase 3 buying-power expansion confirmed **inactive** below 500% threshold | | | |
-| Formation/transition fee payment condition verified before any expansion gate check | | | |
-| Automatic reversion to Phase 1 parameters when ratio drops below 300% | | | |
-| Automatic reversion to Phase 2 parameters when ratio drops below 500% | | | |
-| Resident EMS principal balance **preserved** through reversion event | | | |
-| Reversion event logged to durable audit trail with timestamp | | | |
-| No founder private return pathway through community EMS expansion | | | |
-| Dashboard amber-band alert fires at 325% (Phase 2 early-warning) | | | |
-| Dashboard amber-band alert fires at 525% (Phase 3 early-warning) | | | |
+### 3.2 EMS Value and Appreciation Status
 
----
+Community EMS holders receive no equity, ownership, or profit-participation rights in H4H or KTS. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security. The system's buying-power expansion schedule is inactive during Phase 0. Specifically:
 
-## 5. EMS Logging Integrity Validation
+- **Phase 2 buying-power expansion** requires Treasury Reserve ≥ 300% of total EMS + M$ outstanding, with all Treasury Reserve-funded formation and transition fees fully paid. That condition is not met in Phase 0.
+- **Phase 3 buying-power expansion** requires Treasury Reserve ≥ 500% of total EMS + M$ outstanding. That condition is not met in Phase 0.
+- If the reserve metric ever falls below the applicable threshold in a later phase, the system automatically reverts to prior-phase specifications. No resident loses their principal EMS balance on reversion; buying-power expansion is simply suspended.
 
-| Check | Result | Notes |
+No participant in Phase 0 holds or accumulates any vested appreciation right. EMS earned in Phase 0 enters Phase 1 at stable baseline exchange value.
+
+### 3.3 Spendable M$ — Severely Restricted
+
+| Parameter | Phase 0 Value | Notes |
 |---|---|---|
-| Recognition ledger tamper-resistance confirmed | | |
-| UEI + geo + org + timestamp metadata complete | | |
-| EMS hours correctly carried forward to Phase 1 | | |
-| Voting eligibility correctly calculated | | |
-| Tier assignment logic validated | | |
-| Baseline exchange value (no appreciation) confirmed for all Phase 0 balances | | |
-| No EMS balance carries an implied appreciation right or conversion right | | |
-| Founder in-kind charitable portion recorded as H4H in-kind only (no equity) | | |
-| Founder private-side portion documented outside H4H and EMS systems | | |
+| EMS → M$ conversion | **Disabled by default** | No spendable M$ issued from EMS during Phase 0 except by explicit system monitor authorization for testing purposes |
+| PMS loads (USD → M$) | **Restricted — by invitation only** | Enabled only for specific test scenarios; all loads are monitored |
+| Per-user spendable cap | **Test amounts only** | Not the Phase 1 production caps; set per test scenario |
+| Cash-out / ATM | **Disabled** | No fiat conversion of any kind during Phase 0 |
+| Benefits-Sensitive Accounts | **All accounts treated as benefits-sensitive by default** | Maximum protection during beta |
+
+### 3.4 Hard Triggers — Fully Active
+
+Ms. Allis enforces **all hard economic safety triggers** during Phase 0, including reserve ratio monitoring, automatic cap tightening, fraud flagging, Treasury Reserve solvency gate enforcement, and safety prohibitions. These cannot be disabled for testing purposes. Testing of hard trigger behavior is conducted by **observing trigger responses**, not by disabling them.
+
+### 3.5 No External Cash Value
+
+Phase 0 MountainShares — whether EMS hours in the recognition ledger or any test spendable M$ — carry **no external cash value** and no right to redemption. Phase 0 EMS hours count toward governance eligibility and rank only.
 
 ---
 
-## 6. Parameter Changes During Phase 0
+## 4. Earning EMS in Phase 0
 
-*Document any parameters adjusted during Phase 0 as a result of testing or governance decisions.*
+### 4.1 Qualifying Phase 0 Activities
 
-| Date | Parameter Changed | Old Value | New Value | Reason | Authorized By |
-|---|---|---|---|---|---|
-| | | | | | |
+EMS hours may be logged for the following Phase 0 activities:
 
-> **Parameter Change Note:** Any change that affects EMS appreciation gate thresholds, reserve solvency ratio floors, or reversion trigger conditions requires DUNA governance approval and conflict-of-interest recusal documentation. Such changes must not be made unilaterally by any single party, including the founder.
+| Activity Category | Description | Verification Method |
+|---|---|---|
+| **Red-team and security testing** | Structured testing of treasury logic, reserve ratio enforcement, Treasury Reserve solvency gating, reversion trigger logic, EMS logging, fraud vectors, smart contract surfaces, Ms. Allis enforcement behavior | Logged findings submitted via designated channels; system monitor attestation |
+| **UX and onboarding testing** | Testing wallet creation, UEI issuance, Commons app flows, and Ms. Allis chatbot interactions | Session logs + tester attestation |
+| **Governance document review** | Structured review and feedback on Program Rules, DAO Charter, Phase 1 Spec, Terms and Conditions | Written feedback submitted via designated channels |
+| **Community anchor activities** | Real qualifying commons activities (caregiving, mapping, cultural work, education) performed during Phase 0 by community anchor participants | Standard Phase 1 verification methods (partner attestation, geo-fence, task confirmation) |
+| **Incident response participation** | Participation in post-incident reviews, playbook development, and corrective action documentation | System monitor attestation |
 
----
+### 4.2 EMS Rate During Phase 0
 
-## 7. Graduation Criteria Checklist
-
-| Criterion | Status | Date Confirmed | Notes |
-|---|---|---|---|
-| All critical and high security findings resolved | | | |
-| Hard trigger validation complete across all reserve bands | | | |
-| Treasury Reserve solvency gating logic validated (Sections 4.2) | | | |
-| EMS buying-power expansion confirmed inactive at launch | | | |
-| Reversion trigger logic tested and confirmed | | | |
-| EMS logging integrity confirmed | | | |
-| Three-box structural boundary confirmed — no founder equity through H4H or EMS | | | |
-| BSA architecture validated against real benefit-recipient scenarios | | | |
-| Legal review of Terms, Program Rules, Phase 1 Spec, and FA-001 complete | | | |
-| All governance documents finalized and published | | | |
-| H4H board authorization vote completed | | | |
-| Minimum 10 Community Champions with logged EMS on record | | | |
-| Conflict-of-interest recusal documentation on file for all related-party approvals | | | |
-| KTS entity formation status documented (formed or not-yet-formed confirmed in writing) | | | |
-| Treasury Reserve-funded formation/procurement costs itemized and confirmed paid | | | |
-| Treasury baseline balance and reserve solvency ratio published | | | |
-| Server location confirmed as 704 Main Street in all live system documentation | | | |
-
-**All criteria met:** YES / NO
-**Phase 1 launch authorized:** YES / NO
+- **Recognition rate:** 1 EMS hour per 1 documented qualifying hour — same as Phase 1.
+- **Conversion to spendable M$:** Disabled by default during Phase 0 (see Section 3.3).
+- All EMS logged in Phase 0 carries forward to Phase 1 at stable baseline exchange value and counts toward voting eligibility, role eligibility, and rank progression.
+- No Phase 0 EMS balance carries a vested appreciation right, conversion right to fiat, equity interest, or profit-participation right. Securities-law treatment of EMS is under review by securities counsel; this document makes no representation as to whether EMS is or is not a security.
 
 ---
 
-## 8. Treasury Baseline at Phase 1 Launch
+## 5. Red-Team Scope and Responsible Disclosure
 
-| Field | Value |
+### 5.1 What Community Champions May Test
+
+Red-team participants are authorized to attempt to identify vulnerabilities in:
+
+- Reserve ratio calculation and reporting logic.
+- Treasury Reserve solvency ratio calculation (Reserve ÷ (Total EMS + M$)).
+- EMS buying-power expansion gate logic — confirming gates are inactive below thresholds.
+- Reversion trigger logic — confirming automatic reversion when reserve falls below applicable floor.
+- EMS logging accuracy and tamper-resistance.
+- Per-user cap enforcement and bypass vectors.
+- Promo pool logic and bonus rule exploitation.
+- UEI identity and anti-sybil mechanisms.
+- Ms. Allis enforcement behavior and hard trigger logic.
+- Three-box structural boundary — any path that could route founder value through H4H or EMS.
+- Privacy and access control surfaces.
+- Smart contract logic on Arbitrum One.
+- IPFS record integrity.
+- Conflict-of-interest recusal documentation completeness.
+
+### 5.2 What Is Out of Scope
+
+- Attacks against real user data beyond authorized test accounts.
+- Disabling or circumventing hard safety triggers (observing trigger behavior is in scope; disabling is not).
+- Testing against production systems without system monitor authorization.
+- Social engineering of Harmony for Hope staff or community participants.
+- Any action that would create or imply a founder equity right through H4H or EMS systems.
+
+### 5.3 Responsible Disclosure Process
+
+All findings must be reported through the designated security disclosure channel defined in [SECURITY-OVERVIEW.md](../security/SECURITY-OVERVIEW.md) and [CONTRIBUTING.md](../security/CONTRIBUTING.md).
+
+- **Critical findings** (reserve ratio bypass, uncapped minting, hard trigger disable, structural-boundary breach, appreciation-gate bypass): report within 24 hours; system monitors respond within 24 hours.
+- **High findings**: report within 72 hours; response within 72 hours.
+- **Medium/low findings**: report in weekly batch; response within 7 days.
+
+All findings are logged, credited as EMS hours, and incorporated into the pre-launch hardening audit.
+
+---
+
+## 6. Phase 0 → Phase 1 Graduation Criteria
+
+Phase 0 ends and Phase 1 public launch may begin **only when ALL of the following are satisfied:**
+
+| Criterion | Requirement |
 |---|---|
-| Treasury balance (USD) at Phase 0 close | |
-| Total outstanding spendable M$ at Phase 0 close | |
-| Total outstanding EMS at Phase 0 close | |
-| Treasury Reserve Solvency Ratio at Phase 0 close (Reserve ÷ (EMS + M$)) | |
-| Reserve band at Phase 0 close (legacy operational band) | |
-| EMS buying-power expansion status at Phase 1 launch | Inactive — 300% threshold not yet met |
-| Starting EMS base rate for Phase 1 | 0.20 M$ / EMS hour |
-| Treasury Reserve-funded costs paid to date (itemized) | |
-| Published at | [URL or IPFS hash] |
+| **Security audit complete** | All critical and high findings resolved or formally accepted with documented mitigation |
+| **Hard trigger validation** | Ms. Allis reserve ratio enforcement, cap tightening, and hard trigger logic independently verified across all reserve bands |
+| **Treasury Reserve solvency gating validated** | Buying-power expansion gates confirmed inactive; reversion trigger logic confirmed operational |
+| **Three-box structural boundary confirmed** | No founder equity path through H4H or EMS; structural separation confirmed in writing |
+| **EMS logging integrity** | Recognition ledger accuracy and tamper-resistance confirmed; all Phase 0 balances recorded at stable baseline value |
+| **Legal review** | Terms and Conditions, Program Rules, FA-001 Fee Amendment, FTIS-001, and Phase 1 Economic Safety Specification reviewed by qualified legal counsel and approved for production |
+| **Governance documents** | DAO Governance Charter, Phase 1 Spec, Program Rules, KPI Specification v3.0, and Parameter Tables finalized and published |
+| **Harmony for Hope board authorization** | Formal board vote authorizing Phase 1 public launch |
+| **Minimum Phase 0 cohort** | At least 10 Community Champions with logged EMS hours and verified findings on record |
+| **KTS entity status documented** | KTS formation status confirmed in writing (formed or not-yet-formed) and reflected accurately in all live documents |
+| **Treasury Reserve-funded costs confirmed** | All Treasury Reserve-funded formation and procurement costs itemized and confirmed paid before any Phase 2 appreciation gate can be evaluated |
+| **Treasury baseline published** | Documented starting treasury balance, total EMS + M$ outstanding, and Treasury Reserve solvency ratio published before first public user is onboarded |
+| **Conflict-of-interest documentation on file** | Recusal documentation complete for all related-party approvals |
 
 ---
 
-## 9. Lessons Learned and Phase 1 Recommendations
+## 7. Governance During Phase 0
 
-*Document key lessons from Phase 0 that should inform Phase 1 operations, onboarding, governance, or parameter settings.*
+Phase 0 is **not a DAO-governed period.** Harmony for Hope's Board of Directors and designated system monitors hold all governance authority during Phase 0.
 
-| # | Lesson / Observation | Recommended Action | Priority |
-|---|---|---|---|
-| 1 | | | |
-| 2 | | | |
-
-> **Standing Recommendation:** Before any document published to the public repository describes EMS appreciation, buying-power expansion, or reserve-gating mechanics, confirm the language conforms to the corrected framing: appreciation is deferred, conditional, reserve-gated, and non-vested prior to threshold clearance. Language implying present appreciation, floating asset value, or founder equity through community EMS must not appear in any Phase 1 or later document.
-
----
-
-## 10. Sign-Off
-
-| Role | Name | Date | Signature |
-|---|---|---|---|
-| H4H Executive Director | | | |
-| System Monitor Lead | | | |
-| Legal Reviewer | | | |
-| Board Chair (authorization) | | | |
-| Conflict-of-Interest Officer (or designee) | | | |
+- DAO voting is not active during Phase 0.
+- System monitors may adjust parameters, issue invitations, revoke access, and respond to incidents under documented authority.
+- Any parameter change that affects EMS appreciation gate thresholds, reserve solvency ratio floors, or reversion trigger conditions requires board-level approval and conflict-of-interest recusal documentation before taking effect.
+- All Phase 0 decisions are logged and will be published as part of the pre-launch audit trail available to Phase 1 participants.
+- Community Champions may submit structured feedback and recommendations, which system monitors are expected to consider and respond to in writing.
 
 ---
 
-*This report is part of the permanent MountainShares governance record and is published in full to the public documentation repository before Phase 1 opens to the public.*
+## 8. Transparency and Audit
 
-*MountainShares Phase 0: Pre-Launch Audit Report Template — Version 2.0*
+Consistent with P9 (Transparency and traceability):
+
+- All Phase 0 wallets issued, EMS hours logged, findings submitted, and parameter changes made are recorded.
+- A **Phase 0 Pre-Launch Audit Report** will be published before Phase 1 opens, summarizing: wallets issued, EMS hours logged, findings by severity, resolutions, any parameters adjusted as a result of testing, Treasury Reserve solvency ratio at Phase 0 close, and EMS buying-power expansion status at Phase 1 launch.
+- The audit report becomes part of the permanent governance record and is available to all Phase 1 participants.
+- The template for this report is maintained at [MountainShares Phase 0 Pre-Launch Audit Report Template.md](MountainShares%20Phase%200%20Pre-Launch%20Audit%20Report%20Template.md).
+
+---
+
+## 9. Relationship to Other Documents
+
+| Document | Relationship |
+|---|---|
+| [DAO Governance Charter](MountainShares%20DAO%20Governance%20Charter.md) | Phase 0 defined in Section 7.2; Community Champions defined in Section 2.5.4 |
+| [Phase 1 Economic Safety Specification](MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md) | Phase 0 graduation criteria must be met before Phase 1 activates |
+| [Program Rules (Draft)](MountainShares%20Program%20Rules(Draft).md) | Phase 0 EMS earning rules incorporated by reference from Section 4 |
+| [KPI Specification v3.0](MountainShares%20KPI%20Specification.md) | Phase 0 does not count toward Phase 1 KPI targets; KPI measurement begins at Phase 1 public launch; Treasury Reserve Solvency KPI tracked from Phase 0 close |
+| [FA-001 Fee Amendment](../contract/H4H/Fee%20Amendment%20-%20FA001.md) | Establishes three-box structure, 704 Main Street correction, KTS entity status, and Treasury Reserve formation-cost funding |
+| [Security Overview](../security/SECURITY-OVERVIEW.md) | Responsible disclosure process and security architecture |
+| [Terms and Conditions](Terms%20and%20Conditions.md) | Phase 0 participants bound by Terms; no public offering during Phase 0 |
+| [Pre-Launch Audit Report Template](MountainShares%20Phase%200%20Pre-Launch%20Audit%20Report%20Template.md) | Companion document; completed before Phase 1 launch |
+
+---
+
+*"The commons is built before it is opened. Phase 0 is the building."*
+
+*MountainShares Phase 0: Invite-Only Beta Specification — Version 2.1*
 *Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Subject to H4H board review and legal counsel approval before reliance*
