@@ -49,7 +49,7 @@ MountainShares Commons is a community-owned economic and intelligence platform c
 
 Three systems work together:
 
-**Ms. Allis** — Artificial Learning and Location Intelligence System — is a GIS place-based AI steward grounded in 26.9 million geospatial features covering West Virginia critical infrastructure, parcels, roads, and facilities — each individually addressable, semantically searchable, and probabilistically updatable as a geospatial belief. She answers community questions tied to real parcels, roads, census blocks, and infrastructure. Every answer is traceable. Every constraint is published. No surveillance — only anonymized, community-consented data. She supports decisions — she never makes them.
+**Ms. Allis** — Artificial Learning and Location Intelligence System — is a GIS place-based AI steward grounded in 26.9 million geospatial features covering West Virginia critical infrastructure, parcels, roads, and facilities — each individually addressable, semantically searchable, and probabilistically updatable as a geospatial belief. She operates on a live Hilbert space architecture (H_App ⊗ H_geo) where language meaning and spatial location fuse into a single composite state: a query is not merely similar to a document — it is semantically and spatially entangled with a place. She answers community questions tied to real parcels, roads, census blocks, and infrastructure. Every answer is traceable. Every constraint is published. No surveillance — only anonymized, community-consented data. She supports decisions — she never makes them.
 
 **MountainShares** is a closed-loop local economy. Participants earn tokens through volunteering, caregiving, and contribution — redeemable locally. Explicitly designed safe for people on SNAP, SSI, and Medicaid.
 
@@ -110,7 +110,9 @@ MountainShares Commons is built on a system that maintains probability distribut
 What has been built and tested:
 
 - Containerized microservices stack (Docker, FastAPI, Uvicorn) hardened through multiple real infrastructure incidents and rebuilds
-- A live Hilbert space architecture — H_App ⊗ H_geo — with 26.9 million West Virginia geospatial features fully vectorized into semantic memory, covering critical infrastructure, parcels, roads, and facilities; each feature individually addressable, semantically searchable, and probabilistically updatable as a geospatial belief
+- A live Hilbert space architecture — H_App ⊗ H_geo — formally verified as a provably real inner product space (ℝ³⁸⁴, ⟨·,·⟩_cos), with 26.9 million West Virginia geospatial features fully vectorized into semantic memory covering critical infrastructure, parcels, roads, and facilities; each feature individually addressable, semantically searchable, and probabilistically updatable as a geospatial belief; the tensor product H_App ⊗ H_geo fuses language meaning and spatial location into a single composite state where meaning and place are geometrically entangled
+- Internal semantic coherence measured via a Φ-inspired probe instrument (borrowed from Integrated Information Theory) verifying that the system's knowledge is integrated — not merely a pile of disconnected vectors
+- Role-gated knowledge access architecture where different roles in the system access different geometric subspaces of H_App — epistemology implemented as geometry
 - Vector-based semantic search and LLM orchestration for place-based natural language queries
 - Mutual credit ledger backend with smart contract proof of concept achieved July 4, 2025, built on OpenZeppelin's MIT-licensed contract architecture, tested on Sepolia testnet with Arbitrum deployment pathway
 - Benefits-Sensitive Account architecture explicitly safe for SNAP, SSI, and Medicaid participants
@@ -125,7 +127,7 @@ Academic validation from Dr. Anurag K. Srivastava, Raymond J. Lane Professor and
 MountainShares Commons treats AI for rural communities as a structural infrastructure problem, not a content or app problem. Most digital tools built for places like Mount Hope extract: data leaves, value leaves, and decisions are made somewhere else. Our architecture inverts that pattern.
 
 **Ms. Allis is a place-based reasoning engine, not a chatbot.**
-She operates over a live Hilbert space architecture grounding 26.9 million West Virginia geospatial features — each individually addressable, semantically searchable, and probabilistically updatable as a geospatial belief. Her retrieval-augmented generation layer queries not documents but physically grounded belief states carrying probabilistic confidence, temporal and toroidal decay, and semantic entanglement relationships. Every answer traces back to underlying data and published constraints. This is glassbox AI — not black-box AI making consequential decisions without accountability.
+She operates over a live Hilbert space architecture (H_App ⊗ H_geo) — a formally verified inner product space grounding 26.9 million West Virginia geospatial features. This is not a metaphor. H_App = (ℝ³⁸⁴, ⟨·,·⟩_cos) is an axiomatically verified Hilbert space where agent outputs become vectors, coordination happens via inner products rather than text routing, and the 21 LLMs forming the fabric of Ms. Allis are operators acting on a shared state — not concurrent responders passing strings. The tensor product H_App ⊗ H_geo fuses semantic and spatial dimensions into a single composite state: a query about a flood-prone road in Fayette County is not merely similar to relevant documents — it is geometrically entangled with that place. Internal semantic coherence is measured via a Φ-inspired probe instrument, ensuring knowledge is integrated rather than fragmented. Every answer traces back to underlying data and published constraints. This is glassbox AI — not black-box AI making consequential decisions without accountability.
 
 **MountainShares encodes participant protection as a hard design constraint.**
 No existing community exchange system is engineered from the ground up around SNAP, SSI, and Medicaid eligibility preservation. The Benefits-Sensitive Account architecture treats the benefits cliff not as a navigation problem but as a structural design problem — and solves it in code. Caregivers and volunteers earn redeemable local value without risking existing program eligibility.
@@ -166,7 +168,7 @@ The Benefits-Sensitive Account architecture wasn't born from research — it was
 
 Our network extends across Fayette and Mercer counties through the Oakvale Area Outreach Team, the Fayette County Community Arts Center, and 15 years of nonprofit operations. The City of Mount Hope has provided a formal Letter of Support. The National Park Service has indicated active corridor engagement. Starry Eyes Media in Bluefield has provided a letter of support.
 
-The technical infrastructure — 6,515 documented hours, approximately $977,000 in founder-provided capital — was built by someone who lives here, cares for a family member under Medicaid Waiver, and understood the benefits cliff personally before she solved it in code.
+The technical infrastructure — 6,515 documented hours, approximately $977,000 in founder-provided capital — was built by someone who lives here, cares for a family member under Medicaid Waiver, and understood the benefits cliff personally before she solved it in code. The Hilbert space architecture powering Ms. Allis was not purchased or contracted — it was designed, proved, and built from first principles in a coalfield town, in the same building where Harmony for Hope has served Appalachian families for 15 years.
 
 This is not a solution designed for Appalachia. It is a solution designed from inside it.
 
@@ -268,7 +270,7 @@ MountainShares is a community-owned economic infrastructure system for Appalachi
 
 **The Commons** is a neighbor-to-neighbor marketplace where residents of West Virginia's 55 counties buy, sell, trade, hire, give, and find — paid in U.S. dollars or in EMS (MountainShares), earned through verified community contribution. Every listing is posted by a verified County Champion. The currency is not speculative — it is earned through work that benefits the community and spent locally.
 
-**Ms. Allis** is a locally hosted, place-anchored AI platform that gives organizations a named intelligence node grounded in verified local data. She runs on locally managed hardware, operates in degraded connectivity environments, and never sends community data to an external cloud. Government and nonprofit nodes are permanently free. Commercial nodes pay for cluster membership.
+**Ms. Allis** is a locally hosted, place-anchored AI platform that gives organizations a named intelligence node grounded in verified local data. She runs on locally managed hardware, operates in degraded connectivity environments, and never sends community data to an external cloud. Her Hilbert space architecture — a formally verified inner product space where semantic and spatial state are geometrically unified — means she can answer questions about specific parcels, roads, and facilities with traceable, probabilistically grounded confidence rather than generative hallucination. Government and nonprofit nodes are permanently free. Commercial nodes pay for cluster membership.
 
 **Who we serve:** Coalfield Appalachian residents in counties with high poverty, infrastructure deficits, and post-extraction economic conditions — people excluded from digital economic participation not because they lack capability, but because the infrastructure was never built for them.
 
@@ -295,7 +297,7 @@ Harmony for Hope reaches structural self-sustainability through four converging 
 
 **Federal and foundation grants**, including Appalachian Regional Commission, USDA Rural Development, Claude Worthington Benedum Foundation, and WV Community Foundation, are actively targeted at each phase.
 
-**Evidence to date:** Kidd's Technical Services has contributed 6,515 documented hours of senior technical work — approximately $977,000 at $150/hour — fully auditable for grant in-kind match. Live production infrastructure is operational in Mount Hope: 51,000+ modules, 175 services, and 26.9 million geospatial records. Phase 0 invite-only testing is active. A fully executed Master Services Agreement between KTS and Harmony for Hope establishes all legal and IP foundations.
+**Evidence to date:** Kidd's Technical Services has contributed 6,515 documented hours of senior technical work — approximately $977,000 at $150/hour — fully auditable for grant in-kind match. Live production infrastructure is operational in Mount Hope: 51,000+ modules, 175 services, and 26.9 million geospatial records fully vectorized into the H_App ⊗ H_geo Hilbert space. Phase 0 invite-only testing is active. A fully executed Master Services Agreement between KTS and Harmony for Hope establishes all legal and IP foundations.
 
 ---
 
@@ -305,7 +307,7 @@ Harmony for Hope operated in pre-revenue founding mode for both fiscal years, wi
 
 These figures reflect a deliberate bootstrap strategy, not organizational weakness. All infrastructure development — 6,515 hours of senior technical work valued at approximately $977,000 — was contributed as founder's capital by Kidd's Technical Services and is fully documented in FA-001. The system that exists today was built without grants, without investors, and without organizational debt.
 
-The absence of cash budget is the evidence: a production-scale AI and economic infrastructure platform was built for $600. Truist Foundation's investment would be the first external dollar, deployed into a system that is already running.
+The absence of cash budget is the evidence: a production-scale AI and economic infrastructure platform — including a formally verified Hilbert space architecture grounding 26.9 million geospatial features — was built for $600. Truist Foundation's investment would be the first external dollar, deployed into a system that is already running.
 
 ---
 
@@ -341,4 +343,4 @@ The program fee structure built into every transaction is designed so that at sc
 
 *End of Application — Truist Foundation Inspire Awards Year 4*
 *Harmony for Hope, Inc. / MountainShares Commons*
-*Draft Version 2 — June 15, 2026*
+*Draft Version 3 — June 19, 2026*
