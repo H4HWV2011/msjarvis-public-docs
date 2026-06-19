@@ -1,28 +1,28 @@
 # Statement of Work — SOW-000
 
 ## Under Master Services Agreement  
-### Harmony for Hope, Inc. and Carrie Ann Kidd d/b/a Kidd’s Technical Services
+### Harmony for Hope, Inc. and Carrie Ann Kidd d/b/a Kidd's Technical Services
 
 **SOW Number:** SOW-000  
-**Version:** 1.0  
+**Version:** 1.1  
 **Date:** July 6, 2025  
 **Status:** Draft — For Board and Counsel Review  
-**Master Agreement:** Master Services Agreement between Harmony for Hope, Inc. and Carrie Ann Kidd d/b/a Kidd’s Technical Services  
+**Master Agreement:** Master Services Agreement between Harmony for Hope, Inc. and Carrie Ann Kidd d/b/a Kidd's Technical Services  
 **Project Phase:** Pre-Formation / Early Infrastructure and Program Buildout
 
 ---
 
 ## 1. Parties
 
-This Statement of Work (**SOW-000**) is entered into by and between **Harmony for Hope, Inc.** (**H4H**) and **Carrie Ann Kidd**, an individual doing business as **Kidd’s Technical Services** (**Contractor**), pursuant to the Master Services Agreement between the parties.
+This Statement of Work (**SOW-000**) is entered into by and between **Harmony for Hope, Inc.** (**H4H**) and **Carrie Ann Kidd**, an individual doing business as **Kidd's Technical Services** (**Contractor**), pursuant to the Master Services Agreement between the parties.
 
-The parties acknowledge that, as of the date of this SOW, Kidd’s Technical Services is not yet a separately formed limited liability company. Accordingly, all work performed under this SOW is performed by Carrie Ann Kidd personally unless and until a formal written assignment or novation is executed.
+The parties acknowledge that, as of the date of this SOW, Kidd's Technical Services is not yet a separately formed limited liability company. Accordingly, all work performed under this SOW is performed by Carrie Ann Kidd personally unless and until a formal written assignment or novation is executed.
 
 ---
 
 ## 2. Purpose
 
-The purpose of this SOW is to define the initial technical, architectural, operational, and documentation services to be provided in support of H4H’s charitable programs and early-stage MountainShares system development.
+The purpose of this SOW is to define the initial technical, architectural, operational, and documentation services to be provided in support of H4H's charitable programs and early-stage MountainShares system development.
 
 This SOW is intended to cover the foundational buildout required to design, stand up, document, and stabilize the initial operating environment for:
 
@@ -52,7 +52,7 @@ Contractor shall provide foundational professional services that may include, wi
 - security, backup, continuity, and recovery planning,
 - and technical project management necessary to support early program launch.
 
-Services under this SOW may support both immediate H4H operational needs and the broader MountainShares system architecture, provided that all community-facing work remains consistent with H4H’s charitable purpose and the non-equity structure of the Commons.
+Services under this SOW may support both immediate H4H operational needs and the broader MountainShares system architecture, provided that all community-facing work remains consistent with H4H's charitable purpose and the non-equity structure of the Commons.
 
 ---
 
@@ -65,7 +65,7 @@ The initial work under this SOW may include the following workstreams:
 - Stand up and maintain core server and application infrastructure.
 - Configure compute, storage, container, and database environments.
 - Establish baseline monitoring, backup, and operational continuity procedures.
-- Support infrastructure located at or associated with H4H’s physical operating site at 704 Main Street, Mount Hope, West Virginia, together with any approved remote or supplemental systems.
+- Support infrastructure located at or associated with H4H's physical operating site at 704 Main Street, Mount Hope, West Virginia, together with any approved remote or supplemental systems.
 
 ### 4.2 MountainShares System Buildout
 
@@ -117,7 +117,7 @@ Where a specific milestone deliverable is required, the parties may identify it 
 
 Compensation under this SOW shall follow the Master Services Agreement and any approved fee schedule, amendment, or related controlled document adopted by H4H.
 
-The parties acknowledge a dual-structure framework for Contractor’s time and contribution record:
+The parties acknowledge a dual-structure framework for Contractor's time and contribution record:
 
 - one portion may be recognized as charitable in-kind contribution to H4H, and
 - a separate portion may be tracked as private founder-capital or deferred commercial contribution outside H4H.
@@ -211,12 +211,12 @@ The parties may continue work on an ongoing basis under this SOW while documenti
 
 ## 12. Transition and Entity Formation
 
-If Kidd’s Technical Services is later formed as a separate legal entity, the parties may assign or replace this SOW by written agreement.
+If Kidd's Technical Services is later formed as a separate legal entity, the parties may assign or replace this SOW by written agreement.
 
 Any such transition must:
 
 - clearly identify the successor entity,
-- preserve H4H’s rights regarding prior work,
+- preserve H4H's rights regarding prior work,
 - maintain nonprofit and conflict-of-interest safeguards,
 - and avoid retroactively implying that a legal entity existed before formation.
 
@@ -230,7 +230,7 @@ For avoidance of doubt:
 
 - H4H is the charitable anchor and nonprofit contracting party.
 - The MountainShares Commons is the community governance and mutual-credit layer and is not an equity vehicle.
-- Community EMS is non-appreciating closed-loop mutual credit and is not a founder-capital mechanism.
+- Community EMS is a closed-loop mutual-credit instrument, separate from any founder-capital mechanism; securities-law treatment of EMS is under review by securities counsel, and this SOW makes no representation as to whether EMS is or is not a security.
 - Any appreciating founder instrument belongs, if at all, on the KTS or founder-private side under separate documentation.
 - This SOW supports technical services only and does not create ownership rights in H4H, the Commons, or any participant system.
 
@@ -246,7 +246,7 @@ Date: __________________
 
 **CONTRACTOR**  
 Carrie Ann Kidd  
-d/b/a Kidd’s Technical Services  
+d/b/a Kidd's Technical Services  
 Date: __________________
 
 ---
