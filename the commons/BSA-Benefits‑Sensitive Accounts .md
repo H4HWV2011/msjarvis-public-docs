@@ -2,8 +2,8 @@
 
 *(Draft — For Discussion, Not Legal Advice — Pending Benefits Attorney Review Before Phase 1 Activation)*
 
-**Version:** 4.0
-**Date:** June 17, 2026
+**Version:** 4.1
+**Date:** June 19, 2026
 **Status:** Plain Language Participant Notice — Structural Rewrite
 **Scope:** West Virginia statewide — all phases
 **Related documents:** [Program Rules](../mountainshares-dao/MountainShares%20Program%20Rules(Draft).md), [Program Rules – Parameter Tables](../mountainshares-dao/Program%20Rules%20%E2%80%93%20Parameter%20Tables.md), [Phase 1 Specification](../mountainshares-dao/MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md), [Complete System Overview](../mountainshares-dao/MountainShares%3A%20Complete%20System%20Overview%20and%20Benefits.md), [Funder Overview](../mountainshares-dao/MountainShares%20Funder%20Overview%20.md)
@@ -12,8 +12,8 @@
 
 > **Server Location Notice:** The operational server cluster and Ms. Allis / ALLIS node for H4H and MountainShares Commons is located at **704 Main Street, Mount Hope, West Virginia 25880** (Fayette County Community Arts Center).
 
-> **CRITICAL — NO APPRECIATING OR EQUITY INSTRUMENT REACHES RESIDENTS THROUGH BSA OR ANY COMMONS ACCOUNT:**
-> Community EMS is non-appreciating in the securities-law sense at all times. Phase-based EMS buying-power expansion rates are **inactive** unless and until the Treasury Reserve Solvency Ratio achieves the applicable threshold (300% for Phase 2; 500% for Phase 3) and all formation and transition costs have been paid. No resident holds a vested appreciation right prior to threshold clearance. No EMS balance, M$ balance, BSA-flagged or otherwise, is an equity instrument, a security, or an appreciating asset prior to a threshold-gated, participant-elected conversion. Conversion is always participant-controlled — never automatic, never forced. The system contains no mechanism by which a founder equity instrument reaches any resident through H4H, community EMS, or any Commons account.
+> **CRITICAL — NO EQUITY INSTRUMENT REACHES RESIDENTS THROUGH BSA OR ANY COMMONS ACCOUNT:**
+> Community EMS and M$ confer no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity. The securities-law treatment of EMS and M$ is under review by securities counsel; this document makes no representation as to whether either is or is not a security or investment contract. Phase-based EMS buying-power expansion rates are **inactive** unless and until the Treasury Reserve Solvency Ratio achieves the applicable threshold (300% for Phase 2; 500% for Phase 3) and all formation and transition costs have been paid. No resident holds a vested appreciation right prior to threshold clearance. Conversion is always participant-controlled — never automatic, never forced. The system contains no mechanism by which a founder equity instrument reaches any resident through H4H, community EMS, or any Commons account.
 
 ---
 
@@ -44,17 +44,18 @@ Understanding EMS correctly is the most important protection available to benefi
 It is:
 - A record in the community recognition ledger of time you contributed to the commons
 - Comparable to traditional time bank credits — the same model used by community time banks nationwide
-- Non-taxable while vaulted, under time banking legal framework established by IRS precedent
+- Non-taxable while vaulted, under time banking legal framework — benefits-counsel review applies; no MountainShares-specific Private Letter Ruling has been obtained
 - Permanent and non-transferable — it cannot be sold, gifted, or taken away
 - Visible on your dashboard in the recognition ledger
 
 It is **not:**
 - Income when you earn it
 - A bank balance or savings account
-- An equity instrument, a security, or an appreciating asset
 - Convertible to cash automatically — conversion requires your deliberate election
 - Worth more than $1.00 equivalent per hour in Phase 1
 - Subject to higher buying-power rates unless and until the applicable Treasury Reserve Solvency Ratio threshold is cleared and maintained
+
+> **EMS and M$ confer no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity. The securities-law treatment of EMS and M$ is under review by securities counsel; this document makes no representation as to whether either is or is not a security.**
 
 **The buying-power rates in later phases are conditional — not guaranteed:**
 
@@ -66,7 +67,7 @@ It is **not:**
 
 No participant — BSA-flagged or otherwise — holds a vested right to Phase 2 or Phase 3 buying-power rates. The higher rates activate only if the treasury achieves the required threshold and remain active only as long as the treasury maintains it. If the treasury falls below the threshold, the system automatically reverts. This is not a risk — it is the safety architecture.
 
-**No appreciating or equity instrument reaches any resident through EMS, M$, BSA, or any other Commons account mechanism.** Any document, communication, or representation to the contrary is incorrect and should be reported to H4H immediately.
+**No equity instrument reaches any resident through EMS, M$, BSA, or any other Commons account mechanism.** Any document, communication, or representation to the contrary is incorrect and should be reported to H4H immediately. Securities-law treatment is under review by securities counsel; this document makes no representation as to whether EMS or M$ is or is not a security.
 
 ---
 
@@ -96,13 +97,13 @@ For BSA participants, the most important rule is the **monthly loading cap** —
 
 ### Phase 1 — Current Operation
 
-~~~
-EMS status: Vaulted recognition credits. Non-taxable. Not income. Not assets.
+```
+EMS status: Vaulted recognition credits. Non-taxable under time banking framework (benefits-counsel review applies; no MountainShares-specific PLR). Not income. Not assets.
 M$ status: Prepaid stored value. Your own deposited money. Subject to BSA loading cap.
 Conversion: EMS → M$ conversion available within program caps, but does not activate Phase 2 rates.
 BSA loading cap: Active. Defaults to protect SSI $2,000 individual asset limit.
 Forced conversion: Never. You always choose.
-~~~
+```
 
 **What BSA protects in Phase 1:**
 - M$ monthly loading is capped automatically once you approach the BSA threshold
@@ -111,13 +112,13 @@ Forced conversion: Never. You always choose.
 
 ### Phase 2 — Conditional on Treasury Threshold
 
-~~~
+```
 EMS buying-power rate: 1 EMS = $10.00 equivalent — ONLY active if Treasury Reserve Solvency Ratio ≥ 300%
 Conversion: You choose whether to convert. How much. When. All, some, or none.
-Income timing: Converting EMS to M$ or USD may create countable income in the month you convert.
+Income timing: Converting EMS to M$ or USD may create countable income in the month you convert — benefits-counsel review applies.
 Reversion: If Treasury Reserve Solvency Ratio falls below 300%, Phase 2 rate deactivates automatically.
 BSA protection in Phase 2: Benefits counselor referral displayed prominently before any conversion.
-~~~
+```
 
 **What BSA protects in Phase 2:**
 - Prominent benefits counselor referral before any Phase 2 conversion prompt
@@ -126,17 +127,17 @@ BSA protection in Phase 2: Benefits counselor referral displayed prominently bef
 - You can disable BSA status if you are no longer receiving benefits and proceed without the referral prompts
 - Staged conversion support: the system allows you to schedule partial conversions across months
 
-**Income arises at conversion, not at earning.** Vaulted EMS that you have not converted is not income and is not a countable asset under the time banking framework. The moment you elect to convert EMS to M$ or cash — that is when income may arise, and that is when you must consider your benefits program rules.
+**Income arises at conversion, not at earning.** Vaulted EMS that you have not converted is not income and is not a countable asset under the time banking framework. The moment you elect to convert EMS to M$ or cash — that is when income may arise, and that is when you must consider your benefits program rules. Benefits-counsel review applies; no MountainShares-specific Private Letter Ruling has been obtained.
 
 ### Phase 3 — Conditional on Higher Treasury Threshold
 
-~~~
+```
 EMS buying-power rate: 1 EMS = FVSR in effect on Phase 3 activation date (current 2026 rate: $36.14)
 Condition: Treasury Reserve Solvency Ratio ≥ 500% for 2+ consecutive quarters; all prior-phase costs paid
 Conversion: Same user-choice framework as Phase 2 — you control all, some, or none
 60-day advance notice: Sent to all BSA participants before any Phase 3 distribution event
 EMS Recognition Bonus: An alternative to cash conversion — described in Section 6 below
-~~~
+```
 
 **What BSA protects in Phase 3:**
 - **60-day advance notice** before any Phase 3 distribution event fires — giving you time to consult a benefits counselor before any income is created
@@ -151,11 +152,11 @@ EMS Recognition Bonus: An alternative to cash conversion — described in Sectio
 
 ### One-Click Toggle in Account Settings
 
-~~~
+```
 Current BSA status: Enabled | Disabled
 One button to change it.
 No verification required. No paperwork. No waiting.
-~~~
+```
 
 **When you enable BSA protections:**
 - M$ monthly loading cap activates (see current limit in Parameter Tables)
@@ -184,7 +185,7 @@ When a Phase 3 distribution event fires, BSA participants are offered the option
 **What the EMS Recognition Bonus is:**
 - A permanent addition to your recognition hours in the EMS ledger
 - Not M$, not USD, not a cash equivalent
-- Not income and not a countable asset under the time banking framework
+- Not income and not a countable asset under the time banking framework — income and asset treatment is under benefits-counsel review; no MountainShares-specific Private Letter Ruling has been obtained
 - Irrevocable per event — once you elect the EMS Recognition Bonus for a specific distribution event, that election cannot be reversed
 
 **When to consider it:**
@@ -204,7 +205,7 @@ When a Phase 3 distribution event fires, BSA participants are offered the option
 
 **Scenario 1: You receive SSI and want to participate safely in Phase 1**
 - Enable BSA protections in account settings
-- Log unlimited community contribution hours — vaulted EMS does not count as income or assets
+- Log unlimited community contribution hours — vaulted EMS does not count as income or assets under the time banking framework (benefits-counsel review applies)
 - Load small amounts of M$ for local shopping (system enforces the BSA cap automatically)
 - Your vaulted EMS hours accumulate in the recognition ledger — building Participation Weight for Phase 3 — without creating any financial exposure
 
@@ -234,7 +235,7 @@ When a Phase 3 distribution event fires, BSA participants are offered the option
 ## 8. What H4H Can and Cannot Promise
 
 **H4H can:**
-- Design MountainShares so that vaulted EMS recognition credits are non-taxable reciprocal community service exchanges while unconverted
+- Design MountainShares so that vaulted EMS recognition credits are structured as reciprocal community service exchanges while unconverted, consistent with time banking frameworks — income and asset treatment is under benefits-counsel review; no MountainShares-specific PLR has been obtained
 - Provide a prepaid stored-value system (M$) that is not a bank account
 - Give you full control over BSA status (enable/disable anytime, no questions asked)
 - Provide benefits counselor referrals through partnerships with WV Legal Aid, Disability Rights of West Virginia, and WV PROMISE
@@ -243,7 +244,7 @@ When a Phase 3 distribution event fires, BSA participants are offered the option
 - Send 60-day advance notice before any Phase 3 distribution event
 - Provide the EMS Recognition Bonus election as a Phase 3 alternative
 - Publish plain-language notices and update them before any new capability activates for BSA users
-- Confirm, as a structural guarantee, that no appreciating or equity instrument reaches any resident through H4H, community EMS, or any Commons account
+- Confirm, as a structural guarantee, that no equity instrument reaches any resident through H4H, community EMS, or any Commons account; the securities-law treatment of EMS and M$ is under review by securities counsel and this document makes no representation as to whether either is or is not a security
 
 **H4H cannot:**
 - Control how SSA, WV DHHR, HUD, or any federal or state agency treats MountainShares activity in your individual case
@@ -297,12 +298,12 @@ When you are a BSA participant approaching any Phase 2 or Phase 3 conversion dec
 
 ## 11. Time Banking Legal Framework
 
-Traditional community time banks have established that time credit exchanges are non-taxable because:
+Traditional community time banks have established that time credit exchanges are structured as non-taxable reciprocal service exchanges because:
 
 - **Reciprocal service, not employment:** Community members help each other; no employer pays wages
 - **Equal value per hour:** All service is valued at the same rate (1 hour = 1 credit), unlike market-rate bartering
-- **Community purpose:** Time banks build social capital and community resilience — not taxable income
-- **IRS precedent:** Time dollar exchanges have received IRS private letter rulings confirming non-taxable treatment of vaulted credits
+- **Community purpose:** Time banks build social capital and community resilience
+- **IRS precedent:** Time dollar exchanges have received IRS private letter rulings confirming non-taxable treatment of vaulted credits in certain fact patterns
 
 MountainShares extends this framework digitally:
 - EMS credits log community service hours with full auditability, geo-tagging, and timestamp
@@ -310,7 +311,7 @@ MountainShares extends this framework digitally:
 - Phase 2 and Phase 3 conversion is **when countable income may arise** — and you control the timing and amount
 - The EMS Recognition Bonus election provides a non-income path specifically for situations where conversion would create benefits exposure
 
-**Legal review status:** H4H legal counsel is reviewing time bank classification alignment with IRS precedent and prepaid account treatment for benefits purposes. This notice is a draft pending benefits attorney review before Phase 1 activation. Nothing in this notice is legal advice or a legal determination. You should always rely on guidance from your benefits agencies and qualified advisors when making decisions about your benefits.
+**Legal review status:** H4H legal and benefits counsel are reviewing time bank classification alignment with IRS precedent and prepaid account treatment for benefits purposes; no MountainShares-specific Private Letter Ruling has been obtained. This notice is a draft pending benefits attorney review before Phase 1 activation. Nothing in this notice is legal advice or a legal determination. You should always rely on guidance from your benefits agencies and qualified advisors when making decisions about your benefits.
 
 ---
 
@@ -327,7 +328,7 @@ The Commons is not a program that asks you to risk your benefits to participate.
 - Always providing benefits counselor referrals at every Phase 2 and Phase 3 decision point
 - Always letting you control your BSA status
 - Publishing BSA compliance audit results in non-sensitive summary form quarterly
-- Maintaining the structural guarantee that no appreciating or equity instrument reaches any resident through H4H, community EMS, or any Commons account
+- Maintaining the structural guarantee that no equity instrument reaches any resident through H4H, community EMS, or any Commons account; the securities-law treatment of EMS and M$ is under review by securities counsel and this document makes no representation as to whether either is or is not a security
 
 **You can always:**
 - Enable or disable BSA protections at any time, without verification or questions
@@ -355,14 +356,15 @@ For benefits navigation help: **WV Legal Aid: 1-800-642-8279**
 | 2.0 | March 2026 | Time banking framework added |
 | 3.0 | May 2026 | User-choice Phase 2/3 conversion model; FVSR defined term introduced |
 | 4.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Added Critical header confirming no appreciating or equity instrument reaches residents; corrected Phase 3 rate reference from hardcoded dollar figure to FVSR defined term (currently $36.14 for 2026); added explicit Phase 2/3 reversion protection language; added EMS Recognition Bonus full section; added 60-day advance notice section; added Phase 3 scenario; clarified income-at-conversion vs. income-at-earning distinction; added entity status and server location notices; added three-box structural guarantee; aligned with Phase 2 v2.0, Phase 3 v2.0, Program Rules v2.0, Parameter Tables v2.0, Audit and Risk Management Plan v2.0 |
+| 4.1 | June 19, 2026 | **Amendment A:** Removed "non-appreciating in the securities-law sense" from Critical blockquote and §2; replaced self-certified "not a security" assertions with no-equity disclaimer + "securities-law treatment under review by securities counsel; this document makes no representation as to whether it is or is not a security"; softened absolute "non-taxable" claims in §2, §4, §6, §8, §11, §12 to "under benefits-counsel review; no MountainShares-specific PLR obtained." FVSR attribution confirmed clean (no IRS-published-rate language present). |
 
 ---
 
-*Benefits-Sensitive Accounts (BSA) — Plain Language Notice — Version 4.0*
+*Benefits-Sensitive Accounts (BSA) — Plain Language Notice — Version 4.1*
 *Harmony for Hope, Inc. | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Pending Benefits Attorney Review Before Phase 1 Activation*
 *Authors: Carrie Ann Kidd / Kidd's Technical Services (KTS)*
 
 ---
 
-**End of BSA — Benefits-Sensitive Accounts v4.0**
+**End of BSA — Benefits-Sensitive Accounts v4.1**
