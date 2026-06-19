@@ -1,22 +1,23 @@
 # Statement of Work — SOW-001
 
-## Under Master Services Agreement  
-### Harmony for Hope, Inc. and Carrie Ann Kidd d/b/a Kidd’s Technical Services
+## Under Master Services Agreement
+### Harmony for Hope, Inc. and Carrie Ann Kidd d/b/a Kidd's Technical Services
 
-**SOW Number:** SOW-001  
-**Version:** 1.0  
-**Date:** July 6, 2025  
-**Status:** Draft — For Board and Counsel Review  
-**Master Agreement:** Master Services Agreement between Harmony for Hope, Inc. and Carrie Ann Kidd d/b/a Kidd’s Technical Services  
+**SOW Number:** SOW-001
+**Version:** 1.1
+**Date:** July 6, 2025
+**Amended:** June 19, 2026
+**Status:** Draft — For Board and Counsel Review
+**Master Agreement:** Master Services Agreement between Harmony for Hope, Inc. and Carrie Ann Kidd d/b/a Kidd's Technical Services
 **Project Phase:** Phase 0 / Early Operational Deployment and Support
 
 ---
 
 ## 1. Parties
 
-This Statement of Work (**SOW-001**) is entered into by and between **Harmony for Hope, Inc.** (**H4H**) and **Carrie Ann Kidd**, an individual doing business as **Kidd’s Technical Services** (**Contractor**), under the Master Services Agreement between the parties.
+This Statement of Work (**SOW-001**) is entered into by and between **Harmony for Hope, Inc.** (**H4H**) and **Carrie Ann Kidd**, an individual doing business as **Kidd's Technical Services** (**Contractor**), under the Master Services Agreement between the parties.
 
-The parties acknowledge that, as of the date of this SOW, Kidd’s Technical Services is not yet a separately formed legal entity. Unless and until a written assignment or novation is executed after lawful entity formation, all services under this SOW are performed by Carrie Ann Kidd personally.
+The parties acknowledge that, as of the date of this SOW, Kidd's Technical Services is not yet a separately formed legal entity. Unless and until a written assignment or novation is executed after lawful entity formation, all services under this SOW are performed by Carrie Ann Kidd personally.
 
 ---
 
@@ -51,7 +52,7 @@ Contractor shall provide ongoing professional services that may include, without
 - implementation assistance for H4H programs and demonstrations,
 - and planning support for lawful transition into later operating phases.
 
-Services under this SOW may include both scheduled and as-needed work reasonably necessary to keep early systems functional, secure, documented, and aligned with H4H’s nonprofit mission and program needs.
+Services under this SOW may include both scheduled and as-needed work reasonably necessary to keep early systems functional, secure, documented, and aligned with H4H's nonprofit mission and program needs.
 
 ---
 
@@ -102,7 +103,7 @@ This may include updates to inventories, service descriptions, operating procedu
 
 ### 4.5 Site and Infrastructure Support
 
-Where relevant, Contractor may support systems operating from or associated with H4H’s physical operations at **704 Main Street, Mount Hope, West Virginia**, including server and network-related functions approved by H4H.
+Where relevant, Contractor may support systems operating from or associated with H4H's physical operations at **704 Main Street, Mount Hope, West Virginia**, including server and network-related functions approved by H4H.
 
 ---
 
@@ -216,9 +217,9 @@ The parties acknowledge the following structural principles governing the servic
 
 - H4H is the charitable anchor and sponsor.
 - The MountainShares Commons is the community governance and mutual-credit layer.
-- Community EMS and M$ are non-appreciating community instruments and not equity.
+- Community EMS and M$ are closed-loop community instruments that confer no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity; the securities-law treatment of community EMS is under review by securities counsel and this document makes no representation as to whether it is or is not a security.
 - Any appreciating founder instrument belongs, if at all, on the KTS side under separate private documentation.
-- The founder’s role with respect to the Commons is steward, not owner.
+- The founder's role with respect to the Commons is steward, not owner.
 - Phase 2 transition costs relating to DUNA and KTS formation may later be funded from the Treasury Reserve under separately adopted rules and approvals.
 
 Nothing in this SOW shall be interpreted to alter those structural boundaries.
@@ -240,12 +241,12 @@ The parties may continue rolling operational work under this SOW while documenti
 
 ## 13. Transition to Future Entity Structure
 
-If Kidd’s Technical Services is later formed as a separate legal entity, the parties may assign, novate, or replace this SOW by written agreement.
+If Kidd's Technical Services is later formed as a separate legal entity, the parties may assign, novate, or replace this SOW by written agreement.
 
 Any such transition must:
 
 - identify the successor entity with specificity,
-- preserve H4H’s rights as to prior work and performance,
+- preserve H4H's rights as to prior work and performance,
 - maintain conflict-of-interest and nonprofit compliance safeguards,
 - and avoid implying that a separate legal entity existed prior to formal formation.
 
@@ -255,19 +256,32 @@ Until such written transition occurs, this SOW remains personal to Carrie Ann Ki
 
 **Signature Blocks**
 
-**HARMONY FOR HOPE, INC.**  
-By: __________________________  
-Name: ________________________  
-Title: _________________________  
+**HARMONY FOR HOPE, INC.**
+By: __________________________
+Name: ________________________
+Title: _________________________
 Date: __________________
 
-**CONTRACTOR**  
-Carrie Ann Kidd  
-d/b/a Kidd’s Technical Services  
+**CONTRACTOR**
+Carrie Ann Kidd
+d/b/a Kidd's Technical Services
 Date: __________________
 
 ---
 
-*Statement of Work — SOW-001*  
-*Under Master Services Agreement*  
+### Changelog
+
+| Version | Date | Summary |
+|---|---|---|
+| 1.0 | July 6, 2025 | Initial draft |
+| 1.1 | June 19, 2026 | **Amendment A:** Removed "non-appreciating community instruments and not equity" characterization from §11 bullet 3; replaced with no-equity disclaimer + "securities-law treatment under review by securities counsel; this document makes no representation as to whether it is or is not a security." All other structural no-equity/scope language left as-is. |
+
+---
+
+*Statement of Work — SOW-001*
+*Under Master Services Agreement*
 *Draft — Not legal, tax, securities, or benefits advice*
+
+---
+
+**End of SOW-001 v1.1**
