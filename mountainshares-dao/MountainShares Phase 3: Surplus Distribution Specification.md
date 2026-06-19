@@ -8,11 +8,11 @@
 > - **Anti-leakage and closed-loop spending:** The 500% floor requirement (Section 3) and the surplus-only distribution rule (Section 5) operationalize anti-leakage at maturity: the commons never distributes its own backbone; it distributes only what it has grown above and beyond the floor.
 > - **Community wealth building:** The 7-year dividend cycle is the operational instantiation of the MountainShares founding purpose — building durable, community-held wealth in Central Appalachia that stays in Central Appalachia.
 
-**Version:** 3.1
-**Date:** June 18, 2026
+**Version:** 3.2
+**Date:** June 19, 2026
 **Status:** DAO Governance Document — Structural Rewrite (securities framing + money-services relocation + connectivity allocation)
 **Scope:** West Virginia Statewide (Phase 3); Reserved for activation upon Phase 2 graduation
-**Related documents:** Phase 0 Specification, Phase 1 Specification, Phase 2 Specification, Program Rules, Program Rules – Parameter Tables, DAO Governance Charter, KPI Specification v3.0, Participation Map, FA-001 Fee Amendment, H4H Canonical Facts Sheet, EMS Securities Treatment — Counsel Prep, Money-Services Entity Relocation Map
+**Related documents:** Phase 0 Specification, Phase 1 Specification, Phase 2 Specification, Program Rules, Program Rules – Parameter Tables, DAO Governance Charter, KPI Specification v3.0, Participation Map, FA-001 Fee Amendment, EMS Securities Treatment — Counsel Prep, Money-Services Entity Relocation Map
 
 > **Entity Status Notice:** Kidd's Technical Services ("KTS") is not yet a registered West Virginia LLC and has no EIN. References to "KTS" in this document mean Carrie Ann Kidd personally, operating under that trade name. Formation of the WV LLC is the gating step before founder equity, ALLIS IP holding, and KTS-side capitalization instruments take legal effect. No Phase 3 mechanism creates a founder equity path through H4H or community EMS.
 
@@ -20,7 +20,7 @@
 
 > **Money-Services Notice:** The **MountainShares DAO / DUNA is the licensee of record** for money transmission (WV Money Transmitter License) and FinCEN Money Services Business registration. The DUNA holds the surety bond, runs the BSA/AML program, executes the dividend distribution and fiat cash-out under its license, and issues the Regulatory Compliance Clearance Report as licensee. **Harmony for Hope, Inc. is not the money transmitter.** This structure is contingent on counsel confirming (a) that a money-transmitter license is required, and (b) that the WV Division of Financial Institutions will license the DUNA directly with a workable BSA/AML control-person structure; otherwise a separate DUNA-controlled licensed entity substitutes for "DUNA" throughout.
 
-> **EMS Conversion — Governing Rule:** Community EMS maintains a stable baseline exchange value. The Phase 3 buying-power expansion schedule (1 EMS = the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date; 2026: $36.14) is **inactive** unless and until the Treasury Reserve Solvency Ratio achieves and sustains 500% of total EMS + M$ outstanding, all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below 500%, the system automatically reverts to Phase 2 parameters; if it falls below 300%, the system reverts to Phase 1 parameters. These rates are conditional, revocable, and not vested, and are realized only through deliberate, participant-elected conversion; no resident holds a vested or guaranteed right to any buying-power rate. EMS confers no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity. **The securities-law and tax treatment of EMS, the phase-based conversion mechanism, and the community dividend distribution are under review by securities and tax counsel; this document makes no representation as to whether any of these is or is not a security or investment contract.** Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
+> **EMS Conversion — Governing Rule:** Community EMS maintains a stable baseline exchange value. The Phase 3 buying-power expansion schedule (1 EMS = the Independent Sector / Do Good Institute Value of Volunteer Time, BLS-derived, in effect on the Phase 3 activation date; 2026: $36.14) is **inactive** unless and until the Treasury Reserve Solvency Ratio achieves and sustains 500% of total EMS + M$ outstanding, all Treasury Reserve-funded transition and formation costs have been paid, and no reversion event has occurred. If the reserve metric falls below 500%, the system automatically reverts to Phase 2 parameters; if it falls below 300%, the system reverts to Phase 1 parameters. These rates are conditional, revocable, and not vested, and are realized only through deliberate, participant-elected conversion; no resident holds a vested or guaranteed right to any buying-power rate. EMS confers no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity. **The securities-law and tax treatment of EMS, the phase-based conversion mechanism, and the community dividend distribution are under review by securities and tax counsel; this document makes no representation as to whether any of these is or is not a security or investment contract.** Any appreciating founder-side instrument exists exclusively on the KTS side under separate, counsel-reviewed documentation.
 
 ---
 
@@ -46,6 +46,7 @@ No Phase 3 mechanism may create a path by which founder value is realized throug
 | 2.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Added dual reserve metric framework; corrected EMS appreciation framing to reserve-gated, deferred, conditional; added reversion trigger cascade (P3→P2→P1); added three-box structural framework; corrected server location to 704 Main Street; added KTS entity status notice; added Regulatory Compliance Clearance Report to pre-distribution checklist |
 | 3.0 | June 17, 2026 | **STRUCTURAL REWRITE:** Removed all "non-appreciating in the securities-law sense" assertions (own-the-appreciation decision; securities/tax treatment placed under counsel review); relocated money-services licensing from H4H to the **MountainShares DAO / DUNA** as licensee of record; split Section 7A into Stream N (H4H nonprofit) and Stream M (DUNA money-services); the DUNA issues the Regulatory Compliance Clearance Report and executes distribution/cash-out under its license; cleaned garbled FVSR rate strings and removed stray characters; aligned with EMS Securities Treatment — Counsel Prep and Money-Services Entity Relocation Map |
 | 3.1 | June 18, 2026 | Updated fee revenue allocation: **Buckets 4 and 5 dedicated to Community Connectivity** — free public internet nodes (Wi-Fi and LoRa community mesh): Bucket 4 (15%) node operations, Bucket 5 (10%) node buildout (a combined 25% of fee revenue); removed education, mutual aid, cultural preservation, and member-initiated local projects as fee-funded purposes. Connectivity nodes are funded from the standard fee allocation, before surplus is calculated — they are not drawn from the surplus pool. Aligned with Program Rules – Parameter Tables v3.1 and Phase 2 v3.1 |
+| 3.2 | June 19, 2026 | **Amendment E/G:** Replaced "Federal Volunteer Service Rate / IRS-published standard rate" throughout with **Independent Sector / Do Good Institute Value of Volunteer Time, BLS-derived, not a federal or IRS rate** — in EMS Conversion blockquote, §2.2, §3.1, §3.4 threshold table, Appendix A FVSR definition, and Appendix B example; deleted "H4H Canonical Facts Sheet" from Related documents line |
 
 ---
 
@@ -92,7 +93,7 @@ Both metrics are calculated daily by Ms. Allis, published on the dashboard with 
 
 ### 2.2 EMS Conversion Status in Phase 3
 
-Phase 3 buying-power expansion is **conditionally active** at the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date (1 EMS = the FVSR; 2026: $36.14) only while the Treasury Reserve Solvency Ratio ≥ 500%. This is not a permanently vested right. No resident holds a vested conversion right at any point before threshold clearance.
+Phase 3 buying-power expansion is **conditionally active** at the Independent Sector / Do Good Institute Value of Volunteer Time (BLS-derived, not a federal or IRS rate) in effect on the Phase 3 activation date (1 EMS = that rate; 2026: $36.14) only while the Treasury Reserve Solvency Ratio ≥ 500%. This is not a permanently vested right. No resident holds a vested conversion right at any point before threshold clearance.
 
 **Reversion cascade:**
 - If Treasury Reserve Solvency Ratio falls below 500%: system reverts to Phase 2 parameters (1 EMS = $10 rate, conditionally active at 300%)
@@ -124,7 +125,7 @@ All Phase 1 and Phase 2 hard trigger rules remain in force. They do not soften i
 
 ### 3.1 EMS Buying-Power Expansion (Phase 3, Conditionally Active)
 
-Phase 3 buying-power expansion is conditionally active at the Federal Volunteer Service Rate (FVSR) in effect on the Phase 3 activation date (1 EMS = the FVSR; 2026: $36.14), subject to the reversion cascade in Section 2.2. Conversion is user-initiated, optional, and incremental. The treasury pays USDC only for EMS that participants actively choose to convert; vaulted EMS remains off-balance-sheet recognition until conversion.
+Phase 3 buying-power expansion is conditionally active at the Independent Sector / Do Good Institute Value of Volunteer Time (BLS-derived, not a federal or IRS rate) in effect on the Phase 3 activation date (1 EMS = that rate; 2026: $36.14), subject to the reversion cascade in Section 2.2. Conversion is user-initiated, optional, and incremental. The treasury pays USDC only for EMS that participants actively choose to convert; vaulted EMS remains off-balance-sheet recognition until conversion.
 
 ### 3.2 Global Base Rate at Phase 3 Scale
 
@@ -154,7 +155,7 @@ All Phase 1 and Phase 2 Benefits-Sensitive Account protections carry forward unc
 
 | Operational Reserve Ratio | Treasury Reserve Solvency Ratio | Global Base Rate | Dividend Clock | EMS Buying-Power Status | Compliance Draws | Action |
 |---|---|---|---|---|---|---|
-| ≥ 5.0 (500%) | ≥ 500% (P3 active) | 2.0–3.0 M$/hr (DAO vote) | Running | Conditionally active — 1 EMS = FVSR (2026: $36.14) | Available per Section 7A | DAO may vote to increase rate toward 3.0; surplus accumulates |
+| ≥ 5.0 (500%) | ≥ 500% (P3 active) | 2.0–3.0 M$/hr (DAO vote) | Running | Conditionally active — 1 EMS = IS/DGI Volunteer Time Value (2026: $36.14) | Available per Section 7A | DAO may vote to increase rate toward 3.0; surplus accumulates |
 | 4.0 – 4.99 | ≥ 500% | 1.5–2.0 M$/hr (DAO-controlled) | Paused | Conditionally active | Queued per deferral rules | No new distributions; existing commitments honored; DAO notified |
 | 3.0 – 3.99 | ≥ 500% | Phase 2 rates reactivate | Paused + alert | Conditionally active (P2 rate) | Queued per deferral rules | Phase 2 thresholds govern; dividend clock pauses; emergency review |
 | < 3.0 | Any | Phase 1/2 recovery rules | Paused + emergency | Phase 2 or P1 reversion as applicable | Emergency session required | Full emergency protocol; distribution commitments suspended |
@@ -353,7 +354,7 @@ Distributions are issued in one of three forms, elected by the participant. USD 
 
 - **M$ balance credit (default):** Credited directly to the UEI's MountainShares wallet at the current reserve ratio. No action required — if no election is made, M$ credit is applied automatically.
 - **USD cash-out (optional):** Available for UEIs who choose to convert their distribution to USD within 90 days of distribution, executed through the DUNA's licensed money-services rails, subject to applicable fees and Benefits-Sensitive Account protections. After 90 days, unclaimed USD elections revert to M$ credit.
-- **EMS Recognition Bonus (optional):** The participant elects to convert their distribution into permanent EMS recognition hours rather than M$ or USD. This option locks the value into the recognition ledger permanently and cannot be reversed. It is a recognition record only; its treatment for income and asset purposes is addressed under benefits-counsel review. Particularly appropriate for Benefits-Sensitive Account holders who wish to preserve their benefits eligibility while still receiving credit for their contribution to the commons.
+- **EMS Recognition Bonus (optional):** The participant elects to convert their distribution into permanent EMS recognition hours rather than M$ or USD. This option locks the value into the recognition ledger permanently and cannot be reversed. It is a recognition record only; its treatment for income and asset purposes is under benefits-counsel review; no MountainShares-specific PLR has been obtained. Particularly appropriate for Benefits-Sensitive Account holders who wish to preserve their benefits eligibility while still receiving credit for their contribution to the commons.
 
 **Election deadline:** Participants must make their allocation form election within 60 days of the distribution event. After 60 days, unelected distributions default to M$ credit.
 
@@ -621,7 +622,8 @@ All Phase 1 and Phase 2 definitions carry forward. Phase 3 adds or amends:
 
 - **500% Reserve Floor:** The permanent minimum treasury position in Phase 3; operational reserve ratio ≥ 5.0 at all times; non-negotiable, non-overridable by any vote
 - **Treasury Reserve Solvency Ratio (Phase 3 Gate):** Treasury Reserve ÷ (Total Outstanding EMS + Total Outstanding M$). Phase 3 activation threshold: ≥ 500% with all prior-phase formation fees paid. Reversion trigger: < 500% (reverts to Phase 2 parameters); < 300% (reverts to Phase 1 parameters)
-- **EMS Buying-Power Expansion (Phase 3, Conditionally Active):** 1 EMS = the FVSR in effect on the Phase 3 activation date (2026: $36.14); user-initiated, optional, incremental. Active only while Treasury Reserve Solvency Ratio ≥ 500%. Not vested — subject to reversion cascade. Securities treatment under counsel review
+- **EMS Buying-Power Expansion (Phase 3, Conditionally Active):** 1 EMS = the Independent Sector / Do Good Institute Value of Volunteer Time (BLS-derived, not a federal or IRS rate) in effect on the Phase 3 activation date (2026: $36.14); user-initiated, optional, incremental. Active only while Treasury Reserve Solvency Ratio ≥ 500%. Not vested — subject to reversion cascade. Securities treatment under counsel review
+- **FVSR (Volunteer Time Value Rate):** The Independent Sector / Do Good Institute Value of Volunteer Time — a BLS-derived rate published annually by Independent Sector and the Do Good Institute. Not a federal or IRS rate. The Phase 3 EMS buying-power rate is the rate in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published Independent Sector value
 - **Surplus Pool:** Total treasury backing assets minus the 500% floor requirement minus any queued compliance draws; the only pool from which distributions may be drawn. Connectivity operations and buildout are funded from the standard fee allocation, not from the surplus pool
 - **7-Year Community Dividend Cycle:** The distribution rhythm — surplus accumulates for 7 years of active clock time, then distributes to eligible participants; clock resets after each distribution
 - **Dividend Clock:** The running counter of accumulated active days since Phase 3 activation (or since the last distribution); pauses if operational reserve ratio drops below 5.0 and resumes when ≥ 5.0 for ≥ 180 consecutive days; also pauses if Treasury Reserve Solvency Ratio falls below 500%
@@ -629,7 +631,7 @@ All Phase 1 and Phase 2 definitions carry forward. Phase 3 adds or amends:
 - **Verified Months Active:** Calendar months within the 7-year window in which a UEI logged ≥ 1 EMS hour or ≥ 1 verified Commons transaction
 - **Activity Multiplier:** The tiered multiplier (1.0×–2.0×) applied to Verified Months Active based on length of sustained participation; rewards durability over speculation
 - **Founding Deep:** The highest participation tier — 61–84 verified active months (≥ 5 years); receives 2.0× activity multiplier
-- **EMS Recognition Bonus:** An optional distribution form in which a participant elects to convert their dividend into permanent EMS recognition hours; irrevocable once elected for a given distribution event; particularly appropriate for Benefits-Sensitive Account holders; income/asset treatment under benefits-counsel review
+- **EMS Recognition Bonus:** An optional distribution form in which a participant elects to convert their dividend into permanent EMS recognition hours; irrevocable once elected for a given distribution event; particularly appropriate for Benefits-Sensitive Account holders; income/asset treatment under benefits-counsel review; no MountainShares-specific PLR obtained
 - **Dividend Farming:** Fraudulent activity designed to artificially inflate Participation Weight; treated as a serious violation with permanent PW forfeiture
 - **Community Connectivity Nodes:** MountainShares free public internet nodes (Wi-Fi and LoRa community mesh) deployed at trailheads, civic sites, libraries, and community anchors across West Virginia. Funded by fee-allocation Bucket 4 (operations) and Bucket 5 (buildout) from the standard fee split — not from the surplus pool; kept open to the public as a public good, never metered or paywalled
 - **Regulatory Compliance Clearance Report:** Ms. Allis's mandatory pre-distribution verification that all compliance obligations are current — the DUNA's money-services licensure (WV MTL / FinCEN MSB) and H4H's nonprofit standing — all queued draws are accounted for in the surplus calculation, and no active regulatory matters could affect the distribution; a required condition precedent to distribution under Section 5.3
@@ -637,7 +639,6 @@ All Phase 1 and Phase 2 definitions carry forward. Phase 3 adds or amends:
 - **Deferral Queue:** The Ms. Allis-managed queue of approved but reserve-floor-constrained Compliance Draws; draws fire automatically when the treasury can accommodate them without breaching the 5.0 floor; deferred draws are subtracted from the surplus pool before dividend calculation
 - **Graceful Shutdown Protocol:** The governed wind-down sequence (Section 13.5) requiring 75% super-majority + 180-day notice; ensures all obligations are met and all remaining surplus is returned to participants before the commons closes
 - **WV Money Transmitter License (MTL) / FinCEN MSB Registration:** The state license and federal registration for money transmission; **held by the MountainShares DAO / DUNA, not H4H**
-- **Federal Volunteer Service Rate (FVSR):** The IRS-published standard rate for valuing volunteer services, updated annually. The Phase 3 EMS buying-power rate is the FVSR in effect on the date the DAO formally activates Phase 3 — not the rate at document publication. The current rate (2026) is $36.14. If Phase 3 activates in a later year, the applicable rate is that year's published FVSR.
 
 ---
 
@@ -701,10 +702,10 @@ The recognition ledger is the permanent record that they were here, they did the
 
 ---
 
-*MountainShares Phase 3: Surplus Distribution Specification — Version 3.1*
+*MountainShares Phase 3: Surplus Distribution Specification — Version 3.2*
 *Harmony for Hope, Inc. | MountainShares DAO / DUNA | 704 Main Street, Mount Hope, WV 25880*
 *Draft — Subject to H4H board review, DAO governance, and legal counsel approval before reliance*
 
 ---
 
-**End of MountainShares Phase 3: Surplus Distribution Specification v3.1**
+**End of MountainShares Phase 3: Surplus Distribution Specification v3.2**
