@@ -1,19 +1,20 @@
-# FTIS-001 — Founder’s Technical Investment Statement
+# FTIS-001 — Founder's Technical Investment Statement
 
-## Harmony for Hope, Inc.  
-### Carrie Ann Kidd d/b/a Kidd’s Technical Services
+## Harmony for Hope, Inc.
+### Carrie Ann Kidd d/b/a Kidd's Technical Services
 
-**Document Number:** FTIS-001  
-**Version:** 1.0  
-**Date:** July 6, 2025  
-**Status:** Draft — Internal Structural Alignment and Counsel Review  
+**Document Number:** FTIS-001
+**Version:** 1.1
+**Date:** July 6, 2025
+**Amended:** June 19, 2026
+**Status:** Draft — Internal Structural Alignment and Counsel Review
 **Related Documents:** Master Services Agreement, SOW-000, SOW-001, KTS Relationship and Status Memorandum, Founder Capital Instrument Agreement, Fee Amendment FA-001
 
 ---
 
 ## 1. Purpose
 
-This Founder’s Technical Investment Statement records the economic characterization of technical labor, system development, infrastructure buildout, and related professional contribution performed by Carrie Ann Kidd in support of Harmony for Hope, Inc. and the MountainShares program environment.
+This Founder's Technical Investment Statement records the economic characterization of technical labor, system development, infrastructure buildout, and related professional contribution performed by Carrie Ann Kidd in support of Harmony for Hope, Inc. and the MountainShares program environment.
 
 Its purpose is to distinguish, with precision, between:
 
@@ -27,13 +28,13 @@ This document is a classification and tracking instrument. It is not itself a gr
 
 ## 2. Parties and Present Legal Posture
 
-This statement concerns work performed by **Carrie Ann Kidd**, presently operating personally under the trade name **Kidd’s Technical Services**.
+This statement concerns work performed by **Carrie Ann Kidd**, presently operating personally under the trade name **Kidd's Technical Services**.
 
 As of the date of this statement:
 
 - KTS is not yet a separately formed West Virginia limited liability company,
 - KTS does not yet have a separate EIN,
-- and any reference in related documents to “Kidd’s Technical Services, LLC” should be read as requiring correction, amendment, or later novation unless and until lawful entity formation occurs.
+- and any reference in related documents to "Kidd's Technical Services, LLC" should be read as requiring correction, amendment, or later novation unless and until lawful entity formation occurs.
 
 Accordingly, all private-side rights, claims, and economic treatment described in this statement remain personal to Carrie Ann Kidd unless and until they are assigned in writing to a properly formed successor entity.
 
@@ -108,7 +109,7 @@ The corresponding private-side half is not booked to H4H as founder equity and i
 
 ## 7. Charitable In-Kind Portion
 
-The charitable side of the contribution consists of technical labor and related professional services intentionally contributed to support H4H’s charitable mission, technical operations, and community-serving program buildout.
+The charitable side of the contribution consists of technical labor and related professional services intentionally contributed to support H4H's charitable mission, technical operations, and community-serving program buildout.
 
 That charitable portion:
 
@@ -130,7 +131,7 @@ That private-side portion:
 - must be documented separately from charitable contribution,
 - belongs on the founder-private or KTS side of the structure,
 - may become the subject of later capitalization, licensing, equity, or commercial arrangements only through separate valid instruments,
-- and remains outside H4H unless and until lawfully addressed through arm’s-length agreements.
+- and remains outside H4H unless and until lawfully addressed through arm's-length agreements.
 
 At the present stage, because KTS is not yet a formed entity, this private-side position remains personal to Carrie Ann Kidd.
 
@@ -147,7 +148,7 @@ For avoidance of doubt, this statement rejects any structure in which founder pr
 - DAO governance participation,
 - or any community-issued mutual-credit mechanism.
 
-Community EMS is a non-appreciating closed-loop community instrument. It is not founder equity, not deferred private capitalization, and not a lawful substitute for separate founder-side documentation.
+Community EMS is a closed-loop community instrument that confers no equity, ownership, membership interest, or profit-sharing interest in H4H, the DUNA, KTS, or any entity. The securities-law treatment of community EMS is under review by securities counsel; this document makes no representation as to whether it is or is not a security. Community EMS is not founder equity, not deferred private capitalization, and not a lawful substitute for separate founder-side documentation.
 
 Any appreciating founder instrument, if later created, must exist exclusively on the founder-private or KTS side and never in resident hands.
 
@@ -213,7 +214,7 @@ Any such future documents must preserve the distinctions established here:
 - H4H receives the charitable in-kind portion,
 - private founder-capital treatment stays outside H4H,
 - the Commons remains non-equity,
-- and the founder’s role in relation to the Commons is steward, not owner.
+- and the founder's role in relation to the Commons is steward, not owner.
 
 ---
 
@@ -223,7 +224,7 @@ This statement is intended to support internal consistency, not to replace forma
 
 In particular:
 
-- charitable in-kind value must be recorded in a manner consistent with H4H’s actual books and reporting practices,
+- charitable in-kind value must be recorded in a manner consistent with H4H's actual books and reporting practices,
 - grant narratives should use only the charitable portion where match language requires charitable contribution,
 - and no public-facing document should collapse charitable contribution and founder private value into a single ownership narrative.
 
@@ -249,18 +250,31 @@ Its function is to classify work already performed and preserve the legal separa
 
 **Acknowledged by:**
 
-**Harmony for Hope, Inc.**  
-By: __________________________  
-Name: ________________________  
-Title: _________________________  
+**Harmony for Hope, Inc.**
+By: __________________________
+Name: ________________________
+Title: _________________________
 Date: __________________
 
-**Founder / Contractor**  
-Carrie Ann Kidd  
-d/b/a Kidd’s Technical Services  
+**Founder / Contractor**
+Carrie Ann Kidd
+d/b/a Kidd's Technical Services
 Date: __________________
 
 ---
 
-*FTIS-001 — Founder’s Technical Investment Statement*  
+### Changelog
+
+| Version | Date | Summary |
+|---|---|---|
+| 1.0 | July 6, 2025 | Initial draft |
+| 1.1 | June 19, 2026 | **Amendment A:** Removed "non-appreciating closed-loop community instrument" characterization from §9; replaced with no-equity disclaimer + "securities-law treatment under review by securities counsel; this document makes no representation as to whether it is or is not a security." §13 "the Commons remains non-equity" and §15 "securities rights" retained as structural/scope language, not securities-law assertions. |
+
+---
+
+*FTIS-001 — Founder's Technical Investment Statement*
 *Draft — Not legal, tax, accounting, securities, or benefits advice*
+
+---
+
+**End of FTIS-001 v1.1**
