@@ -129,6 +129,9 @@ MountainShares Commons treats AI for rural communities as a structural infrastru
 **Ms. Allis is a place-based reasoning engine, not a chatbot.**
 She operates over a live Hilbert space architecture (H_App ⊗ H_geo) — a formally verified inner product space grounding 26.9 million West Virginia geospatial features. This is not a metaphor. H_App = (ℝ³⁸⁴, ⟨·,·⟩_cos) is an axiomatically verified Hilbert space where agent outputs become vectors, coordination happens via inner products rather than text routing, and the 21 LLMs forming the fabric of Ms. Allis are operators acting on a shared state — not concurrent responders passing strings. The tensor product H_App ⊗ H_geo fuses semantic and spatial dimensions into a single composite state: a query about a flood-prone road in Fayette County is not merely similar to relevant documents — it is geometrically entangled with that place. Internal semantic coherence is measured via a Φ-inspired probe instrument, ensuring knowledge is integrated rather than fragmented. Every answer traces back to underlying data and published constraints. This is glassbox AI — not black-box AI making consequential decisions without accountability.
 
+**The architecture is a working bottom-up implementation of observer-dependent spatiotemporal reasoning at scale.**
+Quantum gravity theorists and computer scientists have long sought a unified formalism where Hilbert space geometry, spatial reference frames, observer-dependent states, and temporal decay operate simultaneously. We did not approach this from the top down — we built it from the ground up, in a coalfield town, to solve a real community problem. The result is a formally verified, computationally operational system running on 26.9 million real-world features: a sandbox at the intersection of information geometry, Bayesian epistemology, and spatial reasoning that does not yet exist anywhere else at this scale. This is the contribution MIT's research community should study — and the community of Mount Hope is where it was proven possible.
+
 **MountainShares encodes participant protection as a hard design constraint.**
 No existing community exchange system is engineered from the ground up around SNAP, SSI, and Medicaid eligibility preservation. The Benefits-Sensitive Account architecture treats the benefits cliff not as a navigation problem but as a structural design problem — and solves it in code. Caregivers and volunteers earn redeemable local value without risking existing program eligibility.
 
@@ -343,4 +346,4 @@ The program fee structure built into every transaction is designed so that at sc
 
 *End of Application — Truist Foundation Inspire Awards Year 4*
 *Harmony for Hope, Inc. / MountainShares Commons*
-*Draft Version 3 — June 19, 2026*
+*Draft Version 4 — June 20, 2026*
