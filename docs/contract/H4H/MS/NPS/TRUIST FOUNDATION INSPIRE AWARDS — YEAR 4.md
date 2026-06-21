@@ -260,7 +260,7 @@ MountainShares is currently a single-founder project with one active red team te
 
 ---
 
-### How long have you been working on your solution? *(Word Limit: 100 | Count: 49)*
+### How long have you been working on your solution? *(Word Limit: 100 | Count: 98)*
 
 17 years. The vision originated Spring 2009 — a junior in GIS 1 at Concord University — realizing that if AI ever became accessible, fusing it with geospatial intelligence could transform communities like these. No AI existed yet. My coding experience nonexistent. But the core insight was already fully formed: place, meaning, and community intelligence belong together in one system.
 
