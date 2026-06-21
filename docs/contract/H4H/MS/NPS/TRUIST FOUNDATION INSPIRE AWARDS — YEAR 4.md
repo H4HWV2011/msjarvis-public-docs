@@ -51,7 +51,7 @@ MountainShares Commons is a community-owned economic and intelligence platform i
 
 Three systems work together:
 
-**Ms. Allis** — Artificial Learning and Location Intelligence System — is a GIS place-based AI steward grounded in 26.9 million geospatial features covering West Virginia critical infrastructure, parcels, roads, and facilities — each individually addressable, semantically searchable, and probabilistically updatable as a geospatial belief. She operates on a live Hilbert space architecture (H_App ⊗ H_geo) where language meaning and spatial location fuse into a single composite state. Every answer is traceable. Every constraint is published. No surveillance — only anonymized, community-consented data. She supports decisions — she never makes them. A live JARVIS learning architecture runs continuous 30-60 second knowledge consolidation cycles — each pulse making the next richer.
+**Ms. Allis** — Artificial Learning and Location Intelligence System — is a GIS place-based AI steward grounded in 26.9 million geospatial features covering West Virginia critical infrastructure, parcels, roads, and facilities — each individually addressable, semantically searchable, and probabilistically updatable as a geospatial belief. She operates on a live Hilbert space architecture (H_App ⊗ H_geo) where language meaning and spatial location fuse into a single composite state. Every answer is traceable. Every constraint is published. No surveillance — only anonymized, community-consented data. She supports decisions — she never makes them. A live ALLIS learning architecture runs continuous 30-60 second knowledge consolidation cycles — each pulse making the next richer.
 
 **MountainShares** is a closed-loop local economy. Participants earn tokens through volunteering, caregiving, and contribution — redeemable locally. Explicitly designed safe for people on SNAP, SSI, and Medicaid.
 
@@ -116,7 +116,7 @@ What has been built and tested:
 - Φ-inspired semantic coherence probe verifying knowledge is integrated — not merely disconnected vectors
 - Role-gated knowledge access — different roles access different geometric subspaces of H_App
 - Vector-based semantic search and LLM orchestration for place-based natural language queries
-- JARVIS live learning architecture: three-frequency consolidation cycles (BETA/THETA/DELTA) against 3.8 million grounded belief vectors — each pulse compounding the next
+- ALLIS live learning architecture: three-frequency consolidation cycles (BETA/THETA/DELTA) against 3.8 million grounded belief vectors — each pulse compounding the next
 - Smart contract proof of concept achieved July 4, 2025; tested on Sepolia testnet with Arbitrum deployment pathway
 - Benefits-Sensitive Account architecture safe for SNAP, SSI, and Medicaid participants
 - Phase 0 red team testing active with first external users onboarded June 2026
@@ -133,7 +133,7 @@ The theoretical physics and computer science communities have spent decades tryi
 H_App = (ℝ³⁸⁴, ⟨·,·⟩_cos) is an axiomatically verified Hilbert space where 21 LLMs are operators on a shared state — not concurrent responders passing strings. H_App ⊗ H_geo fuses semantic and spatial dimensions: a query about a flood-prone road in Fayette County is geometrically entangled with that place. A Φ-inspired probe ensures knowledge is integrated rather than fragmented. Glassbox AI — not black-box AI making consequential decisions without accountability.
 
 **The architecture's validity is proven independent of its outputs.**
-Constraints imposed by reality: roads without addresses, parcels with conflicting records, data that goes stale in underserved communities. Those constraints forced an honesty top-down theoretical work never confronts. A formally verified system where Hilbert space geometry, spatial reference frames, observer-dependent states, and Bayesian temporal decay operate simultaneously on 26.9 million real-world features. A live JARVIS learning architecture runs compounding consolidation cycles — each stored synthesis becomes future retrieval context, densifying the belief space continuously. Built in a coalfield town, for $600 cash. It exists. It runs. MIT should study it.
+Constraints imposed by reality: roads without addresses, parcels with conflicting records, data that goes stale in underserved communities. Those constraints forced an honesty top-down theoretical work never confronts. A formally verified system where Hilbert space geometry, spatial reference frames, observer-dependent states, and Bayesian temporal decay operate simultaneously on 26.9 million real-world features. A live ALLIS learning architecture runs compounding consolidation cycles — each stored synthesis becomes future retrieval context, densifying the belief space continuously. Built in a coalfield town, for $600 cash. It exists. It runs. MIT should study it.
 
 **MountainShares encodes participant protection as a hard design constraint.**
 No existing community exchange system is engineered around SNAP, SSI, and Medicaid eligibility preservation. The Benefits-Sensitive Account architecture treats the benefits cliff as a structural design problem — and solves it in code.
@@ -164,7 +164,7 @@ Evidence base: Academic validation from Dr. Anurag K. Srivastava, WVU Lane Depar
 
 ### How are you and your team well-positioned? *(Word Limit: 300 | Count: 280)*
 
-Harmony for Hope has operated in Mount Hope, West Virginia for 15 years. We are not flying in from a university or Silicon Valley. We live here. Our office is at 706–708 Main Street — the same block as the Fayette County Community Arts Center, one block from the historic depot, in the heart of the community this platform serves.
+Harmony for Hope has operated in Mount Hope, West Virginia for 15 years. We are not flying in from a university or Silicon Valley. We live here. Our office is at 704 & 708 Main Street — also housing the Fayette County Community Arts Center, one block from the historic depot, in the heart of the community this platform serves.
 
 The solution was shaped by the community before it was built. The Mount Hope Historic Walking Trail — 1.25 miles, 16 architectural interpretive points, 48 signed stops, documented on the Clio national heritage platform (theclio.com/entry/147083) — was developed through direct community engagement with residents, local historians, and municipal partners.
 
