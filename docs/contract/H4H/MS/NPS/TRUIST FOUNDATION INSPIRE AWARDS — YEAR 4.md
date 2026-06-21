@@ -262,7 +262,9 @@ MountainShares is currently a single-founder project with one active red team te
 
 ### How long have you been working on your solution? *(Word Limit: 100 | Count: 49)*
 
-9 years. The solution originated in 2017 through community economic development work in Fayette County, West Virginia. It entered formal organizational development in 2022 under Harmony for Hope, Inc., accumulating over 6,500 documented hours of work by the founding Executive Director prior to any paid staffing or external funding.
+17 years. The vision originated Spring 2009 — a junior in GIS 1 at Concord University — realizing that if AI ever became accessible, fusing it with geospatial intelligence could transform communities like these. No AI existed yet. My coding experience nonexistent. But the core insight was already fully formed: place, meaning, and community intelligence belong together in one system.
+
+It surfaced through H4H volunteer work, Clio heritage mapping, every workaround built when the right tool didn't exist. When AI arrived, the GIS was already waiting. Formal development began in 2022 under Harmony for Hope, Inc. What resulted was inevitable.
 
 ---
 
