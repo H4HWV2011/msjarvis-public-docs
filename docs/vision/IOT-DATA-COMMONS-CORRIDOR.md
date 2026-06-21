@@ -65,6 +65,56 @@ This model is consistent with the broader MountainShares constitutional architec
 
 ---
 
+## Distinction from Surveillance Infrastructure
+
+A community-owned environmental sensor network and a commercial surveillance network may appear superficially similar — both deploy sensors in public or semi-public spaces and collect data about physical conditions. They are structurally opposite in every dimension that matters.
+
+Commercial surveillance systems such as license plate readers, facial recognition arrays, and behavioral monitoring networks — including those marketed to municipalities as public safety infrastructure — are **extraction devices**. A private company owns the hardware. A private company owns the data. The municipality pays a subscription fee for access to data collected from its own streets. The company retains full rights to license that data to third parties, federal agencies, and commercial buyers without community notice or consent. The community is the subject of collection, not the owner or beneficiary.
+
+The MountainShares IoT Data Commons inverts this model at every structural point:
+
+| Dimension | Commercial Surveillance Model | MountainShares Data Commons |
+|---|---|---|
+| Hardware ownership | Private company | Community cooperative |
+| Data ownership | Private company | Community governed |
+| Revenue destination | Private company | Community treasury and municipal budgets |
+| Sensor purpose | Behavioral surveillance of people | Environmental and infrastructure monitoring |
+| Governance rights | None — subscription contract | Democratic, constitutionally constrained |
+| Municipal relationship | Municipality pays vendor | Municipality co-owns nodes |
+| Data subject | Community members | Physical infrastructure and environment |
+| Exit and perpetuity | Vendor can terminate | Community owns hardware permanently |
+
+The purpose distinction is architectural, not merely philosophical. LoRaWAN environmental nodes measuring air particulate concentration, creek water elevation, rail vibration signature, or atmospheric pressure do not collect personally identifiable information. Individual identification is neither the purpose nor a capability of the designed sensor types. The data types are categorically different from behavioral surveillance.
+
+---
+
+## Governance Safeguards and Future Misuse Considerations
+
+This section is recorded to address a question that any serious funder, research partner, or municipal collaborator should ask: *could this infrastructure be repurposed for surveillance in the future?*
+
+The honest answer is: any infrastructure can be misused if governance fails, ownership transfers, or future generations make different choices. Roads enabled redlining. The internet enabled mass surveillance. This document does not claim the MountainShares sensor network is permanently immune to misuse. That claim would be false, and false claims are not the foundation on which this project is built.
+
+What this architecture does claim — and what the constitutional structure is designed to enforce — is that misuse is **structurally costly, publicly visible, and requires the community to do it to itself by deliberate choice.**
+
+Commercial surveillance systems can change data practices, expand agency sharing agreements, or alter terms of service unilaterally, without community notice, at any time. MountainShares cannot do this. Any expansion of sensor purpose beyond environmental and infrastructure monitoring requires:
+
+- A formal constitutional amendment process
+- Public governance deliberation with documented community participation
+- Explicit consent recorded in the governance ledger
+- Deliberate architectural modification to hardware and data routing
+
+The following constraints are recorded as the founder's intent and are to be encoded as hard limits in the governance constitution when sensor architecture reaches formal specification:
+
+1. **Purpose limitation** — Sensor hardware deployed under the MountainShares Data Commons is designed and intended exclusively for environmental and infrastructure monitoring. Behavioral surveillance of individuals is prohibited.
+2. **Ownership permanence** — Community ownership of sensor hardware cannot be transferred to any private company, government agency, or outside entity without a community governance vote with documented supermajority consent.
+3. **Data sovereignty** — No sensor data leaves the commons for external licensing without explicit governance approval of the specific licensing agreement, the receiving party, and the permitted use.
+4. **Constitutional visibility** — Any proposed change to sensor purpose, data use, or ownership structure must be publicly documented in the governance record before any vote is held. No changes may be made quietly.
+5. **Founder's intent on record** — This document establishes that the sensor network was conceived as community infrastructure for community benefit, not as a surveillance system. Future generations may make different choices. This document records what the founder intended and why.
+
+We are planting trees for grandchildren who will stand in shade we will not live to see. The constitution we plant determines whether that shade is free or whether someone has to pay for it. The governance structure is the most important thing we build.
+
+---
+
 ## Corridor Scale
 
 Phase 1 (Mount Hope): Proof of concept deployment on the Pax mine rail corridor and adjacent municipal infrastructure. Environmental baselines, flood monitoring on key creek crossings, rail vibration monitoring.
@@ -103,4 +153,4 @@ That question has not changed. The architecture to answer it now exists.
 
 *Vision Capture — June 21, 2026*
 *Harmony for Hope, Inc. / MountainShares Commons*
-*Pre-architecture status — do not build pending treasury connection specification*
+*Pre-architecture status — do not build pending treasury connection specification and governance constitution finalization*
