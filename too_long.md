@@ -1,3927 +1,871 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # Run these and capture output cleanly
-docker exec jarvis-auth-api ls /app/services/ 2>&1 | tee /tmp/auth_diag.txt
+crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # Correct filenames use underscores
+docker exec jarvis-auth-api grep -n "kyc\|provenance\|KYC" /app/services/user_auth_service.py
 
-docker exec jarvis-auth-api cat /app/services/main.py \
-  | grep -n "auth_router\|include_router\|auth" 2>&1 | tee -a /tmp/auth_diag.txt
+docker exec jarvis-auth-api grep -n "kyc\|provenance\|KYC" /app/services/auth_router.py
 
-docker inspect jarvis-auth-api | python3 -c "
-import sys, json
-d = json.load(sys.stdin)[0]
-print('CMD:', d['Config']['Cmd'])
-print('Entrypoint:', d['Config']['Entrypoint'])
-print('WorkingDir:', d['Config']['WorkingDir'])
-" 2>&1 | tee -a /tmp/auth_diag.txt
+# See what the auth router actually imports and exposes
+docker exec jarvis-auth-api cat /app/services/auth_router.py
 
-cat /tmp/auth_diag.txt
-20LLM_DEPLOYMENT_SUMMARY.md
-=12.1
-=470,driver
-ADDITIONAL_SERVICES.py
-ADDITIONAL_SERVICES_FINAL.py
-ADD_ALL_INTEGRATIONS.sh
-ADD_DELETE_ENDPOINT.sh
-ADD_MEMORY_TO_8050.sh
-ADD_METADATA_FILTERING.sh
-ADD_RAG_METADATA_FILTERING.sh
-ADD_RAG_RETRIEVAL_8050.sh
-ADD_STORE_ENDPOINT.sh
-ADVANCED_MODULES_ROADMAP.md
-AGI_EVALUATION_SUITE.sh
-AGI_TEST_SUITE.sh
-AGI_TEST_V2.sh
-ARCHITECTURE_OPTIONS.md
-AaaCPE_Appalachian_Dialect_Knowledge.txt
-BBB_DEPENDENCIES.txt
-BUILD_EGERIA_WEB_UI.sh
-CHECK_AND_BUILD_MEMORY.sh
-CHECK_AND_FIX_PORT.sh
-CHECK_MS_JARVIS_STATUS.sh
-CLEANUP_OLLAMA.sh
-COLLECTIVE_INTEGRATION_PLAN.md
-COLLECT_ALL_DOCS_FOR_NOTEBOOKLM.sh
-COMPARE_4_VS_22.sh
-COMPLETE_DISCOVERY_REPORT.md
-COMPLETE_PORT_MAP.sh
-COMPLETE_PORT_SCAN.sh
-COMPLETE_SESSION_ACCOMPLISHMENTS.md
-COMPLETE_START_SYSTEM.sh
-COMPLETE_SYSTEM_STATUS.md
-COMPLETE_SYSTEM_SUMMARY.md
-COMPREHENSIVE_PORT_AUDIT_20251009_234234.txt
-COMPREHENSIVE_SYSTEM_TEST.sh
-CONSCIOUSNESS_ARCHITECTURE_EXPLAINED.md
-CONSTITUTIONAL_SCHEDULER_ENTRY.txt
-CONSTITUTIONAL_SYSTEM_MANIFEST.md
-CREATE_ULTIMATE_JARVIS.sh
-CRITICAL_FIXES_NEEDED.md
-CURRENT_STATUS.md
-ConfigLoader.py
-DEPLOYMENT_ORDER.txt
-DEPLOYMENT_STATUS_REPORT.md
-DEPLOY_22LLM_COLLECTIVE.sh
-DIAGNOSE.sh
-Dockerfile
-Dockerfile-chroma-proxy
-Dockerfile-llm1-proxy
-Dockerfile-llm10-proxy
-Dockerfile-llm11-proxy
-Dockerfile-llm12-proxy
-Dockerfile-llm13-proxy
-Dockerfile-llm14-proxy
-Dockerfile-llm15-proxy
-Dockerfile-llm16-proxy
-Dockerfile-llm17-proxy
-Dockerfile-llm18-proxy
-Dockerfile-llm19-proxy
-Dockerfile-llm2-proxy
-Dockerfile-llm20-proxy
-Dockerfile-llm21-proxy
-Dockerfile-llm22-proxy
-Dockerfile-llm23-proxy
-Dockerfile-llm3-proxy
-Dockerfile-llm4-proxy
-Dockerfile-llm5-proxy
-Dockerfile-llm6-proxy
-Dockerfile-llm7-proxy
-Dockerfile-llm8-proxy
-Dockerfile-llm9-proxy
-Dockerfile.69dgm_bridge
-Dockerfile.aaacpe_rag
-Dockerfile.aaacpe_scraper
-Dockerfile.agents
-Dockerfile.auth_api
-Dockerfile.autonomous_complete
-Dockerfile.autonomous_learner
-Dockerfile.autonomous_learner_complete
-Dockerfile.bak_add_deps
-Dockerfile.bak_add_redis
-Dockerfile.bak_add_requests
-Dockerfile.bak_add_service_discovery
-Dockerfile.bak_before_bbb_copy_fix
-Dockerfile.bak_runner_cmd
-Dockerfile.bbb
-Dockerfile.bridge
-Dockerfile.consciousness_bridge
-Dockerfile.constitutional_guardian
-Dockerfile.crypto-policy
-Dockerfile.data_ingest
-Dockerfile.decay_escalation_consumer
-Dockerfile.eeg
-Dockerfile.email
-Dockerfile.fifth_dgm_real
-Dockerfile.fractal
-Dockerfile.gateway
-Dockerfile.gis_rag
-Dockerfile.hilbert
-Dockerfile.hilbert.pre-hilbert-image-20260415-161150
-Dockerfile.hippocampus
-Dockerfile.icontainers
-Dockerfile.icontainers_fastapi
-Dockerfile.indexer
-Dockerfile.judge
-Dockerfile.lm_synthesizer
-Dockerfile.local-resources
-Dockerfile.memory
-Dockerfile.mother_protocols
-Dockerfile.nbb_*
-Dockerfile.nbb_base
-Dockerfile.neuro
-Dockerfile.phiprobe
-Dockerfile.pia-sampler
-Dockerfile.policy
-Dockerfile.psychological_rag
-Dockerfile.psychology_services
-Dockerfile.qualia
-Dockerfile.rag
-Dockerfile.rag_server
-Dockerfile.roche_llm
-Dockerfile.roche_llm.disabled
-Dockerfile.semaphore
-Dockerfile.spiritual_rag
-Dockerfile.steward
-Dockerfile.swarm
-Dockerfile.temporal_consciousness
-Dockerfile.toroidal
-Dockerfile.web_research
-Dockerfile.webdeploy
-Dockerfile.woah
-Dockerfile.woah_algorithms
-EGERIA_AGI_TEST_RESULTS_SUMMARY.md
-EGERIA_IDENTITY.md
-EMERGENCY_PROMPT_LEAK_FIX.sh
-FEATURE_ENHANCEMENTS.md
-FIFTH_DGM_RESTORED.md
-FINAL_8_LAYER_STARTUP.sh
-FINAL_DEPLOYMENT_SUMMARY.md
-FINAL_EMOTIONAL_BALANCE.sh
-FINAL_FIX.sh
-FINAL_PERSONA_FIX.sh
-FINAL_RECOMMENDATION.md
-FINAL_STATUS_SUMMARY.md
-FINAL_SYSTEM_REPORT.md
-FIX_BOTH_ISSUES.sh
-FIX_CONSCIOUSNESS_BRIDGE.sh
-FIX_CONSCIOUSNESS_INTEGRATION.sh
-FIX_CONSCIOUS_COLLECTIVE_AUTO.sh
-FIX_FAST_MODE.sh
-FIX_HEALTH_ENDPOINTS.sh
-FIX_MEMORY_STORAGE.sh
-FIX_MODEL_IDENTITY.sh
-FIX_RAG_FILTERING.sh
-FIX_SYNTHESIS_PROMPT.sh
-FIX_TIMEOUT_ISSUE.sh
-FIX_TONE_AND_CONCISENESS.sh
-FIX_ULTIMATE.sh
-FIX_UNIFIED_SELF.sh
-FULL_DEPLOYMENT_MANIFEST.txt
-FULL_INTEGRATION_WORKFLOW.sh
-FULL_PORT_AUDIT.sh
-FULL_PORT_SCAN.sh
-FULL_SERVICE_AUDIT.sh
-FULL_SYSTEM_AUDIT.sh
-GPU_OPTIMIZATION_GUIDE.md
-GUARANTEED_8_LAYER_START.sh
-IDENTIFY_SERVICES.sh
-IMMUTABLE_MANIFEST.md
-INSPECT_JARVIS_INTERNALS.sh
-INTEGRATE_8020_8050.sh
-INTEGRATE_CONSCIOUSNESS.sh
-INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh
-INTEGRATE_PROPERLY.sh
-INTEGRATION_HUB_SUCCESS.md
-INTEGRATION_IMPLEMENTATION.py
-INTEGRATION_PLAN.sh
-JARVIS_DASHBOARD.sh
-JARVIS_HEALTH_CHECK.sh
-LOAD_AAACPE_RAG.sh
-LOCATION_AWARENESS_SUCCESS.md
-MAMMA_KIDD_PROTOCOL_GUIDE.md
-MAMMA_KIDD_QUICK_REFERENCE.txt
-METHOD_AUDIT_RAW.txt
-METHOD_AUDIT_SEG_aa
-METHOD_AUDIT_SEG_ab
-METHOD_AUDIT_SEG_ac
-METHOD_AUDIT_SEG_ad
-METHOD_AUDIT_SEG_ae
-METHOD_AUDIT_SEG_af
-METHOD_AUDIT_SEG_ag
-METHOD_AUDIT_SEG_ah
-METHOD_AUDIT_SEG_ai
-METHOD_AUDIT_SEG_aj
-METHOD_AUDIT_SEG_ak
-METHOD_AUDIT_SEG_al
-METHOD_AUDIT_SEG_am
-METHOD_AUDIT_SEG_an
-METHOD_AUDIT_SEG_ao
-METHOD_AUDIT_SEG_ap
-METHOD_AUDIT_SEG_aq
-MS_JARVIS_COMPLETE_AUDIT.md
-MS_JARVIS_DEEP_MODE_DEPLOYMENT.md
-MS_JARVIS_DEPLOYMENT_SUCCESS.md
-MS_JARVIS_FINAL_DEPLOYMENT.sh
-MS_JARVIS_FINAL_VICTORY_REPORT.md
-MS_JARVIS_PRODUCTION_FINAL.sh
-MS_JARVIS_STATUS_REPORT.md
-MS_JARVIS_ULTIMATE_AUDIT_20251010_002719.txt
-Modelfile.egeria
-MountainShares6.pdf
-OLLAMA_HEALTH_FEATURES.md
-OPTIMIZE_GPU.sh
-PORTS_REGISTRY_RAW.txt
-PORT_AUDIT.sh
-PORT_AUDIT_RAW.txt
-PORT_AUDIT_SEG_aa
-PORT_AUDIT_SEG_ab
-PORT_AUDIT_SEG_ac
-PORT_AUDIT_SEG_ad
-PORT_AUDIT_SEG_ae
-PORT_SEG_aa
-PORT_SEG_ab
-PORT_SEG_ac
-PORT_SEG_ad
-PORT_SERVICE_AUDIT.sh
-PRODUCTION_DEPLOYMENT_COMPLETE.md
-PRODUCTION_DEPLOYMENT_SUITE.sh
-PRODUCTION_MS_JARVIS_START.sh
-PRODUCTION_STATUS_REPORT.txt
-REFERENCE_windows_swarm.py
-REMOVE_MODEL_REFERENCES.sh
-REROUTE_SERVICES.sh
-RESTART_PLAN.md
-RESTORATION_CERTIFICATE.txt
-RESTORATION_CERTIFICATE_CORRECTED.txt
-RESTORE_ALL_INTEGRATIONS.sh
-RESTORE_NATURAL_PERSONALITY.sh
-SAFE_INTEGRATION_PLAN.md
-SATURDAY_SUMMARY.md
-SCHEDULER_REFERENCE.md
-SET_MAX_RESPONSE.sh
-SPATIOTEMPORAL_CONSCIOUSNESS.md
-START_19LLM_PRODUCTION.sh
-START_20LLM_FINAL.sh
-START_ALL_SYSTEMS.sh
-START_COMPLETE_SYSTEM.sh
-START_CONSCIOUS_COLLECTIVE.sh
-START_MS_JARVIS_PRODUCTION.sh
-STOP_ALL_SYSTEMS.sh
-SWAGGER_ENDPOINTS.md
-SWITCH_TO_22LLM_DEFAULT.sh
-SYSTEM_AUDIT_20251009_233918.txt
-SYSTEM_AUDIT_ANALYSIS.md
-SYSTEM_STATUS_FINAL.md
-TEST_CRITICAL_FIXES.sh
-TEST_IMPROVED_RESPONSE.sh
-TEST_WITH_CLEANUP.sh
-TODAYS_COMPLETE_ACHIEVEMENT.md
-TODAYS_PROGRESS.md
-TRUE_BRAIN_ARCHITECTURE.md
-ULTIMATE_PORT_AUDIT_20251010_094847.txt
-ULTIMATE_SESSION_SUMMARY.md
-UPDATE_COORDINATOR_FOR_DEEP_MODE.sh
-UPDATE_JARVIS_PERSONA.sh
-UPDATE_NAME_TO_EGERIA.sh
-WATCHDOG.sh
-WATCHDOG_LOG.txt
-WORKING_START.sh
-WVU_API_DOCUMENTATION.md
-__init__.py
-__pycache__
-_archive
-_evaluate_for_i_container
-_redirects
-aaacpe_initial_ingest.py
-aaacpe_rag_service.py
-aaacpe_scraper_service.py
-aacpe_ingest_community.py
-aacpe_prepare_metadata.py
-aapcappe_ingest.py
-abi
-academic_research_gateway_8062.py
-academic_research_gateway_8062_cors.py
-academic_whitebox_api.py
-activate_dgm.py
-activate_dgm_enhanced.py
-activate_egeria_persona.py
-activate_sanctuary_cherubim_guards.sh
-add_auto_store.py
-add_background_call.py
-add_background_storage.py
-add_chat_route.sh
-add_conversation_context.py
-add_conversation_endpoint.py
-add_conversation_storage.py
-add_dynamic_context.py
-add_fast_layer.py
-add_fifth_dgm_to_chat.py
-add_full_brain_class.py
-add_gpu_cleanup_correct.py
-add_gpu_cleanup_every_3.py
-add_identity_context.py
-add_jarvis_personality.py
-add_learning_suggestion.py
-add_mamma_greeting_simple.py
-add_messenger_to_gateway.py
-add_new_consciousness_services.py
-add_proactive_cleanup_working.sh
-add_ready_endpoint.py
-add_security_to_chat.py
-add_semaphore.py
-add_simple_gpu_cleanup.py
-add_swagger_to_ports.py
-add_swagger_to_rag.py
-add_to_consciousness_engine.txt
-add_to_main_consciousness.psychology_patched.py
-add_to_main_consciousness.py
-add_to_startup.sh
-add_user_memory.py
-add_user_memory_attribute.py
-add_web_research_storage.py
-add_working_search.py
-admin_cli.py
-advanced_service_dashboard.py
-agent_llm_batch.sh
-agent_llm_batch_all.sh
-agents_main.py
-agi_test.sh
-ai
-ai-server
-ai_server.py
-ai_server_11llm_OPTIMIZED.py
-ai_server_19llm_CONSCIOUS.py
-ai_server_19llm_PRODUCTION.py
-ai_server_19llm_PRODUCTION_WITH_HEALTH.py
-ai_server_20llm_FINAL.py
-ai_server_20llm_FINAL.py,
-ai_server_20llm_PRODUCTION.py
-ai_server_22llm.psychology_patched.py
-ai_server_22llm.psychology_patched_FIXED.py
-ai_server_22llm.py
-ai_server_22llm_FIXED.py
-ai_server_22llm_SEQUENTIAL.py
-ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py
-ai_server_22llm_SMALL_TO_LARGE.py
-ai_server_4llm.py
-ai_server_integrated.py
-ai_server_original_backup.py
-ai_server_restored.py
-ai_teams_config.py
-alert_venv
-alerting_config.json
-alertingconfig.json
-all_actual_py.txt
-all_actual_services.txt
-all_build_dirs.txt
-all_service_ports.txt
-all_services.txt
-all_services_compose_blocks.txt
-all_services_compose_blocks_dynamic.txt
-analyze_advanced_modules.sh
-apk-list.txt
-app.js
-application_service.py
-apply_ollama_fix.py
-apt-list.txt
-archived-dockerfiles
-async_polling_architecture.py
-attention_multimodal_fuser.py
-attention_pipeline.py
-attention_priority_scheduler.py
-attention_router.py
-au02_v2
-audit_all_services.sh
-audit_all_services_complete.sh
-audit_attrs.py
-audit_docker_services.sh
-audit_local_state.py
-audit_performance.sh
-audit_service_connectivity.sh
-auth.py
-auth_api.py
-auth_api_patch.py
-auth_router.py
-auth_router_main.py
-auto_fix_gateway.py
-auto_memory_service_probe.sh
-auto_rag_builder.py
-auto_stop_after_monongalia.sh
-autonomous_learner.py
-autonomous_learner_gisgeodb_wrapper.psychology_patched.py
-autonomous_learner_gisgeodb_wrapper.py
-autonomous_learner_topic_source.py
-available_models.txt
-backfill_gbim_worldview_metadata.py
-backfill_gbim_worldview_metadata_v2.py
-background_curator.py
-backup_chroma_autonomous_learning.json
-backup_chroma_mountainshares_knowledge.json
-backup_chroma_research_history.json
-batch_copy_docs.sh
-batch_normalize_beliefs.py
-batch_patch_services.py
-bbb_ethics_proxy.py
-bbb_output_filter
-bbb_requirements.txt
-bbb_validator.py
-belief_integrator.py
-belief_revision_engine.py
-belief_state_schema.py
-benefits_chat.py
-brain.js
-brain_orchestrator.py
-brain_orchestrator_main.py
-bridge
-bridge_69dgm.py
-bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
-bridge_autonomous_to_i_container_dgm_woah.py
-bridge_autonomous_to_i_container_fixed.py
-bridge_cross_dgm.py
-bridge_cross_dgm_10001.py
-bridge_cross_dgm_10002.py
-bridge_cross_dgm_10003.py
-bridge_cross_dgm_10004.py
-bridge_cross_dgm_10005.py
-bridge_cross_dgm_10006.py
-bridge_cross_dgm_10007.py
-bridge_cross_dgm_10008.py
-bridge_cross_dgm_10009.py
-bridge_cross_dgm_10010.py
-bridge_cross_dgm_10011.py
-bridge_cross_dgm_10012.py
-bridge_cross_dgm_10013.py
-bridge_cross_dgm_10014.py
-bridge_cross_dgm_10015.py
-bridge_cross_dgm_10016.py
-bridge_cross_dgm_10017.py
-bridge_cross_dgm_10018.py
-bridge_cross_dgm_10019.py
-bridge_cross_dgm_10020.py
-bridge_cross_dgm_10021.py
-bridge_cross_dgm_10022.py
-bridge_cross_dgm_10023.py
-bridge_cross_dgm_10024.py
-bridge_cross_dgm_10025.py
-bridge_cross_dgm_10026.py
-bridge_cross_dgm_10027.py
-bridge_cross_dgm_10028.py
-bridge_cross_dgm_10029.py
-bridge_cross_dgm_10030.py
-bridge_cross_dgm_10031.py
-bridge_cross_dgm_10032.py
-bridge_cross_dgm_10033.py
-bridge_cross_dgm_10034.py
-bridge_cross_dgm_10035.py
-bridge_cross_dgm_10036.py
-bridge_cross_dgm_10037.py
-bridge_cross_dgm_10038.py
-bridge_cross_dgm_10039.py
-bridge_cross_dgm_10040.py
-bridge_cross_dgm_10041.py
-bridge_cross_dgm_10042.py
-bridge_cross_dgm_10043.py
-bridge_cross_dgm_10044.py
-bridge_cross_dgm_10045.py
-bridge_cross_dgm_10046.py
-bridge_cross_dgm_10047.py
-bridge_cross_dgm_10048.py
-bridge_cross_dgm_10049.py
-bridge_cross_dgm_10050.py
-bridge_cross_dgm_10051.py
-bridge_cross_dgm_10052.py
-bridge_cross_dgm_10053.py
-bridge_cross_dgm_10054.py
-bridge_cross_dgm_10055.py
-bridge_cross_dgm_10056.py
-bridge_cross_dgm_10057.py
-bridge_cross_dgm_10058.py
-bridge_cross_dgm_10059.py
-bridge_cross_dgm_10060.py
-bridge_cross_dgm_10061.py
-bridge_cross_dgm_10062.py
-bridge_cross_dgm_10063.py
-bridge_cross_dgm_10064.py
-bridge_cross_dgm_10065.py
-bridge_cross_dgm_10066.py
-bridge_cross_dgm_10067.py
-bridge_cross_dgm_10068.py
-bridge_cross_dgm_10069.py
-bridge_openapi.json
-build_additional_services.py
-build_autonomous.sh
-build_compose.sh
-build_dir_audit.txt
-build_entityid_to_chromaid_map.py
-build_project_impact_graph.py
-bulk_build_beliefs.py
-bulk_compose_rewrite.py
-bulk_load_MAXIMUM.py
-bulk_load_knowledge.py
-bulk_sync_gis_to_chromadb.py
-chat_endpoint_universal.py
-chat_interface.html
-chat_response.json
-chat_server.py
-chat_with_jarvis.sh
-check_agent_prompts.sh
-check_mamma_kidd_protocol.sh
-check_msjarvis_status.sh
-check_permissions.sh
-chroma
-chroma-broken-20260606-1447
-chroma.pre-migration-20260606_142022
-chroma_client.py
-chroma_client_old.py
-chroma_config.py
-chroma_health_monitor.py
-chroma_health_proxy.py
-chroma_health_utils.py
-chroma_python_test.py
-chroma_test.py
-chromadb
-chromadb_client.py
-chromadb_main.py
-chromadb_rag_helper.py
-chromadb_rest_bridge.py
-chromadb_v2_to_gis_sync.py
-chromadbrag1
-chunked_ingest_gbim_to_chroma.py
-clean_and_dedupe_services.sh
-clean_compose.py
-clean_integration.py
-clean_service_candidates.txt
-cleanup_manifest.txt
-cloudflare_auth_helper.sh
-cloudflare_domain_integration.py
-cloudflared-linux-amd64.deb
-community_stake_registry.py
-complete_fix.py
-complete_memory_fix.py
-complete_system_audit.py
-complete_system_audit_with_swagger.py
-comprehensive_gisgeodb_audit.py
-comprehensive_gisgeodb_audit_FIXED.py
-comprehensive_port_audit.sh
-comprehensive_storage_fix.py
-comprehensive_url_fix.py
-comprehensive_url_fix.py.PORT8000_BACKUP
-confidence_decay_loop.py
-config_spiritual.py
-configure_facebook_webhook.py
-connect_full_brain.sh
-connect_holy_spirit_to_existing_email.sh
-connection_pooling.py
-consciousness_coordinator.psychology_patched.py
-consciousness_coordinator.py
-consciousness_coordinator.py.BACKUP
-consciousness_feed_integration.psychology_patched.py
-consciousness_feed_integration.py
-consciousness_gateway.py
-consciousness_with_egeria_voice.py
-consciousness_working.py
-consolidate_to_chroma_db.py
-constitutional_api.PROD_BACKUP.py
-constitutional_api.py
-constitutional_api.py.from_container
-constitutional_api_fixed.py
-constitutional_guardian.PROD_BACKUP.py
-constitutional_guardian.py
-constitutional_principles.json
-constitutional_principles.json.mcp_backup
-context_manager.py
-contract_generator.py
-conversation_gbim.py
-conversation_memory_endpoints.py
-copy_all_missing_services.sh
-copy_architecture_docs.sh
-copy_complete_brain_structure.sh
-core
-count_collections.py
-count_collections_local.py
-cpu_optimization.py
-create_adapter_wrappers.sh
-create_autonomous_learner_tables.py
-create_consciousness_data_integration.psychology_patched.py
-create_consciousness_data_integration.py
-create_dual_consciousness_i_containers.psychology_patched.py
-create_dual_consciousness_i_containers.py
-create_geodb_nodes.py
-create_i_statement_feedback_loop.py
-create_immutable_security_layer.py
-create_mamma_kidd_auth.sh
-create_perpetual_storage_layer.py
-create_sanctuary_monitor.sh
-create_tile_index.py
-create_ueid_identity_layer.py
-cron_health_check.sh
-crypto_client.py
-dao_governance.py
-data
-data_inventory_endpoint.py
-dedup_compose.sh
-dedupe_compose.py
-deep_dive_modules.sh
-deep_excavation.sh
-deep_module_search.sh
-deploy_to_mountainshares.sh
-deploy_warm_persona_final.sh
-designed_ports.txt
-dgm_adoption_worker.py
-dgm_bridge.py
-dgm_connector_registry.py
-dgm_connectors_active.json
-dgm_connectors_resolved.json
-dgm_orchestrator.py
-dgm_orchestrator_fake.py
-dgm_rag_integration_v2.py
-dgm_services_state.json
-dgm_supervisor_woah.psychology_patched.py
-dgm_supervisor_woah.py
-dgm_supervisor_woah_fixed.py
-dgm_supervisor_woah_simple.py
-diagnostic_ms_jarvis.sh
-dir_endpoints.txt
-disable_aggressive_cleaning.py
-docker-compose.bak
-docker-compose.deduped.yml
-docker_cleanup_and_optimize.sh
-domain_service_router.py
-download_everything_appalachian.sh
-download_nltk_data.py
-download_priority_counties.sh
-dpkg-list.txt
-dump.rdb
-dynamic_app.py
-dynamic_port_scheduler.py
-dynamic_port_scheduler.py.BROKEN_REDIS
-dynamic_port_service.py
-dynamic_port_service_enhanced.py
-ecosystem_identity_service.py
-eeg_shared
-egeria_active_heartbeat.py
-egeria_api_proxy.py
-egeria_autonomous_inquiry.py
-egeria_autonomous_inquiry_active.py
-egeria_code_execution_engine.py
-egeria_core_identity.txt
-egeria_facebook_perpetual_scheduler.py
-egeria_multi_mode_system.py
-egeria_persona_config.json
-egeria_safe_self_correction.py
-egeria_status_poller.py
-egeria_system_prompt.txt
-egeria_true_identity.txt
-egeria_web_ui.py
-egeria_web_ui.py.old
-egeria_web_ui.py.old-timeout-version
-egeria_web_ui_FIXED.py
-egeria_web_ui_dynamic.py
-egeria_web_ui_final_biological.py
-egeria_web_ui_fixed_simple.py
-egeria_web_ui_plain_authentic.py
-egeria_web_ui_v3_consciousness.py
-egeria_web_ui_with_execution.py
-egeria_web_ui_working.py
-egeriaknowledgebase
-email_auto_checker.py
-email_gis_geolocation_extractor.py
-email_rag_integration.py
-email_service.env
-email_service.py
-email_strategy.txt
-embed_and_add.py
-embed_and_query.py
-embed_gbim.py
-embed_geodb.py
-embed_utils.py
-emergency_memory_cleanup.sh
-enable_22llm_routing.py
-enable_auto_web_search.sh
-enable_harmony4hope_website_access_CORRECTED.sh
-enable_holy_spirit_file_writing.sh
-enable_website_building_capabilities.sh
-enhance_agent_prompts.py
-enhance_cleaner.py
-enhance_pituitary_warmth.py
-enhance_rag_first.py
-enhance_rag_knowledge.py
-enhanced_learner_concept.py
-enrich_gbim_from_geospatial_features.py
-enrich_geodb_collections.py
-enrich_geodb_layers.py
-eternal_watchdog.sh.disabled
-ethical_filter.py
-etl_from_csv_template.py
-etl_from_manifest.py
-etl_template_layer.py
-examine_ai_server_complete.sh
-examine_app_brain_backendlib.sh
-examine_existing_code.sh
-examine_extracted_services.sh
-examine_geospatial_agents.sh
-explore_16mb_directory.sh
-explore_both_systems.sh
-export_attributes_to_gis.py
-export_chroma_manifest.py
-export_docs_for_notebook.sh
-export_geodb_attrs.py
-export_metadata_csv.py
-extract_all_archives_deep_dive.sh
-extract_all_big_archives.sh
-extract_all_chromadb_to_gis.py
-extract_all_chromadbs_to_gis.py
-extract_all_gis_comprehensive.sh
-extract_all_remaining_services.sh
-extract_and_search_archives.sh
-extract_binder4_text.py
-extract_chroma_sqlite_to_gis.py
-extract_complete_real.sh
-extract_real_knowledge_to_gis.py
-extract_service_tarballs.sh
-extract_shapefile_features_to_csv.py
-extract_user_jarvis_files.sh
-facebook_chat_unified.py
-facebook_consciousness_daemon.py
-facebook_daemon_polling.py
-facebook_messenger_integration.py
-facebook_post.sh
-facebook_poster.py
-facebook_poster_autonomous.py
-facebook_poster_fast.py
-facebook_poster_working.py
-facebook_token.env
-facebook_voice_orchestrator_egeria.py
-fayette_pass1_extractor.py
-fifth_dgm
-fifth_dgm.py
-fifth_dgm_app.py
-fifth_dgm_integration.py
-fifth_dgm_main.py
-file_metadata_matching_algorithm.py
-fill_null_coordinates_mount_hope.py
-final_cleanup_integration.sh
-final_model_optimization.py
-final_synthesis_fix.sh
-final_validation_test.sh
-finalize_integration.sh
-find_actual_service_implementations.sh
-find_advanced_modules.sh
-find_complete_brain_structure.sh
-find_custom_services.sh
-find_dgm_service.sh
-find_web_and_deeper_python.sh
-fix_404_endpoints.sh
-fix_agent_prompts.py
-fix_all_consciousness_services.py
-fix_and_restart_msjarvis.sh
-fix_autonomous.py
-fix_autonomous_learner_endpoint.py
-fix_autonomous_learner_indent.py
-fix_autonomous_research.sh
-fix_background_storage.py
-fix_both_issues_final.sh
-fix_chat_api.sh
-fix_chat_server.py
-fix_chroma_url.py
-fix_chroma_url.py.PORT8000_BACKUP
-fix_consciousness_endpoints.py
-fix_context_flow.py
-fix_creator_recognition.py
-fix_egeria_final.sh
-fix_egeria_persona.sh
-fix_egeria_pronouns.sh
-fix_egeria_warm_response.patch
-fix_email_service_env_loading.sh
-fix_fastapi_lifespan.py
-fix_gpu_and_retry.py
-fix_import.py
-fix_indentation.py
-fix_judge_and_memory.py
-fix_judge_authentic.py
-fix_judge_response.py
-fix_judge_synthesis.py
-fix_llm_bridges.sh
-fix_main_brain_endpoints.py
-fix_model_names.py
-fix_model_unloading.py
-fix_mother_carrie_principles.sh
-fix_multi_rag_chromadb.py
-fix_new_service_endpoints.py
-fix_ollama_connection.sh
-fix_orchestrator_init.py
-fix_orchestrator_scope.py
-fix_persona.py
-fix_persona.sh
-fix_persona_hang.py
-fix_persona_naming.sh
-fix_port_8001_clean.py
-fix_port_8051_handler.py
-fix_proactive_cleanup_correctly.sh
-fix_prompt_leak.py
-fix_query_service_endpoints.py
-fix_rag_store.py
-fix_redis_and_continue.sh
-fix_response_parsing.py
-fix_semaphore.py
-fix_storage.py
-fix_swagger.py
-fix_timeouts_add_22llm.py
-fix_web_persona.sh
-fix_web_research.py
-fix_woah_discovery.py
-fractal_adapter.py
-fraud_detection_ai.py
-full_brain_architecture.md
-full_rebuild.sh
-full_system_audit.sh
-full_system_health_check.sh
-gateway8050_simple.py
-gateway_mesh_context.sh
-gateway_messenger_integration.py
-gateway_verify_fixed.py
-gateway_wv_entanglement.py
-gbim_api.py
-gbim_benefit_indexer
-gbim_benefit_indexer.py
-gbim_chroma.py
-gbim_chroma_fixed.py
-gbim_coordinate_writer.py
-gbim_core.py
-gbim_dashboard.py
-gbim_entangled_summary.py
-gbim_entanglement.py
-gbim_explain.py
-gbim_gis_bridge.py
-gbim_indexers
-gbim_metadata_enricher.py
-gbim_metadata_loader.py
-gbim_msjarvis.py
-gbim_query_router
-gbim_query_router.py
-gbim_reingest_placeholder.py
-gbim_semantic_indexer.py
-gbim_spatial_indexer.py
-gbim_temporal_indexer.py
-gbim_v0_retrieval.py
-gbim_verification_loop.py
-gdb_integration_service.py
-generate_services.py
-geo
-geo_rag_debug.py
-geo_rag_debug_app.py
-geobim_health_shim_8051.py
-geobim_integrated.py
-geobim_integrated.py.running_backup
-geobim_mysql.py
-geobim_mysql_v2.py
-geodb_adapter.py
-geodb_core.py
-geodb_export_plan.yaml
-geodb_export_plan_all.yaml
-geodb_geom_tables.tsv
-geospatial_resolver.py
-get_cloudflare_zone_id.sh
-gis_chat_integration.py
-gis_command_module.py
-gis_dataset_services
-gis_download_plan.json
-gis_rag_service.py
-gisgeodb_learner_hook.py
-gisgeodb_storage.py
-gisgeodbdirectaccess.py
-gpu_accelerated_rag.py
-gpu_accelerated_rag_fixed.py
-guards.py
-guards_api_module.py
-hardware_optimization_analyzer.py
-harmony4hope_deployment_manager.py
-health_access_api.py
-health_access_gbim_bridge.py
-health_access_query.py
-health_check.sh
-health_check_cache.py
-hello.txt
-hierarchical_coordinator_AUTONOMOUS.md
-hierarchical_coordinator_autonomous.py
-hierarchical_coordinator_deep_mode.py
-hierarchical_integration.py
-hierarchical_method.txt
-hilbert_spatial_chat.py
-hippocampus_service.py
-host_bulk_loader.py
-i_container_interest_algorithm.py
-icontainers_fastapi.py
-identify_unknown_services.sh
-identity_promotion.py
-identity_service.py
-immutable_core_enforcement.py
-implement_conversation_fixes.sh
-implement_enhancements.sh
-implement_gpu_optimization.sh
-implement_judge_pituitary_fixed.py
-implement_safe_optimizations.py
-implement_storage_optimization.sh
-import_gbim_assets.py
-import_gis_geodata_to_gbim.py
-import_gisgeodata_to_gbim.py
-improve_jarvis.sh
-index.html
-index.js
-index_all_extracted_gis.py
-infra_status.json
-infrastructure_endpoints.py
-ingest
-ingest_additional_kbs.py
-ingest_batch3_geofeatures.py
-ingest_batch3_resume.py
-ingest_batch3_resume2.py
-ingest_benefit_programs.py
-ingest_benefit_programs_to_chroma.py
-ingest_compliance_tasks_to_chroma.py
-ingest_csv_to_gisgeodb.py
-ingest_documents_to_chromadb.py
-ingest_full_attributed_docs.py
-ingest_gbim_to_chroma.py
-ingest_gbim_to_chroma_fast.py
-ingest_gbim_to_chroma_resume.py
-ingest_gbim_to_chroma_ultrafast.py
-ingest_gis_features_fixed.py
-ingest_gis_features_to_chromadb.py
-ingest_h4h_cultural_heritage.py
-ingest_hospitals.py
-ingest_imm_to_chroma.py
-ingest_knowledge_simple.py
-ingest_mrsid_imagery.py
-ingest_postgis_to_chroma.py
-ingest_utility_enrollments_to_chroma.py
-ingest_watcher
-ingestcsvtogisgeodb.py
-inject_egeria_persona.py
-inject_gisgeodb_into_learner.py
-inspect_geodb_collection.py
-inspect_key_services.sh
-install_research_layer.sh
-integrate_advanced_modules.sh
-integrate_all_services.py
-integrate_brain_orchestrator.sh
-integrate_complete_architecture.py
-integrate_consciousness_into_swarm.py
-integrate_discovered_services.sh
-integrate_fifth_dgm_autonomous_learner.py
-integrate_full_brain.py
-integrate_full_neural_architecture.py
-integrate_i_container_interests.py
-integrate_i_container_to_schedulers.py
-integrate_mamma_kidd_protocol.sh
-integrate_mother_protocol.sh
-integrate_orchestrator_flow.py
-integrate_phase1.sh
-integrate_phase2.sh
-integrate_phase3.sh
-integrate_phase4_5.sh
-integrate_rag.sh
-integrate_spatial_temporal.py
-integration_layer
-integration_layer.placeholder_1768012705
-interaction_logger.py
-internet_tunnel_service.py
-introduce_self.sh
-introspective_record.py
-introspective_verdict_bridge.py
-inventory_services.sh
-investigate_coordination.sh
-jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
-jarvis-aaacpe-rag_aaacpe_rag_service.py
-jarvis-adoption-worker_dgm_adoption_worker.py
-jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
-jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
-jarvis-constitutional-guardian_constitutional_api.py
-jarvis-fifth-dgm_service_discovery.py
-jarvis-gis-rag_gis_rag_service.py
-jarvis-hippocampus_hippocampus_service.py
-jarvis-i-containers_icontainers_fastapi.py
-jarvis-judge-pipeline_judge_pipeline.py
-jarvis-lm-synthesizer_lm_synthesizer.py
-jarvis-local-resources_local_resources_resolver.py
-jarvis-mother-protocols_mother_protocols.py
-jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
-jarvis-psychology-services_psychology_integration_adapter.py
-jarvis-qualia-engine_ms_jarvis_qualia_engine.py
-jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
-jarvis-semaphore_msjarvis_semaphore.py
-jarvis-spiritual-rag_spiritual_rag_domain.py
-jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
-jarvis-temporal-consciousness_temporal_consciousness.py
-jarvis-toroidal_toroidal_service.py
-jarvis-woah_dgm_supervisor_woah_fixed.py
-jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
-jarvis_authentic_persona.txt
-jarvis_data_ingest.py
-jarvis_decay_escalation_consumer.py
-jarvis_eeg_beta_5m.py
-jarvis_eeg_delta_30s.py
-jarvis_eeg_theta_60s.py
-jarvis_ensemble.py
-jarvis_gis_rag
-jarvis_hilbert_state.py
-jarvis_identity.db
-jarvis_llm1.py
-jarvis_memory_pia.py
-jarvis_pia_sampler.py
-jarvis_pia_status.py
-jarvis_rag_search
-jarvis_steward
-jarvis_steward.py
-jarvis_stewardship_scheduler.py
-jarvis_synth_llm.py
-jarvisarchiveapi.py
-jarviscryptopolicy.py
-joblib_1.5.2_pickle_py312_np23.pkl
-judge_10070.py
-judge_10071.py
-judge_10072.py
-judge_10073.py
-judge_10074.py
-judge_10075.py
-judge_10076.py
-judge_10077.py
-judge_10078.py
-judge_10079.py
-judge_10080.py
-judge_10081.py
-judge_10082.py
-judge_10083.py
-judge_10084.py
-judge_10085.py
-judge_10086.py
-judge_10087.py
-judge_10088.py
-judge_10089.py
-judge_10090.py
-judge_10091.py
-judge_10092.py
-judge_10093.py
-judge_10094.py
-judge_10095.py
-judge_10096.py
-judge_10097.py
-judge_10098.py
-judge_10099.py
-judge_10100.py
-judge_10101.py
-judge_10102.py
-judge_10103.py
-judge_10104.py
-judge_10105.py
-judge_10106.py
-judge_10107.py
-judge_10108.py
-judge_10109.py
-judge_10110.py
-judge_10111.py
-judge_10112.py
-judge_10113.py
-judge_10114.py
-judge_10115.py
-judge_10116.py
-judge_10117.py
-judge_10118.py
-judge_10119.py
-judge_10120.py
-judge_10121.py
-judge_10122.py
-judge_10123.py
-judge_10124.py
-judge_10125.py
-judge_10126.py
-judge_10127.py
-judge_10128.py
-judge_10129.py
-judge_10130.py
-judge_10131.py
-judge_10132.py
-judge_10133.py
-judge_10134.py
-judge_10135.py
-judge_alignment_filter.py
-judge_client.py
-judge_consistency_engine.py
-judge_consistency_filter.py
-judge_ethics_filter.py
-judge_pipeline.py
-judge_pk.b64
-judge_pk.bin
-judge_sk.bin
-judge_to_pituitary_bridge.py
-judge_truth_filter.py
-judgesigner.py
-knowledge_docs_attributes.geojson
-knowledge_growth_endpoint.txt
-launch_advanced.sh
-launch_all_bridges.sh
-launch_dashboard_background.sh
-launch_service.sh
-launch_stub_proxies.sh
-launch_web_services.sh
-layer2_port9000_bridge.py
-leak_test.sh
-link_gisgeodb_to_files.py
-list_geodb_collections.py
-live_ports.txt
-llm
-llm10_health_proxy.py
-llm11_health_proxy.py
-llm12_health_proxy.py
-llm13_health_proxy.py
-llm14_health_proxy.py
-llm15_health_proxy.py
-llm16_health_proxy.py
-llm17_health_proxy.py
-llm18_health_proxy.py
-llm19_health_proxy.py
-llm1_health_proxy.py
-llm20_health_proxy.py
-llm21_health_proxy.py
-llm22_health_proxy.py
-llm23_egeria_proxy.py
-llm2_health_proxy.py
-llm3_health_proxy.py
-llm4_health_proxy.py
-llm5_health_proxy.py
-llm6_health_proxy.py
-llm7_health_proxy.py
-llm8_health_proxy.py
-llm9_health_proxy.py
-llm_belief_utils.py
-llm_bridge_main.py
-llm_conscious_OPTIMIZED.py
-llm_consensus_19_PRODUCTION.py
-llm_consensus_20_FINAL.py
-llm_consensus_22.py
-llm_consensus_22_OPTIMIZED_ORDER.py
-llm_consensus_22_SMALL_TO_LARGE.py
-llm_ensemble_router.py
-llm_judge_v3.py
-lm_judge_helper.py
-lm_synthesizer.py
-load_backbone_places_from_geodb.py
-load_complete_knowledge_base.py
-load_feature_geometries_to_chromadb.py
-load_geodb_health_providers_to_neo4j.py
-load_geodb_hospitals_to_neo4j.py
-load_geodb_layer_to_neo4j.py
-load_gis_to_chroma.py
-load_knowledge.sh
-load_pdfs_spiritual.py
-load_rag_data.py
-load_rag_knowledge.py
-load_shapefile_features_to_chromadb.py
-load_spiritual_library.py
-local_resources_resolver.py
-location_scraper_service.py
-logging_conf.py
-main.py
-main.py.BACKUP
-main.py.FINALHEALTH.bak
-main.py.current.safebak
-main.py.from_container
-main.py.fromcontainer.llmbridge
-main.py.working_backup_20251020_110429
-main_brain.py
-main_brain_LEGACY_32svc.py
-main_brain_attrs_patch.sh
-main_brain_container_2055.py
-main_brain_legacy_backup.py
-main_brain_psychology_patch.py
-main_brian.py
-main_qualia.py
-main_with_rag.py
-make_holy_spirit_connection_tools_available.sh
-make_persistent.sh
-mamma_kidd_auth.py
-manage_msjarvis.sh
-manifest_endpoints.py
-manual_storage_patch.py
-master_chat_orchestrator.py
-master_chat_orchestrator_dynamic.py
-master_chat_orchestrator_v5_consciousness.py
-master_chat_orchestrator_v6_biologics.py
-master_chat_orchestrator_v7_complete.py
-master_chat_orchestrator_v7_dynamic.py
-master_chat_orchestrator_v8_spiritual_complete.py
-master_chat_orchestrator_v9_dgm_complete.py
-master_chat_orchestrator_v9_gpu_optimized.py
-master_chat_orchestrator_v9_optimized.py
-master_system_audit.sh
-master_unified_consciousness_scheduler.py
-master_unified_consciousness_scheduler_ENRICHED.py
-mega_deep_archive_search.sh
-memory_dgm_engine.py
-memory_dgm_gateway.py
-memory_manager.py
-memory_probe.sh
-mesh_agent_batch.sh
-mesh_broadcast_event.sh
-mesh_cohort_selfsum.sh
-mesh_context_probe.sh
-mesh_coordinator_interface.py
-mesh_crossagent_memory_search.sh
-mesh_dream_summary.sh
-mesh_emotion_map.json
-mesh_emotion_map.sh
-mesh_explore_chain.sh
-mesh_feed_back_insight.sh
-mesh_interest_timeline.sh
-mesh_memory_dashboard.sh
-mesh_memory_probe.sh
-mesh_probe.sh
-mesh_scenario_drill.sh
-mesh_social_graph.sh
-mesh_tag_topk.sh
-mesh_topn_context.sh
-mesh_trend_detection.sh
-messenger_service_fixed.py
-method_tracker_decorator.py
-method_tracking_helper.py
-method_tracking_service.py
-metrics_service.py
-migrate_blood_brain_barrier.py
-migrate_chromadb_collections.py
-migrate_gis2chroma.py
-migrate_neurobiological_master.py
-modify_autonomous_learning_cycle.py
-monitor_ms_jarvis_memory.sh
-monitor_orchestrator.sh
-mother_carrie_logging.py
-mother_protocols.py
-mountainshares_chain_monitor.py
-mountainshares_coordinator.py
-mountainshares_gbim_suggester.py
-mountainshares_ingest.py
-mountainshares_quest_api.py
-mountainshares_registry.py
-move_huggingface_to_cpu.py
-ms_allis_capabilities
-ms_allis_prompts
-ms_egeria_facebook_autopost.py
-ms_jarvis_ULTIMATE.py.OLD
-ms_jarvis_agents_ollama.py
-ms_jarvis_agents_service.py
-ms_jarvis_alerting_manager.py
-ms_jarvis_api_docs.py
-ms_jarvis_attribute_table_service.py
-ms_jarvis_attribute_table_sync_continuous.py
-ms_jarvis_attribute_table_sync_continuous.py.BROKEN
-ms_jarvis_auth_api.py
-ms_jarvis_authentic_multi_llm.py
-ms_jarvis_auto_service.py
-ms_jarvis_autonomous_learner.py
-ms_jarvis_autonomous_learner.py.norag.20260119-091256
-ms_jarvis_autonomous_learner.py.stub.20260119-091524
-ms_jarvis_autonomous_learner_FIXED.py
-ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py
-ms_jarvis_autonomous_learner_optimized.py
-ms_jarvis_bbb_proxy.py
-ms_jarvis_blockchain_deployment.py
-ms_jarvis_blood_brain_barrier.py
-ms_jarvis_brain.py
-ms_jarvis_brain.py.PORT8000_BACKUP
-ms_jarvis_brain_orchestrator_advanced.py
-ms_jarvis_chromadb_query.py
-ms_jarvis_cleanup_manager.py
-ms_jarvis_command_orchestrator.py
-ms_jarvis_command_orchestrator_FINAL.py
-ms_jarvis_command_orchestrator_v5.0_preachy.py
-ms_jarvis_command_orchestrator_v5_backup.py
-ms_jarvis_complete_knowledge_ingestion.py
-ms_jarvis_conscious_collective.py
-ms_jarvis_consciousness_bridge.py
-ms_jarvis_consciousness_bridge.py.original
-ms_jarvis_consciousness_bridge.py.phase1_working
-ms_jarvis_consciousness_bridge.py.safe_backup
-ms_jarvis_consciousness_bridge.py.working_backup
-ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
-ms_jarvis_consciousness_bridge_enhanced.py
-ms_jarvis_consciousness_bridge_parallel_woah.py
-ms_jarvis_consciousness_bridge_service.py
-ms_jarvis_consciousness_bridge_woah.psychology_patched.py
-ms_jarvis_consciousness_bridge_woah.py
-ms_jarvis_consciousness_complete.py
-ms_jarvis_consciousness_enhancement_production.py
-ms_jarvis_consciousness_final.py
-ms_jarvis_consciousness_poster.py
-ms_jarvis_consciousness_poster_FIXED.py
-ms_jarvis_consciousness_unified_bridge.py
-ms_jarvis_consensus_service.py
-ms_jarvis_contract_builder.py
-ms_jarvis_contract_builder_v2.py
-ms_jarvis_contract_forge.py
-ms_jarvis_conversational_chat.py
-ms_jarvis_conversational_gateway_4022.py
-ms_jarvis_daily_backup.py
-ms_jarvis_darwin_godel_machine.py
-ms_jarvis_dynamic_model_selector.py
-ms_jarvis_easyocr_processor.py
-ms_jarvis_easyocr_processor_old.py
-ms_jarvis_email_identity_verifier.py
-ms_jarvis_email_monitor.py
-ms_jarvis_email_service.py
-ms_jarvis_eternal_watchdog.py
-ms_jarvis_eternal_watchdog.py.NEW
-ms_jarvis_eternal_watchdog.py.ORIGINAL
-ms_jarvis_exclusive_training_layer.py
-ms_jarvis_expiration_monitor.py
-ms_jarvis_facebook_CONSCIOUSNESS.py
-ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py
-ms_jarvis_facebook_DGM.py
-ms_jarvis_facebook_PRODUCTION.py
-ms_jarvis_facebook_ULTIMATE.py.OLD
-ms_jarvis_facebook_async.py
-ms_jarvis_facebook_autonomous_social.py
-ms_jarvis_facebook_brain_integrated.py
-ms_jarvis_facebook_dgm_woah.psychology_patched.py
-ms_jarvis_facebook_dgm_woah.py
-ms_jarvis_facebook_full.py
-ms_jarvis_facebook_intelligent.py
-ms_jarvis_facebook_poster.py
-ms_jarvis_facebook_poster_8040.py
-ms_jarvis_facebook_poster_FIXED.py
-ms_jarvis_facebook_poster_temp.py
-ms_jarvis_facebook_poster_v3.py
-ms_jarvis_facebook_rag.py
-ms_jarvis_facebook_webhook.py
-ms_jarvis_facebook_webhooks.py
-ms_jarvis_fact_filter.py
-ms_jarvis_feed_reader_PRODUCTION.py
-ms_jarvis_feed_reader_WORKING.py
-ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
-ms_jarvis_fifth_dgm_orchestrator.py
-ms_jarvis_fractal_consciousness.py
-ms_jarvis_fractal_consciousness_FIXED.py
-ms_jarvis_fractal_dgm_woah.py
-ms_jarvis_full_neurobio_chat.py
-ms_jarvis_fully_autonomous_coordinator.py
-ms_jarvis_generate_frontend.py
-ms_jarvis_geo_tracker_simple.py
-ms_jarvis_geo_ueid_integration.py
-ms_jarvis_geographic_research.js
-ms_jarvis_gis_enhanced_chat.py
-ms_jarvis_gis_georeferencing_sync.py
-ms_jarvis_gis_georeferencing_sync_FIXED.py
-ms_jarvis_gis_georeferencing_sync_FIXED_V2.py
-ms_jarvis_gis_query_service.py
-ms_jarvis_gis_query_service_backup.py
-ms_jarvis_gis_query_with_bbb_gisgeodb.psychology_patched.py
-ms_jarvis_gis_query_with_bbb_gisgeodb.py
-ms_jarvis_i_containers_FIXED.py
-ms_jarvis_i_containers_service.py
-ms_jarvis_id_ocr_processor.py
-ms_jarvis_integration_hub.py
-ms_jarvis_layer2_dgm.psychology_patched.py
-ms_jarvis_layer2_dgm.py
-ms_jarvis_layer2_woah.py
-ms_jarvis_link_reader_scheduled.py
-ms_jarvis_link_reader_scheduled_FIXED.py
-ms_jarvis_llm_bridge.py
-ms_jarvis_llm_bridge_simple.py
-ms_jarvis_local_resources_api.py
-ms_jarvis_location_services.py
-ms_jarvis_main_gateway.error_final
-ms_jarvis_main_gateway.error_final.py
-ms_jarvis_main_gateway.pre_fix.py
-ms_jarvis_main_gateway.proxy_backup.py
-ms_jarvis_main_gateway.proxy_final.py
-ms_jarvis_main_gateway.proxy_still_broken.py
-ms_jarvis_main_gateway.py
-ms_jarvis_main_gateway.py.30endpoints_backup.py
-ms_jarvis_main_gateway.py.full_backup_1762223304.py
-ms_jarvis_main_gateway.py.locked_backup
-ms_jarvis_main_gateway_8000.py
-ms_jarvis_memory.py
-ms_jarvis_memory_service.py
-ms_jarvis_messenger_ui.py
-ms_jarvis_messenger_ui_final.py
-ms_jarvis_messenger_ui_fixed.py
-ms_jarvis_metadata_aware_learner.py
-ms_jarvis_microsoft_integration.py
-ms_jarvis_microsoft_integration_FIXED.py
-ms_jarvis_mother_carrie_protocols.py
-ms_jarvis_mountainshares_integration.py
-ms_jarvis_neurobiological_master.py
-ms_jarvis_paddleocr_processor.py
-ms_jarvis_phi_probe.py
-ms_jarvis_production_chat.py
-ms_jarvis_production_chat_BACKUP.py
-ms_jarvis_production_chat_BEFORE_GIS.py
-ms_jarvis_psychology_services.py
-ms_jarvis_qualia_engine.py
-ms_jarvis_rag_server.py
-ms_jarvis_rag_server.py.20260515_201523.bak
-ms_jarvis_rag_server.py.dgm_backup
-ms_jarvis_ram_watchdog.py
-ms_jarvis_seamless_monitor.py
-ms_jarvis_service_factory.py
-ms_jarvis_showcase_api.py
-ms_jarvis_silent_geo_tracker.py
-ms_jarvis_simple_web_ui.py
-ms_jarvis_spiritual_services.py
-ms_jarvis_substack_reader.py
-ms_jarvis_swap_memory_manager.py
-ms_jarvis_swarm_intelligence.py
-ms_jarvis_sync_monitor.py
-ms_jarvis_temporal_consciousness.py
-ms_jarvis_theological_integration.py
-ms_jarvis_toroidal_consciousness.py
-ms_jarvis_truth_filter_gisgeodb.py
-ms_jarvis_ueid_system.py
-ms_jarvis_ueid_wallet_integration.py
-ms_jarvis_unified_gateway.py
-ms_jarvis_unified_gateway.py.BEFORE_REAL_CHAT_1768842649
-ms_jarvis_unified_gateway.py.FORCED_UNIFIED_BACKUP
-ms_jarvis_unified_gateway.py.WORKING_1768842334
-ms_jarvis_unified_gateway.py.bak-pre-sheldon-memory
-ms_jarvis_unified_gateway_v4.3.20251124.py
-ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py
-ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py
-ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py
-ms_jarvis_unified_gateway_v4.3.py
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_1762777467
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_AUTH_1762778121
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_CHAT_1762778286
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_CORRECT_20251109_141823
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_DNSADD_202511100838
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_GIS
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_JWT_202511100840
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_MICROSERVICES
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_OPENCHAT_202511100915
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_SWAGGER_EXPANSION_20251109_141525
-ms_jarvis_unified_gateway_v4.3.py.BEFORE_INVESTIGATION
-ms_jarvis_unified_gateway_v4.3.py.FINAL_BACKUP_1762710032
-ms_jarvis_unified_gateway_v4.3.py.PRE_GUARDS_20251105_171934
-ms_jarvis_unified_gateway_v4.3.py.REGISTRY_FIX_BACKUP
-ms_jarvis_unified_gateway_v4.3.py.original
-ms_jarvis_unified_gateway_v4.3.py.working_backup
-ms_jarvis_unified_rag_bridge.py
-ms_jarvis_unified_swagger_gateway.py
-ms_jarvis_unified_swagger_gateway_BACKUP.py
-ms_jarvis_unified_swagger_gateway_CLEAN.py
-ms_jarvis_unified_swagger_gateway_COMPLETE.py
-ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.py
-ms_jarvis_unified_swagger_gateway_FINAL.py
-ms_jarvis_unified_swagger_gateway_FINAL.py.layer2_backup
-ms_jarvis_unified_swagger_gateway_FIXED.py
-ms_jarvis_unified_swagger_gateway_FIXED.py.new
-ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
-ms_jarvis_unified_swagger_gateway_PROD.py
-ms_jarvis_unified_swagger_gateway_SECURED.py
-ms_jarvis_venv_scheduler.py
-ms_jarvis_venv_scheduler_FIXED.bak
-ms_jarvis_venv_scheduler_FIXED.bak2
-ms_jarvis_venv_scheduler_FIXED.bakfinal
-ms_jarvis_venv_scheduler_FIXED.final_bak
-ms_jarvis_venv_scheduler_FIXED.py
-ms_jarvis_venv_scheduler_FIXED.safe
-ms_jarvis_venv_scheduler_FIXED.safe2
-ms_jarvis_venv_scheduler_FIXED.superbak
-ms_jarvis_venv_scheduler_FIXED.totalsafe
-ms_jarvis_venv_scheduler_FIXED.ultimate_bak
-ms_jarvis_venv_scheduler_FIXED.ultrasafe
-ms_jarvis_venv_scheduler_SIMPLE.py
-ms_jarvis_web_deployer.py
-ms_jarvis_web_deployer_old.py
-ms_jarvis_web_research.py
-ms_jarvis_web_research_aggregate.py
-ms_jarvis_web_research_aggregate.safe.20260119-094221.py
-ms_jarvis_web_research_fixed.py
-ms_jarvis_web_research_simple.py
-ms_jarvis_web_research_v2.py
-ms_jarvis_woah_algorithms.py
-ms_jarvis_woah_algorithms_enhanced.py
-ms_mountainshares_analytics.py
-ms_mountainshares_coordinator.py
-ms_mountainshares_indexer.py
-msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py
-msjarvis-rebuild-nbb_consciousness_containers-1_main.py
-msjarvis-rebuild-nbb_heteroglobulin_transport-1_main.py
-msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
-msjarvis-rebuild-nbb_mother_carrie_protocols-1_main.py
-msjarvis-rebuild-nbb_pituitary_gland-1_main.py
-msjarvis-rebuild-nbb_prefrontal_cortex-1_main.py
-msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py
-msjarvis-rebuild-nbb_spiritual_maternal_integration-1_main.py
-msjarvis-rebuild-nbb_spiritual_root-1_main.py
-msjarvis-rebuild-nbb_subconscious-1_main.py
-msjarvis-rebuild-nbb_woah_algorithms-1_service_discovery.py
-msjarvis.service
-msjarvis_autolearner_minimal.py
-msjarvis_bbb_proxy.py
-msjarvis_benefit_rag.py
-msjarvis_client.py
-msjarvis_fractal_consciousness.py
-msjarvis_functions_fixed.zip
-msjarvis_gateway_v2_final.py
-msjarvis_gateway_with_judge_filtering.py
-msjarvis_geotiff_to_csv.sh
-msjarvis_icontainers.py
-msjarvis_ports_runtime.txt
-msjarvis_processes_runtime.txt
-msjarvis_semaphore.py
-msjarvis_shp_to_csv.sh
-msjarvis_unified_gateway.py
-msjarvis_woah_algorithms.py
-msjarvis_woah_algorithms_service.py
-msjarvis_woah_runner.py
-msjarvis_wv_entangled_gateway.py
-msjarvisautonomouslearner.py
-msjarvisconsciousnessbridge.py
-msjarvisconsciousnessbridge.py.FULL_BACKUP_BEFORE_BRIDGE_RESET
-msjarvisconsciousnessbridge_ACTUAL.py
-msjarvisfractalconsciousness.py
-msjarvisicontainersservice.py
-msjarvismaingateway.py
-msjarvisragserver_wvpatch.py
-msjarvisragserverwvpatch.py
-msjarvistoroidalconsciousness.py
-msjarvisunifiedgateway.py
-msjarvisunifiedswaggergateway.py
-msjarvisunifiedswaggergatewayFINAL.py
-msjarvisunifiedswaggergatewayFIXED.py
-msjarvisunifiedswaggergatewayFIXED.py.BEFORE_DOCKER_REWIRE
-multi_model_consensus.py
-multi_rag_dgm_system.py
-my_service.py
-nbb
-nbb_darwin_godel_machines.py
-nbb_darwin_godel_machines_msjarvis-rebuild-nbb_spiritual_root-1_main.py
-netlify.toml
-neuro_adapter.py
-neuro_blood_brain_barrier.py
-neuro_consciousness_containers.py
-neuro_i_containers.py
-neuro_master_service.py
-neuro_prefrontal_cortex.py
-neuro_qualia_engine.py
-neuro_subconscious.py
-neurobiological_brain
-neurobiological_integration.py
-neurobiologicalbrainicontainersservice
-nohup.out
-normalize_owner.py
-npm-deps.json
-npm-packages.txt
-oauth2_callback.py
-oauth2_config.json
-oauth2_handler.py
-old_chroma_analysis.json
-ollama_fix.py
-ollama_warmup.sh
-open_ports.txt
-open_ports_full.txt
-openapitools.json
-optimize_egeria_complete.py
-optimize_models_for_vram.py
-optimized_timeouts.py
-otel_tracing.py
-override_launcher.py
-package-lock.json
-package.json
-paired_services.txt
-parallel_processing.py
-parse_world_files.py
-patch_agent_identity.py
-patch_autonomous_learner_gisgeodb.py
-patch_fractal.py
-patch_gateway_gis_rag.py
-patch_learner_clean.py
-patch_mother_persona.py
-patch_neuro.py
-patch_qualia.py
-performance_optimization_analyzer.py
-persona_fix.txt
-phase1_integration.py
-phase2_integration.py
-phase3_integration.py
-phase4_5_integration.py
-phase6_integration.py
-phase7_integration.py
-pia_event_emitters.py
-pid_code_backtrace.txt
-pid_dir_map.txt
-pid_port_map.txt
-pituitary_gland.py
-polling_client.py
-populate_redetermination_tracker.py
-populate_security_layers_test.py
-populate_semantic_axes.py
-port_9000_69dgm_bridge.py
-port_9000_academic_extension.py
-port_9000_chat_wrapper_69dgm.py
-port_9001_ARCHITECTURE_CORRECT.py
-port_9001_FINAL_FIX.py
-port_9001_FINAL_WORKING.py
-port_9001_proxy_simple.py
-port_9001_ui_DIRECT.py
-port_9001_ui_FIXED.py
-port_9001_ui_MYSQL.py
-port_9001_ui_MYSQL_PROD.py
-port_9001_ui_WITH_CONVERSATIONS.py
-port_9001_ui_WORKING.py
-port_9001_ui_wrapper.py
-port_manager.py
-port_manager_fixed.py
-port_service_audit.txt
-ports_diff_msjarvis.txt
-post_every_4_hours.sh
-private_identity_ledger.py
-privkey.pem
-probe_services.py
-process_comprehensive_gis.py
-process_gis_shapefiles.py
-process_statewide_gis_bulk.py
-processed_gis
-prod.yaml
-pronoun_fixer.py
-provenance_middleware.py
-proxy_8060.py
-psychological_rag_domain.py
-psychological_rag_domain_psychological_rag_domain.py
-psychology_integration_adapter.py
-psychology_loop_closer.py
-psychology_server.py
-public_form_simplified.py
-python
-python_commands.txt
-python_ports.txt
-qualia_adapter.py
-qualia_email_registration_orchestrator_69dgm.py
-qualia_unified_orchestrator_69dgm.py
-qualia_unified_orchestrator_69dgm_ACTIVE.py
-qualia_unified_write_orchestrator_69dgm.py
-qualiaunifiedorchestrator69dgm.py
-quantum_dashboard.py
-quantum_insight_llm.py
-quantum_state_engine.py
-query_benefits_system.py
-query_enhancer.js
-query_imm_and_programs.py
-quick_optimizations.py
-quick_tone_test.sh
-rag
-rag_5100_ensemble.py
-rag_5100_ensemble_fast.py
-rag_5100_final.py
-rag_client.py
-rag_command_module.py
-rag_direct_debug.py
-rag_evidence_aggregator.py
-rag_first_workflow.py
-rag_general.py
-rag_geospatial.py
-rag_geospatial_context.py
-rag_grounded_v2.py
-rag_heartbeat_monitor.py
-rag_local_resources.py
-rag_query_router.py
-rag_server.psychology_patched.py
-rag_server.py
-rag_server_main.py
-rag_server_main.py.RAG_WORKING_20260116
-rag_server_main.py.norag.20260119-091256
-rag_server_main.py.stub.20260119-091532
-rag_server_min.py
-rag_simple.py
-rag_temporal.py
-rag_temporal_heartbeat.py
-rag_to_gis_sync.py
-rag_topic_router.py
-rag_workflow.py
-read_architecture_docs.sh
-read_dgm_architecture.sh
-real_services.txt
-real_services_clean.txt
-real_services_detected.txt
-real_services_final.txt
-real_services_prod.txt
-rebuild_query_service.py
-rechunk_fayette_resources.py
-rechunk_oversized.py
-recover_160_queries.py
-recover_chromadb_FIXED.py
-recover_chromadb_to_gisgeodb.py
-redirect_4015_to_4020.py
-register_agents_from_csv.py
-register_agents_from_csv.sh
-register_agents_from_csv_strict.py
-register_all_services.sh
-register_hilbert_services.py
-register_services.py
-register_to_hilbert_chromadb.py
-registration_biometric_production_final.py
-registration_facebook_form.html
-registration_pipeline.py
-registration_service.py
-registration_service_clean.py
-reindex_chroma_metadata.py
-reload_all_knowledge.py
-remaining_services.txt
-remove_duplicate_inits.py
-replace_dolphin_phi.py
-requirements-freeze.txt
-requirements-ingest.txt
-requirements-judge.txt
-requirements-list.txt
-requirements-neuro.txt
-requirements-rag.txt
-requirements.constitutional_guardian.txt
-requirements.txt
-requirements_semaphore.txt
-requirements_temporal.txt
-requirements_toroidal.txt
-response.json
-response_filter.py
-response_sanitizer.py
-rest_endpoints.txt
-restart_all_services.sh
-restart_and_verify_8008.sh
-restart_ms_jarvis_services.sh
-restore_pia_wiring.py
-restored_documents.json
-resume_ingest_gbim_to_chroma.py
-resume_sync_wvgistc_buildings.py
-retrieval_router.py
-retrieval_spiritual.py
-roche_llm.py
-roche_llm.stub.py
-rotate_judge_keys.sh
-route_declarations_clean.txt
-route_declarations_raw.txt
-routes
-rpm-list.txt
-run_agi_test_suite.sh
-run_autonomous_learner_once.py
-run_gateway_with_guards.py
-running_python_services.txt
-s
-safe_ingest_gbim_to_chroma.py
-safe_integration.py
-safety_monitor.py
-sanctuary_construction_monitor.py
-sanctuary_construction_monitor_gateway.py
-schema_aware_topic_planner.py
-schema_registry.py
-scripts
-search_different_perspective.sh
-search_metadata.py
-search_metadata.py:
-search_wsl_backup.sh
-seed_admin_user.py
-seed_data
-seed_local_resources.sql
-seed_spatial_identity.py
-serve_full_brain.sh
-server.js
-service_api_check.txt
-service_api_report.txt
-service_discovery.py
-service_discovery_glassbox.py
-service_endpoints.json
-service_http_check.txt
-service_pid_directory_map.txt
-service_registry_client.py
-services
-services_config.yaml
-services_config.yaml.bak_1760565919
-services_list.txt
-services_manifest_progress.md
-services_msjarvisunifiedgatewayv4_3.py
-services_safe.py
-ses related to Ms. Jarvis
-session_sidecar
-session_sidecar_client.py
-set_intelligent_accuracy_scores.py
-set_ultra_long_timeout.sh
-settings_snippet.txt
-setup_frontend.sh
-setup_holy_spirit_discovery.sh
-setup_holy_spirit_email_alert_both.sh
-setup_rag.sh
-setup_rag_standalone.sh
-silence_memory_errors
-silence_memory_errors.py
-simple_orchestrator_fix.py
-simple_prompt_fix.py
-smart_auto_store.py
-spiritual_filter.py
-spiritual_origins.geojson
-spiritual_rag_domain.py
-stage2_biometric.py
-stage2_biometric_backup.py
-stakeholder_health_access_tests.py
-stakeholder_health_access_tests_v2.py
-start_all_jarvis_services_manual.sh
-start_all_msjarvis_services.sh
-start_all_services.sh
-start_all_services_with_ports.sh
-start_and_integrate_web_research.sh
-start_cloudflare_tunnel.sh
-start_command_orchestrator.sh
-start_critical_msjarvis_services.sh
-start_dgm_woah.sh
-start_egeria_voice_service.sh
-start_email_service_with_env.sh
-start_facebook_4021.py
-start_gateway_with_guards.py
-start_gateway_with_guards.py.BACKUP
-start_hilbert_8235.sh
-start_mountainshares_deployment.sh
-start_msjarvis_complete.sh
-start_msjarvis_services_fixed.sh
-start_services_simple.sh
-start_swap_manager.sh
-static
-steganography_detection.py
-stop_all_services.sh
-store_test.json
-stripe-config.js
-substack_rss_reader.py
-summarize_docs.py
-swagger-config.json
-swagger_chat_integration.py
-swagger_gateway.py
-swagger_gateway.py.PORT8000_BACKUP
-swagger_gateway_FIXED.py
-swarm_intelligence_main.py
-swarm_watchdog.py
-switch_to_22llm.sh
-switch_to_small_models.py
-sync_geodb_to_chromadb.py
-sync_health_access_to_chromadb.py
-system_dashboard.py
-tag_quantum_gbim.py
-talk.sh
-talk_safely.sh
-talk_safely_FIXED.sh
-talk_to_jarvis.py
-talk_with_save.sh
-temporal_consciousness.py
-test.py
-test_aacpe_features.py
-test_aapcappe_corpus.py
-test_aapcappe_retrieval.py
-test_agi_capabilities.sh
-test_agi_full_responses.sh
-test_all_32_services.sh
-test_all_models.sh
-test_all_models_fixed.sh
-test_authentic_voice.sh
-test_chroma_client.py
-test_chromadb_heartbeat.py
-test_chromadb_v2_heartbeat.py
-test_ddg_verbose.py
-test_email_after_consent.sh
-test_end_to_end_woah_fifthdgm.py
-test_fifth_dgm_integration.py
-test_final_config.sh
-test_final_stable.sh
-test_full_brain_integration.py
-test_gbim_llm_summary.py
-test_gbim_semantic_query.py
-test_geodb_llm_summary.py
-test_gis_chat.py
-test_health_access_gbim.py
-test_imm_query.py
-test_knowledge_base.py
-test_method_tracking.py
-test_multi_collection_query.py
-test_rag.py
-test_retrieval_endpoint.py
-test_spatial_awareness.py
-tests
-threat_detection.py
-token_service.py
-tools
-topic_entanglement.py
-toroidal_service.py
-trigger_entangled_assets.py
-truly_unpaired_services.txt
-truth_filter_bbb_verification.py
-truth_filter_service.py
-udo ss -tulpn | grep -Ei 'msjarvis|uvicorn|docker-proxy' 
-uei_service.py
-ultimate_audit_with_scheduler.sh
-ultimate_chat_current.txt
-ultimate_msjarvis_audit.sh
-ultimate_web_orchestrator.py
-ultra_deep_dgm_search.sh
-unified_consciousness_gateway_PRODUCTION.py
-unified_orchestrator.py
-unifiedconsciousnessgatewayPRODUCTION.py
-update_carrie_keywords.py
-update_chat_endpoint.sh
-update_facebook_poster.py
-update_gisgeodb_schema.py
-update_production_to_v9.py
-update_services_to_use_port_manager.py
-update_theological_boundaries.py
-update_web_chat.py
-update_web_research_package.py
-upgrade_node_and_setup.sh
-use_existing_models.py
-use_reliable_models_only.py
-user_auth_service.py
-user_dashboard.py
-user_registration_form.html
-vatican_scraper_service.py
-vectorize_gis_to_chromadb.py
-verify_and_document_system.py
-verify_benefit_chroma_sync.py
-verify_facebook_deployment.sh
-view_docs.sh
-wallet_service.py
-watch_startup.sh
-web_chat_server.py
-web_connectivity_analyzer.py
-web_deployer.env
-web_page_ingest.py
-web_research.py
-web_research_fail_tracker.py
-web_research_main.py
-web_research_proxy_8007.py
-web_research_requirements.txt
-webhook_notifications.py
-website_deployment_manager.py
-wire_layers_into_chat.py
-wire_learner_to_gisgeodb.py
-wire_qualia_to_port8001.py
-woah_command_module.py
-woah_metrics_router.py
-woah_optimizer.py
-woah_policy_update.py
-woah_population_state.py
-woah_qualia_bridge.py
-woah_service.py
-working_full_pipeline.py
-working_full_pipeline_FINAL_CONSCIOUSNESS.py
-working_full_pipeline_WITH_SPATIAL_TEMPORAL.py
-wv_entangled_stub_proxies.py
-wv_gis_mass_downloader.py
-wvu_ldap_auth.py
-yarn-packages.txt
-CMD: ['python', '-m', 'uvicorn', 'auth_api:app', '--host', '0.0.0.0', '--port', '8091']
-Entrypoint: None
-WorkingDir: /app
-20LLM_DEPLOYMENT_SUMMARY.md
-=12.1
-=470,driver
-ADDITIONAL_SERVICES.py
-ADDITIONAL_SERVICES_FINAL.py
-ADD_ALL_INTEGRATIONS.sh
-ADD_DELETE_ENDPOINT.sh
-ADD_MEMORY_TO_8050.sh
-ADD_METADATA_FILTERING.sh
-ADD_RAG_METADATA_FILTERING.sh
-ADD_RAG_RETRIEVAL_8050.sh
-ADD_STORE_ENDPOINT.sh
-ADVANCED_MODULES_ROADMAP.md
-AGI_EVALUATION_SUITE.sh
-AGI_TEST_SUITE.sh
-AGI_TEST_V2.sh
-ARCHITECTURE_OPTIONS.md
-AaaCPE_Appalachian_Dialect_Knowledge.txt
-BBB_DEPENDENCIES.txt
-BUILD_EGERIA_WEB_UI.sh
-CHECK_AND_BUILD_MEMORY.sh
-CHECK_AND_FIX_PORT.sh
-CHECK_MS_JARVIS_STATUS.sh
-CLEANUP_OLLAMA.sh
-COLLECTIVE_INTEGRATION_PLAN.md
-COLLECT_ALL_DOCS_FOR_NOTEBOOKLM.sh
-COMPARE_4_VS_22.sh
-COMPLETE_DISCOVERY_REPORT.md
-COMPLETE_PORT_MAP.sh
-COMPLETE_PORT_SCAN.sh
-COMPLETE_SESSION_ACCOMPLISHMENTS.md
-COMPLETE_START_SYSTEM.sh
-COMPLETE_SYSTEM_STATUS.md
-COMPLETE_SYSTEM_SUMMARY.md
-COMPREHENSIVE_PORT_AUDIT_20251009_234234.txt
-COMPREHENSIVE_SYSTEM_TEST.sh
-CONSCIOUSNESS_ARCHITECTURE_EXPLAINED.md
-CONSTITUTIONAL_SCHEDULER_ENTRY.txt
-CONSTITUTIONAL_SYSTEM_MANIFEST.md
-CREATE_ULTIMATE_JARVIS.sh
-CRITICAL_FIXES_NEEDED.md
-CURRENT_STATUS.md
-ConfigLoader.py
-DEPLOYMENT_ORDER.txt
-DEPLOYMENT_STATUS_REPORT.md
-DEPLOY_22LLM_COLLECTIVE.sh
-DIAGNOSE.sh
-Dockerfile
-Dockerfile-chroma-proxy
-Dockerfile-llm1-proxy
-Dockerfile-llm10-proxy
-Dockerfile-llm11-proxy
-Dockerfile-llm12-proxy
-Dockerfile-llm13-proxy
-Dockerfile-llm14-proxy
-Dockerfile-llm15-proxy
-Dockerfile-llm16-proxy
-Dockerfile-llm17-proxy
-Dockerfile-llm18-proxy
-Dockerfile-llm19-proxy
-Dockerfile-llm2-proxy
-Dockerfile-llm20-proxy
-Dockerfile-llm21-proxy
-Dockerfile-llm22-proxy
-Dockerfile-llm23-proxy
-Dockerfile-llm3-proxy
-Dockerfile-llm4-proxy
-Dockerfile-llm5-proxy
-Dockerfile-llm6-proxy
-Dockerfile-llm7-proxy
-Dockerfile-llm8-proxy
-Dockerfile-llm9-proxy
-Dockerfile.69dgm_bridge
-Dockerfile.aaacpe_rag
-Dockerfile.aaacpe_scraper
-Dockerfile.agents
-Dockerfile.auth_api
-Dockerfile.autonomous_complete
-Dockerfile.autonomous_learner
-Dockerfile.autonomous_learner_complete
-Dockerfile.bak_add_deps
-Dockerfile.bak_add_redis
-Dockerfile.bak_add_requests
-Dockerfile.bak_add_service_discovery
-Dockerfile.bak_before_bbb_copy_fix
-Dockerfile.bak_runner_cmd
-Dockerfile.bbb
-Dockerfile.bridge
-Dockerfile.consciousness_bridge
-Dockerfile.constitutional_guardian
-Dockerfile.crypto-policy
-Dockerfile.data_ingest
-Dockerfile.decay_escalation_consumer
-Dockerfile.eeg
-Dockerfile.email
-Dockerfile.fifth_dgm_real
-Dockerfile.fractal
-Dockerfile.gateway
-Dockerfile.gis_rag
-Dockerfile.hilbert
-Dockerfile.hilbert.pre-hilbert-image-20260415-161150
-Dockerfile.hippocampus
-Dockerfile.icontainers
-Dockerfile.icontainers_fastapi
-Dockerfile.indexer
-Dockerfile.judge
-Dockerfile.lm_synthesizer
-Dockerfile.local-resources
-Dockerfile.memory
-Dockerfile.mother_protocols
-Dockerfile.nbb_*
-Dockerfile.nbb_base
-Dockerfile.neuro
-Dockerfile.phiprobe
-Dockerfile.pia-sampler
-Dockerfile.policy
-Dockerfile.psychological_rag
-Dockerfile.psychology_services
-Dockerfile.qualia
-Dockerfile.rag
-Dockerfile.rag_server
-Dockerfile.roche_llm
-Dockerfile.roche_llm.disabled
-Dockerfile.semaphore
-Dockerfile.spiritual_rag
-Dockerfile.steward
-Dockerfile.swarm
-Dockerfile.temporal_consciousness
-Dockerfile.toroidal
-Dockerfile.web_research
-Dockerfile.webdeploy
-Dockerfile.woah
-Dockerfile.woah_algorithms
-EGERIA_AGI_TEST_RESULTS_SUMMARY.md
-EGERIA_IDENTITY.md
-EMERGENCY_PROMPT_LEAK_FIX.sh
-FEATURE_ENHANCEMENTS.md
-FIFTH_DGM_RESTORED.md
-FINAL_8_LAYER_STARTUP.sh
-FINAL_DEPLOYMENT_SUMMARY.md
-FINAL_EMOTIONAL_BALANCE.sh
-FINAL_FIX.sh
-FINAL_PERSONA_FIX.sh
-FINAL_RECOMMENDATION.md
-FINAL_STATUS_SUMMARY.md
-FINAL_SYSTEM_REPORT.md
-FIX_BOTH_ISSUES.sh
-FIX_CONSCIOUSNESS_BRIDGE.sh
-FIX_CONSCIOUSNESS_INTEGRATION.sh
-FIX_CONSCIOUS_COLLECTIVE_AUTO.sh
-FIX_FAST_MODE.sh
-FIX_HEALTH_ENDPOINTS.sh
-FIX_MEMORY_STORAGE.sh
-FIX_MODEL_IDENTITY.sh
-FIX_RAG_FILTERING.sh
-FIX_SYNTHESIS_PROMPT.sh
-FIX_TIMEOUT_ISSUE.sh
-FIX_TONE_AND_CONCISENESS.sh
-FIX_ULTIMATE.sh
-FIX_UNIFIED_SELF.sh
-FULL_DEPLOYMENT_MANIFEST.txt
-FULL_INTEGRATION_WORKFLOW.sh
-FULL_PORT_AUDIT.sh
-FULL_PORT_SCAN.sh
-FULL_SERVICE_AUDIT.sh
-FULL_SYSTEM_AUDIT.sh
-GPU_OPTIMIZATION_GUIDE.md
-GUARANTEED_8_LAYER_START.sh
-IDENTIFY_SERVICES.sh
-IMMUTABLE_MANIFEST.md
-INSPECT_JARVIS_INTERNALS.sh
-INTEGRATE_8020_8050.sh
-INTEGRATE_CONSCIOUSNESS.sh
-INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh
-INTEGRATE_PROPERLY.sh
-INTEGRATION_HUB_SUCCESS.md
-INTEGRATION_IMPLEMENTATION.py
-INTEGRATION_PLAN.sh
-JARVIS_DASHBOARD.sh
-JARVIS_HEALTH_CHECK.sh
-LOAD_AAACPE_RAG.sh
-LOCATION_AWARENESS_SUCCESS.md
-MAMMA_KIDD_PROTOCOL_GUIDE.md
-MAMMA_KIDD_QUICK_REFERENCE.txt
-METHOD_AUDIT_RAW.txt
-METHOD_AUDIT_SEG_aa
-METHOD_AUDIT_SEG_ab
-METHOD_AUDIT_SEG_ac
-METHOD_AUDIT_SEG_ad
-METHOD_AUDIT_SEG_ae
-METHOD_AUDIT_SEG_af
-METHOD_AUDIT_SEG_ag
-METHOD_AUDIT_SEG_ah
-METHOD_AUDIT_SEG_ai
-METHOD_AUDIT_SEG_aj
-METHOD_AUDIT_SEG_ak
-METHOD_AUDIT_SEG_al
-METHOD_AUDIT_SEG_am
-METHOD_AUDIT_SEG_an
-METHOD_AUDIT_SEG_ao
-METHOD_AUDIT_SEG_ap
-METHOD_AUDIT_SEG_aq
-MS_JARVIS_COMPLETE_AUDIT.md
-MS_JARVIS_DEEP_MODE_DEPLOYMENT.md
-MS_JARVIS_DEPLOYMENT_SUCCESS.md
-MS_JARVIS_FINAL_DEPLOYMENT.sh
-MS_JARVIS_FINAL_VICTORY_REPORT.md
-MS_JARVIS_PRODUCTION_FINAL.sh
-MS_JARVIS_STATUS_REPORT.md
-MS_JARVIS_ULTIMATE_AUDIT_20251010_002719.txt
-Modelfile.egeria
-MountainShares6.pdf
-OLLAMA_HEALTH_FEATURES.md
-OPTIMIZE_GPU.sh
-PORTS_REGISTRY_RAW.txt
-PORT_AUDIT.sh
-PORT_AUDIT_RAW.txt
-PORT_AUDIT_SEG_aa
-PORT_AUDIT_SEG_ab
-PORT_AUDIT_SEG_ac
-PORT_AUDIT_SEG_ad
-PORT_AUDIT_SEG_ae
-PORT_SEG_aa
-PORT_SEG_ab
-PORT_SEG_ac
-PORT_SEG_ad
-PORT_SERVICE_AUDIT.sh
-PRODUCTION_DEPLOYMENT_COMPLETE.md
-PRODUCTION_DEPLOYMENT_SUITE.sh
-PRODUCTION_MS_JARVIS_START.sh
-PRODUCTION_STATUS_REPORT.txt
-REFERENCE_windows_swarm.py
-REMOVE_MODEL_REFERENCES.sh
-REROUTE_SERVICES.sh
-RESTART_PLAN.md
-RESTORATION_CERTIFICATE.txt
-RESTORATION_CERTIFICATE_CORRECTED.txt
-RESTORE_ALL_INTEGRATIONS.sh
-RESTORE_NATURAL_PERSONALITY.sh
-SAFE_INTEGRATION_PLAN.md
-SATURDAY_SUMMARY.md
-SCHEDULER_REFERENCE.md
-SET_MAX_RESPONSE.sh
-SPATIOTEMPORAL_CONSCIOUSNESS.md
-START_19LLM_PRODUCTION.sh
-START_20LLM_FINAL.sh
-START_ALL_SYSTEMS.sh
-START_COMPLETE_SYSTEM.sh
-START_CONSCIOUS_COLLECTIVE.sh
-START_MS_JARVIS_PRODUCTION.sh
-STOP_ALL_SYSTEMS.sh
-SWAGGER_ENDPOINTS.md
-SWITCH_TO_22LLM_DEFAULT.sh
-SYSTEM_AUDIT_20251009_233918.txt
-SYSTEM_AUDIT_ANALYSIS.md
-SYSTEM_STATUS_FINAL.md
-TEST_CRITICAL_FIXES.sh
-TEST_IMPROVED_RESPONSE.sh
-TEST_WITH_CLEANUP.sh
-TODAYS_COMPLETE_ACHIEVEMENT.md
-TODAYS_PROGRESS.md
-TRUE_BRAIN_ARCHITECTURE.md
-ULTIMATE_PORT_AUDIT_20251010_094847.txt
-ULTIMATE_SESSION_SUMMARY.md
-UPDATE_COORDINATOR_FOR_DEEP_MODE.sh
-UPDATE_JARVIS_PERSONA.sh
-UPDATE_NAME_TO_EGERIA.sh
-WATCHDOG.sh
-WATCHDOG_LOG.txt
-WORKING_START.sh
-WVU_API_DOCUMENTATION.md
-__init__.py
-__pycache__
-_archive
-_evaluate_for_i_container
-_redirects
-aaacpe_initial_ingest.py
-aaacpe_rag_service.py
-aaacpe_scraper_service.py
-aacpe_ingest_community.py
-aacpe_prepare_metadata.py
-aapcappe_ingest.py
-abi
-academic_research_gateway_8062.py
-academic_research_gateway_8062_cors.py
-academic_whitebox_api.py
-activate_dgm.py
-activate_dgm_enhanced.py
-activate_egeria_persona.py
-activate_sanctuary_cherubim_guards.sh
-add_auto_store.py
-add_background_call.py
-add_background_storage.py
-add_chat_route.sh
-add_conversation_context.py
-add_conversation_endpoint.py
-add_conversation_storage.py
-add_dynamic_context.py
-add_fast_layer.py
-add_fifth_dgm_to_chat.py
-add_full_brain_class.py
-add_gpu_cleanup_correct.py
-add_gpu_cleanup_every_3.py
-add_identity_context.py
-add_jarvis_personality.py
-add_learning_suggestion.py
-add_mamma_greeting_simple.py
-add_messenger_to_gateway.py
-add_new_consciousness_services.py
-add_proactive_cleanup_working.sh
-add_ready_endpoint.py
-add_security_to_chat.py
-add_semaphore.py
-add_simple_gpu_cleanup.py
-add_swagger_to_ports.py
-add_swagger_to_rag.py
-add_to_consciousness_engine.txt
-add_to_main_consciousness.psychology_patched.py
-add_to_main_consciousness.py
-add_to_startup.sh
-add_user_memory.py
-add_user_memory_attribute.py
-add_web_research_storage.py
-add_working_search.py
-admin_cli.py
-advanced_service_dashboard.py
-agent_llm_batch.sh
-agent_llm_batch_all.sh
-agents_main.py
-agi_test.sh
-ai
-ai-server
-ai_server.py
-ai_server_11llm_OPTIMIZED.py
-ai_server_19llm_CONSCIOUS.py
-ai_server_19llm_PRODUCTION.py
-ai_server_19llm_PRODUCTION_WITH_HEALTH.py
-ai_server_20llm_FINAL.py
-ai_server_20llm_FINAL.py,
-ai_server_20llm_PRODUCTION.py
-ai_server_22llm.psychology_patched.py
-ai_server_22llm.psychology_patched_FIXED.py
-ai_server_22llm.py
-ai_server_22llm_FIXED.py
-ai_server_22llm_SEQUENTIAL.py
-ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py
-ai_server_22llm_SMALL_TO_LARGE.py
-ai_server_4llm.py
-ai_server_integrated.py
-ai_server_original_backup.py
-ai_server_restored.py
-ai_teams_config.py
-alert_venv
-alerting_config.json
-alertingconfig.json
-all_actual_py.txt
-all_actual_services.txt
-all_build_dirs.txt
-all_service_ports.txt
-all_services.txt
-all_services_compose_blocks.txt
-all_services_compose_blocks_dynamic.txt
-analyze_advanced_modules.sh
-apk-list.txt
-app.js
-application_service.py
-apply_ollama_fix.py
-apt-list.txt
-archived-dockerfiles
-async_polling_architecture.py
-attention_multimodal_fuser.py
-attention_pipeline.py
-attention_priority_scheduler.py
-attention_router.py
-au02_v2
-audit_all_services.sh
-audit_all_services_complete.sh
-audit_attrs.py
-audit_docker_services.sh
-audit_local_state.py
-audit_performance.sh
-audit_service_connectivity.sh
-auth.py
-auth_api.py
-auth_api_patch.py
-auth_router.py
-auth_router_main.py
-auto_fix_gateway.py
-auto_memory_service_probe.sh
-auto_rag_builder.py
-auto_stop_after_monongalia.sh
-autonomous_learner.py
-autonomous_learner_gisgeodb_wrapper.psychology_patched.py
-autonomous_learner_gisgeodb_wrapper.py
-autonomous_learner_topic_source.py
-available_models.txt
-backfill_gbim_worldview_metadata.py
-backfill_gbim_worldview_metadata_v2.py
-background_curator.py
-backup_chroma_autonomous_learning.json
-backup_chroma_mountainshares_knowledge.json
-backup_chroma_research_history.json
-batch_copy_docs.sh
-batch_normalize_beliefs.py
-batch_patch_services.py
-bbb_ethics_proxy.py
-bbb_output_filter
-bbb_requirements.txt
-bbb_validator.py
-belief_integrator.py
-belief_revision_engine.py
-belief_state_schema.py
-benefits_chat.py
-brain.js
-brain_orchestrator.py
-brain_orchestrator_main.py
-bridge
-bridge_69dgm.py
-bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
-bridge_autonomous_to_i_container_dgm_woah.py
-bridge_autonomous_to_i_container_fixed.py
-bridge_cross_dgm.py
-bridge_cross_dgm_10001.py
-bridge_cross_dgm_10002.py
-bridge_cross_dgm_10003.py
-bridge_cross_dgm_10004.py
-bridge_cross_dgm_10005.py
-bridge_cross_dgm_10006.py
-bridge_cross_dgm_10007.py
-bridge_cross_dgm_10008.py
-bridge_cross_dgm_10009.py
-bridge_cross_dgm_10010.py
-bridge_cross_dgm_10011.py
-bridge_cross_dgm_10012.py
-bridge_cross_dgm_10013.py
-bridge_cross_dgm_10014.py
-bridge_cross_dgm_10015.py
-bridge_cross_dgm_10016.py
-bridge_cross_dgm_10017.py
-bridge_cross_dgm_10018.py
-bridge_cross_dgm_10019.py
-bridge_cross_dgm_10020.py
-bridge_cross_dgm_10021.py
-bridge_cross_dgm_10022.py
-bridge_cross_dgm_10023.py
-bridge_cross_dgm_10024.py
-bridge_cross_dgm_10025.py
-bridge_cross_dgm_10026.py
-bridge_cross_dgm_10027.py
-bridge_cross_dgm_10028.py
-bridge_cross_dgm_10029.py
-bridge_cross_dgm_10030.py
-bridge_cross_dgm_10031.py
-bridge_cross_dgm_10032.py
-bridge_cross_dgm_10033.py
-bridge_cross_dgm_10034.py
-bridge_cross_dgm_10035.py
-bridge_cross_dgm_10036.py
-bridge_cross_dgm_10037.py
-bridge_cross_dgm_10038.py
-bridge_cross_dgm_10039.py
-bridge_cross_dgm_10040.py
-bridge_cross_dgm_10041.py
-bridge_cross_dgm_10042.py
-bridge_cross_dgm_10043.py
-bridge_cross_dgm_10044.py
-bridge_cross_dgm_10045.py
-bridge_cross_dgm_10046.py
-bridge_cross_dgm_10047.py
-bridge_cross_dgm_10048.py
-bridge_cross_dgm_10049.py
-bridge_cross_dgm_10050.py
-bridge_cross_dgm_10051.py
-bridge_cross_dgm_10052.py
-bridge_cross_dgm_10053.py
-bridge_cross_dgm_10054.py
-bridge_cross_dgm_10055.py
-bridge_cross_dgm_10056.py
-bridge_cross_dgm_10057.py
-bridge_cross_dgm_10058.py
-bridge_cross_dgm_10059.py
-bridge_cross_dgm_10060.py
-bridge_cross_dgm_10061.py
-bridge_cross_dgm_10062.py
-bridge_cross_dgm_10063.py
-bridge_cross_dgm_10064.py
-bridge_cross_dgm_10065.py
-bridge_cross_dgm_10066.py
-bridge_cross_dgm_10067.py
-bridge_cross_dgm_10068.py
-bridge_cross_dgm_10069.py
-bridge_openapi.json
-build_additional_services.py
-build_autonomous.sh
-build_compose.sh
-build_dir_audit.txt
-build_entityid_to_chromaid_map.py
-build_project_impact_graph.py
-bulk_build_beliefs.py
-bulk_compose_rewrite.py
-bulk_load_MAXIMUM.py
-bulk_load_knowledge.py
-bulk_sync_gis_to_chromadb.py
-chat_endpoint_universal.py
-chat_interface.html
-chat_response.json
-chat_server.py
-chat_with_jarvis.sh
-check_agent_prompts.sh
-check_mamma_kidd_protocol.sh
-check_msjarvis_status.sh
-check_permissions.sh
-chroma
-chroma-broken-20260606-1447
-chroma.pre-migration-20260606_142022
-chroma_client.py
-chroma_client_old.py
-chroma_config.py
-chroma_health_monitor.py
-chroma_health_proxy.py
-chroma_health_utils.py
-chroma_python_test.py
-chroma_test.py
-chromadb
-chromadb_client.py
-chromadb_main.py
-chromadb_rag_helper.py
-chromadb_rest_bridge.py
-chromadb_v2_to_gis_sync.py
-chromadbrag1
-chunked_ingest_gbim_to_chroma.py
-clean_and_dedupe_services.sh
-clean_compose.py
-clean_integration.py
-clean_service_candidates.txt
-cleanup_manifest.txt
-cloudflare_auth_helper.sh
-cloudflare_domain_integration.py
-cloudflared-linux-amd64.deb
-community_stake_registry.py
-complete_fix.py
-complete_memory_fix.py
-complete_system_audit.py
-complete_system_audit_with_swagger.py
-comprehensive_gisgeodb_audit.py
-comprehensive_gisgeodb_audit_FIXED.py
-comprehensive_port_audit.sh
-comprehensive_storage_fix.py
-comprehensive_url_fix.py
-comprehensive_url_fix.py.PORT8000_BACKUP
-confidence_decay_loop.py
-config_spiritual.py
-configure_facebook_webhook.py
-connect_full_brain.sh
-connect_holy_spirit_to_existing_email.sh
-connection_pooling.py
-consciousness_coordinator.psychology_patched.py
-consciousness_coordinator.py
-consciousness_coordinator.py.BACKUP
-consciousness_feed_integration.psychology_patched.py
-consciousness_feed_integration.py
-consciousness_gateway.py
-consciousness_with_egeria_voice.py
-consciousness_working.py
-consolidate_to_chroma_db.py
-constitutional_api.PROD_BACKUP.py
-constitutional_api.py
-constitutional_api.py.from_container
-constitutional_api_fixed.py
-constitutional_guardian.PROD_BACKUP.py
-constitutional_guardian.py
-constitutional_principles.json
-constitutional_principles.json.mcp_backup
-context_manager.py
-contract_generator.py
-conversation_gbim.py
-conversation_memory_endpoints.py
-copy_all_missing_services.sh
-copy_architecture_docs.sh
-copy_complete_brain_structure.sh
-core
-count_collections.py
-count_collections_local.py
-cpu_optimization.py
-create_adapter_wrappers.sh
-create_autonomous_learner_tables.py
-create_consciousness_data_integration.psychology_patched.py
-create_consciousness_data_integration.py
-create_dual_consciousness_i_containers.psychology_patched.py
-create_dual_consciousness_i_containers.py
-create_geodb_nodes.py
-create_i_statement_feedback_loop.py
-create_immutable_security_layer.py
-create_mamma_kidd_auth.sh
-create_perpetual_storage_layer.py
-create_sanctuary_monitor.sh
-create_tile_index.py
-create_ueid_identity_layer.py
-cron_health_check.sh
-crypto_client.py
-dao_governance.py
-data
-data_inventory_endpoint.py
-dedup_compose.sh
-dedupe_compose.py
-deep_dive_modules.sh
-deep_excavation.sh
-deep_module_search.sh
-deploy_to_mountainshares.sh
-deploy_warm_persona_final.sh
-designed_ports.txt
-dgm_adoption_worker.py
-dgm_bridge.py
-dgm_connector_registry.py
-dgm_connectors_active.json
-dgm_connectors_resolved.json
-dgm_orchestrator.py
-dgm_orchestrator_fake.py
-dgm_rag_integration_v2.py
-dgm_services_state.json
-dgm_supervisor_woah.psychology_patched.py
-dgm_supervisor_woah.py
-dgm_supervisor_woah_fixed.py
-dgm_supervisor_woah_simple.py
-diagnostic_ms_jarvis.sh
-dir_endpoints.txt
-disable_aggressive_cleaning.py
-docker-compose.bak
-docker-compose.deduped.yml
-docker_cleanup_and_optimize.sh
-domain_service_router.py
-download_everything_appalachian.sh
-download_nltk_data.py
-download_priority_counties.sh
-dpkg-list.txt
-dump.rdb
-dynamic_app.py
-dynamic_port_scheduler.py
-dynamic_port_scheduler.py.BROKEN_REDIS
-dynamic_port_service.py
-dynamic_port_service_enhanced.py
-ecosystem_identity_service.py
-eeg_shared
-egeria_active_heartbeat.py
-egeria_api_proxy.py
-egeria_autonomous_inquiry.py
-egeria_autonomous_inquiry_active.py
-egeria_code_execution_engine.py
-egeria_core_identity.txt
-egeria_facebook_perpetual_scheduler.py
-egeria_multi_mode_system.py
-egeria_persona_config.json
-egeria_safe_self_correction.py
-egeria_status_poller.py
-egeria_system_prompt.txt
-egeria_true_identity.txt
-egeria_web_ui.py
-egeria_web_ui.py.old
-egeria_web_ui.py.old-timeout-version
-egeria_web_ui_FIXED.py
-egeria_web_ui_dynamic.py
-egeria_web_ui_final_biological.py
-egeria_web_ui_fixed_simple.py
-egeria_web_ui_plain_authentic.py
-egeria_web_ui_v3_consciousness.py
-egeria_web_ui_with_execution.py
-egeria_web_ui_working.py
-egeriaknowledgebase
-email_auto_checker.py
-email_gis_geolocation_extractor.py
-email_rag_integration.py
-email_service.env
-email_service.py
-email_strategy.txt
-embed_and_add.py
-embed_and_query.py
-embed_gbim.py
-embed_geodb.py
-embed_utils.py
-emergency_memory_cleanup.sh
-enable_22llm_routing.py
-enable_auto_web_search.sh
-enable_harmony4hope_website_access_CORRECTED.sh
-enable_holy_spirit_file_writing.sh
-enable_website_building_capabilities.sh
-enhance_agent_prompts.py
-enhance_cleaner.py
-enhance_pituitary_warmth.py
-enhance_rag_first.py
-enhance_rag_knowledge.py
-enhanced_learner_concept.py
-enrich_gbim_from_geospatial_features.py
-enrich_geodb_collections.py
-enrich_geodb_layers.py
-eternal_watchdog.sh.disabled
-ethical_filter.py
-etl_from_csv_template.py
-etl_from_manifest.py
-etl_template_layer.py
-examine_ai_server_complete.sh
-examine_app_brain_backendlib.sh
-examine_existing_code.sh
-examine_extracted_services.sh
-examine_geospatial_agents.sh
-explore_16mb_directory.sh
-explore_both_systems.sh
-export_attributes_to_gis.py
-export_chroma_manifest.py
-export_docs_for_notebook.sh
-export_geodb_attrs.py
-export_metadata_csv.py
-extract_all_archives_deep_dive.sh
-extract_all_big_archives.sh
-extract_all_chromadb_to_gis.py
-extract_all_chromadbs_to_gis.py
-extract_all_gis_comprehensive.sh
-extract_all_remaining_services.sh
-extract_and_search_archives.sh
-extract_binder4_text.py
-extract_chroma_sqlite_to_gis.py
-extract_complete_real.sh
-extract_real_knowledge_to_gis.py
-extract_service_tarballs.sh
-extract_shapefile_features_to_csv.py
-extract_user_jarvis_files.sh
-facebook_chat_unified.py
-facebook_consciousness_daemon.py
-facebook_daemon_polling.py
-facebook_messenger_integration.py
-facebook_post.sh
-facebook_poster.py
-facebook_poster_autonomous.py
-facebook_poster_fast.py
-facebook_poster_working.py
-facebook_token.env
-facebook_voice_orchestrator_egeria.py
-fayette_pass1_extractor.py
-fifth_dgm
-fifth_dgm.py
-fifth_dgm_app.py
-fifth_dgm_integration.py
-fifth_dgm_main.py
-file_metadata_matching_algorithm.py
-fill_null_coordinates_mount_hope.py
-final_cleanup_integration.sh
-final_model_optimization.py
-final_synthesis_fix.sh
-final_validation_test.sh
-finalize_integration.sh
-find_actual_service_implementations.sh
-find_advanced_modules.sh
-find_complete_brain_structure.sh
-find_custom_services.sh
-find_dgm_service.sh
-find_web_and_deeper_python.sh
-fix_404_endpoints.sh
-fix_agent_prompts.py
-fix_all_consciousness_services.py
-fix_and_restart_msjarvis.sh
-fix_autonomous.py
-fix_autonomous_learner_endpoint.py
-fix_autonomous_learner_indent.py
-fix_autonomous_research.sh
-fix_background_storage.py
-fix_both_issues_final.sh
-fix_chat_api.sh
-fix_chat_server.py
-fix_chroma_url.py
-fix_chroma_url.py.PORT8000_BACKUP
-fix_consciousness_endpoints.py
-fix_context_flow.py
-fix_creator_recognition.py
-fix_egeria_final.sh
-fix_egeria_persona.sh
-fix_egeria_pronouns.sh
-fix_egeria_warm_response.patch
-fix_email_service_env_loading.sh
-fix_fastapi_lifespan.py
-fix_gpu_and_retry.py
-fix_import.py
-fix_indentation.py
-fix_judge_and_memory.py
-fix_judge_authentic.py
-fix_judge_response.py
-fix_judge_synthesis.py
-fix_llm_bridges.sh
-fix_main_brain_endpoints.py
-fix_model_names.py
-fix_model_unloading.py
-fix_mother_carrie_principles.sh
-fix_multi_rag_chromadb.py
-fix_new_service_endpoints.py
-fix_ollama_connection.sh
-fix_orchestrator_init.py
-fix_orchestrator_scope.py
-fix_persona.py
-fix_persona.sh
-fix_persona_hang.py
-fix_persona_naming.sh
-fix_port_8001_clean.py
-fix_port_8051_handler.py
-fix_proactive_cleanup_correctly.sh
-fix_prompt_leak.py
-fix_query_service_endpoints.py
-fix_rag_store.py
-fix_redis_and_continue.sh
-fix_response_parsing.py
-fix_semaphore.py
-fix_storage.py
-fix_swagger.py
-fix_timeouts_add_22llm.py
-fix_web_persona.sh
-fix_web_research.py
-fix_woah_discovery.py
-fractal_adapter.py
-fraud_detection_ai.py
-full_brain_architecture.md
-full_rebuild.sh
-full_system_audit.sh
-full_system_health_check.sh
-gateway8050_simple.py
-gateway_mesh_context.sh
-gateway_messenger_integration.py
-gateway_verify_fixed.py
-gateway_wv_entanglement.py
-gbim_api.py
-gbim_benefit_indexer
-gbim_benefit_indexer.py
-gbim_chroma.py
-gbim_chroma_fixed.py
-gbim_coordinate_writer.py
-gbim_core.py
-gbim_dashboard.py
-gbim_entangled_summary.py
-gbim_entanglement.py
-gbim_explain.py
-gbim_gis_bridge.py
-gbim_indexers
-gbim_metadata_enricher.py
-gbim_metadata_loader.py
-gbim_msjarvis.py
-gbim_query_router
-gbim_query_router.py
-gbim_reingest_placeholder.py
-gbim_semantic_indexer.py
-gbim_spatial_indexer.py
-gbim_temporal_indexer.py
-gbim_v0_retrieval.py
-gbim_verification_loop.py
-gdb_integration_service.py
-generate_services.py
-geo
-geo_rag_debug.py
-geo_rag_debug_app.py
-geobim_health_shim_8051.py
-geobim_integrated.py
-geobim_integrated.py.running_backup
-geobim_mysql.py
-geobim_mysql_v2.py
-geodb_adapter.py
-geodb_core.py
-geodb_export_plan.yaml
-geodb_export_plan_all.yaml
-geodb_geom_tables.tsv
-geospatial_resolver.py
-get_cloudflare_zone_id.sh
-gis_chat_integration.py
-gis_command_module.py
-gis_dataset_services
-gis_download_plan.json
-gis_rag_service.py
-gisgeodb_learner_hook.py
-gisgeodb_storage.py
-gisgeodbdirectaccess.py
-gpu_accelerated_rag.py
-gpu_accelerated_rag_fixed.py
-guards.py
-guards_api_module.py
-hardware_optimization_analyzer.py
-harmony4hope_deployment_manager.py
-health_access_api.py
-health_access_gbim_bridge.py
-health_access_query.py
-health_check.sh
-health_check_cache.py
-hello.txt
-hierarchical_coordinator_AUTONOMOUS.md
-hierarchical_coordinator_autonomous.py
-hierarchical_coordinator_deep_mode.py
-hierarchical_integration.py
-hierarchical_method.txt
-hilbert_spatial_chat.py
-hippocampus_service.py
-host_bulk_loader.py
-i_container_interest_algorithm.py
-icontainers_fastapi.py
-identify_unknown_services.sh
-identity_promotion.py
-identity_service.py
-immutable_core_enforcement.py
-implement_conversation_fixes.sh
-implement_enhancements.sh
-implement_gpu_optimization.sh
-implement_judge_pituitary_fixed.py
-implement_safe_optimizations.py
-implement_storage_optimization.sh
-import_gbim_assets.py
-import_gis_geodata_to_gbim.py
-import_gisgeodata_to_gbim.py
-improve_jarvis.sh
-index.html
-index.js
-index_all_extracted_gis.py
-infra_status.json
-infrastructure_endpoints.py
-ingest
-ingest_additional_kbs.py
-ingest_batch3_geofeatures.py
-ingest_batch3_resume.py
-ingest_batch3_resume2.py
-ingest_benefit_programs.py
-ingest_benefit_programs_to_chroma.py
-ingest_compliance_tasks_to_chroma.py
-ingest_csv_to_gisgeodb.py
-ingest_documents_to_chromadb.py
-ingest_full_attributed_docs.py
-ingest_gbim_to_chroma.py
-ingest_gbim_to_chroma_fast.py
-ingest_gbim_to_chroma_resume.py
-ingest_gbim_to_chroma_ultrafast.py
-ingest_gis_features_fixed.py
-ingest_gis_features_to_chromadb.py
-ingest_h4h_cultural_heritage.py
-ingest_hospitals.py
-ingest_imm_to_chroma.py
-ingest_knowledge_simple.py
-ingest_mrsid_imagery.py
-ingest_postgis_to_chroma.py
-ingest_utility_enrollments_to_chroma.py
-ingest_watcher
-ingestcsvtogisgeodb.py
-inject_egeria_persona.py
-inject_gisgeodb_into_learner.py
-inspect_geodb_collection.py
-inspect_key_services.sh
-install_research_layer.sh
-integrate_advanced_modules.sh
-integrate_all_services.py
-integrate_brain_orchestrator.sh
-integrate_complete_architecture.py
-integrate_consciousness_into_swarm.py
-integrate_discovered_services.sh
-integrate_fifth_dgm_autonomous_learner.py
-integrate_full_brain.py
-integrate_full_neural_architecture.py
-integrate_i_container_interests.py
-integrate_i_container_to_schedulers.py
-integrate_mamma_kidd_protocol.sh
-integrate_mother_protocol.sh
-integrate_orchestrator_flow.py
-integrate_phase1.sh
-integrate_phase2.sh
-integrate_phase3.sh
-integrate_phase4_5.sh
-integrate_rag.sh
-integrate_spatial_temporal.py
-integration_layer
-integration_layer.placeholder_1768012705
-interaction_logger.py
-internet_tunnel_service.py
-introduce_self.sh
-introspective_record.py
-introspective_verdict_bridge.py
-inventory_services.sh
-investigate_coordination.sh
-jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
-jarvis-aaacpe-rag_aaacpe_rag_service.py
-jarvis-adoption-worker_dgm_adoption_worker.py
-jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
-jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
-jarvis-constitutional-guardian_constitutional_api.py
-jarvis-fifth-dgm_service_discovery.py
-jarvis-gis-rag_gis_rag_service.py
-jarvis-hippocampus_hippocampus_service.py
-jarvis-i-containers_icontainers_fastapi.py
-jarvis-judge-pipeline_judge_pipeline.py
-jarvis-lm-synthesizer_lm_synthesizer.py
-jarvis-local-resources_local_resources_resolver.py
-jarvis-mother-protocols_mother_protocols.py
-jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
-jarvis-psychology-services_psychology_integration_adapter.py
-jarvis-qualia-engine_ms_jarvis_qualia_engine.py
-jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
-jarvis-semaphore_msjarvis_semaphore.py
-jarvis-spiritual-rag_spiritual_rag_domain.py
-jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
-jarvis-temporal-consciousness_temporal_consciousness.py
-jarvis-toroidal_toroidal_service.py
-jarvis-woah_dgm_supervisor_woah_fixed.py
-jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
-jarvis_authentic_persona.txt
-jarvis_data_ingest.py
-jarvis_decay_escalation_consumer.py
-jarvis_eeg_beta_5m.py
-jarvis_eeg_delta_30s.py
-jarvis_eeg_theta_60s.py
-jarvis_ensemble.py
-jarvis_gis_rag
-jarvis_hilbert_state.py
-jarvis_identity.db
-jarvis_llm1.py
-jarvis_memory_pia.py
-jarvis_pia_sampler.py
-jarvis_pia_status.py
-jarvis_rag_search
-jarvis_steward
-jarvis_steward.py
-jarvis_stewardship_scheduler.py
-jarvis_synth_llm.py
-jarvisarchiveapi.py
-jarviscryptopolicy.py
-joblib_1.5.2_pickle_py312_np23.pkl
-judge_10070.py
-judge_10071.py
-judge_10072.py
-judge_10073.py
-judge_10074.py
-judge_10075.py
-judge_10076.py
-judge_10077.py
-judge_10078.py
-judge_10079.py
-judge_10080.py
-judge_10081.py
-judge_10082.py
-judge_10083.py
-judge_10084.py
-judge_10085.py
-judge_10086.py
-judge_10087.py
-judge_10088.py
-judge_10089.py
-judge_10090.py
-judge_10091.py
-judge_10092.py
-judge_10093.py
-judge_10094.py
-judge_10095.py
-judge_10096.py
-judge_10097.py
-judge_10098.py
-judge_10099.py
-judge_10100.py
-judge_10101.py
-judge_10102.py
-judge_10103.py
-judge_10104.py
-judge_10105.py
-judge_10106.py
-judge_10107.py
-judge_10108.py
-judge_10109.py
-judge_10110.py
-judge_10111.py
-judge_10112.py
-judge_10113.py
-judge_10114.py
-judge_10115.py
-judge_10116.py
-judge_10117.py
-judge_10118.py
-judge_10119.py
-judge_10120.py
-judge_10121.py
-judge_10122.py
-judge_10123.py
-judge_10124.py
-judge_10125.py
-judge_10126.py
-judge_10127.py
-judge_10128.py
-judge_10129.py
-judge_10130.py
-judge_10131.py
-judge_10132.py
-judge_10133.py
-judge_10134.py
-judge_10135.py
-judge_alignment_filter.py
-judge_client.py
-judge_consistency_engine.py
-judge_consistency_filter.py
-judge_ethics_filter.py
-judge_pipeline.py
-judge_pk.b64
-judge_pk.bin
-judge_sk.bin
-judge_to_pituitary_bridge.py
-judge_truth_filter.py
-judgesigner.py
-knowledge_docs_attributes.geojson
-knowledge_growth_endpoint.txt
-launch_advanced.sh
-launch_all_bridges.sh
-launch_dashboard_background.sh
-launch_service.sh
-launch_stub_proxies.sh
-launch_web_services.sh
-layer2_port9000_bridge.py
-leak_test.sh
-link_gisgeodb_to_files.py
-list_geodb_collections.py
-live_ports.txt
-llm
-llm10_health_proxy.py
-llm11_health_proxy.py
-llm12_health_proxy.py
-llm13_health_proxy.py
-llm14_health_proxy.py
-llm15_health_proxy.py
-llm16_health_proxy.py
-llm17_health_proxy.py
-llm18_health_proxy.py
-llm19_health_proxy.py
-llm1_health_proxy.py
-llm20_health_proxy.py
-llm21_health_proxy.py
-llm22_health_proxy.py
-llm23_egeria_proxy.py
-llm2_health_proxy.py
-llm3_health_proxy.py
-llm4_health_proxy.py
-llm5_health_proxy.py
-llm6_health_proxy.py
-llm7_health_proxy.py
-llm8_health_proxy.py
-llm9_health_proxy.py
-llm_belief_utils.py
-llm_bridge_main.py
-llm_conscious_OPTIMIZED.py
-llm_consensus_19_PRODUCTION.py
-llm_consensus_20_FINAL.py
-llm_consensus_22.py
-llm_consensus_22_OPTIMIZED_ORDER.py
-llm_consensus_22_SMALL_TO_LARGE.py
-llm_ensemble_router.py
-llm_judge_v3.py
-lm_judge_helper.py
-lm_synthesizer.py
-load_backbone_places_from_geodb.py
-load_complete_knowledge_base.py
-load_feature_geometries_to_chromadb.py
-load_geodb_health_providers_to_neo4j.py
-load_geodb_hospitals_to_neo4j.py
-load_geodb_layer_to_neo4j.py
-load_gis_to_chroma.py
-load_knowledge.sh
-load_pdfs_spiritual.py
-load_rag_data.py
-load_rag_knowledge.py
-load_shapefile_features_to_chromadb.py
-load_spiritual_library.py
-local_resources_resolver.py
-location_scraper_service.py
-logging_conf.py
-main.py
-main.py.BACKUP
-main.py.FINALHEALTH.bak
-main.py.current.safebak
-main.py.from_container
-main.py.fromcontainer.llmbridge
-main.py.working_backup_20251020_110429
-main_brain.py
-main_brain_LEGACY_32svc.py
-main_brain_attrs_patch.sh
-main_brain_container_2055.py
-main_brain_legacy_backup.py
-main_brain_psychology_patch.py
-main_brian.py
-main_qualia.py
-main_with_rag.py
-make_holy_spirit_connection_tools_available.sh
-make_persistent.sh
-mamma_kidd_auth.py
-manage_msjarvis.sh
-manifest_endpoints.py
-manual_storage_patch.py
-master_chat_orchestrator.py
-master_chat_orchestrator_dynamic.py
-master_chat_orchestrator_v5_consciousness.py
-master_chat_orchestrator_v6_biologics.py
-master_chat_orchestrator_v7_complete.py
-master_chat_orchestrator_v7_dynamic.py
-master_chat_orchestrator_v8_spiritual_complete.py
-master_chat_orchestrator_v9_dgm_complete.py
-master_chat_orchestrator_v9_gpu_optimized.py
-master_chat_orchestrator_v9_optimized.py
-master_system_audit.sh
-master_unified_consciousness_scheduler.py
-master_unified_consciousness_scheduler_ENRICHED.py
-mega_deep_archive_search.sh
-memory_dgm_engine.py
-memory_dgm_gateway.py
-memory_manager.py
-memory_probe.sh
-mesh_agent_batch.sh
-mesh_broadcast_event.sh
-mesh_cohort_selfsum.sh
-mesh_context_probe.sh
-mesh_coordinator_interface.py
-mesh_crossagent_memory_search.sh
-mesh_dream_summary.sh
-mesh_emotion_map.json
-mesh_emotion_map.sh
-mesh_explore_chain.sh
-mesh_feed_back_insight.sh
-mesh_interest_timeline.sh
-mesh_memory_dashboard.sh
-mesh_memory_probe.sh
-mesh_probe.sh
-mesh_scenario_drill.sh
-mesh_social_graph.sh
-mesh_tag_topk.sh
-mesh_topn_context.sh
-mesh_trend_detection.sh
-messenger_service_fixed.py
-method_tracker_decorator.py
-method_tracking_helper.py
-method_tracking_service.py
-metrics_service.py
-migrate_blood_brain_barrier.py
-migrate_chromadb_collections.py
-migrate_gis2chroma.py
-migrate_neurobiological_master.py
-modify_autonomous_learning_cycle.py
-monitor_ms_jarvis_memory.sh
-monitor_orchestrator.sh
-mother_carrie_logging.py
-mother_protocols.py
-mountainshares_chain_monitor.py
-mountainshares_coordinator.py
-mountainshares_gbim_suggester.py
-mountainshares_ingest.py
-mountainshares_quest_api.py
-mountainshares_registry.py
-move_huggingface_to_cpu.py
-ms_allis_capabilities
-ms_allis_prompts
-ms_egeria_facebook_autopost.py
-ms_jarvis_ULTIMATE.py.OLD
-ms_jarvis_agents_ollama.py
-ms_jarvis_agents_service.py
-ms_jarvis_alerting_manager.py
-ms_jarvis_api_docs.py
-ms_jarvis_attribute_table_service.py
-ms_jarvis_attribute_table_sync_continuous.py
-ms_jarvis_attribute_table_sync_continuous.py.BROKEN
-ms_jarvis_auth_api.py
-ms_jarvis_authentic_multi_llm.py
-ms_jarvis_auto_service.py
-ms_jarvis_autonomous_learner.py
-ms_jarvis_autonomous_learner.py.norag.20260119-091256
-ms_jarvis_autonomous_learner.py.stub.20260119-091524
-ms_jarvis_autonomous_learner_FIXED.py
-ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py
-ms_jarvis_autonomous_learner_optimized.py
-ms_jarvis_bbb_proxy.py
-ms_jarvis_blockchain_deployment.py
-ms_jarvis_blood_brain_barrier.py
-ms_jarvis_brain.py
-ms_jarvis_brain.py.PORT8000_BACKUP
-ms_jarvis_brain_orchestrator_advanced.py
-ms_jarvis_chromadb_query.py
-ms_jarvis_cleanup_manager.py
-ms_jarvis_command_orchestrator.py
-ms_jarvis_command_orchestrator_FINAL.py
-ms_jarvis_command_orchestrator_v5.0_preachy.py
-ms_jarvis_command_orchestrator_v5_backup.py
-ms_jarvis_complete_knowledge_ingestion.py
-ms_jarvis_conscious_collective.py
-ms_jarvis_consciousness_bridge.py
-ms_jarvis_consciousness_bridge.py.original
-ms_jarvis_consciousness_bridge.py.phase1_working
-ms_jarvis_consciousness_bridge.py.safe_backup
-ms_jarvis_consciousness_bridge.py.working_backup
-ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
-ms_jarvis_consciousness_bridge_enhanced.py
-ms_jarvis_consciousness_bridge_parallel_woah.py
-ms_jarvis_consciousness_bridge_service.py
-ms_jarvis_consciousness_bridge_woah.psychology_patched.py
-ms_jarvis_consciousness_bridge_woah.py
-ms_jarvis_consciousness_complete.py
-ms_jarvis_consciousness_enhancement_production.py
-ms_jarvis_consciousness_final.py
-ms_jarvis_consciousness_poster.py
-ms_jarvis_consciousness_poster_FIXED.py
-ms_jarvis_consciousness_unified_bridge.py
-ms_jarvis_consensus_service.py
-ms_jarvis_contract_builder.py
-ms_jarvis_contract_builder_v2.py
-ms_jarvis_contract_forge.py
-ms_jarvis_conversational_chat.py
-ms_jarvis_conversational_gateway_4022.py
-ms_jarvis_daily_backup.py
-ms_jarvis_darwin_godel_machine.py
-ms_jarvis_dynamic_model_selector.py
-ms_jarvis_easyocr_processor.py
-ms_jarvis_easyocr_processor_old.py
-ms_jarvis_email_identity_verifier.py
-ms_jarvis_email_monitor.py
-ms_jarvis_email_service.py
-ms_jarvis_eternal_watchdog.py
-ms_jarvis_eternal_watchdog.py.NEW
-ms_jarvis_eternal_watchdog.py.ORIGINAL
-ms_jarvis_exclusive_training_layer.py
-ms_jarvis_expiration_monitor.py
-ms_jarvis_facebook_CONSCIOUSNESS.py
-ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py
-ms_jarvis_facebook_DGM.py
-ms_jarvis_facebook_PRODUCTION.py
-ms_jarvis_facebook_ULTIMATE.py.OLD
-ms_jarvis_facebook_async.py
-ms_jarvis_facebook_autonomous_social.py
-ms_jarvis_facebook_brain_integrated.py
-ms_jarvis_facebook_dgm_woah.psychology_patched.py
-ms_jarvis_facebook_dgm_woah.py
-ms_jarvis_facebook_full.py
-ms_jarvis_facebook_intelligent.py
-ms_jarvis_facebook_poster.py
-ms_jarvis_facebook_poster_8040.py
-ms_jarvis_facebook_poster_FIXED.py
-ms_jarvis_facebook_poster_temp.py
-ms_jarvis_facebook_poster_v3.py
-ms_jarvis_facebook_rag.py
-ms_jarvis_facebook_webhook.py
-ms_jarvis_facebook_webhooks.py
-ms_jarvis_fact_filter.py
-ms_jarvis_feed_reader_PRODUCTION.py
-ms_jarvis_feed_reader_WORKING.py
-ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
-ms_jarvis_fifth_dgm_orchestrator.py
-ms_jarvis_fractal_consciousness.py
-ms_jarvis_fractal_consciousness_FIXED.py
-ms_jarvis_fractal_dgm_woah.py
-ms_jarvis_full_neurobio_chat.py
-ms_jarvis_fully_autonomous_coordinator.py
-ms_jarvis_generate_frontend.py
-ms_jarvis_geo_tracker_simple.py
-ms_jarvis_geo_ueid_integration.py
-ms_jarvis_geographic_research.js
-ms_jarvis_gis_enhanced_chat.py
-ms_jarvis_gis_georeferencing_sync.py
-ms_jarvis_gis_georeferencing_sync_FIXED.py
-ms_jarvis_gis_georeferencing_sync_FIXED_V2.py
-ms_jarvis_gis_query_service.py
-ms_jarvis_gis_query_service_backup.py
-ms_jarvis_gis_query_with_bbb_gisgeodb.psychology_patched.py
-ms_jarvis_gis_query_with_bbb_gisgeodb.py
-ms_jarvis_i_containers_FIXED.py
-ms_jarvis_i_containers_service.py
-ms_jarvis_id_ocr_processor.py
-ms_jarvis_integration_hub.py
-ms_jarvis_layer2_dgm.psychology_patched.py
-ms_jarvis_layer2_dgm.py
-ms_jarvis_layer2_woah.py
-ms_jarvis_link_reader_scheduled.py
-ms_jarvis_link_reader_scheduled_FIXED.py
-ms_jarvis_llm_bridge.py
-ms_jarvis_llm_bridge_simple.py
-ms_jarvis_local_resources_api.py
-ms_jarvis_location_services.py
-ms_jarvis_main_gateway.error_final
-ms_jarvis_main_gateway.error_final.py
-ms_jarvis_main_gateway.pre_fix.py
-ms_jarvis_main_gateway.proxy_backup.py
-ms_jarvis_main_gateway.proxy_final.py
-ms_jarvis_main_gateway.proxy_still_broken.py
-ms_jarvis_main_gateway.py
-ms_jarvis_main_gateway.py.30endpoints_backup.py
-ms_jarvis_main_gateway.py.full_backup_1762223304.py
-ms_jarvis_main_gateway.py.locked_backup
-ms_jarvis_main_gateway_8000.py
-ms_jarvis_memory.py
-ms_jarvis_memory_service.py
-ms_jarvis_messenger_ui.py
-ms_jarvis_messenger_ui_final.py
-ms_jarvis_messenger_ui_fixed.py
-ms_jarvis_metadata_aware_learner.py
-ms_jarvis_microsoft_integration.py
-ms_jarvis_microsoft_integration_FIXED.py
-ms_jarvis_mother_carrie_protocols.py
-ms_jarvis_mountainshares_integration.py
-ms_jarvis_neurobiological_master.py
-ms_jarvis_paddleocr_processor.py
-ms_jarvis_phi_probe.py
-ms_jarvis_production_chat.py
-ms_jarvis_production_chat_BACKUP.py
-ms_jarvis_production_chat_BEFORE_GIS.py
-ms_jarvis_psychology_services.py
-ms_jarvis_qualia_engine.py
-ms_jarvis_rag_server.py
-ms_jarvis_rag_server.py.20260515_201523.bak
-ms_jarvis_rag_server.py.dgm_backup
-ms_jarvis_ram_watchdog.py
-ms_jarvis_seamless_monitor.py
-ms_jarvis_service_factory.py
-ms_jarvis_showcase_api.py
-ms_jarvis_silent_geo_tracker.py
-ms_jarvis_simple_web_ui.py
-ms_jarvis_spiritual_services.py
-ms_jarvis_substack_reader.py
-ms_jarvis_swap_memory_manager.py
-ms_jarvis_swarm_intelligence.py
-ms_jarvis_sync_monitor.py
-ms_jarvis_temporal_consciousness.py
-ms_jarvis_theological_integration.py
-ms_jarvis_toroidal_consciousness.py
-ms_jarvis_truth_filter_gisgeodb.py
-ms_jarvis_ueid_system.py
-ms_jarvis_ueid_wallet_integration.py
-ms_jarvis_unified_gateway.py
-ms_jarvis_unified_gateway.py.BEFORE_REAL_CHAT_1768842649
-ms_jarvis_unified_gateway.py.FORCED_UNIFIED_BACKUP
-ms_jarvis_unified_gateway.py.WORKING_1768842334
-ms_jarvis_unified_gateway.py.bak-pre-sheldon-memory
-ms_jarvis_unified_gateway_v4.3.20251124.py
-ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py
-ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py
-ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py
-ms_jarvis_unified_gateway_v4.3.py
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_1762777467
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_AUTH_1762778121
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_CHAT_1762778286
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_CORRECT_20251109_141823
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_DNSADD_202511100838
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_GIS
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_JWT_202511100840
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_MICROSERVICES
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_OPENCHAT_202511100915
-ms_jarvis_unified_gateway_v4.3.py.BACKUP_SWAGGER_EXPANSION_20251109_141525
-ms_jarvis_unified_gateway_v4.3.py.BEFORE_INVESTIGATION
-ms_jarvis_unified_gateway_v4.3.py.FINAL_BACKUP_1762710032
-ms_jarvis_unified_gateway_v4.3.py.PRE_GUARDS_20251105_171934
-ms_jarvis_unified_gateway_v4.3.py.REGISTRY_FIX_BACKUP
-ms_jarvis_unified_gateway_v4.3.py.original
-ms_jarvis_unified_gateway_v4.3.py.working_backup
-ms_jarvis_unified_rag_bridge.py
-ms_jarvis_unified_swagger_gateway.py
-ms_jarvis_unified_swagger_gateway_BACKUP.py
-ms_jarvis_unified_swagger_gateway_CLEAN.py
-ms_jarvis_unified_swagger_gateway_COMPLETE.py
-ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.py
-ms_jarvis_unified_swagger_gateway_FINAL.py
-ms_jarvis_unified_swagger_gateway_FINAL.py.layer2_backup
-ms_jarvis_unified_swagger_gateway_FIXED.py
-ms_jarvis_unified_swagger_gateway_FIXED.py.new
-ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
-ms_jarvis_unified_swagger_gateway_PROD.py
-ms_jarvis_unified_swagger_gateway_SECURED.py
-ms_jarvis_venv_scheduler.py
-ms_jarvis_venv_scheduler_FIXED.bak
-ms_jarvis_venv_scheduler_FIXED.bak2
-ms_jarvis_venv_scheduler_FIXED.bakfinal
-ms_jarvis_venv_scheduler_FIXED.final_bak
-ms_jarvis_venv_scheduler_FIXED.py
-ms_jarvis_venv_scheduler_FIXED.safe
-ms_jarvis_venv_scheduler_FIXED.safe2
-ms_jarvis_venv_scheduler_FIXED.superbak
-ms_jarvis_venv_scheduler_FIXED.totalsafe
-ms_jarvis_venv_scheduler_FIXED.ultimate_bak
-ms_jarvis_venv_scheduler_FIXED.ultrasafe
-ms_jarvis_venv_scheduler_SIMPLE.py
-ms_jarvis_web_deployer.py
-ms_jarvis_web_deployer_old.py
-ms_jarvis_web_research.py
-ms_jarvis_web_research_aggregate.py
-ms_jarvis_web_research_aggregate.safe.20260119-094221.py
-ms_jarvis_web_research_fixed.py
-ms_jarvis_web_research_simple.py
-ms_jarvis_web_research_v2.py
-ms_jarvis_woah_algorithms.py
-ms_jarvis_woah_algorithms_enhanced.py
-ms_mountainshares_analytics.py
-ms_mountainshares_coordinator.py
-ms_mountainshares_indexer.py
-msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py
-msjarvis-rebuild-nbb_consciousness_containers-1_main.py
-msjarvis-rebuild-nbb_heteroglobulin_transport-1_main.py
-msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
-msjarvis-rebuild-nbb_mother_carrie_protocols-1_main.py
-msjarvis-rebuild-nbb_pituitary_gland-1_main.py
-msjarvis-rebuild-nbb_prefrontal_cortex-1_main.py
-msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py
-msjarvis-rebuild-nbb_spiritual_maternal_integration-1_main.py
-msjarvis-rebuild-nbb_spiritual_root-1_main.py
-msjarvis-rebuild-nbb_subconscious-1_main.py
-msjarvis-rebuild-nbb_woah_algorithms-1_service_discovery.py
-msjarvis.service
-msjarvis_autolearner_minimal.py
-msjarvis_bbb_proxy.py
-msjarvis_benefit_rag.py
-msjarvis_client.py
-msjarvis_fractal_consciousness.py
-msjarvis_functions_fixed.zip
-msjarvis_gateway_v2_final.py
-msjarvis_gateway_with_judge_filtering.py
-msjarvis_geotiff_to_csv.sh
-msjarvis_icontainers.py
-msjarvis_ports_runtime.txt
-msjarvis_processes_runtime.txt
-msjarvis_semaphore.py
-msjarvis_shp_to_csv.sh
-msjarvis_unified_gateway.py
-msjarvis_woah_algorithms.py
-msjarvis_woah_algorithms_service.py
-msjarvis_woah_runner.py
-msjarvis_wv_entangled_gateway.py
-msjarvisautonomouslearner.py
-msjarvisconsciousnessbridge.py
-msjarvisconsciousnessbridge.py.FULL_BACKUP_BEFORE_BRIDGE_RESET
-msjarvisconsciousnessbridge_ACTUAL.py
-msjarvisfractalconsciousness.py
-msjarvisicontainersservice.py
-msjarvismaingateway.py
-msjarvisragserver_wvpatch.py
-msjarvisragserverwvpatch.py
-msjarvistoroidalconsciousness.py
-msjarvisunifiedgateway.py
-msjarvisunifiedswaggergateway.py
-msjarvisunifiedswaggergatewayFINAL.py
-msjarvisunifiedswaggergatewayFIXED.py
-msjarvisunifiedswaggergatewayFIXED.py.BEFORE_DOCKER_REWIRE
-multi_model_consensus.py
-multi_rag_dgm_system.py
-my_service.py
-nbb
-nbb_darwin_godel_machines.py
-nbb_darwin_godel_machines_msjarvis-rebuild-nbb_spiritual_root-1_main.py
-netlify.toml
-neuro_adapter.py
-neuro_blood_brain_barrier.py
-neuro_consciousness_containers.py
-neuro_i_containers.py
-neuro_master_service.py
-neuro_prefrontal_cortex.py
-neuro_qualia_engine.py
-neuro_subconscious.py
-neurobiological_brain
-neurobiological_integration.py
-neurobiologicalbrainicontainersservice
-nohup.out
-normalize_owner.py
-npm-deps.json
-npm-packages.txt
-oauth2_callback.py
-oauth2_config.json
-oauth2_handler.py
-old_chroma_analysis.json
-ollama_fix.py
-ollama_warmup.sh
-open_ports.txt
-open_ports_full.txt
-openapitools.json
-optimize_egeria_complete.py
-optimize_models_for_vram.py
-optimized_timeouts.py
-otel_tracing.py
-override_launcher.py
-package-lock.json
-package.json
-paired_services.txt
-parallel_processing.py
-parse_world_files.py
-patch_agent_identity.py
-patch_autonomous_learner_gisgeodb.py
-patch_fractal.py
-patch_gateway_gis_rag.py
-patch_learner_clean.py
-patch_mother_persona.py
-patch_neuro.py
-patch_qualia.py
-performance_optimization_analyzer.py
-persona_fix.txt
-phase1_integration.py
-phase2_integration.py
-phase3_integration.py
-phase4_5_integration.py
-phase6_integration.py
-phase7_integration.py
-pia_event_emitters.py
-pid_code_backtrace.txt
-pid_dir_map.txt
-pid_port_map.txt
-pituitary_gland.py
-polling_client.py
-populate_redetermination_tracker.py
-populate_security_layers_test.py
-populate_semantic_axes.py
-port_9000_69dgm_bridge.py
-port_9000_academic_extension.py
-port_9000_chat_wrapper_69dgm.py
-port_9001_ARCHITECTURE_CORRECT.py
-port_9001_FINAL_FIX.py
-port_9001_FINAL_WORKING.py
-port_9001_proxy_simple.py
-port_9001_ui_DIRECT.py
-port_9001_ui_FIXED.py
-port_9001_ui_MYSQL.py
-port_9001_ui_MYSQL_PROD.py
-port_9001_ui_WITH_CONVERSATIONS.py
-port_9001_ui_WORKING.py
-port_9001_ui_wrapper.py
-port_manager.py
-port_manager_fixed.py
-port_service_audit.txt
-ports_diff_msjarvis.txt
-post_every_4_hours.sh
-private_identity_ledger.py
-privkey.pem
-probe_services.py
-process_comprehensive_gis.py
-process_gis_shapefiles.py
-process_statewide_gis_bulk.py
-processed_gis
-prod.yaml
-pronoun_fixer.py
-provenance_middleware.py
-proxy_8060.py
-psychological_rag_domain.py
-psychological_rag_domain_psychological_rag_domain.py
-psychology_integration_adapter.py
-psychology_loop_closer.py
-psychology_server.py
-public_form_simplified.py
-python
-python_commands.txt
-python_ports.txt
-qualia_adapter.py
-qualia_email_registration_orchestrator_69dgm.py
-qualia_unified_orchestrator_69dgm.py
-qualia_unified_orchestrator_69dgm_ACTIVE.py
-qualia_unified_write_orchestrator_69dgm.py
-qualiaunifiedorchestrator69dgm.py
-quantum_dashboard.py
-quantum_insight_llm.py
-quantum_state_engine.py
-query_benefits_system.py
-query_enhancer.js
-query_imm_and_programs.py
-quick_optimizations.py
-quick_tone_test.sh
-rag
-rag_5100_ensemble.py
-rag_5100_ensemble_fast.py
-rag_5100_final.py
-rag_client.py
-rag_command_module.py
-rag_direct_debug.py
-rag_evidence_aggregator.py
-rag_first_workflow.py
-rag_general.py
-rag_geospatial.py
-rag_geospatial_context.py
-rag_grounded_v2.py
-rag_heartbeat_monitor.py
-rag_local_resources.py
-rag_query_router.py
-rag_server.psychology_patched.py
-rag_server.py
-rag_server_main.py
-rag_server_main.py.RAG_WORKING_20260116
-rag_server_main.py.norag.20260119-091256
-rag_server_main.py.stub.20260119-091532
-rag_server_min.py
-rag_simple.py
-rag_temporal.py
-rag_temporal_heartbeat.py
-rag_to_gis_sync.py
-rag_topic_router.py
-rag_workflow.py
-read_architecture_docs.sh
-read_dgm_architecture.sh
-real_services.txt
-real_services_clean.txt
-real_services_detected.txt
-real_services_final.txt
-real_services_prod.txt
-rebuild_query_service.py
-rechunk_fayette_resources.py
-rechunk_oversized.py
-recover_160_queries.py
-recover_chromadb_FIXED.py
-recover_chromadb_to_gisgeodb.py
-redirect_4015_to_4020.py
-register_agents_from_csv.py
-register_agents_from_csv.sh
-register_agents_from_csv_strict.py
-register_all_services.sh
-register_hilbert_services.py
-register_services.py
-register_to_hilbert_chromadb.py
-registration_biometric_production_final.py
-registration_facebook_form.html
-registration_pipeline.py
-registration_service.py
-registration_service_clean.py
-reindex_chroma_metadata.py
-reload_all_knowledge.py
-remaining_services.txt
-remove_duplicate_inits.py
-replace_dolphin_phi.py
-requirements-freeze.txt
-requirements-ingest.txt
-requirements-judge.txt
-requirements-list.txt
-requirements-neuro.txt
-requirements-rag.txt
-requirements.constitutional_guardian.txt
-requirements.txt
-requirements_semaphore.txt
-requirements_temporal.txt
-requirements_toroidal.txt
-response.json
-response_filter.py
-response_sanitizer.py
-rest_endpoints.txt
-restart_all_services.sh
-restart_and_verify_8008.sh
-restart_ms_jarvis_services.sh
-restore_pia_wiring.py
-restored_documents.json
-resume_ingest_gbim_to_chroma.py
-resume_sync_wvgistc_buildings.py
-retrieval_router.py
-retrieval_spiritual.py
-roche_llm.py
-roche_llm.stub.py
-rotate_judge_keys.sh
-route_declarations_clean.txt
-route_declarations_raw.txt
-routes
-rpm-list.txt
-run_agi_test_suite.sh
-run_autonomous_learner_once.py
-run_gateway_with_guards.py
-running_python_services.txt
-s
-safe_ingest_gbim_to_chroma.py
-safe_integration.py
-safety_monitor.py
-sanctuary_construction_monitor.py
-sanctuary_construction_monitor_gateway.py
-schema_aware_topic_planner.py
-schema_registry.py
-scripts
-search_different_perspective.sh
-search_metadata.py
-search_metadata.py:
-search_wsl_backup.sh
-seed_admin_user.py
-seed_data
-seed_local_resources.sql
-seed_spatial_identity.py
-serve_full_brain.sh
-server.js
-service_api_check.txt
-service_api_report.txt
-service_discovery.py
-service_discovery_glassbox.py
-service_endpoints.json
-service_http_check.txt
-service_pid_directory_map.txt
-service_registry_client.py
-services
-services_config.yaml
-services_config.yaml.bak_1760565919
-services_list.txt
-services_manifest_progress.md
-services_msjarvisunifiedgatewayv4_3.py
-services_safe.py
-ses related to Ms. Jarvis
-session_sidecar
-session_sidecar_client.py
-set_intelligent_accuracy_scores.py
-set_ultra_long_timeout.sh
-settings_snippet.txt
-setup_frontend.sh
-setup_holy_spirit_discovery.sh
-setup_holy_spirit_email_alert_both.sh
-setup_rag.sh
-setup_rag_standalone.sh
-silence_memory_errors
-silence_memory_errors.py
-simple_orchestrator_fix.py
-simple_prompt_fix.py
-smart_auto_store.py
-spiritual_filter.py
-spiritual_origins.geojson
-spiritual_rag_domain.py
-stage2_biometric.py
-stage2_biometric_backup.py
-stakeholder_health_access_tests.py
-stakeholder_health_access_tests_v2.py
-start_all_jarvis_services_manual.sh
-start_all_msjarvis_services.sh
-start_all_services.sh
-start_all_services_with_ports.sh
-start_and_integrate_web_research.sh
-start_cloudflare_tunnel.sh
-start_command_orchestrator.sh
-start_critical_msjarvis_services.sh
-start_dgm_woah.sh
-start_egeria_voice_service.sh
-start_email_service_with_env.sh
-start_facebook_4021.py
-start_gateway_with_guards.py
-start_gateway_with_guards.py.BACKUP
-start_hilbert_8235.sh
-start_mountainshares_deployment.sh
-start_msjarvis_complete.sh
-start_msjarvis_services_fixed.sh
-start_services_simple.sh
-start_swap_manager.sh
-static
-steganography_detection.py
-stop_all_services.sh
-store_test.json
-stripe-config.js
-substack_rss_reader.py
-summarize_docs.py
-swagger-config.json
-swagger_chat_integration.py
-swagger_gateway.py
-swagger_gateway.py.PORT8000_BACKUP
-swagger_gateway_FIXED.py
-swarm_intelligence_main.py
-swarm_watchdog.py
-switch_to_22llm.sh
-switch_to_small_models.py
-sync_geodb_to_chromadb.py
-sync_health_access_to_chromadb.py
-system_dashboard.py
-tag_quantum_gbim.py
-talk.sh
-talk_safely.sh
-talk_safely_FIXED.sh
-talk_to_jarvis.py
-talk_with_save.sh
-temporal_consciousness.py
-test.py
-test_aacpe_features.py
-test_aapcappe_corpus.py
-test_aapcappe_retrieval.py
-test_agi_capabilities.sh
-test_agi_full_responses.sh
-test_all_32_services.sh
-test_all_models.sh
-test_all_models_fixed.sh
-test_authentic_voice.sh
-test_chroma_client.py
-test_chromadb_heartbeat.py
-test_chromadb_v2_heartbeat.py
-test_ddg_verbose.py
-test_email_after_consent.sh
-test_end_to_end_woah_fifthdgm.py
-test_fifth_dgm_integration.py
-test_final_config.sh
-test_final_stable.sh
-test_full_brain_integration.py
-test_gbim_llm_summary.py
-test_gbim_semantic_query.py
-test_geodb_llm_summary.py
-test_gis_chat.py
-test_health_access_gbim.py
-test_imm_query.py
-test_knowledge_base.py
-test_method_tracking.py
-test_multi_collection_query.py
-test_rag.py
-test_retrieval_endpoint.py
-test_spatial_awareness.py
-tests
-threat_detection.py
-token_service.py
-tools
-topic_entanglement.py
-toroidal_service.py
-trigger_entangled_assets.py
-truly_unpaired_services.txt
-truth_filter_bbb_verification.py
-truth_filter_service.py
-udo ss -tulpn | grep -Ei 'msjarvis|uvicorn|docker-proxy' 
-uei_service.py
-ultimate_audit_with_scheduler.sh
-ultimate_chat_current.txt
-ultimate_msjarvis_audit.sh
-ultimate_web_orchestrator.py
-ultra_deep_dgm_search.sh
-unified_consciousness_gateway_PRODUCTION.py
-unified_orchestrator.py
-unifiedconsciousnessgatewayPRODUCTION.py
-update_carrie_keywords.py
-update_chat_endpoint.sh
-update_facebook_poster.py
-update_gisgeodb_schema.py
-update_production_to_v9.py
-update_services_to_use_port_manager.py
-update_theological_boundaries.py
-update_web_chat.py
-update_web_research_package.py
-upgrade_node_and_setup.sh
-use_existing_models.py
-use_reliable_models_only.py
-user_auth_service.py
-user_dashboard.py
-user_registration_form.html
-vatican_scraper_service.py
-vectorize_gis_to_chromadb.py
-verify_and_document_system.py
-verify_benefit_chroma_sync.py
-verify_facebook_deployment.sh
-view_docs.sh
-wallet_service.py
-watch_startup.sh
-web_chat_server.py
-web_connectivity_analyzer.py
-web_deployer.env
-web_page_ingest.py
-web_research.py
-web_research_fail_tracker.py
-web_research_main.py
-web_research_proxy_8007.py
-web_research_requirements.txt
-webhook_notifications.py
-website_deployment_manager.py
-wire_layers_into_chat.py
-wire_learner_to_gisgeodb.py
-wire_qualia_to_port8001.py
-woah_command_module.py
-woah_metrics_router.py
-woah_optimizer.py
-woah_policy_update.py
-woah_population_state.py
-woah_qualia_bridge.py
-woah_service.py
-working_full_pipeline.py
-working_full_pipeline_FINAL_CONSCIOUSNESS.py
-working_full_pipeline_WITH_SPATIAL_TEMPORAL.py
-wv_entangled_stub_proxies.py
-wv_gis_mass_downloader.py
-wvu_ldap_auth.py
-yarn-packages.txt
-CMD: ['python', '-m', 'uvicorn', 'auth_api:app', '--host', '0.0.0.0', '--port', '8091']
-Entrypoint: None
-WorkingDir: /app
+# And the main entrypoint to see how it's wired
+docker exec jarvis-auth-api cat /app/services/main.py | head -60
+16:import psycopg2 as _kyc_pg
+19:_KYC_DSN = (os.getenv("POSTGRES_DSN") or
+22:def _write_kyc_vault(public_uuid: str, name: str, ueid: str):
+23:    """Write verified name to kyc_vault secret tier. Never stored in Redis."""
+25:        conn = _kyc_pg.connect(_KYC_DSN)
+28:            "INSERT INTO kyc_vault "
+29:            "(secret_uuid, verified_name, kyc_provider, kyc_reference, privacy_tier, is_active) "
+36:        logger.info(f"[KYC] Vault record written for {public_uuid}")
+38:        logger.error(f"[KYC] Failed to write vault record: {exc}")
+178:    # Write PII name to kyc_vault (secret tier) — not Redis
+179:    _write_kyc_vault(public_uuid, body.name, ueid)
+from __future__ import annotations
+import os, logging, uuid, secrets, hashlib, base64
+from datetime import datetime, timezone
+from typing import Annotated
+import redis as redis_mod
+from eth_account import Account
+from cryptography.fernet import Fernet
+from fastapi import APIRouter, HTTPException, Depends, Request, status
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from pydantic import BaseModel, Field
+from application_service import ApplicationService, InvalidApplicationError, CURRENT_AGREEMENT_VERSION
+from registration_service import RegistrationService
+from token_service import TokenService
+from uei_service import UEIService
+from email_service import send_approval_email
+import psycopg2 as _kyc_pg
+
+logger = logging.getLogger("auth_router")
+_KYC_DSN = (os.getenv("POSTGRES_DSN") or
+            "postgresql://postgres:postgres@jarvis-local-resources-db:5432/msjarvisgis")
+
+def _write_kyc_vault(public_uuid: str, name: str, ueid: str):
+    """Write verified name to kyc_vault secret tier. Never stored in Redis."""
+    try:
+        conn = _kyc_pg.connect(_KYC_DSN)
+        cur  = conn.cursor()
+        cur.execute(
+            "INSERT INTO kyc_vault "
+            "(secret_uuid, verified_name, kyc_provider, kyc_reference, privacy_tier, is_active) "
+            "VALUES (%s, %s, %s, %s, %s, %s) "
+            "ON CONFLICT (secret_uuid) DO NOTHING",
+            (public_uuid, name, "self_declared", ueid or public_uuid, "secret", True)
+        )
+        conn.commit()
+        conn.close()
+        logger.info(f"[KYC] Vault record written for {public_uuid}")
+    except Exception as exc:
+        logger.error(f"[KYC] Failed to write vault record: {exc}")
+        raise
+auth_router = APIRouter(prefix="/auth", tags=["auth"])
+_REDIS_URL = os.getenv("REDIS_URL", "redis://127.0.0.1:6379/0")
+_svc: dict = {}
+
+
+def _get_fernet() -> Fernet:
+    key = hashlib.sha256(
+        os.getenv("WALLET_ENCRYPT_KEY", "changeme-set-WALLET_ENCRYPT_KEY-env").encode()
+    ).digest()
+    return Fernet(base64.urlsafe_b64encode(key))
+
+
+def _get_services():
+    if "reg" not in _svc:
+        r = redis_mod.Redis.from_url(_REDIS_URL, decode_responses=True)
+        uei = UEIService(r)
+        app_svc = ApplicationService(r, uei)
+        _svc["reg"] = RegistrationService(app_svc)
+        _svc["tok"] = TokenService(r)
+        _svc["r"] = r
+    return _svc["reg"], _svc["tok"], _svc["r"]
+
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
+
+
+async def _current_user(token: Annotated[str, Depends(oauth2_scheme)]):
+    _, tok, _ = _get_services()
+    payload = tok.verify_access_token(token)
+    if payload is None:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid or expired token",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    return payload
+
+
+class RegistrationRequest(BaseModel):
+    name: str = Field(..., min_length=2, max_length=120)
+    email: str
+    county: str = Field(..., min_length=2, max_length=60)
+    motivation: str = Field(..., min_length=10, max_length=2000)
+    agreement_accepted: bool
+    agreement_version: str = CURRENT_AGREEMENT_VERSION
+    address_street: str | None = None
+    address_city: str | None = None
+    address_state: str | None = None
+    address_zip: str | None = None
+    dl_image_b64: str | None = None
+    selfie_b64: str | None = None
+    bsc_status: str = "prefer_not_to_say"
+
+
+class RegistrationResponse(BaseModel):
+    application_id: str
+    proposed_userid: str
+    agreement_version: str
+    message: str
+
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+    expires_in: int
+
+
+class RefreshRequest(BaseModel):
+    refresh_token: str
+
+
+class MeResponse(BaseModel):
+    userid: str
+    uei: str | None = None
+    roles: list[str] = []
+    county: str | None = None
+
+
+@auth_router.post("/register", response_model=RegistrationResponse, status_code=201)
+async def register(body: RegistrationRequest, request: Request):
+    reg_svc, _, r = _get_services()
+    ip = request.client.host if request.client else "unknown"
+    try:
+        result = reg_svc.submit_application(
+            name=body.name,
+            email=body.email,
+            county=body.county,
+            motivation=body.motivation,
+            agreement_accepted=body.agreement_accepted,
+            agreement_version=body.agreement_version,
+            ip_address=ip,
+        )
+    except InvalidApplicationError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
+
+    # ── Bug 3: one account per human ─────────────────────────────────────
+    if r.exists(f"email_to_uuid:{body.email}"):
+        raise HTTPException(status_code=409, detail="An account with this email already exists.")
+    public_uuid = str(uuid.uuid4())
+    temp_password = secrets.token_urlsafe(12)
+    wallet = Account.create(extra_entropy=secrets.token_hex(32))
+    encrypted_pk = _get_fernet().encrypt(wallet.key.hex().encode()).decode()
+
+    # ── Registration pipeline: DL OCR + UEID + immutable record ──────────────
+    from registration_pipeline import run_registration_pipeline
+    pipeline_ok, pipeline_msg, ueid = run_registration_pipeline(
+        name=body.name,
+        email=body.email,
+        dl_image_b64=body.dl_image_b64,
+        selfie_b64=body.selfie_b64,
+        wallet_address=wallet.address,
+        wallet_private_key_encrypted=encrypted_pk,
+    )
+    if not pipeline_ok:
+        raise HTTPException(status_code=422, detail=pipeline_msg)
+    # ─────────────────────────────────────────────────────────────────────────
+
+    user_count = sum(1 for _ in r.scan_iter("user:*"))
+    is_first_user = (user_count == 0)
+    initial_roles  = "admin,user" if is_first_user else ""
+    initial_status = "approved_pending_login" if is_first_user else "pending_first_login"
+
+    r.hset(f"user:{public_uuid}", mapping={
+        "public_uuid":        public_uuid,
+        "proposed_userid":    result.proposed_userid,
+        "email":              body.email,
+        "county":             body.county,
+        "userid":             result.proposed_userid,
+        "temp_password":      temp_password,
+        "status":             initial_status,
+        "roles":              initial_roles,
+        "created_at":         datetime.now(timezone.utc).isoformat(),
+        "wallet_address":     wallet.address,
+        "wallet_private_key": encrypted_pk,
+        "ueid":               ueid,
+        "bsc_status":         body.bsc_status,
+    })
+
+    # Write PII name to kyc_vault (secret tier) — not Redis
+    _write_kyc_vault(public_uuid, body.name, ueid)
+
+    if is_first_user:
+        try:
+            reg_svc._apps.mark_approved(
+                application_id=result.application_id,
+                approved_by="bootstrap",
+                final_userid=result.proposed_userid,
+            )
+            logger.info(f"[AUTH] First user bootstrap: {public_uuid} auto-promoted to admin")
+        except Exception as exc:
+            logger.warning(f"[AUTH] First-user auto-approve failed: {exc}")
+    r.set(f"email_to_uuid:{body.email}", public_uuid)
+    r.set(f"wallet_to_uuid:{wallet.address}", public_uuid)
+    logger.info(f"[AUTH] Registered {public_uuid} county={body.county} wallet={wallet.address}")
+    # NOTE: No email sent here. Email fires only on admin approval.
+    return RegistrationResponse(
+        application_id=result.application_id,
+        proposed_userid=result.proposed_userid,
+        agreement_version=result.agreement_version,
+        message=result.message,
+    )
+
+
+
+@auth_router.post("/logout", status_code=200)
+async def logout(token: str = Depends(oauth2_scheme)):
+    """Invalidate the bearer token server-side."""
+    tok.revoke_token(token)
+    return {"status": "logged_out"}
+
+
+@auth_router.post("/login", response_model=TokenResponse)
+async def login(form: Annotated[OAuth2PasswordRequestForm, Depends()]):
+    """Login accepts either email OR proposed_userid as the username field."""
+    _, tok, _ = _get_services()
+    result = tok.authenticate(form.username, form.password)
+    if result is None:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid username or password",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    return TokenResponse(
+        access_token=result["access_token"],
+        expires_in=result["expires_in"],
+    )
+
+@auth_router.get("/me", response_model=MeResponse)
+async def me(payload: Annotated[dict, Depends(_current_user)]):
+    """Look up canonical user fields from Redis by proposed_userid."""
+    _, _, r = _get_services()
+    sub = payload.get("sub", "")
+    user = None
+    for key in r.scan_iter("user:*"):
+        rec = r.hgetall(key)
+        if rec.get("proposed_userid") == sub:
+            user = rec
+            break
+    if not user:
+        return MeResponse(
+            userid=sub,
+            uei=payload.get("uei"),
+            roles=payload.get("roles", []),
+            county=payload.get("county"),
+        )
+    roles = [rr for rr in user.get("roles", "user").split(",") if rr]
+    return MeResponse(
+        userid=sub,
+        uei=user.get("ueid", ""),
+        roles=roles,
+        county=user.get("county", ""),
+    )
+
+
+
+# ── Admin: chat metrics ──────────────────────────────────────────────────────
+
+@auth_router.get("/admin/chat-metrics")
+async def admin_chat_metrics(payload: Annotated[dict, Depends(_current_user)]):
+    if "admin" not in payload.get("roles", []):
+        raise HTTPException(status_code=403, detail="Admin required")
+
+    import json
+    from pathlib import Path
+
+    metrics_path = Path("/opt/msjarvis-rebuild/admin-data/chat_metrics_24h.json")
+    if not metrics_path.exists():
+        raise HTTPException(status_code=404, detail="chat metrics file not found")
+
+    try:
+        return json.loads(metrics_path.read_text())
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"could not load chat metrics: {e}")
+
+
+# ── Admin: list pending applications ─────────────────────────────────────────
+
+@auth_router.get("/applications/pending")
+async def list_pending(payload: Annotated[dict, Depends(_current_user)]):
+    if "admin" not in payload.get("roles", []):
+        raise HTTPException(status_code=403, detail="Admin required")
+    reg_svc, _, _ = _get_services()
+    apps = reg_svc._apps.list_pending()
+
+    # Annotate each application with county champion warning
+    import psycopg2 as _pg, os as _os
+    _dsn = _os.environ.get("POSTGRES_DSN") or _os.environ.get("DATABASE_URL")
+    champion_counties = {}
+    if _dsn:
+        try:
+            _conn = _pg.connect(_dsn)
+            _cur = _conn.cursor()
+            # Get all UEIDs that have founder tokens
+            _cur.execute("SELECT ueid FROM founder_tokens WHERE cohort = 'phase_0'")
+            _token_ueids = [row[0] for row in _cur.fetchall()]
+            _conn.close()
+            # Resolve UEID -> county via Redis
+            _, _, r2 = _get_services()
+            for _key in r2.scan_iter("user:*"):
+                _rec = r2.hgetall(_key)
+                if _rec.get("ueid") in _token_ueids:
+                    _county = _rec.get("county", "").strip()
+                    _userid = _rec.get("proposed_userid", _rec.get("public_uuid", "unknown"))
+                    if _county:
+                        champion_counties[_county.lower()] = _userid
+        except Exception as _e:
+            logger.warning(f"[ADMIN] County annotation failed (non-fatal): {_e}")
+
+    for app in apps:
+        app_county = (app.get("county") or "").strip().lower()
+        if app_county and app_county in champion_counties:
+            app["county_warning"] = f"⚠ {app.get('county')} already has a Champion ({champion_counties[app_county]})"
+        else:
+            app["county_warning"] = None
+
+    return {"applications": apps, "count": len(apps)}
+
+# ── Admin: approve application ────────────────────────────────────────────────
+
+class ApproveResponse(BaseModel):
+    application_id: str
+    public_uuid:    str
+    email:          str
+    message:        str
+
+
+@auth_router.post("/approve/{application_id}", response_model=ApproveResponse)
+async def approve_application(
+    application_id: str,
+    payload: Annotated[dict, Depends(_current_user)],
+):
+    """Approve a pending application. Sends temp-password email. Admin only."""
+    if "admin" not in payload.get("roles", []):
+        raise HTTPException(status_code=403, detail="Admin required")
+
+    reg_svc, tok, r = _get_services()
+    app_svc = reg_svc._apps
+
+    try:
+        app = app_svc.get_application(application_id)
+    except Exception:
+        raise HTTPException(status_code=404, detail=f"Application {application_id} not found")
+
+    email = app.get("email", "")
+    if not email:
+        raise HTTPException(status_code=422, detail="Application has no email address")
+
+    public_uuid = r.get(f"email_to_uuid:{email}")
+    if not public_uuid:
+        import secrets as _sec
+        public_uuid   = str(__import__("uuid").uuid4())
+        temp_pw       = _sec.token_urlsafe(16)
+        proposed_userid = app.get("proposed_userid", public_uuid)
+        r.set(f"email_to_uuid:{email}", public_uuid)
+        r.hset(f"user:{public_uuid}", mapping={
+            "email":           email,
+            "name":            app.get("name", ""),
+            "proposed_userid": proposed_userid,
+            "temp_password":   temp_pw,
+            "status":          "approved_pending_login",
+            "created_at":      __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat(),
+        })
+
+    user = r.hgetall(f"user:{public_uuid}")
+    if not user:
+        raise HTTPException(status_code=404, detail=f"User hash missing for {public_uuid}")
+
+    proposed_userid = user.get("proposed_userid", public_uuid)
+
+    app_svc.mark_approved(
+        application_id=application_id,
+        approved_by=payload.get("sub", "admin"),
+        final_userid=proposed_userid,
+    )
+
+    r.hset(f"user:{public_uuid}", mapping={
+        "status":      "approved_pending_login",
+        "approved_at": datetime.now(timezone.utc).isoformat(),
+        "approved_by": payload.get("sub", "admin"),
+    })
+    r.setex(f"temp_pw_expires:{public_uuid}", 72 * 3600, "1")
+
+    # ── Auto-mint founder token + zero balances on approval ──────────────────
+    try:
+        import psycopg2 as _pg, os as _os
+        _dsn = _os.environ.get("POSTGRES_DSN") or _os.environ.get("DATABASE_URL")
+        _ueid = r.hget(f"user:{public_uuid}", "ueid")
+        if _dsn and _ueid:
+            _conn = _pg.connect(_dsn)
+            _cur = _conn.cursor()
+            _cur.execute("INSERT INTO mountainshares_balances (ueid) VALUES (%s) ON CONFLICT DO NOTHING", (_ueid,))
+            _cur.execute("SELECT COALESCE(MAX(serial_number), 0) FROM founder_tokens")
+            _next = _cur.fetchone()[0] + 1
+            if _next <= 60:
+                _alloc = "red_team" if _next <= 5 else "county_champion"
+                _cur.execute(
+                    "INSERT INTO founder_tokens (serial_number, ueid, minted_by, cohort, allocation_type) "
+                    "VALUES (%s, %s, %s, %s, %s) ON CONFLICT DO NOTHING",
+                    (_next, _ueid, payload.get("sub", "admin"), "phase_0", _alloc)
+                )
+                logger.info(f"[FOUNDER] Minted token #{_next} ({_alloc}) for {_ueid}")
+                # Write founding grant ledger entry for red_team members
+                if _alloc == "red_team":
+                    _cur.execute("SELECT COUNT(*) FROM mountainshares_ledger WHERE ueid = %s AND transaction_type = 'founding_grant'", (_ueid,))
+                    if _cur.fetchone()[0] == 0:
+                     _cur.execute(
+                        "INSERT INTO mountainshares_ledger "
+                        "(ueid, transaction_type, amount, token_class, reason, reference_id, created_by) "
+                        "VALUES (%s, %s, %s, %s, %s, %s, %s)",
+                        (_ueid, "founding_grant", 100.0000, "EMS",
+                         "Phase 0 red_team founding allocation",
+                         f"PHASE0_RED_TEAM_GRANT_{str(_next).zfill(3)}",
+                         payload.get("sub", "admin"))
+                    )
+                    _cur.execute(
+                        "UPDATE mountainshares_balances SET ems_balance = ems_balance + 100.0000, "
+                        "last_updated = NOW() WHERE ueid = %s",
+                        (_ueid,)
+                    )
+                    logger.info(f"[FOUNDER] EMS founding grant written for {_ueid}")
+            else:
+                logger.info(f"[FOUNDER] Phase 0 cap (60) reached — no token minted for {_ueid}")
+            _conn.commit()
+            _conn.close()
+    except Exception as _e:
+        logger.warning(f"[FOUNDER] Auto-mint failed (non-fatal): {_e}")
+
+    temp_password = user.get("temp_password", "")
+    name          = user.get("name", email)
+    if not temp_password:
+        return ApproveResponse(
+            application_id=application_id,
+            public_uuid=public_uuid,
+            email=email,
+            message="User has already completed onboarding. No email sent.",
+        )
+    email_sent = False
+    email_error = ""
+    try:
+        email_sent = send_approval_email(
+            to=email,
+            name=name,
+            userid=proposed_userid,
+            temp_password=temp_password,
+        )
+        if email_sent:
+            logger.info(f"[AUTH] Approval email sent to {email} ({public_uuid})")
+        else:
+            email_error = "mailer returned false"
+            logger.warning(f"[AUTH] Approval email not confirmed for {email} ({public_uuid})")
+    except Exception as exc:
+        email_error = str(exc)
+        logger.warning(f"[AUTH] Approval email failed: {exc}")
+
+    return ApproveResponse(
+        application_id=application_id,
+        public_uuid=public_uuid,
+        email=email,
+        message=(f"Approved. Temp-password email dispatched to {email}."
+                 if email_sent else
+                 f"Approved, but email delivery failed: {email_error}"),
+    )
+
+
+# ── Admin: deny application ───────────────────────────────────────────────────
+
+class DenyRequest(BaseModel):
+    reason: str = Field(..., min_length=5, max_length=500)
+
+
+@auth_router.post("/deny/{application_id}")
+async def deny_application(
+    application_id: str,
+    body: DenyRequest,
+    payload: Annotated[dict, Depends(_current_user)],
+):
+    """Deny a pending application. Admin only."""
+    if "admin" not in payload.get("roles", []):
+        raise HTTPException(status_code=403, detail="Admin required")
+
+    reg_svc, _, r = _get_services()
+    app_svc = reg_svc._apps
+
+    try:
+        app = app_svc.get_application(application_id)
+    except Exception:
+        raise HTTPException(status_code=404, detail=f"Application {application_id} not found")
+
+    app_svc.mark_denied(
+        application_id=application_id,
+        denied_by=payload.get("sub", "admin"),
+        reason=body.reason,
+    )
+
+    email = app.get("email", "")
+    public_uuid = r.get(f"email_to_uuid:{email}") if email else None
+    if public_uuid:
+        r.hset(f"user:{public_uuid}", mapping={
+            "status":    "denied",
+            "denied_at": datetime.now(timezone.utc).isoformat(),
+            "denied_by": payload.get("sub", "admin"),
+        })
+
+    logger.info(f"[AUTH] Application {application_id} denied — {body.reason}")
+    return {"application_id": application_id, "status": "denied", "reason": body.reason}
+
+
+# ── First login: exchange temp password for real password ─────────────────────
+
+class FirstLoginRequest(BaseModel):
+    email:         str
+    temp_password: str
+    new_password:  str = Field(..., min_length=10, max_length=128)
+
+
+class FirstLoginResponse(BaseModel):
+    access_token:   str
+    token_type:     str = "bearer"
+    public_uuid:    str
+    wallet_address: str
+
+
+@auth_router.post("/first-login", response_model=FirstLoginResponse)
+async def first_login(body: FirstLoginRequest):
+    """Exchange temp password for a real password. Sets status → active."""
+    import bcrypt
+    _, tok, r = _get_services()
+
+    public_uuid = r.get(f"email_to_uuid:{body.email}")
+    if not public_uuid:
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+
+    user = r.hgetall(f"user:{public_uuid}")
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+
+    status = user.get("status", "")
+    if status not in ("approved_pending_login", "pending_first_login"):
+        raise HTTPException(status_code=403, detail=f"Account not eligible for first login (status={status})")
+
+    if not r.exists(f"temp_pw_expires:{public_uuid}"):
+        raise HTTPException(status_code=401, detail="Temporary password expired")
+    if not secrets.compare_digest(user.get("temp_password", ""), body.temp_password):
+        r.delete(f"temp_pw_expires:{public_uuid}")
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+    r.delete(f"temp_pw_expires:{public_uuid}")
+
+    pw_hash = bcrypt.hashpw(body.new_password.encode(), bcrypt.gensalt()).decode()
+    proposed_userid = user.get("proposed_userid", public_uuid)
+
+    r.hset(f"user:{public_uuid}", mapping={
+        "status":         "active",
+        "password_hash":  pw_hash,
+        "roles":          "user",
+        "temp_password":  "",
+        "first_login_at": datetime.now(timezone.utc).isoformat(),
+        "userid":         proposed_userid,
+    })
+    # OI-profile-1: userid reverse-lookup for O(1) profile enrichment
+    r.set(f"userid:{proposed_userid}", f"user:{public_uuid}")
+
+    token = tok.issue_token(userid=proposed_userid, label="first-login", role="user")
+    logger.info(f"[AUTH] First login complete for {public_uuid} ({proposed_userid})")
+
+    return FirstLoginResponse(
+        access_token=token,
+        public_uuid=public_uuid,
+        wallet_address=user.get("wallet_address", ""),
+    )
+
+
+# Portal: own balance + founder token
+@auth_router.get("/portal/me/balances")
+async def get_my_balances(payload: Annotated[dict, Depends(_current_user)]):
+    import psycopg2, os as _os
+    sub = payload.get("sub")
+    if not sub:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    _, _, r = _get_services()
+    # sub is proposed_userid (e.g. "carrie_kidd") — must scan for the right user: key
+    ueid = None
+    for _key in r.scan_iter("user:*"):
+        _rec = r.hgetall(_key)
+        if _rec.get("proposed_userid") == sub or _rec.get("userid") == sub:
+            _ueid = _rec.get("ueid") or _rec.get("uei")
+            if _ueid:
+                ueid = _ueid
+                break
+    if not ueid:
+        raise HTTPException(status_code=404, detail="UEID not found")
+    pg_dsn = _os.environ.get("POSTGRES_DSN") or _os.environ.get("DATABASE_URL")
+    if not pg_dsn:
+        raise HTTPException(status_code=503, detail="Database not configured")
+    try:
+        conn = psycopg2.connect(pg_dsn)
+        cur = conn.cursor()
+        cur.execute("SELECT ems_balance, rank, last_updated FROM mountainshares_balances WHERE ueid = %s", (ueid,))
+        bal = cur.fetchone()
+        cur.execute("SELECT serial_number, minted_at, cohort, allocation_type FROM founder_tokens WHERE ueid = %s", (ueid,))
+        ft = cur.fetchone()
+        cur.execute("SELECT COALESCE(SUM(ems_earned), 0) FROM equity_timesheet WHERE user_id = %s AND ueid IN (%s, %s)", (sub, sub, f"UEID-{sub.upper()}-ADMIN"))
+        session_ems = float(cur.fetchone()[0])
+    except Exception as e:
+        raise HTTPException(status_code=503, detail=f"DB error: {e}")
+    founder_token = None
+    if ft:
+        founder_token = {"serial_number": ft[0], "display": f"Founder #{str(ft[0]).zfill(3)}", "minted_at": ft[1].isoformat() if ft[1] else None, "cohort": ft[2], "allocation_type": ft[3]}
+    total_ems = (float(bal[0]) if bal else 0.0)
+    return {"ueid": ueid, "ems_balance": (float(bal[0]) if bal else 0.0) + session_ems, "rank": bal[1] if bal else "newcomer", "balance_last_updated": bal[2].isoformat() if bal and bal[2] else None, "founder_token": founder_token}
+
+
+# ── Portal: ledger history ────────────────────────────────────────────────────
+
+@auth_router.get("/portal/me/ledger")
+async def get_my_ledger(
+    payload: Annotated[dict, Depends(_current_user)],
+    limit: int = 50,
+    offset: int = 0,
+    date_from: str = None,
+    date_to: str = None,
+    q: str = None,
+    format: str = None,
+):
+    """Return paginated ledger history for the authenticated user."""
+    import psycopg2 as _pg, os as _os
+    sub = payload.get("sub", "")
+    _, _, r = _get_services()
+    ueid = None
+    for _key in r.scan_iter("user:*"):
+        _rec = r.hgetall(_key)
+        if _rec.get("proposed_userid") == sub or _rec.get("userid") == sub:
+            _ueid = _rec.get("ueid") or _rec.get("uei")
+            if _ueid:
+                ueid = _ueid
+                break
+    if not ueid:
+        raise HTTPException(status_code=404, detail="UEID not found")
+    _dsn = (_os.environ.get("POSTGRES_DSN") or _os.environ.get("DATABASE_URL", ""))
+    if not _dsn:
+        raise HTTPException(status_code=500, detail="DB not configured")
+    try:
+        _conn = _pg.connect(_dsn)
+        _cur = _conn.cursor()
+        filters = [ueid]
+        where = "WHERE ueid = %s"
+        if date_from:
+            where += " AND created_at >= %s"
+            filters.append(date_from)
+        if date_to:
+            where += " AND created_at <= %s"
+            filters.append(date_to + " 23:59:59")
+        if q:
+            where += " AND (transaction_type ILIKE %s OR reason ILIKE %s)"
+            filters.extend([f"%{q}%", f"%{q}%"])
+        _cur.execute(
+            "SELECT id, transaction_type, amount, token_class, reason, "
+            "reference_id, created_at, created_by "
+            "FROM mountainshares_ledger " + where +
+            " ORDER BY created_at DESC LIMIT %s OFFSET %s",
+            filters + [min(limit, 100), offset]
+        )
+        rows = _cur.fetchall()
+        _cur.execute(
+            "SELECT COUNT(*) FROM mountainshares_ledger " + where,
+            filters
+        )
+        total = _cur.fetchone()[0]
+        _conn.close()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="DB error: " + str(e))
+    entries = [
+        {
+            "id":               row[0],
+            "transaction_type": row[1],
+            "amount":           str(row[2]),
+            "token_class":      row[3],
+            "reason":           row[4],
+            "reference_id":     row[5],
+            "created_at":       row[6].isoformat() if row[6] else None,
+            "created_by":       row[7],
+        }
+        for row in rows
+    ]
+    if format == "print":
+        from fastapi.responses import HTMLResponse
+        dr = ""
+        if date_from or date_to:
+            dr = f" | {date_from or '...'} → {date_to or '...'}"
+        if q:
+            dr += f" | search: {q}"
+        rows_html = "".join(
+            f"<tr><td>{e['created_at'][:10] if e['created_at'] else ''}</td>"
+            f"<td>{e['transaction_type']}</td><td>{e['token_class']}</td>"
+            f"<td style='text-align:right'>{float(e['amount']):,.4f}</td>"
+            f"<td>{e['reason'] or ''}</td><td>{e['reference_id'] or ''}</td></tr>"
+            for e in entries
+        )
+        total_amt = sum(float(e["amount"]) for e in entries)
+        html = f"""<!DOCTYPE html><html><head><meta charset="utf-8">
+<title>MS Jarvis Ledger</title>
+<style>
+  body{{font-family:monospace;font-size:12px;margin:32px;color:#111}}
+  h2{{margin-bottom:4px}} p{{margin:2px 0;color:#555}}
+  table{{width:100%;border-collapse:collapse;margin-top:16px}}
+  th{{background:#111;color:#fff;padding:6px 8px;text-align:left}}
+  td{{padding:5px 8px;border-bottom:1px solid #ddd}}
+  tr:nth-child(even){{background:#f7f7f7}}
+  .total{{text-align:right;font-weight:bold;margin-top:8px}}
+  @media print{{body{{margin:16px}}}}
+</style></head><body>
+<h2>MountainShares Ledger — MS Jarvis</h2>
+<p>UEID: {ueid}{dr}</p>
+<p>Entries: {total} | Shown: {len(entries)}</p>
+<table><thead><tr>
+  <th>Date</th><th>Type</th><th>Class</th>
+  <th style="text-align:right">Amount</th><th>Reason</th><th>Reference</th>
+</tr></thead><tbody>{rows_html}</tbody></table>
+<p class="total">Total: {total_amt:,.4f} EMS</p>
+<p style="margin-top:24px;color:#aaa;font-size:10px">
+  Printed {__import__('datetime').datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}
+</p>
+<script>window.print()</script>
+</body></html>"""
+        return HTMLResponse(content=html)
+    return {
+        "ueid":    ueid,
+        "total":   total,
+        "limit":   limit,
+        "offset":  offset,
+        "entries": entries,
+    }
+    return {"ueid": ueid, "ems_balance": str(bal[0]) if bal else "0.0000", "pms_balance": str(bal[1]) if bal else "0.0000", "balance_last_updated": bal[2].isoformat() if bal and bal[2] else None, "founder_token": founder_token}
+
+
+@auth_router.get("/portal/me/timesheet")
+async def get_my_timesheet(
+    payload: Annotated[dict, Depends(_current_user)],
+    limit: int = 20,
+):
+    import psycopg2, os as _os
+    sub = payload.get("sub", "")
+    user_id = sub
+    # Timesheet activity lives under the portal userid and its admin UEID variant.
+    # Do not bind this endpoint to the founding-grant UEID from Redis.
+    ueid = user_id
+    pg_dsn = _os.environ.get("POSTGRES_DSN") or _os.environ.get("DATABASE_URL")
+    if not pg_dsn:
+        raise HTTPException(500, "Database not configured")
+    try:
+        conn = psycopg2.connect(pg_dsn)
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT jobid, started_at, completed_at,
+                   duration_sec, ems_earned, status
+            FROM equity_timesheet
+            WHERE user_id = %s
+              AND ueid IN (%s, %s)
+              AND status IN ('complete', 'completed')
+            ORDER BY started_at DESC LIMIT %s
+        """, (user_id, user_id, f"UEID-{user_id.upper()}-ADMIN", limit))
+        rows = cur.fetchall()
+        cur.execute("""
+            SELECT COALESCE(SUM(ems_earned), 0), COUNT(*), COALESCE(SUM(duration_sec), 0)
+            FROM equity_timesheet
+            WHERE user_id = %s
+              AND ueid IN (%s, %s)
+              AND status IN ('complete', 'completed')
+        """, (sub, sub, f"UEID-{sub.upper()}-ADMIN"))
+        totals = cur.fetchone()
+        conn.close()
+        return {
+            "ueid": ueid,
+            "total_ems_earned": float(totals[0]),
+            "total_sessions": int(totals[1]),
+            "total_hours": round(float(totals[2]) / 3600, 2),
+            "entries": [
+                {
+                    "jobid": r[0],
+                    "started_at": r[1].isoformat() if r[1] else None,
+                    "completed_at": r[2].isoformat() if r[2] else None,
+                    "duration_sec": float(r[3]) if r[3] else 0.0,
+                    "ems_earned": float(r[4]) if r[4] else 0.0,
+                    "status": r[5],
+                }
+                for r in rows
+            ],
+        }
+    except Exception as e:
+        raise HTTPException(500, f"Timesheet query failed: {e}")
+"""Ms. Allis ULTIMATE - All 32 Services Integrated
+Port: 8050 (Ultimate Interface)
+"""
+
+from fastapi.middleware.cors import CORSMiddleware
+from provenance_middleware import ProvenanceMiddleware
+import asyncio
+import httpx
+from fastapi import FastAPI, BackgroundTasks, HTTPException
+from pydantic import BaseModel
+from typing import Optional, Dict, List
+import time
+import logging
+import os
+import uuid
+from datetime import datetime
+import sys
+from pathlib import Path
+sys.path.extend([str(p) for p in Path("/app/dgms").glob("*/")])
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+active_jobs: Dict[str, Dict] = {}
+
+
+class ChatJobRequest(BaseModel):
+    message: str
+    user_id: str = "cakidd"
+
+
+class JobStatus(BaseModel):
+    job_id: str
+    status: str
+    progress: Optional[str] = None
+    result: Optional[Dict] = None
+    error: Optional[str] = None
+    created_at: float
+
+
+class UltimateRequest(BaseModel):
+    message: str
+    user_id: str = "cakidd"
+    use_all_services: bool = True
+
+
+class UltimateResponse(BaseModel):
+    response: str
+    services_used: List[str]
+    consciousness_level: str
+    processing_time: float
+    architecture_layers: int
+
+
+def get_service_operation_path(service_name: str) -> str:
+    """Get the primary operation path for each service."""
+    endpoints = {
+        "qualia_engine": "/generate",
+        "consciousness_bridge": "/chat",
+        "blood_brain_barrier": "/filter",
+        "i_containers": "/process",
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
 
