@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-The New River Highlands Community Infrastructure Initiative is a place-based, community-governed development program operating along the New River Gorge corridor in Fayette and Mercer Counties, West Virginia. The initiative integrates three interdependent programmatic layers — land stewardship, broadband and heritage connectivity, and a regional capital stack — to establish a replicable pattern of community-owned infrastructure for New River Gorge gateway towns. Pilot deployment is anchored in Mount Hope and Thurmond, with a corridor-scale expansion horizon of 53 miles and a 12-month collaboration framework currently under development with NRG Towns.
+The New River Gorge Community Infrastructure Initiative is a place-based, community-governed development program operating along the New River Gorge corridor in Fayette and Mercer Counties, West Virginia. The initiative integrates three interdependent programmatic layers — land stewardship, broadband and heritage connectivity, and a regional capital stack — to establish a replicable pattern of community-owned infrastructure for New River Gorge gateway towns. Pilot deployment is anchored in Mount Hope and Thurmond, with a corridor-scale expansion horizon of 53 miles and a 12-month collaboration framework currently under development with NRG Towns.
 
 The initiative is administered by Harmony for Hope, Inc., a 501(c)(3) cultural production nonprofit operating at 704 and 708 Main Street, Mount Hope, West Virginia — the site of the Fayette County Community Arts Center (FCCAC) — with technical services provided by Kidd's Technical Services. Active institutional support has been secured from the New River Gorge National Park and Preserve (NRGNPS), WV Community Development Hub, and the City of Mount Hope.
 
@@ -41,7 +41,7 @@ Existing grant and financing instruments for rural Appalachian communities are n
 
 ## 2. Proposed Initiative Structure
 
-The New River Highlands Community Infrastructure Initiative addresses all three problem dimensions through three programmatic layers, each with distinct governance, financing, and operational characteristics. These layers are not sequential; they are designed to develop in parallel and to reinforce one another.
+The New River Gorge Community Infrastructure Initiative addresses all three problem dimensions through three programmatic layers, each with distinct governance, financing, and operational characteristics. These layers are not sequential; they are designed to develop in parallel and to reinforce one another.
 
 ### 2.1 Layer One: Land and Building Stewardship
 
