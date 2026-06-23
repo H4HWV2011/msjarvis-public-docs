@@ -86,7 +86,7 @@ NRGNPS support for the broadband pilot has been confirmed; letters of support fr
 
 ### 2.3 Layer Three: Regional Capital and Governance Stack
 
-The initiative is financed through a layered grant strategy coordinated by WV Community Development Hub, which identified the Bank of Richmond and MIT/Truist pathways and is actively engaged in application development. The capital stack is structured to provide overlapping coverage across infrastructure, operations, and institutional capacity.
+The initiative is financed through a layered grant strategy. WV Community Development Hub (Gabe Pena and Emma Byrne) provided early-stage referrals to the Bank of Richmond and MIT/Truist Inspire Awards pathways; application development is being led by Harmony for Hope. The capital stack is structured to provide overlapping coverage across infrastructure, operations, and institutional capacity.
 
 | Funding Source | Program | Deadline | Primary Layer Funded |
 |---|---|---|---|
