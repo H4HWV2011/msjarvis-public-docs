@@ -1,613 +1,272 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ sed -i 's/                buf\["documents"\].append(documents\[i\] if documents and i < len(documents) else None)/                buf["documents"].append(documents[i] if documents and i < len(documents) else None)\n                if len(buf["ids"]) >= 100_000:\n                    flushed = flush_buffer(client, cur_layer, buf, known_ids)\n                    total_migrated += flushed\n                    completed[cur_layer] = completed.get(cur_layer, 0) + flushed\n                    ckpt.update({"offset": offset, "layer_collection_ids": known_ids, "completed_layers": completed})\n                    save_checkpoint(ckpt)\n                    buf = {"ids": [], "embeddings": [], "metadatas": [], "documents": []}/' ~/msjarvis-rebuild/migrate_to_layer_collections_v3.py
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ grep -n "MidFlush\|100_000\|buf = {" ~/msjarvis-rebuild/migrate_to_layer_collections_v3.py
-150:        buf = {"ids": [], "embeddings": [], "metadatas": [], "documents": []}
-180:                        buf = {"ids": [], "embeddings": [], "metadatas": [], "documents": []}
-187:                if len(buf["ids"]) >= 100_000:
-193:                    buf = {"ids": [], "embeddings": [], "metadatas": [], "documents": []}
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ python3 ~/msjarvis-rebuild/migrate_to_layer_collections_v3.py
-Migration v3 (streaming flush): geospatialfeatures (12,389,268 vectors)
-Resuming from offset 110,000 | 12 layers already completed
-  Flushed blocks_census_2020_utm83: 24 | total 110,048 | 48900/s | ETA 4.2min
-  ...      115,000/12,389,268 | buf=4,976 (blocks_census_2020_wma84) | 51064/s | ETA 4.0min
-  ...      120,000/12,389,268 | buf=9,976 (blocks_census_2020_wma84) | 28532/s | ETA 7.2min
-  ...      125,000/12,389,268 | buf=14,976 (blocks_census_2020_wma84) | 20004/s | ETA 10.2min
-  ...      130,000/12,389,268 | buf=19,976 (blocks_census_2020_wma84) | 15615/s | ETA 13.1min
-  ...      135,000/12,389,268 | buf=24,976 (blocks_census_2020_wma84) | 13038/s | ETA 15.7min
-  ...      140,000/12,389,268 | buf=29,976 (blocks_census_2020_wma84) | 11168/s | ETA 18.3min
-  ...      145,000/12,389,268 | buf=34,976 (blocks_census_2020_wma84) | 9917/s | ETA 20.6min
-  ...      150,000/12,389,268 | buf=39,976 (blocks_census_2020_wma84) | 8940/s | ETA 22.8min
-  ...      155,000/12,389,268 | buf=44,976 (blocks_census_2020_wma84) | 8198/s | ETA 24.9min
-  ...      160,000/12,389,268 | buf=49,976 (blocks_census_2020_wma84) | 7549/s | ETA 27.0min
-  ...      165,000/12,389,268 | buf=54,976 (blocks_census_2020_wma84) | 7027/s | ETA 29.0min
-  ...      170,000/12,389,268 | buf=59,976 (blocks_census_2020_wma84) | 6581/s | ETA 30.9min
-  ...      175,000/12,389,268 | buf=64,976 (blocks_census_2020_wma84) | 6203/s | ETA 32.8min
-  ...      180,000/12,389,268 | buf=69,976 (blocks_census_2020_wma84) | 5869/s | ETA 34.7min
-  Flushed blocks_census_2020_wma84: 72,558 | total 182,606 | 892/s | ETA 228.2min
-  Flushed boundaryappalachianbasin_wvges_1996_utm83: 313 | total 182,919 | 889/s | ETA 228.8min
-  ...      185,000/12,389,268 | buf=2,105 (bridges) | 899/s | ETA 226.1min
-  ...      190,000/12,389,268 | buf=7,105 (bridges) | 913/s | ETA 222.8min
-  Flushed bridges: 7,357 | total 190,276 | 845/s | ETA 240.8min
-  Flushed calderl_reg_ll83: 9 | total 190,285 | 844/s | ETA 241.0min
-  Flushed census_block_groups_2020_utm83: 1,639 | total 191,924 | 840/s | ETA 242.1min
-  ...      195,000/12,389,268 | buf=3,100 (census_blocks_2020_utm83) | 854/s | ETA 238.1min
-  ...      200,000/12,389,268 | buf=8,100 (census_blocks_2020_utm83) | 866/s | ETA 234.7min
-  ...      205,000/12,389,268 | buf=13,100 (census_blocks_2020_utm83) | 878/s | ETA 231.3min
-  ...      210,000/12,389,268 | buf=18,100 (census_blocks_2020_utm83) | 889/s | ETA 228.2min
-  ...      215,000/12,389,268 | buf=23,100 (census_blocks_2020_utm83) | 901/s | ETA 225.3min
-  ...      220,000/12,389,268 | buf=28,100 (census_blocks_2020_utm83) | 912/s | ETA 222.4min
-  ...      225,000/12,389,268 | buf=33,100 (census_blocks_2020_utm83) | 923/s | ETA 219.7min
-  ...      230,000/12,389,268 | buf=38,100 (census_blocks_2020_utm83) | 933/s | ETA 217.1min
-  ...      235,000/12,389,268 | buf=43,100 (census_blocks_2020_utm83) | 943/s | ETA 214.7min
-  ...      240,000/12,389,268 | buf=48,100 (census_blocks_2020_utm83) | 953/s | ETA 212.5min
-  ...      245,000/12,389,268 | buf=53,100 (census_blocks_2020_utm83) | 962/s | ETA 210.4min
-  ...      250,000/12,389,268 | buf=58,100 (census_blocks_2020_utm83) | 971/s | ETA 208.4min
-  ...      255,000/12,389,268 | buf=63,100 (census_blocks_2020_utm83) | 979/s | ETA 206.5min
-  ...      260,000/12,389,268 | buf=68,100 (census_blocks_2020_utm83) | 987/s | ETA 204.8min
-  Flushed census_blocks_2020_utm83: 72,558 | total 264,482 | 695/s | ETA 290.7min
-  Flushed census_cities_over10k_2020_utm83: 14 | total 264,496 | 695/s | ETA 290.9min
-  Flushed census_cities_over2500_2020_utm83: 63 | total 264,559 | 695/s | ETA 291.0min
-  Flushed census_county_boundaries_2021_utm83: 55 | total 264,614 | 694/s | ETA 291.1min
-  Flushed census_designated_places_2021_utm83: 207 | total 264,821 | 694/s | ETA 291.2min
-  Flushed census_empowerment_zones_2002_utm83: 11 | total 264,832 | 694/s | ETA 291.3min
-  Flushed census_historical_pop_by_county_2006_utm83: 55 | total 264,887 | 694/s | ETA 291.4min
-  ...      265,000/12,389,268 | buf=137 (census_incorporated_places_2021_utm83) | 694/s | ETA 291.1min
-  Flushed census_incorporated_places_2021_utm83: 464 | total 265,351 | 687/s | ETA 294.0min
-  Flushed census_metro_micro_areas_2020_utm83: 17 | total 265,368 | 687/s | ETA 294.1min
-  Flushed census_minor_civil_divisions_2020_utm83: 228 | total 265,596 | 687/s | ETA 294.2min
-  Flushed census_misc_transportation_2000_utm83: 5 | total 265,601 | 686/s | ETA 294.4min
-  Flushed census_pop_change_communities_2020_utm83: 284 | total 265,885 | 686/s | ETA 294.5min
-  Flushed census_pop_change_counties_2020_utm83: 55 | total 265,940 | 686/s | ETA 294.6min
-  Flushed census_populated_places_2020_utm83: 439 | total 266,379 | 686/s | ETA 294.7min
-  Flushed census_railroads_2023_utm83: 1,505 | total 267,884 | 686/s | ETA 294.5min
-  ...      270,000/12,389,268 | buf=2,140 (census_roads_2023_utm83) | 692/s | ETA 292.1min
-  ...      275,000/12,389,268 | buf=7,140 (census_roads_2023_utm83) | 698/s | ETA 289.2min
-  ...      280,000/12,389,268 | buf=12,140 (census_roads_2023_utm83) | 705/s | ETA 286.5min
-  ...      285,000/12,389,268 | buf=17,140 (census_roads_2023_utm83) | 711/s | ETA 283.9min
-  ...      290,000/12,389,268 | buf=22,140 (census_roads_2023_utm83) | 717/s | ETA 281.4min
-  ...      295,000/12,389,268 | buf=27,140 (census_roads_2023_utm83) | 722/s | ETA 279.1min
-  ...      300,000/12,389,268 | buf=32,140 (census_roads_2023_utm83) | 728/s | ETA 276.9min
-  ...      305,000/12,389,268 | buf=37,140 (census_roads_2023_utm83) | 733/s | ETA 274.7min
-  ...      310,000/12,389,268 | buf=42,140 (census_roads_2023_utm83) | 738/s | ETA 272.7min
-  ...      315,000/12,389,268 | buf=47,140 (census_roads_2023_utm83) | 743/s | ETA 270.8min
-  ...      320,000/12,389,268 | buf=52,140 (census_roads_2023_utm83) | 748/s | ETA 268.9min
-  ...      325,000/12,389,268 | buf=57,140 (census_roads_2023_utm83) | 753/s | ETA 267.2min
-  ...      330,000/12,389,268 | buf=62,140 (census_roads_2023_utm83) | 757/s | ETA 265.6min
-  ...      335,000/12,389,268 | buf=67,140 (census_roads_2023_utm83) | 761/s | ETA 264.1min
-  ...      340,000/12,389,268 | buf=72,140 (census_roads_2023_utm83) | 765/s | ETA 262.6min
-  ...      345,000/12,389,268 | buf=77,140 (census_roads_2023_utm83) | 768/s | ETA 261.3min
-  ...      350,000/12,389,268 | buf=82,140 (census_roads_2023_utm83) | 771/s | ETA 260.1min
-  ...      355,000/12,389,268 | buf=87,140 (census_roads_2023_utm83) | 772/s | ETA 259.7min
-  ...      360,000/12,389,268 | buf=92,140 (census_roads_2023_utm83) | 773/s | ETA 259.3min
-  ...      365,000/12,389,268 | buf=97,140 (census_roads_2023_utm83) | 776/s | ETA 258.1min
-  ...      370,000/12,389,268 | buf=2,140 (census_roads_2023_utm83) | 605/s | ETA 331.1min
-  ...      375,000/12,389,268 | buf=7,140 (census_roads_2023_utm83) | 608/s | ETA 329.1min
-  ...      380,000/12,389,268 | buf=12,140 (census_roads_2023_utm83) | 612/s | ETA 327.2min
-  ...      385,000/12,389,268 | buf=17,140 (census_roads_2023_utm83) | 615/s | ETA 325.4min
-  ...      390,000/12,389,268 | buf=22,140 (census_roads_2023_utm83) | 618/s | ETA 323.7min
-  ...      395,000/12,389,268 | buf=27,140 (census_roads_2023_utm83) | 621/s | ETA 322.0min
-  ...      400,000/12,389,268 | buf=32,140 (census_roads_2023_utm83) | 624/s | ETA 320.4min
-  ...      405,000/12,389,268 | buf=37,140 (census_roads_2023_utm83) | 626/s | ETA 318.8min
-  ...      410,000/12,389,268 | buf=42,140 (census_roads_2023_utm83) | 629/s | ETA 317.3min
-  ...      415,000/12,389,268 | buf=47,140 (census_roads_2023_utm83) | 632/s | ETA 315.9min
-  ...      420,000/12,389,268 | buf=52,140 (census_roads_2023_utm83) | 634/s | ETA 314.5min
-  ...      425,000/12,389,268 | buf=57,140 (census_roads_2023_utm83) | 637/s | ETA 313.2min
-  ...      430,000/12,389,268 | buf=62,140 (census_roads_2023_utm83) | 639/s | ETA 312.0min
-  ...      435,000/12,389,268 | buf=67,140 (census_roads_2023_utm83) | 641/s | ETA 310.8min
-  ...      440,000/12,389,268 | buf=72,140 (census_roads_2023_utm83) | 643/s | ETA 309.6min
-  ...      445,000/12,389,268 | buf=77,140 (census_roads_2023_utm83) | 645/s | ETA 308.6min
-  ...      450,000/12,389,268 | buf=82,140 (census_roads_2023_utm83) | 647/s | ETA 307.6min
-  ...      455,000/12,389,268 | buf=87,140 (census_roads_2023_utm83) | 649/s | ETA 306.7min
-  ...      460,000/12,389,268 | buf=92,140 (census_roads_2023_utm83) | 651/s | ETA 305.6min
-  ...      465,000/12,389,268 | buf=97,140 (census_roads_2023_utm83) | 652/s | ETA 304.9min
-  ...      470,000/12,389,268 | buf=2,140 (census_roads_2023_utm83) | 555/s | ETA 357.8min
-  ...      475,000/12,389,268 | buf=7,140 (census_roads_2023_utm83) | 557/s | ETA 356.4min
-  ...      480,000/12,389,268 | buf=12,140 (census_roads_2023_utm83) | 559/s | ETA 355.0min
-  ...      485,000/12,389,268 | buf=17,140 (census_roads_2023_utm83) | 561/s | ETA 353.7min
-  ...      490,000/12,389,268 | buf=22,140 (census_roads_2023_utm83) | 563/s | ETA 352.3min
-  ...      495,000/12,389,268 | buf=27,140 (census_roads_2023_utm83) | 565/s | ETA 351.1min
-  ...      500,000/12,389,268 | buf=32,140 (census_roads_2023_utm83) | 566/s | ETA 350.0min
-  ...      505,000/12,389,268 | buf=37,140 (census_roads_2023_utm83) | 568/s | ETA 348.9min
-  ...      510,000/12,389,268 | buf=42,140 (census_roads_2023_utm83) | 569/s | ETA 347.7min
-  ...      515,000/12,389,268 | buf=47,140 (census_roads_2023_utm83) | 571/s | ETA 346.6min
-  ...      520,000/12,389,268 | buf=52,140 (census_roads_2023_utm83) | 572/s | ETA 345.6min
-  ...      525,000/12,389,268 | buf=57,140 (census_roads_2023_utm83) | 574/s | ETA 344.6min
-  ...      530,000/12,389,268 | buf=62,140 (census_roads_2023_utm83) | 575/s | ETA 343.8min
-  ...      535,000/12,389,268 | buf=67,140 (census_roads_2023_utm83) | 576/s | ETA 342.9min
-  ...      540,000/12,389,268 | buf=72,140 (census_roads_2023_utm83) | 578/s | ETA 342.0min
-  ...      545,000/12,389,268 | buf=77,140 (census_roads_2023_utm83) | 579/s | ETA 341.1min
-  ...      550,000/12,389,268 | buf=82,140 (census_roads_2023_utm83) | 580/s | ETA 340.2min
-  ...      555,000/12,389,268 | buf=87,140 (census_roads_2023_utm83) | 581/s | ETA 339.4min
-  Flushed census_roads_2023_utm83: 87,515 | total 555,399 | 513/s | ETA 384.2min
-  ...      560,000/12,389,268 | buf=4,625 (census_streams_waterbodies_2023_utm83) | 518/s | ETA 380.9min
-  ...      565,000/12,389,268 | buf=9,625 (census_streams_waterbodies_2023_utm83) | 519/s | ETA 379.9min
-  ...      570,000/12,389,268 | buf=14,625 (census_streams_waterbodies_2023_utm83) | 520/s | ETA 378.9min
-  ...      575,000/12,389,268 | buf=19,625 (census_streams_waterbodies_2023_utm83) | 520/s | ETA 378.9min
-  ...      580,000/12,389,268 | buf=24,625 (census_streams_waterbodies_2023_utm83) | 520/s | ETA 378.2min
-  ...      585,000/12,389,268 | buf=29,625 (census_streams_waterbodies_2023_utm83) | 522/s | ETA 377.2min
-  ...      590,000/12,389,268 | buf=34,625 (census_streams_waterbodies_2023_utm83) | 523/s | ETA 376.2min
-  ...      595,000/12,389,268 | buf=39,625 (census_streams_waterbodies_2023_utm83) | 524/s | ETA 375.4min
-  ...      600,000/12,389,268 | buf=44,625 (census_streams_waterbodies_2023_utm83) | 525/s | ETA 374.5min
-  ...      605,000/12,389,268 | buf=49,625 (census_streams_waterbodies_2023_utm83) | 526/s | ETA 373.6min
-  ...      610,000/12,389,268 | buf=54,625 (census_streams_waterbodies_2023_utm83) | 527/s | ETA 372.8min
-  ...      615,000/12,389,268 | buf=59,625 (census_streams_waterbodies_2023_utm83) | 527/s | ETA 372.1min
-  ...      620,000/12,389,268 | buf=64,625 (census_streams_waterbodies_2023_utm83) | 528/s | ETA 371.4min
-  Flushed census_streams_waterbodies_2023_utm83: 67,774 | total 623,173 | 497/s | ETA 394.6min
-  Flushed census_tl_2020_54_bg: 1,639 | total 624,812 | 497/s | ETA 394.5min
-  ...      625,000/12,389,268 | buf=212 (census_tl_2020_54_tabblock20) | 497/s | ETA 394.2min
-  ...      630,000/12,389,268 | buf=5,212 (census_tl_2020_54_tabblock20) | 498/s | ETA 393.3min
-  ...      635,000/12,389,268 | buf=10,212 (census_tl_2020_54_tabblock20) | 499/s | ETA 392.5min
-  ...      640,000/12,389,268 | buf=15,212 (census_tl_2020_54_tabblock20) | 500/s | ETA 391.7min
-  ...      645,000/12,389,268 | buf=20,212 (census_tl_2020_54_tabblock20) | 501/s | ETA 390.9min
-  ...      650,000/12,389,268 | buf=25,212 (census_tl_2020_54_tabblock20) | 502/s | ETA 390.1min
-  ...      655,000/12,389,268 | buf=30,212 (census_tl_2020_54_tabblock20) | 502/s | ETA 389.5min
-  ...      660,000/12,389,268 | buf=35,212 (census_tl_2020_54_tabblock20) | 503/s | ETA 388.8min
-  ...      665,000/12,389,268 | buf=40,212 (census_tl_2020_54_tabblock20) | 503/s | ETA 388.2min
-  ...      670,000/12,389,268 | buf=45,212 (census_tl_2020_54_tabblock20) | 504/s | ETA 387.5min
-  ...      675,000/12,389,268 | buf=50,212 (census_tl_2020_54_tabblock20) | 505/s | ETA 386.9min
-  ...      680,000/12,389,268 | buf=55,212 (census_tl_2020_54_tabblock20) | 505/s | ETA 386.3min
-  ...      685,000/12,389,268 | buf=60,212 (census_tl_2020_54_tabblock20) | 506/s | ETA 385.7min
-  ...      690,000/12,389,268 | buf=65,212 (census_tl_2020_54_tabblock20) | 506/s | ETA 385.0min
-  ...      695,000/12,389,268 | buf=70,212 (census_tl_2020_54_tabblock20) | 507/s | ETA 384.4min
-  Flushed census_tl_2020_54_tabblock20: 72,558 | total 697,370 | 467/s | ETA 417.4min
-  ...      700,000/12,389,268 | buf=2,654 (census_tl_2020_us_county) | 469/s | ETA 415.7min
-  Flushed census_tl_2020_us_county: 3,234 | total 700,604 | 465/s | ETA 419.0min
-  ...      705,000/12,389,268 | buf=4,420 (census_tl_2020_us_zcta510) | 468/s | ETA 416.2min
-  ...      710,000/12,389,268 | buf=9,420 (census_tl_2020_us_zcta510) | 468/s | ETA 415.6min
-  ...      715,000/12,389,268 | buf=14,420 (census_tl_2020_us_zcta510) | 469/s | ETA 415.1min
-  ...      720,000/12,389,268 | buf=19,420 (census_tl_2020_us_zcta510) | 469/s | ETA 415.0min
-  ...      725,000/12,389,268 | buf=24,420 (census_tl_2020_us_zcta510) | 468/s | ETA 415.0min
-  ...      730,000/12,389,268 | buf=29,420 (census_tl_2020_us_zcta510) | 468/s | ETA 414.8min
-  Flushed census_tl_2020_us_zcta510: 33,144 | total 733,748 | 459/s | ETA 423.2min
-  ...      735,000/12,389,268 | buf=1,276 (census_tl_2020_us_zcta520) | 460/s | ETA 422.4min
-  ...      740,000/12,389,268 | buf=6,276 (census_tl_2020_us_zcta520) | 460/s | ETA 421.7min
-  ...      745,000/12,389,268 | buf=11,276 (census_tl_2020_us_zcta520) | 461/s | ETA 421.1min
-  ...      750,000/12,389,268 | buf=16,276 (census_tl_2020_us_zcta520) | 461/s | ETA 420.6min
-  ...      755,000/12,389,268 | buf=21,276 (census_tl_2020_us_zcta520) | 462/s | ETA 420.0min
-  ...      760,000/12,389,268 | buf=26,276 (census_tl_2020_us_zcta520) | 462/s | ETA 419.6min
-  ...      765,000/12,389,268 | buf=31,276 (census_tl_2020_us_zcta520) | 462/s | ETA 419.1min
-  Flushed census_tl_2020_us_zcta520: 33,791 | total 767,539 | 453/s | ETA 428.0min
-  Flushed census_tracts_2020_utm83: 546 | total 768,085 | 453/s | ETA 427.9min
-  Flushed census_urban_areas_100k_2020_utm83: 56 | total 768,141 | 453/s | ETA 428.0min
-  Flushed census_zcta_2020_utm83: 741 | total 768,882 | 453/s | ETA 427.8min
-  Flushed citieswithpopulation_2500_census_201111_gcs83: 65 | total 768,947 | 453/s | ETA 427.8min
-  Flushed citieswithpopulation_2500_census_201111_utm83: 65 | total 769,012 | 453/s | ETA 427.9min
-  Flushed citieswithpopulationover10k_census_201111_gcs83: 15 | total 769,027 | 453/s | ETA 427.9min
-  Flushed citieswithpopulationover10k_uscensus_1990_ll83: 16 | total 769,043 | 453/s | ETA 427.9min
-  Flushed citieswithpopulationover2500_uscensus_1990_ll83: 277 | total 769,320 | 453/s | ETA 427.9min
-  Flushed citieswithpopulationsover10k_census_2020_utm83: 14 | total 769,334 | 453/s | ETA 427.9min
-  Flushed citieswithpopulationsover2500_census_2020_utm83: 63 | total 769,397 | 453/s | ETA 428.0min
-  Flushed citieswithpopulatoinover2500_uscensus_1990_utm83: 277 | total 769,674 | 453/s | ETA 427.9min
-  Flushed coals2_ll83: 15 | total 769,689 | 453/s | ETA 428.0min
-  Flushed coals2_utm27: 15 | total 769,704 | 453/s | ETA 428.0min
-  Flushed coals2_utm83: 15 | total 769,719 | 453/s | ETA 428.0min
-  Flushed communityboundary_min_att_20250121_utm83: 292 | total 770,011 | 453/s | ETA 428.0min
-  ...      770,000/12,389,268 | buf=13 (communityboundary_min_att_20250121_wma84) | 453/s | ETA 427.8min
-  Flushed communityboundary_min_att_20250121_wma84: 292 | total 770,303 | 450/s | ETA 430.3min
-  Flushed communityhealthproviders_wvhealthcareauthority_200802_utm83: 150 | total 770,453 | 450/s | ETA 430.3min
-  Flushed conversation_history: 1,434 | total 771,887 | 451/s | ETA 429.8min
-  Flushed correctionalinstitutions_hsip_20091230_utm83: 108 | total 771,995 | 450/s | ETA 429.9min
-  Flushed correctionalinstitutions_hsip_20091230_wgs84: 108 | total 772,103 | 450/s | ETA 430.0min
-  ...      775,000/12,389,268 | buf=2,921 (county) | 452/s | ETA 428.2min
-  Flushed county: 3,234 | total 775,337 | 449/s | ETA 431.0min
-  Flushed countycityparkboundaries_20201104_utm83: 596 | total 775,933 | 449/s | ETA 431.0min
-  Flushed countyseats_usgs_ll83: 55 | total 775,988 | 449/s | ETA 431.0min
-  Flushed countyseats_usgs_utm83: 55 | total 776,043 | 449/s | ETA 431.0min
-  Flushed courthousescounty_manysources_200203_ll83: 55 | total 776,098 | 449/s | ETA 431.1min
-  Flushed courthousescounty_manysources_200203_utm83: 55 | total 776,153 | 449/s | ETA 431.1min
-  Flushed courthousesfederal_manysources_200203_ll83: 10 | total 776,163 | 449/s | ETA 431.2min
-  Flushed courthousesfederal_manysources_200203_utm: 10 | total 776,173 | 449/s | ETA 431.2min
-  Flushed cousub: 228 | total 776,401 | 449/s | ETA 431.2min
-  Flushed cvfault_ll83: 5 | total 776,406 | 449/s | ETA 431.2min
-  Flushed cvfault_utm27: 5 | total 776,411 | 449/s | ETA 431.3min
-  Flushed cvfault_utm83: 5 | total 776,416 | 449/s | ETA 431.3min
-  Flushed cvpoly_ll83: 38 | total 776,454 | 449/s | ETA 431.4min
-  Flushed cvpoly_utm27: 38 | total 776,492 | 449/s | ETA 431.4min
-  Flushed cvpoly_utm83: 38 | total 776,530 | 449/s | ETA 431.4min
-  Flushed dams_usarmycorpsofengineers_200010_utm83: 575 | total 777,105 | 449/s | ETA 431.5min
-  Flushed dams_usarmycropsofengineers_200010_ll83: 575 | total 777,680 | 449/s | ETA 431.4min
-  Flushed damsnoncoal_usgs_2002_ll27: 468 | total 778,148 | 449/s | ETA 431.3min
-  ...      780,000/12,389,268 | buf=1,876 (edges) | 450/s | ETA 430.1min
-  Flushed edges: 2,330 | total 780,478 | 446/s | ETA 433.5min
-  Flushed empowermentzonesandenterprisecommunities_uscensus_2002_utm83: 11 | total 780,489 | 446/s | ETA 433.6min
-  Flushed empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907: 459 | total 780,948 | 446/s | ETA 433.5min
-  Flushed equity_timesheet: 50 | total 780,998 | 446/s | ETA 433.6min
-  Flushed excursionpassengertrains_wvdof_200102_ll83: 8 | total 781,006 | 446/s | ETA 433.7min
-  Flushed excursionpassengertrains_wvdof_200102_utm83: 8 | total 781,014 | 446/s | ETA 433.7min
-  ...      785,000/12,389,268 | buf=4,010 (faces) | 448/s | ETA 431.3min
-  ...      790,000/12,389,268 | buf=9,010 (faces) | 449/s | ETA 430.7min
-  Flushed faces: 9,165 | total 790,179 | 444/s | ETA 435.1min
-  Flushed facilities_epa_200203_ll83: 2,137 | total 792,316 | 445/s | ETA 434.6min
-  Flushed facilities_epa_200203_utm83: 2,137 | total 794,453 | 445/s | ETA 434.0min
-  Flushed fault_reg_ll83: 124 | total 794,577 | 445/s | ETA 434.0min
-  ...      795,000/12,389,268 | buf=447 (faultgl_reg_ll83) | 446/s | ETA 433.6min
-  ...      800,000/12,389,268 | buf=5,447 (faultgl_reg_ll83) | 446/s | ETA 433.0min
-  ...      805,000/12,389,268 | buf=10,447 (faultgl_reg_ll83) | 446/s | ETA 432.5min
-  ...      810,000/12,389,268 | buf=15,447 (faultgl_reg_ll83) | 447/s | ETA 432.0min
-  ...      815,000/12,389,268 | buf=20,447 (faultgl_reg_ll83) | 447/s | ETA 431.6min
-  ...      820,000/12,389,268 | buf=25,447 (faultgl_reg_ll83) | 447/s | ETA 431.2min
-  ...      825,000/12,389,268 | buf=30,447 (faultgl_reg_ll83) | 447/s | ETA 430.8min
-  ...      830,000/12,389,268 | buf=35,447 (faultgl_reg_ll83) | 448/s | ETA 430.4min
-  ...      835,000/12,389,268 | buf=40,447 (faultgl_reg_ll83) | 448/s | ETA 430.0min
-  Flushed faultgl_reg_ll83: 43,084 | total 837,661 | 433/s | ETA 444.7min
-  ...      840,000/12,389,268 | buf=2,363 (fayette_parcels) | 434/s | ETA 443.3min
-  ...      845,000/12,389,268 | buf=7,363 (fayette_parcels) | 434/s | ETA 443.1min
-  ...      850,000/12,389,268 | buf=12,363 (fayette_parcels) | 434/s | ETA 442.8min
-  ...      855,000/12,389,268 | buf=17,363 (fayette_parcels) | 434/s | ETA 442.6min
-  ...      860,000/12,389,268 | buf=22,363 (fayette_parcels) | 434/s | ETA 442.4min
-  ...      865,000/12,389,268 | buf=27,363 (fayette_parcels) | 434/s | ETA 442.4min
-  ...      870,000/12,389,268 | buf=32,363 (fayette_parcels) | 434/s | ETA 442.2min
-  ...      875,000/12,389,268 | buf=37,363 (fayette_parcels) | 434/s | ETA 441.9min
-  Flushed fayette_parcels: 39,515 | total 877,176 | 426/s | ETA 450.6min
-  ...      880,000/12,389,268 | buf=2,848 (features) | 427/s | ETA 448.9min
-  ...      885,000/12,389,268 | buf=7,848 (features) | 427/s | ETA 448.9min
-  ...      890,000/12,389,268 | buf=12,848 (features) | 427/s | ETA 448.6min
-  ...      895,000/12,389,268 | buf=17,848 (features) | 427/s | ETA 448.3min
-  ...      900,000/12,389,268 | buf=22,848 (features) | 427/s | ETA 448.0min
-  ...      905,000/12,389,268 | buf=27,848 (features) | 428/s | ETA 447.5min
-  ...      910,000/12,389,268 | buf=32,848 (features) | 428/s | ETA 447.3min
-  ...      915,000/12,389,268 | buf=37,848 (features) | 428/s | ETA 447.0min
-  ...      920,000/12,389,268 | buf=42,848 (features) | 428/s | ETA 446.7min
-  ...      925,000/12,389,268 | buf=47,848 (features) | 428/s | ETA 446.3min
-  ...      930,000/12,389,268 | buf=52,848 (features) | 428/s | ETA 446.0min
-  ...      935,000/12,389,268 | buf=57,848 (features) | 428/s | ETA 445.6min
-  ...      940,000/12,389,268 | buf=62,848 (features) | 428/s | ETA 445.4min
-  ...      945,000/12,389,268 | buf=67,848 (features) | 429/s | ETA 445.0min
-  Flushed features: 72,558 | total 949,734 | 405/s | ETA 471.1min
-  ...      950,000/12,389,268 | buf=290 (fire_departments) | 405/s | ETA 470.8min
-  Flushed fire_departments: 548 | total 950,282 | 403/s | ETA 473.3min
-  Flushed fire_dept_wvdem_092017_utm83: 548 | total 950,830 | 403/s | ETA 473.3min
-  ...      955,000/12,389,268 | buf=4,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 471.0min
-  ...      960,000/12,389,268 | buf=9,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 470.7min
-  ...      965,000/12,389,268 | buf=14,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 404/s | ETA 471.1min
-  ...      970,000/12,389,268 | buf=19,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 404/s | ETA 470.8min
-  ...      975,000/12,389,268 | buf=24,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 404/s | ETA 470.4min
-  ...      980,000/12,389,268 | buf=29,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 470.0min
-  ...      985,000/12,389,268 | buf=34,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 469.8min
-  ...      990,000/12,389,268 | buf=39,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 469.5min
-  ...      995,000/12,389,268 | buf=44,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 469.2min
-  ...    1,000,000/12,389,268 | buf=49,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 468.9min
-  ...    1,005,000/12,389,268 | buf=54,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 468.5min
-  ...    1,010,000/12,389,268 | buf=59,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 468.2min
-  ...    1,015,000/12,389,268 | buf=64,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 468.0min
-  ...    1,020,000/12,389,268 | buf=69,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 467.8min
-  ...    1,025,000/12,389,268 | buf=74,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 467.6min
-  ...    1,030,000/12,389,268 | buf=79,194 (floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83) | 405/s | ETA 467.4min
-  Flushed floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83: 81,054 | total 1,031,884 | 386/s | ETA 490.2min
-  Flushed founder_tokens: 1 | total 1,031,885 | 386/s | ETA 490.3min
-  ...    1,035,000/12,389,268 | buf=3,139 (gbim_entities) | 387/s | ETA 488.6min
-  ...    1,040,000/12,389,268 | buf=8,139 (gbim_entities) | 387/s | ETA 488.3min
-  ...    1,045,000/12,389,268 | buf=13,139 (gbim_entities) | 387/s | ETA 488.1min
-  ...    1,050,000/12,389,268 | buf=18,139 (gbim_entities) | 387/s | ETA 488.4min
-  ...    1,055,000/12,389,268 | buf=23,139 (gbim_entities) | 387/s | ETA 488.2min
-  ...    1,060,000/12,389,268 | buf=28,139 (gbim_entities) | 387/s | ETA 487.9min
-  ...    1,065,000/12,389,268 | buf=33,139 (gbim_entities) | 387/s | ETA 487.6min
-  ...    1,070,000/12,389,268 | buf=38,139 (gbim_entities) | 387/s | ETA 487.3min
-  ...    1,075,000/12,389,268 | buf=43,139 (gbim_entities) | 387/s | ETA 487.1min
-  ...    1,080,000/12,389,268 | buf=48,139 (gbim_entities) | 387/s | ETA 487.0min
-  ...    1,085,000/12,389,268 | buf=53,139 (gbim_entities) | 387/s | ETA 487.0min
-  ...    1,090,000/12,389,268 | buf=58,139 (gbim_entities) | 387/s | ETA 486.9min
-  ...    1,095,000/12,389,268 | buf=63,139 (gbim_entities) | 387/s | ETA 486.8min
-  ...    1,100,000/12,389,268 | buf=68,139 (gbim_entities) | 387/s | ETA 486.5min
-  ...    1,105,000/12,389,268 | buf=73,139 (gbim_entities) | 387/s | ETA 486.2min
-  ...    1,110,000/12,389,268 | buf=78,139 (gbim_entities) | 387/s | ETA 485.9min
-  ...    1,115,000/12,389,268 | buf=83,139 (gbim_entities) | 387/s | ETA 485.8min
-  ...    1,120,000/12,389,268 | buf=88,139 (gbim_entities) | 387/s | ETA 485.6min
-  ...    1,125,000/12,389,268 | buf=93,139 (gbim_entities) | 387/s | ETA 485.4min
-  ...    1,130,000/12,389,268 | buf=98,139 (gbim_entities) | 387/s | ETA 485.2min
-  ...    1,135,000/12,389,268 | buf=3,139 (gbim_entities) | 353/s | ETA 531.3min
-  ...    1,140,000/12,389,268 | buf=8,139 (gbim_entities) | 353/s | ETA 530.8min
-  ...    1,145,000/12,389,268 | buf=13,139 (gbim_entities) | 353/s | ETA 530.4min
-  ...    1,150,000/12,389,268 | buf=18,139 (gbim_entities) | 353/s | ETA 530.0min
-  ...    1,155,000/12,389,268 | buf=23,139 (gbim_entities) | 354/s | ETA 529.6min
-  ...    1,160,000/12,389,268 | buf=28,139 (gbim_entities) | 354/s | ETA 529.2min
-  ...    1,165,000/12,389,268 | buf=33,139 (gbim_entities) | 354/s | ETA 528.8min
-  ...    1,170,000/12,389,268 | buf=38,139 (gbim_entities) | 354/s | ETA 528.5min
-  ...    1,175,000/12,389,268 | buf=43,139 (gbim_entities) | 354/s | ETA 528.2min
-  ...    1,180,000/12,389,268 | buf=48,139 (gbim_entities) | 354/s | ETA 527.8min
-  ...    1,185,000/12,389,268 | buf=53,139 (gbim_entities) | 354/s | ETA 527.9min
-  ...    1,190,000/12,389,268 | buf=58,139 (gbim_entities) | 354/s | ETA 527.7min
-  ...    1,195,000/12,389,268 | buf=63,139 (gbim_entities) | 354/s | ETA 527.4min
-  ...    1,200,000/12,389,268 | buf=68,139 (gbim_entities) | 354/s | ETA 527.1min
-  ...    1,205,000/12,389,268 | buf=73,139 (gbim_entities) | 354/s | ETA 526.8min
-  ...    1,210,000/12,389,268 | buf=78,139 (gbim_entities) | 354/s | ETA 526.4min
-  ...    1,215,000/12,389,268 | buf=83,139 (gbim_entities) | 354/s | ETA 526.0min
-  ...    1,220,000/12,389,268 | buf=88,139 (gbim_entities) | 354/s | ETA 525.6min
-  ...    1,225,000/12,389,268 | buf=93,139 (gbim_entities) | 354/s | ETA 525.4min
-  ...    1,230,000/12,389,268 | buf=98,139 (gbim_entities) | 354/s | ETA 525.1min
-  ...    1,235,000/12,389,268 | buf=3,139 (gbim_entities) | 320/s | ETA 580.2min
-  ...    1,240,000/12,389,268 | buf=8,139 (gbim_entities) | 321/s | ETA 579.7min
-  ...    1,245,000/12,389,268 | buf=13,139 (gbim_entities) | 321/s | ETA 579.3min
-  ...    1,250,000/12,389,268 | buf=18,139 (gbim_entities) | 321/s | ETA 578.8min
-  ...    1,255,000/12,389,268 | buf=23,139 (gbim_entities) | 321/s | ETA 578.7min
-  ...    1,260,000/12,389,268 | buf=28,139 (gbim_entities) | 321/s | ETA 578.3min
-  ...    1,265,000/12,389,268 | buf=33,139 (gbim_entities) | 321/s | ETA 577.8min
-  ...    1,270,000/12,389,268 | buf=38,139 (gbim_entities) | 321/s | ETA 577.4min
-  ...    1,275,000/12,389,268 | buf=43,139 (gbim_entities) | 321/s | ETA 577.0min
-  ...    1,280,000/12,389,268 | buf=48,139 (gbim_entities) | 321/s | ETA 576.6min
-  ...    1,285,000/12,389,268 | buf=53,139 (gbim_entities) | 321/s | ETA 576.5min
-  ...    1,290,000/12,389,268 | buf=58,139 (gbim_entities) | 321/s | ETA 576.1min
-  ...    1,295,000/12,389,268 | buf=63,139 (gbim_entities) | 321/s | ETA 575.6min
-  ...    1,300,000/12,389,268 | buf=68,139 (gbim_entities) | 321/s | ETA 575.2min
-  ...    1,305,000/12,389,268 | buf=73,139 (gbim_entities) | 321/s | ETA 574.7min
-  ...    1,310,000/12,389,268 | buf=78,139 (gbim_entities) | 322/s | ETA 574.3min
-  ...    1,315,000/12,389,268 | buf=83,139 (gbim_entities) | 322/s | ETA 573.9min
-  ...    1,320,000/12,389,268 | buf=88,139 (gbim_entities) | 322/s | ETA 573.5min
-  ...    1,325,000/12,389,268 | buf=93,139 (gbim_entities) | 322/s | ETA 573.1min
-  ...    1,330,000/12,389,268 | buf=98,139 (gbim_entities) | 322/s | ETA 572.8min
-  ...    1,335,000/12,389,268 | buf=3,139 (gbim_entities) | 289/s | ETA 637.0min
-  ...    1,340,000/12,389,268 | buf=8,139 (gbim_entities) | 288/s | ETA 640.3min
-  ...    1,345,000/12,389,268 | buf=13,139 (gbim_entities) | 288/s | ETA 640.1min
-  ...    1,350,000/12,389,268 | buf=18,139 (gbim_entities) | 288/s | ETA 639.4min
-  ...    1,355,000/12,389,268 | buf=23,139 (gbim_entities) | 288/s | ETA 638.7min
-  ...    1,360,000/12,389,268 | buf=28,139 (gbim_entities) | 288/s | ETA 638.1min
-  ...    1,365,000/12,389,268 | buf=33,139 (gbim_entities) | 288/s | ETA 637.5min
-  ...    1,370,000/12,389,268 | buf=38,139 (gbim_entities) | 288/s | ETA 636.9min
-  ...    1,375,000/12,389,268 | buf=43,139 (gbim_entities) | 288/s | ETA 636.3min
-  ...    1,380,000/12,389,268 | buf=48,139 (gbim_entities) | 289/s | ETA 635.7min
-  ...    1,385,000/12,389,268 | buf=53,139 (gbim_entities) | 289/s | ETA 635.1min
-  ...    1,390,000/12,389,268 | buf=58,139 (gbim_entities) | 289/s | ETA 634.6min
-  ...    1,395,000/12,389,268 | buf=63,139 (gbim_entities) | 289/s | ETA 634.0min
-  ...    1,400,000/12,389,268 | buf=68,139 (gbim_entities) | 289/s | ETA 633.4min
-  ...    1,405,000/12,389,268 | buf=73,139 (gbim_entities) | 289/s | ETA 632.8min
-  ...    1,410,000/12,389,268 | buf=78,139 (gbim_entities) | 289/s | ETA 632.2min
-  ...    1,415,000/12,389,268 | buf=83,139 (gbim_entities) | 290/s | ETA 631.7min
-  ...    1,420,000/12,389,268 | buf=88,139 (gbim_entities) | 290/s | ETA 631.2min
-  ...    1,425,000/12,389,268 | buf=93,139 (gbim_entities) | 290/s | ETA 630.7min
-  ...    1,430,000/12,389,268 | buf=98,139 (gbim_entities) | 290/s | ETA 630.1min
-  ...    1,435,000/12,389,268 | buf=3,139 (gbim_entities) | 276/s | ETA 661.4min
-  ...    1,440,000/12,389,268 | buf=8,139 (gbim_entities) | 276/s | ETA 660.8min
-  ...    1,445,000/12,389,268 | buf=13,139 (gbim_entities) | 276/s | ETA 660.1min
-  ...    1,450,000/12,389,268 | buf=18,139 (gbim_entities) | 276/s | ETA 659.5min
-  ...    1,455,000/12,389,268 | buf=23,139 (gbim_entities) | 277/s | ETA 658.9min
-  ...    1,460,000/12,389,268 | buf=28,139 (gbim_entities) | 277/s | ETA 658.4min
-  ...    1,465,000/12,389,268 | buf=33,139 (gbim_entities) | 277/s | ETA 657.8min
-  ...    1,470,000/12,389,268 | buf=38,139 (gbim_entities) | 277/s | ETA 657.5min
-  ...    1,475,000/12,389,268 | buf=43,139 (gbim_entities) | 277/s | ETA 657.1min
-  ...    1,480,000/12,389,268 | buf=48,139 (gbim_entities) | 277/s | ETA 656.6min
-  ...    1,485,000/12,389,268 | buf=53,139 (gbim_entities) | 277/s | ETA 656.1min
-  ...    1,490,000/12,389,268 | buf=58,139 (gbim_entities) | 277/s | ETA 655.5min
-  ...    1,495,000/12,389,268 | buf=63,139 (gbim_entities) | 277/s | ETA 655.1min
-  ...    1,500,000/12,389,268 | buf=68,139 (gbim_entities) | 277/s | ETA 654.6min
-  ...    1,505,000/12,389,268 | buf=73,139 (gbim_entities) | 277/s | ETA 654.1min
-  ...    1,510,000/12,389,268 | buf=78,139 (gbim_entities) | 277/s | ETA 653.5min
-  ...    1,515,000/12,389,268 | buf=83,139 (gbim_entities) | 278/s | ETA 653.0min
-  ...    1,520,000/12,389,268 | buf=88,139 (gbim_entities) | 278/s | ETA 652.5min
-  ...    1,525,000/12,389,268 | buf=93,139 (gbim_entities) | 278/s | ETA 651.9min
-  ...    1,530,000/12,389,268 | buf=98,139 (gbim_entities) | 278/s | ETA 651.6min
-  ...    1,535,000/12,389,268 | buf=3,139 (gbim_entities) | 265/s | ETA 683.2min
-  ...    1,540,000/12,389,268 | buf=8,139 (gbim_entities) | 265/s | ETA 682.7min
-  ...    1,545,000/12,389,268 | buf=13,139 (gbim_entities) | 265/s | ETA 682.2min
-  ...    1,550,000/12,389,268 | buf=18,139 (gbim_entities) | 265/s | ETA 681.7min
-  ...    1,555,000/12,389,268 | buf=23,139 (gbim_entities) | 265/s | ETA 681.2min
-  ...    1,560,000/12,389,268 | buf=28,139 (gbim_entities) | 265/s | ETA 680.7min
-  ...    1,565,000/12,389,268 | buf=33,139 (gbim_entities) | 265/s | ETA 680.1min
-  ...    1,570,000/12,389,268 | buf=38,139 (gbim_entities) | 265/s | ETA 679.5min
-  ...    1,575,000/12,389,268 | buf=43,139 (gbim_entities) | 265/s | ETA 679.1min
-  ...    1,580,000/12,389,268 | buf=48,139 (gbim_entities) | 265/s | ETA 678.7min
-  ...    1,585,000/12,389,268 | buf=53,139 (gbim_entities) | 265/s | ETA 678.4min
-  ...    1,590,000/12,389,268 | buf=58,139 (gbim_entities) | 266/s | ETA 677.9min
-  ...    1,595,000/12,389,268 | buf=63,139 (gbim_entities) | 266/s | ETA 677.4min
-  ...    1,600,000/12,389,268 | buf=68,139 (gbim_entities) | 266/s | ETA 676.9min
-  ...    1,605,000/12,389,268 | buf=73,139 (gbim_entities) | 266/s | ETA 676.4min
-  ...    1,610,000/12,389,268 | buf=78,139 (gbim_entities) | 266/s | ETA 675.9min
-  ...    1,615,000/12,389,268 | buf=83,139 (gbim_entities) | 266/s | ETA 675.5min
-  ...    1,620,000/12,389,268 | buf=88,139 (gbim_entities) | 266/s | ETA 675.0min
-  ...    1,625,000/12,389,268 | buf=93,139 (gbim_entities) | 266/s | ETA 674.5min
-  ...    1,630,000/12,389,268 | buf=98,139 (gbim_entities) | 266/s | ETA 674.1min
-  ...    1,635,000/12,389,268 | buf=3,139 (gbim_entities) | 255/s | ETA 702.5min
-  ...    1,640,000/12,389,268 | buf=8,139 (gbim_entities) | 255/s | ETA 702.0min
-  ...    1,645,000/12,389,268 | buf=13,139 (gbim_entities) | 255/s | ETA 701.5min
-  ...    1,650,000/12,389,268 | buf=18,139 (gbim_entities) | 255/s | ETA 701.0min
-  ...    1,655,000/12,389,268 | buf=23,139 (gbim_entities) | 255/s | ETA 700.4min
-  ...    1,660,000/12,389,268 | buf=28,139 (gbim_entities) | 256/s | ETA 699.8min
-  ...    1,665,000/12,389,268 | buf=33,139 (gbim_entities) | 256/s | ETA 699.4min
-  ...    1,670,000/12,389,268 | buf=38,139 (gbim_entities) | 256/s | ETA 698.9min
-  ...    1,675,000/12,389,268 | buf=43,139 (gbim_entities) | 256/s | ETA 698.4min
-  ...    1,680,000/12,389,268 | buf=48,139 (gbim_entities) | 256/s | ETA 697.9min
-  ...    1,685,000/12,389,268 | buf=53,139 (gbim_entities) | 256/s | ETA 697.4min
-  ...    1,690,000/12,389,268 | buf=58,139 (gbim_entities) | 256/s | ETA 697.3min
-  ...    1,695,000/12,389,268 | buf=63,139 (gbim_entities) | 256/s | ETA 696.8min
-  ...    1,700,000/12,389,268 | buf=68,139 (gbim_entities) | 256/s | ETA 696.4min
-  ...    1,705,000/12,389,268 | buf=73,139 (gbim_entities) | 256/s | ETA 695.9min
-  ...    1,710,000/12,389,268 | buf=78,139 (gbim_entities) | 256/s | ETA 695.5min
-  ...    1,715,000/12,389,268 | buf=83,139 (gbim_entities) | 256/s | ETA 695.1min
-  ...    1,720,000/12,389,268 | buf=88,139 (gbim_entities) | 256/s | ETA 694.6min
-  ...    1,725,000/12,389,268 | buf=93,139 (gbim_entities) | 256/s | ETA 694.1min
-  ...    1,730,000/12,389,268 | buf=98,139 (gbim_entities) | 256/s | ETA 693.6min
-  ...    1,735,000/12,389,268 | buf=3,139 (gbim_entities) | 244/s | ETA 726.3min
-  ...    1,740,000/12,389,268 | buf=8,139 (gbim_entities) | 244/s | ETA 727.7min
-  ...    1,745,000/12,389,268 | buf=13,139 (gbim_entities) | 244/s | ETA 727.8min
-  ...    1,750,000/12,389,268 | buf=18,139 (gbim_entities) | 244/s | ETA 727.2min
-  ...    1,755,000/12,389,268 | buf=23,139 (gbim_entities) | 244/s | ETA 726.7min
-  ...    1,760,000/12,389,268 | buf=28,139 (gbim_entities) | 244/s | ETA 726.2min
-  ...    1,765,000/12,389,268 | buf=33,139 (gbim_entities) | 244/s | ETA 725.8min
-  ...    1,770,000/12,389,268 | buf=38,139 (gbim_entities) | 244/s | ETA 725.4min
-  ...    1,775,000/12,389,268 | buf=43,139 (gbim_entities) | 244/s | ETA 725.0min
-  ...    1,780,000/12,389,268 | buf=48,139 (gbim_entities) | 244/s | ETA 724.5min
-  ...    1,785,000/12,389,268 | buf=53,139 (gbim_entities) | 244/s | ETA 724.0min
-  ...    1,790,000/12,389,268 | buf=58,139 (gbim_entities) | 244/s | ETA 723.4min
-  ...    1,795,000/12,389,268 | buf=63,139 (gbim_entities) | 244/s | ETA 723.1min
-  ...    1,800,000/12,389,268 | buf=68,139 (gbim_entities) | 244/s | ETA 722.6min
-  ...    1,805,000/12,389,268 | buf=73,139 (gbim_entities) | 244/s | ETA 722.2min
-  ...    1,810,000/12,389,268 | buf=78,139 (gbim_entities) | 244/s | ETA 721.7min
-  ...    1,815,000/12,389,268 | buf=83,139 (gbim_entities) | 244/s | ETA 721.2min
-  ...    1,820,000/12,389,268 | buf=88,139 (gbim_entities) | 244/s | ETA 720.8min
-  ...    1,825,000/12,389,268 | buf=93,139 (gbim_entities) | 244/s | ETA 720.4min
-  ...    1,830,000/12,389,268 | buf=98,139 (gbim_entities) | 244/s | ETA 719.9min
-  ...    1,835,000/12,389,268 | buf=3,139 (gbim_entities) | 236/s | ETA 746.1min
-  ...    1,840,000/12,389,268 | buf=8,139 (gbim_entities) | 236/s | ETA 745.6min
-  ...    1,845,000/12,389,268 | buf=13,139 (gbim_entities) | 236/s | ETA 745.2min
-  ...    1,850,000/12,389,268 | buf=18,139 (gbim_entities) | 236/s | ETA 744.6min
-  ...    1,855,000/12,389,268 | buf=23,139 (gbim_entities) | 236/s | ETA 744.1min
-  ...    1,860,000/12,389,268 | buf=28,139 (gbim_entities) | 236/s | ETA 743.7min
-  ...    1,865,000/12,389,268 | buf=33,139 (gbim_entities) | 236/s | ETA 743.4min
-  ...    1,870,000/12,389,268 | buf=38,139 (gbim_entities) | 236/s | ETA 742.9min
-  ...    1,875,000/12,389,268 | buf=43,139 (gbim_entities) | 236/s | ETA 742.4min
-  ...    1,880,000/12,389,268 | buf=48,139 (gbim_entities) | 236/s | ETA 741.9min
-  ...    1,885,000/12,389,268 | buf=53,139 (gbim_entities) | 236/s | ETA 741.5min
-  ...    1,890,000/12,389,268 | buf=58,139 (gbim_entities) | 236/s | ETA 740.9min
-  ...    1,895,000/12,389,268 | buf=63,139 (gbim_entities) | 236/s | ETA 740.5min
-  ...    1,900,000/12,389,268 | buf=68,139 (gbim_entities) | 236/s | ETA 740.0min
-  ...    1,905,000/12,389,268 | buf=73,139 (gbim_entities) | 236/s | ETA 739.5min
-  ...    1,910,000/12,389,268 | buf=78,139 (gbim_entities) | 236/s | ETA 739.0min
-  ...    1,915,000/12,389,268 | buf=83,139 (gbim_entities) | 236/s | ETA 738.6min
-  ...    1,920,000/12,389,268 | buf=88,139 (gbim_entities) | 236/s | ETA 738.2min
-  ...    1,925,000/12,389,268 | buf=93,139 (gbim_entities) | 236/s | ETA 737.7min
-  ...    1,930,000/12,389,268 | buf=98,139 (gbim_entities) | 236/s | ETA 737.2min
-  ...    1,935,000/12,389,268 | buf=3,139 (gbim_entities) | 228/s | ETA 764.1min
-  ...    1,940,000/12,389,268 | buf=8,139 (gbim_entities) | 227/s | ETA 766.7min
-  ...    1,945,000/12,389,268 | buf=13,139 (gbim_entities) | 227/s | ETA 766.3min
-  ...    1,950,000/12,389,268 | buf=18,139 (gbim_entities) | 227/s | ETA 765.8min
-  ...    1,955,000/12,389,268 | buf=23,139 (gbim_entities) | 227/s | ETA 765.2min
-  ...    1,960,000/12,389,268 | buf=28,139 (gbim_entities) | 227/s | ETA 764.7min
-  ...    1,965,000/12,389,268 | buf=33,139 (gbim_entities) | 227/s | ETA 764.2min
-  ...    1,970,000/12,389,268 | buf=38,139 (gbim_entities) | 227/s | ETA 763.7min
-  ...    1,975,000/12,389,268 | buf=43,139 (gbim_entities) | 227/s | ETA 763.2min
-  ...    1,980,000/12,389,268 | buf=48,139 (gbim_entities) | 228/s | ETA 762.6min
-  ...    1,985,000/12,389,268 | buf=53,139 (gbim_entities) | 228/s | ETA 762.0min
-  ...    1,990,000/12,389,268 | buf=58,139 (gbim_entities) | 228/s | ETA 761.5min
-  ...    1,995,000/12,389,268 | buf=63,139 (gbim_entities) | 228/s | ETA 761.0min
-  ...    2,000,000/12,389,268 | buf=68,139 (gbim_entities) | 228/s | ETA 760.5min
-  ...    2,005,000/12,389,268 | buf=73,139 (gbim_entities) | 228/s | ETA 760.0min
-  ...    2,010,000/12,389,268 | buf=78,139 (gbim_entities) | 228/s | ETA 759.5min
-  ...    2,015,000/12,389,268 | buf=83,139 (gbim_entities) | 228/s | ETA 759.0min
-  ...    2,020,000/12,389,268 | buf=88,139 (gbim_entities) | 228/s | ETA 758.5min
-  ...    2,025,000/12,389,268 | buf=93,139 (gbim_entities) | 228/s | ETA 758.3min
-  ...    2,030,000/12,389,268 | buf=98,139 (gbim_entities) | 228/s | ETA 757.8min
-  ...    2,035,000/12,389,268 | buf=3,139 (gbim_entities) | 221/s | ETA 781.1min
-  ...    2,040,000/12,389,268 | buf=8,139 (gbim_entities) | 221/s | ETA 780.7min
-  ...    2,045,000/12,389,268 | buf=13,139 (gbim_entities) | 221/s | ETA 780.3min
-  ...    2,050,000/12,389,268 | buf=18,139 (gbim_entities) | 221/s | ETA 779.8min
-  ...    2,055,000/12,389,268 | buf=23,139 (gbim_entities) | 221/s | ETA 779.3min
-  ...    2,060,000/12,389,268 | buf=28,139 (gbim_entities) | 221/s | ETA 778.8min
-  ...    2,065,000/12,389,268 | buf=33,139 (gbim_entities) | 221/s | ETA 778.2min
-  ...    2,070,000/12,389,268 | buf=38,139 (gbim_entities) | 221/s | ETA 777.7min
-  ...    2,075,000/12,389,268 | buf=43,139 (gbim_entities) | 221/s | ETA 777.2min
-  ...    2,080,000/12,389,268 | buf=48,139 (gbim_entities) | 221/s | ETA 776.7min
-  ...    2,085,000/12,389,268 | buf=53,139 (gbim_entities) | 221/s | ETA 776.2min
-  ...    2,090,000/12,389,268 | buf=58,139 (gbim_entities) | 221/s | ETA 775.6min
-  ...    2,095,000/12,389,268 | buf=63,139 (gbim_entities) | 221/s | ETA 775.2min
-  ...    2,100,000/12,389,268 | buf=68,139 (gbim_entities) | 221/s | ETA 774.8min
-  ...    2,105,000/12,389,268 | buf=73,139 (gbim_entities) | 221/s | ETA 774.3min
-  ...    2,110,000/12,389,268 | buf=78,139 (gbim_entities) | 221/s | ETA 774.2min
-  ...    2,115,000/12,389,268 | buf=83,139 (gbim_entities) | 221/s | ETA 773.7min
-  ...    2,120,000/12,389,268 | buf=88,139 (gbim_entities) | 221/s | ETA 773.3min
-  ...    2,125,000/12,389,268 | buf=93,139 (gbim_entities) | 221/s | ETA 772.8min
-  ...    2,130,000/12,389,268 | buf=98,139 (gbim_entities) | 221/s | ETA 772.3min
-  ...    2,135,000/12,389,268 | buf=3,139 (gbim_entities) | 215/s | ETA 794.9min
-  ...    2,140,000/12,389,268 | buf=8,139 (gbim_entities) | 214/s | ETA 797.1min
-  ...    2,145,000/12,389,268 | buf=13,139 (gbim_entities) | 214/s | ETA 796.6min
-  ...    2,150,000/12,389,268 | buf=18,139 (gbim_entities) | 214/s | ETA 796.1min
-  ...    2,155,000/12,389,268 | buf=23,139 (gbim_entities) | 214/s | ETA 795.6min
-  ...    2,160,000/12,389,268 | buf=28,139 (gbim_entities) | 214/s | ETA 795.0min
-  ...    2,165,000/12,389,268 | buf=33,139 (gbim_entities) | 215/s | ETA 794.4min
-  ...    2,170,000/12,389,268 | buf=38,139 (gbim_entities) | 215/s | ETA 793.9min
-  ...    2,175,000/12,389,268 | buf=43,139 (gbim_entities) | 215/s | ETA 793.3min
-  ...    2,180,000/12,389,268 | buf=48,139 (gbim_entities) | 215/s | ETA 792.7min
-  ...    2,185,000/12,389,268 | buf=53,139 (gbim_entities) | 215/s | ETA 792.4min
-  ...    2,190,000/12,389,268 | buf=58,139 (gbim_entities) | 215/s | ETA 791.9min
-  ...    2,195,000/12,389,268 | buf=63,139 (gbim_entities) | 215/s | ETA 791.3min
-  ...    2,200,000/12,389,268 | buf=68,139 (gbim_entities) | 215/s | ETA 790.7min
-  ...    2,205,000/12,389,268 | buf=73,139 (gbim_entities) | 215/s | ETA 790.2min
-  ...    2,210,000/12,389,268 | buf=78,139 (gbim_entities) | 215/s | ETA 789.7min
-  ...    2,215,000/12,389,268 | buf=83,139 (gbim_entities) | 215/s | ETA 789.1min
-  ...    2,220,000/12,389,268 | buf=88,139 (gbim_entities) | 215/s | ETA 788.6min
-  ...    2,225,000/12,389,268 | buf=93,139 (gbim_entities) | 215/s | ETA 788.1min
-  ...    2,230,000/12,389,268 | buf=98,139 (gbim_entities) | 215/s | ETA 787.6min
-  ...    2,235,000/12,389,268 | buf=3,139 (gbim_entities) | 209/s | ETA 809.3min
-  ...    2,240,000/12,389,268 | buf=8,139 (gbim_entities) | 209/s | ETA 808.9min
-  ...    2,245,000/12,389,268 | buf=13,139 (gbim_entities) | 209/s | ETA 808.3min
-  ...    2,250,000/12,389,268 | buf=18,139 (gbim_entities) | 209/s | ETA 807.7min
-  ...    2,255,000/12,389,268 | buf=23,139 (gbim_entities) | 209/s | ETA 807.2min
-  ...    2,260,000/12,389,268 | buf=28,139 (gbim_entities) | 209/s | ETA 806.6min
-  ...    2,265,000/12,389,268 | buf=33,139 (gbim_entities) | 209/s | ETA 806.0min
-  ...    2,270,000/12,389,268 | buf=38,139 (gbim_entities) | 209/s | ETA 805.8min
-  ...    2,275,000/12,389,268 | buf=43,139 (gbim_entities) | 209/s | ETA 805.2min
-  ...    2,280,000/12,389,268 | buf=48,139 (gbim_entities) | 209/s | ETA 804.7min
-  ...    2,285,000/12,389,268 | buf=53,139 (gbim_entities) | 209/s | ETA 804.1min
-  ...    2,290,000/12,389,268 | buf=58,139 (gbim_entities) | 209/s | ETA 803.5min
-  ...    2,295,000/12,389,268 | buf=63,139 (gbim_entities) | 210/s | ETA 802.9min
-  ...    2,300,000/12,389,268 | buf=68,139 (gbim_entities) | 210/s | ETA 802.3min
-  ...    2,305,000/12,389,268 | buf=73,139 (gbim_entities) | 210/s | ETA 801.8min
-  ...    2,310,000/12,389,268 | buf=78,139 (gbim_entities) | 210/s | ETA 801.2min
-  ...    2,315,000/12,389,268 | buf=83,139 (gbim_entities) | 210/s | ETA 800.6min
-  ...    2,320,000/12,389,268 | buf=88,139 (gbim_entities) | 210/s | ETA 800.1min
-  ...    2,325,000/12,389,268 | buf=93,139 (gbim_entities) | 210/s | ETA 799.5min
-  ...    2,330,000/12,389,268 | buf=98,139 (gbim_entities) | 210/s | ETA 799.0min
-  ...    2,335,000/12,389,268 | buf=3,139 (gbim_entities) | 203/s | ETA 825.3min
-  ...    2,340,000/12,389,268 | buf=8,139 (gbim_entities) | 202/s | ETA 827.3min
-  ...    2,345,000/12,389,268 | buf=13,139 (gbim_entities) | 202/s | ETA 826.8min
-  ...    2,350,000/12,389,268 | buf=18,139 (gbim_entities) | 202/s | ETA 826.3min
-  ...    2,355,000/12,389,268 | buf=23,139 (gbim_entities) | 203/s | ETA 825.8min
-  ...    2,360,000/12,389,268 | buf=28,139 (gbim_entities) | 203/s | ETA 825.2min
-  ...    2,365,000/12,389,268 | buf=33,139 (gbim_entities) | 203/s | ETA 824.7min
-  ...    2,370,000/12,389,268 | buf=38,139 (gbim_entities) | 203/s | ETA 824.2min
-  ...    2,375,000/12,389,268 | buf=43,139 (gbim_entities) | 203/s | ETA 823.7min
-  ...    2,380,000/12,389,268 | buf=48,139 (gbim_entities) | 203/s | ETA 823.2min
-  ...    2,385,000/12,389,268 | buf=53,139 (gbim_entities) | 203/s | ETA 822.6min
-  ...    2,390,000/12,389,268 | buf=58,139 (gbim_entities) | 203/s | ETA 822.3min
-  ...    2,395,000/12,389,268 | buf=63,139 (gbim_entities) | 203/s | ETA 821.8min
-  ...    2,400,000/12,389,268 | buf=68,139 (gbim_entities) | 203/s | ETA 821.3min
-  ...    2,405,000/12,389,268 | buf=73,139 (gbim_entities) | 203/s | ETA 820.8min
-  ...    2,410,000/12,389,268 | buf=78,139 (gbim_entities) | 203/s | ETA 820.2min
-  ...    2,415,000/12,389,268 | buf=83,139 (gbim_entities) | 203/s | ETA 819.8min
-  ...    2,420,000/12,389,268 | buf=88,139 (gbim_entities) | 203/s | ETA 819.4min
-  ...    2,425,000/12,389,268 | buf=93,139 (gbim_entities) | 203/s | ETA 818.9min
-  ...    2,430,000/12,389,268 | buf=98,139 (gbim_entities) | 203/s | ETA 818.5min
-  ...    2,435,000/12,389,268 | buf=3,139 (gbim_entities) | 198/s | ETA 839.1min
-  ...    2,440,000/12,389,268 | buf=8,139 (gbim_entities) | 197/s | ETA 841.2min
-  ...    2,445,000/12,389,268 | buf=13,139 (gbim_entities) | 197/s | ETA 842.4min
-  ...    2,450,000/12,389,268 | buf=18,139 (gbim_entities) | 197/s | ETA 842.0min
-  ...    2,455,000/12,389,268 | buf=23,139 (gbim_entities) | 197/s | ETA 842.0min
-  ...    2,460,000/12,389,268 | buf=28,139 (gbim_entities) | 197/s | ETA 841.5min
-  ...    2,465,000/12,389,268 | buf=33,139 (gbim_entities) | 197/s | ETA 841.2min
-  ...    2,470,000/12,389,268 | buf=38,139 (gbim_entities) | 197/s | ETA 840.6min
-  ...    2,475,000/12,389,268 | buf=43,139 (gbim_entities) | 197/s | ETA 840.2min
-  ...    2,480,000/12,389,268 | buf=48,139 (gbim_entities) | 197/s | ETA 840.4min
-  ...    2,485,000/12,389,268 | buf=53,139 (gbim_entities) | 197/s | ETA 839.9min
-  ...    2,490,000/12,389,268 | buf=58,139 (gbim_entities) | 197/s | ETA 839.4min
-  ...    2,495,000/12,389,268 | buf=63,139 (gbim_entities) | 197/s | ETA 839.0min
-  ...    2,500,000/12,389,268 | buf=68,139 (gbim_entities) | 197/s | ETA 838.5min
-  ...    2,505,000/12,389,268 | buf=73,139 (gbim_entities) | 197/s | ETA 838.0min
-  ...    2,510,000/12,389,268 | buf=78,139 (gbim_entities) | 197/s | ETA 837.8min
-  ...    2,515,000/12,389,268 | buf=83,139 (gbim_entities) | 196/s | ETA 837.8min
-  ...    2,520,000/12,389,268 | buf=88,139 (gbim_entities) | 196/s | ETA 837.8min
-  ...    2,525,000/12,389,268 | buf=93,139 (gbim_entities) | 196/s | ETA 837.7min
-  ...    2,530,000/12,389,268 | buf=98,139 (gbim_entities) | 196/s | ETA 837.7min
-  ...    2,535,000/12,389,268 | buf=3,139 (gbim_entities) | 191/s | ETA 860.3min
-  ...    2,540,000/12,389,268 | buf=8,139 (gbim_entities) | 191/s | ETA 861.2min
-  ...    2,545,000/12,389,268 | buf=13,139 (gbim_entities) | 191/s | ETA 860.7min
-  ...    2,550,000/12,389,268 | buf=18,139 (gbim_entities) | 191/s | ETA 860.2min
-  ...    2,555,000/12,389,268 | buf=23,139 (gbim_entities) | 191/s | ETA 860.0min
-  ...    2,560,000/12,389,268 | buf=28,139 (gbim_entities) | 191/s | ETA 859.4min
-  ...    2,565,000/12,389,268 | buf=33,139 (gbim_entities) | 191/s | ETA 859.1min
-  ...    2,570,000/12,389,268 | buf=38,139 (gbim_entities) | 191/s | ETA 858.6min
-  ...    2,575,000/12,389,268 | buf=43,139 (gbim_entities) | 191/s | ETA 858.0min
-  ...    2,580,000/12,389,268 | buf=48,139 (gbim_entities) | 191/s | ETA 857.5min
-  ...    2,585,000/12,389,268 | buf=53,139 (gbim_entities) | 191/s | ETA 857.0min
-  ...    2,590,000/12,389,268 | buf=58,139 (gbim_entities) | 191/s | ETA 856.5min
-  ...    2,595,000/12,389,268 | buf=63,139 (gbim_entities) | 191/s | ETA 855.9min
-  ...    2,600,000/12,389,268 | buf=68,139 (gbim_entities) | 191/s | ETA 855.3min
-  ...    2,605,000/12,389,268 | buf=73,139 (gbim_entities) | 191/s | ETA 855.1min
-  ...    2,610,000/12,389,268 | buf=78,139 (gbim_entities) | 191/s | ETA 854.6min
-  ...    2,615,000/12,389,268 | buf=83,139 (gbim_entities) | 191/s | ETA 854.1min
-  ...    2,620,000/12,389,268 | buf=88,139 (gbim_entities) | 191/s | ETA 854.0min
-  [READ retry 1] HTTP 500 -> 1s
-  [READ retry 2] HTTP 500 -> 2s
-  [READ retry 3] HTTP 500 -> 4s
-  [READ retry 4] HTTP 500 -> 8s
-  [READ retry 5] HTTP 500 -> 16s
-  [READ retry 6] HTTP 500 -> 32s
-  [READ retry 7] HTTP 500 -> 64s
-  [READ retry 8] HTTP 500 -> 128s
-Traceback (most recent call last):
-  File "/home/cakidd/msjarvis-rebuild/migrate_to_layer_collections_v3.py", line 214, in <module>
-    main()
-  File "/home/cakidd/msjarvis-rebuild/migrate_to_layer_collections_v3.py", line 153, in main
-    batch = retry_post(client, get_url, {
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cakidd/msjarvis-rebuild/migrate_to_layer_collections_v3.py", line 59, in retry_post
-    raise RuntimeError(f"Exhausted retries: {label} {url}")
-RuntimeError: Exhausted retries: READ http://localhost:8002/api/v2/tenants/default_tenant/databases/default_database/collections/497a6c83-cbd4-4162-9f61-55e447533557/get
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ cd /mnt/nvme1/msjarvis-rebuild
+
+printf '\n===== 1. Confirm Chroma heartbeat on the correct host port =====\n'
+curl -s http://127.0.0.1:8002/api/v2/heartbeat || true
+echo
+curl -s http://127.0.0.1:8002/api/v1/heartbeat || true
+echo
+
+printf '\n===== 2. Show Chroma health details =====\n'
+docker inspect jarvis-chroma --format '{{json .State.Health}}' | python3 -m json.tool
+
+printf '\n===== 3. Count collections from inside Hilbert =====\n'
+docker exec jarvis-hilbert-spatial-chat python3 - <<'PY'
+import os, json, chromadb
+host = os.getenv('CHROMA_HOST', 'jarvis-chroma')
+port = int(os.getenv('CHROMA_PORT', '8000'))
+client = chromadb.HttpClient(host=host, port=port)
+cols = client.list_collections()
+names = [getattr(c, 'name', str(c)) for c in cols]
+print(json.dumps({
+    "host": host,
+    "port": port,
+    "collection_count": len(names),
+    "collections": names[:50]
+curl -s http://127.0.0.1:8235/health | python3 -m json.tool\n'e.override.yml services 2>/dev/null | head -200
+
+===== 1. Confirm Chroma heartbeat on the correct host port =====
+{"nanosecond heartbeat":1782244504720790583}
+{"error":"Unimplemented","message":"The v1 API is deprecated. Please use /v2 apis"}
+
+===== 2. Show Chroma health details =====
+{
+    "Status": "healthy",
+    "FailingStreak": 0,
+    "Log": [
+        {
+            "Start": "2026-06-23T15:54:26.484098208-04:00",
+            "End": "2026-06-23T15:54:26.528287365-04:00",
+            "ExitCode": 0,
+            "Output": ""
+        },
+        {
+            "Start": "2026-06-23T15:54:56.52936979-04:00",
+            "End": "2026-06-23T15:54:56.593720794-04:00",
+            "ExitCode": 0,
+            "Output": ""
+        }
+    ]
+}
+
+===== 3. Count collections from inside Hilbert =====
+
+===== 4. Check Neo4j container presence =====
+
+===== 5. Find Neo4j references in source and compose =====
+docker-compose.yml:1086:  neo4j:
+docker-compose.yml:1087:    image: neo4j:5.13-community
+docker-compose.yml:1088:    container_name: neo4j
+docker-compose.yml:1090:      - 127.0.0.1:7687:7687
+docker-compose.yml:1093:      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+docker-compose.yml:1094:      - NEO4J_AUTH=neo4j/neo4jpassword
+services/indexgrid15minutequads_wvgistc_utm83_attrs.csv:249:0,4376935.683730496,768710.2287298313,"POLYGON((757959.7716798313 4376562.347867112,757959.7716798313 4377309.01959388,779460.6857798314 4377309.01959388,779460.6857798314 4376562.347867112,757959.7716798313 4376562.347867112))",feat_0,indexgrid15minutequads_wvgistc_utm83,USA
+services/indexgrid15minutequads_wvgistc_utm83_attrs.csv:265:0,4401698.784588736,660636.9380214557,"POLYGON((649927.1073256728 4401474.594010216,649927.1073256728 4401922.975167256,671346.7687172384 4401922.975167256,671346.7687172384 4401474.594010216,649927.1073256728 4401474.594010216))",feat_0,indexgrid15minutequads_wvgistc_utm83,USA
+services/indexgrid15minutequads_wvgistc_utm83_attrs.csv:266:0,4402177.090945156,682056.8996618716,"POLYGON((671346.7687172384 4401922.975167256,671346.7687172384 4402431.206723057,692767.0306065048 4402431.206723057,692767.0306065048 4401922.975167256,671346.7687172384 4401922.975167256))",feat_0,indexgrid15minutequads_wvgistc_utm83,USA
+services/indexgrid15minutequads_wvgistc_utm83_attrs.csv:319:0,4483329.768706052,468224.75584946544,"POLYGON((457632.98646784585 4483284.746308977,457632.98646784585 4483374.791103127,478816.5252310849 4483374.791103127,478816.5252310849 4483284.746308977,457632.98646784585 4483284.746308977))",feat_0,indexgrid15minutequads_wvgistc_utm83,USA
+services/indexgrid15minutequads_wvgistc_utm83_attrs.csv:322:0,4483329.768706052,531775.2441505314,"POLYGON((521183.47476891184 4483284.746308977,521183.47476891184 4483374.791103127,542367.0135321509 4483374.791103127,542367.0135321509 4483284.746308977,521183.47476891184 4483284.746308977))",feat_0,indexgrid15minutequads_wvgistc_utm83,USA
+services/indexgrid15minutequads_wvgistc_utm83_attrs.csv:591:0,4388048.502711222,671655.7687820196,"POLYGON((671346.7687172384 4374174.030255187,671346.7687172384 4401922.975167256,671964.7688468009 4401922.975167256,671964.7688468009 4374174.030255187,671346.7687172384 4374174.030255187))",feat_0,indexgrid15minutequads_wvgistc_utm83,USA
+services/indexgrid15minutequads_wvgistc_utm83_attrs.csv:592:0,4415797.974154576,671036.1314961306,"POLYGON((670725.4942750228 4401922.975167256,670725.4942750228 4429672.973141896,671346.7687172384 4429672.973141896,671346.7687172384 4401922.975167256,670725.4942750228 4401922.975167256))",feat_0,indexgrid15minutequads_wvgistc_utm83,USA
+services/geolgyl_reg_ll83_attrs.csv:400:378,36.91776870599808,-76.1738925486109,"POLYGON((-76.1756004396857 36.917571659248544,-76.1756004396857 36.91811615924905,-76.17216593968249 36.91811615924905,-76.17216593968249 36.917571659248544,-76.1756004396857 36.917571659248544))",feat_378,geolgyl_reg_ll83,USA
+services/geolgyl_reg_ll83_attrs.csv:1250:1232,38.6785241466055,-76.20105748581663,"POLYGON((-76.20279243971102 38.67088716088145,-76.20279243971102 38.68679116089626,-76.19768793970627 38.68679116089626,-76.19768793970627 38.67088716088145,-76.20279243971102 38.67088716088145))",feat_1232,geolgyl_reg_ll83,USA
+services/geolgyl_reg_ll83_attrs.csv:1266:1249,38.710580144071784,-76.09952856277687,"POLYGON((-76.10096693961619 38.704280660912545,-76.10096693961619 38.71696016092436,-76.09847243961386 38.71696016092436,-76.09847243961386 38.704280660912545,-76.10096693961619 38.704280660912545))",feat_1249,geolgyl_reg_ll83,USA
+services/route_declarations_raw.txt:111:belief_integrator.py:56:@app.post("/integrate_neo4j_belief")
+services/empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_attrs.csv:154:153,4352115.178684399,456762.27687513834,"POLYGON((454108.65488438803 4348869.545284115,454108.65488438803 4354652.887675274,459155.1932021032 4354652.887675274,459155.1932021032 4348869.545284115,454108.65488438803 4348869.545284115))",,empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907,USA
+services/empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_attrs.csv:283:282,4251564.630062899,433670.876870761,"POLYGON((430168.44907939725 4248915.556213427,430168.44907939725 4254010.471560418,437005.68520973634 4254010.471560418,437005.68520973634 4248915.556213427,430168.44907939725 4248915.556213427))",,empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907,USA
+services/enrich_geodb_layers.py:7:from neo4j import GraphDatabase
+services/enrich_geodb_layers.py:18:# Neo4j connection
+services/enrich_geodb_layers.py:19:NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
+services/enrich_geodb_layers.py:20:NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
+services/enrich_geodb_layers.py:21:NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "password")
+services/enrich_geodb_layers.py:27:# - id_column: primary id used to build Neo4j node id
+services/enrich_geodb_layers.py:28:# - id_prefix: prefix to build Neo4j id (id_prefix + id value)
+services/enrich_geodb_layers.py:32:# - attribute_columns: dict of {alias_in_neo4j: sql_column_name}
+services/enrich_geodb_layers.py:361:def connect_neo4j():
+services/enrich_geodb_layers.py:362:    return GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
+services/enrich_geodb_layers.py:470:    driver = connect_neo4j()
+services/hilbert_spatial_chat.py:11:from neo4j import GraphDatabase  # NEW
+services/hilbert_spatial_chat.py:113:# === Neo4j integration (NEW) ===
+services/hilbert_spatial_chat.py:115:NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
+services/hilbert_spatial_chat.py:116:NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
+services/hilbert_spatial_chat.py:117:NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "password")  # override via env
+services/hilbert_spatial_chat.py:119:driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
+services/hilbert_spatial_chat.py:153:# === graph/nearby_resources endpoint using Neo4j ===
+services/hilbert_spatial_chat.py:157:    place_id: str = Query(..., description="Place node id in Neo4j"),
+services/hilbert_spatial_chat.py:179:        logger.error(f"Neo4j query failed: {e}")
+services/hilbert_spatial_chat.py:182:            "error": f"Neo4j query failed: {str(e)[:200]}",
+services/hilbert_spatial_chat.py:203:# === graph/project_impact endpoint using Neo4j (NEW) ===
+services/hilbert_spatial_chat.py:207:    project_id: str = Query(..., description="Project node id in Neo4j"),
+services/hilbert_spatial_chat.py:232:        logger.error(f"Neo4j project_impact query failed: {e}")
+services/hilbert_spatial_chat.py:235:            "error": f"Neo4j query failed: {str(e)[:200]}",
+services/hilbert_spatial_chat.py:272:    neo4j_status = "unknown"
+services/hilbert_spatial_chat.py:275:        neo4j_status = "connected"
+services/hilbert_spatial_chat.py:277:        neo4j_status = f"disconnected: {str(e)[:50]}"
+services/hilbert_spatial_chat.py:283:        "neo4j": neo4j_status,
+services/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv:684:546,4252636.2794076875,409550.06627345335,POINT(409550.06627345335 4252636.2794076875),Walter Hayslett,manufacturingandbusiness_wvdo_200803_utm83,USA
+services/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv:1236:1058,4266086.697687862,553299.7605859741,POINT(553299.7605859741 4266086.697687862),Arden E Cogar Logging Co,manufacturingandbusiness_wvdo_200803_utm83,USA
+services/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv:1719:1541,4254701.48468009,376871.71010144986,POINT(376871.71010144986 4254701.48468009),Allied Processing Services Inc,manufacturingandbusiness_wvdo_200803_utm83,USA
+services/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv:2682:2544,4247687.297451551,437571.9213996561,POINT(437571.9213996561 4247687.297451551),Yellow Transportation Inc,manufacturingandbusiness_wvdo_200803_utm83,USA
+services/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv:6108:6160,4382485.409776878,589702.0322383255,POINT(589702.0322383255 4382485.409776878),D & M Investments Inc,manufacturingandbusiness_wvdo_200803_utm83,USA
+services/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv:6642:6571,4345278.056366059,557868.3985976875,POINT(557868.3985976875 4345278.056366059),Harrison County Board of Educn,manufacturingandbusiness_wvdo_200803_utm83,USA
+services/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv:7558:7493,4252336.6167687,379114.86233630957,POINT(379114.86233630957 4252336.6167687),Prestera Center For Mental,manufacturingandbusiness_wvdo_200803_utm83,USA
+services/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv:7734:7687,4370533.955475906,571915.3049949205,POINT(571915.3049949205 4370533.955475906),Family Service Of Marion,manufacturingandbusiness_wvdo_200803_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:3425:4973,4316024.459818348,407687.76992880553,POINT(407687.76992880553 4316024.459818348),feat_4973,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:4809:4716,4316141.9768771585,549364.365878799,POINT(549364.365878799 4316141.9768771585),feat_4716,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:5027:6087,4315512.630355645,416293.91987687536,POINT(416293.91987687536 4315512.630355645),feat_6087,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:5480:6256,4315388.17045215,407687.01976430044,POINT(407687.01976430044 4315388.17045215),feat_6256,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:7087:7687,4313839.585571829,531634.3264951734,POINT(531634.3264951734 4313839.585571829),feat_7687,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:7474:3068,4317687.849428713,409214.1700158082,POINT(409214.1700158082 4317687.849428713),feat_3068,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:8514:8799,4313103.809768744,433645.69015153777,POINT(433645.69015153777 4313103.809768744),feat_8799,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:8575:8860,4313075.030604191,565812.9776876392,POINT(565812.9776876392 4313075.030604191),feat_8860,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:9327:9187,4312938.876872284,565973.3098235503,POINT(565973.3098235503 4312938.876872284),feat_9187,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:11250:11988,4311762.149976872,434742.21021268796,POINT(434742.21021268796 4311762.149976872),feat_11988,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:13595:14670,4310325.829768728,434600.1500084754,POINT(434600.1500084754 4310325.829768728),feat_14670,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:13769:13096,4311298.1700324975,434380.519976872,POINT(434380.519976872 4311298.1700324975),feat_13096,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:14105:14901,4310225.520076875,428767.21980784833,POINT(428767.21980784833 4310225.520076875),feat_14901,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:16672:17257,4309007.8457687255,537675.4902529949,POINT(537675.4902529949 4309007.8457687255),feat_17257,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:16858:18101,4308472.122276876,522687.8464815803,POINT(522687.8464815803 4308472.122276876),feat_18101,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:17615:18437,4308282.209840447,437687.4503415581,POINT(437687.4503415581 4308282.209840447),feat_18437,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:17661:17687,4308757.950054457,438400.8795697391,POINT(438400.8795697391 4308757.950054457),feat_17687,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:18330:18734,4308095.768745765,553740.8547690501,POINT(553740.8547690501 4308095.768745765),feat_18734,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:18775:19436,4307687.956671476,610980.752585642,POINT(610980.752585642 4307687.956671476),feat_19436,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:19016:19536,4307641.50547689,611365.5964768762,POINT(611365.5964768762 4307641.50547689),feat_19536,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:19385:20418,4307273.7042069305,527687.321797288,POINT(527687.321797288 4307273.7042069305),feat_20418,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:20332:14012,4310763.176878605,566171.9675315777,POINT(566171.9675315777 4310763.176878605),feat_14012,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:21420:21333,4306745.899577469,417687.9303562213,POINT(417687.9303562213 4306745.899577469),feat_21333,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:21861:14173,4310606.998576878,515077.7467730157,POINT(515077.7467730157 4310606.998576878),feat_14173,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:23042:22513,4305886.576873235,506618.7677672021,POINT(506618.7677672021 4305886.576873235),feat_22513,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:24374:25547,4304325.084106844,601111.2102427687,POINT(601111.2102427687 4304325.084106844),feat_25547,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:25108:25862,4304227.9544003885,561047.9255776871,POINT(561047.9255776871 4304227.9544003885),feat_25862,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:25231:26653,4303990.707818303,620403.032876879,POINT(620403.032876879 4303990.707818303),feat_26653,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:26333:27589,4303718.29076878,405275.0599723775,POINT(405275.0599723775 4303718.29076878),feat_27589,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:26574:27686,4303688.23982119,558644.3768700827,POINT(558644.3768700827 4303688.23982119),feat_27686,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:26575:27687,4303693.969778454,402479.12956376653,POINT(402479.12956376653 4303693.969778454),feat_27687,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:27303:28793,4303410.900396323,402150.5304737687,POINT(402150.5304737687 4303410.900396323),feat_28793,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:27498:28850,4303392.979768738,428306.16967160907,POINT(428306.16967160907 4303392.979768738),feat_28850,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:27848:28252,4303551.300237568,401929.14942768775,POINT(401929.14942768775 4303551.300237568),feat_28252,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:29886:30367,4302859.768717783,597223.3842014987,POINT(597223.3842014987 4302859.768717783),feat_30367,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:30086:31236,4302613.340199303,402012.17003768776,POINT(402012.17003768776 4302613.340199303),feat_31236,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:31940:32486,4302269.94715463,524460.2644976871,POINT(524460.2644976871 4302269.94715463),feat_32486,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:32231:32636,4302233.098273981,495073.4591037687,POINT(495073.4591037687 4302233.098273981),feat_32636,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:33422:33933,4301884.820060164,549633.4620357687,POINT(549633.4620357687 4301884.820060164),feat_33933,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:36466:37687,4300539.432771416,562336.5523015745,POINT(562336.5523015745 4300539.432771416),feat_37687,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:37209:38002,4300441.95012445,597898.1768709552,POINT(597898.1768709552 4300441.95012445),feat_38002,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:37671:38182,4300377.461381134,526828.1876874799,POINT(526828.1876874799 4300377.461381134),feat_38182,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:37845:38741,4300214.439147687,599956.2977207704,POINT(599956.2977207704 4300214.439147687),feat_38741,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:39360:39413,4299954.409587687,401640.6407636963,POINT(401640.6407636963 4299954.409587687),feat_39413,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:39549:40272,4299690.7447687145,597568.3273816742,POINT(597568.3273816742 4299690.7447687145),feat_40272,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:41981:41821,4299274.310174694,432137.799576872,POINT(432137.799576872 4299274.310174694),feat_41821,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:43446:43643,4298609.60957687,424753.0602207044,POINT(424753.0602207044 4298609.60957687),feat_43643,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:44049:44635,4298203.055235691,597687.2157317577,POINT(597687.2157317577 4298203.055235691),feat_44635,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:44127:44713,4298168.276875159,490615.3318902487,POINT(490615.3318902487 4298168.276875159),feat_44713,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:44572:44872,4298108.181710437,482778.6676870873,POINT(482778.6676870873 4298108.181710437),feat_44872,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:46236:46084,4297687.176943731,498086.43271496706,POINT(498086.43271496706 4297687.176943731),feat_46084,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:46247:46095,4297687.449547725,433127.75039271545,POINT(433127.75039271545 4297687.449547725),feat_46095,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:46249:46097,4297687.348202623,571708.2752712928,POINT(571708.2752712928 4297687.348202623),feat_46097,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:47043:46473,4297562.189941781,438645.79976871144,POINT(438645.79976871144 4297562.189941781),feat_46473,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:48155:47687,4297196.889766753,437784.6600971846,POINT(437784.6600971846 4297196.889766753),feat_47687,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:49149:50521,4296550.183899082,595957.8797687367,POINT(595957.8797687367 4296550.183899082),feat_50521,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:52821:48631,4296985.176879527,492123.271145802,POINT(492123.271145802 4296985.176879527),feat_48631,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:52975:53429,4295621.019907687,445153.8597716531,POINT(445153.8597716531 4295621.019907687),feat_53429,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:53048:53502,4295596.7598386165,417687.83050021436,POINT(417687.83050021436 4295596.7598386165),feat_53502,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:54181:54460,4295194.412168082,394277.2967687771,POINT(394277.2967687771 4295194.412168082),feat_54460,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:54653:54652,4295123.540276878,428486.68046889454,POINT(428486.68046889454 4295123.540276878),feat_54652,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:55050:55575,4294768.768797476,394133.5706632752,POINT(394133.5706632752 4294768.768797476),feat_55575,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:55539:55785,4294666.209867001,520510.76871429663,POINT(520510.76871429663 4294666.209867001),feat_55785,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:55650:55083,4294957.220124517,435838.71993197687,POINT(435838.71993197687 4294957.220124517),feat_55083,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:56673:56746,4294213.002224717,466888.73076870013,POINT(466888.73076870013 4294213.002224717),feat_56746,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:56988:56917,4294145.976872452,595196.8110559443,POINT(595196.8110559443 4294145.976872452),feat_56917,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:57088:57687,4293832.931288393,579554.4836294334,POINT(579554.4836294334 4293832.931288393),feat_57687,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:57656:58734,4293383.865889115,488376.1777687883,POINT(488376.1777687883 4293383.865889115),feat_58734,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:58682:58848,4293341.977685692,488943.35940768756,POINT(488943.35940768756 4293341.977685692),feat_58848,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:59206:60272,4292791.780290518,427690.0296768723,POINT(427690.0296768723 4292791.780290518),feat_60272,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:60077:60722,4292631.060067687,651325.7277555885,POINT(651325.7277555885 4292631.060067687),feat_60722,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:61218:59104,4293251.491768714,596290.7149214931,POINT(596290.7149214931 4293251.491768714),feat_59104,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:61714:62599,4291919.507324018,593349.3776876479,POINT(593349.3776876479 4291919.507324018),feat_62599,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:62593:63826,4291526.29997687,438050.11037431937,POINT(438050.11037431937 4291526.29997687),feat_63826,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:63145:63195,4291741.691947687,592930.8195694648,POINT(592930.8195694648 4291741.691947687),feat_63195,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:63551:64216,4291377.523768781,508817.90648767445,POINT(508817.90648767445 4291377.523768781),feat_64216,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:64039:64421,4291287.416296875,487687.5311896857,POINT(487687.5311896857 4291287.416296875),feat_64421,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:64127:64509,4291262.0268435795,584447.4937467687,POINT(584447.4937467687 4291262.0268435795),feat_64509,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:66526:66727,4290310.557687944,633268.647341881,POINT(633268.647341881 4290310.557687944),feat_66727,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:67078:59720,4293007.768752035,596272.617019821,POINT(596272.617019821 4293007.768752035),feat_59720,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:67216:66992,4290159.773768766,518941.9089864334,POINT(518941.9089864334 4290159.773768766),feat_66992,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:67437:67606,4289874.546812136,503841.67987687886,POINT(503841.67987687886 4289874.546812136),feat_67606,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:67660:67687,4289841.780136421,562441.3246365134,POINT(562441.3246365134 4289841.780136421),feat_67687,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:68538:68811,4289429.590776879,651533.8446225859,POINT(651533.8446225859 4289429.590776879),feat_68811,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:69010:69003,4289332.4304816425,507687.55542464554,POINT(507687.55542464554 4289332.4304816425),feat_69003,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:69402:70842,4288582.585987687,535947.6154626412,POINT(535947.6154626412 4288582.585987687),feat_70842,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:69974:71132,4288462.536542766,519380.27576871775,POINT(519380.27576871775 4288462.536542766),feat_71132,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:70232:71246,4288423.276705548,466971.2275476875,POINT(466971.2275476875 4288423.276705548),feat_71246,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:70858:72261,4288017.77037687,415128.2093040189,POINT(415128.2093040189 4288017.77037687),feat_72261,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:71323:69803,4289003.726548204,519401.6047687642,POINT(519401.6047687642 4289003.726548204),feat_69803,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:71621:72661,4287881.926385839,653588.3187577687,POINT(653588.3187577687 4287881.926385839),feat_72661,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:72617:73173,4287687.495745789,490839.9906452885,POINT(490839.9906452885 4287687.495745789),feat_73173,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:72622:73178,4287687.75460471,464285.16174981557,POINT(464285.16174981557 4287687.75460471),feat_73178,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:72628:73184,4287687.069396943,532331.2731862357,POINT(532331.2731862357 4287687.069396943),feat_73184,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:72642:73198,4287687.139728071,423456.56969226804,POINT(423456.56969226804 4287687.139728071),feat_73198,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:72646:73202,4287687.689225975,588787.6784006143,POINT(588787.6784006143 4287687.689225975),feat_73202,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:72648:73204,4287687.10609467,587983.9712140039,POINT(587983.9712140039 4287687.10609467),feat_73204,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:72654:73210,4287687.449712049,404922.27953872085,POINT(404922.27953872085 4287687.449712049),feat_73210,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:73376:70146,4288873.6406768765,524097.84325073846,POINT(524097.84325073846 4288873.6406768765),feat_70146,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:74684:75349,4286980.1505966745,591971.5257687075,POINT(591971.5257687075 4286980.1505966745),feat_75349,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:75614:76870,4286329.154507846,473701.0215885518,POINT(473701.0215885518 4286329.154507846),feat_76870,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:75615:76871,4286345.367723264,651257.4516810793,POINT(651257.4516810793 4286345.367723264),feat_76871,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:75616:76872,4286328.348960374,518265.3174015973,POINT(518265.3174015973 4286328.348960374),feat_76872,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:75617:76873,4286328.7828109395,530340.9309412176,POINT(530340.9309412176 4286328.7828109395),feat_76873,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:75618:76874,4286330.149735127,441012.8601205284,POINT(441012.8601205284 4286330.149735127),feat_76874,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:75619:76875,4286327.748138322,518199.6024009194,POINT(518199.6024009194 4286327.748138322),feat_76875,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:75620:76876,4286328.101629168,467088.85167452134,POINT(467088.85167452134 4286328.101629168),feat_76876,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:75621:76877,4286327.422097173,518188.0708321985,POINT(518188.0708321985 4286327.422097173),feat_76877,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:75622:76878,4286331.199879827,425926.60994956736,POINT(425926.60994956736 4286331.199879827),feat_76878,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:75623:76879,4286327.566873388,473721.19688539393,POINT(473721.19688539393 4286327.566873388),feat_76879,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:75983:75939,4286717.010721836,397725.0297768768,POINT(397725.0297768768 4286717.010721836),feat_75939,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:76174:77148,4286215.603928216,468012.6768733151,POINT(468012.6768733151 4286215.603928216),feat_77148,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:76402:77237,4286181.503076872,529334.2461051885,POINT(529334.2461051885 4286181.503076872),feat_77237,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:77005:76383,4286537.103030086,476874.85003428813,POINT(476874.85003428813 4286537.103030086),feat_76383,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:77427:77687,4286007.846992461,530176.5354912523,POINT(530176.5354912523 4286007.846992461),feat_77687,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:78355:79262,4285335.210372943,417687.9595169984,POINT(417687.9595169984 4285335.210372943),feat_79262,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:78642:79371,4285280.316638811,407687.21056208387,POINT(407687.21056208387 4285280.316638811),feat_79371,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:80404:81597,4284118.499364195,397687.530812799,POINT(397687.530812799 4284118.499364195),feat_81597,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:80602:80588,4284660.337057142,527214.3549577687,POINT(527214.3549577687 4284660.337057142),feat_80588,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:81130:82831,4283509.682756128,509436.137687332,POINT(509436.137687332 4283509.682756128),feat_82831,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:81278:81933,4283971.294076879,589632.5575646469,POINT(589632.5575646469 4283971.294076879),feat_81933,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:81892:82238,4283816.953943461,539768.8687687544,POINT(539768.8687687544 4283816.953943461),feat_82238,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:82000:83164,4283335.19966693,397687.96036542766,POINT(397687.96036542766 4283335.19966693),feat_83164,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:82142:82348,4283749.139768777,463768.3903296264,POINT(463768.3903296264 4283749.139768777),feat_82348,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:83247:84086,4282910.998664796,590241.9854676872,POINT(590241.9854676872 4282910.998664796),feat_84086,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:83256:84095,4282903.221311364,555696.4593676878,POINT(555696.4593676878 4282903.221311364),feat_84095,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:84514:84646,4282658.660010723,633375.1224768749,POINT(633375.1224768749 4282658.660010723),feat_84646,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:85396:85879,4282096.80076232,403773.34937687963,POINT(403773.34937687963 4282096.80076232),feat_85879,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:86306:86242,4281955.74971028,554295.976875429,POINT(554295.976875429 4281955.74971028),feat_86242,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:86832:87687,4281418.896700652,506405.31281919125,POINT(506405.31281919125 4281418.896700652),feat_87687,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:87843:88130,4281264.6015953235,535650.2673776876,POINT(535650.2673776876 4281264.6015953235),feat_88130,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:88325:88324,4281199.638386665,493144.57687001117,POINT(493144.57687001117 4281199.638386665),feat_88324,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:88329:88328,4281199.22661447,476160.0587687185,POINT(476160.0587687185 4281199.22661447),feat_88328,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:88589:88445,4281151.129675087,536090.6596676875,POINT(536090.6596676875 4281151.129675087),feat_88445,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:89143:88714,4281061.289776875,398052.28030412644,POINT(398052.28030412644 4281061.289776875),feat_88714,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:89826:91204,4280157.287887687,519030.10702578444,POINT(519030.10702578444 4280157.287887687),feat_91204,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:89858:90202,4280523.601482766,663726.1829007687,POINT(663726.1829007687 4280523.601482766),feat_90202,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:90331:91253,4280141.97768762,483825.17258561123,POINT(483825.17258561123 4280141.97768762),feat_91253,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:90985:90742,4280297.499987222,427687.80007654615,POINT(427687.80007654615 4280297.499987222),feat_90742,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:91704:91034,4280213.87025528,418455.19987687934,POINT(418455.19987687934 4280213.87025528),feat_91034,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:94322:95125,4278885.757687813,475742.7595445905,POINT(475742.7595445905 4278885.757687813),feat_95125,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:94499:95166,4278878.820276873,399093.70036351215,POINT(399093.70036351215 4278878.820276873),feat_95166,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:94960:91778,4279990.455675457,587687.637310721,POINT(587687.637310721 4279990.455675457),feat_91778,structurepointssouth_samb_2003_utm83,USA
+services/structurepointssouth_samb_2003_utm83_attrs.csv:95649:96328,4278457.014289167,654607.7687101588,POINT(654607.7687101588 4278457.014289167),feat_96328,structurepointssouth_samb_2003_utm83,USA
+
+===== 6. Check Hilbert health one more time =====
+{
+    "status": "healthy",
+    "service": "hilbert_spatial_chat",
+    "chromadb": "connected",
+    "neo4j": "disconnected: Couldn't connect to localhost:7687 (resolved to ('",
+    "collections_indexed": [
+        "appalachian_english_corpus",
+        "geospatialfeatures"
+    ],
+    "consensus": "connected:4001",
+    "port": 5002,
+    "quantum_entanglement": "active"
+}
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ 
 
