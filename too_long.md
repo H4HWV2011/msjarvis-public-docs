@@ -1,552 +1,1443 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ # Confirm the 3-layer DGM cascade (port 9999 → 4002 → 7239)
-cat /mnt/nvme1/msjarvis-rebuild/services/dgm_orchestrator.py
-
-# Is it actually running?
-docker ps --format "table {{.Names}}\t{{.Ports}}\t{{.Status}}" | grep -E "dgm|pituitary|judge|torod|egeria|swarm"
-
-# What ports are bound on host right now?
-ss -tlnp | grep -E "999|7239|4002|8021|8010|5200|5215" | sort
-#!/usr/bin/env python3
-"""
-69-DGM Orchestrator (Port 9999)
-
-Receives messages from the port_9000_69dgm_bridge and coordinates validation
-across the DGM / WOAH / judge layers. For now, this returns a sane, deterministic
-decision and can be extended to call individual bridge_cross_dgm_100xx services.
-"""
-
-from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import Optional, List
-from pathlib import Path
-import json
-import logging
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("69_DGM_Orchestrator")
-
-app = FastAPI(
-    title="69-DGM Orchestrator",
-    version="1.0.0",
-    description="Central DGM orchestrator for Ms. Jarvis",
-)
-
-# Load active connectors (same file used by port_9000_69dgm_bridge)
-REGISTRY_PATH = Path(__file__).with_name("dgm_connectors_active.json")
-if REGISTRY_PATH.exists():
-    try:
-        CONNECTORS = json.loads(REGISTRY_PATH.read_text())
-        logger.info(
-            f"🧩 Orchestrator loaded {len(CONNECTORS)} active connectors from {REGISTRY_PATH}"
-        )
-    except Exception as e:
-        logger.error(f"Failed to load {REGISTRY_PATH}: {e}")
-        CONNECTORS: List[dict] = []
-else:
-    logger.warning(f"No active connector registry found at {REGISTRY_PATH}")
-    CONNECTORS: List[dict] = []
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ sudo ss -ltnp | grep :3001
+sudo lsof -iTCP:3001 -sTCP:LISTEN -P -n
+pm2 show ms-allis-frontend
+pwd
+ls -la
+find . -type f \( -name "*.tsx" -o -name "package.json" -o -name "next.config.*" \) | sort
+LISTEN 0      511                *:3001             *:*    users:(("next-server (v1",pid=529578,fd=18))
+ Describing process with id 0 - name ms-allis-frontend 
+┌───────────────────┬────────────────────────────────────────────────────┐
+│ status            │ errored                                            │
+│ name              │ ms-allis-frontend                                  │
+│ namespace         │ default                                            │
+│ version           │ N/A                                                │
+│ restarts          │ 15                                                 │
+│ uptime            │ 0                                                  │
+│ script path       │ /usr/bin/npm                                       │
+│ script args       │ start -- --port 3001                               │
+│ error log path    │ /home/cakidd/.pm2/logs/ms-allis-frontend-error.log │
+│ out log path      │ /home/cakidd/.pm2/logs/ms-allis-frontend-out.log   │
+│ pid path          │ /home/cakidd/.pm2/pids/ms-allis-frontend-0.pid     │
+│ interpreter       │ /usr/bin/node                                      │
+│ interpreter args  │ N/A                                                │
+│ script id         │ 0                                                  │
+│ exec cwd          │ /opt/msjarvis-rebuild/ms-allis-frontend            │
+│ exec mode         │ fork_mode                                          │
+│ node.js version   │ 20.20.2                                            │
+│ node env          │ N/A                                                │
+│ watch & reload    │ ✘                                                  │
+│ unstable restarts │ 0                                                  │
+│ created at        │ N/A                                                │
+└───────────────────┴────────────────────────────────────────────────────┘
+ Divergent env variables from local env 
 
 
-class OrchestratorRequest(BaseModel):
-    message: str
-    userid: str
-    source: str
-
-
-class OrchestratorResponse(BaseModel):
-    status: str
-    dgm_importance: float
-    woah_alignment: float
-    connectors_considered: int
-    reason: Optional[str] = None
-
-
-# Simple, local DGM/WOAH heuristics based on your originals
-IMPORTANT_KEYWORDS = [
-    "community", "mount hope", "appalachian", "growth", "purpose",
-    "serve", "wv", "west virginia", "fayette", "consciousness",
-    "learning", "identity", "blockchain", "smart contract",
-]
-
-COMMUNITY_FACTORS = {
-    "growth": 0.3,
-    "community": 0.3,
-    "education": 0.2,
-    "opportunity": 0.2,
-    "connection": 0.2,
-}
-
-
-def calculate_dgm_importance(query_text: str, accuracy: float = 0.7) -> float:
-    score = 0.0
-    q = query_text.lower()
-    for kw in IMPORTANT_KEYWORDS:
-        if kw in q:
-            score += 0.15
-    score += accuracy * 0.3
-    score = min(score, 1.0)
-    return score
-
-
-def calculate_woah_alignment(query_text: str) -> float:
-    score = 0.5
-    q = query_text.lower()
-    for factor, weight in COMMUNITY_FACTORS.items():
-        if factor in q:
-            score += weight
-    return min(score, 1.0)
-
-
-@app.post("/process", response_model=OrchestratorResponse)
-async def process(req: OrchestratorRequest):
-    """
-    Main orchestrator endpoint called by port_9000_69dgm_bridge.
-    For now:
-    - Compute DGM importance and WOAH alignment locally.
-    - If both exceed thresholds, approve; else require more validation.
-    """
-    dgm_score = calculate_dgm_importance(req.message, accuracy=0.7)
-    woah_score = calculate_woah_alignment(req.message)
-
-    logger.info(
-        f"🧮 Orchestrator scores for user={req.userid}: "
-        f"DGM={dgm_score:.2f}, WOAH={woah_score:.2f} "
-        f"(connectors={len(CONNECTORS)})"
-    )
-
-    if dgm_score >= 0.2 and woah_score >= 0.4:
-        status = "approved_by_69_validators"
-        reason = "Query is important and aligned with community values."
-    else:
-        status = "needs_additional_judging"
-        reason = "Query did not meet importance/alignment thresholds."
-
-    return OrchestratorResponse(
-        status=status,
-        dgm_importance=dgm_score,
-        woah_alignment=woah_score,
-        connectors_considered=len(CONNECTORS),
-        reason=reason,
-    )
-
-
-@app.get("/health")
-async def health():
-    return {
-        "status": "healthy",
-        "service": "69_dgm_orchestrator",
-        "connectors_loaded": len(CONNECTORS),
-    }
-
-
-if __name__ == "__main__":
-    import uvicorn
-    logger.info("🚦 Starting 69-DGM Orchestrator on port 9999")
-    uvicorn.run(app, host="127.0.0.1", port=9999)
-jarvis-dgm-bridge-07                 127.0.0.1:10007->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-22                 127.0.0.1:10022->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-01                 127.0.0.1:10001->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-14                 127.0.0.1:10014->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-19                 127.0.0.1:10019->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-10                 127.0.0.1:10010->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-06                 127.0.0.1:10006->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-09                 127.0.0.1:10009->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-12                 127.0.0.1:10012->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-15                 127.0.0.1:10015->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-08                 127.0.0.1:10008->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-21                 127.0.0.1:10021->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-23                 127.0.0.1:10023->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-05                 127.0.0.1:10005->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-17                 127.0.0.1:10017->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-18                 127.0.0.1:10018->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-11                 127.0.0.1:10011->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-20                 127.0.0.1:10020->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-03                 127.0.0.1:10003->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-02                 127.0.0.1:10002->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-13                 127.0.0.1:10013->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-04                 127.0.0.1:10004->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-16                 127.0.0.1:10016->10001/tcp                                                                                     Up 3 hours
-jarvis-69dgm-bridge                  127.0.0.1:9000->9000/tcp                                                                                       Up 3 hours
-jarvis-judge-pipeline                7239/tcp                                                                                                       Up 5 hours
-jarvis-fifth-dgm                     127.0.0.1:4002->4002/tcp                                                                                       Up 5 hours
-jarvis-swarm-intelligence            8021/tcp                                                                                                       Up 5 hours
-jarvis-judge-ethics                  7233/tcp                                                                                                       Up 5 hours
-jarvis-judge-alignment               7232/tcp                                                                                                       Up 5 hours
-nbb_pituitary_gland                  127.0.0.1:8108->8010/tcp                                                                                       Up 5 hours
-jarvis-judge-truth                   7230/tcp                                                                                                       Up 5 hours
-jarvis-judge-consistency             7231/tcp                                                                                                       Up 5 hours
-LISTEN 0      2048         0.0.0.0:9999       0.0.0.0:*    users:(("uvicorn",pid=2239,fd=13))        
-LISTEN 0      4096       127.0.0.1:4002       0.0.0.0:*                                              
-LISTEN 0      4096       127.0.0.1:8010       0.0.0.0:*                                              
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ # Confirm Docker service name and health
-docker inspect jarvis-torodial 2>/dev/null | python3 -c "
-import json,sys
-d=json.load(sys.stdin)[0]
-s=d['State']
-n=d['NetworkSettings']['Networks']
-print('Status:', s['Status'])
-print('Health:', s.get('Health',{}).get('Status','no healthcheck'))
-print('Networks:', list(n.keys()))
-print('IP:', [v['IPAddress'] for v in n.values()])
-"
-
-# What does it actually serve?
-curl -s http://localhost:$(docker port jarvis-torodial 2>/dev/null | awk -F: '{print $2}' | head -1)/health 2>/dev/null || \
-  curl -s http://localhost:8010/health 2>/dev/null || \
-  echo "No health endpoint responding"
-
-# Is it in the unified gateway routing table?
-grep -n "torod\|toroidal" \
-  /mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway.py \
-  /mnt/nvme1/msjarvis-rebuild/docker-compose.yml 2>/dev/null
-Traceback (most recent call last):
-  File "<string>", line 3, in <module>
-IndexError: list index out of range
-/mnt/nvme1/msjarvis-rebuild/docker-compose.yml:16:    - TOROIDAL_URL=http://jarvis-toroidal:8025
-/mnt/nvme1/msjarvis-rebuild/docker-compose.yml:54:    - jarvis-toroidal
-/mnt/nvme1/msjarvis-rebuild/docker-compose.yml:1244:  jarvis-toroidal:
-/mnt/nvme1/msjarvis-rebuild/docker-compose.yml:1247:      dockerfile: Dockerfile.toroidal
-/mnt/nvme1/msjarvis-rebuild/docker-compose.yml:1248:    image: msjarvis-toroidal:latest
-/mnt/nvme1/msjarvis-rebuild/docker-compose.yml:1249:    container_name: jarvis-toroidal
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ # How many judge stubs are actually differentiated vs identical?
-md5sum /mnt/nvme1/msjarvis-rebuild/services/judge_10*.py 2>/dev/null | \
-  awk '{print $1}' | sort | uniq -c | sort -rn | head -5
-
-# What does the bridge actually call?
-grep -n "port\|url\|host\|judge_id\|localhost\|http" \
-  /mnt/nvme1/msjarvis-rebuild/services/judge_to_pituitary_bridge.py | head -30
-
-# Is the judge pipeline endpoint (7239) live?
-curl -s -X POST http://localhost:7239/judge \
-  -H "Content-Type: application/json" \
-  -d '{"query":"test","response":"Mount Hope community test"}' 2>/dev/null \
-  | python3 -m json.tool 2>/dev/null || echo "Port 7239 not responding"
-     66 71a7509aa6f47d2e10a3308aa07a1103
-3:from fastapi import FastAPI
-4:import uvicorn
-5:import logging
-13:    return {"status": "bridge_alive", "name": "judge_to_pituitary", "port": 5215}
-21:        "port": 5215,
-25:import argparse
-26:import os
-29:parser.add_argument("--port", type=int, default=5215)
-31:PORT = args.port
-42:        "port": PORT,
-46:import argparse
-49:    parser.add_argument("--port", type=int, default=5215, help="Port to listen on")
-51:    uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="error")
-Port 7239 not responding
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ # Does the sandbox directory actually exist?
-ls -la /home/ms-jarvis/msjarvis-rebuild/egeria_sandbox/ 2>/dev/null || \
-  ls -la /mnt/nvme1/msjarvis-rebuild/egeria_sandbox/ 2>/dev/null || \
-  echo "Sandbox path does not exist"
-
-# Has it ever successfully committed a correction?
-sqlite3 /mnt/nvme1/msjarvis-rebuild/data/GISGEODB_ACTIVE.sqlite \
-  "SELECT COUNT(*), MAX(timestamp) FROM ms_jarvis_learning_log WHERE learning_action LIKE '%correct%' OR learning_action LIKE '%self_improv%';" 2>/dev/null
-
-# Full Egeria class — see if commit logic is complete
-cat /mnt/nvme1/msjarvis-rebuild/services/egeria_safe_self_correction.py
-Sandbox path does not exist
-#!/usr/bin/env python3
-from fastapi import Depends, HTTPException, Header
-from typing import Optional
-import logging
-logger = logging.getLogger(__name__)
-"""
-Ms. Egeria Safe Self-Correction System
-Allows her to improve her code safely within boundaries
-"""
-
-import os
-import json
-import hashlib
-from datetime import datetime
-
-class SafeSelfCorrection:
-    def __init__(self):
-        self.sandbox = "/home/ms-jarvis/msjarvis-rebuild/egeria_sandbox"
-        self.learning = "/home/ms-jarvis/msjarvis-rebuild/egeria_learning_data"
-        self.protected = [
-            "/home/ms-jarvis/msjarvis-rebuild/neurobiological_brain",
-            "/home/ms-jarvis/msjarvis-rebuild/services",
-            "/home/ms-jarvis/msjarvis-rebuild/egeria_metadata.json"
-        ]
-        self.db = "/home/ms-jarvis/msjarvis-rebuild/data/GISGEODB_ACTIVE.sqlite"
-    
-    def is_path_protected(self, path):
-        """Is this path protected from modification?"""
-        for protected in self.protected:
-            if path.startswith(protected):
-                return True
-        return False
-    
-    def propose_correction(self, file_path, corrected_code):
-        """She proposes a code correction"""
-        if self.is_path_protected(file_path):
-            return {
-                "status": "blocked",
-                "reason": "Core system file - protected from modification",
-                "file": file_path
-            }
-        
-        # Save to sandbox first
-        filename = os.path.basename(file_path)
-        sandbox_path = os.path.join(self.sandbox, f"correction_{filename}")
-        
-        try:
-            with open(sandbox_path, "w") as f:
-                f.write(corrected_code)
-            
-            return {
-                "status": "proposed",
-                "original": file_path,
-                "proposed_location": sandbox_path,
-                "message": "Correction saved to sandbox for testing"
-            }
-        except Exception as e:
-            return {"status": "error", "error": str(e)}
-    
-    def test_correction(self, code):
-        """Test corrected code safely"""
-        try:
-            # Execute in restricted context
-            safe_globals = {'__builtins__': {}}
-            exec(code, safe_globals)
-            return {"status": "safe", "passed": True}
-        except Exception as e:
-            return {"status": "error", "error": str(e)}
-    
-    def log_self_improvement(self, original_file, correction):
-        """Log that she improved her code"""
-        import sqlite3
-        
-        try:
-            conn = sqlite3.connect(self.db)
-            cursor = conn.cursor()
-            cursor.execute("""
-                INSERT INTO ms_jarvis_learning_log 
-                (ueid, learning_action, data_processed)
-                VALUES (?, ?, ?)
-            """, (
-                "egeria_self",
-                "self_correction_proposed",
-                json.dumps({
-                    "original": original_file,
-                    "timestamp": datetime.now().isoformat(),
-                    "type": "code_improvement"
-                })
-            ))
-            conn.commit()
-            conn.close()
-            return True
-        except Exception as e:
-            print(f"Error logging: {e}")
-            return False
-
-if __name__ == '__main__':
-    correction = SafeSelfCorrection()
-    
-    # Example: She wants to improve a learning script
-    corrected = """
-def improved_analysis():
-    return "better version"
-"""
-    
-    result = correction.propose_correction(
-        "/home/ms-jarvis/msjarvis-rebuild/egeria_learning_data/analysis.py",
-        corrected
-    )
-    print(json.dumps(result, indent=2))
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ # WOAH function — does calculate_woah_alignment() exist anywhere?
-grep -rn "def calculate_woah_alignment\|woah_score\|woah_evaluation" \
-  /mnt/nvme1/msjarvis-rebuild/services/ --include="*.py" | head -15
-
-# I-Container SQLite state right now
-sqlite3 /mnt/nvme1/msjarvis-rebuild/data/GISGEODB_ACTIVE.sqlite "
-SELECT
-  (SELECT COUNT(*) FROM central_i_container) as central_count,
-  (SELECT COUNT(*) FROM subconscious_i_container) as subconscious_count,
-  (SELECT AVG(integration_confidence) FROM central_i_container) as avg_confidence,
-  (SELECT MAX(created_at) FROM central_i_container) as last_integrated;
-" 2>/dev/null
-
-# What's in the I-Container docker service?
-curl -s http://localhost:8015/health 2>/dev/null || \
-  curl -s http://localhost:7005/health 2>/dev/null || echo "I-Container not responding"
-/mnt/nvme1/msjarvis-rebuild/services/bridge_autonomous_to_i_container_fixed.py:42:            woah_score = calculate_woah_alignment(query_text)
-/mnt/nvme1/msjarvis-rebuild/services/bridge_autonomous_to_i_container_fixed.py:43:            print(f"   WOAH alignment: {woah_score:.2f}/1.0")
-/mnt/nvme1/msjarvis-rebuild/services/bridge_autonomous_to_i_container_fixed.py:45:            combined = (dgm_score + woah_score) / 2
-/mnt/nvme1/msjarvis-rebuild/services/bridge_autonomous_to_i_container_fixed.py:51:            (data_content, data_source, importance_score, dgm_reasoning, woah_evaluation_score)
-/mnt/nvme1/msjarvis-rebuild/services/bridge_autonomous_to_i_container_fixed.py:58:                woah_score
-/mnt/nvme1/msjarvis-rebuild/services/bridge_autonomous_to_i_container_fixed.py:71:                    f"Autonomous + DGM: {dgm_score:.2f} + WOAH: {woah_score:.2f}",
-/mnt/nvme1/msjarvis-rebuild/services/bridge_autonomous_to_i_container_fixed.py:122:def calculate_woah_alignment(query_text):
-/mnt/nvme1/msjarvis-rebuild/services/create_dual_consciousness_i_containers.psychology_patched.py:56:        woah_evaluation_score FLOAT,
-/mnt/nvme1/msjarvis-rebuild/services/create_dual_consciousness_i_containers.psychology_patched.py:136:        woah_evaluation_score,
-/mnt/nvme1/msjarvis-rebuild/services/create_dual_consciousness_i_containers.psychology_patched.py:189:    (data_content, data_source, importance_score, dgm_reasoning, woah_evaluation_score)
-/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py:120:        self.woah_evaluation_cycles = 0
-/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py:121:        self.last_woah_evaluation = None
-/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py:209:        self.woah_evaluation_cycles += 1
-/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py:210:        self.last_woah_evaluation = datetime.now().isoformat()
-/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py:346:            "woah_evaluations": self.woah_evaluation_cycles,
-{"status":"healthy","i_container_1":"active","i_container_2":"active","integration_layer":"active","dual_awareness":(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ # Full route table — what's registered vs what's deadroute table — what's registered vs what's dead
-curl -s http://localhost:8008/routes 2>/dev/null | python3 -m json.tool 2>/dev/null || \
-  curl -s http://localhost:9000/routes 2>/dev/null | python3 -m json.tool 2>/dev/null
-
-# Which NBB containers are actually up with correct ports?
-docker ps --format "table {{.Names}}\t{{.Ports}}\t{{.Status}}" | \
-  grep -E "nbb|jarvis" | sort
-
-# service_registry_client — what does get_service_url() actually resolve?
-python3 -c "
-import sys
-sys.path.insert(0, '/mnt/nvme1/msjarvis-rebuild/services')
-try:
-    from service_registry_client import get_service_url
-    for svc in ['pituitary_gland','judge_pipeline','toroidal','egeria','swarm']:
-        print(f'{svc}: {get_service_url(svc)}')
-except Exception as e:
-    print(f'Registry error: {e}')
-" 2>/dev/null
-{
-    "detail": "Not Found"
-}
-jarvis-20llm-production              127.0.0.1:8008->8008/tcp                                                                                       Up 5 hours
-jarvis-69dgm-bridge                  127.0.0.1:9000->9000/tcp                                                                                       Up 3 hours
-jarvis-aaacpe-rag                    127.0.0.1:8032->8032/tcp                                                                                       Up 5 hours
-jarvis-aaacpe-scraper                127.0.0.1:8033->8033/tcp                                                                                       Up About an hour
-jarvis-agents-service                8005/tcp                                                                                                       Up 5 hours
-jarvis-auth-api                      127.0.0.1:8096->8091/tcp                                                                                       Up 5 hours
-jarvis-autonomous-learner            127.0.0.1:8425->8425/tcp                                                                                       Up 5 hours
-jarvis-blood-brain-barrier           0.0.0.0:8016->8016/tcp, [::]:8016->8016/tcp                                                                    Up 5 hours
-jarvis-brain-orchestrator            127.0.0.1:17260->7260/tcp                                                                                      Up 5 hours (healthy)
-jarvis-chroma                        127.0.0.1:8002->8000/tcp                                                                                       Up 3 hours (healthy)
-jarvis-commons-gamification          127.0.0.1:8081->8081/tcp                                                                                       Up 2 hours
-jarvis-community-stake-registry      127.0.0.1:8084->8084/tcp                                                                                       Up 2 hours
-jarvis-consciousness-bridge          8002/tcp, 127.0.0.1:8020->8018/tcp                                                                             Up 5 hours
-jarvis-constitutional-guardian       127.0.0.1:8091->8091/tcp                                                                                       Up 5 hours
-jarvis-contracts                                                                                                                                    Up 5 hours
-jarvis-crypto-policy                 127.0.0.1:8099->8099/tcp                                                                                       Up 2 hours
-jarvis-dao-governance                127.0.0.1:8082->8082/tcp                                                                                       Up 2 hours
-jarvis-dgm-bridge-01                 127.0.0.1:10001->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-02                 127.0.0.1:10002->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-03                 127.0.0.1:10003->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-04                 127.0.0.1:10004->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-05                 127.0.0.1:10005->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-06                 127.0.0.1:10006->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-07                 127.0.0.1:10007->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-08                 127.0.0.1:10008->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-09                 127.0.0.1:10009->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-10                 127.0.0.1:10010->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-11                 127.0.0.1:10011->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-12                 127.0.0.1:10012->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-13                 127.0.0.1:10013->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-14                 127.0.0.1:10014->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-15                 127.0.0.1:10015->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-16                 127.0.0.1:10016->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-17                 127.0.0.1:10017->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-18                 127.0.0.1:10018->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-19                 127.0.0.1:10019->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-20                 127.0.0.1:10020->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-21                 127.0.0.1:10021->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-22                 127.0.0.1:10022->10001/tcp                                                                                     Up 3 hours
-jarvis-dgm-bridge-23                 127.0.0.1:10023->10001/tcp                                                                                     Up 3 hours
-jarvis-eeg-beta                      127.0.0.1:8075->8075/tcp                                                                                       Up 5 hours
-jarvis-eeg-delta                     127.0.0.1:8073->8073/tcp                                                                                       Up 5 hours
-jarvis-eeg-theta                     127.0.0.1:8074->8074/tcp                                                                                       Up 5 hours
-jarvis-fifth-dgm                     127.0.0.1:4002->4002/tcp                                                                                       Up 5 hours
-jarvis-fractal-consciousness         8002/tcp, 8027/tcp                                                                                             Up 5 hours
-jarvis-gbim-benefit-indexer          127.0.0.1:7206->7206/tcp                                                                                       Up 2 hours
-jarvis-gbim-query-router             127.0.0.1:7205->7205/tcp                                                                                       Up About an hour
-jarvis-gis-rag                       127.0.0.1:8004->8004/tcp, 8044/tcp                                                                             Up 5 hours
-jarvis-hilbert-gateway                                                                                                                              Up 2 hours
-jarvis-hilbert-spatial-chat          127.0.0.1:8235->8235/tcp                                                                                       Up 5 hours
-jarvis-hilbert-state                 127.0.0.1:18092->8081/tcp                                                                                      Up 5 hours
-jarvis-hippocampus                   127.0.0.1:8011->8011/tcp                                                                                       Up 3 hours
-jarvis-i-containers                  8015/tcp                                                                                                       Up 5 hours
-jarvis-ingest-api                                                                                                                                   Up About an hour
-jarvis-ingest-watcher                                                                                                                               Up 2 hours
-jarvis-intake-service                127.0.0.1:8007->8007/tcp                                                                                       Up 2 hours
-jarvis-jaeger                        4317-4318/tcp, 5775/udp, 5778/tcp, 9411/tcp, 14250/tcp, 14268/tcp, 6831-6832/udp, 127.0.0.1:16686->16686/tcp   Up 5 hours
-jarvis-judge-alignment               7232/tcp                                                                                                       Up 5 hours
-jarvis-judge-consistency             7231/tcp                                                                                                       Up 5 hours
-jarvis-judge-ethics                  7233/tcp                                                                                                       Up 5 hours
-jarvis-judge-pipeline                7239/tcp                                                                                                       Up 5 hours
-jarvis-judge-truth                   7230/tcp                                                                                                       Up 5 hours
-jarvis-kyc-vault                     127.0.0.1:8045->8045/tcp                                                                                       Up 2 hours
-jarvis-lm-synthesizer                8001/tcp                                                                                                       Up 5 hours
-jarvis-local-resources               127.0.0.1:8006->8006/tcp, 8035/tcp                                                                             Up 5 hours
-jarvis-local-resources-db            127.0.0.1:5435->5432/tcp                                                                                       Up 5 hours
-jarvis-main-brain                    127.0.0.1:8050->8050/tcp                                                                                       Up 2 hours
-jarvis-memory                        127.0.0.1:8056->8056/tcp                                                                                       Up 2 hours
-jarvis-mother-protocols              4000/tcp                                                                                                       Up 5 hours
-jarvis-ms-analytics                  127.0.0.1:8083->8083/tcp                                                                                       Up About an hour
-jarvis-ms-coordinator                127.0.0.1:7300->7300/tcp                                                                                       Up 2 hours
-jarvis-ms-indexer                    127.0.0.1:8080->8080/tcp                                                                                       Up About an hour
-jarvis-nbb-i-containers-2            127.0.0.1:8015->8015/tcp                                                                                       Up About an hour
-jarvis-neurobiological-master        8018/tcp                                                                                                       Up 5 hours
-jarvis-ollama                        127.0.0.1:11434->11434/tcp                                                                                     Up 5 hours
-jarvis-phi-probe                     127.0.0.1:8026->8025/tcp                                                                                       Up 5 hours
-jarvis-pia-sampler                   8076/tcp                                                                                                       Up 5 hours
-jarvis-provenance                    127.0.0.1:8046->8046/tcp                                                                                       Up 5 hours
-jarvis-psychology-services           127.0.0.1:8019->8019/tcp                                                                                       Up 5 hours
-jarvis-qualia-engine                 8017/tcp                                                                                                       Up 5 hours
-jarvis-rag-router                    8003/tcp, 127.0.0.1:5015->5001/tcp                                                                             Up 5 hours
-jarvis-rag-server                    127.0.0.1:8003->8003/tcp                                                                                       Up 5 hours
-jarvis-redis                         127.0.0.1:6380->6379/tcp                                                                                       Up 5 hours (healthy)
-jarvis-semaphore                     127.0.0.1:8030->8030/tcp                                                                                       Up 5 hours
-jarvis-session-sidecar               127.0.0.1:8060->8060/tcp, 8070/tcp                                                                             Up 5 hours
-jarvis-spiritual-rag                 127.0.0.1:8005->8005/tcp                                                                                       Up 5 hours
-jarvis-steward                       127.0.0.1:8014->8014/tcp                                                                                       Up 2 hours
-jarvis-stewardship-scheduler         127.0.0.1:8079->8079/tcp                                                                                       Up 2 hours
-jarvis-swarm-intelligence            8021/tcp                                                                                                       Up 5 hours
-jarvis-temporal-consciousness        7007/tcp                                                                                                       Up 5 hours
-jarvis-toroidal                      127.0.0.1:8025->8025/tcp                                                                                       Up 5 hours
-jarvis-unified-gateway               127.0.0.1:8001->8001/tcp                                                                                       Up 5 hours (healthy)
-jarvis-web-research                  8008/tcp                                                                                                       Up 5 hours
-jarvis-woah                          127.0.0.1:7012->7012/tcp                                                                                       Up 5 hours
-jarvis-wv-entangled-gateway          127.0.0.1:8010->8010/tcp                                                                                       Up 5 hours
-nbb_blood_brain_barrier              127.0.0.1:8301->8010/tcp                                                                                       Up 5 hours
-nbb_consciousness_containers         127.0.0.1:8102->8010/tcp                                                                                       Up 5 hours
-nbb_darwin_godel_machines            127.0.0.1:8302->8010/tcp                                                                                       Up 5 hours
-nbb_heteroglobulin_transport         127.0.0.1:8106->8010/tcp                                                                                       Up 5 hours
-nbb-i-containers                     127.0.0.1:8101->7005/tcp                                                                                       Up 5 hours
-nbb_mother_carrie_protocols          127.0.0.1:8107->8010/tcp                                                                                       Up 5 hours
-nbb_pituitary_gland                  127.0.0.1:8108->8010/tcp                                                                                       Up 5 hours
-nbb_prefrontal_cortex                127.0.0.1:8105->8010/tcp                                                                                       Up 5 hours
-nbb_qualia_engine                    127.0.0.1:8303->8010/tcp                                                                                       Up 5 hours
-nbb_spiritual_maternal_integration   127.0.0.1:8109->8010/tcp                                                                                       Up 5 hours
-nbb_spiritual_root                   127.0.0.1:8103->8010/tcp                                                                                       Up 5 hours
-nbb_subconscious                     127.0.0.1:8112->8010/tcp                                                                                       Up 5 hours
-nbb_woah_algorithms                  127.0.0.1:8104->8010/tcp                                                                                       Up 5 hours
-Registry error: HTTPConnectionPool(host='jarvis-brain-orchestrator', port=7260): Max retries exceeded with url: /registry (Caused by NewConnectionError("HTTPConnection(host='jarvis-brain-orchestrator', port=7260): Failed to establish a new connection: [Errno 111] Connection refused"))
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ # The single most important test: can the loop actually close?
-# Send a query → autonomous_learner → bridge → i-container → confirm storage
-sqlite3 /mnt/nvme1/msjarvis-rebuild/data/GISGEODB_ACTIVE.sqlite "
-INSERT INTO autonomous_learner_queries
-  (query_text, learner_decision, accuracy_average, status)
-VALUES
-  ('Mount Hope cooperative blockchain governance test', 'learn', 0.85, 'new');
-" 2>/dev/null
-
-# Run the bridge manually
-cd /mnt/nvme1/msjarvis-rebuild && python3 -c "
-import sys
-sys.path.insert(0, 'services')
-try:
-    from bridge_autonomous_to_i_container_fixed import bridge_autonomous_to_identity
-    bridge_autonomous_to_identity()
-except Exception as e:
-    print(f'Bridge error: {e}')
-" 2>/dev/null
-
-# Confirm it landed in central identity
-sqlite3 /mnt/nvme1/msjarvis-rebuild/data/GISGEODB_ACTIVE.sqlite "
-SELECT identity_element, integration_confidence, dgm_acceptance_reasoning
-" 2>/dev/nulld DESC LIMIT 3;
-
-🧬 BRIDGING AUTONOMOUS LEARNER → DGM + WOAH → I-CONTAINER
-════════════════════════════════════════════════════════════════
-Bridge error: no such table: autonomous_learner_queries
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ 
+ Add your own code metrics: http://bit.ly/code-metrics
+ Use `pm2 logs ms-allis-frontend [--lines 1000]` to display logs
+ Use `pm2 env 0` to display environment variables
+ Use `pm2 monit` to monitor CPU and Memory usage ms-allis-frontend
+/opt/msjarvis-rebuild/ms-allis-frontend
+total 128
+drwxrwxr-x  8 cakidd cakidd  4096 Jun 24 19:06 .
+drwxrwxr-x  7 cakidd cakidd 61440 Jun 24 18:33 ..
+drwxrwxr-x  2 cakidd cakidd  4096 Jun 24 18:35 components
+-rw-rw-r--  1 cakidd cakidd   283 Jun 24 18:35 .env.local
+drwxrwxr-x  2 cakidd cakidd  4096 Jun 24 18:35 lib
+drwxrwxr-x  5 cakidd cakidd  4096 Jun 24 18:35 .next
+-rw-rw-r--  1 cakidd cakidd    84 Jun 24 18:35 next.config.js
+drwxrwxr-x 37 cakidd cakidd  4096 Jun 24 18:34 node_modules
+-rw-rw-r--  1 cakidd cakidd   321 Jun 24 18:33 package.json
+-rw-rw-r--  1 cakidd cakidd 20296 Jun 24 18:34 package-lock.json
+drwxrwxr-x  3 cakidd cakidd  4096 Jun 24 18:35 pages
+-rw-r--r--  1 root   root    1139 Jun 24 19:06 photorec.log
+drwxrwxr-x  2 cakidd cakidd  4096 Jun 24 18:35 styles
+./next.config.js
+./.next/package.json
+./node_modules/busboy/package.json
+./node_modules/caniuse-lite/package.json
+./node_modules/client-only/package.json
+./node_modules/graceful-fs/package.json
+./node_modules/js-tokens/package.json
+./node_modules/loose-envify/package.json
+./node_modules/nanoid/async/package.json
+./node_modules/nanoid/non-secure/package.json
+./node_modules/nanoid/package.json
+./node_modules/nanoid/url-alphabet/package.json
+./node_modules/next/dist/compiled/acorn/package.json
+./node_modules/next/dist/compiled/amphtml-validator/package.json
+./node_modules/next/dist/compiled/anser/package.json
+./node_modules/next/dist/compiled/arg/package.json
+./node_modules/next/dist/compiled/assert/package.json
+./node_modules/next/dist/compiled/async-retry/package.json
+./node_modules/next/dist/compiled/async-sema/package.json
+./node_modules/next/dist/compiled/babel/package.json
+./node_modules/next/dist/compiled/babel-packages/package.json
+./node_modules/next/dist/compiled/@babel/runtime/helpers/esm/package.json
+./node_modules/next/dist/compiled/@babel/runtime/package.json
+./node_modules/next/dist/compiled/browserify-zlib/package.json
+./node_modules/next/dist/compiled/browserslist/package.json
+./node_modules/next/dist/compiled/buffer/package.json
+./node_modules/next/dist/compiled/bytes/package.json
+./node_modules/next/dist/compiled/ci-info/package.json
+./node_modules/next/dist/compiled/client-only/package.json
+./node_modules/next/dist/compiled/cli-select/package.json
+./node_modules/next/dist/compiled/commander/package.json
+./node_modules/next/dist/compiled/comment-json/package.json
+./node_modules/next/dist/compiled/compression/package.json
+./node_modules/next/dist/compiled/conf/package.json
+./node_modules/next/dist/compiled/constants-browserify/package.json
+./node_modules/next/dist/compiled/content-disposition/package.json
+./node_modules/next/dist/compiled/content-type/package.json
+./node_modules/next/dist/compiled/cookie/package.json
+./node_modules/next/dist/compiled/cross-spawn/package.json
+./node_modules/next/dist/compiled/crypto-browserify/package.json
+./node_modules/next/dist/compiled/css.escape/package.json
+./node_modules/next/dist/compiled/data-uri-to-buffer/package.json
+./node_modules/next/dist/compiled/debug/package.json
+./node_modules/next/dist/compiled/devalue/package.json
+./node_modules/next/dist/compiled/domain-browser/package.json
+./node_modules/next/dist/compiled/@edge-runtime/cookies/package.json
+./node_modules/next/dist/compiled/edge-runtime/package.json
+./node_modules/next/dist/compiled/@edge-runtime/ponyfill/package.json
+./node_modules/next/dist/compiled/@edge-runtime/primitives/package.json
+./node_modules/next/dist/compiled/events/package.json
+./node_modules/next/dist/compiled/find-cache-dir/package.json
+./node_modules/next/dist/compiled/find-up/package.json
+./node_modules/next/dist/compiled/fresh/package.json
+./node_modules/next/dist/compiled/get-orientation/package.json
+./node_modules/next/dist/compiled/glob/package.json
+./node_modules/next/dist/compiled/gzip-size/package.json
+./node_modules/next/dist/compiled/@hapi/accept/package.json
+./node_modules/next/dist/compiled/http-proxy-agent/package.json
+./node_modules/next/dist/compiled/http-proxy/package.json
+./node_modules/next/dist/compiled/https-browserify/package.json
+./node_modules/next/dist/compiled/https-proxy-agent/package.json
+./node_modules/next/dist/compiled/icss-utils/package.json
+./node_modules/next/dist/compiled/ignore-loader/package.json
+./node_modules/next/dist/compiled/image-size/package.json
+./node_modules/next/dist/compiled/is-animated/package.json
+./node_modules/next/dist/compiled/is-docker/package.json
+./node_modules/next/dist/compiled/is-wsl/package.json
+./node_modules/next/dist/compiled/jest-worker/package.json
+./node_modules/next/dist/compiled/json5/package.json
+./node_modules/next/dist/compiled/jsonwebtoken/package.json
+./node_modules/next/dist/compiled/loader-runner/package.json
+./node_modules/next/dist/compiled/loader-utils2/package.json
+./node_modules/next/dist/compiled/loader-utils3/package.json
+./node_modules/next/dist/compiled/lodash.curry/package.json
+./node_modules/next/dist/compiled/lru-cache/package.json
+./node_modules/next/dist/compiled/mini-css-extract-plugin/package.json
+./node_modules/next/dist/compiled/@mswjs/interceptors/ClientRequest/package.json
+./node_modules/next/dist/compiled/nanoid/package.json
+./node_modules/next/dist/compiled/@napi-rs/triples/package.json
+./node_modules/next/dist/compiled/native-url/package.json
+./node_modules/next/dist/compiled/neo-async/package.json
+./node_modules/next/dist/compiled/@next/font/package.json
+./node_modules/next/dist/compiled/node-fetch/package.json
+./node_modules/next/dist/compiled/node-html-parser/package.json
+./node_modules/next/dist/compiled/@opentelemetry/api/package.json
+./node_modules/next/dist/compiled/ora/package.json
+./node_modules/next/dist/compiled/os-browserify/package.json
+./node_modules/next/dist/compiled/path-browserify/package.json
+./node_modules/next/dist/compiled/picomatch/package.json
+./node_modules/next/dist/compiled/platform/package.json
+./node_modules/next/dist/compiled/p-limit/package.json
+./node_modules/next/dist/compiled/postcss-flexbugs-fixes/package.json
+./node_modules/next/dist/compiled/postcss-modules-extract-imports/package.json
+./node_modules/next/dist/compiled/postcss-modules-local-by-default/package.json
+./node_modules/next/dist/compiled/postcss-modules-scope/package.json
+./node_modules/next/dist/compiled/postcss-modules-values/package.json
+./node_modules/next/dist/compiled/postcss-preset-env/package.json
+./node_modules/next/dist/compiled/postcss-safe-parser/package.json
+./node_modules/next/dist/compiled/postcss-scss/package.json
+./node_modules/next/dist/compiled/postcss-value-parser/package.json
+./node_modules/next/dist/compiled/process/package.json
+./node_modules/next/dist/compiled/punycode/package.json
+./node_modules/next/dist/compiled/querystring-es3/package.json
+./node_modules/next/dist/compiled/raw-body/package.json
+./node_modules/next/dist/compiled/react-dom-experimental/package.json
+./node_modules/next/dist/compiled/react-dom/package.json
+./node_modules/next/dist/compiled/react-experimental/package.json
+./node_modules/next/dist/compiled/react-is/package.json
+./node_modules/next/dist/compiled/react/package.json
+./node_modules/next/dist/compiled/react-refresh/package.json
+./node_modules/next/dist/compiled/react-server-dom-turbopack-experimental/package.json
+./node_modules/next/dist/compiled/react-server-dom-turbopack/package.json
+./node_modules/next/dist/compiled/react-server-dom-webpack-experimental/package.json
+./node_modules/next/dist/compiled/react-server-dom-webpack/package.json
+./node_modules/next/dist/compiled/regenerator-runtime/package.json
+./node_modules/next/dist/compiled/sass-loader/package.json
+./node_modules/next/dist/compiled/scheduler-experimental/package.json
+./node_modules/next/dist/compiled/scheduler/package.json
+./node_modules/next/dist/compiled/schema-utils2/package.json
+./node_modules/next/dist/compiled/schema-utils3/package.json
+./node_modules/next/dist/compiled/semver/package.json
+./node_modules/next/dist/compiled/send/package.json
+./node_modules/next/dist/compiled/server-only/package.json
+./node_modules/next/dist/compiled/setimmediate/package.json
+./node_modules/next/dist/compiled/shell-quote/package.json
+./node_modules/next/dist/compiled/source-map08/package.json
+./node_modules/next/dist/compiled/source-map/package.json
+./node_modules/next/dist/compiled/stacktrace-parser/package.json
+./node_modules/next/dist/compiled/stream-browserify/package.json
+./node_modules/next/dist/compiled/stream-http/package.json
+./node_modules/next/dist/compiled/string_decoder/package.json
+./node_modules/next/dist/compiled/string-hash/package.json
+./node_modules/next/dist/compiled/strip-ansi/package.json
+./node_modules/next/dist/compiled/superstruct/package.json
+./node_modules/next/dist/compiled/tar/package.json
+./node_modules/next/dist/compiled/terser/package.json
+./node_modules/next/dist/compiled/text-table/package.json
+./node_modules/next/dist/compiled/timers-browserify/package.json
+./node_modules/next/dist/compiled/tty-browserify/package.json
+./node_modules/next/dist/compiled/ua-parser-js/package.json
+./node_modules/next/dist/compiled/unistore/package.json
+./node_modules/next/dist/compiled/util/package.json
+./node_modules/next/dist/compiled/@vercel/nft/package.json
+./node_modules/next/dist/compiled/@vercel/og/package.json
+./node_modules/next/dist/compiled/vm-browserify/package.json
+./node_modules/next/dist/compiled/watchpack/package.json
+./node_modules/next/dist/compiled/webpack/package.json
+./node_modules/next/dist/compiled/webpack-sources1/package.json
+./node_modules/next/dist/compiled/webpack-sources3/package.json
+./node_modules/next/dist/compiled/web-vitals-attribution/package.json
+./node_modules/next/dist/compiled/web-vitals/package.json
+./node_modules/next/dist/compiled/ws/package.json
+./node_modules/next/dist/compiled/zod/package.json
+./node_modules/next/dist/src/compiled/@ampproject/toolbox-optimizer/package.json
+./node_modules/@next/env/package.json
+./node_modules/next/package.json
+./node_modules/@next/swc-linux-x64-gnu/package.json
+./node_modules/pg-cloudflare/package.json
+./node_modules/pg-connection-string/package.json
+./node_modules/pg-int8/package.json
+./node_modules/pg/package.json
+./node_modules/pgpass/package.json
+./node_modules/pg-pool/package.json
+./node_modules/pg-protocol/package.json
+./node_modules/pg-types/package.json
+./node_modules/picocolors/package.json
+./node_modules/postcss/package.json
+./node_modules/postgres-array/package.json
+./node_modules/postgres-bytea/package.json
+./node_modules/postgres-date/package.json
+./node_modules/postgres-interval/package.json
+./node_modules/react-dom/package.json
+./node_modules/react/package.json
+./node_modules/scheduler/package.json
+./node_modules/source-map-js/package.json
+./node_modules/split2/package.json
+./node_modules/streamsearch/package.json
+./node_modules/styled-jsx/package.json
+./node_modules/@swc/counter/package.json
+./node_modules/@swc/helpers/_/_apply_decorated_descriptor/package.json
+./node_modules/@swc/helpers/_/_apply_decs_2203_r/package.json
+./node_modules/@swc/helpers/_/_array_like_to_array/package.json
+./node_modules/@swc/helpers/_/_array_with_holes/package.json
+./node_modules/@swc/helpers/_/_array_without_holes/package.json
+./node_modules/@swc/helpers/_/_assert_this_initialized/package.json
+./node_modules/@swc/helpers/_/_async_generator_delegate/package.json
+./node_modules/@swc/helpers/_/_async_generator/package.json
+./node_modules/@swc/helpers/_/_async_iterator/package.json
+./node_modules/@swc/helpers/_/_async_to_generator/package.json
+./node_modules/@swc/helpers/_/_await_async_generator/package.json
+./node_modules/@swc/helpers/_/_await_value/package.json
+./node_modules/@swc/helpers/_/_check_private_redeclaration/package.json
+./node_modules/@swc/helpers/_/_class_apply_descriptor_destructure/package.json
+./node_modules/@swc/helpers/_/_class_apply_descriptor_get/package.json
+./node_modules/@swc/helpers/_/_class_apply_descriptor_set/package.json
+./node_modules/@swc/helpers/_/_class_apply_descriptor_update/package.json
+./node_modules/@swc/helpers/_/_class_call_check/package.json
+./node_modules/@swc/helpers/_/_class_check_private_static_access/package.json
+./node_modules/@swc/helpers/_/_class_check_private_static_field_descriptor/package.json
+./node_modules/@swc/helpers/_/_class_extract_field_descriptor/package.json
+./node_modules/@swc/helpers/_/_class_name_tdz_error/package.json
+./node_modules/@swc/helpers/_/_class_private_field_destructure/package.json
+./node_modules/@swc/helpers/_/_class_private_field_get/package.json
+./node_modules/@swc/helpers/_/_class_private_field_init/package.json
+./node_modules/@swc/helpers/_/_class_private_field_loose_base/package.json
+./node_modules/@swc/helpers/_/_class_private_field_loose_key/package.json
+./node_modules/@swc/helpers/_/_class_private_field_set/package.json
+./node_modules/@swc/helpers/_/_class_private_field_update/package.json
+./node_modules/@swc/helpers/_/_class_private_method_get/package.json
+./node_modules/@swc/helpers/_/_class_private_method_init/package.json
+./node_modules/@swc/helpers/_/_class_private_method_set/package.json
+./node_modules/@swc/helpers/_/_class_static_private_field_destructure/package.json
+./node_modules/@swc/helpers/_/_class_static_private_field_spec_get/package.json
+./node_modules/@swc/helpers/_/_class_static_private_field_spec_set/package.json
+./node_modules/@swc/helpers/_/_class_static_private_field_update/package.json
+./node_modules/@swc/helpers/_/_class_static_private_method_get/package.json
+./node_modules/@swc/helpers/_/_construct/package.json
+./node_modules/@swc/helpers/_/_create_class/package.json
+./node_modules/@swc/helpers/_/_create_for_of_iterator_helper_loose/package.json
+./node_modules/@swc/helpers/_/_create_super/package.json
+./node_modules/@swc/helpers/_/_decorate/package.json
+./node_modules/@swc/helpers/_/_defaults/package.json
+./node_modules/@swc/helpers/_/_define_enumerable_properties/package.json
+./node_modules/@swc/helpers/_/_define_property/package.json
+./node_modules/@swc/helpers/_/_dispose/package.json
+./node_modules/@swc/helpers/_/_export_star/package.json
+./node_modules/@swc/helpers/_/_extends/package.json
+./node_modules/@swc/helpers/_/_get/package.json
+./node_modules/@swc/helpers/_/_get_prototype_of/package.json
+./node_modules/@swc/helpers/_/index/package.json
+./node_modules/@swc/helpers/_/_inherits_loose/package.json
+./node_modules/@swc/helpers/_/_inherits/package.json
+./node_modules/@swc/helpers/_/_initializer_define_property/package.json
+./node_modules/@swc/helpers/_/_initializer_warning_helper/package.json
+./node_modules/@swc/helpers/_/_instanceof/package.json
+./node_modules/@swc/helpers/_/_interop_require_default/package.json
+./node_modules/@swc/helpers/_/_interop_require_wildcard/package.json
+./node_modules/@swc/helpers/_/_is_native_function/package.json
+./node_modules/@swc/helpers/_/_is_native_reflect_construct/package.json
+./node_modules/@swc/helpers/_/_iterable_to_array_limit_loose/package.json
+./node_modules/@swc/helpers/_/_iterable_to_array_limit/package.json
+./node_modules/@swc/helpers/_/_iterable_to_array/package.json
+./node_modules/@swc/helpers/_/_jsx/package.json
+./node_modules/@swc/helpers/_/_new_arrow_check/package.json
+./node_modules/@swc/helpers/_/_non_iterable_rest/package.json
+./node_modules/@swc/helpers/_/_non_iterable_spread/package.json
+./node_modules/@swc/helpers/_/_object_destructuring_empty/package.json
+./node_modules/@swc/helpers/_/_object_spread/package.json
+./node_modules/@swc/helpers/_/_object_spread_props/package.json
+./node_modules/@swc/helpers/_/_object_without_properties_loose/package.json
+./node_modules/@swc/helpers/_/_object_without_properties/package.json
+./node_modules/@swc/helpers/package.json
+./node_modules/@swc/helpers/_/_possible_constructor_return/package.json
+./node_modules/@swc/helpers/_/_read_only_error/package.json
+./node_modules/@swc/helpers/_/_set/package.json
+./node_modules/@swc/helpers/_/_set_prototype_of/package.json
+./node_modules/@swc/helpers/_/_skip_first_generator_next/package.json
+./node_modules/@swc/helpers/_/_sliced_to_array_loose/package.json
+./node_modules/@swc/helpers/_/_sliced_to_array/package.json
+./node_modules/@swc/helpers/_/_super_prop_base/package.json
+./node_modules/@swc/helpers/_/_tagged_template_literal_loose/package.json
+./node_modules/@swc/helpers/_/_tagged_template_literal/package.json
+./node_modules/@swc/helpers/_/_throw/package.json
+./node_modules/@swc/helpers/_/_to_array/package.json
+./node_modules/@swc/helpers/_/_to_consumable_array/package.json
+./node_modules/@swc/helpers/_/_to_primitive/package.json
+./node_modules/@swc/helpers/_/_to_property_key/package.json
+./node_modules/@swc/helpers/_/_ts_decorate/package.json
+./node_modules/@swc/helpers/_/_ts_generator/package.json
+./node_modules/@swc/helpers/_/_ts_metadata/package.json
+./node_modules/@swc/helpers/_/_ts_param/package.json
+./node_modules/@swc/helpers/_/_ts_values/package.json
+./node_modules/@swc/helpers/_/_type_of/package.json
+./node_modules/@swc/helpers/_/_unsupported_iterable_to_array/package.json
+./node_modules/@swc/helpers/_/_update/package.json
+./node_modules/@swc/helpers/_/_using/package.json
+./node_modules/@swc/helpers/_/_wrap_async_generator/package.json
+./node_modules/@swc/helpers/_/_wrap_native_super/package.json
+./node_modules/@swc/helpers/_/_write_only_error/package.json
+./node_modules/tslib/modules/package.json
+./node_modules/tslib/package.json
+./node_modules/uuid/package.json
+./node_modules/xtend/package.json
+./package.json
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ sudo ss -ltnp | grep :3001
+kill <pid>
+pm2 restart ms-allis-frontend
+LISTEN 0      511                *:3001             *:*    users:(("next-server (v1",pid=529578,fd=18))
+bash: syntax error near unexpected token `newline'
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [ms-allis-frontend](ids: [ 0 ])
+[PM2] [ms-allis-frontend](0) ✓
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ ms-allis-frontend  │ fork     │ 15   │ online    │ 0%       │ 18.0mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ find /opt/msjarvis-rebuild -type f \( -name "*.tsx" -o -name "*.jsx" -o -name "*.js" \) | grep -E "app/|pages/|components/|src/"
+/opt/msjarvis-rebuild/ms-allis-frontend/.next/static/chunks/pages/_app-1529d3930ecc2d68.js
+/opt/msjarvis-rebuild/ms-allis-frontend/.next/static/chunks/pages/index-e47b7be32979c385.js
+/opt/msjarvis-rebuild/ms-allis-frontend/.next/static/chunks/pages/_error-7a92967bea80186d.js
+/opt/msjarvis-rebuild/ms-allis-frontend/.next/server/pages/_error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/.next/server/pages/_app.js
+/opt/msjarvis-rebuild/ms-allis-frontend/.next/server/pages/api/history.js
+/opt/msjarvis-rebuild/ms-allis-frontend/.next/server/pages/api/chat.js
+/opt/msjarvis-rebuild/ms-allis-frontend/.next/server/pages/_document.js
+/opt/msjarvis-rebuild/ms-allis-frontend/pages/index.jsx
+/opt/msjarvis-rebuild/ms-allis-frontend/pages/api/history.js
+/opt/msjarvis-rebuild/ms-allis-frontend/pages/api/chat.js
+/opt/msjarvis-rebuild/ms-allis-frontend/pages/_app.jsx
+/opt/msjarvis-rebuild/ms-allis-frontend/components/Bubble.jsx
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/is-next-router-error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/headers.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/client-page.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/parallel-route-default.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/request-async-storage-instance.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/static-generation-bailout.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/redirect.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/bailout-to-client-rendering.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/action-async-storage.external.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/create-router-cache-key.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/refetch-inactive-parallel-segments.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/compute-changed-path.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/clear-cache-node-data-for-segment-path.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/apply-router-state-patch-to-tree.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/router-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/invalidate-cache-below-flight-segmentpath.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/fetch-server-response.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/router-reducer-types.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/handle-mutable.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/fill-cache-with-new-subtree-data.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/fill-lazy-items-till-leaf-with-head.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/create-href-from-url.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/reducers/get-segment-value.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/reducers/restore-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/reducers/fast-refresh-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/reducers/prefetch-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/reducers/refresh-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/reducers/navigate-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/reducers/find-head-in-cache.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/reducers/server-patch-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/reducers/has-interception-route-in-current-tree.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/reducers/server-action-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/prefetch-cache-utils.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/ppr-navigations.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/invalidate-cache-by-router-state.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/handle-segment-mismatch.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/create-initial-router-state.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/apply-flight-data.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/should-hard-navigate.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/router-reducer/is-navigating-to-new-root-layout.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/navigation.react-server.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/dev-root-not-found-boundary.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/draft-mode.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/error-boundary.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/default-layout.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/navigation.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/hooks-server-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/noop-head.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/redirect-status-code.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/not-found-boundary.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/search-params.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/app-router-announcer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/render-from-template-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/match-segments.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/not-found.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/static-generation-async-storage.external.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/layout-router.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/not-found-error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/promise-queue.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/app-router-headers.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/request-async-storage.external.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/unresolved-thenable.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/async-local-storage.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/static-generation-async-storage-instance.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/use-reducer-with-devtools.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/app-router.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/redirect-boundary.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/pages/client.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/pages/ReactDevOverlay.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/pages/bus.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/pages/ErrorBoundary.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/app/ReactDevOverlay.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/container/Errors.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/container/RuntimeError/component-stack-pseudo-html.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/container/RuntimeError/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/container/RuntimeError/CallStackFrame.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/container/RuntimeError/ComponentStackFrameRow.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/container/RuntimeError/GroupedStackFrames.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/container/BuildError.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/container/root-layout-missing-tags-error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/icons/FrameworkIcon.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/icons/CollapseIcon.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Terminal/Terminal.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Terminal/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Terminal/EditorLink.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Terminal/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Toast/Toast.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Toast/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Toast/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/VersionStalenessInfo/VersionStalenessInfo.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/VersionStalenessInfo/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/VersionStalenessInfo/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/hot-linked-text/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Dialog/Dialog.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Dialog/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Dialog/DialogContent.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Dialog/DialogHeader.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Dialog/DialogBody.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Dialog/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/CodeFrame/CodeFrame.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/CodeFrame/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/CodeFrame/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Overlay/maintain--tab-focus.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Overlay/body-locker.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Overlay/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Overlay/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/Overlay/Overlay.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/ShadowPortal.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/LeftRightDialogHeader/LeftRightDialogHeader.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/LeftRightDialogHeader/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/components/LeftRightDialogHeader/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/use-open-in-editor.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/parseStack.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/use-websocket.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/stack-frame.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/getErrorByType.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/use-error-handler.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/format-webpack-messages.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/group-stack-frames-by-framework.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/getRawSourceMap.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/nodeStackFrames.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/noop-template.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/parse-component-stack.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/runtime-error-handler.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/get-socket-url.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/launchEditor.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/getSourceMapUrl.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/hooks/use-on-click-outside.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/styles/CssReset.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/styles/Base.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/internal/styles/ComponentStyles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/shared.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/server/middleware.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/server/middleware-turbopack.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/react-dev-overlay/server/shared.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/action-async-storage-instance.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/client/components/is-hydration-error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/pages/_error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/pages/_app.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/pages/_document.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/plugins/terser-webpack-plugin/src/minify.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/plugins/terser-webpack-plugin/src/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/lightningcss-loader/src/loader.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/lightningcss-loader/src/codegen.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/lightningcss-loader/src/minify.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/lightningcss-loader/src/interface.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/lightningcss-loader/src/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/lightningcss-loader/src/utils.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/Error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/Warning.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/utils.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/css-loader/src/CssSyntaxError.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/css-loader/src/runtime/api.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/css-loader/src/runtime/getUrl.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/css-loader/src/camelcase.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/css-loader/src/utils.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/css-loader/src/plugins/postcss-import-parser.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/css-loader/src/plugins/postcss-icss-parser.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/css-loader/src/plugins/postcss-url-parser.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/build/webpack/loaders/css-loader/src/plugins/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/is-next-router-error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/headers.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/client-page.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/parallel-route-default.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/request-async-storage-instance.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/static-generation-bailout.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/redirect.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/bailout-to-client-rendering.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/action-async-storage.external.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/create-router-cache-key.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/refetch-inactive-parallel-segments.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/compute-changed-path.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/clear-cache-node-data-for-segment-path.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/apply-router-state-patch-to-tree.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/router-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/invalidate-cache-below-flight-segmentpath.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/fetch-server-response.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/router-reducer-types.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/handle-mutable.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/fill-cache-with-new-subtree-data.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/fill-lazy-items-till-leaf-with-head.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/create-href-from-url.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/reducers/get-segment-value.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/reducers/restore-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/reducers/fast-refresh-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/reducers/prefetch-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/reducers/refresh-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/reducers/navigate-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/reducers/find-head-in-cache.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/reducers/server-patch-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/reducers/has-interception-route-in-current-tree.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/reducers/server-action-reducer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/prefetch-cache-utils.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/ppr-navigations.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/invalidate-cache-by-router-state.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/handle-segment-mismatch.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/create-initial-router-state.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/apply-flight-data.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/should-hard-navigate.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/router-reducer/is-navigating-to-new-root-layout.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/navigation.react-server.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/dev-root-not-found-boundary.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/draft-mode.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/error-boundary.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/default-layout.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/navigation.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/hooks-server-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/noop-head.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/redirect-status-code.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/not-found-boundary.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/search-params.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/app-router-announcer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/render-from-template-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/match-segments.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/not-found.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/static-generation-async-storage.external.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/layout-router.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/not-found-error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/promise-queue.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/app-router-headers.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/request-async-storage.external.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/unresolved-thenable.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/async-local-storage.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/static-generation-async-storage-instance.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/use-reducer-with-devtools.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/app-router.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/redirect-boundary.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/pages/client.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/pages/websocket.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/pages/ReactDevOverlay.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/pages/hot-reloader-client.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/pages/bus.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/pages/ErrorBoundary.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/app/ReactDevOverlay.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/app/hot-reloader-client.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/container/Errors.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/container/RuntimeError/component-stack-pseudo-html.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/container/RuntimeError/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/container/RuntimeError/CallStackFrame.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/container/RuntimeError/ComponentStackFrameRow.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/container/RuntimeError/GroupedStackFrames.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/container/BuildError.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/container/root-layout-missing-tags-error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/icons/CloseIcon.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/icons/FrameworkIcon.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/icons/CollapseIcon.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Terminal/Terminal.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Terminal/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Terminal/EditorLink.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Terminal/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Toast/Toast.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Toast/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Toast/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/VersionStalenessInfo/VersionStalenessInfo.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/VersionStalenessInfo/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/VersionStalenessInfo/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/hot-linked-text/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Dialog/Dialog.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Dialog/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Dialog/DialogContent.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Dialog/DialogHeader.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Dialog/DialogBody.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Dialog/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/CodeFrame/CodeFrame.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/CodeFrame/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/CodeFrame/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Overlay/maintain--tab-focus.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Overlay/body-locker.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Overlay/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Overlay/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/Overlay/Overlay.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/ShadowPortal.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/LeftRightDialogHeader/LeftRightDialogHeader.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/LeftRightDialogHeader/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/components/LeftRightDialogHeader/styles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/use-open-in-editor.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/parseStack.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/use-websocket.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/stack-frame.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/getErrorByType.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/use-error-handler.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/format-webpack-messages.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/group-stack-frames-by-framework.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/getRawSourceMap.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/nodeStackFrames.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/noop-template.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/parse-component-stack.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/runtime-error-handler.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/get-socket-url.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/launchEditor.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/helpers/getSourceMapUrl.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/hooks/use-on-click-outside.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/styles/CssReset.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/styles/Base.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/internal/styles/ComponentStyles.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/shared.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/server/middleware.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/server/middleware-turbopack.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/react-dev-overlay/server/shared.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/action-async-storage-instance.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/client/components/is-hydration-error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/pages/_error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/pages/_app.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/pages/_document.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/plugins/terser-webpack-plugin/src/minify.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/plugins/terser-webpack-plugin/src/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/lightningcss-loader/src/loader.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/lightningcss-loader/src/codegen.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/lightningcss-loader/src/minify.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/lightningcss-loader/src/interface.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/lightningcss-loader/src/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/lightningcss-loader/src/utils.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/postcss-loader/src/Error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/postcss-loader/src/Warning.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/postcss-loader/src/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/postcss-loader/src/utils.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/css-loader/src/CssSyntaxError.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/css-loader/src/runtime/api.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/css-loader/src/runtime/getUrl.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/css-loader/src/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/css-loader/src/camelcase.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/css-loader/src/utils.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/css-loader/src/plugins/postcss-import-parser.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/css-loader/src/plugins/postcss-icss-parser.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/css-loader/src/plugins/postcss-url-parser.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/build/webpack/loaders/css-loader/src/plugins/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/builtin/_error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/vendored/contexts/router-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/vendored/contexts/head-manager-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/vendored/contexts/loadable-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/vendored/contexts/entrypoints.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/vendored/contexts/html-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/vendored/contexts/server-inserted-html.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/vendored/contexts/amp-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/vendored/contexts/app-router-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/vendored/contexts/loadable.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/vendored/contexts/image-config-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/vendored/contexts/hooks-client-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/module.render.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/module.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/route-modules/pages/module.compiled.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/normalizers/built/pages/pages-filename-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/normalizers/built/pages/pages-pathname-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/normalizers/built/pages/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/normalizers/built/pages/pages-page-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/normalizers/built/pages/pages-bundle-path-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/normalizers/built/app/app-filename-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/normalizers/built/app/app-page-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/normalizers/built/app/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/normalizers/built/app/app-bundle-path-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/esm/server/future/normalizers/built/app/app-pathname-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/builtin/_error.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/vendored/contexts/router-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/vendored/contexts/head-manager-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/vendored/contexts/loadable-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/vendored/contexts/entrypoints.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/vendored/contexts/html-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/vendored/contexts/server-inserted-html.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/vendored/contexts/amp-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/vendored/contexts/app-router-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/vendored/contexts/loadable.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/vendored/contexts/image-config-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/vendored/contexts/hooks-client-context.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/module.render.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/module.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/route-modules/pages/module.compiled.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/normalizers/built/pages/pages-filename-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/normalizers/built/pages/pages-pathname-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/normalizers/built/pages/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/normalizers/built/pages/pages-page-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/normalizers/built/pages/pages-bundle-path-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/normalizers/built/app/app-filename-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/normalizers/built/app/app-page-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/normalizers/built/app/index.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/normalizers/built/app/app-bundle-path-normalizer.js
+/opt/msjarvis-rebuild/ms-allis-frontend/node_modules/next/dist/server/future/normalizers/built/app/app-pathname-normalizer.js
+find: ‘/opt/msjarvis-rebuild/data/local_resources’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/sys’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_temp’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/quantum_ai’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/mysql’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/performance_schema’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_redo’: Permission denied
+/opt/msjarvis-rebuild/contracts/node_modules/js-sha3/src/sha3.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/lsp-helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/test.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/arguments.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/network.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/solidity.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/hooks.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/user-interruptions.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/artifacts.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/tasks.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/plugins.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/hre.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/builtin-plugin-type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/providers.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/solidity/compiler.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/solidity/compilation-job.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/solidity/errors.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/solidity/dependency-graph.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/solidity/resolved-file.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/solidity/solidity-artifacts.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/solidity/build-system.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/solidity/compiler-io.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/global-options.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/types/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/utils/result.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/utils/contract-names.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/flatten/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/flatten/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/gas-analytics-manager.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/snapshot-cheatcodes.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/hook-handlers/test.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/hook-handlers/hre.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/tasks/solidity-test/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/exports.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/function-gas-snapshots.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/helpers/accessors.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/helpers/compat.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/gas-analytics/helpers/utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/artifacts/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/artifacts/hook-handlers/hre.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/artifacts/artifact-manager.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/artifacts/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/run/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/run/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/telemetry/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/telemetry/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/edr-artifacts.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/reporter.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/test-profiles.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/runner.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/stack-trace-solidity-errors.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/hook-handlers/test.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/hook-handlers/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/eip712/canonicalize.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/eip712/ast-walker.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/eip712/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/eip712/glob.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/formatters.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/inline-config/helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/inline-config/validation.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/inline-config/constants.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/inline-config/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/inline-config/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/inline-config/parsing.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity-test/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-profiles.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/hook-handlers/solidity.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/hook-handlers/hre.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/hook-handlers/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/tasks/compile.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/tasks/build.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/exports.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/solidity-hooks.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/compilation-job-cost.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/read-source-file.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/solc-info.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/compiler/compiler.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/compiler/downloader.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/compiler/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/compiler/solcjs-wrapper.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/compiler/solcjs-runner.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/compilation-job.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/artifacts.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/resolver/source-name-utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/resolver/remapped-npm-packages-graph.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/resolver/dependency-resolver.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/resolver/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/resolver/remappings.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/resolver/npm-module-parsing.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/resolver/utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/resolver/error-messages.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/solc-config-selection.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/dependency-graph.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/warning-suppression.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/cache.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/build-system.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/root-paths-utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-system/dependency-graph-building.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/constants.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/build-results.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/solidity/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/node/helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/node/artifacts/build-info-watcher.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/node/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/node/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/node/json-rpc/handler.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/node/json-rpc/server.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/config-resolution.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/json-rpc.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/network-connection.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/hook-handlers/network.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/hook-handlers/hre.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/hook-handlers/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/network-manager.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/type-validation.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/http-provider.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/provider-errors.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/utils/apply-coverage-network-overrides.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/base-provider.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/accounts/constants.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/accounts/derive-private-keys.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/revert-error-code.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers/chain-id/chain-id.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers/chain-id/chain-id-handler.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers/accounts/automatic-sender-handler.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers/accounts/hd-wallet-handler.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers/accounts/local-accounts.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers/accounts/sender.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers/accounts/fixed-sender-handler.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers/gas/multiplied-gas-estimation.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers/gas/fixed-gas-price-handler.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers/gas/automatic-gas-handler.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers/gas/fixed-gas-handler.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers/gas/automatic-gas-price-handler.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/request-handlers/handlers-array.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/edr-constants.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/stack-traces/stack-trace-solidity-errors.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/stack-traces/solidity-stack-trace.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/stack-traces/stack-trace-generation-errors.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/type-validation.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/types/node-types.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/types/logger.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/types/hardfork.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/types/coverage.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/utils/console-log-signatures.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/utils/trace-output.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/utils/client-version.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/utils/convert-to-edr.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/utils/console-logger.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/utils/logger.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/utils/hardfork.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/utils/trace-formatters.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/edr-provider.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/edr/genesis-state.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/chain-descriptors.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/type-extensions/hooks.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/type-extensions/hre.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/type-extensions/global-options.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/network-manager/type-extensions/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/reports/html.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/hook-handlers/test.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/hook-handlers/solidity.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/hook-handlers/clean.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/hook-handlers/hre.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/exports.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/coverage-manager.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/helpers/accessors.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/helpers/compat.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/process-coverage.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/coverage/instrumentation.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/test/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/test/hook-handlers/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/test/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/test/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/test/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/console/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/console/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/clean/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/clean/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-plugins/clean/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/constants.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/hre-initialization.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/global-hre-instance.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/utils/package.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/using-hardhat2-plugin-errors.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/builtin-global-options.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/deprecated-module-imported-from-hardhat2-plugin.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/edr/chain-type.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/edr/context.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/configuration-variables.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/arguments.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/hook-manager.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/tasks/task-manager.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/tasks/validations.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/tasks/builders.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/tasks/utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/tasks/resolved-task.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/user-interruptions.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/hre.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/global-options.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/plugins/detect-plugin-npm-dependency-problems.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/plugins/resolve-plugin-list.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/config-validation.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/core/lazy-user-interruptions.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/config-loading.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/main.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/error-handler.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/version.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/init/package-manager.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/init/subprocess.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/init/template.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/init/prompt.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/init/init.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/banner-manager.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/error-classification/classifier.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/error-classification/filter.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/error-classification/codebase-dependent-helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/error-classification/helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/telemetry-permissions.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/error-reporter/reporter.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/error-reporter/global-error-handlers.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/analytics/subprocess.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/analytics/analytics.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/analytics/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/analytics/utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/sentry/reporter.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/sentry/transport.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/sentry/constants.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/sentry/vendor/debug-build.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/sentry/vendor/utils/module.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/sentry/vendor/integrations/contextlines.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/sentry/vendor/integrations/context.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/sentry/anonymizer.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/sentry/subprocess.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/sentry/anonymize-paths.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/telemetry/sentry/init.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/help/get-global-help-string.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/help/utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/help/get-help-string.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/internal/cli/node-version.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/plugins.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/hre.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/hardhat/dist/src/cli.js
+/opt/msjarvis-rebuild/contracts/node_modules/sisteransi/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-reporter/dist/src/reporter.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-reporter/dist/src/github-actions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-reporter/dist/src/node-test-utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-reporter/dist/src/error-formatting.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-reporter/dist/src/formatting.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-reporter/dist/src/ci.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-reporter/dist/src/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-reporter/dist/src/diagnostics.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-reporter/dist/src/node-test-error-utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-toolbox-viem/dist/src/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-toolbox-viem/dist/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-runner/dist/src/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-runner/dist/src/hookHandlers/test.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-runner/dist/src/hookHandlers/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-runner/dist/src/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-node-test-runner/dist/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem/dist/src/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem/dist/src/internal/contracts.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem/dist/src/internal/hook-handlers/network.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem/dist/src/internal/chains.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem/dist/src/internal/clients.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem/dist/src/internal/accounts.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem/dist/src/internal/initialization.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem/dist/src/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem/dist/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-vendored/dist/src/coverage-module/istanbul-reports/lib/html/assets/block-navigation.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-vendored/dist/src/coverage-module/istanbul-reports/lib/html/assets/sorter.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-vendored/dist/src/coverage-module/istanbul-reports/lib/html/assets/vendor/prettify.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-vendored/dist/src/coverage-module/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-vendored/dist/src/coverage-module/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-vendored/dist/src/copy-assets.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-vendored/src/coverage-module/istanbul-reports/lib/html/assets/block-navigation.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-vendored/src/coverage-module/istanbul-reports/lib/html/assets/sorter.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-vendored/src/coverage-module/istanbul-reports/lib/html/assets/vendor/prettify.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-vendored/src/coverage-module/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/hook-handlers/user-interruptions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/hook-handlers/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/tasks/track-tx.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/tasks/deploy.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/tasks/status.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/tasks/transactions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/tasks/deployments.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/tasks/wipe.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/tasks/verify.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/tasks/visualize.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/tasks/migrate.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/constants.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/utils/load-module.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/utils/verifyArtifactsVersion.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/utils/bigintReviver.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/utils/open.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/visualization/write-visualization.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/ui/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/ui/helpers/calculate-deployment-status-display.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/ui/helpers/was-anything-executed.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/ui/helpers/calculate-deploying-module-panel.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/ui/helpers/cwd-relative-path.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/ui/helpers/calculate-deployment-complete-display.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/ui/helpers/calculate-list-transactions-display.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/ui/helpers/calculate-batch-display.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/internal/ui/helpers/calculate-starting-message.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/helpers/resolve-deployment-id.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/helpers/pretty-event-handler.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/helpers/error-deployment-result-to-exception-message.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/helpers/read-deployment-parameters.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/helpers/hardhat-artifact-resolver.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition/dist/src/modules.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/errors/request.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/errors/subprocess.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/errors/synchronization.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/errors/bytecode.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/errors/fs.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/errors/package.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/format.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/common-errors.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/eth.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/runtime.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/number.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/request.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/env.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/path.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/bytes.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/hex.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/debug.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/subprocess.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/global-dir.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/ci.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/internal/format.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/internal/eth.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/internal/request.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/internal/bytes.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/internal/hex.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/internal/debug.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/internal/global-dir.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/internal/lang.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/internal/bytecode.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/internal/panic-errors.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/internal/fs.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/internal/package.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/synchronization.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/lang.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/error.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/bytecode.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/panic-errors.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/string.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/date.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/crypto.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/fs.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/stream.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/spinner.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/fast-semver.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/bigint.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-utils/dist/src/package.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition-viem/dist/src/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition-viem/dist/src/internal/hook-handlers/network.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition-viem/dist/src/internal/viem-ignition-helper.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition-viem/dist/src/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-ignition-viem/dist/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/main.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/pages/visualization-overview/visualization-overview.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/pages/visualization-overview/components/summary.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/pages/visualization-overview/components/deployment-flow.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/pages/visualization-overview/components/execution-batches.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/pages/visualization-overview/components/future-batch.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/pages/visualization-overview/components/future-header.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/utils/argumentTypeToString.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/components/socials/tw-logo.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/components/socials/index.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/components/socials/dc-logo.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/components/socials/gh-logo.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/components/mermaid.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/assets/TooltipIcon.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-ui/src/assets/ExternalLinkIcon.tsx
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/verification-providers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/contract.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/etherscan.types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/sourcify.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/metadata.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/hook-handlers/network.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/hook-handlers/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/tasks/verify/etherscan/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/tasks/verify/etherscan/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/tasks/verify/sourcify/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/tasks/verify/sourcify/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/tasks/verify/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/tasks/verify/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/tasks/verify/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/tasks/verify/utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/tasks/verify/blockscout/task-action.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/tasks/verify/blockscout/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/tasks/arg-resolution.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/chains.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/verification-helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/verification.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/artifacts.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/constructor-args.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/blockscout.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/module.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/etherscan.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/libraries.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/bytecode.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/solc-versions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/blockscout.types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/internal/sourcify.types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-verify/dist/src/verify.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/rpc/validate-params.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/rpc/types/any.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/rpc/types/tx-request.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/rpc/types/address.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/rpc/types/quantity.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/rpc/types/hash.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/rpc/types/access-list.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/rpc/types/rpc-parity.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/rpc/types/authorization-list.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/rpc/types/data.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/rpc/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/rpc/utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-zod-utils/dist/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/predicates.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/viem-assertions-initialization.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/viem-assertions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/hook-handlers/network.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/predicates.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/assertions/emit/emit.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/assertions/emit/emit-with-args.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/assertions/emit/core.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/assertions/balances-have-changed.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/assertions/revert/revert-with-custom-error-with-args.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/assertions/revert/revert.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/assertions/revert/handle-revert.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/assertions/revert/revert-with-custom-error.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/assertions/revert/revert-with.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/assertions/revert/extract-revert-error.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/assertions/revert/error-string.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/internal/assertions/revert/handle-revert-with-custom-error.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-viem-assertions/dist/src/abi-types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/edr/dist/src/ts/coverage.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/ui-helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/list-transactions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/strategies/create2-strategy.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/strategies/basic-strategy.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/strategies/resolve-strategy.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/ignition-module-serializer.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/deploy.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/status.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/build-module.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/track-transaction.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/types/list-transactions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/types/deploy.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/types/status.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/types/provider.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/types/module.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/types/module-builder.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/types/verify.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/types/artifact.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/types/serialization.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/types/execution-events.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/list-deployments.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/wipe.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/chain-config.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/journal/file-journal.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/journal/types/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/journal/utils/failedEvmExecutionResultToErrorDescription.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/journal/utils/serialize-replacer.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/journal/utils/deserialize-replacer.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/journal/utils/emitExecutionEvent.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/journal/memory-journal.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/find-execution-state-by-id.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/find-status.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/find-confirmed-transaction-by-future-id.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/is-batch-finished.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/execution-state/get-pending-onchain-interaction.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/execution-state/get-pending-nonce-and-sender.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/execution-state/get-network-execution-states.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/execution-state/find-onchain-interaction-by.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/execution-state/find-static-call-by.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/execution-state/find-transaction-by.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/find-execution-states-by-type.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/has-execution-succeeded.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/is-execution-state-complete.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/find-deployed-contracts.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/find-address-for-contract-future-by-id.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/views/find-result-for-future-by-id.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/utils/check-automined-network.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/utils/adjacency-list.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/utils/adjacency-list-converter.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/utils/identifier-validators.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/utils/assertions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/utils/replace-within-arg.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/utils/resolve-module-parameter.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/utils/future-id-builders.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/utils/get-futures-from-module.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/module.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/defaultConfig.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/formatters.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/reconcile-future-specific-reconciliations.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/reconcile-current-and-previous-type-match.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/reconcile-dependency-rules.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/helpers/reconcile-value.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/helpers/reconcile-strategy.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/helpers/reconcile-contract.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/helpers/reconcile-libraries.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/helpers/reconcile-artifacts.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/helpers/reconcile-address.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/helpers/compare.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/helpers/reconcile-contract-name.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/helpers/reconcile-arguments.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/helpers/reconcile-data.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/helpers/reconcile-function-name.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/helpers/reconcile-from.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/reconciler.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/futures/reconcileNamedEncodeFunctionCall.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/futures/reconcileArtifactLibraryDeployment.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/futures/reconcileArtifactContractAt.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/futures/reconcileReadEventArgument.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/futures/reconcileNamedLibraryDeployment.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/futures/reconcileNamedContractCall.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/futures/reconcileNamedStaticCall.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/futures/reconcileArtifactContractDeployment.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/futures/reconcileNamedContractDeployment.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/futures/reconcileSendData.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/reconciliation/futures/reconcileNamedContractAt.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/deployment-loader/file-deployment-loader.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/deployment-loader/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/deployment-loader/ephemeral-deployment-loader.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/module-builder.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/deployer.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/wiper.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/topological-order.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/validate.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/utils.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/futures/validateNamedContractCall.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/futures/validateNamedEncodeFunctionCall.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/futures/validateNamedContractAt.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/futures/validateNamedLibraryDeployment.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/futures/validateArtifactLibraryDeployment.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/futures/validateArtifactContractAt.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/futures/validateSendData.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/futures/validateArtifactContractDeployment.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/futures/validateReadEventArgument.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/futures/validateNamedStaticCall.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/validation/futures/validateNamedContractDeployment.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/strategy/createx-artifact.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/nonce-management/json-rpc-nonce-manager.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/nonce-management/get-nonce-sync-messages.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/nonce-management/get-max-nonce-used-by-sender.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/jsonrpc-client.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/execution-engine.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/types/deployment-state.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/types/messages.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/types/evm-execution.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/types/execution-state.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/types/network-interaction.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/types/execution-result.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/types/jsonrpc.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/types/execution-strategy.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/abi.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/transaction-tracking-timer.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/utils/get-default-sender.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/utils/convert-evm-tuple-to-solidity-param.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/utils/address.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/deployment-state-helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/libraries.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/execution-strategy-helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/type-helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/reducers/execution-state-reducer.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/reducers/helpers/network-interaction-helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/reducers/helpers/complete-execution-state.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/reducers/helpers/initializers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/reducers/helpers/deployment-state-helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/reducers/deployment-state-reducer.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/handlers/run-strategy.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/handlers/send-transaction.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/handlers/monitor-onchain-interaction.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/handlers/query-static-call.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/helpers/future-resolvers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/helpers/replay-strategy.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/helpers/network-interaction-execution.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/helpers/save-artifacts-for-future.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/helpers/next-action-for-execution-state.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/helpers/decode-simulation-result.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/helpers/messages-helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/helpers/build-initialize-message-for.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/execution/future-processor/future-processor.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/internal/batcher.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/verify.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/type-guards.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/ignition-core/dist/src/batches.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/padding.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/hook-handlers/network.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/time/time.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/time/helpers/increase.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/time/helpers/latest-block.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/time/helpers/increase-to.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/time/helpers/set-next-block-timestamp.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/time/helpers/latest.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/network-helpers.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/set-storage-at.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/set-balance.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/set-code.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/set-next-block-base-fee-per-gas.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/set-nonce.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/set-block-gas-limit.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/impersonate-account.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/take-snapshot.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/load-fixture.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/set-prev-randao.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/get-storage-at.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/mine.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/stop-impersonating-account.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/set-coinbase.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/mine-up-to.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/helpers/drop-transaction.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/network-helpers/duration/duration.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/assertions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/internal/conversion.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-network-helpers/dist/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-errors/dist/src/errors.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-errors/dist/src/index.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-errors/dist/src/descriptors.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/keystores/keystore.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/keystores/encryption.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/keystores/password.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/type-extensions.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/hook-handlers/configuration-variables.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/hook-handlers/config.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/tasks/get.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/tasks/delete.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/tasks/path.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/tasks/set.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/tasks/rename.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/tasks/list.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/tasks/change-password.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/constants.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/utils/setup-keystore-loader-from.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/utils/validate-key.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/utils/get-keystore-file-path.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/utils/get-keystore-type.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/types.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/ui/user-display-messages.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/loaders/file-manager.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/internal/loaders/keystore-file-loader.js
+/opt/msjarvis-rebuild/contracts/node_modules/@nomicfoundation/hardhat-keystore/dist/src/index.js
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ 
 
