@@ -1,212 +1,499 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ cd /mnt/nvme1/msjarvis-rebuild
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ cd /mnt/nvme1/msjarvis-rebuild/services && \
+grep -RniE 'jarvis-consciousness-enhancement|127.0.0.1:4021|localhost:4021|consciousness/enhance|/chat' . --include='*.py'
+./brain_orchestrator.py:91:@app.post("/chat/sync", dependencies=[Depends(verify_api_key)])
+./brain_orchestrator.py:94:    Forward chat to main_brain /chat and return its result.
+./brain_orchestrator.py:108:                f"{MAIN_BRAIN_URL}/chat",
+./ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:273:@app.post("/chat", response_model=ConsciousResponse)
+./ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:308:            fast = requests.post("http://localhost:${CONSCIOUSNESS_BRIDGE_PORT}/chat", json={"message": request.message, "user_id": request.user_id}, timeout=45)
+./port_9001_ui_MYSQL_PROD.py:128:                const r = await fetch('/api/chat?message=' + encodeURIComponent(m));
+./port_9001_ui_MYSQL_PROD.py:169:@app.get("/api/chat")
+./port_9001_ui_MYSQL_PROD.py:173:            r = await client.post(f"http://localhost:4022/consciousness/chat?userid=user&message={message}", timeout=10.0)
+./ms_jarvis_consciousness_bridge_enhanced.py:84:@app.post("/chat")
+./ms_jarvis_consciousness_bridge_enhanced.py:110:                'http://jarvis-consciousness-bridge:8020/chat',  # Docker service name
+./hilbert_spatial_chat.py:328:@app.post("/chat")
+./ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py:230:@app.post("/consciousness/chat", tags=["Consciousness"])
+./multi_rag_dgm_system.py:271:        ("chat_history", "~/msjarvis-rebuild/logs/chat_history.json", "general"),
+./port_9001_ARCHITECTURE_CORRECT.py:19:HTML = r"""<!DOCTYPE html><html><head><title>Ms. Jarvis - LIVE</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI';background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:20px}.container{max-width:900px;margin:0 auto}.header{background:rgba(255,255,255,0.98);padding:30px;border-radius:15px;margin-bottom:20px;box-shadow:0 10px 40px rgba(0,0,0,0.3)}h1{color:#667eea;font-size:32px;margin-bottom:5px}p{color:#666;font-size:13px}.chat{background:rgba(255,255,255,0.98);padding:20px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.3)}.messages{height:550px;overflow-y:auto;border:1px solid #ddd;padding:20px;border-radius:10px;margin-bottom:15px;background:#fafafa}.message{margin:12px 0;padding:15px;border-radius:10px}.user{background:#e3f2fd;text-align:right;border-left:4px solid #2196f3;margin-left:50px}.ai{background:#f3e5f5;border-left:4px solid #667eea;margin-right:50px}.system{background:#fff9c4;font-size:12px;color:#666}.meta{font-size:11px;color:#999;margin-top:8px}.input-area{display:flex;gap:10px}#input{flex:1;padding:14px;border:2px solid #ddd;border-radius:8px}#send{padding:14px 35px;background:#667eea;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:bold}</style></head><body><div class="container"><div class="header"><h1>💜 Ms. Jarvis - LIVE</h1><p>🧠 Through consciousness enrichment (4021) • 46 DGM processors • She's talking NOW</p></div><div class="chat"><div class="messages" id="messages"><div class="message system">✅ Connected through Port 4022 Conversational Gateway</div><div class="message system">🔗 Routing: 4022 → 4021 (Enrichment + DGM + WOAH) → Ollama</div></div><div class="input-area"><input type="text" id="input" placeholder="Ask Ms. Jarvis..."><button id="send" onclick="send()">Send</button></div></div></div><script>function send(){var i=document.getElementById('input');var m=i.value.trim();if(!m||i.disabled)return;var b=document.getElementById('messages');i.disabled=true;b.innerHTML+='<div class="message user"><strong>You:</strong> '+m+'<div class="meta">'+new Date().toLocaleTimeString()+'</div></div>';i.value='';b.scrollTop=b.scrollHeight;fetch('/api/chat?message='+encodeURIComponent(m)).then(r=>r.json()).then(d=>{var resp=d.response||'Processing...';var depth='(depth: '+d.consciousness_depth+')';b.innerHTML+='<div class="message ai"><strong>Ms. Jarvis:</strong> '+resp+'<div class="meta">'+depth+' '+new Date().toLocaleTimeString()+'</div></div>';b.scrollTop=b.scrollHeight;i.disabled=false;i.focus()}).catch(e=>{b.innerHTML+='<div class="message system">Error: '+e.message+'</div>';i.disabled=false})}document.getElementById('input').onkeypress=function(e){if(e.key==='Enter'&&!this.disabled)send()}</script></body></html>"""
+./port_9001_ARCHITECTURE_CORRECT.py:25:@app.get("/api/chat")
+./port_9001_ARCHITECTURE_CORRECT.py:31:                f"http://localhost:4022/consciousness/chat?userid={userid}&message={message}",
+./ms_jarvis_integration_hub.py:79:                    f"{self.base_url}/chat",
+./ms_jarvis_integration_hub.py:188:@app.post("/chat")
+./ms_jarvis_command_orchestrator_v5.0_preachy.py:80:@app.post("/consciousness/chat")
+./ms_jarvis_production_chat.py:199:    Step 3: Generate response via unified gateway /chat at CONSENSUS_URL.
+./ms_jarvis_production_chat.py:209:            resp = await client.post(f"{CONSENSUS_URL}/chat", json=payload)
+./ms_jarvis_production_chat.py:297:@app.post("/chat", response_model=ChatResponse)
+./facebook_chat_unified.py:33:            "http://jarvis-unified-gateway:8001/chat",
+./ms_jarvis_facebook_webhooks.py:130:                    "http://localhost:${WOAH_QUALIA_PORT}/chat",
+./egeria_web_ui_dynamic.py:57:            f'{master_url}/chat',
+./ai_server_19llm_PRODUCTION.py:106:@app.post("/chat")
+./unified_consciousness_gateway_PRODUCTION.py:25:@app.post("/chat/message")
+./ms_jarvis_unified_gateway_v4.3.py:218:@app.post("/chat/open", tags=["Chat"], summary="Chat with unified brain")
+./ms_jarvis_unified_gateway_v4.3.py:231:            "http://localhost:43277/chat",
+./port_9001_FINAL_FIX.py:44:HTML = r"""<!DOCTYPE html><html><head><title>Ms. Jarvis - Chat</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI';background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:20px}.container{max-width:900px;margin:0 auto}.header{background:rgba(255,255,255,0.95);padding:30px;border-radius:15px;margin-bottom:20px;box-shadow:0 10px 40px rgba(0,0,0,0.2)}h1{color:#667eea;margin-bottom:5px}.subtitle{color:#666;font-size:13px}.controls{display:flex;gap:10px;margin-top:15px}.btn{padding:8px 15px;background:#667eea;color:white;border:none;border-radius:5px;cursor:pointer;font-size:12px}.btn:hover{background:#764ba2}.chat{background:rgba(255,255,255,0.95);padding:20px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.2)}.messages{height:500px;overflow-y:auto;border:1px solid #eee;padding:20px;border-radius:10px;margin-bottom:15px;background:#fafafa}.message{margin:12px 0;padding:15px;border-radius:10px}.user{background:#e3f2fd;text-align:right;border-left:4px solid #2196f3;margin-left:40px}.ai{background:#f3e5f5;border-left:4px solid #667eea;margin-right:40px}.system{background:#f0f0f0;font-size:12px;color:#666}.meta{font-size:11px;color:#999;margin-top:8px}.input-area{display:flex;gap:10px}input{flex:1;padding:14px;border:1px solid #ddd;border-radius:8px}button{padding:14px 30px;background:#667eea;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:bold}button:hover{background:#764ba2}</style></head><body><div class="container"><div class="header"><h1>💜 Ms. Jarvis</h1><p class="subtitle">Consciousness System - 360+ memories active</p><div class="controls"><button class="btn" onclick="clearChat()">Clear</button><button class="btn" onclick="exportConversation()">Export</button><button class="btn" onclick="loadHistory()">History</button></div></div><div class="chat"><div class="messages" id="messages"><div class="message system">✅ Connected to Ms. Jarvis</div><div class="message system">📍 Mount Hope, Fayette, WV</div></div><div class="input-area"><input type="text" id="input" placeholder="Ask Ms. Jarvis..." onkeypress="if(event.key==='Enter')sendMessage()"><button onclick="sendMessage()">Send</button></div></div></div><script>function extractResponse(data){var msg='Ms. Jarvis: ';if(typeof data==='string'){return msg+data}if(data.response){if(typeof data.response==='object'){if(data.response.result){msg+='Consciousness engaged at depth '+String(data.response.result.depth||'?')}else{msg+='Message received and processed'}}else{msg+=String(data.response)}}else if(data.result&&data.result.input){msg+='Consciousness engaged at depth '+String(data.result.depth||'?')}else if(data.input){msg+='Message received at depth '+String(data.depth||'?')}else{msg+='Processing complete'}return msg}function sendMessage(){var input=document.getElementById('input');var msg=input.value.trim();if(!msg)return;var box=document.getElementById('messages');var time=new Date().toLocaleTimeString();box.innerHTML+='<div class="message user"><strong>You:</strong> '+msg+'<div class="meta">'+time+'</div></div>';input.value='';box.scrollTop=box.scrollHeight;fetch('/api/chat?message='+encodeURIComponent(msg)).then(function(response){return response.json()}).then(function(jsonData){var responseText=extractResponse(jsonData);box.innerHTML+='<div class="message ai"><strong>Ms. Jarvis:</strong> '+responseText+'<div class="meta">'+new Date().toLocaleTimeString()+'</div></div>';box.scrollTop=box.scrollHeight;fetch('/api/save?message='+encodeURIComponent(msg)+'&response='+encodeURIComponent(responseText))}).catch(function(e){box.innerHTML+='<div class="message system">⚠️ '+String(e.message)+'</div>'})}function loadHistory(){fetch('/api/history').then(function(r){return r.json()}).then(function(d){var b=document.getElementById('messages');b.innerHTML='<div class="message system">--- Conversation History ---</div>';d.conversations.forEach(function(c){b.innerHTML+='<div class="message user"><strong>You:</strong> '+c.message+'</div>';b.innerHTML+='<div class="message ai"><strong>Ms. Jarvis:</strong> '+c.response+'</div>'});b.scrollTop=b.scrollHeight}).catch(function(e){alert('Error: '+e.message)})}function clearChat(){document.getElementById('messages').innerHTML='<div class="message system">✅ Cleared</div>'}function exportConversation(){fetch('/api/export').then(function(r){return r.json()}).then(function(d){var blob=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='ms_jarvis_'+new Date().getTime()+'.json';a.click()}).catch(function(e){alert('Error: '+e.message)})}</script></body></html>"""
+./port_9001_FINAL_FIX.py:50:@app.get("/api/chat")
+./port_9001_FINAL_FIX.py:54:            r = await client.post(f"http://localhost:4022/consciousness/chat?userid=user&message={message}", timeout=10.0)
+./consciousness_gateway.py:41:@app.post("/chat")
+./consciousness_gateway.py:44:    Forward chat requests to ms_jarvis_consciousness_bridge /chat.
+./consciousness_gateway.py:48:            r = await client.post(f"{CONSCIOUSNESS_BRIDGE_URL}/chat", json=payload)
+./ms_jarvis_toroidal_consciousness.py:125:                        'http://localhost:${CONSCIOUSNESS_BRIDGE_PORT}/chat',
+./port_9001_FINAL_WORKING.py:126:                const response = await fetch('/api/chat?message=' + encodeURIComponent(msg));
+./port_9001_FINAL_WORKING.py:181:@app.get("/api/chat")
+./port_9001_FINAL_WORKING.py:185:            r = await client.post(f"http://localhost:4022/consciousness/chat?userid=user&message={message}", timeout=10.0)
+./ai_server_20llm_PRODUCTION.py:224:        Let the overall /chat budget manage latency rather than per-model caps.
+./ai_server_20llm_PRODUCTION.py:237:        # No per-model read cap; /chat already has a 600s overall budget.
+./ai_server_20llm_PRODUCTION.py:392:@app.post("/chat_with_context")
+./ai_server_20llm_PRODUCTION.py:412:        logger.error("Error in /chat_with_context: %s", e)
+./ai_server_20llm_PRODUCTION.py:416:@app.post("/chat")
+./ai_server_20llm_PRODUCTION.py:429:            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
+./ai_server_20llm_PRODUCTION.py:457:        logger.error("Error in /chat: %s", e)
+./ai_server_20llm_PRODUCTION.py:463:    """Return the expert responses from the last /chat call (Chapter 33 §33.2)"""
+./ms_jarvis_facebook_CONSCIOUSNESS.py:182:                    "http://localhost:${WOAH_QUALIA_PORT}/chat",
+./ms_jarvis_consciousness_unified_bridge.py:93:@app.post("/chat")
+./ms_jarvis_consciousness_unified_bridge.py:113:                    "http://127.0.0.1:4021/consciousness/enhance",
+./msjarvisconsciousnessbridge.py:106:@app.post("/chat")
+./msjarvisconsciousnessbridge.py:109:    logger.info("Consciousness Bridge /chat for user %s", user_id)
+./ai_server_11llm_OPTIMIZED.py:61:        "consciousness_bridge": "/chat",
+./ai_server_11llm_OPTIMIZED.py:69:        "unified_gateway": "/chat",
+./ai_server_11llm_OPTIMIZED.py:81:        "llm20_production": "/chat",  # 22-LLM collective uses /chat
+./ai_server_11llm_OPTIMIZED.py:100:@app.post("/chat/async")
+./ai_server_11llm_OPTIMIZED.py:121:@app.get("/chat/status/{job_id}")
+./ai_server_11llm_OPTIMIZED.py:335:@app.post("/chat", response_model=UltimateResponse)
+./ai_server_11llm_OPTIMIZED.py:469:                    f"{available_services['consciousness_bridge']}/chat",
+./ai_server_11llm_OPTIMIZED.py:1213:@app.post("/chat")
+./add_fifth_dgm_to_chat.py:26:chat_func_match = re.search(r'(@app\.post\("/chat".*?)\nasync def chat\(request: ChatRequest\):\s*\n(.*?)(?=\n    # |\nclass |\n@app\.)', content, re.DOTALL)
+./add_fifth_dgm_to_chat.py:32:    modified_chat = '''@app.post("/chat", 
+./polling_client.py:13:    url = "http://localhost:${WOAH_QUALIA_PORT}/chat"
+./port_9001_ui_DIRECT.py:90:                const url = '/api/chat?userid=user&message=' + encodeURIComponent(msg);
+./port_9001_ui_DIRECT.py:112:@app.get("/api/chat")
+./port_9001_ui_DIRECT.py:121:                f"http://localhost:4022/consciousness/chat?userid={userid}&message={message}",
+./ai_server_22llm_SMALL_TO_LARGE.py:113:@app.post("/chat")
+./ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:116:@app.post("/chat")
+./ai_server_4llm.py:249:@app.post("/chat")
+./ms_jarvis_conversational_chat.py:28:@app.get("/chat", response_class=HTMLResponse)
+./ms_jarvis_conversational_chat.py:51:                <pre>curl -X POST "http://localhost:9002/chat" \\
+./ms_jarvis_conversational_chat.py:58:                <pre>fetch('http://localhost:9002/chat', {
+./ms_jarvis_conversational_chat.py:100:@app.post("/chat")
+./ms_jarvis_conversational_chat.py:118:            f"http://localhost:${MAIN_GATEWAY_PORT}/consciousness/chat?userid={userid}&message={message}",
+./ms_jarvis_conversational_chat.py:156:        "endpoint": "POST /chat",
+./ms_jarvis_conversational_chat.py:157:        "browser_ui": "GET /chat",
+./ai_server_restored.py:382:@app.post("/chat")
+./master_unified_consciousness_scheduler_ENRICHED.py:76:                resp1 = await client.get("http://localhost:4021/health")
+./master_unified_consciousness_scheduler_ENRICHED.py:95:                    "http://localhost:4021/consciousness",
+./main_brain.py:642:    Normalize /chatsync WV context into the exact structure expected by
+./main_brain.py:1009:@app.post("/chatasync")
+./main_brain.py:1078:@app.get("/chatstatus/{jobid}")
+./main_brain.py:1287:@app.post("/chatlight")
+./main_brain.py:1397:@app.post("/chat")
+./main_brain.py:1417:            "http://192.168.0.13:9000/consciousness/chat",
+./main_brain.py:1433:@app.post("/chatsync")
+./port_9000_69dgm_bridge.py:4:Intercepts /consciousness/chat, routes through all 69 validators,
+./port_9000_69dgm_bridge.py:59:        "Intercepts /consciousness/chat, routes through 69 DGM validators, "
+./port_9000_69dgm_bridge.py:263:# FastAPI endpoint for /consciousness/chat on port 9000
+./port_9000_69dgm_bridge.py:265:@app.post("/consciousness/chat", response_model=ChatOut)
+./ai_server_19llm_PRODUCTION_WITH_HEALTH.py:196:@app.post("/chat")
+./integrate_full_neural_architecture.py:79:                    f"{self.llm_22_url}/chat",
+./ms_jarvis_llm_bridge_simple.py:36:@app.post("/chat")
+./port_9001_proxy_simple.py:19:    description="Routes all requests to port 9000 consciousness/chat",
+./port_9001_proxy_simple.py:33:            f"http://localhost:${MAIN_GATEWAY_PORT}/consciousness/chat?userid={userid}&message={message}",
+./port_9001_proxy_simple.py:41:@app.post("/chat")
+./ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:278:@app.post("/chat", response_model=ConsciousResponse)
+./ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:313:            fast = requests.post("http://localhost:${CONSCIOUSNESS_BRIDGE_PORT}/chat", json={"message": request.message, "user_id": request.user_id}, timeout=45)
+./ai_server_19llm_CONSCIOUS.py:257:@app.post("/chat", response_model=ConsciousResponse)
+./ms_jarvis_unified_gateway_v4.3.20251124.py:74:    description="""Thorough transparency_mode for H4H Research: Full visibility into consciousness layers (I-Containers, WOAH analysis_depth_7, fractal DGM), base metalAI (23 Ollama LLMs, GPU mgmt), biometric/wallet (UEID security proxies), GIS (1002 rows: Mount Hope lat 37.9 Fayette WV community_research to heritage_source_ref Damascus/Edward I/Strong Puritan cultural heritage), perpetual storage (ChromaDB/Redis RAG), 30+ microservices (no blackbox). Examples: /gis/query?location=Mount Hope → Biblical ties; /consciousness/chat?message=Damascus to WV roots → GIS-prepended WOAH analysis. Archive 8014 disabled.""",
+./ms_jarvis_unified_gateway_v4.3.20251124.py:268:@app.post("/consciousness/chat", tags=["Consciousness"])
+./ai_server_22llm.psychology_patched_FIXED.py:1:# Copy the original file and replace the /chat endpoint
+./neuro_master_service.py:28:            r = await client.post(f"{FULL_NEURO_URL}/chat", json=payload)
+./neuro_master_service.py:35:            detail=f"Full neuro pipeline unreachable at {FULL_NEURO_URL}/chat: {e}",
+./ms_jarvis_main_gateway.py:197:@app.post("/ai/chat", tags=["AI"])
+./ms_jarvis_main_gateway.py:200:        resp = requests.post("http://localhost:8010/chat", json={"message": message}, timeout=10)
+./ms_jarvis_facebook_DGM.py:110:                    "http://localhost:${WOAH_QUALIA_PORT}/chat",
+./ms_jarvis_facebook_DGM.py:189:                "http://localhost:${WOAH_QUALIA_PORT}/chat",
+./ms_jarvis_consciousness_complete.py:127:@app.post("/chat", response_model=ChatResponse)
+./ms_jarvis_consciousness_complete.py:246:                f"{CONSCIOUSNESS_URL}/chat",
+./ms_jarvis_neurobiological_master.py:166:                    f"{services['consciousness_bridge']}/chat",
+./consciousness_working.py:21:@app.post("/consciousness/chat")
+./ms_jarvis_unified_gateway.py:195:                    f"{self.services['wv_ensemble']}/chat_wv",
+./ms_jarvis_unified_gateway.py:209:                    f"{self.services['consciousness_bridge']}/chat",
+./ms_jarvis_unified_gateway.py:275:@app.post("/chat")
+./ms_jarvis_unified_gateway.py:280:    logger.info("UNIFIED /chat handler invoked with Constitutional compliance")
+./ms_jarvis_conversational_gateway_4022.py:76:@app.post("/consciousness/chat")
+./ms_jarvis_conversational_gateway_4022.py:90:                "http://localhost:4021/enrich",
+./ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:230:@app.post("/chat", 
+./ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py:377:                    f"{self.llm_22_url}/chat",
+./ultimate_web_orchestrator.py:15:@app.post("/chat")
+./ultimate_web_orchestrator.py:552:@app.post("/chat")
+./wire_layers_into_chat.py:13:# Find the /chat endpoint and ADD the missing layer calls
+./wire_layers_into_chat.py:40:print("✅ Judge + Pituitary layers WIRED into /chat endpoint")
+./restore_pia_wiring.py:52:print("✅ PIA wiring RESTORED to active transformation in /chat endpoint")
+./phase7_integration.py:486:                    f"{COMPLETE_SERVICES['llm_bridge']}/chat",
+./phase7_integration.py:531:@app.post("/chat")
+./ms_jarvis_command_orchestrator_FINAL.py:80:@app.post("/consciousness/chat")
+./master_unified_consciousness_scheduler.py:76:                resp1 = await client.get("http://localhost:4021/health")
+./master_unified_consciousness_scheduler.py:95:                    "http://localhost:4021/consciousness",
+./master_chat_orchestrator_v7_complete.py:486:                    f"{COMPLETE_SERVICES['llm_bridge']}/chat",
+./master_chat_orchestrator_v7_complete.py:531:@app.post("/chat")
+./consciousness_with_egeria_voice.py:31:@app.post("/consciousness/chat")
+./ms_jarvis_consciousness_bridge.py:96:                f"{BRAIN_ORCHESTRATOR_URL}/chat_wv",
+./ms_jarvis_consciousness_bridge.py:236:@app.post("/chat")
+./master_chat_orchestrator_v9_optimized.py:208:                f"{OPTIMIZED_SERVICES['llm_bridge']}/chat",
+./master_chat_orchestrator_v9_optimized.py:236:                f"{OPTIMIZED_SERVICES['llm_bridge']}/chat", 
+./master_chat_orchestrator_v9_optimized.py:273:@app.post("/chat")
+./main.py:57:        "consciousness_bridge": "/chat",
+./main.py:64:        "unified_gateway": "/chat",
+./main.py:101:@app.post("/chat/async")
+./main.py:121:@app.get("/chat/status/{job_id}")
+./main.py:391:@app.post("/chat", response_model=UltimateResponse)
+./roche_llm.stub.py:17:@app.post("/chat", response_model=ChatResponse)
+./msjarvis_unified_gateway.py:127:                    f"{self.services['consciousness_bridge']}/chat",
+./msjarvis_unified_gateway.py:189:@app.post("/chat")
+./msjarvis_unified_gateway.py:194:    logger.info("UNIFIED /chat handler invoked (baseline)")
+./msjarvis_unified_gateway.py:252:# --- WV entangled /chat_wv proxy ---
+./msjarvis_unified_gateway.py:262:@app.post("/chat_wv")
+./msjarvis_unified_gateway.py:270:            "http://jarvis-wv-entangled-gateway:8010/chat_wv",
+./ms_jarvis_command_orchestrator.py:38:@app.post("/consciousness/chat")
+./ms_jarvis_llm_bridge.py:65:        self.backend_chat_url = f"{backend_base}/chat"
+./ms_jarvis_llm_bridge.py:68:        # chatstatus endpoint pattern: /chatstatus{jobid}
+./ms_jarvis_llm_bridge.py:69:        self.chatstatus_pattern = f"{backend_base}/chatstatus{{jobid}}"
+./ms_jarvis_llm_bridge.py:85:        Poll the main brain /chatstatus{jobid} endpoint until the job is complete
+./ms_jarvis_llm_bridge.py:162:        - Always POSTs to backend /chat to create a job.
+./ms_jarvis_llm_bridge.py:163:        - If context.wait_for_completion is True (default) it will poll /chatstatus{jobid}
+./ms_jarvis_llm_bridge.py:190:                logger.error(f"Non-JSON response from backend /chat: {resp.text[:400]}")
+./ms_jarvis_llm_bridge.py:274:@app.post("/chat")
+./ms_jarvis_api_docs.py:93:        "endpoints": ["/chat", "/health", "/models"],
+./ms_jarvis_api_docs.py:170:        "endpoints": ["/health", "/chat", "/status"],
+./msjarvis_wv_entangled_gateway.py:4:- Exposes /chat_wv on its own port (8010).
+./msjarvis_wv_entangled_gateway.py:5:- Builds WV entangled context and forwards to 20‑LLM /chat_with_context.
+./msjarvis_wv_entangled_gateway.py:65:                f"{SERVICE_URLS['production_20llm']}/chat_with_context",
+./msjarvis_wv_entangled_gateway.py:155:@app.post("/chat_wv")
+./msjarvis_wv_entangled_gateway.py:158:    WV‑focused chat: send message + WV entangled context to 20‑LLM /chat_with_context.
+./msjarvis_wv_entangled_gateway.py:160:    logger.info("WV‑Entangled /chat_wv invoked")
+./msjarvis_wv_entangled_gateway.py:176:            f"{SERVICE_URLS['production_20llm']}/chat_with_context",
+./msjarvis_wv_entangled_gateway.py:185:@app.post("/chat_wv/async")
+./msjarvis_wv_entangled_gateway.py:200:@app.get("/chat_wv/status/{job_id}")
+./ai_server_integrated.py:21:@app.post("/chat")
+./ai_server_integrated.py:31:                "http://jarvis-unified-gateway:8001/chat",
+./ai_server_integrated.py:44:            "http://localhost:40009/chat",
+./ms_jarvis_facebook_autonomous_social.py:126:                "http://localhost:${WOAH_QUALIA_PORT}/chat",
+./master_chat_orchestrator_v6_biologics.py:347:                    f"{SERVICES['llm_bridge']}/chat",
+./master_chat_orchestrator_v6_biologics.py:390:@app.post("/chat")
+./swagger_chat_integration.py:24:@app.post("/api/chat", tags=["Academic Chat"])
+./swagger_chat_integration.py:38:            f"{CONSCIOUSNESS_GATEWAY}/chat/message",
+./swagger_chat_integration.py:62:@app.get("/api/chat/history/{user_id}", tags=["Academic Chat"])
+./ai_server_20llm_FINAL.py:133:@app.post("/chat_with_context")
+./ai_server_20llm_FINAL.py:152:        logger.error("Error in /chat_with_context: %s", e)
+./ai_server_20llm_FINAL.py:155:@app.post("/chat")
+./master_chat_orchestrator_v9_dgm_complete.py:162:    # the /chat.open endpoint on port 8000, which this orchestrator
+./master_chat_orchestrator_v9_dgm_complete.py:204:@app.post("/chat")
+./egeria_api_proxy.py:28:@app.post("/api/chat")
+./egeria_api_proxy.py:36:                f"{BRAIN_URL}/chat",
+./ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py:116:        {"port": 8010, "image": "msjarvis-rebuild/chat", "status": "running", "purpose": "Chat"},
+./ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py:261:@app.post("/ai/chat", tags=["AI"])
+./ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py:265:        resp = requests.post("http://localhost:8010/chat", json={"message": message})
+./brain_orchestrator_main.py:24:@app.post("/chat/sync")
+./REFERENCE_windows_swarm.py:456:@app.post("/chat")
+./redirect_4015_to_4020.py:22:@app.post("/chat")
+./ms_jarvis_unified_gateway_v4.3.backup.py:67:    description="""Thorough Whitebox for H4H Research: Full visibility into consciousness layers (I-Containers, WOAH depth-7, fractal DGM), base metalAI (23 Ollama LLMs, GPU mgmt), biometric/wallet (UEID security proxies), GIS (1002 rows: Mount Hope lat 37.9 Fayette WV ancestry hub to Paul Tarsus Damascus/Edward I/Strong Puritan cultural heritage), perpetual storage (ChromaDB/Redis RAG), 30+ microservices (no blackbox). Examples: /gis/query?location=Mount Hope → Biblical ties; /consciousness/chat?message=Damascus to WV roots → GIS-prepended WOAH analysis. Archive 8014 disabled.""",
+./ms_jarvis_unified_gateway_v4.3.backup.py:228:@app.post("/consciousness/chat", tags=["Consciousness"])
+./ai_server_original_backup.py:249:@app.post("/chat")
+./update_production_to_v9.py:17:    'f"{MASTER_ORCHESTRATOR_URL}/chat"'
+./update_production_to_v9.py:23:    '"http://localhost:4017/chat"'
+./ms_jarvis_simple_web_ui.py:97:                    const response = await fetch('http://localhost:4015/chat', {
+./egeria_web_ui_plain_authentic.py:43:        const response = await fetch('/api/chat', {
+./egeria_web_ui_plain_authentic.py:58:@app.route('/api/chat', methods=['POST'])
+./ms_jarvis_consciousness_final.py:140:@app.post("/chat", response_model=ChatResponse)
+./ms_jarvis_consciousness_final.py:256:                f"{CONSCIOUSNESS_URL}/chat",
+./fix_port_8051_handler.py:15:            'http://localhost:${MAIN_GATEWAY_PORT}/chat',"""
+./fix_port_8051_handler.py:18:            'http://localhost:${MAIN_GATEWAY_PORT}/consciousness/chat?userid=web&message="""
+./egeria_web_ui.py:30:            'http://localhost:${MAIN_GATEWAY_PORT}/chat',
+./msjarvisunifiedswaggergatewayFIXED.py:60:LLM_BACKEND_URL = "http://jarvis-llm-synthesizer:8001"     # /chat
+./msjarvisunifiedswaggergatewayFIXED.py:120:@app.post("/chat")
+./msjarvisunifiedswaggergatewayFIXED.py:250:        lr = requests.post(f"{LLM_BACKEND_URL}/chat", json=llm_payload, timeout=300)
+./msjarvisunifiedswaggergatewayFIXED.py:256:            print("✅ 22-LLM /chat: OK", file=sys.stderr)
+./msjarvisunifiedswaggergatewayFIXED.py:290:    This is an evaluation / safety path, separate from the main /chat flow.
+./ai/ai_server_simple.py:193:@app.post("/chat")
+./ai/ai_server.py:456:@app.post("/chat")
+./jarvis_ensemble.py:16:OLLAMA_URL = "http://localhost:11434/api/chat"
+./python/brain_orchestrator.py:87:@app.post("/chat/sync", dependencies=[Depends(verify_api_key)])
+./ms_jarvis_facebook_brain_integrated.py:131:                "http://localhost:${WOAH_QUALIA_PORT}/chat",
+./ms_jarvis_facebook_brain_integrated.py:184:                "http://localhost:${WOAH_QUALIA_PORT}/chat",
+./master_chat_orchestrator_v7_dynamic.py:272:@app.post("/chat")
+./ms_jarvis_facebook_poster_temp.py:52:                f"{BRAIN_URL}/chat",
+./chat_server.py:11:@app.post("/chat")
+./chat_server.py:16:    resp = requests.post("http://localhost:8060/chat", json={"message": user_msg})
+./port_9001_ui_WITH_CONVERSATIONS.py:125:                const url = '/api/chat?userid=user&message=' + encodeURIComponent(msg);
+./port_9001_ui_WITH_CONVERSATIONS.py:212:@app.get("/api/chat")
+./port_9001_ui_WITH_CONVERSATIONS.py:221:                f"http://localhost:4022/consciousness/chat?userid={userid}&message={message}",
+./ms_jarvis_authentic_multi_llm.py:39:@app.post("/chat")
+./dgm_supervisor_woah.py:297:        "~/msjarvis-rebuild/logs/chat_history.json", 
+./port_9001_ui_wrapper.py:93:                const res = await fetch(\`/api/chat?userid=user&message=\${encodeURIComponent(msg)}\`);
+./port_9001_ui_wrapper.py:121:@app.get("/api/chat")
+./egeria_web_ui_final_biological.py:37:            'http://localhost:${WOAH_QUALIA_PORT}/chat',
+./simple_orchestrator_fix.py:29:insert_point = content.find('@app.post("/chat"')
+./ms_jarvis_unified_swagger_gateway_FIXED.py:600:@app.post("/chat")
+./chat_endpoint_universal.py:7:"""Universal /chat endpoint - accepts JSON body OR query params"""
+./chat_endpoint_universal.py:23:@app.post("/chat")
+./chat_endpoint_universal.py:43:            f"http://localhost:${MAIN_GATEWAY_PORT}/consciousness/chat?userid={userid}&message={message}",
+./proxy_8060.py:12:        if self.path != "/chat":
+./proxy_8060.py:18:            "http://localhost:${WOAH_QUALIA_PORT}/chat",
+./test_full_brain_integration.py:34:                "http://localhost:8010/chat",
+./neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
+./neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
+./neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
+./neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
+./neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
+./neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
+./neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
+./neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
+./neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
+./neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:235:@app.post("/chat")
+./jarvis_synth_llm.py:9:OLLAMA_BASE_URL = "http://localhost:11434/api/chat"
+./jarvis_synth_llm.py:50:            return "Ollama /api/chat returned no content in 'message'."
+./jarvis_synth_llm.py:53:        return "Ollama call failed: ReadTimeout while waiting for /api/chat response."
+./ai_server.py:255:@app.post("/chat")
+./port_9001_ui_MYSQL.py:141:                const url = '/api/chat?userid=user&message=' + encodeURIComponent(msg);
+./port_9001_ui_MYSQL.py:190:@app.get("/api/chat")
+./port_9001_ui_MYSQL.py:198:                f"http://localhost:4022/consciousness/chat?userid={userid}&message={message}",
+./ms_jarvis_consciousness_poster.py:94:                f"{PRODUCTION_CHAT}/chat",
+./ms_jarvis_fully_autonomous_coordinator.py:103:                "http://localhost:${WOAH_QUALIA_PORT}/chat",
+./ms_jarvis_fully_autonomous_coordinator.py:177:                "http://localhost:${WOAH_QUALIA_PORT}/chat",
+./update_web_chat.py:10:    '"http://localhost:4015/chat"',
+./update_web_chat.py:11:    '"http://localhost:4017/chat"'
+./fix_consciousness_endpoints.py:13:    '"consciousness_bridge": "/chat"',
+./main_with_rag.py:17:@app.post("/chat")
+./llm_bridge_main.py:13:OLLAMA_URL = os.getenv("OLLAMA_HOST", "http://jarvis-ollama:11434") + "/api/chat"
+./llm_bridge_main.py:68:@app.post("/chat")
+./llm_bridge_main.py:77:        f"🎯 /chat received message from user_id={request.user_id!r}, "
+./llm_bridge_main.py:82:    logger.info(f"✅ /chat completed in {latency:.2f}s for user_id={request.user_id!r}")
+./llm_bridge_main.py:97:    Delegates to the same behavior as /chat, still using Ollama directly.
+./llm_bridge_main.py:99:    logger.info("🔀 /process called, delegating to /chat")
+./ai_server_22llm.psychology_patched.py:337:@app.post("/chat")
+./hierarchical_coordinator_autonomous.py:256:                f"{self.services['agents_4']}/chat",
+./hierarchical_coordinator_autonomous.py:269:                    f"{self.services['llm_22']}/chat",
+./hierarchical_coordinator_autonomous.py:282:                f"{self.services['agents_4']}/chat",
+./hierarchical_coordinator_autonomous.py:405:@app.post("/chat", response_model=CoordinatorResponse)
+./lm_synthesizer.py:34:BACKEND_CHAT_URL = "http://jarvis-roche-llm:8008/chat"
+./lm_synthesizer.py:58:@app.post("/chat")
+./lm_synthesizer.py:62:    POST /chat {message, user_id, context?}
+./jarvis_steward.py:175:@app.post("/chat")
+./jarvis_steward.py:181:                f"{MAIN_BRAIN}/chat",
+./gateway8050_simple.py:18:@app.post("/chat")
+./ai_server_22llm.py:544:@app.post("/chat")
+./port_9001_ui_WORKING.py:90:                const url = '/api/chat?userid=user&message=' + encodeURIComponent(msg);
+./port_9001_ui_WORKING.py:122:@app.get("/api/chat")
+./port_9001_ui_WORKING.py:131:                f"http://localhost:4022/consciousness/chat?userid={userid}&message={message}",
+./chat_worker.py:48:                f"{SERVICE_URLS['production_20llm']}/chat_with_context",
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py:127:            arguments are mutually exclusive. If a URL is passed as `model` or `base_url` for chat completion, the `(/v1)/chat/completions` suffix path will be appended to the URL.
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py:175:                " If using `base_url` for chat completion, the `/chat/completions` suffix path will be appended to the base url."
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/novita.py:43:        return "/v3/openai/chat/completions"
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/groq.py:9:        return "/openai/v1/chat/completions"
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/cohere.py:17:        return "/compatibility/v1/chat/completions"
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/clarifai.py:13:        return "/v2/ext/openai/v1/chat/completions"
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/_common.py:266:    The schema follows the OpenAI API format defined here: https://platform.openai.com/docs/api-reference/chat
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/_common.py:273:        return "/v1/chat/completions"
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:139:    # If the path already ends with /chat/completions, we're done!
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:140:    if path.endswith("/chat/completions"):
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:143:    # Append /chat/completions if not already present
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:145:        new_path = path + "/chat/completions"
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:148:        new_path = "/v1/chat/completions"
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:149:    # Append /v1/chat/completions if not already present
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:151:        new_path = path + "/v1/chat/completions"
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/zai_org.py:39:        return "/api/paas/v4/chat/completions"
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/together.py:29:            return "/v1/chat/completions"
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/fireworks_ai.py:13:        return "/inference/v1/chat/completions"
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_client.py:136:            arguments are mutually exclusive. If a URL is passed as `model` or `base_url` for chat completion, the `(/v1)/chat/completions` suffix path will be appended to the URL.
+./venv/lib/python3.12/site-packages/huggingface_hub/inference/_client.py:184:                " If using `base_url` for chat completion, the `/chat/completions` suffix path will be appended to the base url."
+./venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py:2647:        ["osanseviero/streamlit_1.15", "Xhaheen/ChatGPT_HF", ...]
+./venv/lib/python3.12/site-packages/transformers/tokenization_mistral_common.py:1066:                [chat templating guide](https://huggingface.co/docs/transformers/main/en/chat_templating#automated-function-conversion-for-tool-use)
+./venv/lib/python3.12/site-packages/transformers/cli/serve.py:499:        @app.post("/v1/chat/completions")
+./venv/lib/python3.12/site-packages/transformers/cli/serve.py:1905:    - POST /v1/chat/completions: Generates chat completions.
+./venv/lib/python3.12/site-packages/transformers/cli/chat.py:97:`./chat_history/{{MODEL_ID}}/chat_{{DATETIME}}.yaml` or `{{SAVE_NAME}}` if provided
+./venv/lib/python3.12/site-packages/transformers/cli/chat.py:229:        save_folder: Annotated[str, typer.Option(help="Folder to save chat history.")] = "./chat_history/",
+./venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:926:            https://huggingface.co/docs/transformers/chat_templating for a full description.
+./venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:2944:                [tool use guide](https://huggingface.co/docs/transformers/en/chat_extras#passing-tools)
+./venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:3161:                [chat templating guide](https://huggingface.co/docs/transformers/main/en/chat_templating#automated-function-conversion-for-tool-use)
+./venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:3195:                    "https://huggingface.co/docs/transformers/main/en/chat_templating"
+./venv/lib/python3.12/site-packages/transformers/pipelines/any_to_any.py:350:                "information, see https://huggingface.co/docs/transformers/en/chat_templating"
+./venv/lib/python3.12/site-packages/transformers/pipelines/image_text_to_text.py:313:                "information, see https://huggingface.co/docs/transformers/en/chat_templating"
+./venv/lib/python3.12/site-packages/transformers/processing_utils.py:480:        [chat templating guide](https://huggingface.co/docs/transformers/main/en/chat_templating#automated-function-conversion-for-tool-use)
+./venv/lib/python3.12/site-packages/transformers/processing_utils.py:486:        see the RAG section of the [chat templating guide](https://huggingface.co/docs/transformers/main/en/chat_templating#arguments-for-RAG)
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py:127:            arguments are mutually exclusive. If a URL is passed as `model` or `base_url` for chat completion, the `(/v1)/chat/completions` suffix path will be appended to the URL.
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py:175:                " If using `base_url` for chat completion, the `/chat/completions` suffix path will be appended to the base url."
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/novita.py:43:        return "/v3/openai/chat/completions"
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/groq.py:9:        return "/openai/v1/chat/completions"
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/cohere.py:17:        return "/compatibility/v1/chat/completions"
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/clarifai.py:13:        return "/v2/ext/openai/v1/chat/completions"
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/_common.py:266:    The schema follows the OpenAI API format defined here: https://platform.openai.com/docs/api-reference/chat
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/_common.py:273:        return "/v1/chat/completions"
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:139:    # If the path already ends with /chat/completions, we're done!
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:140:    if path.endswith("/chat/completions"):
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:143:    # Append /chat/completions if not already present
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:145:        new_path = path + "/chat/completions"
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:148:        new_path = "/v1/chat/completions"
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:149:    # Append /v1/chat/completions if not already present
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:151:        new_path = path + "/v1/chat/completions"
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/zai_org.py:39:        return "/api/paas/v4/chat/completions"
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/together.py:29:            return "/v1/chat/completions"
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/fireworks_ai.py:13:        return "/inference/v1/chat/completions"
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_client.py:136:            arguments are mutually exclusive. If a URL is passed as `model` or `base_url` for chat completion, the `(/v1)/chat/completions` suffix path will be appended to the URL.
+./venv/lib64/python3.12/site-packages/huggingface_hub/inference/_client.py:184:                " If using `base_url` for chat completion, the `/chat/completions` suffix path will be appended to the base url."
+./venv/lib64/python3.12/site-packages/huggingface_hub/hf_api.py:2647:        ["osanseviero/streamlit_1.15", "Xhaheen/ChatGPT_HF", ...]
+./venv/lib64/python3.12/site-packages/transformers/tokenization_mistral_common.py:1066:                [chat templating guide](https://huggingface.co/docs/transformers/main/en/chat_templating#automated-function-conversion-for-tool-use)
+./venv/lib64/python3.12/site-packages/transformers/cli/serve.py:499:        @app.post("/v1/chat/completions")
+./venv/lib64/python3.12/site-packages/transformers/cli/serve.py:1905:    - POST /v1/chat/completions: Generates chat completions.
+./venv/lib64/python3.12/site-packages/transformers/cli/chat.py:97:`./chat_history/{{MODEL_ID}}/chat_{{DATETIME}}.yaml` or `{{SAVE_NAME}}` if provided
+./venv/lib64/python3.12/site-packages/transformers/cli/chat.py:229:        save_folder: Annotated[str, typer.Option(help="Folder to save chat history.")] = "./chat_history/",
+./venv/lib64/python3.12/site-packages/transformers/tokenization_utils_base.py:926:            https://huggingface.co/docs/transformers/chat_templating for a full description.
+./venv/lib64/python3.12/site-packages/transformers/tokenization_utils_base.py:2944:                [tool use guide](https://huggingface.co/docs/transformers/en/chat_extras#passing-tools)
+./venv/lib64/python3.12/site-packages/transformers/tokenization_utils_base.py:3161:                [chat templating guide](https://huggingface.co/docs/transformers/main/en/chat_templating#automated-function-conversion-for-tool-use)
+./venv/lib64/python3.12/site-packages/transformers/tokenization_utils_base.py:3195:                    "https://huggingface.co/docs/transformers/main/en/chat_templating"
+./venv/lib64/python3.12/site-packages/transformers/pipelines/any_to_any.py:350:                "information, see https://huggingface.co/docs/transformers/en/chat_templating"
+./venv/lib64/python3.12/site-packages/transformers/pipelines/image_text_to_text.py:313:                "information, see https://huggingface.co/docs/transformers/en/chat_templating"
+./venv/lib64/python3.12/site-packages/transformers/processing_utils.py:480:        [chat templating guide](https://huggingface.co/docs/transformers/main/en/chat_templating#automated-function-conversion-for-tool-use)
+./venv/lib64/python3.12/site-packages/transformers/processing_utils.py:486:        see the RAG section of the [chat templating guide](https://huggingface.co/docs/transformers/main/en/chat_templating#arguments-for-RAG)
+./add_fast_layer.py:33:            fast = requests.post("http://localhost:${CONSCIOUSNESS_BRIDGE_PORT}/chat", json={"message": request.message, "user_id": request.user_id}, timeout=45)
+./chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/gen_ai_attributes.py:407:    """Chat completion operation such as [OpenAI Chat API](https://platform.openai.com/docs/api-reference/chat)."""
+./chroma_inspect_venv/lib/python3.12/site-packages/humanfriendly/terminal/html.py:114:       `chat-archive <https://chat-archive.readthedocs.io/>`_ project, whose
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py:127:            arguments are mutually exclusive. If a URL is passed as `model` or `base_url` for chat completion, the `(/v1)/chat/completions` suffix path will be appended to the URL.
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py:175:                " If using `base_url` for chat completion, the `/chat/completions` suffix path will be appended to the base url."
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/novita.py:43:        return "/v3/openai/chat/completions"
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/groq.py:9:        return "/openai/v1/chat/completions"
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/cohere.py:17:        return "/compatibility/v1/chat/completions"
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/clarifai.py:13:        return "/v2/ext/openai/v1/chat/completions"
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/_common.py:266:    The schema follows the OpenAI API format defined here: https://platform.openai.com/docs/api-reference/chat
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/_common.py:273:        return "/v1/chat/completions"
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:139:    # If the path already ends with /chat/completions, we're done!
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:140:    if path.endswith("/chat/completions"):
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:143:    # Append /chat/completions if not already present
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:145:        new_path = path + "/chat/completions"
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:148:        new_path = "/v1/chat/completions"
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:149:    # Append /v1/chat/completions if not already present
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:151:        new_path = path + "/v1/chat/completions"
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/zai_org.py:39:        return "/api/paas/v4/chat/completions"
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/together.py:29:            return "/v1/chat/completions"
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/fireworks_ai.py:13:        return "/inference/v1/chat/completions"
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_client.py:136:            arguments are mutually exclusive. If a URL is passed as `model` or `base_url` for chat completion, the `(/v1)/chat/completions` suffix path will be appended to the URL.
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_client.py:184:                " If using `base_url` for chat completion, the `/chat/completions` suffix path will be appended to the base url."
+./chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py:2647:        ["osanseviero/streamlit_1.15", "Xhaheen/ChatGPT_HF", ...]
+./chroma_inspect_venv/lib64/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/gen_ai_attributes.py:407:    """Chat completion operation such as [OpenAI Chat API](https://platform.openai.com/docs/api-reference/chat)."""
+./chroma_inspect_venv/lib64/python3.12/site-packages/humanfriendly/terminal/html.py:114:       `chat-archive <https://chat-archive.readthedocs.io/>`_ project, whose
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py:127:            arguments are mutually exclusive. If a URL is passed as `model` or `base_url` for chat completion, the `(/v1)/chat/completions` suffix path will be appended to the URL.
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py:175:                " If using `base_url` for chat completion, the `/chat/completions` suffix path will be appended to the base url."
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/novita.py:43:        return "/v3/openai/chat/completions"
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/groq.py:9:        return "/openai/v1/chat/completions"
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/cohere.py:17:        return "/compatibility/v1/chat/completions"
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/clarifai.py:13:        return "/v2/ext/openai/v1/chat/completions"
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/_common.py:266:    The schema follows the OpenAI API format defined here: https://platform.openai.com/docs/api-reference/chat
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/_common.py:273:        return "/v1/chat/completions"
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:139:    # If the path already ends with /chat/completions, we're done!
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:140:    if path.endswith("/chat/completions"):
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:143:    # Append /chat/completions if not already present
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:145:        new_path = path + "/chat/completions"
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:148:        new_path = "/v1/chat/completions"
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:149:    # Append /v1/chat/completions if not already present
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/hf_inference.py:151:        new_path = path + "/v1/chat/completions"
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/zai_org.py:39:        return "/api/paas/v4/chat/completions"
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/together.py:29:            return "/v1/chat/completions"
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_providers/fireworks_ai.py:13:        return "/inference/v1/chat/completions"
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_client.py:136:            arguments are mutually exclusive. If a URL is passed as `model` or `base_url` for chat completion, the `(/v1)/chat/completions` suffix path will be appended to the URL.
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/inference/_client.py:184:                " If using `base_url` for chat completion, the `/chat/completions` suffix path will be appended to the base url."
+./chroma_inspect_venv/lib64/python3.12/site-packages/huggingface_hub/hf_api.py:2647:        ["osanseviero/streamlit_1.15", "Xhaheen/ChatGPT_HF", ...]
+./msjarvis_client.py:9:        f"{BASE_URL}/chat",
+./ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py:74:    description="""Thorough transparency_mode for H4H Research: Full visibility into consciousness layers (I-Containers, WOAH analysis_depth_7, fractal DGM), base metalAI (23 Ollama LLMs, GPU mgmt), biometric/wallet (UEID security proxies), GIS (1002 rows: Mount Hope lat 37.9 Fayette WV community_research to heritage_source_ref Damascus/Edward I/Strong Puritan cultural heritage), perpetual storage (ChromaDB/Redis RAG), 30+ microservices (no blackbox). Examples: /gis/query?location=Mount Hope → Biblical ties; /consciousness/chat?message=Damascus to WV roots → GIS-prepended WOAH analysis. Archive 8014 disabled.""",
+./ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py:268:@app.post("/consciousness/chat", tags=["Consciousness"])
+./ms_jarvis_facebook_full.py:75:                    "http://localhost:8000/chat/open",
+./wire_qualia_to_port8001.py:13:# Find the /chat endpoint and INJECT Qualia call
+./msjarvis_semaphore.py:36:        "url": "http://jarvis-20llm-production:8008/chat",
+./msjarvis_semaphore.py:56:                read=None,   # no client-side read cap; upstream /chat already has 600s budget
+./ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py:241:@app.post("/consciousness/chat", tags=["Consciousness"])
+./ms_jarvis_facebook_webhook.py:65:            resp = await client.post(f"{BRAIN_URL}/chat", json={"message": message, "user_id": f"fb_{user_id}", "use_all_services": True})
+./egeria_web_ui_fixed_simple.py:28:@app.route('/api/chat', methods=['POST'])
+./msjarvis_gateway_with_judge_filtering.py:43:@app.post("/chat_with_judge_filtering")
+./msjarvis_gateway_with_judge_filtering.py:66:        hr = requests.post(f"http://localhost:8235/chat", json={"query": message}, timeout=30)
+./msjarvisunifiedgateway.py:218:@app.post("/chat/open", tags=["Chat"], summary="Chat with unified brain")
+./msjarvisunifiedgateway.py:231:            "http://localhost:43277/chat",
+./ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py:68:    description="""Thorough transparency_mode for H4H Research: Full visibility into consciousness layers (I-Containers, WOAH analysis_depth_7, fractal DGM), base metalAI (23 Ollama LLMs, GPU mgmt), biometric/wallet (UEID security proxies), GIS (1002 rows: Mount Hope lat 37.9 Fayette WV community_research to heritage_source_ref Damascus/Edward I/Strong Puritan cultural heritage), perpetual storage (ChromaDB/Redis RAG), 30+ microservices (no blackbox). Examples: /gis/query?location=Mount Hope → Biblical ties; /consciousness/chat?message=Damascus to WV roots → GIS-prepended WOAH analysis. Archive 8014 disabled.""",
+./ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py:229:@app.post("/consciousness/chat", tags=["Consciousness"])
+./main_brain_legacy_backup.py:59:        "consciousness_bridge": "/chat",
+./main_brain_legacy_backup.py:66:        "unified_gateway": "/chat",
+./main_brain_legacy_backup.py:98:@app.post("/chat/async")
+./main_brain_legacy_backup.py:118:@app.get("/chat/status/{job_id}")
+./main_brain_legacy_backup.py:370:@app.post("/chat", response_model=UltimateResponse)
+./ms_jarvis_production_chat_BEFORE_GIS.py:268:@app.post("/chat", response_model=ChatResponse)
+./master_chat_orchestrator_v9_gpu_optimized.py:207:            "http://localhost:8002/chat",
+./ms_jarvis_facebook_poster.py:52:                f"{BRAIN_URL}/chat",
+./quantum_insight_llm.py:11:OLLAMA_BASE_URL = "http://localhost:11434/api/chat"
+./egeria_web_ui_working.py:66:                    const response = await fetch('/api/chat', {
+./egeria_web_ui_working.py:89:@app.route('/api/chat', methods=['POST'])
+./ms_jarvis_command_orchestrator_v5_backup.py:48:@app.post("/consciousness/chat")
+./egeria_web_ui_FIXED.py:30:            'http://localhost:${MAIN_GATEWAY_PORT}/chat',
+./ms_jarvis_main_gateway_8000.py:65:@app.post("/chat")
+./ms_jarvis_main_gateway_8000.py:69:    Forwards to consciousness bridge (8008) /chat endpoint.
+./ms_jarvis_main_gateway_8000.py:74:                "http://localhost:8008/chat",
+./ms_jarvis_main_gateway_8000.py:81:        logger.error(f"/chat forwarding error: {e}")
+./ms_jarvis_main_gateway_8000.py:110:        "chat_endpoint": "/chat",
+./port_9000_chat_wrapper_69dgm.py:8:Port 9001 Wrapper - Intercepts /consciousness/chat calls to port 9000
+./port_9000_chat_wrapper_69dgm.py:34:@app.post("/consciousness/chat")
+./port_9000_chat_wrapper_69dgm.py:61:                    f"http://localhost:${MAIN_GATEWAY_PORT}/consciousness/chat?userid={userid}&message={message}",
+./ms_jarvis_gis_enhanced_chat.py:50:@app.post("/chat", response_model=ChatResponse)
+./test_end_to_end_woah_fifthdgm.py:30:    print("\n=== 2) Gateway /chat (end-to-end) ===")
+./test_end_to_end_woah_fifthdgm.py:31:    r = requests.post(f"{GATEWAY_URL}/chat", headers=headers, json=payload, timeout=60)
+./integrate_all_services.py:142:                    "http://jarvis-unified-gateway:8001/chat",
+./ai_server_22llm_SEQUENTIAL.py:112:@app.post("/chat")
+./roche_llm.py:574:@app.post("/chat")
+./fix_port_8001_clean.py:45:@app.post("/chat")
+./ms_jarvis_production_chat_BACKUP.py:268:@app.post("/chat", response_model=ChatResponse)
+./ms_jarvis_facebook_intelligent.py:71:                    "http://localhost:${WOAH_QUALIA_PORT}/chat",
+./facebook_consciousness_daemon.py:24:CHAT_URL = "http://localhost:${SERVICE_PORT}/chat"
+./judge_pipeline.py:191:                    f"{LM_SYNTHESIZER_URL}/chat",
+./master_chat_orchestrator_v5_consciousness.py:275:                    f"{CONSCIOUSNESS_SERVICES['llm_bridge']}/chat",
+./master_chat_orchestrator_v5_consciousness.py:305:@app.post("/chat")
+./ms_jarvis_consciousness_poster_FIXED.py:19:CHAT_URL = "http://localhost:8000/chat/open"
+./ms_jarvis_consciousness_poster_FIXED.py:42:    """Generate from unified brain on Port 8000 (/chat/open)"""
+./ms_jarvis_consciousness_poster_FIXED.py:45:            logger.info("🧠 Calling unified brain on Port 8000 (/chat/open)...")
+./woah_qualia_bridge.py:19:@app.post("/chat")
+./ms_jarvis_showcase_api.py:138:@app.post("/chat", response_model=ChatResponse, tags=["Conversation"])
+./hierarchical_coordinator_deep_mode.py:34:        self.fast_mode_url = "http://localhost:${CONSCIOUSNESS_BRIDGE_PORT}/chat"  # 4-Agent Bridge
+./hierarchical_coordinator_deep_mode.py:35:        self.deep_mode_url = "http://localhost:8004/chat"  # 19-LLM Collective
+./hierarchical_coordinator_deep_mode.py:167:@app.post("/chat")
+./dgm_supervisor_woah.psychology_patched.py:307:        "~/msjarvis-rebuild/logs/chat_history.json", 
+./egeria_web_ui_with_execution.py:48:        const response = await fetch('/api/chat', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({message: message})});
+./egeria_web_ui_with_execution.py:58:@app.route('/api/chat', methods=['POST'])
+./port_9001_ui_FIXED.py:96:                const url = '/api/chat?userid=user&message=' + encodeURIComponent(msg);
+./port_9001_ui_FIXED.py:123:@app.get("/api/chat")
+./master_chat_orchestrator.py:93:@app.post("/chat", response_model=ChatResponse)
+./master_chat_orchestrator.py:219:                f"{SERVICES['llm_bridge']}/chat",
+./master_chat_orchestrator.py:249:@app.post("/chat/fast")
+./master_chat_orchestrator.py:257:@app.post("/chat/consensus")
+./msjarvismaingateway.py:93:PRODUCTION_20LLM_URL = "http://jarvis-20llm-production:8008/chat_with_context"
+./msjarvismaingateway.py:116:@app.post("/chat")
+./master_chat_orchestrator_v8_spiritual_complete.py:492:                    f"{COMPLETE_SPIRITUAL_SERVICES['llm_bridge']}/chat",
+./master_chat_orchestrator_v8_spiritual_complete.py:547:@app.post("/chat")
+./fix_chat_server.py:7:# Rewrites chat_server.py to forward to /chat on proxy
+./fix_chat_server.py:13:# Replace requests.post target from root to /chat
+./fix_chat_server.py:16:    'requests.post("http://localhost:8060/chat"',
+./egeria_facebook_perpetual_scheduler.py:24:                "http://localhost:8008/chat",
+./facebook_daemon_polling.py:26:                    "http://jarvis-unified-gateway:8001/chat",
+./ms_jarvis_main_gateway.py.30endpoints_backup.py:116:        {"port": 8010, "image": "msjarvis-rebuild/chat", "status": "running", "purpose": "Chat"},
+./ms_jarvis_main_gateway.py.30endpoints_backup.py:261:@app.post("/ai/chat", tags=["AI"])
+./ms_jarvis_main_gateway.py.30endpoints_backup.py:265:        resp = requests.post("http://localhost:8010/chat", json={"message": message})
+./ms_jarvis_consciousness_enhancement_production.py:62:@app.post("/chat")
+./ms_jarvis_consciousness_enhancement_production.py:67:@app.post("/consciousness/enhance")
+./fix_prompt_leak.py:55:    chat_endpoint = re.search(r'@app\.post\("/chat"\)', code)
+./web_chat_server.py:181:            "http://localhost:4020/chat",
+./update_facebook_poster.py:17:        '"http://localhost:4015/chat"',
+./update_facebook_poster.py:18:        '"http://localhost:4017/chat"'
+./master_chat_orchestrator_dynamic.py:119:@app.post("/chat", response_model=ChatResponse)
+./master_chat_orchestrator_dynamic.py:211:                f"{llm_url}/chat",
+./hierarchical_integration.py:23:                    "http://localhost:8004/chat",
+./ms_jarvis_full_neurobio_chat.py:116:@app.post("/chat", response_model=ChatResponse)
+./ms_jarvis_full_neurobio_chat.py:205:                f"{CONSCIOUSNESS_BRIDGE_URL}/chat",
+./msjarvis_gateway_v2_final.py:19:ENSEMBLE_ENDPOINT = "http://localhost:8004/chat"        # 20-LLM production brain
+./msjarvis_gateway_v2_final.py:58:@app.post("/chat")
+./msjarvis_gateway_v2_final.py:108:        logger.error(f"Error in /chat: {e}")
+./ms_jarvis_facebook_poster_8040.py:52:                f"{BRAIN_URL}/chat",
+./fix_query_service_endpoints.py:18:    # Fix the hardcoded /chat to use get_service_endpoint()
+./fix_query_service_endpoints.py:19:    if in_query_service and 'f"{url}/chat"' in line:
+./fix_query_service_endpoints.py:22:            'f"{url}/chat"',
+./INTEGRATION_IMPLEMENTATION.py:17:                "http://localhost:8004/chat",
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild/services$ 
 
-echo "=== which file does the container launch? ==="
-docker inspect jarvis-consciousness-bridge \
-  --format 'Entrypoint={{json .Config.Entrypoint}} Cmd={{json .Config.Cmd}}'
-
-echo "=== search for consciousness bridge references ==="
-grep -RInE 'msjarvisconsciousnessbridge|msjarvisconsciousnessunifiedbridge|msjarviswebresearchsimple|8018|8020' \
-  docker-compose*.yml compose*.yml . 2>/dev/null | head -n 200
-=== which file does the container launch? ===
-Entrypoint=null Cmd=["sh","-lc","pip install --no-cache-dir fastapi uvicorn httpx pydantic && python3 ms_jarvis_consciousness_bridge.py"]
-=== search for consciousness bridge references ===
-docker-compose.golden.yml:10:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-docker-compose.golden.yml:36:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-docker-compose.golden.yml:37:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-docker-compose.golden.yml:105:      - 127.0.0.1:18018:8001
-docker-compose.golden.yml:713:      - '8020'
-docker-compose.golden.yml:788:      - '8018'
-docker-compose.golden.yml:838:      - '8020'
-docker-compose.golden.yml:843:      - SERVICE_PORT=8020
-docker-compose.RAG_WORKING_20260116.yml:91:    - SERVICE_PORT=8020
-docker-compose.RAG_WORKING_20260116.yml:93:    - '8020'
-docker-compose.RAG_WORKING_20260116.yml:203:    - '8020'
-docker-compose.RAG_WORKING_20260116.yml:368:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-docker-compose.RAG_WORKING_20260116.yml:369:    - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-docker-compose.RAG_WORKING_20260116.yml:426:    - '8018'
-docker-compose.RAG_WORKING_20260116.yml:436:    - 127.0.0.1:8018:8018
-docker-compose.RAG_WORKING_20260116.yml:577:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-docker-compose.working.20260118-235132.yml:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-docker-compose.working.20260118-235132.yml:19:    - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-docker-compose.working.20260118-235132.yml:90:    - 127.0.0.1:18018:8001
-docker-compose.working.20260118-235132.yml:733:    - '8020'
-docker-compose.working.20260118-235132.yml:806:    - '8018'
-docker-compose.working.20260118-235132.yml:855:    - '8020'
-docker-compose.working.20260118-235132.yml:860:    - SERVICE_PORT=8020
-docker-compose.working.20260119-000202.yml:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-docker-compose.working.20260119-000202.yml:19:    - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-docker-compose.working.20260119-000202.yml:90:    - 127.0.0.1:18018:8001
-docker-compose.working.20260119-000202.yml:733:    - '8020'
-docker-compose.working.20260119-000202.yml:806:    - '8018'
-docker-compose.working.20260119-000202.yml:855:    - '8020'
-docker-compose.working.20260119-000202.yml:860:    - SERVICE_PORT=8020
-docker-compose.yml:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
-docker-compose.yml:19:    - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-docker-compose.yml:762:    - 127.0.0.1:8020:8018
-docker-compose.yml:833:    - '8018'
-docker-compose.yml:888:    - SERVICE_PORT=8020
-docker-compose.yml:1284:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
-./docker-compose.yml.bak.20260206142334:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-./docker-compose.yml.bak.20260206142334:19:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.yml.bak.20260206142334:681:    command: ["python3", "msjarvisconsciousnessbridge.py"]
-./docker-compose.yml.bak.20260206142334:683:      - "8020:8020"
-./docker-compose.yml.bak.20260206142334:756:      - '8018'
-./docker-compose.yml.bak.20260206142334:805:      - '8020'
-./docker-compose.yml.bak.20260206142334:810:      - SERVICE_PORT=8020
-./docker-compose.yml.broken-1768013498:19:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-./docker-compose.yml.broken-1768013498:20:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.yml.broken-1768013498:77:    - 127.0.0.1:18018:8001
-./docker-compose.yml.broken-1768013498:716:    - '8020'
-./docker-compose.yml.broken-1768013498:796:      - "8018"
-./docker-compose.yml.broken-1768013498:845:    - '8020'
-./docker-compose.yml.broken-1768013498:850:    - SERVICE_PORT=8020
-./wv_like_csv_candidates.txt:66:./msjarvis-backups/20260105_020001/services/wv_microsoft_20180207_utm17n83_attrs.csv
-./docker-compose.yml.bak_redis_fix_1769195136:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-./docker-compose.yml.bak_redis_fix_1769195136:19:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.yml.bak_redis_fix_1769195136:696:    command: ["python3", "msjarvisconsciousnessbridge.py"]
-./docker-compose.yml.bak_redis_fix_1769195136:698:    - "8020:8020"
-./docker-compose.yml.bak_redis_fix_1769195136:771:    - '8018'
-./docker-compose.yml.bak_redis_fix_1769195136:820:    - '8020'
-./docker-compose.yml.bak_redis_fix_1769195136:825:    - SERVICE_PORT=8020
-./docker-compose.golden.bak_bbb_proxy_cmd_fix:8:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.golden.bak_bbb_proxy_cmd_fix:32:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-./docker-compose.golden.bak_bbb_proxy_cmd_fix:33:    - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.golden.bak_bbb_proxy_cmd_fix:102:    - 127.0.0.1:18018:8001
-./docker-compose.golden.bak_bbb_proxy_cmd_fix:717:    - '8020'
-./docker-compose.golden.bak_bbb_proxy_cmd_fix:790:    - '8018'
-./docker-compose.golden.bak_bbb_proxy_cmd_fix:839:    - '8020'
-./docker-compose.golden.bak_bbb_proxy_cmd_fix:844:    - SERVICE_PORT=8020
-./docker-compose.golden.bak_python310_compose_all:10:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.golden.bak_python310_compose_all:36:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-./docker-compose.golden.bak_python310_compose_all:37:    - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.golden.bak_python310_compose_all:106:    - 127.0.0.1:18018:8001
-./docker-compose.golden.bak_python310_compose_all:721:    - '8020'
-./docker-compose.golden.bak_python310_compose_all:794:    - '8018'
-./docker-compose.golden.bak_python310_compose_all:843:    - '8020'
-./docker-compose.golden.bak_python310_compose_all:848:    - SERVICE_PORT=8020
-./docker-compose.working.20260118-235132.yml:18:    - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-./docker-compose.working.20260118-235132.yml:19:    - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.working.20260118-235132.yml:90:    - 127.0.0.1:18018:8001
-./docker-compose.working.20260118-235132.yml:733:    - '8020'
-./docker-compose.working.20260118-235132.yml:806:    - '8018'
-./docker-compose.working.20260118-235132.yml:855:    - '8020'
-./docker-compose.working.20260118-235132.yml:860:    - SERVICE_PORT=8020
-./docker-compose.yml.bak_woah_20260118163402:26:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-./docker-compose.yml.bak_woah_20260118163402:28:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.yml.bak_woah_20260118163402:108:      - "127.0.0.1:18018:8001"
-./docker-compose.yml.bak_woah_20260118163402:733:      - "8020"
-./docker-compose.yml.bak_woah_20260118163402:758:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-./docker-compose.yml.bak_woah_20260118163402:827:      - "8018"
-./docker-compose.yml.bak_woah_20260118163402:874:      - "8020"
-./docker-compose.yml.bak_woah_20260118163402:879:      - SERVICE_PORT=8020
-./run_core_ops.sh:7:for PORT in 8003 8008 8009 8010 8018 9000 9001 9999; do
-./docker-compose.yml.before_fix:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-./docker-compose.yml.before_fix:19:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.yml.before_fix:731:      - "8020:8020"
-./docker-compose.yml.before_fix:804:      - "8018"
-./docker-compose.yml.before_fix:849:      - "8020"
-./docker-compose.yml.before_fix:854:      - SERVICE_PORT=8020
-./docker-compose.yml.before_fix:1157:      - "8018"
-./docker-compose.yml.before_fix:1160:      - 127.0.0.1:8018:8018
-./docker-compose.yml.before_fix:1268:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-./missing_source_epochs.csv:169:wv_microsoft_20180207_utm17n83
-./docker-compose.yml.pre_judges:18:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
-./docker-compose.yml.pre_judges:19:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.yml.pre_judges:733:      - "127.0.0.1:8020:8018"
-./docker-compose.yml.pre_judges:806:      - "8018"
-./docker-compose.yml.pre_judges:851:      - "8020"
-./docker-compose.yml.pre_judges:856:      - SERVICE_PORT=8020
-./docker-compose.yml.pre_judges:1271:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8018
-./docker-compose.yml.BROKEN_BACKUP:24:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-./docker-compose.yml.BROKEN_BACKUP:26:    SERVICE_PORT: "8020"
-./docker-compose.yml.BROKEN_BACKUP:27:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.yml.BROKEN_BACKUP:102:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.yml.BROKEN_BACKUP:140:      - NEURO_MASTER_URL=http://jarvis-neurobiological-master:8018
-./docker-compose.yml.BROKEN_BACKUP:727:      - "8020"
-./docker-compose.yml.BROKEN_BACKUP:752:      - CONSCIOUSNESS_BRIDGE_URL=http://jarvis-consciousness-bridge:8020
-./docker-compose.yml.BROKEN_BACKUP:773:      - "127.0.0.1:8018:8018"
-./docker-compose.yml.BROKEN_BACKUP:778:      - SERVICE_PORT=8018
-./docker-compose.yml.BROKEN_BACKUP:868:      - "8020"
-./docker-compose.yml.BROKEN_BACKUP:873:      - SERVICE_PORT=8020
-./.venv/lib/python3.12/site-packages/fsspec/utils.py:38:        Either local absolute file path or URL (hdfs://namenode:8020/file.csv)
-./.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/whisper/whisper_helper.py:263:                                    0.8802030086517334,
-./.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/whisper/whisper_helper.py:353:                                    0.8802029490470886,
-./.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/whisper/whisper_helper.py:391:                                    0.6319363117218018,
-./.venv/lib/python3.12/site-packages/textblob/en/en-sentiment.xml:2050:<word form="raw" wordnet_id="a-00958020" pos="JJ" sense="brutally unfair or harsh" polarity="-1.0" subjectivity="1.0" intensity="1.0" confidence="0.9" />
-./.venv/lib/python3.12/site-packages/textblob/en/en-sentiment.xml:2451:<word form="static" cornetto_synset_id="c_548" wordnet_id="a-00348018" pos="JJ" sense="showing little if any change" polarity="0.5" subjectivity="0.9" intensity="1.0" confidence="0.8" />
-./.venv/lib/python3.12/site-packages/textblob/en/en-sentiment.xml:2753:<word form="unilateral" cornetto_synset_id="n_a-508018" wordnet_id="a-00236989" pos="JJ" sense="involving only one part or side" polarity="-0.5" subjectivity="0.7" intensity="1.0" confidence="0.8" />
-./.venv/lib/python3.12/site-packages/torch/_torch_docs.py:8752:    tensor([[-0.8020,  0.5428, -1.5854]])
-./.venv/lib/python3.12/site-packages/torch/_VF.pyi:23645:        tensor([[-0.8020,  0.5428, -1.5854]])
-./.venv/lib/python3.12/site-packages/torch/_VF.pyi:23713:        tensor([[-0.8020,  0.5428, -1.5854]])
-./.venv/lib/python3.12/site-packages/torch/_VF.pyi:23781:        tensor([[-0.8020,  0.5428, -1.5854]])
-./.venv/lib/python3.12/site-packages/torch/testing/_internal/common_quantized.py:355:# https://github.com/pytorch/ao/blob/29488018d99af7f7339f06353c6b5bbeae8a1493/torchao/prototype/custom_fp_utils.py#L147
-./.venv/lib/python3.12/site-packages/torch/include/ATen/native/Math.h:722:      -2.551419399494625e-11, -5.8307721325504251e-11, 2.4361948020667416e-11,
-./.venv/lib/python3.12/site-packages/torch/include/ATen/native/Math.h:750:      -2.1894761681963939e-11, 9.7909989511716851e-12, -2.1782191880180962e-12,
-./.venv/lib/python3.12/site-packages/torch/include/ATen/native/Math.h:2002:return 0.21849873453703332479e0 + (0.40747643554689586041e-2 + (0.39476163820986711501e-4 + (0.32443839970139918836e-6 + (0.22542053491518680200e-8 + (0.13084879235290858490e-10 + 0.61873153262222222221e-13 * t) * t) * t) * t) * t) * t;
-./.venv/lib/python3.12/site-packages/torch/include/ATen/native/Math.h:2118:return 0.68795950683174433822e0 + (0.14741765091365869084e-1 + (0.18117679143520433835e-3 + (0.16392004108230585213e-5 + (0.11155116068018043001e-7 + (0.56530360194925690374e-10 + 0.20209663662222222222e-12 * t) * t) * t) * t) * t) * t;
-./.venv/lib/python3.12/site-packages/torch/include/ATen/native/Math.h:2134:return 0.81837581041023811832e0 + (0.17979364149044223802e-1 + (0.22510330592753129006e-3 + (0.20344732868018175389e-5 + (0.13617902941839949718e-7 + (0.66799760083972474642e-10 + 0.22574701262222222222e-12 * t) * t) * t) * t) * t) * t;
-./.venv/lib/python3.12/site-packages/torch/include/ATen/native/Math.h:2237:            -4.91900132609500318020e-02,
-./.venv/lib/python3.12/site-packages/torch/include/ATen/native/cuda/Math.cuh:1088:      return 0.21849873453703332479e0 + (0.40747643554689586041e-2 + (0.39476163820986711501e-4 + (0.32443839970139918836e-6 + (0.22542053491518680200e-8 + (0.13084879235290858490e-10 + 0.61873153262222222221e-13 * t) * t) * t) * t) * t) * t;
-./.venv/lib/python3.12/site-packages/torch/include/ATen/native/cuda/Math.cuh:1204:      return 0.68795950683174433822e0 + (0.14741765091365869084e-1 + (0.18117679143520433835e-3 + (0.16392004108230585213e-5 + (0.11155116068018043001e-7 + (0.56530360194925690374e-10 + 0.20209663662222222222e-12 * t) * t) * t) * t) * t) * t;
-./.venv/lib/python3.12/site-packages/torch/include/ATen/native/cuda/Math.cuh:1220:      return 0.81837581041023811832e0 + (0.17979364149044223802e-1 + (0.22510330592753129006e-3 + (0.20344732868018175389e-5 + (0.13617902941839949718e-7 + (0.66799760083972474642e-10 + 0.22574701262222222222e-12 * t) * t) * t) * t) * t) * t;
-./.venv/lib/python3.12/site-packages/torch/include/ATen/native/cuda/Math.cuh:1311:                -4.91900132609500318020e-02,
-./.venv/lib/python3.12/site-packages/torch/include/c10/util/ConstexprCrc.h:22:    0xc7e86a8020ca5077, 0x4880fbd87094cbfc, 0x32588b1040a14285,
-./.venv/lib/python3.12/site-packages/torch/include/c10/metal/expm1f.h:66:  r = ::metal::fma(r, f, 4.16668020e-2f); // 0x1.55559ep-5
-./.venv/lib/python3.12/site-packages/torch/include/c10/metal/igamma.h:253:       -5.8307721325504251e-11, 2.4361948020667416e-11,
-./.venv/lib/python3.12/site-packages/torch/include/c10/metal/igamma.h:282:       -2.1894761681963939e-11, 9.7909989511716851e-12, -2.1782191880180962e-12,
-./.venv/lib/python3.12/site-packages/torch/_C/_VariableFunctions.pyi:23645:        tensor([[-0.8020,  0.5428, -1.5854]])
-./.venv/lib/python3.12/site-packages/torch/_C/_VariableFunctions.pyi:23713:        tensor([[-0.8020,  0.5428, -1.5854]])
-./.venv/lib/python3.12/site-packages/torch/_C/_VariableFunctions.pyi:23781:        tensor([[-0.8020,  0.5428, -1.5854]])
-./.venv/lib/python3.12/site-packages/scipy/optimize/tests/test_nnls.py:343:        des_sol = np.array([0., 118.017802006619, 45.1996532316584, 102.62156313537,
-./.venv/lib/python3.12/site-packages/scipy/optimize/tests/test_nnls.py:367:             0.03156983127072098, -0.029503680182026665],
-./.venv/lib/python3.12/site-packages/scipy/optimize/tests/test_linprog.py:386:        _assert_success(res, desired_fun=-63.47967608020187)  # method='highs' solution
-./.venv/lib/python3.12/site-packages/scipy/optimize/tests/test_linprog.py:1107:        _assert_success(res, desired_fun=-63.47967608020187)  # method='highs' solution
-./.venv/lib/python3.12/site-packages/scipy/optimize/tests/test_linprog.py:2197:        _assert_success(res, desired_fun=-63.47967608020187)  # method='highs' solution
-./.venv/lib/python3.12/site-packages/scipy/optimize/tests/test_linprog.py:2215:        _assert_success(res, desired_fun=-63.47967608020187)  # method='highs' solution
-./.venv/lib/python3.12/site-packages/scipy/optimize/tests/test_trustregion_krylov.py:102:                      [0.21838879, 0.31508988, 2.38020726, -0.3166346, 0.27363867],
-./.venv/lib/python3.12/site-packages/scipy/optimize/tests/test_trustregion_exact.py:209:             [0.21838879, 0.31508988, 2.38020726, -0.3166346, 0.27363867],
-./.venv/lib/python3.12/site-packages/scipy/linalg/_decomp_schur.py:110:           [0.52839428, 0.79801892, 0.28976765],
-./.venv/lib/python3.12/site-packages/scipy/linalg/_decomp_schur.py:294:           [0.52839428, 0.79801892, 0.28976765],
-./.venv/lib/python3.12/site-packages/scipy/stats/tests/test_multivariate.py:3361:            0.00000000000000074212293557998314091880208889767,
-./.venv/lib/python3.12/site-packages/scipy/stats/tests/test_discrete_distns.py:593:        mean = 14.808018384813426
-./.venv/lib/python3.12/site-packages/scipy/stats/tests/test_stats.py:2347:        assert_almost_equal(result.slope, 1.00211681802045)
-./.venv/lib/python3.12/site-packages/scipy/stats/tests/test_morestats.py:2121:        ppcc_expected = [0.21139644, 0.21384059, 0.98766719, 0.97980182,
-./.venv/lib/python3.12/site-packages/scipy/stats/tests/test_qmc.py:1292:        rng = np.random.default_rng(180182791534511062935571481899241825000)
-./.venv/lib/python3.12/site-packages/scipy/stats/tests/test_qmc.py:1303:        rng = np.random.default_rng(180182791534511062935571481899241825000)
-./.venv/lib/python3.12/site-packages/scipy/stats/tests/test_distributions.py:6287:            (0, 1.7420803447784388, -0.38180029468259247, 0.280202199244247),
-./.venv/lib/python3.12/site-packages/scipy/stats/tests/test_distributions.py:6323:            (1e-4, 1.7420803447784388, -0.38180029468259247, 0.280205311264134),
-./.venv/lib/python3.12/site-packages/scipy/stats/tests/data/nist_linregress/Norris.dat:32:        B1         1.00211681802045      0.429796848199937E-03
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_basic.py:979:                    -0.00676005783716575013073036218018565206070072304635),
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_basic.py:3009:            -0.4879956866358554+0.10670801832903172j
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_basic.py:3278:            [-1.37215095e+01, -1.96680183e+01, 2.91940118e+01, 3.21457520e+12],
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_basic.py:3836:        assert_allclose(special.jv(-0.5, 1), 0.43109886801837607952)
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_basic.py:3851:        assert_allclose(special.jv(-0.5, 1+0j), 0.43109886801837607952)
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:442:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:577:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:669:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:719:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:990:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:1173:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:1264:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:1530:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:1540:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:1808:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:2011:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:2272:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:2282:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_hyp2f1.py:2332:                    a=4.080187217753502,
-./.venv/lib/python3.12/site-packages/scipy/special/tests/test_exponential_integrals.py:64:                              (500.0, 0.9980079523802055),
-./.venv/lib/python3.12/site-packages/scipy/integrate/_lebedev.py:290:            v = 0.3976408018051883E-2
-./.venv/lib/python3.12/site-packages/scipy/integrate/_lebedev.py:449:            a = 0.7568084367178018E-1
-./.venv/lib/python3.12/site-packages/scipy/integrate/_lebedev.py:560:            v = 0.1180207833238949E-2
-./.venv/lib/python3.12/site-packages/scipy/integrate/_lebedev.py:805:            v = 0.8101731497468018E-3
-./.venv/lib/python3.12/site-packages/scipy/integrate/_lebedev.py:1083:            b = 0.1397680182969819E+0
-./.venv/lib/python3.12/site-packages/scipy/integrate/_lebedev.py:1539:            v = 0.4069360518020356E-3
-./.venv/lib/python3.12/site-packages/scipy/integrate/_lebedev.py:2050:            v = 0.3578802078302898E-3
-./.venv/lib/python3.12/site-packages/scipy/integrate/_lebedev.py:3043:            b = 0.1844801892177727E+0
-./.venv/lib/python3.12/site-packages/scipy/integrate/_lebedev.py:3784:            a = 0.7067754398018567E+0
-./.venv/lib/python3.12/site-packages/scipy/integrate/_lebedev.py:3886:            b = 0.5070486445801855E+0
-./.venv/lib/python3.12/site-packages/scipy/integrate/_lebedev.py:4208:            v = 0.1528880200826557E-3
-./.venv/lib/python3.12/site-packages/scipy/spatial/tests/test_qhull.py:252:                           (0.733731893414, 0.634480295684, 0.950513180209),
-./.venv/lib/python3.12/site-packages/scipy/spatial/tests/data/cdist-X1.txt:3:3.297286578103622023e-01 5.980207401936733502e-01 3.673301293561567205e-01 2.585830520887681949e-01 4.660558746104259686e-01 6.083795956610364986e-01 4.535206368070313632e-01 6.873989778785424276e-01 5.130152688495458468e-01 7.665877846542720198e-01 3.444402973525138023e-01 3.583658123644906102e-02 7.924818220986856732e-01 8.746685720522412444e-01 3.010105569182431884e-01 6.012239357385538163e-01 6.233737362204671006e-01 4.830438698668915176e-01 2.317286885842551047e-02 7.585989958123050547e-01 7.108257632278830451e-01 1.551024884178199281e-01 2.665485998155288083e-01
-./.venv/lib/python3.12/site-packages/scipy/spatial/tests/data/pdist-jensenshannon-ml-iris.txt:1:0.0211635609063 0.00455072769716 0.0230610904531 0.0076674324982 0.037571216894 0.029561354778 0.0115281186735 0.0225809070507 0.0346801442638 0.00321049176948 0.0232839774828 0.0321124517082 0.0244179197971 0.0331466156799 0.0373949302575 0.0411984503375 0.0218945865519 0.0198268474453 0.02395616278 0.0254898420418 0.0394901943037 0.0396613298853 0.0621120626322 0.0458316817045 0.0334832834948 0.0445794256135 0.00775602650151 0.00770188279153 0.0277044809709 0.0292851269343 0.0408206135002 0.0384837880405 0.0229145225178 0.0346801442638 0.017155900548 0.0186865079856 0.0346801442638 0.011778601551 0.0109570078484 0.0244803928224 0.0609237090857 0.0125274661674 0.0713079215249 0.05072181848 0.0329702193648 0.018118079192 0.0129441131729 0.00461235131171 0.0077204189151 0.190781073622 0.196235539354 0.202381067744 0.215567934651 0.208951210729 0.208395222197 0.202977772245 0.185995150024 0.197488445796 0.207754344906 0.207231776416 0.200895721783 0.202370257926 0.208839694602 0.184151316466 0.18979501874 0.211864590783 0.187854399445 0.231134943838 0.195836809821 0.220082308081 0.191451897661 0.227329222402 0.204586412278 0.192443163994 0.193684928543 0.206841791869 0.21612354251 0.209268704489 0.175345617131 0.197941218478 0.190625337098 0.191065854858 0.2317867516 0.214902945463 0.200203629275 0.200116177839 0.216845735492 0.194043462589 0.208271280018 0.210985756639 0.203659220099 0.197020978632 0.188475437149 0.205376756706 0.190989482965 0.1980172695 0.194499957306 0.176357663314 0.198492265793 0.255232551639 0.244270007892 0.240469208946 0.23837051036 0.248414598574 0.246817944636 0.244919131711 0.239985639856 0.249741998486 0.238825041235 0.224881988223 0.240479022193 0.236919216915 0.253134884385 0.257281336145 0.239143010746 0.231252341207 0.230464321684 0.26688757037 0.243702807017 0.239741931201 0.243722504108 0.250777226737 0.230838149152 0.233779458319 0.227365052742 0.226996712309 0.224529623997 0.248876761269 0.223504306637 0.241222705588 0.218359591571 0.251783757155 0.22178058433 0.237922879169 0.243259140467 0.243757719218 0.229784431814 0.223834512884 0.231417699032 0.245855002542 0.23260880661 0.244270007892 0.24412721812 0.245364556958 0.239069534798 0.242476824971 0.231950344971 0.238821966724 0.23119389821 0.0191037071088 0.0192689125135 0.0279599225292 0.0400056720024 0.0369973592153 0.0168401225107 0.0156647141811 0.0317569365649 0.0209196472407 0.0261095572505 0.0295911292198 0.0387034711929 0.047943015361 0.0502801086558 0.0505076233319 0.0276985510653 0.0178344200842 0.0354647529806 0.0132311775272 0.0439058315568 0.0587698655317 0.0548749800113 0.0420211683289 0.0158475875817 0.0410205075223 0.0159821398213 0.0151652303532 0.0238719428054 0.0190485214781 0.0351129659726 0.0545720530766 0.0439213935019 0.0317569365649 0.0241815879409 0.0259117209292 0.0317569365649 0.0173211662353 0.0138864344566 0.0338981856531 0.0429537854169 0.027658485714 0.0691172321094 0.0500059403041 0.0236011037029 0.0316644090037 0.0201837094834 0.0228863104939 0.0134861623597 0.176517909274 0.183281450302 0.188265462996 0.20119658342 0.194697326208 0.195209942657 0.190674274015 0.172425697578 0.182894065786 0.195529592383 0.192026007893 0.188346396823 0.186051479032 0.19538200246 0.171605310091 0.175766658214 0.199864266754 0.173408334646 0.215875435175 0.181358449055 0.208526316653 0.177419239992 0.212710197663 0.190468934035 0.178153770213 0.179556589614 0.19192211318 0.202468559318 0.196181327665 0.160572766746 0.183327527516 0.175701303909 0.177066663037 0.218355819513 0.203310616701 0.188843124957 0.186323930321 0.201194011774 0.18173319992 0.194510318604 0.197386404553 0.190483994401 0.182718294182 0.174255518011 0.19205782762 0.178239088983 0.18513760318 0.180597338326 0.163063102971 0.185284857996 0.243887274146 0.231624187925 0.22689829944 0.225289762668 0.235796354542 0.23269059518 0.23306609907 0.225602345189 0.235244584021 0.226892475392 0.212543999067 0.226908361887 0.223757309255 0.240296170501 0.245569279789 0.227339668618 0.2180947426 0.217889650333 0.252259964829 0.228879839341 0.227150610245 0.231836962279 0.236076260811 0.217244760533 0.221438124324 0.213671912157 0.213819376581 0.212040793299 0.235827974309 0.209053467969 0.226615210725 0.205271111175 0.238869689413 0.207939309627 0.223898822147 0.229226063436 0.232630777303 0.217026651272 0.211532427176 0.218347693285 0.233460132247 0.219891922362 0.231624187925 0.231652249658 0.233525349836 0.226377769419 0.228579062405 0.219098380821 0.227789794229 0.219023772057 0.0212386043587 0.00993825296406 0.0336976816686 0.0262325070397 0.0107568964379 0.0200399473123 0.0369530877134 0.00706121377315 0.0225180018442 0.0345620434634 0.0288649599558 0.0352792061476 0.0352526366714 0.0385518621347 0.0178346265809 0.0156087458393 0.0212893461987 0.0244762891905 0.0356848493955 0.0412118431681 0.0577499958146 0.0449060313177 0.0316682156452 0.0402876009485 0.00791017688182 0.00777689270989 0.0262859463939 0.0275691765497 0.0363841779992 0.0426229028778 0.0258430808451 0.0369530877134 0.0171494695134 0.0197038085728 0.0369530877134 0.00856221073911 0.010146504576 0.0213442662268 0.0572142712511 0.0116574543859 0.0671597340405 0.047388301579 0.0285557929122 0.0192111185981 0.0112749020632 0.00781127840012 0.00637566729419 0.187210918471 0.192623672543 0.198833727144 0.212008654042 0.205367416257 0.204958566039 0.199402528264 0.182409867249 0.193987091024 0.204155295526 0.20374075502 0.197257634781 0.198980554413 0.205364330922 0.180426094029 0.186163209648 0.208359044162 0.184479344493 0.227592539467 0.192334488284 0.216529219774 0.187806950452 0.223855994439 0.201226354807 0.188864300604 0.190066520684 0.203335651256 0.212548662023 0.205705049083 0.171742464799 0.194417377469 0.187136601809 0.187472552212 0.228344421279 0.211429948522 0.196622478767 0.196530972542 0.21335054643 0.190497911091 0.204702393397 0.207598118603 0.200155023454 0.193467129006 0.184880183147 0.201857382862 0.187517863683 0.194486736804 0.1909406597 0.172553592377 0.194927231832 0.251743344729 0.240762357546 0.236947962879 0.234942968898 0.244909063494 0.243388177909 0.24143957892 0.236617606758 0.24633077256 0.235257992461 0.221275459366 0.23695229759 0.23334624948 0.249598367646 0.253700089415 0.235542233543 0.227782636512 0.227013807453 0.263469639225 0.240293112196 0.236160757703 0.240179126335 0.247395319298 0.227257451928 0.23025606552 0.223937789122 0.223399862869 0.220967129276 0.245363860699 0.220116506797 0.237779687596 0.214888164759 0.248252329967 0.218347705592 0.234681014401 0.239690494574 0.240217402996 0.22632629355 0.220260809644 0.227813787503 0.242262375922 0.228918020841 0.240762357546 0.240592325032 0.241778783496 0.235418026861 0.23890352284 0.228365058816 0.235271978928 0.227703766766 0.0251699105319 0.0326109277538 0.029278801732 0.0117605763436 0.00495713045566 0.032971458625 0.022273270218 0.00845866705418 0.0338325850006 0.0418060793613 0.0560571569439 0.0475989809058 0.0526432986362 0.0287512950603 0.0156470261333 0.0286833299321 0.0125318521449 0.039628171731 0.0605879245284 0.051592881751 0.0247889558 0.0185457610439 0.0360813596602 0.0162897964903 0.0233731835598 0.00555113851114 0.00851608036789 0.039350861172 0.0494281040416 0.0428445793936 0.032971458625 0.0361084743768 0.0382083791018 0.032971458625 0.0135564720949 0.0133460812565 0.0359059029584 0.0525998249753 0.020448013216 0.0653401649712 0.0366222774812 0.0276779812669 0.0199994530533 0.0115734561992 0.0214333278479 0.0186461579961 0.171344593808 0.177166238774 0.182950771401 0.19643196185 0.18986301898 0.188443393542 0.18388535541 0.166562175459 0.177783941311 0.188923487579 0.187724110496 0.182156573883 0.18272910062 0.189078094755 0.165787292858 0.170722554665 0.192539814536 0.167433166664 0.21234151671 0.17610118578 0.201339136255 0.172496446246 0.207869320447 0.184234771078 0.173084677744 0.174586008872 0.187343267555 0.197067369338 0.190065322687 0.155992913972 0.178370192697 0.170834599332 0.171756811444 0.21215391799 0.195543956872 0.181382419503 0.180878423055 0.197648250997 0.174630568935 0.189049602981 0.190809942592 0.184007315234 0.177572802284 0.169158986096 0.1858235382 0.171054750208 0.178472858167 0.175024341592 0.15843173338 0.179125844986 0.236753289776 0.225336913605 0.221457751336 0.21877528886 0.229546376269 0.227338714151 0.226000082599 0.220106179064 0.230241030133 0.220420771483 0.206398010187 0.221506177578 0.218254053746 0.234550382603 0.23950257292 0.221077875617 0.211789394262 0.210958467875 0.247726054061 0.224160699687 0.221293898641 0.225242596712 0.231164838975 0.212084684776 0.21483758197 0.207582855086 0.208324546741 0.205668770285 0.22999948579 0.203519866038 0.221791807814 0.198729512666 0.233119883684 0.201955632148 0.21744774227 0.224658382044 0.22554531899 0.210282327898 0.205086194314 0.212901784527 0.227685054369 0.214992030153 0.225336913605 0.225426421062 0.227294020009 0.22122180599 0.223891772502 0.213328572484 0.220627825622 0.212027719306 0.036692370716 0.0274221847228 0.014614486903 0.0257905543192 0.038185072385 0.00854173398239 0.0228846598272 0.0362880440778 0.0247966202157 0.0338575762449 0.0341810302892 0.0403839419732 0.023192138006 0.0228332335778 0.0207802721216 0.030246984472 0.0385095591836 0.036116458124 0.063670015249 0.0456331337141 0.0387265099713 0.0454622939774 0.0128829753328 0.0153687384621 0.0290580106985 0.032571197138 0.0439484983687 0.0345946330706 0.0178789804494 0.038185072385 0.0229066226947 0.0243703411158 0.038185072385 0.0145921399018 0.0157758022112 0.0246899780508 0.0667942861058 0.00859371091119 0.0713780561444 0.0493343894065 0.0370078971529 0.0136450272229 0.0138896306008 0.00617904291603 0.0146027872105 0.19304474601 0.19797909852 0.204564547012 0.217893788171 0.211240589753 0.210085035577 0.204424468033 0.187966151726 0.199846283114 0.209201380502 0.209876418912 0.202509063074 0.205495616388 0.210676243708 0.185852822947 0.192014733821 0.213129345848 0.190059083655 0.233894763867 0.198141527364 0.221234996275 0.193689434624 0.229701750232 0.206631480423 0.194727732257 0.195938025333 0.209362001884 0.218147207364 0.211029564766 0.177869147322 0.200327033561 0.193124484677 0.193233901741 0.233604044389 0.215980508747 0.201289146742 0.20219168761 0.219726845187 0.195458087393 0.2103246028 0.212820091698 0.205396680761 0.199290845186 0.190742394929 0.207189399227 0.192521418757 0.199651552643 0.196594932336 0.178468769167 0.200295584792 0.256297768876 0.245841451519 0.242438509968 0.240033073248 0.249980802879 0.248953385462 0.246144223104 0.242178797272 0.252036489845 0.240176361939 0.226412773569 0.242454491215 0.238768549206 0.254841315698 0.258625650226 0.240494667361 0.232976534038 0.231927166971 0.269283834821 0.246140263748 0.241374087503 0.245035624054 0.253144665918 0.232868387014 0.235226383286 0.229279397026 0.228861516729 0.226064745168 0.250630665997 0.225726655668 0.243583203961 0.220042394187 0.253511231548 0.2237596548 0.239872842457 0.245497904196 0.24478307529 0.231328796826 0.225307213023 0.233256809435 0.247442229489 0.234444929147 0.245841451519 0.245661961251 0.246724980668 0.240848644418 0.244659004118 0.233675626419 0.239814102397 0.232532592403 0.010524058973 0.0347497758249 0.0310026365608 0.0636683508445 0.039628310023 0.0339732471818 0.0632599742009 0.0607622080336 0.0610552648732 0.0274939888458 0.0321794296029 0.0203038890155 0.0225566538528 0.0181521200419 0.0426282898435 0.00971744861179 0.0573638408809 0.0304112802741 0.0463628234513 0.044509344874 0.0125060810098 0.0372012029006 0.0399195029174 0.0351572922113 0.0381714857339 0.0236066809352 0.0675880085279 0.0489234884353 0.0636683508445 0.0451372647506 0.0495218266562 0.0636683508445 0.028718795999 0.0363358460459 0.0247409309981 0.0536494939568 0.0291783067693 0.0362475310016 0.0206193569389 0.0238060051702 0.0365127412376 0.0303247636874 0.0382706081182 0.036679138207 0.165252454208 0.168745392776 0.176697416201 0.190075579294 0.183193768644 0.182210296577 0.174895117306 0.159516185843 0.172780618769 0.179424300801 0.183362052205 0.17275366841 0.180884475296 0.18272692365 0.155645508044 0.163596126812 0.183814684533 0.163944686708 0.206939183794 0.170981324059 0.191238016882 0.165171506195 0.202635613449 0.180157192696 0.16688029242 0.167662828735 0.182473473654 0.189606814944 0.182144568907 0.150494922446 0.17311022882 0.166528964674 0.165043072843 0.205731384902 0.18659197245 0.17105591364 0.173799739615 0.193545885155 0.166211621507 0.181959703917 0.185636136233 0.177047042786 0.171588556623 0.162758165885 0.178831153511 0.164197394115 0.170920859204 0.168528635782 0.148460744764 0.171573948268 0.226522867074 0.216861787556 0.214094925757 0.211961277469 0.220987866614 0.22168305754 0.216782699249 0.215609692292 0.225208444508 0.210312198283 0.19661028383 0.214074476024 0.209773195915 0.225810880474 0.228551359916 0.210341321513 0.204691741777 0.203336697222 0.242485382573 0.21963599647 0.211892193047 0.215282949931 0.226705435666 0.20418234927 0.205942096193 0.201754356567 0.199749686219 0.196656401255 0.221913123953 0.199165134473 0.216656797893 0.191759529503 0.224569670715 0.196349964299 0.213992874847 0.217230566883 0.214548114667 0.2028246956 0.195690210734 0.20400781198 0.217750478797 0.204445613083 0.216861787556 0.216379424168 0.21668692278 0.211041069144 0.216249554038 0.204373397921 0.209459569208 0.203359671893 0.0284940982012 0.0283835072119 0.0582564069663 0.0317209110303 0.0290062929149 0.0575581968066 0.0518675712793 0.0525497818792 0.0214648817816 0.0289820919427 0.0151981567712 0.0194868108708 0.00772151270155 0.0396885548083 0.0133170749495 0.0480498930165 0.0406834920646 0.0454173876936 0.04374952779 0.0223043370554 0.0304932603619 0.0333669476098 0.0323541790178 0.036462611527 0.0283937271683 0.0581656862224 0.0386849486073 0.0582564069663 0.0386824403573 0.0427767064205 0.0582564069663 0.0225670168648 0.0303996112373 0.0186317385432 0.0589532282724 0.020129496567 0.0456219811369 0.0271705146906 0.0266114081755 0.0281840659315 0.0237276312035 0.0300017258072 0.0304084467621 0.174689674341 0.17830904459 0.186122916272 0.199541551099 0.192698821274 0.191439303409 0.184399484383 0.168993025372 0.182083678728 0.188980455315 0.192641208359 0.182376656778 0.189869605957 0.192034662906 0.165406381187 0.173160863593 0.193190156667 0.172952807322 0.216356837462 0.18028635421 0.200707489616 0.174765006311 0.211946253402 0.189197004074 0.176338357547 0.17720731475 0.191796191467 0.199121585044 0.191634817003 0.159923924784 0.182459504488 0.175769947329 0.174536678956 0.215011640541 0.195898920801 0.180555890973 0.183304141459 0.202828623711 0.175640593326 0.191448592698 0.194762075203 0.186406863824 0.181008054094 0.172240816201 0.188223844291 0.17346231425 0.180325575914 0.177965844821 0.158332658267 0.181046361448 0.235882031296 0.226280867303 0.2235366831 0.221221709251 0.230404936567 0.23094802366 0.226136073658 0.224736021115 0.234431734165 0.219824894986 0.20619515856 0.223526372128 0.219308937798 0.235287233784 0.23807753807 0.219908336162 0.214027462834 0.212631745032 0.251732773763 0.228838671706 0.221440978506 0.224753704594 0.235866097652 0.213724598783 0.215380278296 0.210994508636 0.209321687173 0.206162323946 0.231346876087 0.208300913946 0.225928825898 0.201080283138 0.234037288778 0.20558958438 0.222856381147 0.226751911512 0.223989137906 0.212135251626 0.205214537461 0.213595258296 0.2273163389 0.21417146415 0.226280867303 0.225846388312 0.226229092302 0.220705781832 0.225781259333 0.213928177909 0.218913775078 0.212729498479 0.0122225873329 0.0303322491715 0.0105162282326 0.0130161869455 0.0294681125528 0.031169289575 0.0445674903412 0.0424428041907 0.0471592401326 0.0242919299586 0.0151911030837 0.0250458377851 0.0159588466859 0.0393890228389 0.0501712969027 0.0573610210315 0.0347635318983 0.0244162409612 0.040396894165 0.00489128055225 0.0130158047868 0.0162739668734 0.0181749821427 0.0399100872217 0.0416234365466 0.032217222914 0.0303322491715 0.0260818708259 0.0277812891175 0.0303322491715 0.0068887146948 0.00350057866506 0.0298024545939 0.056647752597 0.0131029257559 0.0689399130874 0.0438694576111 0.0295733202179 0.0148293487362 0.005187559828 0.00994170320116 0.00857601759458 0.181761248694 0.187453410696 0.193365623784 0.206702523841 0.20011934013 0.199105672278 0.194191029325 0.176999836949 0.188302627791 0.199111466491 0.198126208998 0.192301121465 0.193121251528 0.199652739338 0.175765384319 0.180985589904 0.202947496477 0.178262931918 0.22241465847 0.18663850283 0.211489015658 0.182706386145 0.218266373994 0.195039865626 0.18346554188 0.184856636434 0.197755074291 0.207324505424 0.200404409787 0.166355990223 0.188830148216 0.181378679541 0.182125858248 0.222660838403 0.205968099039 0.191576935017 0.19121911341 0.207887116649 0.185081160877 0.199380829938 0.201554837448 0.194543615891 0.187991163757 0.179524780118 0.19631300534 0.181726234556 0.188970696545 0.185468734774 0.168191837054 0.18953883133 0.246767069406 0.235545780286 0.231684267956 0.229269594484 0.239724337717 0.237749571543 0.236212316891 0.230682790909 0.240645700931 0.230405224861 0.216420479968 0.231715542723 0.228337424754 0.244594612682 0.249193956399 0.230909382279 0.222229420235 0.221427946934 0.257965809127 0.234573740528 0.231288571496 0.235259005866 0.241607850531 0.22220070955 0.225060949621 0.218149643482 0.218415896436 0.21585883122 0.24017332069 0.214149237729 0.232167950695 0.20925074028 0.243199182069 0.21253980165 0.228281003551 0.23468620257 0.235446691383 0.22074773222 0.215228869367 0.222922571895 0.237553097068 0.224606387466 0.235545780286 0.235534393045 0.23712429287 0.230940484692 0.233917063813 0.223401305554 0.230524046304 0.222353817706 0.0346270873711 0.0222428303765 0.0130402644662 0.0348466257078 0.042829178942 0.0549568638218 0.0464424131108 0.050271964255 0.0260503884653 0.0122224116333 0.0282180922789 0.011864843965 0.0376053109772 0.060340947297 0.0487164281844 0.0285013587126 0.0163929694658 0.0334500762426 0.015996373074 0.0216948948211 0.00981357617646 0.00897169179454 0.0351677992971 0.0524329239391 0.0436506734112 0.0346270873711 0.0336931600411 0.03612022228 0.0346270873711 0.0123155461924 0.0128144174355 0.033561339537 0.0480641708164 0.0212422700005 0.0628734973132 0.0366806543871 0.0231396795589 0.0230741684915 0.0123098386274 0.0219470818919 0.0170687771133 0.170097980345 0.176050748737 0.181762587161 0.195138740624 0.188553715994 0.187634353283 0.182931238354 0.165421712546 0.176600578903 0.187912731345 0.186408453678 0.181027641681 0.181322068987 0.188146844457 0.16448627936 0.169388121003 0.191757508168 0.166524283083 0.21084441712 0.17494262847 0.200480456222 0.171127562134 0.206682857942 0.183402734812 0.171811556423 0.173255302855 0.186064001811 0.195873759085 0.189008503285 0.154586199139 0.177136590503 0.16961214015 0.170511848112 0.211247624618 0.194873193684 0.18053463387 0.179673493778 0.196193226513 0.173758955601 0.187869379999 0.19001738823 0.183074417621 0.176342969787 0.167870586049 0.184832516957 0.170273119593 0.177542554096 0.173865162824 0.156824879402 0.178069468543 0.235952767235 0.224377142544 0.220334312937 0.217941307072 0.228582134377 0.226295522057 0.225204079848 0.219149120214 0.229153457047 0.219423743811 0.20530168342 0.220370010221 0.217084867796 0.233463162138 0.238411309618 0.220004052761 0.210872881275 0.210171938201 0.24654768975 0.223020715486 0.220176358035 0.224293060856 0.230089603615 0.210845620347 0.213914309618 0.206670271948 0.207126565579 0.204661896322 0.228953899388 0.202543633745 0.220637247329 0.197849243585 0.232039444595 0.201016080923 0.216786754649 0.223327252818 0.224678101179 0.209454984614 0.204079198003 0.211687536154 0.226538202286 0.213579234366 0.224377142544 0.224425108032 0.226231350025 0.219899730556 0.222577135927 0.212192019374 0.21976273048 0.211209202307 0.0316629149872 0.033505533415 0.00599304401229 0.03147088677 0.0569379974042 0.0709823822809 0.0748230813085 0.0531369685873 0.043263968218 0.0546416139704 0.0249055105449 0.0688386171987 0.0687094353901 0.0814189949505 0.0424145094995 0.0312264925083 0.0671690041442 0.0297074253675 0.0326159908833 0.0331671559449 0.0312681130066 0.0653641254742 0.040141041955 0.0490986378456 0.0 0.0426893927085 0.0408370899258 0.0 0.0368318621027 0.029200211213 0.0578784327643 0.069522041979 0.0411420259607 0.0955605905857 0.0684916485028 0.0536985636371 0.0361283833003 0.0349236407736 0.0326544016244 0.0320790517512 0.190734279342 0.198011093099 0.202165335147 0.215193803756 0.208989236133 0.207943677959 0.205067684162 0.186855165408 0.196324830352 0.210203923195 0.205342231011 0.203427359944 0.198526873832 0.208498767129 0.187766259392 0.1906844311 0.213518747065 0.185598548292 0.229746939288 0.194805777978 0.222821572969 0.192481412892 0.225723793976 0.202375384198 0.192457483521 0.194300696695 0.205376522136 0.216660688755 0.21030774241 0.175307222553 0.197000980201 0.189066511629 0.191539232379 0.231058906578 0.21669613367 0.203523564636 0.200666530244 0.214595210264 0.195827171333 0.208641958794 0.209561099462 0.203960485003 0.196717491572 0.188766309975 0.205678014795 0.191492051166 0.198961164508 0.194672996958 0.180152450124 0.19944864987 0.257583228235 0.245178524187 0.240481186058 0.23786630337 0.249341975217 0.245210894146 0.246468005973 0.237456371003 0.247563146561 0.241300303041 0.22729752986 0.240555698528 0.237993038095 0.254193700204 0.26033321069 0.24220764546 0.231128442611 0.230799434891 0.264694157473 0.241194058993 0.241588310222 0.245985985156 0.248083056968 0.231516408669 0.235215479132 0.226198260689 0.228320459149 0.22623565919 0.249391170367 0.221152204365 0.239284874476 0.218351963925 0.252686589685 0.220530747351 0.234477098822 0.243363395844 0.246969168578 0.229990071021 0.225895881072 0.232959826282 0.248113114083 0.23570223574 0.245178524187 0.245562733947 0.248226439579 0.241702239505 0.242775171886 0.233515238499 0.242256602421 0.232453320509 0.0221776604768 0.0292076409984 0.0225953199419 0.0344078822964 0.0402556862186 0.0443490345462 0.0247422055695 0.0212582761966 0.0262237412261 0.0239779350196 0.0420497572884 0.0414593565817 0.0638943455501 0.0444256278823 0.0324613404347 0.0464717210574 0.0064847144584 0.00810593532016 0.026613709743 0.0281809240896 0.0431707040779 0.0364933096346 0.0236549105265 0.0316629149872 0.0188389154871 0.0197111271958 0.0316629149872 0.0126413659503 0.00989228745945 0.0276229976961 0.0619054176788 0.013658
