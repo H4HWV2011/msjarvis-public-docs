@@ -413,33 +413,31 @@ This is a Mount Hope-first investment: equipment installed in Mount Hope, conten
 
 ## WHAT WILL HAPPEN IF FULL FUNDING IS NOT RECEIVED?
 
-If Harmony for Hope does not receive the full requested amount, the project will be reduced in scope and implemented in priority order. All awarded funds will still be used for Mount Hope project deployment and documented for the Greater Mount Hope Community Fund.
+Harmony for Hope has designed this project to succeed at any funding level. The project is structured as a sequence of independent, buildable components rather than a single all-or-nothing deployment, so a partial award does not stop the work — it determines how far the work proceeds in its first phase. If the full requested amount is not awarded, the project will be reduced in scope and implemented in strict priority order. Every awarded dollar will be used for Mount Hope project deployment and fully documented for the Greater Mount Hope Community Fund.
+
+The priorities below are ordered so that the most essential, foundational infrastructure is funded first. Each priority builds on the one before it, which means the project produces a working, useful result at every funding level rather than leaving a half-finished system. Lower-priority components are valuable enhancements that can be deferred to a later phase and pursued through additional partners or future grant requests without compromising what has already been built.
 
 ### Priority 1 — FCCAC Server and Core Connectivity
-
-The first priority is the local server and Starlink connection at the Fayette County Community Arts Center. This creates the backbone for the project and allows Harmony for Hope to begin hosting local content, supporting community information, and operating the basic Mount Hope node.
+The first priority is the local server and Starlink connection at the Fayette County Community Arts Center. This is the backbone of the entire project. It allows Harmony for Hope to begin hosting local content, supporting community information, and operating the basic Mount Hope node. If this is the only component funded, Mount Hope still gains a functioning, locally hosted information and heritage platform — a meaningful standalone outcome.
 
 ### Priority 2 — Governance, Permissions, and Safe Installation
-
-The second priority is legal and governance review, site permission documentation, basic project management, and safe installation planning. Before public-facing equipment is installed, Harmony for Hope must confirm proper governance, permissions, site suitability, and compliance requirements.
+The second priority is legal and governance review, site permission documentation, basic project management, and safe installation planning. Before any public-facing equipment is installed, Harmony for Hope must confirm proper governance, permissions, site suitability, and compliance requirements. This priority protects the organization, the community, and participating partners, and ensures that whatever is built is installed responsibly and documented properly.
 
 ### Priority 3 — Trailhead Kiosk Node and Solar Support
-
-The third priority is the trailhead node and solar support. This extends the heritage content layer from the arts center to the Historic Walking Trail experience itself.
+The third priority is the trailhead node and solar support, which extends the heritage content layer from the arts center out to the Mount Hope Historic Walking Trail experience itself. This connects the indoor and outdoor heritage assets and brings the project directly to where visitors and residents encounter Mount Hope's history.
 
 ### Priority 4 — Public Website and Landing Page
-
-The fourth priority is the full Starry Eyes Media website and landing page. If full funding is not available, Harmony for Hope may begin with a simpler temporary landing page and seek additional funding for the full buildout.
+The fourth priority is the full Starry Eyes Media website and landing page. If full funding is not available for this component, Harmony for Hope may begin with a simpler temporary landing page and seek additional funding for the complete buildout, so the project still has a public-facing entry point in the interim.
 
 ### Priority 5 — LoRa Mesh Backup Layer
-
-The fifth priority is the LoRa backup layer. It is valuable for resilience testing, but the project can begin with the server, connectivity, governance structure, trailhead node, and public landing page while the LoRa layer is deferred to a second phase.
+The fifth priority is the LoRa backup layer. It is valuable for resilience and redundancy testing, but it is not required for the core project to function. The project can launch and operate with the server, connectivity, governance structure, trailhead node, and public landing page while the LoRa layer is deferred to a second phase.
 
 ### Priority 6 — Expanded Content and Enhancements
+The sixth priority covers additional content expansion, signage improvements, and optional enhancements. These can be phased in as future funding becomes available and represent ongoing growth of the platform rather than essential first-phase infrastructure.
 
-Additional content expansion, signage improvements, and optional enhancements can be phased in as future funding becomes available.
+In every scenario, the project remains deliberately local: locally hosted, locally installed, and kept under community stewardship. This design choice means the project does not depend on any single funding source to remain viable, and it keeps Mount Hope's heritage content and infrastructure under local control.
 
-Any partial award will be deployed, documented, and reported with a revised scope, revised timeline, and plan for closing the remaining gap through additional partners or future grant requests.
+Any partial award will be deployed, documented, and reported with a revised scope, a revised timeline, and a clear plan for closing the remaining gap through additional partners or future grant requests. Harmony for Hope will provide the Greater Mount Hope Community Fund with documentation showing exactly how awarded funds were used and what outcomes were achieved at the funded level.
 
 ---
 
