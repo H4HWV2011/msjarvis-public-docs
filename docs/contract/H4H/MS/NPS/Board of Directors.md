@@ -16,8 +16,6 @@
 
 ## Notes
 
-**Board Composition.** Harmony for Hope, Inc. is governed by a Board of three (3) Directors, satisfying the minimum-director requirement for West Virginia nonprofit corporations.
-
 **Mailing Address and Principal Office.** The organization's IRS mailing address is 706 Main Street, Mount Hope, West Virginia 25880. Its principal office is located at 704 Main Street, Mount Hope, West Virginia 25880.
 
 **Governance.** The Board operates under Harmony for Hope's governing documents and a Conflict-of-Interest and Recusal Policy applicable to all Directors, officers, employees, and contractors with overlapping roles on both sides of an organizational transaction.
