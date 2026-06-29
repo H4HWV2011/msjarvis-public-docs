@@ -1,1812 +1,2258 @@
-crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ cd /mnt/nvme1/msjarvis-rebuild
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ cd ~/msjarvis-rebuild || exit 1
+mkdir -p ~/hp-antisurveillance-next-20260629-015308/artifacts
 
-echo "=== backup compose ==="
-cp docker-compose.yml docker-compose.yml.bak-lmsynth-cmd-$(date +%Y%m%d-%H%M%S)
+cat > hp_antisurveillance_policy.json <<'JSON'
+{
+  "forbidden_action_types": [
+    "person_analytics_request",
+    "identity_linkage_attempt",
+    "unified_person_profile"
+  ],
+  "forbidden_purposes": [
+    "person_analytics",
+    "identity_linkage",
+    "unified_profile"
+  ],
+  "forbidden_tables": [
+    "public.kyc_vault",
+    "public.kyc_location_strip",
+    "public.kyc_vault_access_log",
+    "public.user_documents",
+    "public.interaction_provenance_immutable"
+  ],
+  "guarded_tables": [
+PY  }   "purpose": "person_analytics"ersationgbimprivate"],","public.user
+{
+  "forbidden_action_types": [
+    "person_analytics_request",
+    "identity_linkage_attempt",
+    "unified_person_profile"
+  ],
+  "forbidden_purposes": [
+    "person_analytics",
+    "identity_linkage",
+    "unified_profile"
+  ],
+  "forbidden_tables": [
+    "public.kyc_vault",
+    "public.kyc_location_strip",
+    "public.kyc_vault_access_log",
+    "public.user_documents",
+    "public.interaction_provenance_immutable"
+  ],
+  "guarded_tables": [
+    "public.gbim_entities",
+    "public.document_chunks"
+  ],
+  "forbidden_collections": [
+    "faces",
+    "conversationgbimprivate"
+  ],
+  "guarded_collections": [
+    "gbimentities",
+    "conversationgbimpublic"
+  ]
+}
+{'allowed': False, 'decision': 'denied', 'principles_applied': ['hp-anti-dossier', 'hp-context-anchor', 'gw-public-benefit'], 'constitution_version': '1.0.0-fallback', 'reason': 'Client-side anti-surveillance: forbidden action_type.'}
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ cd ~/msjarvis-rebuild || exit 1
 
-echo "=== inspect current service block ==="
-docker compose config | sed -n '/jarvis-lm-synthesizer:/,/^[^[:space:]]/p'
-
-echo "=== patch command to mounted path /appservices/lm_synthesizer.py ==="
 python3 - <<'PY'
 from pathlib import Path
-import re
+import re, json
 
-p = Path("docker-compose.yml")
-s = p.read_text()
-
-m = re.search(r'(\n  jarvis-lm-synthesizer:\n(?:.*\n)*?)(?=\n  [A-Za-z0-9_-]+:\n|\Z)', s)
-if not m:
-    print("✗ jarvis-lm-synthesizer service block not found")
-    raise SystemExit(1)
-
-block = m.group(1)
-docker inspect jarvis-lm-synthesizer --format '{{json .Config.Cmd}}' | python3 -m json.toolappse
-=== backup compose ===
-=== inspect current service block ===
-      jarvis-lm-synthesizer:
-        condition: service_started
-        required: true
-    environment:
-      CLOCK_TS: "1767812077"
-      JUDGE_ALIGNMENT_URL: http://jarvis-judge-alignment:7232
-      JUDGE_CONSISTENCY_URL: http://jarvis-judge-consistency:7231
-      JUDGE_ETHICS_URL: http://jarvis-judge-ethics:7233
-      JUDGE_TRUTH_URL: http://jarvis-judge-truth:7230
-      LM_SYNTHESIZER_URL: http://jarvis-lm-synthesizer:8001
-      SERVICE_NAME: judge_pipeline
-      SERVICE_PORT: "7239"
-    expose:
-      - "7239"
-    networks:
-      qualia-net: null
-    restart: unless-stopped
-  jarvis-judge-truth:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile.judge
-    command:
-      - python
-      - judge_truth_filter.py
-    container_name: jarvis-judge-truth
-    environment:
-      CLOCK_TS: "1767812077"
-      SERVICE_NAME: judge_truth_filter
-      SERVICE_PORT: "7230"
-    expose:
-      - "7230"
-    networks:
-      qualia-net: null
-    restart: unless-stopped
-  jarvis-kyc-vault:
-    command:
-      - uvicorn
-      - app:app
-      - --host
-      - 0.0.0.0
-      - --port
-      - "8045"
-    container_name: jarvis-kyc-vault
-    environment:
-      KYC_PG_DSN: postgresql://postgres:postgres@jarvis-local-resources-db:5432/msjarvisgis
-      KYC_RETENTION_DAYS: "90"
-      PROVENANCE_URL: http://jarvis-provenance:8046
-    expose:
-      - "8045"
-    image: msjarvis-rebuild-jarvis-kyc-vault
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8045
-        published: "8045"
-        protocol: tcp
-    restart: unless-stopped
-  jarvis-lm-synthesizer:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile.lm_synthesizer
-    command:
-      - python
-      - lm_synthesizer.py
-    container_name: jarvis-lm-synthesizer
-    environment:
-      CLOCK_TS: "1767812077"
-      OLLAMA_HOST: http://jarvis-ollama:11434
-      SERVICE_PORT: "8001"
-    expose:
-      - "8001"
-    logging:
-      driver: json-file
-      options:
-        max-file: "3"
-        max-size: 10m
-    networks:
-      qualia-net: null
-    restart: unless-stopped
-  jarvis-local-resources:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild
-      dockerfile: Dockerfile.local_resources
-    container_name: jarvis-local-resources
-    depends_on:
-      jarvis-local-resources-db:
-        condition: service_started
-        required: true
-    environment:
-      CLOCK_TS: "1767812077"
-      LOCAL_RESOURCES_DSN: postgresql://msjarvis:Nathaniel1@jarvis-local-resources-db:5432/local_resources
-      PYTHONPATH: /app/services
-    expose:
-      - "8035"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8006
-        published: "8006"
-        protocol: tcp
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/services
-        target: /app/services
-        bind: {}
-    working_dir: /app/services
-  jarvis-local-resources-db:
-    container_name: jarvis-local-resources-db
-    environment:
-      POSTGRES_DB: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-    image: postgis/postgis:15-3.4
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 5432
-        published: "5435"
-        protocol: tcp
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/data/local_resources
-        target: /var/lib/postgresql/data
-        bind: {}
-  jarvis-main-brain:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild
-      dockerfile: Dockerfile
-    command:
-      - python
-      - -m
-      - uvicorn
-      - main_brain:app
-      - --host
-      - 0.0.0.0
-      - --port
-      - "8050"
-      - --proxy-headers
-      - --forwarded-allow-ips=*
-    container_name: jarvis-main-brain
-    depends_on:
-      jarvis-chroma:
-        condition: service_started
-        required: true
-      jarvis-ollama:
-        condition: service_started
-        required: true
-      jarvis-redis:
-        condition: service_started
-        required: true
-    environment:
-      CLOCK_TS: "1767812077"
-      CONSTITUTIONAL_GUARDIAN_URL: http://jarvis-constitutional-guardian:8091
-      JARVIS_API_KEY: super-secret-key
-      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-      MAX_CONCURRENT_CHATS: "4"
-      RAG_SERVER_URL: http://jarvis-rag-server:8003
-      RAG_URL: http://jarvis-rag-server:8003
-      SERVICE_PORT: "8050"
-    expose:
-      - "8050"
-    image: jarvis-main-brain:latest
-    logging:
-      driver: json-file
-      options:
-        max-file: "3"
-        max-size: 10m
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8050
-        published: "8050"
-        protocol: tcp
-    restart: unless-stopped
-    secrets:
-      - source: jarvisapikey
-        target: /run/secrets/jarvisapikey
-    volumes:
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/services
-        target: /app/services
-        bind: {}
-    working_dir: /app/services
-  jarvis-memory:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile.memory
-    container_name: jarvis-memory
-    environment:
-      JARVIS_API_KEY: c0ecca01f56b152430ee63967757a84386c0b8b022cbc6f5a27c5c9ee98ce267
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8056
-        published: "8056"
-        protocol: tcp
-    restart: unless-stopped
-  jarvis-mother-protocols:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile.mother_protocols
-    container_name: jarvis-mother-protocols
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "4000"
-    networks:
-      qualia-net: null
-    restart: unless-stopped
-  jarvis-neurobiological-master:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild
-      dockerfile: Dockerfile.neuro
-    command:
-      - python3
-      - ms_jarvis_neurobiological_master.py
-    container_name: jarvis-neurobiological-master
-    depends_on:
-      jarvis-blood-brain-barrier:
-        condition: service_started
-        required: true
-      jarvis-i-containers:
-        condition: service_started
-        required: true
-      jarvis-qualia-engine:
-        condition: service_started
-        required: true
-    environment:
-      CLOCK_TS: "1767812077"
-      I_CONTAINERS_URL: http://jarvis-i-containers:8015
-      OLLAMA_HOST: http://jarvis-ollama:11434
-      QUALIA_URL: http://jarvis-qualia-engine:8017
-    expose:
-      - "8018"
-    logging:
-      driver: json-file
-      options:
-        max-file: "3"
-        max-size: 10m
-    networks:
-      qualia-net: null
-    restart: unless-stopped
-    working_dir: /app/services
-  jarvis-ollama:
-    container_name: jarvis-ollama
-    deploy:
-      resources:
-        limits:
-          cpus: 8
-          memory: "25769803776"
-        reservations:
-          devices:
-            - capabilities:
-                - gpu
-              driver: nvidia
-              count: -1
-    environment:
-      CLOCK_TS: "1767812077"
-      OLLAMA_MODELS: /root/.ollama/models
-    image: ollama/ollama:latest
-    logging:
-      driver: json-file
-      options:
-        max-file: "5"
-        max-size: 50m
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 11434
-        published: "11434"
-        protocol: tcp
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/ssd2/msjarvis_secondary/models
-        target: /root/.ollama/models
-        bind: {}
-  jarvis-phi-probe:
-    command:
-      - python3
-      - ms_jarvis_phi_probe.py
-    container_name: jarvis-phi-probe
-    environment:
-      CHROMA_URL: http://jarvis-chroma:8000
-      REDIS_URL: redis://jarvis-redis:6379
-    expose:
-      - "8025"
-    image: msjarvis-rebuild-jarvis-phi-probe
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8025
-        published: "8026"
-        protocol: tcp
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_phi_probe.py
-        target: /app/ms_jarvis_phi_probe.py
-        read_only: true
-        bind: {}
-  jarvis-pia-sampler:
-    command:
-      - sh
-      - -c
-      - pip install fastapi uvicorn redis -q && python3 pia_sampler_service.py
-    container_name: jarvis-pia-sampler
-    environment:
-      REDIS_URL: redis://jarvis-redis:6379/0
-    expose:
-      - "8076"
-    image: python:3.11-slim
-    networks:
-      qualia-net: null
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/spiritual_drive/msjarvis-rebuild/services/pia_sampler/pia_sampler_service.py
-        target: /app/pia_sampler_service.py
-        read_only: true
-        bind: {}
-    working_dir: /app
-  jarvis-provenance:
-    command:
-      - uvicorn
-      - app:app
-      - --host
-      - 0.0.0.0
-      - --port
-      - "8046"
-    container_name: jarvis-provenance
-    environment:
-      IPFS_API_URL: http://ipfs:5001
-      PROVENANCE_SIGNING_KEY: msjarvis-provenance-key-change-in-prod
-    expose:
-      - "8046"
-    image: msjarvis-rebuild-jarvis-provenance
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8046
-        published: "8046"
-        protocol: tcp
-    restart: unless-stopped
-  jarvis-psychology-services:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile.psychology_services
-    command:
-      - python
-      - ms_jarvis_psychology_services.py
-    container_name: jarvis-psychology-services
-    depends_on:
-      psychological_rag_domain:
-        condition: service_started
-        required: true
-    environment:
-      CLOCK_TS: "1767812077"
-      PSYCHOLOGICAL_RAG_URL: http://psychological_rag_domain:9006
-      SERVICE_PORT: "8019"
-    expose:
-      - "8019"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8019
-        published: "8019"
-        protocol: tcp
-    restart: unless-stopped
-    working_dir: /app
-  jarvis-qualia-engine:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile.qualia
-    container_name: jarvis-qualia-engine
-    depends_on:
-      jarvis-ollama:
-        condition: service_started
-        required: true
-    environment:
-      CLOCK_TS: "1767812077"
-      OLLAMA_HOST: http://jarvis-ollama:11434
-    expose:
-      - "8017"
-    logging:
-      driver: json-file
-      options:
-        max-file: "3"
-        max-size: 10m
-    networks:
-      qualia-net: null
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_qualia_engine.py
-        target: /app/services/ms_jarvis_qualia_engine.py
-        read_only: true
-        bind: {}
-  jarvis-rag-router:
-    command:
-      - uvicorn
-      - rag_query_router:app
-      - --host
-      - 0.0.0.0
-      - --port
-      - "5001"
-    container_name: jarvis-rag-router
-    environment:
-      CHROMA_HOST: jarvis-chroma
-      CHROMA_PORT: "8000"
-      SERVICE_PORT: "5001"
-    expose:
-      - "5001"
-      - "8003"
-    image: msjarvis-rebuild-jarvis-rag-router
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 5001
-        published: "5015"
-        protocol: tcp
-    restart: unless-stopped
-  jarvis-rag-server:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild
-      dockerfile: Dockerfile.rag_server
-    command:
-      - uvicorn
-      - rag_server_main:app
-      - --host
-      - 0.0.0.0
-      - --port
-      - "8003"
-    container_name: jarvis-rag-server
-    depends_on:
-      jarvis-chroma:
-        condition: service_started
-        required: true
-      jarvis-local-resources-db:
-        condition: service_started
-        required: true
-    environment:
-      CHROMA_HOST: jarvis-chroma
-      CHROMA_PORT: "8000"
-      CHROMA_URL: http://jarvis-chroma:8000
-      CLOCK_TS: "1767812077"
-      EPISODIC_DSN: dbname=postgres user=postgres password=postgres host=jarvis-local-resources-db
-      SERVICE_PORT: "8003"
-    expose:
-      - "8003"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8003
-        published: "8003"
-        protocol: tcp
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /home/cakidd/msjarvis-rebuild/data/mountainshares
-        target: /app/mountainshares_docs
-        read_only: true
-        bind: {}
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/services/backup_chroma_mountainshares_knowledge.json
-        target: /app/backup_mountainshares.json
-        read_only: true
-        bind: {}
-      - type: volume
-        source: rag_model_cache
-        target: /root/.cache/chroma
-        volume: {}
-    working_dir: /app/services
-  jarvis-redis:
-    container_name: jarvis-redis
-    environment:
-      CLOCK_TS: "1767812077"
-    healthcheck:
-      test:
-        - CMD
-        - redis-cli
-        - ping
-      timeout: 10s
-      interval: 30s
-      retries: 3
-    image: redis:7-alpine
-    logging:
-      driver: json-file
-      options:
-        max-file: "3"
-        max-size: 10m
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 6379
-        published: "6380"
-        protocol: tcp
-    restart: always
-  jarvis-semaphore:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile.semaphore
-    container_name: jarvis-semaphore
-    expose:
-      - "8030"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8030
-        published: "8030"
-        protocol: tcp
-    restart: unless-stopped
-  jarvis-session-sidecar:
-    command:
-      - uvicorn
-      - app:app
-      - --host
-      - 0.0.0.0
-      - --port
-      - "8060"
-    container_name: jarvis-session-sidecar
-    environment:
-      LOCAL_RESOURCES_DSN: postgresql://postgres:postgres@jarvis-local-resources-db:5432/msjarvisgis
-      SESSION_REDIS_HOST: jarvis-redis
-      SESSION_REDIS_MAX_ITEMS: "20"
-      SESSION_REDIS_PORT: "6379"
-      SESSION_REDIS_TTL: "1800"
-    expose:
-      - "8060"
-      - "8070"
-    image: jarvis-session-sidecar:latest
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8060
-        published: "8060"
-        protocol: tcp
-    restart: unless-stopped
-  jarvis-spiritual-rag:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile.spiritual_rag
-    container_name: jarvis-spiritual-rag
-    depends_on:
-      jarvis-chroma:
-        condition: service_started
-        required: true
-    environment:
-      CHROMA_HOST: jarvis-chroma
-      CHROMA_PORT: "8000"
-      CLOCK_TS: "1767812077"
-      SERVICE_PORT: "8005"
-    expose:
-      - "8005"
-    logging:
-      driver: json-file
-      options:
-        max-file: "3"
-        max-size: 10m
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8005
-        published: "8005"
-        protocol: tcp
-    restart: unless-stopped
-  jarvis-steward:
-    command:
-      - python3
-      - jarvis_steward.py
-    container_name: jarvis-steward
-    environment:
-      REDIS_HOST: jarvis-redis
-      REDIS_PORT: "6379"
-      REDIS_URL: redis://jarvis-redis:6379/0
-      SERVICE_PORT: "8014"
-    image: jarvis-main-brain:latest
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8014
-        published: "8014"
-        protocol: tcp
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/services/jarvis_steward.py
-        target: /app/services/jarvis_steward.py
-        read_only: true
-        bind: {}
-    working_dir: /app/services
-  jarvis-stewardship-scheduler:
-    command:
-      - python3
-      - jarvis_stewardship_scheduler.py
-    container_name: jarvis-stewardship-scheduler
-    depends_on:
-      jarvis-local-resources-db:
-        condition: service_started
-        required: true
-      jarvis-redis:
-        condition: service_started
-        required: true
-    environment:
-      DB_DSN: postgresql://postgres:postgres@jarvis-local-resources-db:5432/local_resources
-      REDIS_URL: redis://jarvis-redis:6379/0
-      SERVICE_PORT: "8079"
-    expose:
-      - "8079"
-    image: jarvis-main-brain:latest
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8079
-        published: "8079"
-        protocol: tcp
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/services
-        target: /app/services
-        read_only: true
-        bind: {}
-    working_dir: /app/services
-  jarvis-swarm-intelligence:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild
-      dockerfile: Dockerfile.swarm
-    command:
-      - python3
-      - ms_jarvis_swarm_intelligence.py
-    container_name: jarvis-swarm-intelligence
-    environment:
-      CLOCK_TS: "1767812077"
-      OLLAMA_HOST: http://jarvis-ollama:11434
-      SERVICE_PORT: "8021"
-    expose:
-      - "8021"
-    logging:
-      driver: json-file
-      options:
-        max-file: "3"
-        max-size: 10m
-    networks:
-      qualia-net: null
-    restart: unless-stopped
-    working_dir: /app/services
-  jarvis-temporal-consciousness:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile.temporal_consciousness
-    container_name: jarvis-temporal-consciousness
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "7007"
-    networks:
-      qualia-net: null
-    restart: unless-stopped
-  jarvis-toroidal:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile.toroidal
-    container_name: jarvis-toroidal
-    depends_on:
-      jarvis-consciousness-bridge:
-        condition: service_started
-        required: true
-      jarvis-ollama:
-        condition: service_started
-        required: true
-    environment:
-      CLOCK_TS: "1767812077"
-      CONSCIOUSNESS_BRIDGE_URL: http://jarvis-consciousness-bridge:8020
-      OLLAMA_HOST: http://jarvis-ollama:11434
-    image: msjarvis-toroidal:latest
-    logging:
-      driver: json-file
-      options:
-        max-file: "3"
-        max-size: 10m
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8025
-        published: "8025"
-        protocol: tcp
-    restart: unless-stopped
-  jarvis-unified-gateway:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild
-      dockerfile: Dockerfile.gateway
-    command:
-      - python3
-      - ms_jarvis_unified_gateway.py
-    container_name: jarvis-unified-gateway
-    depends_on:
-      jarvis-20llm-production:
-        condition: service_started
-        required: true
-      jarvis-blood-brain-barrier:
-        condition: service_started
-        required: true
-      jarvis-brain-orchestrator:
-        condition: service_started
-        required: true
-      jarvis-chroma:
-        condition: service_started
-        required: true
-      jarvis-consciousness-bridge:
-        condition: service_started
-        required: true
-      jarvis-constitutional-guardian:
-        condition: service_started
-        required: true
-      jarvis-fifth-dgm:
-        condition: service_started
-        required: true
-      jarvis-fractal-consciousness:
-        condition: service_started
-        required: true
-      jarvis-i-containers:
-        condition: service_started
-        required: true
-      jarvis-lm-synthesizer:
-        condition: service_started
-        required: true
-      jarvis-neurobiological-master:
-        condition: service_started
-        required: true
-      jarvis-ollama:
-        condition: service_started
-        required: true
-      jarvis-psychology-services:
-        condition: service_started
-        required: true
-      jarvis-qualia-engine:
-        condition: service_started
-        required: true
-      jarvis-redis:
-        condition: service_started
-        required: true
-      jarvis-toroidal:
-        condition: service_started
-        required: true
-      jarvis-woah:
-        condition: service_started
-        required: true
-      nbb-i-containers:
-        condition: service_started
-        required: true
-      nbb_consciousness_containers:
-        condition: service_started
-        required: true
-      nbb_heteroglobulin_transport:
-        condition: service_started
-        required: true
-      nbb_mother_carrie_protocols:
-        condition: service_started
-        required: true
-      nbb_pituitary_gland:
-        condition: service_started
-        required: true
-      nbb_prefrontal_cortex:
-        condition: service_started
-        required: true
-      nbb_spiritual_maternal_integration:
-        condition: service_started
-        required: true
-      nbb_spiritual_root:
-        condition: service_started
-        required: true
-      nbb_subconscious:
-        condition: service_started
-        required: true
-      nbb_woah_algorithms:
-        condition: service_started
-        required: true
-      psychological_rag_domain:
-        condition: service_started
-        required: true
-    deploy:
-      resources:
-        limits:
-          cpus: 2
-          memory: "4294967296"
-    environment:
-      BBB_URL: http://jarvis-blood-brain-barrier:8016
-      CLOCK_TS: "1767812077"
-      CONSCIOUSNESS_BRIDGE_URL: http://jarvis-consciousness-bridge:8020
-      CONSTITUTIONAL_GUARDIAN_URL: http://jarvis-constitutional-guardian:8091
-      FIFTH_DGM_URL: http://jarvis-fifth-dgm:4002
-      FRACTAL_URL: http://jarvis-fractal-consciousness:8027
-      JARVIS_API_KEY: super-secret-key
-      JARVIS_API_KEY_FILE: /run/secrets/jarvisapikey
-      MAX_CONCURRENT_CHATS: "4"
-      NEURO_MASTER_URL: http://jarvis-neurobiological-master:8018
-      PSYCHOLOGICAL_RAG_URL: http://psychological_rag_domain:9006
-      PSYCHOLOGY_SERVICES_URL: http://jarvis-psychology-services:8019
-      SERVICE_PORT: "8001"
-      TOROIDAL_URL: http://jarvis-toroidal:8025
-      WOAH_URL: http://jarvis-woah:7012
-    healthcheck:
-      test:
-        - CMD
-        - python3
-        - -c
-        - import urllib.request, sys; r = urllib.request.urlopen('http://127.0.0.1:8001/health', timeout=5); sys.exit(0 if r.status == 200 else 1)
-      timeout: 10s
-      interval: 30s
-      retries: 3
-      start_period: 20s
-    logging:
-      driver: json-file
-      options:
-        max-file: "5"
-        max-size: 10m
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8001
-        published: "8001"
-        protocol: tcp
-    restart: unless-stopped
-    secrets:
-      - source: jarvisapikey
-        target: /run/secrets/jarvisapikey
-    volumes:
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/services
-        target: /app/services
-        bind: {}
-    working_dir: /app/services
-  jarvis-web-research:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile.web_research
-    command:
-      - python
-      - ms_jarvis_web_research_simple.py
-    container_name: jarvis-web-research
-    environment:
-      CLOCK_TS: "1767812077"
-      RAG_SERVER_URL: http://jarvis-rag-server:8003
-      SERVICE_PORT: "8008"
-    expose:
-      - "8008"
-    logging:
-      driver: json-file
-      options:
-        max-file: "3"
-        max-size: 10m
-    networks:
-      qualia-net: null
-    restart: unless-stopped
-  jarvis-woah:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild
-      dockerfile: Dockerfile.woah
-    container_name: jarvis-woah
-    depends_on:
-      jarvis-ollama:
-        condition: service_started
-        required: true
-    environment:
-      CLOCK_TS: "1767812077"
-      OLLAMA_HOST: http://jarvis-ollama:11434
-      SERVICE_PORT: "7012"
-    expose:
-      - "7012"
-    logging:
-      driver: json-file
-      options:
-        max-file: "3"
-        max-size: 10m
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 7012
-        published: "7012"
-        protocol: tcp
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/services
-        target: /app
-        bind: {}
-  jarvis-wv-entangled-gateway:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild
-      dockerfile: Dockerfile
-    command:
-      - python
-      - -m
-      - uvicorn
-      - msjarvis_wv_entangled_gateway:app
-      - --host
-      - 0.0.0.0
-      - --port
-      - "8010"
-      - --log-level
-      - info
-    container_name: jarvis-wv-entangled-gateway
-    depends_on:
-      jarvis-20llm-production:
-        condition: service_started
-        required: true
-    environment:
-      CLOCK_TS: "1767812077"
-      SERVICE_PORT: "8010"
-    expose:
-      - "8010"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8010
-        published: "8010"
-        protocol: tcp
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/services
-        target: /app/services
-        bind: {}
-    working_dir: /app/services
-  llm1-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm1-proxy
-    container_name: llm1-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8201"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8201
-        published: "8201"
-        protocol: tcp
-    restart: unless-stopped
-  llm2-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm2-proxy
-    container_name: llm2-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8202"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8202
-        published: "8202"
-        protocol: tcp
-    restart: unless-stopped
-  llm3-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm3-proxy
-    container_name: llm3-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8203"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8203
-        published: "8203"
-        protocol: tcp
-    restart: unless-stopped
-  llm4-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm4-proxy
-    container_name: llm4-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8204"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8204
-        published: "8204"
-        protocol: tcp
-    restart: unless-stopped
-  llm5-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm5-proxy
-    container_name: llm5-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8205"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8205
-        published: "8205"
-        protocol: tcp
-    restart: unless-stopped
-  llm6-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm6-proxy
-    container_name: llm6-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8206"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8206
-        published: "8206"
-        protocol: tcp
-    restart: unless-stopped
-  llm7-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm7-proxy
-    container_name: llm7-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8207"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8207
-        published: "8207"
-        protocol: tcp
-    restart: unless-stopped
-  llm8-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm8-proxy
-    container_name: llm8-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8208"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8208
-        published: "8208"
-        protocol: tcp
-    restart: unless-stopped
-  llm9-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm9-proxy
-    container_name: llm9-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8209"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8209
-        published: "8209"
-        protocol: tcp
-    restart: unless-stopped
-  llm10-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm10-proxy
-    container_name: llm10-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8210"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8210
-        published: "8210"
-        protocol: tcp
-    restart: unless-stopped
-  llm11-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm11-proxy
-    container_name: llm11-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8211"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8211
-        published: "8211"
-        protocol: tcp
-    restart: unless-stopped
-  llm12-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm12-proxy
-    container_name: llm12-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8212"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8212
-        published: "8212"
-        protocol: tcp
-    restart: unless-stopped
-  llm13-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm13-proxy
-    container_name: llm13-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8213"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8213
-        published: "8213"
-        protocol: tcp
-    restart: unless-stopped
-  llm14-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm14-proxy
-    container_name: llm14-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8214"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8214
-        published: "8214"
-        protocol: tcp
-    restart: unless-stopped
-  llm15-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm15-proxy
-    container_name: llm15-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8215"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8215
-        published: "8215"
-        protocol: tcp
-    restart: unless-stopped
-  llm16-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm16-proxy
-    container_name: llm16-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8216"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8216
-        published: "8216"
-        protocol: tcp
-    restart: unless-stopped
-  llm17-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm17-proxy
-    container_name: llm17-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8217"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8217
-        published: "8217"
-        protocol: tcp
-    restart: unless-stopped
-  llm18-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm18-proxy
-    container_name: llm18-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8218"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8218
-        published: "8218"
-        protocol: tcp
-    restart: unless-stopped
-  llm19-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm19-proxy
-    container_name: llm19-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8219"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8219
-        published: "8219"
-        protocol: tcp
-    restart: unless-stopped
-  llm20-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm20-proxy
-    container_name: llm20-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8220"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8220
-        published: "8220"
-        protocol: tcp
-    restart: unless-stopped
-  llm21-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm21-proxy
-    container_name: llm21-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8221"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8221
-        published: "8221"
-        protocol: tcp
-    restart: unless-stopped
-  llm22-proxy:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile-llm22-proxy
-    container_name: llm22-proxy
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8222"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8222
-        published: "8222"
-        protocol: tcp
-    restart: unless-stopped
-  ms-mountainshares-analytics:
-    command:
-      - sh
-      - -c
-      - cd /app/services && python3 ms_mountainshares_analytics.py
-    container_name: jarvis-ms-analytics
-    depends_on:
-      ms-mountainshares-coordinator:
-        condition: service_started
-        required: true
-    environment:
-      PORT: "8083"
-      ROLE: analytics
-    image: jarvis-main-brain:latest
-    networks:
-      default: null
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8083
-        published: "8083"
-        protocol: tcp
-    restart: unless-stopped
-  ms-mountainshares-coordinator:
-    command:
-      - sh
-      - -c
-      - cd /app/services && python3 ms_mountainshares_coordinator.py
-    container_name: jarvis-ms-coordinator
-    depends_on:
-      jarvis-local-resources-db:
-        condition: service_started
-        required: true
-      jarvis-redis:
-        condition: service_started
-        required: true
-    environment:
-      DB_DSN: postgresql://postgres:postgres@jarvis-local-resources-db:5432/local_resources
-      REDIS_URL: redis://jarvis-redis:6379
-      SERVICE_PORT: "7300"
-    expose:
-      - "7300"
-    image: jarvis-main-brain:latest
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 7300
-        published: "7300"
-        protocol: tcp
-    restart: unless-stopped
-    working_dir: /app/services
-  ms-mountainshares-indexer:
-    command:
-      - sh
-      - -c
-      - cd /app/services && python3 ms_mountainshares_indexer.py
-    container_name: jarvis-ms-indexer
-    depends_on:
-      ms-mountainshares-coordinator:
-        condition: service_started
-        required: true
-    environment:
-      PORT: "8080"
-      ROLE: indexer
-    image: jarvis-main-brain:latest
-    networks:
-      default: null
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8080
-        published: "8080"
-        protocol: tcp
-    restart: unless-stopped
-  mysql:
-    container_name: mysql
-    environment:
-      CLOCK_TS: "1767812077"
-      MYSQL_DATABASE: quantum_ai
-      MYSQL_PASSWORD: j4rv1sgeo!
-      MYSQL_ROOT_PASSWORD: my_secret_root_pw
-      MYSQL_USER: msjarvis
-    image: mysql:8.2
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 3306
-        published: "3307"
-        protocol: tcp
-    restart: always
-    volumes:
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/data/mysql
-        target: /var/lib/mysql
-        bind: {}
-  nbb-i-containers:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild
-      dockerfile: Dockerfile.nbb_icontainers_fastapi
-    container_name: nbb-i-containers
-    environment:
-      CLOCK_TS: "1767812077"
-      NBB_ICONTAINERS_URL: http://nbb_i-containers:7005
-    expose:
-      - "7005"
-    networks:
-      qualia-net:
-        aliases:
-          - nbb_i-containers
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 7005
-        published: "8101"
-        protocol: tcp
-    restart: "no"
-  nbb_blood_brain_barrier:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/blood_brain_barrier/service
-      dockerfile: Dockerfile
-    container_name: nbb_blood_brain_barrier
-    environment:
-      CLOCK_TS: "1767812077"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8010
-        published: "8301"
-        protocol: tcp
-    restart: unless-stopped
-  nbb_consciousness_containers:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/consciousness_containers/service
-      dockerfile: Dockerfile
-    container_name: nbb_consciousness_containers
-    environment:
-      CLOCK_TS: "1767812077"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8010
-        published: "8102"
-        protocol: tcp
-    restart: unless-stopped
-  nbb_darwin_godel_machines:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/darwin_godel_machines/service
-      dockerfile: Dockerfile
-    container_name: nbb_darwin_godel_machines
-    environment:
-      CLOCK_TS: "1767812077"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8010
-        published: "8302"
-        protocol: tcp
-    restart: unless-stopped
-  nbb_heteroglobulin_transport:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service
-      dockerfile: Dockerfile
-    container_name: nbb_heteroglobulin_transport
-    environment:
-      CLOCK_TS: "1767812077"
-      SERVICE_REDIS_ENABLED: "true"
-      SERVICE_REDIS_HOST: jarvis-redis
-      SERVICE_REDIS_PORT: "6379"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8010
-        published: "8106"
-        protocol: tcp
-    restart: unless-stopped
-  nbb_i_containers:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/i_containers/service
-      dockerfile: Dockerfile
-    command:
-      - sh
-      - -c
-      - ln -sfn /app/neurobiological_brain/i_containers /app/neurobiological_brain/neurobiologicalbrain/i_containers 2>/dev/null; python3 ms_jarvis_i_containers_service.py
-    container_name: jarvis-nbb-i-containers-2
-    environment:
-      CLOCK_TS: null
-      PYTHONPATH: /app:/app/services:/app/neurobiological_brain
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8015
-        published: "8015"
-        protocol: tcp
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain
-        target: /app/neurobiological_brain
-        bind: {}
-      - type: bind
-        source: /home/cakidd/i-containers-overlay/integration_layer
-        target: /app/integration_layer
-        read_only: true
-        bind: {}
-    working_dir: /app
-  nbb_mother_carrie_protocols:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service
-      dockerfile: Dockerfile
-    container_name: nbb_mother_carrie_protocols
-    environment:
-      CLOCK_TS: "1767812077"
-      SERVICE_PORT: "8010"
-      SERVICE_REDIS_ENABLED: "true"
-      SERVICE_REDIS_HOST: jarvis-redis
-      SERVICE_REDIS_PORT: "6379"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8010
-        published: "8107"
-        protocol: tcp
-    restart: unless-stopped
-  nbb_pituitary_gland:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service
-      dockerfile: Dockerfile
-    container_name: nbb_pituitary_gland
-    environment:
-      CLOCK_TS: "1767812077"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 80
-        published: "8108"
-        protocol: tcp
-    restart: unless-stopped
-  nbb_prefrontal_cortex:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service
-      dockerfile: Dockerfile
-    container_name: nbb_prefrontal_cortex
-    environment:
-      CLOCK_TS: "1767812077"
-      SERVICE_REDIS_ENABLED: "true"
-      SERVICE_REDIS_HOST: jarvis-redis
-      SERVICE_REDIS_PORT: "6379"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8010
-        published: "8105"
-        protocol: tcp
-    restart: unless-stopped
-  nbb_qualia_engine:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/qualia_engine/service
-      dockerfile: Dockerfile
-    container_name: nbb_qualia_engine
-    environment:
-      CLOCK_TS: "1767812077"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8010
-        published: "8303"
-        protocol: tcp
-    restart: unless-stopped
-  nbb_spiritual_maternal_integration:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service
-      dockerfile: Dockerfile
-    container_name: nbb_spiritual_maternal_integration
-    environment:
-      CLOCK_TS: "1767812077"
-      SERVICE_PORT: "8010"
-      SERVICE_REDIS_ENABLED: "true"
-      SERVICE_REDIS_HOST: jarvis-redis
-      SERVICE_REDIS_PORT: "6379"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8010
-        published: "8109"
-        protocol: tcp
-    restart: unless-stopped
-  nbb_spiritual_root:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/spiritual_root/service
-      dockerfile: Dockerfile
-    container_name: nbb_spiritual_root
-    environment:
-      CLOCK_TS: "1767812077"
-      SERVICE_PORT: "8010"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8010
-        published: "8103"
-        protocol: tcp
-    restart: unless-stopped
-  nbb_subconscious:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/subconscious/service
-      dockerfile: Dockerfile
-    container_name: nbb_subconscious
-    environment:
-      CLOCK_TS: "1767812077"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8010
-        published: "8112"
-        protocol: tcp
-    restart: unless-stopped
-  nbb_woah_algorithms:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/neurobiological_brain/woah_algorithms/service
-      dockerfile: Dockerfile
-    container_name: nbb_woah_algorithms
-    environment:
-      CLOCK_TS: "1767812077"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8010
-        published: "8104"
-        protocol: tcp
-    restart: unless-stopped
-  neo4j:
-    container_name: neo4j
-    environment:
-      CLOCK_TS: "1767812077"
-      NEO4J_ACCEPT_LICENSE_AGREEMENT: "yes"
-      NEO4J_AUTH: neo4j/neo4jpassword
-    image: neo4j:5.13-community
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 7687
-        published: "7687"
-        protocol: tcp
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 7474
-        published: "7475"
-        protocol: tcp
-    restart: unless-stopped
-  psychological_rag_domain:
-    build:
-      context: /mnt/nvme1/msjarvis-rebuild/services
-      dockerfile: Dockerfile.psychological_rag
-    command:
-      - python
-      - psychological_rag_domain.py
-    container_name: psychological_rag_domain
-    environment:
-      CLOCK_TS: "1767812077"
-    expose:
-      - "8006"
-    networks:
-      qualia-net: null
-    ports:
-      - mode: ingress
-        host_ip: 127.0.0.1
-        target: 8006
-        published: "9006"
-        protocol: tcp
-    restart: unless-stopped
-    working_dir: /app
-networks:
-=== patch command to mounted path /appservices/lm_synthesizer.py ===
-✗ no matching command stanza found; inspect the service block manually
-=== validate compose ===
-✓ compose valid
-=== recreate synthesizer ===
-[+] up 1/1
- ✔ Container jarvis-lm-synthesizer Started                                                  0.6s
-=== verify mounted rewrite exists ===
-ls: cannot access '/appservices/lm_synthesizer.py': No such file or directory
-grep: /appservices/lm_synthesizer.py: No such file or directory
-=== verify running command ===
-[
-    "python",
-    "lm_synthesizer.py"
+patterns = [
+    r'gbim_entities',
+    r'document_chunks',
+    r'kyc_vault',
+    r'kyc_location_strip',
+    r'kyc_vault_access_log',
+    r'user_documents',
+    r'interaction_provenance_immutable',
+    r'conversationgbimprivate',
+    r'conversationgbimpublic',
+    r'faces',
+    r'constitutional_check',
+    r'/constitutional/check',
 ]
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ 
+root = Path(".")
+hits = {}
+for p in root.rglob("*.py"):
+PY  print(k, "=>", ",".join(hits[k]))t=2, sort_keys=True))308" / "artifac
+/home/cakidd/hp-antisurveillance-next-20260629-015308/artifacts/guarded-code-candidates.json
+count= 565
+.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py => constitutional_check,/constitutional/check
+.archive/services.backup_20260308_111532/jarvis-hippocampus_hippocampus_service.py => gbim_entities,faces
+.archive/services.backup_20260308_111532/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py => gbim_entities,faces
+.check_venv/lib/python3.12/site-packages/anyio/_core/_sockets.py => faces
+.check_venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py => faces
+.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py => faces
+.check_venv/lib/python3.12/site-packages/click/core.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/__init__.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/_client_adaptations.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/_server_adaptations.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/implementations.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/interfaces.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/utilities.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/framework/foundation/stream.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/base/utilities.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/face.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/utilities.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/__init__.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/connection.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http11.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http2.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_models.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/connection.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http11.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http2.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py => faces
+.check_venv/lib/python3.12/site-packages/httpx/_content.py => faces
+.check_venv/lib/python3.12/site-packages/jsonschema/protocols.py => faces
+.check_venv/lib/python3.12/site-packages/mpmath/ctx_iv.py => faces
+.check_venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py => faces
+.check_venv/lib/python3.12/site-packages/mpmath/rational.py => faces
+.check_venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs.py => faces
+.check_venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py => faces
+.check_venv/lib/python3.12/site-packages/numpy/random/tests/test_direct.py => faces
+.check_venv/lib/python3.12/site-packages/numpy/typing/mypy_plugin.py => faces
+.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py => faces
+.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/metrics/container_metrics.py => faces
+.check_venv/lib/python3.12/site-packages/packaging/version.py => faces
+.check_venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py => faces
+.check_venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py => faces
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py => user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py => user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py => user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py => user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py => user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py => user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py => user_documents
+.check_venv/lib/python3.12/site-packages/pydantic/v1/_hypothesis_plugin.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_cocoa_builtins.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_scheme_builtins.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/freefem.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/macaulay2.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/matlab.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/generators.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/polyhedron.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/tests/test_polyhedron.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/core/basic.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/core/containers.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/core/tests/test_args.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/geometry/line.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/geometry/parabola.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/integrals/intpoly.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/integrals/tests/test_intpoly.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/interactive/printing.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/physics/mechanics/actuator.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/physics/mechanics/wrapping_geometry.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/physics/quantum/identitysearch.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/plotting/backends/base_backend.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/plotting/plot.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/plot.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/plotting/series.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_plot.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/printing/pretty/tests/test_pretty.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/stats/rv.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/unify/core.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/vector/implicitregion.py => faces
+.check_venv/lib/python3.12/site-packages/uvicorn/workers.py => faces
+ai_server_20llm_PRODUCTION.py => gbim_entities
+auth_router.py => kyc_vault
+crypto-venv/lib/python3.12/site-packages/anyio/_core/_sockets.py => faces
+crypto-venv/lib/python3.12/site-packages/art/data/fonts2.py => faces
+crypto-venv/lib/python3.12/site-packages/art/data/fonts3.py => faces
+crypto-venv/lib/python3.12/site-packages/art/params.py => faces
+crypto-venv/lib/python3.12/site-packages/art/tests/test.py => faces
+crypto-venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py => faces
+crypto-venv/lib/python3.12/site-packages/click/core.py => faces
+crypto-venv/lib/python3.12/site-packages/cryptography/hazmat/backends/openssl/backend.py => faces
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydev_bundle/_pydev_jy_imports_tipper.py => faces
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevconsole_code.py => faces
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_resolver.py => faces
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/sql.py => faces
+crypto-venv/lib/python3.12/site-packages/demjson3.py => faces
+crypto-venv/lib/python3.12/site-packages/distro/distro.py => faces
+crypto-venv/lib/python3.12/site-packages/dns/win32util.py => faces
+crypto-venv/lib/python3.12/site-packages/eth_typing/abi.py => faces
+crypto-venv/lib/python3.12/site-packages/eth_utils/abi.py => faces
+crypto-venv/lib/python3.12/site-packages/feedparser/parsers/loose.py => faces
+crypto-venv/lib/python3.12/site-packages/feedparser/parsers/strict.py => faces
+crypto-venv/lib/python3.12/site-packages/fiona/io.py => faces
+crypto-venv/lib/python3.12/site-packages/fontTools/designspaceLib/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/fontTools/misc/cliTools.py => faces
+crypto-venv/lib/python3.12/site-packages/fontTools/ufoLib/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/geoalchemy2/_functions.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/beta/_client_adaptations.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/beta/_server_adaptations.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/beta/implementations.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/beta/interfaces.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/beta/utilities.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/framework/foundation/stream.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/base/utilities.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/face.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/utilities.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/connection.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http11.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http2.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_models.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/connection.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http11.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http2.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py => faces
+crypto-venv/lib/python3.12/site-packages/httpx/_content.py => faces
+crypto-venv/lib/python3.12/site-packages/ipykernel/heartbeat.py => faces
+crypto-venv/lib/python3.12/site-packages/ipykernel/inprocess/blocking.py => faces
+crypto-venv/lib/python3.12/site-packages/ipykernel/iostream.py => faces
+crypto-venv/lib/python3.12/site-packages/jeepney/bindgen.py => faces
+crypto-venv/lib/python3.12/site-packages/jeepney/tests/test_bindgen.py => faces
+crypto-venv/lib/python3.12/site-packages/jeepney/wrappers.py => faces
+crypto-venv/lib/python3.12/site-packages/jsonschema/protocols.py => faces
+crypto-venv/lib/python3.12/site-packages/jupyter_client/blocking/client.py => faces
+crypto-venv/lib/python3.12/site-packages/jupyter_client/connect.py => faces
+crypto-venv/lib/python3.12/site-packages/jupyter_client/consoleapp.py => faces
+crypto-venv/lib/python3.12/site-packages/jupyter_client/localinterfaces.py => faces
+crypto-venv/lib/python3.12/site-packages/jupyter_client/provisioning/local_provisioner.py => faces
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1_device_constraint.py => faces
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1beta1_device_constraint.py => faces
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1beta2_device_constraint.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/axes/_axes.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/backends/backend_cairo.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/collections.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/colors.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/figure.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/legend.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/pylab.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/pyplot.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_colors.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_ft2font.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_triangulation.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/tri/_tripcolor.py => faces
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/art3d.py => faces
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/axes3d.py => faces
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/tests/test_axes3d.py => faces
+crypto-venv/lib/python3.12/site-packages/mpmath/ctx_iv.py => faces
+crypto-venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py => faces
+crypto-venv/lib/python3.12/site-packages/mpmath/rational.py => faces
+crypto-venv/lib/python3.12/site-packages/networkx/algorithms/planar_drawing.py => faces
+crypto-venv/lib/python3.12/site-packages/networkx/algorithms/planarity.py => faces
+crypto-venv/lib/python3.12/site-packages/networkx/generators/small.py => faces
+crypto-venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs.py => faces
+crypto-venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py => faces
+crypto-venv/lib/python3.12/site-packages/numpy/random/tests/test_direct.py => faces
+crypto-venv/lib/python3.12/site-packages/numpy/typing/mypy_plugin.py => faces
+crypto-venv/lib/python3.12/site-packages/onnx_ir/_protocols.py => faces
+crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py => faces
+crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/metrics/container_metrics.py => faces
+crypto-venv/lib/python3.12/site-packages/packaging/version.py => faces
+crypto-venv/lib/python3.12/site-packages/pandas/core/groupby/generic.py => faces
+crypto-venv/lib/python3.12/site-packages/pandas/tests/plotting/frame/test_frame.py => faces
+crypto-venv/lib/python3.12/site-packages/pexpect/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py => faces
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py => faces
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip_audit/_dependency_source/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/pip_audit/_dependency_source/interface.py => faces
+crypto-venv/lib/python3.12/site-packages/pip_audit/_format/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/pip_audit/_format/interface.py => faces
+crypto-venv/lib/python3.12/site-packages/pip_audit/_service/__init__.py => faces
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ cd ~/msjarvis-rebuild || exit 1
+
+python3 - <<'PY'
+from pathlib import Path
+import re, json
+
+patterns = [
+    r'gbim_entities',
+    r'document_chunks',
+    r'kyc_vault',
+    r'kyc_location_strip',
+    r'kyc_vault_access_log',
+    r'user_documents',
+    r'interaction_provenance_immutable',
+    r'conversationgbimprivate',
+    r'conversationgbimpublic',
+    r'faces',
+    r'constitutional_check',
+    r'/constitutional/check',
+]
+root = Path(".")
+hits = {}
+for p in root.rglob("*.py"):
+PY  print(k, "=>", ",".join(hits[k]))t=2, sort_keys=True))308" / "artifac
+/home/cakidd/hp-antisurveillance-next-20260629-015308/artifacts/guarded-code-candidates.json
+count= 565
+.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py => constitutional_check,/constitutional/check
+.archive/services.backup_20260308_111532/jarvis-hippocampus_hippocampus_service.py => gbim_entities,faces
+.archive/services.backup_20260308_111532/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py => gbim_entities,faces
+.check_venv/lib/python3.12/site-packages/anyio/_core/_sockets.py => faces
+.check_venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py => faces
+.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py => faces
+.check_venv/lib/python3.12/site-packages/click/core.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/__init__.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/_client_adaptations.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/_server_adaptations.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/implementations.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/interfaces.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/utilities.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/framework/foundation/stream.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/base/utilities.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/face.py => faces
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/utilities.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/__init__.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/connection.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http11.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http2.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_models.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/connection.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http11.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http2.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py => faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py => faces
+.check_venv/lib/python3.12/site-packages/httpx/_content.py => faces
+.check_venv/lib/python3.12/site-packages/jsonschema/protocols.py => faces
+.check_venv/lib/python3.12/site-packages/mpmath/ctx_iv.py => faces
+.check_venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py => faces
+.check_venv/lib/python3.12/site-packages/mpmath/rational.py => faces
+.check_venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs.py => faces
+.check_venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py => faces
+.check_venv/lib/python3.12/site-packages/numpy/random/tests/test_direct.py => faces
+.check_venv/lib/python3.12/site-packages/numpy/typing/mypy_plugin.py => faces
+.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py => faces
+.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/metrics/container_metrics.py => faces
+.check_venv/lib/python3.12/site-packages/packaging/version.py => faces
+.check_venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py => faces
+.check_venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py => faces
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py => user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py => user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py => user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py => user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py => user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py => user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py => user_documents
+.check_venv/lib/python3.12/site-packages/pydantic/v1/_hypothesis_plugin.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_cocoa_builtins.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_scheme_builtins.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/freefem.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/macaulay2.py => faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/matlab.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/generators.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/polyhedron.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/tests/test_polyhedron.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/core/basic.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/core/containers.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/core/tests/test_args.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/geometry/line.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/geometry/parabola.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/integrals/intpoly.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/integrals/tests/test_intpoly.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/interactive/printing.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/physics/mechanics/actuator.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/physics/mechanics/wrapping_geometry.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/physics/quantum/identitysearch.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/plotting/backends/base_backend.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/plotting/plot.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/plot.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/plotting/series.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_plot.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/printing/pretty/tests/test_pretty.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/stats/rv.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/unify/core.py => faces
+.check_venv/lib/python3.12/site-packages/sympy/vector/implicitregion.py => faces
+.check_venv/lib/python3.12/site-packages/uvicorn/workers.py => faces
+ai_server_20llm_PRODUCTION.py => gbim_entities
+auth_router.py => kyc_vault
+crypto-venv/lib/python3.12/site-packages/anyio/_core/_sockets.py => faces
+crypto-venv/lib/python3.12/site-packages/art/data/fonts2.py => faces
+crypto-venv/lib/python3.12/site-packages/art/data/fonts3.py => faces
+crypto-venv/lib/python3.12/site-packages/art/params.py => faces
+crypto-venv/lib/python3.12/site-packages/art/tests/test.py => faces
+crypto-venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py => faces
+crypto-venv/lib/python3.12/site-packages/click/core.py => faces
+crypto-venv/lib/python3.12/site-packages/cryptography/hazmat/backends/openssl/backend.py => faces
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydev_bundle/_pydev_jy_imports_tipper.py => faces
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevconsole_code.py => faces
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_resolver.py => faces
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/sql.py => faces
+crypto-venv/lib/python3.12/site-packages/demjson3.py => faces
+crypto-venv/lib/python3.12/site-packages/distro/distro.py => faces
+crypto-venv/lib/python3.12/site-packages/dns/win32util.py => faces
+crypto-venv/lib/python3.12/site-packages/eth_typing/abi.py => faces
+crypto-venv/lib/python3.12/site-packages/eth_utils/abi.py => faces
+crypto-venv/lib/python3.12/site-packages/feedparser/parsers/loose.py => faces
+crypto-venv/lib/python3.12/site-packages/feedparser/parsers/strict.py => faces
+crypto-venv/lib/python3.12/site-packages/fiona/io.py => faces
+crypto-venv/lib/python3.12/site-packages/fontTools/designspaceLib/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/fontTools/misc/cliTools.py => faces
+crypto-venv/lib/python3.12/site-packages/fontTools/ufoLib/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/geoalchemy2/_functions.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/beta/_client_adaptations.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/beta/_server_adaptations.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/beta/implementations.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/beta/interfaces.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/beta/utilities.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/framework/foundation/stream.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/base/utilities.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/face.py => faces
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/utilities.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/connection.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http11.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http2.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_models.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/connection.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http11.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http2.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py => faces
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py => faces
+crypto-venv/lib/python3.12/site-packages/httpx/_content.py => faces
+crypto-venv/lib/python3.12/site-packages/ipykernel/heartbeat.py => faces
+crypto-venv/lib/python3.12/site-packages/ipykernel/inprocess/blocking.py => faces
+crypto-venv/lib/python3.12/site-packages/ipykernel/iostream.py => faces
+crypto-venv/lib/python3.12/site-packages/jeepney/bindgen.py => faces
+crypto-venv/lib/python3.12/site-packages/jeepney/tests/test_bindgen.py => faces
+crypto-venv/lib/python3.12/site-packages/jeepney/wrappers.py => faces
+crypto-venv/lib/python3.12/site-packages/jsonschema/protocols.py => faces
+crypto-venv/lib/python3.12/site-packages/jupyter_client/blocking/client.py => faces
+crypto-venv/lib/python3.12/site-packages/jupyter_client/connect.py => faces
+crypto-venv/lib/python3.12/site-packages/jupyter_client/consoleapp.py => faces
+crypto-venv/lib/python3.12/site-packages/jupyter_client/localinterfaces.py => faces
+crypto-venv/lib/python3.12/site-packages/jupyter_client/provisioning/local_provisioner.py => faces
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1_device_constraint.py => faces
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1beta1_device_constraint.py => faces
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1beta2_device_constraint.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/axes/_axes.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/backends/backend_cairo.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/collections.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/colors.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/figure.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/legend.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/pylab.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/pyplot.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_colors.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_ft2font.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_triangulation.py => faces
+crypto-venv/lib/python3.12/site-packages/matplotlib/tri/_tripcolor.py => faces
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/art3d.py => faces
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/axes3d.py => faces
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/tests/test_axes3d.py => faces
+crypto-venv/lib/python3.12/site-packages/mpmath/ctx_iv.py => faces
+crypto-venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py => faces
+crypto-venv/lib/python3.12/site-packages/mpmath/rational.py => faces
+crypto-venv/lib/python3.12/site-packages/networkx/algorithms/planar_drawing.py => faces
+crypto-venv/lib/python3.12/site-packages/networkx/algorithms/planarity.py => faces
+crypto-venv/lib/python3.12/site-packages/networkx/generators/small.py => faces
+crypto-venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs.py => faces
+crypto-venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py => faces
+crypto-venv/lib/python3.12/site-packages/numpy/random/tests/test_direct.py => faces
+crypto-venv/lib/python3.12/site-packages/numpy/typing/mypy_plugin.py => faces
+crypto-venv/lib/python3.12/site-packages/onnx_ir/_protocols.py => faces
+crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py => faces
+crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/metrics/container_metrics.py => faces
+crypto-venv/lib/python3.12/site-packages/packaging/version.py => faces
+crypto-venv/lib/python3.12/site-packages/pandas/core/groupby/generic.py => faces
+crypto-venv/lib/python3.12/site-packages/pandas/tests/plotting/frame/test_frame.py => faces
+crypto-venv/lib/python3.12/site-packages/pexpect/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py => faces
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py => faces
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py => user_documents
+crypto-venv/lib/python3.12/site-packages/pip_audit/_dependency_source/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/pip_audit/_dependency_source/interface.py => faces
+crypto-venv/lib/python3.12/site-packages/pip_audit/_format/__init__.py => faces
+crypto-venv/lib/python3.12/site-packages/pip_audit/_format/interface.py => faces
+crypto-venv/lib/python3.12/site-packages/pip_audit/_service/__init__.py => faces
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ python3 - <<'PY' | tee ~/hp-antisurveillance-next-20260629-015308/artifacts/guarded-code-candidates-top.txt
+import json, pathlib
+p = pathlib.Path.home() / "hp-antisurveillance-next-20260629-015308" / "artifacts" / "guarded-code-candidates.json"
+hits = json.loads(p.read_text())
+ranked = sorted(hits.items(), key=lambda kv: (-len(kv[1]), kv[0]))
+for path, pats in ranked[:60]:
+    print(f"{path}\t{len(pats)}\t{','.join(pats)}")
+PY
+hp_antisurveillance_guardian_client.py	10	gbim_entities,kyc_vault,kyc_location_strip,kyc_vault_access_log,user_documents,interaction_provenance_immutable,conversationgbimprivate,faces,constitutional_check,/constitutional/check
+kyc-vault/app.py	4	kyc_vault,kyc_location_strip,kyc_vault_access_log,interaction_provenance_immutable
+.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py	2	constitutional_check,/constitutional/check
+.archive/services.backup_20260308_111532/jarvis-hippocampus_hippocampus_service.py	2	gbim_entities,faces
+.archive/services.backup_20260308_111532/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py	2	gbim_entities,faces
+services/jarvis-constitutional-guardian_constitutional_api.py	2	constitutional_check,/constitutional/check
+services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py	2gbim_entities,faces
+.check_venv/lib/python3.12/site-packages/anyio/_core/_sockets.py	1faces
+.check_venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py	1	faces
+.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py	1	faces
+.check_venv/lib/python3.12/site-packages/click/core.py	1	faces
+.check_venv/lib/python3.12/site-packages/grpc/__init__.py	1	faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/_client_adaptations.py1	faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/_server_adaptations.py1	faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/implementations.py	1faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/interfaces.py	1faces
+.check_venv/lib/python3.12/site-packages/grpc/beta/utilities.py	1	faces
+.check_venv/lib/python3.12/site-packages/grpc/framework/foundation/stream.py	1	faces
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/base/utilities.py	1	faces
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/face.py	1	faces
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/utilities.py	1	faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/__init__.py	1faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/connection.py	1faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py	1	faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http11.py	1faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http2.py	1faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py	1faces
+.check_venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py	1faces
+.check_venv/lib/python3.12/site-packages/httpcore/_models.py	1	faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py	1faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/connection.py	1faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py	1	faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http11.py	1faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http2.py	1faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py	1faces
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py	1faces
+.check_venv/lib/python3.12/site-packages/httpx/_content.py	1	faces
+.check_venv/lib/python3.12/site-packages/jsonschema/protocols.py	1faces
+.check_venv/lib/python3.12/site-packages/mpmath/ctx_iv.py	1	faces
+.check_venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py	1faces
+.check_venv/lib/python3.12/site-packages/mpmath/rational.py	1	faces
+.check_venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs.py	1faces
+.check_venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py	1	faces
+.check_venv/lib/python3.12/site-packages/numpy/random/tests/test_direct.py	1	faces
+.check_venv/lib/python3.12/site-packages/numpy/typing/mypy_plugin.py	1faces
+.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py	1	faces
+.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/metrics/container_metrics.py	1	faces
+.check_venv/lib/python3.12/site-packages/packaging/version.py	1	faces
+.check_venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py	1faces
+.check_venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py	1	faces
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py	1	user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py	1	user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py	1	user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py1user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py	1	user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py1	user_documents
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py	1	user_documents
+.check_venv/lib/python3.12/site-packages/pydantic/v1/_hypothesis_plugin.py	1	faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_cocoa_builtins.py	1	faces
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py	1	faces
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ cd ~/msjarvis-rebuild || exit 1
+
+python3 - <<'PY'
+from pathlib import Path
+import re, json
+
+artifact_dir = Path.home() / "hp-antisurveillance-next-20260629-015308" / "artifacts"
+hits = json.loads((artifact_dir / "guarded-code-candidates.json").read_text())
+
+sensitive_tokens = {
+    "gbim_entities",
+    "document_chunks",
+    "kyc_vault",
+    "kyc_location_strip",
+    "kyc_vault_access_log",
+    "user_documents",
+    "interaction_provenance_immutable",
+    "conversationgbimprivate",
+    "conversationgbimpublic",
+    "faces",
+PYint("skipped:", len(skipped)) if skipped else ""))xt("\n".join(f"{a}\t{
+patched: 562
+.archive/services.backup_20260308_111532/jarvis-hippocampus_hippocampus_service.py
+.archive/services.backup_20260308_111532/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
+.check_venv/lib/python3.12/site-packages/anyio/_core/_sockets.py
+.check_venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py
+.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py
+.check_venv/lib/python3.12/site-packages/click/core.py
+.check_venv/lib/python3.12/site-packages/grpc/__init__.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/_client_adaptations.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/_server_adaptations.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/implementations.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/interfaces.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/utilities.py
+.check_venv/lib/python3.12/site-packages/grpc/framework/foundation/stream.py
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/base/utilities.py
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/face.py
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/utilities.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/__init__.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/connection.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http11.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http2.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py
+.check_venv/lib/python3.12/site-packages/httpcore/_models.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/connection.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http11.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http2.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py
+.check_venv/lib/python3.12/site-packages/httpx/_content.py
+.check_venv/lib/python3.12/site-packages/jsonschema/protocols.py
+.check_venv/lib/python3.12/site-packages/mpmath/ctx_iv.py
+.check_venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py
+.check_venv/lib/python3.12/site-packages/mpmath/rational.py
+.check_venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs.py
+.check_venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
+.check_venv/lib/python3.12/site-packages/numpy/random/tests/test_direct.py
+.check_venv/lib/python3.12/site-packages/numpy/typing/mypy_plugin.py
+.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
+.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/metrics/container_metrics.py
+.check_venv/lib/python3.12/site-packages/packaging/version.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py
+.check_venv/lib/python3.12/site-packages/pydantic/v1/_hypothesis_plugin.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_cocoa_builtins.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_scheme_builtins.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/freefem.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/macaulay2.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/matlab.py
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/generators.py
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/polyhedron.py
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/tests/test_polyhedron.py
+.check_venv/lib/python3.12/site-packages/sympy/core/basic.py
+.check_venv/lib/python3.12/site-packages/sympy/core/containers.py
+.check_venv/lib/python3.12/site-packages/sympy/core/tests/test_args.py
+.check_venv/lib/python3.12/site-packages/sympy/geometry/line.py
+.check_venv/lib/python3.12/site-packages/sympy/geometry/parabola.py
+.check_venv/lib/python3.12/site-packages/sympy/integrals/intpoly.py
+.check_venv/lib/python3.12/site-packages/sympy/integrals/tests/test_intpoly.py
+.check_venv/lib/python3.12/site-packages/sympy/interactive/printing.py
+.check_venv/lib/python3.12/site-packages/sympy/physics/mechanics/actuator.py
+.check_venv/lib/python3.12/site-packages/sympy/physics/mechanics/wrapping_geometry.py
+.check_venv/lib/python3.12/site-packages/sympy/physics/quantum/identitysearch.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/backends/base_backend.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/plot.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/plot.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/series.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_plot.py
+.check_venv/lib/python3.12/site-packages/sympy/printing/pretty/tests/test_pretty.py
+.check_venv/lib/python3.12/site-packages/sympy/stats/rv.py
+.check_venv/lib/python3.12/site-packages/sympy/unify/core.py
+.check_venv/lib/python3.12/site-packages/sympy/vector/implicitregion.py
+.check_venv/lib/python3.12/site-packages/uvicorn/workers.py
+ai_server_20llm_PRODUCTION.py
+auth_router.py
+crypto-venv/lib/python3.12/site-packages/anyio/_core/_sockets.py
+crypto-venv/lib/python3.12/site-packages/art/data/fonts2.py
+crypto-venv/lib/python3.12/site-packages/art/data/fonts3.py
+crypto-venv/lib/python3.12/site-packages/art/params.py
+crypto-venv/lib/python3.12/site-packages/art/tests/test.py
+crypto-venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py
+crypto-venv/lib/python3.12/site-packages/click/core.py
+crypto-venv/lib/python3.12/site-packages/cryptography/hazmat/backends/openssl/backend.py
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydev_bundle/_pydev_jy_imports_tipper.py
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevconsole_code.py
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_resolver.py
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/sql.py
+crypto-venv/lib/python3.12/site-packages/demjson3.py
+crypto-venv/lib/python3.12/site-packages/distro/distro.py
+crypto-venv/lib/python3.12/site-packages/dns/win32util.py
+crypto-venv/lib/python3.12/site-packages/eth_typing/abi.py
+crypto-venv/lib/python3.12/site-packages/eth_utils/abi.py
+crypto-venv/lib/python3.12/site-packages/feedparser/parsers/loose.py
+crypto-venv/lib/python3.12/site-packages/feedparser/parsers/strict.py
+crypto-venv/lib/python3.12/site-packages/fiona/io.py
+crypto-venv/lib/python3.12/site-packages/fontTools/designspaceLib/__init__.py
+crypto-venv/lib/python3.12/site-packages/fontTools/misc/cliTools.py
+crypto-venv/lib/python3.12/site-packages/fontTools/ufoLib/__init__.py
+crypto-venv/lib/python3.12/site-packages/geoalchemy2/_functions.py
+crypto-venv/lib/python3.12/site-packages/grpc/__init__.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/_client_adaptations.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/_server_adaptations.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/implementations.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/interfaces.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/utilities.py
+crypto-venv/lib/python3.12/site-packages/grpc/framework/foundation/stream.py
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/base/utilities.py
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/face.py
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/utilities.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/__init__.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/connection.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http11.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http2.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_models.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/connection.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http11.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http2.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py
+crypto-venv/lib/python3.12/site-packages/httpx/_content.py
+crypto-venv/lib/python3.12/site-packages/ipykernel/heartbeat.py
+crypto-venv/lib/python3.12/site-packages/ipykernel/inprocess/blocking.py
+crypto-venv/lib/python3.12/site-packages/ipykernel/iostream.py
+crypto-venv/lib/python3.12/site-packages/jeepney/bindgen.py
+crypto-venv/lib/python3.12/site-packages/jeepney/tests/test_bindgen.py
+crypto-venv/lib/python3.12/site-packages/jeepney/wrappers.py
+crypto-venv/lib/python3.12/site-packages/jsonschema/protocols.py
+crypto-venv/lib/python3.12/site-packages/jupyter_client/blocking/client.py
+crypto-venv/lib/python3.12/site-packages/jupyter_client/connect.py
+crypto-venv/lib/python3.12/site-packages/jupyter_client/consoleapp.py
+crypto-venv/lib/python3.12/site-packages/jupyter_client/localinterfaces.py
+crypto-venv/lib/python3.12/site-packages/jupyter_client/provisioning/local_provisioner.py
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1_device_constraint.py
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1beta1_device_constraint.py
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1beta2_device_constraint.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/__init__.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/axes/_axes.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/backends/backend_cairo.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/collections.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/colors.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/figure.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/legend.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/pylab.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/pyplot.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_colors.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_ft2font.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_triangulation.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/tri/_tripcolor.py
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/art3d.py
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/axes3d.py
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/tests/test_axes3d.py
+crypto-venv/lib/python3.12/site-packages/mpmath/ctx_iv.py
+crypto-venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py
+crypto-venv/lib/python3.12/site-packages/mpmath/rational.py
+crypto-venv/lib/python3.12/site-packages/networkx/algorithms/planar_drawing.py
+crypto-venv/lib/python3.12/site-packages/networkx/algorithms/planarity.py
+crypto-venv/lib/python3.12/site-packages/networkx/generators/small.py
+crypto-venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs.py
+crypto-venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
+crypto-venv/lib/python3.12/site-packages/numpy/random/tests/test_direct.py
+crypto-venv/lib/python3.12/site-packages/numpy/typing/mypy_plugin.py
+crypto-venv/lib/python3.12/site-packages/onnx_ir/_protocols.py
+crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
+crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/metrics/container_metrics.py
+crypto-venv/lib/python3.12/site-packages/packaging/version.py
+crypto-venv/lib/python3.12/site-packages/pandas/core/groupby/generic.py
+crypto-venv/lib/python3.12/site-packages/pandas/tests/plotting/frame/test_frame.py
+crypto-venv/lib/python3.12/site-packages/pexpect/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_dependency_source/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_dependency_source/interface.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_format/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_format/interface.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_service/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_service/interface.py
+skipped: 3
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ cd ~/msjarvis-rebuild || exit 1
+
+python3 - <<'PY'
+from pathlib import Path
+import json, re
+
+artifact_dir = Path.home() / "hp-antisurveillance-next-20260629-015308" / "artifacts"
+hits = json.loads((artifact_dir / "guarded-code-candidates.json").read_text())
+
+trigger_tokens = [
+    "faces",
+    "conversationgbimprivate",
+    "conversationgbimpublic",
+    "gbim_entities",
+    "kyc_vault",
+    "user_documents",
+]
+
+helper = '''
+def _hp_antisurveillance_preflight():
+    return require_guarded_join(
+PY  print(x)ched[:200]:atched)))-patched.txt").write_text("\n".join(patch
+patched: 561
+.archive/services.backup_20260308_111532/jarvis-hippocampus_hippocampus_service.py
+.archive/services.backup_20260308_111532/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
+.check_venv/lib/python3.12/site-packages/anyio/_core/_sockets.py
+.check_venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py
+.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py
+.check_venv/lib/python3.12/site-packages/click/core.py
+.check_venv/lib/python3.12/site-packages/grpc/__init__.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/_client_adaptations.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/_server_adaptations.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/implementations.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/interfaces.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/utilities.py
+.check_venv/lib/python3.12/site-packages/grpc/framework/foundation/stream.py
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/base/utilities.py
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/face.py
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/utilities.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/__init__.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/connection.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http11.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http2.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py
+.check_venv/lib/python3.12/site-packages/httpcore/_models.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/connection.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http11.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http2.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py
+.check_venv/lib/python3.12/site-packages/httpx/_content.py
+.check_venv/lib/python3.12/site-packages/jsonschema/protocols.py
+.check_venv/lib/python3.12/site-packages/mpmath/ctx_iv.py
+.check_venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py
+.check_venv/lib/python3.12/site-packages/mpmath/rational.py
+.check_venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs.py
+.check_venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
+.check_venv/lib/python3.12/site-packages/numpy/random/tests/test_direct.py
+.check_venv/lib/python3.12/site-packages/numpy/typing/mypy_plugin.py
+.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
+.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/metrics/container_metrics.py
+.check_venv/lib/python3.12/site-packages/packaging/version.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py
+.check_venv/lib/python3.12/site-packages/pydantic/v1/_hypothesis_plugin.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_cocoa_builtins.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_scheme_builtins.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/freefem.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/macaulay2.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/matlab.py
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/generators.py
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/polyhedron.py
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/tests/test_polyhedron.py
+.check_venv/lib/python3.12/site-packages/sympy/core/basic.py
+.check_venv/lib/python3.12/site-packages/sympy/core/containers.py
+.check_venv/lib/python3.12/site-packages/sympy/core/tests/test_args.py
+.check_venv/lib/python3.12/site-packages/sympy/geometry/line.py
+.check_venv/lib/python3.12/site-packages/sympy/geometry/parabola.py
+.check_venv/lib/python3.12/site-packages/sympy/integrals/intpoly.py
+.check_venv/lib/python3.12/site-packages/sympy/integrals/tests/test_intpoly.py
+.check_venv/lib/python3.12/site-packages/sympy/interactive/printing.py
+.check_venv/lib/python3.12/site-packages/sympy/physics/mechanics/actuator.py
+.check_venv/lib/python3.12/site-packages/sympy/physics/mechanics/wrapping_geometry.py
+.check_venv/lib/python3.12/site-packages/sympy/physics/quantum/identitysearch.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/backends/base_backend.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/plot.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/plot.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/series.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_plot.py
+.check_venv/lib/python3.12/site-packages/sympy/printing/pretty/tests/test_pretty.py
+.check_venv/lib/python3.12/site-packages/sympy/stats/rv.py
+.check_venv/lib/python3.12/site-packages/sympy/unify/core.py
+.check_venv/lib/python3.12/site-packages/sympy/vector/implicitregion.py
+.check_venv/lib/python3.12/site-packages/uvicorn/workers.py
+ai_server_20llm_PRODUCTION.py
+auth_router.py
+crypto-venv/lib/python3.12/site-packages/anyio/_core/_sockets.py
+crypto-venv/lib/python3.12/site-packages/art/data/fonts2.py
+crypto-venv/lib/python3.12/site-packages/art/data/fonts3.py
+crypto-venv/lib/python3.12/site-packages/art/params.py
+crypto-venv/lib/python3.12/site-packages/art/tests/test.py
+crypto-venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py
+crypto-venv/lib/python3.12/site-packages/click/core.py
+crypto-venv/lib/python3.12/site-packages/cryptography/hazmat/backends/openssl/backend.py
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydev_bundle/_pydev_jy_imports_tipper.py
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevconsole_code.py
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_resolver.py
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/sql.py
+crypto-venv/lib/python3.12/site-packages/demjson3.py
+crypto-venv/lib/python3.12/site-packages/distro/distro.py
+crypto-venv/lib/python3.12/site-packages/dns/win32util.py
+crypto-venv/lib/python3.12/site-packages/eth_typing/abi.py
+crypto-venv/lib/python3.12/site-packages/eth_utils/abi.py
+crypto-venv/lib/python3.12/site-packages/feedparser/parsers/loose.py
+crypto-venv/lib/python3.12/site-packages/feedparser/parsers/strict.py
+crypto-venv/lib/python3.12/site-packages/fiona/io.py
+crypto-venv/lib/python3.12/site-packages/fontTools/designspaceLib/__init__.py
+crypto-venv/lib/python3.12/site-packages/fontTools/misc/cliTools.py
+crypto-venv/lib/python3.12/site-packages/fontTools/ufoLib/__init__.py
+crypto-venv/lib/python3.12/site-packages/geoalchemy2/_functions.py
+crypto-venv/lib/python3.12/site-packages/grpc/__init__.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/_client_adaptations.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/_server_adaptations.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/implementations.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/interfaces.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/utilities.py
+crypto-venv/lib/python3.12/site-packages/grpc/framework/foundation/stream.py
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/base/utilities.py
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/face.py
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/utilities.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/__init__.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/connection.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http11.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http2.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_models.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/connection.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http11.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http2.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py
+crypto-venv/lib/python3.12/site-packages/httpx/_content.py
+crypto-venv/lib/python3.12/site-packages/ipykernel/heartbeat.py
+crypto-venv/lib/python3.12/site-packages/ipykernel/inprocess/blocking.py
+crypto-venv/lib/python3.12/site-packages/ipykernel/iostream.py
+crypto-venv/lib/python3.12/site-packages/jeepney/bindgen.py
+crypto-venv/lib/python3.12/site-packages/jeepney/tests/test_bindgen.py
+crypto-venv/lib/python3.12/site-packages/jeepney/wrappers.py
+crypto-venv/lib/python3.12/site-packages/jsonschema/protocols.py
+crypto-venv/lib/python3.12/site-packages/jupyter_client/blocking/client.py
+crypto-venv/lib/python3.12/site-packages/jupyter_client/connect.py
+crypto-venv/lib/python3.12/site-packages/jupyter_client/consoleapp.py
+crypto-venv/lib/python3.12/site-packages/jupyter_client/localinterfaces.py
+crypto-venv/lib/python3.12/site-packages/jupyter_client/provisioning/local_provisioner.py
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1_device_constraint.py
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1beta1_device_constraint.py
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1beta2_device_constraint.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/__init__.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/axes/_axes.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/backends/backend_cairo.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/collections.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/colors.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/figure.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/legend.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/pylab.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/pyplot.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_colors.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_ft2font.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_triangulation.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/tri/_tripcolor.py
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/art3d.py
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/axes3d.py
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/tests/test_axes3d.py
+crypto-venv/lib/python3.12/site-packages/mpmath/ctx_iv.py
+crypto-venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py
+crypto-venv/lib/python3.12/site-packages/mpmath/rational.py
+crypto-venv/lib/python3.12/site-packages/networkx/algorithms/planar_drawing.py
+crypto-venv/lib/python3.12/site-packages/networkx/algorithms/planarity.py
+crypto-venv/lib/python3.12/site-packages/networkx/generators/small.py
+crypto-venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs.py
+crypto-venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
+crypto-venv/lib/python3.12/site-packages/numpy/random/tests/test_direct.py
+crypto-venv/lib/python3.12/site-packages/numpy/typing/mypy_plugin.py
+crypto-venv/lib/python3.12/site-packages/onnx_ir/_protocols.py
+crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
+crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/metrics/container_metrics.py
+crypto-venv/lib/python3.12/site-packages/packaging/version.py
+crypto-venv/lib/python3.12/site-packages/pandas/core/groupby/generic.py
+crypto-venv/lib/python3.12/site-packages/pandas/tests/plotting/frame/test_frame.py
+crypto-venv/lib/python3.12/site-packages/pexpect/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_dependency_source/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_dependency_source/interface.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_format/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_format/interface.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_service/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_service/interface.py
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
+
+
+
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ cd ~/msjarvis-rebuild || exit 1
+
+python3 - <<'PY'
+from pathlib import Path
+import py_compile
+
+artifact_dir = Path.home() / "hp-antisurveillance-next-20260629-015308" / "artifacts"
+targets = []
+for name in ["guard-import-patched.txt", "guard-preflight-patched.txt"]:
+    p = artifact_dir / name
+    if p.exists():
+        targets += [line.strip() for line in p.read_text().splitlines() if line.strip()]
+
+targets = sorted(set(targets))
+failed = []
+passed = []
+
+for s in targets:
+    p = Path(s)
+    try:
+        py_compile.compile(str(p), doraise=True)
+PY  print(x, "=>", y)0]:led))" if failed else ""))text("\n".join(f"{a}\t{
+crypto-venv/lib/python3.12/site-packages/art/tests/test.py:14: SyntaxWarning: invalid escape sequence '\ '
+  '''
+passed: 358
+.archive/services.backup_20260308_111532/jarvis-hippocampus_hippocampus_service.py
+.archive/services.backup_20260308_111532/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
+.check_venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py
+.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py
+.check_venv/lib/python3.12/site-packages/grpc/__init__.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/_client_adaptations.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/_server_adaptations.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/implementations.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/interfaces.py
+.check_venv/lib/python3.12/site-packages/grpc/beta/utilities.py
+.check_venv/lib/python3.12/site-packages/grpc/framework/foundation/stream.py
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/base/utilities.py
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/face.py
+.check_venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/utilities.py
+.check_venv/lib/python3.12/site-packages/httpcore/_async/__init__.py
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py
+.check_venv/lib/python3.12/site-packages/mpmath/ctx_iv.py
+.check_venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py
+.check_venv/lib/python3.12/site-packages/mpmath/rational.py
+.check_venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs.py
+.check_venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
+.check_venv/lib/python3.12/site-packages/numpy/random/tests/test_direct.py
+.check_venv/lib/python3.12/site-packages/numpy/typing/mypy_plugin.py
+.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
+.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/metrics/container_metrics.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py
+.check_venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py
+.check_venv/lib/python3.12/site-packages/pydantic/v1/_hypothesis_plugin.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_cocoa_builtins.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/_scheme_builtins.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/freefem.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/macaulay2.py
+.check_venv/lib/python3.12/site-packages/pygments/lexers/matlab.py
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/generators.py
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/polyhedron.py
+.check_venv/lib/python3.12/site-packages/sympy/combinatorics/tests/test_polyhedron.py
+.check_venv/lib/python3.12/site-packages/sympy/core/tests/test_args.py
+.check_venv/lib/python3.12/site-packages/sympy/geometry/line.py
+.check_venv/lib/python3.12/site-packages/sympy/geometry/parabola.py
+.check_venv/lib/python3.12/site-packages/sympy/integrals/intpoly.py
+.check_venv/lib/python3.12/site-packages/sympy/integrals/tests/test_intpoly.py
+.check_venv/lib/python3.12/site-packages/sympy/interactive/printing.py
+.check_venv/lib/python3.12/site-packages/sympy/physics/mechanics/actuator.py
+.check_venv/lib/python3.12/site-packages/sympy/physics/mechanics/wrapping_geometry.py
+.check_venv/lib/python3.12/site-packages/sympy/physics/quantum/identitysearch.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/backends/base_backend.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/plot.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/pygletplot/plot.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/series.py
+.check_venv/lib/python3.12/site-packages/sympy/plotting/tests/test_plot.py
+.check_venv/lib/python3.12/site-packages/sympy/printing/pretty/tests/test_pretty.py
+.check_venv/lib/python3.12/site-packages/sympy/unify/core.py
+.check_venv/lib/python3.12/site-packages/sympy/vector/implicitregion.py
+ai_server_20llm_PRODUCTION.py
+crypto-venv/lib/python3.12/site-packages/art/data/fonts2.py
+crypto-venv/lib/python3.12/site-packages/art/data/fonts3.py
+crypto-venv/lib/python3.12/site-packages/art/params.py
+crypto-venv/lib/python3.12/site-packages/art/tests/test.py
+crypto-venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydev_bundle/_pydev_jy_imports_tipper.py
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevconsole_code.py
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_resolver.py
+crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/sql.py
+crypto-venv/lib/python3.12/site-packages/demjson3.py
+crypto-venv/lib/python3.12/site-packages/distro/distro.py
+crypto-venv/lib/python3.12/site-packages/dns/win32util.py
+crypto-venv/lib/python3.12/site-packages/eth_typing/abi.py
+crypto-venv/lib/python3.12/site-packages/eth_utils/abi.py
+crypto-venv/lib/python3.12/site-packages/feedparser/parsers/loose.py
+crypto-venv/lib/python3.12/site-packages/feedparser/parsers/strict.py
+crypto-venv/lib/python3.12/site-packages/fiona/io.py
+crypto-venv/lib/python3.12/site-packages/fontTools/misc/cliTools.py
+crypto-venv/lib/python3.12/site-packages/geoalchemy2/_functions.py
+crypto-venv/lib/python3.12/site-packages/grpc/__init__.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/_client_adaptations.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/_server_adaptations.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/implementations.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/interfaces.py
+crypto-venv/lib/python3.12/site-packages/grpc/beta/utilities.py
+crypto-venv/lib/python3.12/site-packages/grpc/framework/foundation/stream.py
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/base/utilities.py
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/face.py
+crypto-venv/lib/python3.12/site-packages/grpc/framework/interfaces/face/utilities.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/__init__.py
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py
+crypto-venv/lib/python3.12/site-packages/ipykernel/heartbeat.py
+crypto-venv/lib/python3.12/site-packages/ipykernel/inprocess/blocking.py
+crypto-venv/lib/python3.12/site-packages/ipykernel/iostream.py
+crypto-venv/lib/python3.12/site-packages/jeepney/bindgen.py
+crypto-venv/lib/python3.12/site-packages/jeepney/tests/test_bindgen.py
+crypto-venv/lib/python3.12/site-packages/jeepney/wrappers.py
+crypto-venv/lib/python3.12/site-packages/jupyter_client/consoleapp.py
+crypto-venv/lib/python3.12/site-packages/jupyter_client/provisioning/local_provisioner.py
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1_device_constraint.py
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1beta1_device_constraint.py
+crypto-venv/lib/python3.12/site-packages/kubernetes/client/models/v1beta2_device_constraint.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/__init__.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/axes/_axes.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/backends/backend_cairo.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/collections.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/colors.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/figure.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/legend.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/pylab.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_colors.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_ft2font.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/tests/test_triangulation.py
+crypto-venv/lib/python3.12/site-packages/matplotlib/tri/_tripcolor.py
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/art3d.py
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/axes3d.py
+crypto-venv/lib/python3.12/site-packages/mpl_toolkits/mplot3d/tests/test_axes3d.py
+crypto-venv/lib/python3.12/site-packages/mpmath/ctx_iv.py
+crypto-venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py
+crypto-venv/lib/python3.12/site-packages/mpmath/rational.py
+crypto-venv/lib/python3.12/site-packages/networkx/algorithms/planar_drawing.py
+crypto-venv/lib/python3.12/site-packages/networkx/algorithms/planarity.py
+crypto-venv/lib/python3.12/site-packages/networkx/generators/small.py
+crypto-venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs.py
+crypto-venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
+crypto-venv/lib/python3.12/site-packages/numpy/random/tests/test_direct.py
+crypto-venv/lib/python3.12/site-packages/numpy/typing/mypy_plugin.py
+crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
+crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/metrics/container_metrics.py
+crypto-venv/lib/python3.12/site-packages/pandas/tests/plotting/frame/test_frame.py
+crypto-venv/lib/python3.12/site-packages/pexpect/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_dependency_source/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_format/__init__.py
+crypto-venv/lib/python3.12/site-packages/pip_audit/_service/__init__.py
+crypto-venv/lib/python3.12/site-packages/playwright/async_api/_generated.py
+crypto-venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py
+crypto-venv/lib/python3.12/site-packages/plotly/figure_factory/_trisurf.py
+crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/_cone.py
+crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/_figure.py
+crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/_figurewidget.py
+crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/_isosurface.py
+crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/_mesh3d.py
+crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/_streamtube.py
+crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/_surface.py
+crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/_volume.py
+crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/isosurface/_spaceframe.py
+crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/isosurface/_surface.py
+crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/volume/_spaceframe.py
+crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/volume/_surface.py
+crypto-venv/lib/python3.12/site-packages/pydantic/v1/_hypothesis_plugin.py
+crypto-venv/lib/python3.12/site-packages/pygments/lexers/_cocoa_builtins.py
+crypto-venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
+crypto-venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
+crypto-venv/lib/python3.12/site-packages/pygments/lexers/_scheme_builtins.py
+crypto-venv/lib/python3.12/site-packages/pygments/lexers/freefem.py
+crypto-venv/lib/python3.12/site-packages/pygments/lexers/macaulay2.py
+crypto-venv/lib/python3.12/site-packages/pygments/lexers/matlab.py
+crypto-venv/lib/python3.12/site-packages/pymysql/connections.py
+crypto-venv/lib/python3.12/site-packages/pyogrio/tests/conftest.py
+crypto-venv/lib/python3.12/site-packages/pyomo/common/env.py
+crypto-venv/lib/python3.12/site-packages/pyomo/common/plugin_base.py
+crypto-venv/lib/python3.12/site-packages/pyomo/common/tests/test_env.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/appsi/base.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/doe/doe.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/doe/grey_box_utilities.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/incidence_analysis/interface.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/incidence_analysis/tests/test_interface.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/interior_point/interface.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/interior_point/interior_point.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/mindtpy/algorithm_base_class.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/mindtpy/tests/MINLP_simple_grey_box.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/mindtpy/util.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/mpc/__init__.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/mpc/interfaces/model_interface.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/mpc/interfaces/tests/test_interface.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/mpc/interfaces/tests/test_var_linker.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/mpc/interfaces/var_linker.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/mpc/modeling/__init__.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/piecewise/tests/test_outer_repn_gdp.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/algorithms/solvers/cyipopt_solver.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/algorithms/solvers/implicit_functions.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/algorithms/solvers/pyomo_ext_cyipopt.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/algorithms/solvers/scipy_solvers.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/algorithms/solvers/tests/test_cyipopt_interfaces.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/algorithms/solvers/tests/test_cyipopt_solver.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/algorithms/solvers/tests/test_scipy_solvers.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/examples/external_grey_box/external_with_objective.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/examples/external_grey_box/param_est/models.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/examples/external_grey_box/react_example/maximize_cb_outputs.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/examples/external_grey_box/react_example/maximize_cb_ratio_residuals.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/examples/external_grey_box/react_example/reactor_model_outputs.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/examples/external_grey_box/react_example/reactor_model_residuals.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/examples/feasibility.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/examples/nlp_interface.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/examples/nlp_interface_2.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/examples/sensitivity.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/examples/sqp.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/examples/tests/test_cyipopt_examples.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/exceptions.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/interfaces/__init__.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/interfaces/ampl_nlp.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/interfaces/external_pyomo_model.py
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/pynumero/interfaces/nlp.py
+failed: 204
+.check_venv/lib/python3.12/site-packages/anyio/_core/_sockets.py =>   File ".check_venv/lib/python3.12/site-packages/anyio/_core/_sockets.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/click/core.py =>   File ".check_venv/lib/python3.12/site-packages/click/core.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_async/connection.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http11.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_async/http11.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http2.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_async/http2.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_models.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_models.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/connection.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http11.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http2.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_sync/http2.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py =>   File ".check_venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/httpx/_content.py =>   File ".check_venv/lib/python3.12/site-packages/httpx/_content.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/jsonschema/protocols.py =>   File ".check_venv/lib/python3.12/site-packages/jsonschema/protocols.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/packaging/version.py =>   File ".check_venv/lib/python3.12/site-packages/packaging/version.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py =>   File ".check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py", line 18
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py =>   File ".check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py", line 15
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py =>   File ".check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py", line 15
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py =>   File ".check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py", line 15
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py =>   File ".check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py", line 15
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py =>   File ".check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py", line 15
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py =>   File ".check_venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py", line 15
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/sympy/core/basic.py =>   File ".check_venv/lib/python3.12/site-packages/sympy/core/basic.py", line 15
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/sympy/core/containers.py =>   File ".check_venv/lib/python3.12/site-packages/sympy/core/containers.py", line 22
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/sympy/stats/rv.py =>   File ".check_venv/lib/python3.12/site-packages/sympy/stats/rv.py", line 29
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+.check_venv/lib/python3.12/site-packages/uvicorn/workers.py =>   File ".check_venv/lib/python3.12/site-packages/uvicorn/workers.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+auth_router.py =>   File "auth_router.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/anyio/_core/_sockets.py =>   File "crypto-venv/lib/python3.12/site-packages/anyio/_core/_sockets.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/click/core.py =>   File "crypto-venv/lib/python3.12/site-packages/click/core.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/cryptography/hazmat/backends/openssl/backend.py =>   File "crypto-venv/lib/python3.12/site-packages/cryptography/hazmat/backends/openssl/backend.py", line 18
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/fontTools/designspaceLib/__init__.py =>   File "crypto-venv/lib/python3.12/site-packages/fontTools/designspaceLib/__init__.py", line 20
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/fontTools/ufoLib/__init__.py =>   File "crypto-venv/lib/python3.12/site-packages/fontTools/ufoLib/__init__.py", line 48
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/connection.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http11.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_async/http11.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http2.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_async/http2.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_models.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_models.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/connection.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_sync/connection.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http11.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http2.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http2.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py =>   File "crypto-venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/httpx/_content.py =>   File "crypto-venv/lib/python3.12/site-packages/httpx/_content.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/jsonschema/protocols.py =>   File "crypto-venv/lib/python3.12/site-packages/jsonschema/protocols.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/jupyter_client/blocking/client.py =>   File "crypto-venv/lib/python3.12/site-packages/jupyter_client/blocking/client.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/jupyter_client/connect.py =>   File "crypto-venv/lib/python3.12/site-packages/jupyter_client/connect.py", line 22
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/jupyter_client/localinterfaces.py =>   File "crypto-venv/lib/python3.12/site-packages/jupyter_client/localinterfaces.py", line 18
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/matplotlib/pyplot.py =>   File "crypto-venv/lib/python3.12/site-packages/matplotlib/pyplot.py", line 55
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/onnx_ir/_protocols.py =>   File "crypto-venv/lib/python3.12/site-packages/onnx_ir/_protocols.py", line 44
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/packaging/version.py =>   File "crypto-venv/lib/python3.12/site-packages/packaging/version.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pandas/core/groupby/generic.py =>   File "crypto-venv/lib/python3.12/site-packages/pandas/core/groupby/generic.py", line 22
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py =>   File "crypto-venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py =>   File "crypto-venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py", line 36
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py =>   File "crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py =>   File "crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py =>   File "crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py =>   File "crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py =>   File "crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py =>   File "crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py =>   File "crypto-venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip_audit/_dependency_source/interface.py =>   File "crypto-venv/lib/python3.12/site-packages/pip_audit/_dependency_source/interface.py", line 19
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip_audit/_format/interface.py =>   File "crypto-venv/lib/python3.12/site-packages/pip_audit/_format/interface.py", line 18
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip_audit/_service/interface.py =>   File "crypto-venv/lib/python3.12/site-packages/pip_audit/_service/interface.py", line 19
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pip_audit/_state.py =>   File "crypto-venv/lib/python3.12/site-packages/pip_audit/_state.py", line 19
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pkg_resources/__init__.py =>   File "crypto-venv/lib/python3.12/site-packages/pkg_resources/__init__.py", line 33
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/platformdirs/__init__.py =>   File "crypto-venv/lib/python3.12/site-packages/platformdirs/__init__.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/platformdirs/__main__.py =>   File "crypto-venv/lib/python3.12/site-packages/platformdirs/__main__.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/platformdirs/_xdg.py =>   File "crypto-venv/lib/python3.12/site-packages/platformdirs/_xdg.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/platformdirs/android.py =>   File "crypto-venv/lib/python3.12/site-packages/platformdirs/android.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/platformdirs/api.py =>   File "crypto-venv/lib/python3.12/site-packages/platformdirs/api.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/platformdirs/macos.py =>   File "crypto-venv/lib/python3.12/site-packages/platformdirs/macos.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/platformdirs/unix.py =>   File "crypto-venv/lib/python3.12/site-packages/platformdirs/unix.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/platformdirs/windows.py =>   File "crypto-venv/lib/python3.12/site-packages/platformdirs/windows.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/prompt_toolkit/completion/nested.py =>   File "crypto-venv/lib/python3.12/site-packages/prompt_toolkit/completion/nested.py", line 18
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/prompt_toolkit/contrib/regular_languages/__init__.py =>   File "crypto-venv/lib/python3.12/site-packages/prompt_toolkit/contrib/regular_languages/__init__.py", line 89
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pyomo/contrib/observer/model_observer.py =>   File "crypto-venv/lib/python3.12/site-packages/pyomo/contrib/observer/model_observer.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/pyomo/core/base/var.py =>   File "crypto-venv/lib/python3.12/site-packages/pyomo/core/base/var.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/scipy/signal/_signaltools.py =>   File "crypto-venv/lib/python3.12/site-packages/scipy/signal/_signaltools.py", line 17
+    from __future__ import annotations  # Provides typing union operator `|` in Python 3.9
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/setuptools/_distutils/command/config.py =>   File "crypto-venv/lib/python3.12/site-packages/setuptools/_distutils/command/config.py", line 25
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/version.py =>   File "crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/version.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/__init__.py =>   File "crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/__init__.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/__main__.py =>   File "crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/__main__.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/android.py =>   File "crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/android.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/api.py =>   File "crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/api.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/macos.py =>   File "crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/macos.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/unix.py =>   File "crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/unix.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/windows.py =>   File "crypto-venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/windows.py", line 16
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/connectors/aioodbc.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/connectors/aioodbc.py", line 22
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/connectors/asyncio.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/connectors/asyncio.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/connectors/pyodbc.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/connectors/pyodbc.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/__init__.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/__init__.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/aiomysql.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/aiomysql.py", line 44
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/asyncmy.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/asyncmy.py", line 42
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/base.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/base.py", line 1079
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/cymysql.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/cymysql.py", line 36
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/enumerated.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/enumerated.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/json.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/json.py", line 20
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/mariadbconnector.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/mariadbconnector.py", line 43
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/mysqlconnector.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/mysqlconnector.py", line 61
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/mysqldb.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/mysqldb.py", line 100
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pymysql.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pymysql.py", line 63
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pyodbc.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/pyodbc.py", line 58
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/reflection.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/reflection.py", line 20
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/types.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/mysql/types.py", line 20
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/oracle/cx_oracle.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/oracle/cx_oracle.py", line 505
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/oracle/types.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/oracle/types.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/array.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/array.py", line 22
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/base.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/base.py", line 1617
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/json.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/json.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/pg_catalog.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/pg_catalog.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 504
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/types.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/types.py", line 20
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 93
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/sqlite/base.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/sqlite/base.py", line 1003
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/sqlite/pysqlite.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/sqlite/pysqlite.py", line 408
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/_py_util.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/_py_util.py", line 20
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/characteristics.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/characteristics.py", line 20
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/cursor.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/cursor.py", line 25
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 30
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/events.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/events.py", line 22
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/interfaces.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/interfaces.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/mock.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/mock.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/reflection.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/reflection.py", line 40
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/url.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/url.py", line 30
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/events.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/events.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/exc.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/exc.py", line 28
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/associationproxy.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/associationproxy.py", line 29
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/asyncio/engine.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/asyncio/engine.py", line 20
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/asyncio/scoping.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/asyncio/scoping.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/asyncio/session.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/asyncio/session.py", line 20
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/automap.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/automap.py", line 726
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/compiler.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/compiler.py", line 497
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/horizontal_shard.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/horizontal_shard.py", line 39
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/hybrid.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/hybrid.py", line 860
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/mypy/names.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/ext/mypy/names.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/__init__.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/__init__.py", line 29
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/_orm_constructors.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/_orm_constructors.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/_typing.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/_typing.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/attributes.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/attributes.py", line 31
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/base.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/base.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/bulk_persistence.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/bulk_persistence.py", line 28
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/clsregistry.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/clsregistry.py", line 28
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/collections.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/collections.py", line 121
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/context.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 22
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/decl_api.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/decl_api.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/dependency.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/dependency.py", line 25
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/descriptor_props.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/descriptor_props.py", line 26
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/events.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/events.py", line 22
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/exc.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/exc.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/instrumentation.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/instrumentation.py", line 47
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/interfaces.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/interfaces.py", line 32
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/loading.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/loading.py", line 31
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/mapper.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/mapper.py", line 31
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/path_registry.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/path_registry.py", line 22
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/properties.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/properties.py", line 28
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 34
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/relationships.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/relationships.py", line 29
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/state.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 28
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/strategies.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/strategies.py", line 26
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/strategy_options.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/strategy_options.py", line 24
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 31
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/util.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/util.py", line 22
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/writeonly.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/orm/writeonly.py", line 32
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 24
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/pool/events.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/pool/events.py", line 20
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py", line 25
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/cache_key.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/cache_key.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/compiler.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/compiler.py", line 39
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/ddl.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/ddl.py", line 27
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 27
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/events.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/events.py", line 21
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/functions.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/functions.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/schema.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/schema.py", line 44
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/sqltypes.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/sqltypes.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/type_api.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/type_api.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/util.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/sql/util.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sqlalchemy/util/typing.py =>   File "crypto-venv/lib/python3.12/site-packages/sqlalchemy/util/typing.py", line 22
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sympy/core/basic.py =>   File "crypto-venv/lib/python3.12/site-packages/sympy/core/basic.py", line 15
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sympy/core/containers.py =>   File "crypto-venv/lib/python3.12/site-packages/sympy/core/containers.py", line 22
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/sympy/stats/rv.py =>   File "crypto-venv/lib/python3.12/site-packages/sympy/stats/rv.py", line 29
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/torch/_inductor/async_compile.py =>   File "crypto-venv/lib/python3.12/site-packages/torch/_inductor/async_compile.py", line 15
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/torch/_inductor/codegen/common.py =>   File "crypto-venv/lib/python3.12/site-packages/torch/_inductor/codegen/common.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/torch/_inductor/ir.py =>   File "crypto-venv/lib/python3.12/site-packages/torch/_inductor/ir.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/torch/cuda/graphs.py =>   File "crypto-venv/lib/python3.12/site-packages/torch/cuda/graphs.py", line 15
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/torch/distributed/_symmetric_memory/__init__.py =>   File "crypto-venv/lib/python3.12/site-packages/torch/distributed/_symmetric_memory/__init__.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/torch/fx/experimental/symbolic_shapes.py =>   File "crypto-venv/lib/python3.12/site-packages/torch/fx/experimental/symbolic_shapes.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset9.py =>   File "crypto-venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset9.py", line 23
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+crypto-venv/lib/python3.12/site-packages/torch/xpu/graphs.py =>   File "crypto-venv/lib/python3.12/site-packages/torch/xpu/graphs.py", line 14
+    from __future__ import annotations
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
 
