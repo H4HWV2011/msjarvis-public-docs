@@ -10,7 +10,7 @@
 |---|---|---|---|---|
 | **Carrie Ann Kidd** | Director; Board President / Executive Director | 706 Main Street, Mount Hope, WV 25880 | ckidd@harmonyforhopewv.org | 304-877-7688 |
 | **Aubrey Dickerson** | Director; Board Secretary | 706 Main Street, Mount Hope, WV 25880 | aubrey.dickerson@gmail.com | 304-516-1184 |
-| **Jennifer Warwick** | Director | PO Box 12, Mount Hope, WV 25880 | jmwarwick9903@gmail.com | 681-422-8048 |
+| **Jennifer Warwick** | Director | PO Box 765, Mount Hope, WV 25880 | jmwarwick9903@gmail.com | 681-422-8048 |
 
 ---
 
