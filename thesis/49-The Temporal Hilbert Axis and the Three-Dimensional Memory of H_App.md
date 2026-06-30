@@ -1,4 +1,4 @@
-# Chapter 47 — H_t: The Temporal Hilbert Axis and the Three-Dimensional Memory of H_App
+# Chapter 49 — H_t: The Temporal Hilbert Axis and the Three-Dimensional Memory of H_App
 
 The semantic body (H_App) and the spatial body (H_geo) established in earlier chapters
 describe *what* the system knows and *where* that knowledge is anchored. This chapter
