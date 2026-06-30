@@ -1,4 +1,4 @@
-# Hilbert People Space — Person-in-Context Without Surveillance
+# 50 - Hilbert People Space — Person-in-Context Without Surveillance
 
 *Design document — work-repo thesis. Status: **specified; referenced in configuration but
 not yet built or running.** The intended Postgres backing for `jarvis-hilbert-people` is
