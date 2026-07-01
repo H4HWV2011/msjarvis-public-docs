@@ -1,4 +1,4 @@
-# Chapter 48 — H_p: Hilbert People Space Without Surveillance
+# Chapter 47 — H_p: Hilbert People Space Without Surveillance
 
 The three Hilbert bodies established in earlier chapters — H_App (semantic), H_geo
 (spatial), and H_t (temporal) — describe *what* the system knows, *where* it is anchored,
