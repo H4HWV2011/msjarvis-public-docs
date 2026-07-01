@@ -1,4 +1,4 @@
-# 50-Hilbert People Space — Person-in-Context Without Surveillance
+# 49-Hilbert People Space — Person-in-Context Without Surveillance
 
 *Design document — work-repo thesis. Status: **built and operational.** H_people runs as
 a Postgres schema `hp` in database `hilbert_people` on `msjarvisgis-db`, served by
