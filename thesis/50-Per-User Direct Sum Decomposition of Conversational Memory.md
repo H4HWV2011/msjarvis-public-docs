@@ -1,4 +1,4 @@
-# The Sovereign Subspace — Per-User Direct Sum Decomposition of Conversational Memory
+# 50 - The Sovereign Subspace — Per-User Direct Sum Decomposition of Conversational Memory
 
 **Series:** MountainShares / Ms. Allis Architecture Thesis
 **Status:** Formal specification — theoretical foundation established, implementation pending
