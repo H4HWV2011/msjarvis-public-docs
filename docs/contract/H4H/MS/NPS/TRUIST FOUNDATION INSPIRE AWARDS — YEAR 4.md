@@ -213,7 +213,7 @@ Truist Foundation's place-based focus aligns precisely with our model. Semifinal
 
 MIT Solve's network would connect us to practitioners working on rural connectivity, local exchange systems, and community-centered AI — problems we are solving without peers. Semifinalist status would accelerate conversations already underway with the West Virginia Community Development Hub, the National Park Service New River Gorge corridor, and Marshall University, where a formal research partnership awaits demonstrated institutional momentum.
 
-The team lead is seeking a doctoral research home in community-centered AI and geospatial intelligence. MIT Solve's connections to CSAIL and MIT's Urban Science program represent a direct pathway to the institutional research partnership this solution needs to scale.
+MIT Solve's connections to CSAIL and MIT's Urban Science program represent a direct pathway to the institutional research partnership this architecture demands — the first empirical apparatus for studying Hilbert space geometry as a macroscopic observer-reality framework, running live, in a coalfield town.
 
 We are not here for a check. We are here because this network is the missing piece.
 
