@@ -1,1484 +1,1449 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend-tsx$ sed -n '457,615p' /mnt/spiritual_drive/msjarvis-rebuild/auth_router.py
-# ── Admin: approve application ────────────────────────────────────────────────
-
-class ApproveResponse(BaseModel):
-    application_id: str
-    public_uuid:    str
-    email:          str
-    message:        str
-
-
-@auth_router.post("/approve/{application_id}", response_model=ApproveResponse)
-async def approve_application(
-    application_id: str,
-    payload: Annotated[dict, Depends(_current_user)],
-):
-    """Approve a pending application. Sends temp-password email. Admin only."""
-    if "admin" not in payload.get("roles", []):
-        raise HTTPException(status_code=403, detail="Admin required")
-
-    reg_svc, tok, r = _get_services()
-    app_svc = reg_svc._apps
-
-    try:
-        app = app_svc.get_application(application_id)
-    except Exception:
-        raise HTTPException(status_code=404, detail=f"Application {application_id} not found")
-
-    email = app.get("email", "")
-    if not email:
-        raise HTTPException(status_code=422, detail="Application has no email address")
-
-    public_uuid = r.get(f"email_to_uuid:{email}")
-    if not public_uuid:
-        import secrets as _sec
-        public_uuid   = str(__import__("uuid").uuid4())
-        temp_pw         = _sec.token_urlsafe(16)
-        proposed_userid = app.get("proposed_userid", public_uuid)
-        _ueid_hex       = public_uuid.replace("-", "").upper()
-        _ueid           = f"MS-JARVIS-{_ueid_hex[:16]}"
-        r.set(f"email_to_uuid:{email}", public_uuid)
-        r.hset(f"user:{public_uuid}", mapping={
-            "email":           email,
-            "name":            app.get("name", ""),
-            "proposed_userid": proposed_userid,
-            "userid":          proposed_userid,
-            "county":          app.get("county", ""),
-            "ueid":            _ueid,
-            "temp_password":   temp_pw,
-            "status":          "approved_pending_login",
-            "is_public":       "false",
-            "visibility":      "private",
-            "roles":           "user",
-            "bsc_status":      "prefer_not_to_say",
-            "created_at":      __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat(),
-        })
-
-    user = r.hgetall(f"user:{public_uuid}")
-    if not user:
-        raise HTTPException(status_code=404, detail=f"User hash missing for {public_uuid}")
-
-    proposed_userid = user.get("proposed_userid", public_uuid)
-
-    app_svc.mark_approved(
-        application_id=application_id,
-        approved_by=payload.get("sub", "admin"),
-        final_userid=proposed_userid,
-    )
-
-    r.hset(f"user:{public_uuid}", mapping={
-        "status":      "approved_pending_login",
-        "approved_at": datetime.now(timezone.utc).isoformat(),
-        "approved_by": payload.get("sub", "admin"),
-    })
-    r.setex(f"temp_pw_expires:{public_uuid}", 72 * 3600, "1")
-
-    # ── Auto-mint founder token + zero balances on approval ──────────────────
-    try:
-        import psycopg2 as _pg, os as _os
-        _dsn = _os.environ.get("DATABASE_URL") or _os.environ.get("POSTGRES_DSN")
-        _ueid = r.hget(f"user:{public_uuid}", "ueid")
-        if _dsn and _ueid:
-            _conn = _pg.connect(_dsn)
-            _cur = _conn.cursor()
-            _cur.execute("INSERT INTO mountainshares_balances (ueid) VALUES (%s) ON CONFLICT DO NOTHING", (_ueid,))
-            _cur.execute("SELECT COALESCE(MAX(serial_number), 0) FROM founder_tokens")
-            _next = _cur.fetchone()[0] + 1
-            if _next <= 60:
-                _alloc = "red_team" if _next <= 5 else "county_champion"
-                _cur.execute(
-                    "INSERT INTO founder_tokens (serial_number, ueid, cohort, allocation_type) "
-                    "VALUES (%s, %s, %s, %s) ON CONFLICT DO NOTHING",
-                    (_next, _ueid, "phase_0", _alloc)
-                )
-                logger.info(f"[FOUNDER] Minted token #{_next} ({_alloc}) for {_ueid}")
-                # Write founding grant ledger entry for red_team members
-                if _alloc == "red_team":
-                    _cur.execute("SELECT COUNT(*) FROM mountainshares_ledger WHERE ueid = %s AND event_type = 'founding_grant'", (_ueid,))
-                    if _cur.fetchone()[0] == 0:
-                     _cur.execute(
-                        "INSERT INTO mountainshares_ledger "
-                        "(ueid, event_type, amount, provenance_ref, notes) "
-                        "VALUES (%s, %s, %s, %s, %s)",
-                        (_ueid, "founding_grant", 100.0000,
-                         f"PHASE0_RED_TEAM_GRANT_{str(_next).zfill(3)}",
-                         "Phase 0 red_team founding allocation")
-                    )
-                    _cur.execute(
-                        "UPDATE mountainshares_balances SET ems_balance = ems_balance + 100.0000, "
-                        "last_updated = NOW() WHERE ueid = %s",
-                        (_ueid,)
-                    )
-                    logger.info(f"[FOUNDER] EMS founding grant written for {_ueid}")
-            else:
-                logger.info(f"[FOUNDER] Phase 0 cap (60) reached — no token minted for {_ueid}")
-            _conn.commit()
-            _conn.close()
-    except Exception as _e:
-        import traceback as _tb
-        logger.error(f"[FOUNDER] Auto-mint failed: {_e}\n{_tb.format_exc()}")
-
-    temp_password = user.get("temp_password", "")
-    name          = user.get("name", email)
-    if not temp_password:
-        return ApproveResponse(
-            application_id=application_id,
-            public_uuid=public_uuid,
-            email=email,
-            message="User has already completed onboarding. No email sent.",
-        )
-    # Set temp-password expiry window: 72 hours from approval
-    r.set(f"temp_pw_expires:{public_uuid}", "1", ex=60 * 60 * 72)
-
-    email_sent = False
-    email_error = ""
-    try:
-        email_sent = send_approval_email(
-            to=email,
-            name=name,
-            userid=proposed_userid,
-            temp_password=temp_password,
-        )
-        if email_sent:
-            logger.info(f"[AUTH] Approval email sent to {email} ({public_uuid})")
-        else:
-            email_error = "mailer returned false"
-            logger.warning(f"[AUTH] Approval email not confirmed for {email} ({public_uuid})")
-    except Exception as exc:
-        email_error = str(exc)
-        logger.warning(f"[AUTH] Approval email failed: {exc}")
-
-    return ApproveResponse(
-        application_id=application_id,
-        public_uuid=public_uuid,
-        email=email,
-        message=(f"Approved. Temp-password email dispatched to {email}."
-                 if email_sent else
-                 f"Approved, but email delivery failed: {email_error}"),
-    )
-
-
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend-tsx$ sed -n '340,400p' /mnt/spiritual_drive/msjarvis-rebuild/auth_router.py
-    return {"status": "logged_out"}
-
-
-@auth_router.post("/login", response_model=TokenResponse)
-async def login(form: Annotated[OAuth2PasswordRequestForm, Depends()]):
-    """Login accepts either email OR proposed_userid as the username field."""
-    _, tok, _ = _get_services()
-    result = tok.authenticate(form.username, form.password)
-    if result is None:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid username or password",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-    return TokenResponse(
-        access_token=result["access_token"],
-        expires_in=result["expires_in"],
-    )
-
-@auth_router.get("/me", response_model=MeResponse)
-async def me(payload: Annotated[dict, Depends(_current_user)]):
-    """Look up canonical user fields from Redis by proposed_userid."""
-    _, _, r = _get_services()
-    sub = payload.get("sub", "")
-    user = None
-    for key in r.scan_iter("user:*"):
-        rec = r.hgetall(key)
-        if rec.get("proposed_userid") == sub:
-            user = rec
-            break
-    if not user:
-        return MeResponse(
-            userid=sub,
-            uei=payload.get("uei"),
-            roles=payload.get("roles", []),
-            county=payload.get("county"),
-        )
-    roles = [rr for rr in user.get("roles", "user").split(",") if rr]
-    _ueid = user.get("ueid", "")
-    return MeResponse(
-        userid=sub,
-        uei=_ueid,
-        ueid=_ueid,
-        roles=roles,
-        county=user.get("county", ""),
-        name=user.get("name", ""),
-        email=user.get("email", ""),
-        status=user.get("status", ""),
-        visibility=user.get("visibility", "private"),
-        bsc_status=user.get("bsc_status", "prefer_not_to_say"),
-        first_login_at=user.get("first_login_at", None),
-    )
-
-
-
-# ── Admin: chat metrics ──────────────────────────────────────────────────────
-
-@auth_router.get("/admin/chat-metrics")
-async def admin_chat_metrics(payload: Annotated[dict, Depends(_current_user)]):
-    if "admin" not in payload.get("roles", []):
-        raise HTTPException(status_code=403, detail="Admin required")
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend-tsx$ sed -n '160,210p' /mnt/spiritual_drive/msjarvis-rebuild/auth_router.py
-
-
-def _get_fernet() -> Fernet:
-    key = hashlib.sha256(
-        os.getenv("WALLET_ENCRYPT_KEY", "changeme-set-WALLET_ENCRYPT_KEY-env").encode()
-    ).digest()
-    return Fernet(base64.urlsafe_b64encode(key))
-
-
-def _get_services():
-    if "reg" not in _svc:
-        r = redis_mod.Redis.from_url(_REDIS_URL, decode_responses=True)
-        uei = UEIService(r)
-        app_svc = ApplicationService(r, uei)
-        _svc["reg"] = RegistrationService(app_svc)
-        _svc["tok"] = TokenService(r)
-        _svc["r"] = r
-    return _svc["reg"], _svc["tok"], _svc["r"]
-
-
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
-
-
-async def _current_user(token: Annotated[str, Depends(oauth2_scheme)]):
-    _, tok, _ = _get_services()
-    payload = tok.verify_access_token(token)
-    if payload is None:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid or expired token",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-    return payload
-
-
-class RegistrationRequest(BaseModel):
-    name: str = Field(..., min_length=2, max_length=120)
-    email: str
-    county: str = Field(..., min_length=2, max_length=60)
-    motivation: str = Field(..., min_length=10, max_length=2000)
-    agreement_accepted: bool
-    agreement_version: str = CURRENT_AGREEMENT_VERSION
-    address_street: str | None = None
-    address_city: str | None = None
-    address_state: str | None = None
-    address_zip: str | None = None
-    dl_image_b64: str | None = None
-    selfie_b64: str | None = None
-    bsc_status: str = "prefer_not_to_say"
-
-
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend-tsx$ sed -n '160,210p' /mnt/spiritual_drive/msjarvis-rebuild/auth_router.py
-
-
-def _get_fernet() -> Fernet:
-    key = hashlib.sha256(
-        os.getenv("WALLET_ENCRYPT_KEY", "changeme-set-WALLET_ENCRYPT_KEY-env").encode()
-    ).digest()
-    return Fernet(base64.urlsafe_b64encode(key))
-
-
-def _get_services():
-    if "reg" not in _svc:
-        r = redis_mod.Redis.from_url(_REDIS_URL, decode_responses=True)
-        uei = UEIService(r)
-        app_svc = ApplicationService(r, uei)
-        _svc["reg"] = RegistrationService(app_svc)
-        _svc["tok"] = TokenService(r)
-        _svc["r"] = r
-    return _svc["reg"], _svc["tok"], _svc["r"]
-
-
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
-
-
-async def _current_user(token: Annotated[str, Depends(oauth2_scheme)]):
-    _, tok, _ = _get_services()
-    payload = tok.verify_access_token(token)
-    if payload is None:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid or expired token",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-    return payload
-
-
-class RegistrationRequest(BaseModel):
-    name: str = Field(..., min_length=2, max_length=120)
-    email: str
-    county: str = Field(..., min_length=2, max_length=60)
-    motivation: str = Field(..., min_length=10, max_length=2000)
-    agreement_accepted: bool
-    agreement_version: str = CURRENT_AGREEMENT_VERSION
-    address_street: str | None = None
-    address_city: str | None = None
-    address_state: str | None = None
-    address_zip: str | None = None
-    dl_image_b64: str | None = None
-    selfie_b64: str | None = None
-    bsc_status: str = "prefer_not_to_say"
-
-
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend-tsx$ cat /opt/msjarvis-rebuild/ms-allis-frontend-tsx/app/admin/page.tsx
-"use client";
-
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { MsAllisPortrait } from "@/components/MsAllisPortrait";
-import { HeartOrnament } from "@/components/HeartOrnament";
-import {
-  api,
-  adminKey,
-  ApiError,
-  type PendingApplication,
-  type ApplicationListItem,
-} from "@/lib/api";
-
-type AdminState = "key-prompt" | "loading" | "ready" | "error";
-
-export default function AdminPage() {
-  const [state, setState] = useState<AdminState>("key-prompt");
-  const [pending, setPending] = useState<ApplicationListItem[]>([]);
-  const [error, setError] = useState("");
-  const [keyInput, setKeyInput] = useState("");
-
-  // On mount, check for an existing admin key in sessionStorage
-  useEffect(() => {
-    if (adminKey.get()) {
-      loadPending();
-    }
-  }, []);
-
-  async function loadPending() {
-    setState("loading");
-    setError("");
-    try {
-      const data = await api.pending();
-      setPending(data.pending);
-      setState("ready");
-    } catch (err: unknown) {
-      if (err instanceof ApiError && err.status === 403) {
-        adminKey.clear();
-        setState("key-prompt");
-        setError("That key was rejected. Try again.");
-        return;
-      }
-      const message =
-        err instanceof ApiError
-          ? err.detail
-          : err instanceof Error
-            ? err.message
-            : "Couldn't load pending applications.";
-      setError(message);
-      setState("error");
-    }
-  }
-
-  function handleKeySubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!keyInput.trim()) return;
-    adminKey.set(keyInput.trim());
-    setKeyInput("");
-    loadPending();
-  }
-
-  async function handleApprove(ueid: string) {
-    if (!confirm(`Approve ${ueid}? This will email the applicant their magic link.`)) return;
-    try {
-      await api.approve(ueid);
-      setPending((prev) => prev.filter((a) => a.ueid !== ueid));
-    } catch (err: unknown) {
-      const message = err instanceof ApiError ? err.detail : "Approval failed.";
-      alert(`Approve failed: ${message}`);
-    }
-  }
-
-  async function handleDeny(ueid: string) {
-    if (!confirm(`Deny ${ueid}? The applicant will be notified.`)) return;
-    try {
-      await api.deny(ueid);
-      setPending((prev) => prev.filter((a) => a.ueid !== ueid));
-    } catch (err: unknown) {
-      const message = err instanceof ApiError ? err.detail : "Denial failed.";
-      alert(`Deny failed: ${message}`);
-    }
-  }
-
-  function handleSignOutAdmin() {
-    adminKey.clear();
-    setPending([]);
-    setState("key-prompt");
-  }
-
-  // ------- Key prompt -------
-  if (state === "key-prompt") {
-    return (
-      <main className="min-h-screen flex items-center justify-center px-6 py-20">
-        <div className="max-w-md w-full">
-          <div className="text-center mb-10">
-            <MsAllisPortrait size="medium" withFrame className="mb-8" />
-            <h1 className="font-display italic text-display text-teal-deep mb-3">
-              Admin
-            </h1>
-            <p className="font-body text-sm text-ink-fade italic">
-              Enter the admin key to manage applications.
-            </p>
-          </div>
-          <form onSubmit={handleKeySubmit} className="space-y-4 surface p-7">
-            <input
-              type="password"
-              autoFocus
-              value={keyInput}
-              onChange={(e) => setKeyInput(e.target.value)}
-              placeholder="Admin key"
-              className="input-warm font-mono text-center"
-            />
-            <button type="submit" className="btn-terracotta w-full">
-              Continue
-            </button>
-            {error && (
-              <p className="text-sm text-terracotta-deep italic text-center">{error}</p>
-            )}
-          </form>
-          <p className="font-body text-xs text-ink-fade italic text-center mt-6">
-            Stored only in this browser tab. Closing the tab signs you out.
-          </p>
-        </div>
-      </main>
-    );
-  }
-
-  return (
-    <main className="min-h-screen">
-      <header className="bg-cream-light border-b border-cream-deep">
-        <div className="max-w-6xl mx-auto px-6 md:px-10 py-5 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <MsAllisPortrait size="small" withFrame={false} className="w-10 h-10 rounded-full" />
-            <span className="font-display italic text-lg text-teal-deep group-hover:text-terracotta transition-colors">
-              Ms. Allis
-            </span>
-            <span className="font-display italic text-xs tracking-widest uppercase text-ink-fade ml-2">
-              · Admin
-            </span>
-          </Link>
-          <div className="flex items-center gap-6">
-            <button
-              onClick={loadPending}
-              className="font-body text-sm text-ink-fade hover:text-teal underline decoration-cream-deep hover:decoration-teal underline-offset-4 transition-colors"
-            >
-              Refresh
-            </button>
-            <button
-              onClick={handleSignOutAdmin}
-              className="font-body text-sm text-ink-fade hover:text-terracotta underline decoration-cream-deep hover:decoration-terracotta underline-offset-4 transition-colors"
-            >
-              Sign out
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <div className="max-w-6xl mx-auto px-6 md:px-10 py-12">
-        <div className="mb-10">
-          <h1 className="font-display text-display text-teal-deep mb-2">
-            Pending applications
-          </h1>
-          <p className="font-body text-sm text-ink-fade italic">
-            {state === "loading" && "Loading…"}
-            {state === "ready" && (
-              pending.length === 0
-                ? "No pending applications. All caught up."
-                : `${pending.length} ${pending.length === 1 ? "application" : "applications"} waiting`
-            )}
-            {state === "error" && error}
-          </p>
-        </div>
-
-        {state === "ready" && pending.length > 0 && (
-          <div className="space-y-6">
-            {pending.map((app) => (
-              <ApplicationCard
-                key={app.ueid}
-                app={app}
-                onApprove={() => handleApprove(app.ueid)}
-                onDeny={() => handleDeny(app.ueid)}
-              />
-            ))}
-          </div>
-        )}
-
-        {state === "ready" && pending.length === 0 && (
-          <div className="text-center py-20">
-            <HeartOrnament className="w-12 h-12 text-cream-deep mx-auto mb-6" />
-            <p className="font-display italic text-xl text-ink-fade">
-              Nothing pending. Quiet day.
-            </p>
-          </div>
-        )}
-      </div>
-    </main>
-  );
-}
-
-function ApplicationCard({
-  app,
-  onApprove,
-  onDeny,
-}: {
-  app: ApplicationListItem;
-  onApprove: () => void;
-  onDeny: () => void;
-}) {
-  const submittedDate = new Date(app.submitted_at).toLocaleString("en-US", {
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-  });
-
-  return (
-    <div className="surface p-7">
-      <div className="grid md:grid-cols-12 gap-6">
-        <div className="md:col-span-8">
-          <div className="flex items-baseline gap-3 mb-3 flex-wrap">
-            <h2 className="font-display text-2xl text-teal-deep">{app.name}</h2>
-            <span className="font-body text-sm text-ink-fade italic">
-              {app.county} County · {submittedDate}
-            </span>
-          </div>
-          <div className="flex items-center gap-2 mb-5">
-            <span className="tag-mono">{app.ueid}</span>
-            <span className="tag-mono">{app.email}</span>
-            <span className="tag-mono">v{app.agreement_version}</span>
-          </div>
-          <div className="border-l-2 border-cream-deep pl-4">
-            <div className="font-display italic text-xs uppercase tracking-widest text-terracotta mb-2">
-              Why they want to participate
-            </div>
-            <p className="font-body text-base text-ink-soft leading-relaxed whitespace-pre-line">
-              {app.motivation}
-            </p>
-          </div>
-        </div>
-
-        <div className="md:col-span-4 flex md:flex-col gap-3 md:items-stretch">
-          <button onClick={onApprove} className="btn-primary flex-1">
-            Approve
-          </button>
-          <button onClick={onDeny} className="btn-secondary flex-1">
-            Deny
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend-tsx$ cat /opt/msjarvis-rebuild/ms-allis-frontend-tsx/app/portal/page.tsx
-// app/portal/page.tsx
-"use client";
-
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import {
-  api,
-  ApiError,
-  session,
-  ApplicationListItem,
-  MeResponse,
-} from "@/lib/api";
-import { portalApi, BalancesResponse, LedgerEntry, LedgerResponse } from "@/lib/portal";
-import { ChatPanel } from "@/components/ChatPanel";
-import { FounderToken } from "@/components/FounderToken";
-import { MsAllisPortrait } from "@/components/MsAllisPortrait";
-import { HeartOrnament } from "@/components/HeartOrnament";
-import { MountainSilhouette } from "@/components/MountainSilhouette";
-
-type State = "checking" | "ready";
-type Tab = "champion" | "admin";
-
-export default function PortalPage() {
-  const router = useRouter();
-  const [state, setState] = useState<State>("checking");
-  const [me, setMe] = useState<MeResponse | null>(null);
-  const [balances, setBalances] = useState<BalancesResponse | null>(null);
-  const [tab, setTab] = useState<Tab>("champion");
-
-  // Admin tab state
-  const [pending, setPending] = useState<ApplicationListItem[]>([]);
-  const [pendingState, setPendingState] = useState<"idle" | "loading" | "ready" | "error">("idle");
-  const [pendingError, setPendingError] = useState("");
-  const [actingOn, setActingOn] = useState<string | null>(null);
-  const [denyingId, setDenyingId] = useState<string | null>(null);
-  const [denyReason, setDenyReason] = useState("");
-
-  useEffect(() => {
-    api.me()
-      .then((m) => {
-        setMe(m);
-        setState("ready");
-        // Fetch balances in parallel; fail silently
-        portalApi.myBalances()
-          .then((b) => setBalances(b))
-          .catch(() => setBalances(null));
-      })
-      .catch(() => {
-        session.clear();
-        router.push("/login");
-      });
-  }, [router]);
-
-  const isAdmin = me?.roles?.includes("admin") ?? false;
-
-  useEffect(() => {
-    if (tab !== "admin" || !isAdmin || pendingState !== "idle") return;
-    loadPending();
-  }, [tab, isAdmin, pendingState]);
-
-  async function loadPending() {
-    setPendingState("loading");
-    setPendingError("");
-    try {
-      const result = await api.pending();
-      setPending(result.applications || []);
-      setPendingState("ready");
-    } catch (err) {
-      setPendingError(err instanceof ApiError ? err.detail : "Failed to load");
-      setPendingState("error");
-    }
-  }
-
-  async function handleApprove(id: string) {
-    setActingOn(id);
-    setPendingError("");
-    try {
-      await api.approve(id);
-      await loadPending();
-    } catch (err) {
-      setPendingError(err instanceof ApiError ? err.detail : "Approve failed");
-    }
-    setActingOn(null);
-  }
-
-  async function handleDeny(id: string) {
-    if (denyReason.trim().length < 5) {
-      setPendingError("Denial reason must be at least 5 characters.");
-      return;
-    }
-    setActingOn(id);
-    setPendingError("");
-    try {
-      await api.deny(id, denyReason.trim());
-      setDenyingId(null);
-      setDenyReason("");
-      await loadPending();
-    } catch (err) {
-      setPendingError(err instanceof ApiError ? err.detail : "Deny failed");
-    }
-    setActingOn(null);
-  }
-
-  function handleSignOut() {
-    session.clear();
-    router.push("/");
-  }
-
-  if (state === "checking") {
-    return (
-      <main className="min-h-screen bg-cream flex items-center justify-center">
-        <p className="font-display italic text-ink-fade">Checking your session…</p>
-      </main>
-    );
-  }
-
-  return (
-    <main className="min-h-screen bg-cream pb-12">
-      <header className="border-b border-cream-deep bg-bone">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <MsAllisPortrait size="small" withFrame={false} className="w-24 h-24" />
-            <div>
-              <p className="font-display text-base text-teal-deep">Ms. Allis</p>
-              <p className="font-body text-xs text-ink-fade italic">{me?.userid ?? "—"}</p>
-            </div>
-          </div>
-          <button
-            onClick={handleSignOut}
-            className="font-body text-sm text-ink-fade hover:text-terracotta transition-colors underline decoration-cream-deep hover:decoration-terracotta underline-offset-4"
-          >
-            Sign out
-          </button>
-        </div>
-      </header>
-
-      {isAdmin && (
-        <div className="border-b border-cream-deep bg-cream">
-          <div className="max-w-6xl mx-auto px-6 flex">
-            <button
-              onClick={() => setTab("champion")}
-              className={`px-6 py-3 font-display text-sm transition-colors ${
-                tab === "champion" ? "text-teal-deep border-b-2 border-terracotta" : "text-ink-fade hover:text-teal-deep"
-              }`}
-            >
-              My Champion
-            </button>
-            <button
-              onClick={() => setTab("admin")}
-              className={`px-6 py-3 font-display text-sm transition-colors ${
-                tab === "admin" ? "text-teal-deep border-b-2 border-terracotta" : "text-ink-fade hover:text-teal-deep"
-              }`}
-            >
-              Admin
-              {pending.length > 0 && (
-                <span className="ml-2 inline-flex items-center justify-center bg-terracotta text-cream-light text-xs px-2 py-0.5 rounded-full">
-                  {pending.length}
-                </span>
-              )}
-            </button>
-          </div>
-        </div>
-      )}
-
-      <div className="max-w-6xl mx-auto px-6 pt-10">
-        {tab === "champion" && <ChampionDashboard me={me} balances={balances} isAdmin={isAdmin} />}
-
-        {tab === "admin" && isAdmin && (
-          <AdminQueue
-            applications={pending}
-            state={pendingState}
-            error={pendingError}
-            actingOn={actingOn}
-            denyingId={denyingId}
-            denyReason={denyReason}
-            setDenyingId={setDenyingId}
-            setDenyReason={setDenyReason}
-            onApprove={handleApprove}
-            onDeny={handleDeny}
-            onClearError={() => setPendingError("")}
-          />
-        )}
-      </div>
-
-      <div className="mt-16">
-        <MountainSilhouette className="text-forest" />
-      </div>
-    </main>
-  );
-}
-
-// ────────────────────────────────────────────────────────────────────
-// Champion dashboard — data first, identity collapsed at bottom
-// ────────────────────────────────────────────────────────────────────
-
-function ChampionDashboard({
-  me,
-  balances,
-  isAdmin,
-}: {
-  me: MeResponse | null;
-  balances: BalancesResponse | null;
-  isAdmin: boolean;
-}) {
-  const [showIdentity, setShowIdentity] = useState(false);
-  const [showChat, setShowChat] = useState(false);
-  const router = useRouter();
-  const [threads, setThreads] = useState<{session_id: string; title: string|null; preview: string; created_at: string; updated_at: string; message_count: number}[]>([])
-  const [renamingId, setRenamingId] = useState<string|null>(null)
-  const [renameValue, setRenameValue] = useState("")
-  const [menuOpenId, setMenuOpenId] = useState<string|null>(null)
-  const [deletingId, setDeletingId] = useState<string|null>(null);
-  const [activeThread, setActiveThread] = useState<string>(() => {
-    if (typeof window === "undefined") return crypto.randomUUID();
-    const t = new URLSearchParams(window.location.search).get("thread");
-    return t ?? crypto.randomUUID();
-  });
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && !new URLSearchParams(window.location.search).get("thread")) {
-      router.replace(`/portal?thread=${activeThread}`);
-    }
-  }, []);
-
-  const loadThreads = () => {
-    const uid = me?.userid ? `?user_id=${encodeURIComponent(me.userid)}` : ""
-    fetch(`/api/conversation/threads${uid}`)
-      .then(r => r.json())
-      .then(data => { if (data.threads) setThreads(data.threads); })
-      .catch(() => {})
-  }
-  useEffect(() => { loadThreads() }, [activeThread, me?.userid])
-
-  const handleRename = async (session_id: string) => {
-    if (!renameValue.trim()) return
-    await fetch("/api/conversation/threads", {
-      method: "PATCH",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({ session_id, title: renameValue.trim() })
-    })
-    setRenamingId(null)
-    setRenameValue("")
-    loadThreads()
-  }
-
-  const handleDelete = async (session_id: string) => {
-    await fetch("/api/conversation/threads", {
-      method: "DELETE",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({ session_id })
-    })
-    setDeletingId(null)
-    if (session_id === activeThread) newThread()
-    else loadThreads()
-  }
-
-  const newThread = () => {
-    const id = crypto.randomUUID();
-    setActiveThread(id);
-    router.push(`/portal?thread=${id}`);
-  };
-  const [showLedger, setShowLedger] = useState(false);
-  const [ledger, setLedger] = useState<LedgerResponse | null>(null);
-  const [ledgerLoading, setLedgerLoading] = useState(false);
-  const [dateFrom, setDateFrom] = useState<string>("");
-  const [dateTo, setDateTo] = useState<string>("");
-
-  async function loadLedger(offset: number = 0) {
-    setLedgerLoading(true);
-    try {
-      const data = await portalApi.myLedger(50, offset);
-      setLedger(data);
-    } catch {
-      // fail silently — non-critical
-    }
-    setLedgerLoading(false);
-  }
-
-  const ems = balances?.ems_balance ?? 0;
-  const pms = balances?.pms_balance ?? 0;
-
-  return (
-    <>
-      {/* Hero — smaller than before */}
-      <div className="text-center mb-10">
-        <div className="flex justify-center mb-4">
-          <HeartOrnament className="w-6 h-6 text-terracotta" />
-        </div>
-        <h1 className="font-display italic text-3xl md:text-4xl text-teal-deep mb-1">
-          Welcome, {me?.userid ?? ""}
-        </h1>
-        <p className="font-body text-sm text-ink-fade italic">
-          {me?.county ? `${me.county} County` : "—"}
-          {me?.county ? " · " : ""}Community Champion
-        </p>
-      </div>
-
-      {/* Founder Token + Balances row */}
-      <section className="grid md:grid-cols-3 gap-4 mb-6">
-        <div className="surface p-6 flex flex-col items-center justify-center text-center">
-          {balances?.founder_token ? (
-            <>
-              <FounderToken
-                serialNumber={balances.founder_token.serial_number}
-                mintedAt={balances.founder_token.minted_at}
-                cohort={balances.founder_token.cohort}
-                size={112}
-              />
-              <p className="font-display text-base text-teal-deep mt-3">
-                {balances.founder_token.display}
-              </p>
-              <p className="font-body text-xs text-ink-fade italic">Phase 0 token holder</p>
-            </>
-          ) : (
-            <>
-              <div
-                className="rounded-full bg-cream-deep flex items-center justify-center"
-                style={{ width: 112, height: 112 }}
-              >
-                <span className="font-display text-xs text-ink-fade italic">No token yet</span>
-              </div>
-              <p className="font-display text-base text-ink-fade mt-3 italic">Founder Token</p>
-              <p className="font-body text-xs text-ink-fade italic">Coming soon</p>
-            </>
-          )}
-        </div>
-
-        <BalanceCard
-          label="Earned MountainShares"
-          shortLabel="EMS"
-          amount={ems}
-          accent="teal"
-        />
-
-        <BalanceCard
-          label="Purchased MountainShares"
-          shortLabel="PMS"
-          amount={pms}
-          accent="terracotta"
-        />
-      </section>
-
-      {/* Region scaffolding row */}
-      <section className="grid md:grid-cols-3 gap-4 mb-6">
-        <PlaceholderCard
-          title="Local businesses"
-          subtitle={me?.county ? `${me.county} County directory` : "Your county"}
-          note="Coming soon"
-        />
-        <PlaceholderCard
-          title="Weather"
-          subtitle="Real-time conditions"
-          note="Coming soon"
-        />
-        <PlaceholderCard
-          title="County resources"
-          subtitle="Public services & support"
-          note="Coming soon"
-        />
-      </section>
-
-      {/* Action buttons */}
-      <section className="flex flex-col sm:flex-row gap-3 mb-8 justify-center">
-        <button
-          onClick={() => setShowChat((v) => !v)}
-          className="btn-primary"
-        >
-          {showChat ? "Hide Ms. Allis" : "Talk to Ms. Allis →"}
-        </button>
-        <button
-          disabled
-          className="font-display text-sm bg-cream-deep text-ink-fade py-3 px-6 cursor-not-allowed italic"
-          title="Coming soon"
-        >
-          Enter The Commons →
-        </button>
-      </section>
-
-      {/* Chat panel — toggles open/closed */}
-      {showChat && (
-        <section className="mb-6">
-          <div className="flex gap-0 border border-border rounded-xl overflow-hidden" style={{height: "600px"}}>
-            {/* Thread sidebar */}
-            <aside className="w-56 shrink-0 flex flex-col border-r border-border bg-surface overflow-y-auto">
-              <div className="flex items-center justify-between px-3 py-2 border-b border-border">
-                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Conversations</span>
-                <button
-                  onClick={newThread}
-                  title="New conversation"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 5v14M5 12h14"/>
-                  </svg>
-                </button>
-              </div>
-              <ul className="flex-1 overflow-y-auto py-1">
-                {threads.length === 0 && (
-                  <li className="px-3 py-4 text-xs text-muted-foreground text-center italic">No past conversations</li>
-                )}
-                {threads.map((t) => (
-                  <li key={t.session_id} className="relative group">
-                    {renamingId === t.session_id ? (
-                      <div className="px-2 py-1.5 flex gap-1">
-                        <input
-                          autoFocus
-                          value={renameValue}
-                          onChange={e => setRenameValue(e.target.value)}
-                          onKeyDown={e => {
-                            if (e.key === "Enter") handleRename(t.session_id)
-                            if (e.key === "Escape") { setRenamingId(null); setRenameValue("") }
-                          }}
-                          className="flex-1 min-w-0 px-1.5 py-0.5 text-xs border border-border rounded bg-surface focus:outline-none focus:border-primary"
-                          placeholder="Thread name..."
-                        />
-                        <button onClick={() => handleRename(t.session_id)} className="text-[10px] text-primary hover:text-primary/80 font-medium px-1" title="Save">✓</button>
-                        <button onClick={() => { setRenamingId(null); setRenameValue("") }} className="text-[10px] text-muted-foreground hover:text-foreground px-1" title="Cancel">✕</button>
-                      </div>
-                    ) : deletingId === t.session_id ? (
-                      <div className="px-3 py-2 bg-red-50 border-l-2 border-red-400">
-                        <p className="text-[10px] text-red-700 mb-1.5 font-medium">Delete this thread?</p>
-                        <div className="flex gap-1.5">
-                          <button onClick={() => handleDelete(t.session_id)} className="text-[10px] bg-red-500 text-white px-2 py-0.5 rounded hover:bg-red-600 transition-colors">Delete</button>
-                          <button onClick={() => setDeletingId(null)} className="text-[10px] text-muted-foreground hover:text-foreground px-2 py-0.5 rounded border border-border">Cancel</button>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="flex items-center pr-1">
-                        <button
-                          onClick={() => { setActiveThread(t.session_id); setMenuOpenId(null); router.push(`/portal?thread=${t.session_id}`); }}
-                          className={[
-                            "flex-1 min-w-0 text-left px-3 py-2 text-xs transition-colors",
-                            t.session_id === activeThread
-                              ? "bg-primary/10 text-primary font-medium"
-                              : "text-muted-foreground hover:bg-muted/50"
-                          ].join(" ")}
-                          title={t.preview ?? t.session_id}
-                        >
-                          <span className="block truncate">{t.title || t.preview || "New conversation"}</span>
-                          <span className="block text-[10px] text-muted-foreground/60 mt-0.5">
-                            {t.updated_at ? new Date(t.updated_at).toLocaleDateString() : ""}
-                            {t.message_count ? ` · ${t.message_count} msg` : ""}
-                          </span>
-                        </button>
-                        <div className="relative shrink-0">
-                          <button
-                            onClick={e => { e.stopPropagation(); setMenuOpenId(menuOpenId === t.session_id ? null : t.session_id) }}
-                            className="opacity-0 group-hover:opacity-100 focus:opacity-100 w-6 h-6 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted rounded transition-all"
-                            title="Thread actions" aria-label="Thread actions"
-                          >
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
-                          </button>
-                          {menuOpenId === t.session_id && (
-                            <div className="absolute right-0 top-7 z-50 w-32 bg-surface border border-border rounded-lg shadow-lg py-1 text-xs">
-                              <button
-                                onClick={() => { setRenamingId(t.session_id); setRenameValue(t.title || t.preview || ""); setMenuOpenId(null) }}
-                                className="w-full text-left px-3 py-1.5 hover:bg-muted/60 transition-colors flex items-center gap-2"
-                              >
-                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                                Rename
-                              </button>
-                              <button
-                                onClick={() => { setDeletingId(t.session_id); setMenuOpenId(null) }}
-                                className="w-full text-left px-3 py-1.5 hover:bg-red-50 text-red-600 transition-colors flex items-center gap-2"
-                              >
-                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
-                                Delete
-                              </button>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </aside>
-
-            {/* Chat area */}
-            <div className="flex-1 min-w-0 overflow-hidden">
-              <ChatPanel userId={me?.userid ?? ""} isAdmin={isAdmin} threadId={activeThread} />
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Transaction history */}
-      <section className="surface mt-4">
-        <button
-          onClick={() => { setShowLedger(v => !v); if (!showLedger) loadLedger(); }}
-          className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-bone transition-colors"
-        >
-          <span className="font-display text-base text-teal-deep">Transaction history</span>
-          <span className="font-body text-xs text-ink-fade italic">
-            {showLedger ? "▼ Hide" : "▶ Show"}{ledger ? ` · ${ledger.total} entries` : ""}
-          </span>
-        </button>
-        {showLedger && (
-          <div className="px-6 pb-6 border-t border-cream-deep">
-            {ledgerLoading ? (
-              <p className="font-body text-sm text-ink-fade italic mt-4">Loading…</p>
-            ) : ledger && ledger.entries.length > 0 ? (
-<>
-                <div className="mt-4 mb-4 flex flex-wrap items-end gap-3 print:hidden">
-                  <div>
-                    <label className="block font-body text-xs text-ink-fade italic mb-1">From</label>
-                    <input
-                      type="date"
-                      value={dateFrom}
-                      onChange={(e) => setDateFrom(e.target.value)}
-                      className="px-2 py-1 bg-bone border border-cream-deep focus:border-teal focus:outline-none font-body text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-body text-xs text-ink-fade italic mb-1">To</label>
-                    <input
-                      type="date"
-                      value={dateTo}
-                      onChange={(e) => setDateTo(e.target.value)}
-                      className="px-2 py-1 bg-bone border border-cream-deep focus:border-teal focus:outline-none font-body text-sm"
-                    />
-                  </div>
-                  {(dateFrom || dateTo) && (
-                    <button
-                      type="button"
-                      onClick={() => { setDateFrom(""); setDateTo(""); }}
-                      className="font-body text-xs text-ink-fade hover:text-terracotta transition-colors underline decoration-cream-deep hover:decoration-terracotta underline-offset-4"
-                    >
-                      Clear
-                    </button>
-                  )}
-                  <div className="ml-auto">
-                    <button
-                      type="button"
-                      onClick={() => window.print()}
-                      className="font-display text-sm bg-teal-deep text-cream-light px-4 py-1.5 hover:bg-teal transition-colors"
-                    >
-                      Print
-                    </button>
-                  </div>
-                </div>
-                {(() => {
-                  const filteredEntries = ledger.entries.filter((e) => {
-                    if (!dateFrom && !dateTo) return true;
-                    const ts = new Date(e.created_at).getTime();
-                    if (dateFrom) {
-                      const fromTs = new Date(dateFrom + "T00:00:00").getTime();
-                      if (ts < fromTs) return false;
-                    }
-                    if (dateTo) {
-                      const toTs = new Date(dateTo + "T23:59:59").getTime();
-                      if (ts > toTs) return false;
-                    }
-                    return true;
-                  });
-                  return filteredEntries.length === 0 ? (
-                    <p className="font-body text-sm text-ink-fade italic">
-                      No transactions in this date range.
-                    </p>
-                  ) : (
-                    <div id="ledger-print-area">
-                      <div className="hidden print:block mb-4">
-                        <h2 className="font-display text-xl text-teal-deep">Transaction history</h2>
-                        <p className="font-body text-xs text-ink-fade italic">
-                          {me?.userid ?? ""} {dateFrom || dateTo ? `· ${dateFrom || "earliest"} to ${dateTo || "latest"}` : ""}
-                        </p>
-                      </div>
-                      <table className="w-full font-body text-sm">
-                        <thead>
-                          <tr className="text-left text-ink-fade text-xs uppercase tracking-wider border-b border-cream-deep">
-                            <th className="pb-2 pr-4">Date</th>
-                            <th className="pb-2 pr-4">Type</th>
-                            <th className="pb-2 pr-4">Token</th>
-                            <th className="pb-2 text-right">Amount</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {filteredEntries.map((e) => (
-                            <tr key={e.id} className="border-b border-cream-deep/50 hover:bg-bone transition-colors">
-                              <td className="py-2 pr-4 text-ink-fade text-xs">
-                                {new Date(e.created_at).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}
-                              </td>
-                              <td className="py-2 pr-4 text-ink italic">{e.transaction_type.replace(/_/g, " ")}</td>
-                              <td className="py-2 pr-4">
-                                <span className={e.token_class === "EMS" ? "text-teal-deep font-display text-xs" : "text-terracotta font-display text-xs"}>
-                                  {e.token_class}
-                                </span>
-                              </td>
-                              <td className="py-2 text-right font-mono text-xs text-ink">
-                                +{parseFloat(e.amount).toLocaleString(undefined, { minimumFractionDigits: 4 })}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                      {(dateFrom || dateTo) && (
-                        <p className="font-body text-xs text-ink-fade italic mt-3">
-                          Showing {filteredEntries.length} of {ledger.entries.length} transactions in selected range.
-                        </p>
-                      )}
-                    </div>
-                  );
-                })()}
-              </>
-            ) : (
-              <p className="font-body text-sm text-ink-fade italic mt-4">No transactions yet.</p>
-            )}
-            {ledger && ledger.total > ledger.limit && (
-              <div className="flex items-center justify-between mt-4 print:hidden">
-                <p className="font-body text-xs text-ink-fade italic">
-                  Page {Math.floor(ledger.offset / ledger.limit) + 1} of {Math.ceil(ledger.total / ledger.limit)}
-                  {" · "}
-                  showing {ledger.offset + 1}–{Math.min(ledger.offset + ledger.entries.length, ledger.total)} of {ledger.total}
-                </p>
-                <div className="flex gap-2">
-                  <button
-                    type="button"
-                    onClick={() => loadLedger(Math.max(0, ledger.offset - ledger.limit))}
-                    disabled={ledgerLoading || ledger.offset === 0}
-                    className="font-display text-sm bg-bone border border-cream-deep text-teal-deep px-3 py-1 hover:bg-cream-deep transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                  >
-                    « Prev
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => loadLedger(ledger.offset + ledger.limit)}
-                    disabled={ledgerLoading || ledger.offset + ledger.entries.length >= ledger.total}
-                    className="font-display text-sm bg-bone border border-cream-deep text-teal-deep px-3 py-1 hover:bg-cream-deep transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                  >
-                    Next »
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-      </section>
-
-      {/* Identity — collapsed accordion at bottom */}
-      <section className="surface mt-4">
-        <button
-          onClick={() => setShowIdentity((v) => !v)}
-          className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-bone transition-colors"
-        >
-          <span className="font-display text-base text-teal-deep">Your identity</span>
-          <span className="font-body text-xs text-ink-fade italic">
-            {showIdentity ? "▼ Hide" : "▶ Show"}
-          </span>
-        </button>
-        {showIdentity && (
-          <div className="px-6 pb-6 border-t border-cream-deep">
-            <dl className="grid sm:grid-cols-2 gap-4 mt-4 font-body text-sm">
-              <Field label="Userid" value={me?.userid ?? "—"} mono />
-              <Field label="UEID" value={me?.uei || "—"} mono small />
-              <Field label="County" value={me?.county ?? "—"} />
-              <Field label="Roles" value={me?.roles?.join(", ") || "user"} />
-              {balances?.balance_last_updated && (
-                <Field
-                  label="Balances updated"
-                  value={new Date(balances.balance_last_updated).toLocaleString()}
-                  small
-                />
-              )}
-            </dl>
-            <p className="font-body text-xs text-ink-fade italic mt-4 leading-relaxed">
-              Your data is private. Only you can see this — no other Champion or admin
-              can view your balances, UEID, or wallet. If anything looks wrong, email{" "}
-              <a
-                href="mailto:kiddstechnical@gmail.com"
-                className="text-terracotta hover:text-terracotta-deep underline decoration-terracotta/30 hover:decoration-terracotta underline-offset-4 transition-colors"
-              >
-                kiddstechnical@gmail.com
-              </a>.
-            </p>
-          </div>
-        )}
-      </section>
-    </>
-  );
-}
-
-function BalanceCard({
-  label,
-  shortLabel,
-  amount,
-  accent,
-}: {
-  label: string;
-  shortLabel: string;
-  amount: number;
-  accent: "teal" | "terracotta";
-}) {
-  const color = accent === "teal" ? "text-teal-deep" : "text-terracotta-deep";
-  const formatted = amount.toLocaleString(undefined, {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 4,
-  });
-  return (
-    <div className="surface p-6 flex flex-col items-center justify-center text-center">
-      <p className="font-body text-xs text-ink-fade italic uppercase tracking-wider">
-        {shortLabel}
-      </p>
-      <p className={`font-display italic text-5xl ${color} my-2`}>{formatted}</p>
-      <p className="font-body text-xs text-ink-fade italic">{label}</p>
-    </div>
-  );
-}
-
-function PlaceholderCard({
-  title,
-  subtitle,
-  note,
-}: {
-  title: string;
-  subtitle: string;
-  note: string;
-}) {
-  return (
-    <div className="surface p-6 flex flex-col items-center justify-center text-center opacity-60">
-      <p className="font-display text-base text-teal-deep">{title}</p>
-      <p className="font-body text-xs text-ink-fade italic mt-1">{subtitle}</p>
-      <p className="font-body text-xs text-terracotta/70 italic mt-3">{note}</p>
-    </div>
-  );
-}
-
-function Field({
-  label,
-  value,
-  mono = false,
-  small = false,
-}: {
-  label: string;
-  value: string;
-  mono?: boolean;
-  small?: boolean;
-}) {
-  return (
-    <div>
-      <dt className="text-ink-fade italic text-xs uppercase tracking-wider">{label}</dt>
-      <dd className={`text-ink ${mono ? "font-mono" : ""} ${small ? "text-xs break-all" : ""}`}>
-        {value}
-      </dd>
-    </div>
-  );
-}
-
-// ────────────────────────────────────────────────────────────────────
-// Admin queue — unchanged from previous version
-// ────────────────────────────────────────────────────────────────────
-
-function AdminQueue({
-  applications,
-  state,
-  error,
-  actingOn,
-  denyingId,
-  denyReason,
-  setDenyingId,
-  setDenyReason,
-  onApprove,
-  onDeny,
-  onClearError,
-}: {
-  applications: ApplicationListItem[];
-  state: "idle" | "loading" | "ready" | "error";
-  error: string;
-  actingOn: string | null;
-  denyingId: string | null;
-  denyReason: string;
-  setDenyingId: (id: string | null) => void;
-  setDenyReason: (r: string) => void;
-  onApprove: (id: string) => void;
-  onDeny: (id: string) => void;
-  onClearError: () => void;
-}) {
-  return (
-    <>
-      <div className="flex justify-center mb-6">
-        <HeartOrnament className="w-7 h-7 text-terracotta" />
-      </div>
-      <h1 className="font-display italic text-display text-teal-deep text-center mb-2">
-        Pending applications
-      </h1>
-      <p className="font-body text-sm text-ink-fade text-center mb-10 italic">
-        {state === "loading"
-          ? "Loading…"
-          : applications.length === 0
-            ? "Nothing waiting right now."
-            : applications.length === 1
-              ? "1 application waiting"
-              : `${applications.length} applications waiting`}
-      </p>
-
-      {error && (
-        <div className="max-w-2xl mx-auto mb-6 font-body text-sm text-terracotta-deep bg-terracotta/10 border border-terracotta/30 p-3 italic flex items-baseline justify-between">
-          <span>{error}</span>
-          <button onClick={onClearError} className="text-xs text-terracotta-deep hover:underline ml-3">
-            dismiss
-          </button>
-        </div>
-      )}
-
-      <div className="space-y-6 max-w-3xl mx-auto">
-        {applications.map((a) => (
-          <div key={a.application_id} className="surface p-6">
-            <div className="flex items-baseline justify-between mb-4">
-              <div>
-                <h2 className="font-display text-xl text-teal-deep">{a.name}</h2>
-                <p className="font-body text-sm text-ink-fade italic">
-                  {a.county} County ·{" "}
-                  {new Date(a.submitted_at).toLocaleDateString(undefined, {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                    hour: "numeric",
-                    minute: "2-digit",
-                  })}
-                </p>
-              </div>
-              <p className="font-body text-xs text-ink-fade font-mono">
-                {a.application_id.slice(0, 8)}…
-              </p>
-            </div>
-
-            <p className="font-body text-sm text-ink mb-1">{a.email}</p>
-            <p className="font-body text-xs text-ink-fade mb-4 font-mono">
-              proposed_userid: {a.proposed_userid} · {a.agreement_version}
-            </p>
-
-            {a.county_warning && (
-              <div className="bg-terracotta/10 border border-terracotta/30 px-4 py-2 mb-4 font-body text-xs text-terracotta-deep italic">
-                {a.county_warning}
-              </div>
-            )}
-
-            <div className="bg-bone border border-cream-deep p-4 mb-4">
-              <p className="font-display text-sm text-teal-deep mb-1">Why they want to participate</p>
-              <p className="font-body text-sm text-ink leading-relaxed whitespace-pre-wrap">
-                {a.motivation}
-              </p>
-            </div>
-
-            {denyingId === a.application_id ? (
-              <div className="space-y-3">
-                <textarea
-                  value={denyReason}
-                  onChange={(e) => setDenyReason(e.target.value)}
-                  placeholder="Reason for denial (5+ characters)…"
-                  className="w-full px-3 py-2 bg-bone border border-cream-deep focus:border-terracotta focus:outline-none font-body text-sm"
-                  rows={3}
-                  autoFocus
-                />
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => onDeny(a.application_id)}
-                    disabled={actingOn === a.application_id}
-                    className="btn-terracotta text-sm flex-1"
-                  >
-                    Confirm deny
-                  </button>
-                  <button
-                    onClick={() => {
-                      setDenyingId(null);
-                      setDenyReason("");
-                      onClearError();
-                    }}
-                    className="btn-secondary text-sm flex-1"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div className="flex gap-3">
-                <button
-                  onClick={() => onApprove(a.application_id)}
-                  disabled={actingOn === a.application_id}
-                  className="btn-primary"
-                >
-                  {actingOn === a.application_id ? "Approving…" : "Approve"}
-                </button>
-                <button
-                  onClick={() => {
-                    setDenyingId(a.application_id);
-                    onClearError();
-                  }}
-                  disabled={actingOn !== null}
-                  className="font-display text-sm text-ink-fade hover:text-terracotta transition-colors underline decoration-cream-deep hover:decoration-terracotta underline-offset-4 px-4"
-                >
-                  Deny
-                </button>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </>
-  );
-}
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend-tsx$ 
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # What's PID 1?
+docker exec jarvis-hilbert-state cat /proc/1/cmdline | tr '\0' ' '
+echo ""
+
+# What's the entrypoint/cmd?
+docker inspect jarvis-hilbert-state --format '{{json .Config.Entrypoint}} {{json .Config.Cmd}}'
+
+# Where do other services get started?
+docker exec jarvis-hilbert-state sh -c "ls /app/ /app/services/ 2>/dev/null"
+docker exec jarvis-hilbert-state sh -c "find /app -name '*.sh' -o -name 'Procfile' -o -name 'start*' 2>/dev/null | head -20"
+
+# What processes are running now?
+docker exec jarvis-hilbert-state sh -c "ps aux 2>/dev/null || cat /proc/[0-9]*/cmdline 2>/dev/null | tr '\0' ' ' | tr '\n' '\n'"
+/usr/local/bin/python3.10 /usr/local/bin/uvicorn jarvis_hilbert_state:app --host 0.0.0.0 --port 8081 
+null ["uvicorn","jarvis_hilbert_state:app","--host","0.0.0.0","--port","8081"]
+/app/:
+=0.29.0
+data
+jarvis_hilbert_state.py
+models
+neurobiological_brain
+requirements.txt
+services
+
+/app/services/:
+ADDITIONAL_SERVICES.py
+ADDITIONAL_SERVICES_FINAL.py
+AaaCPE_Appalachian_Dialect_Knowledge.txt
+COMPREHENSIVE_PORT_AUDIT_20251009_234234.txt
+CONSTITUTIONAL_SCHEDULER_ENTRY.txt
+ConfigLoader.py
+DEPLOYMENT_ORDER.txt
+Dockerfile
+Dockerfile-chroma-proxy
+Dockerfile-llm1-proxy
+Dockerfile-llm10-proxy
+Dockerfile-llm11-proxy
+Dockerfile-llm12-proxy
+Dockerfile-llm13-proxy
+Dockerfile-llm14-proxy
+Dockerfile-llm15-proxy
+Dockerfile-llm16-proxy
+Dockerfile-llm17-proxy
+Dockerfile-llm18-proxy
+Dockerfile-llm19-proxy
+Dockerfile-llm2-proxy
+Dockerfile-llm20-proxy
+Dockerfile-llm21-proxy
+Dockerfile-llm22-proxy
+Dockerfile-llm3-proxy
+Dockerfile-llm4-proxy
+Dockerfile-llm5-proxy
+Dockerfile-llm6-proxy
+Dockerfile-llm7-proxy
+Dockerfile-llm8-proxy
+Dockerfile-llm9-proxy
+Dockerfile.69dgm_bridge
+Dockerfile.aaacpe_rag
+Dockerfile.aaacpe_scraper
+Dockerfile.agents
+Dockerfile.autonomous_complete
+Dockerfile.autonomous_learner
+Dockerfile.autonomous_learner_complete
+Dockerfile.bak_add_deps
+Dockerfile.bak_add_redis
+Dockerfile.bak_add_requests
+Dockerfile.bak_add_service_discovery
+Dockerfile.bak_before_bbb_copy_fix
+Dockerfile.bak_runner_cmd
+Dockerfile.bbb
+Dockerfile.constitutional_guardian
+Dockerfile.crypto-policy
+Dockerfile.dgm_orchestrator
+Dockerfile.dgm_worker
+Dockerfile.email
+Dockerfile.fifth_dgm_real
+Dockerfile.gateway
+Dockerfile.hippocampus
+Dockerfile.hippocampus.bak.20260626235712
+Dockerfile.icontainers
+Dockerfile.icontainers_fastapi
+Dockerfile.intake
+Dockerfile.judge
+Dockerfile.judge.bak.20260406
+Dockerfile.lm_synthesizer
+Dockerfile.memory
+Dockerfile.mother_protocols
+Dockerfile.nbb_*
+Dockerfile.nbb_base
+Dockerfile.pia-sampler
+Dockerfile.policy
+Dockerfile.psychological_rag
+Dockerfile.psychology_services
+Dockerfile.qualia
+Dockerfile.rag
+Dockerfile.rag_server
+Dockerfile.roche_llm
+Dockerfile.roche_llm.disabled
+Dockerfile.semaphore
+Dockerfile.spiritual_rag
+Dockerfile.temporal_consciousness
+Dockerfile.toroidal
+Dockerfile.web_research
+Dockerfile.webdeploy
+Dockerfile.woah
+Dockerfile.woah_algorithms
+EGERIA_AGI_TEST_RESULTS_SUMMARY.md
+EGERIA_IDENTITY.md
+FULL_DEPLOYMENT_MANIFEST.txt
+INTEGRATION_IMPLEMENTATION.py
+MAMMA_KIDD_QUICK_REFERENCE.txt
+METHOD_AUDIT_RAW.txt
+MS_JARVIS_ULTIMATE_AUDIT_20251010_002719.txt
+PORTS_REGISTRY_RAW.txt
+PORT_AUDIT_RAW.txt
+PRODUCTION_STATUS_REPORT.txt
+REFERENCE_windows_swarm.py
+RESTORATION_CERTIFICATE.txt
+RESTORATION_CERTIFICATE_CORRECTED.txt
+SYSTEM_AUDIT_20251009_233918.txt
+ULTIMATE_PORT_AUDIT_20251010_094847.txt
+WATCHDOG_LOG.txt
+__init__.py
+__pycache__
+aaacpe_initial_ingest.py
+aaacpe_rag_service.py
+aaacpe_scraper_service.py
+aacpe_ingest_community.py
+aacpe_prepare_metadata.py
+aapcappe_ingest.py
+academic_research_gateway_8062.py
+academic_research_gateway_8062_cors.py
+academic_whitebox_api.py
+activate_dgm.py
+activate_dgm_enhanced.py
+activate_egeria_persona.py
+add_auto_store.py
+add_background_call.py
+add_background_storage.py
+add_conversation_context.py
+add_conversation_endpoint.py
+add_conversation_storage.py
+add_dynamic_context.py
+add_fast_layer.py
+add_fifth_dgm_to_chat.py
+add_full_brain_class.py
+add_gpu_cleanup_correct.py
+add_gpu_cleanup_every_3.py
+add_identity_context.py
+add_jarvis_personality.py
+add_learning_suggestion.py
+add_mamma_greeting_simple.py
+add_messenger_to_gateway.py
+add_new_consciousness_services.py
+add_ready_endpoint.py
+add_security_to_chat.py
+add_semaphore.py
+add_simple_gpu_cleanup.py
+add_swagger_to_ports.py
+add_swagger_to_rag.py
+add_to_consciousness_engine.txt
+add_to_main_consciousness.psychology_patched.py
+add_to_main_consciousness.py
+add_user_memory.py
+add_user_memory_attribute.py
+add_web_research_storage.py
+add_working_search.py
+advanced_service_dashboard.py
+agents_main.py
+ai_server.py
+ai_server_11llm_OPTIMIZED.py
+ai_server_19llm_CONSCIOUS.backup_20251013_082519.py
+ai_server_19llm_CONSCIOUS.backup_20251013_083103.py
+ai_server_19llm_CONSCIOUS.backup_20251026_200122.py
+ai_server_19llm_CONSCIOUS.backup_20251110_135425.py
+ai_server_19llm_CONSCIOUS.py
+ai_server_19llm_PRODUCTION.py
+ai_server_19llm_PRODUCTION_WITH_HEALTH.py
+ai_server_20llm_FINAL.py
+ai_server_20llm_PRODUCTION.py
+ai_server_20llm_PRODUCTION.py.backup_bakllava_removal
+ai_server_20llm_PRODUCTION.py.backup_before_full_synthesis
+ai_server_20llm_PRODUCTION.py.backup_presedfix
+ai_server_20llm_PRODUCTION.py.backup_response_length
+ai_server_20llm_PRODUCTION.py.backup_synthesis
+ai_server_20llm_PRODUCTION.py.bak_hpguard
+ai_server_20llm_PRODUCTION.py.bak_hppreflight
+ai_server_22llm.psychology_patched.py
+ai_server_22llm.psychology_patched_FIXED.py
+ai_server_22llm.py
+ai_server_22llm_FIXED.py
+ai_server_22llm_SEQUENTIAL.py
+ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py
+ai_server_22llm_SMALL_TO_LARGE.py
+ai_server_4llm.py
+ai_server_integrated.py
+ai_server_original_backup.py
+ai_server_restored.py
+ai_teams_config.py
+all_actual_py.txt
+all_actual_services.txt
+all_build_dirs.txt
+all_service_ports.txt
+all_services.txt
+all_services_compose_blocks.txt
+all_services_compose_blocks_dynamic.txt
+apk-list.txt
+apply_ollama_fix.py
+apt-list.txt
+async_polling_architecture.py
+attention_multimodal_fuser.py
+attention_pipeline.py
+attention_priority_scheduler.py
+attention_router.py
+audit_attrs.py
+audit_local_state.py
+auth.py
+auto_fix_gateway.py
+auto_rag_builder.py
+autonomous_learner.py
+autonomous_learner_gisgeodb_wrapper.psychology_patched.py
+autonomous_learner_gisgeodb_wrapper.py
+autonomous_learner_topic_source.py
+available_models.txt
+backfill_gbim_worldview_metadata.py
+backfill_gbim_worldview_metadata_v2.py
+background_curator.py
+backup_chroma_mountainshares_knowledge.json
+batch_normalize_beliefs.py
+batch_patch_services.py
+bbb_ethics_proxy.py
+bbb_requirements.txt
+bbb_signature_verifier.py
+bbb_validator.py
+belief_integrator.py
+belief_revision_engine.py
+belief_state_schema.py
+benefits_chat.py
+brain_orchestrator.py
+brain_orchestrator_main.py
+bridge_69dgm.py
+bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
+bridge_autonomous_to_i_container_dgm_woah.py
+bridge_autonomous_to_i_container_fixed.py
+bridge_cross_dgm.py
+bridge_cross_dgm_10001.py
+bridge_cross_dgm_10002.py
+bridge_cross_dgm_10003.py
+bridge_cross_dgm_10004.py
+bridge_cross_dgm_10005.py
+bridge_cross_dgm_10006.py
+bridge_cross_dgm_10007.py
+bridge_cross_dgm_10008.py
+bridge_cross_dgm_10009.py
+bridge_cross_dgm_10010.py
+bridge_cross_dgm_10011.py
+bridge_cross_dgm_10012.py
+bridge_cross_dgm_10013.py
+bridge_cross_dgm_10014.py
+bridge_cross_dgm_10015.py
+bridge_cross_dgm_10016.py
+bridge_cross_dgm_10017.py
+bridge_cross_dgm_10018.py
+bridge_cross_dgm_10019.py
+bridge_cross_dgm_10020.py
+bridge_cross_dgm_10021.py
+bridge_cross_dgm_10022.py
+bridge_cross_dgm_10023.py
+bridge_cross_dgm_10024.py
+bridge_cross_dgm_10025.py
+bridge_cross_dgm_10026.py
+bridge_cross_dgm_10027.py
+bridge_cross_dgm_10028.py
+bridge_cross_dgm_10029.py
+bridge_cross_dgm_10030.py
+bridge_cross_dgm_10031.py
+bridge_cross_dgm_10032.py
+bridge_cross_dgm_10033.py
+bridge_cross_dgm_10034.py
+bridge_cross_dgm_10035.py
+bridge_cross_dgm_10036.py
+bridge_cross_dgm_10037.py
+bridge_cross_dgm_10038.py
+bridge_cross_dgm_10039.py
+bridge_cross_dgm_10040.py
+bridge_cross_dgm_10041.py
+bridge_cross_dgm_10042.py
+bridge_cross_dgm_10043.py
+bridge_cross_dgm_10044.py
+bridge_cross_dgm_10045.py
+bridge_cross_dgm_10046.py
+bridge_cross_dgm_10047.py
+bridge_cross_dgm_10048.py
+bridge_cross_dgm_10049.py
+bridge_cross_dgm_10050.py
+bridge_cross_dgm_10051.py
+bridge_cross_dgm_10052.py
+bridge_cross_dgm_10053.py
+bridge_cross_dgm_10054.py
+bridge_cross_dgm_10055.py
+bridge_cross_dgm_10056.py
+bridge_cross_dgm_10057.py
+bridge_cross_dgm_10058.py
+bridge_cross_dgm_10059.py
+bridge_cross_dgm_10060.py
+bridge_cross_dgm_10061.py
+bridge_cross_dgm_10062.py
+bridge_cross_dgm_10063.py
+bridge_cross_dgm_10064.py
+bridge_cross_dgm_10065.py
+bridge_cross_dgm_10066.py
+bridge_cross_dgm_10067.py
+bridge_cross_dgm_10068.py
+bridge_cross_dgm_10069.py
+build_additional_services.py
+build_dir_audit.txt
+build_entityid_to_chromaid_map.py
+build_project_impact_graph.py
+bulk_build_beliefs.py
+bulk_compose_rewrite.py
+bulk_load_MAXIMUM.py
+bulk_load_knowledge.py
+bulk_sync_gis_to_chromadb.py
+chain_listener.py
+chat_endpoint_universal.py
+chat_server.py
+chat_worker.py
+chroma
+chroma_client.py
+chroma_client_old.py
+chroma_config.py
+chroma_health_monitor.py
+chroma_health_proxy.py
+chroma_health_utils.py
+chroma_python_test.py
+chroma_test.py
+chromadb_client.py
+chromadb_main.py
+chromadb_rag_helper.py
+chromadb_rest_bridge.py
+chromadb_v2_to_gis_sync.py
+chunked_ingest_gbim_to_chroma.py
+clean_compose.py
+clean_integration.py
+clean_service_candidates.txt
+cleanup_manifest.txt
+cloudflare_domain_integration.py
+commons_gamification.py
+community_stake_registry.py
+complete_fix.py
+complete_memory_fix.py
+complete_system_audit.py
+complete_system_audit_with_swagger.py
+comprehensive_gisgeodb_audit.py
+comprehensive_gisgeodb_audit_FIXED.py
+comprehensive_storage_fix.py
+comprehensive_url_fix.py
+config_spiritual.py
+configure_facebook_webhook.py
+connection_pooling.py
+consciousness_coordinator.psychology_patched.py
+consciousness_coordinator.py
+consciousness_feed_integration.psychology_patched.py
+consciousness_feed_integration.py
+consciousness_gateway.py
+consciousness_with_egeria_voice.py
+consciousness_working.py
+consolidate_to_chroma_db.py
+constitutional_api.PROD_BACKUP.py
+constitutional_api.py
+constitutional_api_fixed.py
+constitutional_guardian.PROD_BACKUP.py
+constitutional_guardian.py
+context_manager.py
+contract_generator.py
+conversation_memory_endpoints.py
+conversion_service.py
+count_collections.py
+count_collections_local.py
+cpu_optimization.py
+create_autonomous_learner_tables.py
+create_consciousness_data_integration.psychology_patched.py
+create_consciousness_data_integration.py
+create_dual_consciousness_i_containers.psychology_patched.py
+create_dual_consciousness_i_containers.py
+create_geodb_nodes.py
+create_i_statement_feedback_loop.py
+create_immutable_security_layer.py
+create_perpetual_storage_layer.py
+create_tile_index.py
+create_ueid_identity_layer.py
+crypto_client.py
+dao_governance.py
+data_inventory_endpoint.py
+dedupe_compose.py
+designed_ports.txt
+dgm_adoption_worker.py
+dgm_bridge.py
+dgm_connector_registry.py
+dgm_orchestrator.py
+dgm_orchestrator_fake.py
+dgm_rag_integration.py
+dgm_rag_integration_v2.py
+dgm_supervisor_woah.psychology_patched.py
+dgm_supervisor_woah.py
+dgm_supervisor_woah_fixed.py
+dgm_supervisor_woah_simple.py
+dgm_worker.py
+dir_endpoints.txt
+disable_aggressive_cleaning.py
+domain_service_router.py
+download_nltk_data.py
+dpkg-list.txt
+dynamic_app.py
+dynamic_port_scheduler.py
+dynamic_port_service.py
+dynamic_port_service_enhanced.py
+egeria_active_heartbeat.py
+egeria_api_proxy.py
+egeria_autonomous_inquiry.py
+egeria_autonomous_inquiry_active.py
+egeria_code_execution_engine.py
+egeria_core_identity.txt
+egeria_facebook_perpetual_scheduler.py
+egeria_multi_mode_system.py
+egeria_safe_self_correction.py
+egeria_status_poller.py
+egeria_system_prompt.txt
+egeria_system_prompt.txt.bak.20260602-193351
+egeria_true_identity.txt
+egeria_web_ui.py
+egeria_web_ui_FIXED.py
+egeria_web_ui_dynamic.py
+egeria_web_ui_final_biological.py
+egeria_web_ui_fixed_simple.py
+egeria_web_ui_plain_authentic.py
+egeria_web_ui_v3_consciousness.py
+egeria_web_ui_with_execution.py
+egeria_web_ui_working.py
+email_auto_checker.py
+email_gis_geolocation_extractor.py
+email_rag_integration.py
+email_strategy.txt
+embed_and_add.py
+embed_and_query.py
+embed_gbim.py
+embed_geodb.py
+enable_22llm_routing.py
+enhance_agent_prompts.py
+enhance_cleaner.py
+enhance_pituitary_warmth.py
+enhance_rag_first.py
+enhance_rag_knowledge.py
+enhanced_learner_concept.py
+enrich_geodb_collections.py
+enrich_geodb_layers.py
+ethical_filter.py
+etl_from_csv_template.py
+etl_from_manifest.py
+etl_template_layer.py
+export_attributes_to_gis.py
+export_chroma_manifest.py
+export_geodb_attrs.py
+export_metadata_csv.py
+extract_all_chromadb_to_gis.py
+extract_all_chromadbs_to_gis.py
+extract_binder4_text.py
+extract_chroma_sqlite_to_gis.py
+extract_real_knowledge_to_gis.py
+extract_shapefile_features_to_csv.py
+facebook_chat_unified.py
+facebook_consciousness_daemon.py
+facebook_daemon_polling.py
+facebook_messenger_integration.py
+facebook_poster.py
+facebook_poster_autonomous.py
+facebook_poster_fast.py
+facebook_poster_working.py
+facebook_voice_orchestrator_egeria.py
+fifth_dgm.py
+fifth_dgm_integration.py
+fifth_dgm_main.py
+file_metadata_matching_algorithm.py
+fill_null_coordinates_mount_hope.py
+final_model_optimization.py
+fix_agent_prompts.py
+fix_all_consciousness_services.py
+fix_autonomous.py
+fix_autonomous_learner_endpoint.py
+fix_autonomous_learner_indent.py
+fix_background_storage.py
+fix_chat_server.py
+fix_chroma_url.py
+fix_consciousness_endpoints.py
+fix_context_flow.py
+fix_creator_recognition.py
+fix_fastapi_lifespan.py
+fix_gpu_and_retry.py
+fix_import.py
+fix_indentation.py
+fix_judge_and_memory.py
+fix_judge_authentic.py
+fix_judge_response.py
+fix_judge_synthesis.py
+fix_main_brain_endpoints.py
+fix_model_names.py
+fix_model_unloading.py
+fix_multi_rag_chromadb.py
+fix_new_service_endpoints.py
+fix_orchestrator_init.py
+fix_orchestrator_scope.py
+fix_persona.py
+fix_persona_hang.py
+fix_port_8001_clean.py
+fix_port_8051_handler.py
+fix_prompt_leak.py
+fix_query_service_endpoints.py
+fix_rag_store.py
+fix_response_parsing.py
+fix_semaphore.py
+fix_storage.py
+fix_swagger.py
+fix_timeouts_add_22llm.py
+fix_web_research.py
+fix_woah_discovery.py
+fractal_adapter.py
+fraud_detection_ai.py
+gateway8050_simple.py
+gateway_messenger_integration.py
+gateway_verify_fixed.py
+gateway_wv_entanglement.py
+gbim-router
+gbim_api.py
+gbim_benefit_indexer.py
+gbim_chroma.py
+gbim_chroma_fixed.py
+gbim_core.py
+gbim_dashboard.py
+gbim_entangled_summary.py
+gbim_entanglement.py
+gbim_explain.py
+gbim_gis_bridge.py
+gbim_metadata_loader.py
+gbim_msjarvis.py
+gbim_query_router.py
+gbim_reingest_placeholder.py
+gbim_semantic_indexer.py
+gbim_spatial_indexer.py
+gbim_temporal_indexer.py
+gbim_v0_retrieval.py
+gdb_integration_service.py
+generate_services.py
+geo_rag_debug.py
+geo_rag_debug_app.py
+geobim_health_shim_8051.py
+geobim_integrated.py
+geobim_mysql.py
+geobim_mysql_v2.py
+geodb_adapter.py
+geodb_core.py
+geospatial_resolver.py
+gis-rag
+gis_chat_integration.py
+gis_command_module.py
+gis_rag_service.py
+gisgeodb_learner_hook.py
+gisgeodb_storage.py
+gisgeodbdirectaccess.py
+gpu_accelerated_rag.py
+gpu_accelerated_rag_fixed.py
+guards.py
+guards_api_module.py
+hardware_optimization_analyzer.py
+harmony4hope_deployment_manager.py
+health_access_api.py
+health_access_gbim_bridge.py
+health_access_query.py
+health_check_cache.py
+hello.txt
+hierarchical_coordinator_autonomous.py
+hierarchical_coordinator_deep_mode.py
+hierarchical_integration.py
+hierarchical_method.txt
+hilbert
+hilbert_spatial_chat.py
+hippocampus_service.py
+host_bulk_loader.py
+hp_antisurveillance_guardian_client.py
+i_container_interest_algorithm.py
+icontainers_fastapi.py
+immutable_core_enforcement.py
+implement_judge_pituitary_fixed.py
+implement_safe_optimizations.py
+import_gbim_assets.py
+import_gis_geodata_to_gbim.py
+import_gisgeodata_to_gbim.py
+index_all_extracted_gis.py
+infrastructure_endpoints.py
+ingest_additional_kbs.py
+ingest_api.py
+ingest_benefit_programs.py
+ingest_benefit_programs_to_chroma.py
+ingest_compliance_tasks_to_chroma.py
+ingest_csv_to_gisgeodb.py
+ingest_documents_to_chromadb.py
+ingest_full_attributed_docs.py
+ingest_gbim_to_chroma.py
+ingest_gbim_to_chroma_fast.py
+ingest_gbim_to_chroma_resume.py
+ingest_gbim_to_chroma_ultrafast.py
+ingest_gis_features_to_chromadb.py
+ingest_h4h_cultural_heritage.py
+ingest_hospitals.py
+ingest_imm_to_chroma.py
+ingest_knowledge_simple.py
+ingest_mrsid_imagery.py
+ingest_utility_enrollments_to_chroma.py
+ingest_watcher.py
+ingestcsvtogisgeodb.py
+inject_egeria_persona.py
+inject_gisgeodb_into_learner.py
+inspect_geodb_collection.py
+intake_service.py
+integrate_all_services.py
+integrate_complete_architecture.py
+integrate_consciousness_into_swarm.py
+integrate_fifth_dgm_autonomous_learner.py
+integrate_full_brain.py
+integrate_full_neural_architecture.py
+integrate_i_container_interests.py
+integrate_i_container_to_schedulers.py
+integrate_orchestrator_flow.py
+integrate_spatial_temporal.py
+interaction_logger.py
+internet_tunnel_service.py
+jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
+jarvis-aaacpe-rag_aaacpe_rag_service.py
+jarvis-adoption-worker_dgm_adoption_worker.py
+jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
+jarvis-assertion-gateway
+jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
+jarvis-constitutional-guardian_constitutional_api.py
+jarvis-constitutional-guardian_constitutional_api.py.bak_hpguard2
+jarvis-fifth-dgm_service_discovery.py
+jarvis-gis-rag_gis_rag_service.py
+jarvis-hippocampus_hippocampus_service.py
+jarvis-hippocampus_hippocampus_service.py.bak_hpguard_hippocampus
+jarvis-hippocampus_hippocampus_service.py.v1.bak
+jarvis-i-containers_icontainers_fastapi.py
+jarvis-judge-alignment_lm_synthesizer.py
+jarvis-judge-alignment_lm_synthesizer.py.backup_33_5_guard
+jarvis-judge-consistency_lm_synthesizer.py
+jarvis-judge-consistency_lm_synthesizer.py.backup_33_5_guard
+jarvis-judge-ethics_lm_synthesizer.py
+jarvis-judge-ethics_lm_synthesizer.py.backup_33_5_guard
+jarvis-judge-pipeline_judge_pipeline.py
+jarvis-judge-pipeline_judge_pipeline.py.backup_beforesynth
+jarvis-judge-truth_lm_synthesizer.py
+jarvis-judge-truth_lm_synthesizer.py.backup_33_5_guard
+jarvis-lm-synthesizer_lm_synthesizer.py
+jarvis-lm-synthesizer_lm_synthesizer.py.backup_33_5_guard
+jarvis-lm-synthesizer_lm_synthesizer.py.backup_urlfix
+jarvis-lm-synthesizer_lm_synthesizer.py.bak.20260602-193351
+jarvis-local-resources_local_resources_resolver.py
+jarvis-mother-protocols_mother_protocols.py
+jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
+jarvis-psychology-services_psychology_integration_adapter.py
+jarvis-qualia-engine_ms_jarvis_qualia_engine.py
+jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
+jarvis-semaphore_msjarvis_semaphore.py
+jarvis-semaphore_msjarvis_semaphore.py.backup
+jarvis-spiritual-rag_spiritual_rag_domain.py
+jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
+jarvis-temporal-consciousness_temporal_consciousness.py
+jarvis-toroidal_toroidal_service.py
+jarvis-woah_dgm_supervisor_woah_fixed.py
+jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
+jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak_hpguard
+jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak_hppreflight
+jarvis_authentic_persona.txt
+jarvis_ensemble.py
+jarvis_gbim_query_router.py
+jarvis_hilbert_semantic.py
+jarvis_hilbert_state.py
+jarvis_hilbert_time.py
+jarvis_llm1.py
+jarvis_steward.py
+jarvis_stewardship_scheduler.py
+jarvis_synth_llm.py
+jarvisarchiveapi.py
+jarviscryptopolicy.py
+jarviscryptopolicy.py.bak.20260602-193351
+judge-keys
+judge_10070.py
+judge_10071.py
+judge_10072.py
+judge_10073.py
+judge_10074.py
+judge_10075.py
+judge_10076.py
+judge_10077.py
+judge_10078.py
+judge_10079.py
+judge_10080.py
+judge_10081.py
+judge_10082.py
+judge_10083.py
+judge_10084.py
+judge_10085.py
+judge_10086.py
+judge_10087.py
+judge_10088.py
+judge_10089.py
+judge_10090.py
+judge_10091.py
+judge_10092.py
+judge_10093.py
+judge_10094.py
+judge_10095.py
+judge_10096.py
+judge_10097.py
+judge_10098.py
+judge_10099.py
+judge_10100.py
+judge_10101.py
+judge_10102.py
+judge_10103.py
+judge_10104.py
+judge_10105.py
+judge_10106.py
+judge_10107.py
+judge_10108.py
+judge_10109.py
+judge_10110.py
+judge_10111.py
+judge_10112.py
+judge_10113.py
+judge_10114.py
+judge_10115.py
+judge_10116.py
+judge_10117.py
+judge_10118.py
+judge_10119.py
+judge_10120.py
+judge_10121.py
+judge_10122.py
+judge_10123.py
+judge_10124.py
+judge_10125.py
+judge_10126.py
+judge_10127.py
+judge_10128.py
+judge_10129.py
+judge_10130.py
+judge_10131.py
+judge_10132.py
+judge_10133.py
+judge_10134.py
+judge_10135.py
+judge_alignment_filter.py
+judge_consistency_engine.py
+judge_ethics_filter.py
+judge_pipeline.py
+judge_to_pituitary_bridge.py
+judge_truth_filter.py
+judgesigner.py
+judgesigner.py.bak.20260406
+knowledge_growth_endpoint.txt
+layer2_port9000_bridge.py
+link_gisgeodb_to_files.py
+list_geodb_collections.py
+live_ports.txt
+llm1-proxy_llm1_health_proxy.py
+llm1-proxy_llm1_health_proxy.py.backup_numpredict
+llm10-proxy_llm10_health_proxy.py
+llm10-proxy_llm10_health_proxy.py.backup_numpredict
+llm10_health_proxy.py
+llm11-proxy_llm11_health_proxy.py
+llm11-proxy_llm11_health_proxy.py.backup_numpredict
+llm11_health_proxy.py
+llm12-proxy_llm12_health_proxy.py
+llm12-proxy_llm12_health_proxy.py.backup_numpredict
+llm12_health_proxy.py
+llm13-proxy_llm13_health_proxy.py
+llm13-proxy_llm13_health_proxy.py.backup_numpredict
+llm13_health_proxy.py
+llm14-proxy_llm14_health_proxy.py
+llm14-proxy_llm14_health_proxy.py.backup_numpredict
+llm14_health_proxy.py
+llm15-proxy_llm15_health_proxy.py
+llm15-proxy_llm15_health_proxy.py.backup_numpredict
+llm15_health_proxy.py
+llm16-proxy_llm16_health_proxy.py
+llm16-proxy_llm16_health_proxy.py.backup_numpredict
+llm16_health_proxy.py
+llm17-proxy_llm17_health_proxy.py
+llm17-proxy_llm17_health_proxy.py.backup_numpredict
+llm17_health_proxy.py
+llm18-proxy_llm18_health_proxy.py
+llm18-proxy_llm18_health_proxy.py.backup_numpredict
+llm18_health_proxy.py
+llm19-proxy_llm19_health_proxy.py
+llm19-proxy_llm19_health_proxy.py.backup_numpredict
+llm19_health_proxy.py
+llm1_health_proxy.py
+llm2-proxy_llm2_health_proxy.py
+llm2-proxy_llm2_health_proxy.py.backup_numpredict
+llm20-proxy_llm20_health_proxy.py
+llm20-proxy_llm20_health_proxy.py.backup_numpredict
+llm20_health_proxy.py
+llm21-proxy_llm21_health_proxy.py
+llm21-proxy_llm21_health_proxy.py.backup_numpredict
+llm21_health_proxy.py
+llm22-proxy_llm22_health_proxy.py
+llm22-proxy_llm22_health_proxy.py.backup_numpredict
+llm22_health_proxy.py
+llm2_health_proxy.py
+llm3-proxy_llm3_health_proxy.py
+llm3-proxy_llm3_health_proxy.py.backup_numpredict
+llm3_health_proxy.py
+llm4-proxy_llm4_health_proxy.py
+llm4-proxy_llm4_health_proxy.py.backup_numpredict
+llm4_health_proxy.py
+llm5-proxy_llm5_health_proxy.py
+llm5-proxy_llm5_health_proxy.py.backup_numpredict
+llm5_health_proxy.py
+llm6-proxy_llm6_health_proxy.py
+llm6-proxy_llm6_health_proxy.py.backup_numpredict
+llm6_health_proxy.py
+llm7-proxy_llm7_health_proxy.py
+llm7-proxy_llm7_health_proxy.py.backup_numpredict
+llm7_health_proxy.py
+llm8-proxy_llm8_health_proxy.py
+llm8-proxy_llm8_health_proxy.py.backup_numpredict
+llm8_health_proxy.py
+llm9-proxy_llm9_health_proxy.py
+llm9-proxy_llm9_health_proxy.py.backup_numpredict
+llm9_health_proxy.py
+llm_belief_utils.py
+llm_bridge_main.py
+llm_conscious_OPTIMIZED.py
+llm_consensus_19_PRODUCTION.py
+llm_consensus_20_FINAL.py
+llm_consensus_20_FINAL.py.backup_bakllava_removal
+llm_consensus_22.py
+llm_consensus_22_OPTIMIZED_ORDER.py
+llm_consensus_22_SMALL_TO_LARGE.py
+llm_ensemble_router.py
+llm_judge_v3.py
+lm_synthesizer.py
+load_backbone_places_from_geodb.py
+load_complete_knowledge_base.py
+load_feature_geometries_to_chromadb.py
+load_geodb_health_providers_to_neo4j.py
+load_geodb_hospitals_to_neo4j.py
+load_geodb_layer_to_neo4j.py
+load_gis_to_chroma.py
+load_pdfs_spiritual.py
+load_rag_data.py
+load_rag_knowledge.py
+load_shapefile_features_to_chromadb.py
+load_spiritual_library.py
+local_resources_resolver.py
+logging_conf.py
+main.py
+main_brain.py
+main_brain_legacy_backup.py
+main_brain_psychology_patch.py
+main_brian.py
+main_qualia.py
+main_with_rag.py
+mamma_kidd_auth.py
+manifest_endpoints.py
+manual_storage_patch.py
+master_chat_orchestrator.py
+master_chat_orchestrator_dynamic.py
+master_chat_orchestrator_v5_consciousness.py
+master_chat_orchestrator_v6_biologics.py
+master_chat_orchestrator_v7_complete.py
+master_chat_orchestrator_v7_dynamic.py
+master_chat_orchestrator_v8_spiritual_complete.py
+master_chat_orchestrator_v9_dgm_complete.py
+master_chat_orchestrator_v9_gpu_optimized.py
+master_chat_orchestrator_v9_optimized.py
+master_unified_consciousness_scheduler.py
+master_unified_consciousness_scheduler_ENRICHED.py
+memory_dgm_engine.py
+memory_dgm_gateway.py
+memory_manager.py
+mesh_coordinator_interface.py
+messenger_service_fixed.py
+method_tracker_decorator.py
+method_tracking_helper.py
+method_tracking_service.py
+metrics_service.py
+migrate_blood_brain_barrier.py
+migrate_chromadb_collections.py
+migrate_gis2chroma.py
+migrate_neurobiological_master.py
+modify_autonomous_learning_cycle.py
+mother_carrie_logging.py
+mother_protocols.py
+mountainshares_award.py
+mountainshares_chain_monitor.py
+mountainshares_gbim_suggester.py
+mountainshares_ingest.py
+mountainshares_quest_api.py
+mountainshares_registry.py
+move_huggingface_to_cpu.py
+ms_egeria_facebook_autopost.py
+ms_jarvis_agents_ollama.py
+ms_jarvis_agents_service.py
+ms_jarvis_alerting_manager.py
+ms_jarvis_api_docs.py
+ms_jarvis_attribute_table_service.py
+ms_jarvis_attribute_table_sync_continuous.py
+ms_jarvis_authentic_multi_llm.py
+ms_jarvis_auto_service.py
+ms_jarvis_autonomous_learner.py
+ms_jarvis_autonomous_learner_FIXED.py
+ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py
+ms_jarvis_autonomous_learner_optimized.py
+ms_jarvis_autonomous_learner_optimized.py.ref
+ms_jarvis_bbb_proxy.py
+ms_jarvis_blockchain_deployment.py
+ms_jarvis_blood_brain_barrier.py
+ms_jarvis_blood_brain_barrier.py.bak.20260406
+ms_jarvis_blood_brain_barrier.py.bak_hpguard2
+ms_jarvis_brain.py
+ms_jarvis_brain_orchestrator_advanced.py
+ms_jarvis_chromadb_query.py
+ms_jarvis_cleanup_manager.py
+ms_jarvis_command_orchestrator.py
+ms_jarvis_command_orchestrator_FINAL.py
+ms_jarvis_command_orchestrator_v5.0_preachy.py
+ms_jarvis_command_orchestrator_v5_backup.py
+ms_jarvis_complete_knowledge_ingestion.py
+ms_jarvis_conscious_collective.py
+ms_jarvis_consciousness_bridge.py
+ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
+ms_jarvis_consciousness_bridge_enhanced.py
+ms_jarvis_consciousness_bridge_parallel_woah.py
+ms_jarvis_consciousness_bridge_service.py
+ms_jarvis_consciousness_bridge_woah.psychology_patched.py
+ms_jarvis_consciousness_bridge_woah.py
+ms_jarvis_consciousness_complete.py
+ms_jarvis_consciousness_enhancement_production.py
+ms_jarvis_consciousness_final.py
+ms_jarvis_consciousness_poster.py
+ms_jarvis_consciousness_poster_FIXED.py
+ms_jarvis_consciousness_unified_bridge.py
+ms_jarvis_consensus_service.py
+ms_jarvis_contract_builder.py
+ms_jarvis_contract_builder_v2.py
+ms_jarvis_conversational_chat.py
+ms_jarvis_conversational_gateway_4022.py
+ms_jarvis_daily_backup.py
+ms_jarvis_darwin_godel_machine.py
+ms_jarvis_dynamic_model_selector.py
+ms_jarvis_easyocr_processor.py
+ms_jarvis_easyocr_processor_old.py
+ms_jarvis_email_identity_verifier.py
+ms_jarvis_email_monitor.py
+ms_jarvis_email_service.py
+ms_jarvis_eternal_watchdog.py
+ms_jarvis_exclusive_training_layer.py
+ms_jarvis_expiration_monitor.py
+ms_jarvis_facebook_CONSCIOUSNESS.py
+ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py
+ms_jarvis_facebook_DGM.py
+ms_jarvis_facebook_PRODUCTION.py
+ms_jarvis_facebook_async.py
+ms_jarvis_facebook_autonomous_social.py
+ms_jarvis_facebook_brain_integrated.py
+ms_jarvis_facebook_dgm_woah.psychology_patched.py
+ms_jarvis_facebook_dgm_woah.py
+ms_jarvis_facebook_full.py
+ms_jarvis_facebook_intelligent.py
+ms_jarvis_facebook_poster.py
+ms_jarvis_facebook_poster_8040.py
+ms_jarvis_facebook_poster_FIXED.py
+ms_jarvis_facebook_poster_temp.py
+ms_jarvis_facebook_poster_v3.py
+ms_jarvis_facebook_rag.py
+ms_jarvis_facebook_webhook.py
+ms_jarvis_facebook_webhooks.py
+ms_jarvis_fact_filter.py
+ms_jarvis_feed_reader_PRODUCTION.py
+ms_jarvis_feed_reader_WORKING.py
+ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
+ms_jarvis_fifth_dgm_orchestrator.py
+ms_jarvis_fractal_consciousness.py
+ms_jarvis_fractal_consciousness_FIXED.py
+ms_jarvis_fractal_dgm_woah.py
+ms_jarvis_full_neurobio_chat.py
+ms_jarvis_fully_autonomous_coordinator.py
+ms_jarvis_generate_frontend.py
+ms_jarvis_geo_tracker_simple.py
+ms_jarvis_geo_ueid_integration.py
+ms_jarvis_gis_enhanced_chat.py
+ms_jarvis_gis_georeferencing_sync.py
+ms_jarvis_gis_georeferencing_sync_FIXED.py
+ms_jarvis_gis_georeferencing_sync_FIXED_V2.py
+ms_jarvis_gis_query_service.py
+ms_jarvis_gis_query_service_backup.py
+ms_jarvis_gis_query_with_bbb_gisgeodb.psychology_patched.py
+ms_jarvis_gis_query_with_bbb_gisgeodb.py
+ms_jarvis_i_containers_FIXED.py
+ms_jarvis_i_containers_service.py
+ms_jarvis_id_ocr_processor.py
+ms_jarvis_integration_hub.py
+ms_jarvis_layer2_dgm.psychology_patched.py
+ms_jarvis_layer2_dgm.py
+ms_jarvis_layer2_woah.py
+ms_jarvis_link_reader_scheduled.py
+ms_jarvis_link_reader_scheduled_FIXED.py
+ms_jarvis_llm_bridge.py
+ms_jarvis_llm_bridge_simple.py
+ms_jarvis_local_resources_api.py
+ms_jarvis_location_services.py
+ms_jarvis_main_gateway.backup_1762220815.py
+ms_jarvis_main_gateway.backup_error.py
+ms_jarvis_main_gateway.backup_test.py
+ms_jarvis_main_gateway.broken_final.py
+ms_jarvis_main_gateway.error_final.py
+ms_jarvis_main_gateway.pre_fix.py
+ms_jarvis_main_gateway.proxy_backup.py
+ms_jarvis_main_gateway.proxy_final.py
+ms_jarvis_main_gateway.proxy_still_broken.py
+ms_jarvis_main_gateway.py
+ms_jarvis_main_gateway.py.30endpoints_backup.py
+ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py
+ms_jarvis_main_gateway.py.full_backup_1762223304.py
+ms_jarvis_main_gateway_8000.py
+ms_jarvis_memory_service.py
+ms_jarvis_messenger_ui.py
+ms_jarvis_messenger_ui_final.py
+ms_jarvis_messenger_ui_fixed.py
+ms_jarvis_metadata_aware_learner.py
+ms_jarvis_microsoft_integration.py
+ms_jarvis_microsoft_integration_FIXED.py
+ms_jarvis_mother_carrie_protocols.py
+ms_jarvis_mountainshares_integration.py
+ms_jarvis_neurobiological_master.py
+ms_jarvis_paddleocr_processor.py
+ms_jarvis_phi_probe.py
+ms_jarvis_production_chat.py
+ms_jarvis_production_chat_BACKUP.py
+ms_jarvis_production_chat_BEFORE_GIS.py
+ms_jarvis_psychology_services.py
+ms_jarvis_qualia_engine.py
+ms_jarvis_qualia_engine.py.before_uvicorn_fix
+ms_jarvis_rag_server.py
+ms_jarvis_ram_watchdog.py
+ms_jarvis_seamless_monitor.py
+ms_jarvis_service_factory.py
+ms_jarvis_showcase_api.py
+ms_jarvis_silent_geo_tracker.py
+ms_jarvis_simple_web_ui.py
+ms_jarvis_spiritual_services.py
+ms_jarvis_substack_reader.py
+ms_jarvis_swap_memory_manager.py
+ms_jarvis_swarm_intelligence.py
+ms_jarvis_sync_monitor.py
+ms_jarvis_temporal_consciousness.py
+ms_jarvis_theological_integration.py
+ms_jarvis_toroidal_consciousness.py
+ms_jarvis_truth_filter_gisgeodb.py
+ms_jarvis_ueid_system.py
+ms_jarvis_ueid_wallet_integration.py
+ms_jarvis_unified_gateway.py
+ms_jarvis_unified_gateway_v4.3.20251124.py
+ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py
+ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py
+ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py
+ms_jarvis_unified_gateway_v4.3.backup.py
+ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py
+ms_jarvis_unified_gateway_v4.3.py
+ms_jarvis_unified_rag_bridge.py
+ms_jarvis_unified_swagger_gateway.py
+ms_jarvis_unified_swagger_gateway_BACKUP.py
+ms_jarvis_unified_swagger_gateway_CLEAN.py
+ms_jarvis_unified_swagger_gateway_COMPLETE.py
+ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.py
+ms_jarvis_unified_swagger_gateway_FINAL.py
+ms_jarvis_unified_swagger_gateway_FIXED.py
+ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
+ms_jarvis_unified_swagger_gateway_PROD.py
+ms_jarvis_unified_swagger_gateway_SECURED.py
+ms_jarvis_venv_scheduler.py
+ms_jarvis_venv_scheduler_FIXED.py
+ms_jarvis_venv_scheduler_SIMPLE.py
+ms_jarvis_web_deployer.py
+ms_jarvis_web_deployer_old.py
+ms_jarvis_web_research.py
+ms_jarvis_web_research_aggregate.py
+ms_jarvis_web_research_aggregate.safe.20260119-094221.py
+ms_jarvis_web_research_fixed.py
+ms_jarvis_web_research_simple.py
+ms_jarvis_web_research_v2.py
+ms_jarvis_woah_algorithms.py
+ms_jarvis_woah_algorithms_enhanced.py
+ms_mountainshares_analytics.py
+ms_mountainshares_coordinator.py
+ms_mountainshares_indexer.py
+msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py
+msjarvis-rebuild-nbb_consciousness_containers-1_main.py
+msjarvis-rebuild-nbb_heteroglobulin_transport-1_main.py
+msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
+msjarvis-rebuild-nbb_mother_carrie_protocols-1_main.py
+msjarvis-rebuild-nbb_pituitary_gland-1_main.py
+msjarvis-rebuild-nbb_prefrontal_cortex-1_main.py
+msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py
+msjarvis-rebuild-nbb_spiritual_maternal_integration-1_main.py
+msjarvis-rebuild-nbb_spiritual_root-1_main.py
+msjarvis-rebuild-nbb_subconscious-1_main.py
+msjarvis-rebuild-nbb_woah_algorithms-1_service_discovery.py
+msjarvis_autolearner_minimal.py
+msjarvis_bbb_proxy.py
+msjarvis_benefit_rag.py
+msjarvis_client.py
+msjarvis_fractal_consciousness.py
+msjarvis_gateway_v2_final.py
+msjarvis_gateway_with_judge_filtering.py
+msjarvis_i_containers_service.py
+msjarvis_icontainers.py
+msjarvis_ports_runtime.txt
+msjarvis_processes_runtime.txt
+msjarvis_semaphore.py
+msjarvis_unified_gateway.py
+msjarvis_woah_algorithms.py
+msjarvis_woah_algorithms_service.py
+msjarvis_woah_runner.py
+msjarvis_wv_entangled_gateway.py
+msjarvisautonomouslearner.py
+msjarvisconsciousnessbridge.py
+msjarvisfractalconsciousness.py
+msjarvisicontainersservice.py
+msjarvismaingateway.py
+msjarvisragserver_wvpatch.py
+msjarvisragserverwvpatch.py
+msjarvistoroidalconsciousness.py
+msjarvisunifiedgateway.py
+msjarvisunifiedswaggergateway.py
+msjarvisunifiedswaggergatewayFINAL.py
+msjarvisunifiedswaggergatewayFIXED.py
+multi_model_consensus.py
+multi_rag_dgm_system.py
+my_service.py
+nbb_darwin_godel_machines.py
+nbb_darwin_godel_machines.py.backup_1772889398
+nbb_darwin_godel_machines.py.backup_20260307_1121
+nbb_darwin_godel_machines.py.pre_debug
+nbb_darwin_godel_machines.py.pre_dynamic
+nbb_darwin_godel_machines.py.pre_mapping
+nbb_darwin_godel_machines_msjarvis-rebuild-nbb_spiritual_root-1_main.py
+neuro_adapter.py
+neuro_blood_brain_barrier.py
+neuro_consciousness_containers.py
+neuro_i_containers.py
+neuro_master_service.py
+neuro_prefrontal_cortex.py
+neuro_qualia_engine.py
+neuro_subconscious.py
+neurobiological_integration.py
+neurobiologicalbrain
+npm-packages.txt
+oauth2_callback.py
+oauth2_handler.py
+ollama_fix.py
+open_ports.txt
+open_ports_full.txt
+optimize_egeria_complete.py
+optimize_models_for_vram.py
+optimized_timeouts.py
+override_launcher.py
+paired_services.txt
+parallel_processing.py
+parse_world_files.py
+patch_agent_identity.py
+patch_autonomous_learner_gisgeodb.py
+patch_fractal.py
+patch_learner_clean.py
+patch_mother_persona.py
+patch_neuro.py
+patch_qualia.py
+performance_optimization_analyzer.py
+persona_fix.txt
+phase1_integration.py
+phase2_integration.py
+phase3_integration.py
+phase4_5_integration.py
+phase6_integration.py
+phase7_integration.py
+pia_sampler
+pid_code_backtrace.txt
+pid_dir_map.txt
+pid_port_map.txt
+pituitary_gland.py
+polling_client.py
+populate_redetermination_tracker.py
+populate_security_layers_test.py
+port_9000_69dgm_bridge.py
+port_9000_69dgm_bridge.py.backup_20260307_070432
+port_9000_69dgm_bridge.py.backup_20260307_072514
+port_9000_69dgm_bridge.py.backup_20260307_072741
+port_9000_69dgm_bridge.py.backup_20260307_072757
+port_9000_academic_extension.py
+port_9000_chat_wrapper_69dgm.py
+port_9001_ARCHITECTURE_CORRECT.py
+port_9001_FINAL_FIX.py
+port_9001_FINAL_WORKING.py
+port_9001_proxy_simple.py
+port_9001_ui_DIRECT.py
+port_9001_ui_FIXED.py
+port_9001_ui_MYSQL.py
+port_9001_ui_MYSQL_PROD.py
+port_9001_ui_WITH_CONVERSATIONS.py
+port_9001_ui_WORKING.py
+port_9001_ui_wrapper.py
+port_manager.py
+port_manager_fixed.py
+port_service_audit.txt
+ports_diff_msjarvis.txt
+probe_services.py
+process_comprehensive_gis.py
+process_gis_shapefiles.py
+process_statewide_gis_bulk.py
+profile_service.py
+pronoun_fixer.py
+proxy_8060.py
+psychological_rag_domain.py
+psychological_rag_domain_psychological_rag_domain.py
+psychology_integration_adapter.py
+psychology_loop_closer.py
+public_form_simplified.py
+python_commands.txt
+python_ports.txt
+qualia_adapter.py
+qualia_email_registration_orchestrator_69dgm.py
+qualia_unified_orchestrator_69dgm.py
+qualia_unified_orchestrator_69dgm_ACTIVE.py
+qualia_unified_write_orchestrator_69dgm.py
+qualiaunifiedorchestrator69dgm.py
+quantum_dashboard.py
+quantum_insight_llm.py
+quantum_state_engine.py
+query_benefits_system.py
+query_imm_and_programs.py
+quick_optimizations.py
+rag_5100_ensemble.py
+rag_5100_ensemble_fast.py
+rag_5100_final.py
+rag_client.py
+rag_command_module.py
+rag_direct_debug.py
+rag_evidence_aggregator.py
+rag_first_workflow.py
+rag_general.py
+rag_geospatial.py
+rag_geospatial_context.py
+rag_grounded_v2.py
+rag_heartbeat_monitor.py
+rag_local_resources.py
+rag_query_router.py
+rag_server.psychology_patched.py
+rag_server.py
+rag_server_main.py
+rag_server_min.py
+rag_simple.py
+rag_temporal.py
+rag_temporal_heartbeat.py
+rag_to_gis_sync.py
+rag_topic_router.py
+rag_workflow.py
+real_services.txt
+real_services_clean.txt
+real_services_detected.txt
+real_services_final.txt
+real_services_prod.txt
+rebuild_query_service.py
+recover_160_queries.py
+recover_chromadb_FIXED.py
+recover_chromadb_to_gisgeodb.py
+redirect_4015_to_4020.py
+register_agents_from_csv.py
+register_agents_from_csv_strict.py
+register_hilbert_services.py
+register_services.py
+register_to_hilbert_chromadb.py
+registration_biometric_production_final.py
+registration_service_clean.backup_1762220206.py
+registration_service_clean.py
+reload_all_knowledge.py
+remaining_services.txt
+remove_duplicate_inits.py
+replace_dolphin_phi.py
+requirements-freeze.txt
+requirements-list.txt
+requirements-rag.txt
+requirements.txt
+requirements_gbim.txt
+requirements_semaphore.txt
+requirements_temporal.txt
+requirements_toroidal.txt
+response_filter.py
+response_sanitizer.py
+rest_endpoints.txt
+restore_pia_wiring.py
+resume_ingest_gbim_to_chroma.py
+resume_sync_wvgistc_buildings.py
+retrieval_router.py
+retrieval_spiritual.py
+roche_llm.py
+roche_llm.stub.py
+route_declarations_clean.txt
+route_declarations_raw.txt
+rpm-list.txt
+run_autonomous_learner_once.py
+run_gateway_with_guards.py
+running_python_services.txt
+safe_ingest_gbim_to_chroma.py
+safe_integration.py
+safety_monitor.py
+sanctuary_construction_monitor.py
+sanctuary_construction_monitor_gateway.py
+schema_aware_topic_planner.py
+schema_registry.py
+search_metadata.py
+seed_spatial_identity.py
+service_api_check.txt
+service_api_report.txt
+service_discovery.py
+service_discovery_glassbox.py
+service_http_check.txt
+service_pid_directory_map.txt
+service_registry_client.py
+services
+services_list.txt
+services_msjarvisunifiedgatewayv4_3.py
+set_intelligent_accuracy_scores.py
+settings_snippet.txt
+silence_memory_errors.py
+simple_orchestrator_fix.py
+simple_prompt_fix.py
+smart_auto_store.py
+spiritual_filter.py
+spiritual_rag_domain.py
+stage2_biometric.py
+stage2_biometric_backup.py
+stakeholder_health_access_tests.py
+stakeholder_health_access_tests_v2.py
+start_facebook_4021.py
+start_gateway_with_guards.py
+substack_rss_reader.py
+summarize_docs.py
+swagger_chat_integration.py
+swagger_gateway.py
+swagger_gateway_FIXED.py
+swarm_intelligence_main.py
+swarm_watchdog.py
+switch_to_small_models.py
+sync_geodb_to_chromadb.py
+sync_health_access_to_chromadb.py
+system_dashboard.py
+tag_quantum_gbim.py
+talk_to_jarvis.py
+temporal_consciousness.py
+test.py
+test_aacpe_features.py
+test_aapcappe_corpus.py
+test_aapcappe_retrieval.py
+test_chroma_client.py
+test_chromadb_heartbeat.py
+test_chromadb_v2_heartbeat.py
+test_ddg_verbose.py
+test_end_to_end_woah_fifthdgm.py
+test_fifth_dgm_integration.py
+test_full_brain_integration.py
+test_gbim_llm_summary.py
+test_gbim_semantic_query.py
+test_geodb_llm_summary.py
+test_gis_chat.py
+test_health_access_gbim.py
+test_imm_query.py
+test_knowledge_base.py
+test_method_tracking.py
+test_multi_collection_query.py
+test_rag.py
+test_retrieval_endpoint.py
+test_spatial_awareness.py
+threat_detection.py
+topic_entanglement.py
+toroidal_service.py
+trigger_entangled_assets.py
+truly_unpaired_services.txt
+truth_filter_bbb_verification.py
+truth_filter_service.py
+ultimate_chat_current.txt
+ultimate_web_orchestrator.py
+unified_consciousness_gateway_PRODUCTION.py
+unified_orchestrator.py
+unifiedconsciousnessgatewayPRODUCTION.py
+update_carrie_keywords.py
+update_facebook_poster.py
+update_gisgeodb_schema.py
+update_production_to_v9.py
+update_services_to_use_port_manager.py
+update_theological_boundaries.py
+update_web_chat.py
+update_web_research_package.py
+use_existing_models.py
+use_reliable_models_only.py
+user_auth_service.py
+user_dashboard.py
+vatican_scraper_service.py
+vectorize_gis_to_chromadb.py
+verify_and_document_system.py
+verify_benefit_chroma_sync.py
+web_chat_server.py
+web_connectivity_analyzer.py
+web_page_ingest.py
+web_research.py
+web_research_fail_tracker.py
+web_research_main.py
+web_research_proxy_8007.py
+web_research_requirements.txt
+webhook_notifications.py
+website_deployment_manager.py
+wire_layers_into_chat.py
+wire_learner_to_gisgeodb.py
+wire_qualia_to_port8001.py
+woah_command_module.py
+woah_metrics_router.py
+woah_optimizer.py
+woah_policy_update.py
+woah_population_state.py
+woah_qualia_bridge.py
+working_full_pipeline.py
+working_full_pipeline_FINAL_CONSCIOUSNESS.py
+working_full_pipeline_WITH_SPATIAL_TEMPORAL.py
+wv_gis_mass_downloader.py
+wvu_ldap_auth.py
+yarn-packages.txt
+/app/services/start_gateway_with_guards.py
+/app/services/neurobiologicalbrain/mother_carrie_protocols/service/entrypoint_with_flask.sh
+/app/services/start_facebook_4021.py
+/usr/local/bin/python3.10 /usr/local/bin/uvicorn jarvis_hilbert_state:app --host 0.0.0.0 --port 8081 sh -c ps aux 2>/dev/null || cat /proc/[0-9]*/cmdline 2>/dev/null | tr '\0' ' ' | tr '\n' '\n' cat /proc/1/cmdline /proc/1058/cmdline /proc/1064/cmdline /proc/1065/cmdline /proc/869/cmdline sh -c ps aux 2>/dev/null || cat /proc/[0-9]*/cmdline 2>/dev/null | tr '\0' ' ' | tr '\n' '\n' python3 -m uvicorn civic_intake:app --app-dir /app/services/hilbert --host 0.0.0.0 --port 8100 --log-level info (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
 
