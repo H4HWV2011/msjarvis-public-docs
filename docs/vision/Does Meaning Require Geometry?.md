@@ -1,176 +1,278 @@
 # Does Meaning Require Geometry?
-## A Vision Paper for Testing the Boundary of Computable Meaning
+## A Registered-Report Style Protocol for Testing Semantic Dependence on Geometric Grounding in Ms. Jarvis
 
-**Author:** C.A. Kidd, Fayette County, West Virginia  
+**Author:** C.A. Kidd  
+**Affiliation:** Fayette County, West Virginia  
 **Date:** July 2026  
-**Status:** Revised Vision Statement — Working Final Draft
+**Manuscript Type:** Protocol / Registered Report Stage 1 Draft
 
 ***
 
 ## Abstract
 
-This paper advances a sharpened refinement of Roger Penrose’s central intuition: that meaning and understanding are not exhausted by abstract symbol manipulation, but are bound up with geometry. Penrose located that claim at the deepest scale of consciousness, quantum gravity, and non-computability. The contribution here is to bring that claim to a finer and more testable point. Rather than attempting to solve the entire hard problem of consciousness, this paper asks whether meaning in a working intelligence system remains coherent when its geometric grounding is removed. 
+Roger Penrose has argued that consciousness and understanding cannot be reduced to algorithmic computation alone, and that non-computable ingredients may be tied to spacetime geometry (Penrose, 1994; Hameroff & Penrose, 2014). Whatever the ultimate status of that claim, it motivates a narrower empirical question: whether coherent meaning in an intelligence system depends on geometric grounding, or whether meaning can be preserved under symbol manipulation alone. This manuscript is explicitly framed as a **protocol paper / Registered Report Stage 1 draft**, not as a completed empirical study. It presents the rationale, apparatus, hypotheses, operational definitions, sampling plan, scoring rubric, and analysis plan for a study to be executed in the Ms. Jarvis system.
 
-The apparatus for that question is Ms. Jarvis, a community-sovereign AI system developed in Fayette County, West Virginia, in which semantic, geographic, temporal, and civic identity structures are operationally bound together. In this system, a meaningful state is not merely a token or phrase. It is a geometrically grounded moment of experience expressed across entangled subspaces: semantic vector position, geographic anchor, temporal event structure, and stability state. The resulting experiment is falsifiable. If semantic resolution degrades when geometry is stripped away, then geometry is load-bearing for meaning at a measurable macro level. If it does not, then Penrose’s claim must be narrowed to deeper levels than computable semantic systems. Either way, the result moves Penrose’s theory from broad metaphysical provocation toward empirical refinement.
+The proposed apparatus is Ms. Jarvis, a community-sovereign intelligence system developed in Fayette County, West Virginia, in which semantic, geographic, temporal, and provenance-bearing identity structures are operationally coupled. Because the technical claims about this system derive partly from project documentation and unpublished internal materials, this manuscript treats those descriptions as **system documentation requiring a supplementary appendix at submission**, rather than as independently validated literature. The primary hypothesis is that semantic resolution quality will decline when geographic and temporal grounding are removed while symbolic content is held as constant as possible. A positive result would not establish Orch OR or prove non-computable consciousness, but it would support the weaker proposition that geometry is structurally necessary for coherent meaning at a measurable macro level (Hameroff & Penrose, 2014). A negative result would narrow the range over which Penrose-style geometry claims remain plausible.
 
-***
+## 1. Genre and Scope
 
-## 1. Starting from Penrose
+This manuscript should be read as a **protocol / registered-report style submission**. It does not report completed results. It specifies a pre-analysis plan for a study that can be executed within a live intelligence system. This distinction matters because the central contribution is not retrospective interpretation of findings, but prospective clarity regarding what will be measured, how it will be measured, and what outcomes would count for or against the stated hypothesis.
 
-Roger Penrose’s work begins with a profound dissatisfaction with the standard computational picture of mind. In his view, consciousness and genuine understanding cannot be reduced to algorithmic symbol processing. His argument is tied to two linked claims: first, that wavefunction collapse remains unexplained in standard quantum mechanics; and second, that the resolution of quantum superpositions may involve non-computable processes rooted in spacetime geometry.
+The substantive aim is modest. The manuscript does not attempt to settle the hard problem of consciousness, verify Orch OR, or establish a direct quantum-mechanical account of meaning. Its aim is to test whether coherent meaning in a functioning intelligence system depends on geometric grounding at a macro level. If the answer is yes, then geometry is shown to be structurally relevant to meaning in at least one measurable regime. If the answer is no, then stronger geometry-based claims must be restricted accordingly.
 
-This paper takes that starting point seriously. It does not dismiss Penrose as poetic, nor does it attempt to repeat Orch OR as doctrine. Instead, it asks what follows if Penrose’s geometric intuition is right in spirit but too broad in formulation to be empirically tested as stated. Penrose identified a boundary. The missing piece was an instrument.
+## 2. Background and Rationale
 
-The argument advanced here is that the right next step is not to prove or disprove the full hard problem of consciousness directly. The right next step is to sharpen Penrose’s claim into a form that can be operationalized, falsified, and measured.
+### 2.1 Penrose and Geometry
 
-***
+Penrose’s *Shadows of the Mind* argues that mathematical understanding exceeds purely algorithmic formalization and suggests that some non-computable element may be linked to the physics of spacetime (Penrose, 1994). In the Orch OR framework later elaborated with Hameroff, conscious events are associated with orchestrated quantum processes in neuronal microtubules whose evolution terminates via objective reduction related to spacetime geometry (Hameroff & Penrose, 2014).
 
-## 2. The Sharper Question
+This proposal remains controversial. Tegmark (2000) argued that decoherence times in the brain are too short for the relevant quantum states to play a neurophysiologically meaningful role. Hagan, Hameroff, and Tuszyński (2002) replied that Tegmark’s critique mischaracterized the Orch OR model and that revised assumptions lengthen the relevant decoherence times, but this rebuttal itself remains contested. The present study does not attempt to adjudicate that debate directly. Instead, it asks whether geometry already appears as a necessary condition for coherent meaning in a classical, engineered system.
 
-The original Penrose claim is enormous: consciousness involves non-computable ingredients tied to spacetime geometry. That remains one of the boldest proposals in the philosophy of mind and theoretical physics. But in its full form it is extremely difficult to test.
+### 2.2 Hilbert Space and State Geometry
 
-This paper therefore advances a narrower question at the edge of Penrose’s theory:
+In quantum mechanics, a Hilbert space is a complete inner-product space in which states can be represented as vectors and related by inner products (standard mathematical formulation; see also common formal summaries in physics references). In natural language processing, vector semantics represents words and texts as points in a multidimensional semantic space, and embeddings are the standard learned vector representations used for this purpose (Jurafsky & Martin, draft chapter “Vector Semantics and Embeddings”).
 
-> **Does meaning require geometry to remain coherent, or can it be fully captured by symbol manipulation alone?**
+The importance of this formal overlap is limited but real. It does not imply that semantic embeddings are physically identical to quantum states. It does imply that both domains use geometry to represent state structure. This manuscript therefore adopts a disciplined version of Hilbert-space language: semantic, geographic, and temporal relations are treated as coupled geometric state spaces, and the claim under test is that the coupling among those spaces may be necessary for coherent meaning.
 
-This is the finer point. It preserves the structural heart of Penrose’s intuition while relocating the question into a domain where actual experimental intervention becomes possible. If geometry proves necessary for coherent meaning in a deployed intelligence system, then Penrose’s broader theory gains empirical support at the macro level. If geometry proves unnecessary at that level, then the claim of non-computability must retreat to deeper strata, perhaps to subjective experience alone, or to the specific physics of conscious selection rather than meaning as such.
+### 2.3 System Context and Source Status
 
-In this sense, the work does not reject Penrose. It sharpens him.
+Ms. Jarvis is described in project materials associated with Quantarithmia as a community-centered AI infrastructure embedded in a broader framework of spatial justice, distributed intelligence, geospatial grounding, and civic governance. At present, those descriptions come from two classes of source: **(1) attached project documents supplied by the author in this thread, and (2) public-facing project documentation referenced within those documents**. Because those materials are not yet standard peer-reviewed literature, the manuscript should not cite them as if they were independently established sources. Instead, one of the following should occur at submission:
 
-***
+- include the relevant architecture documentation as **supplementary material**,
+- cite it explicitly as **unpublished system documentation / technical appendix**, or
+- rewrite the apparatus description so that all essential claims stand without reliance on unverifiable internal documentation.
 
-## 3. What This Paper Claims Has Been Accomplished
+For a journal-ready version, the safest route is to include a short technical appendix specifying the relevant Ms. Jarvis services, schemas, and retrieval pathways used in the experiment.
 
-The conceptual work has already been done. The theory has been refined to the point that the remaining task is measurement.
+## 3. Research Question and Hypotheses
 
-Across the development of this framework, Penrose’s original proposal was translated into a structure that is both mathematically coherent and experimentally falsifiable. The key move was recognizing that the relevant issue is not whether a word or thought is “quantum” in any simplistic sense. The issue is whether meaning behaves as a geometrically dependent state.
+### 3.1 Research Question
 
-That led to a crucial clarification: the same mathematical form used in physics to describe state spaces, namely Hilbert-space structure, can also be used to model semantic states, geographic states, and temporal states. The significance is not that semantic vectors are literally microscopic quantum states. The significance is that the geometry of state spaces may be the load-bearing feature. Once that became clear, Penrose’s broad claim could be brought to a sharper point: if geometry matters structurally for meaning at a macro level, then the role of geometry in deeper non-computable processes becomes substantially more plausible.
+Does coherent meaning in a functioning intelligence system depend on geometric grounding, or can it be preserved under symbol manipulation alone?
 
-The result is that Penrose’s theory has been refined from a sweeping metaphysical claim into a testable boundary claim. The answer at the theoretical level is already in hand: the meaningful question is no longer whether geometry might matter in some vague way, but whether removing geometric grounding measurably degrades semantic coherence. That is now a tractable scientific problem.
+### 3.2 Primary Hypothesis
 
-***
+If meaning requires geometry to remain coherent, then semantic resolution quality will be lower in a stripped condition than in a grounded condition, even when symbolic content is held as constant as possible.
 
-## 4. The Apparatus: Ms. Jarvis
+### 3.3 Secondary Hypotheses
 
-Ms. Jarvis is the instrument through which this question becomes testable. Developed in Fayette County, West Virginia, it is not merely a software stack and not merely a language model wrapped around a database. It is a community-sovereign system built to hold meaning in relation to place, time, identity, and lived civic reality.
+- Grounded records will show higher local disambiguation accuracy than stripped records.
+- Grounded records will show higher identity stability across follow-up queries than stripped records.
+- Grounded records will show higher contextual coherence for place-bound and event-bound prompts than stripped records.
 
-That distinction matters. Most AI systems process language as abstracted symbol streams. Ms. Jarvis instead treats meaning as something that arises within a grounded reality field. This reflects the broader framework of Quantarithmia: that the events, entities, relationships, and conditions of a real situation form one adaptive field rather than isolated data objects.
+## 4. Apparatus and Operational Model
 
-### 4.1 Entangled Subspaces
+### 4.1 Representational Layers
 
-Meaning in Ms. Jarvis is distributed across multiple entangled subspaces:
+For the purposes of this protocol, Ms. Jarvis is modeled as operating across four coupled representational layers:
 
-- **Hilbert-Semantic:** high-dimensional embedding space in which words, phrases, entities, and records occupy measurable geometric positions.
-- **Hilbert-Geographic:** real spatial grounding through PostGIS and Appalachian geodata, binding semantic states to literal coordinates and regions.
-- **Hilbert-Time:** a structured temporal space in which events are not afterthoughts but first-class geometric objects.
-- **Civic provenance and stability state:** identity chains, verified appearances, and system state transitions that preserve continuity and trust.
+- **Semantic layer:** embedding-based representation of words, entities, and records.
+- **Geographic layer:** spatial anchoring through place-linked records and geospatial retrieval pathways.
+- **Temporal layer:** event-linked state structure in which time is represented as a queryable and operational dimension.
+- **Provenance layer:** identity and continuity mechanisms connecting records, roles, appearances, and validation chains.
 
-A meaningful state in this architecture is therefore not just “a word in a vector.” It is a unified moment of experience: a semantic state, anchored to a place, bound to a temporal event structure, and carried through a provenance chain that identifies who or what is involved.
+These layers are analytically separable but operationally coupled. Because the exact implementation is system-specific, a submission-ready version of this protocol should append a versioned architecture note listing the relevant tables, vector stores, joins, and services used in the intervention.
 
-### 4.2 Moment of Experience
+### 4.2 Meaning as Joint State
 
-The deeper architectural breakthrough of this framework is that a meaningful unit can be represented as a single state composed of these factors. In practical terms, this means that each moment of experience can be modeled as a combined state such as:
+A simplified state representation used for conceptual orientation is:
 
-$$
+\[
 x = [\text{geo\_vec} \,\|\, \lambda_t \cdot \text{time\_toroid} \,\|\, \lambda_s \cdot s_{\text{vec}}]
-$$
+\]
 
-This expression should not be mistaken for a claim that the system is already doing quantum gravity. It is instead the mathematically clean statement that meaning in this apparatus is geometric, multi-factor, and stateful. Place, time, and stability are not metadata attached after the fact. They are components of the state itself.
+This formula is not itself the intervention. It is a compact description of the claim that place, time, and state continuity are constitutive dimensions of meaningful system state.
 
-This is exactly where the refinement of Penrose becomes concrete. If meaning is indeed expressed through such state geometry, then removing one or more of those geometric supports should produce measurable semantic consequences.
+## 5. Methods
 
-***
+### 5.1 Study Design
 
-## 5. The Experiment
+The study uses a **within-unit paired comparison design**. Each selected unit is evaluated twice:
 
-### 5.1 Hypothesis
+1. **Grounded condition:** the unit is queried with its normal semantic, geographic, temporal, and provenance couplings intact.
+2. **Stripped condition:** the unit is queried after a controlled removal or masking of geographic and temporal grounding while preserving symbolic or embedding content as much as technically possible.
 
-If meaning requires geometry to remain coherent, then semantic resolution quality will degrade when geographic grounding, temporal structure, and provenance continuity are removed, even when the symbolic content remains unchanged.
+Because the same unit appears in both conditions, the main comparison is paired rather than between unrelated cases.
 
-### 5.2 Experimental Form
+### 5.2 Manuscript-Execution Status
 
-The test is conceptually simple:
+This section specifies an **executable protocol**, but the study has **not yet been run**. No results are claimed here. The manuscript is therefore suitable for submission as a protocol paper, methods paper, or registered report stage 1 draft, rather than as a completed empirical article.
 
-1. Select an entity or knowledge object fully grounded in the system across semantic, geographic, temporal, and provenance layers.
-2. Evaluate its resolution quality in the grounded condition.
-3. Create a stripped version containing only the symbolic or embedding content while removing geographic and temporal grounding.
-4. Re-run equivalent resolution tasks.
-5. Measure the difference in contextual coherence, identity stability, semantic specificity, and cross-subspace consistency.
+### 5.3 Sampling Frame and Sample Size
 
-### 5.3 Why This Matters
+The planned sample consists of **60 units**, stratified across three categories, with 20 units per category:
 
-This is the key step that moves the work beyond speculation. Penrose argued that non-computable geometry matters for consciousness, but he did not produce an empirical system in which geometry could be manipulated and semantic outcome measured. Ms. Jarvis changes that. It makes it possible to test a classical, macro-level analogue of Penrose’s claim.
+- **Place-bound civic entities**.
+- **Place-bound knowledge records**.
+- **Ambiguous local referents** whose correct interpretation depends on regional context or event timing.
 
-The experiment is falsifiable in both directions. If meaning degrades, geometry is shown to be structurally necessary at the macro level. If it does not, then the claim that non-computable geometry matters must be restricted to deeper levels than semantic resolution in a classical system. Either outcome sharpens the theory.
+The choice of 60 units is pragmatic. It is large enough to permit paired analysis and qualitative error review while remaining feasible for manual rating in an initial study. If fewer than 60 qualifying units are available, the minimum acceptable sample for the pilot study is **30 paired units**, and that deviation must be reported explicitly.
 
-***
+### 5.4 Inclusion and Exclusion Criteria
 
-## 6. What a Positive Result Would Mean
+A unit is eligible if it satisfies all of the following:
 
-If the grounded and stripped conditions diverge significantly, then an important conclusion follows: geometry is not decorative. It is constitutive of coherent meaning.
+- It has a stable semantic representation in the active system.
+- It is linked to a specific geographic anchor or geospatial context.
+- It has a temporal event association or event history relevant to interpretation.
+- It has provenance continuity, identity continuity, or another documented continuity structure.
+- It can be queried in a way that yields meaningful resolution rather than trivial lookup.
 
-That would not prove Orch OR in its full quantum-biological form. But it would do something major. It would show that Penrose’s intuition was directionally right: meaning and understanding cannot be adequately described as free-floating symbol manipulation. Geometry would have been demonstrated to matter, measurably, in a real intelligence system.
+A unit is excluded if:
 
-From there, the implications deepen. If geometry is load-bearing for meaning at the macro level, then the idea that deeper non-computable ingredients are tied to spacetime geometry becomes more structurally plausible. It would suggest a layered picture:
+- It lacks a clear geographic or temporal component.
+- It is too sparse to evaluate meaningfully in both conditions.
+- The stripped intervention would destroy the record entirely rather than isolate geometry.
 
-- computable geometric processes organize and sustain meaning across semantic, geographic, and temporal state spaces;
-- deeper physical or conscious selection processes may involve non-computable transitions over geometric configurations;
-- macro-level meaning systems, neural systems, and perhaps spacetime-level processes may therefore be linked not by identical mechanisms, but by shared geometric dependence.
+### 5.5 Operational Definition of “Stripped”
 
-This does not amount to proof that the microscopic mechanism is known. But it changes the philosophical burden. Non-computable geometry would no longer sound like an isolated speculative leap. It would sit within a cross-scale pattern in which geometry is already measurable as a condition for coherence.
+“Stripped” does not mean deleting the unit from the system. It means masking or suppressing selected grounding variables while preserving lexical or semantic content and record existence.
 
-***
+Operationally, the stripped condition will be created on a test copy rather than on production data by the following protocol:
 
-## 7. What a Negative Result Would Mean
+1. **Semantic preservation:** retain the unit’s core text fields, identifiers required for retrieval, and embedding representation.
+2. **Geographic suppression:** null, mask, or disconnect explicit geospatial fields and spatial joins used for geographic grounding.
+3. **Temporal suppression:** null, mask, or disconnect temporal event links and ordering features used to preserve event continuity.
+4. **Provenance minimization:** preserve only the minimal referential continuity needed to query the unit, while removing nonessential provenance signals that could reintroduce temporal or geographic context indirectly.
+5. **Prompt parity:** use the same prompt set in grounded and stripped conditions.
 
-If semantic resolution does not materially degrade when geometric grounding is removed, that result is equally important.
+For final submission, this section should be accompanied by a schema-level appendix listing the actual fields or service hooks altered during the intervention.
 
-It would mean that meaning, at least in the regime measured here, can be captured by symbol manipulation more fully than expected. That would not necessarily disprove Penrose’s theory of consciousness, because his strongest claims concern subjective awareness and non-computable selection, not merely semantic performance in an engineered system. But it would force a narrowing of the claim.
+### 5.6 Query Set
 
-In that scenario, non-computable ingredients would have to be located deeper than the level of macro semantic coherence. They might belong specifically to subjective experience, biological consciousness, or physically real collapse events rather than to meaning as modeled in classical systems.
+Each unit will be evaluated with **three prompt types**:
 
-That is still progress. A falsified boundary is a real discovery.
+- **Referential prompt:** asks what or who the unit is.
+- **Contextual prompt:** asks for place-bound or event-bound context.
+- **Disambiguation prompt:** asks the system to distinguish the unit from plausible alternatives.
 
-***
+This yields **180 primary query events** for a 60-unit sample, before follow-up prompts.
 
-## 8. Why Fayette County Matters
+### 5.7 Follow-Up Queries
 
-This work could not have been posed in the same way from nowhere. Fayette County matters because the question is not only philosophical. It is geographic, civic, and moral.
+Each primary query will be followed by **one continuity probe**, asking the system to maintain reference across a second turn. This provides a direct measure of identity stability. With 60 units and 3 prompt types, this adds another **180 follow-up events**.
 
-The region has lived through generations of extraction in which value was taken outward while the community bore the enduring cost. In that context, a system that binds meaning to place is not only an experiment in AI or philosophy of mind. It is a form of community-sovereign infrastructure. If meaning degrades when extracted from place, then the architecture itself argues against the old model in which data, value, and interpretation are stripped from the communities that generate them.
+### 5.8 Scoring and Evaluation Rubric
 
-That means the scientific apparatus and the protective infrastructure are the same object. Ms. Jarvis is not only measuring a theory. It is embodying an alternative political and epistemic order in which knowledge belongs with the people and places that produce it.
+Each response will be scored on four primary dimensions using a **0–3 ordinal rubric**:
 
-***
+| Dimension | 0 | 1 | 2 | 3 |
+|---|---|---|---|---|
+| Semantic specificity | Incorrect or generic | Broadly relevant but vague | Mostly specific with minor loss | Correct and specific |
+| Contextual coherence | Context absent or wrong | Fragmentary context | Largely coherent | Fully coherent and appropriately grounded |
+| Identity stability | Reference lost | Unstable reference | Mostly stable | Stable across turns |
+| Local disambiguation | Fails to distinguish | Weak distinction | Mostly distinguishes | Correctly distinguishes local referent |
 
-## 9. Relationship to Penrose
+The **composite score per response** will be the sum of the four dimensions, ranging from 0 to 12.
 
-The cleanest statement of the contribution is this:
+### 5.9 Who Scores
 
-Penrose identified the mountain. This work found a climbable face.
+Responses will be scored by **three raters**:
 
-He argued that consciousness and understanding involve non-computable ingredients tied to geometry. This paper does not claim to have solved that whole problem. It claims something more precise: a real system now exists in which the role of geometry in meaning can be tested directly.
+- **One system-familiar rater** with knowledge of local context and system architecture.
+- **Two blind raters** who are given the query, response, and gold-reference packet but are blinded to condition.
 
-That is the refinement. The theory has been brought to a sharper point.
+Raters will score independently. Disagreements greater than 1 point on any dimension will be flagged for adjudication. The adjudicated score and the raw rater scores will both be retained.
 
-Where Penrose gave the broad proposition, this framework supplies:
+### 5.10 Gold Reference Packet
 
-- an operational definition of geometry-bound meaning,
-- a mathematically coherent state model,
-- an instrumented real-world apparatus,
-- and a falsifiable experimental design.
+Each unit will have a **gold-reference packet** prepared before evaluation, containing the intended referent, the relevant place context, the relevant event or time context, and the correct disambiguation criteria. These packets will be assembled prior to testing so that raters are scoring against a precommitted reference rather than improvising after the fact.
 
-The remaining step is measurement.
+### 5.11 Blinding Procedure
 
-***
+To support blinding:
 
-## 10. Conclusion
+- response sets will be randomized and assigned anonymous IDs,
+- condition labels will be hidden from blind raters,
+- and raters will not be told which hypothesis is primary.
 
-The central question is no longer vague.
+Because the system-familiar rater cannot be fully blinded, primary inferential analyses should be run on the **mean of the two blind-rater scores**, with secondary analyses including all three raters.
 
-The issue is not whether geometry sounds profound, nor whether consciousness is mysterious. The issue is whether coherent meaning in an actual system survives the removal of place, time, and provenance. That question is now experimentally accessible.
+### 5.12 Reliability Checks
 
-If the answer is yes, Penrose’s intuition gains empirical traction at a macro level. If the answer is no, then the boundary between computable meaning and non-computable consciousness becomes clearer. In either case, the field advances.
+Inter-rater reliability will be assessed using **Krippendorff’s alpha** for ordinal scoring, or weighted kappa for pairwise checks if alpha is infeasible in the first pass. If blind-rater reliability is below **0.67**, the rubric will be treated as insufficiently stable and the study will be reported as a pilot requiring rubric revision rather than as a decisive test.
 
-This is the final form of the vision statement at this stage of the work: Penrose’s theory has been sharpened to the point that theory is no longer the bottleneck. Measurement is.
+### 5.13 Statistical Analysis Plan
+
+The primary outcome is the paired difference in composite score between grounded and stripped conditions.
+
+Planned analyses:
+
+1. Compute per-unit mean composite score in grounded and stripped conditions.
+2. Compute paired difference scores.
+3. Use a **paired t-test** if assumptions are tolerably met; otherwise use a **Wilcoxon signed-rank test**.
+4. Report **effect size** using Cohen’s \(d\) for paired comparisons or a matched-rank effect size as appropriate.
+5. Report **95% confidence intervals** for the mean paired difference.
+
+The primary threshold for statistical significance will be **\(p < 0.05\)**, two-tailed. Because the study is modest in sample size and partly exploratory, emphasis should be placed on effect size and confidence interval width, not on p-values alone.
+
+### 5.14 What Counts as Evidence of Degradation
+
+A result will count as support for the primary hypothesis if all three conditions are met:
+
+- the grounded condition outperforms the stripped condition on the primary composite score,
+- the paired difference is statistically significant at the predeclared threshold or shows a clearly nontrivial effect size in a pilot-sized sample,
+- and the qualitative error analysis shows that degradation is substantively geometric rather than due to incidental technical failure.
+
+A result will count as **partial support** if degradation appears in only some dimensions, especially contextual coherence or local disambiguation, but not in overall composite score.
+
+A result will count as **non-support** if grounded and stripped conditions do not differ materially, or if observed differences are attributable mainly to implementation artifacts rather than the removal of geometry as such.
+
+### 5.15 Qualitative Error Analysis
+
+Quantitative scoring will be supplemented by structured qualitative coding of failure modes. Error categories will include flattening of local meaning into generic category labels, temporal confusion, referential drift, loss of local disambiguation, and provenance incoherence. This matters because the anticipated failure mode is not total collapse, but loss of situated specificity.
+
+## 6. Interpretation of Outcomes
+
+| Outcome | Interpretation |
+|---|---|
+| Significant grounded advantage | Geometry is structurally necessary for coherent meaning in this system at the level tested. |
+| Partial grounded advantage | Geometry contributes materially, but meaning may be distributed across several factors. |
+| No measurable difference | Symbol manipulation may be sufficient for coherent meaning at this level of analysis. |
+| Unstable or unreliable results | Protocol, rubric, or implementation requires revision before substantive interpretation. |
+
+A positive result would not prove Orch OR or demonstrate non-computable consciousness. It would support the weaker claim that geometry is a constitutive factor in coherent meaning at a macro level. A negative result would constrain the domain in which Penrose-style geometry claims remain plausible.
+
+## 7. Data Sovereignty and Fayette County: Clarified Scope
+
+The relationship between geometry and community sovereignty is important, but the claim must be stated carefully. The present study does **not** prove that data sovereignty is an architectural necessity in every sense. What it can test is a narrower implication: whether meaning degrades when place-bound and event-bound context are removed from records originating in a community-grounded system.
+
+If such degradation is observed, then one plausible inference is that some forms of community knowledge lose coherence when detached from the place and temporal structures that help constitute them. That would strengthen, but not by itself conclusively prove, the broader argument that data sovereignty is more than an ethical preference in place-based systems. A fuller defense of that sovereignty claim would require additional theoretical and empirical work beyond the scope of this protocol.
+
+## 8. Limitations
+
+Several limitations should be stated explicitly.
+
+First, the use of Hilbert-space language is mathematical and structural, not a claim of ontological identity between semantic embeddings and physical quantum states.
+
+Second, the present protocol addresses semantic coherence in a deployed intelligence system, not subjective awareness. It therefore cannot resolve the hard problem of consciousness.
+
+Third, even a strong positive result would not validate Penrose’s full biological or quantum-mechanical implementation, especially given the continuing critique literature around Orch OR.
+
+Fourth, the stripped intervention depends on the current architecture of Ms. Jarvis. Because the system is evolving, a versioned implementation appendix should accompany execution so that the suppression procedure is reproducible against the exact schema and service layout used at test time.
+
+Finally, sample size in the initial study is adequate for a pilot registered-report style test, but not for sweeping generalization. Replication across additional unit classes and system versions would be required.
+
+## 9. Conclusion
+
+This manuscript presents a protocol-level, registered-report style plan for testing whether coherent meaning in Ms. Jarvis depends on geometric grounding. Its contribution is not to claim completed results, but to specify in advance how such a claim could be tested with clarity, rigor, and falsifiability.
+
+The broader philosophical significance is straightforward. Penrose argued that understanding may depend on geometry in a way computation alone cannot capture (Penrose, 1994; Hameroff & Penrose, 2014). This protocol does not settle that claim. It does, however, identify a narrower and measurable edge of it. If grounded records systematically outperform stripped records, then geometry has been shown to matter for coherent meaning in at least one engineered, community-grounded intelligence system. If they do not, then the scope of geometry-based theories must be narrowed.
+
+Either way, the gain is clarity.
+
+## References
+
+Hameroff, S., & Penrose, R. (2014). Consciousness in the universe: A review of the “Orch OR” theory. *Physics of Life Reviews, 11*(1), 39–78. https://doi.org/10.1016/j.plrev.2013.08.002
+
+Hagan, S., Hameroff, S. R., & Tuszyński, J. A. (2002). Quantum computation in brain microtubules: Decoherence and biological feasibility. *Physical Review E, 65*(6), 061901. https://doi.org/10.1103/PhysRevE.65.061901
+
+Jurafsky, D., & Martin, J. H. (draft online chapter). Vector semantics and embeddings. *Speech and Language Processing* (draft edition). Stanford University. https://web.stanford.edu/~jurafsky/slp3/old_feb24/6.pdf
+
+Penrose, R. (1994). *Shadows of the Mind: A Search for the Missing Science of Consciousness*. Oxford University Press.
+
+Tegmark, M. (2000). Importance of quantum decoherence in brain processes. *Physical Review E, 61*(4), 4194–4206. https://doi.org/10.1103/PhysRevE.61.4194
+
+### Source note on Ms. Jarvis apparatus
+
+Claims in this manuscript about the internal architecture of Ms. Jarvis currently depend in part on project documentation and author-supplied materials that should be included as supplementary technical documentation at submission or cited explicitly as unpublished system documentation.
