@@ -1,5 +1,5 @@
 # Does Meaning Require Geometry?
-## A Registered-Report Style Protocol for Testing Semantic Dependence on Structured Spatial-Temporal Constraints in Ms. Jarvis
+## A Registered-Report Style Protocol for Testing Semantic Dependence on Structured Spatial-Temporal Constraints in Ms. Allis
 
 **Author:** C.A. Kidd  
 **Affiliation:** Fayette County, West Virginia  
@@ -10,9 +10,9 @@
 
 ## Abstract
 
-Roger Penrose has argued that consciousness and understanding cannot be reduced to algorithmic computation alone, and that non-computable ingredients may be tied to spacetime geometry (Penrose, 1994; Hameroff & Penrose, 2014). Whatever the ultimate status of that claim, it motivates a narrower empirical question: whether coherent meaning in an intelligence system depends on structured spatial-temporal grounding, or whether meaning can be preserved under symbol manipulation alone. This manuscript is explicitly framed as a **protocol paper / Registered Report Stage 1 draft**, not as a completed empirical study. It presents the rationale, apparatus, hypotheses, operational definitions, sampling plan, scoring rubric, and analysis plan for a study to be executed in the Ms. Jarvis system.
+Roger Penrose has argued that consciousness and understanding cannot be reduced to algorithmic computation alone, and that non-computable ingredients may be tied to spacetime geometry (Penrose, 1994; Hameroff & Penrose, 2014). Whatever the ultimate status of that claim, it motivates a narrower empirical question: whether coherent meaning in an intelligence system depends on structured spatial-temporal grounding, or whether meaning can be preserved under symbol manipulation alone. This manuscript is explicitly framed as a **protocol paper / Registered Report Stage 1 draft**, not as a completed empirical study. It presents the rationale, apparatus, hypotheses, operational definitions, sampling plan, scoring rubric, and analysis plan for a study to be executed in the Ms. Allis system.
 
-The proposed apparatus is Ms. Jarvis, a community-sovereign intelligence system developed in Fayette County, West Virginia, in which semantic, geographic, temporal, and provenance-bearing identity structures are operationally coupled. Because the technical claims about this system derive partly from project documentation and unpublished internal materials, this manuscript treats those descriptions as **system documentation requiring a supplementary appendix at submission**, rather than as independently validated literature. The primary hypothesis is that semantic resolution quality and identity stability will decline when structured spatial-temporal constraints are removed while semantic vectors are held constant and symbolic content is preserved as far as possible. A positive result would not establish Orch OR or prove non-computable consciousness, but it would support the weaker proposition that structured geometric constraint spaces play a constitutive role in coherent meaning at a measurable macro level (Hameroff & Penrose, 2014). A negative result would narrow the range over which Penrose-style geometry claims remain plausible.
+The proposed apparatus is Ms. Allis, a community-sovereign intelligence system developed in Fayette County, West Virginia, in which semantic, geographic, temporal, and provenance-bearing identity structures are operationally coupled. Because the technical claims about this system derive partly from project documentation and unpublished internal materials, this manuscript treats those descriptions as **system documentation requiring a supplementary appendix at submission**, rather than as independently validated literature. The primary hypothesis is that semantic resolution quality and identity stability will decline when structured spatial-temporal constraints are removed while semantic vectors are held constant and symbolic content is preserved as far as possible. A positive result would not establish Orch OR or prove non-computable consciousness, but it would support the weaker proposition that structured geometric constraint spaces play a constitutive role in coherent meaning at a measurable macro level (Hameroff & Penrose, 2014). A negative result would narrow the range over which Penrose-style geometry claims remain plausible.
 
 ## 1. Genre and Scope
 
@@ -38,17 +38,19 @@ The importance of this formal overlap is limited but real. It does not imply tha
 
 A central conceptual clarification is required. The intervention proposed here does **not** remove arbitrary context in the broad conversational sense. It removes **structured constraint spaces**—specifically spatial and temporal constraint systems—that bound interpretation, restrict candidate referents, enforce continuity, and enable disambiguation. The study is therefore not designed as a generic “context versus no context” comparison. It is designed as a test of **constrained versus unconstrained semantic resolution**.
 
+A deeper principle motivating this design is reciprocity. In a community-grounded system, a record does not fully mean in isolation. Its meaning is constituted through relations among semantic content, place, time, provenance, continuity of identity, local use, and community interpretation. On that view, meaning is not one-way extraction from a community into a machine. A system may receive data from a community, but it owes meaning back in the form of context, accuracy, continuity, and accountability. The protocol therefore tests whether that reciprocal relation is structurally real. The grounded condition preserves the full relation among symbol, place, time, provenance, and community-grounded interpretation; the stripped condition breaks that relation while leaving lexical content in place; and the re-grounded condition tests whether restoring the relevant relations restores semantic coherence.
+
 This distinction matters because a reviewer could otherwise argue that any observed degradation merely shows that extra context helps. The stronger claim being tested is narrower and more structural: whether spatial and temporal organization function as constitutive constraint spaces for meaning maintenance in a live retrieval system.
 
 ### 2.4 System Context and Source Status
 
-Ms. Jarvis is described in project materials associated with Quantarithmia as a community-centered AI infrastructure embedded in a broader framework of spatial justice, distributed intelligence, geospatial grounding, and civic governance. At present, those descriptions come from two classes of source: **(1) attached project documents supplied by the author in this thread, and (2) public-facing project documentation referenced within those documents**. Because those materials are not yet standard peer-reviewed literature, the manuscript should not cite them as if they were independently established sources. Instead, one of the following should occur at submission:
+Ms. Allis is described in project materials associated with Quantarithmia as a community-centered AI infrastructure embedded in a broader framework of spatial justice, distributed intelligence, geospatial grounding, and civic governance. At present, those descriptions come from two classes of source: **(1) attached project documents supplied by the author in this thread, and (2) public-facing project documentation referenced within those documents**. Because those materials are not yet standard peer-reviewed literature, the manuscript should not cite them as if they were independently established sources. Instead, one of the following should occur at submission:
 
 - include the relevant architecture documentation as **supplementary material**,
 - cite it explicitly as **unpublished system documentation / technical appendix**, or
 - rewrite the apparatus description so that all essential claims stand without reliance on unverifiable internal documentation.
 
-For a journal-ready version, the safest route is to include a short technical appendix specifying the relevant Ms. Jarvis services, schemas, vector stores, and retrieval pathways used in the experiment.
+For a journal-ready version, the safest route is to include a short technical appendix specifying the relevant Ms. Allis services, schemas, vector stores, and retrieval pathways used in the experiment.
 
 ## 3. Research Question and Hypotheses
 
@@ -71,7 +73,7 @@ If meaning requires structured spatial-temporal constraint spaces to remain cohe
 
 ### 4.1 Representational Layers
 
-For the purposes of this protocol, Ms. Jarvis is modeled as operating across four coupled representational layers:
+For the purposes of this protocol, Ms. Allis is modeled as operating across four coupled representational layers:
 
 - **Semantic layer:** embedding-based representation of words, entities, and records.
 - **Geographic layer:** spatial anchoring through place-linked records and geospatial retrieval pathways.
@@ -271,7 +273,7 @@ A positive result would not prove Orch OR or demonstrate non-computable consciou
 
 The relationship between structured constraint spaces and community sovereignty is important, but the claim must be stated carefully. The present study does **not** prove that data sovereignty is an architectural necessity in every sense. What it can test is a narrower implication: whether meaning degrades when place-bound and event-bound constraints are removed from records originating in a community-grounded system.
 
-If such degradation is observed, then one plausible inference is that some forms of community knowledge lose coherence when detached from the place and temporal structures that help constitute them. That would strengthen, but not by itself conclusively prove, the broader argument that data sovereignty is more than an ethical preference in place-based systems. A fuller defense of that sovereignty claim would require additional theoretical and empirical work beyond the scope of this protocol.
+If such degradation is observed, then one plausible inference is that some forms of community knowledge lose coherence when detached from the place and temporal structures that help constitute them. In that case, the argument for data sovereignty becomes stronger not only in ethical terms but in structural ones: community data detached from community geometry may become less specific, less contextually coherent, less stable referentially, or less able to support correct disambiguation — the very properties this protocol is designed to measure. That would strengthen, but not by itself conclusively prove, the broader argument that data sovereignty is more than an ethical preference in place-based systems. A fuller defense of that sovereignty claim would require additional theoretical and empirical work beyond the scope of this protocol.
 
 ## 8. Limitations
 
@@ -283,13 +285,13 @@ Second, the present protocol addresses semantic coherence in a deployed intellig
 
 Third, even a strong positive result would not validate Penrose’s full biological or quantum-mechanical implementation, especially given the continuing critique literature around Orch OR.
 
-Fourth, the stripped intervention depends on the current architecture of Ms. Jarvis. Because the system is evolving, a versioned implementation appendix should accompany execution so that the suppression procedure is reproducible against the exact schema and service layout used at test time.
+Fourth, the stripped intervention depends on the current architecture of Ms. Allis. Because the system is evolving, a versioned implementation appendix should accompany execution so that the suppression procedure is reproducible against the exact schema and service layout used at test time.
 
 Finally, sample size in the initial study is adequate for a pilot registered-report style test, but not for sweeping generalization. Replication across additional unit classes and system versions would be required.
 
 ## 9. Conclusion
 
-This manuscript presents a protocol-level, registered-report style plan for testing whether coherent meaning in Ms. Jarvis depends on structured spatial-temporal constraint spaces. Its contribution is not to claim completed results, but to specify in advance how such a claim could be tested with clarity, rigor, and falsifiability.
+This manuscript presents a protocol-level, registered-report style plan for testing whether coherent meaning in Ms. Allis depends on structured spatial-temporal constraint spaces. Its contribution is not to claim completed results, but to specify in advance how such a claim could be tested with clarity, rigor, and falsifiability.
 
 The broader philosophical significance is straightforward. Penrose argued that understanding may depend on geometry in a way computation alone cannot capture (Penrose, 1994; Hameroff & Penrose, 2014). This protocol does not settle that claim. It does, however, identify a narrower and measurable edge of it. If grounded records systematically outperform stripped records, and re-grounded records recover lost performance, then the study would provide evidence that structured spatial-temporal constraints matter for coherent meaning in at least one engineered, community-grounded intelligence system. If they do not, then the scope of geometry-based theories must be narrowed.
 
@@ -307,6 +309,6 @@ Penrose, R. (1994). *Shadows of the Mind: A Search for the Missing Science of Co
 
 Tegmark, M. (2000). Importance of quantum decoherence in brain processes. *Physical Review E, 61*(4), 4194–4206. https://doi.org/10.1103/PhysRevE.61.4194
 
-### Source note on Ms. Jarvis apparatus
+### Source note on Ms. Allis apparatus
 
-Claims in this manuscript about the internal architecture of Ms. Jarvis currently depend in part on project documentation and author-supplied materials that should be included as supplementary technical documentation at submission or cited explicitly as unpublished system documentation.
+Claims in this manuscript about the internal architecture of Ms. Allis currently depend in part on project documentation and author-supplied materials that should be included as supplementary technical documentation at submission or cited explicitly as unpublished system documentation.
