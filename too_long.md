@@ -1,35 +1,3 @@
-15507:[2025-11-10 17:23:52] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15523:[2025-11-10 17:23:53] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15539:[2025-11-10 17:24:22] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15555:[2025-11-10 17:24:23] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15571:[2025-11-10 17:24:52] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15587:[2025-11-10 17:24:53] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15603:[2025-11-10 17:25:22] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15619:[2025-11-10 17:25:23] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15635:[2025-11-10 17:25:52] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15651:[2025-11-10 17:25:53] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15667:[2025-11-10 17:26:22] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15683:[2025-11-10 17:26:23] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15699:[2025-11-10 17:26:52] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15715:[2025-11-10 17:26:53] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15731:[2025-11-10 17:27:22] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15747:[2025-11-10 17:27:23] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15763:[2025-11-10 17:27:52] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15779:[2025-11-10 17:27:53] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15795:[2025-11-10 17:28:22] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15811:[2025-11-10 17:28:23] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15827:[2025-11-10 17:28:52] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15843:[2025-11-10 17:28:53] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15859:[2025-11-10 17:29:22] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15875:[2025-11-10 17:29:23] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15891:[2025-11-10 17:29:52] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15907:[2025-11-10 17:29:53] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15923:[2025-11-10 17:30:22] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15939:[2025-11-10 17:30:23] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15955:[2025-11-10 17:30:52] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15971:[2025-11-10 17:30:53] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-15987:[2025-11-10 17:31:22] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
-16003:[2025-11-10 17:31:23] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
 16019:[2025-11-10 17:31:52] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
 16035:[2025-11-10 17:31:53] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
 16051:[2025-11-10 17:32:22] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
@@ -4151,45 +4119,88 @@
 81875:[2025-11-11 10:41:58] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
 81891:[2025-11-11 10:41:58] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
 
-./gisgeodbstorage.py
-8:    # Chroma is exposed on host 127.0.0.1:8002 -> container:8000
-
-./jarvis_eeg_beta_5m.py
-13:CHROMA       = "http://jarvis-chroma:8000/api/v2/tenants/default_tenant/databases/default_database"
-
-./gis_rag_server.py
-8:_client = chromadb.HttpClient(host="localhost", port=8000)
-
-./index_gis_to_chroma.py
-17:    'port': 8000
-
-./ingest_kanawha_resources.py
-133:            documents=[text[:8000]],  # Truncate to 8k chars for embedding
-
-./services/jarvis_hilbert_state.py
-219:        port=int(_os.environ.get("CHROMA_PORT", 8000)),
-
-./services/port_9001_ui_FIXED.py
-151:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-
-./services/port_9000_69dgm_bridge.py
-4:Intercepts /consciousness/chat, routes through all 69 validators,
-30:    "http://127.0.0.1:8000/consciousnesschat",  # default internal DNS + port
-69:        "Intercepts /consciousness/chat, routes through 69 DGM validators, "
-273:# FastAPI endpoint for /consciousness/chat on port 9000
-275:@app.post("/consciousness/chat", response_model=ChatOut)
-
-./services/port_9001_ui_DIRECT.py
-121:                f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
-
-./services/consciousness_with_egeria_voice.py
-31:@app.post("/consciousness/chat")
+./docker-compose.yml
+554:    - CHROMA_PORT=8000
+922:    - CHROMA_PORT=8000
+990:    - 127.0.0.1:8002:8000
+1008:      - cat < /dev/null > /dev/tcp/localhost/8000
+1314:    - CHROMA_PORT=8000
+1315:    - GIS_RAG_CHROMA_URL=http://jarvis-chroma:8000
+1523:    - CHROMA_PORT=8000
+1549:    - CHROMA_PORT=8000
+1573:    - CHROMA_PORT=8000
+1710:    - CHROMA_PORT=8000
+1769:    - CHROMA_URL=http://jarvis-chroma:8000
+1831:    - CHROMA_PORT=8000
+1991:    - CHROMA_PORT=8000
+2087:    - CHROMA_PORT=8000
+2919:      CHROMA_PORT: '8000'
+2952:    - CHROMA_PORT=8000
 
 ./services/ms_mountainshares_analytics.py
 19:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
 
+./services/port_9001_ui_DIRECT.py
+121:                f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
+
+./gisgeodbstorage.py
+8:    # Chroma is exposed on host 127.0.0.1:8002 -> container:8000
+
+./gis_rag_query.py
+4:_CHROMA_PORT = 8000
+
+./services/chroma_test.py
+7:chroma_port = int(os.getenv("CHROMA_PORT", "8000"))
+
+./layer3_opt_in.py
+23:        port=int(os.getenv("CHROMA_PORT", 8000)),
+
+./services/jarvis_hilbert_state.py
+219:        port=int(_os.environ.get("CHROMA_PORT", 8000)),
+
+./index_gis_to_chroma.py
+17:    'port': 8000
+
+./gis_rag_server.py
+8:_client = chromadb.HttpClient(host="localhost", port=8000)
+
+./services/consciousness_with_egeria_voice.py
+31:@app.post("/consciousness/chat")
+
 ./services/dynamic_port_service_enhanced.py
 26:    def __init__(self, redis_host='localhost', redis_port=int(os.getenv("SERVICE_PORT", 8000))):
+
+./services/ULTIMATE_PORT_AUDIT_20251010_094847.txt
+21:8000     Unified Web UI       2013479    python3                        🟢
+
+./scratch_edits/civic_projector_edit.py
+40:CHROMA_PORT = int(os.environ.get("CHROMA_PORT", 8000))
+
+./main_brain.py
+157:    "chroma": "http://jarvis-chroma:8000",
+375:        # match 69DGM stub (/consciousnesschat)
+376:        "port_9000_69dgm_bridge": "/consciousnesschat",
+
+./services/msjarvisunifiedgateway.py
+284:        port=int(os.getenv("SERVICE_PORT", 8000)),
+
+./services/port_9000_chat_wrapper_69dgm.py
+8:Port 9001 Wrapper - Intercepts /consciousness/chat calls to port 9000
+34:@app.post("/consciousness/chat")
+61:                    f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
+90:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+
+./jarvis_eeg_beta_5m.py
+13:CHROMA       = "http://jarvis-chroma:8000/api/v2/tenants/default_tenant/databases/default_database"
+
+./ingest_kanawha_resources.py
+133:            documents=[text[:8000]],  # Truncate to 8k chars for embedding
+
+./services/port_9001_ui_FIXED.py
+151:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+
+./services/gateway8050_simple.py
+7:JARVIS_PROD_CHAT = "http://appservices:8000/productionchat"
 
 ./services/dir_endpoints.txt
 318:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py:268:@app.post("/consciousness/chat", tags=["Consciousness"])
@@ -4206,6 +4217,135 @@
 1591:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py:79:@app.post("/consciousness/chat")
 1694:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:34:@app.post("/consciousness/chat")
 1751:/home/ms-jarvis/msjarvis-rebuild/services/msjarvisunifiedswaggergatewayFIXED.py:146:@app.post("/consciousness/chat", tags=["Consciousness"])
+
+./services/port_9000_69dgm_bridge.py
+4:Intercepts /consciousness/chat, routes through all 69 validators,
+30:    "http://127.0.0.1:8000/consciousnesschat",  # default internal DNS + port
+69:        "Intercepts /consciousness/chat, routes through 69 DGM validators, "
+273:# FastAPI endpoint for /consciousness/chat on port 9000
+275:@app.post("/consciousness/chat", response_model=ChatOut)
+
+./services/bridge_cross_dgm.py
+25:UPSTREAM_URL = args.upstream_url or f"http://localhost:8000"  # default, adjust as needed
+
+./services/web_page_ingest.py
+69:        if len(text_clean) > 8000:
+70:            text_clean = text_clean[:8000]
+
+./services/ADDITIONAL_SERVICES_FINAL.py
+4:    {'name': 'ms_jarvis_facebook_full', 'url': 'http://localhost:8000/monitoring/status', 'method': 'GET'},
+
+./services/interaction_logger.py
+121:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8000)))
+
+./services/open_ports_full.txt
+43:tcp	LISTEN	0	4096	0.0.0.0:8000	0.0.0.0:*	users:(("docker-proxy",pid=6445,fd=7))	
+82:tcp	LISTEN	0	4096	[::]:8000	[::]:*	users:(("docker-proxy",pid=6452,fd=7))	
+
+./services/port_9001_ui_MYSQL_PROD.py
+173:            r = await client.post(f"http://127.0.0.1:9000/consciousness/chat?userid=user&message={message}", timeout=10.0)
+
+./services/service_api_check.txt
+179:  "/consciousness/chat": {
+
+./services/batch_patch_services.py
+20:    "8000": "ai_server",
+
+./services/port_9001_ui_WITH_CONVERSATIONS.py
+221:                f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
+
+./services/run_gateway_with_guards.py
+20:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+
+./services/ms_mountainshares_indexer.py
+20:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
+
+./services/psychological_rag_domain_psychological_rag_domain.py
+49:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
+
+./services/route_declarations_clean.txt
+386:post("/consciousness/chat"
+388:post("/consciousness/chat"
+938:post("/consciousness/chat"
+941:post("/consciousness/chat"
+943:post("/consciousness/chat"
+946:post("/consciousness/chat"
+986:post("/consciousness/chat"
+1628:post("/consciousness/chat"
+
+./services/mountainshares_ingest.py
+5:CHROMA_URL = os.environ.get("CHROMA_URL", "http://jarvis-chroma:8000")  # inside docker network
+
+./services/msjarvisragserver_wvpatch.py
+9:# For host testing, talk to the local on-disk Chroma, not jarvis-chroma:8000
+
+./services/chroma_health_proxy.py
+11:            resp = await client.get("http://jarvis-chroma:8000/api/v2/heartbeat")
+
+./services/egeria_web_ui.py
+427:    app.run(host='127.0.0.1', port=int(os.getenv("SERVICE_PORT", 8000)), debug=False)
+
+./services/hippocampus_service.py
+16:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
+
+./services/jarvis_hilbert_semantic.py
+15:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
+
+./services/live_ports.txt
+16:8000
+
+./services/master_chat_orchestrator_v9_dgm_complete.py
+142:    behind port 8000, so no script is hard-coded here; it simply returns the live response.
+162:    # the /chat.open endpoint on port 8000, which this orchestrator
+
+./services/my_service.py
+5:def get_dynamic_port(start=8000, end=9000):
+
+./services/wvu_ldap_auth.py
+65:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
+
+./services/rag_grounded_v2.py
+19:RAG_SERVER_URL = os.getenv("RAG_SERVER_URL",   "http://jarvis-rag-server:8000")
+
+./services/port_9001_ARCHITECTURE_CORRECT.py
+31:                f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
+44:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+
+./services/port_9001_ui_MYSQL.py
+198:                f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
+
+./services/port_9000_69dgm_bridge.py.backup_20260307_072741
+22:CHROMA_PORT = os.getenv("CHROMA_PORT", "8000")
+131:@app.post("/consciousnesschat", response_model=ConsciousChatResponse)
+
+./services/rag_server.py
+121:        port = int(os.getenv("CHROMA_PORT", "8000"))
+
+./services/stage2_biometric.py
+221:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+
+./services/port_9000_69dgm_bridge.py.backup_20260307_072757
+22:CHROMA_PORT = os.getenv("CHROMA_PORT", "8000")
+131:@app.post("/consciousnesschat", response_model=ConsciousChatResponse)
+
+./services/hilbert/jarvis_hilbert_state.py
+283:                port=int(_os.environ.get("CHROMA_PORT", 8000)),
+338:            port=int(_os.environ.get("CHROMA_PORT", 8000)),
+
+./services/port_9001_FINAL_FIX.py
+54:            r = await client.post(f"http://127.0.0.1:9000/consciousness/chat?userid=user&message={message}", timeout=10.0)
+
+./services/hilbert/supervisord-civic-intake.conf
+15:environment=CHROMA_HOST="jarvis-chroma",CHROMA_PORT="8000",INTAKE_PORT="8100"
+
+./services/consciousness_working.py
+21:@app.post("/consciousness/chat")
+
+./services/hilbert/civic_projector.py
+40:CHROMA_PORT = int(os.environ.get("CHROMA_PORT", 8000))
+
+./services/hilbert/civic_query.py
+20:        port=int(os.getenv("CHROMA_PORT", 8000)),
 
 ./backup_filename_index.txt
 2083:ms_jarvis_main_gateway_8000.py|/mnt/MS_Jarvis/msjarvis-backups/20260102_020001/services/ms_jarvis_main_gateway_8000.py
@@ -4244,11 +4384,206 @@
 23713:fix_chroma_url.py.PORT8000_BACKUP|/mnt/MS_Jarvis/msjarvis-backups/20251229_020001/services/fix_chroma_url.py.PORT8000_BACKUP
 23714:fix_chroma_url.py.PORT8000_BACKUP|/mnt/MS_Jarvis/msjarvis-backups/20260103_020002/services/fix_chroma_url.py.PORT8000_BACKUP
 
-./services/gateway8050_simple.py
-7:JARVIS_PROD_CHAT = "http://appservices:8000/productionchat"
+./services/gbim_chroma_fixed.py
+9:    port = int(os.getenv("CHROMA_PORT", "8000"))
 
-./services/ingest_additional_kbs.py
-24:            docs.append(text[:8000])
+./services/bridge_69dgm.py
+67:@app.post("/consciousnesschat", response_model=ChatResponse)
+68:async def consciousnesschat(req: ChatRequest):
+
+./services/hilbert/layer3_opt_in.py
+23:        port=int(os.getenv("CHROMA_PORT", 8000)),
+
+./services/main_brain_legacy_backup.py
+268:    "chroma": "http://msjarvis-rebuild-chroma-1:8000",
+
+./services/hilbert/ingest_worker.py
+21:        port=int(os.getenv("CHROMA_PORT", 8000)),
+
+./services/hilbert_commons/commons_aggregator.py
+15:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
+
+./services/msjarvis_ports_runtime.txt
+13:tcp   LISTEN 0      4096                             0.0.0.0:8000       0.0.0.0:*    users:(("docker-proxy",pid=6445,fd=7))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+34:tcp   LISTEN 0      4096                                [::]:8000          [::]:*    users:(("docker-proxy",pid=6452,fd=7))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+
+./services/hilbert_spatial_chat.py
+39:        chroma_port = int(os.getenv("CHROMA_PORT", "8000"))
+
+./services/export_attributes_to_gis.py
+6:client = chromadb.HttpClient(host='localhost', port=8000)
+
+./services/gis-rag/ingest_gis_tables.py
+21:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
+
+./services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py
+139:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8000)))
+
+./services/ports_diff_msjarvis.txt
+817:+8000
+
+./services/truth_filter_service.py
+59:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+
+./services/port_9001_proxy_simple.py
+19:    description="Routes all requests to port 9000 consciousness/chat",
+33:            f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
+
+./services/rest_endpoints.txt
+72:./ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py:268:@app.post("/consciousness/chat", tags=["Consciousness"])
+91:./consciousness_with_egeria_voice.py:31:@app.post("/consciousness/chat")
+243:./ms_jarvis_command_orchestrator_FINAL.py:79:@app.post("/consciousness/chat")
+322:./ms_jarvis_command_orchestrator.py:37:@app.post("/consciousness/chat")
+545:./ms_jarvis_command_orchestrator_v5_backup.py:47:@app.post("/consciousness/chat")
+660:./ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py:229:@app.post("/consciousness/chat", tags=["Consciousness"])
+796:./ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py:230:@app.post("/consciousness/chat", tags=["Consciousness"])
+845:./ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py:241:@app.post("/consciousness/chat", tags=["Consciousness"])
+1353:./consciousness_working.py:21:@app.post("/consciousness/chat")
+1537:./ms_jarvis_unified_gateway_v4.3.backup.py:228:@app.post("/consciousness/chat", tags=["Consciousness"])
+1598:./ms_jarvis_conversational_gateway_4022.py:75:@app.post("/consciousness/chat")
+1672:./ms_jarvis_command_orchestrator_v5.0_preachy.py:79:@app.post("/consciousness/chat")
+1775:./port_9000_chat_wrapper_69dgm.py:34:@app.post("/consciousness/chat")
+1832:./msjarvisunifiedswaggergatewayFIXED.py:146:@app.post("/consciousness/chat", tags=["Consciousness"])
+
+./services/fix_port_8051_handler.py
+18:            'http://127.0.0.1:9000/consciousness/chat?userid=web&message="""
+
+./services/port_9001_FINAL_WORKING.py
+185:            r = await client.post(f"http://127.0.0.1:9000/consciousness/chat?userid=user&message={message}", timeout=10.0)
+
+./services/port_9000_69dgm_bridge.py.backup_20260307_072514
+84:@app.post("/consciousnesschat", response_model=ConsciousChatResponse)
+
+./services/RESTORATION_CERTIFICATE.txt
+30:✅ Brain Orchestrator (Port 8000)
+
+./services/port_9000_69dgm_bridge.py.backup_20260307_070432
+84:@app.post("/consciousnesschat", response_model=ConsciousChatResponse)
+
+./services/PORTS_REGISTRY_RAW.txt
+9:/home/ms-jarvis/msjarvis-rebuild/services/agents_main.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+17:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+22:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+53:/home/ms-jarvis/msjarvis-rebuild/services/constitutional_api.PROD_BACKUP.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+78:/home/ms-jarvis/msjarvis-rebuild/services/dynamic_port_service_enhanced.py:    def __init__(self, redis_host='localhost', redis_port=int(os.getenv("SERVICE_PORT", 8000))):
+94:/home/ms-jarvis/msjarvis-rebuild/services/egeria_web_ui.py:    app.run(host='0.0.0.0', port=int(os.getenv("SERVICE_PORT", 8000)), debug=False)
+100:/home/ms-jarvis/msjarvis-rebuild/services/export_attributes_to_gis.py:client = chromadb.HttpClient(host='localhost', port=8000)
+132:/home/ms-jarvis/msjarvis-rebuild/services/interaction_logger.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+302:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_api_docs.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
+303:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_attribute_table_service.py:        client = chromadb.HttpClient(host="localhost", port=int(os.getenv("CHROMA_PORT", 8000)))
+305:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_authentic_multi_llm.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+310:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py:            self.chroma_client = chromadb.HttpClient(host="localhost", port=int(os.getenv("SERVICE_PORT", 8000)))
+311:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+349:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_darwin_godel_machine.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+353:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_email_monitor.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+357:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_facebook_autonomous_social.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+366:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_facebook_poster_FIXED.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+373:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fact_filter.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+381:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fractal_consciousness_FIXED.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+389:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_geo_ueid_integration.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+424:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_main_gateway.proxy_still_broken.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
+465:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_ueid_system.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+473:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.py:    uvicorn.run(app, host='0.0.0.0', port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+476:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_CLEAN.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+480:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
+483:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_PROD.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+486:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_venv_scheduler_FIXED.py:        self.redis_client = redis.Redis(host='localhost', port=int(os.getenv("SERVICE_PORT", 8000)), decode_responses=True)
+488:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_venv_scheduler_SIMPLE.py:        self.redis_client = redis.Redis(host='localhost', port=int(os.getenv("SERVICE_PORT", 8000)), decode_responses=True)
+522:/home/ms-jarvis/msjarvis-rebuild/services/phase2_integration.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+538:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+539:/home/ms-jarvis/msjarvis-rebuild/services/port_9001_ARCHITECTURE_CORRECT.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+544:/home/ms-jarvis/msjarvis-rebuild/services/port_9001_ui_FIXED.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+587:/home/ms-jarvis/msjarvis-rebuild/services/run_gateway_with_guards.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+598:/home/ms-jarvis/msjarvis-rebuild/services/stage2_biometric_backup.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+599:/home/ms-jarvis/msjarvis-rebuild/services/stage2_biometric.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+609:/home/ms-jarvis/msjarvis-rebuild/services/truth_filter_service.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+611:/home/ms-jarvis/msjarvis-rebuild/services/unifiedconsciousnessgatewayPRODUCTION.py:            chroma_client = chromadb.HttpClient(host='localhost', port=int(os.getenv("SERVICE_PORT", 8000)), settings=Settings(allow_reset=False))
+627:/home/ms-jarvis/msjarvis-rebuild/services/woah_qualia_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+630:/home/ms-jarvis/msjarvis-rebuild/services/working_full_pipeline_WITH_SPATIAL_TEMPORAL.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+631:/home/ms-jarvis/msjarvis-rebuild/services/wvu_ldap_auth.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
+
+./services/stage2_biometric_backup.py
+154:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+
+./services/phase2_integration.py
+70:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+
+./services/PORT_AUDIT_RAW.txt
+10:/home/ms-jarvis/msjarvis-rebuild/services/agents_main.py:11:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+18:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:126:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+23:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:136:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+56:/home/ms-jarvis/msjarvis-rebuild/services/constitutional_api.PROD_BACKUP.py:38:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+87:/home/ms-jarvis/msjarvis-rebuild/services/dynamic_port_service_enhanced.py:26:    def __init__(self, redis_host='localhost', redis_port=int(os.getenv("SERVICE_PORT", 8000))):
+108:/home/ms-jarvis/msjarvis-rebuild/services/egeria_web_ui.py:427:    app.run(host='0.0.0.0', port=int(os.getenv("SERVICE_PORT", 8000)), debug=False)
+114:/home/ms-jarvis/msjarvis-rebuild/services/export_attributes_to_gis.py:6:client = chromadb.HttpClient(host='localhost', port=8000)
+146:/home/ms-jarvis/msjarvis-rebuild/services/interaction_logger.py:121:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+600:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_api_docs.py:269:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
+601:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_attribute_table_service.py:34:        client = chromadb.HttpClient(host="localhost", port=int(os.getenv("CHROMA_PORT", 8000)))
+603:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_authentic_multi_llm.py:178:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+608:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py:60:            self.chroma_client = chromadb.HttpClient(host="localhost", port=int(os.getenv("SERVICE_PORT", 8000)))
+609:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py:270:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+653:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_darwin_godel_machine.py:283:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+657:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_email_monitor.py:89:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+661:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_facebook_autonomous_social.py:451:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+670:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_facebook_poster_FIXED.py:87:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+677:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fact_filter.py:126:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+688:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fractal_consciousness_FIXED.py:64:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+696:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_geo_ueid_integration.py:220:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+732:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_main_gateway.proxy_still_broken.py:178:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
+774:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_ueid_system.py:385:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+782:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.py:142:    uvicorn.run(app, host='0.0.0.0', port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+785:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_CLEAN.py:142:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+789:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py:482:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
+792:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_PROD.py:221:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+795:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_venv_scheduler_FIXED.py:25:        self.redis_client = redis.Redis(host='localhost', port=int(os.getenv("SERVICE_PORT", 8000)), decode_responses=True)
+797:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_venv_scheduler_SIMPLE.py:23:        self.redis_client = redis.Redis(host='localhost', port=int(os.getenv("SERVICE_PORT", 8000)), decode_responses=True)
+838:/home/ms-jarvis/msjarvis-rebuild/services/phase2_integration.py:70:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+856:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:90:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+857:/home/ms-jarvis/msjarvis-rebuild/services/port_9001_ARCHITECTURE_CORRECT.py:44:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+862:/home/ms-jarvis/msjarvis-rebuild/services/port_9001_ui_FIXED.py:151:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
+908:/home/ms-jarvis/msjarvis-rebuild/services/run_gateway_with_guards.py:20:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+922:/home/ms-jarvis/msjarvis-rebuild/services/stage2_biometric_backup.py:154:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+923:/home/ms-jarvis/msjarvis-rebuild/services/stage2_biometric.py:221:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+934:/home/ms-jarvis/msjarvis-rebuild/services/truth_filter_service.py:59:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+937:/home/ms-jarvis/msjarvis-rebuild/services/unifiedconsciousnessgatewayPRODUCTION.py:10:            chroma_client = chromadb.HttpClient(host='localhost', port=int(os.getenv("SERVICE_PORT", 8000)), settings=Settings(allow_reset=False))
+954:/home/ms-jarvis/msjarvis-rebuild/services/woah_qualia_bridge.py:32:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+957:/home/ms-jarvis/msjarvis-rebuild/services/working_full_pipeline_WITH_SPATIAL_TEMPORAL.py:142:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
+958:/home/ms-jarvis/msjarvis-rebuild/services/wvu_ldap_auth.py:65:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
+
+./services/gis_rag_service.py
+15:GIS_RAG_URL = os.getenv("GIS_RAG_CHROMA_URL", "http://jarvis-chroma:8000").rstrip("/")
+
+./services/route_declarations_raw.txt
+418:consciousness_with_egeria_voice.py:31:@app.post("/consciousness/chat")
+420:consciousness_working.py:21:@app.post("/consciousness/chat")
+1010:ms_jarvis_command_orchestrator_FINAL.py:80:@app.post("/consciousness/chat")
+1013:ms_jarvis_command_orchestrator.py:38:@app.post("/consciousness/chat")
+1015:ms_jarvis_command_orchestrator_v5.0_preachy.py:80:@app.post("/consciousness/chat")
+1018:ms_jarvis_command_orchestrator_v5_backup.py:48:@app.post("/consciousness/chat")
+1065:ms_jarvis_conversational_gateway_4022.py:76:@app.post("/consciousness/chat")
+1276:ms_jarvis_main_gateway_8000.py:31:@app.get("/health")
+1277:ms_jarvis_main_gateway_8000.py:65:@app.post("/chat")
+1278:ms_jarvis_main_gateway_8000.py:85:@app.post("/qualia_check")
+1279:ms_jarvis_main_gateway_8000.py:105:@app.get("/")
+1619:ms_jarvis_unified_gateway_v4.3.20251124.py:268:@app.post("/consciousness/chat", tags=["Consciousness"])
+1645:ms_jarvis_unified_gateway_v4.3.backup.py:228:@app.post("/consciousness/chat", tags=["Consciousness"])
+1667:ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py:241:@app.post("/consciousness/chat", tags=["Consciousness"])
+1726:ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py:268:@app.post("/consciousness/chat", tags=["Consciousness"])
+1752:ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py:229:@app.post("/consciousness/chat", tags=["Consciousness"])
+1778:ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py:230:@app.post("/consciousness/chat", tags=["Consciousness"])
+2143:port_9000_chat_wrapper_69dgm.py:34:@app.post("/consciousness/chat")
+
+./services/chat_endpoint_universal.py
+43:            f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
+
+./services/background_curator.py
+11:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
+
+./services/constitutional_api.PROD_BACKUP.py
+38:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8000)))
+
+./services/chroma_python_test.py
+7:    chroma_port = int(os.getenv("CHROMA_PORT", "8000"))
 
 ./services/WATCHDOG_LOG.txt
 16:[2025-11-10 11:10:05] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
@@ -9372,368 +9707,25 @@
 81875:[2025-11-11 10:41:58] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
 81891:[2025-11-11 10:41:58] [HEALTH] ✅ ChromaDB (port 8000): RESPONDING
 
-./services/open_ports_full.txt
-43:tcp	LISTEN	0	4096	0.0.0.0:8000	0.0.0.0:*	users:(("docker-proxy",pid=6445,fd=7))	
-82:tcp	LISTEN	0	4096	[::]:8000	[::]:*	users:(("docker-proxy",pid=6452,fd=7))	
+./services/port_9001_ui_WORKING.py
+131:                f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
 
-./scratch_edits/civic_projector_edit.py
-40:CHROMA_PORT = int(os.environ.get("CHROMA_PORT", 8000))
+./services/working_full_pipeline_WITH_SPATIAL_TEMPORAL.py
+142:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
 
-./services/chroma_test.py
-7:chroma_port = int(os.getenv("CHROMA_PORT", "8000"))
-
-./services/ULTIMATE_PORT_AUDIT_20251010_094847.txt
-21:8000     Unified Web UI       2013479    python3                        🟢
-
-./services/web_page_ingest.py
-69:        if len(text_clean) > 8000:
-70:            text_clean = text_clean[:8000]
-
-./services/port_9000_chat_wrapper_69dgm.py
-8:Port 9001 Wrapper - Intercepts /consciousness/chat calls to port 9000
-34:@app.post("/consciousness/chat")
-61:                    f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
-90:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-
-./services/msjarvisunifiedgateway.py
-284:        port=int(os.getenv("SERVICE_PORT", 8000)),
-
-./services/service_api_check.txt
-179:  "/consciousness/chat": {
-
-./services/batch_patch_services.py
-20:    "8000": "ai_server",
-
-./main_brain.py
-157:    "chroma": "http://jarvis-chroma:8000",
-375:        # match 69DGM stub (/consciousnesschat)
-376:        "port_9000_69dgm_bridge": "/consciousnesschat",
-
-./services/run_gateway_with_guards.py
-20:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-
-./services/port_9001_ui_WITH_CONVERSATIONS.py
-221:                f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
-
-./services/bridge_cross_dgm.py
-25:UPSTREAM_URL = args.upstream_url or f"http://localhost:8000"  # default, adjust as needed
-
-./services/psychological_rag_domain_psychological_rag_domain.py
-49:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
-
-./services/hippocampus_service.py
-16:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
-
-./services/msjarvisragserver_wvpatch.py
-9:# For host testing, talk to the local on-disk Chroma, not jarvis-chroma:8000
-
-./services/route_declarations_clean.txt
-386:post("/consciousness/chat"
-388:post("/consciousness/chat"
-938:post("/consciousness/chat"
-941:post("/consciousness/chat"
-943:post("/consciousness/chat"
-946:post("/consciousness/chat"
-986:post("/consciousness/chat"
-1628:post("/consciousness/chat"
-
-./services/ADDITIONAL_SERVICES_FINAL.py
-4:    {'name': 'ms_jarvis_facebook_full', 'url': 'http://localhost:8000/monitoring/status', 'method': 'GET'},
-
-./services/egeria_web_ui.py
-427:    app.run(host='127.0.0.1', port=int(os.getenv("SERVICE_PORT", 8000)), debug=False)
-
-./services/jarvis_hilbert_semantic.py
-15:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
-
-./services/live_ports.txt
-16:8000
-
-./services/my_service.py
-5:def get_dynamic_port(start=8000, end=9000):
-
-./services/port_9001_ui_MYSQL_PROD.py
-173:            r = await client.post(f"http://127.0.0.1:9000/consciousness/chat?userid=user&message={message}", timeout=10.0)
-
-./services/master_chat_orchestrator_v9_dgm_complete.py
-142:    behind port 8000, so no script is hard-coded here; it simply returns the live response.
-162:    # the /chat.open endpoint on port 8000, which this orchestrator
-
-./services/port_9000_69dgm_bridge.py.backup_20260307_072741
-22:CHROMA_PORT = os.getenv("CHROMA_PORT", "8000")
-131:@app.post("/consciousnesschat", response_model=ConsciousChatResponse)
-
-./services/ms_mountainshares_indexer.py
-20:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
-
-./services/interaction_logger.py
-121:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8000)))
-
-./services/rag_server.py
-121:        port = int(os.getenv("CHROMA_PORT", "8000"))
-
-./services/mountainshares_ingest.py
-5:CHROMA_URL = os.environ.get("CHROMA_URL", "http://jarvis-chroma:8000")  # inside docker network
-
-./services/port_9001_ARCHITECTURE_CORRECT.py
-31:                f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
-44:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-
-./services/rag_grounded_v2.py
-19:RAG_SERVER_URL = os.getenv("RAG_SERVER_URL",   "http://jarvis-rag-server:8000")
-
-./services/port_9001_ui_MYSQL.py
-198:                f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
-
-./services/phase2_integration.py
-70:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-
-./services/port_9000_69dgm_bridge.py.backup_20260307_072757
-22:CHROMA_PORT = os.getenv("CHROMA_PORT", "8000")
-131:@app.post("/consciousnesschat", response_model=ConsciousChatResponse)
-
-./services/hilbert/jarvis_hilbert_state.py
-283:                port=int(_os.environ.get("CHROMA_PORT", 8000)),
-338:            port=int(_os.environ.get("CHROMA_PORT", 8000)),
-
-./services/wvu_ldap_auth.py
-65:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
-
-./services/hilbert_commons/commons_aggregator.py
-15:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
-
-./services/chroma_health_proxy.py
-11:            resp = await client.get("http://jarvis-chroma:8000/api/v2/heartbeat")
-
-./services/hilbert/civic_projector.py
-40:CHROMA_PORT = int(os.environ.get("CHROMA_PORT", 8000))
-
-./services/main.py
-263:    "chroma": "http://jarvis-chroma:8000",
-
-./services/hilbert/layer3_opt_in.py
-23:        port=int(os.getenv("CHROMA_PORT", 8000)),
-
-./services/hilbert/supervisord-civic-intake.conf
-15:environment=CHROMA_HOST="jarvis-chroma",CHROMA_PORT="8000",INTAKE_PORT="8100"
-
-./services/hilbert/ingest_worker.py
-21:        port=int(os.getenv("CHROMA_PORT", 8000)),
-
-./services/consciousness_working.py
-21:@app.post("/consciousness/chat")
-
-./services/rest_endpoints.txt
-72:./ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py:268:@app.post("/consciousness/chat", tags=["Consciousness"])
-91:./consciousness_with_egeria_voice.py:31:@app.post("/consciousness/chat")
-243:./ms_jarvis_command_orchestrator_FINAL.py:79:@app.post("/consciousness/chat")
-322:./ms_jarvis_command_orchestrator.py:37:@app.post("/consciousness/chat")
-545:./ms_jarvis_command_orchestrator_v5_backup.py:47:@app.post("/consciousness/chat")
-660:./ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py:229:@app.post("/consciousness/chat", tags=["Consciousness"])
-796:./ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py:230:@app.post("/consciousness/chat", tags=["Consciousness"])
-845:./ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py:241:@app.post("/consciousness/chat", tags=["Consciousness"])
-1353:./consciousness_working.py:21:@app.post("/consciousness/chat")
-1537:./ms_jarvis_unified_gateway_v4.3.backup.py:228:@app.post("/consciousness/chat", tags=["Consciousness"])
-1598:./ms_jarvis_conversational_gateway_4022.py:75:@app.post("/consciousness/chat")
-1672:./ms_jarvis_command_orchestrator_v5.0_preachy.py:79:@app.post("/consciousness/chat")
-1775:./port_9000_chat_wrapper_69dgm.py:34:@app.post("/consciousness/chat")
-1832:./msjarvisunifiedswaggergatewayFIXED.py:146:@app.post("/consciousness/chat", tags=["Consciousness"])
+./services/unifiedconsciousnessgatewayPRODUCTION.py
+13:            port=int(os.getenv("SERVICE_PORT", 8000)),
 
 ./services/jarvis-gis-rag_gis_rag_service.py
 16:GIS_RAG_URL = os.getenv("GIS_RAG_CHROMA_URL", "http://jarvis-chroma:8000").rstrip("/")
 
-./services/main_brain_legacy_backup.py
-268:    "chroma": "http://msjarvis-rebuild-chroma-1:8000",
-
-./services/port_9001_FINAL_FIX.py
-54:            r = await client.post(f"http://127.0.0.1:9000/consciousness/chat?userid=user&message={message}", timeout=10.0)
-
-./services/stage2_biometric.py
-221:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-
-./services/hilbert_spatial_chat.py
-39:        chroma_port = int(os.getenv("CHROMA_PORT", "8000"))
-
-./services/constitutional_api.PROD_BACKUP.py
-38:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8000)))
+./services/main.py
+263:    "chroma": "http://jarvis-chroma:8000",
 
 ./services/main_brain.py
 327:        "port900069dgmbridge": "consciousnesschat",
 1417:            "http://127.0.0.1:9000/consciousness/chat",
 
-./services/hilbert/civic_query.py
-20:        port=int(os.getenv("CHROMA_PORT", 8000)),
-
-./services/truth_filter_service.py
-59:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-
-./services/gbim_chroma_fixed.py
-9:    port = int(os.getenv("CHROMA_PORT", "8000"))
-
-./services/chroma_python_test.py
-7:    chroma_port = int(os.getenv("CHROMA_PORT", "8000"))
-
-./services/working_full_pipeline_WITH_SPATIAL_TEMPORAL.py
-142:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-
-./services/export_attributes_to_gis.py
-6:client = chromadb.HttpClient(host='localhost', port=8000)
-
-./services/background_curator.py
-11:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
-
-./services/ports_diff_msjarvis.txt
-817:+8000
-
-./services/bridge_69dgm.py
-67:@app.post("/consciousnesschat", response_model=ChatResponse)
-68:async def consciousnesschat(req: ChatRequest):
-
-./services/chat_endpoint_universal.py
-43:            f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
-
-./services/port_9000_69dgm_bridge.py.backup_20260307_070432
-84:@app.post("/consciousnesschat", response_model=ConsciousChatResponse)
-
-./services/gis_rag_service.py
-15:GIS_RAG_URL = os.getenv("GIS_RAG_CHROMA_URL", "http://jarvis-chroma:8000").rstrip("/")
-
-./services/gis-rag/ingest_gis_tables.py
-21:CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
-
-./services/msjarvis_ports_runtime.txt
-13:tcp   LISTEN 0      4096                             0.0.0.0:8000       0.0.0.0:*    users:(("docker-proxy",pid=6445,fd=7))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-34:tcp   LISTEN 0      4096                                [::]:8000          [::]:*    users:(("docker-proxy",pid=6452,fd=7))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-
-./services/route_declarations_raw.txt
-418:consciousness_with_egeria_voice.py:31:@app.post("/consciousness/chat")
-420:consciousness_working.py:21:@app.post("/consciousness/chat")
-1010:ms_jarvis_command_orchestrator_FINAL.py:80:@app.post("/consciousness/chat")
-1013:ms_jarvis_command_orchestrator.py:38:@app.post("/consciousness/chat")
-1015:ms_jarvis_command_orchestrator_v5.0_preachy.py:80:@app.post("/consciousness/chat")
-1018:ms_jarvis_command_orchestrator_v5_backup.py:48:@app.post("/consciousness/chat")
-1065:ms_jarvis_conversational_gateway_4022.py:76:@app.post("/consciousness/chat")
-1276:ms_jarvis_main_gateway_8000.py:31:@app.get("/health")
-1277:ms_jarvis_main_gateway_8000.py:65:@app.post("/chat")
-1278:ms_jarvis_main_gateway_8000.py:85:@app.post("/qualia_check")
-1279:ms_jarvis_main_gateway_8000.py:105:@app.get("/")
-1619:ms_jarvis_unified_gateway_v4.3.20251124.py:268:@app.post("/consciousness/chat", tags=["Consciousness"])
-1645:ms_jarvis_unified_gateway_v4.3.backup.py:228:@app.post("/consciousness/chat", tags=["Consciousness"])
-1667:ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py:241:@app.post("/consciousness/chat", tags=["Consciousness"])
-1726:ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py:268:@app.post("/consciousness/chat", tags=["Consciousness"])
-1752:ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py:229:@app.post("/consciousness/chat", tags=["Consciousness"])
-1778:ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py:230:@app.post("/consciousness/chat", tags=["Consciousness"])
-2143:port_9000_chat_wrapper_69dgm.py:34:@app.post("/consciousness/chat")
-
-./services/unifiedconsciousnessgatewayPRODUCTION.py
-13:            port=int(os.getenv("SERVICE_PORT", 8000)),
-
-./services/PORTS_REGISTRY_RAW.txt
-9:/home/ms-jarvis/msjarvis-rebuild/services/agents_main.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-17:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-22:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-53:/home/ms-jarvis/msjarvis-rebuild/services/constitutional_api.PROD_BACKUP.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-78:/home/ms-jarvis/msjarvis-rebuild/services/dynamic_port_service_enhanced.py:    def __init__(self, redis_host='localhost', redis_port=int(os.getenv("SERVICE_PORT", 8000))):
-94:/home/ms-jarvis/msjarvis-rebuild/services/egeria_web_ui.py:    app.run(host='0.0.0.0', port=int(os.getenv("SERVICE_PORT", 8000)), debug=False)
-100:/home/ms-jarvis/msjarvis-rebuild/services/export_attributes_to_gis.py:client = chromadb.HttpClient(host='localhost', port=8000)
-132:/home/ms-jarvis/msjarvis-rebuild/services/interaction_logger.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-302:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_api_docs.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
-303:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_attribute_table_service.py:        client = chromadb.HttpClient(host="localhost", port=int(os.getenv("CHROMA_PORT", 8000)))
-305:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_authentic_multi_llm.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-310:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py:            self.chroma_client = chromadb.HttpClient(host="localhost", port=int(os.getenv("SERVICE_PORT", 8000)))
-311:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-349:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_darwin_godel_machine.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-353:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_email_monitor.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-357:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_facebook_autonomous_social.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-366:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_facebook_poster_FIXED.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-373:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fact_filter.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-381:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fractal_consciousness_FIXED.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-389:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_geo_ueid_integration.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-424:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_main_gateway.proxy_still_broken.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
-465:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_ueid_system.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-473:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.py:    uvicorn.run(app, host='0.0.0.0', port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-476:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_CLEAN.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-480:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
-483:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_PROD.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-486:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_venv_scheduler_FIXED.py:        self.redis_client = redis.Redis(host='localhost', port=int(os.getenv("SERVICE_PORT", 8000)), decode_responses=True)
-488:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_venv_scheduler_SIMPLE.py:        self.redis_client = redis.Redis(host='localhost', port=int(os.getenv("SERVICE_PORT", 8000)), decode_responses=True)
-522:/home/ms-jarvis/msjarvis-rebuild/services/phase2_integration.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-538:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-539:/home/ms-jarvis/msjarvis-rebuild/services/port_9001_ARCHITECTURE_CORRECT.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-544:/home/ms-jarvis/msjarvis-rebuild/services/port_9001_ui_FIXED.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-587:/home/ms-jarvis/msjarvis-rebuild/services/run_gateway_with_guards.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-598:/home/ms-jarvis/msjarvis-rebuild/services/stage2_biometric_backup.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-599:/home/ms-jarvis/msjarvis-rebuild/services/stage2_biometric.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-609:/home/ms-jarvis/msjarvis-rebuild/services/truth_filter_service.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-611:/home/ms-jarvis/msjarvis-rebuild/services/unifiedconsciousnessgatewayPRODUCTION.py:            chroma_client = chromadb.HttpClient(host='localhost', port=int(os.getenv("SERVICE_PORT", 8000)), settings=Settings(allow_reset=False))
-627:/home/ms-jarvis/msjarvis-rebuild/services/woah_qualia_bridge.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-630:/home/ms-jarvis/msjarvis-rebuild/services/working_full_pipeline_WITH_SPATIAL_TEMPORAL.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-631:/home/ms-jarvis/msjarvis-rebuild/services/wvu_ldap_auth.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
-
-./services/port_9000_69dgm_bridge.py.backup_20260307_072514
-84:@app.post("/consciousnesschat", response_model=ConsciousChatResponse)
-
-./services/port_9001_FINAL_WORKING.py
-185:            r = await client.post(f"http://127.0.0.1:9000/consciousness/chat?userid=user&message={message}", timeout=10.0)
-
-./services/fix_port_8051_handler.py
-18:            'http://127.0.0.1:9000/consciousness/chat?userid=web&message="""
-
-./services/RESTORATION_CERTIFICATE.txt
-30:✅ Brain Orchestrator (Port 8000)
-
-./services/port_9001_ui_WORKING.py
-131:                f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
-
-./services/stage2_biometric_backup.py
-154:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-
-./services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py
-139:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8000)))
-
-./services/PORT_AUDIT_RAW.txt
-10:/home/ms-jarvis/msjarvis-rebuild/services/agents_main.py:11:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-18:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:126:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-23:/home/ms-jarvis/msjarvis-rebuild/services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:136:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-56:/home/ms-jarvis/msjarvis-rebuild/services/constitutional_api.PROD_BACKUP.py:38:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-87:/home/ms-jarvis/msjarvis-rebuild/services/dynamic_port_service_enhanced.py:26:    def __init__(self, redis_host='localhost', redis_port=int(os.getenv("SERVICE_PORT", 8000))):
-108:/home/ms-jarvis/msjarvis-rebuild/services/egeria_web_ui.py:427:    app.run(host='0.0.0.0', port=int(os.getenv("SERVICE_PORT", 8000)), debug=False)
-114:/home/ms-jarvis/msjarvis-rebuild/services/export_attributes_to_gis.py:6:client = chromadb.HttpClient(host='localhost', port=8000)
-146:/home/ms-jarvis/msjarvis-rebuild/services/interaction_logger.py:121:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-600:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_api_docs.py:269:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
-601:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_attribute_table_service.py:34:        client = chromadb.HttpClient(host="localhost", port=int(os.getenv("CHROMA_PORT", 8000)))
-603:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_authentic_multi_llm.py:178:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-608:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py:60:            self.chroma_client = chromadb.HttpClient(host="localhost", port=int(os.getenv("SERVICE_PORT", 8000)))
-609:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py:270:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-653:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_darwin_godel_machine.py:283:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-657:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_email_monitor.py:89:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-661:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_facebook_autonomous_social.py:451:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-670:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_facebook_poster_FIXED.py:87:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-677:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fact_filter.py:126:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-688:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fractal_consciousness_FIXED.py:64:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-696:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_geo_ueid_integration.py:220:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-732:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_main_gateway.proxy_still_broken.py:178:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
-774:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_ueid_system.py:385:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-782:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.py:142:    uvicorn.run(app, host='0.0.0.0', port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-785:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_CLEAN.py:142:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-789:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py:482:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
-792:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_PROD.py:221:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-795:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_venv_scheduler_FIXED.py:25:        self.redis_client = redis.Redis(host='localhost', port=int(os.getenv("SERVICE_PORT", 8000)), decode_responses=True)
-797:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_venv_scheduler_SIMPLE.py:23:        self.redis_client = redis.Redis(host='localhost', port=int(os.getenv("SERVICE_PORT", 8000)), decode_responses=True)
-838:/home/ms-jarvis/msjarvis-rebuild/services/phase2_integration.py:70:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-856:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:90:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-857:/home/ms-jarvis/msjarvis-rebuild/services/port_9001_ARCHITECTURE_CORRECT.py:44:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-862:/home/ms-jarvis/msjarvis-rebuild/services/port_9001_ui_FIXED.py:151:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-908:/home/ms-jarvis/msjarvis-rebuild/services/run_gateway_with_guards.py:20:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-922:/home/ms-jarvis/msjarvis-rebuild/services/stage2_biometric_backup.py:154:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-923:/home/ms-jarvis/msjarvis-rebuild/services/stage2_biometric.py:221:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-934:/home/ms-jarvis/msjarvis-rebuild/services/truth_filter_service.py:59:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-937:/home/ms-jarvis/msjarvis-rebuild/services/unifiedconsciousnessgatewayPRODUCTION.py:10:            chroma_client = chromadb.HttpClient(host='localhost', port=int(os.getenv("SERVICE_PORT", 8000)), settings=Settings(allow_reset=False))
-954:/home/ms-jarvis/msjarvis-rebuild/services/woah_qualia_bridge.py:32:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-957:/home/ms-jarvis/msjarvis-rebuild/services/working_full_pipeline_WITH_SPATIAL_TEMPORAL.py:142:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-958:/home/ms-jarvis/msjarvis-rebuild/services/wvu_ldap_auth.py:65:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
-
-./services/port_9001_proxy_simple.py
-19:    description="Routes all requests to port 9000 consciousness/chat",
-33:            f"http://127.0.0.1:9000/consciousness/chat?userid={userid}&message={message}",
+./services/ingest_additional_kbs.py
+24:            docs.append(text[:8000])
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ 
