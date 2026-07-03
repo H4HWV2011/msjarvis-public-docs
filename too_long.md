@@ -1,4 +1,25 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ sed -n '1,260p' /mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ cd /mnt/spiritual_drive/msjarvis-rebuild
+
+# 1) Inspect the 9000 bridge code
+sed -n '1,260p' services/port_9000_69dgm_bridge.py
+echo '---'
+rg -n "FastAPI|app\s*=|uvicorn|if __name__ == '__main__'|def main\(" services/port_9000_69dgm_bridge.py
+
+echo '---'
+
+# 2) Try to find any orchestrator implementation in the current repo
+rg -n "orchestrator" services || true
+echo '---'
+find . -type f | rg 'orchestrator|69dgm' || true
+
+echo '---'
+
+# 3) See Caddy + frontend units and status
+systemctl list-unit-files | rg -i 'caddy|frontend|allis' || true
+echo '---'
+systemctl status --no-pager --full caddy.service 2>/dev/null || sudo systemctl status --no-pager --full caddy.service || true
+echo '---'
+ta GISGEODB"es/data/GISGEODB_ACTIVE.sqlite 2>/dev/null || echo "no ./services/da
 #!/usr/bin/env python3
 """
 Bridge: Port 9000 Chat → 69-DGM Orchestrator + RAG Bridge
@@ -259,7 +280,7 @@ async def enhanced_chat(message: str, userid: str) -> dict:
         "verdict": dgm_validation,
     }
 
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ rg -n "FastAPI|app\s*=|uvicorn|if __name__ == '__main__'|def main\(" /mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py
+---
 8:from fastapi import FastAPI
 53:# FastAPI app definition
 55:app = FastAPI(
@@ -267,10 +288,13 @@ async def enhanced_chat(message: str, userid: str) -> dict:
 263:# FastAPI endpoint for /consciousness/chat on port 9000
 292:    import uvicorn
 295:    uvicorn.run(
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ rg -n "orchestrator" /mnt/spiritual_drive/msjarvis-rebuild/services
-rg -n "69dgm" /mnt/spiritual_drive/msjarvis-rebuild/services
-find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
-/mnt/spiritual_drive/msjarvis-rebuild/services/truly_unpaired_services.txt
+---
+services/qualia_unified_orchestrator_69dgm.py
+109:orchestrator = DGMOrchestrator()
+114:    return {"status": "qualia_orchestrator_69dgm_operational"}
+150:    result = await orchestrator.process_query_through_69_validators(
+
+services/truly_unpaired_services.txt
 5:brain_orchestrator
 6:brain_orchestrator_main
 113:facebook_voice_orchestrator_egeria
@@ -302,12 +326,44 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 631:ultimate_web_orchestrator
 634:unified_orchestrator
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py
-109:orchestrator = DGMOrchestrator()
-114:    return {"status": "qualia_orchestrator_69dgm_operational"}
-150:    result = await orchestrator.process_query_through_69_validators(
+services/implement_safe_optimizations.py
+29:        "master_chat_orchestrator_v9_dgm_complete.py",
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/remaining_services.txt
+services/qualia_unified_orchestrator_69dgm_ACTIVE.py
+102:orchestrator = DGMOrchestrator()
+106:    return {"status": "ACTIVE", "orchestrator": "69-DGM Cascade", "port": 9999}
+111:    result = await orchestrator.process_query_through_69_validators(
+
+services/msjarvis_gateway_v2_final.py
+17:CONSCIOUSNESS_BRIDGE = "http://localhost:5000"  # Primary orchestrator (legacy)
+
+services/SYSTEM_AUDIT_20251009_233918.txt
+14:943106   python3                                                           ms_jarvis_fifth_dgm_orchestrator.py                                                           
+
+services/fix_orchestrator_scope.py
+10:# Find where ai_brain is defined and add full_brain_orchestrator there
+15:    # After ai_brain initialization, add full_brain_orchestrator
+17:        new_lines.append('full_brain_orchestrator = FullBrainOrchestrator()\n')
+23:print("✅ Fixed orchestrator scope")
+
+services/python_commands.txt
+174:1518389 python3 ms_jarvis_fifth_dgm_orchestrator.py
+176:1519138 /home/ms-jarvis/msjarvis-rebuild/venv/bin/python ms_jarvis_fifth_dgm_orchestrator.py
+
+services/port_9000_69dgm_bridge.py
+84:# Core routing function: call the 69-DGM orchestrator on localhost:9999
+92:    Route message through 69-DGM orchestrator before returning response.
+112:                    f"✅ 69-DGM orchestrator responded with status="
+123:        logger.error(f"Error routing to orchestrator: {e}")
+161:# High-level chat handler: orchestrator + RAG + connector metadata
+167:    1) Validates the message through the 69-DGM orchestrator.
+186:    # If orchestrator failed entirely, fall back to requiring validation
+188:        logger.warning("⚠️ 69-DGM orchestrator unreachable or returned no data")
+190:            "response": "The 69-DGM orchestrator is unavailable. Please try again later.",
+191:            "status": "orchestrator_unavailable",
+268:    Port 9000 chat endpoint that routes through the 69-DGM orchestrator,
+
+services/remaining_services.txt
 75:brain_orchestrator
 76:brain_orchestrator_main
 183:facebook_voice_orchestrator_egeria
@@ -339,73 +395,25 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 701:ultimate_web_orchestrator
 704:unified_orchestrator
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py
-84:# Core routing function: call the 69-DGM orchestrator on localhost:9999
-92:    Route message through 69-DGM orchestrator before returning response.
-112:                    f"✅ 69-DGM orchestrator responded with status="
-123:        logger.error(f"Error routing to orchestrator: {e}")
-161:# High-level chat handler: orchestrator + RAG + connector metadata
-167:    1) Validates the message through the 69-DGM orchestrator.
-186:    # If orchestrator failed entirely, fall back to requiring validation
-188:        logger.warning("⚠️ 69-DGM orchestrator unreachable or returned no data")
-190:            "response": "The 69-DGM orchestrator is unavailable. Please try again later.",
-191:            "status": "orchestrator_unavailable",
-268:    Port 9000 chat endpoint that routes through the 69-DGM orchestrator,
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py
-102:orchestrator = DGMOrchestrator()
-106:    return {"status": "ACTIVE", "orchestrator": "69-DGM Cascade", "port": 9999}
-111:    result = await orchestrator.process_query_through_69_validators(
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/implement_safe_optimizations.py
-29:        "master_chat_orchestrator_v9_dgm_complete.py",
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/SYSTEM_AUDIT_20251009_233918.txt
-14:943106   python3                                                           ms_jarvis_fifth_dgm_orchestrator.py                                                           
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis_gateway_v2_final.py
-17:CONSCIOUSNESS_BRIDGE = "http://localhost:5000"  # Primary orchestrator (legacy)
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/integrate_orchestrator_flow.py
-17:    context = await full_brain_orchestrator.enhance_context_with_services(request.message, {
-34:print("✅ Integrated full brain orchestrator into chat flow")
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/complete_fix.py
-25:            "brain_orchestrator": {"query": message, "context": {}},
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/fix_orchestrator_scope.py
-10:# Find where ai_brain is defined and add full_brain_orchestrator there
-15:    # After ai_brain initialization, add full_brain_orchestrator
-17:        new_lines.append('full_brain_orchestrator = FullBrainOrchestrator()\n')
-23:print("✅ Fixed orchestrator scope")
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py
-36:    'type': 'master_orchestrator_v5',
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/fifth_dgm_main.py
-7:from ms_jarvis_fifth_dgm_orchestrator import app
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/python_commands.txt
-174:1518389 python3 ms_jarvis_fifth_dgm_orchestrator.py
-176:1519138 /home/ms-jarvis/msjarvis-rebuild/venv/bin/python ms_jarvis_fifth_dgm_orchestrator.py
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/dgm_supervisor_woah_fixed.py
-116:        (4001, "ms_egeria_jarvis", ["master", "orchestrator"]),
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/add_full_brain_class.py
+services/add_full_brain_class.py
 60:# Initialize full brain orchestrator
 61:full_brain_orchestrator = FullBrainOrchestrator()
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/integrate_complete_architecture.py
+services/dgm_supervisor_woah_fixed.py
+116:        (4001, "ms_egeria_jarvis", ["master", "orchestrator"]),
+
+services/integrate_orchestrator_flow.py
+17:    context = await full_brain_orchestrator.enhance_context_with_services(request.message, {
+34:print("✅ Integrated full brain orchestrator into chat flow")
+
+services/integrate_complete_architecture.py
 43:async def query_brain_orchestrator(message: str, context: dict) -> dict:
 122:        dgm_reasoning = await query_brain_orchestrator(request.message, identity_context)
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py
-9:Routes them through 69-DGM orchestrator first
-37:    Route chat through 69-DGM orchestrator (port 9999)
-45:            logger.info("Step 1: Validating through 69-DGM orchestrator...")
+services/complete_fix.py
+25:            "brain_orchestrator": {"query": message, "context": {}},
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvisunifiedgateway.py
+services/msjarvisunifiedgateway.py
 17:# NEW: Redis client for orchestrator state
 25:    from the orchestrator state in Redis, plus Egeria's ALIVE status from the mesh.
 29:    # Base orchestrator state from Redis
@@ -415,14 +423,19 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 253:                "orchestrator_state_snippet": (state_context or "")[:300],
 272:        "orchestrator_state": state_context,  # Now includes Egeria mesh status
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/dynamic_app.py
-20:        self.service_name = 'ms_jarvis_brain_orchestrator'
-51:            'tags': ['ms_jarvis', 'brain_orchestrator', 'agi_core', 'enhanced_metadata'],
-55:            'orchestrator_id': '2e2f4923'
-93:        'orchestrator_id': '2e2f4923',
-108:        'orchestrator_id': '2e2f4923',
+services/port_9000_chat_wrapper_69dgm.py
+9:Routes them through 69-DGM orchestrator first
+37:    Route chat through 69-DGM orchestrator (port 9999)
+45:            logger.info("Step 1: Validating through 69-DGM orchestrator...")
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/dir_endpoints.txt
+services/brain_orchestrator_main.py
+31:        "response": f"Brain orchestrator echo: {req.message}",
+33:        "orchestrator": "stub",
+
+services/fifth_dgm_main.py
+7:from ms_jarvis_fifth_dgm_orchestrator import app
+
+services/dir_endpoints.txt
 277:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py:90:@app.get("/")
 278:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py:121:@app.get("/health")
 279:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py:156:@app.post("/dgm_complete_chat", response_model=DGMResponse)
@@ -533,27 +546,31 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 1852:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator.py:288:@app.post("/memory")
 1853:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator.py:293:@app.post("/woah")
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/brain_orchestrator_main.py
-31:        "response": f"Brain orchestrator echo: {req.message}",
-33:        "orchestrator": "stub",
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/dgm_supervisor_woah.psychology_patched.py
-465:        ("ms_egeria_jarvis_v8", 4001, ["master", "orchestrator", "consciousness"])
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/egeria_web_ui_dynamic.py
-41:            master_info = discovery.get_service_info('master_chat_orchestrator')
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/Dockerfile.dgm_orchestrator
+services/Dockerfile.dgm_orchestrator
 6:CMD ["python3", "-m", "uvicorn", "dgm_orchestrator:app", "--host", "0.0.0.0", "--port", "9999"]
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvisunifiedswaggergatewayFIXED.py
-289:    Route a query through the 69-DGM qualia cascade orchestrator.
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py
+services/master_chat_orchestrator_dynamic.py
 30:    'type': 'master_orchestrator',
 32:    'name': 'master_chat_orchestrator',
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/METHOD_AUDIT_RAW.txt
+services/egeria_web_ui_dynamic.py
+41:            master_info = discovery.get_service_info('master_chat_orchestrator')
+
+services/dynamic_app.py
+20:        self.service_name = 'ms_jarvis_brain_orchestrator'
+51:            'tags': ['ms_jarvis', 'brain_orchestrator', 'agi_core', 'enhanced_metadata'],
+55:            'orchestrator_id': '2e2f4923'
+93:        'orchestrator_id': '2e2f4923',
+108:        'orchestrator_id': '2e2f4923',
+
+services/fifth_dgm_integration.py
+21:        # Talk to the Fifth DGM orchestrator on its actual port
+33:                # Talk to the orchestrator's /filter_consciousness endpoint
+
+services/master_chat_orchestrator_v5_consciousness.py
+36:    'type': 'master_orchestrator_v5',
+
+services/METHOD_AUDIT_RAW.txt
 213:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py:25:def health():
 214:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py:30:def list_services():
 215:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py:34:def discover(service_name):
@@ -727,34 +744,41 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 3210:/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py:553:async def chat_endpoint(request: Request):
 3214:/home/ms-jarvis/msjarvis-rebuild/services/unified_orchestrator.py:13:def process_query(query):
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/fix_all_consciousness_services.py
-23:            "brain_orchestrator": {"query": message, "context": {}},
+services/dgm_supervisor_woah.psychology_patched.py
+465:        ("ms_egeria_jarvis_v8", 4001, ["master", "orchestrator", "consciousness"])
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/fifth_dgm_integration.py
-21:        # Talk to the Fifth DGM orchestrator on its actual port
-33:                # Talk to the orchestrator's /filter_consciousness endpoint
+services/integrate_full_brain.py
+52:# Create global orchestrator
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/update_production_to_v9.py
+services/update_production_to_v9.py
 14:# Update the function that calls consensus to use master orchestrator
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/route_declarations_clean.txt
+services/fix_all_consciousness_services.py
+23:            "brain_orchestrator": {"query": message, "context": {}},
+
+services/neurobiologicalbrain/prefrontal_cortex/service/service_registry_client.py
+4:All services import this to discover and register with Fifth DGM orchestrator
+17:    Discover a service's URL from the orchestrator registry.
+74:    Register this service with the orchestrator on startup.
+97:        logger.info(f"✅ Registered {name} at port {port} with orchestrator")
+
+services/msjarvisunifiedswaggergatewayFIXED.py
+289:    Route a query through the 69-DGM qualia cascade orchestrator.
+
+services/neurobiologicalbrain/i_containers/service/service_registry_client.py
+4:All services import this to discover and register with Fifth DGM orchestrator
+17:    Discover a service's URL from the orchestrator registry.
+74:    Register this service with the orchestrator on startup.
+97:        logger.info(f"✅ Registered {name} at port {port} with orchestrator")
+
+services/COMPREHENSIVE_PORT_AUDIT_20251009_234234.txt
+47:  Command: /home/ms-jarvis/msjarvis-rebuild/services/venv/bin/python brain_orchestrator.py
+52:    "service": "brain_orchestrator",
+
+services/route_declarations_clean.txt
 1380:get("/orchestrators", tags=["Infrastructure"], summary="Orchestration services (4000-4003")
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/fix_orchestrator_init.py
-14:pattern = r'class FullBrainOrchestrator:.*?(?=\nclass |\n# Initialize full_brain_orchestrator|\Z)'
-24:init_pattern = r'# Initialize full_brain_orchestrator\nfull_brain_orchestrator = FullBrainOrchestrator\(\)'
-26:if 'full_brain_orchestrator = FullBrainOrchestrator()' not in content:
-32:    initialization = '\n# Initialize full_brain_orchestrator\nfull_brain_orchestrator = FullBrainOrchestrator()\n\n'
-34:    print("✅ Added orchestrator initialization at module level")
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/dgm_bridge.py
-63:# 69-DGM orchestrator driven by dgm_connectors_active.json
-214:    69-DGM orchestrator endpoint.
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/fix_timeouts_add_22llm.py
-34:            llm_22_result = await full_brain_orchestrator.query_22llm_collective(request.message, context)
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/services_list.txt
+services/services_list.txt
 75:brain_orchestrator
 76:brain_orchestrator_main
 183:facebook_voice_orchestrator_egeria
@@ -786,7 +810,10 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 701:ultimate_web_orchestrator
 704:unified_orchestrator
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/designed_ports.txt
+services/rebuild_query_service.py
+31:            "brain_orchestrator": {"query": message, "context": {}},
+
+services/designed_ports.txt
 102:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/brain_orchestrator.py TODO
 120:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_init.py TODO
 121:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_scope.py TODO
@@ -827,18 +854,30 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 764:/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py TODO
 767:/home/ms-jarvis/msjarvis-rebuild/services/unified_orchestrator.py TODO
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/integrate_full_neural_architecture.py
+services/service_registry_client.py
+39:    "http://jarvis-brain-orchestrator:7260",
+44:    """Look up a service in the orchestrator registry, with simple fallbacks."""
+50:    """Look up a service in the orchestrator registry, with simple fallbacks."""
+100:    """Register this service with the brain orchestrator."""
+
+services/dgm_bridge.py
+63:# 69-DGM orchestrator driven by dgm_connectors_active.json
+214:    69-DGM orchestrator endpoint.
+
+services/jarvis-woah_dgm_supervisor_woah_fixed.py
+114:        (4001, "ms_egeria_jarvis", ["master", "orchestrator"]),
+
+services/integrate_full_neural_architecture.py
 96:insert_pos = content.rfind('full_brain_orchestrator = FullBrainOrchestrator()')
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/COMPREHENSIVE_PORT_AUDIT_20251009_234234.txt
-47:  Command: /home/ms-jarvis/msjarvis-rebuild/services/venv/bin/python brain_orchestrator.py
-52:    "service": "brain_orchestrator",
+services/phase1_integration.py
+21:        self.orchestrator_port = 4001
+50:                    f"http://localhost:{self.orchestrator_port}/orchestrate",
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py
-162:    # the /chat.open endpoint on port 8000, which this orchestrator
-166:    # In this v9 orchestrator, we treat request.message as the
+services/master_chat_orchestrator_v8_spiritual_complete.py
+40:    'type': 'master_orchestrator_v8',
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/build_dir_audit.txt
+services/build_dir_audit.txt
 71:MISSING DIR: ./brain-orchestrator
 72:MISSING DIR: ./brain-orchestrator-main
 200:MISSING DIR: ./facebook-voice-orchestrator-egeria
@@ -870,50 +909,7 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 648:MISSING DIR: ./ultimate-web-orchestrator
 651:MISSING DIR: ./unified-orchestrator
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/ultimate_web_orchestrator.py
-42:    'type': 'ultimate_web_orchestrator',
-221:# Global orchestrator
-222:web_orchestrator = UltimateWebOrchestrator()
-442:        "service": "ultimate_web_orchestrator",
-444:        "services_discovered": len(web_orchestrator.services),
-445:        "facebook_configured": bool(web_orchestrator.facebook_config),
-461:        web_orchestrator.web_stats["requests_served"] += 1
-470:        result = await web_orchestrator.process_with_dgm_woah(message, user_context)
-482:    return web_orchestrator.web_stats
-492:            verify_token = web_orchestrator.facebook_config.get("verify_token", "")
-512:                        web_orchestrator.web_stats["facebook_interactions"] += 1
-521:                        result = await web_orchestrator.process_with_dgm_woah(message_text, user_context)
-538:        "services": web_orchestrator.services,
-539:        "total_count": len(web_orchestrator.services),
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/rebuild_query_service.py
-31:            "brain_orchestrator": {"query": message, "context": {}},
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/service_registry_client.py
-39:    "http://jarvis-brain-orchestrator:7260",
-44:    """Look up a service in the orchestrator registry, with simple fallbacks."""
-50:    """Look up a service in the orchestrator registry, with simple fallbacks."""
-100:    """Register this service with the brain orchestrator."""
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-woah_dgm_supervisor_woah_fixed.py
-114:        (4001, "ms_egeria_jarvis", ["master", "orchestrator"]),
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/integrate_full_brain.py
-52:# Create global orchestrator
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/phase1_integration.py
-21:        self.orchestrator_port = 4001
-50:                    f"http://localhost:{self.orchestrator_port}/orchestrate",
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py
-40:    'type': 'master_orchestrator_v8',
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v9_optimized.py
-52:    'type': 'master_orchestrator_v9_optimized',
-122:        cached_health = health_cache.get_cached_health("master_orchestrator_v9")
-147:        health_cache.cache_health_response("master_orchestrator_v9", health_response)
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/all_services_compose_blocks_dynamic.txt
+services/all_services_compose_blocks_dynamic.txt
 16:  master_chat_orchestrator_v9_dgm_complete-:
 94:  master_chat_orchestrator_v7_complete-:
 160:  ms_jarvis_command_orchestrator_final-:
@@ -954,7 +950,82 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 2134:  ms_jarvis_command_orchestrator_v5-0_preachy-:
 2386:  master_chat_orchestrator-:
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/all_build_dirs.txt
+services/all_actual_services.txt
+6:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py
+32:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py
+54:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py
+68:/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py
+76:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator.py
+110:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py
+128:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py
+132:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_optimized.py
+153:/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_scope.py
+173:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py
+185:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py
+191:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py
+343:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_gpu_optimized.py
+352:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py
+380:/home/ms-jarvis/msjarvis-rebuild/services/integrate_orchestrator_flow.py
+382:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py
+387:/home/ms-jarvis/msjarvis-rebuild/services/unified_orchestrator.py
+392:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py
+418:/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_init.py
+437:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py
+461:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/brain_orchestrator.py
+463:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_scope.py
+510:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/integrate_orchestrator_flow.py
+511:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/unified_orchestrator.py
+517:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_init.py
+536:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_fifth_dgm_orchestrator.py
+542:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_brain_orchestrator_advanced.py
+547:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/simple_orchestrator_fix.py
+575:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py
+586:/home/ms-jarvis/msjarvis-rebuild/services/python/brain_orchestrator.py
+614:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py
+617:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
+628:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator_main.py
+652:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py
+687:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_brain_orchestrator_advanced.py
+699:/home/ms-jarvis/msjarvis-rebuild/services/facebook_voice_orchestrator_egeria.py
+706:/home/ms-jarvis/msjarvis-rebuild/services/simple_orchestrator_fix.py
+712:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py
+796:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator.py
+
+services/ultimate_web_orchestrator.py
+42:    'type': 'ultimate_web_orchestrator',
+221:# Global orchestrator
+222:web_orchestrator = UltimateWebOrchestrator()
+442:        "service": "ultimate_web_orchestrator",
+444:        "services_discovered": len(web_orchestrator.services),
+445:        "facebook_configured": bool(web_orchestrator.facebook_config),
+461:        web_orchestrator.web_stats["requests_served"] += 1
+470:        result = await web_orchestrator.process_with_dgm_woah(message, user_context)
+482:    return web_orchestrator.web_stats
+492:            verify_token = web_orchestrator.facebook_config.get("verify_token", "")
+512:                        web_orchestrator.web_stats["facebook_interactions"] += 1
+521:                        result = await web_orchestrator.process_with_dgm_woah(message_text, user_context)
+538:        "services": web_orchestrator.services,
+539:        "total_count": len(web_orchestrator.services),
+
+services/fix_orchestrator_init.py
+14:pattern = r'class FullBrainOrchestrator:.*?(?=\nclass |\n# Initialize full_brain_orchestrator|\Z)'
+24:init_pattern = r'# Initialize full_brain_orchestrator\nfull_brain_orchestrator = FullBrainOrchestrator\(\)'
+26:if 'full_brain_orchestrator = FullBrainOrchestrator()' not in content:
+32:    initialization = '\n# Initialize full_brain_orchestrator\nfull_brain_orchestrator = FullBrainOrchestrator()\n\n'
+34:    print("✅ Added orchestrator initialization at module level")
+
+services/master_chat_orchestrator_v9_optimized.py
+52:    'type': 'master_orchestrator_v9_optimized',
+122:        cached_health = health_cache.get_cached_health("master_orchestrator_v9")
+147:        health_cache.cache_health_response("master_orchestrator_v9", health_response)
+
+services/fix_timeouts_add_22llm.py
+34:            llm_22_result = await full_brain_orchestrator.query_22llm_collective(request.message, context)
+
+services/fix_context_flow.py
+17:        # Remove the full_brain_orchestrator call and use simpler approach
+
+services/all_build_dirs.txt
 71:./brain-orchestrator
 72:./brain-orchestrator-main
 200:./facebook-voice-orchestrator-egeria
@@ -986,11 +1057,26 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 648:./ultimate-web-orchestrator
 651:./unified-orchestrator
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/integrate_all_services.py
-27:async def query_brain_orchestrator(message: str, context: Dict) -> Dict:
-74:        dgm_analysis = await query_brain_orchestrator(request.message, context)
+services/facebook_voice_orchestrator_egeria.py
+95:orchestrator = FacebookVoiceOrchestrator()
+110:    content = await orchestrator.generate_warm_content(request.topic)
+115:    result = await orchestrator.post_to_facebook(content)
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/all_service_ports.txt
+services/immutable_core_enforcement.py
+28:                "master_chat_orchestrator_v9_dgm_complete.py",
+49:            "write_orchestrator_port": 4025,
+
+services/ai_server_11llm_OPTIMIZED.py
+76:        "brain_orchestrator": "/coordinate",
+253:    # "brain_orchestrator": "http://jarvis-brain-orchestrator:4001",
+283:            "brain_orchestrator": {"query": message, "context": {}},
+607:        # Agents, swarm, brain orchestrator, fifth_dgm left as in original
+653:        if "brain_orchestrator" in available_services:
+657:                        f"{available_services['brain_orchestrator']}/coordinate",
+667:                                "service": "brain_orchestrator",
+671:                        services_used.append("brain_orchestrator")
+
+services/all_service_ports.txt
 6:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py TODO
 32:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py TODO
 54:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py TODO
@@ -1031,71 +1117,7 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 712:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py TODO
 796:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator.py TODO
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/all_services.txt
-6:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py
-6913:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py
-7924:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py
-7938:/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py
-23210:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator.py
-24053:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py
-24071:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py
-24075:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_optimized.py
-24096:/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_scope.py
-24116:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py
-24128:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py
-24139:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py
-31616:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_gpu_optimized.py
-31625:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py
-32148:/home/ms-jarvis/msjarvis-rebuild/services/integrate_orchestrator_flow.py
-32150:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py
-32155:/home/ms-jarvis/msjarvis-rebuild/services/unified_orchestrator.py
-32161:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py
-32187:/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_init.py
-32206:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py
-32232:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/brain_orchestrator.py
-32234:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_scope.py
-32281:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/integrate_orchestrator_flow.py
-32282:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/unified_orchestrator.py
-32289:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_init.py
-32309:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_fifth_dgm_orchestrator.py
-32315:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_brain_orchestrator_advanced.py
-32320:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/simple_orchestrator_fix.py
-32349:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py
-32360:/home/ms-jarvis/msjarvis-rebuild/services/python/brain_orchestrator.py
-32388:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py
-32391:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
-32403:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator_main.py
-32429:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py
-32465:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_brain_orchestrator_advanced.py
-32477:/home/ms-jarvis/msjarvis-rebuild/services/facebook_voice_orchestrator_egeria.py
-32484:/home/ms-jarvis/msjarvis-rebuild/services/simple_orchestrator_fix.py
-32490:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py
-33387:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator.py
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/facebook_voice_orchestrator_egeria.py
-95:orchestrator = FacebookVoiceOrchestrator()
-110:    content = await orchestrator.generate_warm_content(request.topic)
-115:    result = await orchestrator.post_to_facebook(content)
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/service_registry_client.py
-4:All services import this to discover and register with Fifth DGM orchestrator
-17:    Discover a service's URL from the orchestrator registry.
-74:    Register this service with the orchestrator on startup.
-97:        logger.info(f"✅ Registered {name} at port {port} with orchestrator")
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/service_registry_client.py
-4:All services import this to discover and register with Fifth DGM orchestrator
-17:    Discover a service's URL from the orchestrator registry.
-74:    Register this service with the orchestrator on startup.
-97:        logger.info(f"✅ Registered {name} at port {port} with orchestrator")
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/fix_context_flow.py
-17:        # Remove the full_brain_orchestrator call and use simpler approach
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator.py
-88:        "orchestrator": "healthy",
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/rest_endpoints.txt
+services/rest_endpoints.txt
 31:./master_chat_orchestrator_v9_dgm_complete.py:90:@app.get("/")
 32:./master_chat_orchestrator_v9_dgm_complete.py:121:@app.get("/health")
 33:./master_chat_orchestrator_v9_dgm_complete.py:156:@app.post("/dgm_complete_chat", response_model=DGMResponse)
@@ -1213,85 +1235,86 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 1933:./master_chat_orchestrator.py:288:@app.post("/memory")
 1934:./master_chat_orchestrator.py:293:@app.post("/woah")
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py
-76:        "brain_orchestrator": "/coordinate",
-253:    # "brain_orchestrator": "http://jarvis-brain-orchestrator:4001",
-283:            "brain_orchestrator": {"query": message, "context": {}},
-607:        # Agents, swarm, brain orchestrator, fifth_dgm left as in original
-653:        if "brain_orchestrator" in available_services:
-657:                        f"{available_services['brain_orchestrator']}/coordinate",
-667:                                "service": "brain_orchestrator",
-671:                        services_used.append("brain_orchestrator")
+services/master_chat_orchestrator_v9_dgm_complete.py
+162:    # the /chat.open endpoint on port 8000, which this orchestrator
+166:    # In this v9 orchestrator, we treat request.message as the
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/main_brain.py
+services/master_chat_orchestrator.py
+88:        "orchestrator": "healthy",
+
+services/remove_duplicate_inits.py
+10:# Keep only the FIRST full_brain_orchestrator initialization after ai_brain
+15:    if 'full_brain_orchestrator = FullBrainOrchestrator()' in line:
+
+services/Dockerfile.fifth_dgm_real
+12:# Copy the orchestrator and its helpers from host services dir
+13:COPY ms_jarvis_fifth_dgm_orchestrator.py /app/ms_jarvis_fifth_dgm_orchestrator.py
+19:CMD ["python3", "ms_jarvis_fifth_dgm_orchestrator.py"]
+
+services/main_brain.py
 126:    "brainorchestrator": "http://jarvis-brain-orchestrator:7260",
 305:        "brainorchestrator": "chatsync",
 1112:        "brainorchestrator": SERVICES.get("brainorchestrator"),
 1216:        "brainorchestrator",
 1262:            if name == "brainorchestrator":
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/complete_system_audit.py
-74:    elif 'master_chat_orchestrator_v9' in command:
+services/fix_woah_discovery.py
+9:with open('ms_jarvis_fifth_dgm_orchestrator.py', 'r') as f:
+21:with open('ms_jarvis_fifth_dgm_orchestrator.py', 'w') as f:
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/main.py
+services/main.py
 71:        "brain_orchestrator": "/coordinate",
 265:    "brain_orchestrator": "http://jarvis-brain-orchestrator:4001",
 334:            "brain_orchestrator": {"query": message, "context": {}},
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis_unified_gateway.py
+services/msjarvis_unified_gateway.py
 42:FIFTH_DGM_URL = os.getenv("FIFTH_DGM_URL", "http://msjarvisfifthdgmorchestrator:4002")
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/all_actual_py.txt
-6:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py
-6913:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py
-7924:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py
-7938:/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py
-23210:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator.py
-24053:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py
-24071:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py
-24075:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_optimized.py
-24096:/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_scope.py
-24116:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py
-24128:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py
-24139:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py
-31616:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_gpu_optimized.py
-31625:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py
-32148:/home/ms-jarvis/msjarvis-rebuild/services/integrate_orchestrator_flow.py
-32150:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py
-32155:/home/ms-jarvis/msjarvis-rebuild/services/unified_orchestrator.py
-32161:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py
-32187:/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_init.py
-32206:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py
-32232:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/brain_orchestrator.py
-32234:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_scope.py
-32281:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/integrate_orchestrator_flow.py
-32282:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/unified_orchestrator.py
-32289:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_init.py
-32309:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_fifth_dgm_orchestrator.py
-32315:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_brain_orchestrator_advanced.py
-32320:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/simple_orchestrator_fix.py
-32349:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py
-32360:/home/ms-jarvis/msjarvis-rebuild/services/python/brain_orchestrator.py
-32388:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py
-32391:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
-32403:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator_main.py
-32429:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py
-32465:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_brain_orchestrator_advanced.py
-32477:/home/ms-jarvis/msjarvis-rebuild/services/facebook_voice_orchestrator_egeria.py
-32484:/home/ms-jarvis/msjarvis-rebuild/services/simple_orchestrator_fix.py
-32490:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py
-33387:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator.py
+services/phase7_integration.py
+39:    'type': 'master_orchestrator_v7',
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/immutable_core_enforcement.py
-28:                "master_chat_orchestrator_v9_dgm_complete.py",
-49:            "write_orchestrator_port": 4025,
+services/dgm_orchestrator_fake.py
+14:    return {"status": "approved_by_69_validators", "info": "fake orchestrator"}
+18:    return {"status": "healthy", "service": "fake_69_dgm_orchestrator"}
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/main_brain_legacy_backup.py
+services/main_brain_legacy_backup.py
 73:        "brain_orchestrator": "/coordinate",
 272:    "brain_orchestrator": "http://jarvis-brain-orchestrator:4001",
 312:            "brain_orchestrator": {"query": message, "context": {}},
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/PORTS_REGISTRY_RAW.txt
+services/integrate_all_services.py
+27:async def query_brain_orchestrator(message: str, context: Dict) -> Dict:
+74:        dgm_analysis = await query_brain_orchestrator(request.message, context)
+
+services/dgm_supervisor_woah.py
+460:        ("ms_egeria_jarvis_v8", 4001, ["master", "orchestrator", "consciousness"])
+
+services/master_chat_orchestrator_v6_biologics.py
+35:    'type': 'master_orchestrator_v6',
+
+services/clean_service_candidates.txt
+3:./master_chat_orchestrator_v9_dgm_complete.py
+24:./master_chat_orchestrator_v7_complete.py
+40:./ms_jarvis_command_orchestrator_FINAL.py
+45:./ultimate_web_orchestrator.py
+51:./ms_jarvis_command_orchestrator.py
+84:./master_chat_orchestrator_v9_optimized.py
+110:./ms_jarvis_command_orchestrator_v5_backup.py
+118:./qualia_unified_write_orchestrator_69dgm.py
+145:./integrate_brain_orchestrator.sh
+209:./master_chat_orchestrator_v9_gpu_optimized.py
+214:./master_chat_orchestrator_v8_spiritual_complete.py
+258:./qualia_email_registration_orchestrator_69dgm.py
+289:./master_chat_orchestrator_v5_consciousness.py
+304:./monitor_orchestrator.sh
+308:./master_chat_orchestrator_v6_biologics.py
+323:./start_command_orchestrator.sh
+329:./ms_jarvis_fifth_dgm_orchestrator.py
+358:./facebook_voice_orchestrator_egeria.py
+366:./ms_jarvis_command_orchestrator_v5.0_preachy.py
+405:./master_chat_orchestrator.py
+
+services/PORTS_REGISTRY_RAW.txt
 37:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator_main.py:    app.run(host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
 38:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py:    app.run(host='0.0.0.0', port=port_service.port, debug=False)
 105:/home/ms-jarvis/msjarvis-rebuild/services/facebook_voice_orchestrator_egeria.py:        self.facebook_posting_port = 4021
@@ -1330,123 +1353,7 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 569:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), workers=1)
 610:/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)  # Bind to 0.0.0.0 for network access
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/all_actual_services.txt
-6:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py
-32:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py
-54:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py
-68:/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py
-76:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator.py
-110:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py
-128:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py
-132:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_optimized.py
-153:/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_scope.py
-173:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py
-185:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py
-191:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py
-343:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_gpu_optimized.py
-352:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py
-380:/home/ms-jarvis/msjarvis-rebuild/services/integrate_orchestrator_flow.py
-382:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py
-387:/home/ms-jarvis/msjarvis-rebuild/services/unified_orchestrator.py
-392:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py
-418:/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_init.py
-437:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py
-461:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/brain_orchestrator.py
-463:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_scope.py
-510:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/integrate_orchestrator_flow.py
-511:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/unified_orchestrator.py
-517:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_init.py
-536:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_fifth_dgm_orchestrator.py
-542:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_brain_orchestrator_advanced.py
-547:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/simple_orchestrator_fix.py
-575:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py
-586:/home/ms-jarvis/msjarvis-rebuild/services/python/brain_orchestrator.py
-614:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py
-617:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
-628:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator_main.py
-652:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py
-687:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_brain_orchestrator_advanced.py
-699:/home/ms-jarvis/msjarvis-rebuild/services/facebook_voice_orchestrator_egeria.py
-706:/home/ms-jarvis/msjarvis-rebuild/services/simple_orchestrator_fix.py
-712:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py
-796:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator.py
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/Dockerfile.fifth_dgm_real
-12:# Copy the orchestrator and its helpers from host services dir
-13:COPY ms_jarvis_fifth_dgm_orchestrator.py /app/ms_jarvis_fifth_dgm_orchestrator.py
-19:CMD ["python3", "ms_jarvis_fifth_dgm_orchestrator.py"]
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/ports_diff_msjarvis.txt
-105:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/brain_orchestrator.py TODO
-123:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_init.py TODO
-124:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_scope.py TODO
-140:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/integrate_orchestrator_flow.py TODO
-161:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_brain_orchestrator_advanced.py TODO
-165:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_fifth_dgm_orchestrator.py TODO
-191:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/simple_orchestrator_fix.py TODO
-195:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/unified_orchestrator.py TODO
-200:-/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator_main.py TODO
-201:-/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py TODO
-305:-/home/ms-jarvis/msjarvis-rebuild/services/facebook_voice_orchestrator_egeria.py TODO
-336:-/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_init.py TODO
-337:-/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_scope.py TODO
-397:-/home/ms-jarvis/msjarvis-rebuild/services/integrate_orchestrator_flow.py TODO
-427:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py TODO
-428:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator.py TODO
-429:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py TODO
-430:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py TODO
-431:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py TODO
-432:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py TODO
-433:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py TODO
-434:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py TODO
-435:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_gpu_optimized.py TODO
-436:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_optimized.py TODO
-465:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_brain_orchestrator_advanced.py TODO
-469:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py TODO
-470:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator.py TODO
-471:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py TODO
-472:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py TODO
-527:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py TODO
-528:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py TODO
-707:-/home/ms-jarvis/msjarvis-rebuild/services/python/brain_orchestrator.py TODO
-710:-/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py TODO
-711:-/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py TODO
-712:-/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py TODO
-713:-/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py TODO
-748:-/home/ms-jarvis/msjarvis-rebuild/services/simple_orchestrator_fix.py TODO
-767:-/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py TODO
-770:-/home/ms-jarvis/msjarvis-rebuild/services/unified_orchestrator.py TODO
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/dgm_orchestrator_fake.py
-14:    return {"status": "approved_by_69_validators", "info": "fake orchestrator"}
-18:    return {"status": "healthy", "service": "fake_69_dgm_orchestrator"}
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/phase7_integration.py
-39:    'type': 'master_orchestrator_v7',
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/clean_service_candidates.txt
-3:./master_chat_orchestrator_v9_dgm_complete.py
-24:./master_chat_orchestrator_v7_complete.py
-40:./ms_jarvis_command_orchestrator_FINAL.py
-45:./ultimate_web_orchestrator.py
-51:./ms_jarvis_command_orchestrator.py
-84:./master_chat_orchestrator_v9_optimized.py
-110:./ms_jarvis_command_orchestrator_v5_backup.py
-118:./qualia_unified_write_orchestrator_69dgm.py
-145:./integrate_brain_orchestrator.sh
-209:./master_chat_orchestrator_v9_gpu_optimized.py
-214:./master_chat_orchestrator_v8_spiritual_complete.py
-258:./qualia_email_registration_orchestrator_69dgm.py
-289:./master_chat_orchestrator_v5_consciousness.py
-304:./monitor_orchestrator.sh
-308:./master_chat_orchestrator_v6_biologics.py
-323:./start_command_orchestrator.sh
-329:./ms_jarvis_fifth_dgm_orchestrator.py
-358:./facebook_voice_orchestrator_egeria.py
-366:./ms_jarvis_command_orchestrator_v5.0_preachy.py
-405:./master_chat_orchestrator.py
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/PORT_AUDIT_RAW.txt
+services/PORT_AUDIT_RAW.txt
 38:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator_main.py:10:    app.run(host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
 39:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py:40:    app.run(host='0.0.0.0', port=port_service.port, debug=False)
 119:/home/ms-jarvis/msjarvis-rebuild/services/facebook_voice_orchestrator_egeria.py:36:        self.ollama_port = 11434
@@ -1495,28 +1402,42 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 890:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:259:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), workers=1)
 935:/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py:550:    uvicorn.run(app, host="0.0.0.0", port=port_service.port)  # Bind to 0.0.0.0 for network access
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvisunifiedswaggergateway.py
-24:FIFTH_DGM_URL = os.getenv("FIFTH_DGM_URL", "http://msjarvisfifthdgmorchestrator:4002")
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py
-35:    'type': 'master_orchestrator_v6',
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/remove_duplicate_inits.py
-10:# Keep only the FIRST full_brain_orchestrator initialization after ai_brain
-15:    if 'full_brain_orchestrator = FullBrainOrchestrator()' in line:
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/dgm_supervisor_woah.py
-460:        ("ms_egeria_jarvis_v8", 4001, ["master", "orchestrator", "consciousness"])
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v9_gpu_optimized.py
+services/master_chat_orchestrator_v9_gpu_optimized.py
 46:    'type': 'master_orchestrator_v9_gpu',
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/phase3_integration.py
+services/qualia_email_registration_orchestrator_69dgm.py
+161:orchestrator = Orchestrator()
+165:    return {"status": "operational", "orchestrator": "email_registration_69dgm"}
+170:    is_valid = await orchestrator.validate_email(
+232:    is_valid = await orchestrator.validate_registration(
+275:    is_valid = await orchestrator.validate_registration(
+
+services/msjarvisunifiedswaggergateway.py
+24:FIFTH_DGM_URL = os.getenv("FIFTH_DGM_URL", "http://msjarvisfifthdgmorchestrator:4002")
+
+services/complete_system_audit.py
+74:    elif 'master_chat_orchestrator_v9' in command:
+
+services/qualia_unified_write_orchestrator_69dgm.py
+119:orchestrator = DGMWriteOrchestrator()
+123:    return {"status": "write_orchestrator_operational"}
+128:    is_valid = await orchestrator.validate_through_layers(
+163:    is_valid = await orchestrator.validate_through_layers(
+198:    is_valid = await orchestrator.validate_through_layers(
+222:    is_valid = await orchestrator.validate_through_layers(
+
+services/ultimate_chat_current.txt
+279:        if "brain_orchestrator" in available_services:
+283:                        f"{available_services['brain_orchestrator']}/coordinate",
+288:                        responses.append({"service": "brain_orchestrator", "data": brain_data})
+289:                        services_used.append("brain_orchestrator")
+
+services/phase3_integration.py
 7:Integrates: darwin_godel_machine, fifth_dgm_orchestrator, woah_algorithms
 15:        self.orchestrator_port = 4002
 35:                    f"http://localhost:{self.orchestrator_port}/coordinate",
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/route_declarations_raw.txt
+services/route_declarations_raw.txt
 475:facebook_voice_orchestrator_egeria.py:97:@app.get("/health")
 476:facebook_voice_orchestrator_egeria.py:107:@app.post("/post_to_facebook")
 480:fix_orchestrator_init.py:30:        insert_point = content.find('@app.get("/health")')
@@ -1634,26 +1555,133 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 2330:ultimate_web_orchestrator.py:532:@app.get("/services")
 2331:ultimate_web_orchestrator.py:552:@app.post("/chat")
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py
-119:orchestrator = DGMWriteOrchestrator()
-123:    return {"status": "write_orchestrator_operational"}
-128:    is_valid = await orchestrator.validate_through_layers(
-163:    is_valid = await orchestrator.validate_through_layers(
-198:    is_valid = await orchestrator.validate_through_layers(
-222:    is_valid = await orchestrator.validate_through_layers(
+services/all_services.txt
+6:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py
+6913:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py
+7924:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py
+7938:/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py
+23210:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator.py
+24053:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py
+24071:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py
+24075:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_optimized.py
+24096:/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_scope.py
+24116:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py
+24128:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py
+24139:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py
+31616:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_gpu_optimized.py
+31625:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py
+32148:/home/ms-jarvis/msjarvis-rebuild/services/integrate_orchestrator_flow.py
+32150:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py
+32155:/home/ms-jarvis/msjarvis-rebuild/services/unified_orchestrator.py
+32161:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py
+32187:/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_init.py
+32206:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py
+32232:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/brain_orchestrator.py
+32234:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_scope.py
+32281:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/integrate_orchestrator_flow.py
+32282:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/unified_orchestrator.py
+32289:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_init.py
+32309:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_fifth_dgm_orchestrator.py
+32315:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_brain_orchestrator_advanced.py
+32320:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/simple_orchestrator_fix.py
+32349:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py
+32360:/home/ms-jarvis/msjarvis-rebuild/services/python/brain_orchestrator.py
+32388:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py
+32391:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
+32403:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator_main.py
+32429:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py
+32465:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_brain_orchestrator_advanced.py
+32477:/home/ms-jarvis/msjarvis-rebuild/services/facebook_voice_orchestrator_egeria.py
+32484:/home/ms-jarvis/msjarvis-rebuild/services/simple_orchestrator_fix.py
+32490:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py
+33387:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator.py
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/fix_woah_discovery.py
-9:with open('ms_jarvis_fifth_dgm_orchestrator.py', 'r') as f:
-21:with open('ms_jarvis_fifth_dgm_orchestrator.py', 'w') as f:
+services/all_actual_py.txt
+6:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py
+6913:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py
+7924:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py
+7938:/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py
+23210:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator.py
+24053:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py
+24071:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py
+24075:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_optimized.py
+24096:/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_scope.py
+24116:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py
+24128:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py
+24139:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py
+31616:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_gpu_optimized.py
+31625:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py
+32148:/home/ms-jarvis/msjarvis-rebuild/services/integrate_orchestrator_flow.py
+32150:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py
+32155:/home/ms-jarvis/msjarvis-rebuild/services/unified_orchestrator.py
+32161:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py
+32187:/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_init.py
+32206:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py
+32232:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/brain_orchestrator.py
+32234:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_scope.py
+32281:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/integrate_orchestrator_flow.py
+32282:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/unified_orchestrator.py
+32289:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_init.py
+32309:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_fifth_dgm_orchestrator.py
+32315:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_brain_orchestrator_advanced.py
+32320:/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/simple_orchestrator_fix.py
+32349:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py
+32360:/home/ms-jarvis/msjarvis-rebuild/services/python/brain_orchestrator.py
+32388:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py
+32391:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
+32403:/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator_main.py
+32429:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py
+32465:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_brain_orchestrator_advanced.py
+32477:/home/ms-jarvis/msjarvis-rebuild/services/facebook_voice_orchestrator_egeria.py
+32484:/home/ms-jarvis/msjarvis-rebuild/services/simple_orchestrator_fix.py
+32490:/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py
+33387:/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator.py
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py
-161:orchestrator = Orchestrator()
-165:    return {"status": "operational", "orchestrator": "email_registration_69dgm"}
-170:    is_valid = await orchestrator.validate_email(
-232:    is_valid = await orchestrator.validate_registration(
-275:    is_valid = await orchestrator.validate_registration(
+services/ports_diff_msjarvis.txt
+105:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/brain_orchestrator.py TODO
+123:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_init.py TODO
+124:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/fix_orchestrator_scope.py TODO
+140:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/integrate_orchestrator_flow.py TODO
+161:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_brain_orchestrator_advanced.py TODO
+165:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/ms_jarvis_fifth_dgm_orchestrator.py TODO
+191:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/simple_orchestrator_fix.py TODO
+195:-/home/ms-jarvis/msjarvis-rebuild/services/backups/pre_integration_20251012_115827/unified_orchestrator.py TODO
+200:-/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator_main.py TODO
+201:-/home/ms-jarvis/msjarvis-rebuild/services/brain_orchestrator.py TODO
+305:-/home/ms-jarvis/msjarvis-rebuild/services/facebook_voice_orchestrator_egeria.py TODO
+336:-/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_init.py TODO
+337:-/home/ms-jarvis/msjarvis-rebuild/services/fix_orchestrator_scope.py TODO
+397:-/home/ms-jarvis/msjarvis-rebuild/services/integrate_orchestrator_flow.py TODO
+427:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py TODO
+428:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator.py TODO
+429:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py TODO
+430:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py TODO
+431:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py TODO
+432:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py TODO
+433:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py TODO
+434:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py TODO
+435:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_gpu_optimized.py TODO
+436:-/home/ms-jarvis/msjarvis-rebuild/services/master_chat_orchestrator_v9_optimized.py TODO
+465:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_brain_orchestrator_advanced.py TODO
+469:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py TODO
+470:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator.py TODO
+471:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py TODO
+472:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py TODO
+527:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py TODO
+528:-/home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py TODO
+707:-/home/ms-jarvis/msjarvis-rebuild/services/python/brain_orchestrator.py TODO
+710:-/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py TODO
+711:-/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py TODO
+712:-/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py TODO
+713:-/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py TODO
+748:-/home/ms-jarvis/msjarvis-rebuild/services/simple_orchestrator_fix.py TODO
+767:-/home/ms-jarvis/msjarvis-rebuild/services/ultimate_web_orchestrator.py TODO
+770:-/home/ms-jarvis/msjarvis-rebuild/services/unified_orchestrator.py TODO
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/simple_orchestrator_fix.py
+services/master_chat_orchestrator_v7_complete.py
+39:    'type': 'master_orchestrator_v7',
+
+services/simple_orchestrator_fix.py
 10:# Find the chat endpoint and add orchestrator initialization at the start if needed
 15:# Global reference for orchestrator
 16:_full_brain_orchestrator = None
@@ -1668,343 +1696,71 @@ find /mnt/spiritual_drive/msjarvis-rebuild -type f | rg 'orchestrator|69dgm'
 36:    'await get_full_brain_orchestrator().query_22llm_collective'
 42:print("✅ Added lazy initialization for orchestrator")
 
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py
-39:    'type': 'master_orchestrator_v7',
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py
+services/master_chat_orchestrator_v7_dynamic.py
 27:    'type': 'master_orchestrator_v7',
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/ultimate_chat_current.txt
-279:        if "brain_orchestrator" in available_services:
-283:                        f"{available_services['brain_orchestrator']}/coordinate",
-288:                        responses.append({"service": "brain_orchestrator", "data": brain_data})
-289:                        services_used.append("brain_orchestrator")
-/mnt/spiritual_drive/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py
-114:    return {"status": "qualia_orchestrator_69dgm_operational"}
-137:        "status": "qualia_69dgm_map",
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/truly_unpaired_services.txt
-532:port_9000_chat_wrapper_69dgm
-556:qualia_email_registration_orchestrator_69dgm
-557:qualia_unified_orchestrator_69dgm
-558:qualia_unified_orchestrator_69dgm_ACTIVE
-559:qualia_unified_write_orchestrator_69dgm
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/nbb_darwin_godel_machines.py.pre_dynamic
-181:            "jarvis-69dgm-bridge": "services/port_9000_69dgm_bridge.py",
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/dir_endpoints.txt
-491:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py:105:@app.get("/health")
-492:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py:109:@app.post("/communicate")
-642:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:121:@app.get("/health")
-643:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:125:@app.post("/write/smart-contract")
-644:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:160:@app.post("/write/website")
-645:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:195:@app.post("/write/document")
-646:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:219:@app.post("/write/file")
-655:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py:104:@app.get("/health")
-656:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py:108:@app.post("/process")
-1260:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:163:@app.get("/health")
-1261:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:167:@app.post("/email/send")
-1262:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:229:@app.post("/register/stage1")
-1263:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:272:@app.post("/register/stage2")
-1693:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:30:@app.get("/")
-1694:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:34:@app.post("/consciousness/chat")
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/remaining_services.txt
-602:port_9000_chat_wrapper_69dgm
-626:qualia_email_registration_orchestrator_69dgm
-627:qualia_unified_orchestrator_69dgm
-628:qualia_unified_orchestrator_69dgm_ACTIVE
-629:qualia_unified_write_orchestrator_69dgm
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/METHOD_AUDIT_RAW.txt
-2946:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_69dgm_bridge.py:17:async def route_chat_through_69_dgms(message: str, userid: str, source: str = "port_9000"):
-2947:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_69dgm_bridge.py:48:async def enhanced_chat(message: str, userid: str):
-2957:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:31:async def root():
-2958:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:35:async def chat_through_69_dgms(message: str = Query(...), userid: str = Query("default")):
-3023:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:21:class EmailRequest(BaseModel):
-3024:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:27:class RegistrationRequest(BaseModel):
-3025:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:33:class Orchestrator:
-3026:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:164:def health():
-3027:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:168:async def send_email(request: EmailRequest):
-3028:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:230:async def register_stage1(request: RegistrationRequest):
-3029:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:273:async def register_stage2(request: RegistrationRequest):
-3030:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:316:async def startup():
-3031:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py:24:class QueryRequest(BaseModel):
-3032:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py:29:class DGMOrchestrator:
-3033:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py:105:async def health():
-3034:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py:109:async def process_query(request: QueryRequest):
-3035:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py:28:class QueryRequest(BaseModel):
-3036:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py:32:class DGMOrchestrator:
-3037:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py:106:async def health():
-3038:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py:110:async def communicate(request: QueryRequest):
-3039:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py:119:async def startup():
-3040:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:25:class WriteRequest(BaseModel):
-3041:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:31:class DGMWriteOrchestrator:
-3042:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:122:def health():
-3043:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:126:async def write_smart_contract(request: WriteRequest):
-3044:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:161:async def write_website(request: WriteRequest):
-3045:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:196:async def write_document(request: WriteRequest):
-3046:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:220:async def write_file(request: WriteRequest):
-3047:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:244:async def startup():
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py
-25:# Downstream 69-DGM RAG bridge (bridge_69dgm.py)
-26:# Adjust host/port to match how/where you run bridge_69dgm.py
-128:# Call the 69-DGM RAG bridge (bridge_69dgm.py) after approval
-130:async def call_69dgm_rag_bridge(message: str, userid: str) -> Optional[dict]:
-132:    Call the 69-DGM RAG bridge (bridge_69dgm.py) to get an answer.
-205:            "validated_by": verdict_status or "69dgm_bridge.rejected",
-216:    rag_result = await call_69dgm_rag_bridge(message, userid)
-219:        # Expecting keys: "response", "validated_by" from bridge_69dgm.py
-282:        "service": "port_9000_69dgm_bridge",
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/all_actual_services.txt
-110:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py
-185:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py
-191:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py
-437:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py
-440:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_69dgm_bridge.py
-729:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/services_list.txt
-602:port_9000_chat_wrapper_69dgm
-626:qualia_email_registration_orchestrator_69dgm
-627:qualia_unified_orchestrator_69dgm
-628:qualia_unified_orchestrator_69dgm_ACTIVE
-629:qualia_unified_write_orchestrator_69dgm
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/build_dir_audit.txt
-495:MISSING DIR: ./ms-jarvis-unified-gateway-v4-3-before-69dgm-integration
-565:MISSING DIR: ./port-9000-69dgm-bridge
-567:MISSING DIR: ./port-9000-chat-wrapper-69dgm
-591:MISSING DIR: ./qualia-email-registration-orchestrator-69dgm
-592:MISSING DIR: ./qualia-unified-orchestrator-69dgm
-593:MISSING DIR: ./qualia-unified-orchestrator-69dgm-active
-594:MISSING DIR: ./qualia-unified-write-orchestrator-69dgm
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/designed_ports.txt
-679:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_69dgm_bridge.py TODO
-681:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py TODO
-707:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py TODO
-708:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py TODO
-709:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py TODO
-710:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py TODO
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/rag_grounded_v2.py
-17:DGM_BRIDGE_URL = os.getenv("DGM_BRIDGE_URL",  "http://jarvis-69dgm-bridge:9000")
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/all_services_compose_blocks_dynamic.txt
-328:  qualia_unified_orchestrator_69dgm-:
-553:  qualia_unified_write_orchestrator_69dgm-:
-571:  qualia_unified_orchestrator_69dgm_active-:
-799:  ms_jarvis_unified_gateway_v4-3-before_69dgm_integration-:
-1309:  qualia_email_registration_orchestrator_69dgm-:
-1318:  port_9000_69dgm_bridge-:
-2185:  port_9000_chat_wrapper_69dgm-:
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_072741
-53:    validated_by: str = "69dgm_rag_cascade"
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/Dockerfile.69dgm_bridge
-5:COPY bridge_69dgm.py /app/bridge_69dgm.py
-7:CMD ["python", "-m", "uvicorn", "bridge_69dgm:app", "--host", "0.0.0.0", "--port", "9000"]
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_072757
-53:    validated_by: str = "69dgm_rag_cascade"
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/all_service_ports.txt
-110:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py TODO
-185:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py TODO
-191:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py TODO
-437:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py TODO
-440:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_69dgm_bridge.py TODO
-729:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py TODO
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/nbb_darwin_godel_machines.py.pre_mapping
-181:            "jarvis-69dgm-bridge": "services/port_9000_69dgm_bridge.py",
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/ports_diff_msjarvis.txt
-682:-/home/ms-jarvis/msjarvis-rebuild/services/port_9000_69dgm_bridge.py TODO
-684:-/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py TODO
-710:-/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py TODO
-711:-/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py TODO
-712:-/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py TODO
-713:-/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py TODO
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/rest_endpoints.txt
-402:./qualia_unified_orchestrator_69dgm.py:105:@app.get("/health")
-403:./qualia_unified_orchestrator_69dgm.py:109:@app.post("/communicate")
-553:./qualia_unified_write_orchestrator_69dgm.py:121:@app.get("/health")
-554:./qualia_unified_write_orchestrator_69dgm.py:125:@app.post("/write/smart-contract")
-555:./qualia_unified_write_orchestrator_69dgm.py:160:@app.post("/write/website")
-556:./qualia_unified_write_orchestrator_69dgm.py:195:@app.post("/write/document")
-557:./qualia_unified_write_orchestrator_69dgm.py:219:@app.post("/write/file")
-566:./qualia_unified_orchestrator_69dgm_ACTIVE.py:104:@app.get("/health")
-567:./qualia_unified_orchestrator_69dgm_ACTIVE.py:108:@app.post("/process")
-1219:./qualia_email_registration_orchestrator_69dgm.py:163:@app.get("/health")
-1220:./qualia_email_registration_orchestrator_69dgm.py:167:@app.post("/email/send")
-1221:./qualia_email_registration_orchestrator_69dgm.py:229:@app.post("/register/stage1")
-1222:./qualia_email_registration_orchestrator_69dgm.py:272:@app.post("/register/stage2")
-1774:./port_9000_chat_wrapper_69dgm.py:30:@app.get("/")
-1775:./port_9000_chat_wrapper_69dgm.py:34:@app.post("/consciousness/chat")
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/all_build_dirs.txt
-495:./ms-jarvis-unified-gateway-v4-3-before-69dgm-integration
-565:./port-9000-69dgm-bridge
-567:./port-9000-chat-wrapper-69dgm
-591:./qualia-email-registration-orchestrator-69dgm
-592:./qualia-unified-orchestrator-69dgm
-593:./qualia-unified-orchestrator-69dgm-active
-594:./qualia-unified-write-orchestrator-69dgm
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/PORTS_REGISTRY_RAW.txt
-538:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-566:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), workers=1)
-567:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8300)), reload=False)
-568:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8300)), workers=1)
-569:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), workers=1)
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/clean_service_candidates.txt
-118:./qualia_unified_write_orchestrator_69dgm.py
-258:./qualia_email_registration_orchestrator_69dgm.py
-259:./port_9000_69dgm_bridge.py
-375:./port_9000_chat_wrapper_69dgm.py
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/main_brain.py
-138:    "port900069dgmbridge": "http://127.0.0.1:9000",
-327:        "port900069dgmbridge": "consciousnesschat",
-1222:        "port900069dgmbridge",
-1430:        "raw_69dgm": data,
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/bridge_69dgm.py
-18:    validated_by: str = "69dgm_bridge.chroma_rag"
-65:    return {"status": "healthy", "service": "69dgm_bridge", "backend": "chroma"}
-85:        validated_by="69dgm_bridge.chroma_rag",
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/PORT_AUDIT_RAW.txt
-856:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py:90:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-887:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py:328:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), workers=1)
-888:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py:119:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8300)), reload=False)
-889:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py:127:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8300)), workers=1)
-890:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py:259:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), workers=1)
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py
-165:    return {"status": "operational", "orchestrator": "email_registration_69dgm"}
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/dgm_connector_registry.py
-4:from .port_9000_69dgm_bridge import Port900069DgmBridge
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_070432
-45:    validated_by: str = "69dgm_rag_cascade"
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/route_declarations_raw.txt
-2142:port_9000_chat_wrapper_69dgm.py:30:@app.get("/")
-2143:port_9000_chat_wrapper_69dgm.py:34:@app.post("/consciousness/chat")
-2190:qualia_email_registration_orchestrator_69dgm.py:163:@app.get("/health")
-2191:qualia_email_registration_orchestrator_69dgm.py:167:@app.post("/email/send")
-2192:qualia_email_registration_orchestrator_69dgm.py:229:@app.post("/register/stage1")
-2193:qualia_email_registration_orchestrator_69dgm.py:272:@app.post("/register/stage2")
-2194:qualia_unified_orchestrator_69dgm_ACTIVE.py:104:@app.get("/health")
-2195:qualia_unified_orchestrator_69dgm_ACTIVE.py:108:@app.post("/process")
-2196:qualia_unified_orchestrator_69dgm.py:112:@app.get("/health")
-2197:qualia_unified_orchestrator_69dgm.py:117:@app.get("/dgms")
-2198:qualia_unified_orchestrator_69dgm.py:147:@app.post("/communicate")
-2199:qualiaunifiedorchestrator69dgm.py:112:@app.get("/health")
-2200:qualiaunifiedorchestrator69dgm.py:117:@app.get("/dgms")
-2201:qualiaunifiedorchestrator69dgm.py:147:@app.post("/communicate")
-2202:qualia_unified_write_orchestrator_69dgm.py:121:@app.get("/health")
-2203:qualia_unified_write_orchestrator_69dgm.py:125:@app.post("/write/smart-contract")
-2204:qualia_unified_write_orchestrator_69dgm.py:160:@app.post("/write/website")
-2205:qualia_unified_write_orchestrator_69dgm.py:195:@app.post("/write/document")
-2206:qualia_unified_write_orchestrator_69dgm.py:219:@app.post("/write/file")
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_072514
-45:    validated_by: str = "69dgm_rag_cascade"
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/all_actual_py.txt
-24053:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py
-24128:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py
-24139:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py
-32206:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py
-32209:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_69dgm_bridge.py
-32508:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py
-
-/mnt/spiritual_drive/msjarvis-rebuild/services/all_services.txt
-24053:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py
-24128:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py
-24139:/home/ms-jarvis/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py
-32206:/home/ms-jarvis/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py
-32209:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_69dgm_bridge.py
-32508:/home/ms-jarvis/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py
-/mnt/spiritual_drive/msjarvis-rebuild/verify_69dgm_rag_integration.sh
-/mnt/spiritual_drive/msjarvis-rebuild/gbim_orchestrator.py
-/mnt/spiritual_drive/msjarvis-rebuild/__pycache__/brain_orchestrator.cpython-312.pyc
-/mnt/spiritual_drive/msjarvis-rebuild/brain_orchestrator.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/fix_orchestrator_scope.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/qualia_unified_orchestrator_69dgm_ACTIVE.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/integrate_orchestrator_flow.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/__pycache__/port_9000_chat_wrapper_69dgm.cpython-312.pyc
-/mnt/spiritual_drive/msjarvis-rebuild/services/brain_orchestrator.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/brain_orchestrator_main.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/Dockerfile.dgm_orchestrator
-/mnt/spiritual_drive/msjarvis-rebuild/services/dgm_orchestrator.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/unified_orchestrator.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/ms_jarvis_command_orchestrator.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_dynamic.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/fix_orchestrator_init.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_072741
-/mnt/spiritual_drive/msjarvis-rebuild/services/ultimate_web_orchestrator.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v9_optimized.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/ms_jarvis_brain_orchestrator_advanced.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_072757
-/mnt/spiritual_drive/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/Dockerfile.69dgm_bridge
-/mnt/spiritual_drive/msjarvis-rebuild/services/facebook_voice_orchestrator_egeria.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/bridge_69dgm.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v9_gpu_optimized.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/dgm_orchestrator_fake.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/qualia_unified_write_orchestrator_69dgm.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_070432
-/mnt/spiritual_drive/msjarvis-rebuild/services/qualia_email_registration_orchestrator_69dgm.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/simple_orchestrator_fix.py
-/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_072514
-/mnt/spiritual_drive/msjarvis-rebuild/itest-69dgm-bridge-logs/latest-process.json
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/local_resources’: Permission denied
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/mysql/sys’: Permission denied
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/mysql/#innodb_temp’: Permission denied
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/mysql/quantum_ai’: Permission denied
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/mysql/mysql’: Permission denied
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/mysql/performance_schema’: Permission denied
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/mysql/#innodb_redo’: Permission denied
-/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py
-/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
-/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py.backup_20260307_072741
-/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py.backup_20260307_072757
-/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py.backup_20260307_070432
-/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py.backup_20260307_072514
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ systemctl list-unit-files | rg -i 'caddy|frontend|allis'
-echo '---'
-systemctl status --no-pager --full caddy.service 2>/dev/null || sudo systemctl status --no-pager --full caddy.service
-echo '---'
-sudo sed -n '1,220p' /etc/systemd/system/caddy.service 2>/dev/null || sudo sed -n '1,220p' /lib/systemd/system/caddy.service 2>/dev/null
-echo '---'
-sudo sed -n '1,220p' /etc/systemd/system/ms-allis-frontend.service 2>/dev/null
+---
+./verify_69dgm_rag_integration.sh
+./gbim_orchestrator.py
+./__pycache__/brain_orchestrator.cpython-312.pyc
+./brain_orchestrator.py
+./services/port_9000_69dgm_bridge.py
+./services/qualia_unified_orchestrator_69dgm.py
+./services/fix_orchestrator_scope.py
+./services/qualia_unified_orchestrator_69dgm_ACTIVE.py
+./services/integrate_orchestrator_flow.py
+./services/master_chat_orchestrator_v5_consciousness.py
+./services/port_9000_chat_wrapper_69dgm.py
+./services/__pycache__/port_9000_chat_wrapper_69dgm.cpython-312.pyc
+./services/brain_orchestrator.py
+./services/brain_orchestrator_main.py
+./services/Dockerfile.dgm_orchestrator
+./services/dgm_orchestrator.py
+./services/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
+./services/unified_orchestrator.py
+./services/ms_jarvis_command_orchestrator.py
+./services/master_chat_orchestrator_dynamic.py
+./services/ms_jarvis_command_orchestrator_v5_backup.py
+./services/fix_orchestrator_init.py
+./services/master_chat_orchestrator_v8_spiritual_complete.py
+./services/master_chat_orchestrator_v9_dgm_complete.py
+./services/port_9000_69dgm_bridge.py.backup_20260307_072741
+./services/ultimate_web_orchestrator.py
+./services/master_chat_orchestrator_v9_optimized.py
+./services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
+./services/ms_jarvis_brain_orchestrator_advanced.py
+./services/port_9000_69dgm_bridge.py.backup_20260307_072757
+./services/ms_jarvis_fifth_dgm_orchestrator.py
+./services/Dockerfile.69dgm_bridge
+./services/facebook_voice_orchestrator_egeria.py
+./services/master_chat_orchestrator.py
+./services/master_chat_orchestrator_v6_biologics.py
+./services/ms_jarvis_command_orchestrator_v5.0_preachy.py
+./services/bridge_69dgm.py
+./services/master_chat_orchestrator_v9_gpu_optimized.py
+./services/dgm_orchestrator_fake.py
+./services/qualia_unified_write_orchestrator_69dgm.py
+./services/port_9000_69dgm_bridge.py.backup_20260307_070432
+./services/qualia_email_registration_orchestrator_69dgm.py
+./services/master_chat_orchestrator_v7_dynamic.py
+./services/master_chat_orchestrator_v7_complete.py
+./services/ms_jarvis_command_orchestrator_FINAL.py
+./services/simple_orchestrator_fix.py
+./services/port_9000_69dgm_bridge.py.backup_20260307_072514
+./itest-69dgm-bridge-logs/latest-process.json
+find: ‘./data/local_resources’: Permission denied
+find: ‘./data/mysql/sys’: Permission denied
+find: ‘./data/mysql/#innodb_temp’: Permission denied
+find: ‘./data/mysql/quantum_ai’: Permission denied
+find: ‘./data/mysql/mysql’: Permission denied
+find: ‘./data/mysql/performance_schema’: Permission denied
+find: ‘./data/mysql/#innodb_redo’: Permission denied
+./.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py
+./.archive/services.backup_20260308_111532/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
+./.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py.backup_20260307_072741
+./.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py.backup_20260307_072757
+./.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py.backup_20260307_070432
+./.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py.backup_20260307_072514
+---
 snap-caddy-694.mount                                                          enabled         enabled
 snap-caddy-698.mount                                                          enabled         enabled
 caddy-api.service                                                             disabled        enabled
@@ -2027,7 +1783,7 @@ snap.caddy.server.service                                                     di
    Main PID: 713703 (caddy)
       Tasks: 37 (limit: 35466)
      Memory: 29.8M (peak: 68.0M swap: 3.3M swap peak: 9.1M)
-        CPU: 4min 18.580s
+        CPU: 4min 18.599s
      CGroup: /system.slice/caddy.service
              └─713703 /usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
 
@@ -2092,5 +1848,8 @@ Environment=NODE_ENV=production
 
 [Install]
 WantedBy=multi-user.target
+---
+no /opt GISGEODB
+no ./services/data GISGEODB
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ 
 
