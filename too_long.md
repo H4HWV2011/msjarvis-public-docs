@@ -1,4 +1,149 @@
-jarvis-backups/20260103_020002/services/mesh_emotion_map.json
+# Investigative Audit and Action Plan for Production Stability
+
+## Scope
+
+This audit evaluates four unresolved areas in the MountainShares / Ms. Allis architecture: Layer 2 suppression thresholds, Sensitive/BSA unification, direct sum sovereign subspaces, and H_commons aggregation. The goal is to convert each area from design exposure or theoretical specification into a production-stable, testable, governable subsystem with explicit exit criteria.[cite:19][cite:21][cite:22]
+
+The current system already has a strong production base. Hilbert People Space (`hp`) is built and operational as a 13-table Postgres schema in `hilbert_people`, served by `jarvis-hilbert-state`, with the disclosure-assertion gateway verified end-to-end and persisting every verdict to `hp.appearance_assertion`.[cite:19] The temporal Hilbert axis (`jarvis-hilbert-time`) is also built and operational as a Redis-backed FastAPI service that powers recency-weighted retrieval in the semantic gateway.[cite:20]
+
+## Executive Findings
+
+Two of the four target areas are **running-stack governance and safety gaps**, not research problems. Layer 2 suppression thresholds and Sensitive/BSA unification sit directly adjacent to already-running production services and must be closed before aggregate metrics or person-sensitivity logic can be treated as production-complete.[cite:19]
+
+The other two areas are **not yet implementation projects** in the usual engineering sense. Direct sum sovereign subspaces and H_commons aggregation are explicitly documented as formal or theoretical specifications with unresolved mathematical, cryptographic, and governance problems; they should be managed as staged research-to-engineering programs, not as ordinary backlog tickets.[cite:21][cite:22]
+
+## Current-State Classification
+
+| Area | Current status | Core blocker | Production interpretation |
+|---|---|---|---|
+| Layer 2 suppression thresholds | Open design gap in running stack [cite:19] | No minimum-count / small-cell suppression policy defined [cite:19] | Must close before any aggregate metrics surface |
+| Sensitive/BSA unification | Open design gap in running stack [cite:19] | Parallel protection regimes for the same vulnerable population [cite:19] | Must unify policy and enforcement before claiming stable person-safety rules |
+| Direct sum sovereign subspaces | Formal specification, implementation pending [cite:21] | No proven projection-key construction, no orthogonality proof, no interface morphism [cite:21] | Research program, not deployable yet |
+| H_commons aggregation | Theoretical specification, implementation pending [cite:22] | No constructed projection operator, unresolved k-governance, no integration function [cite:22] | Research program, not deployable yet |
+
+## Investigative Assessment
+
+### 1. Layer 2 suppression thresholds
+
+Chapter 48 identifies rural re-identification as a live risk: county-level usage, service category, repeat engagement, and accessibility preferences can resolve to a single person in small West Virginia populations unless small-cell suppression is enforced.[cite:19] This is not a speculative privacy concern; it is the direct production consequence of exposing aggregate views before threshold logic, suppression windows, and review rules are defined.[cite:19]
+
+The engineering problem is straightforward compared with the other gaps. The missing work is not core storage or service architecture, but a production policy stack: a sensitivity taxonomy, metric-release rules, suppression thresholds by topic and geography, audit logging, and regression tests that prove forbidden low-count slices never surface.[cite:19]
+
+**Action plan:**
+- Define a release policy for aggregate metrics with hard minimum thresholds, beginning with a global default and stricter thresholds for health, financial hardship, legal, housing, and benefits-related categories.[cite:19][cite:22]
+- Classify all current and planned Layer 2 metrics into sensitivity tiers and allowed breakdown dimensions.
+- Add a metrics-policy module that evaluates every aggregate query before response serialization; suppression must occur server-side, not in the UI.
+- Persist suppression events as auditable records without exposing the suppressed cell contents, following the same logic used for disclosure assertions in `hp.appearance_assertion`.[cite:19]
+- Add negative tests for single-county rare-service cases, repeated-engagement slices, and combinations of accessibility preference plus service type.
+
+**Exit criteria for production stability:**
+- No aggregate endpoint can return a row where distinct-subject count is below policy minimum.
+- Sensitive categories enforce stricter thresholds automatically.
+- Suppression decisions are logged and reviewable.
+- Test suite includes adversarial small-population cases and passes in CI.
+- Governance document defines who can change thresholds and under what approval path.[cite:19][cite:22]
+
+### 2. Sensitive/BSA unification
+
+Chapter 48 states that the “sensitive person” category overlaps exactly with Benefits-Sensitive Accounts and recommends unifying them under the same protected-default rather than allowing parallel systems to evolve separately.[cite:19] Leaving these as parallel regimes creates the classic production failure mode in safety systems: one path classifies a person as protected while another path does not, producing inconsistent disclosure, logging, or escalation behavior.[cite:19]
+
+This is primarily a policy-to-schema alignment problem. The architecture already has a constitutional/disclosure layer and a working assertion gateway, so the shortest path to production stability is to define one canonical “protected subject” model and make both H_people and BSA logic consume that same model.[cite:19]
+
+**Action plan:**
+- Create a unified protected-subject taxonomy covering minors, victims, witnesses, benefits recipients, medical/legal/housing subjects, and unknown-status people.[cite:19]
+- Define precedence rules: sensitive status overrides public curiosity; unknown defaults to protected; public role remains context-limited.[cite:19]
+- Normalize the enforcement path so H_people disclosure checks and BSA checks resolve through the same policy function or assertion vocabulary.
+- Add migration logic for any existing BSA flags or sensitivity markers into a canonical policy table or service.
+- Build cross-system tests proving that the same subject receives the same outcome in H_people disclosure, benefits workflows, and reporting views.
+
+**Exit criteria for production stability:**
+- One canonical protected-subject policy exists.
+- H_people and BSA consume the same sensitivity decision path.
+- Disclosure, redaction, and escalation outcomes match across systems for identical subject facts.
+- Audit logs show a single reason vocabulary for protected-status decisions.
+
+### 3. Direct sum sovereign subspaces
+
+Chapter 50 is explicit that this is a formal specification with implementation pending, and it names four open problems: formal orthogonality proof, key derivation specification, interface morphism construction, and constitutional completeness.[cite:21] The proposed implementation uses a per-user projection transform \(\hat{e}_{u_i} = R_{u_i} \cdot e\), where \(R_{u_i}\) is derived from a participant-held secret, but the function `ProjectionKey(commitment_salt)` is still unnamed in concrete cryptographic terms and has no validated implementation.[cite:21]
+
+Because this subsystem changes the privacy guarantee from governance-enforced to geometry-enforced, it cannot be treated as production-ready on intuition alone. The correct production path is a staged program that separates theorem risk, cryptographic construction risk, system-integration risk, and governance risk.[cite:21]
+
+**Action plan:**
+- Split the work into four tracks: mathematics, cryptography, systems prototyping, and constitutional/governance drafting.[cite:21]
+- Mathematics track: produce a formal proof target for the orthogonality and metric-preservation properties required for retrieval within a user subspace.[cite:21]
+- Cryptography track: specify `ProjectionKey(commitment_salt)` with deterministic derivation of full-rank orthogonal matrices, performance targets at the production embedding dimension, and a security analysis aligned with the post-quantum framework from Chapter 42.[cite:21]
+- Systems track: implement a prototype transform layer at embedding-ingest and query time, using an isolated experimental environment rather than the production memory stack.[cite:21]
+- Governance track: draft the constitutional rule that cross-user search is prohibited by founding intent and cannot be enabled by ordinary product or engineering choice.[cite:21]
+
+**Required phase gates before production consideration:**
+1. **Research gate:** written proof sketch, explicit assumptions, attack model, and unresolved questions.
+2. **Prototype gate:** measurable within-user retrieval quality after transformation, plus empirical failure of cross-user search.
+3. **Security gate:** external review of key derivation and inversion resistance.
+4. **Governance gate:** constitutional language approved and version-controlled.
+5. **Pilot gate:** opt-in, non-critical memory pilot with rollback.
+
+**Exit criteria for production stability:**
+- Proven or externally reviewed projection-key construction.
+- Prototype demonstrates acceptable retrieval fidelity within user space.
+- Cross-user comparability is empirically defeated under defined adversary tests.
+- Governance prohibition on cross-user search is formally adopted.[cite:21]
+
+### 4. H_commons aggregation
+
+Chapter 51 proposes `H_commons` as a one-directional projection of the direct sum aggregate into a shared observational space, with k-anonymity thresholds controlling visibility of community clusters.[cite:22] The chapter is equally explicit that the projection operator \(\Pi\), the governance of \(k\), the civic-reasoning integration function, and any stronger differential-privacy formulation are open problems.[cite:22]
+
+This means H_commons is not blocked by coding effort alone; it is blocked by the absence of the core mathematical and governance contract that would make any implementation trustworthy.[cite:22] The correct move is to design it as an aggregation service only after direct-sum primitives and threshold governance are settled enough to support it.[cite:21][cite:22]
+
+**Action plan:**
+- Treat H_commons as dependent on the direct-sum program; do not start production implementation until sovereign-subspace prototype results exist.[cite:21][cite:22]
+- Define a minimal viable aggregation operator candidate set, such as random projection or locality-sensitive approaches, and test them against the three required properties: identity destruction, semantic preservation, and one-directionality.[cite:22]
+- Build governance first for k-thresholds: who sets them, how sensitive topics are classified, and how long sub-threshold clusters remain buffered before discard.[cite:22]
+- Prototype the aggregation container with strict network isolation, no key access, and no origin-subspace logging, exactly as the chapter specifies.[cite:22]
+- Delay any production coupling to civic reasoning until an explicit integration function can be evaluated against false positives, under-reporting, and conflict cases between community concern and structured civic data.[cite:22]
+
+**Exit criteria for production stability:**
+- Candidate projection operator evaluated against the three chapter-defined properties.
+- K-threshold governance ratified and testable.
+- Aggregation container proves no key access, no return path, and no origin logging.
+- Suppression behavior is fully auditable without identity exposure.
+- Civic reasoning integration has measurable rules for weighting cluster density, temporal decay, and contradiction handling.[cite:22]
+
+## Delivery Sequence
+
+A safe production roadmap should not attempt all four targets at once. The order should follow dependency and risk.
+
+| Phase | Target | Why first |
+|---|---|---|
+| Phase 1 | Layer 2 suppression thresholds | Immediate privacy exposure in already-running stack [cite:19] |
+| Phase 2 | Sensitive/BSA unification | Immediate safety and consistency exposure in already-running stack [cite:19] |
+| Phase 3 | Direct sum sovereign subspace prototype | Foundational dependency for any non-surveillance cross-user memory future [cite:21] |
+| Phase 4 | H_commons research prototype | Depends on direct-sum primitives and governance choices [cite:21][cite:22] |
+
+## 90-Day Program
+
+### Days 1–30
+- Freeze any release of Layer 2 aggregate metrics until suppression policy is implemented.[cite:19]
+- Draft a sensitivity taxonomy and threshold matrix.
+- Draft a canonical protected-subject policy for H_people and BSA.
+- Add audit requirements and test cases to CI for both policy areas.
+
+### Days 31–60
+- Implement server-side suppression enforcement and suppression-event logging.
+- Implement unified protected-subject policy path and migration plan.
+- Produce a research memo for direct-sum construction choices, attack model, and prototype design.
+- Draft constitutional language for cross-user search prohibition and k-threshold governance.[cite:21][cite:22]
+
+### Days 61–90
+- Complete CI coverage for suppression and protected-subject behavior.
+- Stand up an isolated prototype for per-user projection transforms.
+- Run retrieval-quality and adversary tests on prototype memory data.
+- Decide whether H_commons can move from theory to prototype based on direct-sum results.
+
+## Decision Standard
+
+The right standard is not “can this be coded,” but “can this be defended.” Layer 2 suppression thresholds and Sensitive/BSA unification should be treated as production hardening work on top of already operational services.[cite:19] Direct sum sovereign subspaces and H_commons should be treated as research programs that must clear mathematical, cryptographic, systems, and constitutional gates before they are allowed anywhere near production claims.[cite:21][cite:22]
+
+A production-stable claim is justified only when each subsystem has: a formal policy contract, auditable enforcement, adversarial tests, operational rollback, and governance language aligned with the implementation. The running stack is close on the first two gaps. The last two require disciplined reduction from thesis to prototype to reviewed implementation.[cite:19][cite:21][cite:22]jarvis-backups/20260103_020002/services/mesh_emotion_map.json
 ./backup_filename_index.txt:2518:mesh_emotion_map.json|/mnt/MS_Jarvis/msjarvis-backups/20251230_020001/services/mesh_emotion_map.json
 ./backup_filename_index.txt:3387:jarvis_authentic_persona.txt|/mnt/MS_Jarvis/msjarvis-backups/20260101_020001/services/jarvis_authentic_persona.txt
 ./backup_filename_index.txt:3388:jarvis_authentic_persona.txt|/mnt/MS_Jarvis/msjarvis-backups/20251229_020001/services/jarvis_authentic_persona.txt
