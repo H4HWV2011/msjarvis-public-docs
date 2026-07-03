@@ -1,4 +1,4 @@
-# Does Meaning Require Geometry?
+# Does Meaning Require Geometry? (DRAFT)
 ## A Registered-Report Style Protocol for Testing Semantic Dependence on Structured Spatial-Temporal Constraints in Ms. Allis
 
 **Author:** C.A. Kidd  
