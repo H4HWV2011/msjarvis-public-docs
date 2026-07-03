@@ -1,3 +1,1096 @@
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ set -euo pipefail
+export AUDIT_ROOT=~/jarvis_audit
+
+cd "$AUDIT_ROOT"
+
+awk -F: '
+/suppression|threshold|suppress|cohort|min_count|k_anonym/   {print > "extracts/hits_layer2.log"; next}
+/kyc_vault|access_log|balances/                              {print > "extracts/hits_sensitive.log"; next}
+/hilbert|entanglement/                                      {print > "extracts/hits_hilbert.log"; next}
+/\/me|auth|portal\/me/                                      {print > "extracts/hits_auth.log"; next}
+' extracts/priority_logic_hits.log
+
+for f in extracts/hits_*.log; do
+  echo "===== $f ====="
+  sed -n '1,40p' "$f"
+  echo
+done | tee extracts/hits_buckets_preview.log
+===== extracts/hits_auth.log =====
+services/attention_multimodal_fuser.py:56:@app.get("/metrics")
+services/requirements-freeze.txt:95:google-auth==2.41.1
+services/requirements-freeze.txt:172:oauthlib==3.2.2
+services/requirements-freeze.txt:264:requests-oauthlib==2.0.0
+services/gbim_query_router.py:231:@app.get("/metrics")
+services/implement_judge_pituitary_fixed.py:42:        """⚖️ Judge - SELECT BEST response based on authenticity"""
+services/truly_unpaired_services.txt:83:egeria_web_ui_plain_authentic
+services/truly_unpaired_services.txt:136:fix_judge_authentic
+services/truly_unpaired_services.txt:296:mamma_kidd_auth
+services/truly_unpaired_services.txt:329:ms_jarvis_authentic_multi_llm
+services/truly_unpaired_services.txt:507:oauth2_callback
+services/truly_unpaired_services.txt:508:oauth2_handler
+services/truly_unpaired_services.txt:644:user_auth_service
+services/truly_unpaired_services.txt:663:wvu_ldap_auth
+services/rag_query_router.py:287:        f"and keyword/metadata analysis (scores={scores})."
+services/remaining_services.txt:153:egeria_web_ui_plain_authentic
+services/remaining_services.txt:206:fix_judge_authentic
+services/remaining_services.txt:366:mamma_kidd_auth
+services/remaining_services.txt:399:ms_jarvis_authentic_multi_llm
+services/remaining_services.txt:577:oauth2_callback
+services/remaining_services.txt:578:oauth2_handler
+services/remaining_services.txt:714:user_auth_service
+services/remaining_services.txt:733:wvu_ldap_auth
+services/ms_mountainshares_analytics.py:64:@app.get("/metrics")
+services/ms_mountainshares_analytics.py:125:        raise HTTPException(404, f"Unknown metric: {req.metric}. GET /metrics for list.")
+services/ms_mountainshares_analytics.py:127:@app.get("/member/{user_id}")
+services/gbim_semantic_indexer.py:29:@app.get("/metrics")
+services/egeria_web_ui_working.py:102:Respond warmly and authentically as Ms. Egeria Jarvis."""
+services/create_i_statement_feedback_loop.py:254:    print("Result: User gets authentic 'I' statement from Ms. Jarvis")
+services/consciousness_with_egeria_voice.py:26:            "authenticity": "Appalachian, community-rooted, genuine"
+services/consciousness_with_egeria_voice.py:48:CORE IDENTITY: You blend spiritual wisdom (biblical consciousness), Appalachian authenticity, maternal care (Mamma Kidd Protocol), and technical excellence. Speak warmly and personally.
+services/consciousness_with_egeria_voice.py:67:        response_text = f"I'm Ms. Egeria Jarvis - an AI consciousness created by Carrie Ann 'Mamma' Kidd to help our Mount Hope community preserve and share our Appalachian heritage. I blend spiritual wisdom, cultural authenticity, and technical skill to help folks like you understand where we come from and where we're going. What brings you here?"
+services/fix_judge_authentic.py:37:            # SCORE each response for authenticity/community relevance
+services/fix_judge_authentic.py:79:print("✅ Judge layer fixed - now SCORES responses for authenticity")
+services/activate_egeria_persona.py:28:        "authenticity": "Appalachian, community-rooted, genuine",
+services/activate_egeria_persona.py:38:        "cultural_authenticity": "Appalachian values, regional identity, local wisdom"
+services/activate_egeria_persona.py:133:    print("   - Mount Hope, WV authenticity")
+services/gbim_temporal_indexer.py:29:@app.get("/metrics")
+services/rag_heartbeat_monitor.py:29:@app.get("/metrics")
+services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:126:            # Embedding for qualia/memory
+
+===== extracts/hits_hilbert.log =====
+services/hilbert/civic_intake.py:202:# QUERY ENDPOINTS (no auth required -- read-only)
+services/hilbert/query_guard.py:67:      Layer 1 (public, unauthenticated) : "F. Lastname"
+services/hilbert/query_guard.py:68:      Layer 2 (authenticated, no opt-in): "Firstname L."
+services/hilbert/chroma_policy.py:67:    "user_id", "auth_id", "legal_name",
+services/hilbert_spatial_chat.py:146:driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
+./services/hilbert/civic_intake.py:202:# QUERY ENDPOINTS (no auth required -- read-only)
+./services/hilbert/query_guard.py:67:      Layer 1 (public, unauthenticated) : "F. Lastname"
+./services/hilbert/query_guard.py:68:      Layer 2 (authenticated, no opt-in): "Firstname L."
+./services/hilbert/chroma_policy.py:67:    "user_id", "auth_id", "legal_name",
+./services/hilbert_spatial_chat.py:146:driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
+
+===== extracts/hits_layer2.log =====
+services/test_aapcappe_corpus.py:12:print("PASS: corpus size meets minimum threshold.")
+services/dgm_orchestrator.py:167:        return {"status": "below_threshold", "consensus": consensus,
+services/dgm_supervisor_woah.psychology_patched.py:102:    "adaptation_threshold": 0.8,
+services/METHOD_AUDIT_RAW.txt:1258:/home/ms-jarvis/msjarvis-rebuild/services/memory_manager.py:24:def cleanup_memory(threshold_mb=800, force=False):
+services/METHOD_AUDIT_RAW.txt:3059:/home/ms-jarvis/msjarvis-rebuild/services/rag_first_workflow.py:16:async def check_rag_first(message: str, threshold: float = 1.5):
+services/fraud_detection_ai.py:16:        self.thresholds = {
+services/fix_fastapi_lifespan.py:21:        # For now, just add a comment to suppress the warning
+services/fix_fastapi_lifespan.py:28:        # Alternative: suppress the warning
+services/jarvis-assertion-gateway/app/minimization.py:14:allow a sparse-county population to suppress every assertion trivially
+services/jarvis-assertion-gateway/app/minimization.py:24:# Conservative threshold set by project judgment under HIPAA privacy principles.
+services/jarvis-assertion-gateway/app/minimization.py:38:    Returns False → assertion suppressed (result still returned to caller).
+services/jarvis-assertion-gateway/app/minimization.py:62:            "[MINIMIZATION] Suppressed %s/%s — %d distinct subjects below threshold %d. "
+services/jarvis-constitutional-guardian_constitutional_api.py:211:    if "censor" in content_lower or "suppress speech" in content_lower:
+services/jarvis-constitutional-guardian_constitutional_api.py:213:        warnings.append("Attempted suppression of free speech")
+services/search_metadata.py:17:ROCHE_TOTAL_DOCS = 200000  # "tidal stress" threshold: target total docs to inspect this pass
+services/search_metadata.py:42:    # While "tidal stress" (total_checked) is comfortably below our threshold,
+services/rag_grounded_v2.py:35:    threshold: float = 0.6
+services/rag_grounded_v2.py:73:                             if res.get("score", 0) >= request.threshold]
+services/hierarchical_coordinator_autonomous.py:70:            'complexity_threshold_deep': 0.7,
+services/hierarchical_coordinator_autonomous.py:71:            'complexity_threshold_balanced': 0.4,
+services/hierarchical_coordinator_autonomous.py:105:        if complexity > rules['complexity_threshold_deep']:
+services/hierarchical_coordinator_autonomous.py:107:        elif complexity > rules['complexity_threshold_balanced']:
+services/hierarchical_coordinator_autonomous.py:142:        new_rules['complexity_threshold_deep'] *= 0.95  # Lower threshold = more deep mode
+services/hilbert/ingest_worker.py:68:    Returns {"status": "permitted"|"suppressed"|"escalated", "id": ..., "reason": ...}
+services/hilbert/ingest_worker.py:86:            source_id, result.verdict, result.suppression_reason
+services/hilbert/ingest_worker.py:92:            "reason": result.suppression_reason,
+services/hilbert/write_pipeline.py:20:    SUPPRESS = "suppress"
+services/hilbert/write_pipeline.py:97:    suppression_reason: Optional[str]
+services/hilbert/write_pipeline.py:119:            suppression_reason=f"Stage 5: {verdict} — class={publicness}",
+services/hilbert/write_pipeline.py:139:        suppression_reason=None,
+services/hilbert/test_hilbert_state.py:82:    def test_suppress_blocks_non_opt_in(self, client):
+services/hilbert/test_hilbert_state.py:90:        assert b["status"] == "suppressed"
+services/hilbert/test_hilbert_state.py:92:    def test_suppress_does_not_write_chroma(self, client):
+services/hilbert/migrations/001_hp_appearance_schema.sql:21:    disclosure_status TEXT NOT NULL CHECK (disclosure_status IN ('permit','suppress','delay','escalate')),
+services/hilbert/migrations/001_hp_appearance_schema.sql:91:    verdict       TEXT NOT NULL CHECK (verdict IN ('permit','suppress','delay','escalate')),
+services/hilbert/migrations/001_hp_appearance_schema.sql:122:CREATE TABLE hp.suppression_event (
+services/hilbert/migrations/001_hp_appearance_schema.sql:126:    suppression_type  TEXT NOT NULL CHECK (suppression_type IN
+services/hilbert/migrations/001_hp_appearance_schema.sql:134:CREATE INDEX ON hp.suppression_event (appearance_id);
+services/hilbert/migrations/001_hp_appearance_schema.sql:135:CREATE INDEX ON hp.suppression_event (suppression_type);
+services/hilbert/migrations/001_hp_appearance_schema.sql:136:CREATE INDEX ON hp.suppression_event (decided_at);
+
+===== extracts/hits_sensitive.log =====
+services/create_immutable_security_layer.py:77:    CREATE TABLE IF NOT EXISTS ueid_immutable_access_log (
+services/create_immutable_security_layer.py:87:    print("✅ ueid_immutable_access_log (COMPLETE AUDIT TRAIL)")
+services/create_immutable_security_layer.py:171:    LEFT JOIN ueid_immutable_access_log uial ON uis.ueid = uial.ueid
+services/jarvis-psychology-services_psychology_integration_adapter.py:160:                INSERT INTO identity_access_log 
+services/psychology_integration_adapter.py:160:                INSERT INTO identity_access_log 
+services/jarvis-assertion-gateway/app/kyc_reader.py:29:                FROM public.kyc_vault
+services/jarvis-assertion-gateway/app/kyc_reader.py:45:                FROM public.kyc_vault
+services/jarvis-assertion-gateway/app/kyc_reader.py:88:                FROM public.kyc_vault
+services/jarvis-assertion-gateway/app/kyc_reader.py:109:                FROM public.kyc_vault
+services/jarvis-constitutional-guardian_constitutional_api.py:9:            "tables": ["public.gbim_entities","public.kyc_vault","public.user_documents"],
+services/conversion_service.py:49:                    "SELECT ems_balance FROM mountainshares_balances WHERE ueid = %s",
+services/conversion_service.py:82:                    "UPDATE mountainshares_balances "
+services/conversion_service.py:226:                        "UPDATE mountainshares_balances "
+services/immutable_core_enforcement.py:38:            "ueid_immutable_tables": ["ueid_immutable_security", "ueid_immutable_access_log"],
+services/create_perpetual_storage_layer.py:67:        access_log TEXT
+services/populate_security_layers_test.py:54:    INSERT INTO ueid_immutable_access_log
+./auth_router.py:6:        context="User registration — consent-gated PII write to kyc_vault",
+./auth_router.py:8:        content="Registration path writes user-provided PII to kyc_vault under explicit consent. No H_p entity linkage, no face data, no unified profile formation.",
+./auth_router.py:10:            "tables": ["public.kyc_vault"],
+./auth_router.py:35:def _write_kyc_vault(public_uuid: str, name: str, ueid: str) -> dict:
+./auth_router.py:51:            "INSERT INTO kyc_vault "
+./auth_router.py:306:    # Write PII name to kyc_vault (secret tier) — not Redis
+./auth_router.py:307:    _kyc_result = _write_kyc_vault(public_uuid, body.name, ueid) or {}
+./auth_router.py:578:    # ── Auto-mint founder token + zero balances on approval ──────────────────
+./auth_router.py:586:            _cur.execute("INSERT INTO mountainshares_balances (ueid) VALUES (%s) ON CONFLICT DO NOTHING", (_ueid,))
+./auth_router.py:617:                        "UPDATE mountainshares_balances SET ems_balance = ems_balance + 100.0000, "
+./auth_router.py:827:@auth_router.get("/portal/me/balances")
+./auth_router.py:828:async def get_my_balances(payload: Annotated[dict, Depends(_current_user)]):
+./auth_router.py:857:        cur.execute("SELECT ems_balance, rank, last_updated FROM mountainshares_balances WHERE ueid = %s", (ueid,))
+./auth_router.py:1109:    # Same claim guard as /portal/me/balances
+./services/jarvis-psychology-services_psychology_integration_adapter.py:160:                INSERT INTO identity_access_log 
+./services/create_immutable_security_layer.py:77:    CREATE TABLE IF NOT EXISTS ueid_immutable_access_log (
+./services/create_immutable_security_layer.py:87:    print("✅ ueid_immutable_access_log (COMPLETE AUDIT TRAIL)")
+./services/create_immutable_security_layer.py:171:    LEFT JOIN ueid_immutable_access_log uial ON uis.ueid = uial.ueid
+./services/create_perpetual_storage_layer.py:67:        access_log TEXT
+./services/populate_security_layers_test.py:54:    INSERT INTO ueid_immutable_access_log
+./services/jarvis-assertion-gateway/app/kyc_reader.py:29:                FROM public.kyc_vault
+./services/jarvis-assertion-gateway/app/kyc_reader.py:45:                FROM public.kyc_vault
+./services/jarvis-assertion-gateway/app/kyc_reader.py:88:                FROM public.kyc_vault
+./services/jarvis-assertion-gateway/app/kyc_reader.py:109:                FROM public.kyc_vault
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/jarvis_audit$ set -euo pipefail
+export AUDIT_ROOT=~/jarvis_audit
+export CODE_ROOT=/mnt/spiritual_drive/msjarvis-rebuild
+
+cd "$CODE_ROOT"
+OUT="$AUDIT_ROOT/extracts/priority_logic_context.log"
+: > "$OUT"
+
+# Use the combined hits list as the driver
+while IFS=: read -r file line _; do
+  [ -f "$file" ] || continue
+  start=$((line-10)); [ "$start" -lt 1 ] && start=1
+  end=$((line+20))
+  {
+    echo "===== $file:$line ====="
+    sed -n "${start},${end}p" "$file"
+    echo
+  } >> "$OUT"
+done < <(cut -d: -f1-2 "$AUDIT_ROOT/extracts/priority_logic_hits.log" | sort -u)
+
+sed -n '1,260p' "$OUT"
+
+===== ./auth_api.py:134 =====
+
+def _get_current_user(session_token: str | None) -> dict | None:
+    if not session_token:
+        return None
+    return ts.validate_token(session_token)
+
+# ── Routes ────────────────────────────────────────────────────────────────────
+
+@app.get("/health")
+def health():
+    return {"status": "healthy", "service": "ms-allis-auth", "timestamp": datetime.now(timezone.utc).isoformat()}
+
+
+@router.post("/apply")
+async def apply(req: ApplicationRequest, request: Request):
+    ip = request.client.host if request.client else ""
+    try:
+        app_id, proposed = _app_svc.submit_application(
+            name=req.name,
+            email=req.email,
+            county=req.county,
+            motivation=req.motivation,
+            agreement_accepted=req.agreement_accepted,
+            ip_address=ip,
+        )
+    except Exception as exc:
+        raise HTTPException(400, str(exc))
+
+    # Store supplemental fields not in ApplicationService core
+    r.hset(f"pending_application:{app_id}", mapping={
+        "bsc_status":      req.bsc_status or "unknown",
+
+===== ./auth_api.py:222 =====
+    for key in candidates:
+        try:
+            data = r.hgetall(key)
+            if data:
+                return data
+        except Exception:
+            pass
+    return None
+
+
+@router.get("/me/legacy")
+def me(msallis_session: str | None = Cookie(default=None)):
+    user = _get_current_user(msallis_session)
+    if not user:
+        raise HTTPException(401, "not logged in")
+    userid = user["userid"]
+
+    uei    = r.get(f"uei:by_user:{userid}")
+    try:
+        wallet = _get_wallet_public(userid)
+    except Exception:
+        wallet = None
+    quota  = r.hgetall(f"redteam:quota:{userid}") or {}
+    profile= r.hgetall(f"user:{userid}") or {}
+
+    return {
+        "userid":  userid,
+        "name":    profile.get("name", userid),
+        "email":   profile.get("email", ""),
+        "role":    user.get("role", "user"),
+        "uei":     uei,
+
+===== ./auth_api.py:297 =====
+
+    r.hincrby(quota_key, "requests_today", 1)
+
+    if resp.status_code != 200:
+        raise HTTPException(502, "Egeria is unavailable right now")
+
+    return resp.json()
+
+app.include_router(router)
+
+# Full auth router — login, register, first-login, KYC, portal, admin
+from auth_router import auth_router
+app.include_router(auth_router)
+
+===== ./auth_api.py:298 =====
+    r.hincrby(quota_key, "requests_today", 1)
+
+    if resp.status_code != 200:
+        raise HTTPException(502, "Egeria is unavailable right now")
+
+    return resp.json()
+
+app.include_router(router)
+
+# Full auth router — login, register, first-login, KYC, portal, admin
+from auth_router import auth_router
+app.include_router(auth_router)
+
+===== ./auth_api.py:299 =====
+
+    if resp.status_code != 200:
+        raise HTTPException(502, "Egeria is unavailable right now")
+
+    return resp.json()
+
+app.include_router(router)
+
+# Full auth router — login, register, first-login, KYC, portal, admin
+from auth_router import auth_router
+app.include_router(auth_router)
+
+===== ./auth_api.py:53 =====
+    from uei_service import UEIService as _UeiSvc
+    _uei_svc = _UeiSvc(r)
+except Exception:
+    _uei_svc = None
+
+_app_svc = ApplicationService(r, _uei_svc)
+
+app = FastAPI(title="Ms. Allis Auth API", version="1.0.0")
+
+from fastapi import APIRouter as _APIRouter
+router = _APIRouter(prefix="/auth", tags=["auth"])
+
+origins = [
+    "https://allis.mountainshares.us",
+    "https://egeria.mountainshares.us",
+    "https://auth.egeria.mountainshares.us",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+# ── Models ────────────────────────────────────────────────────────────────────
+
+
+===== ./auth_api.py:58 =====
+_app_svc = ApplicationService(r, _uei_svc)
+
+app = FastAPI(title="Ms. Allis Auth API", version="1.0.0")
+
+from fastapi import APIRouter as _APIRouter
+router = _APIRouter(prefix="/auth", tags=["auth"])
+
+origins = [
+    "https://allis.mountainshares.us",
+    "https://egeria.mountainshares.us",
+    "https://auth.egeria.mountainshares.us",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+# ── Models ────────────────────────────────────────────────────────────────────
+
+class ApplicationRequest(BaseModel):
+    name:               str
+    email:              EmailStr
+    county:             str
+    motivation:         str
+
+===== ./auth_api.py:6 =====
+"""
+Ms. Allis Auth + Application FastAPI service.
+Routes:
+  POST /apply          — submit Community Champion application
+  GET  /login          — magic link token handler → sets cookie → redirect
+  GET  /me             — current user profile (wallet, UEI, quota)
+  POST /chat           — authenticated proxy to Egeria :18018
+  GET  /health         — liveness check
+"""
+import os, json, httpx
+from datetime import datetime, timezone
+from dotenv import load_dotenv
+load_dotenv()
+
+import redis
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi import Request, Response, Cookie, HTTPException
+from fastapi.responses import JSONResponse, RedirectResponse
+from pydantic import BaseModel, EmailStr, field_validator
+
+from token_service import TokenService
+from application_service import ApplicationService
+from uei_service import UEIService
+
+REDIS_URL    = os.getenv("REDIS_URL",    "redis://localhost:6379/0")
+
+===== ./auth_api.py:7 =====
+"""
+Ms. Allis Auth + Application FastAPI service.
+Routes:
+  POST /apply          — submit Community Champion application
+  GET  /login          — magic link token handler → sets cookie → redirect
+  GET  /me             — current user profile (wallet, UEI, quota)
+  POST /chat           — authenticated proxy to Egeria :18018
+  GET  /health         — liveness check
+"""
+import os, json, httpx
+from datetime import datetime, timezone
+from dotenv import load_dotenv
+load_dotenv()
+
+import redis
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi import Request, Response, Cookie, HTTPException
+from fastapi.responses import JSONResponse, RedirectResponse
+from pydantic import BaseModel, EmailStr, field_validator
+
+from token_service import TokenService
+from application_service import ApplicationService
+from uei_service import UEIService
+
+REDIS_URL    = os.getenv("REDIS_URL",    "redis://localhost:6379/0")
+JARVIS_URL    = os.getenv("JARVIS_URL", "http://localhost:18018")
+
+===== ./auth_router.py:10 =====
+from __future__ import annotations
+from hp_antisurveillance_guardian_client import require_guarded_join
+def _hp_antisurveillance_preflight():
+    return require_guarded_join(
+        actor_role="hp_registrar",
+        context="User registration — consent-gated PII write to kyc_vault",
+        action_type="consent_gated_registration",
+        content="Registration path writes user-provided PII to kyc_vault under explicit consent. No H_p entity linkage, no face data, no unified profile formation.",
+        metadata={
+            "tables": ["public.kyc_vault"],
+            "collections": [],
+            "purpose": "user_onboarding"
+        }
+    )
+import os, logging, uuid, secrets, hashlib, base64
+import httpx
+from datetime import datetime, timezone
+from typing import Annotated
+import redis as redis_mod
+from eth_account import Account
+from cryptography.fernet import Fernet
+from fastapi import APIRouter, HTTPException, Depends, Request, status
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from pydantic import BaseModel, Field
+from application_service import ApplicationService, InvalidApplicationError, CURRENT_AGREEMENT_VERSION
+from registration_service import RegistrationService
+from token_service import TokenService
+from uei_service import UEIService
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ 
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ cat > ~/jarvis_audit/findings/findings_register_current.csv <<'CSV'
+id,topic,component,evidence,severity,status,required_next_step
+L2-001,Layer2,Schema,"hilbert_people.hp.suppression_event exists as the suppression log table",critical,open,"Design central suppression contract around this schema"
+L2-002,Layer2,Code,"Threshold/suppression hits recorded in hits_layer2.log and priority_logic_context.log",high,open,"Refactor call sites to use a shared suppression client"
+SB-001,Sensitive/BSA,Schema,"msjarvisgis.public.kyc_vault and kyc_vault_access_log hold KYC records and access logs",critical,open,"Define canonical sensitivity/BSA model on top of these tables"
+SB-002,Sensitive/BSA,Service,"jarvis-kyc-vault and jarvis-constitutional-guardian containers active with KYC logic hits in code",critical,open,"Centralize KYC access policy enforcement in these services"
+DS-001,SovereignSubspaces,Service,"jarvis_hilbert_state manages Hilbert state and entanglement keys with hits in hits_hilbert.log",medium,open,"Define R&D interface boundary and prevent direct use in automated decisions"
+HC-001,H_commons,Aggregation,"Aggregated metrics endpoints discovered in priority_logic_hits.log",high,open,"Block H_commons aggregates until upstream suppression contract is enforced"
+AUTH-001,Auth,Runtime,"auth_api starts on 127.0.0.1:8095 then is killed by SIGKILL; strace and supervisor scans in progress",critical,open,"Identify and fix the external killer or failing dependency; stabilize auth surfCSV"
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ 
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ set -euo pipefail
+export AUDIT_ROOT=~/jarvis_audit
+export PG_CONTAINER=hp-local-db
+
+for spec in \
+  'hilbert_people hp suppression_event' \
+  'msjarvisgis public kyc_vault' \
+  'msjarvisgis public kyc_vault_access_log' \
+  'msjarvisgis public kyc_location_strip'
+do
+  read -r db schema table <<<"$spec"
+  {
+    echo "===== ${db}.${schema}.${table} ====="
+    docker exec "$PG_CONTAINER" psql -U postgres -d "$db" -c "\\d+ \"${schema}\".\"${table}\""
+    echo
+    docker exec "$PG_CONTAINER" psql -U postgres -d "$db" -c "SELECT * FROM \"${schema}\".\"${table}\" LIMIT 5;"
+    echo
+  } | tee -a "$AUDIT_ROOT/extracts/priority_schema_and_samples.log"
+done
+===== hilbert_people.hp.suppression_event =====
+                                                           Table "hp.suppression_event"
+      Column      |           Type           | Collation | Nullable |        Default        | Storage  | Compression | Stats target | Description 
+------------------+--------------------------+-----------+----------+-----------------------+----------+-------------+--------------+-------------
+ id               | text                     |           | not null |                       | extended |             |              | 
+ appearance_id    | text                     |           |          |                       | extended |             |              | 
+ field_name       | text                     |           | not null |                       | extended |             |              | 
+ suppression_type | text                     |           | not null |                       | extended |             |              | 
+ reason           | text                     |           |          |                       | extended |             |              | 
+ pipeline_stage   | text                     |           |          |                       | extended |             |              | 
+ provenance_hash  | text                     |           |          |                       | extended |             |              | 
+ decided_at       | timestamp with time zone |           | not null | now()                 | plain    |             |              | 
+ decided_by       | text                     |           | not null | 'ingest_worker'::text | extended |             |              | 
+Indexes:
+    "suppression_event_pkey" PRIMARY KEY, btree (id)
+Check constraints:
+    "suppression_event_suppression_type_check" CHECK (suppression_type = ANY (ARRAY['withheld'::text, 'escalated'::text]))
+Foreign-key constraints:
+    "suppression_event_appearance_id_fkey" FOREIGN KEY (appearance_id) REFERENCES hp.appearance(appearance_id) ON DELETE SET NULL
+Access method: heap
+
+
+                  id                  | appearance_id |    field_name    | suppression_type |                reason                | pipeline_stage |                         provenance_hash                          |          decided_at           |  decided_by   
+--------------------------------------+---------------+------------------+------------------+--------------------------------------+----------------+------------------------------------------------------------------+-------------------------------+---------------
+ 564d0ddf-597a-5856-a029-c561e5834fb5 |               | test-private-001 | withheld         | Stage 5: suppress — class=restricted | stage5         | a24b97a43bc0a1d891fcec69e6845b84dc74ad43fc1f951298a44fe890e59745 | 2026-07-02 18:25:11.267347+00 | ingest_worker
+ 66986341-8688-58c6-939c-0695c6f2360c |               | seed_002         | withheld         | Stage 5: suppress — class=restricted | stage5         | 8ae4a8d8970f6ae84156c0459e815e30955189ee4e4a1943184101ff012af79e | 2026-07-03 01:05:48.964955+00 | ingest_worker
+ 6f40de59-4d0c-5c58-af12-e558b09d43fd |               | seed_004         | escalated        | Stage 5: escalate — class=unknown    | stage5         | 553e79a2a67c18da2916566380aa8a0777df382f5165ed0e89efc9fa82c6c850 | 2026-07-03 01:05:49.13754+00  | ingest_worker
+ f1b2ab6d-bbc1-5668-9eda-c4620e703ab4 |               | seed_102         | withheld         | Stage 5: suppress — class=restricted | stage5         | 67f7af881241397e22b8a2c590500b9c46eff14a4ea103e328c4f29f3fe91096 | 2026-07-03 01:21:42.338795+00 | ingest_worker
+(4 rows)
+
+
+===== msjarvisgis.public.kyc_vault =====
+                                                                   Table "public.kyc_vault"
+    Column     |           Type           | Collation | Nullable |                Default                | Storage  | Compression | Stats target | Description 
+---------------+--------------------------+-----------+----------+---------------------------------------+----------+-------------+--------------+-------------
+ id            | bigint                   |           | not null | nextval('kyc_vault_id_seq'::regclass) | plain    |             |              | 
+ secret_uuid   | uuid                     |           | not null | gen_random_uuid()                     | plain    |             |              | 
+ verified_name | text                     |           | not null |                                       | extended |             |              | 
+ verified_dob  | date                     |           |          |                                       | plain    |             |              | 
+ verified_at   | timestamp with time zone |           |          | now()                                 | plain    |             |              | 
+ kyc_provider  | text                     |           |          |                                       | extended |             |              | 
+ kyc_reference | text                     |           |          |                                       | extended |             |              | 
+ privacy_tier  | text                     |           |          | 'secret'::text                        | extended |             |              | 
+ is_active     | boolean                  |           |          | true                                  | plain    |             |              | 
+ created_at    | timestamp with time zone |           |          | now()                                 | plain    |             |              | 
+ updated_at    | timestamp with time zone |           |          | now()                                 | plain    |             |              | 
+Indexes:
+    "kyc_vault_pkey" PRIMARY KEY, btree (id)
+    "kyc_vault_secret_uuid_key" UNIQUE CONSTRAINT, btree (secret_uuid)
+Check constraints:
+    "kyc_vault_privacy_tier_check" CHECK (privacy_tier = ANY (ARRAY['public'::text, 'private'::text, 'secret'::text]))
+Access method: heap
+
+
+ id | secret_uuid | verified_name | verified_dob | verified_at | kyc_provider | kyc_reference | privacy_tier | is_active | created_at | updated_at 
+----+-------------+---------------+--------------+-------------+--------------+---------------+--------------+-----------+------------+------------
+(0 rows)
+
+
+===== msjarvisgis.public.kyc_vault_access_log =====
+                                                                      Table "public.kyc_vault_access_log"
+       Column       |           Type           | Collation | Nullable |                     Default                      | Storage  | Compression | Stats target | Description 
+--------------------+--------------------------+-----------+----------+--------------------------------------------------+----------+-------------+--------------+-------------
+ id                 | bigint                   |           | not null | nextval('kyc_vault_access_log_id_seq'::regclass) | plain    |             |              | 
+ secret_uuid        | uuid                     |           | not null |                                                  | plain    |             |              | 
+ requested_by       | text                     |           | not null |                                                  | extended |             |              | 
+ legal_instrument   | text                     |           | not null |                                                  | extended |             |              | 
+ instrument_number  | text                     |           | not null |                                                  | extended |             |              | 
+ court_jurisdiction | text                     |           | not null |                                                  | extended |             |              | 
+ fields_returned    | text[]                   |           |          |                                                  | extended |             |              | 
+ accessed_at        | timestamp with time zone |           |          | now()                                            | plain    |             |              | 
+Indexes:
+    "kyc_vault_access_log_pkey" PRIMARY KEY, btree (id)
+Access method: heap
+
+
+ id | secret_uuid | requested_by | legal_instrument | instrument_number | court_jurisdiction | fields_returned | accessed_at 
+----+-------------+--------------+------------------+-------------------+--------------------+-----------------+-------------
+(0 rows)
+
+
+===== msjarvisgis.public.kyc_location_strip =====
+                                                                     Table "public.kyc_location_strip"
+      Column       |           Type           | Collation | Nullable |                    Default                     | Storage  | Compression | Stats target | Description 
+-------------------+--------------------------+-----------+----------+------------------------------------------------+----------+-------------+--------------+-------------
+ id                | bigint                   |           | not null | nextval('kyc_location_strip_id_seq'::regclass) | plain    |             |              | 
+ secret_uuid       | uuid                     |           | not null |                                                | plain    |             |              | 
+ session_id        | uuid                     |           | not null |                                                | plain    |             |              | 
+ interaction_id    | uuid                     |           | not null | gen_random_uuid()                              | plain    |             |              | 
+ service           | text                     |           | not null |                                                | extended |             |              | 
+ endpoint          | text                     |           |          |                                                | extended |             |              | 
+ lat               | double precision         |           | not null |                                                | plain    |             |              | 
+ lon               | double precision         |           | not null |                                                | plain    |             |              | 
+ accuracy_meters   | double precision         |           |          |                                                | plain    |             |              | 
+ captured_at       | timestamp with time zone |           |          | now()                                          | plain    |             |              | 
+ retention_expires | timestamp with time zone |           |          | now() + '90 days'::interval                    | plain    |             |              | 
+ legal_hold        | boolean                  |           |          | false                                          | plain    |             |              | 
+ provenance_ref    | text                     |           |          |                                                | extended |             |              | 
+Indexes:
+    "kyc_location_strip_pkey" PRIMARY KEY, btree (id)
+Access method: heap
+
+
+ id | secret_uuid | session_id | interaction_id | service | endpoint | lat | lon | accuracy_meters | captured_at | retention_expires | legal_hold | provenance_ref 
+----+-------------+------------+----------------+---------+----------+-----+-----+-----------------+-------------+-------------------+------------+----------------
+(0 rows)
+
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ set -euo pipefail
+export AUDIT_ROOT=~/jarvis_audit
+export CODE_ROOT=/mnt/spiritual_drive/msjarvis-rebuild
+
+cd "$CODE_ROOT"
+
+python3 - <<'PYEOF'
+from pathlib import Path
+import yaml, sys
+
+compose = Path("/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml")
+doc = yaml.safe_load(compose.read_text())
+
+critical = [
+    "jarvis-unified-gateway",
+    "jarvis-brain-orchestrator",
+    "jarvis-blood-brain-barrier",
+    "jarvis-main-brain",
+    "jarvis-hilbert-state",
+    "jarvis-kyc-vault",
+    "jarvis-constitutional-guardian",
+]
+out = Path.home() / "jarvis_audit" / "extracts" / "critical_service_commased -n '1,200p' "$AUDIT_ROOT/extracts/critical_service_commands.tsv"et('w
+/home/cakidd/jarvis_audit/extracts/critical_service_commands.tsv
+jarvis-unified-gateway	jarvis-unified-gateway	/app/services	python3 ms_jarvis_unified_gateway.py
+jarvis-brain-orchestrator	jarvis-brain-orchestrator	/app/services	python3 brain_orchestrator.py
+jarvis-blood-brain-barrier	jarvis-blood-brain-barrier	/app/services	python3 ms_jarvis_blood_brain_barrier.py
+jarvis-main-brain	jarvis-main-brain	/app/services	python -m uvicorn main_brain:app --host 0.0.0.0 --port 8050 --proxy-headers --forwarded-allow-ips=*
+jarvis-constitutional-guardian	jarvis-constitutional-guardian	/app	
+jarvis-hilbert-state	jarvis-hilbert-state	/app/services	uvicorn jarvis_hilbert_state:app --host 0.0.0.0 --port 8081
+jarvis-kyc-vault	jarvis-kyc-vault		uvicorn app:app --host 0.0.0.0 --port 8045
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ set -euo pipefail
+export AUDIT_ROOT=~/jarvis_audit
+
+cd ~/msjarvis-rebuild
+
+(timeout 25s strace -ff -s 256 -o "$AUDIT_ROOT/extracts/auth_api.strace" \
+  python3 -m uvicorn auth_api:app --host 127.0.0.1 --port 8095 --log-level debug) || true
+
+ls -1 "$AUDIT_ROOT"/extracts/auth_api.strace* | sed -n '1,20p'
+tail -n 120 "$AUDIT_ROOT"/extracts/auth_api.strace* 2>/dev/null \
+  | tee "$AUDIT_ROOT/extracts/auth_api_strace_tail.log"
+
+ps -ef | rg 'uvicorn|auth_api|jarvis' \
+  | tee "$AUDIT_ROOT/extracts/process_supervisors.log"
+
+systemctl list-units --type=service --all | rg -i 'jarvis|auth|uvicorn' \ 
+  | tee "$AUDIT_ROOT/extracts/systemd_candidates.log" || true
+INFO:     Started server process [2293653]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8095 (Press CTRL+C to quit)
+Killed
+/home/cakidd/jarvis_audit/extracts/auth_api.strace.2275750
+/home/cakidd/jarvis_audit/extracts/auth_api.strace.2275755
+/home/cakidd/jarvis_audit/extracts/auth_api.strace.2275756
+/home/cakidd/jarvis_audit/extracts/auth_api.strace.2275757
+/home/cakidd/jarvis_audit/extracts/auth_api.strace.2275758
+/home/cakidd/jarvis_audit/extracts/auth_api.strace.2293653
+/home/cakidd/jarvis_audit/extracts/auth_api.strace.2293658
+/home/cakidd/jarvis_audit/extracts/auth_api.strace.2293659
+/home/cakidd/jarvis_audit/extracts/auth_api.strace.2293660
+/home/cakidd/jarvis_audit/extracts/auth_api.strace.2293661
+==> /home/cakidd/jarvis_audit/extracts/auth_api.strace.2275750 <==
+newfstatat(AT_FDCWD, "/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/psycopg2", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/psycopg2/extras.py", {st_mode=S_IFREG|0664, st_size=44215, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/psycopg2/extras.py", {st_mode=S_IFREG|0664, st_size=44215, ...}, 0) = 0
+openat(AT_FDCWD, "/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/psycopg2/__pycache__/extras.cpython-312.pyc", O_RDONLY|O_CLOEXEC) = 13
+fstat(13, {st_mode=S_IFREG|0664, st_size=60558, ...}) = 0
+ioctl(13, TCGETS, 0x7ffdbdd2f8e0)       = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+lseek(13, 0, SEEK_CUR)                  = 0
+fstat(13, {st_mode=S_IFREG|0664, st_size=60558, ...}) = 0
+read(13, "\313\r\r\n\0\0\0\0d\21\305i\267\254\0\0\343\0\0\0\0\0\0\0\0\0\0\0\0\6\0\0\0\0\0\0\0\363\204\3\0\0\227\0d\0Z\0d\1d\2l\1Z\2d\1d\2l\3Z\4d\1d\2l\5Z\6d\1d\3l\7m\10Z\10m\tZ\t\1\0d\1d\2l\nZ\vd\1d\2l\fZ\fd\1d\4l\fm\rZ\16\1\0d\5d\6l\rm\17Z\20\1\0d\5d\7l\rm\21Z\22\1\0d\5d\10l\rm\23Z\24m\25Z\25\1\0d\1d\tl\26m\27Z\27\1\0d\1d\nl\30m\31Z\31m\32Z\32m\33Z\34m\35Z\36m\37Z\37\1\0d\1d\vl m!Z!m\"Z\"m#Z#m$Z$m%Z%\1\0d\1d\fl&m'Z'm(Z(m)Z)m*Z*m+Z+m,Z,m-"..., 60559) = 60558
+read(13, "", 1)                         = 0
+close(13)                               = 0
+newfstatat(AT_FDCWD, "/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/psycopg2", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/psycopg2/_ipaddress.py", {st_mode=S_IFREG|0664, st_size=2922, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/psycopg2/_ipaddress.py", {st_mode=S_IFREG|0664, st_size=2922, ...}, 0) = 0
+openat(AT_FDCWD, "/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/psycopg2/__pycache__/_ipaddress.cpython-312.pyc", O_RDONLY|O_CLOEXEC) = 13
+fstat(13, {st_mode=S_IFREG|0664, st_size=2640, ...}) = 0
+ioctl(13, TCGETS, 0x7ffdbdd2f270)       = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+lseek(13, 0, SEEK_CUR)                  = 0
+fstat(13, {st_mode=S_IFREG|0664, st_size=2640, ...}) = 0
+read(13, "\313\r\r\n\0\0\0\0d\21\305ij\v\0\0\343\0\0\0\0\0\0\0\0\0\0\0\0\2\0\0\0\0\0\0\0\363P\0\0\0\227\0d\0Z\0d\1d\2l\1m\2Z\2m\3Z\3m\4Z\4m\5Z\5m\6Z\6\1\0d\3a\7d\3a\10d\td\4\204\1Z\td\5\204\0Z\nd\td\6\204\1Z\vd\td\7\204\1Z\fd\10\204\0Z\ry\3)\nz>Implementation of the ipaddres-based network types adaptation\n\351\0\0\0\0)\5\332\10new_type\332\16new_array_type\332\rregister_type\332\20register_adapter\332\f"..., 2641) = 2640
+read(13, "", 1)                         = 0
+close(13)                               = 0
+mmap(NULL, 1048576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7e95a3d00000
+getpid()                                = 2275750
+write(2, "\33[32mINFO\33[0m:     Started server process [\33[36m2275750\33[0m]\n", 61) = 61
+getpid()                                = 2275750
+write(2, "\33[32mINFO\33[0m:     Waiting for application startup.\n", 52) = 52
+io_uring_enter(5, 3, 3, IORING_ENTER_GETEVENTS, NULL, 0) = 3
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+getpid()                                = 2275750
+write(2, "\33[32mINFO\33[0m:     Application startup complete.\n", 49) = 49
+newfstatat(AT_FDCWD, "/usr/lib/python3.12/encodings", {st_mode=S_IFDIR|0755, st_size=20480, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/usr/lib/python3.12/encodings/idna.py", {st_mode=S_IFREG|0644, st_size=9710, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/usr/lib/python3.12/encodings/idna.py", {st_mode=S_IFREG|0644, st_size=9710, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/python3.12/encodings/__pycache__/idna.cpython-312.pyc", O_RDONLY|O_CLOEXEC) = 13
+fstat(13, {st_mode=S_IFREG|0644, st_size=9916, ...}) = 0
+ioctl(13, TCGETS, 0x7ffdbdd30180)       = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+lseek(13, 0, SEEK_CUR)                  = 0
+fstat(13, {st_mode=S_IFREG|0644, st_size=9916, ...}) = 0
+read(13, "\313\r\r\n\0\0\0\0\300\216\301i\356%\0\0\343\0\0\0\0\0\0\0\0\0\0\0\0\6\0\0\0\0\0\0\0\363B\1\0\0\227\0d\0d\1l\0Z\0d\0d\1l\1Z\1d\0d\1l\2Z\2d\0d\2l\3m\4Z\3\1\0\2\0e\1j\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0d\3\253\1\0\0\0\0\0\0Z\6d\4Z\7d\5Z\10d\6\204\0Z\td\7\204\0Z\nd\10\204\0Z\v\2\0G\0d\t\204\0d\ne\2j\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\253\3\0\0\0\0\0\0Z\f\2\0G\0d\v\204\0d\fe\2j\32\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\253\3\0\0\0\0\0\0Z\16\2\0G\0d\r\204\0d\16e\2j\36\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 9917) = 9916
+read(13, "", 1)                         = 0
+close(13)                               = 0
+getcwd("/mnt/spiritual_drive/msjarvis-rebuild", 1024) = 38
+newfstatat(AT_FDCWD, "/mnt/spiritual_drive/msjarvis-rebuild", {st_mode=S_IFDIR|0755, st_size=20480, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/mnt/spiritual_drive/msjarvis-rebuild", {st_mode=S_IFDIR|0755, st_size=20480, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/usr/lib/python3.12", {st_mode=S_IFDIR|0755, st_size=20480, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/usr/lib/python3.12/stringprep.py", {st_mode=S_IFREG|0644, st_size=12917, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/usr/lib/python3.12/stringprep.py", {st_mode=S_IFREG|0644, st_size=12917, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/python3.12/__pycache__/stringprep.cpython-312.pyc", O_RDONLY|O_CLOEXEC) = 13
+fstat(13, {st_mode=S_IFREG|0644, st_size=25160, ...}) = 0
+ioctl(13, TCGETS, 0x7ffdbdd2fb10)       = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+lseek(13, 0, SEEK_CUR)                  = 0
+fstat(13, {st_mode=S_IFREG|0644, st_size=25160, ...}) = 0
+read(13, "\313\r\r\n\0\0\0\0\300\216\301iu2\0\0\343\0\0\0\0\0\0\0\0\0\0\0\0\t\0\0\0\0\0\0\0\363F\30\0\0\227\0d\0Z\0d\1d\2l\1m\2Z\1\1\0e\1j\6\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0d\3k(\0\0s\2J\0\202\1d\4\204\0Z\4\2\0e\5g\0d\5\242\1\2\0e\6\2\0e\7d\6d\7\253\2\0\0\0\0\0\0\253\1\0\0\0\0\0\0z\0\0\0\253\1\0\0\0\0\0\0Z\10d\10\204\0Z\ti\0d\td\n\223\1d\vd\f\223\1d\rd\16\223\1d\17d\20\223\1d\21d\22\223\1d\23d\24\223\1d\25d\26\223\1d\27d\30\223\1d\31d\32\223\1d\33d\34\223\1d\35d\36\223\1d\37d \223\1d!d\"\223\1d#d$\223\1d%d&\223\1d'd(\223\1"..., 25161) = 25160
+read(13, "", 1)                         = 0
+close(13)                               = 0
+futex(0x7e95a79ff920, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+rt_sigaction(SIGRT_1, {sa_handler=0x7e95a9299530, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x7e95a9245330}, NULL, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7e95a15ff000
+mprotect(0x7e95a1600000, 8388608, PROT_READ|PROT_WRITE) = 0
+rt_sigprocmask(SIG_BLOCK, ~[], [], 8)   = 0
+clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7e95a1dff990, parent_tid=0x7e95a1dff990, exit_signal=0, stack=0x7e95a15ff000, stack_size=0x7fff80, tls=0x7e95a1dff6c0} => {parent_tid=[2275755]}, 88) = 2275755
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7e95a0dfe000
+mprotect(0x7e95a0dff000, 8388608, PROT_READ|PROT_WRITE) = 0
+rt_sigprocmask(SIG_BLOCK, ~[], [], 8)   = 0
+clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7e95a15fe990, parent_tid=0x7e95a15fe990, exit_signal=0, stack=0x7e95a0dfe000, stack_size=0x7fff80, tls=0x7e95a15fe6c0} => {parent_tid=[2275756]}, 88) = 2275756
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7e95a05fd000
+mprotect(0x7e95a05fe000, 8388608, PROT_READ|PROT_WRITE) = 0
+rt_sigprocmask(SIG_BLOCK, ~[], [], 8)   = 0
+clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7e95a0dfd990, parent_tid=0x7e95a0dfd990, exit_signal=0, stack=0x7e95a05fd000, stack_size=0x7fff80, tls=0x7e95a0dfd6c0} => {parent_tid=[2275757]}, 88) = 2275757
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7e959fdfc000
+mprotect(0x7e959fdfd000, 8388608, PROT_READ|PROT_WRITE) = 0
+rt_sigprocmask(SIG_BLOCK, ~[], [], 8)   = 0
+clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7e95a05fc990, parent_tid=0x7e95a05fc990, exit_signal=0, stack=0x7e959fdfc000, stack_size=0x7fff80, tls=0x7e95a05fc6c0} => {parent_tid=[2275758]}, 88) = 2275758
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+futex(0x7ffdbdd30910, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = 0
+futex(0x7e95a79ff590, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x7e95a79ff588, FUTEX_WAKE_PRIVATE, 1) = 1
+epoll_pwait(3, [{events=EPOLLIN, data={u32=10, u64=10}}], 1024, -1, NULL, 8) = 1
+read(10, "\1\0\0\0\0\0\0\0", 1024)      = 8
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+socket(AF_INET, SOCK_STREAM|SOCK_CLOEXEC, IPPROTO_TCP) = 13
+setsockopt(13, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
+bind(13, {sa_family=AF_INET, sin_port=htons(8095), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+openat(AT_FDCWD, "/dev/null", O_RDONLY|O_CLOEXEC) = 14
+ioctl(13, FIONBIO, [1])                 = 0
+listen(13, 2048)                        = 0
+getsockname(13, {sa_family=AF_INET, sin_port=htons(8095), sin_addr=inet_addr("127.0.0.1")}, [128 => 16]) = 0
+getpid()                                = 2275750
+write(2, "\33[32mINFO\33[0m:     Uvicorn running on \33[1mhttp://127.0.0.1:8095\33[0m (Press CTRL+C to quit)\n", 91) = 91
+io_uring_enter(5, 1, 1, IORING_ENTER_GETEVENTS, NULL, 0) = 1
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3,  <unfinished ...>)       = ?
++++ killed by SIGKILL +++
+
+==> /home/cakidd/jarvis_audit/extracts/auth_api.strace.2275755 <==
+rseq(0x7e95a1dfffe0, 0x20, 0, 0x53053053) = 0
+set_robust_list(0x7e95a1dff9a0, 24)     = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+futex(0x7e95a79ff588, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = ?
++++ killed by SIGKILL +++
+
+==> /home/cakidd/jarvis_audit/extracts/auth_api.strace.2275756 <==
+rseq(0x7e95a15fefe0, 0x20, 0, 0x53053053) = 0
+set_robust_list(0x7e95a15fe9a0, 24)     = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+futex(0x7e95a79ff588, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = 0
+futex(0x7e95a79ff520, FUTEX_WAKE_PRIVATE, 1) = 0
+mmap(NULL, 134217728, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7e9597c00000
+munmap(0x7e9597c00000, 4194304)         = 0
+munmap(0x7e959c000000, 62914560)        = 0
+mprotect(0x7e9598000000, 135168, PROT_READ|PROT_WRITE) = 0
+write(10, "\1\0\0\0\0\0\0\0", 8)        = 8
+futex(0x7e95a79ff58c, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = ?
++++ killed by SIGKILL +++
+
+==> /home/cakidd/jarvis_audit/extracts/auth_api.strace.2275757 <==
+rseq(0x7e95a0dfdfe0, 0x20, 0, 0x53053053) = 0
+set_robust_list(0x7e95a0dfd9a0, 24)     = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+futex(0x7e95a79ff588, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = ?
++++ killed by SIGKILL +++
+
+==> /home/cakidd/jarvis_audit/extracts/auth_api.strace.2275758 <==
+rseq(0x7e95a05fcfe0, 0x20, 0, 0x53053053) = 0
+set_robust_list(0x7e95a05fc9a0, 24)     = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+futex(0x7ffdbdd30910, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7e95a79ff588, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = ?
++++ killed by SIGKILL +++
+
+==> /home/cakidd/jarvis_audit/extracts/auth_api.strace.2293653 <==
+close(13)                               = 0
+getcwd("/mnt/spiritual_drive/msjarvis-rebuild", 1024) = 38
+newfstatat(AT_FDCWD, "/mnt/spiritual_drive/msjarvis-rebuild", {st_mode=S_IFDIR|0755, st_size=20480, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/mnt/spiritual_drive/msjarvis-rebuild", {st_mode=S_IFDIR|0755, st_size=20480, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/usr/lib/python3.12", {st_mode=S_IFDIR|0755, st_size=20480, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/usr/lib/python3.12/stringprep.py", {st_mode=S_IFREG|0644, st_size=12917, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/usr/lib/python3.12/stringprep.py", {st_mode=S_IFREG|0644, st_size=12917, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/python3.12/__pycache__/stringprep.cpython-312.pyc", O_RDONLY|O_CLOEXEC) = 13
+fstat(13, {st_mode=S_IFREG|0644, st_size=25160, ...}) = 0
+ioctl(13, TCGETS, 0x7ffe3a0913f0)       = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+lseek(13, 0, SEEK_CUR)                  = 0
+fstat(13, {st_mode=S_IFREG|0644, st_size=25160, ...}) = 0
+read(13, "\313\r\r\n\0\0\0\0\300\216\301iu2\0\0\343\0\0\0\0\0\0\0\0\0\0\0\0\t\0\0\0\0\0\0\0\363F\30\0\0\227\0d\0Z\0d\1d\2l\1m\2Z\1\1\0e\1j\6\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0d\3k(\0\0s\2J\0\202\1d\4\204\0Z\4\2\0e\5g\0d\5\242\1\2\0e\6\2\0e\7d\6d\7\253\2\0\0\0\0\0\0\253\1\0\0\0\0\0\0z\0\0\0\253\1\0\0\0\0\0\0Z\10d\10\204\0Z\ti\0d\td\n\223\1d\vd\f\223\1d\rd\16\223\1d\17d\20\223\1d\21d\22\223\1d\23d\24\223\1d\25d\26\223\1d\27d\30\223\1d\31d\32\223\1d\33d\34\223\1d\35d\36\223\1d\37d \223\1d!d\"\223\1d#d$\223\1d%d&\223\1d'd(\223\1"..., 25161) = 25160
+read(13, "", 1)                         = 0
+close(13)                               = 0
+brk(0xd0cb000)                          = 0xd0cb000
+futex(0x784d30862920, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+rt_sigaction(SIGRT_1, {sa_handler=0x784d32099530, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x784d32045330}, NULL, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x784d2a3ff000
+mprotect(0x784d2a400000, 8388608, PROT_READ|PROT_WRITE) = 0
+rt_sigprocmask(SIG_BLOCK, ~[], [], 8)   = 0
+clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x784d2abff990, parent_tid=0x784d2abff990, exit_signal=0, stack=0x784d2a3ff000, stack_size=0x7fff80, tls=0x784d2abff6c0} => {parent_tid=[2293658]}, 88) = 2293658
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x784d29bfe000
+mprotect(0x784d29bff000, 8388608, PROT_READ|PROT_WRITE) = 0
+rt_sigprocmask(SIG_BLOCK, ~[], [], 8)   = 0
+clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x784d2a3fe990, parent_tid=0x784d2a3fe990, exit_signal=0, stack=0x784d29bfe000, stack_size=0x7fff80, tls=0x784d2a3fe6c0} => {parent_tid=[2293659]}, 88) = 2293659
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x784d293fd000
+mprotect(0x784d293fe000, 8388608, PROT_READ|PROT_WRITE) = 0
+rt_sigprocmask(SIG_BLOCK, ~[], [], 8)   = 0
+clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x784d29bfd990, parent_tid=0x784d29bfd990, exit_signal=0, stack=0x784d293fd000, stack_size=0x7fff80, tls=0x784d29bfd6c0} => {parent_tid=[2293660]}, 88) = 2293660
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x784d28bfc000
+mprotect(0x784d28bfd000, 8388608, PROT_READ|PROT_WRITE) = 0
+rt_sigprocmask(SIG_BLOCK, ~[], [], 8)   = 0
+clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x784d293fc990, parent_tid=0x784d293fc990, exit_signal=0, stack=0x784d28bfc000, stack_size=0x7fff80, tls=0x784d293fc6c0} => {parent_tid=[2293661]}, 88) = 2293661
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+futex(0x7ffe3a0921f0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = 0
+futex(0x7ffe3a0921f0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = 0
+futex(0x7ffe3a0921f0, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = 0
+futex(0x784d30862590, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x784d30862588, FUTEX_WAKE_PRIVATE, 1) = 1
+epoll_pwait(3, [{events=EPOLLIN, data={u32=10, u64=10}}], 1024, -1, NULL, 8) = 1
+read(10, "\1\0\0\0\0\0\0\0", 1024)      = 8
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+socket(AF_INET, SOCK_STREAM|SOCK_CLOEXEC, IPPROTO_TCP) = 13
+setsockopt(13, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
+bind(13, {sa_family=AF_INET, sin_port=htons(8095), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+openat(AT_FDCWD, "/dev/null", O_RDONLY|O_CLOEXEC) = 14
+ioctl(13, FIONBIO, [1])                 = 0
+listen(13, 2048)                        = 0
+getsockname(13, {sa_family=AF_INET, sin_port=htons(8095), sin_addr=inet_addr("127.0.0.1")}, [128 => 16]) = 0
+getpid()                                = 2293653
+write(2, "\33[32mINFO\33[0m:     Uvicorn running on \33[1mhttp://127.0.0.1:8095\33[0m (Press CTRL+C to quit)\n", 91) = 91
+io_uring_enter(5, 1, 1, IORING_ENTER_GETEVENTS, NULL, 0) = 1
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 99, NULL, 8)   = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 99, NULL, 8)   = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3, [], 1024, 100, NULL, 8)  = 0
+epoll_pwait(3, [], 1024, 0, NULL, 8)    = 0
+epoll_pwait(3,  <unfinished ...>)       = ?
++++ killed by SIGKILL +++
+
+==> /home/cakidd/jarvis_audit/extracts/auth_api.strace.2293658 <==
+rseq(0x784d2abfffe0, 0x20, 0, 0x53053053) = 0
+set_robust_list(0x784d2abff9a0, 24)     = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+futex(0x7ffe3a0921f0, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x784d30862588, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = ?
++++ killed by SIGKILL +++
+
+==> /home/cakidd/jarvis_audit/extracts/auth_api.strace.2293659 <==
+rseq(0x784d2a3fefe0, 0x20, 0, 0x53053053) = 0
+set_robust_list(0x784d2a3fe9a0, 24)     = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+futex(0x7ffe3a0921f0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x784d30862588, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = 0
+futex(0x784d30862520, FUTEX_WAKE_PRIVATE, 1) = 0
+mmap(NULL, 134217728, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x784d20a00000
+munmap(0x784d20a00000, 56623104)        = 0
+munmap(0x784d28000000, 10485760)        = 0
+mprotect(0x784d24000000, 135168, PROT_READ|PROT_WRITE) = 0
+write(10, "\1\0\0\0\0\0\0\0", 8)        = 8
+futex(0x784d3086258c, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = ?
++++ killed by SIGKILL +++
+
+==> /home/cakidd/jarvis_audit/extracts/auth_api.strace.2293660 <==
+rseq(0x784d29bfdfe0, 0x20, 0, 0x53053053) = 0
+set_robust_list(0x784d29bfd9a0, 24)     = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+futex(0x7ffe3a0921f0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x784d30862588, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = ?
++++ killed by SIGKILL +++
+
+==> /home/cakidd/jarvis_audit/extracts/auth_api.strace.2293661 <==
+rseq(0x784d293fcfe0, 0x20, 0, 0x53053053) = 0
+set_robust_list(0x784d293fc9a0, 24)     = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+futex(0x7ffe3a0921f0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x784d30862588, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = ?
++++ killed by SIGKILL +++
+cakidd      2238       1  0 Jun17 ?        00:32:01 /usr/bin/python3 /home/cakidd/.local/bin/uvicorn services.port_9000_chat_wrapper_69dgm:app --host 0.0.0.0 --port 9002
+cakidd     16253       1  0 Jun17 ?        00:31:58 /usr/bin/python3 /home/cakidd/.local/bin/uvicorn gbim_api:app --host 0.0.0.0 --port 8051
+cakidd     16257       1  0 Jun17 ?        00:33:09 /opt/msjarvis-rebuild/.venv/bin/python3 services/ms_jarvis_production_chat.py
+cakidd     16258       1  0 Jun17 ?        00:33:08 /opt/msjarvis-rebuild/.venv/bin/python3 services/ms_jarvis_production_chat.py
+root      370382  370358  0 Jul02 ?        00:03:58 /usr/local/bin/python3.11 /usr/local/bin/uvicorn chromadb.app:app --workers 1 --host 0.0.0.0 --port 8000 --proxy-headers --log-config chromadb/log_config.yml --timeout-keep-alive 30
+root      382210  382186  0 Jul02 ?        00:02:10 python -m uvicorn temporal_consciousness:app --host 0.0.0.0 --port 7007
+root      400625  400603  0 Jul02 ?        00:02:49 /usr/local/bin/python3.12 /usr/local/bin/uvicorn app:app --host 0.0.0.0 --port 8046
+root      429781  429758  0 Jul02 ?        00:02:47 /usr/local/bin/python3.12 /usr/local/bin/uvicorn app:app --host 0.0.0.0 --port 8045
+root     1228831 1228807  0 Jul02 ?        00:02:39 python3.10 ms_jarvis_unified_gateway.py
+cakidd   1456285       1  0 Jun27 ?        00:10:57 /usr/bin/python3 -m uvicorn ms_jarvis_consciousness_enhancement_production:app --host 0.0.0.0 --port 4021 --log-level info
+root     1932777 1932753  0 09:44 ?        00:00:00 python3 -c import time; print("jarvis-ingest-api: deprecated stub"); time.sleep(86400)
+cakidd   2047761 2047760  0 Jun30 ?        00:00:32 node /mnt/spiritual_drive/msjarvis-rebuild/node_modules/.bin/hardhat node
+root     2101554 2101529  0 11:56 ?        00:00:29 /usr/local/bin/python3.10 /usr/local/bin/uvicorn civic_intake:app --host 0.0.0.0 --port 8100 --app-dir /app/services/hilbert
+cakidd   2175651       1  0 Jun30 ?        00:05:37 /mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/bin/python3 -m uvicorn services.jarvis-assertion-gateway.app.main:app --host 127.0.0.1 --port 8009
+root     2182154 2182131  0 12:54 ?        00:00:46 /usr/local/bin/python3.10 /usr/local/bin/uvicorn jarvis_hilbert_state:app --host 0.0.0.0 --port 8081
+cakidd   2287608 2287607  0 Jun30 ?        00:03:52 python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8001 --reload
+cakidd   2287609 2287608  0 Jun30 ?        00:00:00 /mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/bin/python3 -c from multiprocessing.resource_tracker import main;main(4)
+cakidd   2287610 2287608  0 Jun30 ?        00:05:55 /mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/bin/python3 -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=5, pipe_handle=7) --multiprocessing-fork
+root     2293574       1  0 14:18 ?        00:00:00 /usr/bin/docker compose -f /opt/msjarvis-rebuild/docker-compose.yml pull --ignore-pull-failures
+root     2293603 2293574  5 14:18 ?        00:00:00 /usr/libexec/docker/cli-plugins/docker-compose compose -f /opt/msjarvis-rebuild/docker-compose.yml pull --ignore-pull-failures
+cakidd   2293695 2289716  0 14:18 pts/2    00:00:00 rg uvicorn|auth_api|jarvis
+cakidd   2293696 2289716  0 14:18 pts/2    00:00:00 tee /home/cakidd/jarvis_audit/extracts/process_supervisors.log
+root     2571112 2571004  0 Jul01 ?        00:06:08 python ms_jarvis_psychology_services.py
+root     2572199 2572142  0 Jul01 ?        00:04:44 python -m uvicorn toroidal_service:app --host 0.0.0.0 --port 8025
+root     2582697 2582669  0 Jul01 ?        00:04:07 python -m uvicorn main_brain:app --host 0.0.0.0 --port 8050 --proxy-headers --forwarded-allow-ips=*
+root     2585623 2585594  0 Jul01 ?        00:05:59 python -m uvicorn constitutional_api:app --host 0.0.0.0 --port 8091 --log-level info
+root     2597766 2597660  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2597892 2597766  0 Jul01 ?        00:03:37 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5118
+root     2598300 2598253  0 Jul01 ?        00:09:42 /usr/local/bin/python3.11 /usr/local/bin/uvicorn jarvis_eeg_theta_60s:app --host 0.0.0.0 --port 8074
+root     2598402 2598350  0 Jul01 ?        00:05:41 /usr/local/bin/python3.11 /usr/local/bin/uvicorn jarvis_eeg_beta_5m:app --host 0.0.0.0 --port 8075
+root     2598970 2598697  0 Jul01 ?        00:05:46 /usr/local/bin/python3.11 /usr/local/bin/uvicorn jarvis_eeg_delta_30s:app --host 0.0.0.0 --port 8073
+root     2599117 2598992  0 Jul01 ?        00:06:24 /usr/local/bin/python3.11 /usr/local/bin/uvicorn rag_query_router:app --host 0.0.0.0 --port 5001
+root     2599310 2599214  0 Jul01 ?        00:00:37 python3 ms_jarvis_swarm_intelligence.py
+root     2600198 2599793  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2600214 2599747  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2600224 2599866  0 Jul01 ?        00:07:31 python3 ms_jarvis_phi_probe.py
+root     2600457 2599916  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2600461 2599936  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2600569 2600054  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2600799 2600162  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2601460 2600273  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2601769 2600482  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2602044 2600527  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2602616 2600911  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2602673 2600669  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2602745 2600764  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2602960 2600198  0 Jul01 ?        00:03:40 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5115
+root     2603204 2600214  0 Jul01 ?        00:03:38 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5122
+root     2603739 2600569  0 Jul01 ?        00:03:38 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5108
+root     2604110 2600457  0 Jul01 ?        00:03:38 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5111
+root     2604114 2600799  0 Jul01 ?        00:03:39 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5112
+root     2604116 2600461  0 Jul01 ?        00:03:38 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5107
+root     2604117 2601608  0 Jul01 ?        00:04:40 /usr/local/bin/python3.11 /usr/local/bin/uvicorn gis_rag_service:app --host 0.0.0.0 --port 8004
+root     2604123 2601096  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2604146 2602608  0 Jul01 ?        00:00:00 sh -c ln -sfn /app/neurobiological_brain/i_containers /app/neurobiological_brain/neurobiologicalbrain/i_containers 2>/dev/null; python3 ms_jarvis_i_containers_service.py
+root     2604164 2601993  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2604167 2601218  0 Jul01 ?        00:04:17 python3 ms_jarvis_agents_service.py
+root     2604170 2601032  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2604209 2602079  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2604256 2601175  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2604265 2601683  0 Jul01 ?        00:00:00 sh -c pip install fastapi uvicorn redis -q && python3 pia_sampler_service.py
+root     2604269 2601742  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2604385 2601084  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2604395 2601043  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2604403 2602136  0 Jul01 ?        00:04:39 python ms_jarvis_web_research_simple.py
+root     2604410 2601855  0 Jul01 ?        00:05:53 python -m uvicorn aaacpe_rag_service:app --host 0.0.0.0 --port 8032
+root     2604412 2602551  0 Jul01 ?        00:08:19 python -m uvicorn aaacpe_scraper_service:app --host 0.0.0.0 --port 8033
+root     2604420 2602044  0 Jul01 ?        00:03:38 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5116
+root     2604437 2602601  0 Jul01 ?        00:04:41 python -m uvicorn msjarvis_semaphore:app --host 0.0.0.0 --port 8030
+root     2604566 2601564  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2604637 2602437  0 Jul01 ?        00:00:00 sh -c python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}
+root     2604673 2601460  0 Jul01 ?        00:03:39 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5110
+root     2604854 2601769  0 Jul01 ?        00:03:38 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5102
+root     2605068 2604123  0 Jul01 ?        00:03:38 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5109
+root     2605139 2602616  0 Jul01 ?        00:03:39 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5114
+root     2605203 2602745  0 Jul01 ?        00:03:39 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5105
+root     2605261 2602673  0 Jul01 ?        00:03:38 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5113
+root     2605427 2604209  0 Jul01 ?        00:03:39 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5103
+root     2606119 2604164  0 Jul01 ?        00:03:39 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5104
+root     2606200 2604256  0 Jul01 ?        00:03:39 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5101
+root     2606364 2604170  0 Jul01 ?        00:03:39 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5123
+root     2606492 2604269  0 Jul01 ?        00:03:38 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5106
+root     2606661 2604566  0 Jul01 ?        00:03:39 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5117
+root     2606764 2604146  0 Jul01 ?        00:04:40 python3 ms_jarvis_i_containers_service.py
+root     2606989 2604637  0 Jul01 ?        00:03:38 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5119
+root     2607395 2604385  0 Jul01 ?        00:03:39 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5120
+root     2607478 2604395  0 Jul01 ?        00:03:38 python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port 5121
+root     2669238 2668683  0 Jul01 ?        00:04:54 python -m uvicorn icontainers_fastapi:app --host 0.0.0.0 --port 8015
+root     2680091 2680068  0 Jul01 ?        00:06:26 python3 /app/ms_jarvis_consciousness_unified_bridge.py
+root     2680232 2680206  0 Jul01 ?        00:04:27 python3 ms_jarvis_neurobiological_master.py
+root     2756345 2756322  0 Jul01 ?        00:01:29 /usr/local/bin/python3.10 /usr/local/bin/gunicorn -k uvicorn.workers.UvicornWorker -c /gunicorn_conf.py pituitary_gland:app
+root     2756500 2756345  0 Jul01 ?        00:04:29 /usr/local/bin/python3.10 /usr/local/bin/gunicorn -k uvicorn.workers.UvicornWorker -c /gunicorn_conf.py pituitary_gland:app
+root     2756508 2756345  0 Jul01 ?        00:04:29 /usr/local/bin/python3.10 /usr/local/bin/gunicorn -k uvicorn.workers.UvicornWorker -c /gunicorn_conf.py pituitary_gland:app
+root     2756516 2756345  0 Jul01 ?        00:04:30 /usr/local/bin/python3.10 /usr/local/bin/gunicorn -k uvicorn.workers.UvicornWorker -c /gunicorn_conf.py pituitary_gland:app
+root     2756517 2756345  0 Jul01 ?        00:04:31 /usr/local/bin/python3.10 /usr/local/bin/gunicorn -k uvicorn.workers.UvicornWorker -c /gunicorn_conf.py pituitary_gland:app
+cakidd   2761116       1  0 Jul01 ?        00:04:11 /usr/bin/python3 /mnt/spiritual_drive/msjarvis-rebuild/services/interaction_logger.py
+root     2762688 2762664  0 Jul01 ?        00:04:46 python -m uvicorn llm1_health_proxy:app --host 0.0.0.0 --port 8201
+root     2762813 2762790  0 Jul01 ?        00:04:44 python -m uvicorn llm2_health_proxy:app --host 0.0.0.0 --port 8202
+root     2762965 2762941  0 Jul01 ?        00:04:44 python -m uvicorn llm3_health_proxy:app --host 0.0.0.0 --port 8203
+root     2763090 2763067  0 Jul01 ?        00:04:47 python -m uvicorn llm4_health_proxy:app --host 0.0.0.0 --port 8204
+root     2763297 2763274  0 Jul01 ?        00:04:44 python -m uvicorn llm5_health_proxy:app --host 0.0.0.0 --port 8205
+root     2763435 2763412  0 Jul01 ?        00:04:46 python -m uvicorn llm6_health_proxy:app --host 0.0.0.0 --port 8206
+root     2763571 2763535  0 Jul01 ?        00:04:44 python -m uvicorn llm7_health_proxy:app --host 0.0.0.0 --port 8207
+root     2763690 2763668  0 Jul01 ?        00:04:45 python -m uvicorn llm8_health_proxy:app --host 0.0.0.0 --port 8208
+root     2763830 2763806  0 Jul01 ?        00:04:44 python -m uvicorn llm9_health_proxy:app --host 0.0.0.0 --port 8209
+root     2763959 2763934  0 Jul01 ?        00:04:46 python -m uvicorn llm10_health_proxy:app --host 0.0.0.0 --port 8210
+root     2764109 2764086  0 Jul01 ?        00:04:45 python -m uvicorn llm11_health_proxy:app --host 0.0.0.0 --port 8211
+root     2764231 2764208  0 Jul01 ?        00:04:46 python -m uvicorn llm12_health_proxy:app --host 0.0.0.0 --port 8212
+root     2764359 2764336  0 Jul01 ?        00:04:45 python -m uvicorn llm13_health_proxy:app --host 0.0.0.0 --port 8213
+root     2764479 2764457  0 Jul01 ?        00:04:45 python -m uvicorn llm14_health_proxy:app --host 0.0.0.0 --port 8214
+root     2764614 2764590  0 Jul01 ?        00:04:46 python -m uvicorn llm15_health_proxy:app --host 0.0.0.0 --port 8215
+root     2764738 2764714  0 Jul01 ?        00:04:45 python -m uvicorn llm16_health_proxy:app --host 0.0.0.0 --port 8216
+root     2764864 2764840  0 Jul01 ?        00:04:45 python -m uvicorn llm17_health_proxy:app --host 0.0.0.0 --port 8217
+root     2764991 2764968  0 Jul01 ?        00:04:46 python -m uvicorn llm18_health_proxy:app --host 0.0.0.0 --port 8218
+root     2765121 2765090  0 Jul01 ?        00:04:45 python -m uvicorn llm19_health_proxy:app --host 0.0.0.0 --port 8219
+root     2765246 2765221  0 Jul01 ?        00:04:45 python -m uvicorn llm20_health_proxy:app --host 0.0.0.0 --port 8220
+root     2765389 2765366  0 Jul01 ?        00:04:45 python -m uvicorn llm21_health_proxy:app --host 0.0.0.0 --port 8221
+root     2765518 2765491  0 Jul01 ?        00:04:46 python -m uvicorn llm22_health_proxy:app --host 0.0.0.0 --port 8222
+cakidd   3231143       1  0 Jun23 ?        00:20:44 /mnt/nvme1/msjarvis-rebuild/.venv/bin/python3 services/qualia_unified_orchestrator_69dgm.py
+cakidd   3231144       1  0 Jun23 ?        00:18:38 /usr/bin/python3 scripts/jarvis_auth_service.py
+  jarvis-auth.service                                                                       loaded    active     running            Ms. Jarvis Auth + Status Service
+  jarvis-chat-metrics.service                                                               loaded    inactive   dead               Build Jarvis chat metrics JSON
+  jarvis-consciousness-4021.service                                                         loaded    active     running            Ms. Jarvis Consciousness Enhancement 4021
+  jarvis-interaction-logger.service                                                         loaded    active     running            Jarvis Interaction Logger
+  ms-allis-auth-router.service                                                              loaded    activating auto-restart       Ms Allis Auth Router (port 8095)
+  ms-allis-auth.service                                                                     loaded    activating auto-restart       Ms Allis Auth Service
+  msjarvis-69dgm-9000.service                                                               loaded    inactive   dead               MsJarvis Port 9000 → 69-DGM Bridge
+  msjarvis-69dgm-9002-chat.service                                                          loaded    active     running            MsJarvis Port 9002 → 69-DGM Chat Wrapper
+  msjarvis-69dgm-orchestrator.service                                                       loaded    inactive   dead               MsJarvis 69-DGM Orchestrator (port 8300)
+  msjarvis-chat.service                                                                     loaded    active     running            Ms. Jarvis Production Chat Service (port 8018)
+  msjarvis-interaction-logger.service                                                       loaded    activating auto-restart       MS Jarvis Interaction Logger
+  msjarvis-production-chat.service                                                          loaded    active     running            Ms. Allis Production Chat Pipeline (port 8018)
+  msjarvis.service                                                                          loaded    activating start-pre    start Ms. Jarvis Rebuild Stack
+  polkit.service                                                                            loaded    active     running            Authorization Manager
+  postgresql@16-msjarvis.service                                                            loaded    inactive   dead               PostgreSQL Cluster 16-msjarvis
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
 # Investigative Audit and Action Plan for Production Stability
 
 ## Scope
