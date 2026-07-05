@@ -1,12 +1,12 @@
-# Does Meaning Require Geometry? (DRAFT)
+# Does Meaning Require Geometry?
 ## A Registered-Report Style Protocol for Testing Semantic Dependence on Structured Spatial-Temporal Constraints in Ms. Allis
 
-**Author:** C.A. Kidd  
-**Affiliation:** Fayette County, West Virginia  
-**Date:** July 2026  
+**Author:** C.A. Kidd
+**Affiliation:** Fayette County, West Virginia
+**Date:** July 2026
 **Manuscript Type:** Protocol / Registered Report Stage 1 Draft
 
-***
+---
 
 ## Abstract
 
@@ -24,19 +24,19 @@ The substantive aim is modest. The manuscript does not attempt to settle the har
 
 ### 2.1 Penrose and Geometry
 
-Penrose’s *Shadows of the Mind* argues that mathematical understanding exceeds purely algorithmic formalization and suggests that some non-computable element may be linked to the physics of spacetime (Penrose, 1994). In the Orch OR framework later elaborated with Hameroff, conscious events are associated with orchestrated quantum processes in neuronal microtubules whose evolution terminates via objective reduction related to spacetime geometry (Hameroff & Penrose, 2014).
+Penrose's *Shadows of the Mind* argues that mathematical understanding exceeds purely algorithmic formalization and suggests that some non-computable element may be linked to the physics of spacetime (Penrose, 1994). In the Orch OR framework later elaborated with Hameroff, conscious events are associated with orchestrated quantum processes in neuronal microtubules whose evolution terminates via objective reduction related to spacetime geometry (Hameroff & Penrose, 2014).
 
-This proposal remains controversial. Tegmark (2000) argued that decoherence times in the brain are too short for the relevant quantum states to play a neurophysiologically meaningful role. Hagan, Hameroff, and Tuszyński (2002) replied that Tegmark’s critique mischaracterized the Orch OR model and that revised assumptions lengthen the relevant decoherence times, but this rebuttal itself remains contested. The present study does not attempt to adjudicate that debate directly. Instead, it asks whether structured spatial-temporal constraints already appear as necessary conditions for coherent meaning in a classical, engineered system.
+This proposal remains controversial. Tegmark (2000) argued that decoherence times in the brain are too short for the relevant quantum states to play a neurophysiologically meaningful role. Hagan, Hameroff, and Tuszyński (2002) replied that Tegmark's critique mischaracterized the Orch OR model and that revised assumptions lengthen the relevant decoherence times, but this rebuttal itself remains contested. The present study does not attempt to adjudicate that debate directly. Instead, it asks whether structured spatial-temporal constraints already appear as necessary conditions for coherent meaning in a classical, engineered system.
 
 ### 2.2 Hilbert Space and State Geometry
 
-In quantum mechanics, a Hilbert space is a complete inner-product space in which states can be represented as vectors and related by inner products. In natural language processing, vector semantics represents words and texts as points in a multidimensional semantic space, and embeddings are the standard learned vector representations used for this purpose (Jurafsky & Martin, draft chapter “Vector Semantics and Embeddings”).
+In quantum mechanics, a Hilbert space is a complete inner-product space in which states can be represented as vectors and related by inner products. In natural language processing, vector semantics represents words and texts as points in a multidimensional semantic space, and embeddings are the standard learned vector representations used for this purpose (Jurafsky & Martin, draft chapter "Vector Semantics and Embeddings").
 
 The importance of this formal overlap is limited but real. It does not imply that semantic embeddings are physically identical to quantum states. It does imply that both domains use geometry to represent state structure. This manuscript therefore adopts a disciplined version of Hilbert-space language: semantic, geographic, and temporal relations are treated as coupled geometric state spaces, and the claim under test is that the coupling among those spaces may be necessary for coherent meaning.
 
 ### 2.3 Constraint Spaces, Not Mere Context
 
-A central conceptual clarification is required. The intervention proposed here does **not** remove arbitrary context in the broad conversational sense. It removes **structured constraint spaces**—specifically spatial and temporal constraint systems—that bound interpretation, restrict candidate referents, enforce continuity, and enable disambiguation. The study is therefore not designed as a generic “context versus no context” comparison. It is designed as a test of **constrained versus unconstrained semantic resolution**.
+A central conceptual clarification is required. The intervention proposed here does **not** remove arbitrary context in the broad conversational sense. It removes **structured constraint spaces**—specifically spatial and temporal constraint systems—that bound interpretation, restrict candidate referents, enforce continuity, and enable disambiguation. The study is therefore not designed as a generic "context versus no context" comparison. It is designed as a test of **constrained versus unconstrained semantic resolution**.
 
 A deeper principle motivating this design is reciprocity. In a community-grounded system, a record does not fully mean in isolation. Its meaning is constituted through relations among semantic content, place, time, provenance, continuity of identity, local use, and community interpretation. On that view, meaning is not one-way extraction from a community into a machine. A system may receive data from a community, but it owes meaning back in the form of context, accuracy, continuity, and accountability. The protocol therefore tests whether that reciprocal relation is structurally real. The grounded condition preserves the full relation among symbol, place, time, provenance, and community-grounded interpretation; the stripped condition breaks that relation while leaving lexical content in place; and the re-grounded condition tests whether restoring the relevant relations restores semantic coherence.
 
@@ -86,9 +86,7 @@ These layers are analytically separable but operationally coupled. Because the e
 
 A simplified state representation used for conceptual orientation is:
 
-\[
-x = [\text{geo\_vec} \,\|\, \lambda_t \cdot \text{time\_toroid} \,\|\, \lambda_s \cdot s_{\text{vec}}]
-\]
+x = [geo_vec || λ_t · time_toroid || λ_s · s_vec]
 
 This formula is not itself the intervention. It is a compact description of the claim that place, time, and state continuity are constitutive dimensions of meaningful system state.
 
@@ -120,7 +118,7 @@ The planned sample consists of **60 units**, stratified across three categories,
 - **Place-bound knowledge records**.
 - **Ambiguous local referents** whose correct interpretation depends on regional context or event timing.
 
-The choice of 60 units is pragmatic but also analytically motivated. For a paired design, a medium effect size of approximately **\(d \approx 0.5\)** reaches about **80% power** with a sample in the mid-30s, whereas a paired sample of **60 units** provides substantially higher power, approximately **95% or greater at \(\alpha = 0.05\)**. The larger sample is retained here to improve precision, support qualitative error analysis, and provide margin for exclusions or unusable cases. If fewer than 60 qualifying units are available, the minimum acceptable sample for the pilot study is **30 paired units**, and that deviation must be reported explicitly as a reduction in inferential strength.
+The choice of 60 units is pragmatic but also analytically motivated. For a paired design, a medium effect size of approximately **d ≈ 0.5** reaches about **80% power** with a sample in the mid-30s, whereas a paired sample of **60 units** provides substantially higher power, approximately **95% or greater at α = 0.05**. The larger sample is retained here to improve precision, support qualitative error analysis, and provide margin for exclusions or unusable cases. If fewer than 60 qualifying units are available, the minimum acceptable sample for the pilot study is **30 paired units**, and that deviation must be reported explicitly as a reduction in inferential strength.
 
 ### 5.4 Inclusion and Exclusion Criteria
 
@@ -148,13 +146,13 @@ Because provenance can leak geographic or temporal information back into the str
 
 The **stripped condition will use minimal provenance retention** as the default. A sensitivity analysis may optionally compare minimal and structural provenance retention in a secondary analysis to test for leakage effects.
 
-### 5.6 Operational Definition of “Stripped”
+### 5.6 Operational Definition of "Stripped"
 
-“Stripped” does not mean deleting the unit from the system. It means masking or suppressing selected grounding variables while preserving lexical or semantic content, frozen embeddings, and record existence.
+"Stripped" does not mean deleting the unit from the system. It means masking or suppressing selected grounding variables while preserving lexical or semantic content, frozen embeddings, and record existence.
 
 Operationally, the stripped condition will be created on a test copy rather than on production data by the following protocol:
 
-1. **Semantic preservation:** retain the unit’s core text fields, identifiers required for retrieval, and the original frozen embedding representation.
+1. **Semantic preservation:** retain the unit's core text fields, identifiers required for retrieval, and the original frozen embedding representation.
 2. **Geographic suppression:** null, mask, or disconnect explicit geospatial fields and spatial joins used for geographic grounding.
 3. **Temporal suppression:** null, mask, or disconnect temporal event links and ordering features used to preserve event continuity.
 4. **Provenance minimization:** retain minimal provenance only, unless a declared sensitivity analysis uses structural provenance.
@@ -162,7 +160,7 @@ Operationally, the stripped condition will be created on a test copy rather than
 
 For final submission, this section should be accompanied by a schema-level appendix listing the actual fields, table columns, graph edges, or service hooks altered during the intervention.
 
-### 5.7 Operational Definition of “Re-grounded”
+### 5.7 Operational Definition of "Re-grounded"
 
 The re-grounded condition restores the same classes of structured constraint information removed during stripping. Specifically, geographic bindings, temporal event links, and authorized retrieval pathways are re-enabled while frozen semantic vectors remain unchanged. This condition is not intended to create a new semantic representation; it is intended to test whether restoring structured constraints recovers lost performance.
 
@@ -214,11 +212,11 @@ To support blinding:
 - condition labels will be hidden from blind raters,
 - and raters will not be told which hypothesis is primary.
 
-Because the system-familiar rater cannot be fully blinded, that rater’s scores will not drive the primary inferential test.
+Because the system-familiar rater cannot be fully blinded, that rater's scores will not drive the primary inferential test.
 
 ### 5.14 Reliability Checks
 
-Inter-rater reliability will be assessed using **Krippendorff’s alpha** for ordinal scoring, or weighted kappa for pairwise checks if alpha is infeasible in the first pass. If blind-rater reliability is below **0.67**, the rubric will be treated as insufficiently stable and the study will be reported as a pilot requiring rubric revision rather than as a decisive test.
+Inter-rater reliability will be assessed using **Krippendorff's alpha** for ordinal scoring, or weighted kappa for pairwise checks if alpha is infeasible in the first pass. If blind-rater reliability is below **0.67**, the rubric will be treated as insufficiently stable and the study will be reported as a pilot requiring rubric revision rather than as a decisive test.
 
 ### 5.15 Statistical Analysis Plan
 
@@ -229,11 +227,11 @@ Planned analyses:
 1. Compute per-unit mean composite score in grounded, stripped, and re-grounded conditions.
 2. Compute paired difference scores for grounded-minus-stripped and re-grounded-minus-stripped contrasts.
 3. Use **paired t-tests** if assumptions are tolerably met; otherwise use **Wilcoxon signed-rank tests**.
-4. Report **effect size** using Cohen’s \(d\) for paired comparisons or a matched-rank effect size as appropriate.
+4. Report **effect size** using Cohen's d for paired comparisons or a matched-rank effect size as appropriate.
 5. Report **95% confidence intervals** for the mean paired differences.
 6. Optionally use a repeated-measures model as a robustness check across all three conditions.
 
-The primary threshold for statistical significance will be **\(p < 0.05\)**, two-tailed. Because the study is modest in sample size and partly exploratory, emphasis should be placed on effect size and confidence interval width, not on p-values alone.
+The primary threshold for statistical significance will be **p < 0.05**, two-tailed. Because the study is modest in sample size and partly exploratory, emphasis should be placed on effect size and confidence interval width, not on p-values alone.
 
 ### 5.16 What Counts as Evidence of Degradation
 
@@ -283,7 +281,7 @@ First, the use of Hilbert-space language is mathematical and structural, not a c
 
 Second, the present protocol addresses semantic coherence in a deployed intelligence system, not subjective awareness. It therefore cannot resolve the hard problem of consciousness.
 
-Third, even a strong positive result would not validate Penrose’s full biological or quantum-mechanical implementation, especially given the continuing critique literature around Orch OR.
+Third, even a strong positive result would not validate Penrose's full biological or quantum-mechanical implementation, especially given the continuing critique literature around Orch OR.
 
 Fourth, the stripped intervention depends on the current architecture of Ms. Allis. Because the system is evolving, a versioned implementation appendix should accompany execution so that the suppression procedure is reproducible against the exact schema and service layout used at test time.
 
@@ -299,7 +297,7 @@ Either way, the gain is clarity.
 
 ## References
 
-Hameroff, S., & Penrose, R. (2014). Consciousness in the universe: A review of the “Orch OR” theory. *Physics of Life Reviews, 11*(1), 39–78. https://doi.org/10.1016/j.plrev.2013.08.002
+Hameroff, S., & Penrose, R. (2014). Consciousness in the universe: A review of the "Orch OR" theory. *Physics of Life Reviews, 11*(1), 39–78. https://doi.org/10.1016/j.plrev.2013.08.002
 
 Hagan, S., Hameroff, S. R., & Tuszyński, J. A. (2002). Quantum computation in brain microtubules: Decoherence and biological feasibility. *Physical Review E, 65*(6), 061901. https://doi.org/10.1103/PhysRevE.65.061901
 
@@ -308,6 +306,8 @@ Jurafsky, D., & Martin, J. H. (draft online chapter). Vector semantics and embed
 Penrose, R. (1994). *Shadows of the Mind: A Search for the Missing Science of Consciousness*. Oxford University Press.
 
 Tegmark, M. (2000). Importance of quantum decoherence in brain processes. *Physical Review E, 61*(4), 4194–4206. https://doi.org/10.1103/PhysRevE.61.4194
+
+---
 
 # Technical Appendix A: Versioned System Architecture for the Stripping Intervention
 ## Supplement to "Does Meaning Require Geometry?" (Sections 2.4, 5.6, 8)
@@ -327,7 +327,7 @@ Two PostgreSQL containers were running:
 | `jarvis-msjarvis-db` | postgis/postgis:16-3.4 | 5433 | `msjarvis` (populated), `msjarvisgis` (empty skeleton) |
 | `hp-local-db` | postgis/postgis:15-3.4 | none (internal) | `hilbert_people` (populated), `msjarvisgis` (4 KYC tables, 0 rows) |
 
-Supporting stores: `jarvis-chroma` (ChromaDB 0.6.3, port 8002; 248 collections — authoritative semantic store), `jarvis-redis` (port 6380), `neo4j` (7687; not inventoried, auth pending). A second Chroma instance (`chroma-migration-source`, 8010) was confirmed empty and is excluded from this appendix.
+Supporting stores: `jarvis-chroma` (ChromaDB 0.6.3, port 8002; 248 collections — authoritative semantic store), `jarvis-redis` (port 6380), `neo4j` (7687). A second Chroma instance (`chroma-migration-source`, 8010) was confirmed empty and is excluded from this appendix.
 
 **Scope note.** A previously documented three-cluster topology (5433/5434/5435) is not present on the current host; no stopped containers for the 5434/5435 clusters exist. The full ZCTA/`gbim_beliefs` stack formerly attributed to port 5435 is offline and is not part of the apparatus described here (see A.7).
 
@@ -435,9 +435,10 @@ The 60-unit stratified sample (20 civic entities / 20 knowledge records / 20 amb
 ## A.6 Version pinning
 At execution, this appendix must be re-issued with: container image digests (`docker inspect --format '{{.Image}}'`), row counts re-verified on execution date, and the exact test-copy creation script. The July 5 inventory establishes the schema baseline; row counts are expected to drift.
 
-## A.7 Discrepancy register (open items, author adjudication required)
+## A.7 Discrepancy register
+
 1. **[RESOLVED July 5] GBIM corpus located in ChromaDB.** `gbim_beliefs` is 0 rows in every present Postgres database and the formerly documented 5435 cluster does not exist on the current host — but the GBIM-scale corpus was verified in the persistent Chroma store (`geospatialfeatures`: 12,389,268 records with `belief_id`/`geometry_wkt`/`lat`/`layer_name` metadata). The corpus was consolidated into ChromaDB; Postgres `msjarvisgis` skeletons are legacy. System documentation elsewhere should be corrected to name ChromaDB as the belief-corpus store of record.
-1a. **`chroma_export` coverage unverified.** A SQLite normalization export (`normalized_big.sqlite`, table `chroma_export`) exists; a query for `blocks_census_2020_*` layer names returned zero rows, so the export may be partial or use different layer naming. Verify export coverage before any analysis relies on it rather than the live Chroma store.
+1a. **[PARTIALLY RESOLVED July 5] `chroma_export` coverage.** The original zero-row anomaly (blocks query by `layer_name`) was explained: `layer_name` is empty in ~99% of `geospatialfeatures` metadata; source identity is carried in the parsed `geo_gbim_entities` collection's `source_table` field instead. Coverage half remains open: the export held 620,000 of 12,389,268 `geospatialfeatures` records at inventory; a full re-export (batched, 10× throughput) is in progress and closes this item on completion with a verified full-corpus row count.
 2. **`hp.appearance_assertion` = 0 rows** (previously verified at 5). The assertion gateway (formerly port 8009) is not among running containers. Provenance-layer claim verification must be re-established before execution if assertion-based prompts are used.
-3. **Redis Hilbert state keys absent.** Only coherence aggregates exist; per-chat state keys (`hilbert:state:chat:<jobid>`) are not present. Confirm whether writeback uses TTLs (expected expiry) or is currently inactive.
+3. **Redis Hilbert state keys absent — test inconclusive.** Only coherence aggregates exist (persistent, TTL −1, ruling out expiry). A live chat writeback test was attempted but blocked upstream by a pipeline availability failure (`503: 20LLM production fabric is not available` at Phase 1); the writeback question remains open pending fabric restoration and retest.
 4. **[RESOLVED July 5] Neo4j excluded.** Graph inventoried after credential recovery: 0 nodes, no relationship types. The Neo4j container is an unpopulated scaffold and participates in no constraint coupling; it is explicitly excluded from the apparatus. (Operational note, outside protocol scope: the instance runs on a default-style credential and is on the rotation list alongside the outstanding RESEND_API_KEY item.)
