@@ -309,6 +309,135 @@ Penrose, R. (1994). *Shadows of the Mind: A Search for the Missing Science of Co
 
 Tegmark, M. (2000). Importance of quantum decoherence in brain processes. *Physical Review E, 61*(4), 4194–4206. https://doi.org/10.1103/PhysRevE.61.4194
 
-### Source note on Ms. Allis apparatus
+# Technical Appendix A: Versioned System Architecture for the Stripping Intervention
+## Supplement to "Does Meaning Require Geometry?" (Sections 2.4, 5.6, 8)
 
-Claims in this manuscript about the internal architecture of Ms. Allis currently depend in part on project documentation and author-supplied materials that should be included as supplementary technical documentation at submission or cited explicitly as unpublished system documentation.
+**System:** Ms. Allis / MS-JARVIS production stack
+**Inventory date:** July 5, 2026 (14:02 UTC)
+**Method:** Read-only schema inspection via `psql` (docker exec), service OpenAPI enumeration, and key-space scans against the live system. No data was modified. All statements below are drawn from that inventory; items that could not be verified are listed in A.7 rather than asserted.
+
+---
+
+## A.1 Physical topology at inventory time
+
+Two PostgreSQL containers were running:
+
+| Container | Image | Host port | Databases |
+|---|---|---|---|
+| `jarvis-msjarvis-db` | postgis/postgis:16-3.4 | 5433 | `msjarvis` (populated), `msjarvisgis` (empty skeleton) |
+| `hp-local-db` | postgis/postgis:15-3.4 | none (internal) | `hilbert_people` (populated), `msjarvisgis` (4 KYC tables, 0 rows) |
+
+Supporting stores: `jarvis-chroma` (ChromaDB 0.6.3, port 8002; 248 collections — authoritative semantic store), `jarvis-redis` (port 6380), `neo4j` (7687; not inventoried, auth pending). A second Chroma instance (`chroma-migration-source`, 8010) was confirmed empty and is excluded from this appendix.
+
+**Scope note.** A previously documented three-cluster topology (5433/5434/5435) is not present on the current host; no stopped containers for the 5434/5435 clusters exist. The full ZCTA/`gbim_beliefs` stack formerly attributed to port 5435 is offline and is not part of the apparatus described here (see A.7).
+
+**Analysis workspace (excluded from apparatus).** A host-native PostgreSQL instance (`gisdb` on port 5432, schema `normalization`) serves as the analysis/normalization workspace where the sampling frame was constructed (deduplicated `chroma_export` mirror, 5,020,139 rows across three collections; deduplicated `geoanchor`, 865,000 rows; joined feature-anchor view, 620,000 1:1 rows). It is classified as a development workspace — freely mutable schema, no dependent services or user-facing systems — and is **not** part of the Ms. Allis production apparatus. The stripping intervention does not touch it; it appears in this appendix solely as the provenance of the A.5 unit sampling frame. Any future promotion of normalization outputs into production requires a controlled migration to a separate instance.
+
+## A.2 Representational layers → concrete schema objects
+
+The four layers of manuscript Section 4.1 map to the following verified objects.
+
+### A.2.1 Semantic layer (held constant; frozen vectors)
+- **Store:** ChromaDB persistent store at `/mnt/nvme1/msjarvis-data/chroma-live`, served by `jarvis-chroma` (8002); 248 collections (count verified identical via direct `PersistentClient` access and via `jarvis-hp-sidecar` 8094 `/hp/collections`). Civic collections: `civic_role_temporal`, `public_civic_roles`, `public_civic_statements`, `public_civic_documents`, `public_civic_events`, `public_civic_appearances`, `public_civic_sources`, `wv_civic_infrastructure`. The `geospatialfeatures` collection holds 12,389,268 records — the primary GBIM-scale feature corpus.
+- **Freezing procedure:** no re-embedding calls during any condition; collections are read-only for the duration of the study. No embedding/vector columns exist in either Postgres cluster (verified: zero matches for embed/vector column patterns), so ChromaDB is the sole semantic-vector store.
+- **Layer entanglement (design-critical):** Chroma documents in `geospatialfeatures` carry geographic constraint data inside `metadata_json` — verified fields include `geometry_wkt`, `lat`, `layer_name`, and `belief_id`. The semantic and geographic layers therefore coexist in the same store, and geographic suppression cannot be achieved by Postgres masking alone (see A.2.2 and A.4).
+
+### A.2.2 Geographic layer (suppressed in stripped condition)
+Database `msjarvis` on 5433. Verified populated tables and the specific columns to be masked:
+
+| Table | Rows | Columns masked in stripped condition |
+|---|---|---|
+| `gbim_nine_axis` | (populated; axis table) | `axis_2_lat`, `axis_3_lon`, `axis_4_county`, `axis_5_county_overlap` |
+| `gbim_worldview_entity` | 1,512 | `zip_tag`, `county_name_tag`, `centroid_geom` (POINT, SRID 26917) |
+| `gbim_zcta_2020` | 741 | `lat`, `lon`, `geom` |
+| `local_resources` | 48 | `lat`, `lon`, `county`, `zip_coverage`, `address`, `geom` (POINT 4326) |
+| `local_resources_index` | 19 | `county`, `zip`, `address` |
+| `conversation_beliefs` | 221 | any geographic fields present at execution time (column list to be finalized at test-copy creation) |
+
+Large-scale grounding context (not unit-level, but part of the geographic retrieval surface): `wv_buildings` (2.12M rows), `wv_address_points_raw` (1.12M), `wv_gis_features` (1.98M), `building_profile` (2.11M). These are reached by the geographic service layer, not by per-unit joins.
+
+**Structural finding relevant to Section 5.6:** the geographic layer has effectively **no foreign-key constraints** (one FK in the entire `msjarvis` database, internal to PostGIS topology). Geographic coupling is performed at query time by the service layer, not by DDL-level joins. Consequently the stripping intervention for the geographic layer must operate at (a) the column level on a test copy (nulling the fields above) and (b) the service level (suppressing calls to the geographic retrieval service), rather than by severing FK pathways — there are none to sever.
+
+- **Service hook:** `jarvis-gis-rag` (8004), endpoints `/gis_rag`, `/search`. Stripped condition disables routing to this service for test-copy queries.
+
+### A.2.3 Temporal layer (suppressed in stripped condition)
+Database `hilbert_people` on `hp-local-db`, schema `hp`:
+
+| Table | Rows | Temporal fields masked |
+|---|---|---|
+| `hp.appearance_time` | 5 | `time_start`, `time_end`, `time_label`, `precision` |
+| `hp.appearance` | 5 | `time_start`, `time_end` |
+| `hp.civic_event` | 6 | `event_date` (with `event_type`, `title` retained as symbolic content) |
+
+- **Service hook:** `jarvis-toroidal` (8025), endpoint `/process` — the temporal state service. Stripped condition suppresses temporal service calls; re-grounded condition restores them. (`jarvis-temporal-consciousness` runs on internal port 7007; it exposes no reachable OpenAPI surface from the host and is treated as internal middleware, not a masking hook.)
+
+### A.2.4 Provenance layer (retention levels per Section 5.5)
+Schema `hp` on `hilbert_people`; all identity joins are FK-enforced (unlike the geographic layer):
+
+```
+hp.appearance_assertion.appearance_id → hp.appearance.appearance_id
+hp.appearance_place.appearance_id     → hp.appearance.appearance_id
+hp.appearance_role.appearance_id      → hp.appearance.appearance_id
+hp.appearance_source.appearance_id    → hp.appearance.appearance_id
+hp.appearance_time.appearance_id      → hp.appearance.appearance_id
+hp.suppression_event.appearance_id    → hp.appearance.appearance_id
+```
+
+Provenance retention levels map to actual columns as follows:
+- **Minimal provenance:** retain `appearance_id` only.
+- **Structural provenance:** retain `appearance_id` and the FK relationship rows in `appearance_role` / `appearance_source`, with `retrieved_at`, `time_*`, `place_*`, and `jurisdiction` fields nulled.
+- **Full provenance:** all fields including `provenance_hash`, `merkle_ref`, `appearance_source.source_uri`, `retrieved_at`.
+
+- **Service hook:** `jarvis-provenance` (8046), endpoints `/record`, `/verify/{cid}`.
+
+**Suppression audit trail:** `hp.suppression_event` (columns: `field_name`, `suppression_type`, `reason`, `pipeline_stage`, `provenance_hash`, `decided_at`, `decided_by`; 4 rows at inventory) will be used to log every field masked during the stripped condition, providing a machine-readable record of exactly which constraints were removed per unit. This satisfies the reproducibility requirement of manuscript Section 8 directly from existing infrastructure.
+
+### A.2.5 Anti-surveillance boundary (verified)
+No `legal_name` column exists in any `hp` table (full column enumeration performed). The public-appearance layer is structurally incapable of carrying legal identity; the boundary is enforced at schema level, not by masking. KYC material is isolated in a separate database (`msjarvisgis` on `hp-local-db`: `kyc_vault`, `kyc_vault_access_log`, `kyc_location_strip`, `interaction_provenance_immutable`; all 0 rows at inventory) with no FK linkage to `hp`.
+
+## A.3 State service (cross-layer)
+`jarvis-hilbert-state` (18092) exposes `/state/set`, `/state/get`, `/state/transition`, `/state/list`, `/entanglement`, `/hp/ingest`, `/hp/query`, `/hp/entity/{entity_id}`. Durable Redis state keys were not found (only `hilbert:coherence:*` in db 0: `history`, `latest`, `system_score`); the HTTP API is therefore the operative state pathway, and stripped-condition state isolation is implemented by directing test-copy traffic to a separate state namespace rather than by Redis key masking.
+
+## A.4 Stripping implementation summary (operationalizes Section 5.6)
+
+| Step (manuscript 5.6) | Concrete implementation |
+|---|---|
+| 1. Semantic preservation | ChromaDB collections read-only; no re-embedding; similarity search unchanged in all conditions; unit text fields and `appearance_id`/entity identifiers retained on test copy |
+| 2. Geographic suppression | (a) Test copy of `msjarvis` tables in A.2.2 with listed columns nulled; (b) `jarvis-gis-rag` routing disabled for test-copy queries; (c) **Chroma metadata projection filter**: retrieval in the stripped condition excludes `geometry_wkt`, `lat`, `lon`, `layer_name`, and any county/zip metadata keys from returned documents, while vectors and document text remain untouched — required because geographic constraints are embedded in `metadata_json` (A.2.1) |
+| 3. Temporal suppression | Test copy of `hp` tables with A.2.3 fields nulled; `jarvis-toroidal` routing disabled |
+| 4. Provenance minimization | Minimal-provenance projection per A.2.4; sensitivity analysis uses structural level |
+| 5. Prompt parity | Identical prompt set across grounded / stripped / re-grounded, dispatched through the same gateway |
+| Audit | Every masked field logged to `hp.suppression_event` with `pipeline_stage='protocol_strip'` |
+
+Re-grounding restores the nulled columns from the untouched production tables and re-enables the two service routes; frozen vectors are never touched in any condition.
+
+## A.5 Unit sampling frame (constrains Section 5.3)
+Populated, protocol-eligible unit sources at inventory: `gbim_worldview_entity` (1,512), `gbim_zcta_2020` (741), `conversation_beliefs` (221), `local_resources` (48), `hp.appearance` (5), `hp.civic_event` (6), the `geospatialfeatures` Chroma collection (12,389,268 records), and the civic Chroma collections.
+
+Normalization work has produced a consolidated **`geoanchor`** crosswalk table (865,000 rows spanning 185 source tables; fields: record_id / entity_id / worldview_uuid / entity_type / sourcetable / sourcepk / label; all rows carry Chroma collection `gbim_entities`). Label-quality census across all 865,000 rows: **38,237 real human-readable labels (4.4%), 826,763 generic (`feat_N`), 0 empty.** The protocol-usable sampling universe is therefore the ~38K real-label subset. Top real-label source tables:
+
+| Source table | Real-label units |
+|---|---|
+| `blocks_census_2020_utm83_full` | 19,636 |
+| `blocks_census_2020_utm83` | 6,443 |
+| `surveycontrol_nationalgeodeticsurvey_102011_gcs83` | 6,288 |
+| `votingdistrictswv_legislativeservices_2002` (utm83+ll83) | 2,839 |
+| `votingdistrictswv_uscensus_2000_utm83` | 1,061 |
+| `manufacturingandbusiness_wvdo_200803_utm83` | 475 |
+| `blockgroups_census_2020_utm83` | 325 |
+| `floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83` | 223 |
+| civic-facility tail (populated places, industrial sites/parks, office buildings, libraries, 911 centers, streams, workforce areas) | ~600 combined |
+
+Census block/blockgroup labels are fully qualified ("Block Group 3; Census Tract 109.01; Wood County; West Virginia") — protocol-ready. The `blocks_census_2020_wma84` variant (6,531 rows) and the zipcode (`zipcodetabulationarea_census_2020_wma84`, 620) and tax-district (`wv_tax_districts_ll83` 245 + `wv_tax_districts_wma84` 230 = 475) frames carry only generic `feat_N` labels and are **excluded from unit sampling until label enrichment**, since a `feat_447` label cannot support the rubric's specificity or disambiguation dimensions. (`geo_anchor_zip_tax.csv` is a concatenation of the zipcode and both tax-district frames — 1,095 = 620 + 245 + 230, verified by sourcetable resolution through geoanchor — not a join product.)
+
+The 60-unit stratified sample (20 civic entities / 20 knowledge records / 20 ambiguous referents) is drawable from: civic entities — `gbim_worldview_entity`, `local_resources`, manufacturing/business, civic-facility tail; knowledge records — census blockgroups/blocks (real-label variants), floodplain structures; ambiguous local referents — populated places and geographic-name features sharing names across counties.
+
+## A.6 Version pinning
+At execution, this appendix must be re-issued with: container image digests (`docker inspect --format '{{.Image}}'`), row counts re-verified on execution date, and the exact test-copy creation script. The July 5 inventory establishes the schema baseline; row counts are expected to drift.
+
+## A.7 Discrepancy register (open items, author adjudication required)
+1. **[RESOLVED July 5] GBIM corpus located in ChromaDB.** `gbim_beliefs` is 0 rows in every present Postgres database and the formerly documented 5435 cluster does not exist on the current host — but the GBIM-scale corpus was verified in the persistent Chroma store (`geospatialfeatures`: 12,389,268 records with `belief_id`/`geometry_wkt`/`lat`/`layer_name` metadata). The corpus was consolidated into ChromaDB; Postgres `msjarvisgis` skeletons are legacy. System documentation elsewhere should be corrected to name ChromaDB as the belief-corpus store of record.
+1a. **`chroma_export` coverage unverified.** A SQLite normalization export (`normalized_big.sqlite`, table `chroma_export`) exists; a query for `blocks_census_2020_*` layer names returned zero rows, so the export may be partial or use different layer naming. Verify export coverage before any analysis relies on it rather than the live Chroma store.
+2. **`hp.appearance_assertion` = 0 rows** (previously verified at 5). The assertion gateway (formerly port 8009) is not among running containers. Provenance-layer claim verification must be re-established before execution if assertion-based prompts are used.
+3. **Redis Hilbert state keys absent.** Only coherence aggregates exist; per-chat state keys (`hilbert:state:chat:<jobid>`) are not present. Confirm whether writeback uses TTLs (expected expiry) or is currently inactive.
+4. **[RESOLVED July 5] Neo4j excluded.** Graph inventoried after credential recovery: 0 nodes, no relationship types. The Neo4j container is an unpopulated scaffold and participates in no constraint coupling; it is explicitly excluded from the apparatus. (Operational note, outside protocol scope: the instance runs on a default-style credential and is on the rotation list alongside the outstanding RESEND_API_KEY item.)
