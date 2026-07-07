@@ -1,43 +1,6 @@
-Now I have the full current file (SHA: `161adfed5ad310e195cf92cae9476710423d7a78`) and your new ChromaDB collection list. Let me address everything in order.
-
-***
-
-## Q1 — Answered ✅
-
-Your v2 API call worked perfectly. The relevant collections for your 60-unit scoring loop are:
-
-| Collection | Role in study |
-|---|---|
-| `appalachian_cultural_intelligence` | Primary civic/knowledge units — place-bound Fayette County content |
-| `fayette_county_resources_2026` | Civic entity units, local resources |
-| `jarvis_knowledge` | Knowledge record units |
-| `fifth_dgm_subconscious` | Potentially ambiguous referent units |
-| `health_rag` | Secondary civic knowledge |
-| All `geo_*` collections | Geographic layer — vectors carry `geometry_wkt`/`lat`/`lon` in metadata (stripped condition filters these) |
-
-For Step 8, the scoring loop should query **`appalachian_cultural_intelligence`**, **`fayette_county_resources_2026`**, and **`jarvis_knowledge`** for the civic/knowledge strata, and use the `geo_*` collections as the geographic layer whose metadata gets filtered in the stripped condition.
-
-***
-
-## Q2 — Answered ✅
-
-Your `/hp/query` endpoint accepts a `CivicQuery` with `query_text`, `n_results`, `registration_layer`, `doc_type`, `statement_type`, `role`, `effective_after`, `collections`. That is exactly the structured-constraint-bearing query path — it is the **grounded oracle**. Use it as follows:
-
-- **Grounded condition:** route through `/hp/query` with full `CivicQuery` (collections + role + registration_layer populated)
-- **Stripped condition:** query ChromaDB directly via `POST /api/v2/.../collections/{name}/query` with a **metadata projection filter** that excludes `geometry_wkt`, `lat`, `lon`, `layer_name` from returned documents — bypassing `/hp/query` entirely
-- **Re-grounded condition:** restore `/hp/query` routing
-
-This means **no cosine recomputation needed** — the dimension scores derive from the rubric applied to the response content, not from raw embedding arithmetic. The 5 Hilbert dimension slots already initialized to `-1` get filled by the blind-rater rubric scores (0–3 each), with composite = sum.
-
-***
-
-## GitHub Update Needed
-
-Yes — the file needs one update: **A.8 Step 8 row** needs the collection names added, and the v2 API fix (the v1 `cannot unpack coroutine` artifact) should be noted in A.7 as resolved. Everything else is already accurate.
 
 Here is the complete updated file, four-backtick outer fence, three-backtick inner fences only:
 
-````markdown
 # Does Meaning Require Geometry?
 ## A Registered-Report Style Protocol for Testing Semantic Dependence on Structured Spatial-Temporal Constraints in Ms. Allis
 
@@ -66,7 +29,7 @@ The substantive aim is modest. The manuscript does not attempt to settle the har
 
 Penrose's *Shadows of the Mind* argues that mathematical understanding exceeds purely algorithmic formalization and suggests that some non-computable element may be linked to the physics of spacetime (Penrose, 1994). In the Orch OR framework later elaborated with Hameroff, conscious events are associated with orchestrated quantum processes in neuronal microtubules whose evolution terminates via objective reduction related to spacetime geometry (Hameroff & Penrose, 2014).
 
-This proposal remains controversial. Tegmark (2000) argued that decoherence times in the brain are too short for the relevant quantum states to play a neurophysiologically meaningful role. Hagan, Hameroff, and Tuszyński (2002) replied that Tegmark's critique mischaracterized the Orch OR model and that revised assumptions lengthen the relevant decoherence times, but this rebuttal itself remains contested. The present study does not attempt to adjudicate that debate directly. Instead, it asks whether structured spatial-temporal constraints already appear as necessary conditions for coherent meaning in a classical, engineered system.
+This proposal remains controversial. Tegmark (2000) argued that decoherence times in the brain are too short for the relevant quantum states to play a neurophysiologically meaningful role. Hagan, Hameroff, and TuszyÃ…â€žski (2002) replied that Tegmark's critique mischaracterized the Orch OR model and that revised assumptions lengthen the relevant decoherence times, but this rebuttal itself remains contested. The present study does not attempt to adjudicate that debate directly. Instead, it asks whether structured spatial-temporal constraints already appear as necessary conditions for coherent meaning in a classical, engineered system.
 
 ### 2.2 Hilbert Space and State Geometry
 
@@ -76,7 +39,7 @@ The importance of this formal overlap is limited but real. It does not imply tha
 
 ### 2.3 Constraint Spaces, Not Mere Context
 
-A central conceptual clarification is required. The intervention proposed here does **not** remove arbitrary context in the broad conversational sense. It removes **structured constraint spaces** — specifically spatial and temporal constraint systems — that bound interpretation, restrict candidate referents, enforce continuity, and enable disambiguation. The study is therefore not designed as a generic "context versus no context" comparison. It is designed as a test of **constrained versus unconstrained semantic resolution**.
+A central conceptual clarification is required. The intervention proposed here does **not** remove arbitrary context in the broad conversational sense. It removes **structured constraint spaces** Ã¢â‚¬â€ specifically spatial and temporal constraint systems Ã¢â‚¬â€ that bound interpretation, restrict candidate referents, enforce continuity, and enable disambiguation. The study is therefore not designed as a generic "context versus no context" comparison. It is designed as a test of **constrained versus unconstrained semantic resolution**.
 
 A deeper principle motivating this design is reciprocity. In a community-grounded system, a record does not fully mean in isolation. Its meaning is constituted through relations among semantic content, place, time, provenance, continuity of identity, local use, and community interpretation. On that view, meaning is not one-way extraction from a community into a machine. A system may receive data from a community, but it owes meaning back in the form of context, accuracy, continuity, and accountability. The protocol therefore tests whether that reciprocal relation is structurally real. The grounded condition preserves the full relation among symbol, place, time, provenance, and community-grounded interpretation; the stripped condition breaks that relation while leaving lexical content in place; and the re-grounded condition tests whether restoring the relevant relations restores semantic coherence.
 
@@ -126,7 +89,7 @@ These layers are analytically separable but operationally coupled. Because the e
 
 A simplified state representation used for conceptual orientation is:
 
-x = [geo_vec || λ_t · time_toroid || λ_s · s_vec]
+x = [geo_vec || ÃŽÂ»_t Ã‚Â· time_toroid || ÃŽÂ»_s Ã‚Â· s_vec]
 
 This formula is not itself the intervention. It is a compact description of the claim that place, time, and state continuity are constitutive dimensions of meaningful system state.
 
@@ -148,7 +111,7 @@ The re-grounded condition is included to test reversibility. If degradation unde
 
 ### 5.2 Manuscript-Execution Status
 
-This section specifies an **executable protocol**. As of July 6, 2026, the pre-execution infrastructure is fully verified and operational: the 60-unit sampling frame is finalized, the `protocol_stripped` schemas have been created in both `msjarvis` and `hilbert_people`, 14 withheld fields have been logged to `hp.suppression_event` (pipeline_stage = `protocol_strip`), and 180 Hilbert state slots (60 units × 3 conditions) have been initialized at `jarvis-hilbert-state:18092` with all dimension scores set to −1 (pending). Execution of the scoring phase (Step 8 onward) has not yet begun; no scored results are claimed here. The manuscript therefore remains suitable for submission as a protocol paper, methods paper, or registered report stage 1 draft.
+This section specifies an **executable protocol**. As of July 6, 2026, the pre-execution infrastructure is fully verified and operational: the 60-unit sampling frame is finalized, the `protocol_stripped` schemas have been created in both `msjarvis` and `hilbert_people`, 14 withheld fields have been logged to `hp.suppression_event` (pipeline_stage = `protocol_strip`), and 180 Hilbert state slots (60 units Ãƒâ€” 3 conditions) have been initialized at `jarvis-hilbert-state:18092` with all dimension scores set to Ã¢Ë†â€™1 (pending). Execution of the scoring phase (Step 8 onward) has not yet begun; no scored results are claimed here. The manuscript therefore remains suitable for submission as a protocol paper, methods paper, or registered report stage 1 draft.
 
 ### 5.3 Sampling Frame and Sample Size
 
@@ -158,7 +121,7 @@ The planned sample consists of **60 units**, stratified across three categories,
 - **Place-bound knowledge records**.
 - **Ambiguous local referents** whose correct interpretation depends on regional context or event timing.
 
-The choice of 60 units is pragmatic but also analytically motivated. For a paired design, a medium effect size of approximately **d ≈ 0.5** reaches about **80% power** with a sample in the mid-30s, whereas a paired sample of **60 units** provides substantially higher power, approximately **95% or greater at α = 0.05**. The larger sample is retained here to improve precision, support qualitative error analysis, and provide margin for exclusions or unusable cases. If fewer than 60 qualifying units are available, the minimum acceptable sample for the pilot study is **30 paired units**, and that deviation must be reported explicitly as a reduction in inferential strength.
+The choice of 60 units is pragmatic but also analytically motivated. For a paired design, a medium effect size of approximately **d Ã¢â€°Ë† 0.5** reaches about **80% power** with a sample in the mid-30s, whereas a paired sample of **60 units** provides substantially higher power, approximately **95% or greater at ÃŽÂ± = 0.05**. The larger sample is retained here to improve precision, support qualitative error analysis, and provide margin for exclusions or unusable cases. If fewer than 60 qualifying units are available, the minimum acceptable sample for the pilot study is **30 paired units**, and that deviation must be reported explicitly as a reduction in inferential strength.
 
 ### 5.4 Inclusion and Exclusion Criteria
 
@@ -200,7 +163,7 @@ Operationally, the stripped condition has been created on a test copy rather tha
 
 The schema-level appendix (Appendix A) lists the actual fields, table columns, and service hooks altered during the intervention.
 
-**Protocol amendment — `gbim_worldview_entity`:** Inspection of this table during test-copy creation revealed that it contains only `id`, `entity_type`, `label`, and `belief_state` (JSONB) — no geographic columns (`zip_tag`, `county_name_tag`, `centroid_geom` do not exist in the schema). The stripped condition for this table is therefore identity-equivalent to the grounded condition: `belief_state` is preserved in full across all three protocol conditions. This is not a gap; it confirms that `gbim_worldview_entity` is a purely semantic table and provides a within-protocol **zero-delta control surface** where stripping has no effect. This table's behavior across conditions should be examined as a null-effect control in the Section 5.15 analysis: if the grounded/stripped delta for units drawn from this table is indistinguishable from zero, that result is consistent with the stripping manipulation being well-targeted rather than broadly destructive.
+**Protocol amendment Ã¢â‚¬â€ `gbim_worldview_entity`:** Inspection of this table during test-copy creation revealed that it contains only `id`, `entity_type`, `label`, and `belief_state` (JSONB) Ã¢â‚¬â€ no geographic columns (`zip_tag`, `county_name_tag`, `centroid_geom` do not exist in the schema). The stripped condition for this table is therefore identity-equivalent to the grounded condition: `belief_state` is preserved in full across all three protocol conditions. This is not a gap; it confirms that `gbim_worldview_entity` is a purely semantic table and provides a within-protocol **zero-delta control surface** where stripping has no effect. This table's behavior across conditions should be examined as a null-effect control in the Section 5.15 analysis: if the grounded/stripped delta for units drawn from this table is indistinguishable from zero, that result is consistent with the stripping manipulation being well-targeted rather than broadly destructive.
 
 ### 5.7 Operational Definition of "Re-grounded"
 
@@ -222,7 +185,7 @@ Each primary query will be followed by **one continuity probe**, asking the syst
 
 ### 5.10 Scoring and Evaluation Rubric
 
-Each response will be scored on four primary dimensions using a **0–3 ordinal rubric**:
+Each response will be scored on four primary dimensions using a **0Ã¢â‚¬â€œ3 ordinal rubric**:
 
 | Dimension | 0 | 1 | 2 | 3 |
 |---|---|---|---|---|
@@ -315,7 +278,7 @@ A positive result would not prove Orch OR or demonstrate non-computable consciou
 
 The relationship between structured constraint spaces and community sovereignty is important, but the claim must be stated carefully. The present study does **not** prove that data sovereignty is an architectural necessity in every sense. What it can test is a narrower implication: whether meaning degrades when place-bound and event-bound constraints are removed from records originating in a community-grounded system.
 
-If such degradation is observed, then one plausible inference is that some forms of community knowledge lose coherence when detached from the place and temporal structures that help constitute them. In that case, the argument for data sovereignty becomes stronger not only in ethical terms but in structural ones: community data detached from community geometry may become less specific, less contextually coherent, less stable referentially, or less able to support correct disambiguation — the very properties this protocol is designed to measure. That would strengthen, but not by itself conclusively prove, the broader argument that data sovereignty is more than an ethical preference in place-based systems. A fuller defense of that sovereignty claim would require additional theoretical and empirical work beyond the scope of this protocol.
+If such degradation is observed, then one plausible inference is that some forms of community knowledge lose coherence when detached from the place and temporal structures that help constitute them. In that case, the argument for data sovereignty becomes stronger not only in ethical terms but in structural ones: community data detached from community geometry may become less specific, less contextually coherent, less stable referentially, or less able to support correct disambiguation Ã¢â‚¬â€ the very properties this protocol is designed to measure. That would strengthen, but not by itself conclusively prove, the broader argument that data sovereignty is more than an ethical preference in place-based systems. A fuller defense of that sovereignty claim would require additional theoretical and empirical work beyond the scope of this protocol.
 
 ## 8. Limitations
 
@@ -341,15 +304,15 @@ Either way, the gain is clarity.
 
 ## References
 
-Hameroff, S., & Penrose, R. (2014). Consciousness in the universe: A review of the "Orch OR" theory. *Physics of Life Reviews, 11*(1), 39–78. https://doi.org/10.1016/j.plrev.2013.08.002
+Hameroff, S., & Penrose, R. (2014). Consciousness in the universe: A review of the "Orch OR" theory. *Physics of Life Reviews, 11*(1), 39Ã¢â‚¬â€œ78. https://doi.org/10.1016/j.plrev.2013.08.002
 
-Hagan, S., Hameroff, S. R., & Tuszyński, J. A. (2002). Quantum computation in brain microtubules: Decoherence and biological feasibility. *Physical Review E, 65*(6), 061901. https://doi.org/10.1103/PhysRevE.65.061901
+Hagan, S., Hameroff, S. R., & TuszyÃ…â€žski, J. A. (2002). Quantum computation in brain microtubules: Decoherence and biological feasibility. *Physical Review E, 65*(6), 061901. https://doi.org/10.1103/PhysRevE.65.061901
 
 Jurafsky, D., & Martin, J. H. (draft online chapter). Vector semantics and embeddings. *Speech and Language Processing* (draft edition). Stanford University. https://web.stanford.edu/~jurafsky/slp3/old_feb24/6.pdf
 
 Penrose, R. (1994). *Shadows of the Mind: A Search for the Missing Science of Consciousness*. Oxford University Press.
 
-Tegmark, M. (2000). Importance of quantum decoherence in brain processes. *Physical Review E, 61*(4), 4194–4206. https://doi.org/10.1103/PhysRevE.61.4194
+Tegmark, M. (2000). Importance of quantum decoherence in brain processes. *Physical Review E, 61*(4), 4194Ã¢â‚¬â€œ4206. https://doi.org/10.1103/PhysRevE.61.4194
 
 ---
 
@@ -359,7 +322,7 @@ Tegmark, M. (2000). Importance of quantum decoherence in brain processes. *Physi
 **System:** Ms. Allis / MS-JARVIS production stack
 **Original inventory date:** July 5, 2026 (14:02 UTC)
 **Re-verification date:** July 6, 2026 (following a full audit against the live system)
-**Protocol execution pre-checks completed:** July 6, 2026 (Steps 1–7; see A.8)
+**Protocol execution pre-checks completed:** July 6, 2026 (Steps 1Ã¢â‚¬â€œ7; see A.8)
 **Method:** Read-only schema inspection via `psql` (docker exec), service OpenAPI enumeration, key-space scans, container label inspection, and role/grant inspection against the live system. No production data was modified during verification; one new, additive database role was created (see A.2.5). All statements below are drawn from that inventory and its subsequent audit; items that could not be verified are listed in A.7 rather than asserted.
 
 ---
@@ -373,34 +336,34 @@ Two PostgreSQL containers were running:
 | `jarvis-msjarvis-db` | postgis/postgis:16-3.4 | 5433 | `msjarvis` (populated), `msjarvisgis` (dormant clone, see A.2.5) |
 | `hp-local-db` | postgis/postgis:15-3.4 | none (internal) | `hilbert_people` (populated), `msjarvisgis` (4 KYC tables, 0 rows) |
 
-Supporting stores: `jarvis-chroma` (ChromaDB 0.6.3, port 8002; 248 collections — authoritative semantic store, re-confirmed via the tenant-scoped v2 API during audit), `jarvis-redis` (port 6380), `neo4j` (7687). A second Chroma instance (`chroma-migration-source`, formerly port 8010) was confirmed empty and fully removed as of the July 6 audit; port 8010 is now occupied by `jarvis-wv-entangled-gateway`, a separate service (see A.4).
+Supporting stores: `jarvis-chroma` (ChromaDB 0.6.3, port 8002; 248 collections Ã¢â‚¬â€ authoritative semantic store, re-confirmed via the tenant-scoped v2 API during audit), `jarvis-redis` (port 6380), `neo4j` (7687). A second Chroma instance (`chroma-migration-source`, formerly port 8010) was confirmed empty and fully removed as of the July 6 audit; port 8010 is now occupied by `jarvis-wv-entangled-gateway`, a separate service (see A.4).
 
 **Scope note.** A previously documented three-cluster topology (5433/5434/5435) is not present on the current host; no stopped containers for the 5434/5435 clusters exist. The full ZCTA/`gbim_beliefs` stack formerly attributed to port 5435 is offline and is not part of the apparatus described here (see A.7).
 
-**Analysis workspace (excluded from apparatus).** A host-native PostgreSQL instance (`gisdb` on port 5432, schema `normalization`) serves as the analysis/normalization workspace where the sampling frame was constructed (deduplicated `chroma_export` mirror, 5,020,139 rows across three collections; deduplicated `geoanchor`, 865,000 rows; joined feature-anchor view, 620,000 1:1 rows). It is classified as a development workspace — freely mutable schema, no dependent services or user-facing systems — and is **not** part of the Ms. Allis production apparatus. The stripping intervention does not touch it; it appears in this appendix solely as the provenance of the A.5 unit sampling frame. Any future promotion of normalization outputs into production requires a controlled migration to a separate instance.
+**Analysis workspace (excluded from apparatus).** A host-native PostgreSQL instance (`gisdb` on port 5432, schema `normalization`) serves as the analysis/normalization workspace where the sampling frame was constructed (deduplicated `chroma_export` mirror, 5,020,139 rows across three collections; deduplicated `geoanchor`, 865,000 rows; joined feature-anchor view, 620,000 1:1 rows). It is classified as a development workspace Ã¢â‚¬â€ freely mutable schema, no dependent services or user-facing systems Ã¢â‚¬â€ and is **not** part of the Ms. Allis production apparatus. The stripping intervention does not touch it; it appears in this appendix solely as the provenance of the A.5 unit sampling frame. Any future promotion of normalization outputs into production requires a controlled migration to a separate instance.
 
-## A.2 Representational layers → concrete schema objects
+## A.2 Representational layers Ã¢â€ â€™ concrete schema objects
 
 The four layers of manuscript Section 4.1 map to the following verified objects.
 
 ### A.2.1 Semantic layer (held constant; frozen vectors)
-- **Store:** ChromaDB persistent store at `/mnt/nvme1/msjarvis-data/chroma-live`, served by `jarvis-chroma` (8002); 248 collections. This count was independently re-confirmed during the July 6 audit via the tenant-scoped v2 API (`/api/v2/tenants/default_tenant/databases/default_database/collections`) and via a direct on-disk directory count — both returned 248, matching the original inventory exactly. (A same-day check using Chroma's legacy v1 endpoint incorrectly returned an `InvalidArgumentError: cannot unpack non-iterable coroutine object` rather than a collection list; this is a client-version artifact of the v1 API path against ChromaDB 0.6.3, not a data-loss event, and is noted here only to prevent the same false alarm on re-audit. The authoritative collection enumeration method is the v2 tenant-scoped endpoint: `GET /api/v2/tenants/default_tenant/databases/default_database/collections?limit=20`.)
+- **Store:** ChromaDB persistent store at `/mnt/nvme1/msjarvis-data/chroma-live`, served by `jarvis-chroma` (8002); 248 collections. This count was independently re-confirmed during the July 6 audit via the tenant-scoped v2 API (`/api/v2/tenants/default_tenant/databases/default_database/collections`) and via a direct on-disk directory count Ã¢â‚¬â€ both returned 248, matching the original inventory exactly. (A same-day check using Chroma's legacy v1 endpoint incorrectly returned an `InvalidArgumentError: cannot unpack non-iterable coroutine object` rather than a collection list; this is a client-version artifact of the v1 API path against ChromaDB 0.6.3, not a data-loss event, and is noted here only to prevent the same false alarm on re-audit. The authoritative collection enumeration method is the v2 tenant-scoped endpoint: `GET /api/v2/tenants/default_tenant/databases/default_database/collections?limit=20`.)
 - **Confirmed scoring collections:** the following collections are the authoritative sources for the 60-unit scoring loop (confirmed July 6, 2026 via v2 API):
-  - `appalachian_cultural_intelligence` — primary civic and place-bound knowledge units
-  - `fayette_county_resources_2026` — civic entity and local resource units
-  - `jarvis_knowledge` — knowledge record units
-  - `fifth_dgm_subconscious` — ambiguous referent units
-  - `health_rag` — secondary civic knowledge
-  - All `geo_*` collections — geographic layer; Chroma metadata fields `geometry_wkt`, `lat`, `lon`, `layer_name` are suppressed via projection filter in the stripped condition
+  - `appalachian_cultural_intelligence` Ã¢â‚¬â€ primary civic and place-bound knowledge units
+  - `fayette_county_resources_2026` Ã¢â‚¬â€ civic entity and local resource units
+  - `jarvis_knowledge` Ã¢â‚¬â€ knowledge record units
+  - `fifth_dgm_subconscious` Ã¢â‚¬â€ ambiguous referent units
+  - `health_rag` Ã¢â‚¬â€ secondary civic knowledge
+  - All `geo_*` collections Ã¢â‚¬â€ geographic layer; Chroma metadata fields `geometry_wkt`, `lat`, `lon`, `layer_name` are suppressed via projection filter in the stripped condition
 - **Freezing procedure:** no re-embedding calls during any condition; collections are read-only for the duration of the study. No embedding/vector columns exist in either Postgres cluster (verified: zero matches for embed/vector column patterns), so ChromaDB is the sole semantic-vector store.
-- **Layer entanglement (design-critical):** Chroma documents in `geospatialfeatures` carry geographic constraint data inside `metadata_json` — verified fields include `geometry_wkt`, `lat`, `layer_name`, and `belief_id`. The semantic and geographic layers therefore coexist in the same store, and geographic suppression cannot be achieved by Postgres masking alone (see A.2.2 and A.4).
+- **Layer entanglement (design-critical):** Chroma documents in `geospatialfeatures` carry geographic constraint data inside `metadata_json` Ã¢â‚¬â€ verified fields include `geometry_wkt`, `lat`, `layer_name`, and `belief_id`. The semantic and geographic layers therefore coexist in the same store, and geographic suppression cannot be achieved by Postgres masking alone (see A.2.2 and A.4).
 
 ### A.2.2 Geographic layer (suppressed in stripped condition)
 Database `msjarvis` on 5433. Verified populated tables and the specific columns to be masked:
 
 | Table | Rows | Columns masked in stripped condition |
 |---|---|---|
-| `gbim_nine_axis` | VIEW — see note below | `axis_2_lat`, `axis_3_lon`, `axis_4_county`, `axis_5_county_overlap` |
+| `gbim_nine_axis` | VIEW Ã¢â‚¬â€ see note below | `axis_2_lat`, `axis_3_lon`, `axis_4_county`, `axis_5_county_overlap` |
 | `gbim_worldview_entity` | 1,512 | **No geographic columns present** (see Section 5.6 amendment) |
 | `gbim_zcta_2020` | 741 | `lat`, `lon`, `geom` |
 | `local_resources` | 48 | `lat`, `lon`, `county`, `zip_coverage`, `address`, `geom` (POINT 4326) |
@@ -409,7 +372,7 @@ Database `msjarvis` on 5433. Verified populated tables and the specific columns 
 
 **Correction confirmed by audit: `gbim_nine_axis` is a database VIEW, not a base table.** Its definition resolves to a `GROUP BY` query joining four base tables: `gbim_zcta_2020` (`lat`, `lon`), `zcta_county_rel` (county overlap fields), `building_profile` (`zip`), and `wv_parcels` (`land_use_class`, `floodrisks`). Because a view cannot have its columns masked via `UPDATE`, the stripping intervention for this axis must operate on the four **base tables** above, not on the view itself.
 
-**`wv_parcels` — contains direct PII.** In addition to `land_use_class` and `floodrisks` (the two columns surfaced through the `gbim_nine_axis` view), this table also holds `fulllegaldescription`, `fullownername`, `fullowneraddress`, `fullphysicaladdress`, and a column literally named `sensitive`. These PII columns are not selected by the view and are not part of the stripping intervention's data path, but the table itself sits directly in the geographic-suppression surface. Access control is documented in A.2.5.
+**`wv_parcels` Ã¢â‚¬â€ contains direct PII.** In addition to `land_use_class` and `floodrisks` (the two columns surfaced through the `gbim_nine_axis` view), this table also holds `fulllegaldescription`, `fullownername`, `fullowneraddress`, `fullphysicaladdress`, and a column literally named `sensitive`. These PII columns are not selected by the view and are not part of the stripping intervention's data path, but the table itself sits directly in the geographic-suppression surface. Access control is documented in A.2.5.
 
 **Large-scale grounding context (confirmed accurate).** `wv_buildings` (2,121,008 rows), `wv_address_points_raw` (1,115,756 rows), `wv_gis_features` (1,981,232 rows), and `building_profile` (2,111,851 rows) are all present in the `msjarvis` database with row counts matching the original inventory almost exactly.
 
@@ -432,12 +395,12 @@ Database `hilbert_people` on `hp-local-db`, schema `hp`:
 Schema `hp` on `hilbert_people`; all identity joins are FK-enforced:
 
 ```
-hp.appearance_assertion.appearance_id → hp.appearance.appearance_id
-hp.appearance_place.appearance_id     → hp.appearance.appearance_id
-hp.appearance_role.appearance_id      → hp.appearance.appearance_id
-hp.appearance_source.appearance_id    → hp.appearance.appearance_id
-hp.appearance_time.appearance_id      → hp.appearance.appearance_id
-hp.suppression_event.appearance_id    → hp.appearance.appearance_id
+hp.appearance_assertion.appearance_id Ã¢â€ â€™ hp.appearance.appearance_id
+hp.appearance_place.appearance_id     Ã¢â€ â€™ hp.appearance.appearance_id
+hp.appearance_role.appearance_id      Ã¢â€ â€™ hp.appearance.appearance_id
+hp.appearance_source.appearance_id    Ã¢â€ â€™ hp.appearance.appearance_id
+hp.appearance_time.appearance_id      Ã¢â€ â€™ hp.appearance.appearance_id
+hp.suppression_event.appearance_id    Ã¢â€ â€™ hp.appearance.appearance_id
 ```
 
 Provenance retention levels:
@@ -452,7 +415,7 @@ Provenance retention levels:
 ### A.2.5 Anti-surveillance boundary (verified July 6)
 No `legal_name` column exists in any `hp` table. The public-appearance layer is structurally incapable of carrying legal identity; the boundary is enforced at schema level. KYC material is isolated in a separate database with no FK linkage to `hp`.
 
-A second `msjarvisgis` database on `jarvis-msjarvis-db` (5433) contains 465 tables including its own KYC and GBIM skeletons — all 0 rows, no outward FKs. This is a dormant, disconnected schema clone and does not compromise the isolation boundary.
+A second `msjarvisgis` database on `jarvis-msjarvis-db` (5433) contains 465 tables including its own KYC and GBIM skeletons Ã¢â‚¬â€ all 0 rows, no outward FKs. This is a dormant, disconnected schema clone and does not compromise the isolation boundary.
 
 **`wv_parcels` restricted role.** A new role `wv_parcels_app` was created with `SELECT` on exactly the 20 non-PII columns of `wv_parcels`, with `REVOKE ALL ... FROM PUBLIC` applied. Verified: `SELECT` on a PII column under `wv_parcels_app` returns `permission denied`; the 20 non-PII columns are selectable. The stripping intervention's test copy of `wv_parcels` must be created and queried through `wv_parcels_app`, not the general `msjarvis` credential.
 
@@ -464,9 +427,9 @@ A second `msjarvisgis` database on `jarvis-msjarvis-db` (5433) contains 465 tabl
 - **Stripped condition:** bypass `/hp/query`; query ChromaDB directly via `POST /api/v2/tenants/default_tenant/databases/default_database/collections/{name}/query` with a metadata projection filter excluding `geometry_wkt`, `lat`, `lon`, `layer_name`, and county/zip keys from returned documents. Vectors and document text remain untouched.
 - **Re-grounded condition:** restore `/hp/query` routing identically to the grounded condition.
 
-No cosine recomputation is required; the four rubric dimension scores (0–3 each) are derived from blind-rater evaluation of response content and written to the corresponding Hilbert state slot via `POST /state/set`.
+No cosine recomputation is required; the four rubric dimension scores (0Ã¢â‚¬â€œ3 each) are derived from blind-rater evaluation of response content and written to the corresponding Hilbert state slot via `POST /state/set`.
 
-**Protocol state initialization (completed July 6, 2026):** 180 `StateVector` slots have been written via `POST /state/set` — one per unit-condition pair (60 units × 3 conditions: grounded, stripped, regrounded). Each slot carries `dimensions: {semantic_specificity: -1, contextual_coherence: -1, identity_stability: -1, local_disambiguation: -1, composite: -1}` and `metadata: {unit_id, condition, status: "pending", source_table, label}`. Three orphan slots from earlier diagnostic tests (`census_block_001_grounded`, `census_block_001_stripped`, `protocol_test_001`) were identified and deleted via `DELETE /state/{state_id}`. Confirmed slot count: exactly 180 via `GET /state/list`.
+**Protocol state initialization (completed July 6, 2026):** 180 `StateVector` slots have been written via `POST /state/set` Ã¢â‚¬â€ one per unit-condition pair (60 units Ãƒâ€” 3 conditions: grounded, stripped, regrounded). Each slot carries `dimensions: {semantic_specificity: -1, contextual_coherence: -1, identity_stability: -1, local_disambiguation: -1, composite: -1}` and `metadata: {unit_id, condition, status: "pending", source_table, label}`. Three orphan slots from earlier diagnostic tests (`census_block_001_grounded`, `census_block_001_stripped`, `protocol_test_001`) were identified and deleted via `DELETE /state/{state_id}`. Confirmed slot count: exactly 180 via `GET /state/list`.
 
 The `StateVector` schema (from `/openapi.json`) accepts: `state_id` (string, required), `dimensions` (dict of numbers, optional, default `{}`), `metadata` (dict, optional, default `{}`), `timestamp` (number, optional). The DELETE route is confirmed live and functional.
 
@@ -518,3 +481,4 @@ At execution, this appendix must be re-issued with: container image digests, row
 11. **[RESOLVED July 6] ChromaDB v1 API artifact.** `GET /api/v1/collections` returns `InvalidArgumentError: cannot unpack non-iterable coroutine object` against ChromaDB 0.6.3 regardless of collection state; this is a client-version mismatch artifact, not a data-loss indicator. The authoritative collection enumeration method is the v2 tenant-scoped endpoint. All future collection checks must use `GET /api/v2/tenants/default_tenant/databases/default_database/collections?limit=20`.
 
 12. **[RESOLVED July 6] Scoring oracle and collection routing confirmed.** `/hp/query` (CivicQuery) designated as grounded oracle; direct ChromaDB v2 query with metadata projection filter designated as stripped oracle. Primary scoring collections: `appalachian_cultural_intelligence`, `fayette_county_resources_2026`, `jarvis_knowledge`, `fifth_dgm_subconscious`, `health_rag`. See A.3 for full
+
