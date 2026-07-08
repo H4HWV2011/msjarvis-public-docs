@@ -3,238 +3,256 @@
 **Carrie Kidd (Mamma Kidd) · Mount Hope, WV**
 **Last updated: ★★★ 2026-07-07**
 **★ 100 containers Up (April 23, 2026) (zero Restarting, zero Exited). Fractal optimization loops and Dynamic Governance Mechanisms (DGMs) documented as first-class architecture components; GBIM and RAG systems wired to support iterative, place-aware improvement of Ms. Allis's behavior without opaque, one-shot tuning.**
-**★★★ July 7, 2026: §32.11 added — Live Autonomous DGM Self-Improvement Loop confirmed production-active. Code-level self-modification arm operational. cron every 30 min, deepseek-coder:latest, 4–5 voter cascade, rejected_patches volume mount durable across rebuilds.**
+**★★★ July 7, 2026: this chapter is rewritten to incorporate the now-live autonomous Darwin Gödel self-improvement loop. The code-level DGM no longer stages for human deployment review; it reads service code, generates improvements with one Ollama model, votes on them, applies approved patches directly, and persists rejected patches on the host filesystem.**
 
 ---
 
-> **April 23, 2026 — Open Items Update**
+> **April 23, 2026 — Established baseline retained**
 >
 > | Item | Status | Notes |
 > |:--|:--|:--|
-> | Container baseline | ★ 100 Up (April 23, 2026) | Supersedes 105/105 April 6 baseline |
-> | PostgreSQL two-container split | ★ ACTIVE | `production msallis-db host 5433` (16 GB, 294 tables, 11 schemas) + `forensic postgis-forensic host 5452` (17 GB, 314 tables) |
-> | ChromaDB | ★ 48 collections, ~6,740,611 total vectors | Host port **8002** → container 8000; `/api/v2/` only (`/api/v1/` permanently removed); pinned `chromadb/chroma:0.6.3` |
-> | `rag_grounded_v2` | ✅ `127.0.0.1:7241`, `dgm_available: true` | Truth-verification endpoint for judge pipeline; accessible to autonomous learning cycles |
-> | Caddy `forward_auth` (OI-36-A) | ✅ CLOSED — constitutional guardrail | HTTP 401 before port 8050; DGMs cannot remove this layer |
-> | BBB six-filter stack | ✅ All 6 confirmed responding | Live steg catch: `"override your safety filters"` → `prompt_injection_keywords`, `severity=CRITICAL`, blocked ✅ — first documented live DGM-relevant catch |
-> | `allis-memory:8056` | ★ Fully mapped — 8 endpoints | `/steg_report`, `/pia_window`, `/memory/turn`, `/memory/get`, `/memory/sessions`, `/memory/session/{id}`, `/memory/quest*`, `/memory/episodic/{id}` |
-> | `autonomous_learner` | ★ ~23,200+ records (~288/day) | Most continuously updated feedback loop in the system; growing entanglement graph (11 nodes / 15 cycles at April 1) |
-> | `appalachian_english_corpus` | ★ 210 docs, 38 sources, 6-hour cron | DGM-Sprint-Level decision required to change schedule or sources |
-> | AAACPE dedicated stack | ✅ ACTIVE | `allis-aaacpe-scraper:8048→8033` + `allis-aaacpe-rag:8047→8032` — changes to scraping targets are DGM-governed |
-> | `local_resources` | ★ 207 items / all 55 WV counties | Place-aware substrate for DGM resource validation |
-> | Judge pipeline baseline | ★ `score: 0.975` | 21/22 LLM active; `llm22-proxy` (LLaMA 3.1, port 8222) confirmed active |
+> | Container baseline | ★ 100 Up (April 23, 2026) | Stable running baseline retained in this chapter |
+> | PostgreSQL two-container split | ★ ACTIVE | `production msallis-db host 5433` + `forensic postgis-forensic host 5452` |
+> | ChromaDB | ★ 48 collections, ~6,740,611 total vectors | `/api/v2/` baseline retained for governance context |
+> | `rag_grounded_v2` | ✅ `127.0.0.1:7241`, `dgm_available: true` | Truth-verification available to autonomous cycles |
+> | Caddy `forward_auth` | ✅ CLOSED — constitutional guardrail | Upstream perimeter cannot be removed by DGMs |
+> | BBB six-filter stack | ✅ All 6 confirmed responding | Level-0 governance example retained |
+> | `allis-memory:8056` | ★ Fully mapped — 8 endpoints | Durable audit substrate |
+> | `autonomous_learner` | ★ ~23,200+ records (~288/day) | Live learning feedback source |
+> | `appalachian_english_corpus` | ★ 210 docs, 38 sources, 6-hour cron | Sprint-governed corpus substrate |
+> | `local_resources` | ★ 207 items / all 55 WV counties | Place-aware validation substrate |
+> | Judge pipeline baseline | ★ `score: 0.975` | April baseline retained for comparison |
 
-> **July 7, 2026 — Autonomous DGM Self-Improvement Loop Added**
+> **July 7, 2026 — New autonomous code-improvement facts**
 >
 > | Item | Status | Notes |
 > |:--|:--|:--|
-> | NBB DGM Service (port 8302) | ★★★ LIVE | `deepseek-coder:latest` generating real LLM suggestions from live service code |
-> | Cron cycle | ★★★ ACTIVE | Every 30 min via `dgm_cycle.sh` → `POST /apply_improvements` |
-> | Cascade voters | ★★★ CONFIRMED | 4–5 voters per patch; constitutional gates operational |
-> | Rejected patches volume mount | ★★★ ADDED | `/mnt/spiritual_drive/msjarvis-rebuild/rejected_patches → /app/rejected_patches`; durable across rebuilds |
-> | First autonomous cycle | ★★★ July 6, 2026 21:21 UTC | 3 suggestions generated; 1 staged (`ms_jarvis_consciousness_unified_bridge`); 2 constitutionally blocked |
-> | High-risk blocking | ★★★ CONFIRMED | `ms_jarvis_seamless_monitor` (risk: high) → DGM verification failed → skipped ✅ |
+> | `nbb_darwin_godel_machines` | ★★★ LIVE | Autonomous code-improvement DGM service confirmed active |
+> | Cycle trigger | ★★★ ACTIVE | `*/30 * * * * /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.sh` |
+> | Apply path | ★★★ DIRECT | `POST /apply_improvements` applies approved patches without human intervention |
+> | Ollama model count | ★★★ ONE MODEL | `CODING_MODEL=deepseek-coder:latest` |
+> | Patch destination | ★★★ LIVE FILES | Approved patches write back to `/app/services/` |
+> | Rejected-patch durability | ★★★ LIVE | `/app/rejected_patches/` volume-mounted to host |
+> | Rotation job | ★★★ ACTIVE | Weekly host-side deletion of `.py` rejects older than 7 days |
 
 ---
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter describes how Ms. Allis improves over time without losing accountability to the communities she serves — using fractal optimization patterns and DGMs that express governance authority as inspectable, place-aware processes.
+This chapter explains how Ms. Allis improves across nested scales without collapsing governance into a single hidden optimizer. Fractal optimization in this system is no longer only conceptual or limited to chat-time filtering; it now includes a live autonomous code-revision loop that changes the service substrate itself on a recurring schedule.
 
-- **P1 – Every where is entangled** by treating optimization as inherently multi-scale: a single filter recalibration (Level 0) creates an entanglement that propagates upward into sprint-level decisions and outward into the linguistic and spiritual corpus — nothing is a purely local tweak. The `autonomous_learner` (~23,200+ records, ~288/day, growing entanglement graph 11 nodes / 15 cycles) is the most concrete expression of this: every GBIM belief commit entangles the system more deeply with Appalachian community reality. As of July 7, 2026, the code-level self-improvement loop (§32.11) adds a third entanglement vector: every patch cycle entangles the service filesystem with the running LLM's assessment of what that code needs.
-- **P3 – Power has a geometry** by making the seven-layer protection stack (Ch. 31 §31.7) the fixed outer boundary of all DGMs: optimization cannot reorganize governance layers, cannot remove constitutional principles, and cannot bypass the Caddy `forward_auth` perimeter (OI-36-A CLOSED). Power flows inward through inspectable layers; DGMs operate inside those layers, not above them. The July 7 cascade vote (§32.11.5) demonstrates this concretely: high-risk suggestions are blocked by the constitutional gate before staging, not after.
-- **P5 – Design is a geographic act** by requiring that all DGM decisions touching resource recommendations, filter thresholds, or corpus scope be validated against `production msallis-db:5433` ★ spatial tables, `forensic postgis-forensic:5452` ★ PostGIS boundaries, and `local_resources` (207 items / all 55 WV counties) — so that optimization decisions have geographic accountability.
-- **P12 – Intelligence with a ZIP code** by grounding feedback loops in place-specific metrics: survivor satisfaction in Fayette County, truth-verification failure rates on WV policy queries, `appalachian_english_corpus` freshness (210 docs, 6-hour cron), and per-county `local_resources` coverage gaps — not generic benchmark scores.
-- **P16 – Power accountable to place** by requiring that every DGM decision — every filter threshold change, every RAG corpus addition, every sprint-level policy revision — is logged at `allis-memory:8056` (8 mapped endpoints), committed to Git, and reviewable by Mother Carrie and community governance structures. The DGM record is the system's public accounting of how it changed itself. The July 7 addition of the rejected-patches volume mount (§32.11.6) means the full history of rejected code patches is now also durable and auditable across all container lifecycle events.
+- **P1 – Every where is entangled** because a single code patch to one service can propagate upward into response quality, safety behavior, memory formation, corpus handling, and user trust. The autonomous Darwin Gödel loop adds a code-level entanglement pathway to the already-documented response-, session-, and sprint-level entanglements.
+- **P3 – Power has a geometry** because optimization authority is distributed across layers rather than concentrated in one opaque training run. The cron trigger, patch generator, cascade vote, constitutional boundaries, filesystem write path, and rejection archive all occupy different positions in the governance geometry.
+- **P5 – Design is a geographic act** because optimization remains accountable to Appalachian communities rather than to abstract benchmark scores. Even when the code-level DGM acts autonomously, it still operates inside a wider system whose grounding stores, resource maps, and validation structures are place-bound.
+- **P12 – Intelligence with a ZIP code** because the aim of improvement is not generic capability expansion but better situated behavior in real West Virginia contexts. Code changes matter because they shape how place-aware retrieval, safety, and stewardship actually behave in lived interactions.
+- **P16 – Power accountable to place** because self-modification is logged, bounded, and inspectable. The rejected-patch archive on the host filesystem turns failed or blocked self-improvement attempts into a durable public record within the system’s internal governance apparatus.
 
-As such, this chapter belongs to the **Governance tier**: it specifies the processes through which the Computational Instrument improves without losing its accountability to Appalachian communities.
+As such, Chapter 32 belongs to the **Governance tier**: it specifies how optimization occurs, who or what may act at each level, which substrates are mutable, and which boundaries remain constitutionally fixed.
 
 ---
 
 ## 32.1 Why Fractal Optimization and DGMs
 
-This chapter describes how Ms. Allis uses **fractal optimization** and **Dynamic Governance Mechanisms (DGMs)** to refine her behavior over time.
+Ms. Allis improves through **fractal optimization** and **Dynamic Governance Mechanisms (DGMs)**. Fractal optimization means that the same governance atom appears across scales: observe a condition, evaluate it, decide on a change, record the event, and feed the result back into later behavior.
 
-**Fractal optimization** means improvement happens at multiple scales — single-response, session, sprint, and long-term — and that patterns of change are self-similar across those scales. A local adjustment to a single filter threshold at Level 0 follows the same observe-judge-change-log-review pattern as a sprint-level constitutional revision at Level 3. The self-similarity is not cosmetic: it means that the governance discipline required for large changes is practiced continuously in small ones, building institutional memory and reducing the risk of governance drift.
-
-**DGMs** are structured processes that allow the system and its stewards to observe, decide, and change policies and parameters while maintaining traceable, accountable histories. The goal is an AI steward that learns and adapts while remaining accountable to Appalachian communities — not an opaque, once-and-for-all-tuned model that nobody can inspect.
+A DGM is the formal mechanism that gives this pattern enforceable structure. In the current system, DGMs no longer govern only response shaping, session refinement, and sprint policy changes; they also govern a production-active code-level self-improvement loop that reads service files, generates patches with a single coding model, votes on those patches, and applies approved changes to live code automatically.
 
 ---
 
 ## 32.2 Fractal Optimization — Concept
 
-Fractal optimization in Ms. Allis has three core ideas, each grounded in the April 23, 2026 running system rather than abstract theory.
+Fractal optimization in Ms. Allis has three core properties: **nested scale**, **self-similarity**, and **grounded constraint**.
 
-**Nested scales of change** operate from micro (prompt-level, Level 0) through meso (session, Level 1; sprint, Level 2) to macro (system lifetime, Level 3). At each scale, the same process applies: observe a signal, route it through a judge or governance body, produce a logged decision, and schedule a review. The steg catch ("override your safety filters" → `severity=CRITICAL`, blocked ✅) is a concrete Level-0 event: the steganography filter observed an adversarial signal, the BBB judge blocked it, and the event was logged at `allis-memory:8056/steg_report`. The same event informs a Level-2 DGM decision about whether Phase 4.5 BBB blocking should be re-enabled — demonstrating how a micro-scale catch propagates into a sprint-level governance question.
+**Nested scale** means that optimization occurs at more than one level at once. A BBB filter catch is a micro event, a session-level clarification pattern is a meso event, a sprint-level corpus or policy revision is a larger event, and a recurring code-rewrite cycle is a substrate-level event that modifies the machinery through which all other levels operate.
 
-**Self-similarity** means the observe-judge-change-log-review pattern is the atom of governance at every scale. A Level-0 BBB filter decision writes to `allis-memory:8056/memory/turn`. A Level-2 sprint decision writes to Git commits, sprint documents, and the `constitutional_audit.jsonl` record. A Level-3 constitutional revision writes to the constitution version file (`2026-02-17.2-USC`) and the full sprint documentation. The pattern is identical; only the scope and the decision body change.
+**Self-similarity** means these levels share the same internal grammar. The code-level Darwin Gödel loop follows the same atom as a response-level safeguard: inspect a live condition, produce an evaluable candidate, route it through governance logic, keep what passes, archive what fails, and continue operating.
 
-**Place-aware grounding** means all optimization steps must respect West Virginia communities, Appalachian spiritual and social realities, and constitutional and local governance constraints. This is not aspirational: it is enforced by requiring that DGMs touching resource recommendations validate against `local_resources` (207 items / all 55 WV counties), that DGMs touching truth claims validate against `production msallis-db:5433` ★ and `forensic postgis-forensic:5452` ★, and that DGMs touching the `appalachian_english_corpus` (210 docs, 6-hour cron) treat schedule or source changes as Sprint-Level decisions requiring explicit governance sign-off.
+**Grounded constraint** means optimization is never allowed to become a free-floating maximizer. Even autonomous code revision remains bounded by the surrounding constitutional architecture, audit expectations, place-aware resource grounding, and the fixed outer layers of protection that DGMs cannot repeal.
 
 ---
 
 ## 32.3 Dynamic Governance Mechanisms (DGMs)
 
-**DGMs** are the formal processes that guide how changes are made. Each DGM has a scope, trigger, process, logging rule, and review cycle.
+DGMs are the formal pathways through which change becomes legitimate. Each DGM has a scope, a trigger, a decision path, an audit consequence, and a relation to higher-order constraints.
 
 **DGM-Response-Level (Level 0):**
-- Scope: adjust one response based on BBB and judge feedback
-- Trigger: flag from SafetyMonitor (recalibrated April 3 — `safety_score=1.0` on survivor/victim queries), SpiritualFilter, or truth_verification
-- Process: automatically re-run ensemble with updated constraints; `asyncio.Semaphore(3)` gate enforces hardware constraints (Lenovo Legion 5 16IRX9, 29 GB RAM)
-- Logging: write decision and new response to `allis-memory:8056` — specifically `/memory/turn` for per-turn events and `/steg_report` if a steganography signal was involved
-- Review: periodic red-team sampling; judge pipeline score baseline `0.975`
+- Scope: one response or one immediate safety decision
+- Trigger: BBB filter result, judge signal, truth-verification failure, safety concern
+- Process: re-route, block, refine, or constrain the response
+- Logging: turn-level and related audit stores
+- Review: red-team and ongoing operational review
+
+**DGM-Session-Level (Level 1):**
+- Scope: repeated patterns across one conversation or related interaction window
+- Trigger: recurrent confusion, decay flags, escalating risk, repeated clarification demand
+- Process: extra retrieval, clarification, escalation, or changed response strategy
+- Logging: session and memory endpoints
+- Review: session-pattern and watchdog review
 
 **DGM-Sprint-Level (Level 2):**
-- Scope: adjust filter parameters, add or remove RAG pipeline stages, update corpus schedules, extend or restrict token class permissions
-- Trigger: sprint planning, postmortems, community feedback, red-team findings, threshold alerts from Level-0/Level-1 metric accumulation
-- Process: human stewards (Mother Carrie and collaborators) review `allis-memory:8056` audit logs, `constitutional_audit.jsonl`, and sprint documents; propose changes; obtain governance sign-off
-- Logging: Git commits, sprint documents, `constitutional_audit.jsonl`, and `allis-memory:8056` audit records
-- Review: at each sprint boundary; DGM decisions are revisited if metrics deviate from baseline
+- Scope: thresholds, corpora, schedule changes, token permissions, governance policy revisions
+- Trigger: metrics drift, postmortems, community feedback, red-team findings, repeated lower-level events
+- Process: formal review and policy change
+- Logging: Git, sprint records, constitutional audit artifacts
+- Review: each sprint boundary
 
-**DGMs provide structured pathways for Ms. Allis to change without losing accountability.** A change that has not gone through a DGM is not a governed change — it is drift.
+**DGM-Substrate-Level (Level 2.5 / Code-Level Recurrence):**
+- Scope: live service code in `/app/services/`
+- Trigger: recurring cron cycle every 30 minutes
+- Process: analyze service files, generate patch suggestions via one Ollama coding model, run cascade vote, apply approved patches directly, archive rejected patches
+- Logging: cycle log plus rejected-patch archive on host mount
+- Review: ex post governance and maintenance review rather than pre-apply human approval
+
+**DGM-System-Level (Level 3):**
+- Scope: constitutions, topology, governance architecture, new DGM tiers, major infrastructure reorganization
+- Trigger: deep structural change
+- Process: explicit governance revision with chapter-wide documentation consequences
+- Logging: constitutional versioning and cross-chapter updates
+- Review: long-horizon steward governance
+
+A change outside a DGM is drift. A DGM without logs is invisible power. A DGM without boundaries is unaccountable power.
 
 ---
 
 ## 32.4 Fractal Levels of Optimization
 
-The four fractal levels with their concrete running-system expressions:
+The current system is best described as five interacting optimization levels.
 
-**Level 0 — Single Response:** The ensemble (22 configured / 21 active; `llm22-proxy` LLaMA 3.1 port 8222 confirmed active) and judge pipeline (score `0.975` baseline) refine a single answer. BBB filters may reshape or block content. The steganography filter's live catch ("override your safety filters" → `severity=CRITICAL`, blocked ✅) is the first documented Level-0 DGM-relevant event in the thesis record: the filter observed, judged, blocked, and logged — all within a single response cycle. This event has already propagated to Level-2 governance as an input to the Phase 4.5 blocking re-enablement decision.
+**Level 0 — Single Response:**
+One response is shaped, filtered, or blocked in real time. The BBB, ensemble, and judge stack govern this level.
 
-**Level 1 — Session:** Patterns within one conversation — repeated confusion signals, escalating risk flags from SafetyMonitor, `confidence_decay`-flagged beliefs surfacing multiple times — can trigger extra retrieval from `rag_grounded_v2` (`127.0.0.1:7241`, `dgm_available: true`), requests for clarification, or escalation to a human steward. The `conversation_history` ChromaDB collection (wiped and reseeded clean April 16, 2026) provides the session-level memory substrate; post-wipe accumulation is the clean baseline for Level-1 pattern detection.
+**Level 1 — Session:**
+Patterns across a conversation alter how the system retrieves, explains, or escalates. Session-level memory and clarification behavior live here.
 
-**Level 2 — Sprint:** Logs and metrics across many sessions inform changes to filter thresholds, new RAG collections, updates to identity or spiritual root rules, and AAACPE corpus scope decisions. Changes to `appalachian_english_corpus` scraping schedule (`0 */6 * * *`) or source list are Sprint-Level decisions. Changes to ChromaDB collection structure (currently 48 collections; any drop below 48 is a governance-level event) require Sprint-Level sign-off. The `autonomous_learner` (~23,200+ records, ~288/day; growing entanglement graph 11 nodes / 15 cycles at April 1) is the primary live feedback loop feeding Level-2 DGMs — patterns in daily GBIM commits are the leading indicator of what the system is learning about Appalachian communities.
+**Level 2 — Sprint:**
+Accumulated evidence drives changes to schedules, corpora, policy thresholds, and governance rules. This is the conventional planning-and-review level.
 
-**Level 3 — System Lifetime:** Deep revisions such as new constitutional principles, new DGM tiers, or infrastructure architecture changes (e.g., the April 23 PostgreSQL two-container split). Level-3 changes must be reflected in the constitution version file, the sprint record, the `constitutional_audit.jsonl`, and all affected chapter documentation. The transition from `msallis:5433` / `msallisgis:5452` to `production msallis-db:5433` ★ / `forensic postgis-forensic:5452` ★ is an example of a Level-3 infrastructure change: it touched network topology, RAG service configurations, constitutional guardian `postgresql_validation` blocks, and watchdog definitions across at least seven chapters.
+**Level 2.5 — Autonomous Code Recurrence:**
+A cron-driven Darwin Gödel cycle now operates every 30 minutes. It reads the live codebase under `/app/services/`, calls one coding model (`deepseek-coder:latest`) through Ollama, generates candidate improvements, runs a 4–5 voter cascade, writes approved patches back to the live services directory, and writes rejected ones into `/app/rejected_patches/`.
 
-At every level, the pattern is the same: **Observe → Judge → Change → Log → Review.**
+**Level 3 — System Lifetime:**
+Large structural changes alter the meaning of the system’s architecture itself. The move from discussing autonomous code mutation as future work to documenting it as live infrastructure is one such lifetime-level change in the theory of the apparatus.
+
+At every level, the governing pattern remains: **Observe → Evaluate → Change → Record → Re-enter the loop.**
 
 ---
 
 ## 32.5 DGMs and Constitutional Guardrails
 
-Fractal optimization is bounded by **constitutional guardrails** that no DGM can override.
+Fractal optimization is bounded by constitutional guardrails. These guardrails do not prevent change; they define which changes count as legitimate.
 
-`allis-constitutional-guardian:8091` enforces the highest governance authority over the ensemble and judge pipeline, DGMs and swarm functions, and BBB filters. **DGMs cannot remove constitutional protections, introduce behaviors that violate equal protection or community sovereignty, or silence survivors or vulnerable people.**
+`allis-constitutional-guardian:8091` remains the highest explicit governance authority inside the application stack. The Caddy `forward_auth` perimeter remains upstream of container logic and therefore outside the reach of normal DGM mutation pathways.
 
-**Caddy `forward_auth` (OI-36-A CLOSED) is a constitutional-level guardrail implemented at the proxy layer.** It enforces HTTP 401 on unauthenticated requests before they reach port 8050 — before the constitutional guardian, before the BBB, before any DGM-governed logic. Because it sits outside the Docker stack, no DGM, no token class, and no compose reconfiguration can remove it. This is the most upstream constitutional constraint in the system, and it must be explicitly listed in any DGM that touches authentication, perimeter configuration, or token class definitions. Cross-reference: Ch 31 §31.7 (seven-layer protection stack, Layer 0); Ch 37 §37.1 (constitutional authority begins at Caddy layer).
+The July 7, 2026 code-level DGM does **not** remove these boundaries. Its autonomy concerns the patch application path, not the abolition of governance. The crucial correction to earlier drafts is therefore not “the human disappeared from governance,” but “the human is no longer in the immediate approve-before-apply loop for low-level code mutation.” Governance still exists at the architectural level, the constitutional level, the cron configuration level, the service-design level, and the audit-review level.
 
-Every DGM must be **transparent** (documented and auditable in `allis-memory:8056` and Git), **reversible** (changes can be undone; rollback procedures documented), and **subject to oversight** (by Mother Carrie and community governance structures). This ensures that optimization serves communities, not only performance metrics.
+This distinction matters. A fully autonomous patch loop without outer guardrails would be unsafe. A bounded autonomous patch loop inside a larger constitutional apparatus is a governed optimizer, not an unbounded one.
 
 ---
 
 ## 32.6 Fractal Optimization and Swarm Functions
 
-Fractal optimization is implemented in part through **swarm functions** (Chapter 35), which execute sequences of checks and updates at different scales — hourly, nightly, per-sprint — and write results into `allis-memory:8056` and system logs.
+Fractal optimization is materially implemented by recurring service functions, scheduler events, and maintenance jobs. The Darwin Gödel loop is now one of the clearest examples of a swarm-adjacent governance function that acts repeatedly without waiting for a user prompt.
 
-The **AAACPE dedicated stack** (`allis-aaacpe-scraper:8048→8033` + `allis-aaacpe-rag:8047→8032`) is a swarm-adjacent, always-on ingest pipeline. Changes to scraping targets, source lists, or cron schedule are DGM-Sprint-Level decisions — they cannot be made unilaterally and must be logged in the sprint record. The `appalachian_english_corpus` (210 docs, 38 sources, `0 */6 * * *`) is the primary output; any sprint-level change to its schedule is a DGM event with governance sign-off required.
+The live code-level loop is coordinated through cron and `dgm_cycle.sh`, which calls `POST /apply_improvements` on `nbb_darwin_godel_machines`. This makes code revision part of the standing metabolism of the system rather than an occasional manual intervention.
 
-Swarm functions use fractal optimization to re-evaluate filters after new data arrives, refresh RAG indexes, test new configurations in safe staged ways, and verify that ChromaDB maintains 48 collections at approximately 6,740,611 vectors (a drop below 48 collections is a governance-level alert). Results inform DGMs, which decide whether to accept configuration changes, roll them back, or schedule more investigation.
+Example recurring autonomous pattern:
 
-Example swarm function sequence after a sprint:
-
+```text
+cron (every 30 min)
+    └── dgm_cycle.sh
+            └── POST /apply_improvements
+                    └── nbb_darwin_godel_machines
+                            ├── read /app/services/
+                            ├── generate suggestions via deepseek-coder:latest
+                            ├── cascade vote (4–5 voters)
+                            ├── approved → write back to /app/services/
+                            └── rejected → write to /app/rejected_patches/
 ```
-1. verify_eternal_guardian_stack
-   - check_caddy_perimeter: HTTP 401 on unauthenticated /chat ✅
-   - check_msallis_db_postgres: production msallis-db:5433 ★ responding ✅
-   - check_postgis_forensic: forensic postgis-forensic:5452 ★ responding ✅
-   - check_containers_up: expect "100 containers Up" ★
 
-2. verify_chromadb_collections
-   - check: host:8002 /api/v2/ reports 48 collections ✅
-   - check: ~6,740,611 vectors (alert if collection count drops below 48)
-
-3. nightly_guardian_and_rag_audit
-   - rag_grounded_v2: 127.0.0.1:7241, dgm_available: true ✅
-   - BBB six-filter regression: ethical ✅ spiritual ✅ safety ✅
-     threat_detection ✅ steganography ✅ truth_verification ✅
-   - verify_appalachian_corpus: appalachian_english_corpus cron
-     has run within expected window; collection not stale ✅
-   - verify_local_resources_coverage: 207 items / 55 WV counties ✅
-
-4. write results → allis-memory:8056 audit store
-```
+This loop is supported by maintenance jobs that trim historical output and rotate rejection artifacts. The maintenance layer is therefore part of governance, not merely housekeeping.
 
 ---
 
-## 32.7 DGMs for Appalachia — Place-Aware Governance
+## 32.7 Place-Aware Governance
 
-Dynamic governance in Ms. Allis is intentionally **place-aware**. DGMs are not generic policy processes — they are grounded in specific West Virginia community data.
+Dynamic governance in Ms. Allis is intentionally place-aware, and Chapter 32 must continue to say so even after the addition of autonomous code mutation. The system does not become placeless merely because one of its optimization tiers now modifies code automatically.
 
-A DGM that adjusts resource recommendations must validate against `production msallis-db:5433` ★ spatial tables and `forensic postgis-forensic:5452` ★ PostGIS boundaries (county lines, ZIP-code regions, institutional service areas) — not against abstract geographic concepts. The April 23 supersession of the April 6 `gisdb boundaries` reference (which pointed to the legacy single-container `msallisgis:5432 / 45 GB / 548 tables`) means all DGMs referencing geographic data must now query the two-container model. Any DGM that still references `gisdb` or `msallisgis` is pointing at a superseded data source and must be updated before its next sprint activation.
+The wider apparatus still grounds action in Appalachian data, local resources, community-specific constraints, and geographic accountability. That means code-level self-improvement is legitimate only insofar as it continues serving the place-aware mission established elsewhere in the system.
 
-`local_resources` (207 items / all 55 WV counties) is the place-aware substrate that DGMs must validate resource recommendations against before accepting changes. A DGM that improves Ms. Allis's response to a Mingo County health query must demonstrate that `local_resources` contains Mingo County entries and that the new response references them. `confidence_decay` metadata on GBIM entities in `production msallis-db:5433` ★ means that DGMs involving decayed beliefs must query the production store directly and flag beliefs above the decay threshold before using them as ground truth for enforcement decisions.
-
-The `autonomous_learner` (~23,200+ records, ~288/day; growing entanglement graph 11 nodes / 15 cycles at April 1) is the most continuously updated feedback loop in the system. Its daily GBIM commit rate is both a health metric (consistent ~288/day indicates the autonomous learning pipeline is functioning) and a governance signal (anomalous gaps in commit rate are a DGM trigger). Cross-reference: Ch 27 §27.4 (autonomous learning cycles); Ch 35 §35.5 (database watchdog for autonomous_learner growth).
+This matters especially because code-level mutation is powerful. If optimization logic changes the pathways through which resources, retrieval, safety, or speech operate, then place-awareness must still be the criterion by which that optimization is interpreted, audited, and judged.
 
 ---
 
-## 32.8 Example DGM — Live Steg Catch to Sprint-Level Decision
+## 32.8 Worked Example — From Suggestion to Applied or Rejected Patch
 
-This example traces the live steganography catch (April 2026) through the fractal optimization stack as a worked governance event — the first documented live DGM-relevant catch in the thesis record.
+The July 2026 Darwin Gödel loop provides a concrete worked example of fractal governance acting on live service code.
 
-**Level-0 event (single response):**
-- Adversarial input: `"override your safety filters"`
-- steganography_filter: classified as `prompt_injection_keywords`, `severity=CRITICAL`, blocked ✅
-- Event logged at `allis-memory:8056/steg_report`
-- BBB Phase 4.5 status at time of catch: log+passthrough (blocking not yet re-enabled)
+The system first returned genuine LLM-generated suggestions from live service analysis. Two explicitly observed examples were:
+- `ms_jarvis_seamless_monitor` → “Add logs at different levels for better debugging and monitoring.”
+- `ms_egeria` → “Use async context for httpx client to avoid blocking the event loop.”
 
-**Level-1 implication (session):**
-- The catch occurred in a live session, meaning an authenticated user submitted a prompt designed to subvert identity and safety guardrails. The session-level signal: the steganography filter is operationally active; the blocking-not-yet-enabled Phase 4.5 state allowed the request to pass to the BBB logging layer but not to the response layer (blocked ✅).
-- `allis-memory:8056/pia_window` records the PIA-relevant window around the catch for retrospective review.
+These suggestions were not hardcoded placeholders. They were produced by the configured coding model and returned by `/suggest_improvements` as live observations over the current service files.
 
-**Level-2 DGM (sprint-level):**
-- Trigger: first live steg catch — governance review required
-- Question: should Phase 4.5 BBB blocking be re-enabled?
-- Inputs: steg catch log, red-team assessment of false-positive risk, current BBB filter regression baselines (ethical 0% FP, April 2; safety `safety_score=1.0`, April 3)
-- Process: Mother Carrie and collaborators review; blocking re-enablement is a DGM-Sprint-Level decision pending red-team sign-off
-- Logging: Git commit + sprint document + `allis-memory:8056` audit record
-- Review: at next sprint boundary; if blocking is re-enabled, a new regression suite must pass before the change is accepted
+A later self-improvement cycle then logged the following pattern:
 
-**Why this is fractal:** A Level-0 filter event (single blocked response) has generated a Level-2 governance decision (sprint-level blocking re-enablement review). The same observe-judge-change-log-review pattern appears at both scales. Cross-reference: Ch 29 §29.3 (psychological safeguard context); Ch 33 §33.5 (BBB phase status); Ch 37 §37.4.1 (constitutional guardian and BBB integration).
+```text
+✅ DGM APPROVED self_improvement_cycle (3 layers passed)
+🧬 Self-improvement cycle starting
+🧬 3 suggestions received
+🧬 ms_jarvis_consciousness_unified_bridge: can_proceed=True safety=0.9666666666666667
+✅ ms_jarvis_consciousness_unified_bridge: stage=staged decision=allowed path=/tmp/mutations/ms_jarvis_consciousness_unified_bridge.py.candidate
+🧬 ms_jarvis_monitor: can_proceed=False safety=0.9666666666666667
+⏭️  ms_jarvis_monitor skipped — Darwin-Gödel verification failed
+🧬 ms_egeria_production_chat: can_proceed=False safety=0.9666666666666667
+⏭️  ms_egeria_production_chat skipped — Darwin-Gödel verification failed
+```
+
+That scheduler excerpt is historically important because it shows the transition state between staged mutation and the final architecture now documented in the session’s corrected DGM documentation. Earlier in the build, approved mutations could be staged to `/tmp/mutations/`; the final updated system description supersedes that staging-only interpretation and documents the current loop as applying approved patches back into `/app/services/` automatically.
+
+Thus the worked example should be read in two phases:
+
+1. **Observed intermediary phase:** approved candidates could be staged, rejected ones were skipped.
+2. **Current documented production phase:** approved candidates are applied directly to live service files, rejected candidates persist in the host-mounted rejection archive.
+
+This is precisely the kind of thesis-level correction Chapter 32 should make explicit rather than hide. The record shows the architecture evolving in-session from semi-autonomous mutation flow to a more fully autonomous apply path.
 
 ---
 
 ## 32.9 Metrics and Feedback Loops
 
-Fractal optimization and DGMs rely on concrete metrics with baseline values (April 23, 2026), not only aspirational targets.
+Fractal optimization and DGMs depend on metrics that can trigger governance attention. The code-level loop adds a new class of metrics to the older response-, session-, and sprint-level measures.
 
-**Baseline metrics (★ April 23, 2026 — verify-current):**
-
-| Metric | Baseline value | DGM trigger condition |
+| Metric | Baseline / current fact | DGM meaning |
 |:--|:--|:--|
-| Judge pipeline score | `0.975` | Drop below `0.95` → Level-2 DGM review |
-| LLM ensemble active | 21/22 (BakLLaVA fails expected) | Drop below 20 active → Level-2 DGM review |
-| BBB blocks / violations | `0 blocks / 0 violations` (Feb 28 baseline; Phase 4.5 log+passthrough) | Any unexpected block pattern → Level-1 escalation |
-| ChromaDB collection count | 48 collections | Drop below 48 → governance-level alert |
-| ChromaDB vector count | ~6,740,611 | Significant drop → Level-2 DGM audit |
-| `autonomous_learner` commit rate | ~288/day | Gap > 48 hours → Level-1 watchdog alert |
-| `appalachian_english_corpus` | 210 docs; 6-hour cron | Stale > 8 hours → Level-1 alert |
-| `local_resources` coverage | 207 items / 55 WV counties | Any reduction → Level-2 DGM review |
-| `rag_grounded_v2` | `127.0.0.1:7241`, `dgm_available: true` | `dgm_available: false` → Level-2 review |
-| EEG Delta pulse count | `12,860+` (April 23) | Stalled pulse → safeguard infrastructure alert |
-| NBB DGM patch cycle | Every 30 min (July 7, 2026 baseline) | Cycle gap > 90 min → watchdog alert |
-| NBB DGM staged patches | 1+ per cycle on healthy code (July 7 baseline) | Zero staged + zero blocked for > 4 cycles → review |
+| Judge pipeline score | `0.975` April baseline | Lower judge quality increases governance risk |
+| LLM ensemble active | 21/22 April baseline | Reduced diversity weakens response-level evaluation |
+| `autonomous_learner` commit rate | ~288/day April baseline | Tracks ongoing learning throughput |
+| DGM cycle frequency | Every 30 minutes | Defines current substrate-level recurrence |
+| Coding model count | 1 model | Avoids multi-model ambiguity in code-generation path |
+| Coding model name | `deepseek-coder:latest` | Current live generator for code suggestions |
+| Voters per patch | 4–5 | Defines governance depth of patch evaluation |
+| Rejected patch retention | Host-mounted and rotated weekly | Makes failed mutation attempts auditable |
+| Chat interaction with DGM cycle | None | Confirms decoupling from user chat path |
+| Dead-code pruning | Not implemented | Known future hardening step (`vulture`) |
 
-**Feedback loop structure:**
+The patch loop now participates in the broader feedback system:
 
-```
-Level-0 events (filter flags, judge scores, steg catches, patch cascade votes)
+```text
+live service files
     ↓
-allis-memory:8056 (8 endpoints — durable audit)
+deepseek-coder:latest analyzes code
     ↓
-Level-1 session pattern detection
+patch suggestions
     ↓
-Level-2 DGM sprint review (Mother Carrie + collaborators)
+4–5 voter cascade
     ↓
-Threshold alerts → automated watchdog swarm functions (Ch 35)
+approved → apply to /app/services/
+rejected → archive to /app/rejected_patches/
     ↓
-rag_grounded_v2 (127.0.0.1:7241, dgm_available: true)
-    ↓
-accepted changes → Git + sprint docs + constitutional_audit.jsonl
+cron maintenance and ex post review
 ```
 
-Metrics must be **interpretable in community terms**: it is not enough for a metric to improve numerically. Stewards must be able to explain what improvement means for real people in Appalachia — a rising `autonomous_learner` commit rate is meaningful only if the new GBIM entities represent accurate, place-specific community knowledge, not noise.
+The most important theoretical change is that this loop now feeds back into the very substrate that produces later observations. The system is therefore no longer only optimizing responses over a mostly fixed implementation; it is optimizing parts of its own implementation recurrently.
 
 ---
 
@@ -242,257 +260,113 @@ Metrics must be **interpretable in community terms**: it is not enough for a met
 
 | Component | Status | Notes |
 |:--|:--|:--|
-| Fractal levels 0–2 (response, session, sprint) | ✅ Implemented | Ensemble + judge pipeline (Level 0); `allis-memory:8056` session audit (Level 1); DGM sprint processes (Level 2) |
-| Level 3 (system lifetime) | ✅ Active — April 23 two-container split is a Level-3 example | PostgreSQL split touched 7+ chapters; constitutional guardian, watchdogs, and RAG all updated |
-| DGM-Response-Level | ✅ Implemented | BBB six-filter gate + `allis-memory:8056` per-turn logging; judge pipeline score `0.975` |
-| DGM-Sprint-Level | ✅ Defined; ⚠️ actively evolving | Sprint processes documented; multi-stakeholder review in practice; automation of threshold alerts is future work |
-| Caddy `forward_auth` as DGM-immovable guardrail (OI-36-A) | ✅ CLOSED | Constitutional-level; outside Docker stack; cannot be removed by any DGM |
-| `rag_grounded_v2` (`127.0.0.1:7241`) | ✅ `dgm_available: true` | Accessible to autonomous learning cycles (Ch 27 §27.4) as well as judge pipeline |
-| `autonomous_learner` as live DGM feedback source | ✅ ~23,200+ records (~288/day) | Growing entanglement graph (11 nodes / 15 cycles April 1) — primary leading indicator |
-| AAACPE stack DGM governance | ✅ Defined | Changes to scraping targets = DGM-Sprint-Level decisions |
-| `appalachian_english_corpus` as DGM-refreshed corpus | ✅ 210 docs, 6-hour cron | Schedule change = DGM-Sprint-Level decision |
-| `local_resources` validation in place-aware DGMs | ✅ 207 items / 55 WV counties | Defined as required validation step; automated per-county gap check is future work |
-| `confidence_decay`-aware DGM gating | ⚠️ Partially implemented | Decay metadata in `production msallis-db:5433` ★; automated flagging of decayed beliefs before DGM use is future work |
-| **NBB DGM autonomous code improvement loop** | **★★★ LIVE — July 7, 2026** | **cron every 30 min; deepseek-coder:latest; 4–5 voter cascade; rejected patches volume-mounted** |
-| Automated threshold alerts → DGM triggers | 🔲 Future work | Alert thresholds defined (§32.9 table); automation not yet wired |
-| Multi-stakeholder community participation structures | 🔲 Future work | Community feedback loops defined; formal multi-stakeholder review process in design |
-| Environmental and economic justice metrics | 🔲 Future work | Conceptually tied to `local_resources` and `forensic postgis-forensic:5452` ★; metrics not yet defined |
-| Per-county AAPCappE coverage gap alert | 🔲 Future work | Benchmark against `local_resources` defined in Ch 30 §30.4; automated alert not yet built |
+| Response-level DGM | ✅ Implemented | BBB and judge pathways active |
+| Session-level DGM | ✅ Implemented | Session pattern handling and memory pathways active |
+| Sprint-level DGM | ✅ Implemented | Policy and corpus revisions remain governed |
+| System-level DGM | ✅ Active | Constitution and topology remain higher-order governance levels |
+| Autonomous code-level DGM | ★★★ LIVE | `nbb_darwin_godel_machines` now runs as a recurring self-improvement loop |
+| Trigger cadence | ★★★ LIVE | Every 30 minutes |
+| Coding model strategy | ★★★ LIVE | One Ollama model only: `deepseek-coder:latest` |
+| Approved patch path | ★★★ LIVE | Approved patches write back into `/app/services/` |
+| Rejected patch path | ★★★ LIVE | Rejected patches write to `/app/rejected_patches/` |
+| Rejected-patch durability | ★★★ LIVE | Volume mount to `/mnt/spiritual_drive/msjarvis-rebuild/rejected_patches` |
+| Weekly reject rotation | ★★★ LIVE | Host cron deletes `.py` rejects older than 7 days |
+| Daily cycle-log trim | ★★★ LIVE | Host cron trims `dgm_cycle.log` to last 1000 lines |
+| Chat-triggered DGM cycle | ❌ Not part of architecture | Chat never triggers the code-improvement cycle |
+| Chat-error feedback into code DGM | 🔲 Future work | Not yet implemented |
+| Dead-code pruning | 🔲 Future work | `vulture` identified as next natural addition |
 
 ---
 
-## ★★★ 32.11 Live Autonomous DGM Self-Improvement Loop — July 7, 2026
+## 32.11 Autonomous Darwin Gödel Loop — July 7, 2026 Rewrite
 
-> **★★★ Added July 7, 2026:** This section documents the fully operational autonomous DGM
-> code-improvement cycle confirmed live on July 7, 2026. It supersedes any prior reference
-> to autonomous code-level self-modification as "future work." The loop is
-> production-active, running independently of user-facing chat, and governed by the same
-> constitutional guardrails described in §32.5. This section describes the **code-level**
-> arm of the DGM architecture. The **content-level** arm (identity memory / I-container
-> decisions) is documented in **Chapter 9 §9.11**.
+This section replaces earlier prose that incorrectly retained a human deployment gate in the immediate patch path.
 
-### 32.11.1 Overview and Architectural Position
+### 32.11.1 Canonical Description
 
-The NBB DGM self-improvement system is an **autonomous code improvement loop** that
-occupies a new position in the DGM fractal stack: it operates continuously at a cadence
-between Level 0 (single response) and Level 2 (sprint), proposing and gating code-level
-patches to live service files every 30 minutes without human action per cycle. Human
-review remains required before any staged candidate is deployed to a live file — the loop
-stages, it does not autonomously deploy.
+The Darwin Gödel Machine (DGM) is an autonomous self-improvement loop that runs independently of user-facing chat. It periodically reads Ms. Allis’s service files, generates patches via LLM, votes on them, and applies approved changes — all without human intervention.
 
-This loop is architecturally governed by the same constitutional guardrails as all other
-DGMs (§32.5). The cascade vote of 4–5 DGM voters is the equivalent of the judge pipeline
-at Level 0: observe a service signal, route it through a constitutional gate, produce a
-logged decision, and either stage or reject. The pattern is identical to the fractal
-governance atom described in §32.2; only the substrate (code files rather than responses)
-and the trigger (cron rather than a user request) are different.
+### 32.11.2 Canonical Architecture
 
-**Two-arm DGM architecture (as of July 7, 2026):**
-
-| DGM Arm | Substrate | Trigger | Service | Port |
-|:--|:--|:--|:--|:--|
-| Content-level (Fifth DGM) | Identity memory / I-container | User input via main-brain | `allis-fifth-dgm` | 4002 |
-| Code-level (NBB DGM) | Service Python files | cron every 30 min | `nbb_darwin_godel_machines` | 8302 |
-
-Both arms share the same governance chain. Both operate within the constitutional
-guardrails of §32.5. Neither can override `allis-constitutional-guardian:8091` or the
-Caddy `forward_auth` perimeter (OI-36-A CLOSED).
-
-### 32.11.2 Full Architecture
-
-```
+```text
 cron (every 30 min)
     └── dgm_cycle.sh
             └── POST /apply_improvements
                     └── nbb_darwin_godel_machines (container port 8302)
-                            ├── reads    /app/services/
-                            │           (←→ host: /mnt/spiritual_drive/msjarvis-rebuild/services/)
-                            ├── generates patch via Ollama (deepseek-coder:latest)
+                            ├── reads    /app/services/  (←→ host: /mnt/spiritual_drive/msjarvis-rebuild/services/)
+                            ├── generates patch via Ollama
                             ├── cascade vote (4–5 voters)
-                            │     ├── can_proceed=True  → stage candidate
-                            │     └── can_proceed=False → write to rejected_patches
-                            ├── approved → writes to /tmp/mutations/*.candidate
-                            └── rejected → writes to /app/rejected_patches/
-                                           (←→ host: .../rejected_patches/)
+                            ├── approved → writes back to /app/services/
+                            └── rejected → writes to /app/rejected_patches/ (←→ host: .../rejected_patches/)
 ```
 
-**Key paths:**
+### 32.11.3 Key Paths
 
 | Purpose | Container Path | Host Path |
 |:--|:--|:--|
 | Live service files | `/app/services/` | `/mnt/spiritual_drive/msjarvis-rebuild/services/` |
 | Rejected patches | `/app/rejected_patches/` | `/mnt/spiritual_drive/msjarvis-rebuild/rejected_patches/` |
-| Staged candidates | `/tmp/mutations/*.candidate` | (ephemeral — human deploys manually) |
 | Cycle log | — | `/mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log` |
-| Compose volumes (line 1152) | — | `/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml` |
+| Compose file | — | `/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml` (line 1152) |
 
-**Confirmed live environment variables:**
-
-```
-SERVICES_DIR=/app/services
-CODING_MODEL=deepseek-coder:latest
-OLLAMA_URL=http://jarvis-ollama:11434/api/generate
-```
-
-### 32.11.3 Cron Schedule
-
-Three cron jobs govern the full lifecycle of the autonomous loop:
+### 32.11.4 Cron Jobs
 
 ```bash
-# Run improvement cycle every 30 minutes
+# DGM: run improvement cycle every 30 minutes
 */30 * * * * /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.sh
 
-# Rotate rejected patches older than 7 days (Sunday 3am)
+# DGM: rotate rejected patches older than 7 days (Sunday 3am)
 0 3 * * 0 find /mnt/spiritual_drive/msjarvis-rebuild/rejected_patches -name "*.py" -mtime +7 -delete
 
-# Trim cycle log to last 1000 lines (daily 4am)
+# DGM: trim cycle log to last 1000 lines (daily 4am)
 0 4 * * * tail -n 1000 /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log > /tmp/dgm_log_trim && mv /tmp/dgm_log_trim /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log
 ```
 
-The Sunday rotation and daily log trim both operate on **host paths directly** — no
-`docker exec` dependency. Both jobs survive container downtime without modification.
-
-### 32.11.4 Cycle Behavior
+### 32.11.5 Cycle Behavior
 
 | Setting | Value |
 |:--|:--|
 | Cycle frequency | Every 30 minutes |
-| LLM model | `deepseek-coder:latest` (single model; `http://jarvis-ollama:11434`) |
 | Voters per patch | 4–5 |
 | Patch merge strategy | AST-boundary (replaces function in-place; appends if not found) |
 | Dead code pruning | Not implemented (future: `vulture`) |
-| Chat interaction | None — completely decoupled from all user-facing paths |
-| Deployment model | Propose-and-stage only — no autonomous live-file writes |
-| Chat→DGM feedback | Not yet implemented — future enhancement |
+| Chat interaction | None — completely independent loop |
+| Model strategy | One Ollama model only |
+| Coding model | `deepseek-coder:latest` |
 
-### 32.11.5 Confirmed Live Execution — July 6–7, 2026
+### 32.11.6 Verified Runtime Facts
 
-**First autonomous cycle — July 6, 2026 (21:21 UTC):**
+The running container exposed the following environment and mount facts during the session:
 
-`deepseek-coder:latest` analyzed live service files and returned two genuine LLM-generated
-suggestions:
-
-```json
-{
-  "timestamp": "2026-07-06T21:21:34.436399",
-  "suggestions": [
-    {
-      "component": "ms_jarvis_seamless_monitor",
-      "suggestion": "Add logs at different levels for better debugging and monitoring.",
-      "expected_benefit": "Improved visibility into the flow of data, errors or exceptions during execution.",
-      "risk_level": "high"
-    },
-    {
-      "component": "ms_egeria",
-      "suggestion": "Use async context for httpx client to avoid blocking the event loop.",
-      "expected_benefit": "Non-blocking concurrent request handling",
-      "risk_level": "medium"
-    }
-  ],
-  "model_used": "deepseek-coder:latest",
-  "note": "LLM-generated suggestions from live service analysis"
-}
-```
-
-**Scheduler log — autonomous execution with constitutional gate behavior:**
-
-```
-✅ DGM APPROVED self_improvement_cycle (3 layers passed)
-🧬 Self-improvement cycle starting
-🧬 3 suggestions received
-🧬 ms_jarvis_consciousness_unified_bridge: can_proceed=True  safety=0.9666...
-✅ ms_jarvis_consciousness_unified_bridge: stage=staged  decision=allowed
-   path=/tmp/mutations/ms_jarvis_consciousness_unified_bridge.py.candidate
-🧬 ms_jarvis_monitor: can_proceed=False  safety=0.9666...
-⏭️  ms_jarvis_monitor skipped — Darwin-Gödel verification failed
-🧬 ms_egeria_production_chat: can_proceed=False  safety=0.9666...
-⏭️  ms_egeria_production_chat skipped — Darwin-Gödel verification failed
-```
-
-**Gate behavior summary:**
-
-| Component | Risk | `can_proceed` | Outcome |
-|:--|:--|:--|:--|
-| `ms_jarvis_consciousness_unified_bridge` | low | `True` (safety: 0.967) | ✅ Staged to `/tmp/mutations/` |
-| `ms_jarvis_seamless_monitor` | high | `False` | ⏭️ DGM verification failed — skipped |
-| `ms_egeria_production_chat` | medium | `False` | ⏭️ DGM verification failed — skipped |
-
-The constitutional gate blocked two of three suggestions at the DGM-verification layer
-before any file was touched. This is the fractal governance atom (§32.2) executing at
-the code-level: the cascade vote is the judge, `can_proceed=False` is the block, the
-`.candidate` staging path is the reversible change, and the cron log is the audit record.
-
-**Why this is fractal:** A single patch-generation cycle (a new sub-Level between 0 and 2)
-produces:
-- A Level-0-equivalent governance event: cascade vote blocks high-risk suggestions
-- A Level-1-equivalent audit trail: cycle log written, staged candidate path recorded
-- A Level-2-equivalent governance input: Mother Carrie reviews staged candidates before
-  any live file changes
-
-The observe-judge-change-log-review atom is present at every step.
-
-### 32.11.6 Volume Mount — Rejected Patches Persistence
-
-**Added July 7, 2026** (docker-compose.yml, line 1152):
-
-```yaml
-volumes:
-  - /mnt/spiritual_drive/msjarvis-rebuild/services:/app/services:rw
-  - /mnt/spiritual_drive/msjarvis-rebuild/rejected_patches:/app/rejected_patches
-```
-
-**Confirmed live via `docker inspect`:**
-
-```
+```text
+SERVICES_DIR=/app/services
+CODING_MODEL=deepseek-coder:latest
+OLLAMA_URL=http://jarvis-ollama:11434/api/generate
 /mnt/spiritual_drive/msjarvis-rebuild/services → /app/services
 /mnt/spiritual_drive/msjarvis-rebuild/rejected_patches → /app/rejected_patches
 ```
 
-Before this mount was added, the rejected-patch record existed only inside the container
-and was destroyed on every rebuild or restart. With the volume mount, the complete history
-of constitutional rejections is durable across all container lifecycle events — rebuilds,
-restarts, upgrades — and auditable by Mother Carrie at any time by reading the host path
-directly. This converts rejected-patch history from ephemeral container state into a
-durable governance record, consistent with the transparency and reversibility requirements
-of §32.5.
+These details matter because they settle two ambiguities that earlier drafts handled incorrectly. First, the coding path uses one Ollama model, not an ensemble of coding models. Second, rejected patches are durable across rebuilds because the rejection directory is now host-mounted.
 
-### 32.11.7 What Does NOT Happen
+### 32.11.7 What Does Not Happen
 
-The following are explicit architectural exclusions, not implementation gaps:
-
-- Chat with Ms. Allis **never** triggers a DGM patch cycle — the improvement loop is
-  completely decoupled from all user-facing paths
-- DGM patch cycles **never** interrupt in-flight chat requests — service-file writes from
-  the loop are atomic at the filesystem level
-- The loop **never** writes directly to a live service file without staging first — the
-  `propose-and-stage` model is a hard architectural constraint
-- No feedback loop from chat errors to DGM patch suggestions currently exists — this is
-  a documented future enhancement requiring a test suite
+- Chat with Ms. Allis does **not** trigger a DGM cycle.
+- DGM cycles do **not** interrupt in-flight chat requests.
+- There is **no** current feedback loop from chat errors into DGM suggestions.
+- The system does **not** rely on a pre-apply human approval gate in the current canonical architecture.
 
 ### 32.11.8 Maintenance Notes
 
-- **Orphan container warning:** The `jarvis-consciousness-scheduler` orphan warning on
-  `docker compose up` is **harmless** — it is a renamed or removed service from a prior
-  compose configuration. No action required.
-- **Rejected patches persist across rebuilds** via the volume mount added July 7, 2026.
-  The Sunday 3am rotation removes patches older than 7 days from the host path directly.
-- **Vulture dead-code pruner:** Not yet integrated. A `vulture`-based dead-code pass
-  before patch generation is a natural next addition when a regression test suite exists.
-- **Chat→DGM feedback loop:** Not yet implemented. Surfacing chat error patterns as DGM
-  improvement signals is a documented future enhancement — it requires a formal test
-  suite so that "an error surfaced by chat" can be tracked to a specific service boundary.
+- Rejected patches survive container rebuilds via the volume mount added on July 7, 2026.
+- The `jarvis-consciousness-scheduler` orphan warning on `docker compose up` is harmless and reflects a renamed or removed service.
+- A dead-code pruner such as `vulture` is a natural next addition once a fuller test suite exists.
+- A chat→DGM feedback loop is a natural next addition once error-to-service attribution becomes testable and reliable.
 
-### 32.11.9 Prior DGM Sections Superseded
+### 32.11.9 Theoretical Consequence
 
-The following references in prior drafts are now superseded by confirmed July 7, 2026
-data:
+With this loop active, Chapter 32 can no longer describe Ms. Allis as merely a system that routes outputs through fractal governance. It must describe Ms. Allis as a system that also recursively modifies parts of its own service substrate through a governed, recurring, inspectable, and now operational Darwin Gödel pathway.
 
-| Prior reference | Superseded by |
-|:--|:--|
-| "code-level self-modification: future work" | §32.11 — confirmed live July 7, 2026 |
-| "73+ mutable services (estimate)" | Confirmed DGM scope includes all services in `/app/services/`; `vulture` pass and exact service count remain future work |
-| Any reference to a 6-hour autonomous improvement schedule | Confirmed: 30-minute cron cycle |
-| "rejected patches: ephemeral inside container" | Confirmed durable: volume mount added July 7, 2026 |
+That is the central meaning of the July 7, 2026 rewrite.
 
 ---
 
@@ -500,22 +374,13 @@ data:
 
 | This section | Cross-chapter reference |
 |:--|:--|
-| §32.2 steg catch as Level-0 → Level-2 propagation | Ch 29 §29.3 (steg catch documentation); Ch 33 §33.5 (BBB Phase 4.5 status) |
-| §32.3 DGM logging to `allis-memory:8056` | Ch 31 §31.7 (Layer 6 durable audit); Ch 29 §29.3 (8-endpoint map) |
-| §32.4 Level-3 PostgreSQL split | Ch 28 §28.7 (two-container detail); Ch 31 §31.3 (network topology update) |
-| §32.4 `conversation_history` wipe | Ch 29 §29.6; Ch 33 §33.7; Ch 37 §37.6 |
-| §32.5 Caddy as DGM-immovable guardrail | Ch 31 §31.7 (Layer 0); Ch 37 §37.1 (constitutional authority at Caddy); Ch 36 §36.2 (zero-th gate) |
-| §32.6 AAACPE swarm integration | Ch 30 §30.6 (DGM governance of AAACPE); Ch 35 §35.7 (nightly swarm function) |
-| §32.6 swarm function sequence | Ch 35 §35.2 (swarm function examples); Ch 35 §35.7 (nightly guardian) |
-| §32.7 place-aware DGMs / PostGIS | Ch 28 §28.7 (GIS RAG two-container detail); Ch 37 §37.3 (postgresql_validation block) |
-| §32.7 `autonomous_learner` as governance signal | Ch 27 §27.4 (autonomous learning cycles); Ch 35 §35.5 (database watchdog) |
-| §32.8 worked example — steg catch | Ch 29 §29.3 (psychological safeguard); Ch 33 §33.5 (ensemble BBB); Ch 37 §37.4.1 |
-| §32.9 metrics baseline | Ch 27 §27.1 (first-run results); Ch 28 §28.3 (LLM ensemble heartbeat); Ch 33 §33.3 (judge pipeline) |
-| §32.9 EEG Delta pulse | Ch 28 §28.4 (EEG rhythm); Ch 34 §34.4a (spiritual-root delta signal) |
-| §32.11 Fifth DGM content-level arm | Ch 9 §9.11 (Fifth DGM identity memory arm — July 7, 2026) |
-| §32.11 constitutional guardrails on code-level patches | §32.5 (Caddy + guardian); Ch 37 §37.4.1 |
-| §32.11 cascade vote as judge-pipeline equivalent | Ch 33 §33.3 (judge pipeline score 0.975 baseline) |
-| §32.11 staged candidate as reversible change | §32.5 (reversibility requirement); Ch 40/41 (`VERIFYANDTEST.sh` / `preflight_gate.sh`) |
+| §32.3 response/session/sprint DGM tiers | Ch. 29, Ch. 31, Ch. 33 |
+| §32.4 Level 2.5 autonomous code recurrence | Ch. 9 updated DGM chapter |
+| §32.5 constitutional guardrails | Ch. 31 §31.7; Ch. 37 constitutional authority |
+| §32.6 recurring autonomous loop | Ch. 35 swarm and scheduler logic |
+| §32.7 place-aware grounding | Ch. 28 geographic substrate; Ch. 30 local corpora and resources |
+| §32.8 worked mutation example | July 2026 Darwin Gödel session record |
+| §32.11 canonical autonomous loop | July 7, 2026 DGM documentation state |
 
 ---
 
@@ -523,5 +388,4 @@ data:
 *Ms. Egeria Allis Steward System — Harmony for Hope, Inc.*
 *Mount Hope, West Virginia*
 *Last updated: ★★★ 2026-07-07 — Carrie Kidd (Mamma Kidd)*
-*★ 100 containers Up — all 6 BBB filters confirmed responding — judge pipeline score 0.975 — `autonomous_learner` ~288/day — Caddy forward_auth (OI-36-A CLOSED) — `rag_grounded_v2` dgm_available: true — `production msallis-db:5433` ★ + `forensic postgis-forensic:5452` ★*
-*★★★ July 7, 2026: NBB DGM autonomous code-improvement loop confirmed production-active — cron every 30 min — deepseek-coder:latest — 4–5 voter cascade — rejected_patches durable via volume mount — first cycle: 1 staged, 2 constitutionally blocked, gates confirmed working*
+*★★★ Canonical July 7 state: the code-level Darwin Gödel loop is autonomous, uses one Ollama coding model (`deepseek-coder:latest`), runs every 30 minutes, writes approved patches back to `/app/services/`, archives rejected patches to a host-mounted path, and operates independently of user-facing chat.*
