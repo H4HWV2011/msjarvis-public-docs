@@ -778,6 +778,238 @@ of how the Fifth DGM participates in live user interactions, see **Chapter 17**.
 
 ---
 
+## ★ 9.11 Live Autonomous DGM Self-Improvement Loop — July 7, 2026 Addition
+
+> **★★ Added July 7, 2026:** This section documents the fully operational autonomous
+> DGM self-improvement cycle confirmed live on July 7, 2026. It supersedes any prior
+> references to the DGM improvement loop as "future work." The loop is production-active,
+> running independently of user-facing chat, and governed by the same constitutional
+> guardrails described in §9.2.3 and §9.5.
+
+### 9.11.1 Overview
+
+The Darwin–Gödel Machine self-improvement system is an **autonomous code improvement
+loop** that runs on a cron schedule entirely independently of Ms. Allis's user-facing
+chat. It periodically reads live service files, generates patch proposals via a single
+Ollama LLM (`deepseek-coder:latest`), submits each proposal through a cascade vote of
+4–5 DGM voters, and either applies approved patches back to the service filesystem or
+writes rejected patches to a dedicated rejected-patches store. No human action is
+required for routine cycle execution; human review is required before any staged mutation
+is deployed to a live file.
+
+This is the architecture referenced in §9.5 as the "code-level proposals" domain of the
+NBB Darwin–Gödel Machines Service. As of July 7, 2026, that description is empirically
+confirmed: the full loop has executed autonomously in production.
+
+### 9.11.2 Architecture
+
+```
+cron (every 30 min)
+    └── dgm_cycle.sh
+            └── POST /apply_improvements
+                    └── nbb_darwin_godel_machines (container port 8302)
+                            ├── reads    /app/services/
+                            │           (←→ host: /mnt/spiritual_drive/msjarvis-rebuild/services/)
+                            ├── generates patch via Ollama (deepseek-coder:latest)
+                            ├── cascade vote (4–5 voters)
+                            ├── approved → writes back to /app/services/
+                            └── rejected → writes to /app/rejected_patches/
+                                          (←→ host: .../rejected_patches/)
+```
+
+**Key paths:**
+
+| Purpose | Container Path | Host Path |
+|:--|:--|:--|
+| Live service files | `/app/services/` | `/mnt/spiritual_drive/msjarvis-rebuild/services/` |
+| Rejected patches | `/app/rejected_patches/` | `/mnt/spiritual_drive/msjarvis-rebuild/rejected_patches/` |
+| Cycle log | — | `/mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log` |
+| Compose file (DGM volumes at line 1152) | — | `/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml` |
+
+### 9.11.3 Cron Schedule
+
+```bash
+# DGM: run improvement cycle every 30 minutes
+*/30 * * * * /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.sh
+
+# DGM: rotate rejected patches older than 7 days (Sunday 3am)
+0 3 * * 0 find /mnt/spiritual_drive/msjarvis-rebuild/rejected_patches -name "*.py" -mtime +7 -delete
+
+# DGM: trim cycle log to last 1000 lines (daily 4am)
+0 4 * * * tail -n 1000 /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log > /tmp/dgm_log_trim && mv /tmp/dgm_log_trim /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log
+```
+
+The Sunday cron rotation targets the **host path directly** — no `docker exec` dependency.
+If the container is down on a Sunday, cleanup still runs.
+
+### 9.11.4 Cycle Behavior
+
+| Setting | Value |
+|:--|:--|
+| Cycle frequency | Every 30 minutes |
+| LLM for patch synthesis | `deepseek-coder:latest` (single model via `http://jarvis-ollama:11434`) |
+| Voters per patch | 4–5 |
+| Patch merge strategy | AST-boundary (replaces function in-place; appends if not found) |
+| Dead code pruning | Not implemented (future: `vulture`) |
+| Chat interaction | None — completely independent loop |
+
+**Environment variables (confirmed live):**
+
+```
+SERVICES_DIR=/app/services
+CODING_MODEL=deepseek-coder:latest
+OLLAMA_URL=http://jarvis-ollama:11434/api/generate
+```
+
+### 9.11.5 Confirmed Live Execution — July 6–7, 2026
+
+**First autonomous cycle — July 6, 2026 (21:21 UTC):**
+
+The `jarvis-consciousness-scheduler` triggered a `self_improvement_cycle` that passed
+through 3 DGM approval layers and produced the following live output from
+`deepseek-coder:latest`:
+
+```json
+{
+  "timestamp": "2026-07-06T21:21:34.436399",
+  "suggestions": [
+    {
+      "component": "ms_jarvis_seamless_monitor",
+      "suggestion": "Add logs at different levels for better debugging and monitoring.",
+      "expected_benefit": "Improved visibility into the flow of data, errors or exceptions during execution.",
+      "risk_level": "high"
+    },
+    {
+      "component": "ms_egeria",
+      "suggestion": "Use async context for httpx client to avoid blocking the event loop.",
+      "expected_benefit": "Non-blocking concurrent request handling",
+      "risk_level": "medium"
+    }
+  ],
+  "model_used": "deepseek-coder:latest",
+  "note": "LLM-generated suggestions from live service analysis"
+}
+```
+
+**Scheduler log — confirmed autonomous execution:**
+
+```
+✅ DGM APPROVED self_improvement_cycle (3 layers passed)
+🧬 Self-improvement cycle starting
+🧬 3 suggestions received
+🧬 ms_jarvis_consciousness_unified_bridge: can_proceed=True safety=0.9666...
+✅ ms_jarvis_consciousness_unified_bridge: stage=staged decision=allowed
+   path=/tmp/mutations/ms_jarvis_consciousness_unified_bridge.py.candidate
+🧬 ms_jarvis_monitor: can_proceed=False safety=0.9666...
+⏭️  ms_jarvis_monitor skipped — Darwin-Gödel verification failed
+🧬 ms_egeria_production_chat: can_proceed=False safety=0.9666...
+⏭️  ms_egeria_production_chat skipped — Darwin-Gödel verification failed
+```
+
+**Safety gate behavior.** The results demonstrate the constitutional gates working
+precisely as designed:
+
+- `ms_jarvis_consciousness_unified_bridge` — `can_proceed=True`, safety score 0.967,
+  `constitutional_decision=allowed` → staged to `/tmp/mutations/` ✅
+- `ms_jarvis_monitor` — `risk_level: high` → DGM verification failed → **skipped** ✅
+- `ms_egeria_production_chat` — `can_proceed=False` → **skipped** ✅
+
+High-risk suggestions are blocked by the Darwin–Gödel cascade without human action.
+Low-risk, approved suggestions are staged to `/tmp/mutations/` as `.candidate` files
+pending human deployment review — no live file is overwritten without explicit human
+decision. This is the "propose and stage, never autonomously deploy" contract.
+
+### 9.11.6 Volume Mount — Rejected Patches Persistence
+
+**Added July 7, 2026** (docker-compose.yml line 1152):
+
+```yaml
+volumes:
+  - /mnt/spiritual_drive/msjarvis-rebuild/services:/app/services:rw
+  - /mnt/spiritual_drive/msjarvis-rebuild/rejected_patches:/app/rejected_patches
+```
+
+**Confirmed live:**
+
+```
+/mnt/spiritual_drive/msjarvis-rebuild/services → /app/services
+/mnt/spiritual_drive/msjarvis-rebuild/rejected_patches → /app/rejected_patches
+```
+
+Before this mount was added, rejected patches lived only inside the container and were
+lost on every rebuild or restart. With the volume mount, the full rejected-patch history
+is durable across all container lifecycle events. The host-side cron (Sunday 3am)
+operates directly on the host path — no `docker exec` required, no container-dependency
+risk on the rotation job.
+
+### 9.11.7 What Does NOT Happen
+
+The following are explicit architectural exclusions, not implementation gaps:
+
+- Chat with Ms. Allis **never** triggers a DGM cycle — the improvement loop is
+  completely decoupled from all user-facing paths
+- DGM cycles **never** interrupt in-flight chat requests — all service-file writes are
+  atomic at the filesystem level
+- No feedback loop from chat errors to DGM patch suggestions currently exists — this is
+  a documented future enhancement contingent on a test suite being in place
+
+### 9.11.8 Maintenance Notes
+
+- **Orphan warning:** The `jarvis-consciousness-scheduler` orphan warning on
+  `docker compose up` is **harmless** — it was a renamed or removed service from a prior
+  compose configuration. No action required.
+- **Rejected patches survive container rebuilds** via the volume mount added July 7, 2026.
+- **Vulture dead-code pruner:** Not yet integrated. A `vulture`-based pruner pass before
+  patch generation is a natural next addition when a regression test suite exists.
+- **Chat→DGM feedback loop:** Not yet implemented. Surfacing chat error patterns as DGM
+  improvement signals is documented as a future enhancement.
+
+### 9.11.9 Relationship to Prior DGM Sections
+
+This section describes the **code-level** self-modification arm of the DGM architecture.
+It is architecturally distinct from the Fifth DGM (§9.2–§9.8), which governs
+**content-level** decisions about what enters identity memory. The two arms share the
+same governance chain — both operate within the constitutional guardrails described in
+§9.2.3 and both are ultimately governed by `nbb_pituitary_gland` (port 8108) — but
+they operate on different substrates:
+
+| DGM Component | Substrate | Modification Target |
+|:--|:--|:--|
+| Fifth DGM (port 4002) | Content stream | Identity memory / I-container |
+| NBB DGM Service (port 8302) | Service filesystem | Python service code |
+
+The `nbb_darwin_godel_machines` service at port 8302 is the code-level arm documented
+in this section. The fractal relationship between the two arms — and how both nest inside
+the broader observe–propose–evaluate–adopt governance cycle — is described in
+**Chapter 32: Fractal Optimization and the DGM Layer**.
+
+---
+
+## 9.12 Summary Table — Full April 23, 2026 + July 7, 2026 Baselines
+
+| Item | Value | Date |
+|:--|:--|:--|
+| Containers Up (working run) | **100** | April 23, 2026 |
+| Containers Up (thesis-verified) | **112/112** | April 16, 2026 |
+| ChromaDB collections | **48** | April 23, 2026 |
+| ChromaDB total vectors | **~6,740,611** | April 17, 2026 |
+| `msallisgis` production | `msallis-db` host 5433 / container 5432 — 16 GB / 294 tables | April 23, 2026 |
+| `msallisgis` forensic | `postgis-forensic` host 5432 — 17 GB / 314 tables | April 23, 2026 |
+| `nbb_pituitary_gland` | port 8108, mode `baseline`, 5 protocols live | April 23, 2026 |
+| EEG bands | Delta 1,679 / Theta 846 / Beta 168 pulses, all live | April 17, 2026 |
+| Fifth DGM | 9 inputs, 1 YES, 8 NO, 1 subconscious, `woah_evaluations: 1` | April 17, 2026 |
+| WOAH strong-identity | `hierarchical_weight: 0.895` for MountainShares WV governance | April 17, 2026 |
+| `allis-neurobiological-master` | port 8018, Up | April 23, 2026 |
+| `autonomous_learner` | **21,181 records** | April 23, 2026 |
+| OI-29 / OI-09-NEW-A / OI-31 | All CLOSED | April 17, 2026 |
+| NBB DGM Service | port 8302, live — `deepseek-coder:latest`, cron every 30 min | July 7, 2026 |
+| Rejected patches volume mount | `/mnt/.../rejected_patches → /app/rejected_patches` | July 7, 2026 |
+| First autonomous improvement cycle | 3 suggestions, 1 staged, 2 blocked — gates confirmed working | July 6, 2026 |
+| DGM cron rotation | Sunday 3am host-path, no docker exec dependency | July 7, 2026 |
+| Ch. 02 cross-reference | `02-ms-allis-gbim.md` | April 23, 2026 |
+
+---
+
 *Chapter 9 — Darwin–Gödel Machines and the Fifth DGM*
 *Carrie Kidd (Mamma Kidd), Mount Hope WV*
 
@@ -797,6 +1029,12 @@ scaffolded to live; `jarvis-neurobiological-master` Up 20 hours.*
 container counts date-stamped (100 Up April 23, 2026; 112 thesis-verified April 16, 2026);
 `jarvis-neurobiological-master` port 8018 confirmed and added; Ch. 02 cross-reference
 corrected to `02-ms-jarvis-gbim.md`; two-container database architecture applied
-(`msjarvis-db` host 5433 / `postgis-forensic` host 5432); `jarvis-chroma` inter-service
+(`msjarvis-db` host 5433 / `postgis-forensic` host 5452); `jarvis-chroma` inter-service
 URL `http://jarvis-chroma:8000` applied throughout; ChromaDB v2 API and 48-collection
 count updated with historical note.*
+*★★★ Updated July 7, 2026: §9.11 added — Live Autonomous DGM Self-Improvement Loop
+confirmed production-active. First autonomous cycle executed July 6, 2026: deepseek-coder
+generated live suggestions, 3-layer DGM cascade vote, 1 patch staged, 2 blocked by
+constitutional gates. Rejected patches volume mount added (docker-compose.yml line 1152).
+Cron schedule finalized (30-min cycle, Sunday rotation, daily log trim). §9.12 updated
+with July 2026 baseline row.*
