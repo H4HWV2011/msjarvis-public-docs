@@ -7,16 +7,14 @@
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter describes how Ms. Allis uses a concrete semantic memory system to support place-based reasoning about West Virginia while tying the Hilbert-space framework to the now-documented operational stack. It supports:
+This chapter describes how Ms. Allis uses a concrete semantic memory system to support place-based reasoning about West Virginia while tying the Hilbert-space framework to the now-documented operational stack. It treats the Hilbert model not as a free-floating metaphor but as a formal description of state that is mediated through live services, sandboxed reasoning, and governed promotion boundaries.
+
+It supports:
 
 - **P1 – Every where is entangled** by storing texts, GIS-derived entities, programme records, and governed reasoning traces in shared relational tables and production vector collections that can be jointly retrieved and rejoined, so that legal, economic, infrastructural, social, and governance facts about Appalachia are handled as a single interconnected memory rather than as disconnected files or ad-hoc lookups.
-
 - **P3 – Power has a geometry** by representing institutions, places, access to help, and governance pathways as explicit GBIM records, GeoDB features, Chroma collections, Hilbert-state transitions, and logged retrieval paths whose behaviour can be inspected, clustered, and audited.
-
 - **P5 – Design is a geographic act** by treating collection schemas, metadata choices, enrichment scripts, retrieval rules, join logic, coherence tracking, and promotion gates in the GBIM/GeoDB/Chroma stack as deliberate interventions into how West Virginia is represented, searched, and acted upon.
-
 - **P12 – Intelligence with a ZIP code** by binding memory collections and registries to West Virginia-specific layers and records, including GBIM-derived geographies, `msallisgis` features, and programme registries keyed by county and ZIP where populated.
-
 - **P16 – Power accountable to place** by making long-term memory, retrieval behaviour, Hilbert-state transitions, and query-to-evidence links explicit and queryable, with logs, coherence keys, and database joins that show which GBIM beliefs, GeoDB features, vector-collection entries, and resource rows were used in answers and governance decisions.
 
 As such, this chapter belongs to the **Computational Instrument** tier. It defines the production semantic memory substrate, the Hilbert-space interpretation of application state, and the operational promotion model that Quantarithmia’s reasoning, GBIM’s belief structures, the local-resources band, the West Virginia benefits RAG flows, and MountainShares governance analysis run on in the live system.
@@ -25,11 +23,11 @@ As such, this chapter belongs to the **Computational Instrument** tier. It defin
 
 ## 4.1 Purpose and Scope
 
-This chapter explains how Ms. Egeria Allis uses ChromaDB as the physical container of \(H_{\text{App}}\) while clarifying that the Hilbert framework is not a free-floating abstraction detached from service architecture.
+This chapter explains how Ms. Egeria Allis uses ChromaDB as a physical container of large portions of \(H_{\text{App}}\) while clarifying that the Hilbert framework is not detached from the service architecture now documented in the operational stack.
 
-ChromaDB remains a concrete implementation of long-term, queryable semantic memory for documents, GIS features, governance texts, autonomous-learning traces, resource guides, and thesis materials. Collections such as `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` remain coherent subspaces of \(H_{\text{App}}\), but Hilbert-space operations are now documented as mediated through sandboxed reasoning, gate evaluation, and bridge promotion rather than as immediate effects of retrieval or prompting.
+ChromaDB remains a concrete implementation of long-term, queryable semantic memory for documents, GIS features, governance texts, autonomous-learning traces, resource guides, and thesis materials. Collections such as `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` remain coherent subspaces of \(H_{\text{App}}\), but Hilbert-space operations are now documented as mediated through sandboxed reasoning, gate evaluation, and bridge promotion rather than as immediate effects of prompting, retrieval, or embedding lookup.
 
-The key revision of this chapter is that Hilbert-space transitions must be understood as **gated operational events**. A prompt does not directly rotate system state into durable memory or action. Instead, a prompt contributes to candidate state, candidate state is reasoned over in sandbox, gates evaluate that state, and only approved transitions are promoted across the consciousness bridge or into persistent memory.
+The key revision of this chapter is that Hilbert-state transitions must be understood as **gated operational events**. A prompt does not directly rotate system state into durable memory or action. Instead, a prompt contributes candidate material; candidate material is reasoned over in sandbox; gates evaluate the resulting state; and only approved transitions are promoted across the consciousness bridge or into persistent memory.
 
 ---
 
@@ -71,7 +69,7 @@ A sandbox hypothesis, corroborated conclusion, approved memory, and actionable s
 
 ## 4.3 Hilbert Domains and Operational Mediation
 
-The abstract Hilbert model must now be tied to the operational stack through distinct but interacting domains:
+The abstract Hilbert model is tied to the operational stack through distinct but interacting domains:
 
 - \(H_{\text{App}}\) — application-semantic state.
 - \(H_{\text{geo}}\) — spatial or geographic state.
@@ -105,7 +103,7 @@ Collections such as:
 - `governance_rag`
 - `local_resources`
 
-can still be described as named, geometrically coherent subspaces or projections within the application Hilbert space.
+can still be described as named, geometrically coherent subspaces or projection targets within the application Hilbert space.
 
 However, the chapter should no longer imply that Chroma retrieval directly changes operational state. Retrieval is a projection and context-generation mechanism. It creates candidate relevance, not automatic authority. Semantic proximity does not by itself justify memory consolidation, action, or governance consequence.
 
@@ -115,23 +113,57 @@ The revised rule is:
 
 ---
 
-## 4.5 Hilbert-State Service and Coherence Keys
+## 4.5 Production Chroma and Sandbox Memory
 
-The abstract Hilbert model now has live implementation anchors that should be named explicitly.
+The Hilbert framework now requires an explicit distinction between long-term semantic memory and the internal reasoning scratchpad.
 
-The **hilbert-state service** and its **coherence tracking keys** provide a concrete operational bridge between formal Hilbert-space language and running service state. These coherence keys function as inspectable markers of how application state is being tracked, compared, and stabilized across domains rather than leaving the Hilbert framework at the level of metaphor alone.
+### 4.5.1 Main Corpus Chroma
 
-This matters for documentation because it gives the chapter a direct implementation anchor:
+The main corpus Chroma instance, including `jarvis-chroma` on port 8002 in the documented stack, is the durable semantic-memory store. It contains production collections used for user-facing retrieval, GBIM grounding, RAG support, governance analysis, and auditable recall.
 
-- the Hilbert model is not only a descriptive frame;
-- coherence is not only a philosophical claim;
-- parts of the model are now tied to live service structures and tracked state.
+These production collections anchor long-term memory and must be treated as durable corpus memory rather than as active thought.
 
-Where the chapter discusses state continuity, cross-domain alignment, or belief update, it should explicitly mention the hilbert-state service and coherence tracking keys as concrete loci of implementation.
+### 4.5.2 Internal-State Sandbox Chroma
+
+Separate from the main corpus is the planned or dedicated internal-state Chroma used only for sandbox reasoning. This store is not production memory and must not be treated as part of the same retention regime as the corpus instance.
+
+Its role is to hold ephemeral collections such as:
+
+- working memory,
+- hypothesis staging,
+- qualia signals,
+- reflection logs,
+- contradiction traces,
+- and other provisional internal-state artifacts.
+
+These stores are sandbox-local scratchpads. They are not durable semantic memory merely because they contain vectors. They may be flushed, summarized, quarantined, or selectively promoted depending on gate outcomes.
+
+### 4.5.3 Why the Distinction Matters
+
+This distinction is operationally necessary because:
+
+- production collections anchor durable semantic memory;
+- sandbox memory anchors reversible internal deliberation;
+- promotion rules determine whether provisional state becomes durable state;
+- and corpus maintenance must not be allowed to disrupt active sandbox reasoning.
+
+The Hilbert framework remains valid, but it must be described with these operational boundaries in view.
 
 ---
 
-## 4.6 Queries, Projections, and Gated Transformations
+## 4.6 Hilbert-State Service and Coherence Keys
+
+The abstract Hilbert model now has live implementation anchors that should be named explicitly.
+
+The **hilbert-state service** and its **coherence tracking keys** provide a concrete operational bridge between formal Hilbert-space language and running service state. These anchors matter because they make the model inspectable in implementation rather than leaving it only at the level of theory.
+
+The documented state service exposes concrete routes such as `stateset`, `stateget`, `statetransition`, `statelist`, `entanglement`, `hpingest`, `hpquery`, `hphealth`, and `health`. This makes it possible to treat Hilbert-state tracking as a live architectural component rather than as a purely conceptual overlay.
+
+Where the chapter discusses state continuity, cross-domain alignment, or belief update, it should therefore explicitly mention the hilbert-state service and coherence tracking keys as concrete loci of implementation.
+
+---
+
+## 4.7 Queries, Projections, and Gated Transformations
 
 The projection language of Hilbert spaces still applies. Queries can be understood as projections into relevant subspaces, whether semantic, spatial, temporal, or governance-related.
 
@@ -155,11 +187,11 @@ The chapter should therefore clarify that Hilbert-state transitions are not imme
 
 ---
 
-## 4.7 Multidomain Coherence
+## 4.8 Multidomain Coherence
 
 A key addition to this chapter is **multidomain coherence**.
 
-Because Ms. Allis now reasons across \(H_{\text{App}}\), \(H_{\text{geo}}\), \(H_{\text{temporal}}\), and \(H_{\text{people}}\), coherence must be treated as more than local semantic similarity. A state may be semantically plausible while geographically inconsistent, temporally stale, identity-conflicted, or constitutionally disallowed.
+Because Ms. Allis now reasons across \(H_{\text{App}}\), \(H_{\text{geo}}\), \(H_{\text{temporal}}\), and \(H_{\text{people}}\), coherence must be treated as more than local semantic similarity. A state may be semantically plausible while geographically inconsistent, temporally stale, identity-conflicted, privacy-disallowed, or constitutionally inadmissible.
 
 Coherence in this chapter should therefore be described as multidomain consistency across:
 
@@ -167,13 +199,22 @@ Coherence in this chapter should therefore be described as multidomain consisten
 - geographic placement,
 - temporal validity,
 - identity and disclosure constraints,
+- provenance continuity,
 - and governance or constitutional admissibility.
 
 This coherence is one of the gate conditions used to decide whether a state remains sandbox-local, is revised, is routed to review, or is promoted toward memory or action.
 
+A candidate architectural formulation is:
+
+\[
+\mathrm{Allis}(x) = \prod_{d \in D} C_d(x)^{w_d} - \sum_{i,j} \lambda_{ij} \lvert C_i(x) - C_j(x) \rvert \; G(x)
+\]
+
+where \(D\) ranges over semantic, geographic, temporal, people, provenance, and constitutional domains; \(C_d(x)\) is a coherence score for domain \(d\); and \(G(x)\) is the mandatory gate term. Under this interpretation, a state that fails a mandatory gate cannot count as globally coherent.
+
 ---
 
-## 4.8 Confidence-Bounded Promotion
+## 4.9 Confidence-Bounded Promotion
 
 Where Hilbert state connects to durable memory or system action, promotion must be confidence-bounded.
 
@@ -197,7 +238,7 @@ These conditions should be presented as architectural safety constraints and int
 
 ---
 
-## 4.9 Pituitary Modulation and Upstream State Scaling
+## 4.10 Pituitary Modulation and Upstream State Scaling
 
 Before retrieval dispatch occurs, the `nbb_pituitary_gland` acts as a global mode regulator on the belief-state pipeline. This remains an important part of the Hilbert-space interpretation, but the chapter should now place it inside the broader operational stack.
 
@@ -207,7 +248,7 @@ This keeps the chapter consistent with the live architecture: global mode can sh
 
 ---
 
-## 4.10 Consciousness Bridge and State Promotion
+## 4.11 Consciousness Bridge and Commitment Boundary
 
 This chapter should explicitly connect Hilbert-space language to the consciousness bridge.
 
@@ -219,27 +260,29 @@ That bridge is the operational boundary between:
 - validated internal experience,
 - and persistent or consequential state.
 
-The revised chapter should say clearly that Hilbert-state transitions are not merely internal mathematical updates. They are service-mediated, gate-checked, bridge-aware events in the running architecture.
+A useful formalization is a gated commitment operator:
+
+\[
+K : S_{\mathrm{deliberative}} \rightharpoonup S_{\mathrm{committed}}
+\]
+
+with:
+
+\[
+K(x) =
+\begin{cases}
+Kx, & G_K(x)=1 \\
+\varnothing, & G_K(x)=0
+\end{cases}
+\]
+
+The consciousness bridge, or equivalent promotion boundary, may be modeled as part of \(K\). The essential property is that \(K\) changes the consequence class of the state. Before commitment, a state remains reversible inside deliberation. After commitment, it may enter durable memory, user-facing output, civic record, or external action.
+
+The revised chapter should therefore say clearly that Hilbert-state transitions are not merely internal mathematical updates. They are service-mediated, gate-checked, bridge-aware events in the running architecture.
 
 ---
 
-## 4.11 Production Chroma and Sandbox Memory Distinction
-
-A final clarification belongs in this chapter because it affects how Hilbert space is interpreted operationally.
-
-Production Chroma-backed memory and sandbox-local working memory must not be collapsed into one undifferentiated Hilbert substrate. Long-term semantic memory, worldview corpora, governance corpora, and benefits collections are durable production stores. Sandbox-local reasoning traces, hypothesis staging, reflection buffers, and candidate states are provisional stores.
-
-This distinction is essential because:
-
-- production collections anchor durable semantic memory;
-- sandbox memory anchors reversible internal deliberation;
-- promotion rules determine whether provisional state becomes durable state.
-
-The Hilbert framework remains valid, but it must be described with these operational boundaries in view.
-
----
-
-## 4.12 Revision Principle
+## 4.12 Documentation Principle
 
 The governing revision principle for this chapter is:
 
@@ -251,5 +294,6 @@ The governing revision principle for this chapter is:
 - Promotion toward memory or action must be confidence-bounded.
 - The hilbert-state service and coherence tracking keys should be named as concrete implementation anchors for the abstract Hilbert model.
 - The consciousness bridge is the operational path by which approved state transitions leave sandboxed reasoning and become durable or consequential.
+- Production Chroma-backed semantic memory and sandbox-local internal scratchpad memory must remain distinct computational regimes.
 
 Under this revised framing, the Hilbert model remains mathematically and architecturally central, but it is now explicitly tied to the live service stack rather than documented as a free-standing geometric abstraction.
