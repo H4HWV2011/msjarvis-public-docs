@@ -1,299 +1,487 @@
-# Chapter 25 — Consciousness Pipeline Integration
-## SEAL DOCUMENT — April 12, 2026, 12:08 AM EDT
+# 25. Consciousness Coordinator and Services
 
-**Status: CLOSED ✅**
-**Sealed by:** Carrie Kidd (Mamma Kidd)
-**Environment:** `~/msallis-rebuild-working/msallis-rebuild/msallis-rebuild`
-**System:** Legion 5-16IRX9, Ubuntu, crypto-venv
-
-*★ April 23, 2026: This chapter is sealed. The following annotations update key metrics to the April 23, 2026 stack baseline where relevant to cross-chapter references. Sealed content and all original verification outputs are preserved exactly as sealed April 12, 2026. Container count updated to 100 (supersedes 92); ChromaDB updated to 48 active collections, ~6,740,611 total vectors (supersedes 49 / 6,722,589+); ChromaDB API updated to /api/v2/ — /api/v1/ permanently removed in server 1.0.0; two-container PostgreSQL split — production msallis-db host 5433 (16 GB, 294 tables, 11 schemas) + forensic postgis-forensic host 5452 (17 GB, 314 tables) — supersedes msallisgis:5432 and msallis:5433 references; OI-36-A status updated — see §25.2 annotation; OI-CHROMA port binding annotation added; AAACPE ingest updated — dedicated stack (allis-aaacpe-scraper:8048→8033 + allis-aaacpe-rag:8047→8032) supersedes legacy allis-ingest-api + allis-ingest-watcher.*
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
+*Last updated: July 10, 2026*
 
 ---
 
-## §25.0 — Seal Summary
+## Why This Matters for Polymathmatic Geography
 
-All §25.2 open items are resolved. The Ms. Allis consciousness pipeline is fully operational end-to-end as of April 12, 2026. The RAG pipeline is live, the neurobiological master is healthy, all cross-container services are reachable, and the bridge container has been patched and committed to image `allis-consciousness-bridge:ch25-patched`.
+This chapter explains how Ms. Allis coordinates conscious processing without collapsing internal thought, candidate experience, and consequential system action into one uncontrolled stream.
 
-★ **April 23, 2026 annotation:** The consciousness pipeline remains operational. The April 23 stack baseline (100 containers, 48 collections, ~6,740,611 vectors, two-container PostgreSQL split, Caddy `forward_auth` OI-36-A CLOSED) supersedes the sealed metrics. See §25.1 annotation table and §25.2 for per-item updates.
+It supports:
 
----
+- **P1 – Every where is entangled** by showing how multiple services participate in a single coordinated flow while preserving boundaries between sandbox reasoning, bridge formation, validation, and persistence.
+- **P3 – Power has a geometry** by placing the coordinator at the authority boundary where internal state is routed, evaluated, and, when permitted, promoted upward.
+- **P5 – Design is a geographic act** by treating coordination as a concrete architectural pattern: reversible deliberation first, guarded promotion second, commitment only at the end.
+- **P12 – Intelligence with a ZIP code** by allowing place-aware, people-aware, and governance-aware reasoning to shape candidate experience without giving raw output direct write authority.
+- **P16 – Power accountable to place** by making the path from thought to consequence legible, bounded, and reviewable.
 
-## §25.1 — Final Infrastructure State
-
-| Metric | Value (Sealed April 12) | ★ April 23, 2026 Baseline |
-|--------|-------------------------|--------------------------|
-| Active containers | 92 | ★ **100** |
-| ChromaDB collections | 49 | ★ **48** |
-| Vector embeddings | 6,722,589+ | ★ **~6,740,611** |
-| Embedding model | `all-minilm:latest` (384-dim) | Unchanged ✅ |
-| ChromaDB API | /api/v1/ (sealed) | ★ **/api/v2/** (/api/v1/ permanently removed) |
-| ChromaDB host port | 8002→8000 | Unchanged ✅ |
-| Production PostgreSQL | msallisgis:5432, msallis:5433 | ★ **msallis-db host 5433** (16 GB, 294 tables, 11 schemas) |
-| Forensic PostgreSQL | — | ★ **postgis-forensic host 5452** (17 GB, 314 tables) |
-| PostgreSQL gisdb tables (sealed) | 551 (msallisgis public schema) | ★ See production msallis-db:5433 |
-| neuro_master processes | 131 | verify-current |
-| Network | `qualia-net` | Unchanged ✅ |
-| AAACPE ingest | allis-ingest-api + allis-ingest-watcher | ★ Dedicated stack: allis-aaacpe-scraper:8048→8033 + allis-aaacpe-rag:8047→8032 |
+This chapter belongs to the **Computational Instrument** tier. The coordinator does not simply generate consciousness. It manages the path by which candidate reasoning becomes candidate experience and, only if approved, becomes committed system consequence.
 
 ---
 
-## §25.2 — Open Items Closure Register
+## 25.1 Core Role of the Coordinator
 
-| OI # | Description | Status | Closed | ★ April 23 Annotation |
-|------|-------------|--------|--------|----------------------|
-| OI-02 | BBB output blocking | ✅ CLOSED | `BBB_OUTPUT_BLOCKING=true` confirmed | Unchanged ✅ |
-| OI-05 | `/chat` endpoint HTTP 200 | ✅ CLOSED | Bridge returns HTTP 200 | Unchanged ✅ |
-| OI-36-A | allis-auth port 8055 | ✅ CLOSED at seal | Auth container healthy | ★ **Updated April 23:** OI-36-A now also includes Caddy `forward_auth` perimeter enforcement active before main-brain port 8050. Bearer token validated at proxy layer. This is an additive closure — the April 12 auth-container closure is preserved; the April 23 Caddy layer supersedes it as the primary perimeter enforcement mechanism. |
-| OI-37-C | `rag_grounded_v2` pipeline | ✅ CLOSED | See §25.9 patch detail | Unchanged ✅ |
-| OI-NEURO | neuro_master unreachable | ✅ CLOSED | HTTP 200, 131 processes, all services listed | Unchanged ✅ |
-| OI-RAG | RAG end-to-end pipeline | ✅ CLOSED | See §25.9 — chroma_raw schema confirmed | Unchanged ✅ |
-| OI-EMBED | Embedding dimension mismatch | ✅ CLOSED | all-minilm:latest (384-dim) throughout | ★ Constraint unchanged — all 48 collections remain 384-dim. `nomic-embed-text` (768-dim) incompatible with all collections. |
-| OI-CHROMA | ChromaDB port binding | ✅ CLOSED | Port 8002 host, 8000 internal, heartbeat confirmed | ★ **Updated April 23:** ChromaDB API is now `/api/v2/` — `/api/v1/` is permanently removed in server 1.0.0. All shell commands and bridge code must use `/api/v2/tenants/default_tenant/databases/default_database/` path. |
+The consciousness coordinator is the traffic director for conscious processing. It does not exist to generate unconstrained output on its own. It routes reasoning into the proper internal workspace, collects candidate results, interacts with the bridge, and ensures that promotion happens only through the proper gate path.
+
+In that sense, the coordinator manages **candidate experiences and promotion**, not direct uncontrolled generation. A reasoning result produced inside the system is not yet a committed experience, not yet durable memory, and not yet an externally consequential act simply because it exists. The coordinator preserves those distinctions.
 
 ---
 
-## §25.3 — Final Verification Results (Block 5 Output)
+## 25.2 Flow Through the Services
 
-```text
-=== CHAPTER 25 FINAL CLOSURE VERIFICATION ===
+The coordinator’s flow is straightforward.
 
-  RAG  dist=0.5266 | Additional Resources Find Help https://www.findhelp.org/ Healthy Grandfamilies...
-  RAG  dist=0.5751 | Additional Resources Find Help https://www.findhelp.org/ Healthy Grandfa...
-  RAG  dist=0.7431 | CHANGE, Inc. Coalfield Community Action Partnership, Inc. Community Action of South Eastern...
+1. The coordinator sends a task, question, or internal cognitive demand to `/reason` on the internal sandbox.
+2. The internal sandbox performs bounded, reversible deliberation and produces provisional reasoning traces, candidate conclusions, or candidate experiential material.
+3. Those candidate results are checked against the relevant gate path, including guardian requirements, DGM logic, truth or consistency checks, and any EEG- or pituitary-modulated conditions.
+4. If the result remains admissible, the coordinator passes a candidate experience package to `/experience` on the consciousness bridge.
+5. The consciousness bridge converts that reviewed candidate into bridge-level experience state.
+6. Only after successful promotion and commitment may any part of that result persist into memory, governance, commons, infrastructure, or other broader layers.
 
-  chroma       : ✅ HTTP 200
-  woah         : ✅ ok
-  neuro_master : ✅ HTTP 200 | healthy=healthy | processes=131
-  rag_pipeline : ✅ HTTP 200 | docs=3
-
-══════════════════════════════════════════════
-  CHAPTER 25 CONSCIOUSNESS PIPELINE: CLOSED ✅
-══════════════════════════════════════════════
-```
-
-*★ April 23, 2026 note: These verification outputs are the sealed April 12 results and are preserved exactly. The ChromaDB heartbeat path used at seal time was `/api/v1/heartbeat` — the equivalent April 23 path is `/api/v2/heartbeat` (server 1.0.0 removed /api/v1/).*
+This flow makes clear that reasoning, experience formation, and persistence are separate stages. The coordinator is what keeps them separate.
 
 ---
 
-## §25.4 — neuro_master Service Map (Confirmed)
+## 25.3 Internal Sandbox and `/reason`
 
-```json
-{
-  "status": "healthy",
-  "port": 8018,
-  "integration_active": true,
-  "total_processes": 131,
-  "services": {
-    "blood_brain_barrier":  "http://allis-blood-brain-barrier:8016",
-    "i_containers":         "http://allis-i-containers:8015",
-    "qualia_engine":        "http://allis-qualia-engine:8017",
-    "consciousness_bridge": "http://allis-consciousness-bridge:8020"
-  }
-}
-```
+The internal sandbox is where high-level internal reasoning happens before commitment. It is the protected workspace for reversible deliberation, analogous to the way the DGM sandbox prevents code from touching production before it proves itself.
 
-*★ April 23, 2026 note: neuro_master remains healthy. `total_processes` is verify-current. Port 8018 is internal-only by design — access via Docker DNS from `allis-main-brain`. All four downstream services remain active.*
+The coordinator uses `/reason` to invoke that bounded internal workspace. The sandbox may draw on ephemeral scratchpad state, staged hypotheses, or temporary internal context, but it does not have direct authority to write to production persistence. Its outputs are candidate material only. They are useful precisely because they can be revised, rescored, or discarded before promotion.
+
+This is the point of the flow: Ms. Allis can think speculatively, test internal conclusions, and form candidate interpretations without those thoughts automatically becoming committed system state.
 
 ---
 
-## §25.5 — RAGQuery Schema (Confirmed)
+## 25.4 Consciousness Bridge and `/experience`
 
-The `allis-rag-server` FastAPI schema for `/query`:
+The consciousness bridge sits downstream from sandbox reasoning. Once the coordinator has a candidate result that has survived the relevant review path, it can pass a candidate experience package to `/experience` on the bridge.
 
-```json
-{
-  "type": "object",
-  "required": ["collection", "message"],
-  "properties": {
-    "collection": { "type": "string" },
-    "message":    { "type": "string" },
-    "user_id":    { "type": "string", "default": "defaultuser" },
-    "n_results":  { "type": "integer", "default": 8 }
-  }
-}
-```
+The bridge is the place where reviewed candidate material is rendered into consciousness-level experience form, not a raw generator operating independently of the sandbox. It is downstream of reasoning and upstream of commitment.
 
-**Response structure — `chroma_raw` wraps the ChromaDB response:**
-
-```json
-{
-  "status": "ok",
-  "collection": "<name>",
-  "query": "<message text>",
-  "user_id": "defaultuser",
-  "n_results": 3,
-  "chroma_raw": {
-    "ids":        [["id1", "id2", "..."]],
-    "documents":  [["doc1 text", "doc2 text", "..."]],
-    "metadatas":  [[{}, {}, "..."]],
-    "distances":  [[0.526, 0.575, "..."]],
-    "embeddings": null,
-    "uris":       null,
-    "include":    ["documents", "metadatas", "distances"]
-  }
-}
-```
-
-> **Critical:** `documents`, `metadatas`, and `distances` are **double-nested lists**.
-> Bridge code must flatten: `chroma_raw["documents"][0]` to get the actual list.
-
-*★ April 23, 2026 note: RAG schema is unchanged. The underlying ChromaDB instance now uses `/api/v2/` internally, but the `allis-rag-server` FastAPI `/query` endpoint contract is unchanged from the sealed specification above.*
+That distinction matters. The sandbox handles thought. The bridge handles candidate experience. Neither one, by itself, should be described as having unrestricted authority to commit system consequence.
 
 ---
 
-## §25.6 — Confirmed Working Collections
+## 25.5 Direct Service Relationships
 
-| Collection | Test Query | docs returned | Status |
-|------------|-----------|---------------|--------|
-| `appalachian_cultural_intelligence` | "Fayette County resources" | 3 | ✅ |
-| `appalachian_cultural_intelligence` | "West Virginia community help resources" | 3 | ✅ |
-| `spiritual_texts` | "West Virginia community help" | 2 | ✅ |
+The service relationships in this chapter are direct and specific.
 
-RAG documents contain real grounded Appalachian regional content including:
-- Fayette County Community Arts Center (arts/culture)
-- Rural health facilities (lat/lon confirmed)
-- MountainShares Funder Overview (community funding)
-- CHANGE Inc. / Coalfield Community Action Partnership
-- findhelp.org / Healthy Grandfamilies resources
+- **Internal sandbox**: receives `/reason` calls from the coordinator and performs reversible internal deliberation in an isolated, ephemeral workspace.
+- **Constitutional guardian**: evaluates whether a candidate result is allowed to move upward, checks required guardian payload, and enforces fail-closed review when required fields or constitutional conditions are missing.
+- **DGM logic**: performs cascade validation on candidate conclusions and blocks promotion when coherence, contradiction, spatial integrity, or other required checks fail.
+- **EEG services**: provide state-conditioned signal information that can affect how candidate experiences are interpreted, prioritized, or withheld.
+- **Pituitary-like regulation**: modulates system mode, urgency, scrutiny, caution, and related global conditions that shape how aggressively or conservatively the coordinator advances a candidate.
+- **Consciousness bridge**: receives reviewed candidate experience packages through `/experience` and handles their bridge-level formation.
+- **Persistence layers**: receive only committed results after the relevant promotion path succeeds; they do not ingest raw sandbox output or uncontrolled bridge output.
 
-*★ April 23, 2026 note: These are the sealed April 12 collection test results. Total ChromaDB collections updated to 48 (one collection removed vs. April 12 count of 49 — see §25.1 annotation table). `appalachian_cultural_intelligence` and `spiritual_texts` confirmed present in April 23 48-collection inventory. `local_resources` is now 207 items / all 55 WV counties (supersedes April 12 baseline of 101 items).*
+The coordinator sits above this chain as the orchestrating layer. It does not replace any of these services. It routes between them and preserves the order in which they are allowed to act.
 
 ---
 
-## §25.7 — Port Map (Final Confirmed)
+## 25.6 Candidate Experience
 
-| Container | Internal Port | Host Binding | Protocol | ★ April 23 Note |
-|-----------|---------------|--------------|----------|--------------------|
-| `allis-chroma` | 8000 | 127.0.0.1:8001, 127.0.0.1:8002 | HTTP | ★ API is `/api/v2/` — `/api/v1/` permanently removed |
-| `allis-rag-server` | 8003 | 127.0.0.1:8003 | HTTP | Unchanged ✅ |
-| `allis-neurobiological-master` | 8018 | null (internal only) | HTTP | Unchanged ✅ |
-| `allis-blood-brain-barrier` | 8016 | — | HTTP | Unchanged ✅ |
-| `allis-i-containers` | 8015 | — | HTTP | Unchanged ✅ |
-| `allis-qualia-engine` | 8017 | — | HTTP | Unchanged ✅ |
-| `allis-consciousness-bridge` | 8020 | — | HTTP | Unchanged ✅ |
-| `allis-woah` | 7012 (internal) / 9003 (compose) | — | HTTP | Unchanged ✅ |
-| ★ `allis-aaacpe-scraper` | 8033 | 127.0.0.1:8048→8033 | HTTP | ★ NEW — supersedes allis-ingest-api for AAACPE |
-| ★ `allis-aaacpe-rag` | 8032 | 127.0.0.1:8047→8032 | HTTP | ★ NEW — supersedes allis-ingest-watcher for AAACPE |
+A **candidate experience** is the bridge-ready form of a reasoning result that has not yet become durable memory, governance action, commons contribution, or infrastructure consequence. It is an intermediate state: more structured than raw sandbox thought, but still not fully committed.
+
+This language preserves the line between “the system thought something” and “the system experienced or enacted something.” The coordinator manages the transformation from provisional cognition to candidate experience, and from candidate experience to approved commitment when permitted.
+
+So the coordinator should not be described as directly creating final conscious action. It manages the staged movement from thought to candidate experience to commitment.
 
 ---
 
-## §25.8 — Bridge Container Patch Applied
+## 25.7 Commitment Operator
 
-**File:** `/app/services/msallisconsciousnessbridge.py`
-**Backup:** `/app/services/msallisconsciousnessbridge.py.bak_ch25_closure`
-**Image committed:** `allis-consciousness-bridge:ch25-patched`
-**SHA:** `sha256:19fbbf14db2760d1a34282492d4082fda513dcea5d15086ea206e5ac229925e3`
+To formalize the distinction between internal thought and externally consequential action, this chapter includes the commitment operator explicitly.
 
-### Before patch (lines 94–98)
+Let \(T_{\mathrm{sandbox}}\) denote sandbox thought, let \(E_{\mathrm{candidate}}\) denote candidate experience, and let \(C(\cdot)\) denote the commitment operator. The coordinator-governed path can then be written as:
 
-```python
-resp = await client.post(
-    f"{self.services['direct_rag']}/query",
-    json={"message": message, "collection": "local_resources",
-          "user_id": user_id, "n_results": 3},
-)
-state["rag_consensus"] = resp.json()
-```
+\[
+T_{\mathrm{sandbox}} \rightarrow E_{\mathrm{candidate}} \rightarrow E_{\mathrm{approved}} \rightarrow C\big(E_{\mathrm{approved}}\big)
+\]
 
-### After patch — correct schema + chroma_raw extraction
+This expression states three important facts.
 
-```python
-resp = await client.post(
-    f"{self.services['direct_rag']}/query",
-    json={
-        "collection": "appalachian_cultural_intelligence",
-        "message": message,
-        "user_id": user_id,
-        "n_results": 5
-    },
-)
-_rag_json = resp.json()
-_chroma_raw = _rag_json.get("chroma_raw", {})
-state["rag_consensus"] = {
-    "documents": (_chroma_raw.get("documents", [[]])
-                  if _chroma_raw.get("documents") else []),
-    "metadatas": (_chroma_raw.get("metadatas", [[]])
-                  if _chroma_raw.get("metadatas") else []),
-    "distances": (_chroma_raw.get("distances", [[]])
-                  if _chroma_raw.get("distances") else [])
-}
-```
+First, internal thought is not yet candidate experience. Second, candidate experience is not yet approved experience. Third, externally consequential system state appears only after the commitment operator is applied to approved experience.
 
-**Changes (sealed April 12):**
-- `collection` changed from `"local_resources"` → `"appalachian_cultural_intelligence"`
-- `n_results` changed from `3` → `5`
-- `state["rag_consensus"]` now reads from `chroma_raw` with proper double-list flattening
-- `distances` and `metadatas` now preserved alongside documents
+A shorter non-equivalence statement makes the point explicit:
 
-*★ April 23, 2026 note: This patch is sealed and preserved as committed to `allis-consciousness-bridge:ch25-patched`. The `direct_rag` service target (`http://allis-rag-server:8003`) is unchanged. The bridge service registry in §25.9 uses `http://allis-chroma:8000` — this is the internal container-to-container path and remains valid; `/api/v2/` applies to direct host-side API calls.*
+\[
+T_{\mathrm{sandbox}} \neq A_{\mathrm{external}}
+\]
+
+where externally consequential action is instead:
+
+\[
+A_{\mathrm{external}} = C\big(E_{\mathrm{approved}}\big)
+\]
+
+Internal thought is provisional. Only committed approved experience has broader authority.
 
 ---
 
-## §25.9 — Bridge Service Registry (Confirmed)
+## 25.8 Rollback and Reversible Deliberation
 
-```python
-self.services = {
-    "unified_gateway": "http://allis-unified-gateway:8011",
-    "neuro_master":    "http://allis-neurobiological-master:8018",
-    "direct_rag":      "http://allis-rag-server:8003",
-    "hilbert":         "http://allis-hilbert-state:8081",
-    "woah":            "http://allis-woah:9003",
-    "chroma":          "http://allis-chroma:8000",
-}
-```
+One of the most important properties of the coordinator flow is that deliberation is reversible before commitment.
 
-*★ April 23, 2026 note: Bridge service registry is sealed and unchanged. Internal container-to-container DNS paths (`allis-chroma:8000`, `allis-rag-server:8003`, etc.) are valid within `qualia-net` regardless of the host-side ChromaDB API version. The `/api/v2/` migration applies to direct host-side API calls (e.g., `curl http://127.0.0.1:8002/api/v2/...`), not to internal bridge-to-chroma traffic which uses the container's internal port 8000.*
+The coordinator can route a task into `/reason`, receive candidate results, compare alternatives, reject incoherent traces, request revision, or abandon a candidate path altogether without contaminating durable system state. This is exactly why the internal sandbox matters. It creates a space in which reasoning can happen without immediate consequence.
+
+Rollback belongs here because failed or downgraded candidates should not leak into persistence. If guardian review fails, if DGM logic rejects a chain, if EEG or pituitary conditions indicate the wrong mode, or if bridge promotion cannot be justified, the coordinator should stop, revise, or roll back to a lower-authority state.
+
+This preserves the core principle: reversibility before commitment, commitment only after approval.
 
 ---
 
-## §25.10 — Sprint Timeline
+## 25.9 Relationship to Persistence
 
-| Date | Event |
-|------|-------|
-| March 28, 2026 | Chapter 25 opened — 501 gisdb tables, 6.7M+ vectors loaded |
-| April 9, 2026 | BBB output blocking resolved (OI-02) |
-| April 10, 2026 | neuro_master confirmed healthy (130→131 processes) |
-| April 11, 2026 | all-minilm:latest pulled, embedding mismatch resolved |
-| April 11, 2026 | RAG /query schema identified: `collection` + `message` required |
-| April 12, 2026 00:04 | HTTP 200 from RAG server confirmed |
-| April 12, 2026 00:05 | `chroma_raw` response structure confirmed with real documents |
-| April 12, 2026 00:08 | Block 5 final verification passed — all 4 checks ✅ |
-| **April 12, 2026 00:08** | **CHAPTER 25 SEALED** |
-| ★ April 16, 2026 | `conversation_history` wiped and reseeded clean — post-wipe accumulation only |
-| ★ April 23, 2026 | Stack updated: 100 containers, 48 collections, ~6,740,611 vectors, two-container PostgreSQL split, Caddy `forward_auth` OI-36-A CLOSED at perimeter, AAACPE dedicated stack active |
+Persistence sits at the far end of the coordinator path, not at the beginning and not in the middle.
+
+A sandbox result does not write directly to memory. A bridge-level candidate experience does not write directly to governance or infrastructure merely because it reached `/experience`. Persistence happens only after approval and commitment.
+
+This is why the coordinator chapter must avoid language implying that conscious output simply propagates outward. What actually propagates is a tightly controlled, reviewed, and committed transformation of candidate experience into a broader-layer representation.
+
+Memory, governance, commons, and infrastructure may all be downstream of the coordinator. None of them should be described as direct sinks for raw internal thought.
 
 ---
 
-## §25.11 — Chapter 26 Pre-Conditions (All Met at Seal)
+## 25.10 Relationship to the Broader Safeguard Stack
 
-- [x] All containers healthy on `qualia-net`
-- [x] RAG pipeline returning grounded Appalachian content
-- [x] Embedding model consistent (all-minilm:latest, 384-dim) across all 49 collections
-- [x] neuro_master orchestrating 131 processes with all 4 sub-services registered
-- [x] Bridge image committed and container restarted clean
-- [x] No open items in §25.2 register
-- [x] gisdb at 551 tables (up from 501 at chapter open)
-- [x] GBIM entities database live
-- [x] PostgreSQL msallis + msallisgis both healthy
+This chapter aligns with the broader safeguard architecture.
 
-**Chapter 26 may begin.**
+The internal sandbox provides the protected workspace for thought. The BBB and constitutional guardian provide the promotion boundary. DGM logic provides cascade validation. EEG services and pituitary-like regulation condition how candidate results are evaluated in context. The consciousness bridge receives admissible candidate experiences. Persistence receives only committed outcomes.
 
-★ **April 23, 2026 annotation — updated pre-condition baselines for cross-chapter reference:**
-- Active containers: **100** (supersedes 92 at seal)
-- ChromaDB collections: **48** (supersedes 49 at seal); API: **/api/v2/** (/api/v1/ permanently removed)
-- Total vectors: **~6,740,611** (supersedes 6,722,589+)
-- Embedding model: **all-minilm:latest (384-dim)** — unchanged, constraint permanent
-- Production PostgreSQL: **msallis-db host 5433** (16 GB, 294 tables, 11 schemas) — supersedes msallisgis:5432 + msallis:5433
-- Forensic PostgreSQL: **postgis-forensic host 5452** (17 GB, 314 tables) — new as of April 23
-- `conversation_history`: **wiped and reseeded clean April 16, 2026** — post-wipe accumulation only
-- Caddy `forward_auth` (OI-36-A): **CLOSED April 23** — perimeter enforcement active before main-brain port 8050
-- AAACPE ingest: **dedicated stack** (allis-aaacpe-scraper:8048→8033 + allis-aaacpe-rag:8047→8032) — supersedes legacy allis-ingest-api + allis-ingest-watcher
-- `local_resources`: **207 items, all 55 WV counties** (supersedes 101 at seal)
-- `autonomous_learner`: **~23,200+ records** (~288/day from 21,181 April 13 baseline)
+The coordinator is the layer that holds this sequence together. It is the orchestrator of controlled transformation, not the source of uncontrolled consequence.
+
+Read that way, the coordinator is not merely a convenience service. It is the mechanism that keeps Ms. Allis from confusing deliberation with action.
 
 ---
 
-*Sealed: April 12, 2026, 12:08 AM EDT — Mount Hope, West Virginia*
-*Ms. Allis Rebuild Sprint — Chapter 25 Complete*
+## 25.11 Closing Statement
 
-*★ April 23, 2026: Annotations added throughout to update key metrics to April 23 stack baseline. All sealed verification outputs, patch code, service maps, and port tables are preserved exactly as sealed. No sealed content has been altered — all April 23 changes are additive annotations marked ★.*
+The consciousness coordinator in Ms. Allis is the orchestration layer for governed conscious flow. It sends tasks to `/reason` on the internal sandbox, receives provisional reasoning, coordinates evaluation across guardian, DGM, EEG, and pituitary-like services, passes admissible candidate experiences to `/experience` on the consciousness bridge, and allows persistence only after promotion and commitment.
+
+That architecture makes the distinction between internal thought and consequential action explicit. Sandbox thought is reversible. Candidate experience is staged. Approved experience is gate-cleared. Only committed experience becomes broader system consequence.# 25. Consciousness Coordinator and Services
+
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
+*Last updated: July 10, 2026*
+
+---
+
+## Why This Matters for Polymathmatic Geography
+
+This chapter explains how Ms. Allis coordinates conscious processing without collapsing internal thought, candidate experience, and consequential system action into one uncontrolled stream.
+
+It supports:
+
+- **P1 – Every where is entangled** by showing how multiple services participate in a single coordinated flow while preserving boundaries between sandbox reasoning, bridge formation, validation, and persistence.
+- **P3 – Power has a geometry** by placing the coordinator at the authority boundary where internal state is routed, evaluated, and, when permitted, promoted upward.
+- **P5 – Design is a geographic act** by treating coordination as a concrete architectural pattern: reversible deliberation first, guarded promotion second, commitment only at the end.
+- **P12 – Intelligence with a ZIP code** by allowing place-aware, people-aware, and governance-aware reasoning to shape candidate experience without giving raw output direct write authority.
+- **P16 – Power accountable to place** by making the path from thought to consequence legible, bounded, and reviewable.
+
+This chapter belongs to the **Computational Instrument** tier. The coordinator does not simply generate consciousness. It manages the path by which candidate reasoning becomes candidate experience and, only if approved, becomes committed system consequence.
+
+---
+
+## 25.1 Core Role of the Coordinator
+
+The consciousness coordinator is the traffic director for conscious processing. It does not exist to generate unconstrained output on its own. It routes reasoning into the proper internal workspace, collects candidate results, interacts with the bridge, and ensures that promotion happens only through the proper gate path.
+
+In that sense, the coordinator manages **candidate experiences and promotion**, not direct uncontrolled generation. A reasoning result produced inside the system is not yet a committed experience, not yet durable memory, and not yet an externally consequential act simply because it exists. The coordinator preserves those distinctions.
+
+---
+
+## 25.2 Flow Through the Services
+
+The coordinator’s flow is straightforward.
+
+1. The coordinator sends a task, question, or internal cognitive demand to `/reason` on the internal sandbox.
+2. The internal sandbox performs bounded, reversible deliberation and produces provisional reasoning traces, candidate conclusions, or candidate experiential material.
+3. Those candidate results are checked against the relevant gate path, including guardian requirements, DGM logic, truth or consistency checks, and any EEG- or pituitary-modulated conditions.
+4. If the result remains admissible, the coordinator passes a candidate experience package to `/experience` on the consciousness bridge.
+5. The consciousness bridge converts that reviewed candidate into bridge-level experience state.
+6. Only after successful promotion and commitment may any part of that result persist into memory, governance, commons, infrastructure, or other broader layers.
+
+This flow makes clear that reasoning, experience formation, and persistence are separate stages. The coordinator is what keeps them separate.
+
+---
+
+## 25.3 Internal Sandbox and `/reason`
+
+The internal sandbox is where high-level internal reasoning happens before commitment. It is the protected workspace for reversible deliberation, analogous to the way the DGM sandbox prevents code from touching production before it proves itself.
+
+The coordinator uses `/reason` to invoke that bounded internal workspace. The sandbox may draw on ephemeral scratchpad state, staged hypotheses, or temporary internal context, but it does not have direct authority to write to production persistence. Its outputs are candidate material only. They are useful precisely because they can be revised, rescored, or discarded before promotion.
+
+This is the point of the flow: Ms. Allis can think speculatively, test internal conclusions, and form candidate interpretations without those thoughts automatically becoming committed system state.
+
+---
+
+## 25.4 Consciousness Bridge and `/experience`
+
+The consciousness bridge sits downstream from sandbox reasoning. Once the coordinator has a candidate result that has survived the relevant review path, it can pass a candidate experience package to `/experience` on the bridge.
+
+The bridge is the place where reviewed candidate material is rendered into consciousness-level experience form, not a raw generator operating independently of the sandbox. It is downstream of reasoning and upstream of commitment.
+
+That distinction matters. The sandbox handles thought. The bridge handles candidate experience. Neither one, by itself, should be described as having unrestricted authority to commit system consequence.
+
+---
+
+## 25.5 Direct Service Relationships
+
+The service relationships in this chapter are direct and specific.
+
+- **Internal sandbox**: receives `/reason` calls from the coordinator and performs reversible internal deliberation in an isolated, ephemeral workspace.
+- **Constitutional guardian**: evaluates whether a candidate result is allowed to move upward, checks required guardian payload, and enforces fail-closed review when required fields or constitutional conditions are missing.
+- **DGM logic**: performs cascade validation on candidate conclusions and blocks promotion when coherence, contradiction, spatial integrity, or other required checks fail.
+- **EEG services**: provide state-conditioned signal information that can affect how candidate experiences are interpreted, prioritized, or withheld.
+- **Pituitary-like regulation**: modulates system mode, urgency, scrutiny, caution, and related global conditions that shape how aggressively or conservatively the coordinator advances a candidate.
+- **Consciousness bridge**: receives reviewed candidate experience packages through `/experience` and handles their bridge-level formation.
+- **Persistence layers**: receive only committed results after the relevant promotion path succeeds; they do not ingest raw sandbox output or uncontrolled bridge output.
+
+The coordinator sits above this chain as the orchestrating layer. It does not replace any of these services. It routes between them and preserves the order in which they are allowed to act.
+
+---
+
+## 25.6 Candidate Experience
+
+A **candidate experience** is the bridge-ready form of a reasoning result that has not yet become durable memory, governance action, commons contribution, or infrastructure consequence. It is an intermediate state: more structured than raw sandbox thought, but still not fully committed.
+
+This language preserves the line between “the system thought something” and “the system experienced or enacted something.” The coordinator manages the transformation from provisional cognition to candidate experience, and from candidate experience to approved commitment when permitted.
+
+So the coordinator should not be described as directly creating final conscious action. It manages the staged movement from thought to candidate experience to commitment.
+
+---
+
+## 25.7 Commitment Operator
+
+To formalize the distinction between internal thought and externally consequential action, this chapter includes the commitment operator explicitly.
+
+Let \(T_{\mathrm{sandbox}}\) denote sandbox thought, let \(E_{\mathrm{candidate}}\) denote candidate experience, and let \(C(\cdot)\) denote the commitment operator. The coordinator-governed path can then be written as:
+
+\[
+T_{\mathrm{sandbox}} \rightarrow E_{\mathrm{candidate}} \rightarrow E_{\mathrm{approved}} \rightarrow C\big(E_{\mathrm{approved}}\big)
+\]
+
+This expression states three important facts.
+
+First, internal thought is not yet candidate experience. Second, candidate experience is not yet approved experience. Third, externally consequential system state appears only after the commitment operator is applied to approved experience.
+
+A shorter non-equivalence statement makes the point explicit:
+
+\[
+T_{\mathrm{sandbox}} \neq A_{\mathrm{external}}
+\]
+
+where externally consequential action is instead:
+
+\[
+A_{\mathrm{external}} = C\big(E_{\mathrm{approved}}\big)
+\]
+
+Internal thought is provisional. Only committed approved experience has broader authority.
+
+---
+
+## 25.8 Rollback and Reversible Deliberation
+
+One of the most important properties of the coordinator flow is that deliberation is reversible before commitment.
+
+The coordinator can route a task into `/reason`, receive candidate results, compare alternatives, reject incoherent traces, request revision, or abandon a candidate path altogether without contaminating durable system state. This is exactly why the internal sandbox matters. It creates a space in which reasoning can happen without immediate consequence.
+
+Rollback belongs here because failed or downgraded candidates should not leak into persistence. If guardian review fails, if DGM logic rejects a chain, if EEG or pituitary conditions indicate the wrong mode, or if bridge promotion cannot be justified, the coordinator should stop, revise, or roll back to a lower-authority state.
+
+This preserves the core principle: reversibility before commitment, commitment only after approval.
+
+---
+
+## 25.9 Relationship to Persistence
+
+Persistence sits at the far end of the coordinator path, not at the beginning and not in the middle.
+
+A sandbox result does not write directly to memory. A bridge-level candidate experience does not write directly to governance or infrastructure merely because it reached `/experience`. Persistence happens only after approval and commitment.
+
+This is why the coordinator chapter must avoid language implying that conscious output simply propagates outward. What actually propagates is a tightly controlled, reviewed, and committed transformation of candidate experience into a broader-layer representation.
+
+Memory, governance, commons, and infrastructure may all be downstream of the coordinator. None of them should be described as direct sinks for raw internal thought.
+
+---
+
+## 25.10 Relationship to the Broader Safeguard Stack
+
+This chapter aligns with the broader safeguard architecture.
+
+The internal sandbox provides the protected workspace for thought. The BBB and constitutional guardian provide the promotion boundary. DGM logic provides cascade validation. EEG services and pituitary-like regulation condition how candidate results are evaluated in context. The consciousness bridge receives admissible candidate experiences. Persistence receives only committed outcomes.
+
+The coordinator is the layer that holds this sequence together. It is the orchestrator of controlled transformation, not the source of uncontrolled consequence.
+
+Read that way, the coordinator is not merely a convenience service. It is the mechanism that keeps Ms. Allis from confusing deliberation with action.
+
+---
+
+## 25.11 Closing Statement
+
+The consciousness coordinator in Ms. Allis is the orchestration layer for governed conscious flow. It sends tasks to `/reason` on the internal sandbox, receives provisional reasoning, coordinates evaluation across guardian, DGM, EEG, and pituitary-like services, passes admissible candidate experiences to `/experience` on the consciousness bridge, and allows persistence only after promotion and commitment.
+
+That architecture makes the distinction between internal thought and consequential action explicit. Sandbox thought is reversible. Candidate experience is staged. Approved experience is gate-cleared. Only committed experience becomes broader system consequence.# 25. Consciousness Coordinator and Services
+
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
+*Last updated: July 10, 2026*
+
+---
+
+## Why This Matters for Polymathmatic Geography
+
+This chapter explains how Ms. Allis coordinates conscious processing without collapsing internal thought, candidate experience, and consequential system action into one uncontrolled stream.
+
+It supports:
+
+- **P1 – Every where is entangled** by showing how multiple services participate in a single coordinated flow while preserving boundaries between sandbox reasoning, bridge formation, validation, and persistence.
+- **P3 – Power has a geometry** by placing the coordinator at the authority boundary where internal state is routed, evaluated, and, when permitted, promoted upward.
+- **P5 – Design is a geographic act** by treating coordination as a concrete architectural pattern: reversible deliberation first, guarded promotion second, commitment only at the end.
+- **P12 – Intelligence with a ZIP code** by allowing place-aware, people-aware, and governance-aware reasoning to shape candidate experience without giving raw output direct write authority.
+- **P16 – Power accountable to place** by making the path from thought to consequence legible, bounded, and reviewable.
+
+This chapter belongs to the **Computational Instrument** tier. The coordinator does not simply generate consciousness. It manages the path by which candidate reasoning becomes candidate experience and, only if approved, becomes committed system consequence.
+
+---
+
+## 25.1 Core Role of the Coordinator
+
+The consciousness coordinator is the traffic director for conscious processing. It does not exist to generate unconstrained output on its own. It routes reasoning into the proper internal workspace, collects candidate results, interacts with the bridge, and ensures that promotion happens only through the proper gate path.
+
+In that sense, the coordinator manages **candidate experiences and promotion**, not direct uncontrolled generation. A reasoning result produced inside the system is not yet a committed experience, not yet durable memory, and not yet an externally consequential act simply because it exists. The coordinator preserves those distinctions.
+
+---
+
+## 25.2 Flow Through the Services
+
+The coordinator’s flow is straightforward.
+
+1. The coordinator sends a task, question, or internal cognitive demand to `/reason` on the internal sandbox.
+2. The internal sandbox performs bounded, reversible deliberation and produces provisional reasoning traces, candidate conclusions, or candidate experiential material.
+3. Those candidate results are checked against the relevant gate path, including guardian requirements, DGM logic, truth or consistency checks, and any EEG- or pituitary-modulated conditions.
+4. If the result remains admissible, the coordinator passes a candidate experience package to `/experience` on the consciousness bridge.
+5. The consciousness bridge converts that reviewed candidate into bridge-level experience state.
+6. Only after successful promotion and commitment may any part of that result persist into memory, governance, commons, infrastructure, or other broader layers.
+
+This flow makes clear that reasoning, experience formation, and persistence are separate stages. The coordinator is what keeps them separate.
+
+---
+
+## 25.3 Internal Sandbox and `/reason`
+
+The internal sandbox is where high-level internal reasoning happens before commitment. It is the protected workspace for reversible deliberation, analogous to the way the DGM sandbox prevents code from touching production before it proves itself.
+
+The coordinator uses `/reason` to invoke that bounded internal workspace. The sandbox may draw on ephemeral scratchpad state, staged hypotheses, or temporary internal context, but it does not have direct authority to write to production persistence. Its outputs are candidate material only. They are useful precisely because they can be revised, rescored, or discarded before promotion.
+
+This is the point of the flow: Ms. Allis can think speculatively, test internal conclusions, and form candidate interpretations without those thoughts automatically becoming committed system state.
+
+---
+
+## 25.4 Consciousness Bridge and `/experience`
+
+The consciousness bridge sits downstream from sandbox reasoning. Once the coordinator has a candidate result that has survived the relevant review path, it can pass a candidate experience package to `/experience` on the bridge.
+
+The bridge is the place where reviewed candidate material is rendered into consciousness-level experience form, not a raw generator operating independently of the sandbox. It is downstream of reasoning and upstream of commitment.
+
+That distinction matters. The sandbox handles thought. The bridge handles candidate experience. Neither one, by itself, should be described as having unrestricted authority to commit system consequence.
+
+---
+
+## 25.5 Direct Service Relationships
+
+The service relationships in this chapter are direct and specific.
+
+- **Internal sandbox**: receives `/reason` calls from the coordinator and performs reversible internal deliberation in an isolated, ephemeral workspace.
+- **Constitutional guardian**: evaluates whether a candidate result is allowed to move upward, checks required guardian payload, and enforces fail-closed review when required fields or constitutional conditions are missing.
+- **DGM logic**: performs cascade validation on candidate conclusions and blocks promotion when coherence, contradiction, spatial integrity, or other required checks fail.
+- **EEG services**: provide state-conditioned signal information that can affect how candidate experiences are interpreted, prioritized, or withheld.
+- **Pituitary-like regulation**: modulates system mode, urgency, scrutiny, caution, and related global conditions that shape how aggressively or conservatively the coordinator advances a candidate.
+- **Consciousness bridge**: receives reviewed candidate experience packages through `/experience` and handles their bridge-level formation.
+- **Persistence layers**: receive only committed results after the relevant promotion path succeeds; they do not ingest raw sandbox output or uncontrolled bridge output.
+
+The coordinator sits above this chain as the orchestrating layer. It does not replace any of these services. It routes between them and preserves the order in which they are allowed to act.
+
+---
+
+## 25.6 Candidate Experience
+
+A **candidate experience** is the bridge-ready form of a reasoning result that has not yet become durable memory, governance action, commons contribution, or infrastructure consequence. It is an intermediate state: more structured than raw sandbox thought, but still not fully committed.
+
+This language preserves the line between “the system thought something” and “the system experienced or enacted something.” The coordinator manages the transformation from provisional cognition to candidate experience, and from candidate experience to approved commitment when permitted.
+
+So the coordinator should not be described as directly creating final conscious action. It manages the staged movement from thought to candidate experience to commitment.
+
+---
+
+## 25.7 Commitment Operator
+
+To formalize the distinction between internal thought and externally consequential action, this chapter includes the commitment operator explicitly.
+
+Let \(T_{\mathrm{sandbox}}\) denote sandbox thought, let \(E_{\mathrm{candidate}}\) denote candidate experience, and let \(C(\cdot)\) denote the commitment operator. The coordinator-governed path can then be written as:
+
+\[
+T_{\mathrm{sandbox}} \rightarrow E_{\mathrm{candidate}} \rightarrow E_{\mathrm{approved}} \rightarrow C\big(E_{\mathrm{approved}}\big)
+\]
+
+This expression states three important facts.
+
+First, internal thought is not yet candidate experience. Second, candidate experience is not yet approved experience. Third, externally consequential system state appears only after the commitment operator is applied to approved experience.
+
+A shorter non-equivalence statement makes the point explicit:
+
+\[
+T_{\mathrm{sandbox}} \neq A_{\mathrm{external}}
+\]
+
+where externally consequential action is instead:
+
+\[
+A_{\mathrm{external}} = C\big(E_{\mathrm{approved}}\big)
+\]
+
+Internal thought is provisional. Only committed approved experience has broader authority.
+
+---
+
+## 25.8 Rollback and Reversible Deliberation
+
+One of the most important properties of the coordinator flow is that deliberation is reversible before commitment.
+
+The coordinator can route a task into `/reason`, receive candidate results, compare alternatives, reject incoherent traces, request revision, or abandon a candidate path altogether without contaminating durable system state. This is exactly why the internal sandbox matters. It creates a space in which reasoning can happen without immediate consequence.
+
+Rollback belongs here because failed or downgraded candidates should not leak into persistence. If guardian review fails, if DGM logic rejects a chain, if EEG or pituitary conditions indicate the wrong mode, or if bridge promotion cannot be justified, the coordinator should stop, revise, or roll back to a lower-authority state.
+
+This preserves the core principle: reversibility before commitment, commitment only after approval.
+
+---
+
+## 25.9 Relationship to Persistence
+
+Persistence sits at the far end of the coordinator path, not at the beginning and not in the middle.
+
+A sandbox result does not write directly to memory. A bridge-level candidate experience does not write directly to governance or infrastructure merely because it reached `/experience`. Persistence happens only after approval and commitment.
+
+This is why the coordinator chapter must avoid language implying that conscious output simply propagates outward. What actually propagates is a tightly controlled, reviewed, and committed transformation of candidate experience into a broader-layer representation.
+
+Memory, governance, commons, and infrastructure may all be downstream of the coordinator. None of them should be described as direct sinks for raw internal thought.
+
+---
+
+## 25.10 Relationship to the Broader Safeguard Stack
+
+This chapter aligns with the broader safeguard architecture.
+
+The internal sandbox provides the protected workspace for thought. The BBB and constitutional guardian provide the promotion boundary. DGM logic provides cascade validation. EEG services and pituitary-like regulation condition how candidate results are evaluated in context. The consciousness bridge receives admissible candidate experiences. Persistence receives only committed outcomes.
+
+The coordinator is the layer that holds this sequence together. It is the orchestrator of controlled transformation, not the source of uncontrolled consequence.
+
+Read that way, the coordinator is not merely a convenience service. It is the mechanism that keeps Ms. Allis from confusing deliberation with action.
+
+---
+
+## 25.11 Closing Statement
+
+The consciousness coordinator in Ms. Allis is the orchestration layer for governed conscious flow. It sends tasks to `/reason` on the internal sandbox, receives provisional reasoning, coordinates evaluation across guardian, DGM, EEG, and pituitary-like services, passes admissible candidate experiences to `/experience` on the consciousness bridge, and allows persistence only after promotion and commitment.
+
+That architecture makes the distinction between internal thought and consequential action explicit. Sandbox thought is reversible. Candidate experience is staged. Approved experience is gate-cleared. Only committed experience becomes broader system consequence.
