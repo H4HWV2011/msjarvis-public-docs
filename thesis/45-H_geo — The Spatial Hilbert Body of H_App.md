@@ -1,403 +1,128 @@
 # 45. H_geo — The Spatial Hilbert Body of H_App
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: May 16, 2026*
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
+*Last updated: July 10, 2026*
 
 ---
 
-## Why This Is a Second Hilbert Space
+## 45.0 Overview
 
-\(H_{\text{geo}}\) is not a metaphor and not a subsystem of \(H_{\text{App}}\). It is a
-genuinely distinct mathematical object — a second inner product space instantiated on
-the same physical machine as \(H_{\text{App}}\) but with a different basis, a different
-metric, different operators, and a different physical store.
+H_geo is the spatial Hilbert body of H_App. It is the structured domain in which place, geometry, jurisdiction, infrastructure, and other spatial relations become part of Ms. Allis’s active semantic state. H_geo does not function as a free-floating map layer or a passive store of coordinates. It is the spatial form of governed semantic presence inside the application-facing Hilbert architecture.
 
-| Property | \(H_{\text{App}}\) — Ch. 4 | \(H_{\text{geo}}\) — Ch. 45 |
-|---|---|---|
-| Space | \(\mathbb{R}^{384}\) | \(\mathbb{R}^2\) (geodesic surface) |
-| Inner product | Cosine similarity | PostGIS geodesic distance (`ST_Distance`) |
-| Vectors | 384-dim semantic embeddings | Coordinate geometries: points, polygons, lines |
-| Physical store | `jarvis-chroma` ChromaDB | `jarvis-local-resources-db` PostGIS 15-3.4 |
-| Database | ChromaDB collections | `msjarvisgis` (owner: msjarvis) + `local_resources` |
-| Primary SRID | — | EPSG:4326 (230 layers) + EPSG:4269 (12 layers) |
-| Dimension | 384 | 2 (geodesic lat/lon) |
-| Basis | `all-minilm:latest` | WGS84 / NAD83 ellipsoid |
-| Total geometry tables | 48 collections | **242 geometry tables** |
-| Total geometry rows | ~6.74M vectors | **~26.96M geometry features** |
-
-The two spaces share one physical bridge: `gbim_worldview_entities` in ChromaDB (5.4M L2
-vectors, Chapter 44) encodes geographic place-names and spatial relationships as semantic
-vectors, projecting \(H_{\text{geo}}\) into \(H_{\text{App}}\). This is the tensor product
-connection — the operator that allows a query in one space to retrieve context from the other.
-
-**★ Confirmed operational — May 16, 2026. 242 geometry tables across two databases.
-26.9M rows in `geospatial_features` alone. `wv_buildings` 1,055,625 polygons. 
-`fayette_parcels` 39,515 parcels. `census_tl_2020_54_tabblock20` 72,558 blocks.
-`jarvis-local-resources-db` container: postgis/postgis:15-3.4, host port 5435.**
+This chapter treats spatial knowledge as a governed state rather than a raw possession. Spatial inferences, candidate updates, and cross-domain alignments may be computed or staged through sandbox reasoning, but they acquire broader authority only after the required gates pass. H_geo therefore belongs simultaneously to geography, cognition, and governance.
 
 ---
 
-## 45.1 Physical Instantiation
+## 45.1 The Meaning of H_geo
 
-\(H_{\text{geo}}\) is physically instantiated across two PostgreSQL/PostGIS databases
-in the `jarvis-local-resources-db` container.
+H_geo is the spatial body through which Ms. Allis represents land, routes, boundaries, infrastructures, localities, and geographically grounded relationships. In Hilbert terms, it is the spatial subspace of H_App in which place-linked entities and relations are arranged so that they can be compared, composed, measured, and reasoned over as part of a larger semantic whole.
 
-### 45.1.1 Container Configuration
+This means H_geo is not limited to geometry in the narrow sense. It includes the semantic significance of geography: counties, communities, parcels, service regions, jurisdictional layers, boundaries of authority, infrastructural adjacency, and the relation between physical place and governed action. A coordinate becomes part of H_geo only when it is incorporated into a meaningful spatial state.
 
-| Property | Value |
-|---|---|
-| Container name | `jarvis-local-resources-db` |
-| Image | `postgis/postgis:15-3.4` |
-| Host port | **5435** → internal 5432 |
-| Primary database | `msjarvisgis` (owner: `msjarvis`) |
-| Secondary database | `local_resources` (owner: `postgres`) |
-| PostGIS extension | 3.4 |
-| PostgreSQL version | 15 |
-
-### 45.1.2 Database Roles
-
-| Role | Attributes |
-|---|---|
-| `msjarvis` | Superuser — owns `msjarvisgis` |
-| `postgres` | Superuser, Create role, Create DB, Replication, Bypass RLS — owns `local_resources` |
+The result is a spatial body rather than a flat map. H_geo gives Ms. Allis a way to hold location-linked meaning inside a formal structure that can participate in reasoning, validation, and promotion.
 
 ---
 
-## 45.2 The Geometry of H_geo
+## 45.2 Spatial Knowledge as Governed State
 
-\(H_{\text{geo}}\) is a two-dimensional geodesic space. Every point in the space is a
-coordinate pair \((\lambda, \phi)\) — longitude and latitude — on the WGS84 ellipsoid
-(EPSG:4326) or the NAD83 ellipsoid (EPSG:4269). The inner product that defines proximity
-in this space is the PostGIS geodesic distance operator:
+Spatial knowledge in H_geo is governed-state knowledge.
 
-\[
-d(\mathbf{p}_i, \mathbf{p}_j) = \text{ST\_Distance}(\mathbf{p}_i\text{::geography}, \mathbf{p}_j\text{::geography})
-\]
+This means a spatial claim, inference, or update does not become authoritative merely because a geospatial service computed it or because a reasoning cycle produced it. Candidate spatial states may be generated, compared, or tested inside the sandbox, but they are treated as provisional until they pass the relevant gate sequence. A staged routing inference, a proposed boundary interpretation, a local infrastructure linkage, or a jurisdiction-sensitive conclusion remains a candidate state until the governance process allows it to cross into promoted system state.
 
-which returns the shortest path distance in meters along the ellipsoidal surface — not
-the flat-plane approximation. For polygon and line geometries, proximity is defined by
-`ST_DWithin`, `ST_Intersects`, and `ST_Contains` — the spatial join operators that
-replace the cosine similarity query of \(H_{\text{App}}\).
+This principle is essential because geography carries consequences. A spatial representation may affect benefits routing, infrastructure interpretation, land-linked records, local resource reasoning, or jurisdictional accountability. For that reason, H_geo must preserve the difference between computed possibility and governed acceptance.
 
-### 45.2.1 Coordinate Reference Systems
-
-| SRID | Name | Layer count | Usage |
-|---|---|---|---|
-| EPSG:4326 | WGS84 Geographic | 230 | Primary — all modern WV layers |
-| EPSG:4269 | NAD83 Geographic | 12 | Legacy TIGER/Census layers |
-
-All geometry is stored in 2D (`coord_dimension = 2`). Elevation data (3D) is not yet
-present in confirmed layers.
-
-### 45.2.2 Geometry Type Distribution
-
-| Type | Count | Examples |
-|---|---|---|
-| POINT | 221 | 911 centers, bridges, hospitals, schools, fire stations |
-| MULTIPOLYGON | 15 | Counties, census tracts, ZIP codes, parcels |
-| POLYGON | 3 | Census block groups, tabblocks, Fayette parcels |
-| MULTILINESTRING | 1 | Address edges |
-| LINESTRING | 1 | Address features |
-| GEOMETRY | 1 | `geospatial_features` — mixed master table |
+Spatial knowledge is therefore not just stored; it is admitted.
 
 ---
 
-## 45.3 The msjarvisgis Database — Spatial Layer Inventory
+## 45.3 Sandbox Spatial Reasoning
 
-`msjarvisgis` contains 242 geometry-registered tables and 232 total public tables.
-The confirmed populated layers (non-zero row count) are the operational substrate of
-\(H_{\text{geo}}\):
+Spatial Hilbert updates and inferences are computed or staged through sandbox reasoning.
 
-### 45.3.1 Confirmed Populated Geometry Layers
+When Ms. Allis performs spatial reasoning, she may form candidate linkages among geometries, infrastructure records, community features, administrative layers, and spatially entangled semantic context. Those operations belong first to the sandbox domain, where reasoning remains reversible and does not yet alter authoritative state. A sandbox cycle may generate a candidate spatial update, propose an interpretation of a place-linked condition, or assemble a new spatial inference path across multiple services.
 
-| Table | Type | Row count | Domain |
-|---|---|---|---|
-| `geospatial_features` | GEOMETRY | **26,923,473** | Master spatial feature store — mixed geometry |
-| `census_tl_2020_54_tabblock20` | POLYGON | 72,558 | WV 2020 Census blocks |
-| `census_tl_2020_us_zcta520` | MULTIPOLYGON | 33,791 | US ZIP Code Tabulation Areas 2020 |
-| `census_tl_2020_us_zcta510` | MULTIPOLYGON | 33,144 | US ZIP Code Tabulation Areas 2010 |
-| `census_tl_2020_us_county` | MULTIPOLYGON | 3,234 | US county boundaries |
-| `wv_buildings` | POLYGON | **1,055,625** | WV building footprints |
-| `fayette_parcels` | MULTIPOLYGON | 39,515 | Fayette County parcel boundaries |
-| `mvw_gbim_landowner_spatial` | MULTIPOLYGON | 38,979 | GBIM landowner spatial view |
-| `census_tl_2020_54_bg` | POLYGON | 1,639 | WV 2020 Census block groups |
+At this stage, the output is a staged spatial state rather than a committed one. It may be held in ephemeral reasoning structures, queued for validation, or compared against current spatial and semantic constraints. The important point is that H_geo is not updated by mere production of a candidate. Spatial transformation is first explored under sandbox conditions.
 
-> **Note on zero-row layers.** 221 of 242 geometry tables are registered in
-> `geometry_columns` but contain zero rows. These are schema-present but data-absent —
-> they represent the intended layer coverage of \(H_{\text{geo}}\), not its current
-> populated state. Loading these layers is the primary open item for spatial corpus
-> completion (OI-C45-LOAD).
+This makes H_geo compatible with authority-preserving reasoning. The system is free to think spatially before it is allowed to commit spatially.
 
 ---
 
-## 45.4 The local_resources Database — Community Intelligence Layer
+## 45.4 Promotion After Gates Pass
 
-`local_resources` is the second physical component of \(H_{\text{geo}}\). It is not a
-raw geometry store — it is the **community intelligence overlay**: the tables that
-connect spatial coordinates to lived human infrastructure in West Virginia and Appalachia.
+A spatial update becomes part of authoritative H_geo only after the required gates pass.
 
-### 45.4.1 Confirmed Tables — local_resources
+If a sandbox cycle produces a candidate spatial inference, that candidate must still satisfy the broader governed path: truth-relevant checks where applicable, guardian and constitutional requirements, provenance and coherence review, privacy and security conditions, and any domain-specific spatial constraints. Only then may the candidate cross from provisional staging into promoted spatial state.
 
-The 69 tables in `local_resources` span five functional domains:
+This matters because spatial knowledge often carries hidden authority. A route classification, locality linkage, parcel relation, or infrastructure interpretation may appear technical while actually changing the effective way the system understands a place or acts upon it. Promotion gates therefore serve as the boundary between exploratory spatial reasoning and accepted spatial knowledge.
 
-**WV Address and Building Infrastructure**
-
-| Table | Description |
-|---|---|
-| `wv_address_points_raw` | Raw WV address point dataset |
-| `wv_address_aliases` | Address alias resolution |
-| `wv_address_dual` | Dual-range address matching |
-| `wv_address_zones` | Address zone polygons |
-| `wv_buildings` | WV building footprints (shared with msjarvisgis) |
-| `wv_industrial_buildings` | Industrial building inventory |
-| `wv_office_buildings` | Office building inventory |
-| `wv_wvgistc_buildings` | WVGISTC building dataset |
-| `building_profile` | Enriched building profiles |
-| `enriched_buildings_with_samb` | Buildings with SAMB data joined |
-
-**WV Emergency and Civic Services**
-
-| Table | Description |
-|---|---|
-| `wv_ems_stations` | EMS station locations |
-| `wv_fire_stations` | Fire station locations |
-| `wv_fire_stations_clean` | Deduplicated fire station dataset |
-| `wv_hospitals` | Hospital locations |
-| `wv_floodplain_structures` | Floodplain structure registry |
-| `wv_hazard_buyouts` | Hazard buyout property records |
-| `wv_aml_lines` | Abandoned mine land — lines |
-| `wv_aml_points` | Abandoned mine land — points |
-| `wv_aml_polygons` | Abandoned mine land — polygons |
-| `wv_mineral_operations` | Active mineral operations |
-
-**WV Administrative and Tax Geography**
-
-| Table | Description |
-|---|---|
-| `wv_counties` | WV county table |
-| `wv_county_boundaries_raw` | Raw county boundary data |
-| `wv_county_lookup` | County FIPS and name lookup |
-| `wv_municipalities` | WV municipal boundaries |
-| `wv_parcels` | WV parcel registry |
-| `wv_tax_districts` | Tax district definitions |
-| `wv_tax_districts_poly` | Tax district polygons |
-| `wv_zip_codes` | WV ZIP code boundaries |
-| `wv_zip_zcta_raw` | ZIP-to-ZCTA crosswalk raw |
-| `wv_samb_north` | SAMB structure data — northern WV |
-| `wv_samb_south` | SAMB structure data — southern WV |
-| `gbim_zcta_2020` | GBIM ZCTA 2020 layer |
-
-**Community Resources and MountainShares Integration**
-
-| Table | Description |
-|---|---|
-| `community_resources` | Community resource registry |
-| `local_resources` | Local resource catalog |
-| `local_resources_index` | Resource search index |
-| `gbim_worldview_entity` | GBIM worldview entity table (bridge to \(H_{\text{App}}\)) |
-| `mountainshares_balances` | MountainShares token balances |
-| `mountainshares_ledger` | MountainShares transaction ledger |
-| `mountainshares_participation` | Participation registry |
-| `ms_governance_log` | Governance action log |
-| `ms_participation` | Participation records |
-| `ms_reserve_bands` | Reserve band definitions |
-| `ms_treasury` | Treasury state |
-| `ms_user_profile` | User profiles |
-| `founder_tokens` | Founder token registry |
-| `travel_regions` | Travel region definitions |
-
-**Identity and Security**
-
-| Table | Description |
-|---|---|
-| `ueid_immutable_security` | Universal Entity ID immutable security records |
-| `spatial_role_scopes` | Role-scoped spatial access definitions |
-| `user_longterm_memory` | Long-term user memory store |
-| `conversation_beliefs` | Conversation belief state |
-| `county_lookup` | County lookup table |
-| `us_counties` | US county reference table |
-| `us_zips` | US ZIP code reference table |
+The architecture preserves this distinction by requiring that spatial inference be staged first and admitted later. H_geo becomes stable through governance, not through raw computational momentum.
 
 ---
 
-## 45.5 The Tensor Product Bridge
+## 45.5 GeoDB and Infrastructure Cross-Links
 
-The connection between \(H_{\text{geo}}\) and \(H_{\text{App}}\) is the
-`gbim_worldview_entity` table in `local_resources` and the `gbim_worldview_entities`
-collection in ChromaDB (5,416,521 vectors, L2 metric, Chapter 44).
+H_geo is not isolated from the rest of the system. It is the spatial body that links the Hilbert architecture to GeoDB, infrastructure representations, and the broader place-based service environment.
 
-The bridge works as follows:
+GeoDB provides the grounded spatial substrate for many of the entities and relations that H_geo organizes semantically. Infrastructure chapters supply the material and civic referents through which spatial reasoning becomes actionable: bridges, facilities, routes, parcels, utility-linked geography, and other place-bound structures. H_geo is where those grounded records participate in the semantic and governed life of the system.
 
-**Forward projection** \(H_{\text{geo}} \rightarrow H_{\text{App}}\): A geographic
-entity (parcel, building, flood zone, mine site) is embedded via `all-minilm:latest`
-and stored in `gbim_worldview_entities`. Semantic queries in \(H_{\text{App}}\) can
-retrieve geographic entities by meaning — "flood-prone communities near Fayette County"
-retrieves parcel and building records whose spatial attributes were encoded as text and
-embedded.
-
-**Backward projection** \(H_{\text{App}} \rightarrow H_{\text{geo}}\): A semantic
-retrieval result containing a geographic reference (place name, parcel ID, ZIP code) is
-resolved against `local_resources` tables via `ST_DWithin` or exact join — returning
-the spatial geometry for map rendering, proximity analysis, or further spatial query.
-
-**The tensor product.** In \(H_{\text{App}} \otimes H_{\text{geo}}\), a query state
-vector \(\psi\) is not purely semantic or purely spatial — it is a superposition of both.
-The `jarvis-gis-rag` service (port 8004) is the operator that collapses this superposition
-into a concrete retrieval result by dispatching to whichever space the query primarily
-inhabits, then enriching with the other.
+This cross-linking matters because it prevents the spatial chapter from being read as abstract geometry alone. H_geo is where semantic geography meets database grounding and infrastructure reality. It is thus both representational and operational.
 
 ---
 
-## 45.6 The Spatial Coherence Score — Geo-Phi
+## 45.6 Locality Restriction
 
-Where Chapter 44 defined the phi score as the mean pairwise cosine similarity of semantic
-centroids in \(H_{\text{App}}\), the analogous instrument for \(H_{\text{geo}}\) is
-the **geo-phi score** — a measure of spatial coverage coherence across the active
-geometry layers of \(H_{\text{geo}}\).
+H_geo must also respect locality restriction.
 
-Geo-phi is defined as the fraction of West Virginia's geographic extent covered by
-populated geometry layers, weighted by domain importance:
+Not every spatial fact should be equally visible, movable, or actionable across every part of the system. Some spatial knowledge is local by design. It belongs to a specific county, jurisdiction, neighborhood, service region, or place-bound governance context. Locality restriction means that place-linked knowledge should remain governed by the relevant locality, rather than being treated as universally portable simply because it has been represented in a formal spatial structure.
 
-\[
-\phi_{\text{geo}} = \frac{1}{W} \sum_{i=1}^{N} w_i \cdot \mathbb{1}[\text{rows}(L_i) > 0]
-\]
+This principle applies both to disclosure and to reasoning scope. A candidate spatial inference that is valid within one jurisdiction may not automatically generalize beyond it. A local infrastructure pattern may be meaningful for one place while inappropriate to apply elsewhere. H_geo therefore preserves spatial intelligence by honoring locality rather than flattening it.
 
-where \(L_i\) is the \(i\)-th geometry layer, \(w_i\) is its domain weight, and \(W\)
-is the sum of all weights.
-
-**Current state (May 16, 2026):**
-
-\[
-\phi_{\text{geo}} = \frac{9}{242} \approx 0.037 \text{ (raw populated fraction)}
-\]
-
-9 of 242 registered geometry layers are populated. The remaining 233 layers are
-schema-present, data-absent. This is the primary open item — loading the WV GIS data
-corpus that the schema was built to receive.
-
-> **Note on geospatial_features.** The single table `geospatial_features` (26.9M rows,
-> GEOMETRY type) may itself represent a consolidation of many of the 221 empty point
-> layers. Row count queries against it confirm it is the dominant populated table in
-> \(H_{\text{geo}}\). Its internal feature type distribution requires a schema inspection
-> to determine effective layer coverage — see OI-C45-GEOFEATURES.
+Locality restriction is not a limitation of intelligence. It is part of what makes spatial intelligence trustworthy.
 
 ---
 
-## 45.7 The jarvis-gis-rag Service
+## 45.7 Jurisdictional Boundaries
 
-`jarvis-gis-rag` (host port 8004, image `db9c58f414fd`) is the query interface layer
-for \(H_{\text{geo}}\). It translates natural-language spatial queries into PostGIS
-operations and returns structured geographic results to the RAG pipeline.
+Jurisdictional boundaries are part of the semantics of H_geo, not merely external metadata.
 
-```bash
-# Health check
-curl -s http://localhost:8004/health | python3 -m json.tool
+A place is not fully represented if its governing boundaries are ignored. Counties, municipalities, districts, service territories, state lines, and other jurisdictional divisions shape what actions are permitted, what rules apply, and how spatial conclusions should be interpreted. H_geo therefore includes not only location and adjacency, but also the jurisdictional context that determines the authority attached to spatial knowledge.
 
-# Inspect available endpoints
-curl -s http://localhost:8004/docs | python3 -m json.tool
+This is especially important for governed-state semantics. A spatial conclusion may be geometrically plausible yet jurisdictionally invalid, or locally accurate yet institutionally inapplicable. For that reason, the meaning of a spatial state includes the boundary conditions under which it can be used, disclosed, or promoted.
 
-# Test a spatial query
-curl -s -X POST http://localhost:8004/query \
-  -H "Content-Type: application/json" \
-  -d '{"query": "fire stations in Fayette County", "limit": 5}' \
-  | python3 -m json.tool
-```
+H_geo is thus a body of place-with-authority, not only place-with-shape.
 
 ---
 
-## 45.8 Operational Procedures
+## 45.8 Governed-State Semantics
 
-```bash
-# Connect to msjarvisgis
-docker exec jarvis-local-resources-db psql -U msjarvis -d msjarvisgis
+The governed-state semantics of H_geo explain how spatial knowledge acquires standing inside Ms. Allis.
 
-# Connect to local_resources
-docker exec jarvis-local-resources-db psql -U postgres -d local_resources
+A spatial state becomes governed when it is not only representable but also admitted under the relevant authority conditions. This includes locality fit, jurisdictional appropriateness, cross-domain coherence, and passage through the general promotion structure. Governed-state semantics therefore distinguish between at least three spatial conditions:
 
-# Count populated vs empty geometry layers
-docker exec jarvis-local-resources-db psql -U msjarvis -d msjarvisgis -c "
-SELECT
-  COUNT(*) FILTER (WHERE row_count > 0) AS populated,
-  COUNT(*) FILTER (WHERE row_count = 0) AS empty,
-  COUNT(*) AS total
-FROM (
-  SELECT f_table_name,
-    (xpath('/row/cnt/text()',
-      query_to_xml('SELECT COUNT(*) AS cnt FROM ' || quote_ident(f_table_name),
-      false, true, '')))::text::int AS row_count[1]
-  FROM geometry_columns
-) sub;
-"
+- computed spatial possibility;
+- staged spatial candidate;
+- promoted spatial knowledge.
 
-# WV bounding box coverage check
-docker exec jarvis-local-resources-db psql -U msjarvis -d msjarvisgis -c "
-SELECT ST_AsText(ST_Extent(geom)) AS wv_extent
-FROM census_tl_2020_us_county
-WHERE ST_Within(
-  ST_Centroid(geom),
-  ST_MakeEnvelope(-82.65, 37.20, -77.72, 40.64, 4326)
-);
-"
+This distinction is crucial for the architecture. It allows the system to reason boldly inside the sandbox without collapsing every inference into accepted geography. It also ensures that spatial authority respects both formal review and the real-world boundary conditions of place.
 
-# Fayette County parcel coverage
-docker exec jarvis-local-resources-db psql -U msjarvis -d msjarvisgis -c "
-SELECT COUNT(*), ST_AsText(ST_Extent(geom)) FROM fayette_parcels;
-"
-
-# local_resources community resource count
-docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c "
-SELECT COUNT(*) FROM community_resources;
-"
-```
+H_geo is strongest when it preserves this gradation rather than pretending every computed map relation is already an accepted fact.
 
 ---
 
-## 45.9 Open Items — May 16, 2026
+## 45.9 Spatial Coherence and Cross-Domain Fit
 
-| OI | Description | Status | Priority |
-|---|---|---|---|
-| OI-C45-GEOFEATURES | Inspect `geospatial_features` internal type distribution — 26.9M rows may consolidate many of the 221 empty point layers | 🔄 Open | High |
-| OI-C45-LOAD | Load WV GIS corpus into 221 empty geometry layers — schema present, data absent | 🔄 Open | High |
-| OI-C45-GEOGPHI | Implement `jarvis-geo-phi` service (analog of phi probe) — compute spatial coverage coherence score \(\phi_{\text{geo}}\) | 🔄 Open | Medium |
-| OI-C45-SRID | Standardize 12 EPSG:4269 layers to EPSG:4326 for uniform geodesic distance computation | 🔄 Open | Medium |
-| OI-C45-3D | Evaluate elevation (3D geometry, `coord_dimension=3`) for DEM layers — terrain model for Appalachian topology | 🔄 Open | Low |
-| OI-C45-BRIDGE | Confirm `gbim_worldview_entity` (local_resources) ↔ `gbim_worldview_entities` (ChromaDB) sync is live | 🔄 Open | Medium |
-| OI-C45-FAYETTE | `fayette_parcels` (39,515) and `mvw_gbim_landowner_spatial` (38,979) confirmed populated — verify spatial index health | 🔄 Open | Low |
+Because H_geo is part of H_App, spatial state must also fit with the broader semantic architecture.
+
+A candidate spatial update may need to align not only with geometry and locality but also with memory, governance, infrastructure interpretation, community context, and other active domains. A spatially elegant inference that fractures these linked domains may remain unfit for promotion. Conversely, a candidate that preserves cross-domain coherence while remaining faithful to locality and jurisdiction may be a strong candidate for governed admission.
+
+This shows why H_geo cannot be treated as a mere GIS annex. It is a Hilbert body, meaning its spatial structure participates in the same broader economy of coherence, validation, and governed promotion that shapes the rest of H_App.
+
+Spatial reasoning is therefore not a side task. It is one of the central ways that place enters the authority structure of the system.
 
 ---
 
-## 45.10 Production Status Summary — May 16, 2026
+## 45.10 Closing Statement
 
-| Component | Status | Notes |
-|---|---|---|
-| `jarvis-local-resources-db` | ✅ Operational | postgis/postgis:15-3.4, host port 5435 |
-| `msjarvisgis` database | ✅ Live | Owner: msjarvis, 242 geometry tables |
-| `local_resources` database | ✅ Live | Owner: postgres, 69 tables |
-| `jarvis-gis-rag` | ✅ Running | host port 8004 — spatial query interface |
-| Total geometry tables | ✅ 242 | 232 public tables in msjarvisgis |
-| Populated geometry layers | ⚠ 9 of 242 | 233 layers schema-present, data-absent |
-| `geospatial_features` | ✅ 26,923,473 rows | Master spatial store — GEOMETRY type |
-| `wv_buildings` | ✅ 1,055,625 rows | WV building footprints — POLYGON |
-| `fayette_parcels` | ✅ 39,515 rows | Fayette County parcels — MULTIPOLYGON |
-| `mvw_gbim_landowner_spatial` | ✅ 38,979 rows | GBIM landowner view — MULTIPOLYGON |
-| `census_tl_2020_54_tabblock20` | ✅ 72,558 rows | WV 2020 Census blocks — POLYGON |
-| `census_tl_2020_us_county` | ✅ 3,234 rows | US county boundaries — MULTIPOLYGON |
-| Primary SRID | ✅ EPSG:4326 | 230 of 242 layers |
-| GBIM bridge to \(H_{\text{App}}\) | ✅ Schema present | `gbim_worldview_entity` in local_resources |
-| MountainShares tables | ✅ Present | 7 tables in local_resources |
-| Inner product operator | ✅ `ST_Distance` | Geodesic — WGS84 ellipsoidal surface |
-| \(\phi_{\text{geo}}\) raw | ⚠ ~0.037 | 9/242 layers populated — corpus loading needed |
-| Relationship to \(H_{\text{App}}\) | ✅ Defined | Tensor product via `gbim_worldview_entities` bridge |
+H_geo is the spatial Hilbert body of H_App, where place, geometry, infrastructure, locality, and jurisdiction become part of Ms. Allis’s governed semantic state.
 
----
-
-*Chapter 45 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
-*Ms. Jarvis is an original system designed and built by Carrie Ann Kidd.*
-*See [LICENSE](../LICENSE) for terms.*
-*Last verified: May 16, 2026 — jarvis-local-resources-db operational; postgis/postgis:15-3.4;
-msjarvisgis: 242 geometry tables, 9 populated, 26.9M rows in geospatial_features,
-1,055,625 wv_buildings, 39,515 fayette_parcels, 72,558 census blocks;
-local_resources: 69 tables including community_resources, MountainShares ledger,
-GBIM worldview entity bridge; primary SRID EPSG:4326; inner product ST_Distance geodesic;
-phi_geo raw 0.037 (9/242 populated); tensor product bridge to H_App via gbim_worldview_entities
-(5,416,521 L2 vectors, ChromaDB); msjarvis-rebuild namespace; host port 5435.*
+Spatial updates and inferences are computed or staged through sandbox reasoning and become authoritative only after the relevant gates pass. By linking H_geo to GeoDB and infrastructure grounding, while preserving locality restriction, jurisdictional boundaries, and governed-state semantics, this chapter defines spatial knowledge as something the system must reason through, validate, and properly admit rather than something it simply possesses.
