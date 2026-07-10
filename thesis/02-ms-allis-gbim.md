@@ -1,61 +1,66 @@
 # 2. The Geometric Belief Model and GBIM Architecture
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: April 23, 2026*
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
+*Last updated: July 9, 2026*
+
 ---
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter provides the theoretical foundation for understanding how Ms. Allis represents knowledge, belief, and uncertainty — and why those representations are structured the way they are. It supports:
+This chapter provides the theoretical and operational foundation for understanding how Ms. Allis represents knowledge, belief, authority, uncertainty, and governed action in place. It supports:
 
-- **P1 – Every where is entangled** by establishing that belief is not stored as isolated facts but as multi-axis geometric structures in which spatial, temporal, institutional, and normative dimensions are co-present and mutually constraining — so that a single GBIM belief about a hospital in Fayette County is simultaneously a claim about what exists, where it is, when it was verified, who has authority over it, and what its implications are for program routing.
+- **P1 – Every where is entangled** by establishing that belief is not stored as isolated facts but as multi-axis geometric structures in which spatial, temporal, institutional, normative, and governed dimensions are co-present and mutually constraining, so that a single GBIM belief about a hospital in Fayette County is simultaneously a claim about what exists, where it is, when it was verified, who has authority over it, how it may be disclosed, and whether it is permitted to affect routing, memory, or action.
 
-- **P3 – Power has a geometry** by showing that the GBIM axis structure — particularly `who`, `where`, `under_whose_authority`, and `for_whom` — is designed to make institutional power over place explicit and queryable, not buried in unstructured text. The landowner belief layer (Section 2.6.4) is the direct realization of this principle at parcel scale, confirmed fully operational end-to-end as of April 23, 2026.
+- **P3 – Power has a geometry** by showing that the GBIM axis structure — particularly `who`, `where`, `under_whose_authority`, and `for_whom` — is designed to make institutional power over place explicit and queryable, not buried in unstructured text. That principle now extends beyond representation into governed promotion: a belief may describe power, but it does not become operationally authoritative until it passes truth, constitutional, privacy, and system-safety gates.
 
-- **P5 – Design is a geographic act** by treating the nine-axis GBIM schema, the worldview structure, the collection inventory, and the ChromaDB configuration not as neutral technical choices but as geographic and political decisions that determine which facts are computable, which relationships are traversable, and which forms of institutional accountability are operationally enforceable.
+- **P5 – Design is a geographic act** by treating the nine-axis GBIM schema, the worldview structure, the collection inventory, the ChromaDB configuration, and the promotion architecture not as neutral technical choices but as geographic and political decisions that determine which facts are computable, which relationships are traversable, which identity-bearing structures remain protected, and which forms of institutional accountability are operationally enforceable.
 
-- **P12 – Intelligence with a ZIP code** by grounding the Hilbert-space model in a concrete PostgreSQL corpus on `msallis-db` (host port 5433, container port 5432), so that the abstract framework of quantum-geometric belief representation is always already indexed to real West Virginia places, programs, and populations.
+- **P12 – Intelligence with a ZIP code** by grounding the Hilbert-space model and governed-state model in concrete West Virginia infrastructure: PostgreSQL corpora, Chroma-backed retrieval, GBIM views, routing services, sandboxed reasoning, and promotion gates that remain answerable to real places, programs, and populations.
 
-- **P16 – Power accountable to place** by designing the belief structure so that institutional actors — government agencies, corporate landowners, utility companies — are represented as first-class GBIM entities with explicit `under_whose_authority` and `who` axis entries, making them queryable and auditable in a way that individual residential actors deliberately are not.
+- **P16 – Power accountable to place** by designing the belief structure so that institutional actors — government agencies, corporate landowners, utility companies, and formal authorities — are represented as first-class GBIM entities with explicit `under_whose_authority` and `who` axis entries, while residential individuals remain deliberately protected from exposure as public accountability targets.
 
-The theoretical framework in this chapter is not a preamble to the system — it is the system's operating logic, expressed at the level of schema, routing, and collection design rather than at the level of code.
+The theoretical framework in this chapter is not a preamble to the system. It is the system’s operating logic, expressed at the level of schema, routing, collection design, governed transitions, and controlled disclosure rather than only at the level of code.
 
-Accordingly, this chapter belongs to the **Theoretical Foundation** tier: it establishes the geometric belief model, the nine-axis GBIM schema, the Hilbert-space representation of uncertainty, the worldview structure, and the ChromaDB collection inventory that together constitute the epistemic architecture of Ms. Egeria Allis.
+Accordingly, this chapter belongs to the **Theoretical Foundation** tier. It establishes the geometric belief model, the nine-axis GBIM schema, the Hilbert-space representation of uncertainty, the worldview structure, the ChromaDB collection inventory, the promotion architecture, and the governed-state formalization that together constitute the epistemic architecture of Ms. Egeria Allis.
 
 ---
 
 ## 2.1 Purpose and Scope
 
-This chapter establishes the theoretical framework underlying the **GeoBelief Information Model (GBIM)** — the core representational system that allows Ms. Egeria Allis to hold, update, route, and reason over structured beliefs about West Virginia's physical world, institutional landscape, and programmatic infrastructure.
+This chapter establishes the theoretical and operational framework underlying the **GeoBelief Information Model (GBIM)** — the core representational system that allows Ms. Egeria Allis to hold, update, route, govern, and reason over structured beliefs about West Virginia’s physical world, institutional landscape, and programmatic infrastructure.
 
-GBIM is not a database schema in the conventional sense. It is a multi-axis geometric representation of belief that treats each claim about the world as a structured object with nine dimensions, each encoding a distinct aspect of the claim's meaning, provenance, authority, and applicability. This nine-axis structure is what allows beliefs derived from a WV assessor parcel record, a federal hazard dataset, a community organization's program flyer, and a peer-reviewed paper on Appalachian poverty to coexist in a single corpus and be meaningfully compared, combined, and routed.
+GBIM is not a database schema in the conventional sense. It is a multi-axis geometric representation of belief that treats each claim about the world as a structured object with distinct dimensions encoding meaning, provenance, authority, temporal status, disclosure bounds, and applicability. This structure is what allows beliefs derived from a WV assessor parcel record, a federal hazard dataset, a community organization’s program flyer, and a peer-reviewed paper on Appalachian poverty to coexist in one corpus and still be meaningfully compared, combined, routed, governed, and, when appropriate, promoted.
+
+GBIM must now be understood as a **governed representational layer**, not merely a semantic or spatial one. A retrieved statement, a sandbox inference, a corroborated conclusion, an approved memory object, and an actionable civic state are not the same object simply because they share textual or vector similarity. Promotion changes status, not merely storage location.
 
 The chapter is organized as follows:
 
 - **Section 2.2** introduces the nine-axis belief schema and explains the role of each axis.
-- **Section 2.3** presents the Hilbert-space model of belief and uncertainty that motivates the GBIM design.
-- **Section 2.4** describes the worldview structure (`eq1` and related worldviews) and its role in routing and filtering.
-- **Section 2.5** describes the PostgreSQL GBIM corpus — its current scale, table structure, and production status as of April 2026.
+- **Section 2.3** presents the Hilbert-space and governed-state model of belief and uncertainty that motivates the GBIM design.
+- **Section 2.4** describes the worldview structure (`eq1` and related worldviews) and its role in routing, filtering, and authority context.
+- **Section 2.5** describes the PostgreSQL GBIM corpus — its current scale, table structure, and production status.
 - **Section 2.6** presents the ChromaDB collection inventory — the vector-backed memory layer that makes GBIM beliefs semantically retrievable.
-- **Section 2.7** addresses the relationship between GBIM, the GeoDB spatial body (Chapter 6), the RAG pipeline (Chapter 7), and the local resource registry.
-- **Section 2.8** documents the `nbb_pituitary_gland` governance module — the neural-behavioral bridge operating at `host:8108` that modulates every Ms. Allis response through five active governance protocols.
-- **Section 2.9** documents the GBIM confidence decay pipeline — the live 24-hour decay loop with `needs_verification` escalation.
-- **Section 2.10** is an intellectual honesty record: it documents the retirement of `heuristic_contradiction_v1` and the promotion of `rag_grounded_v2` as the canonical truth judge, now DGM-corroborated.
-- **Section 2.11** documents the ethical architecture of the belief corpus — specifically the exclusion of individual residential owner names and the full accountability metadata required for institutional actors.
-- **Section 2.12** presents the `allis-gbim-query-router` service (port 7205) — the PostgreSQL-native GBIM retrieval path, fully operational end-to-end as of April 23, 2026.
-- **Section 2.13** documents the `mvw_gbim_landowner_spatial` materialized view — its schema, spatial indexing, confirmed row count, and RBAC gate.
+- **Section 2.7** addresses the relationship between GBIM, the GeoDB spatial body (Chapter 6), the RAG pipeline (Chapter 7), the internal-state sandbox, and the local resource registry.
+- **Section 2.8** documents the pituitary governance layer and its modulation role.
+- **Section 2.9** documents the GBIM confidence decay pipeline and time-sensitive freshness signaling.
+- **Section 2.10** records the promotion of `rag_grounded_v2` and the broader truth-judging architecture.
+- **Section 2.11** documents the ethical architecture of the belief corpus, especially institutional accountability and non-surveillance constraints for individuals.
+- **Section 2.12** presents the `allis-gbim-query-router` service.
+- **Section 2.13** documents the `mvw_gbim_landowner_spatial` materialized view.
+- **Section 2.14** introduces dual sandbox domains and the governed GBIM promotion path.
+- **Section 2.15** connects GBIM to Hilbert People Space, identity-focused retention, and the Community Hilbert Commons.
 
 ---
 
 ## 2.2 The Nine-Axis Belief Schema
 
-Every belief in the GBIM corpus is a structured object with nine named axes stored as JSONB in `gbim_worldview_entities` (L2 distance; primary spatial collection in ChromaDB) and `gbim_beliefs_v2` (cosine distance; production belief embeddings):
+Every belief in the GBIM corpus is a structured object with nine named axes stored as JSONB in `gbim_worldview_entities` and related belief tables.
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
-│              GBIM Nine-Axis Belief Structure                 │
+│              GBIM Nine-Axis Belief Structure                │
 ├─────────────────────────────────────────────────────────────┤
-│                                                              │
+│                                                             │
 │  1. what_axis          — What entity or claim is asserted   │
 │  2. who_axis           — Who or what is the subject/actor   │
 │  3. where_axis         — Where (geometry, county, ZIP)      │
@@ -65,681 +70,397 @@ Every belief in the GBIM corpus is a structured object with nine named axes stor
 │  7. for_whom_axis      — Intended beneficiary population    │
 │  8. under_whose_authority_axis — Institutional authority    │
 │  9. on_what_evidence_axis  — Source and provenance          │
-│                                                              │
-│  PostgreSQL storage: msallis-db (host port 5433,           │
-│    container port 5432), database: msallisgis              │
-│  ChromaDB: gbim_worldview_entities (L2) for spatial         │
-│    corpus; gbim_beliefs_v2 (cosine) for belief embeddings   │
-│  All beliefs carry: belief_id, proposition_code,            │
-│    worldview_id, confidence_decay, needs_verification       │
-│                                                              │
+│                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-*Figure 2.1. The nine-axis GBIM belief structure. Every belief in the corpus — from a hospital location to a coal company land holding — is represented with all nine axes, enabling multi-dimensional filtering, routing, and reasoning.*
+Every axis contributes to meaning, but no axis by itself is sufficient to make a belief operationally authoritative. The same propositional content can appear in more than one governed state depending on its provenance, authority, disclosure level, confidence, or gate outcome.
 
-**`what_axis`** — The propositional content of the belief: what entity exists, what relationship holds, what condition obtains. Structured as a typed JSONB object with fields including `type`, `label`, `description`, and `proposition_code`. The `proposition_code` is the primary routing key.
+**`what_axis`** — The propositional content of the belief: what entity exists, what relationship holds, what condition obtains.
 
-**`who_axis`** — The subject or actor of the belief. For the landowner belief layer, this is the canonical corporate or government entity name derived from WV assessor records. Individual residential owner names are explicitly excluded — see Section 2.11.
+**`who_axis`** — The subject or actor of the belief. In institutional contexts this includes government, corporate, nonprofit, and utility actors. In residential contexts this axis is privacy-constrained by design.
 
-**`where_axis`** — The spatial grounding: geometry (point, line, polygon), coordinate system, county, ZIP code. For parcel-level beliefs, includes parcel centroid and county derived from `mvw_gbim_landowner_spatial` in `msallisgis`.
+**`where_axis`** — The spatial grounding: geometry, coordinate system, county, ZIP code, parcel relation, or other location-bearing structure.
 
-**`when_axis`** — Temporal scope: when the belief was created, last verified, expected decay schedule. Paired with `confidence_decay` to implement time-sensitive freshness signaling — see Section 2.9.
+**`when_axis`** — Temporal scope: when the belief was created, verified, observed, or scheduled for decay and re-verification.
 
-**`why_axis`** — The normative or causal rationale: why this belief is relevant to Ms. Allis's mission.
+**`why_axis`** — The normative or causal rationale: why the belief matters to Ms. Allis’s mission and how it bears on civic reasoning.
 
-**`how_axis`** — The verification method: what pipeline generated the belief, what spatial or statistical operation produced it.
+**`how_axis`** — The verification method: the workflow, service, spatial transformation, or institutional path through which the belief was produced.
 
-**`for_whom_axis`** — The intended beneficiary population: which households, communities, or demographic groups the belief is most relevant to.
+**`for_whom_axis`** — The intended beneficiary population or population-of-concern.
 
-**`under_whose_authority_axis`** — The institutional authority under which the claim holds. For the landowner belief layer, records the ownership basis — assessor record, deed reference, government registry. Central to **P16 – Power accountable to place**.
+**`under_whose_authority_axis`** — The institutional, legal, civic, or documentary authority under which the claim is asserted or held.
 
-**`on_what_evidence_axis`** — The primary source and provenance chain: dataset name, table, primary key, data vintage.
+**`on_what_evidence_axis`** — The primary source and provenance chain.
+
+This nine-axis schema remains foundational, but it must now be paired with a governed-state formalism so that belief structure is not mistaken for operational authorization.
 
 ---
 
-## 2.3 Hilbert-Space Representation of Belief and Uncertainty
+## 2.3 Governed State and Hilbert-Space Representation
 
-The GBIM nine-axis schema is motivated by a geometric model of belief that treats the system's overall epistemic state as a vector in a high-dimensional Hilbert space:
+The GBIM nine-axis schema is motivated by a geometric model of belief, but Ms. Allis no longer treats semantic or geometric content as self-authorizing.
 
-- Each basis dimension corresponds to a distinguishable claim about the world at a specific place and time, under a specific institutional authority.
-- The system's belief state is a superposition over these dimensions — a probability amplitude distribution reflecting confidence, uncertainty, and entanglement between claims.
-- A retrieval operation (RAG query, spatial filter, landowner lookup) is a **projection** of this state onto a relevant subspace.
-- Belief update — ingesting new data, verifying a claim — is a rotation or scaling on the state vector.
+A GBIM state should therefore be represented as:
 
-```
+\[
+x = (v, \alpha, p, c, \tau, \ell, g)
+\]
+
+where:
+
+- \(v\) is the semantic, spatial, temporal, relational, or composite content representation;
+- \(\alpha\) is authority or epistemic status;
+- \(p\) is provenance;
+- \(c\) is confidence or evidentiary support;
+- \(\tau\) is temporal status;
+- \(\ell\) is disclosure or access level;
+- \(g\) is governance and gate state.
+
+This means:
+
+\[
+(v, \alpha_1, p, c, \tau, \ell, g)
+\neq
+(v, \alpha_2, p, c, \tau, \ell, g)
+\]
+
+whenever:
+
+\[
+\alpha_1 \neq \alpha_2
+\]
+
+Thus a sandbox hypothesis, corroborated conclusion, approved memory, and actionable civic state may all carry similar content while remaining fundamentally different governed states.
+
+The Hilbert-space interpretation still matters. The system’s broader epistemic state may be understood as a vector over a high-dimensional space of possible world-claims, with retrieval and routing functioning as projections into relevant subspaces. But the projected vector is not enough. A GBIM belief becomes operationally meaningful only when it is accompanied by authority, provenance, temporal, disclosure, and governance metadata.
+
+```text
 ┌─────────────────────────────────────────────────────────────┐
-│         Hilbert Space Belief Model — Conceptual View        │
+│   Hilbert-Space and Governed-State View of GBIM            │
 ├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  Full Hilbert Space H                                        │
-│  (all possible beliefs about WV at all scales)              │
-│      |                                                       │
-│      | projection                                            │
-│      ↓                                                       │
-│  Subspace H_q  (beliefs relevant to query q)                │
-│      |                                                       │
-│      | further projection                                    │
-│      ↓                                                       │
-│  Subspace H_q,r  (beliefs relevant to query q, role r,      │
-│                    county c, worldview w)                    │
-│      |                                                       │
-│      | retrieval                                             │
-│      ↓                                                       │
-│  Top-k belief records (ChromaDB gbim_worldview_entities /   │
-│    gbim_beliefs_v2) or                                       │
-│  Top-n ownership records (mvw_gbim_landowner_spatial)        │
-│                                                              │
-│  Note: Landowner projections use relational aggregation      │
-│  rather than vector geometry — exact SQL over verified       │
-│  records, not approximate nearest-neighbor in embedding      │
-│  space. This is a deliberate architectural choice: the       │
-│  question "who owns how much land where" has a               │
-│  deterministic answer in the GBIM corpus.                    │
-│                                                              │
+│                                                             │
+│  Full belief space H                                        │
+│      ↓ projection                                           │
+│  Query-relevant subspace H_q                                │
+│      ↓ role / place / worldview filtering                   │
+│  Operational subspace H_q,r,c,w                             │
+│      ↓ governed-state evaluation                            │
+│  x = (v, α, p, c, τ, ℓ, g)                                  │
+│      ↓ gate / promotion                                     │
+│  validated memory or actionable state                       │
+│                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-*Figure 2.2. Conceptual view of the Hilbert-space projection model underlying GBIM retrieval. Vector-based projections (ChromaDB) and relational projections (SQL aggregation over `mvw_gbim_landowner_spatial`) are both projections into relevant subspaces — they differ in geometric mechanism, not epistemic role.*
+The correct revision principle is therefore: **GBIM is geometric, but it is also governed**.
 
 ---
 
 ## 2.4 Worldview Structure and the `eq1` Worldview
 
-The production worldview is **`eq1`** — the primary equity-oriented worldview grounding Ms. Allis's reasoning in Appalachian community perspectives, WV state data, and federal program structures. All production beliefs in `gbim_worldview_entities` (ChromaDB, L2) are tagged `worldview_id = 'eq1'`.
+The production worldview is **`eq1`** — the primary equity-oriented worldview grounding Ms. Allis’s reasoning in Appalachian community perspectives, WV state data, and federal program structures.
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│              Worldview Structure in GBIM                    │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  worldview_id = 'eq1'  (production worldview)               │
-│  ─────────────────────────────────────────────────────      │
-│  Interpretive frame: Appalachian equity orientation         │
-│  Data scope: WV state + federal sources verified for WV     │
-│  ChromaDB collections:                                      │
-│    gbim_worldview_entities — L2 distance (spatial corpus)   │
-│    gbim_beliefs_v2 — cosine distance (belief embeddings)    │
-│  Landowner view: mvw_gbim_landowner_spatial                 │
-│    ✅ 38,979 rows in msallis-db (April 23, 2026)            │
-│    536 unattributed — normal for roads/easements            │
-│  Status: Production — all RAG, GIS, landowner paths        │
-│                                                              │
-│  Future worldviews (planned):                               │
-│  ─────────────────────────────────────────────────────      │
-│  eq2: Regional Appalachian scope (multi-state)              │
-│  eq3: Federal program perspective                           │
-│  research1: Academic/research frame                         │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
+The worldview remains a filtering and interpretive frame, but it should not be described as the final authority source by itself. A worldview organizes relevance, weighting, and interpretive commitments; it does not replace provenance, legal authority, constitutional validity, privacy constraints, or gate review.
 
-*Figure 2.3. The GBIM worldview structure. The production `eq1` worldview is the authoritative belief frame for all Ms. Allis reasoning.*
+In the revised architecture, worldview participates in the authority context of a belief without exhausting it. A belief may be worldview-compatible yet still fail promotion because it lacks adequate evidence, violates disclosure rules, conflicts with constitutional constraints, or remains temporally stale.
 
 ---
 
-## 2.5 The PostgreSQL GBIM Corpus — Authoritative Layout (April 23, 2026)
+## 2.5 The PostgreSQL GBIM Corpus
 
-Ms. Allis runs one primary production PostgreSQL database container. All references to a database named `msallisgis`, `gisdb`, or port `5452` are retired — those names do not exist in the current production stack.
+The PostgreSQL GBIM corpus remains the authoritative relational substrate for structured beliefs, landowner views, civic entities, and graph-adjacent state.
 
-> **⚠️ ChromaDB API Version Notice:** All ChromaDB API calls must use the **v2 path**
-> (`/api/v2/...`). The v1 path (`/api/v1/...`) returns **HTTP 410 Gone** and is
-> permanently deprecated. Update any scripts, services, or documentation that reference
-> `/api/v1/` immediately.
+However, this chapter must now distinguish between:
 
-### Live Database Layout
+1. **authoritative production stores**, including GBIM tables, materialized views, and spatially grounded relational records; and
+2. **provisional reasoning state**, which may inspect or reason over GBIM but may not directly alter it without passing promotion gates.
 
-| Layer | Container | Host Port | Container Port | Database | Owner | Contents |
-|---|---|---|---|---|---|---|
-| Production PostGIS / GBIM | `msallis-db` | **5433** | **5432** | `msallisgis` | postgres | Full spatial GBIM, landowner view, provider summaries, TIGER, topology |
-
-**Production database:** `msallis-db` — 16 GB / 294 tables / 11 schemas (April 23, 2026).
-
-### Key Tables in `msallisgis`
-
-| Table | Role |
-|---|---|
-| `gbim_worldview_entity` | Full spatial GBIM entity table — nine-axis JSONB, worldview eq1, all WV GIS source layers |
-| `mvw_gbim_landowner_spatial` | Materialized view — ✅ **38,979 rows in msallis-db** (April 23, 2026); centroid_x/y, county, state, source_dataset |
-| `gbim_entities` | 4-column application mirror — `id`, `worldview_id`, `entity_type`, `label` |
-| `gbim_decay_audit` | Decay pipeline audit log — records each decay tick and escalation event |
-| `gbim_provider_block_join_block` | Provider-block join (block perspective) |
-| `gbim_block_provider_summary` | Block-level provider summaries |
-| `gbim_provider_population_summary` | Provider population summaries |
-| `tiger.*` | TIGER/Line schemas: `tiger.addr`, `tiger.edges`, `tiger.zcta5`, etc. |
-| `topology.*` | PostGIS topology schema |
-
-### Access Patterns
-
-```python
-import psycopg2
-
-# Production database: msallis-db (host port 5433, container port 5432)
-# Database name: msallisgis
-conn = psycopg2.connect(
-    host="localhost", port=5433,
-    database="msallisgis", user="postgres", password="postgres"
-)
-
-cursor = conn.cursor()
-
-# Query GBIM worldview entities
-cursor.execute("""
-    SELECT
-        id,
-        worldview_id,
-        entity_type,
-        label AS display_name,
-        ((belief_state->'spatialmetadata')->>'centroidx')::double precision AS centroid_x,
-        ((belief_state->'spatialmetadata')->>'centroidy')::double precision AS centroid_y,
-        ((belief_state->'axes')->'where')->>'county' AS county
-    FROM gbim_worldview_entity
-    WHERE ((belief_state->'axes')->'where')->>'county' = 'Fayette'
-    LIMIT 10;
-""")
-
-# Query landowner materialized view
-cursor.execute("""
-    SELECT owner_name, parcel_id, county, centroid_x, centroid_y
-    FROM mvw_gbim_landowner_spatial
-    WHERE county = 'Fayette'
-    LIMIT 20;
-""")
-
-# Query decay audit
-cursor.execute("""
-    SELECT entity_id, decay_value, needs_verification, audit_ts
-    FROM gbim_decay_audit
-    WHERE needs_verification = TRUE
-    ORDER BY decay_value DESC
-    LIMIT 20;
-""")
-```
-
-### Shell / psql Access
-
-```bash
-# Production database — docker exec msallis-db
-docker exec msallis-db psql -U postgres -d msallisgis
-
-# Forensic database — with explicit host binding
-docker exec postgis-forensic psql -h 127.0.0.1 -U allis -d msallisgis
-```
+This distinction is critical because GBIM is no longer documented as a simple endpoint of retrieval and routing. It is the durable, governed layer that receives only approved transitions.
 
 ---
 
-## 2.6 ChromaDB Collection Inventory
+## 2.6 ChromaDB Collections and Semantic Retrieval
 
-The ChromaDB instance (host port 8002, container-internal port 8000) is the vector-backed semantic memory layer. All collections use 384-dimensional embeddings produced by `all-minilm:latest`.
+The Chroma-backed layer remains the semantically retrievable memory substrate for GBIM beliefs and worldview entities.
 
-> **⚠️ ChromaDB API v2 — REQUIRED:** All API calls must use `/api/v2/...` paths.
-> `/api/v1/...` returns **HTTP 410 Gone** permanently. This affects all services,
-> scripts, and integrations. No exceptions.
+But retrieval should no longer be documented as if semantic proximity itself authorizes state change. Semantic retrieval produces candidate context, candidate evidence, and candidate neighborhood structure. It does not directly produce approved GBIM truth.
 
-> **UUID two-step pattern for collection operations:** ChromaDB v2 does not support
-> count by collection name directly. Use the UUID two-step:
-> ```python
-> # Step 1: resolve collection name → UUID
-> resp = httpx.get("http://localhost:8002/api/v2/collections/gbim_worldview_entities")
-> collection_id = resp.json()["id"]
->
-> # Step 2: count using UUID
-> count_resp = httpx.get(
->     f"http://localhost:8002/api/v2/collections/{collection_id}/count"
-> )
-> count = count_resp.json()
-> ```
-> Direct `/count` calls by name are not reliable in v2. Always resolve UUID first.
+The revised chapter should make explicit that retrieval may contribute to:
 
-> **Embedding lock:** `all-minilm:latest`, 384-dim. `nomic-embed-text` (768-dim) is
-> incompatible with all existing collections.
-> **Chunking rule:** ≈100 words per chunk, ~20-word overlap (256-token context limit).
-> **Container count:** 112 confirmed (April 16, 2026 — thesis-verified) /
-> 100 point-in-time (April 23, 2026).
+- sandbox hypotheses;
+- corroboration;
+- confidence adjustment;
+- worldview-scoped projection;
+- provenance enrichment;
 
-### 2.6.1 GBIM and Spatial Collections
-
-| Collection | Distance | Count | Role |
-|---|---|---|---|
-| `gbim_worldview_entities` | **L2** | Active | Complete GBIM spatial corpus — all WV geospatial features embedded; metadata: `worldview_id`, `entity_id`, `dataset`, `county`, centroid_x/y |
-| `gbim_beliefs_v2` | **cosine** | Active | Production belief embeddings — nine-axis text representations; separate from spatial corpus |
-| `GBIM_Fayette_sample` | cosine | **1,535** | Fayette County GBIM belief sample |
-| `geospatialfeatures` | cosine | **60,000** | Vectorized PostGIS spatial features |
-| `gis_wv_benefits` | cosine | Active | WV benefits-relevant facilities — DHHR, CAAs, food banks |
-| `GBIM_sample_rows` | cosine | 5,000 | Random sample for testing and validation |
-
-> **`gbim_worldview_entities` vs. `gbim_beliefs_v2`:** These are distinct collections
-> serving distinct roles. `gbim_worldview_entities` (L2) is the spatial GBIM corpus —
-> geospatial features embedded for proximity-based retrieval. `gbim_beliefs_v2` (cosine)
-> is the production belief embedding corpus — nine-axis text representations optimized
-> for semantic similarity. Do not conflate them. Landowner queries bypass both: they
-> route via SQL through `allis-gbim-query-router` (port 7205) → `mvw_gbim_landowner_spatial`.
-
-> **Landowner beliefs are NOT in ChromaDB.** Landowner queries route exclusively via
-> SQL through `allis-gbim-query-router` (port 7205) →
-> `msallisgis.mvw_gbim_landowner_spatial` (container port 5432 on `msallis-db`).
-> Zero ChromaDB involvement. See Sections 2.12 and 2.13.
-
-### 2.6.2 Community Memory and Autonomous Learning
-
-| Collection | Distance | Count | Role |
-|---|---|---|---|
-| `autonomous_learner` | cosine | **21,181** | Older corpus; pre-fix history preserved |
-| `autonomous_learning` | cosine | **17,685** | Newer corpus; current write path |
-| `conversation_history` | cosine | **580** | Wired into main brain after OI-05 fix |
-| `ms_allis_memory` | cosine | Active | Persistent cross-session memory |
-| `episodic_index` | cosine | Active | Episodic memory index |
-
-Both autonomous learning collections are confirmed distinct with no dedup required — they serve different temporal roles and are intentionally preserved. Combined: **38,866** items of community interaction and research history.
-
-### 2.6.3 Governance and Constitutional Corpus
-
-| Collection | Distance | Count | Notes |
-|---|---|---|---|
-| `governance_rag` | cosine | **1,367 chunks** | MountainShares DAO Charter + rules; Phase specs; KPI Spec; Safety Champion Protocol; US Constitution (97 chunks); WV Constitution (342 chunks, source label `wv_constitution`) |
-| `commons_rag` | cosine | **306 chunks** | Commons governance and gamification corpus |
-| `governance` | cosine | Active | WV governance texts |
-| `thesis` | cosine | Active | Polymathmatic Geography theoretical framework |
-| `mountainshares_knowledge` | cosine | Active | MountainShares DAO economics and governance |
-
-### 2.6.4 Legal, Safety, Economic, and Resource Collections
-
-| Collection | Distance | Count | Notes |
-|---|---|---|---|
-| `legal_rag` | cosine | **340 chunks** | WV Code and legal texts, rechunked |
-| `safety_rules` | cosine | **25** | Six guardrail groups, 15 constitutional principles |
-| `economic_rag` | cosine | **72 chunks** | Tax + agriculture law |
-| `contracts` | cosine | **673 chunks** | Rechunked |
-| `policy_rag` | cosine | 9 | Policy corpus |
-| `grants_rag` | cosine | 9 | Grants and funding corpus |
-| `meeting_minutes` | cosine | 1 | Governance record |
-| `fayette_county_resources_2026` | cosine | **1,205 chunks** | Fayette resource packet — baseline for Phase 1 |
-| `wv_resources` | cosine | 8 | Active expansion target through Phase 1 red teaming |
-| `local_resources` | cosine | 101 | Active expansion target through Phase 1 red teaming |
-| `msallis_docs` | cosine | **4,192** | System docs + resources (April 23, 2026) |
-
-### 2.6.5 Specialized Corpora
-
-| Collection | Distance | Count | Notes |
-|---|---|---|---|
-| `spiritual_rag` | cosine | Active | Deduplicated; 19,338 duplicate vectors removed March 28, 2026 |
-| `psychological_rag` | cosine | **968 documents** | Restored March 28, 2026 |
-| `appalachian_cultural_intelligence` | cosine | **820** | Curated Appalachian cultural corpus |
-| `aaacpe_corpus` | cosine | **65** | AaaCPE live web scrape (39 sources) |
-
-**Total ChromaDB:** ~6.74M vectors across **48 collections** (mixed L2/cosine; April 17, 2026).
+but not direct graph consequence absent governance.
 
 ---
 
-## 2.7 Relationship Between GBIM, GeoDB, RAG, and Registries
+## 2.7 GBIM, GeoDB, RAG, and the Internal-State Sandbox
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│     GBIM Architecture — April 23, 2026                      │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  msallis-db (host port 5433, container port 5432)          │
-│    database: msallisgis — 16 GB / 294 tables / 11 schemas  │
-│    gbim_worldview_entity — nine-axis JSONB, worldview eq1   │
-│    mvw_gbim_landowner_spatial — ✅ 38,979 rows               │
-│    gbim_provider_* / gbim_block_* summaries                 │
-│    gbim_entities — 4-col application mirror                 │
-│    gbim_decay_audit — decay pipeline records                │
-│    tiger.* / topology.* — TIGER/Line spatial schemas        │
-│          ↓ embedding pipeline (all-minilm:latest, 384-dim)  │
-│  ChromaDB (host port 8002) — ~6.74M vectors / 48 collections│
-│    gbim_worldview_entities — L2 (spatial corpus)            │
-│    gbim_beliefs_v2 — cosine (belief embeddings)             │
-│    fayette_county_resources_2026 — 1,205 chunks             │
-│    governance_rag — 1,367 chunks                            │
-│    [landowner beliefs NOT in ChromaDB]                      │
-│          ↓ metadata links (entity_id, local_resource_id)    │
-│  allis-local-resources-db (port 5435)                      │
-│    Verified program records — county, ZIP, type             │
-│          ↓ direct SQL (no embeddings)                       │
-│  allis-gbim-query-router (port 7205)                       │
-│    → msallisgis.mvw_gbim_landowner_spatial                 │
-│    ✅ 38,979 rows — EPSG:4326, GIST index                    │
-│    X-Allis-Role: carrie_admin — RBAC gate active            │
-│    PostgreSQL-native — ZERO ChromaDB involvement            │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
+GBIM now sits in a broader governed pipeline.
 
-*Figure 2.4. The GBIM architecture as of April 23, 2026. Production database is `msallisgis` on `msallis-db` (host 5433 / container 5432). Landowner queries bypass ChromaDB entirely and route through `allis-gbim-query-router` (port 7205).*
+GeoDB provides the spatial body. RAG provides retrieval context. Chroma provides semantic access. The GBIM query router provides structured relational retrieval. But the emerging internal-state reasoning architecture adds a new distinction: reasoning about GBIM is not equivalent to committing GBIM.
+
+A belief or inferred relation may be retrieved from GBIM, combined with spatial context, compared with other records, and reasoned over inside the internal-state sandbox without thereby changing GBIM itself.
+
+This is a crucial revision. The system now has two sandbox domains:
+
+- the **DGM code sandbox**, which governs code, configuration, and system-change promotion;
+- the **internal-state reasoning sandbox**, which governs provisional internal reasoning about identity, geography, civic interpretation, and candidate conclusions before those conclusions can affect durable memory, graph structure, or action.
+
+GBIM belongs downstream of governed promotion, not upstream of unconstrained inference.
 
 ---
 
-## 2.8 The `nbb_pituitary_gland` Governance Module
+## 2.8 Pituitary Governance and Affective Modulation
 
-The `nbb_pituitary_gland` service is a neural-behavioral bridge operating at **`host:8108`** that modulates every Ms. Allis response. It is not optional infrastructure — it is the governance layer that regulates response tone, urgency, and constitutional alignment in real time.
+The pituitary layer remains a neural-behavioral governance module that modulates urgency, warmth, escalation, and ethical restraint.
 
-### 2.8.1 Operational State (April 23, 2026)
+Its role should now be described in relation to the sandboxed reasoning flow. Pituitary modulation does not merely shape final responses; it also conditions internal reasoning context, affective caution, and escalation behavior before candidate conclusions move toward promotion review.
 
-| Property | Value |
-|---|---|
-| Host | `host:8108` |
-| Current mode | **baseline** |
-| Steady-state behavior | Normal governance — standard cortisol, urgency, warmth |
-| Five governance protocols | All active |
-| Health endpoint | `GET /health` — operational |
-| Mode endpoint | `GET /mode` — returns `baseline` |
-| Network membership | `qualia-net` + `msallis-rebuild_default` — dual confirmed April 23, 2026 |
-
-**Mode: baseline is the correct steady-state.** `mode: crisis` is a contingency mode that activates during genuine system-wide emergencies — it must not appear in documentation as the normal operating state.
-
-### 2.8.2 Five Governance Protocols
-
-The five active governance protocols modulate:
-
-1. **Cortisol regulation** — urgency calibration; prevents panic-mode responses to routine queries.
-2. **Warmth calibration** — community-appropriate tone for Appalachian users; avoids clinical detachment.
-3. **Constitutional alignment** — cross-references response framing against WV and US constitutional principles.
-4. **Escalation gating** — determines when a response requires elevation to human review.
-5. **Ethical brake** — hard stop on responses that cross harm, privacy, or dignity thresholds regardless of other judge scores.
-
-### 2.8.3 Integration with the Judge Pipeline
-
-`nbb_pituitary_gland` operates upstream of the BBB barrier. Before the judge consensus gate evaluates a response, the pituitary module has already modulated the ensemble output's affective register. Judge scores therefore reflect the post-modulation response, not the raw LLM ensemble output. This ordering is intentional: constitutional governance precedes adversarial safety checking.
-
-```python
-import httpx
-
-# Check current governance mode
-resp = httpx.get("http://host:8108/mode")
-# Returns: {"mode": "baseline", "cortisol": ..., "urgency": ..., "warmth": ...}
-
-# Health check
-health = httpx.get("http://host:8108/health")
-# Returns: {"status": "ok", "protocols_active": 5}
-```
+This becomes especially important for GBIM when civic, identity-bearing, or place-sensitive claims are under consideration. A belief may be semantically coherent yet still require cautious modulation, human review, or nonpromotion.
 
 ---
 
-## 2.9 GBIM Confidence Decay Pipeline
+## 2.9 Confidence Decay, Temporality, and Hysteresis
 
-The confidence decay pipeline is a live 24-hour loop monitoring all GBIM entities for temporal staleness and escalating verified-stale entities to the POC (point-of-contact) re-verification workflow.
+GBIM beliefs are temporally situated and subject to decay, re-verification, and freshness signaling.
 
-### 2.9.1 Pipeline Components (All Operational — April 23, 2026)
+The revised chapter should not describe confidence as a static scalar attached once and for all. A better formalism is evidence-bounded and temporally governed.
 
-| Component | Status | Role |
-|---|---|---|
-| `allis-confidence-decay` | ✅ Running | 24-hour decay loop — applies decay ticks to all entities |
-| `allis-decay-escalation-consumer` | ✅ Running | Consumes escalation events; routes to POC workflow |
-| `allis-gbim-verifier` | ✅ Running | Polls every 120s; reports totals, stale counts, average decay |
-| `confidence_decay_loop.py` | ✅ Deployed | Core decay logic |
-| `allis_decay_escalation_consumer.py` | ✅ Deployed | Escalation consumer logic |
-| `db/gbim_confidence_decay_schema.sql` | ✅ Deployed | Schema — `gbim_decay_audit` in `msallisgis` |
-| `scripts/gbim_decay_tick.sh` | ✅ Operational | Manual decay tick trigger |
-| `scripts/gbim_decay_refresh.sh` | ✅ Operational | Refresh script |
-| `observability/prometheus/alert_confidence_decay_rules.yaml` | ✅ Configured | Prometheus alerting |
+Let \(C(x)\) denote system confidence and \(E(x)\) the maximum confidence justified by available evidence. Then a core safety condition is:
 
-### 2.9.2 Decay Behavior
+\[
+C(T_{\mathrm{promote}}(x)) \leq E(x)
+\]
 
-- **Decay interval:** 24 hours.
-- **Entities processed:** 461 processed in the first documented decay cycle.
-- **`needs_verification = TRUE`** is set when an entity's `confidence_decay` value crosses the configured threshold. This flag drives the POC re-verification loop.
-- **"No stale entities" from `allis-gbim-verifier`** is correct behavior — it means no entities have yet crossed the decay threshold, not that the service is inactive.
-- **Decay audit records** are written to `msallisgis.public.gbim_decay_audit` on `msallis-db` for every tick processed.
+This prevents a provisional inference from becoming an asserted fact merely because it crossed a system boundary.
 
-### 2.9.3 Decay Schema
+Where stability matters, belief revision should include hysteresis. Let entry and exit thresholds satisfy:
 
-```sql
--- msallisgis.public.gbim_decay_audit
--- Written by confidence_decay_loop.py on each decay tick
--- Access: docker exec msallis-db psql -U postgres -d msallisgis
+\[
+\theta_{\mathrm{exit}} < \theta_{\mathrm{enter}}
+\]
 
-SELECT
-    entity_id,
-    decay_value,
-    needs_verification,
-    audit_ts
-FROM gbim_decay_audit
-WHERE needs_verification = TRUE
-ORDER BY decay_value DESC
-LIMIT 20;
-```
+and let accepted-state behavior be governed by:
+
+\[
+b_{t+1}(x) =
+\begin{cases}
+1, & C_t(x) \geq \theta_{\mathrm{enter}}, \\
+0, & C_t(x) \leq \theta_{\mathrm{exit}}, \\
+b_t(x), & \theta_{\mathrm{exit}} < C_t(x) < \theta_{\mathrm{enter}}
+\end{cases}
+\]
+
+This prevents GBIM from oscillating rapidly between accepted and rejected status because of minor fluctuations near a single threshold. For civic, spatial, or identity-linked beliefs, that stability is essential.
 
 ---
 
-## 2.10 Truth Judge — Retirement of `heuristic_contradiction_v1`, Promotion of `rag_grounded_v2`
+## 2.10 Truth Judging, DGM Corroboration, and Non-Direct Promotion
 
-The `heuristic_contradiction_v1` judge is **retired**. All references to it in source files, comments, and documentation are superseded. The canonical truth judge is `rag_grounded_v2`, confirmed operational and DGM-corroborated.
+The retirement of weaker contradiction heuristics and the promotion of `rag_grounded_v2` as canonical truth judge should now be documented as part of a broader gate architecture, not as a standalone validation note.
 
-### 2.10.1 What Changed
+A belief does not become GBIM-valid merely because it was retrieved or generated. It must move through truth-oriented corroboration and then pass constitutional, privacy, security, domain, and disclosure controls.
 
-| Component | Before (retired) | After (current) |
-|---|---|---|
-| Truth judge implementation | `heuristic_contradiction_v1` — pattern-matching on response text; no DB query | `rag_grounded_v2` — RAG-grounded scoring; DGM-corroborated verdicts |
-| Source file | `allis-judge-truth_lm_synthesizer.py` stale comments referencing v1 | All stale `heuristic_contradiction_v1` references updated to `rag_grounded_v2` — verified April 23, 2026 |
-| Evidence annotations | None | `[RAG] Grounded:` and `[GBIM]` annotations in judge output — correct behavior showing evidence chain |
-| DGM corroboration | Not present | Active — DGM cross-references `rag_grounded_v2` verdicts |
+A useful formalization is:
 
-### 2.10.2 Judge Evidence Annotations
+\[
+S_{\mathrm{raw}}
+\rightarrow
+S_{\mathrm{sandbox}}
+\rightarrow
+S_{\mathrm{validated}}
+\rightarrow
+S_{\mathrm{memory}}
+\rightarrow
+S_{\mathrm{action}}
+\]
 
-The `rag_grounded_v2` truth judge produces inline evidence annotations in its output:
+with:
 
-- `[RAG] Grounded: Ms. Allis must prioritize West Virginia community needs...` — drawn from `safety_rules`, `governance_rag`, `legal_rag`, `economic_rag`.
-- `[GBIM] Fayette County — Program: UTILITY20 | Active enrollments: 0...` — drawn from live GBIM data via `msallisgis`.
+\[
+T_{\mathrm{promote}} : S_{\mathrm{sandbox}} \rightharpoonup S_{\mathrm{validated}}
+\]
 
-These annotations are **correct judge behavior** showing the evidence chain. They must be preserved in internal logs and stripped from user-facing `issues` arrays before returning responses to end users.
+and:
 
-### 2.10.3 Judge Pipeline Status (April 23, 2026)
+\[
+T_{\mathrm{promote}}(x) =
+\begin{cases}
+P(x), & G(x)=1, \\
+\bot, & G(x)=0
+\end{cases}
+\]
 
-| Judge | Status | Notes |
-|---|---|---|
-| Truth (`rag_grounded_v2`) | ✅ Canonical | DGM-corroborated; all v1 references retired |
-| Ethics | ✅ Operational | Tiered thresholds live; gemma:2b hedge fix deployed |
-| Harm/Patterns | ✅ Operational | Six-pattern guardrail groups active |
-| Alignment | ✅ Operational | Consensus gate wired into main brain |
-| BBB barrier | ✅ Operational | Six filters; 97.8% historical pass rate |
-| ML-DSA-65 signatures | ✅ Enforced | All judge outputs signed via `judgesigner` + `liboqs` |
-| ONNX caches | ✅ Pre-warmed | No cold-start latency |
-
----
-
-## 2.11 Ethical Architecture of the Belief Corpus
-
-The nine-axis structure is not value-neutral. Two constraints are enforced at the schema level:
-
-**Constraint 1: Individual residential owner names are excluded from the GBIM belief corpus.**
-
-The `who_axis` of the landowner belief layer contains only institutional and corporate entity names. Individual residential owner names are not ingested into any GBIM belief table, materialized view, ChromaDB collection, or RAG-accessible store. The ingestion pipeline selects only records matching corporate and government entity patterns.
-
-The rationale is the **aggregation problem**: individual owner names are legally public as friction-protected courthouse records. Embedding them into a semantically searchable, spatially indexed, multi-million-parcel AI system converts friction-protected public records into operational surveillance infrastructure.
-
-**Constraint 2: Institutional actors are represented with full accountability metadata.**
-
-The `under_whose_authority_axis` and `on_what_evidence_axis` for all institutional beliefs must include sufficient provenance to allow any displayed belief to be traced back to its source record. Corporate and government landholders are named, counted, and area-summarized with full assessor provenance.
-
-These two constraints define the ethical architecture: **a system that makes power legible without making vulnerability exploitable.**
+This makes explicit that truth judging is necessary but not sufficient. GBIM promotion is gated, partial, and fail-closed.
 
 ---
 
-## 2.12 The `allis-gbim-query-router` Service — Fully Operational, April 23, 2026
+## 2.11 Ethical Architecture, Non-Surveillance, and Institutional Accountability
 
-The `allis-gbim-query-router` is the GBIM entrypoint for all structured landowner and spatial GBIM queries. It is the only service in the Ms. Allis stack whose exclusive purpose is routing natural-language ownership queries to deterministic SQL results over the verified GBIM parcel corpus.
+The exclusion of individual residential owner names remains an ethical and structural design principle. That principle now sits inside a more explicit sovereignty framework.
 
-> **Note on naming:** The container is `allis-gbim-query-router` — the `allis-` prefix
-> is retained in the production stack. The public-facing system name is **Ms. Allis**.
+GBIM is not a surveillance graph. It is a governed civic knowledge model in which institutional actors may be represented as first-class accountability-bearing entities, while residential individuals remain protected by disclosure limits, role gates, and non-surveillance commitments.
 
-### 2.12.1 Service Specification
+This can be formalized through disclosure projections such as:
 
-| Property | Value |
-|---|---|
-| Container | `allis-gbim-query-router` |
-| Host port | **7205** |
-| Framework | FastAPI |
-| Endpoint | `POST /query` |
-| Database target | `msallisgis` via `msallis-db` (container port 5432) |
-| `POSTGRES_HOST` | `msallis-db` |
-| `POSTGRES_DB` | `msallisgis` |
-| `POSTGRES_PORT` | `5432` (container-internal) |
-| ChromaDB dependency | **None — zero ChromaDB involvement** |
-| RBAC gate | `X-Allis-Role: carrie_admin` passes; unauthenticated returns `403 Forbidden for this role` |
-| Health endpoint | `GET /health` — returns `{"status": "ok", "type": "gbim"}` |
-| Production status | ✅ **Fully operational end-to-end — April 23, 2026** |
+\[
+\Pi_1, \Pi_2, \Pi_3
+\]
 
-### 2.12.2 End-to-End Verification (April 23, 2026)
+with the principle:
 
-All five layers confirmed:
+\[
+\Pi_2(x) \not\Rightarrow \Pi_3(x)
+\]
 
-- ✅ **RBAC gate** — `carrie_admin` role passes.
-- ✅ **DSN** — connecting to `msallisgis` on `msallis-db`.
-- ✅ **Materialized view** — `mvw_gbim_landowner_spatial` — ✅ 38,979 rows in msallis-db.
-- ✅ **Spatial query** — returning real lat/lon centroids.
-- ✅ **Real data** — United States of America (NPS/New River Gorge), American Canadian Expeditions, local landowners all returned. Source attribution: *"WV 2025 Tax Parcel Data — authoritative county assessor records."*
+Permission to reveal one level of identity-bearing structure does not automatically authorize a more revealing projection.
 
-The NPS parcel returned in queries — United States of America, Oak Hill, Land Resources Office address — is the New River Gorge National Park boundary land, confirmed present in the query results for the Mount Hope area. The system is working exactly as designed.
+Thus, GBIM must never be documented as a direct public identity surface. It is a sovereignty-aware structure in which visibility depends on role, consent, purpose, time, lawful authority, and constitutional legitimacy.
 
-### 2.12.3 Verified Query Pattern
+---
 
-```python
-import httpx
+## 2.12 The `allis-gbim-query-router` Service
 
-# Spatial landowner query with RBAC header
-resp = httpx.post(
-    "http://127.0.0.1:7205/query",
-    headers={"X-Allis-Role": "carrie_admin"},
-    json={
-        "question": "Who are the largest landowners near Mount Hope?",
-        "mode": "landowner_gbim",
-        "route_type": "parcel_ownership",
-        "county": "Fayette",
-        "limit": 20
-    }
-)
-# Returns: owner_name, parcel_id, address, acreage, centroid lat/lon,
-#          source: "WV 2025 Tax Parcel Data — authoritative county assessor records"
+The `allis-gbim-query-router` remains a PostgreSQL-native retrieval path for GBIM.
 
-# Unauthenticated — returns 403
-resp_unauth = httpx.post(
-    "http://127.0.0.1:7205/query",
-    json={"question": "Who owns land near Mount Hope?"}
-)
-# {"detail": "Forbidden for this role"}
-```
+Its revised role is to provide authoritative structured access, not direct commitment semantics. It returns relationally grounded candidate structures that may then be interpreted, combined, or evaluated in governed reasoning paths.
+
+This is an important distinction: retrieval is not action, and access is not promotion.
 
 ---
 
 ## 2.13 The `mvw_gbim_landowner_spatial` Materialized View
 
-`mvw_gbim_landowner_spatial` is the canonical spatial GBIM worldview materialization in `msallisgis`, derived from `gbim_worldview_entity`, consumed by `allis-gbim-query-router`.
+The landowner spatial view remains a concrete realization of parcel-scale institutional accountability.
 
-### 2.13.1 View Specification
+The revised chapter should emphasize that this materialized view is one of the strongest examples of place-bound power made queryable without collapsing into generalized surveillance. It demonstrates that institutional ownership and land control can be represented as auditable civic structure while still preserving limits on private individual exposure.
 
-| Property | Value |
-|---|---|
-| View name | `mvw_gbim_landowner_spatial` |
-| View type | Materialized view |
-| Container | `msallis-db` (host port 5433, container port 5432) |
-| Database | `msallisgis` |
-| Row count | ✅ **38,979 rows in msallis-db** (April 23, 2026) |
-| Geometry CRS | **EPSG:4326** |
-| Spatial index | ✅ GIST on geometry |
-| Owner name index | ✅ Fast landowner lookups |
-| Source table | `gbim_worldview_entity` |
-| Production status | ✅ **Fully operational — April 23, 2026 (OI-E CLOSED)** |
-
-### 2.13.2 View Definition
-
-```sql
--- msallisgis.public.mvw_gbim_landowner_spatial
--- Materialized view derived from gbim_worldview_entity
--- Access: docker exec msallis-db psql -U postgres -d msallisgis
--- Forensic access: docker exec postgis-forensic psql -h 127.0.0.1 -U allis -d msallisgis
-
-SELECT
-    id,
-    worldview_id,
-    entity_type,
-    source_table,
-    source_pk,
-    label                                                        AS display_name,
-    created_at,
-    ((belief_state->'spatialmetadata')->>'centroidx')::double precision AS centroid_x,
-    ((belief_state->'spatialmetadata')->>'centroidy')::double precision AS centroid_y,
-    ((belief_state->'spatialmetadata')->>'srid')::integer               AS srid,
-    belief_state->>'entity_type'                                 AS belief_entity_type,
-    belief_state->>'display_name'                                AS belief_display_name,
-    belief_state->>'source_dataset'                              AS source_dataset,
-    (belief_state->'axes')->>'what'                              AS what,
-    ((belief_state->'axes')->'where')->>'county'                 AS county,
-    ((belief_state->'axes')->'where')->>'state'                  AS state
-FROM gbim_worldview_entity e
-WHERE ((belief_state->'spatialmetadata')->>'centroidx') IS NOT NULL;
-```
-
-### 2.13.3 Indexes
-
-Three clean indexes, no redundancy:
-
-| Index | Type | Purpose |
-|---|---|---|
-| `landowner_assessor_parcels_pkey` | B-tree | Row ID — primary key |
-| `idx_landowner_parcels_geom` | GIST | Spatial queries — geometry column |
-| `idx_landowner_owner_name` | B-tree | Owner name lookups |
-
-### 2.13.4 Confirmed Data (April 23, 2026)
-
-- ✅ **38,979 rows in msallis-db** — OI-E CLOSED.
-- ✅ All rows with geometry; 536 unattributed (roads/easements) — normal.
-- ✅ Mount Hope / New River Gorge area confirmed present.
-- ✅ City of Mount Hope, CSX, local landowners all present.
-- ✅ NPS (United States of America) New River Gorge National Park boundary parcel confirmed.
-- ✅ `msallis-db` accessible to Docker containers via internal network.
-- ⚠️ `mvw_gbim_landowner_spatial` not present in `postgis-forensic` — production view only.
-
-### 2.13.5 Refresh and Maintenance
-
-```sql
--- Non-blocking refresh (requires unique index)
--- Run via: docker exec msallis-db psql -U postgres -d msallisgis
-REFRESH MATERIALIZED VIEW CONCURRENTLY mvw_gbim_landowner_spatial;
-
--- Blocking refresh (schedule during low-traffic window if no unique index)
-REFRESH MATERIALIZED VIEW mvw_gbim_landowner_spatial;
-```
+It should also be described as a source of evidence and structured grounding for GBIM reasoning rather than as an automatically action-bearing truth surface.
 
 ---
 
-## 2.14 Production Status Summary — April 23, 2026
+## 2.14 Governed Promotion Path for GBIM
 
-| Component | Status | Notes |
-|---|---|---|
-| `msallis-db` (host 5433 / container 5432) | ✅ Operational | 16 GB / 294 tables / 11 schemas; database: `msallisgis` |
-| `postgis-forensic` | ✅ Recovered | April 23, 2026 — ExitCode 255 was ungraceful stop; `docker start` confirmed Up. Access: `docker exec postgis-forensic psql -h 127.0.0.1 -U allis -d msallisgis` |
-| `msallisgis` / port `5452` / `gisdb` | ❌ Retired | These names and ports do not exist — all references invalid |
-| `gbim_worldview_entity` (msallisgis) | ✅ Present | Full spatial table — nine-axis JSONB, worldview eq1 |
-| `gbim_beliefs` (bare) | ❌ Retired | Replaced by `gbim_worldview_entities` (ChromaDB, L2) and `gbim_beliefs_v2` (ChromaDB, cosine) |
-| `gbim_worldview_entities` (ChromaDB) | ✅ **L2 distance** | Spatial GBIM corpus |
-| `gbim_beliefs_v2` (ChromaDB) | ✅ **cosine distance** | Production belief embeddings — separate from spatial corpus |
-| `gbim_entities` (msallisgis) | ✅ Present | 4-column application mirror |
-| `mvw_gbim_landowner_spatial` | ✅ **38,979 rows in msallis-db** | OI-E CLOSED — April 23, 2026; not present in postgis-forensic |
-| TIGER/topology schemas | ✅ In `msallisgis` | `tiger.addr`, `tiger.edges`, `tiger.zcta5`, etc. |
-| `nbb_pituitary_gland` (host:8108) | ✅ **mode: baseline** | Five governance protocols active; dual-network confirmed April 23, 2026 |
-| Confidence decay pipeline | ✅ Operational | 3 containers + schema + scripts + Prometheus alerting |
-| `allis-gbim-query-router` (port 7205) | ✅ **End-to-end operational** | RBAC, DSN, mat. view, spatial query, real data all verified April 23, 2026 |
-| Truth judge | ✅ `rag_grounded_v2` | `heuristic_contradiction_v1` retired; DGM-corroborated |
-| ChromaDB (port 8002) | ✅ **48 collections, ~6.74M vectors** | v2 API only (`/api/v1/` → 410 Gone); mixed L2/cosine; April 17, 2026 |
-| ChromaDB count pattern | ✅ UUID two-step | Name → UUID → count; direct name count unreliable in v2 |
-| `fayette_county_resources_2026` | ✅ **1,205 chunks** | Baseline; ongoing expansion through Phase 1 |
-| `wv_resources` / `local_resources` | 🔄 Expanding | 8 / 101 items; active Phase 1 red teaming targets |
-| Autonomous learning collections | ✅ **21,181 + 17,685** | Both preserved; distinct temporal roles confirmed |
-| Container count | ✅ **112 thesis-verified (April 16) / 100 point-in-time (April 23)** | `msallis-rebuild` namespace |
+This section is a required update.
+
+GBIM is no longer accurately described by an implicit direct-routing model. Reasoning about identity, space, or civic state must pass through explicit governed transitions before altering GBIM or related graph structures.
+
+The operative update path is:
+
+1. retrieval, routing, or model inference produces candidate content;
+2. candidate content enters the internal-state reasoning sandbox;
+3. truth and corroboration judges evaluate the candidate state;
+4. constitutional and blood-brain-barrier review evaluate legality, disclosure, alignment, and risk;
+5. DGM-governed approval determines whether promotion is permitted;
+6. only promoted conclusions may affect GBIM, identity graphs, durable memory, or actionable civic state.
+
+The gate can be decomposed as:
+
+\[
+G(x) =
+G_{\mathrm{constitutional}}(x)
+\land
+G_{\mathrm{provenance}}(x)
+\land
+G_{\mathrm{coherence}}(x)
+\land
+G_{\mathrm{privacy}}(x)
+\land
+G_{\mathrm{security}}(x)
+\land
+G_{\mathrm{domain}}(x)
+\]
+
+This means a GBIM-relevant state may fail promotion for many reasons beyond semantic plausibility alone.
+
+A central rule of this chapter is therefore:
+
+**GBIM state is not changed by raw LLM output. Only promoted conclusions may affect graph or identity structures.**
+
+Promotion also changes status, not merely location:
+
+\[
+T_{\mathrm{promote}}(x) \neq x
+\]
+
+Even where the semantic content remains unchanged, authority, provenance, disclosure, temporal status, and governance state may all change.
 
 ---
 
-*Chapter 2 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
-*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
-*See [LICENSE](../LICENSE) for terms.*
-*Last verified: April 23, 2026 — `msallis-db` (host 5433 / container 5432) authoritative;
-`msjarvisgis` database confirmed; 16 GB / 294 tables / 11 schemas;
-`postgis-forensic` recovered (ExitCode 255 — ungraceful stop);
-`gbim_worldview_entities` (L2) + `gbim_beliefs_v2` (cosine) confirmed distinct collections;
-`mvw_gbim_landowner_spatial` ✅ 38,979 rows in msjarvis-db (OI-E CLOSED);
-`jarvis-gbim-query-router` port 7205 fully operational end-to-end;
-ChromaDB v2 only — /api/v1/ returns 410; UUID two-step count pattern required;
-48 collections / ~6.74M vectors / mixed L2-cosine;
-`nbb_pituitary_gland` baseline mode / dual-network confirmed;
-112 containers thesis-verified (April 16) / 100 point-in-time (April 23).*
+## 2.15 GBIM, Hilbert People Space, and the Community Hilbert Commons
+
+GBIM must be placed inside the broader sovereignty architecture of Ms. Allis.
+
+GBIM interacts with **Hilbert People Space** because identity-bearing and relation-bearing structure does not exist in a single flattened graph. A useful formalization is:
+
+\[
+H_{\mathrm{people}} = \bigoplus_{u \in U} H_u
+\]
+
+where each \(H_u\) is a sovereign user subspace.
+
+This means GBIM should not be interpreted as a universal surveillance layer over all persons. Instead, it interacts with sovereign subspaces whose internal structure may only be projected or shared under governed conditions.
+
+For approved commons aggregation, a suitable formalization is:
+
+\[
+H_{\mathrm{commons}} =
+\mathcal A
+\left(
+\left\{
+\Pi_{\mathrm{approved},u}(H_u)
+\right\}_{u \in U}
+\right)
+\]
+
+Thus, community-scale civic intelligence should aggregate over approved projections of sovereign subspaces rather than raw personal traces.
+
+This is the correct location of GBIM within the broader thesis:
+
+- linked to **identity-focused retention**, because durable identity-bearing memory is gated;
+- linked to **Hilbert People Space**, because person-linked structure remains sovereign and non-surveillant;
+- linked to **Community Hilbert Commons**, because civic-scale intelligence arises from approved aggregation rather than direct extraction.
+
+---
+
+## 2.16 Qualia Tension and Commitment Operators in GBIM
+
+Some GBIM-relevant states remain semantically plausible but unresolved. They may be coherent in one sense while conflicted in another: legally restricted, evidentially incomplete, temporally stale, or ethically unsafe.
+
+A useful control signal for this condition is:
+
+\[
+q_{\mathrm{tension}} = \sigma(D_{\mathrm{MA}}(x))
+\]
+
+where \(D_{\mathrm{MA}}(x)\) represents a discrepancy between meaning and analysis, and \(\sigma\) maps that discrepancy into a control signal.
+
+In this chapter, that signal should be treated as a functional indicator that a GBIM interpretation remains unresolved, conflicted, or in need of further corroboration. It is not a claim about human subjective feeling.
+
+GBIM must also distinguish between internal deliberation and committed consequence. A useful operator is:
+
+\[
+K : S_{\mathrm{deliberative}} \rightharpoonup S_{\mathrm{committed}}
+\]
+
+This marks the difference between internally entertained structure and externally consequential graph state. A place-linked, identity-bearing, or civic interpretation does not become committed GBIM reality merely because it was generated. It becomes graph-consequential only after governed transition.
+
+---
+
+## 2.17 Revision Principle
+
+The governing revision principle for GBIM is straightforward:
+
+- GBIM is not a direct write target for raw model output.
+- GBIM states are governed states rather than bare semantic vectors.
+- Promotion changes authority, provenance, disclosure, temporal, and operational status, not merely storage location.
+- Identity-bearing and geospatially anchored knowledge must remain bounded by constitutional, jurisdictional, evidentiary, and sovereignty constraints.
+- GBIM belongs inside a broader architecture that includes dual sandbox domains, identity-focused retention, Hilbert People Space, and the Community Hilbert Commons.
+
+Under this revised framing, GBIM becomes a governed civic identity-and-geography layer within Ms. Allis rather than a passive semantic graph or an implicitly self-authorizing routing destination.
