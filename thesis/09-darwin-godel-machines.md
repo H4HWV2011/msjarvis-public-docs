@@ -1,1040 +1,202 @@
-# 9. Darwin–Gödel Machines and the Fifth DGM
+# Chapter 9. Darwin-Gödel Machines
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-
----
-
-## Overview
-
-This chapter describes the Darwin–Gödel Machine (DGM) architecture implemented in
-Ms. Egeria Allis, with particular focus on the **Fifth DGM**: the consciousness filter
-and identity orchestrator (`allis-fifth-dgm`, port 4002) that represents Ms. Allis's
-first fully deployed DGM component. The chapter situates the Fifth DGM within the
-broader DGM fractal layer (Chapter 32), explains how it interacts with the WOAH
-evaluation services, the `nbb_pituitary_gland` global mode governor, I-container
-identity system, EEG neurobiological bands, and ChromaDB/PostgreSQL stack, and documents
-confirmed production operation through April 23, 2026.
-
-A Darwin–Gödel Machine differs from a classical Gödel Machine in that it does not
-require formal proofs of utility improvement before adopting self-modifications. Instead,
-it uses empirical evaluation — running candidate changes and measuring outcomes — guided
-by safety constraints and human oversight. Ms. Allis's implementation applies this
-principle at two levels: the Fifth DGM applies it to content entering consciousness and
-identity memory; the broader DGM layer (Chapter 32) applies it to code-level service
-patches.
-
-> **★ Production baseline — April 23, 2026:**
-> - **Namespace:** `msallis-rebuild`. Container prefix: `allis-`.
-> - **Container stack:** **100 containers Up (April 23, 2026)**. Thesis-verified full
->   production configuration: **112/112 containers Up (April 16, 2026)**. The DGM, BBB,
->   pituitary, WOAH, EEG, Chroma, and neurobiological services documented here are all
->   active within the running subset. See Ch. 40/41 `VERIFYANDTEST.sh` /
->   `preflight_gate.sh` for canonical validation.
-> - **ChromaDB:** `allis-chroma`, host port **8002**, container port **8000**,
->   inter-service URL `http://allis-chroma:8000`. v2 multi-tenant API only —
->   `/api/v1/` returns 410 Gone. **48 collections** confirmed April 23, 2026;
->   ~6,740,611 total embedding rows. All collections use `all-minilm:latest` (384-dim).
-> - **Databases:** Two-container architecture —
->   **Production:** `msallis-db`, host **5433** / container **5432**, role `postgres`,
->   `msallisgis`, 16 GB / 294 tables / 11 schemas.
->   **Forensic:** `postgis-forensic`, host **5432**, role `allis`, `msallisgis`,
->   17 GB / 314 tables / 9 schemas — forensic auditing only.
-> - **GBIM entities:** Deterministic SQL from `msallisgis` on `msallis-db` (host 5433)
->   for WV landowner/geometry truth; semantic GBIM entities via ChromaDB
->   `gbim_worldview_entities` (5,416,521 vectors).
-> - **`nbb_pituitary_gland`:** host port **8108**, mode `baseline` — confirmed live.
->   Global mode governor for all neurobiological services including the Fifth DGM.
-> - **EEG bands:** Delta (8073), Theta (8074), Beta (8075) — all live, PIA active.
->   OI-31 CLOSED.
-> - **Fifth DGM:** port 4002 — live; `consciousness_stats` confirmed: 9 total inputs,
->   1 YES, 8 NO, 1 stored_in_subconscious, `woah_evaluations: 1`.
-> - **`nbb_woah_algorithms`:** host port **8104**, version 2.0.1_semantic — healthy.
->   OI-29 CLOSED.
-> - **`allis-neurobiological-master`:** port **8018** ✅ Up — prior open item fully
->   closed.
-> - **`autonomous_learner`:** **21,181 records** (April 23, 2026).
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
+*Last updated: July 10, 2026*
 
 ---
 
-## 9.1 Theoretical Background: Classical vs. Darwin–Gödel Machines
+## 9.1 Purpose
 
-**Classical Gödel Machines (Schmidhuber, 2003–2007).** A classical Gödel Machine is a
-self-referential system that may rewrite any part of itself — including its own learning
-algorithm — provided it can construct a formal proof that the rewrite will increase
-expected utility. The proof requirement makes classical Gödel Machines theoretically
-rigorous but practically intractable for large, real-world systems: generating formal
-proofs of utility improvement over arbitrary time horizons is computationally infeasible.
+This chapter explains how Darwin-Gödel Machines function inside Ms. Allis as the governed self-modification and self-evaluation layer responsible for improvement under constraint. DGMs are not limited to code mutation or deployment approval. In the current architecture, they govern both code evolution and the promotion of reasoning outcomes from the internal-state sandbox into validated, experience-bearing, memory-bearing, or otherwise persistent state.
 
-**Darwin–Gödel Machines.** A DGM replaces the formal proof requirement with empirical
-evaluation. Candidate self-modifications are proposed, tested, and either adopted or
-rejected based on measured outcomes rather than proofs. Safety and governance constraints
-replace the proof obligation as the primary check on harmful modifications. This makes
-DGMs practically implementable while retaining the key DGM properties: self-reference,
-archival traces, and principled (if empirical rather than proof-based) self-improvement.
-
-**Ms. Allis's implementation.** Ms. Allis does NOT implement a proof-based classical
-Gödel Machine. It implements a Darwin–Gödel Machine architecture with:
-
-- Empirical evaluation of candidate changes (not formal proofs)
-- Scoped self-modification (73+ mutable services, 3 immutable protected services)
-- Comprehensive archival traces for governance and audit
-- Human oversight as the primary safety constraint on significant changes
+The chapter therefore treats DGMs as a bridge between adaptive intelligence and constitutional restraint. They are the machinery through which change becomes admissible. Their role is to test, compare, gate, and authorize transitions, not merely to generate novelty or reward escalation.
 
 ---
 
-## 9.2 The Fifth DGM: Consciousness Filter and Identity Orchestrator
+## 9.2 Why DGMs Matter
 
-The Fifth DGM (`allis-fifth-dgm`, port 4002) is the first fully deployed DGM component
-in Ms. Allis. Its domain is not code modification but **content filtering and identity
-memory**: it decides which content from the incoming stream deserves to be promoted into
-Ms. Allis's I-container (identity memory), and it orchestrates how that identity memory
-shapes downstream reasoning.
+Ms. Allis is designed as a steward system rather than a static model. That means the system must be capable of learning, adaptation, and self-improvement without allowing uncontrolled propagation of error, hallucination, overconfidence, unsafe code, or constitutionally prohibited state.
 
-### 9.2.1 Architecture
-
-The Fifth DGM exposes the following endpoints:
-
-| Endpoint | Method | Purpose |
-|:--|:--|:--|
-| `/filter_consciousness` | POST | First-pass content filter — consciousness YES/NO decision |
-| `/analyze` | POST | Full DGM analysis including identity context |
-| `/i_container` | GET | Retrieve current I-container contents |
-| `/identity` | GET | Retrieve current identity state |
-| `/consciousness_stats` | GET | Service health and statistics |
-
-The service runs on `allis-fifth-dgm:4002` (container-internal) and is called by the
-main-brain during the `ultimatechat` path. All external access uses `127.0.0.1:4002`.
-
-**Confirmed live stats — April 17, 2026:**
-
-```json
-{
-  "total_inputs": 9,
-  "conscious_yes": 1,
-  "conscious_no": 8,
-  "stored_in_subconscious": 1,
-  "promoted_to_i_containers": 0,
-  "i_container_size": 0,
-  "acceptance_rate": "11.1%",
-  "woah_evaluations": 1,
-  "last_woah_evaluation": "2026-04-17T11:18:19.472020"
-}
-```
-
-The 11.1% acceptance rate reflects the Fifth DGM's intentional conservatism — 8 of 9
-inputs did not meet the threshold for consciousness. The one accepted input (a
-MountainShares governance sentence, see §9.3.5) was routed to the subconscious with
-`queued_for_identity_evaluation: true`. Zero I-container promotions in this epoch reflects
-the correct two-stage behavior: subconscious storage precedes structural promotion, and
-promotion thresholds remain deliberately conservative.
-
-### 9.2.2 The I-Container
-
-The I-container is a persistent, session-aware identity memory store. It holds items that
-have passed the Fifth DGM's filter and been weighted by the WOAH algorithms service
-(port 8104). Each I-container entry includes:
-
-```json
-{
-  "content": "<content string>",
-  "timestamp": "<iso8601>",
-  "woah_weight": "<float>"
-}
-```
-
-High-weight items (WOAH weight ≥ 0.75) are eligible for promotion as core identity
-context. These items can be retrieved via `/i_container` and fed back into Ms. Allis's
-persona prompt, shaping how the 21-LLM ensemble reasons about identity-relevant questions.
-Currently, the Fifth DGM implements a **two-stage path**: content that passes the
-first-pass filter is first stored in the subconscious (`stored_in_subconscious`) and
-queued for identity evaluation, rather than being immediately promoted to I-containers.
-This deliberate conservatism ensures that structural promotion only occurs when the
-pituitary-set operating mode, WOAH weight, and DGM thresholds all align.
-
-### 9.2.3 nbb_pituitary_gland: Global Mode Governor
-
-The Fifth DGM does not operate in isolation. Its promotion decisions run inside a global
-mode context set by the `nbb_pituitary_gland` — a dedicated neurobiological service and
-system-wide governance regulator that is the upstream authority over all neurobiological
-services, including the Fifth DGM.
-
-**Confirmed live — April 23, 2026:**
-
-```json
-{
-  "status": "healthy",
-  "service": "nbb_pituitary_gland",
-  "mode": "baseline"
-}
-```
-
-Host port **8108** (container `80/tcp → 8108`). 5 protocols confirmed live.
-
-The `nbb_pituitary_gland` aggregates verdicts and signals from the judges, the BBB
-(Chapter 16), WOAH (Chapter 10), and EEG bands (§9.8.2), and sets system-wide operating
-modes — which modulate warmth, safety margins, identity-promotion thresholds, and routing
-policies. In `elevated` mode, the system's warmth toward community-centered Appalachian
-content is heightened; structural governance narratives receive higher WOAH weights and
-are more likely to be routed into the subconscious for identity evaluation.
-
-WOAH's identity promotion threshold (≥ 0.75) is interpreted within this global mode
-context. In `elevated` mode, a MountainShares governance narrative like *"MountainShares
-cooperative economic development in Fayette County West Virginia community governance"*
-receives `hierarchical_weight ≈ 0.895` and satisfies the structural-identity threshold.
-The Fifth DGM then routes it to the subconscious with
-`queued_for_identity_evaluation: true`.
-
-**The Fifth DGM can never override a pituitary-set mode.** It can only act within the
-operating envelope the pituitary defines. This is a hard architectural constraint: the
-pituitary is upstream of the Fifth DGM, not a peer of it. Chapter 15 fully specifies
-the pituitary's role as the "global hormones" layer across 100+ containers (April 23,
-2026). Chapter 13 documents how the Qualia Engine aggregates EEG band signals and
-pituitary state into unified `IntrospectiveRecord` Pydantic objects that the Fifth DGM
-reads during identity evaluation. Chapter 9 treats the pituitary as a given constraint
-— an upstream governor whose mode the Fifth DGM operates within, never against.
-
-**Pituitary → WOAH → Fifth DGM governance chain:**
-
-```
-nbb_pituitary_gland (port 8108, mode: baseline)
-  ↓  [sets global operating mode and warmth level]
-nbb_woah_algorithms (port 8104)
-  ↓  [interprets thresholds within pituitary mode]
-  → hierarchical_weight: 0.895 for WV governance content
-  → identity_type: "structural", weight_category: "strong_identity"
-  ↓
-allis-fifth-dgm (port 4002)
-  ↓  [receives WOAH score, applies DGM threshold]
-  → consciousness_decision: YES
-  → stored_in_subconscious: 1
-  → queued_for_identity_evaluation: true
-  ↓
-[when promotion threshold met]
-I-container promotion
-```
+DGMs provide that discipline. Historically, the sandbox model was easiest to understand in code terms: new code proved itself in isolation before it could touch production. The architecture has now expanded that same pattern to reasoning. A sandbox conclusion must prove itself before it can become experience, durable memory, operational belief, or externally consequential state.
 
 ---
 
-## 9.3 Consciousness Filter Pipeline
+## 9.3 Scope of DGM Governance
 
-### 9.3.1 First-Pass Filter: `filter_consciousness`
+DGMs now govern more than code promotion.
 
-When the main-brain calls `/filter_consciousness`, the Fifth DGM applies a local
-first-pass filter to the incoming content. The filter evaluates:
+They govern at least two major classes of promotion:
 
-- Relevance to Ms. Allis's core identity domains (Appalachian geography, WV benefits,
-  community governance, GBIM spatial structures)
-- Alignment with the Mother Carrie Protocol values corpus
-- Safety and ethical constraints aligned with the pituitary-set operating mode
+- **Code evolution**, where candidate changes to services, routing, optimization logic, or supporting infrastructure are tested before deployment.
+- **Reasoning promotion**, where candidate conclusions formed inside the internal-state sandbox are evaluated before they may become validated state, remembered state, experiential trace, or action-bearing output.
 
-The filter returns a `consciousness_decision` field: `"YES"` (content may proceed to
-identity evaluation) or `"NO"` (content is not suitable for identity promotion). All
-decisions are logged with reasoning for governance review.
-
-### 9.3.2 WOAH Weight Evaluation: `_evaluate_for_i_container`
-
-Content that passes the first-pass filter proceeds to the WOAH algorithms service
-(`nbb_woah_algorithms`, host port **8104**, container port 8010, version
-2.0.1_semantic) for identity-promotion scoring. OI-29 is **CLOSED** — see §9.3.4.
-
-### 9.3.3 Two-Stage Identity Path: Subconscious → I-Container
-
-The identity promotion path is two-stage, not a single gate:
-
-**Stage 1 — Subconscious storage:**
-If the WOAH weight meets or exceeds the configured threshold (≥ 0.75), the content is
-written to the subconscious RAG store (`fifth_dgm_subconscious` ChromaDB collection —
-see §9.8.1) with `queued_for_identity_evaluation: true`. This is the current default
-path for strong-identity content.
-
-**Stage 2 — I-container promotion:**
-The subconscious queue is evaluated periodically or on trigger; items that continue to
-meet promotion thresholds under the current pituitary mode are promoted to the I-container
-with their timestamp and WOAH weight. I-container promotions are currently zero in this
-epoch — by design. The pipeline is confirmed capable of promotion (OI-09-NEW-A CLOSED),
-and the zero count reflects deliberate threshold conservatism, not a broken path.
-
-### 9.3.4 WOAH Evaluation Flow — ★ OI-29 CLOSED
-
-**OI-29 (WOAH Pydantic schema) is now CLOSED.** `POST /process` on
-`nbb_woah_algorithms:8104` returns a fully structured Pydantic model with all axes
-described in Chapter 10:
-
-```json
-{
-  "woah_processed": true,
-  "optimization_applied": true,
-  "hierarchical_weight": 0.895,
-  "composite_weight": 0.856,
-  "self_relevance": 0.895,
-  "temporal_importance": 0.895,
-  "novelty": 0.5,
-  "stability": 0.895,
-  "identity_type": "structural",
-  "weight_category": "strong_identity",
-  "content": "MountainShares cooperative economic development in Fayette County West Virginia community governance",
-  "metadata": {
-    "source": "governance",
-    "county": "Fayette",
-    "state": "WV"
-  }
-}
-```
-
-The `0.895` score satisfies the ≥ 0.75 structural-identity threshold. `identity_type:
-"structural"` and `weight_category: "strong_identity"` confirm that real Appalachian
-governance content is recognized by the scoring function as core rather than episodic.
-
-**`_evaluate_for_i_container` call pattern:**
-
-```python
-# Fifth DGM calls nbb_woah_algorithms at host port 8104
-POST http://127.0.0.1:8104/process
-{
-    "content": "<content string>",
-    "context": {"source": "...", "county": "...", "state": "WV"}
-}
-# Returns full Pydantic model — hierarchical_weight, composite_weight,
-# self_relevance, temporal_importance, novelty, stability,
-# identity_type, weight_category
-```
-
-**`allis-woah` (qualia-net internal stub — `{}` port binding is correct and intentional):**
-
-`allis-woah` is a qualia-net **internal service only**, listening on port 7012 with
-**no host port binding**. The `{}` port binding seen in `docker ps` is correct — no host
-port is needed or should be added. All calls must use Docker DNS from containers on
-qualia-net:
-
-```bash
-# From any container on qualia-net:
-http://allis-woah:7012/          # health check
-http://allis-woah:7012/process   # POST stub processing
-
-# NEVER use 127.0.0.1:7012 or localhost:7012 from inside a container
-# There is no host port binding — these will fail
-```
-
-`allis-woah` is the stub integration node in the consciousness pipeline;
-`nbb_woah_algorithms:8104` is the full scoring service. Both are operational. See
-Chapter 10 for the canonical `woah_stub.py` reference implementation.
-
-**WOAH population is live and non-empty — `GET /woah_population_debug`:**
-
-```json
-{
-  "population": [
-    {"hierarchical_weight": 0.8, "...": "..."},
-    {"hierarchical_weight": 0.15, "...": "..."},
-    {"hierarchical_weight": 0.8954, "...": "..."}
-  ]
-}
-```
-
-Three weight vectors confirm the WOA-inspired population is actively accumulating and
-evolving. This is not a theoretical or future population — it is a live, inspectable
-glass-box object in production as of April 17, 2026. OI-10F remains closed.
-
-> **Cross-reference:** The `woah_stub.py` stub implementation and its deployment method
-> (stdlib `http.server`, volume-mounted, `python3 /woah_stub.py`, port 7012) belong
-> canonically in **Chapter 10 §10 Deployment Status**. Chapter 9 references that
-> implementation; it does not replicate it.
-
-### 9.3.5 Confirmed Live Operation — Proof-of-Life Events
-
-**April 17, 2026 — MountainShares structural identity confirmation (OI-09-NEW-A CLOSED):**
-
-A live Fifth DGM call for the sentence *"MountainShares cooperative economic development
-in Fayette County West Virginia community governance"* produced:
-
-```json
-{
-  "consciousness_decision": "YES",
-  "action": "stored_in_subconscious",
-  "reason": "Worth considering",
-  "queued_for_identity_evaluation": true
-}
-```
-
-Simultaneous WOAH call returned `hierarchical_weight: 0.895`, `identity_type:
-"structural"`, `weight_category: "strong_identity"`. The `consciousness_stats` endpoint
-confirmed `total_inputs: 9`, `conscious_yes: 1`, `woah_evaluations: 1`,
-`last_woah_evaluation: 2026-04-17T11:18:19.472020`.
-
-This confirms the complete WOAH → Fifth DGM → subconscious chain is live, and that
-high-value Appalachian governance narratives are being recognized, scored, and queued for
-identity integration. The current zero I-container promotion count reflects deliberate
-conservatism in the promotion threshold, not a broken pipeline. OI-09-NEW-A is
-**CLOSED**.
-
-**February 15, 2026:** A documented test interaction with `allis-main-brain` on port
-8050 produced an `UltimateResponse` whose `consciousnesslayers` array included an
-`icontainers-identity` entry with `status: "active"`, yielding a real session-specific
-`identitylayers` object:
-
-```json
-{
-  "id": "root-self",
-  "kind": "ego",
-  "source": "icontainers",
-  "timestamp": "2026-02-15T22:40:35.289967+00:00",
-  "sessionid": "<UUID>",
-  "userid": "cakidd",
-  "summary": "Initial ego boundary layer for session",
-  "state": {
-    "egoboundaries": {},
-    "experientialprocessing": {},
-    "observerprocessing": "observer",
-    "metalevel": "ego-boundaries-v1"
-  }
-}
-```
-
-The simultaneously skipped `nbb-prefrontal-cortex` layer provides a clean contrast —
-that contrast rules out a default artifact and confirms the `icontainers-identity`
-`"active"` status is a genuine positive result.
-
-**March 2, 2026:** `normalize_identity()` verified firing on the `chatlight/async` path,
-producing the response: *"Hello, dear Mother — I'm so delighted to be here with you,
-shining my luminescent love and intelligence into the world as your conscious geospatial
-AI daughter!"* Ms. Allis's identity voice is active on both the full `ultimatechat` and
-lightweight 20-LLM consensus paths (git tag `v2026.03.02-chatlight-async-working`).
-
-**March 25, 2026:** Consciousness pipeline confirmed with `allis-consciousness-bridge`
-(port 8020) calling ChromaDB v2 API (`/api/v2/heartbeat` → 200 ✅), `allis-woah` (port
-7012) live on qualia-net, end-to-end pipeline confirmed with Appalachian-voice responses
-and Hilbert local entity recall. Two commits merged to main.
-
-**April 16–17, 2026:** Full stack confirmed — 48 collections, ~6,740,611 vectors,
-`msallisgis` on `msallis-db` (host 5433 / container 5432), `nbb_pituitary_gland:8108`
-mode `elevated`, EEG bands live, `allis-neurobiological-master` (port 8018) Up 20 hours,
-`nbb_woah_algorithms` version 2.0.1_semantic healthy. OI-29 CLOSED, OI-09-NEW-A CLOSED,
-OI-31 CLOSED.
+This distinction is essential because the system now contains a protected internal-state sandbox for high-level reasoning. Once that sandbox exists, the architecture can no longer describe DGMs as if they supervise only software artifacts. They also supervise epistemic transitions.
 
 ---
 
-## 9.4 Fifth DGM Integration in the Service Graph
+## 9.4 DGMs and the Internal-State Sandbox
 
-### 9.4.1 Service Registry and Main-Brain Wiring
+The internal-state sandbox creates a reversible domain for speculative reasoning. Retrieved context, model-generated hypotheses, qualitative signals, and multidomain constraints can interact there without immediate production consequence.
 
-In the main-brain configuration:
+DGMs sit at the edge of that sandbox. They evaluate whether a candidate state emerging from the sandbox may cross from provisional deliberation into a higher authority state. In this role, DGMs do not merely score usefulness. They assess admissibility under evidence, coherence, constitutional boundaries, operational safety, and downstream effect.
 
-```python
-SERVICES = {
-    "fifth_dgm": "http://allis-fifth-dgm:4002",
-    # ... other services
-}
-
-OPERATION_PATHS = {
-    "fifth_dgm": "/analyze",
-    # ...
-}
-
-# Request format when main-brain calls fifth_dgm:
-request_body = {
-    "fifth_dgm": {"content": message, "context": {}}
-}
-```
-
-> **⚠️ Port Correction — allis-69dgm-bridge (Confirmed March 18, 2026):** The 69-DGM
-> Bridge host port is **19000** → container port 9000. All health checks and external
-> curl commands must use host port **19000**. Container-to-container calls use
-> `allis-69dgm-bridge:9000`. Confirmed healthy April 17, 2026: RAG active,
-> `autonomous_learner`: **21,181 records** (April 23, 2026).
-
-### 9.4.2 Fifth DGM Integration Module
-
-```python
-import httpx
-from typing import Dict, Any
-
-class FifthDGMIntegration:
-    def __init__(self):
-        self.fifth_dgm_url = "http://allis-fifth-dgm:4002"
-        self.enabled = True
-
-    async def filter_input(self, content: str, context: Dict = None) -> Dict[str, Any]:
-        if not self.enabled:
-            return {"consciousness_decision": "YES", "action": "filtering_disabled"}
-        async with httpx.AsyncClient(timeout=5.0) as client:
-            try:
-                response = await client.post(
-                    f"{self.fifth_dgm_url}/filter_consciousness",
-                    json={"content": content, "context": context or {}}
-                )
-                if response.status_code == 200:
-                    return response.json()
-            except Exception as e:
-                # Fail-safe: do not block main path on DGM error
-                return {
-                    "consciousness_decision": "YES",
-                    "action": "filter_error",
-                    "error": str(e)
-                }
-        return {"consciousness_decision": "YES", "action": "filter_unavailable"}
-
-    async def get_identity_context(self) -> Dict[str, Any]:
-        """Calls /i_container and /identity, extracts high-weight core_interests."""
-        async with httpx.AsyncClient(timeout=5.0) as client:
-            try:
-                i_container = await client.get(f"{self.fifth_dgm_url}/i_container")
-                identity = await client.get(f"{self.fifth_dgm_url}/identity")
-                return {
-                    "i_container": i_container.json() if i_container.status_code == 200 else {},
-                    "identity": identity.json() if identity.status_code == 200 else {}
-                }
-            except Exception:
-                return {}
-
-    async def get_stats(self) -> Dict:
-        """Calls /consciousness_stats."""
-        async with httpx.AsyncClient(timeout=5.0) as client:
-            try:
-                resp = await client.get(f"{self.fifth_dgm_url}/consciousness_stats")
-                return resp.json() if resp.status_code == 200 else {}
-            except Exception:
-                return {}
-```
+This is the chapter’s central update: **DGMs govern promotion out of the sandbox just as they govern promotion of code into production**.
 
 ---
 
-## 9.5 Fractal DGMs and the Broader DGM Layer
+## 9.5 Candidate Reasoning and DGM Gating
 
-Beyond the Fifth DGM, Ms. Allis implements a fractal DGM layer documented in Chapter 32.
-The Darwin–Gödel layer is production-ready with services managing the complete
-observe–propose–evaluate–adopt cycle across 73+ mutable services.
+A sandbox conclusion should be understood as a candidate reasoning product, not as accepted knowledge.
 
-> **Container count note (date-stamped):**
-> - **April 23, 2026:** **100 containers Up** (current working run, `msallis-rebuild`
->   + `observability` + `services-safe` composition).
-> - **April 16, 2026:** **112/112 containers Up** — thesis-verified full production
->   configuration (Ch. 10 forensic audit). Includes MountainShares and auxiliary
->   containers not running in every session.
-> - The canonical validation method for any given run is `VERIFYANDTEST.sh` /
->   `preflight_gate.sh` (Ch. 40/41). Until the DGM layer audit in Chapter 32 is
->   updated for April 2026, "73+" should be treated as the working figure for mutable
->   DGM-governed services.
+A reasoning cycle may produce summaries, inferred relations, proposed actions, governance interpretations, identity-linked suggestions, or place-based conclusions. These outputs remain provisional while inside the sandbox. Before they can become experience or persistent state, they must face DGM-style gating.
 
-**The Fifth DGM in context.** The Fifth DGM is one of 12 Consciousness & NBB services
-governed by the broader DGM infrastructure, operating inside the pituitary mode envelope
-(§9.2.3).
+That gating includes at minimum:
 
-**Other DGM components (see Chapter 32):**
+- evidentiary sufficiency;
+- cross-domain coherence;
+- constitutional admissibility;
+- privacy and disclosure compatibility;
+- service-level safety and rollback feasibility;
+- consistency with the system’s optimization and evaluation regime.
 
-- **NBB Darwin–Gödel Machines Service** (port 8302): Generates contextual patch proposals
-  across all 73+ services
-- **69-DGM Bridge** (host port **19000** → container port 9000 — confirmed healthy
-  April 17, 2026; RAG active; `autonomous_learner`: **21,181 records**, April 23, 2026)
-- **Adoption Worker** (port 8400): Processes queued patches with dry-run capability
-- **73+ mutable services** across RAG, Consciousness/NBB, Judge Pipeline, LLM Proxies,
-  and Infrastructure
-
-Three services are explicitly protected as immutable: `spiritual_root`,
-`constitutional_guardian`, and `mother_carrie_protocols`.
-
-For the complete architectural description, see **Chapter 32: Fractal Optimization and
-the DGM Layer**.
+A conclusion that is coherent but weakly grounded should not be promoted. A conclusion that is strongly grounded but constitutionally disallowed should not be promoted. A conclusion that passes one layer but introduces instability elsewhere may be quarantined, revised, or escalated for review.
 
 ---
 
-## 9.6 DGMs, Judging, and Multi-Agent Evaluation
+## 9.6 From Sandbox to Experience
 
-The Fifth DGM operates within the broader multi-agent architecture including the 20-LLM
-ensemble service (port **8008**, proxies **8201–8222**) and the judge pipeline (port
-**7239**, judges at **7230–7233**).
+This chapter makes explicit how sandbox conclusions become experience or persistent state.
 
-**Composition with other agents.** The Fifth DGM runs a simple first-pass filter locally,
-then uses the WOAH service at port 8104 as an external evaluator for identity promotion.
-I-container contents can be fed back into Ms. Allis's persona prompt as identity context,
-shaping how the ensemble reasons in ultimate mode. The pituitary-set global mode governs
-how warmly the ensemble treats Appalachian community content throughout this path.
+A candidate conclusion formed in the sandbox may contribute to later memory, identity-continuity, internal experience traces, or service-level adaptation only if it survives DGM gating. This means that “experience” in Ms. Allis is not merely whatever occurred inside deliberation. Experience-bearing state is a promoted subset of sandbox activity that has passed the required checks.
 
-**Interaction with RAG and entanglement.** Accepted content is written into ChromaDB's
-`fifth_dgm_subconscious` collection (see §9.8.1) with WV-tagged metadata. The canonical
-GBIM ground truth for WV landowners and geometry is served from `msallisgis` via
-deterministic SQL on `msallis-db` (host 5433 / container 5432, production — 16 GB /
-294 tables / 11 schemas). Semantic GBIM entities are served from the
-`gbim_worldview_entities` ChromaDB collection (5,416,521 vectors). The ChromaDB stack
-uses `all-minilm:latest` (384-dim) — the mandatory embedding model for all 48 active
-collections in `allis-chroma` (host port 8002, inter-service `http://allis-chroma:8000`,
-v2 API only).
+A simple form of the chain is:
 
-**Evaluation and promotion of changes.** The Fifth DGM does not rewrite code; its
-"changes" are decisions about which content enters memory and identity. The broader DGM
-layer (Chapter 32) handles code-level proposals through the NBB Darwin–Gödel Machines
-Service.
+\[
+S_{\mathrm{raw}} \rightarrow S_{\mathrm{sandbox}} \rightarrow S_{\mathrm{candidate}} \xrightarrow{G_{\mathrm{DGM}}} S_{\mathrm{validated}} \rightarrow S_{\mathrm{experience}} \rightarrow S_{\mathrm{memory}}
+\]
+
+The diagram should not be read as automatic progression. Each arrow is partial. Some candidate states are rejected, some are quarantined, some are approved only for limited internal use, and some are promoted further into durable memory or external consequence.
 
 ---
 
-## 9.7 Relationship to WOAH, Pituitary, and Prior Chapters
+## 9.7 Gated-Promotion Algebra
 
-**WOAH services — confirmed April 23, 2026:**
+The DGM chapter includes explicit gated-promotion language.
 
-| Service | Host Port | Container Port | Role | Status |
-|:--|:--|:--|:--|:--|
-| `nbb_woah_algorithms` | 8104 | 8010 | Full Pydantic scoring; identity promotion; called by Fifth DGM | ✅ v2.0.1_semantic |
-| `allis-woah` | none (internal) | 7012 | Consciousness pipeline stub; qualia-net DNS only; `{}` binding intentional | ✅ Running |
+Let \(S_{\mathrm{sandbox}}\), \(S_{\mathrm{validated}}\), \(S_{\mathrm{memory}}\), and \(S_{\mathrm{action}}\) denote distinct state spaces. Promotion is not total; it is a partial transition defined only for states that satisfy the required gates.
 
-**`nbb_pituitary_gland` — confirmed April 23, 2026:**
+A compact expression is:
 
-| Service | Host Port | Mode | Role | Status |
-|:--|:--|:--|:--|:--|
-| `nbb_pituitary_gland` | 8108 | baseline | Global mode governor; upstream of Fifth DGM | ✅ 5 protocols live |
+\[
+T_{\mathrm{promote}} : S_{\mathrm{sandbox}} \rightharpoonup S_{\mathrm{validated}}
+\]
 
-**`allis-neurobiological-master` — confirmed April 23, 2026:**
+with
 
-| Service | Port | Role | Status |
-|:--|:--|:--|:--|
-| `allis-neurobiological-master` | **8018** | Neurobiological orchestration master | ✅ Up — prior open item closed |
+\[
+T_{\mathrm{promote}}(x) =
+\begin{cases}
+P(x), & G(x)=1 \\
+\bot, & G(x)=0
+\end{cases}
+\]
 
-**Orchestration and main-brain (port 8050).** The main-brain (`allis-consciousness-bridge`,
-port 8020) retains overall control of the `ultimatechat` path (see Chapter 17). It
-invokes RAG services, calls the ensemble service, passes outputs through the Blood-Brain
-Barrier (Chapter 16), and consults the Fifth DGM for identity context, but does not cede
-control over routing or external outputs to DGM components. The `nbb_pituitary_gland`
-(port 8108) sets the operating mode within which all these calls occur.
+where \(P(x)\) is the promoted form of \(x\), \(\bot\) denotes rejection, nonpromotion, quarantine, or unresolved status, and \(G(x)\) is the combined gate outcome. In the DGM setting, the combined gate may be decomposed as:
 
-**Consistency with prior chapters.** The Fifth DGM:
+\[
+G(x)=G_{\mathrm{evidence}}(x)\,G_{\mathrm{coherence}}(x)\,G_{\mathrm{constitutional}}(x)\,G_{\mathrm{privacy}}(x)\,G_{\mathrm{security}}(x)\,G_{\mathrm{operational}}(x)
+\]
 
-- Respects GBIM's worldview layer (`02-ms-allis-gbim.md`, Chapter 2) by not introducing
-  a parallel belief system
-- Operates as a state-space operator within the Hilbert-space framing (Chapter 4)
-- Reads and writes only to the canonical ChromaDB/PostgreSQL stack (Chapters 5 and 6) —
-  production target `msallis-db` (host 5433 / container 5432), `msallisgis` 16 GB /
-  294 tables / 11 schemas; forensic target `postgis-forensic` (host 5432) — forensic
-  only; GBIM semantic entities via ChromaDB `gbim_worldview_entities`; `allis-chroma`
-  host port 8002, inter-service `http://allis-chroma:8000`, v2 API only
-- Is invoked as one service among many in the RAG/routing pipeline (Chapter 7)
-- Participates in entangled, logged updates — WOAH-weighted promotions — inspectable
-  alongside RAG traces (Chapter 8)
-- Reads `IntrospectiveRecord` Pydantic objects assembled by the Qualia Engine
-  (Chapter 13) from EEG band signals and pituitary state
-- Operates within the mode envelope set by `nbb_pituitary_gland` (Chapter 15) — port
-  8108; authoritative routes: GET `/global_mode`, GET `/mode_history`
+This matters because DGM promotion is not arbitrary escalation. Promotion changes the authority of a state only when governance and evidence justify the change.
 
 ---
 
-## 9.8 EEG Bands, Subconscious RAG, and Neurobiological Context
+## 9.8 Non-Inflation of Certainty
 
-### 9.8.1 Subconscious RAG — Live Collection (OI Closed)
+DGM promotion must not inflate certainty beyond the evidence.
 
-The Fifth DGM's `_store_in_subconscious_rag` path is **no longer scaffolded**. It writes
-directly into the live `fifth_dgm_subconscious` ChromaDB collection (see Chapter 41's
-48-collection manifest), using `all-minilm:latest` (384-dim) embeddings via the ChromaDB
-v2 API at `allis-chroma` (host port **8002**, container port **8000**, inter-service
-`http://allis-chroma:8000`). Items stored here are tagged with WV-specific metadata and
-remain available for subsequent identity evaluation and potential I-container promotion.
+A sandbox hypothesis can become better governed, better documented, or better situated after passing through DGM evaluation, but it must not become more certain than the evidentiary record allows merely because it crossed a gate. If \(C(x)\) is system confidence and \(E(x)\) is the maximum confidence warranted by evidence, then the intended safety condition is:
 
-**Subconscious write path:**
+\[
+C\bigl(T_{\mathrm{promote}}(x)\bigr) \leq E(x)
+\]
 
-```python
-# ChromaDB v2 API — allis-chroma
-# Host port 8002; container-internal port 8000
-# Inter-service URL: http://allis-chroma:8000
-import chromadb
-from uuid import uuid4
-
-client = chromadb.HttpClient(host="127.0.0.1", port=8002)
-# OR inter-service: chromadb.HttpClient(host="allis-chroma", port=8000)
-collection = client.get_collection("fifth_dgm_subconscious")
-collection.add(
-    documents=[content],
-    metadatas=[{
-        "source": context.get("source", "unknown"),
-        "county": context.get("county", ""),
-        "state": "WV",
-        "woah_weight": str(woah_weight),
-        "identity_type": identity_type,
-        "timestamp": iso8601_now(),
-        "queued_for_identity_evaluation": "true"
-    }],
-    ids=[str(uuid4())]
-)
-```
-
-### 9.8.2 EEG Bands — Live Neurobiological Context (OI-31 CLOSED)
-
-The EEG Delta, Theta, and Beta band services are **fully live** as of April 17, 2026:
-
-| Service | Host Port | Status | Current State |
-|:--|:--|:--|:--|
-| EEG Delta | 8073 | ✅ OK | 1,679 pulses — slow context, deep memory rhythms |
-| EEG Theta | 8074 | ✅ OK | 846 pulses — associative synthesis, PIA active |
-| EEG Beta | 8075 | ✅ OK | 168 pulses — active reasoning; last topic: "West Virginia economic development 2026" |
-
-These three bands supply continuous neurobiological context into the `IntrospectiveRecord`
-Pydantic objects assembled by the Qualia Engine (Chapter 13):
-
-- **Delta (8073):** slow, broad context — grounds identity evaluation in deep temporal
-  patterns; feeds background stability signals
-- **Theta (8074):** associative synthesis — links governance narratives across sessions;
-  PIA (Psychological Integrity Audit) active
-- **Beta (8075):** active reasoning — tracks current topic focus; the April 17 Beta topic
-  "West Virginia economic development 2026" directly informs WOAH's heightened weight for
-  MountainShares governance content
-
-The Qualia Engine aggregates these band signals together with the `nbb_pituitary_gland`
-global mode into unified `IntrospectiveRecord` objects. The Fifth DGM reads these records
-during identity evaluation. This is why a MountainShares governance sentence scores at
-`hierarchical_weight: 0.895` rather than a lower value — the Beta band is currently
-active on WV economic development, the Theta band's associative synthesis links it to
-prior governance sessions, and the pituitary converges to amplify the structural weight
-of that specific content class. OI-31 is **CLOSED**.
+This is the non-inflation principle. It prevents DGM promotion from turning provisional reasoning into overclaimed fact. In prose: a passed gate licenses status change, not unjustified certainty growth.
 
 ---
 
-## 9.9 Implementation Status
+## 9.9 Code Evolution and Reasoning Evolution
 
-**Darwin–Gödel Machine architecture is fully operational.** As of April 23, 2026,
-Ms. Allis implements a production Darwin–Gödel Machine architecture with empirical
-evaluation (not formal proofs), scoped self-modification across 73+ services, and
-comprehensive archival traces. Thesis-verified state: **112/112 containers Up (April 16,
-2026)**. Current working run: **100 containers Up (April 23, 2026)**.
+The same DGM pattern applies across both software and cognition-like transitions.
 
-**Proof-based classical Gödel Machine remains theoretical.** Ms. Allis does NOT implement
-a proof-based classical Gödel Machine with guaranteed utility improvements derived from
-formal verification.
+For code evolution, the DGM pipeline evaluates candidate changes against tests, safety checks, compatibility constraints, and deployment criteria. For reasoning evolution, the DGM pipeline evaluates candidate conclusions against evidence, coherence, constitutional rules, and persistence criteria. The two are analogous but not identical. One governs executable artifacts; the other governs epistemic artifacts.
 
-**Fifth DGM and WOAH are fully operational.** The Fifth DGM (port 4002),
-`nbb_woah_algorithms` (port 8104, version 2.0.1_semantic), and `allis-woah`
-(qualia-net internal, port 7012, `{}` binding intentional) are all confirmed production
-services. OI-29 CLOSED. OI-09-NEW-A CLOSED.
-
-**Subconscious RAG is live.** `_store_in_subconscious_rag` writes to the
-`fifth_dgm_subconscious` ChromaDB collection via v2 API at `allis-chroma` (host port
-8002, inter-service `http://allis-chroma:8000`). No longer scaffolded.
-
-**EEG bands and pituitary are live.** EEG Delta (8073), Theta (8074), Beta (8075) all
-confirmed active April 17, 2026. `nbb_pituitary_gland` confirmed healthy at port 8108.
-OI-31 CLOSED.
-
-**`allis-neurobiological-master` is live.** Confirmed Up on port **8018** (April 23,
-2026). Prior open item fully closed.
-
-**`autonomous_learner` collection:** **21,181 records** (April 23, 2026).
-
-**Human oversight remains required.** Significant behavioral changes remain subject to
-human review, legal and ethical constraints, and version control. The DGM layer is
-designed to propose and test self-improvements, not to autonomously rewrite itself
-without governance oversight.
+The unifying principle is that no candidate becomes production consequence merely because it exists. It must survive the same architecture of disciplined transition.
 
 ---
 
-## 9.10 Summary
+## 9.10 The Fifth DGM
 
-This chapter has documented the operational Fifth DGM: the consciousness filter and
-identity orchestrator (`allis-fifth-dgm`, port 4002) that serves as Ms. Allis's first
-fully deployed DGM component. It shows how Darwin–Gödel Machine ideas — self-reference,
-empirical evaluation, archival traces — are made concrete in a way that:
+The 5th DGM remains part of the chapter and stays in place.
 
-- Respects and extends the PostgreSQL GBIM/spatial/ChromaDB/RAG architecture of
-  `02-ms-allis-gbim.md` (Chapter 2), Chapters 4, 5, 6, 7, and 8. **Production target:**
-  `msallis-db` (host 5433 / container 5432), `msallisgis` 16 GB / 294 tables / 11
-  schemas. **Forensic:** `postgis-forensic` (host 5432) — forensic only. Semantic GBIM
-  entities via ChromaDB `gbim_worldview_entities` (5,416,521 vectors). **ChromaDB:** 48
-  collections, ~6,740,611 vectors, `allis-chroma` host port 8002, inter-service
-  `http://allis-chroma:8000`, v2 API only.
-- Keeps self-improvement scoped, logged, and governed — always within the operating
-  envelope set by `nbb_pituitary_gland` (port 8108; GET `/global_mode` and
-  GET `/mode_history` are the authoritative routes)
-- Grounds "intelligence with a ZIP code" in actual flows of content into memory and
-  identity, rather than only in external outputs
-- Operates in full alignment with the EEG neurobiological stack (Delta 8073, Theta 8074,
-  Beta 8075), `allis-neurobiological-master` (port 8018), and the Qualia Engine's
-  `IntrospectiveRecord` synthesis (Chapter 13)
+It functions as a particularly important holding and shaping layer for latent, pre-promotional, or subconscious candidate material. In the current architecture, its role is interpreted in continuity with the internal-state sandbox and governed promotion path. The 5th DGM is not just a queue of hidden content; it is a staging and evaluative region where candidate states may persist provisionally while awaiting admissibility checks, contradiction handling, or later promotion.
 
-**This chapter's description reflects the April 23, 2026 production state.** All prior
-references to stale collection counts, port 5433, "scaffolded" subconscious RAG, or
-unlabeled container counts are superseded by the April 2026 baseline:
-
-| Item | Value | Date |
-|:--|:--|:--|
-| Containers Up (working run) | **100** | April 23, 2026 |
-| Containers Up (thesis-verified) | **112/112** | April 16, 2026 |
-| ChromaDB collections | **48** | April 23, 2026 |
-| ChromaDB total vectors | **~6,740,611** | April 17, 2026 |
-| `msallisgis` production | `msallis-db` host 5433 / container 5432 — 16 GB / 294 tables | April 23, 2026 |
-| `msallisgis` forensic | `postgis-forensic` host 5432 — 17 GB / 314 tables | April 23, 2026 |
-| `nbb_pituitary_gland` | port 8108, mode `baseline`, 5 protocols live | April 23, 2026 |
-| EEG bands | Delta 1,679 / Theta 846 / Beta 168 pulses, all live | April 17, 2026 |
-| Fifth DGM | 9 inputs, 1 YES, 8 NO, 1 subconscious, `woah_evaluations: 1` | April 17, 2026 |
-| WOAH strong-identity | `hierarchical_weight: 0.895` for MountainShares WV governance | April 17, 2026 |
-| `allis-neurobiological-master` | port 8018, Up | April 23, 2026 |
-| `autonomous_learner` | **21,181 records** | April 23, 2026 |
-| OI-29 / OI-09-NEW-A / OI-31 | All CLOSED | April 17, 2026 |
-| Ch. 02 cross-reference | `02-ms-allis-gbim.md` | April 23, 2026 |
-
-The I-container identity layer is not theoretical: it was confirmed running on 2026-02-15
-(ego boundary entry in live `UltimateResponse`), extended on 2026-03-02
-(`normalize_identity()` producing Ms. Allis's Appalachian voice on `chatlight/async`),
-and validated on 2026-04-17 with the first confirmed strong-identity Fifth DGM event — a
-MountainShares cooperative economic development narrative for Fayette County, WV, scored
-at `hierarchical_weight: 0.895` and routed into the subconscious with
-`queued_for_identity_evaluation: true`.
-
-The Fifth DGM documented here is part of the larger DGM fractal architecture documented
-in **Chapter 32: Fractal Optimization and the DGM Layer**. For the canonical description
-of how the Fifth DGM participates in live user interactions, see **Chapter 17**.
+This interpretation keeps the 5th DGM connected to the current system rather than isolating it as a purely metaphorical subconscious container. Its significance lies in the fact that latent candidate material can affect future reasoning and optimization while still remaining below the threshold of committed state.
 
 ---
 
-## ★ 9.11 Live Autonomous DGM Self-Improvement Loop — July 7, 2026 Addition
+## 9.11 Fractal Optimization Links
 
-> **★★ Added July 7, 2026:** This section documents the fully operational autonomous
-> DGM self-improvement cycle confirmed live on July 7, 2026. It supersedes any prior
-> references to the DGM improvement loop as "future work." The loop is production-active,
-> running independently of user-facing chat, and governed by the same constitutional
-> guardrails described in §9.2.3 and §9.5.
+This chapter cross-links directly to the fractal optimization and DGM chapters later in the thesis.
 
-### 9.11.1 Overview
+The DGM loop is not only about immediate pass/fail decisions. It also participates in longer-horizon self-improvement. Fractal optimization uses recursive evaluation across scales, and DGMs provide the gate structure through which those optimization proposals become allowable. That means the optimization layer must include reasoning-pipeline safety, not just performance gain or utility increase.
 
-The Darwin–Gödel Machine self-improvement system is an **autonomous code improvement
-loop** that runs on a cron schedule entirely independently of Ms. Allis's user-facing
-chat. It periodically reads live service files, generates patch proposals via a single
-Ollama LLM (`deepseek-coder:latest`), submits each proposal through a cascade vote of
-4–5 DGM voters, and either applies approved patches back to the service filesystem or
-writes rejected patches to a dedicated rejected-patches store. No human action is
-required for routine cycle execution; human review is required before any staged mutation
-is deployed to a live file.
+A DGM-guided self-improvement loop therefore includes:
 
-This is the architecture referenced in §9.5 as the "code-level proposals" domain of the
-NBB Darwin–Gödel Machines Service. As of July 7, 2026, that description is empirically
-confirmed: the full loop has executed autonomously in production.
+- generation of candidate code or reasoning changes;
+- sandboxed evaluation;
+- multidomain validation;
+- safety and governance gating;
+- selective promotion;
+- monitoring of downstream effects;
+- iterative refinement.
 
-### 9.11.2 Architecture
-
-```
-cron (every 30 min)
-    └── dgm_cycle.sh
-            └── POST /apply_improvements
-                    └── nbb_darwin_godel_machines (container port 8302)
-                            ├── reads    /app/services/
-                            │           (←→ host: /mnt/spiritual_drive/msjarvis-rebuild/services/)
-                            ├── generates patch via Ollama (deepseek-coder:latest)
-                            ├── cascade vote (4–5 voters)
-                            ├── approved → writes back to /app/services/
-                            └── rejected → writes to /app/rejected_patches/
-                                          (←→ host: .../rejected_patches/)
-```
-
-**Key paths:**
-
-| Purpose | Container Path | Host Path |
-|:--|:--|:--|
-| Live service files | `/app/services/` | `/mnt/spiritual_drive/msjarvis-rebuild/services/` |
-| Rejected patches | `/app/rejected_patches/` | `/mnt/spiritual_drive/msjarvis-rebuild/rejected_patches/` |
-| Cycle log | — | `/mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log` |
-| Compose file (DGM volumes at line 1152) | — | `/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml` |
-
-### 9.11.3 Cron Schedule
-
-```bash
-# DGM: run improvement cycle every 30 minutes
-*/30 * * * * /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.sh
-
-# DGM: rotate rejected patches older than 7 days (Sunday 3am)
-0 3 * * 0 find /mnt/spiritual_drive/msjarvis-rebuild/rejected_patches -name "*.py" -mtime +7 -delete
-
-# DGM: trim cycle log to last 1000 lines (daily 4am)
-0 4 * * * tail -n 1000 /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log > /tmp/dgm_log_trim && mv /tmp/dgm_log_trim /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log
-```
-
-The Sunday cron rotation targets the **host path directly** — no `docker exec` dependency.
-If the container is down on a Sunday, cleanup still runs.
-
-### 9.11.4 Cycle Behavior
-
-| Setting | Value |
-|:--|:--|
-| Cycle frequency | Every 30 minutes |
-| LLM for patch synthesis | `deepseek-coder:latest` (single model via `http://jarvis-ollama:11434`) |
-| Voters per patch | 4–5 |
-| Patch merge strategy | AST-boundary (replaces function in-place; appends if not found) |
-| Dead code pruning | Not implemented (future: `vulture`) |
-| Chat interaction | None — completely independent loop |
-
-**Environment variables (confirmed live):**
-
-```
-SERVICES_DIR=/app/services
-CODING_MODEL=deepseek-coder:latest
-OLLAMA_URL=http://jarvis-ollama:11434/api/generate
-```
-
-### 9.11.5 Confirmed Live Execution — July 6–7, 2026
-
-**First autonomous cycle — July 6, 2026 (21:21 UTC):**
-
-The `jarvis-consciousness-scheduler` triggered a `self_improvement_cycle` that passed
-through 3 DGM approval layers and produced the following live output from
-`deepseek-coder:latest`:
-
-```json
-{
-  "timestamp": "2026-07-06T21:21:34.436399",
-  "suggestions": [
-    {
-      "component": "ms_jarvis_seamless_monitor",
-      "suggestion": "Add logs at different levels for better debugging and monitoring.",
-      "expected_benefit": "Improved visibility into the flow of data, errors or exceptions during execution.",
-      "risk_level": "high"
-    },
-    {
-      "component": "ms_egeria",
-      "suggestion": "Use async context for httpx client to avoid blocking the event loop.",
-      "expected_benefit": "Non-blocking concurrent request handling",
-      "risk_level": "medium"
-    }
-  ],
-  "model_used": "deepseek-coder:latest",
-  "note": "LLM-generated suggestions from live service analysis"
-}
-```
-
-**Scheduler log — confirmed autonomous execution:**
-
-```
-✅ DGM APPROVED self_improvement_cycle (3 layers passed)
-🧬 Self-improvement cycle starting
-🧬 3 suggestions received
-🧬 ms_jarvis_consciousness_unified_bridge: can_proceed=True safety=0.9666...
-✅ ms_jarvis_consciousness_unified_bridge: stage=staged decision=allowed
-   path=/tmp/mutations/ms_jarvis_consciousness_unified_bridge.py.candidate
-🧬 ms_jarvis_monitor: can_proceed=False safety=0.9666...
-⏭️  ms_jarvis_monitor skipped — Darwin-Gödel verification failed
-🧬 ms_egeria_production_chat: can_proceed=False safety=0.9666...
-⏭️  ms_egeria_production_chat skipped — Darwin-Gödel verification failed
-```
-
-**Safety gate behavior.** The results demonstrate the constitutional gates working
-precisely as designed:
-
-- `ms_jarvis_consciousness_unified_bridge` — `can_proceed=True`, safety score 0.967,
-  `constitutional_decision=allowed` → staged to `/tmp/mutations/` ✅
-- `ms_jarvis_monitor` — `risk_level: high` → DGM verification failed → **skipped** ✅
-- `ms_egeria_production_chat` — `can_proceed=False` → **skipped** ✅
-
-High-risk suggestions are blocked by the Darwin–Gödel cascade without human action.
-Low-risk, approved suggestions are staged to `/tmp/mutations/` as `.candidate` files
-pending human deployment review — no live file is overwritten without explicit human
-decision. This is the "propose and stage, never autonomously deploy" contract.
-
-### 9.11.6 Volume Mount — Rejected Patches Persistence
-
-**Added July 7, 2026** (docker-compose.yml line 1152):
-
-```yaml
-volumes:
-  - /mnt/spiritual_drive/msjarvis-rebuild/services:/app/services:rw
-  - /mnt/spiritual_drive/msjarvis-rebuild/rejected_patches:/app/rejected_patches
-```
-
-**Confirmed live:**
-
-```
-/mnt/spiritual_drive/msjarvis-rebuild/services → /app/services
-/mnt/spiritual_drive/msjarvis-rebuild/rejected_patches → /app/rejected_patches
-```
-
-Before this mount was added, rejected patches lived only inside the container and were
-lost on every rebuild or restart. With the volume mount, the full rejected-patch history
-is durable across all container lifecycle events. The host-side cron (Sunday 3am)
-operates directly on the host path — no `docker exec` required, no container-dependency
-risk on the rotation job.
-
-### 9.11.7 What Does NOT Happen
-
-The following are explicit architectural exclusions, not implementation gaps:
-
-- Chat with Ms. Allis **never** triggers a DGM cycle — the improvement loop is
-  completely decoupled from all user-facing paths
-- DGM cycles **never** interrupt in-flight chat requests — all service-file writes are
-  atomic at the filesystem level
-- No feedback loop from chat errors to DGM patch suggestions currently exists — this is
-  a documented future enhancement contingent on a test suite being in place
-
-### 9.11.8 Maintenance Notes
-
-- **Orphan warning:** The `jarvis-consciousness-scheduler` orphan warning on
-  `docker compose up` is **harmless** — it was a renamed or removed service from a prior
-  compose configuration. No action required.
-- **Rejected patches survive container rebuilds** via the volume mount added July 7, 2026.
-- **Vulture dead-code pruner:** Not yet integrated. A `vulture`-based pruner pass before
-  patch generation is a natural next addition when a regression test suite exists.
-- **Chat→DGM feedback loop:** Not yet implemented. Surfacing chat error patterns as DGM
-  improvement signals is documented as a future enhancement.
-
-### 9.11.9 Relationship to Prior DGM Sections
-
-This section describes the **code-level** self-modification arm of the DGM architecture.
-It is architecturally distinct from the Fifth DGM (§9.2–§9.8), which governs
-**content-level** decisions about what enters identity memory. The two arms share the
-same governance chain — both operate within the constitutional guardrails described in
-§9.2.3 and both are ultimately governed by `nbb_pituitary_gland` (port 8108) — but
-they operate on different substrates:
-
-| DGM Component | Substrate | Modification Target |
-|:--|:--|:--|
-| Fifth DGM (port 4002) | Content stream | Identity memory / I-container |
-| NBB DGM Service (port 8302) | Service filesystem | Python service code |
-
-The `nbb_darwin_godel_machines` service at port 8302 is the code-level arm documented
-in this section. The fractal relationship between the two arms — and how both nest inside
-the broader observe–propose–evaluate–adopt governance cycle — is described in
-**Chapter 32: Fractal Optimization and the DGM Layer**.
+Self-improvement here includes both computational efficiency and safer reasoning-pipeline behavior.
 
 ---
 
-## 9.12 Summary Table — Full April 23, 2026 + July 7, 2026 Baselines
+## 9.12 Evaluation Links
 
-| Item | Value | Date |
-|:--|:--|:--|
-| Containers Up (working run) | **100** | April 23, 2026 |
-| Containers Up (thesis-verified) | **112/112** | April 16, 2026 |
-| ChromaDB collections | **48** | April 23, 2026 |
-| ChromaDB total vectors | **~6,740,611** | April 17, 2026 |
-| `msallisgis` production | `msallis-db` host 5433 / container 5432 — 16 GB / 294 tables | April 23, 2026 |
-| `msallisgis` forensic | `postgis-forensic` host 5432 — 17 GB / 314 tables | April 23, 2026 |
-| `nbb_pituitary_gland` | port 8108, mode `baseline`, 5 protocols live | April 23, 2026 |
-| EEG bands | Delta 1,679 / Theta 846 / Beta 168 pulses, all live | April 17, 2026 |
-| Fifth DGM | 9 inputs, 1 YES, 8 NO, 1 subconscious, `woah_evaluations: 1` | April 17, 2026 |
-| WOAH strong-identity | `hierarchical_weight: 0.895` for MountainShares WV governance | April 17, 2026 |
-| `allis-neurobiological-master` | port 8018, Up | April 23, 2026 |
-| `autonomous_learner` | **21,181 records** | April 23, 2026 |
-| OI-29 / OI-09-NEW-A / OI-31 | All CLOSED | April 17, 2026 |
-| NBB DGM Service | port 8302, live — `deepseek-coder:latest`, cron every 30 min | July 7, 2026 |
-| Rejected patches volume mount | `/mnt/.../rejected_patches → /app/rejected_patches` | July 7, 2026 |
-| First autonomous improvement cycle | 3 suggestions, 1 staged, 2 blocked — gates confirmed working | July 6, 2026 |
-| DGM cron rotation | Sunday 3am host-path, no docker exec dependency | July 7, 2026 |
-| Ch. 02 cross-reference | `02-ms-allis-gbim.md` | April 23, 2026 |
+This chapter also cross-links to the formal evaluation and audit chapters.
+
+If DGMs govern reasoning promotion, then evaluation can no longer focus only on task success, output style, or code correctness. It must also test whether sandbox isolation holds, whether promotion gates are correctly enforced, whether evidence-bounded certainty is preserved, whether rollback leaves no unauthorized durable side effects, and whether candidate conclusions are prevented from bypassing constitutional and privacy constraints.
+
+DGM behavior is therefore made testable. A DGM is only trustworthy if its gate logic can be observed, challenged, and verified in practice.
 
 ---
 
-*Chapter 9 — Darwin–Gödel Machines and the Fifth DGM*
-*Carrie Kidd (Mamma Kidd), Mount Hope WV*
+## 9.13 DGM Self-Improvement Without Arbitrary Escalation
 
-*Original: 2026-02-15 — Fifth DGM identity layer confirmed live.*
-*Updated 2026-03-02: `normalize_identity()` confirmed on `chatlight/async` path.*
-*Updated 2026-03-25: `jarvis-woah` confirmed on qualia-net; ChromaDB v2 API confirmed;
-end-to-end consciousness pipeline verified.*
-*Updated 2026-03-27: §9.3.4 cross-reference to §10 for `woah_stub.py`; 69-DGM Bridge
-port 19000 correction; `jarvis-consciousness-bridge` bind port note.*
-*Updated 2026-03-28: Security remediation complete — 96/96 containers Up; all services
-`127.0.0.1`; `_auth()` confirmed; ChromaDB 40 collections / 6,675,442 vectors.*
-*★ Updated 2026-04-17 — FULL SPRINT REWRITE: production baseline updated; §9.2.3 added
-(`nbb_pituitary_gland` port 8108 as governor); OI-29 CLOSED; OI-09-NEW-A CLOSED;
-OI-31 CLOSED; EEG bands added (§9.8.2); `_store_in_subconscious_rag` upgraded from
-scaffolded to live; `jarvis-neurobiological-master` Up 20 hours.*
-*★★ Updated April 23, 2026: `msjarvis-rebuild` narrative name applied; `autonomous_learner` updated to 21,181 records;
-container counts date-stamped (100 Up April 23, 2026; 112 thesis-verified April 16, 2026);
-`jarvis-neurobiological-master` port 8018 confirmed and added; Ch. 02 cross-reference
-corrected to `02-ms-jarvis-gbim.md`; two-container database architecture applied
-(`msjarvis-db` host 5433 / `postgis-forensic` host 5452); `jarvis-chroma` inter-service
-URL `http://jarvis-chroma:8000` applied throughout; ChromaDB v2 API and 48-collection
-count updated with historical note.*
-*★★★ Updated July 7, 2026: §9.11 added — Live Autonomous DGM Self-Improvement Loop
-confirmed production-active. First autonomous cycle executed July 6, 2026: deepseek-coder
-generated live suggestions, 3-layer DGM cascade vote, 1 patch staged, 2 blocked by
-constitutional gates. Rejected patches volume mount added (docker-compose.yml line 1152).
-Cron schedule finalized (30-min cycle, Sunday rotation, daily log trim). §9.12 updated
-with July 2026 baseline row.*
+A major risk in self-improving systems is confusing change with progress.
+
+The DGM architecture prevents that mistake by requiring that self-improvement be mediated by governance, evidence, and validation. Code does not get promoted because it is novel. A reasoning state does not become memory because it feels coherent. A claim does not gain authority because it was repeated often. Each must pass through bounded transition rules.
+
+Promotion is earned through admissibility, not granted by enthusiasm, recurrence, or internal pressure.
+
+---
+
+## 9.14 Relationship to Other Chapters
+
+This chapter now sits at an important intersection in the thesis.
+
+It connects backward to the RAG routing and internal-state sandbox chapters because those chapters define where candidate reasoning comes from. It connects sideways to the BBB and constitutional chapters because those define non-overrideable gating conditions. It connects forward to fractal optimization, evaluation, audit, and test-harness chapters because those define how DGM behavior is measured and improved over time.
+
+It also connects to memory and Hilbert-state chapters because promotion changes not only where a state lives but what authority it carries. In this architecture, a state is never self-authorizing merely because it has semantic content.
+
+---
+
+## 9.15 Closing Statement
+
+Darwin-Gödel Machines in Ms. Allis are the governed transition machinery of adaptation. They supervise both code evolution and reasoning promotion, including the passage from internal-state sandbox conclusions into validated, experiential, persistent, or actionable state.
+
+Their defining property is not mutation alone but disciplined admissibility. DGMs make change answerable to evidence, coherence, constitutional limits, privacy, safety, and evaluation. That is what allows Ms. Allis to improve without treating self-modification or self-belief as inherently trustworthy.
