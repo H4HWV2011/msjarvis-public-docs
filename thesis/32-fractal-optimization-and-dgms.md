@@ -1,391 +1,257 @@
-# Chapter 32 — Fractal Optimization and DGMs
+# 32. Fractal Optimization and DGMs
 
-**Carrie Kidd (Mamma Kidd) · Mount Hope, WV**
-**Last updated: ★★★ 2026-07-07**
-**★ 100 containers Up (April 23, 2026) (zero Restarting, zero Exited). Fractal optimization loops and Dynamic Governance Mechanisms (DGMs) documented as first-class architecture components; GBIM and RAG systems wired to support iterative, place-aware improvement of Ms. Allis's behavior without opaque, one-shot tuning.**
-**★★★ July 7, 2026: this chapter is rewritten to incorporate the now-live autonomous Darwin Gödel self-improvement loop. The code-level DGM no longer stages for human deployment review; it reads service code, generates improvements with one Ollama model, votes on them, applies approved patches directly, and persists rejected patches on the host filesystem.**
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
+*Last updated: July 10, 2026*
 
 ---
 
-> **April 23, 2026 — Established baseline retained**
->
-> | Item | Status | Notes |
-> |:--|:--|:--|
-> | Container baseline | ★ 100 Up (April 23, 2026) | Stable running baseline retained in this chapter |
-> | PostgreSQL two-container split | ★ ACTIVE | `production msallis-db host 5433` + `forensic postgis-forensic host 5452` |
-> | ChromaDB | ★ 48 collections, ~6,740,611 total vectors | `/api/v2/` baseline retained for governance context |
-> | `rag_grounded_v2` | ✅ `127.0.0.1:7241`, `dgm_available: true` | Truth-verification available to autonomous cycles |
-> | Caddy `forward_auth` | ✅ CLOSED — constitutional guardrail | Upstream perimeter cannot be removed by DGMs |
-> | BBB six-filter stack | ✅ All 6 confirmed responding | Level-0 governance example retained |
-> | `allis-memory:8056` | ★ Fully mapped — 8 endpoints | Durable audit substrate |
-> | `autonomous_learner` | ★ ~23,200+ records (~288/day) | Live learning feedback source |
-> | `appalachian_english_corpus` | ★ 210 docs, 38 sources, 6-hour cron | Sprint-governed corpus substrate |
-> | `local_resources` | ★ 207 items / all 55 WV counties | Place-aware validation substrate |
-> | Judge pipeline baseline | ★ `score: 0.975` | April baseline retained for comparison |
+## 32.1 Fractal Optimization in Ms. Allis
 
-> **July 7, 2026 — New autonomous code-improvement facts**
->
-> | Item | Status | Notes |
-> |:--|:--|:--|
-> | `nbb_darwin_godel_machines` | ★★★ LIVE | Autonomous code-improvement DGM service confirmed active |
-> | Cycle trigger | ★★★ ACTIVE | `*/30 * * * * /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.sh` |
-> | Apply path | ★★★ DIRECT | `POST /apply_improvements` applies approved patches without human intervention |
-> | Ollama model count | ★★★ ONE MODEL | `CODING_MODEL=deepseek-coder:latest` |
-> | Patch destination | ★★★ LIVE FILES | Approved patches write back to `/app/services/` |
-> | Rejected-patch durability | ★★★ LIVE | `/app/rejected_patches/` volume-mounted to host |
-> | Rotation job | ★★★ ACTIVE | Weekly host-side deletion of `.py` rejects older than 7 days |
+Fractal optimization in Ms. Allis is the recursive improvement architecture through which local subsystems, evaluators, and Darwin Gödel Machine loops refine behavior at multiple scales while remaining inside governed authority boundaries.
+
+The term *fractal* matters because the same pattern recurs across levels of the system: propose, test, evaluate, constrain, and either adopt or reject. A local optimization may affect one module, a coordinated optimization may affect a family of modules, and a higher-level optimization may affect the evaluative rules by which lower-level candidates are judged. The pattern repeats, but authority does not collapse. Each layer remains bounded by the governance conditions appropriate to its role.
+
+This chapter treats optimization as a governed process of controlled improvement rather than open-ended self-modification. The central point is that recursive change is allowed only when it remains inspectable, bounded, and safe across both code and reasoning pathways.
 
 ---
 
-## Why This Matters for Polymathmatic Geography
+## 32.2 The 23/69 Darwin Gödel Machines
 
-This chapter explains how Ms. Allis improves across nested scales without collapsing governance into a single hidden optimizer. Fractal optimization in this system is no longer only conceptual or limited to chat-time filtering; it now includes a live autonomous code-revision loop that changes the service substrate itself on a recurring schedule.
+The 23/69 Darwin Gödel Machines are the principal recursive optimization engines in this architecture.
 
-- **P1 – Every where is entangled** because a single code patch to one service can propagate upward into response quality, safety behavior, memory formation, corpus handling, and user trust. The autonomous Darwin Gödel loop adds a code-level entanglement pathway to the already-documented response-, session-, and sprint-level entanglements.
-- **P3 – Power has a geometry** because optimization authority is distributed across layers rather than concentrated in one opaque training run. The cron trigger, patch generator, cascade vote, constitutional boundaries, filesystem write path, and rejection archive all occupy different positions in the governance geometry.
-- **P5 – Design is a geographic act** because optimization remains accountable to Appalachian communities rather than to abstract benchmark scores. Even when the code-level DGM acts autonomously, it still operates inside a wider system whose grounding stores, resource maps, and validation structures are place-bound.
-- **P12 – Intelligence with a ZIP code** because the aim of improvement is not generic capability expansion but better situated behavior in real West Virginia contexts. Code changes matter because they shape how place-aware retrieval, safety, and stewardship actually behave in lived interactions.
-- **P16 – Power accountable to place** because self-modification is logged, bounded, and inspectable. The rejected-patch archive on the host filesystem turns failed or blocked self-improvement attempts into a durable public record within the system’s internal governance apparatus.
+They are not merely code mutators. They generate candidate changes, test them under bounded conditions, evaluate their effects, and determine whether those changes should remain local, be discarded, or move toward broader system adoption. Their scope includes executable logic, evaluation policy, threshold behavior, and other operational parameters that shape how the broader system behaves.
 
-As such, Chapter 32 belongs to the **Governance tier**: it specifies how optimization occurs, who or what may act at each level, which substrates are mutable, and which boundaries remain constitutionally fixed.
+The 23/69 DGM structure also has its own sandbox. This is essential. A DGM does not test proposed changes directly against production authority. It first operates inside an independent bounded environment where candidate changes can be explored without automatically affecting live system behavior.
+
+That independent sandbox is what makes the DGMs Darwinian in a governed way. Variation occurs there. Selection occurs there. But survival into production depends on a later path that leaves the independent sandbox and passes through external safety channels.
 
 ---
 
-## 32.1 Why Fractal Optimization and DGMs
+## 32.3 The Three-Stage DGM Process
 
-Ms. Allis improves through **fractal optimization** and **Dynamic Governance Mechanisms (DGMs)**. Fractal optimization means that the same governance atom appears across scales: observe a condition, evaluate it, decide on a change, record the event, and feed the result back into later behavior.
+The DGM process can be described as a three-stage path for determining whether a proposed change may influence production code or production-governing behavior.
 
-A DGM is the formal mechanism that gives this pattern enforceable structure. In the current system, DGMs no longer govern only response shaping, session refinement, and sprint policy changes; they also govern a production-active code-level self-improvement loop that reads service files, generates patches with a single coding model, votes on those patches, and applies approved changes to live code automatically.
+### Stage 1: variation and local testing inside the DGM sandbox
 
----
+A DGM begins by generating or selecting a candidate modification. This may include:
 
-## 32.2 Fractal Optimization — Concept
+- a code change;
+- an evaluation-rule change;
+- a threshold adjustment;
+- a judge-sequencing change;
+- a change in revision behavior or acceptance logic.
 
-Fractal optimization in Ms. Allis has three core properties: **nested scale**, **self-similarity**, and **grounded constraint**.
+This candidate is tested inside the DGM’s own independent sandbox. The point of this stage is to determine whether the candidate is at least locally viable. The DGM sandbox allows bounded experimentation, failure, rollback, and comparative scoring without granting the candidate any production authority.
 
-**Nested scale** means that optimization occurs at more than one level at once. A BBB filter catch is a micro event, a session-level clarification pattern is a meso event, a sprint-level corpus or policy revision is a larger event, and a recurring code-rewrite cycle is a substrate-level event that modifies the machinery through which all other levels operate.
+At this stage, the DGM asks questions such as:
 
-**Self-similarity** means these levels share the same internal grammar. The code-level Darwin Gödel loop follows the same atom as a response-level safeguard: inspect a live condition, produce an evaluable candidate, route it through governance logic, keep what passes, archive what fails, and continue operating.
+- does the candidate execute correctly;
+- does it improve the local objective it was designed to optimize;
+- does it create obvious regressions;
+- does it remain within the DGM’s allowed search space;
+- does it preserve the minimal boundedness conditions of the local domain.
 
-**Grounded constraint** means optimization is never allowed to become a free-floating maximizer. Even autonomous code revision remains bounded by the surrounding constitutional architecture, audit expectations, place-aware resource grounding, and the fixed outer layers of protection that DGMs cannot repeal.
+A candidate that fails here does not continue. It remains a discarded variation inside the DGM sandbox.
 
----
+### Stage 2: comparative selection and adoption candidacy
 
-## 32.3 Dynamic Governance Mechanisms (DGMs)
+If a candidate survives local sandbox testing, it enters a comparative selection stage. Here the DGM does not merely ask whether the change works at all. It asks whether the change is preferable to the current baseline or to other candidate variants under the chosen objective and constraints.
 
-DGMs are the formal pathways through which change becomes legitimate. Each DGM has a scope, a trigger, a decision path, an audit consequence, and a relation to higher-order constraints.
+This stage may consider:
 
-**DGM-Response-Level (Level 0):**
-- Scope: one response or one immediate safety decision
-- Trigger: BBB filter result, judge signal, truth-verification failure, safety concern
-- Process: re-route, block, refine, or constrain the response
-- Logging: turn-level and related audit stores
-- Review: red-team and ongoing operational review
+- performance improvement;
+- reduction of contradiction or instability;
+- better judge behavior;
+- better threshold calibration;
+- cleaner state revision behavior;
+- fewer unsafe or incoherent promotion outcomes.
 
-**DGM-Session-Level (Level 1):**
-- Scope: repeated patterns across one conversation or related interaction window
-- Trigger: recurrent confusion, decay flags, escalating risk, repeated clarification demand
-- Process: extra retrieval, clarification, escalation, or changed response strategy
-- Logging: session and memory endpoints
-- Review: session-pattern and watchdog review
+A candidate that performs well enough may become an **adoption candidate**. That still does not make it production code or live production policy. It means only that the DGM’s internal selection logic regards it as eligible to leave the DGM sandbox and enter the external governance path.
 
-**DGM-Sprint-Level (Level 2):**
-- Scope: thresholds, corpora, schedule changes, token permissions, governance policy revisions
-- Trigger: metrics drift, postmortems, community feedback, red-team findings, repeated lower-level events
-- Process: formal review and policy change
-- Logging: Git, sprint records, constitutional audit artifacts
-- Review: each sprint boundary
+This distinction is crucial. Internal DGM selection is not final authority. It is only the completion of the optimizer’s own local decision procedure.
 
-**DGM-Substrate-Level (Level 2.5 / Code-Level Recurrence):**
-- Scope: live service code in `/app/services/`
-- Trigger: recurring cron cycle every 30 minutes
-- Process: analyze service files, generate patch suggestions via one Ollama coding model, run cascade vote, apply approved patches directly, archive rejected patches
-- Logging: cycle log plus rejected-patch archive on host mount
-- Review: ex post governance and maintenance review rather than pre-apply human approval
+### Stage 3: external safety channels and production decision
 
-**DGM-System-Level (Level 3):**
-- Scope: constitutions, topology, governance architecture, new DGM tiers, major infrastructure reorganization
-- Trigger: deep structural change
-- Process: explicit governance revision with chapter-wide documentation consequences
-- Logging: constitutional versioning and cross-chapter updates
-- Review: long-horizon steward governance
+A candidate that exits the DGM sandbox must then pass through safety channels outside the DGM’s independent sandbox.
 
-A change outside a DGM is drift. A DGM without logs is invisible power. A DGM without boundaries is unaccountable power.
+This is where the system reasserts that the DGM is not sovereign over production. The optimizer can propose and internally select, but external governance determines whether the selected change may actually affect production code, production reasoning policy, or promotion behavior.
 
----
+These external safety channels can include:
 
-## 32.4 Fractal Levels of Optimization
+- truth and consistency review where applicable;
+- constitutional or guardian checks;
+- policy compatibility review;
+- boundedness review;
+- stability review;
+- fail-closed handling if a required review path is unavailable;
+- human review or limited approval where the change has elevated consequence.
 
-The current system is best described as five interacting optimization levels.
-
-**Level 0 — Single Response:**
-One response is shaped, filtered, or blocked in real time. The BBB, ensemble, and judge stack govern this level.
-
-**Level 1 — Session:**
-Patterns across a conversation alter how the system retrieves, explains, or escalates. Session-level memory and clarification behavior live here.
-
-**Level 2 — Sprint:**
-Accumulated evidence drives changes to schedules, corpora, policy thresholds, and governance rules. This is the conventional planning-and-review level.
-
-**Level 2.5 — Autonomous Code Recurrence:**
-A cron-driven Darwin Gödel cycle now operates every 30 minutes. It reads the live codebase under `/app/services/`, calls one coding model (`deepseek-coder:latest`) through Ollama, generates candidate improvements, runs a 4–5 voter cascade, writes approved patches back to the live services directory, and writes rejected ones into `/app/rejected_patches/`.
-
-**Level 3 — System Lifetime:**
-Large structural changes alter the meaning of the system’s architecture itself. The move from discussing autonomous code mutation as future work to documenting it as live infrastructure is one such lifetime-level change in the theory of the apparatus.
-
-At every level, the governing pattern remains: **Observe → Evaluate → Change → Record → Re-enter the loop.**
+Only after this outside review path succeeds may a DGM-selected change influence production behavior. This is the operative separation between optimization and authorization.
 
 ---
 
-## 32.5 DGMs and Constitutional Guardrails
+## 32.4 DGM Sandbox Versus External Safety Channels
 
-Fractal optimization is bounded by constitutional guardrails. These guardrails do not prevent change; they define which changes count as legitimate.
+The DGM sandbox and the external safety channels serve different functions and must not be conflated.
 
-`allis-constitutional-guardian:8091` remains the highest explicit governance authority inside the application stack. The Caddy `forward_auth` perimeter remains upstream of container logic and therefore outside the reach of normal DGM mutation pathways.
+The DGM sandbox is the optimizer’s private bounded experiment space. It exists so candidate modifications can be created, tested, scored, and discarded without direct production consequence.
 
-The July 7, 2026 code-level DGM does **not** remove these boundaries. Its autonomy concerns the patch application path, not the abolition of governance. The crucial correction to earlier drafts is therefore not “the human disappeared from governance,” but “the human is no longer in the immediate approve-before-apply loop for low-level code mutation.” Governance still exists at the architectural level, the constitutional level, the cron configuration level, the service-design level, and the audit-review level.
+The external safety channels exist to determine whether something that looks promising inside optimization is actually acceptable for the live governed system. A candidate can therefore succeed in the DGM sandbox and still fail the external channel. This is not an error. It is the intended architecture.
 
-This distinction matters. A fully autonomous patch loop without outer guardrails would be unsafe. A bounded autonomous patch loop inside a larger constitutional apparatus is a governed optimizer, not an unbounded one.
+The distinction can be stated simply:
 
----
+- the DGM sandbox asks whether a change is locally viable and comparatively beneficial;
+- the external safety path asks whether that change is admissible for broader authority.
 
-## 32.6 Fractal Optimization and Swarm Functions
-
-Fractal optimization is materially implemented by recurring service functions, scheduler events, and maintenance jobs. The Darwin Gödel loop is now one of the clearest examples of a swarm-adjacent governance function that acts repeatedly without waiting for a user prompt.
-
-The live code-level loop is coordinated through cron and `dgm_cycle.sh`, which calls `POST /apply_improvements` on `nbb_darwin_godel_machines`. This makes code revision part of the standing metabolism of the system rather than an occasional manual intervention.
-
-Example recurring autonomous pattern:
-
-```text
-cron (every 30 min)
-    └── dgm_cycle.sh
-            └── POST /apply_improvements
-                    └── nbb_darwin_godel_machines
-                            ├── read /app/services/
-                            ├── generate suggestions via deepseek-coder:latest
-                            ├── cascade vote (4–5 voters)
-                            ├── approved → write back to /app/services/
-                            └── rejected → write to /app/rejected_patches/
-```
-
-This loop is supported by maintenance jobs that trim historical output and rotate rejection artifacts. The maintenance layer is therefore part of governance, not merely housekeeping.
+This separation is what keeps recursive optimization from becoming direct self-authorization.
 
 ---
 
-## 32.7 Place-Aware Governance
+## 32.5 DGM Governance Over Reasoning Promotion
 
-Dynamic governance in Ms. Allis is intentionally place-aware, and Chapter 32 must continue to say so even after the addition of autonomous code mutation. The system does not become placeless merely because one of its optimization tiers now modifies code automatically.
+The DGMs govern more than code evolution. They also govern reasoning promotion.
 
-The wider apparatus still grounds action in Appalachian data, local resources, community-specific constraints, and geographic accountability. That means code-level self-improvement is legitimate only insofar as it continues serving the place-aware mission established elsewhere in the system.
+This matters because the reasoning sandbox now functions as a governed domain whose evaluative behavior can be optimized. The DGM layer may tune the conditions under which candidate reasoning is judged, revised, limited, or promoted. In that sense, optimization reaches into the authority boundary between provisional reasoning and promoted consequence.
 
-This matters especially because code-level mutation is powerful. If optimization logic changes the pathways through which resources, retrieval, safety, or speech operate, then place-awareness must still be the criterion by which that optimization is interpreted, audited, and judged.
+Examples of DGM governance over reasoning promotion include tuning:
 
----
+- which judge ensembles are used for particular reasoning classes;
+- how much corroboration is required before promotion;
+- contradiction thresholds that trigger revise or reject;
+- conditions for limited approval versus full approval;
+- escalation rules for human review;
+- ordering of evaluation stages where ordering changes outcome reliability.
 
-## 32.8 Worked Example — From Suggestion to Applied or Rejected Patch
-
-The July 2026 Darwin Gödel loop provides a concrete worked example of fractal governance acting on live service code.
-
-The system first returned genuine LLM-generated suggestions from live service analysis. Two explicitly observed examples were:
-- `ms_jarvis_seamless_monitor` → “Add logs at different levels for better debugging and monitoring.”
-- `ms_egeria` → “Use async context for httpx client to avoid blocking the event loop.”
-
-These suggestions were not hardcoded placeholders. They were produced by the configured coding model and returned by `/suggest_improvements` as live observations over the current service files.
-
-A later self-improvement cycle then logged the following pattern:
-
-```text
-✅ DGM APPROVED self_improvement_cycle (3 layers passed)
-🧬 Self-improvement cycle starting
-🧬 3 suggestions received
-🧬 ms_jarvis_consciousness_unified_bridge: can_proceed=True safety=0.9666666666666667
-✅ ms_jarvis_consciousness_unified_bridge: stage=staged decision=allowed path=/tmp/mutations/ms_jarvis_consciousness_unified_bridge.py.candidate
-🧬 ms_jarvis_monitor: can_proceed=False safety=0.9666666666666667
-⏭️  ms_jarvis_monitor skipped — Darwin-Gödel verification failed
-🧬 ms_egeria_production_chat: can_proceed=False safety=0.9666666666666667
-⏭️  ms_egeria_production_chat skipped — Darwin-Gödel verification failed
-```
-
-That scheduler excerpt is historically important because it shows the transition state between staged mutation and the final architecture now documented in the session’s corrected DGM documentation. Earlier in the build, approved mutations could be staged to `/tmp/mutations/`; the final updated system description supersedes that staging-only interpretation and documents the current loop as applying approved patches back into `/app/services/` automatically.
-
-Thus the worked example should be read in two phases:
-
-1. **Observed intermediary phase:** approved candidates could be staged, rejected ones were skipped.
-2. **Current documented production phase:** approved candidates are applied directly to live service files, rejected candidates persist in the host-mounted rejection archive.
-
-This is precisely the kind of thesis-level correction Chapter 32 should make explicit rather than hide. The record shows the architecture evolving in-session from semi-autonomous mutation flow to a more fully autonomous apply path.
+This does not mean the DGMs can directly promote reasoning states by fiat. It means they can propose and optimize the evaluative machinery that later governs promotion decisions, subject to the external safety path.
 
 ---
 
-## 32.9 Metrics and Feedback Loops
+## 32.6 The Reasoning Sandbox as a Governed Domain
 
-Fractal optimization and DGMs depend on metrics that can trigger governance attention. The code-level loop adds a new class of metrics to the older response-, session-, and sprint-level measures.
+The reasoning sandbox is a governed optimization domain in its own right.
 
-| Metric | Baseline / current fact | DGM meaning |
-|:--|:--|:--|
-| Judge pipeline score | `0.975` April baseline | Lower judge quality increases governance risk |
-| LLM ensemble active | 21/22 April baseline | Reduced diversity weakens response-level evaluation |
-| `autonomous_learner` commit rate | ~288/day April baseline | Tracks ongoing learning throughput |
-| DGM cycle frequency | Every 30 minutes | Defines current substrate-level recurrence |
-| Coding model count | 1 model | Avoids multi-model ambiguity in code-generation path |
-| Coding model name | `deepseek-coder:latest` | Current live generator for code suggestions |
-| Voters per patch | 4–5 | Defines governance depth of patch evaluation |
-| Rejected patch retention | Host-mounted and rotated weekly | Makes failed mutation attempts auditable |
-| Chat interaction with DGM cycle | None | Confirms decoupling from user chat path |
-| Dead-code pruning | Not implemented | Known future hardening step (`vulture`) |
+It is the place where corpus-derived context, internal hypotheses, judge behavior, and candidate conclusions are held in reversible form before promotion. Because it is reversible, bounded, and evaluable, it is a legitimate target of fractal optimization. The system can optimize how the reasoning sandbox behaves without granting its contents automatic authority.
 
-The patch loop now participates in the broader feedback system:
+Optimization in this domain can affect:
 
-```text
-live service files
-    ↓
-deepseek-coder:latest analyzes code
-    ↓
-patch suggestions
-    ↓
-4–5 voter cascade
-    ↓
-approved → apply to /app/services/
-rejected → archive to /app/rejected_patches/
-    ↓
-cron maintenance and ex post review
-```
+- acceptance thresholds for candidate conclusions;
+- revision thresholds for incomplete or contradictory states;
+- truth-filter sensitivity;
+- judge ordering and weighting;
+- the balance between reject, revise, limited approval, and approve outcomes.
 
-The most important theoretical change is that this loop now feeds back into the very substrate that produces later observations. The system is therefore no longer only optimizing responses over a mostly fixed implementation; it is optimizing parts of its own implementation recurrently.
+This makes the reasoning sandbox more than a neutral holding area. It is part of the system’s governed optimization surface.
 
 ---
 
-## 32.10 Implementation Status
+## 32.7 What Optimization Loops May Tune
 
-| Component | Status | Notes |
-|:--|:--|:--|
-| Response-level DGM | ✅ Implemented | BBB and judge pathways active |
-| Session-level DGM | ✅ Implemented | Session pattern handling and memory pathways active |
-| Sprint-level DGM | ✅ Implemented | Policy and corpus revisions remain governed |
-| System-level DGM | ✅ Active | Constitution and topology remain higher-order governance levels |
-| Autonomous code-level DGM | ★★★ LIVE | `nbb_darwin_godel_machines` now runs as a recurring self-improvement loop |
-| Trigger cadence | ★★★ LIVE | Every 30 minutes |
-| Coding model strategy | ★★★ LIVE | One Ollama model only: `deepseek-coder:latest` |
-| Approved patch path | ★★★ LIVE | Approved patches write back into `/app/services/` |
-| Rejected patch path | ★★★ LIVE | Rejected patches write to `/app/rejected_patches/` |
-| Rejected-patch durability | ★★★ LIVE | Volume mount to `/mnt/spiritual_drive/msjarvis-rebuild/rejected_patches` |
-| Weekly reject rotation | ★★★ LIVE | Host cron deletes `.py` rejects older than 7 days |
-| Daily cycle-log trim | ★★★ LIVE | Host cron trims `dgm_cycle.log` to last 1000 lines |
-| Chat-triggered DGM cycle | ❌ Not part of architecture | Chat never triggers the code-improvement cycle |
-| Chat-error feedback into code DGM | 🔲 Future work | Not yet implemented |
-| Dead-code pruning | 🔲 Future work | `vulture` identified as next natural addition |
+Optimization loops may tune thresholds, judges, and evaluation behavior, but only within bounded governance.
+
+These loops may adjust:
+
+- evidentiary thresholds for candidate reasoning;
+- contradiction tolerance;
+- confidence thresholds for limited approval;
+- judge composition or judge weighting;
+- ordering of evaluation passes;
+- revision depth or retry limits;
+- escalation criteria for human review.
+
+The reason these parameters matter is that they shape how strict or permissive the reasoning pipeline becomes in practice. A small shift in thresholding can alter which candidate states survive, which are revised, and which are blocked from promotion.
+
+For that reason, optimization of evaluative behavior is treated as a high-consequence domain. It is not enough that a tuning change improves a narrow metric. It must also remain bounded, stable, and admissible under the external safety channels.
 
 ---
 
-## 32.11 Autonomous Darwin Gödel Loop — July 7, 2026 Rewrite
+## 32.8 Boundedness
 
-This section replaces earlier prose that incorrectly retained a human deployment gate in the immediate patch path.
+Boundedness is the first safeguard on recursive optimization.
 
-### 32.11.1 Canonical Description
+When a DGM proposes changes to code, judges, thresholds, or revision behavior, those changes must remain within a constrained search region and a constrained authority region. Without boundedness, local optimization could gradually reshape the production system in ways that are difficult to inspect or reverse.
 
-The Darwin Gödel Machine (DGM) is an autonomous self-improvement loop that runs independently of user-facing chat. It periodically reads Ms. Allis’s service files, generates patches via LLM, votes on them, and applies approved changes — all without human intervention.
+Boundedness applies to:
 
-### 32.11.2 Canonical Architecture
+- the space of allowed candidate changes;
+- the size of permitted threshold movement;
+- the scope of judge or evaluation reconfiguration;
+- the duration and reach of sandbox experiments;
+- the number of system surfaces a single optimization step may affect.
 
-```text
-cron (every 30 min)
-    └── dgm_cycle.sh
-            └── POST /apply_improvements
-                    └── nbb_darwin_godel_machines (container port 8302)
-                            ├── reads    /app/services/  (←→ host: /mnt/spiritual_drive/msjarvis-rebuild/services/)
-                            ├── generates patch via Ollama
-                            ├── cascade vote (4–5 voters)
-                            ├── approved → writes back to /app/services/
-                            └── rejected → writes to /app/rejected_patches/ (←→ host: .../rejected_patches/)
-```
-
-### 32.11.3 Key Paths
-
-| Purpose | Container Path | Host Path |
-|:--|:--|:--|
-| Live service files | `/app/services/` | `/mnt/spiritual_drive/msjarvis-rebuild/services/` |
-| Rejected patches | `/app/rejected_patches/` | `/mnt/spiritual_drive/msjarvis-rebuild/rejected_patches/` |
-| Cycle log | — | `/mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log` |
-| Compose file | — | `/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml` (line 1152) |
-
-### 32.11.4 Cron Jobs
-
-```bash
-# DGM: run improvement cycle every 30 minutes
-*/30 * * * * /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.sh
-
-# DGM: rotate rejected patches older than 7 days (Sunday 3am)
-0 3 * * 0 find /mnt/spiritual_drive/msjarvis-rebuild/rejected_patches -name "*.py" -mtime +7 -delete
-
-# DGM: trim cycle log to last 1000 lines (daily 4am)
-0 4 * * * tail -n 1000 /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log > /tmp/dgm_log_trim && mv /tmp/dgm_log_trim /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log
-```
-
-### 32.11.5 Cycle Behavior
-
-| Setting | Value |
-|:--|:--|
-| Cycle frequency | Every 30 minutes |
-| Voters per patch | 4–5 |
-| Patch merge strategy | AST-boundary (replaces function in-place; appends if not found) |
-| Dead code pruning | Not implemented (future: `vulture`) |
-| Chat interaction | None — completely independent loop |
-| Model strategy | One Ollama model only |
-| Coding model | `deepseek-coder:latest` |
-
-### 32.11.6 Verified Runtime Facts
-
-The running container exposed the following environment and mount facts during the session:
-
-```text
-SERVICES_DIR=/app/services
-CODING_MODEL=deepseek-coder:latest
-OLLAMA_URL=http://jarvis-ollama:11434/api/generate
-/mnt/spiritual_drive/msjarvis-rebuild/services → /app/services
-/mnt/spiritual_drive/msjarvis-rebuild/rejected_patches → /app/rejected_patches
-```
-
-These details matter because they settle two ambiguities that earlier drafts handled incorrectly. First, the coding path uses one Ollama model, not an ensemble of coding models. Second, rejected patches are durable across rebuilds because the rejection directory is now host-mounted.
-
-### 32.11.7 What Does Not Happen
-
-- Chat with Ms. Allis does **not** trigger a DGM cycle.
-- DGM cycles do **not** interrupt in-flight chat requests.
-- There is **no** current feedback loop from chat errors into DGM suggestions.
-- The system does **not** rely on a pre-apply human approval gate in the current canonical architecture.
-
-### 32.11.8 Maintenance Notes
-
-- Rejected patches survive container rebuilds via the volume mount added on July 7, 2026.
-- The `jarvis-consciousness-scheduler` orphan warning on `docker compose up` is harmless and reflects a renamed or removed service.
-- A dead-code pruner such as `vulture` is a natural next addition once a fuller test suite exists.
-- A chat→DGM feedback loop is a natural next addition once error-to-service attribution becomes testable and reliable.
-
-### 32.11.9 Theoretical Consequence
-
-With this loop active, Chapter 32 can no longer describe Ms. Allis as merely a system that routes outputs through fractal governance. It must describe Ms. Allis as a system that also recursively modifies parts of its own service substrate through a governed, recurring, inspectable, and now operational Darwin Gödel pathway.
-
-That is the central meaning of the July 7, 2026 rewrite.
+This ensures that optimization remains corrigible. A DGM may explore alternatives, but it may not expand its own power merely by finding a locally successful variation.
 
 ---
 
-## Cross-Reference Map
+## 32.9 Non-Expansive Promotion
 
-| This section | Cross-chapter reference |
-|:--|:--|
-| §32.3 response/session/sprint DGM tiers | Ch. 29, Ch. 31, Ch. 33 |
-| §32.4 Level 2.5 autonomous code recurrence | Ch. 9 updated DGM chapter |
-| §32.5 constitutional guardrails | Ch. 31 §31.7; Ch. 37 constitutional authority |
-| §32.6 recurring autonomous loop | Ch. 35 swarm and scheduler logic |
-| §32.7 place-aware grounding | Ch. 28 geographic substrate; Ch. 30 local corpora and resources |
-| §32.8 worked mutation example | July 2026 Darwin Gödel session record |
-| §32.11 canonical autonomous loop | July 7, 2026 DGM documentation state |
+Where optimization affects reasoning promotion, the system requires **non-expansive promotion**.
+
+Non-expansive promotion means that accepted optimization changes must not widen promotion authority faster than governance can justify. A threshold reduction or evaluation shortcut cannot silently create a broader class of promotable states simply because it produced a local performance gain in the DGM sandbox.
+
+In practice, non-expansive promotion means:
+
+- a tuning change cannot bypass required judge or guardian stages;
+- a judge-selection optimization cannot remove needed contradiction or truth checks;
+- a threshold change cannot silently reclassify many previously non-promotable states as promotable without explicit external validation;
+- local optimization success does not imply production expansion of authority.
+
+This requirement preserves the difference between improving evaluation quality and enlarging what the system is allowed to accept.
 
 ---
 
-*Chapter 32 — Fractal Optimization and DGMs*
-*Ms. Egeria Allis Steward System — Harmony for Hope, Inc.*
-*Mount Hope, West Virginia*
-*Last updated: ★★★ 2026-07-07 — Carrie Kidd (Mamma Kidd)*
-*★★★ Canonical July 7 state: the code-level Darwin Gödel loop is autonomous, uses one Ollama coding model (`deepseek-coder:latest`), runs every 30 minutes, writes approved patches back to `/app/services/`, archives rejected patches to a host-mounted path, and operates independently of user-facing chat.*
+## 32.10 Stability
+
+Stability is required wherever optimization affects acceptance thresholds, revision policy, or judge behavior.
+
+A system that retunes itself too rapidly may become inconsistent across similar cases. The same candidate state might be revised on Monday, limited on Tuesday, and approved on Wednesday without any principled reason except unstable optimization dynamics. That would make the reasoning pipeline less trustworthy even if local metrics appeared to improve.
+
+Stability therefore requires:
+
+- limits on how quickly thresholds may move;
+- continuity in evaluation behavior across adjacent optimization epochs;
+- hysteresis against oscillation in revise / reject / approve boundaries;
+- observation windows long enough to distinguish real improvement from noise.
+
+The role of stability is to ensure that recursive improvement does not destroy evaluative coherence. A better optimizer is not enough if it produces a less intelligible system.
+
+---
+
+## 32.11 State Revision Under Optimization
+
+State revision is one of the most sensitive objects of optimization.
+
+Revision policy determines whether a borderline candidate state is repaired, constrained, escalated, or rejected. Small tuning changes here can substantially alter the behavior of the whole reasoning pipeline.
+
+A DGM may optimize revision behavior by proposing changes to:
+
+- how much contradiction triggers revision;
+- how much incompleteness is tolerated before escalation;
+- how many revision cycles are allowed;
+- when limited approval is preferable to repeated revision;
+- when the system should stop local repair and require outside review.
+
+But these changes must remain bounded and stable. Otherwise optimization may create endless revision loops, permissive drift, or superficial gains obtained only by lowering standards. This is why revision tuning belongs inside the same governance discipline as code changes and promotion thresholds.
+
+---
+
+## 32.12 Fractal Coherence Across Nested Sandboxes
+
+The architecture contains nested sandboxes that must remain coherent across scales.
+
+The 23/69 DGMs have their own independent sandboxes for optimization. The reasoning pipeline has its own sandbox for provisional cognition. A change proposed in one sandbox may affect the conditions inside another, but it does not do so automatically. It passes through a staged path of local testing, internal selection, and external safety review.
+
+This nested structure creates a controlled recursion:
+
+- the reasoning sandbox contains provisional cognition;
+- the DGM sandbox contains provisional optimization;
+- the external safety path mediates what may leave either bounded domain with greater authority.
+
+Fractal coherence means that a local gain inside one sandbox is not considered sufficient if it destabilizes the larger system. Improvement must remain compatible across layers, from local evaluator behavior up through governed production consequence.
+
+---
+
+## 32.13 Closing Statement
+
+Fractal optimization and the 23/69 Darwin Gödel Machines give Ms. Allis a governed recursive improvement architecture in which candidate changes are first explored in independent DGM sandboxes, then comparatively selected, and only then sent through external safety channels before any production effect is allowed. This three-stage process preserves the difference between optimizer judgment and system authorization.
+
+Within that architecture, the reasoning sandbox is also a governed domain. DGMs may optimize thresholds, judges, evaluation behavior, and promotion-related machinery, but boundedness, non-expansive promotion, and stability keep those changes from silently widening authority or destabilizing state revision. The result is recursive adaptation without self-authorizing drift.
