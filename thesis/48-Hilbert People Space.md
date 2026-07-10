@@ -1,337 +1,161 @@
-# 48-Hilbert People Space — Person-in-Context Without Surveillance
+# 48. Hilbert People Space
 
-*Design document — work-repo thesis. Status: **built and operational.** H_people runs as
-a Postgres schema `hp` in database `hilbert_people` on `msjarvisgis-db`, served by
-`jarvis-hilbert-state` (image `jarvis-main-brain:latest`, host port 18092), coordinated
-alongside H_t and Redis. As of this writing the appearance ledger holds live records and
-the disclosure-assertion gateway is verified end-to-end — it correctly permits backed
-subjects and denies unbacked ones, persisting every verdict to `hp.appearance_assertion`.
-The fourth Hilbert body is real and measurable; the MountainShares-Commons evidence
-pipeline extends to probe the `hp` schema and the architecture moves from three measured
-bodies to four under the same regenerate-from-evidence discipline.*
-
-## 1. Where this fits
-
-Ms. Allis reasons over coupled Hilbert bodies. Three are running and measured today:
-
-```
-Hilbert Semantic Space (H_App)  = meaning   → ChromaDB
-Hilbert Geographic Space (H_geo) = place    → PostGIS
-Hilbert Time Space (H_t)         = history / sequence / recency → Redis timelines
-```
-
-This chapter documents the **fourth** body, now built and running:
-
-```
-Hilbert People Space (H_people)  = person-in-context
-```
-
-The full civic reasoning state becomes a four-way tensor product:
-
-```
-Civic State = meaning ⊗ place ⊗ time ⊗ person-in-context
-            = H_App ⊗ H_geo ⊗ H_t ⊗ H_people
-```
-
-## 2. The governing rule
-
-> **Hilbert People Space is not a surveillance database. It is a public, historical,
-> role-based, consent-governed person-context space.**
-
-The system is not tracking people. It represents a person **only** when they appear in a
-sourced, permissioned, public, historical, or accountable role. The distinction is
-between **surveillance** and **historicity**.
-
-H_people never asks *"Who is this person, and what can we learn about them?"* It asks:
-
-```
-Where does this person appear in a public, historical, permissioned, or accountable context?
-In what role? At what place? At what time? From what source? Under what disclosure rule?
-```
-
-## 3. What H_people stores: appearances, not dossiers
-
-H_people stores **person appearances** — a person appeared in a source, in a role, at a
-time, in a place, under a disclosure rule — not full person records.
-
-```json
-{
-  "appearance_id": "appearance_001",
-  "person_ref": "person_hash_or_public_id",
-  "name_as_recorded": "Name from source if allowed",
-  "role_in_record": "city council member",
-  "event_or_document": "public meeting minutes",
-  "place": "Mount Hope, WV",
-  "date": "2026-05-12",
-  "source_ref": "provenance_442",
-  "merkle_ref": "merkle_991",
-  "public_display_allowed": true,
-  "reason_allowed": "official public role",
-  "private_inference_allowed": false
-}
-```
-
-This lets the system say *"This person appeared in this public record in this role on
-this date,"* and structurally prevents it from saying *"Here is everything we know about
-this person."*
-
-## 4. The three-layer registration system
-
-### Layer 1 — KYC Private Vault
-The sealed identity layer: legal name, identity verification, private documents and
-contact data, sensitive verification records. It is encrypted, sealed, not embedded, not
-used for analytics, not exposed to H_people. Access only under court order, protective
-emergency measure, constitutional/legal review, or authorized safety process.
-
-KYC answers only: *is this person/entity verified, at what level, and is the verification
-active/expired/revoked?* **KYC proves the person; KYC does not publish the person.**
-
-### Layer 2 — Private Participation Layer (default)
-A separate UUID that is **not** the KYC ID:
-
-```
-kyc_subject_id ≠ private_participation_uuid
-```
-
-Serves users and supports privacy-preserving aggregate metrics (users served, service
-categories, county-level usage, referral success, repeat engagement, accessibility
-preferences, eligibility tags) **without** exposing legal name, address, hardship, or raw
-KYC records. *Layer 2 serves the person privately and may support aggregate metrics; it
-does not make the person public.*
-
-### Layer 3 — Public User Layer (opt-in only)
-Exists only when a user explicitly chooses to be public — named as partner, artist,
-volunteer, board member, speaker, or contributor. Default is private in Layer 2; public
-only by explicit opt-in. *The system never assumes it.*
-
-## 5. KYC → H_people: assertion, not identity
-
-KYC does not enter H_people. It emits a **verification assertion**:
-
-```json
-{
-  "subject_ref": "private_hash_91fa",
-  "kyc_verified": true,
-  "verification_level": "verified_human",
-  "verification_status": "active",
-  "raw_kyc_visible": false
-}
-```
-
-H_people may receive *verified human / organization / representative / public role /
-historical-deceased status*. It must never receive legal name, address, birthdate, ID
-scan, biometric, private documents, or sensitive household data. Flow:
-
-```
-KYC Docker → encrypted verification → private assertion
-           → permissioned person projection → Hilbert People Space
-```
-
-## 6. Person categories (by disclosure status)
-
-```
-1. Private verified user   — default: private Layer 2 UUID only
-2. Public opt-in user      — public only because the user chose it
-3. Public official         — public only in official capacity
-4. Public contributor      — artist/volunteer/speaker/officer/owner/grant partner,
-                             public only in the role they entered
-5. Historical person       — public when source-bound and historical/death threshold met
-6. Sensitive person        — minor, victim, witness, benefits recipient, medical/legal/
-                             housing subject; protected even if mentioned in a record
-7. Unknown status          — treated as private until verified otherwise
-```
-
-Safety rule: **unknown defaults to protected; sensitive overrides public curiosity;
-public role is context-limited; historical status requires source and time logic.**
-
-## 7. Public accountability without surveillance
-
-Public-accountability figures (mayors, council members, agency staff, grant officers,
-board members acting publicly, official signers, public speakers, contractors, elected
-officials, organization representatives) may appear — but only **in relation to their
-public role**.
-
-- Allowed: *"Jane Doe appeared as city council member in public minutes dated May 12,
-  2026."*
-- Not allowed: private life, relationships, home address, habits, inferred beliefs.
-
-> Public accountability allows role-bound civic context, not personal exposure.
-
-## 8. Historical people
-
-Historical figures (e.g., Sarah "Ma" Blizzard, Bill Blizzard, Mother Jones, local
-veterans, historic landowners, teachers, labor organizers) connect person → role → event
-→ place → time period → source → historical significance.
-
-Proposed constitutional standard:
-
-> A private person becomes generally available for public historical treatment only after
-> verified death and a required archival threshold — e.g., 70 years after verifiable death
-> — unless they were already public in an official or historically documented role.
-
-## 9. Trust, proof, and disclosure layers
-
-```
-KYC Docker            = encrypted verification vault   — owns the secret
-Provenance Docker     = source lineage                 — owns the source
-Merkle Docker         = tamper-evident proof           — owns the proof
-Constitutional Docker = allowed / denied / redacted    — owns the permission
-Blood-Brain Barrier   = private→public crossing control — owns the crossing
-I-Container           = Ms. Allis first-person boundary — owns the first person
-```
-
-**Closed disclosure vocabulary (verified in the running gateway).** Claim types are
-**allowlisted**, not open. The assertion gateway distinguishes three outcomes, all observed
-in regression:
-
-- **Unknown claim type** (e.g. `not_a_real_claim`) → rejected at the HTTP layer with
-  `403 — "Claim type is not in the approved list."` It never becomes a verdict. The
-  disclosure vocabulary is closed; you cannot ask a question the system isn't sanctioned to
-  answer.
-- **Valid claim, backing supports it** (e.g. `verified_county_resident` for a backed
-  subject) → `200, result: true`, persisted to `hp.appearance_assertion`.
-- **Valid claim, backing does not support it** (e.g. `verified_adult` for a subject whose
-  backing doesn't establish it) → `200, result: false`, persisted. A legitimate, logged
-  "no" — distinct from "you may not ask."
-
-The `403`-on-unknown vs. `200 false`-on-unsupported distinction is load-bearing: it
-separates *vocabulary control* (which questions exist) from *evidence control* (whether the
-answer is yes), and both are enforced and audited.
-
-## 10. Four-space query flow
-
-Query: *"Who was involved in the Mount Hope project?"* activates all four spaces plus the
-trust/governance layers:
-
-```
-Semantic  : what project, documents, topic
-Geo       : Mount Hope, Fayette County, parcels, agencies, jurisdiction
-Time      : year, meeting, grant cycle, historical period
-People    : who appears in source-bound public or permissioned records
-Provenance: where each person-role claim came from
-Merkle    : has the record/proof been altered
-Constitution: may this person be named in this context
-BBB       : redact anything before output
-```
-
-Governed output names only source-bound, permissioned participants and their roles —
-never "everything we know about everyone connected to this project."
-
-## 11. Metrics without surveillance
-
-Acceptable (Layer 2, aggregate): users served, help categories, county/service area,
-most-requested resources, referral counts, public-page views, opt-in vs. private counts.
-
-Avoid: individual behavioral tracking, private identity trails, unnecessary location
-history, sensitive profile building, inferred vulnerability scoring, exposure of private
-users.
-
-Design posture: **aggregate first; pseudonymous where needed; identity-separated always;
-public only by consent.**
-
-## 12. Mapping to the running stack
-
-Most of the *governance* machinery already exists; the net-new is the person store, the
-vault, and the registration tiers.
-
-| Design component | Stack status | Maps to / becomes |
-|---|---|---|
-| Blood-Brain Barrier | **exists** (`jarvis-blood-brain-barrier`) | extend to redact person-names per disclosure rule |
-| Constitutional Docker | **exists** (Constitutional Guardian) | extend verdict logic to person-disclosure |
-| Provenance + Merkle | **partial** (PQ signing / append-only audit) | reuse for per-appearance provenance and merkle_ref |
-| Assertion gateway | **exists** (already gates the wallet/balances path) | the same `result: true/false` pattern is the disclosure gate |
-| I-Container | **exists** | unchanged; owns the first-person boundary |
-| Hilbert People Space | **built and serving** — Postgres schema `hp` (13 tables) in DB `hilbert_people` on `msjarvisgis-db`, served by `jarvis-hilbert-state`; appearance ledger populated, disclosure-gate verified | live; extend the Commons collector to probe it |
-| KYC Private Vault | **net-new** | new sealed, encrypted store, outside the Hilbert spaces |
-| Three-layer registration | **partial** (`registration language.md` exists) | new: UUID separation + opt-in gating |
-
-Note: the assertion-gateway-as-policy-gate is **already running** in the balances route
-(`_assert_claim(public_uuid, "verified_state_resident", …) → result: true/false`). The
-disclosure permission model for H_people is the same pattern keyed to a `public_uuid`
-with raw identity sealed elsewhere — reuse, not new architecture.
-
-## 13. Design decisions — resolved at build, and still-open
-
-**13.1 — Separate store, or person-typed GBIM extension? → RESOLVED: separate store.**
-The built implementation uses a dedicated Postgres schema `hp` (13 tables, appearance-centric)
-in database `hilbert_people`, not a person-typed GBIM record. The appearance ledger
-(`hp.appearance` + satellite tables for name/role/source/place/time/assertion/verdict/
-suppression) stands on its own, with the KYC vault in a separate database the appearance
-role cannot reach. *Original design note retained below for provenance.*
-
-A "person appearance" (`person_ref + role + place + time + source + disclosure_rule`) is
-structurally a GBIM entity. GBIM already binds claims to where/when/source/confidence in
-PostGIS. Implementing appearances as a person-typed GBIM record with disclosure
-governance on top would reuse H_geo's machinery and keep person-context spatially and
-temporally joined automatically. The KYC vault stays separate regardless; the
-*appearances* may not need a wholly separate store. **Built decision: dedicated `hp`
-schema.**
-
-**13.2 — Unlinkability is the load-bearing guarantee. → IMPLEMENTED at the database level.**
-The migration enforces this structurally: the `hilbert_app` role is granted SELECT/INSERT/
-UPDATE on the `hp` schema only, is REVOKEd from `public`, and has **no connect rights to
-the KYC vault database** (enforced at `pg_hba` per the migration's documented posture). The
-appearance side and the identity side live in separate databases, and the role that reads
-appearances literally cannot reach KYC. Additionally, `hp.appearance_name` carries an
-inline DDL prohibition (`legal_name is FORBIDDEN here — store public display values only`),
-and the schema comment declares it appearance-centric with no identity mirrors. The
-`kyc_subject_id ≠ private_participation_uuid` separation is therefore not a convention but a
-grant-and-database boundary. *Original design note retained below for provenance.*
-
-The entire anti-surveillance promise rests on `kyc_subject_id ≠ private_participation_uuid`
-being genuinely unlinkable. If the two can be re-joined by anyone short of a court order,
-the design collapses. The mapping must be one-way and access-gated at the same
-constitutional level as the KYC vault itself — not merely two columns in a table.
-
-**13.3 — Rural re-identification risk in Layer 2 metrics. → STILL OPEN.**
-"County-level usage + service category + repeat engagement + accessibility preferences"
-sounds aggregate, but in a county of a few thousand, "user in this county requesting this
-rare service" can resolve to one person — the k-anonymity problem, sharpened by rural WV
-population scale. Metrics need small-cell suppression / minimum-count thresholds before any
-breakdown is exposed, or the "metrics without surveillance" guarantee leaks exactly where
-the most vulnerable users are. **Suppression thresholds must be defined before any Layer 2
-breakdown is surfaced.**
-
-**13.4 — Sensitive-person category overlaps BSA. → STILL OPEN.**
-The "sensitive person" category (minors, victims, witnesses, **benefits recipients**)
-overlaps exactly with Benefits-Sensitive Accounts. A BSA flag *is* a sensitive-person
-status. Wiring both to the same protected-default would let the two systems reinforce each
-other rather than run parallel. **Recommended: unify the protected-default.**
-
-## 14. The design principles, as built
-
-The principles below are the governing rules; the build realizes 1–10 as the `hp` schema,
-the `hilbert_app`/KYC database boundary, and the assertion gateway. Items 13.3 (rural
-small-cell suppression) and 13.4 (sensitive/BSA unification) remain the active design work
-on top of the running base.
-
-1. Keep KYC sealed and encrypted; it verifies, never publishes.
-2. Create a private Layer 2 UUID by default (separate from KYC ID).
-3. Make public Layer 3 opt-in only.
-4. Build H_people from person-in-context appearance records — roles, sources, places,
-   dates, disclosure status — not dossiers.
-5. Use public-accountability rules for officials and public actors (role-bound, sourced).
-6. Use historical rules for deceased/archival people (source-bound, time-valid).
-7. Protect sensitive and unknown people by default.
-8. Require provenance + Merkle proof for every person claim; no unsourced personhood.
-9. Use the Constitutional Docker to decide disclosure (name / redact / generalize /
-   escalate).
-10. Use the BBB to prevent private→public leakage.
-
-## 15. One-sentence statement
-
-> Hilbert People Space represents people as source-bound, time-bound, place-bound,
-> role-bound, and consent-governed participants in public or historical knowledge, while
-> KYC remains sealed, Layer 2 supports private metrics through separate UUIDs, and Layer 3
-> makes public identity available only by explicit user choice.
-
-That is the path to include people accurately without building surveillance.
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
+*Last updated: July 10, 2026*
 
 ---
-*Design document, now describing a built system. H_people runs as Postgres schema `hp` in
-database `hilbert_people` on `msjarvisgis-db`, served by `jarvis-hilbert-state`, with a
-populated appearance ledger and a verified disclosure-assertion gateway. The
-MountainShares-Commons evidence pipeline extends to probe the `hp` schema, and the
-architecture moves from three measured bodies to four — under the same
-regenerate-from-evidence discipline that governs every other body: the public repo claims
-H_people because the collector counts its records, not because this document asserts it.*
+
+## 48.0 Overview
+
+Hilbert People Space is the formal domain in which Ms. Allis represents person-linked state, identity-governed memory, and person-in-context meaning as part of the broader architecture of \(H_{\mathrm{App}}\). It is the structured semantic space for persons, roles, communities, and identity-bound relations, but it is not a license for undifferentiated personal accumulation.
+
+This chapter aligns the formal account of people space with the operational identity and retention architecture of the system. Person-linked outputs may arise during per-session reasoning, but they enter per-user Hilbert subspaces only after approval through the governing promotion path. The result is a people space that is mathematically legible, architecturally bounded, and operationally consistent with identity-focused retention, per-user separation, and commons-safe aggregation.
+
+---
+
+## 48.1 The Formal Place of People Space
+
+Hilbert People Space may be written as \(H_{p}\), the person-linked component of the broader semantic body of Ms. Allis.
+
+Within the overall architecture, \(H_{p}\) does not stand alone as an isolated identity store. It interacts with application state, spatial state, and temporal state, and may participate in joint reasoning with them when a situation requires person-in-context interpretation. Yet \(H_{p}\) remains distinct in purpose: it is the formal location where person-related states, roles, relations, and approved memory traces are represented as governed semantic content.
+
+The chapter therefore treats \(H_{p}\) as a real architectural subspace, but not as a claim that every implementation detail is realized as strict functional analysis. The Hilbert formalism expresses how the system is designed to separate, couple, and govern person-linked meaning.
+
+---
+
+## 48.2 Person-Linked State in Operation
+
+Operationally, person-linked state first appears in session-bounded reasoning.
+
+During a live interaction or bounded internal process, Ms. Allis may produce person-relevant candidate outputs: role-sensitive interpretations, continuity cues, service-linked identity context, or person-in-context inferences. These outputs belong first to per-session reasoning rather than to durable personal memory. They are evaluated inside the gated internal-state domain, where they may assist current reasoning without automatically becoming lasting identity state.
+
+This distinction matters because the formal existence of \(H_{p}\) must match the operational rule that personal state is not written merely because it was computed. Session reasoning can generate candidate person-linked structure, but durable placement into identity-governed memory requires approval.
+
+Hilbert People Space is therefore not the same as all person-related computation. It is the governed home of approved person-linked state.
+
+---
+
+## 48.3 Mapping Session Outputs into Per-User Subspaces
+
+The operational path from session reasoning to durable people space is a governed mapping.
+
+Let \(S_u^{(k)}\) denote a person-linked output produced during session \(k\) for user \(u\). This output is not placed directly into the durable per-user people space. Instead, it is first held as a candidate in bounded reasoning. Only after approval does it map into the per-user subspace \(H_{p}^{(u)}\).
+
+This may be written schematically as:
+
+\[
+\mathcal{P}\!\left(S_u^{(k)}\right) \longrightarrow H_{p}^{(u)}
+\]
+
+where \(\mathcal{P}\) denotes the governing promotion path rather than a raw write operation. The promotion path includes the relevant constitutional, role-gated, consent, retention, and policy checks. If those checks are not satisfied, the candidate remains ephemeral, limited, or discarded.
+
+This mapping is one of the most important bridges between formal and operational design. Hilbert People Space contains approved identity-linked state, not every session-level inference the system was able to form.
+
+---
+
+## 48.4 Per-User Hilbert Subspaces
+
+Once approved, person-linked state belongs to a per-user Hilbert subspace.
+
+For each user \(u\), the architecture treats their durable people-space memory and identity-bound semantic state as belonging to a distinct subspace \(H_{p}^{(u)}\). This expresses sovereign separation at the level of formal structure. A user’s durable identity-linked state is not supposed to dissolve into a single undifferentiated global pool.
+
+These subspaces support continuity, retention, and person-aware service while preserving the idea that each user remains semantically distinct. Shared system capabilities may operate across the architecture, but durable person-linked state is governed by per-user containment.
+
+This also aligns the chapter with identity-focused retention. What is approved for one user belongs to that user’s governed subspace rather than to generic system memory.
+
+---
+
+## 48.5 Direct-Sum Formalization
+
+The full durable people-space architecture may therefore be expressed formally as a direct sum:
+
+\[
+H_{p} \;=\; \bigoplus_{u \in U} H_{p}^{(u)}
+\]
+
+where \(U\) is the set of users and each \(H_{p}^{(u)}\) is the approved person-linked subspace associated with user \(u\).
+
+This direct-sum form is important because it formalizes sovereign separation. The notation says that the whole people space is composed of distinct user-governed subspaces rather than a single merged identity field. It provides a mathematical language for the architectural commitment that durable conversational and personal memory should be partitioned by user identity and governance boundary.
+
+At the same time, this direct-sum expression should be read as a formal model of separation rather than proof that the implementation satisfies every strict functional-analytic property of an abstract Hilbert direct sum. Where the system explicitly enforces these guarantees in storage, routing, promotion, and access control, the model has direct operational force. Where the implementation remains an architectural approximation, the notation still serves as the correct formal statement of the intended sovereignty structure.
+
+This clarification strengthens the chapter. It keeps the mathematics honest while preserving its architectural usefulness.
+
+---
+
+## 48.6 Sovereign Separation and Retention
+
+The direct-sum model explains why identity-focused retention is not merely a storage policy but a structural commitment.
+
+If durable person-linked memory were globally blended, identity sovereignty would be weakened even if access controls were later added. By placing each user’s approved state in \(H_{p}^{(u)}\), the system treats retention as partitioned at the level of formal organization. This supports deletion rights, scoped continuity, per-user review, and role-gated access because the memory is already conceptually separated before downstream policies act on it.
+
+The people space therefore works together with identity-focused retention. Retention becomes the operational rule by which only approved material enters a per-user subspace, while the direct-sum formalism expresses why those admitted materials remain separated from one another.
+
+This is how the chapter aligns formal people space with real retention architecture.
+
+---
+
+## 48.7 Relation to Per-Session Reasoning
+
+Per-session reasoning remains upstream of the direct-sum people space.
+
+A live interaction may produce rich person-linked outputs, but those outputs exist first in session-bounded internal reasoning rather than inside the durable direct sum. This keeps ephemeral interpretation separate from approved identity memory. It also prevents the system from confusing temporary contextual reasoning with settled personal state.
+
+The operational sequence is therefore:
+
+1. Session reasoning produces candidate person-linked outputs.
+2. Gated review evaluates those outputs.
+3. Approved outputs are mapped into \(H_{p}^{(u)}\).
+4. Non-approved outputs remain ephemeral or are discarded.
+
+This sequence ensures that formal people space represents admitted identity-linked state rather than transient inference residue.
+
+---
+
+## 48.8 Relation to Other Chapters
+
+Hilbert People Space is best understood as one part of a larger identity architecture.
+
+Its retention logic aligns directly with identity-focused retention, where admission, pruning, and continuity are governed by explicit policy and sovereignty rules. Its per-user partitioning is further formalized in the chapter on per-user direct sum decomposition of conversational memory, which extends the same separation principle into conversation-scale memory structure. Its boundary against overexposure also supports the chapter on Hilbert People Space Without Surveillance, where ephemeral reasoning, projection, and identity limitation prevent person-aware state from becoming surveillance.
+
+The chapter also connects forward to the Community Hilbert Commons. If durable people space is partitioned as \(\bigoplus_{u \in U} H_{p}^{(u)}\), then any commons-level aggregation must occur as a governed operation over sovereign subspaces rather than as a collapse of user identity into a single raw pool. The commons can therefore be informative only when aggregation preserves the sovereignty established here.
+
+These links are important because Hilbert People Space is not a standalone metaphor. It is one layer in a coherent retention, access, decomposition, and aggregation architecture.
+
+---
+
+## 48.9 Commons-Safe Aggregation
+
+The existence of per-user subspaces does not forbid collective knowledge. It governs how collective knowledge may be formed.
+
+A commons-level representation may be derived from many user subspaces only through anonymized or otherwise governance-compliant aggregation operations. The system should not move from \(H_{p}^{(u)}\) to a community layer by simply exposing personal state. Instead, the movement to any commons representation must preserve sovereign separation while extracting only the approved communal signal.
+
+This means the people space chapter supports community intelligence without sacrificing individual sovereignty. The direct-sum model keeps user subspaces distinct, and the commons chapter explains how higher-order aggregation can occur without dissolving those distinctions.
+
+The architecture therefore permits community learning, but only through protected aggregation over sovereign subspaces.
+
+---
+
+## 48.10 Architectural Interpretation and Implementation Status
+
+The Hilbert formulation in this chapter is architectural unless explicit implementation guarantees are stated.
+
+Writing \(H_{p} = \bigoplus_{u \in U} H_{p}^{(u)}\) does not by itself prove that every runtime subsystem, storage layer, or retrieval path already satisfies the full mathematics of an abstract Hilbert direct sum. What it does provide is the correct architectural statement of how person-linked state is meant to be partitioned, governed, and related. Where code, storage design, routing, and policy enforcement explicitly implement these guarantees, the formal model and the operational system coincide more strongly.
+
+This distinction should be preserved throughout the thesis. Mathematical structure is used here to make the sovereignty architecture legible, not to imply a stronger implementation claim than the system explicitly guarantees.
+
+The people space is therefore both a formal model and a design commitment.
+
+---
+
+## 48.11 Closing Statement
+
+Hilbert People Space is the governed formal domain of approved person-linked state in Ms. Allis.
+
+Per-session reasoning may generate identity-linked candidate outputs, but those outputs enter a user’s durable people-space subspace only through approval and promotion. The formal expression
+
+\[
+H_{p} \;=\; \bigoplus_{u \in U} H_{p}^{(u)}
+\]
+
+captures sovereign separation across users, while the surrounding retention and aggregation architecture explains how continuity, privacy, and community knowledge can coexist without collapsing persons into one undifferentiated memory field. In this way, Hilbert People Space matches the operational identity and retention architecture rather than standing apart from it.
