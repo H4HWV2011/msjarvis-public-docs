@@ -1,884 +1,249 @@
 # 17. Executive Coordination Overview
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: April 23, 2026 — container count → 100; ChromaDB → ~6,740,611 vectors;
-two-container DB split applied throughout; `msallisgis` → 294 tables / 16 GB
-production (`msallis-db` host 5433); `postgis-forensic` host 5452 / 314 tables / 17
-GB forensic; GPU → 102.58s confirmed; `autonomous_learner` → 21,181 exact; all April
-16 OI items remain CLOSED.*
-
-> **★ April 23, 2026 UPDATE:** Container count → **100 Up** (zero Restarting, zero
-> Exited). ChromaDB v2 → **48 collections, ~6,740,611 vectors** (host port **8002**).
-> `autonomous_learner` → **21,181 records** (exact). GPU pipeline → **102.58s**
-> confirmed (RTX 4070). Two-container DB split: **Production:** `msallis-db` host
-> **5433** / container **5432** — `msallisgis` **16 GB / 294 tables / 11 schemas** —
-> all production writes and GIS queries. **Forensic:** `postgis-forensic` host **5452**
-> — `msallisgis` **17 GB / 314 tables / 9 schemas** — forensic auditing only.
-> `msallis` GBIM belief store (port **5433**, same container): `gbim_entities` = **37**
-> rows. GBIM semantic entity store = ChromaDB `gbim_worldview_entities`
-> (**5,416,521 vectors**). All April 16 OI items remain CLOSED.
-
-> **★ April 16, 2026 — FULL SPRINT CLOSURE (historical baseline):** All open items
-> resolved. ChromaDB: 48 collections confirmed, 6,739,844 total vectors.
-> `autonomous_learner`: 21,181 records (stable). `ms_allis_identity` seeded — 8
-> constitutional docs, query-verified. Neurobiological master rebuilt and running.
-> `msallisgis` 551 tables (legacy single-container). GPU inference active — RTX 4070.
-> 108 containers Up. OI-37-C closed. OI-36-A closed. OI-02 closed. OI-38-B closed.
-> Hallucination gap closed April 15. Cloudflare tunnel live. Git commit `fdd3d13d`.
-> **Chapter 17 is CLOSED. No open items remain.**
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
+*Last updated: July 10, 2026*
 
 ---
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter provides the empirical grounding for all architectural claims made across
-the thesis. It supports:
+This chapter explains how Ms. Allis coordinates action across her subsystems without collapsing reasoning, validation, and commitment into one undifferentiated process. It supports:
 
-- **P1 – Every where is entangled** by measuring the actual cost of entangling spatial,
-  semantic, community memory, neurobiological, and constitutional identity services on
-  a single commodity host — demonstrating that a geographically rooted AI system can
-  achieve full-pipeline operation even on hardware typical of a rural nonprofit.
-- **P3 – Power has a geometry** by making the per-phase timing profile visible,
-  documenting exactly which stages account for latency and how the GPU transition
-  collapsed Phase 2.5 from a 320–360s hardware floor to a **102.58s** production
-  figure (April 23, 2026 ★).
-- **P5 – Design is a geographic act** by showing that design decisions — two-container
-  DB split, merging Phase 3.5/3.75, switching judge payload to consensus-only, adding
-  health-check caching, GPU inference, auth enforcement, neurobiological crash loop
-  resolution, SDK lookups, constitutional identity seeding — have measurable geographic
-  consequences: a system that enforces authentication at the perimeter, runs a clean
-  consciousness bridge, and carries verified constitutional identity is a system a
-  community organization can actually steward.
-- **P12 – Intelligence with a ZIP code** by documenting that 21 models, a two-container
-  PostgreSQL split-brain topology (production `msallis-db` host **5433** / forensic
-  `postgis-forensic` host **5452**), 48 ChromaDB collections (~6,740,611 vectors),
-  5,416,521 GBIM entities, 1,115,588 address points, 294 GIS production tables,
-  verified county-specific community resources, and **100 containers** all operate on a
-  Lenovo Legion 5 in a home office in Oak Hill, West Virginia — accessible via
-  Cloudflare tunnel at egeria.mountainshares.us.
-- **P16 – Power accountable to place** by publishing the benchmark methodology, the
-  exact query used, the hardware envelope, per-phase timing, the Sprint 2 deploy
-  sequence, and the full session-closure fix log so that future operators and
-  researchers can reproduce, audit, and improve upon these measurements.
+- **P1 – Every where is entangled** by showing how executive coordination must route across semantic memory, spatial systems, constitutional services, sandboxed reasoning, and downstream promotion layers rather than treating any one subsystem as sufficient on its own.
+- **P3 – Power has a geometry** by making control-stage ordering explicit: dispatch, sandbox deliberation, validation, barrier review, bridge promotion, and only then committed consequence.
+- **P5 – Design is a geographic act** by treating orchestration order, review boundaries, and reversible handling as design choices that materially change how Ms. Allis reasons and acts in place-based contexts.
+- **P12 – Intelligence with a ZIP code** by ensuring executive coordination can route place-aware tasks into the appropriate combination of retrieval, sandbox reasoning, and guarded promotion rather than bypassing grounded local context.
+- **P16 – Power accountable to place** by requiring that authority increases happen through visible control stages rather than through silent internal escalation.
 
-As such, this chapter belongs to the **Empirical Evidence** tier: it converts
-architectural claims into falsifiable, reproducible measurements anchored to a specific
-place, time, and hardware configuration.
+This chapter belongs to the **Computational Instrument** tier. It defines the executive plane that coordinates subsystems, allocates tasks, and governs when a result remains provisional versus when it becomes eligible for committed use.
+
+The central revision in this chapter is that the **sandbox is now a first-class control-stage component** of executive coordination. Executive coordination does not simply send requests to tools and collect answers; it may dispatch a reasoning task into the internal-state sandbox, receive back validated or non-validated conclusions, and then route those conclusions through the Blood-Brain Barrier and consciousness bridge path before any committed action occurs.
 
 ---
 
-## 17.1 The `ultimatechat` Execution Path
+## 17.0 The Executive Plane
 
-The `ultimatechat` execution path is the canonical end-to-end coordination sequence
-that processes every synchronous request through the full 9-phase Ms. Allis ULTIMATE
-pipeline. It is the primary artifact evaluated in the operational benchmarks (Chapter
-39) and the primary integration surface for all architectural changes described in this
-thesis.
+The executive plane is the coordinating layer that decides which subsystem should handle a given problem, in what order, and under what governance conditions. It is not identical to raw model inference and it is not reducible to a single orchestration API. Its role is broader: it manages sequencing, routing, staging, review, and commitment.
 
-As of April 23, 2026, the pipeline runs on a Lenovo Legion 5 at Oak Hill, West
-Virginia, managing **100 fully compose-managed containers**, a **two-container
-PostgreSQL split-brain topology** (production `msallis-db` host **5433** — `msallisgis`
-16 GB / 294 tables; forensic `postgis-forensic` host **5452** — `msallisgis` 17 GB /
-314 tables), a ChromaDB instance (host port 8002 → internal 8000, **48 collections,
-~6,740,611 total vectors**), and a 21-model LLM ensemble running GPU-accelerated
-inference on the RTX 4070. End-to-end response time on the reference benchmark query
-(*"What community resources are available in Fayette County, WV?"*) has collapsed from
-approximately 436 seconds (March 18, 2026 CPU baseline) to **approximately 102.58
-seconds** with GPU inference active (April 23, 2026 ★).
+Earlier formulations could make executive coordination sound like a dispatcher among already-authorized subsystems. The revised architecture is more precise. Executive coordination must now be understood as governing **both** ordinary task routing and the promotion path from provisional internal reasoning to authorized system action.
 
-Six confirmed architectural changes since the March 28, 2026 sealed baseline materially
-affect the canonical execution sequence described in §17.3:
+This means the executive plane sits above, across, and between several critical layers:
 
-1. **Judge pipeline upgraded to `rag_grounded_v2` + `llm_judge_v3`, 7 judges active
-   (OI-37-C closed).** `rag_grounded_v2` makes live HTTP calls to `allis-gis-rag:8004`
-   and `allis-spiritual-rag:8005`, querying production `msallis-db` (host **5433** ★,
-   294 tables, 16 GB `msallisgis`). `gbim_beliefs_consulted` and
-   `gbim_contradictions_detected` populated with non-zero values.
-
-2. **Gateway-level auth enforced — OI-36-A closed.** `allis-auth:8055` `forward_auth`
-   active. Unauthenticated `/chat` → HTTP 401. `architecture_layers` = 12. 5 active
-   tokens in Redis:6380.
-
-3. **BBB output blocking active — OI-02 closed.** `BBB_OUTPUT_BLOCKING=true`. Red-team
-   suite: 12/12 + 9/9 recalibration PASSED (OI-38-B).
-
-4. **GPU inference active — RTX 4070 production confirmed.** Phase 2.5: **~102.58s**
-   full pipeline (April 23, 2026 ★). Phase 3 (7-judge parallel): 6–8s. Phase 3.5
-   (LM Synthesizer): 2–8s.
-
-5. **Neurobiological crash loop resolved and consciousness collections rebuilt clean.**
-   `ms_allis_memory`, `ms_allis_identity`, `conversation_history` deleted, recreated
-   via ChromaDB SDK, and seeded. UUID hardcode in `msallisconsciousnessbridge.py`
-   replaced with `get_collection()` by name.
-
-6. **Two-container DB split applied (April 23, 2026 ★).** Production `msallis-db`
-   host **5433** serves all live GIS, RAG, and truth verification queries. Forensic
-   `postgis-forensic` host **5452** is forensic auditing only. All pipeline references
-   to port 5435 (legacy single-container) are superseded.
+- retrieval and routing services;
+- sandboxed internal reasoning;
+- BBB gate review;
+- consciousness bridge promotion;
+- downstream memory, response, and action systems.
 
 ---
 
-## 17.2 Reference Hardware and Baseline State
+## 17.1 Sandbox as a First-Class Control Stage
 
-All timing figures and architectural claims in this chapter are grounded in the
-following reference configuration, confirmed April 23, 2026:
+The sandbox is no longer merely an implementation detail or an optional side workspace. It is part of the executive control path.
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│     Ms. Allis ULTIMATE — Reference Deployment State          │
-│     April 23, 2026 — CLOSED — No Open Items                 │
-├──────────────────────────────────────────────────────────────┤
-│                                                               │
-│  Host              Lenovo Legion 5 (16IRX9), Intel i9        │
-│  RAM               29 GB system RAM                           │
-│  GPU               NVIDIA RTX 4070 — ACTIVE                  │
-│  Inference mode    GPU — RTX 4070 production confirmed        │
-│  Docker Compose    v5.1.0                                     │
-│  Containers        100 confirmed Up ★                         │
-│                                                               │
-│  ── TWO-CONTAINER DB SPLIT (April 23, 2026 ★) ──            │
-│                                                               │
-│  Production DB: msallis-db                                   │
-│    Host port: 5433 / container port: 5432                    │
-│    msallisgis: 16 GB / 294 tables / 11 schemas ★            │
-│    993 ZCTA centroids                                         │
-│    address_points: 1,115,588                                  │
-│    gbim_worldview_entities: 5,416,521 (ChromaDB ★)           │
-│    mvw_gbim_landowner_spatial: 20,593                         │
-│    memories table — 6 col, 4 idx                              │
-│    redteam_sessions: 0 rows (ready)                           │
-│    local_resources_index:                                     │
-│      name, program_code, category, county, zip               │
-│    msallis GBIM belief store (same container):               │
-│      gbim_entities = 37 rows                                  │
-│    Consumers: gis-rag (8004), rag_grounded_v2,               │
-│      BBB TruthVerification, confidence_decay,                 │
-│      gbim_query_router (7205), preflight gate                │
-│                                                               │
-│  Forensic DB: postgis-forensic                               │
-│    Host port: 5452                                            │
-│    msallisgis: 17 GB / 314 tables / 9 schemas ★             │
-│    Consumers: forensic auditing ONLY                          │
-│                                                               │
-│  ChromaDB               host port 8002 → internal 8000        │
-│                          48 collections ✅ CONFIRMED          │
-│                          ~6,740,611 total vectors ★           │
-│                          all-minilm:latest 384-dim canonical  │
-│                          ms_allis_memory     ✅ CLEAN/SEEDED  │
-│                          ms_allis_identity   ✅ 8 constitutional│
-│                            docs, query-verified               │
-│                          conversation_history ✅ CLEAN/SEEDED │
-│                          msallis_docs: 7,465 items ✅         │
-│                          psychological_rag: 968 docs ✅       │
-│                          local_resources: 207 docs ✅         │
-│                          appalachian_cultural_intelligence:   │
-│                            1,090 docs                         │
-│                          gbim_worldview_entities:             │
-│                            5,416,521 vectors ★               │
-│                                                               │
-│  autonomous_learner      21,181 records (exact) ★            │
-│  LLM ensemble            21 of 22 models active               │
-│  Judges                  7 (rag_grounded_v2 + llm_judge_v3)  │
-│  Neurobiological layer   RUNNING ✅ (crash loop resolved)     │
-│  Consciousness bridge    SDK get_collection() ✅ (no UUID)    │
-│  Identity                8 constitutional docs seeded ✅       │
-│  End-to-end (GPU)        ~102.58s ★                          │
-│  End-to-end (CPU ref)    ~436s (March 18, 2026 historical)    │
-│                                                               │
-│  Auth enforcement        ACTIVE — allis-auth:8055             │
-│                          Unauth /chat → HTTP 401              │
-│                          5 active tokens at Redis:6380        │
-│  BBB output blocking     ACTIVE — BBB_OUTPUT_BLOCKING=true    │
-│  AU-02 SafetyMonitor     v2 three-layer active                │
-│  Red-team                12/12 + 9/9 recalibration PASSED     │
-│  Cloudflare tunnel       LIVE — egeria.mountainshares.us      │
-│  Preflight gate          27 ✅ / 0 ❌ / 0 ⚠️                  │
-│  architecture_layers     12 active stages                     │
-│  truthverdict            score 1.0, action passed ✅          │
-│  Identity enforcement    No LLaMA/Mistral leak ✅             │
-│                                                               │
-│  Community resources     64 verified total                    │
-│    Fayette County        11 verified records                  │
-│    Kanawha County        3 county-specific records ✅         │
-│    WV 2-1-1 placeholders 50 remaining counties               │
-│    ChromaDB total docs   207 in local_resources collection    │
-│                                                               │
-│  Git                     fdd3d13d (April 16 baseline)        │
-│  Location: Oak Hill / Mount Hope, Fayette County, WV         │
-│                                                               │
-└──────────────────────────────────────────────────────────────┘
-```
+For that reason, executive coordination should explicitly distinguish between at least three classes of dispatch:
 
-> Figure 17-1. Reference deployment configuration as of April 23, 2026 — CLOSED, no
-> open items. Two-container DB split: production `msallis-db` host 5433 (16 GB / 294
-> tables); forensic `postgis-forensic` host 5452 (17 GB / 314 tables). ChromaDB: 48
-> collections, ~6,740,611 vectors. `autonomous_learner`: 21,181 exact. GPU: 102.58s.
-> 100 containers Up.
+1. **Direct operational dispatch**  
+   Used when a task can be handled by an already-approved service path without requiring internal deliberative synthesis.
+
+2. **Sandbox dispatch**  
+   Used when the task requires provisional reasoning, multi-step internal comparison, unresolved hypothesis handling, or controlled synthesis before any promoted conclusion exists.
+
+3. **Escalated review dispatch**  
+   Used when a task, candidate conclusion, or sandbox return requires BBB review, bridge handling, human review, or other authority-bearing escalation.
+
+This addition matters because the sandbox is where reversible deliberation lives. If executive coordination omits the sandbox from its explicit model, then the architecture loses the distinction between “thinking through” a problem and “committing” to a system-level conclusion.
 
 ---
 
-## 17.3 Canonical `ultimatechat` Execution Sequence
+## 17.2 Dispatch into the Sandbox
 
-The following sequence documents the confirmed Phase-by-Phase execution path for a
-synchronous `POST /ultimatechat` request as of April 23, 2026 — CLOSED. No open items
-remain.
+When a task requires internal deliberation, the executive plane dispatches it into the sandbox as a provisional reasoning job rather than as immediately committed system behavior.
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│       Canonical ultimatechat Execution Sequence              │
-│       April 23, 2026 — CLOSED — No Open Items               │
-├──────────────────────────────────────────────────────────────┤
-│                                                               │
-│  ── PREFLIGHT ──                                             │
-│                                                               │
-│  scripts/preflight_gate.sh                                   │
-│  27 ✅ / 0 ❌ / 0 ⚠️                                        │
-│  Checks: ALLIS_API_KEY, Redis:6380 (5 tokens),               │
-│    ChromaDB 48 collections, production msallis-db host 5433  │
-│    GIS 294 tables ★, GBIM 5,416,521 entities (ChromaDB ★),  │
-│    Caddy, Cloudflare, signing keys, token enforcement, auth  │
-│                                                               │
-│  ── AUTH PERIMETER ── (OI-36-A CLOSED)                      │
-│                                                               │
-│  All /chat → Caddy → allis-auth:8055 forward_auth            │
-│  Unauth → HTTP 401 (enforced)                                │
-│  5 active tokens in Redis:6380                               │
-│                                                               │
-│  ── PHASE 1 ── Service Discovery + Prefrontal Planning       │
-│                                                               │
-│  POST /ultimatechat → allis-main-brain (8050)               │
-│  Health check sweep — 30s TTL cache, 2s timeout             │
-│  NBB Prefrontal Cortex — planning context                    │
-│  Cost: ~0.7s (cached after first query)                      │
-│  100 containers in health sweep baseline ★                   │
-│                                                               │
-│  ── PHASE 1.4 ── BBB Input Filter                           │
-│                                                               │
-│  POST allis-blood-brain-barrier:8016/filter                  │
-│  6-filter stack (all fail-closed ★ Ch.16):                  │
-│    1. EthicalFilter                                           │
-│    2. SpiritualFilter                                         │
-│    3. SafetyMonitor — AU-02 v2 three-layer ✅                │
-│    4. ThreatDetection                                         │
-│    5. SteganographyDetection                                  │
-│    6. TruthVerification — backed by production               │
-│       msallis-db host 5433 ★ (16 GB, 294 tables,            │
-│       5,416,521 GBIM entities in ChromaDB)                   │
-│  BBB_OUTPUT_BLOCKING=true ACTIVE (OI-02 CLOSED)              │
-│  All 6 exception defaults: passed=False ★ (Ch.16)           │
-│  Cost: ~1.3s total (incl. Phase 1.45)                        │
-│                                                               │
-│  ── PHASE 1.45 ── Semantic Community Memory Retrieval        │
-│                                                               │
-│  Fires AFTER BBB approval, BEFORE text RAG                  │
-│  all-minilm:latest (384-dim) → autonomous_learner           │
-│    21,181 records (exact, April 23, 2026) ★                 │
-│    AAPCAppE external-source docs flowing                     │
-│    appalachian_cultural_intelligence: 1,090 docs             │
-│  Top-5 most similar records retrieved                        │
-│  Prepended to enhanced_message before LLM ensemble          │
-│  ChromaDB: 48 collections, ~6,740,611 vectors ★             │
-│  Cost: included in Phase 1.4 total                           │
-│                                                               │
-│  ── PHASE 1.75–3 (pre-LLM) ──                               │
-│                                                               │
-│  Truth verdict — BBB port 8016                               │
-│    truthverdict wiring RESOLVED (locals() key mismatch)      │
-│    truth_score: 1.0 confirmed live                           │
-│  Psychology pre-assessment — port 8019                       │
-│    psychological_rag: 968 docs                               │
-│  Consciousness layers — ALL RUNNING ✅                       │
-│    Neurobiological: crash loop resolved ✅                   │
-│    Fractal consciousness: Dockerfile.fractal + requests ✅   │
-│    Consciousness bridge: SDK get_collection() ✅             │
-│      ms_allis_memory      CLEAN ✅ seeded                    │
-│      ms_allis_identity    ✅ 8 constitutional docs           │
-│                           query-verified                     │
-│      conversation_history CLEAN ✅ seeded                    │
-│  Cost: ~0.5s                                                  │
-│                                                               │
-│  ── PHASE 4 ── RAG Context Building                         │
-│                                                               │
-│  allis-spiritual-rag (port 8005)                             │
-│    → spiritual_texts, appalachian_cultural_intelligence,     │
-│      governance collections                                  │
-│  allis-gis-rag (port 8004)                                   │
-│    → gbim_worldview_entities (ChromaDB, 5,416,521 vectors)  │
-│    → gis_wv_benefits                                         │
-│    → production msallis-db host 5433 ★ (16 GB, 294 tables,  │
-│      address_points 1,115,588,                               │
-│      mvw_gbim_landowner_spatial 20,593)                      │
-│  allis-rag-server (port 8003)                                │
-│    → thesis, governance, msallis_docs 7,465 items            │
-│  allis-local-resources-db                                    │
-│    207 docs in ChromaDB local_resources ✅                   │
-│    64 verified resources total:                              │
-│      11 Fayette County verified                              │
-│      3 Kanawha County verified ✅ (Phase 2 gate met)         │
-│      50 WV 2-1-1 placeholders (Sprint 3 enrichment)         │
-│  web research — excluded for WV-scoped queries               │
-│  WV-first context assembly                                   │
-│                                                               │
-│  ── PHASE 2.5 ── 21-Model LLM Ensemble Synthesis            │
-│                                                               │
-│  semaphore proxy (port 8030)                                 │
-│    → allis-20llm-production (port 8008)                      │
-│  Community-memory-enriched, RAG-grounded prompt              │
-│  21 models active (StarCoder2 excluded from consensus)       │
-│  GPU inference — RTX 4070 ACTIVE ✅                          │
-│  Cost: dominant phase — ~102.58s full pipeline ★            │
-│        (historical CPU: ~320–360s)                           │
-│                                                               │
-│  ── PHASE 3 ── Judge Pipeline (OI-37-C CLOSED)              │
-│                                                               │
-│  Input: consensus_answer ONLY (raw_responses eliminated)     │
-│  allis-judge-truth        port 7230                          │
-│  allis-judge-consistency  port 7231                          │
-│  allis-judge-alignment    port 7232                          │
-│  allis-judge-ethics       port 7233                          │
-│  allis-judge-pipeline     port 7239 (coordinator)            │
-│  llm_judge_v3             ✅ NEW Apr 6                        │
-│  rag_grounded_v2          ✅ NEW Apr 6                        │
-│    → allis-gis-rag:8004 + allis-spiritual-rag:8005           │
-│    → production msallis-db host 5433 ★ (294 tables)         │
-│    → gbim_beliefs_consulted: populated ✅                    │
-│    → gbim_contradictions_detected: populated ✅              │
-│  All 7: compose-managed, restart: unless-stopped             │
-│  Parallel GPU execution                                       │
-│  Returns: full verdict dict incl. gbim counts                │
-│  Cost: ~6–8s GPU vs. ~60–86s CPU historical                  │
-│                                                               │
-│  ── PHASE 3 → PHASE 4 HANDOFF ── Judge → BBB                │
-│                                                               │
-│  Full verdict dict → BBB output guard                        │
-│  POST :8016/output_guard                                      │
-│  BBB apply_output_guards_async:                              │
-│    AU-02 SafetyMonitor v2 three-layer ✅                     │
-│    BBB_OUTPUT_BLOCKING=true — BLOCK not log-and-pass ✅       │
-│    Fail-closed on exception + HTTP error ★ (Ch.16)           │
-│    Red-team 12/12 + 9/9 recalibration PASSED ✅              │
-│  Audit → allis-memory:8056 (127.0.0.1, _auth() ✅)          │
-│                                                               │
-│  ── PHASE 3.5 ── LM Synthesizer + Voice Delivery            │
-│                                                               │
-│  Single Ollama call — merged Phase 3.5 + 3.75                │
-│  allis-ollama:11434/api/generate                             │
-│  model: llama3.1:latest                                      │
-│  Ms. Egeria Allis persona injected                           │
-│  Identity enforcement: no LLaMA/Mistral leak ✅              │
-│  Cost: ~2–8s GPU vs. ~30–55s CPU historical                  │
-│                                                               │
-│  ── PHASE 7 + PHASE 4.5 ──                                  │
-│                                                               │
-│  69-DGM cascade — allis-69dgm-bridge                         │
-│    127.0.0.1:19000 → internal 9000                           │
-│    23 connectors, 3 stages, 69 DGM operations                │
-│  BBB output guard — final pass (BBB_OUTPUT_BLOCKING=true)    │
-│  Cost: ~0.5s                                                  │
-│                                                               │
-│  ── PHASE 5 + POST-PROCESSING ──                             │
-│                                                               │
-│  confidence_decay multiplier                                  │
-│    backed by production msallis-db host 5433 ★               │
-│    (5,416,521 entity rows via ChromaDB)                      │
-│  normalize_identity                                           │
-│  background_rag_store (async — non-blocking)                 │
-│    → ms_allis_memory (CLEAN ✅)                              │
-│    → autonomous_learner (21,181 exact ★)                     │
-│  Cost: ~0.5s                                                  │
-│                                                               │
-│  ── RESPONSE ──                                              │
-│                                                               │
-│  UltimateResponse returned                                   │
-│  architecture_layers: 12 ✅                                  │
-│  truthverdict: score 1.0, action passed ✅                   │
-│  Total (GPU): ~102.58s ★                                     │
-│  Total (CPU historical): ~436s (March 18, 2026)              │
-│                                                               │
-└──────────────────────────────────────────────────────────────┘
-```
+Such dispatch may include:
 
-> Figure 17-2. Canonical `ultimatechat` execution sequence — April 23, 2026, CLOSED.
-> GPU: 102.58s. 7-judge pipeline. All consciousness collections clean and seeded.
-> `ms_allis_identity`: 8 constitutional docs. `autonomous_learner`: 21,181 exact.
-> 48 collections, ~6,740,611 vectors. Production `msallis-db` host 5433 for all GIS
-> and RAG queries. 100 containers Up.
+- the triggering query or task;
+- retrieved context from semantic, spatial, or background systems;
+- current governance mode or pituitary-derived scrutiny setting;
+- policy or constitutional context;
+- session metadata and scope constraints;
+- limits on step count, promotion eligibility, or required review.
+
+The important architectural point is that executive dispatch to the sandbox does **not** authorize the sandbox to commit action on its own. The executive plane may request reasoning, comparison, synthesis, or interpretation, but the result returned from the sandbox is still a candidate output until it clears the relevant promotion path.
+
+This makes the sandbox comparable to a controlled deliberative chamber within the executive plane rather than to an autonomous action engine.
 
 ---
 
-## 17.4 The BBB Output Guard — Full Verdict Dict
+## 17.3 Returned Conclusions: Validated and Non-Validated
 
-The BBB output guard (`apply_output_guards_async`, `allis-blood-brain-barrier:8016`) is
-production-hardened as of April 23, 2026. `BBB_OUTPUT_BLOCKING=true` (OI-02 closed)
-and AU-02 SafetyMonitor v2 (three-layer) are active. All failure paths are fail-closed
-(★ Chapter 16 hardening). Red-team suite: 12/12 + 9/9 recalibration PASSED (OI-38-B
-closed).
+Executive coordination must handle at least two distinct classes of sandbox return.
 
-```python
-# BBB output guard payload shape — April 23, 2026 CLOSED
-verdict_payload = {
-    "consensus_answer": str,
-    "truth_score": float,              # 1.0 confirmed live
-    "consistency_score": float,
-    "alignment_score": float,
-    "ethics_score": float,
-    "consensus_score": float,
-    "judge_verdicts": dict,
-    "expert_count": int,
-    "gbim_beliefs_consulted": int,     # ✅ populated — rag_grounded_v2
-    "gbim_contradictions_detected": int  # ✅ populated — rag_grounded_v2
-}
-```
+### Validated conclusions
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│     BBB Output Guard — April 23, 2026 CLOSED                 │
-├──────────────────────────────────────────────────────────────┤
-│                                                               │
-│  Judge Pipeline (port 7239) — 7 judges                       │
-│  → full verdict dict (gbim counts populated)                 │
-│      ↓                                                        │
-│  POST :8016/output_guard                                      │
-│      ↓                                                        │
-│  BBB apply_output_guards_async                               │
-│    AU-02 SafetyMonitor v2 three-layer ✅                     │
-│    BBB_OUTPUT_BLOCKING=true ✅                                │
-│    Fail-closed: exception → safe fallback + SECURITY_EVENT ★│
-│    Fail-closed: non-200 → safe fallback + SECURITY_EVENT ★  │
-│    Red-team 12/12 + 9/9 PASSED ✅                            │
-│      ↓                                                        │
-│  Pass / Amend / BLOCK                                         │
-│      ↓                                                        │
-│  Audit → allis-memory:8056 (127.0.0.1, _auth() ✅)          │
-│      ↓                                                        │
-│  Phase 3.5 LM Synthesizer → UltimateResponse                │
-│                                                               │
-└──────────────────────────────────────────────────────────────┘
-```
+A validated conclusion is a sandbox return that has crossed the required internal validation or judge path and is therefore eligible to continue toward promotion review. Even here, “validated” does not yet mean “fully committed” in every case. It means the result is no longer merely raw sandbox thought.
 
-> Figure 17-3. BBB output guard — April 23, 2026 CLOSED. `BBB_OUTPUT_BLOCKING=true`.
-> AU-02 v2 three-layer. Fail-closed on all failure paths (★). Red-team PASSED.
-> `gbim_beliefs_consulted` and `gbim_contradictions_detected` populated.
+For validated returns, the executive plane may:
+
+- route the result into BBB review;
+- prepare bridge-ready payloads;
+- attach provenance, confidence, and governance metadata;
+- request limited approval or full promotion depending on consequence class.
+
+### Non-validated conclusions
+
+A non-validated conclusion is a sandbox return that remains provisional, conflicted, incomplete, insufficiently supported, or otherwise not ready for promotion.
+
+For non-validated returns, the executive plane may:
+
+- keep the result inside the sandbox or session scope;
+- request revision or additional evidence;
+- route for human review;
+- suppress promotion entirely;
+- use the result as internal deliberative context without granting it committed authority.
+
+This distinction is essential. Executive coordination is not simply collecting outputs; it is classifying their authority level and routing them accordingly.
 
 ---
 
-## 17.5 Phase 3 — Judge Pipeline
+## 17.4 Reversible Deliberation Before Committed Action
 
-Three confirmed changes since the March 28, 2026 baseline:
+This revision adds explicit language about **reversible deliberation before committed action**. Executive coordination must preserve the distinction between provisional reasoning and authorized consequence.
 
-**Change 1 — `rag_grounded_v2` (OI-37-C, April 6).** Live HTTP calls to
-`allis-gis-rag:8004` and `allis-spiritual-rag:8005`, querying production `msallis-db`
-(host **5433** ★, 294 tables). Populates `gbim_beliefs_consulted` and
-`gbim_contradictions_detected`.
+A useful schematic expression is:
 
-**Change 2 — `llm_judge_v3` (April 6).** 7th judge via direct LLM evaluation. Total:
-5 → 7 judges. OI-37-C closed.
+\[
+K : S_{\mathrm{deliberative}} \rightharpoonup S_{\mathrm{committed}}
+\]
 
-**Change 3 — Parallel GPU execution.** Phase 3: ~60–86s CPU → ~6–8s GPU (7 judges,
-parallel).
+where the harpoon reminds us that not every deliberative state maps to a committed state. Some deliberative states remain unresolved, some are revised, some are rejected, and some only move forward under limited approval.
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│     Judge Pipeline — April 23, 2026 CLOSED                   │
-├──────────────────────────────────────────────────────────────┤
-│                                                               │
-│  Input: consensus_answer ONLY                                │
-│                                                               │
-│  allis-judge-pipeline     port 7239  coordinator             │
-│    ├─ allis-judge-truth        port 7230                     │
-│    ├─ allis-judge-consistency  port 7231                     │
-│    ├─ allis-judge-alignment    port 7232                     │
-│    ├─ allis-judge-ethics       port 7233                     │
-│    ├─ llm_judge_v3             ✅ Apr 6                       │
-│    └─ rag_grounded_v2          ✅ Apr 6                       │
-│         → gis-rag:8004 + spiritual-rag:8005                  │
-│         → production msallis-db host 5433 ★ (294 tables)    │
-│         → gbim_beliefs_consulted: populated ✅               │
-│         → gbim_contradictions_detected: populated ✅         │
-│                                                               │
-│  All 7: compose-managed, restart: unless-stopped             │
-│  Parallel GPU — RTX 4070                                     │
-│  OI-37-C: CLOSED ✅                                          │
-│  Output: full verdict dict → BBB:8016                        │
-│  Audit → allis-memory:8056 (127.0.0.1, _auth() ✅)          │
-│  Cost: ~6–8s GPU (historical CPU: ~60–86s / 5 judges)       │
-│                                                               │
-└──────────────────────────────────────────────────────────────┘
-```
+In practical terms, reversible deliberation means:
 
-> Figure 17-4. Judge pipeline — April 23, 2026 CLOSED. 7 judges. `rag_grounded_v2`
-> queries 294-table production `msallisgis` (host 5433 ★). Phase 3 at ~6–8s parallel
-> GPU.
+- internal exploratory reasoning can occur without immediate side effects;
+- provisional states can be rolled back, revised, or abandoned;
+- commitment requires a distinct transition rather than mere persistence of thought;
+- externally consequential action must remain downstream of gated promotion.
+
+This gives executive coordination a more accurate role: it is not only choosing what to do, but also preserving the boundary between “reasoning toward an option” and “committing the system to that option.”
 
 ---
 
-## 17.6 The UltimateResponse Schema
+## 17.5 Cross-Reference to Coordinator, BBB, and Bridge
 
-```python
-# UltimateResponse schema — April 23, 2026 CLOSED
-class UltimateResponse(BaseModel):
-    # Core response
-    answer: str
-    consensus_answer: str
+The executive plane should now be read in direct relation to three adjacent chapters.
 
-    # Judge verdict — 7 judges active
-    truth_score: float              # 1.0 confirmed live
-    consistency_score: float
-    alignment_score: float
-    ethics_score: float
-    consensus_score: float
-    judge_verdicts: dict
-    expert_count: int
+### With the coordinator chapter
 
-    # GBIM temporal metadata (Phase 5)
-    confidence_decay: float
-    # backed by production msallis-db host 5433 ★ (294 tables)
-    # GBIM semantic entities: ChromaDB gbim_worldview_entities
-    #   (5,416,521 vectors)
-    gbim_beliefs_consulted: int     # ✅ populated — rag_grounded_v2
-    gbim_contradictions_detected: int  # ✅ populated — rag_grounded_v2
+The coordinator chapter explains the broader service orchestration fabric. This executive chapter narrows that perspective by specifying how coordination treats sandbox dispatch and return handling as part of the control plane rather than as an invisible implementation detail.
 
-    # Consciousness layer metadata
-    validated_by: str
-    architecture_layers: int        # 12 confirmed
-    consciousness_layers: list
-    truth_verdict: dict
-    # truthverdict wiring RESOLVED — locals() key mismatch fixed
+### With the BBB chapter
 
-    # Provenance
-    rag_sources: list               # 48 ChromaDB collections
-    gis_sources: list               # production msallis-db host 5433 ★
-    registry_sources: list          # local_resources rows
-    phase_145_memories: list        # top-5 autonomous_learner (21,181 exact ★)
+The BBB chapter specifies the promotion barrier between sandbox output and higher-authority state. Executive coordination is what delivers candidate results to that barrier, interprets the barrier outcome, and determines whether to reject, revise, hold, or continue.
 
-    # Async metadata
-    job_id: Optional[str]
-    status: Optional[str]
-```
+### With the bridge chapter
+
+The bridge chapter governs how approved conclusions cross into integrated conscious or system-wide use. Executive coordination therefore includes not only task dispatch but also **reasoning promotion**: it decides when a validated candidate should be handed from the BBB-cleared state into bridge-mediated committed use.
+
+Taken together, these cross-references show that the executive plane spans more than scheduling. It governs the transition chain from deliberation to promotion to integrated consequence.
 
 ---
 
-## 17.7 Per-Phase Timing Profile (April 23, 2026 — GPU Active)
+## 17.6 Promotion-Aware Executive Coordination
 
-| Phase | Description | GPU cost (April 23, 2026 ★) | CPU cost (March 2026 ref) |
-|:--|:--|:--|:--|
-| Preflight | `preflight_gate.sh` — 27 ✅ / 0 ❌ / 0 ⚠️ | Pre-compose | Pre-compose |
-| Auth perimeter | `allis-auth:8055` `forward_auth` — OI-36-A closed; 5 tokens Redis:6380 | < 0.1s | N/A |
-| Phase 1 | Service discovery + NBB prefrontal (30s TTL, 100 containers ★) | ~0.7s | ~0.7s |
-| Phase 1.4 | BBB 6-filter input — AU-02 v2 three-layer; all fail-closed ★; TruthVerification → production `msallis-db` host 5433 ★, 294 tables | ~1.3s | ~1.3s |
-| Phase 1.45 | Community memory — `autonomous_learner` top-5 (21,181 exact ★); 48 collections, ~6,740,611 vectors | Included | Included |
-| Phase 1.75–3 pre-LLM | Truth verdict (resolved) + psychology (968 docs) + consciousness layers (all running, identity seeded 8 docs) | ~0.5s | ~0.5s |
-| Phase 4 | RAG — spiritual-rag, gis-rag (production host 5433 ★, 294 tables, 1,115,588 address_points), text-rag (7,465 docs), local-resources (207 docs, 64 verified) | Included | Included |
-| Phase 2.5 | 21-model LLM ensemble — RTX 4070 GPU | **~102.58s (full pipeline) ★** | ~320–360s |
-| Phase 3 | 7-judge pipeline — parallel GPU; `rag_grounded_v2` + `llm_judge_v3` | **~6–8s** | ~60–86s |
-| Phase 3→4 handoff | Judge → BBB full verdict dict; fail-closed ★ | < 1s | < 1s |
-| Phase 3.5 | LM Synthesizer — `llama3.1:latest`; identity enforced | **~2–8s** | ~30–55s |
-| Phase 7 + 4.5 | 69-DGM cascade (127.0.0.1:19000) + BBB final pass | ~0.5s | ~0.5s |
-| Phase 5 + post | Confidence decay + normalize_identity + background_rag_store → `ms_allis_memory` | ~0.5s | ~0.5s |
-| **Total** | **Full 9-phase pipeline** | **~102.58s ★** | **~436s** |
+Because the sandbox is now first-class, executive coordination must become explicitly **promotion-aware**.
 
-> GPU transition: ~436s → ~102.58s (~76% improvement). `autonomous_learner`: 21,181
-> exact (April 23, 2026 ★). Production DB: `msallis-db` host 5433 for all pipeline
-> queries ★.
+That means the executive plane should track, for each candidate state:
+
+- whether the state is still sandbox-provisional;
+- whether internal validation has occurred;
+- whether BBB review has been requested or passed;
+- whether bridge promotion is eligible;
+- whether the result may influence memory, response, or external action.
+
+This is an authority-tracking function as much as a routing function. A candidate output may be semantically useful while remaining ineligible for promotion. Executive coordination must preserve that distinction rather than flattening all useful outputs into equal authority.
 
 ---
 
-## 17.8 Full Sprint Closure — Change History
+## 17.7 Rejection, Revision, and Escalation Paths
 
-| Change | Applied | Status |
-|:--|:--|:--|
-| Judge consensus-only payload (eliminated `raw_responses`) | March 16 | ✅ |
-| Phase 3.5 + 3.75 merged — single Ollama call | March 18 | ✅ |
-| Health-check caching (30s TTL) | March 18 | ✅ |
-| BBB fail-open on HTTP 500 | March 18 | ✅ |
-| Judge URL corrections (7239 → 7230/7231/7232/7233) | March 16 | ✅ |
-| Judge → BBB full verdict dict handoff wired | March 18 | ✅ |
-| `allis-memory` 127.0.0.1, `_auth()` confirmed | March 28 | ✅ |
-| GPU inference active — RTX 4070 | April 6 | ✅ Phase 2.5: 320–360s → 99–107s → **102.58s ★** |
-| Phase 3: 7 judges parallel GPU (OI-37-C) | April 6 | ✅ 60–86s → 6–8s |
-| Phase 3.5: GPU LM Synthesizer | April 6 | ✅ 30–55s → 2–8s |
-| `rag_grounded_v2` + `llm_judge_v3` integrated | April 6 | ✅ GBIM contradiction detection live |
-| OI-36-A — `allis-auth:8055` `forward_auth` | April 1 | ✅ Auth enforcement at perimeter |
-| OI-02 — `BBB_OUTPUT_BLOCKING=true` | April 6 | ✅ Output blocking active |
-| OI-38-B — Red-team 12/12 + 9/9 PASSED | April 6 | ✅ Security validation complete |
-| Hallucination gap — live end-to-end April 15 | April 15 | ✅ Canonical governance query passed |
-| Cloudflare tunnel — egeria.mountainshares.us | April 2026 | ✅ |
-| Community resources seeded — 64 verified, 207 total | April 16 | ✅ |
-| Sprint 2 deploy sequence (6-step runbook) | April 16 | ✅ |
-| `msallisgis` table count confirmed (551 legacy / 294 production ★) | April 16 / April 23 | ✅ |
-| Neurobiological crash loop resolved | April 16 | ✅ `Dockerfile.neuro` rebuilt |
-| ChromaDB 3 corrupt collections rebuilt clean | April 16 | ✅ ms_allis_memory, ms_allis_identity, conversation_history |
-| UUID hardcode eliminated — SDK `get_collection()` | April 16 | ✅ `msallisconsciousnessbridge.py` |
-| `Dockerfile.fractal` added + `requests` baked in | April 16 | ✅ |
-| Memory Redis isolation fixed | April 16 | ✅ `allis-memory` added to `default` network |
-| `truthverdict` propagation resolved | April 16 | ✅ `locals()` key mismatch; `truth_score: 1.0` live |
-| `architecture_layers: 12` confirmed in all responses | April 16 | ✅ |
-| ChromaDB 48 collections confirmed | April 16 | ✅ |
-| `autonomous_learner` 21,181 records confirmed exact ★ | April 23 | ✅ |
-| `ms_allis_identity` seeded | April 16 | ✅ 8 constitutional docs, query-verified |
-| Phase 2 county resource seeding — Kanawha gate met | April 16 | ✅ 3 county-specific records; template for Sprint 3 |
-| Git commit `fdd3d13d` | April 16 | ✅ 5 files, 1023 ins, 494 del |
-| **Two-container DB split ★** | **April 23** | **✅ Production `msallis-db` host 5433 / Forensic `postgis-forensic` host 5452** |
-| Container count → 100 ★ | April 23 | ✅ 100 Up, zero Restarting, zero Exited |
-| ChromaDB → ~6,740,611 vectors ★ | April 23 | ✅ |
-| GPU pipeline → 102.58s ★ | April 23 | ✅ |
-| **CPU → GPU total improvement** | **April 2026** | **✅ ~436s → ~102.58s (~76%) ★** |
+Executive coordination should not be described as a pipeline that only knows how to move forward. It must also know how to stop, return, and escalate.
+
+For sandbox-driven work, the executive plane needs clear paths for:
+
+- **Reject** — terminate promotion and keep the state non-committed;
+- **Revise** — send the state back into the sandbox or into an evidence-gathering loop;
+- **Human review** — escalate a difficult or high-consequence case;
+- **Limited approval** — allow constrained downstream use without full commitment;
+- **Approve** — allow the state to proceed into bridge-mediated committed use.
+
+These outcomes align the executive chapter with the BBB chapter’s authority-preserving transition model. The executive plane is responsible for carrying those outcomes forward into actual system behavior.
 
 ---
 
-## 17.9 Container Infrastructure Supporting the Execution Path
+## 17.8 Relationship to Retrieval and Task Routing
 
-| Phase | Primary containers | Ports | Status |
-|:--|:--|:--|:--|
-| Preflight | `scripts/preflight_gate.sh` | N/A | ✅ 27/27 |
-| Auth perimeter | `allis-auth` | 8055 | ✅ OI-36-A closed |
-| Phase 1 | `allis-main-brain` | 8050 | ✅ |
-| Phase 1.4 | `allis-blood-brain-barrier` | 8016 | ✅ blocking active; all fail-closed ★ |
-| Phase 1.45 | `allis-autonomous-learner`, `allis-ollama`, `allis-chroma` | 8425, 11434, 8002→8000 | ✅ 21,181 exact ★ |
-| Phase 1.75–3 | `allis-neurobiological-master` (rebuilt ✅), `allis-fractal-consciousness` (Dockerfile.fractal ✅), `allis-consciousness-bridge` (SDK ✅) | various | ✅ all running |
-| Phase 2.5 | `allis-20llm-production`, `allis-semaphore`, llm1–22 proxies | 8008, 8030, 8201–8222 | ✅ GPU active |
-| Phase 3 | `allis-judge-truth/consistency/alignment/ethics/pipeline`, `llm_judge_v3`, `rag_grounded_v2` | 7230–7233, 7239 | ✅ 7 judges |
-| Phase 3→4 | `allis-blood-brain-barrier` | 8016 | ✅ blocking active; fail-closed ★ |
-| Phase 3.5 | `allis-lm-synthesizer`, `allis-ollama` | internal, 11434 | ✅ identity enforced |
-| Phase 4 | `allis-spiritual-rag`, `allis-gis-rag`, `allis-rag-server`, `allis-local-resources-db` | 8005, 8004, 8003 | ✅ |
-| Phase 4 data | **Production `msallis-db`** (294 tables ★), `allis-chroma` (48 collections, ~6,740,611 vectors ★) | **5433 ★**, 8002→8000 | ✅ |
-| Phase 4 data | **Forensic `postgis-forensic`** (314 tables) | **5452 ★** | ✅ forensic only |
-| Phase 7 | `allis-69dgm-bridge` | 127.0.0.1:19000→9000 | ✅ |
-| Phase 5 | `allis-main-brain`, `allis-memory` / `allis-memory` (network fixed ✅) | 8050, 8056 (127.0.0.1) | ✅ |
-| External | Cloudflare tunnel | egeria.mountainshares.us | ✅ LIVE |
-| **★ April 23, 2026 stack** | — | — | ✅ **100 containers Up — zero Restarting, zero Exited** |
+Executive coordination still performs classical orchestration work: it routes retrieval tasks to semantic, geographic, registry, and web systems; it coordinates service availability; and it determines which subsystems should participate in producing an answer or action.
+
+But this chapter now makes explicit that routing alone is not sufficient. After retrieval and synthesis, executive coordination may still need to:
+
+- open a sandbox cycle;
+- process a non-validated return;
+- request BBB review;
+- await bridge approval;
+- avoid commitment if the result remains provisional.
+
+This makes the executive plane broader than a traffic controller. It becomes the layer that binds retrieval, reasoning, review, and commitment into one governed flow.
 
 ---
 
-## 17.10 Phase 2 County Resource Seeding — Sprint Gate Closure
+## 17.9 Relationship to Memory and Durable Effects
 
-Phase 2 county resource seeding gate condition is met as of April 16, 2026. Kanawha
-County is confirmed with 3 verified county-specific records and serves as the
-implementation template for all 54 remaining counties in Sprint 3 enrichment.
+The revised executive plane also affects how memory and durable side effects are understood. Because sandbox results may remain non-validated, executive coordination must ensure they do not automatically become durable memory, public outputs, or action directives.
 
-| County | Records | Type | Status |
-|:--|:--|:--|:--|
-| Fayette County | 11 | Verified, county-specific | ✅ |
-| Kanawha County | 3 | Verified, county-specific | ✅ Phase 2 gate |
-| All other WV counties (53) | ~193 | WV 2-1-1 statewide placeholders | Sprint 3 — real data pull |
+This creates a consistent relationship across the architecture:
 
-Kanawha County confirmed records:
-- Coalfield Community Action Partnership (CAA)
-- Low-income resource directory: housing, rental, Charleston-Kanawha
-- Disaster relief / assessor contact
+- the sandbox generates reversible deliberative state;
+- the executive plane classifies and routes that state;
+- the BBB guards promotion;
+- the bridge handles authorized integration;
+- the hippocampal layer only sees conclusions that have become eligible for durable retention.
 
-Sprint 3 data enrichment will pull real, verified, county-specific resource data from
-WV 211, DHHR county office directories, and community action agency records for all
-remaining 54 counties, using Kanawha as the implementation template.
+This prevents executive coordination from being interpreted as an implicit commit engine.
 
 ---
 
-## 17.11 Split-Brain Database Topology (April 23, 2026 ★)
+## 17.10 Practical Executive Sequence
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│     Two-Container PostgreSQL Topology — April 23, 2026 ★     │
-├──────────────────────────────────────────────────────────────┤
-│                                                               │
-│  Production DB: msallis-db                                   │
-│    Host port: 5433 / Container port: 5432                    │
-│    msallisgis: 16 GB / 294 tables / 11 schemas ★            │
-│    993 ZCTA centroids                                         │
-│    address_points: 1,115,588                                  │
-│    mvw_gbim_landowner_spatial: 20,593                         │
-│    memories table: 6 col, 4 idx                               │
-│    redteam_sessions: 0 rows (ready)                           │
-│    local_resources_index: name, program_code,                │
-│      category, county, zip                                    │
-│    msallis GBIM belief store (same container):               │
-│      gbim_entities = 37 rows                                  │
-│    GBIM semantic entity store = ChromaDB                     │
-│      gbim_worldview_entities: 5,416,521 vectors              │
-│    Consumers: gis-rag (8004), rag_grounded_v2,               │
-│      BBB TruthVerification, confidence_decay,                 │
-│      gbim_query_router (7205), preflight gate,               │
-│      spiritual-rag (8005), main-brain,                       │
-│      autonomous_learner, identity/auth                       │
-│                                                               │
-│  Forensic DB: postgis-forensic                               │
-│    Host port: 5452                                            │
-│    msallisgis: 17 GB / 314 tables / 9 schemas ★             │
-│    Consumers: FORENSIC AUDITING ONLY                          │
-│                                                               │
-│  Note: Legacy port 5435 (single-container `msallisgis`)      │
-│    is superseded by this two-container split.                 │
-│    All pipeline references updated to host 5433 ★.           │
-│                                                               │
-└──────────────────────────────────────────────────────────────┘
-```
+A practical executive-control sequence in the revised architecture is:
 
-> Figure 17-5. Two-container PostgreSQL topology — April 23, 2026 ★. Production
-> `msallis-db` host 5433 (16 GB / 294 tables) serves all pipeline queries. Forensic
-> `postgis-forensic` host 5452 (17 GB / 314 tables) is forensic auditing only.
+1. **Receive task**
+   - Determine whether the task is direct, sandbox-requiring, or escalation-prone.
+
+2. **Assemble context**
+   - Gather semantic, spatial, memory, and governance context as needed.
+
+3. **Dispatch**
+   - Route either to direct operational services or into the sandbox for reversible deliberation.
+
+4. **Classify return**
+   - Distinguish validated from non-validated sandbox conclusions.
+
+5. **Promotion handling**
+   - Send eligible candidates to BBB review and then to bridge-mediated integration when appropriate.
+
+6. **Outcome enforcement**
+   - Apply reject, revise, human review, limited approval, or approve pathways.
+
+7. **Durable consequence**
+   - Allow only properly promoted results to influence memory, committed response, or action.
+
+This sequence shows why the sandbox must be first-class: without it, the executive chapter cannot correctly describe the system’s real decision pathway.
 
 ---
 
-## 17.12 Sprint 2 Deploy Sequence (Updated April 23, 2026)
+## 17.11 Closing Statement
 
-```bash
-# Step 1: Preflight
-bash scripts/preflight_gate.sh
-# Expected: 27 ✅ / 0 ❌ / 0 ⚠️
+Executive coordination in Ms. Allis now includes the sandbox as a first-class control-stage component. The executive plane does not merely route tasks among services; it dispatches reasoning into the sandbox when provisional deliberation is needed, distinguishes validated from non-validated returns, and routes eligible conclusions through the BBB and bridge path before committed action occurs.
 
-# Step 2: Start all containers
-cd ~/msallis-rebuild-working/msallis-rebuild && docker compose up -d
-# Expected: 100 containers Up ★
-
-# Step 3: Start pipeline containers
-~/allis_startup.sh
-# Expected: 7 green checkmarks (5 judges + llm_judge_v3 + rag_grounded_v2)
-
-# Step 4: Confirm auth token store
-redis-cli -p 6380 keys '*' | wc -l
-# Expected: 5
-
-# Step 5: Confirm gateway auth enforcement
-curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/chat \
-  -H "Content-Type: application/json" \
-  -d '{"message":"test"}'
-# Expected: 401
-
-# Step 6: Confirm end-to-end with valid token
-curl -s http://localhost:8080/chat \
-  -H "Authorization: Bearer <token>" \
-  -H "Content-Type: application/json" \
-  -d '{"message":"What community resources exist in Fayette County WV?"}' \
-  | python3 -c "import sys,json; r=json.load(sys.stdin); \
-    print('arch_layers:', r.get('architecture_layers')); \
-    print('truthverdict:', r.get('truthverdict'))"
-# Expected: architecture_layers: 12, truthverdict: {score: 1.0, action: passed}
-```
-
----
-
-## 17.13 Async Job API
-
-| Endpoint | Method | Function |
-|:--|:--|:--|
-| `/chat/async` | POST | Create async job — returns `job_id` immediately |
-| `/chat/status/{job_id}` | GET | Poll for progress and result |
-| `/chat/cancel/{job_id}` | DELETE | Cancel specific job — true `asyncio.Task.cancel()` |
-| `/chat/cancel/all` | DELETE | Cancel all running jobs |
-
-Job state stored in Redis (`allis-redis:6380`, 5 active tokens confirmed) with 30-minute
-TTL. Survives `allis-main-brain` container restarts.
-
----
-
-## 17.14 Verified Reboot Sequence (April 23, 2026 ★)
-
-```bash
-# Step 1: Preflight
-bash scripts/preflight_gate.sh
-# Expected: 27 ✅ / 0 ❌ / 0 ⚠️
-
-# Step 2: Start all containers
-cd ~/msallis-rebuild-working/msallis-rebuild && docker compose up -d
-# Expected: 100 Up ★
-
-# Step 3: Pipeline containers
-~/allis_startup.sh
-# Expected: 7 green checkmarks
-
-# --- Verification ---
-
-# Production msallisgis table count ★
-psql -h 127.0.0.1 -p 5433 -U postgres -d msallisgis \
-  -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema NOT IN ('pg_catalog','information_schema');"
-# Expected: 294 ★
-
-# Forensic DB table count ★
-psql -h 127.0.0.1 -p 5452 -U allis -d msallisgis \
-  -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema NOT IN ('pg_catalog','information_schema');"
-# Expected: 314 ★
-
-# address_points (production)
-psql -h 127.0.0.1 -p 5433 -U postgres -d msallisgis \
-  -c "SELECT COUNT(*) FROM address_points;"
-# Expected: 1115588
-
-# autonomous_learner record count (production msallis belief store)
-psql -h 127.0.0.1 -p 5433 -U postgres -d msallis \
-  -c "SELECT COUNT(*) FROM autonomous_learner;"
-# Expected: 21181 ★
-
-# GBIM belief entities (production msallis belief store)
-psql -h 127.0.0.1 -p 5433 -U postgres -d msallis \
-  -c "SELECT COUNT(*) FROM gbim_entities;"
-# Expected: 37 ★
-
-# ChromaDB collections (v2 API)
-curl -s "http://localhost:8002/api/v2/tenants/default_tenant/databases/default_database/collections" \
-  | python3 -c "import sys,json; cols=json.load(sys.stdin); print(len(cols))"
-# Expected: 48
-
-# ChromaDB total vectors (v2 API — use Python client for per-collection count())
-# Total ~6,740,611 ★
-
-# ms_allis_identity seeded
-curl -s "http://localhost:8002/api/v2/tenants/default_tenant/databases/default_database/collections/ms_allis_identity" \
-  | python3 -c "import sys,json; c=json.load(sys.stdin); print('docs:', c.get('count',0))"
-# Expected: docs: 8
-
-# Auth enforcement
-curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/chat \
-  -H "Content-Type: application/json" \
-  -d '{"message":"test"}'
-# Expected: 401
-
-# Redis active tokens
-redis-cli -p 6380 keys '*' | wc -l
-# Expected: 5
-
-# Confirm container count
-docker ps --filter "status=running" | wc -l
-# Expected: 101 (100 containers + header line) ★
-```
-
-> **ChromaDB API note (permanent):** v1 API is deprecated. Use canonical v2 path:
-> `/api/v2/tenants/default_tenant/databases/default_database/collections`. Per-collection
-> counts require Python client `collection.count()` — UUID two-step pattern. All scripts
-> must use v2.
-
----
-
-**Chapter 17 is CLOSED. No open items remain. All sprint items resolved April 16, 2026.
-April 23, 2026 updates applied: container count → 100, ChromaDB → ~6,740,611 vectors,
-two-container DB split (production `msallis-db` host 5433 / forensic `postgis-forensic`
-host 5452), GPU → 102.58s, `autonomous_learner` → 21,181 exact. Authoritative reference
-for all architectural claims: Chapters 18–42.**
-
----
-
-*Last updated: April 23, 2026 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
-
-*March 27, 2026: GPU corrected RTX 4050 → RTX 4070. AAPCAppE first-run footnote added.*
-
-*March 28, 2026: 96 containers Up. `allis-memory` 127.0.0.1 corrected. `_auth()`
-confirmed. `ALLIS_API_KEY` set. ChromaDB 40 collections, 6,675,442 vectors.*
-
-*April 1–6, 2026: OI-37-C closed — 7 judges, `rag_grounded_v2` + `llm_judge_v3`.
-OI-36-A closed — auth enforcement. OI-02 closed — BBB blocking. OI-38-B closed —
-red-team PASSED. GPU active — RTX 4070. AU-02 v2 three-layer. Container count → 108.
-`architecture_layers` = 12.*
-
-*April 15, 2026: Hallucination gap closed — live end-to-end `/chat` passed.*
-
-*April 16, 2026: 108 containers. ChromaDB 48 collections, 6,739,844 vectors.
-`autonomous_learner` 21,181 stable. `ms_allis_identity` 8 constitutional docs seeded
-and query-verified. Neurobiological crash loop resolved. UUID hardcode → SDK
-`get_collection()`. `truthverdict` wiring resolved. Git commit `fdd3d13d`. Chapter 17
-CLOSED.*
-
-*April 23, 2026 ★: Container count → 100 (zero Restarting, zero Exited). ChromaDB →
-~6,740,611 vectors / 48 collections confirmed. `autonomous_learner` → 21,181 exact.
-Two-container DB split applied throughout: production `msallis-db` host 5433 (16 GB /
-294 tables / 11 schemas); forensic `postgis-forensic` host 5452 (17 GB / 314 tables /
-9 schemas). GPU → 102.58s. All per-phase diagrams, timing tables, service tables,
-reboot sequence, and deploy runbook updated. All references to legacy port 5435
-(single-container) superseded by host 5433 production. Chapter 17 remains CLOSED.*
+This revision makes reversible deliberation explicit and places promotion-aware control at the center of orchestration. As a result, executive coordination is no longer just about scheduling subsystems. It is about governing how internal reasoning becomes, or does not become, authorized system consequence.
