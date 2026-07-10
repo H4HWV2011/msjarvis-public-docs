@@ -1,4 +1,3 @@
-````markdown
 # 5. ChromaDB as Semantic Memory
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
@@ -395,4 +394,3 @@ In this design, memory is not merely what is stored. Memory is what has earned r
 
 *Chapter 5 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
 *See [LICENSE](../LICENSE) for terms.*
-````
