@@ -1463,4 +1463,233 @@ The core principle is simple:
 
 > The system may learn from its own operation only when it can preserve the distinction between what was observed, what was represented, what was inferred, what was validated, what remains unknown, and what the community has authorized it to do.
 
+# West Virginia GIS Corpus – GBIM Manifest Overview
+
+This document describes the West Virginia (WV) GIS corpus as captured in the GBIM checkpoint, and explains how the manifests relate raw source files to published tables and governance surfaces.
+
+It assumes the following files exist in this directory:
+
+- `msjarvisgis_v2-final.dump` – GBIM database dump.
+- `wv_source_files_manifest.csv` – inventory of source GIS files.
+- `wv_source_manifest_layers.csv` – dataset‑level source→table manifest.
+- `wv_derived_governance_tables.csv` – governance/derived/internal tables manifest.
+
+***
+
+## 1. Purpose and Scope
+
+This corpus represents a curated, production‑grade set of West Virginia GIS datasets designed for:
+
+- Spatial analytics and mapping.
+- RAG (retrieval‑augmented generation) over geospatial content.
+- Governance and data lineage tracking inside GBIM.
+
+The manifests are intended to answer two core questions:
+
+1. For a given `public.wv_*` table, which source file(s) define it?
+2. For a given source ZIP/GDB/shapefile, which GBIM table(s) depend on it?
+
+Governance and identity tables that have no single source file are documented separately.
+
+***
+
+## 2. File Roles
+
+### 2.1 `msjarvisgis_v2-final.dump`
+
+- PostgreSQL/GBIM dump containing:
+  - All `public.wv_*` tables.
+  - Governance, identity, coverage, belief, and vector‑ready views.
+- Serves as the authoritative schema and data snapshot for this checkpoint.
+
+You should restore this dump into a GBIM‑compatible PostgreSQL instance before using the manifests for automated ETL or RAG indexing.
+
+### 2.2 `wv_source_files_manifest.csv`
+
+High‑level inventory of raw GIS assets originally under:
+
+- `/home/cakidd/Downloads/files`
+
+Columns (typical):
+
+- `filename` – Source dataset file name (ZIP, GDB, SHP bundle, etc.).
+- `path` – Relative or absolute path at time of collection.
+- `provider` – Data steward or origin agency (e.g., WVDOT, USGS, NPS, WVDEP).
+- `crs` – Coordinate reference system (e.g., UTM83, GCS83, WMA84).
+- Optional metadata columns for notes, acquisition date, or category.
+
+This file is the “file‑side checklist” and is used to ensure every relevant GIS dataset has either a mapping in `wv_source_manifest_layers.csv` or an explicit exclusion/variant note in governance metadata.
+
+### 2.3 `wv_source_manifest_layers.csv`
+
+Dataset‑level manifest mapping source files to GBIM tables and semantic roles.
+
+Typical columns:
+
+1. `layer_label`  
+   - Human‑readable name for the dataset.  
+   - Example: `Roads Interstates WVDOT/SAMB 2009`, `Watershed Boundary HU12 NRCS 2009`.
+
+2. `source_filename`  
+   - Exact filename of the GIS source in `wv_source_files_manifest.csv`.  
+   - Example: `roadsInterstates_WVDOTAndSAMB_200910_utm83_shp.zip`.
+
+3. `provider`  
+   - Agency or organization providing the data.  
+   - Example: `WVDOT/SAMB`, `USGS`, `NRCS`, `WVDNR`, `WVGES`, `USACE`.
+
+4. `crs`  
+   - Coordinate reference system used in the source dataset.  
+   - Example: `UTM83`, `GCS83`, `WMA84`.
+
+5. `gbim_table`  
+   - GBIM table name (including schema), usually `public.wv_*`.  
+   - Example: `public.wv_trn_roads_interstate`, `public.wv_hyd_watershed_boundary_12digit_hu`.
+
+6. `role`  
+   - Semantic description of the geometry/feature role in the GBIM model.  
+   - Example: `interstate_road_lines`, `watershed_boundary_hu12_polygons`, `airport_facility_points`.
+
+This manifest:
+
+- Covers nearly all core datasets in the WV corpus:
+  - Boundaries (counties, voting districts, workforce areas, public lands).
+  - Hydrology (streams, dams, watershed boundaries).
+  - Transportation (roads, railroads, trails, airports, intermodal terminals).
+  - Public lands and recreation (national forests, state parks, wilderness, recreation sites).
+  - Environmental and energy (coal fields, wind energy, air nonattainment, abandoned mine lands).
+  - Social and facilities (schools, hospitals, higher ed, libraries, VA facilities).
+  - Structures (bridges, correctional institutions, at‑risk structures, building points/polygons).
+  - Locations and demographics (urbanized areas, populated places, ZCTAs, blockgroups, tracts).
+- Ensures every dataset‑like `public.wv_*` table that corresponds to a real GIS source file has:
+  - A unique manifest row.
+  - A clear CRS.
+  - A data steward/provider.
+  - A semantic role label.
+
+### 2.4 `wv_derived_governance_tables.csv`
+
+Manifest for tables that do *not* have a single defining source GIS file and instead serve governance, identity, coverage, or derived roles in GBIM.
+
+Columns:
+
+1. `table_name`  
+   - GBIM table name (no schema prefix, e.g. `wv_county_identity`).
+
+2. `category`  
+   - Governance classification, such as:
+     - `governance_identity`
+     - `governance_coverage`
+     - `governance_belief_snapshot`
+     - `governance_view`
+     - `governance_summary`
+     - `governance_boundary_union`
+     - `governance_boundary_variant`
+     - `governance_layer_catalog`
+     - `governance_entity_registry`
+     - `governance_structure_view`
+     - `governance_transport_view`
+     - `governance_boundary_base`
+
+3. `notes`  
+   - Free‑text explanation of how the table is derived and what it represents.  
+   - Example:
+     - Identity: “county identity keyed by canonical IDs and GEOIDs, derived from boundary + registry”.
+     - Coverage: “tract dataset coverage table, derived from multiple source layers”.
+     - Belief: “county belief snapshots v1+v2, internal governance history”.
+     - Vector‑ready view: “vector‑ready v2 county publication surface, derived from snapshots”.
+     - Registry/catalog: “canonical GBIM entity registry, derived from many datasets”; “internal GBIM layer taxonomy, no single source ZIP”.
+     - Boundary variant: “WMA84 variant of county boundaries 24k topo updated 2026, alternative CRS for UTM83 base”.
+     - Transport/structure views: “airport facility GBIM view, derived from FAA/WVDOT airports datasets”; “SAMB building polygons GBIM view, derived from WVDOT/SAMB building dataset”.
+
+This file intentionally captures the remaining `public.wv_*` tables that:
+
+- Aggregate or union multiple physical datasets.
+- Encode governance logic, identity keys, and belief or publication‑ready views.
+- Represent CRS variants and internal catalog/registry surfaces.
+
+These tables are vital for GBIM’s data governance but are not “single‑source GIS layers” in the same way as the shapefile/GDB datasets in `wv_source_manifest_layers.csv`.
+
+***
+
+## 3. Completed Mapping State
+
+At this checkpoint:
+
+- All GIS dataset tables in `public.wv_*` that correspond to real, external source files are mapped in `wv_source_manifest_layers.csv`.
+- The only `public.wv_*` tables without source mappings are:
+  - Identity tables (`wv_county_identity`, `wv_tract_identity`).
+  - Coverage tables (`wv_county_dataset_coverage`, `wv_tract_dataset_coverage`).
+  - Belief snapshot tables (`wv_county_belief_snapshot`, `wv_tract_belief_snapshot`).
+  - Representation tables (`wv_county_representation`, `wv_county_representation_pre_gid_rebind`, `wv_tract_representation`, `wv_tract_representation_pre_gid_rebind`).
+  - Registry and catalog tables (`wv_entity_registry`, `wv_layer_categories`).
+  - Boundary base and variants (`wv_wv_county_boundaries_24k_topo_updated_2026_utm83`, `wv_wv_county_boundaries_24k_topo_updated_2026_wma84`, and related GDB/variant tables).
+
+These are all:
+
+- **Governance/derived tables** documented in `wv_derived_governance_tables.csv`.
+- Known to be built from multiple datasets or as internal GBIM views, not from a single shapefile/ZIP.
+
+As a result, the WV corpus is “manifest‑complete”:
+
+- Every relevant GIS file is either:
+  - Linked to one or more GBIM tables in `wv_source_manifest_layers.csv`, or
+  - Participating indirectly via unions/derivations described in `wv_derived_governance_tables.csv`.
+- Every `public.wv_*` table is either:
+  - Directly mapped to a source dataset, or
+  - Classified as governance/identity/coverage/belief/variant/catalog/registry.
+
+***
+
+## 4. How to Use These Manifests
+
+### 4.1 ETL and Lineage
+
+- Use `wv_source_manifest_layers.csv` to drive ETL pipelines:
+  - For each row, load the source file into the specified CRS.
+  - Normalize schema to match the target `gbim_table`.
+  - Preserve the `provider` and `role` metadata as lineage attributes.
+- Use `wv_derived_governance_tables.csv` to understand:
+  - Which tables should **not** be overwritten directly from external sources.
+  - How identity and coverage is constructed on top of base datasets.
+  - What joins and unions may be required to reconstruct publication surfaces.
+
+### 4.2 RAG and Search
+
+- Index geometry and attributes from `wv_source_manifest_layers.csv` tables for spatial RAG:
+  - Attach manifest metadata (provider, CRS, role) to each indexed layer.
+- Treat governance tables as:
+  - Context for understanding counties, tracts, entity identity, and dataset coverage.
+  - Sources of high‑level summaries and publication‑ready surfaces, not raw geometry.
+
+### 4.3 CRS and Variants
+
+- Favor UTM83 tables (e.g., `wv_wv_county_boundaries_24k_topo_updated_2026_utm83`) as the **primary spatial reference** for analysis.  
+- Use WMA84 variants and GDB‑based boundary tables when:
+  - Integrating with WMA84 workflows.
+  - Comparing or validating CRS transformations.
+
+All such variants are explicitly flagged as `governance_boundary_variant` or `governance_boundary_base` in the governance manifest.
+
+***
+
+## 5. Maintenance Notes
+
+If you add new WV datasets or GBIM tables:
+
+1. Append new source files to `wv_source_files_manifest.csv` with filename, provider, CRS, and notes.
+2. Add rows to `wv_source_manifest_layers.csv` for:
+   - New `public.wv_*` dataset tables with direct source files.
+3. For internal views, identity, coverage, or belief tables:
+   - Append entries to `wv_derived_governance_tables.csv` with:
+     - `table_name`
+     - `category`
+     - `notes` describing derivation and purpose.
+4. Re‑run your “unmapped table” check to ensure:
+   - No dataset‑like tables are left without manifest rows or governance classification.
+
+This keeps the WV corpus consistent and future‑proof for new GBIM revisions.
+
+***
+
 That is the recurrent epistemic commons.
