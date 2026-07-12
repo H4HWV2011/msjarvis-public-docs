@@ -1,59 +1,97 @@
 # Chapter 52 — The Recurrent Epistemic Commons
 
-## From Vector Memory to Governed Belief, Community Intelligence, and Action
+## From Vector Memory to Governed Belief, Community Intelligence, and Authorized Action
 
 Ms. Allis does not operate as a linear retrieval system.
 
-A conventional retrieval-augmented generation pipeline moves in one direction:
+A conventional retrieval-augmented generation pipeline moves primarily in one direction:
 
-\[
-\text{documents}
-\rightarrow
-\text{embeddings}
-\rightarrow
-\text{retrieval}
-\rightarrow
-\text{response}
-\]
+```text
+documents
+→ embeddings
+→ retrieval
+→ response
+```
 
-That pattern is useful, but incomplete. It retrieves representations without necessarily governing what they mean, where they came from, when they remain valid, who may access them, or whether a generated interpretation should become part of future system knowledge.
+That pattern is useful, but incomplete. It can retrieve representations without governing what they mean, where they came from, when they remain valid, which entity they describe, who may access them, or whether an interpretation should become part of future system knowledge.
 
-Ms. Allis instead operates through a recurrent epistemic loop. Semantic memory is projected into governed state. Governed state is validated against place, time, provenance, identity, authority, and community constraints. Validated state can then be revectorized into a new retrieval collection. Subsequent observations and queries interact with that governed representation, producing further candidate beliefs.
+Ms. Allis instead implements a recurrent epistemic architecture. Source representations are projected into governed state. Governed state is resolved against identity, place, time, provenance, authority, coverage, access, and permitted use. Validated state can then be rendered as governed prose, embedded into a new semantic collection, retrieved under explicit constraints, and traced back to its authoritative relational source.
 
-The result is not merely a RAG pipeline with additional storage. It is a recurrent epistemic commons:
+The complete intended loop is:
 
-\[
-\text{observation}
-\rightarrow
-\text{semantic representation}
-\rightarrow
-\text{governed belief}
-\rightarrow
-\text{validated memory}
-\rightarrow
-\text{community reasoning}
-\rightarrow
-\text{authorized action}
-\rightarrow
-\text{new observation}
-\]
+```text
+observation
+→ source representation
+→ candidate belief
+→ governed identity
+→ validated belief
+→ governed semantic memory
+→ situated reasoning
+→ authorized action
+→ changed world
+→ new observation
+```
 
-The loop is recurrent because its outputs may become inputs. It is epistemic because the system must distinguish observations, assertions, inferences, uncertainties, refusals, and validated beliefs. It is a commons because the knowledge infrastructure is intended to remain accountable to the people and places from which its meaning arises.
+The loop is recurrent because outputs may become later inputs. It is epistemic because the system distinguishes observations, assertions, representations, inferences, uncertainties, refusals, and validated beliefs. It is a commons because the knowledge infrastructure is intended to remain accountable to the communities and places from which its meaning arises.
 
-Recurrence alone does not make the system intelligent. An ungoverned recurrent system can amplify error, preserve fabrication, harden stereotypes, and convert provisional interpretations into apparent facts. The defining property of the Ms. Allis loop is therefore not repetition. It is governed recurrence.
+Recurrence alone does not make a system intelligent. An ungoverned recurrent system can amplify error, preserve fabrication, harden stereotypes, collapse uncertainty into false certainty, and convert provisional interpretations into apparent facts.
+
+The defining property of the Ms. Allis loop is therefore not repetition.
+
+It is governed recurrence.
 
 ---
 
-## 52.1 The Architectural Loop
+## 52.1 The Epistemic Problem
 
-The recurrent architecture joins ChromaDB, PostgreSQL/PostGIS, GBIM, the RAG server, toroidal time, the Hilbert-state services, and the constitutional governance layer.
+A vector database answers a narrow but valuable question:
+
+> Which stored representations are geometrically near this query in embedding space?
+
+It does not, by itself, answer:
+
+- whether the nearest representation is true;
+- whether it describes the correct entity;
+- whether it applies to the correct jurisdiction;
+- whether it remains temporally valid;
+- whether the source has authority to make the claim;
+- whether zero means absence or merely missing coverage;
+- whether the record has been superseded;
+- whether it may be retained or disclosed;
+- whether it should influence action;
+- whether a generated interpretation should become future memory.
+
+Semantic proximity proposes relevance. It does not establish truth.
+
+This distinction is the reason the recurrent loop requires both vector memory and governed relational state. Chroma supplies semantic accessibility. PostgreSQL/PostGIS and GBIM supply identity, structure, lineage, geographic grounding, constraints, version history, and auditable promotion.
+
+Neither layer replaces the other.
+
+---
+
+## 52.2 The Architectural Loop
+
+The recurrent architecture joins:
+
+- source vector collections;
+- PostgreSQL/PostGIS;
+- the GeoBelief Information Model;
+- governed snapshot and publication views;
+- ChromaDB;
+- GIS-RAG and other retrieval services;
+- toroidal and linear temporal state;
+- semantic, geographic, temporal, and people Hilbert spaces;
+- authorization and constitutional governance;
+- observation, response, and action surfaces.
 
 At a simplified level:
 
 \[
 C_s
 \xrightarrow{\mathcal{E}}
-G
+G_c
+\xrightarrow{\mathcal{P}}
+G_v
 \xrightarrow{\mathcal{V}}
 C_g
 \xrightarrow{\mathcal{R}}
@@ -64,58 +102,147 @@ O'
 
 where:
 
-- \(C_s\) is a source Chroma collection;
-- \(\mathcal{E}\) is epistemic extraction and normalization;
-- \(G\) is governed GBIM state stored in PostgreSQL/PostGIS;
-- \(\mathcal{V}\) is validation, promotion, and collection construction;
-- \(C_g\) is a Chroma collection derived from governed state;
+- \(C_s\) is a source semantic collection;
+- \(\mathcal{E}\) is epistemic extraction, normalization, and identity resolution;
+- \(G_c\) is candidate governed state;
+- \(\mathcal{P}\) is promotion, quarantine, supersession, or refusal;
+- \(G_v\) is validated GBIM state;
+- \(\mathcal{V}\) is governed rendering, embedding, and collection construction;
+- \(C_g\) is a governed vector collection;
 - \(\mathcal{R}\) is governed retrieval;
 - \(Q\) is a query, synthesis, or decision context;
 - \(\mathcal{A}\) is an authorized response or action;
-- \(O'\) is a new observation produced by the changed world or subsequent interaction.
+- \(O'\) is a subsequent observation produced by interaction or a changed world.
 
-The cycle then continues:
+The cycle may continue:
 
 \[
-O' \rightarrow C_s' \rightarrow G' \rightarrow C_g'
+O' \rightarrow C_s' \rightarrow G_c' \rightarrow G_v' \rightarrow C_g'
 \]
 
-This is not intended to be an uncontrolled feedback loop. Every transition is a governed state transition with explicit entry conditions, destination rules, and refusal paths.
+This is not an uncontrolled feedback loop. Every arrow represents a state transition with entry conditions, validation rules, destination constraints, audit requirements, and refusal paths.
 
-The system does not merely ask:
+A retrieved item does not become a belief merely because it was retrieved. A belief does not become actionable merely because it was validated. An action does not become future knowledge merely because it occurred.
 
-> Which vector is closest to this query?
+Each stage requires separate certification.
 
-It must also ask:
-
-- What kind of thing is this record?
-- Is it an observation, claim, interpretation, prediction, or instruction?
-- Who or what produced it?
-- Where does it apply?
-- When was it true?
-- How certain is it?
-- Has it decayed?
-- Does it conflict with stronger evidence?
-- Is the source authorized to make this claim?
-- May the system retain it?
-- May it be used for this purpose?
-- May it be disclosed to this user?
-- Is the proper result retrieval, qualification, abstention, or refusal?
-
-Semantic proximity proposes relevance. It does not establish truth.
+\[
+\text{retrieval certification}
+\neq
+\text{claim certification}
+\neq
+\text{response certification}
+\neq
+\text{action authorization}
+\neq
+\text{memory certification}
+\]
 
 ---
 
-## 52.2 The Source Collections
+## 52.3 Observations, Representations, Identities, and Beliefs
 
-The source Chroma collections are the existing semantic memory surfaces from which candidate records are retrieved. They may include public resources, geographic features, organizational documents, infrastructure observations, community knowledge, heritage materials, sensor summaries, and other indexed corpora.
+The recurrent system must preserve distinctions that ordinary RAG systems often collapse.
 
-A source collection remains a source collection. Its function is retrieval, not canonical governance.
+### Observation
 
-Each collection and feature should possess stable identifiers and content-derived hashes:
+An observation is an event, measurement, submission, record, or detected state.
+
+Examples include:
+
+- a geographic feature received from an official source;
+- a sensor summary;
+- a community-submitted report;
+- a public document;
+- an administrative record;
+- a retrieval result;
+- the outcome of an authorized intervention.
+
+### Representation
+
+A representation is a physical or semantic encoding of something observed or asserted.
+
+Examples include:
+
+- a row in PostGIS;
+- a county polygon;
+- a tract polygon;
+- a document;
+- an embedding;
+- a JSON belief document;
+- a Chroma record.
+
+A representation is not the entity itself.
+
+### Canonical identity
+
+A canonical identity is the stable entity to which one or more representations refer.
+
+For example, Fayette County remains the same canonical county whether it is represented by:
+
+- a UTM83 polygon;
+- a web-map polygon;
+- a second source-family polygon;
+- a county GEOID;
+- a governed belief document;
+- a Chroma embedding.
+
+Coordinate reference system, file format, source row, and geometry table are representation properties. They are not identity.
+
+### Governed belief
+
+A governed belief is a versioned epistemic state that joins an identity to evidence, provenance, place, time, coverage, authority, uncertainty, access, and permitted use.
+
+A governed belief may be:
+
+- provisional;
+- derived;
+- verified;
+- disputed;
+- superseded;
+- quarantined;
+- refused;
+- expired.
+
+The system therefore preserves the chain:
+
+```text
+observation
+→ representation
+→ canonical identity
+→ governed belief
+→ published semantic representation
+```
+
+---
+
+## 52.4 Source Collections and Source Layers
+
+Source vector collections and physical GIS layers are evidence surfaces. They are not automatically canonical governance.
+
+A source may include:
+
+- official geographic layers;
+- Census boundaries;
+- infrastructure datasets;
+- public facilities;
+- hazards;
+- hydrology;
+- environmental features;
+- health and education resources;
+- heritage records;
+- community knowledge;
+- organizational documents;
+- sensor summaries;
+- public submissions.
+
+Each source collection and representation should possess stable identifiers and content-derived hashes.
+
+For a collection:
 
 \[
-h_C = H(
+h_C =
+H(
 \text{collection identity}
 \parallel
 \text{embedding model}
@@ -126,39 +253,60 @@ h_C = H(
 )
 \]
 
+For a physical feature representation:
+
 \[
-h_F = H(
-\text{canonical feature content}
+h_F =
+H(
+\text{table identity}
 \parallel
-\text{source provenance}
+\text{source feature identity}
 \parallel
-\text{feature schema version}
+\text{canonical entity identity}
+\parallel
+\text{normalized geometry}
+\parallel
+\text{relevant source attributes}
 )
 \]
 
-The collection hash \(h_C\) identifies the state of the collection as a whole. The feature hash \(h_F\) identifies the canonicalized source feature from which an embedding was produced.
+For a governed belief:
 
-These hashes do not prove that content is true. They establish integrity, lineage, and change detection. They allow the system to determine whether a governed belief refers to the same source representation previously evaluated or to a materially changed representation requiring renewed validation.
+\[
+h_B =
+H(
+\operatorname{CanonicalJSON}(
+\text{belief document}
+)
+)
+\]
 
-The source collection therefore answers:
+These hashes do not prove truth. They establish integrity, lineage, stable comparison, and change detection.
 
-> What representation was retrieved?
+They allow the system to ask:
 
-GBIM must answer:
+- Is this the same physical representation previously governed?
+- Has its geometry changed?
+- Has its source identity changed?
+- Has the governed belief changed?
+- Does a vector record correspond to the current belief snapshot?
+- Must the representation be revalidated or re-embedded?
 
-> What is the governed epistemic status of the thing that representation describes?
+The source surface answers:
+
+> What representation was received or retrieved?
+
+GBIM answers:
+
+> What entity does it describe, and what is its governed epistemic status?
 
 ---
 
-## 52.3 GBIM as the Governed System of Record
+## 52.5 GBIM as the Governed System of Record
 
-GBIM is the GeoBelief Information Model: the governed state layer in which semantic representations are joined with identifying information, provenance, geography, time, authority, confidence, and policy.
+GBIM is the GeoBelief Information Model: the governed state layer in which semantic content is joined to identity, provenance, geography, time, authority, confidence, coverage, access, retention, and permitted use.
 
-Chroma should not be treated as the sole system of record. Vector databases are optimized for similarity search. They are not, by themselves, sufficient for transactional integrity, relational constraints, temporal history, access control, or auditable belief promotion.
-
-PostgreSQL/PostGIS provides the durable relational body of GBIM.
-
-A governed belief can be represented as:
+A governed belief may be represented as:
 
 \[
 b_i =
@@ -177,7 +325,7 @@ e_i,
 
 where:
 
-- \(u_i\) is the stable belief or entity identifier;
+- \(u_i\) is stable identity;
 - \(e_i\) is semantic content or a reference to it;
 - \(\tau_i\) is temporal state;
 - \(\gamma_i\) is geographic state;
@@ -185,1210 +333,1134 @@ where:
 - \(\sigma_i\) is epistemic status;
 - \(\kappa_i\) is confidence and uncertainty;
 - \(\alpha_i\) is authority and access state;
-- \(\omega_i\) is governance, retention, and permitted-use state.
+- \(\omega_i\) is governance, retention, consent, and permitted-use state.
 
-This tuple is not merely metadata surrounding an embedding. Together, these dimensions constitute the meaning of the governed record.
+These are not incidental metadata fields surrounding an embedding. Together, they constitute the governed meaning of the record.
 
-The GBIM table should retain, at minimum:
+Chroma is not the sole system of record. It is optimized for semantic search, not for relational integrity, foreign-key enforcement, version history, spatial computation, transactional updates, or authoritative identity management.
 
-- stable collection and feature identifiers;
-- source collection hash;
-- source feature hash;
-- canonical content hash;
-- embedding-model identifier and version;
-- source-system identity;
-- source-record identity;
-- entity type;
-- spatial geometry or geographic scope;
-- temporal validity interval;
-- toroidal-time coordinates or recurrence state;
-- provenance chain;
-- assertion type;
-- confidence and uncertainty;
-- verification state;
-- authority class;
-- access class;
-- consent and retention conditions;
-- contradiction or supersession relationships;
-- promotion state;
-- destination collection identity;
-- destination vector hash;
-- creation, validation, promotion, and expiration timestamps.
-
-Not every field belongs in a single physical table. Production implementation may normalize these concerns across related tables. The important requirement is that the governed state remain reconstructable and auditable.
-
-GBIM is not a warehouse into which every piece of retrievable data is copied without discrimination. It is the governed system through which eligible records become durable beliefs.
+PostgreSQL/PostGIS provides the durable relational and geographic body of GBIM.
 
 ---
 
-## 52.4 The Chroma-to-GBIM Transition
+## 52.6 Identity and Representation as Separate Surfaces
 
-A record retrieved from Chroma begins as a representation candidate, not as a promoted belief.
+The West Virginia implementation demonstrates the distinction between canonical identity and physical representation.
 
-Let:
+For counties:
 
-\[
-r_j =
-(
-d_j,
-v_j,
-m_j,
-h_{F_j}
-)
-\]
+```text
+55 canonical county identities
+220 physical county representations
+4 representations per county
+```
 
-where:
+The four boundary representations occupy two source families and two spatial-reference forms. Each remains traceable to:
 
-- \(d_j\) is the source document or feature content;
-- \(v_j\) is its semantic vector;
-- \(m_j\) is source metadata;
-- \(h_{F_j}\) is its feature hash.
+- its physical table;
+- its source feature ID;
+- its canonical county;
+- its source name;
+- its normalized geometry hash.
 
-The ingestion operator maps the representation into a candidate governed state:
+The canonical county is not duplicated merely because four physical polygons exist.
 
-\[
-\mathcal{E}(r_j) = \tilde{b}_j
-\]
+For tracts:
 
-The tilde indicates that \(\tilde{b}_j\) is provisional.
+```text
+546 canonical tract identities
+546 governed physical tract representations
+1 current registered representation per tract
+```
 
-Before promotion, the system attempts to resolve:
+The tract bridge originally contained 1,092 rows because two incompatible forms of tract identity had been registered:
 
-1. entity identity;
-2. source identity;
-3. collection identity;
-4. geographic applicability;
-5. temporal applicability;
-6. provenance completeness;
-7. assertion type;
-8. confidence;
-9. authority;
-10. permitted use;
-11. retention eligibility;
-12. contradiction relationships.
+```text
+54019020101
+1400000US54019020101
+```
 
-The candidate then enters a governed staging state:
+Only the fully qualified canonical identity belonged to the governed identity surface. The 546 short-form orphan mappings were removed, leaving a one-to-one bridge between physical tract features and canonical tract identities.
 
-\[
-\tilde{b}_j \in G_{\text{candidate}}
-\]
+This repair illustrates an important recurrent rule:
 
-It is not yet a member of the validated belief set.
-
-This distinction closes a critical stage-certification gap. A system can retrieve a correct document, pass it through a functioning RAG route, and still generate an unsupported detail. It can also retrieve a semantically similar document from the wrong jurisdiction or time period. Certification must therefore occur at multiple stages:
-
-\[
-\text{retrieval certification}
-\neq
-\text{claim certification}
-\neq
-\text{response certification}
-\neq
-\text{memory certification}
-\]
-
-A record may pass one stage and fail another.
+> Duplicate representations must not be mistaken for duplicate entities, and alternate identifier formats must not be mistaken for separate canonical identities.
 
 ---
 
-## 52.5 Governed Promotion
+## 52.7 Geographic Identity and Geometry
 
-Promotion is the transition from provisional representation to validated belief.
+Geographic identity is not reducible to geometry, but geometry materially constrains geographic meaning.
 
-Define the promotion operator:
+A county may have multiple polygon representations, yet retain one canonical identity. A tract may be represented in UTM83 or another coordinate system, yet retain one Census GEOID. A place name without spatial scope may remain ambiguous even when its semantic embedding appears highly relevant.
 
-\[
-\mathcal{P} :
-G_{\text{candidate}}
-\rightarrow
-G_{\text{validated}}
-\cup
-G_{\text{quarantined}}
-\cup
-G_{\text{refused}}
-\]
+The geographic state of a belief may include:
 
-Promotion is permitted only if required predicates are satisfied:
+- canonical geographic identifier;
+- source geometry;
+- source spatial reference;
+- normalized geometry;
+- centroid;
+- bounding box;
+- jurisdiction;
+- spatial grain;
+- containment relationships;
+- adjacency;
+- intersection;
+- distance;
+- source authority.
 
-\[
-\operatorname{Promote}(\tilde{b}_j)
-\iff
-I_j
-\land
-P_j
-\land
-T_j
-\land
-A_j
-\land
-C_j
-\land
-R_j
-\]
+PostGIS remains the authoritative location for polygon geometry and spatial computation. Raw polygons are not inserted into the text presented for embedding. Instead, the governed vector metadata carries scalar spatial descriptors and reverse links to the physical representation.
 
-where:
+This preserves the division of labor:
 
-- \(I_j\) indicates adequate identity resolution;
-- \(P_j\) indicates adequate provenance;
-- \(T_j\) indicates temporal and geographic coherence;
-- \(A_j\) indicates appropriate authority;
-- \(C_j\) indicates confidence above the destination threshold;
-- \(R_j\) indicates that retention and use are permitted.
+```text
+PostGIS:
+  authoritative geometry
+  spatial relationships
+  containment and intersection
+  coordinate transformations
+  feature-level provenance
 
-Failure does not always mean deletion. A candidate may be:
+Chroma:
+  semantic representation
+  similarity retrieval
+  governed textual memory
+  scalar filtering metadata
+```
 
-- retained as an unverified assertion;
-- quarantined for human review;
-- preserved as historical testimony;
-- linked to a contradiction set;
-- marked as expired;
-- superseded by stronger evidence;
-- refused because collection itself would violate governance.
-
-This makes uncertainty explicit rather than erasing it.
-
-A community member’s account of a damaged road, for example, may be a valid observation even before an official inspection confirms it. The system should not mislabel the observation as verified infrastructure truth, but neither should it discard the testimony simply because it lacks institutional authority.
-
-Governed state therefore distinguishes:
-
-\[
-\text{someone reported } x
-\]
-
-from:
-
-\[
-x \text{ has been independently verified}
-\]
-
-Both may be meaningful. They are not epistemically identical.
+Meaning does not collapse into geometry. But geographic meaning cannot be governed honestly while ignoring geometry.
 
 ---
 
-## 52.6 Revectorizing Governed State
+## 52.8 Coverage Is an Epistemic State
 
-Once a belief has been validated for a particular retrieval purpose, GBIM may generate a governed semantic document and revectorize it into a derived Chroma collection.
+A count of zero is not automatically a geographic fact.
 
-Let:
+It may mean:
+
+- verified absence;
+- no source records intersected the entity;
+- the source has not been loaded;
+- the layer has incomplete jurisdictional coverage;
+- identity resolution failed;
+- the spatial join has not been performed;
+- the source is temporally stale;
+- access restrictions prevented evaluation;
+- the data remains under investigation.
+
+Therefore:
 
 \[
-d_i^{G}
-=
-\operatorname{Render}(b_i)
+0_{\text{unknown}}
+\neq
+0_{\text{verified absent}}
 \]
 
-The rendered document may incorporate:
+The West Virginia county and tract slices preserve this distinction through explicit coverage records.
+
+County coverage currently contains:
+
+```text
+55 counties × 5 dataset types = 275 rows
+```
+
+Tract coverage contains:
+
+```text
+546 tracts × 3 dataset types = 1,638 rows
+```
+
+Coverage records include:
 
 - canonical entity identity;
-- verified descriptive content;
-- geographic scope;
-- temporal status;
-- provenance summary;
-- confidence language;
-- access-appropriate context;
-- contradiction or supersession markers;
-- permitted-use constraints.
+- parent county identity where applicable;
+- dataset type;
+- source table;
+- feature count;
+- coverage state;
+- calculation time;
+- source-layer hash;
+- notes.
 
-The governed document is embedded:
+The vector-ready prose carries this distinction into semantic retrieval. A tract with zero address points and `coverage_state = unknown` states that the count must not be interpreted as verified absence.
 
-\[
-v_i^{G}
-=
-E_{\theta}(d_i^{G})
-\]
-
-where \(E_{\theta}\) is the versioned embedding model.
-
-The result enters a governed collection:
-
-\[
-C_g =
-\left\{
-(u_i, d_i^G, v_i^G, m_i^G, h_i^G)
-\right\}_{i=1}^{n}
-\]
-
-The collection hash must include the embedding model, rendering rules, schema version, and source-belief versions. Revectorization is therefore reproducible and invalidatable.
-
-If the source belief changes, expires, is contradicted, loses authorization, or is deleted under a valid retention rule, its governed vector must be updated or removed. Chroma cannot become an undeletable shadow copy of superseded GBIM state.
-
-The derived collection is a semantic projection of governed state. It is not a replacement for GBIM.
+This is not merely cautious wording. It prevents semantic memory from converting a pipeline gap into a claim about the world.
 
 ---
 
-## 52.7 Toroidal Time Is Not a Separate Source Memory
+## 52.9 Versioned Belief Snapshots
 
-Toroidal time belongs to the same epistemic recurrence as the source collections. It is not an isolated parallel memory that must be copied independently merely to “close the loop.”
+Governed state is versioned rather than overwritten.
 
-Time becomes operational through each belief’s temporal state:
+The authoritative West Virginia governance database is:
+
+```text
+Database: msjarvisgis_v2
+Host:     localhost
+Port:     5436
+```
+
+Its core governed relations currently contain:
+
+```text
+Relation                        Rows
+-------------------------------------
+wv_layer_categories             254
+wv_entity_registry               65
+wv_county_identity               55
+wv_county_representation        220
+wv_county_dataset_coverage      275
+wv_county_belief_snapshot       110
+wv_tract_identity               546
+wv_tract_representation         546
+wv_tract_dataset_coverage     1,638
+wv_tract_belief_snapshot      1,092
+```
+
+The snapshot totals preserve two versions:
+
+```text
+County snapshots:
+  55 v1 + 55 v2 = 110
+
+Tract snapshots:
+  546 v1 + 546 v2 = 1,092
+```
+
+The v1 tract snapshots preserve the earlier unresolved county state. The v2 snapshots preserve the reconciled canonical county relationships and corrected representation lineage.
+
+This historical retention matters. If v2 simply replaced v1, the system would preserve the answer but lose the epistemic history of how the answer changed.
+
+A belief snapshot therefore records not only what the system currently believes, but which governed state existed at a particular version.
+
+---
+
+## 52.10 Vector-Ready Publication Views
+
+Snapshot tables are durable history. They are not automatically the active semantic publication surface.
+
+The current West Virginia v2 publication is expressed through:
+
+```text
+wv_county_belief_vector_ready
+wv_tract_belief_vector_ready
+```
+
+These views select and render the current governed snapshot state.
+
+Their validated cardinalities are:
+
+```text
+wv_county_belief_vector_ready:
+  55 rows
+  55 distinct document_id values
+
+wv_tract_belief_vector_ready:
+  546 rows
+  546 distinct document_id values
+```
+
+Each published document contains:
+
+- governed prose;
+- canonical entity identity;
+- county or tract GEOID;
+- parent county identity where applicable;
+- entity type;
+- snapshot version;
+- belief hash;
+- source feature hash;
+- source table;
+- source feature ID;
+- authority class;
+- access class;
+- verification state;
+- spatial-reference identifier;
+- centroid coordinates;
+- bounding-box coordinates;
+- coverage language.
+
+The belief hash functions as the stable vector document ID:
+
+\[
+\text{document\_id} = h_B
+\]
+
+This creates a reversible path:
+
+```text
+Chroma document ID
+→ belief hash
+→ snapshot row
+→ canonical identity
+→ representation bridge
+→ physical PostGIS feature
+→ source geometry and provenance
+```
+
+That path is the core of governed retrieval.
+
+---
+
+## 52.11 Governed Chroma Collections
+
+The v2 publication views were embedded using:
+
+```text
+Embedding model: all-minilm:latest
+Dimension:       384
+```
+
+They were published as:
+
+```text
+gbim_wv_counties_v2
+gbim_wv_tracts_v2
+```
+
+The validated collection cardinalities are:
+
+```text
+gbim_wv_counties_v2: 55 documents
+gbim_wv_tracts_v2:  546 documents
+```
+
+Publication validation established:
+
+- PostgreSQL row count equals Chroma record count;
+- every expected document ID is present;
+- no unexpected document IDs are present;
+- belief hashes are distinct within each publication;
+- county and tract snapshot versions are represented in metadata;
+- canonical identities remain available as filters;
+- coverage semantics remain present in the embedded prose.
+
+The collections were then entered into a publication manifest and promoted as the active physical collections for their logical county and tract collection names.
+
+A governed collection is therefore not merely a bag of embeddings. It is a versioned materialization of a defined relational view under a declared rendering version, embedding model, dimensionality, record count, and collection hash.
+
+---
+
+## 52.12 Governed Retrieval Through GIS-RAG
+
+The governed collections are exposed through the GIS-RAG service.
+
+The current application-level service version is:
+
+```text
+GIS-RAG 0.4.1
+```
+
+This number identifies the GIS-RAG application implementation. It is not the Chroma client-library version.
+
+GIS-RAG 0.4.1:
+
+- queries both governed v2 collections;
+- resolves collections by governed name;
+- applies canonical county filters;
+- maps tract requests to `entity_type = census_tract`;
+- supports exact `tract_geoid` filtering;
+- returns collection name, document ID, distance, governed text, and metadata;
+- preserves belief hashes and source feature hashes;
+- returns snapshot and verification state;
+- preserves the unknown-coverage warning.
+
+An exact tract request for:
+
+```text
+Tract GEOID: 54019020101
+County GEOID: 54019
+County: Fayette
+```
+
+returned:
+
+- the correct record from `gbim_wv_tracts_v2`;
+- the correct canonical tract identity;
+- the correct Fayette County parent;
+- the v2 snapshot version;
+- the matching belief hash and document ID;
+- the physical source feature hash;
+- the source table and feature ID;
+- the governed statement that zero with unknown coverage is not verified absence.
+
+This proves the path:
+
+```text
+API request
+→ constrained governed collection
+→ exact tract retrieval
+→ belief hash
+→ governed snapshot
+→ canonical identity
+→ physical representation
+```
+
+The county collection has also been published and directly retrieval-tested. Final application-level county acceptance should be retained as a separate regression test so that both entity paths remain continuously certified.
+
+---
+
+## 52.13 What Has Been Demonstrated
+
+The completed West Virginia county-and-tract vertical slice demonstrates:
+
+1. canonical geographic identity;
+2. multiple physical representations per canonical county;
+3. canonical tract-to-county relationships;
+4. deterministic representation hashing;
+5. explicit dataset coverage state;
+6. preservation of unknown rather than false absence;
+7. versioned belief snapshots;
+8. belief-document hashing;
+9. vector-ready governed prose;
+10. deterministic Chroma document identity;
+11. publication manifests;
+12. versioned collection promotion;
+13. semantic retrieval with canonical metadata filters;
+14. reverse traceability from vector result to PostGIS representation;
+15. recovery of the governed state from a damaged deployment context;
+16. reproducible database dumps and integrity hashes.
+
+This is more than a diagram of a recurrent epistemic loop. It is an operational demonstration of the central transition:
+
+\[
+G_v \rightarrow C_g \rightarrow \mathcal{R}(Q)
+\]
+
+for two canonical geographic entity types.
+
+---
+
+## 52.14 What Has Not Yet Been Demonstrated
+
+The vertical slice does not establish that every part of the complete recurrent architecture is finished.
+
+It does not yet prove, across the whole system:
+
+- automatic promotion of arbitrary observations into governed beliefs;
+- automated contradiction adjudication;
+- belief decay across all domains;
+- constitutional authorization of consequential real-world actions;
+- complete toroidal-time integration for county and tract beliefs;
+- automatic ingestion of every downloaded WVGISTC dataset;
+- full geographic coverage for address points, D-FIRM, infrastructure, hazards, heritage, health, education, or environmental data;
+- a completed observation-action-observation cycle in which an authorized intervention changes the world and is then independently re-observed;
+- national replication across all intended jurisdictions.
+
+The completed slice closes the governed memory and retrieval portion of the loop. It establishes the machinery required for recurrence. It does not justify claiming that every downstream action and re-observation pathway is complete.
+
+That distinction is essential. A governed epistemic system must describe its own implementation state truthfully.
+
+---
+
+## 52.15 Recovery as an Epistemic Event
+
+The implementation itself demonstrated why provenance and governance matter.
+
+During development, similar database names, multiple PostgreSQL instances, a damaged Docker database, a native PostgreSQL cluster, copied governance tables, and temporary reconstruction databases created ambiguity about which state was authoritative.
+
+The system had to determine:
+
+- which server was actually listening;
+- which database contained physical layers;
+- which database contained governed state;
+- which relation names were authoritative;
+- which representations pointed to valid physical features;
+- which bridge rows were orphaned;
+- which snapshots represented v1 versus v2;
+- which database could be dumped and restored;
+- which vector collections corresponded to which relational publication.
+
+The authoritative database was resolved as:
+
+```text
+msjarvisgis_v2
+```
+
+A temporary similarly named database without the underscore was inspected and removed after it was shown to be redundant and incomplete.
+
+This was not merely operational housekeeping. It was an epistemic process: competing claims about system state were tested against physical evidence, constraints, counts, hashes, foreign relationships, and reproducibility.
+
+The recovery therefore instantiated the chapter’s central principle:
+
+> A representation of system state is not authoritative merely because it exists. Authority must be established through governed identity, evidence, validation, and reproducibility.
+
+---
+
+## 52.16 The Remaining WVGISTC Ingestion Frontier
+
+The files in `/home/cakidd/Downloads/files` remain an important source inventory, but the directory must not be treated as a simple queue in which every archive is blindly imported.
+
+The directory contains:
+
+- layers already represented in PostgreSQL;
+- alternate coordinate-system versions of the same source;
+- duplicated downloads marked with suffixes such as `(1)` and `(2)`;
+- older and newer editions of similar datasets;
+- shapefiles;
+- file geodatabases;
+- E00 archives;
+- rasters and SID imagery;
+- CSV and TSV attribute files;
+- address-point directories;
+- archives with uncertain or missing projections;
+- source families with spelling inconsistencies;
+- supporting files that may not contain geometry.
+
+Examples include:
+
+- county and tract boundaries;
+- block groups and ZCTAs;
+- address points and building footprints;
+- roads, bridges, rail, and intermodal facilities;
+- hospitals, health departments, nursing homes, and education facilities;
+- dams, high-water marks, flood-risk layers, and stream gauges;
+- public lands, wildlife resources, fisheries, and watersheds;
+- mines, geology, mineral operations, and abandoned mine lands;
+- historic properties and heritage resources;
+- communications towers and public-safety facilities;
+- Census population and community layers.
+
+Some of these source families already appear as physical tables in `msjarvisgis_v2`. Others have not yet been ingested, reconciled, governed, or joined to canonical entities.
+
+Therefore, the correct statement is:
+
+> The remaining downloads must be reconciled against the governed catalog and physical database, and only missing or materially different source representations should be ingested.
+
+File presence in `Downloads` does not prove absence from PostgreSQL. Likewise, a similarly named PostgreSQL table does not prove that the exact archive, edition, projection, or source version has already been governed.
+
+---
+
+## 52.17 Controlled Source-Ingestion Protocol
+
+Each remaining archive should pass through a governed intake process.
+
+### Phase 1 — Inventory
+
+For each archive, record:
+
+- archive filename;
+- file size;
+- SHA-256 hash;
+- modification time;
+- internal layer names;
+- format;
+- geometry type;
+- declared or detected CRS;
+- source organization;
+- publication or temporal date;
+- apparent jurisdiction;
+- apparent spatial grain.
+
+### Phase 2 — Duplicate and representation analysis
+
+Compare the archive with:
+
+- `wv_layer_categories`;
+- PostGIS relation names;
+- existing source-layer hashes;
+- geometry metadata;
+- prior archive hashes;
+- source version and date;
+- alternate coordinate representations.
+
+Classify each archive as:
+
+```text
+already represented
+duplicate download
+alternate CRS representation
+new source version
+new physical layer
+attribute-only supplement
+raster or imagery
+projection unresolved
+quarantine required
+```
+
+### Phase 3 — Staged import
+
+New layers should enter a staging schema or controlled import transaction rather than immediately becoming authoritative public relations.
+
+The import should preserve:
+
+- the original source filename;
+- archive hash;
+- source layer name;
+- unmodified source attributes;
+- original CRS;
+- import time;
+- import tool and version;
+- row count;
+- geometry count;
+- invalid geometry count.
+
+### Phase 4 — Geometry validation
+
+Validate:
+
+- geometry type;
+- spatial reference;
+- empty geometries;
+- invalid geometries;
+- duplicate geometries;
+- geographic extent;
+- state or county containment;
+- coordinate plausibility;
+- transformation behavior.
+
+A layer with an unknown or unreliable projection must not be silently assigned one.
+
+### Phase 5 — Catalog registration
+
+Only after physical validation should the layer be registered in `wv_layer_categories` with:
+
+- category;
+- description;
+- source system;
+- jurisdiction;
+- geometry type;
+- SRID;
+- spatial grain;
+- temporal coverage;
+- authority class;
+- access class;
+- update time.
+
+### Phase 6 — Provenance and representation registration
+
+Where the layer represents canonical entities, create or update:
+
+- entity registry mappings;
+- representation bridges;
+- deterministic feature hashes;
+- canonical county or tract relationships;
+- provenance state;
+- permitted use;
+- confidence and verification state.
+
+Not every layer requires a new canonical identity table. Some layers are evidence, coverage, observations, or infrastructure features associated with existing identities.
+
+### Phase 7 — Coverage computation
+
+Recompute coverage only after:
+
+- identity resolution;
+- geometry validation;
+- source registration;
+- spatial joins;
+- provenance classification.
+
+A newly imported address-point or flood layer may convert coverage from `unknown` to `present`, but it must not silently convert unknown zeroes into verified absence.
+
+### Phase 8 — Snapshot regeneration
+
+If the new source changes governed belief state:
+
+1. create a new snapshot version;
+2. retain prior snapshots;
+3. calculate new belief hashes;
+4. render new vector-ready documents;
+5. compare old and new belief hashes;
+6. publish a new governed collection version;
+7. validate ID sets and record counts;
+8. promote only after acceptance tests pass.
+
+This protocol extends the recurrent loop from the completed county-and-tract spine to the remaining geographic evidence layers.
+
+---
+
+## 52.18 Contradiction, Supersession, and Decay
+
+A recurrent epistemic system must govern disagreement over time.
+
+Suppose two sources make conflicting claims about the same entity:
+
+\[
+c_1 \neq c_2
+\]
+
+The system must not resolve the conflict by selecting whichever embedding is nearest to the current query.
+
+Conflict resolution may consider:
+
+- source authority;
+- temporal recency;
+- jurisdiction;
+- measurement method;
+- provenance completeness;
+- direct observation versus inference;
+- spatial precision;
+- declared uncertainty;
+- statutory or administrative authority;
+- community validation;
+- prior supersession rules.
+
+A later claim does not automatically erase an earlier claim. It may:
+
+- supersede it;
+- narrow its valid interval;
+- dispute it;
+- coexist under a different jurisdiction;
+- remain unresolved;
+- trigger quarantine.
+
+Temporal validity can be represented as:
+
+\[
+b_i(t) \in
+\{
+\text{current},
+\text{stale},
+\text{superseded},
+\text{expired},
+\text{disputed}
+\}
+\]
+
+Decay is not deletion. It is a governed reduction in current applicability or confidence while preserving the historical record.
+
+---
+
+## 52.19 Toroidal Time and Recurrent State
+
+Linear time answers:
+
+> When did this event occur?
+
+Toroidal time additionally asks:
+
+> In what recurring civic, ecological, organizational, or seasonal phase did it occur?
+
+A belief may therefore possess both:
 
 \[
 \tau_i =
 (
-t_{\text{observed}},
-t_{\text{valid-from}},
-t_{\text{valid-to}},
-t_{\text{recorded}},
-t_{\text{review}},
-\rho_i,
-\phi_i
+t_{\text{linear}},
+\theta_{\text{daily}},
+\theta_{\text{weekly}},
+\theta_{\text{seasonal}},
+\theta_{\text{civic}},
+\theta_{\text{project}}
 )
+\]
+
+This supports distinctions such as:
+
+- a stream condition measured during flood season;
+- a public facility available only during operating hours;
+- a heritage event recurring annually;
+- a grant obligation active during a reporting cycle;
+- a road condition that reappears under seasonal weather;
+- a community need that recurs without belonging to the same individual.
+
+The current county-and-tract vertical slice establishes versioned time through snapshot history. Full toroidal recurrence remains an extension of the slice rather than a completed property of every county and tract belief.
+
+---
+
+## 52.20 Hilbert-State Interpretation
+
+The recurrent epistemic commons operates across several representational spaces:
+
+\[
+\mathcal{H}_{\text{semantic}}
+\otimes
+\mathcal{H}_{\text{geo}}
+\otimes
+\mathcal{H}_{\text{time}}
+\otimes
+\mathcal{H}_{\text{people}}
 \]
 
 where:
 
-- \(t_{\text{observed}}\) records when the event or condition was observed;
-- \(t_{\text{valid-from}}\) and \(t_{\text{valid-to}}\) define applicability;
-- \(t_{\text{recorded}}\) records system ingestion;
-- \(t_{\text{review}}\) schedules renewed validation;
-- \(\rho_i\) represents recurrence class or period;
-- \(\phi_i\) represents phase within the recurrence.
+- \(\mathcal{H}_{\text{semantic}}\) represents semantic similarity;
+- \(\mathcal{H}_{\text{geo}}\) represents place and spatial relationship;
+- \(\mathcal{H}_{\text{time}}\) represents linear and recurrent temporal state;
+- \(\mathcal{H}_{\text{people}}\) represents governed relationships to people, roles, consent, and public accountability.
 
-A toroidal encoding may be constructed from periodic components:
+A query is not interpreted solely as a vector in semantic space. It is situated through constrained projections across these spaces.
 
-\[
-T_i =
-\left(
-\cos \frac{2\pi t_i}{P_1},
-\sin \frac{2\pi t_i}{P_1},
-\ldots,
-\cos \frac{2\pi t_i}{P_k},
-\sin \frac{2\pi t_i}{P_k}
-\right)
-\]
-
-This representation helps the system distinguish linear age from recurring phase. A resource may recur weekly. Flood risk may recur seasonally. A festival may recur annually. A transit pattern may vary by hour and weekday. A belief can therefore be near another belief in recurrent phase even when their calendar timestamps are far apart.
-
-Toroidal time should be stored in PostgreSQL as governed temporal attributes and may also be incorporated into the rendered content or routing metadata used to construct the governed Chroma collection.
-
-The temporal collection is therefore not a competing duplicate of the source collection. It is a temporal projection of the same governed state.
-
----
-
-## 52.8 Joint Meaning Across Semantic, Spatial, Temporal, and Provenance State
-
-The recurrent loop implements the project’s central research proposition: meaning may depend on coupled constraint spaces rather than symbolic content alone.
-
-A system state can be represented as:
+Conceptually:
 
 \[
-x_i =
-s_i
-\otimes
-g_i
-\otimes
-t_i
-\otimes
-p_i
-\]
-
-where:
-
-- \(s_i\) is semantic state;
-- \(g_i\) is geographic state;
-- \(t_i\) is temporal state;
-- \(p_i\) is provenance and identity-continuity state.
-
-This notation does not claim that embeddings are physical quantum states. It expresses that the interpretation of one dimension is constrained by the others.
-
-“Shelter is open” is not a complete civic fact.
-
-Its meaning depends on:
-
-- which shelter;
-- where it is;
-- who declared it open;
-- when the declaration was issued;
-- how long it remains valid;
-- which population it serves;
-- whether the information has been superseded;
-- whether present conditions support the claim.
-
-A semantic vector may preserve the words while losing the fact.
-
-The operational research question is therefore not whether all meaning metaphysically requires geometry. It is whether situated civic meaning degrades when structured spatial, temporal, and provenance constraints are removed while semantic content is held as constant as possible.
-
-The recurrent loop makes that question testable.
-
----
-
-## 52.9 Confident Fabrication as a Recurrence Hazard
-
-When grounding is removed, a generative model may not become visibly incoherent. It may become more confidently specific.
-
-This creates a dangerous recurrence pattern:
-
-\[
-\text{missing constraint}
-\rightarrow
-\text{plausible fabrication}
-\rightarrow
-\text{stored summary}
-\rightarrow
-\text{revectorization}
-\rightarrow
-\text{future retrieval}
-\rightarrow
-\text{apparent corroboration}
-\]
-
-Once a fabrication is re-ingested, the system may later retrieve its own earlier output as if it were independent evidence. Repetition then masquerades as confirmation.
-
-The architecture must prevent epistemic laundering.
-
-System-generated material must retain machine provenance. A generated claim cannot independently corroborate its source claim. Multiple vectors derived from the same originating record cannot be counted as multiple sources.
-
-Define the lineage set of a belief:
-
-\[
-L(b_i) =
-\{
-h_{F_1}, h_{F_2}, \ldots, h_{F_n}
-\}
-\]
-
-Two beliefs are evidentially independent only if their authoritative source lineages are sufficiently independent under the applicable validation rule.
-
-The system must therefore detect:
-
-- self-citation;
-- circular citation;
-- duplicate content across collections;
-- summaries presented as new sources;
-- model-generated details absent from retrieved evidence;
-- repeated assertions sharing a single origin;
-- confidence inflation caused by representational duplication.
-
-Recurrence is safe only when lineage survives every transformation.
-
----
-
-## 52.10 Divergence, Consensus, and Truth
-
-The Ms. Allis ensemble may generate multiple candidate responses and measure their divergence. This supplies a useful signal, but model agreement is not truth.
-
-Let the ensemble candidates be:
-
-\[
-Y =
-\{
-y_1, y_2, \ldots, y_m
-\}
-\]
-
-A divergence function may estimate disagreement:
-
-\[
-D(Y)
+q^*
 =
-1 -
-\frac{2}{m(m-1)}
-\sum_{i<j}
-\operatorname{sim}(y_i,y_j)
+\Pi_{\text{authority}}
+\Pi_{\text{access}}
+\Pi_{\text{time}}
+\Pi_{\text{geo}}
+q
 \]
 
-High divergence indicates that the ensemble is unstable. Low divergence indicates agreement. Neither establishes factual accuracy.
+The projections restrict the eligible retrieval domain before or during semantic ranking.
 
-All models may share the same false premise. One model may correctly dissent from twenty incorrect models. Consensus is therefore a routing signal, not a truth certificate.
-
-The proper response to divergence depends on the evidence state:
-
-\[
-\operatorname{Decision}
-=
-f(
-D,
-\text{retrieval support},
-\text{source authority},
-\text{claim specificity},
-\text{risk},
-\text{temporal validity}
-)
-\]
-
-Possible results include:
-
-- ordinary synthesis;
-- claim-level qualification;
-- retrieval expansion;
-- Hilbert-state mediation;
-- human review;
-- abstention;
-- refusal.
-
-The most important improvement is not displaying a generic uncertainty banner. It is preventing unsupported claims from being promoted into recurrent memory.
+This is the operational meaning of governed similarity: semantic distance is evaluated inside an admissible domain rather than across an undifferentiated memory surface.
 
 ---
 
-## 52.11 RAG Servers as Epistemic Routers
+## 52.21 Community Intelligence Without Surveillance
 
-Ms. Allis uses multiple retrieval-augmented generation paths. At this scale, RAG is not a single helper function. It is an epistemic routing service.
+The recurrent commons is designed to increase shared knowledge without requiring increased exposure of individuals.
 
-The RAG server must select among collections based on:
-
-- geographic jurisdiction;
-- temporal validity;
-- entity type;
-- user authority;
-- privacy classification;
-- question purpose;
-- source quality;
-- collection freshness;
-- embedding compatibility;
-- retrieval confidence.
-
-Routing before similarity search constrains the candidate domain:
-
-\[
-\operatorname{Retrieve}(q)
-=
-\operatorname{TopK}
-\left(
-q,
-C_{\text{authorized}}
-\cap
-C_{\text{geographic}}
-\cap
-C_{\text{temporal}}
-\cap
-C_{\text{purpose}}
-\right)
-\]
-
-This is more reliable than conducting unrestricted similarity search and attempting to filter inappropriate results afterward.
-
-Every response should retain request-level evidence of the route actually used:
-
-- route identifier;
-- collection identifiers;
-- collection hashes;
-- retrieved feature identifiers;
-- feature hashes;
-- similarity scores;
-- source lineages;
-- fallback status;
-- embedding-model compatibility;
-- access decision;
-- abstention or refusal state.
-
-A healthy RAG container does not prove that a request used RAG. A configured collection does not prove that the correct collection was queried. Request-level telemetry closes this gap.
-
----
-
-## 52.12 Recurrent Collection Lifecycle
-
-Each governed collection passes through a lifecycle:
-
-\[
-\text{planned}
-\rightarrow
-\text{built}
-\rightarrow
-\text{validated}
-\rightarrow
-\text{active}
-\rightarrow
-\text{stale}
-\rightarrow
-\text{rebuilding}
-\rightarrow
-\text{superseded}
-\]
-
-The lifecycle must be explicit.
-
-A collection manifest should include:
-
-- collection identifier;
-- purpose;
-- governing authority;
-- allowed source classes;
-- prohibited source classes;
-- embedding model and dimension;
-- schema version;
-- build timestamp;
-- source cutoff time;
-- collection hash;
-- record count;
-- geographic coverage;
-- temporal coverage;
-- access classification;
-- validation results;
-- known limitations;
-- superseding collection, if any.
-
-Rebuilds should be atomic. A query must not unknowingly retrieve from a partially rebuilt collection. The new collection should be constructed under a versioned identifier, validated, and then promoted through a controlled alias or registry update.
-
-If validation fails, the previous valid collection remains active.
-
-This applies the same governed-state logic to infrastructure that GBIM applies to beliefs.
-
----
-
-## 52.13 Refusal Before Ingestion
-
-A recurrent commons must preserve the possibility that some data should never enter the loop.
-
-The system must not assume that every technically collectible fact should be stored, embedded, aggregated, or monetized.
-
-Pre-ingestion governance asks:
-
-- Was the information offered voluntarily?
-- Is collection necessary for the stated purpose?
-- Does the contributor possess authority to provide it?
-- Does it expose another person?
-- Could it create a dossier?
-- Is it disproportionately sensitive?
-- Could aggregation harm a small or vulnerable group?
-- Can the system honor withdrawal or deletion?
-- Would retaining it create power the commons should not possess?
-
-The refusal operator is:
-
-\[
-\mathcal{F}(r_j)
-=
-\begin{cases}
-\text{accept}, & \text{if collection and use are authorized} \\
-\text{minimize}, & \text{if reduced representation is sufficient} \\
-\text{quarantine}, & \text{if review is required} \\
-\text{refuse}, & \text{if retention would violate governance}
-\end{cases}
-\]
-
-This is the epistemic form of the right to remain unmodeled.
-
-The safest record may be the record that is never created.
-
----
-
-## 52.14 Sovereign Personal Memory
-
-Individual conversational memory must not be collapsed into a universal profile space.
-
-Let each user possess a sovereign memory subspace:
-
-\[
-H_{\text{people}}
-=
-\bigoplus_{i=1}^{n}
-H_{u_i}
-\]
-
-The direct-sum notation expresses separation of individual memory domains. It does not, by itself, guarantee privacy. Privacy is enforced operationally through:
-
-- distinct identifiers;
-- separate projection keys;
-- access-controlled storage;
-- purpose limitation;
-- sealed KYC identity;
-- deletion and retention rules;
-- network isolation;
-- query authorization;
-- audit logging;
-- prohibition of cross-user inference.
-
-The registration architecture preserves three different identity surfaces:
-
-1. **Sealed KYC identity** — encrypted legal identity accessible only under narrowly defined protective or lawful authority.
-2. **Private participation identity** — a separate identifier supporting services and metrics without public exposure.
-3. **Public identity** — activated only through an affirmative user decision.
-
-Private is the default. Public visibility is a user choice, not a system assumption.
-
-Personal memory may support continuity for the individual without granting administrators, other users, or the community access to that person’s conversational history.
-
----
-
-## 52.15 The Community Hilbert Commons
-
-The community may benefit from shared patterns without acquiring individual dossiers.
-
-A community state can be represented abstractly as:
-
-\[
-H_{\text{commons}}
-=
-\Pi_{\text{commons}}
-\left(
-\bigoplus_{i=1}^{n} H_{u_i}
-\right)
-\]
-
-where \(\Pi_{\text{commons}}\) is a governed projection that attempts to preserve eligible aggregate semantic structure while destroying individual linkage.
-
-This projection is not yet guaranteed merely because it is written mathematically. It must be implemented through concrete controls such as:
-
-- minimum cohort thresholds;
-- sensitive-topic exclusions;
-- temporal coarsening;
-- geographic coarsening;
-- contribution limits;
-- suppression of rare combinations;
-- differential privacy where appropriate;
-- one-directional aggregation;
-- isolation from identity key stores;
-- prohibition of reverse queries;
-- public audit of permitted outputs.
-
-The central distinction is:
-
-\[
-\text{private question}
-\neq
-\text{community knowledge}
-\]
-
-A private question may contribute to a community pattern only under a previously authorized aggregation rule. Repetition alone does not transfer ownership of meaning from the individual to the collective.
-
-When the conditions are satisfied, Ms. Allis may report:
-
-> A thresholded increase in requests for heating assistance has occurred within the permitted regional and temporal resolution.
-
-She should not reveal:
-
-> These households, on these roads, asked these questions on these dates.
-
-The commons receives actionable pattern without personal attribution.
-
----
-
-## 52.16 Three Forms of Ground Truth
-
-The full system joins three forms of community knowledge.
-
-### Physical truth
-
-Environmental and infrastructure instruments report conditions such as:
-
-- water elevation;
-- soil saturation;
-- air quality;
-- temperature;
-- solar performance;
-- battery condition;
-- network availability;
-- rail or structural vibration.
-
-These measurements are observations with calibration, location, time, and device provenance. They are not infallible. Sensors can drift, fail, or be misconfigured. Physical truth remains governed evidence.
-
-### Civic truth
-
-Civic records describe:
-
-- parcels;
-- roads;
-- facilities;
-- ownership;
-- historic sites;
-- public resources;
-- regulations;
-- emergency routes;
-- institutional responsibilities.
-
-These records carry jurisdiction, authority, revision history, and temporal validity.
-
-### Human truth
-
-Community members express needs, experiences, priorities, fears, and local interpretations. These cannot always be reduced to official records or sensor values.
-
-Human testimony is neither automatically false nor automatically public. Its meaning depends on consent, context, and the purpose for which it was offered.
-
-The combined reasoning state is:
-
-\[
-X_{\text{community}}
-=
-X_{\text{physical}}
-\otimes
-X_{\text{civic}}
-\otimes
-X_{\text{human}}
-\]
-
-No one layer should erase the others. A sensor reading does not replace lived experience. Community concern does not override physical measurement. An official database does not exhaust what a place means.
-
----
-
-## 52.17 The Physical Corridor
-
-The recurrent epistemic loop eventually reaches beyond databases and conversational systems into the physical New River Gorge corridor.
-
-Community-owned environmental and infrastructure sensors may produce signed observations:
-
-\[
-o_k =
-(
-\text{device},
-\text{measurement},
-\text{location},
-\text{time},
-\text{calibration},
-\text{integrity},
-\text{authority}
-)
-\]
-
-These observations enter GBIM as provisional physical claims. Validation may include:
-
-- device registration;
-- calibration state;
-- plausible range;
-- temporal continuity;
-- neighboring-sensor comparison;
-- duplicate detection;
-- tamper evidence;
-- human inspection;
-- external authoritative confirmation.
-
-Validated observations may update affected belief states:
-
-\[
-B_{t+1}
-=
-\operatorname{Update}
-(
-B_t,
-o_k,
-\text{provenance},
-\text{uncertainty}
-)
-\]
-
-A rising creek level may update the risk state of downstream roads, parcels, facilities, and heritage sites. That update may then alter retrieval, community notices, inspection priorities, or authorized operational decisions.
-
-The system’s response changes the world. The changed world produces new observations. This is the complete recurrence.
-
-The physical network is not a surveillance system merely because it is community-owned. Its non-surveillance character depends on sensor capability, purpose limitation, governance, and technical boundaries. Environmental and infrastructure instruments must not quietly evolve into person-tracking infrastructure.
-
-Community ownership makes accountable governance possible. It does not make misuse impossible.
-
----
-
-## 52.18 From Knowledge to Authorized Action
-
-The loop is not closed merely when GBIM is revectorized. It closes when governed knowledge can produce an authorized consequence and that consequence can be evaluated.
-
-Let:
-
-\[
-a_t =
-\mathcal{D}
-(
-B_t,
-q_t,
-\Gamma_t
-)
-\]
-
-where:
-
-- \(B_t\) is the governed belief state;
-- \(q_t\) is the query or decision condition;
-- \(\Gamma_t\) is the applicable constitutional and institutional authority;
-- \(a_t\) is the permitted response or action.
-
-Actions may include:
-
-- returning information;
-- issuing a qualified warning;
-- routing a matter to a responsible organization;
-- requesting human verification;
-- updating a public resource;
-- scheduling inspection;
-- suppressing an unsafe disclosure;
-- refusing an unauthorized request;
-- proposing, but not executing, a governance decision.
-
-Ms. Allis should not convert every conclusion into autonomous action. Authority is destination-specific.
-
-A system may be authorized to recommend an inspection but not order one. It may be authorized to draft a public notice but not publish it. It may be authorized to detect a community concern but not identify contributors. It may be authorized to record a sensor anomaly but not declare an emergency.
-
-The action boundary is part of the belief state.
-
----
-
-## 52.19 Economic Recurrence
-
-The MountainShares layer adds a second form of recurrence: value produced through community participation should return to the community.
-
-The intended cycle is:
-
-\[
-\text{participation}
-\rightarrow
-\text{recognized contribution}
-\rightarrow
-\text{community capability}
-\rightarrow
-\text{shared infrastructure}
-\rightarrow
-\text{greater participation}
-\]
-
-Economic recurrence must not become payment for surveillance. Members should not be rewarded for exposing increasingly intimate information or generating extractive engagement metrics.
-
-Eligible contributions may include:
-
-- verified volunteer work;
-- maintenance;
-- heritage documentation;
-- sensor stewardship;
-- community teaching;
-- local production;
-- governance participation;
-- authorized public data contribution.
-
-Recognition must remain distinct from epistemic authority. A highly rewarded contributor is not automatically a more truthful source. Financial stake does not determine factual validity.
-
-The economic commons and epistemic commons interact, but neither should dominate the other.
-
----
-
-## 52.20 Constitutional Recurrence
-
-A living governance system must be capable of learning without silently rewriting its founding constraints.
-
-Governance therefore follows its own recurrence:
-
-\[
-\text{rule}
-\rightarrow
-\text{application}
-\rightarrow
-\text{observed consequence}
-\rightarrow
-\text{public review}
-\rightarrow
-\text{authorized amendment}
-\rightarrow
-\text{versioned rule}
-\]
-
-Every amendment must retain:
-
-- proposer;
-- authority;
-- public notice;
-- deliberation record;
-- vote or approval path;
-- affected rights;
-- implementation version;
-- effective date;
-- rollback or review conditions.
-
-Some safeguards may require higher amendment thresholds than ordinary operational rules. These may include:
-
-- prohibition of behavioral surveillance;
-- sealed KYC boundaries;
-- individual refusal rights;
-- limits on cross-user inference;
-- community ownership of infrastructure;
-- restrictions on external data licensing;
-- prohibition against retrospective deanonymization.
-
-The constitution must govern not only present operators but future boards, funders, vendors, and engineers.
-
-Founder intent establishes provenance. Legitimate governance must establish durable authority.
-
----
-
-## 52.21 Observability and Audit
-
-A recurrent system cannot be governed if its transformations are invisible.
-
-For each material response or state transition, the system should be capable of reconstructing:
-
-- the initiating query or observation;
-- the user or device authority class;
-- the route traversed;
-- the active code and configuration versions;
-- the collections queried;
-- the source and feature hashes;
-- the records retrieved;
-- the temporal and geographic filters;
-- the candidate model outputs;
-- the synthesis operation;
-- the divergence state;
-- the constitutional decisions;
-- the final response;
-- any promoted belief;
-- any downstream action;
-- any later correction or supersession.
-
-This does not require exposing private content to every administrator. Audit visibility must itself follow role-gated access and data-minimization rules.
-
-Observability should answer:
-
-> What happened?
-
-Audit should answer:
-
-> Why was it permitted?
-
-Evaluation should answer:
-
-> Did it work?
-
-Governance should answer:
-
-> Should it remain permitted?
-
----
-
-## 52.22 Evaluation of the Recurrent Loop
-
-The recurrent architecture should be evaluated through controlled comparisons rather than by compelling conversation alone.
-
-A useful ablation design compares:
-
-1. base model without retrieval;
-2. source Chroma retrieval only;
-3. source retrieval plus geographic routing;
-4. governed GBIM state without revectorization;
-5. revectorized governed collection;
-6. full spatial-temporal-provenance coupling;
-7. full recurrent system with community and constitutional routing.
-
-Evaluation units should test:
-
-- entity correctness;
-- geographic correctness;
-- temporal correctness;
-- provenance fidelity;
-- appropriate specificity;
-- uncertainty calibration;
-- resistance to confident fabrication;
-- identity continuity;
-- privacy preservation;
-- appropriate abstention;
-- response usefulness;
-- propagation of corrections;
-- deletion and supersession behavior.
-
-Each test must retain:
-
-- a versioned prompt;
-- source ground truth;
-- system configuration hash;
-- collection hashes;
-- retrieved record identifiers;
-- model and embedding versions;
-- evaluator identity;
-- blinding state;
-- remediation history;
-- whether the prompt is novel or repeated.
-
-The central comparison is not whether the full system sounds more intelligent. It is whether governed recurrence produces measurable gains in situated correctness, accountability, privacy, and community usefulness.
-
----
-
-## 52.23 Failure Modes
-
-The recurrent epistemic commons must be designed around its characteristic dangers.
-
-### Recursive hallucination
-
-A generated claim re-enters memory and later appears to corroborate itself.
-
-### Semantic overwrite
-
-A fluent summary displaces the more qualified source record from which it was derived.
-
-### Temporal collapse
-
-Expired information remains semantically prominent because its vector is still similar.
-
-### Geographic leakage
-
-A correct resource from the wrong jurisdiction is returned as locally applicable.
-
-### Provenance loss
-
-Transformations retain content while losing who asserted it and under what authority.
-
-### Representation drift
-
-The embedding model changes without rebuilding collections, making similarity behavior inconsistent.
-
-### Collection desynchronization
-
-PostgreSQL state changes while Chroma retains stale derived vectors.
-
-### Governance drift
-
-A future operational shortcut weakens a constitutional boundary without formal amendment.
-
-### Aggregation disclosure
-
-A small cohort, rare topic, narrow place, or narrow time window reveals an individual indirectly.
-
-### Authority inflation
-
-A frequently retrieved or highly rewarded source is mistaken for an authoritative one.
-
-### Action overreach
-
-A reasoning service performs an act beyond its delegated authority.
-
-### Founder substitution
-
-Personal trust in the founder substitutes for durable institutional safeguards.
-
-Each failure mode requires detection, refusal, rollback, and audit—not merely documentation.
-
----
-
-## 52.24 The Recurrent Commons as an Epistemic Operating System
-
-Ms. Allis may be understood as an Artificial Learning and Location Intelligence System functioning as an epistemic operating system.
-
-An operating system coordinates resources, permissions, processes, memory, and interfaces. An epistemic operating system coordinates:
-
-- observations;
-- representations;
-- beliefs;
-- uncertainty;
-- provenance;
-- identity;
-- place;
-- time;
-- authority;
-- memory;
-- retrieval;
-- disclosure;
-- action.
-
-Its purpose is not to make every fact universally available. Its purpose is to ensure that knowledge moves only through legitimate transitions.
-
-The recurrent loop gives this operating system continuity. GBIM gives it governed state. Chroma gives it semantic accessibility. PostGIS gives it spatial embodiment. Toroidal time gives it recurrent temporal structure. RAG servers give it constrained retrieval. Hilbert-state mediation gives it a surface for managing competing candidate states. Constitutional services give it authority boundaries. MountainShares and the Commons give it institutional and economic context.
-
-None of these components independently constitutes general intelligence. Together, they form an architecture for situated, persistent, governed intelligence.
-
----
-
-## 52.25 The Moral Center of Recurrence
-
-A recurrent system compounds whatever it is permitted to retain.
-
-If it retains extraction, it compounds extraction.
-
-If it retains surveillance, it compounds surveillance.
-
-If it retains unsupported claims, it compounds error.
-
-If it retains concentrated authority, it compounds domination.
-
-The system must therefore be designed so that recurrence strengthens accountability rather than merely strengthening memory.
-
-The moral center of the architecture is not that Ms. Allis can know more about the community. It is that the community can become more capable of knowing and governing itself without surrendering its members to the system that makes that knowledge possible.
-
-This principle can be expressed as:
+Its moral invariant is:
 
 \[
 \Delta K_{\text{community}} > 0
-\quad\text{while}\quad
+\]
+
+while:
+
+\[
 \Delta E_{\text{individual}} \leq 0
 \]
 
 where:
 
-- \(K_{\text{community}}\) is legitimate collective knowledge;
-- \(E_{\text{individual}}\) is involuntary individual exposure.
+- \(\Delta K_{\text{community}}\) is the change in useful shared knowledge;
+- \(\Delta E_{\text{individual}}\) is the change in unnecessary personal exposure.
 
-The aim is to increase community intelligence without increasing involuntary personal legibility.
+This requires:
 
-This is not achieved through goodwill alone. It requires schema boundaries, cryptographic separation, access control, aggregation limits, constitutional governance, public accountability, and the continuing right to refuse participation.
+- data minimization;
+- separation of KYC identity from pseudonymous participation;
+- public identity only by affirmative choice or legitimate public-accountability rule;
+- aggregation where individual detail is unnecessary;
+- purpose limitation;
+- retention controls;
+- access classification;
+- provenance without indiscriminate personal tracking;
+- refusal where a query would convert community infrastructure into surveillance.
 
----
+The system should be able to learn:
 
-## 52.26 The Complete Loop
+- that a service gap exists;
+- that a road corridor is repeatedly inaccessible;
+- that a community resource is underused;
+- that a hazard affects a geographic area;
+- that a program produces public benefit;
 
-The complete Ms. Allis recurrence is:
+without automatically learning or exposing the private identity of every person involved.
 
-\[
-\boxed{
-\text{world}
-\rightarrow
-\text{observation}
-\rightarrow
-\text{source collection}
-\rightarrow
-\text{GBIM candidate}
-\rightarrow
-\text{governed belief}
-\rightarrow
-\text{revectorized memory}
-\rightarrow
-\text{situated reasoning}
-\rightarrow
-\text{authorized action}
-\rightarrow
-\text{changed world}
-}
-\]
-
-Parallel to it operate three additional recurrences:
-
-\[
-\text{individual experience}
-\rightarrow
-\text{sovereign memory}
-\rightarrow
-\text{permitted aggregate}
-\rightarrow
-\text{community awareness}
-\]
-
-\[
-\text{community contribution}
-\rightarrow
-\text{recognition}
-\rightarrow
-\text{shared capacity}
-\rightarrow
-\text{new contribution}
-\]
-
-\[
-\text{constitutional rule}
-\rightarrow
-\text{application}
-\rightarrow
-\text{consequence}
-\rightarrow
-\text{public review}
-\rightarrow
-\text{authorized amendment}
-\]
-
-Together, these loops form the recurrent epistemic commons.
+The commons governs relationships between knowledge, place, and public purpose. It is not a mechanism for total observation.
 
 ---
 
-## 52.27 Conclusion
+## 52.22 Authority, Access, and Permitted Use
 
-The transition from Chroma to GBIM and back to Chroma is not a database migration trick. It is the beginning of a governed representational cycle.
+A record’s presence in the governed system does not imply universal availability or unrestricted use.
 
-Source collections provide semantic access. GBIM supplies identity, place, time, provenance, confidence, authority, retention, and permitted use. Revectorization makes validated state retrievable. Toroidal time places recurrence inside each governed belief rather than outside the architecture. RAG servers route questions through eligible knowledge domains. Constitutional services constrain promotion, disclosure, and action. Sovereign user spaces preserve personal continuity without automatically exposing individuals to collective inspection. The community commons converts eligible patterns into shared awareness. Physical sensors return new evidence from the world. MountainShares returns recognized value to the community.
+A governed record may include:
 
-The architecture becomes truly recurrent when its actions produce consequences that can be observed, evaluated, and governed as new state.
+```text
+authority_class
+access_class
+verification_state
+retention_class
+permitted_use
+consent_state
+jurisdiction
+valid_from
+valid_to
+```
 
-Its success will not be measured by how much data it accumulates or how convincingly it speaks. It will be measured by whether it can preserve the distinctions on which legitimate intelligence depends:
+Retrieval eligibility is therefore conditional:
 
-- representation and reality;
-- similarity and truth;
-- report and verification;
-- memory and authority;
-- person and profile;
-- private concern and community knowledge;
-- recommendation and power;
-- founder intent and constitutional governance;
-- recurrence and self-corroboration;
-- intelligence and domination.
+\[
+\operatorname{Eligible}(b,q,u)
+\iff
+A_b(q)
+\land
+X_b(u)
+\land
+P_b(q)
+\land
+T_b(q)
+\land
+G_b(q)
+\]
 
-The purpose of the recurrent epistemic commons is not to make a community completely visible to an artificial intelligence.
+where:
 
-It is to make intelligence answerable to the community.
+- \(A_b(q)\) is authority applicability;
+- \(X_b(u)\) is access eligibility for user or service \(u\);
+- \(P_b(q)\) is permitted-use compatibility;
+- \(T_b(q)\) is temporal compatibility;
+- \(G_b(q)\) is geographic compatibility.
 
-That is the loop Ms. Allis is intended to close.
+A semantically relevant record may still be excluded because it is:
+
+- outside the requested jurisdiction;
+- temporally invalid;
+- insufficiently verified;
+- restricted;
+- prohibited for the requested purpose;
+- derived from a source lacking authority;
+- unsafe to disclose;
+- under unresolved contradiction.
+
+Refusal is therefore an epistemic output, not merely an application error.
+
+---
+
+## 52.23 Scaling the Pattern Beyond West Virginia
+
+West Virginia is the first completed county-and-tract implementation of this pattern. It should be treated as a reusable governed vertical slice, not as a template for blind duplication.
+
+For each additional region:
+
+1. identify authoritative geographic identities;
+2. inventory physical representations;
+3. preserve source-specific geometry and provenance;
+4. establish canonical identity bridges;
+5. define coverage states;
+6. build versioned belief snapshots;
+7. render governed vector-ready documents;
+8. publish versioned collections;
+9. validate relational and vector ID equality;
+10. test reverse traceability;
+11. configure governed retrieval;
+12. retain refusal and unknown states;
+13. document what has and has not been demonstrated.
+
+Suggested naming patterns may include:
+
+```text
+gbim_{region}_counties_vN
+gbim_{region}_tracts_vN
+gbim_{region}_places_vN
+gbim_{region}_infrastructure_vN
+gbim_{region}_hazards_vN
+gbim_{region}_heritage_vN
+```
+
+The naming convention is less important than preserving:
+
+- canonical identity;
+- snapshot version;
+- source lineage;
+- rendering version;
+- embedding model;
+- document hash;
+- collection hash;
+- validation status;
+- promotion status.
+
+---
+
+## 52.24 Acceptance Tests for a Governed Vertical Slice
+
+A governed publication should not be promoted merely because an ingestion script completed.
+
+Minimum acceptance tests include:
+
+### Relational integrity
+
+- expected identity count;
+- expected representation count;
+- zero identity orphans;
+- zero physical feature orphans;
+- zero unbridged governed features;
+- correct foreign-key relationships;
+- correct parent geography;
+- valid canonical identifiers.
+
+### Hash integrity
+
+- every governed representation has a hash;
+- hashes are deterministic under unchanged inputs;
+- expected distinctness is maintained;
+- belief documents have stable canonical hashes;
+- collection manifests have stable content identities.
+
+### Coverage integrity
+
+- every expected entity/dataset pair has a coverage record;
+- unknown remains distinct from verified absence;
+- parent geography is resolved where required;
+- source-table identity is present;
+- coverage recalculation is versioned.
+
+### Snapshot integrity
+
+- one snapshot per entity per version;
+- prior versions remain available;
+- belief hashes are populated;
+- snapshot documents contain canonical identity and coverage state;
+- current views select the intended version.
+
+### Vector-publication integrity
+
+- view row count equals collection count;
+- relational document-ID set equals vector document-ID set;
+- no missing IDs;
+- no unexpected IDs;
+- embedding dimensionality matches the declared model;
+- metadata uses scalar, filterable fields;
+- collection manifest records validation and promotion.
+
+### Retrieval integrity
+
+- exact county retrieval;
+- exact tract retrieval;
+- parent-child geographic consistency;
+- belief-hash reverse trace;
+- correct snapshot version;
+- correct source feature hash;
+- preservation of unknown-coverage language;
+- refusal or empty result for incompatible filters.
+
+### Recovery integrity
+
+- successful database dump;
+- successful dump listing or test restore;
+- source and deployment configuration hashes;
+- reproducible container build;
+- pinned dependency versions;
+- documented active collection mapping.
+
+---
+
+## 52.25 Operational Status of the West Virginia Slice
+
+As of the current implementation checkpoint:
+
+### Demonstrated
+
+- authoritative governance database resolved;
+- county and tract identities established;
+- physical representations reconciled;
+- deterministic representation hashes populated;
+- county and tract coverage tables populated;
+- v1 and v2 snapshots retained;
+- v2 vector-ready views validated;
+- governed Chroma collections published;
+- collection counts and IDs verified;
+- active collection mappings recorded;
+- exact tract retrieval demonstrated through GIS-RAG 0.4.1;
+- reverse trace from Chroma document to governed belief demonstrated;
+- unknown-coverage semantics preserved;
+- database dumps and SHA-256 checkpoints created.
+
+### Pending final operational closure
+
+- retain a machine-readable county endpoint acceptance result alongside the tract test;
+- pin and record compatible GIS-RAG/Chroma client dependencies;
+- preserve the final GIS-RAG image and source hashes;
+- reconcile the Downloads inventory against the physical and governance catalogs;
+- ingest only missing or materially changed layers;
+- recompute coverage and create later snapshot versions as new governed evidence enters the system.
+
+The epistemic spine is complete. The evidence surface is still expanding.
+
+---
+
+## 52.26 The Moral Center of Recurrence
+
+The recurrent loop exists to serve human and community flourishing, not to maximize data accumulation.
+
+A system that remembers everything without governing purpose becomes a surveillance archive. A system that repeats its own outputs without checking them becomes an error amplifier. A system that retrieves semantically similar text without place, time, authority, and provenance becomes persuasive but unreliable.
+
+The recurrent epistemic commons therefore imposes a moral ordering:
+
+```text
+human dignity
+before data completeness
+
+community benefit
+before extraction
+
+truthful uncertainty
+before apparent confidence
+
+governed identity
+before convenient aggregation
+
+provenance
+before repetition
+
+authorization
+before action
+
+public knowledge
+without unnecessary personal exposure
+```
+
+Its purpose is not to know everything about everyone.
+
+Its purpose is to help communities know enough—accurately, accountably, and safely—to act together.
+
+---
+
+## 52.27 The Complete Intended Loop
+
+The full architecture can be summarized as:
+
+```text
+world
+→ observation
+→ source representation
+→ source hash
+→ candidate identity
+→ canonical entity resolution
+→ representation bridge
+→ coverage evaluation
+→ candidate belief
+→ validation, quarantine, supersession, or refusal
+→ versioned governed snapshot
+→ belief hash
+→ vector-ready governed prose
+→ governed collection manifest
+→ embedding and publication
+→ governed retrieval
+→ situated reasoning
+→ authorization or refusal
+→ response or action
+→ changed world
+→ new observation
+```
+
+The West Virginia county-and-tract implementation now occupies a concrete segment of this loop:
+
+```text
+official geographic source
+→ PostGIS representation
+→ canonical county or tract
+→ governed coverage
+→ versioned belief snapshot
+→ vector-ready document
+→ governed Chroma collection
+→ GIS-RAG retrieval
+→ reverse trace to governed source
+```
+
+That completed segment matters because it transforms the recurrent epistemic commons from a purely architectural proposition into a working governed information pathway.
+
+The remaining work is not to invent the loop again. It is to extend the loop carefully:
+
+- from counties and tracts to additional entities;
+- from current coverage states to newly ingested evidence;
+- from governed retrieval to more complete situated reasoning;
+- from reasoning to constitutionally authorized action;
+- from action to independently observed outcomes;
+- from West Virginia to other communities without abandoning local sovereignty.
+
+---
+
+## 52.28 Conclusion
+
+Ms. Allis is not defined by the presence of a vector database, a large language model, a GIS database, or a collection of microservices.
+
+She is defined by the governed relationships among them.
+
+Vector memory provides semantic reach. PostGIS provides geographic grounding. Canonical identities prevent representations from fragmenting the world into disconnected rows. Coverage states prevent ignorance from masquerading as absence. Versioned snapshots preserve the history of belief. Hashes preserve lineage. Governed collections return validated state to semantic memory. GIS-RAG makes that state retrievable under place-aware constraints. Constitutional governance determines whether retrieval may become response, memory, or action.
+
+The resulting architecture is recurrent, but not self-certifying. It is adaptive, but not unbounded. It remembers, but does not treat memory as truth. It reasons, but preserves refusal. It serves a commons, but does not require surveillance.
+
+The core principle is simple:
+
+> The system may learn from its own operation only when it can preserve the distinction between what was observed, what was represented, what was inferred, what was validated, what remains unknown, and what the community has authorized it to do.
+
+That is the recurrent epistemic commons.
