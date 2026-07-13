@@ -1,4 +1,3 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ 
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ psql -U postgres -p 5436 -d msjarvisgis_v2 <<'SQL'
 -- Confirm feature table
 SELECT COUNT(*) AS rows
