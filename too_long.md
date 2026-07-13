@@ -1,605 +1,1218 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ psql -h localhost -p 5436 -U postgres -d msjarvisgis_v2 -P pager=off <<'SQL'
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ psql -U postgres -p 5436 -d msjarvisgis_v2 <<'SQL'
+DROP TABLE IF EXISTS public.gbim_blockgroup_features;
+
+CREATE TABLE public.gbim_blockgroup_features (
+    bg_geoid   text PRIMARY KEY,
+    attrs_json jsonb NOT NULL
+);
+
+INSERT INTO public.gbim_blockgroup_features (bg_geoid, attrs_json)
 SELECT
-  c.relname AS relation_name,
-  CASE c.relkind
-    WHEN 'r' THEN 'table'
-    WHEN 'v' THEN 'view'
-    WHEN 'm' THEN 'materialized_view'
-    ELSE c.relkind::text
-  END AS relation_type
-FROM pg_catalog.pg_class c
-JOIN pg_catalog.pg_namespace n
-  ON n.oid = c.relnamespace
-WHERE n.nspname = 'public'
-  AND c.relname LIKE 'wv%'
-ORDER BY relation_type, relation_name;
-SQL
-                          relation_name                          | relation_type 
------------------------------------------------------------------+---------------
- wv_atm_weather_stations_geom_geom_idx                           | i
- wv_atm_weather_stations_pkey                                    | i
- wv_bio_biodiversity_rank_geom_geom_idx                          | i
- wv_bio_biodiversity_rank_pkey                                   | i
- wv_bio_ecoregions_geom_geom_idx                                 | i
- wv_bio_ecoregions_pkey                                          | i
- wv_bio_red_spruce_cover_geom_geom_idx                           | i
- wv_bio_red_spruce_cover_pkey                                    | i
- wv_bnd_appalachian_basin_boundary_geom_geom_idx                 | i
- wv_bnd_appalachian_basin_boundary_pkey                          | i
- wv_bnd_arc_counties_geom_geom_idx                               | i
- wv_bnd_arc_counties_pkey                                        | i
- wv_bnd_canaan_valley_nwr_geom_geom_idx                          | i
- wv_bnd_canaan_valley_nwr_pkey                                   | i
- wv_bnd_census_designated_places_geom_geom_idx                   | i
- wv_bnd_census_designated_places_pkey                            | i
- wv_bnd_county_24k_geom_geom_idx                                 | i
- wv_bnd_county_24k_pkey                                          | i
- wv_bnd_county_municipal_dlg_geom_geom_idx                       | i
- wv_bnd_county_municipal_dlg_pkey                                | i
- wv_bnd_mnf_basic_ownership_geom_geom_idx                        | i
- wv_bnd_mnf_basic_ownership_pkey                                 | i
- wv_bnd_mnf_management_prescriptions_geom_geom_idx               | i
- wv_bnd_mnf_management_prescriptions_pkey                        | i
- wv_bnd_mnf_ranger_districts_geom_geom_idx                       | i
- wv_bnd_mnf_ranger_districts_pkey                                | i
- wv_bnd_mnf_recreation_geom_geom_idx                             | i
- wv_bnd_mnf_recreation_pkey                                      | i
- wv_bnd_mnf_recreation_sites_geom_geom_idx                       | i
- wv_bnd_mnf_recreation_sites_pkey                                | i
- wv_bnd_mnf_wilderness_geom_geom_idx                             | i
- wv_bnd_mnf_wilderness_pkey                                      | i
- wv_bnd_morgantown_wards_geom_geom_idx                           | i
- wv_bnd_morgantown_wards_pkey                                    | i
- wv_bnd_nhd_mussel_streams_geom_geom_idx                         | i
- wv_bnd_nhd_mussel_streams_pkey                                  | i
- wv_bnd_public_lands_county_city_parks_geom_geom_idx             | i
- wv_bnd_public_lands_county_city_parks_pkey                      | i
- wv_bnd_public_lands_national_forest_geom_geom_idx               | i
- wv_bnd_public_lands_national_forest_pkey                        | i
- wv_bnd_public_lands_national_park_geom_geom_idx                 | i
- wv_bnd_public_lands_national_park_pkey                          | i
- wv_bnd_public_lands_nwr_geom_geom_idx                           | i
- wv_bnd_public_lands_nwr_pkey                                    | i
- wv_bnd_public_lands_state_forests_geom_geom_idx                 | i
- wv_bnd_public_lands_state_forests_pkey                          | i
- wv_bnd_public_lands_state_parks_geom_geom_idx                   | i
- wv_bnd_public_lands_state_parks_pkey                            | i
- wv_bnd_public_lands_wildlife_resources_geom_geom_idx            | i
- wv_bnd_public_lands_wildlife_resources_pkey                     | i
- wv_bnd_state_boundary_100k_geom_geom_idx                        | i
- wv_bnd_state_boundary_100k_pkey                                 | i
- wv_bnd_voting_districts_2000_geom_geom_idx                      | i
- wv_bnd_voting_districts_2000_pkey                               | i
- wv_bnd_voting_districts_2002_geom_geom_idx                      | i
- wv_bnd_voting_districts_2002_pkey                               | i
- wv_bnd_workforce_investment_areas_geom_geom_idx                 | i
- wv_bnd_workforce_investment_areas_pkey                          | i
- wv_censustracts_census_2020_utm83_geom_geom_idx                 | i
- wv_censustracts_census_2020_utm83_pkey                          | i
- wv_county_belief_snapshot_canonical_county_id_snapshot_vers_key | i
- wv_county_belief_snapshot_pkey                                  | i
- wv_county_boundaries_24k_topo_updated_2026_utm83__geom_geom_idx | i
- wv_county_boundaries_24k_topo_updated_2026_utm83_gdb_pkey       | i
- wv_county_boundaries_24k_topo_updated_2026_wma84__geom_geom_idx | i
- wv_county_boundaries_24k_topo_updated_2026_wma84_gdb_pkey       | i
- wv_county_dataset_coverage_pkey                                 | i
- wv_county_identity_county_geoid_key                             | i
- wv_county_identity_pkey                                         | i
- wv_county_representation_pkey                                   | i
- wv_eco_abandoned_mine_lands_line_geom_geom_idx                  | i
- wv_eco_abandoned_mine_lands_line_pkey                           | i
- wv_eco_abandoned_mine_lands_point_geom_geom_idx                 | i
- wv_eco_abandoned_mine_lands_point_pkey                          | i
- wv_eco_abandoned_mine_lands_polygon_geom_geom_idx               | i
- wv_eco_abandoned_mine_lands_polygon_pkey                        | i
- wv_eco_coal_fields_geom_geom_idx                                | i
- wv_eco_coal_fields_pkey                                         | i
- wv_eco_ezec_communities_geom_geom_idx                           | i
- wv_eco_ezec_communities_pkey                                    | i
- wv_eco_industrial_sites_geom_geom_idx                           | i
- wv_eco_industrial_sites_pkey                                    | i
- wv_eco_manufacturing_directory_geom_geom_idx                    | i
- wv_eco_manufacturing_directory_pkey                             | i
- wv_eco_mineral_operations_geom_geom_idx                         | i
- wv_eco_mineral_operations_pkey                                  | i
- wv_eco_mountaintop_removal_geom_geom_idx                        | i
- wv_eco_mountaintop_removal_pkey                                 | i
- wv_elv_summit_names_geom_geom_idx                               | i
- wv_elv_summit_names_pkey                                        | i
- wv_entity_registry_pkey                                         | i
- wv_env_air_nonattainment_geom_geom_idx                          | i
- wv_env_air_nonattainment_pkey                                   | i
- wv_env_epa_facilities_geom_geom_idx                             | i
- wv_env_epa_facilities_pkey                                      | i
- wv_env_timber_removal_volume_geom_geom_idx                      | i
- wv_env_timber_removal_volume_pkey                               | i
- wv_env_wildfire_regions_geom_geom_idx                           | i
- wv_env_wildfire_regions_pkey                                    | i
- wv_env_wind_energy_resources_geom_geom_idx                      | i
- wv_env_wind_energy_resources_pkey                               | i
- wv_geo_coal_beds_geom_geom_idx                                  | i
- wv_geo_coal_beds_pkey                                           | i
- wv_geo_geological_map_generalized_geom_geom_idx                 | i
- wv_geo_geological_map_generalized_pkey                          | i
- wv_geo_karst_geom_geom_idx                                      | i
- wv_geo_karst_pkey                                               | i
- wv_hlt_health_providers_geom_geom_idx                           | i
- wv_hlt_health_providers_pkey                                    | i
- wv_hlt_public_health_departments_geom_geom_idx                  | i
- wv_hlt_public_health_departments_pkey                           | i
- wv_hlt_rural_health_facilities_geom_geom_idx                    | i
- wv_hlt_rural_health_facilities_pkey                             | i
- wv_hyd_dams_dmr_geom_geom_idx                                   | i
- wv_hyd_dams_dmr_pkey                                            | i
- wv_hyd_dams_nid_geom_geom_idx                                   | i
- wv_hyd_dams_nid_pkey                                            | i
- wv_hyd_dams_noncoal_geom_geom_idx                               | i
- wv_hyd_dams_noncoal_pkey                                        | i
- wv_hyd_hazus_floodplain_zones_geom_geom_idx                     | i
- wv_hyd_hazus_floodplain_zones_pkey                              | i
- wv_hyd_high_water_marks_geom_geom_idx                           | i
- wv_hyd_high_water_marks_pkey                                    | i
- wv_hyd_navigable_waterways_geom_geom_idx                        | i
- wv_hyd_navigable_waterways_pkey                                 | i
- wv_hyd_navigable_waterways_river_miles_geom_geom_idx            | i
- wv_hyd_navigable_waterways_river_miles_pkey                     | i
- wv_hyd_navigable_waterways_structures_geom_geom_idx             | i
- wv_hyd_navigable_waterways_structures_pkey                      | i
- wv_hyd_springs_100gpm_geom_geom_idx                             | i
- wv_hyd_springs_100gpm_pkey                                      | i
- wv_hyd_streamflow_stations_geom_geom_idx                        | i
- wv_hyd_streamflow_stations_pkey                                 | i
- wv_hyd_streams_high_quality_geom_geom_idx                       | i
- wv_hyd_streams_high_quality_pkey                                | i
- wv_hyd_streams_national_atlas_geom_geom_idx                     | i
- wv_hyd_streams_national_atlas_pkey                              | i
- wv_hyd_streams_tiger_geom_geom_idx                              | i
- wv_hyd_streams_tiger_pkey                                       | i
- wv_hyd_watershed_boundary_11digit_geom_geom_idx                 | i
- wv_hyd_watershed_boundary_11digit_pkey                          | i
- wv_hyd_watershed_boundary_12digit_hu_geom_geom_idx              | i
- wv_hyd_watershed_boundary_12digit_hu_pkey                       | i
- wv_hyd_watershed_boundary_8_10_12_geom_geom_idx                 | i
- wv_hyd_watershed_boundary_8_10_12_pkey                          | i
- wv_layer_categories_pkey                                        | i
- wv_loc_census_urbanized_areas_geom_geom_idx                     | i
- wv_loc_census_urbanized_areas_pkey                              | i
- wv_loc_county_seats_geom_geom_idx                               | i
- wv_loc_county_seats_pkey                                        | i
- wv_loc_geodetic_control_points_geom_geom_idx                    | i
- wv_loc_geodetic_control_points_pkey                             | i
- wv_loc_populated_places_census_geom_geom_idx                    | i
- wv_loc_populated_places_census_pkey                             | i
- wv_loc_sams2_address_road_centerlines_geom_geom_idx             | i
- wv_loc_sams2_address_road_centerlines_pkey                      | i
- wv_mil_army_reserve_facilities_geom_geom_idx                    | i
- wv_mil_army_reserve_facilities_pkey                             | i
- wv_mil_national_guard_armories_geom_geom_idx                    | i
- wv_mil_national_guard_armories_pkey                             | i
- wv_plc_hazus_level1_geom_geom_idx                               | i
- wv_plc_hazus_level1_pkey                                        | i
- wv_plc_regional_planning_councils_geom_geom_idx                 | i
- wv_plc_regional_planning_councils_pkey                          | i
- wv_plc_tax_district_boundaries_geom_geom_idx                    | i
- wv_plc_tax_district_boundaries_pkey                             | i
- wv_plc_tax_parcels_surface_mineral_geom_geom_idx                | i
- wv_plc_tax_parcels_surface_mineral_pkey                         | i
- wv_soc_911_centers_geom_geom_idx                                | i
- wv_soc_911_centers_pkey                                         | i
- wv_soc_census_blockgroups_2020_geom_geom_idx                    | i
- wv_soc_census_blockgroups_2020_pkey                             | i
- wv_soc_census_tracts_2020_geom_geom_idx                         | i
- wv_soc_census_tracts_2020_pkey                                  | i
- wv_soc_cities_pop10k_geom_geom_idx                              | i
- wv_soc_cities_pop10k_pkey                                       | i
- wv_soc_cities_pop2500_geom_geom_idx                             | i
- wv_soc_cities_pop2500_pkey                                      | i
- wv_soc_communities_pop_change_geom_geom_idx                     | i
- wv_soc_communities_pop_change_pkey                              | i
- wv_soc_courthouses_county_geom_geom_idx                         | i
- wv_soc_courthouses_county_pkey                                  | i
- wv_soc_courthouses_federal_geom_geom_idx                        | i
- wv_soc_courthouses_federal_pkey                                 | i
- wv_soc_fish_hatcheries_geom_geom_idx                            | i
- wv_soc_fish_hatcheries_pkey                                     | i
- wv_soc_fishing_boating_access_geom_geom_idx                     | i
- wv_soc_fishing_boating_access_pkey                              | i
- wv_soc_fishing_lakes_geom_geom_idx                              | i
- wv_soc_fishing_lakes_pkey                                       | i
- wv_soc_higher_ed_facilities_geom_geom_idx                       | i
- wv_soc_higher_ed_facilities_pkey                                | i
- wv_soc_hospitals_wvdem_geom_geom_idx                            | i
- wv_soc_hospitals_wvdem_pkey                                     | i
- wv_soc_libraries_geom_geom_idx                                  | i
- wv_soc_libraries_pkey                                           | i
- wv_soc_national_register_historic_points_geom_geom_idx          | i
- wv_soc_national_register_historic_points_pkey                   | i
- wv_soc_national_register_historic_polygons_geom_geom_idx        | i
- wv_soc_national_register_historic_polygons_pkey                 | i
- wv_soc_nursing_homes_geom_geom_idx                              | i
- wv_soc_nursing_homes_pkey                                       | i
- wv_soc_places_of_worship_wvgistc_geom_geom_idx                  | i
- wv_soc_places_of_worship_wvgistc_pkey                           | i
- wv_soc_population_by_decade_geom_geom_idx                       | i
- wv_soc_population_by_decade_pkey                                | i
- wv_soc_schools_k12_geom_geom_idx                                | i
- wv_soc_schools_k12_pkey                                         | i
- wv_soc_towers_am_geom_geom_idx                                  | i
- wv_soc_towers_am_pkey                                           | i
- wv_soc_towers_asr_geom_geom_idx                                 | i
- wv_soc_towers_asr_pkey                                          | i
- wv_soc_towers_cellular_geom_geom_idx                            | i
- wv_soc_towers_cellular_pkey                                     | i
- wv_soc_towers_fm_geom_geom_idx                                  | i
- wv_soc_towers_fm_pkey                                           | i
- wv_soc_towers_microwave_geom_geom_idx                           | i
- wv_soc_towers_microwave_pkey                                    | i
- wv_soc_towers_pager_geom_geom_idx                               | i
- wv_soc_towers_pager_pkey                                        | i
- wv_soc_towers_private_geom_geom_idx                             | i
- wv_soc_towers_private_pkey                                      | i
- wv_soc_towers_tv_geom_geom_idx                                  | i
- wv_soc_towers_tv_pkey                                           | i
- wv_soc_va_facilities_geom_geom_idx                              | i
- wv_soc_va_facilities_pkey                                       | i
- wv_soc_zcta_2020_geom_geom_idx                                  | i
- wv_soc_zcta_2020_pkey                                           | i
- wv_str_bridges_geom_geom_idx                                    | i
- wv_str_bridges_pkey                                             | i
- wv_str_correctional_institutions_geom_geom_idx                  | i
- wv_str_correctional_institutions_pkey                           | i
- wv_str_flood_atrisk_structures_geom_geom_idx                    | i
- wv_str_flood_atrisk_structures_pkey                             | i
- wv_str_parole_offices_geom_geom_idx                             | i
- wv_str_parole_offices_pkey                                      | i
- wv_str_places_of_worship_hsip_geom_geom_idx                     | i
- wv_str_places_of_worship_hsip_pkey                              | i
- wv_str_samb_building_points_geom_geom_idx                       | i
- wv_str_samb_building_points_pkey                                | i
- wv_str_samb_building_polygons_geom_geom_idx                     | i
- wv_str_samb_building_polygons_pkey                              | i
- wv_tract_belief_snapshot_canonical_tract_id_snapshot_versio_key | i
- wv_tract_belief_snapshot_pkey                                   | i
- wv_tract_dataset_coverage_pkey                                  | i
- wv_tract_identity_pkey                                          | i
- wv_tract_representation_pkey                                    | i
- wv_trn_airport_facilities_geom_geom_idx                         | i
- wv_trn_airport_facilities_pkey                                  | i
- wv_trn_airport_proposed_geom_geom_idx                           | i
- wv_trn_airport_proposed_pkey                                    | i
- wv_trn_airport_runways_geom_geom_idx                            | i
- wv_trn_airport_runways_pkey                                     | i
- wv_trn_airports_geom_geom_idx                                   | i
- wv_trn_airports_pkey                                            | i
- wv_trn_intermodal_terminals_geom_geom_idx                       | i
- wv_trn_intermodal_terminals_pkey                                | i
- wv_trn_mnf_recreation_trails_geom_geom_idx                      | i
- wv_trn_mnf_recreation_trails_pkey                               | i
- wv_trn_mnf_roads_geom_geom_idx                                  | i
- wv_trn_mnf_roads_pkey                                           | i
- wv_trn_railroad_lines_rti_geom_geom_idx                         | i
- wv_trn_railroad_lines_rti_pkey                                  | i
- wv_trn_railroads_amtrak_geom_geom_idx                           | i
- wv_trn_railroads_amtrak_pkey                                    | i
- wv_trn_railroads_excursion_geom_geom_idx                        | i
- wv_trn_railroads_excursion_pkey                                 | i
- wv_trn_railroads_national_network_geom_geom_idx                 | i
- wv_trn_railroads_national_network_pkey                          | i
- wv_trn_recreational_trails_geom_geom_idx                        | i
- wv_trn_recreational_trails_pkey                                 | i
- wv_trn_roads_interstate_geom_geom_idx                           | i
- wv_trn_roads_interstate_pkey                                    | i
- wv_trn_roads_major_4800_geom_geom_idx                           | i
- wv_trn_roads_major_4800_pkey                                    | i
- wv_trn_roads_state_routes_geom_geom_idx                         | i
- wv_trn_roads_state_routes_pkey                                  | i
- wv_trn_roads_us_highways_geom_geom_idx                          | i
- wv_trn_roads_us_highways_pkey                                   | i
- wv_trn_roads_us_routes_geom_geom_idx                            | i
- wv_trn_roads_us_routes_pkey                                     | i
- wv_trn_whitewater_trails_geom_geom_idx                          | i
- wv_trn_whitewater_trails_pkey                                   | i
- wv_util_sewer_treatment_plants_geom_geom_idx                    | i
- wv_util_sewer_treatment_plants_pkey                             | i
- wv_util_solid_waste_facilities_geom_geom_idx                    | i
- wv_util_solid_waste_facilities_pkey                             | i
- wv_wv_county_boundaries_24k_topo_updated_2026_utm83_pkey        | i
- wv_wv_county_boundaries_24k_topo_updated_2026_utm_geom_geom_idx | i
- wv_wv_county_boundaries_24k_topo_updated_2026_wma84_pkey        | i
- wv_wv_county_boundaries_24k_topo_updated_2026_wma_geom_geom_idx | i
- wv_atm_weather_stations_gid_seq                                 | S
- wv_bio_biodiversity_rank_gid_seq                                | S
- wv_bio_ecoregions_gid_seq                                       | S
- wv_bio_red_spruce_cover_gid_seq                                 | S
- wv_bnd_appalachian_basin_boundary_gid_seq                       | S
- wv_bnd_arc_counties_gid_seq                                     | S
- wv_bnd_canaan_valley_nwr_gid_seq                                | S
- wv_bnd_census_designated_places_gid_seq                         | S
- wv_bnd_county_24k_gid_seq                                       | S
- wv_bnd_county_municipal_dlg_gid_seq                             | S
- wv_bnd_mnf_basic_ownership_gid_seq                              | S
- wv_bnd_mnf_management_prescriptions_gid_seq                     | S
- wv_bnd_mnf_ranger_districts_gid_seq                             | S
- wv_bnd_mnf_recreation_gid_seq                                   | S
- wv_bnd_mnf_recreation_sites_gid_seq                             | S
- wv_bnd_mnf_wilderness_gid_seq                                   | S
- wv_bnd_morgantown_wards_gid_seq                                 | S
- wv_bnd_nhd_mussel_streams_gid_seq                               | S
- wv_bnd_public_lands_county_city_parks_gid_seq                   | S
- wv_bnd_public_lands_national_forest_gid_seq                     | S
- wv_bnd_public_lands_national_park_gid_seq                       | S
- wv_bnd_public_lands_nwr_gid_seq                                 | S
- wv_bnd_public_lands_state_forests_gid_seq                       | S
- wv_bnd_public_lands_state_parks_gid_seq                         | S
- wv_bnd_public_lands_wildlife_resources_gid_seq                  | S
- wv_bnd_state_boundary_100k_gid_seq                              | S
- wv_bnd_voting_districts_2000_gid_seq                            | S
- wv_bnd_voting_districts_2002_gid_seq                            | S
- wv_bnd_workforce_investment_areas_gid_seq                       | S
- wv_censustracts_census_2020_utm83_gid_seq                       | S
- wv_county_boundaries_24k_topo_updated_2026_utm83_gdb_gid_seq    | S
- wv_county_boundaries_24k_topo_updated_2026_wma84_gdb_gid_seq    | S
- wv_eco_abandoned_mine_lands_line_gid_seq                        | S
- wv_eco_abandoned_mine_lands_point_gid_seq                       | S
- wv_eco_abandoned_mine_lands_polygon_gid_seq                     | S
- wv_eco_coal_fields_gid_seq                                      | S
- wv_eco_ezec_communities_gid_seq                                 | S
- wv_eco_industrial_sites_gid_seq                                 | S
- wv_eco_manufacturing_directory_gid_seq                          | S
- wv_eco_mineral_operations_gid_seq                               | S
- wv_eco_mountaintop_removal_gid_seq                              | S
- wv_elv_summit_names_gid_seq                                     | S
- wv_env_air_nonattainment_gid_seq                                | S
- wv_env_epa_facilities_gid_seq                                   | S
- wv_env_timber_removal_volume_gid_seq                            | S
- wv_env_wildfire_regions_gid_seq                                 | S
- wv_env_wind_energy_resources_gid_seq                            | S
- wv_geo_coal_beds_gid_seq                                        | S
- wv_geo_geological_map_generalized_gid_seq                       | S
- wv_geo_karst_gid_seq                                            | S
- wv_hlt_health_providers_gid_seq                                 | S
- wv_hlt_public_health_departments_gid_seq                        | S
- wv_hlt_rural_health_facilities_gid_seq                          | S
- wv_hyd_dams_dmr_gid_seq                                         | S
- wv_hyd_dams_nid_gid_seq                                         | S
- wv_hyd_dams_noncoal_gid_seq                                     | S
- wv_hyd_hazus_floodplain_zones_gid_seq                           | S
- wv_hyd_high_water_marks_gid_seq                                 | S
- wv_hyd_navigable_waterways_gid_seq                              | S
- wv_hyd_navigable_waterways_river_miles_gid_seq                  | S
- wv_hyd_navigable_waterways_structures_gid_seq                   | S
- wv_hyd_springs_100gpm_gid_seq                                   | S
- wv_hyd_streamflow_stations_gid_seq                              | S
- wv_hyd_streams_high_quality_gid_seq                             | S
- wv_hyd_streams_national_atlas_gid_seq                           | S
- wv_hyd_streams_tiger_gid_seq                                    | S
- wv_hyd_watershed_boundary_11digit_gid_seq                       | S
- wv_hyd_watershed_boundary_12digit_hu_gid_seq                    | S
- wv_hyd_watershed_boundary_8_10_12_gid_seq                       | S
- wv_loc_census_urbanized_areas_gid_seq                           | S
- wv_loc_county_seats_gid_seq                                     | S
- wv_loc_geodetic_control_points_gid_seq                          | S
- wv_loc_populated_places_census_gid_seq                          | S
- wv_loc_sams2_address_road_centerlines_gid_seq                   | S
- wv_mil_army_reserve_facilities_gid_seq                          | S
- wv_mil_national_guard_armories_gid_seq                          | S
- wv_plc_hazus_level1_gid_seq                                     | S
- wv_plc_regional_planning_councils_gid_seq                       | S
- wv_plc_tax_district_boundaries_gid_seq                          | S
- wv_plc_tax_parcels_surface_mineral_gid_seq                      | S
- wv_soc_911_centers_gid_seq                                      | S
- wv_soc_census_blockgroups_2020_gid_seq                          | S
- wv_soc_census_tracts_2020_gid_seq                               | S
- wv_soc_cities_pop10k_gid_seq                                    | S
- wv_soc_cities_pop2500_gid_seq                                   | S
- wv_soc_communities_pop_change_gid_seq                           | S
- wv_soc_courthouses_county_gid_seq                               | S
- wv_soc_courthouses_federal_gid_seq                              | S
- wv_soc_fish_hatcheries_gid_seq                                  | S
- wv_soc_fishing_boating_access_gid_seq                           | S
- wv_soc_fishing_lakes_gid_seq                                    | S
- wv_soc_higher_ed_facilities_gid_seq                             | S
- wv_soc_hospitals_wvdem_gid_seq                                  | S
- wv_soc_libraries_gid_seq                                        | S
- wv_soc_national_register_historic_points_gid_seq                | S
- wv_soc_national_register_historic_polygons_gid_seq              | S
- wv_soc_nursing_homes_gid_seq                                    | S
- wv_soc_places_of_worship_wvgistc_gid_seq                        | S
- wv_soc_population_by_decade_gid_seq                             | S
- wv_soc_schools_k12_gid_seq                                      | S
- wv_soc_towers_am_gid_seq                                        | S
- wv_soc_towers_asr_gid_seq                                       | S
- wv_soc_towers_cellular_gid_seq                                  | S
- wv_soc_towers_fm_gid_seq                                        | S
- wv_soc_towers_microwave_gid_seq                                 | S
- wv_soc_towers_pager_gid_seq                                     | S
- wv_soc_towers_private_gid_seq                                   | S
- wv_soc_towers_tv_gid_seq                                        | S
- wv_soc_va_facilities_gid_seq                                    | S
- wv_soc_zcta_2020_gid_seq                                        | S
- wv_str_bridges_gid_seq                                          | S
- wv_str_correctional_institutions_gid_seq                        | S
- wv_str_flood_atrisk_structures_gid_seq                          | S
- wv_str_parole_offices_gid_seq                                   | S
- wv_str_places_of_worship_hsip_gid_seq                           | S
- wv_str_samb_building_points_gid_seq                             | S
- wv_str_samb_building_polygons_gid_seq                           | S
- wv_trn_airport_facilities_gid_seq                               | S
- wv_trn_airport_proposed_gid_seq                                 | S
- wv_trn_airport_runways_gid_seq                                  | S
- wv_trn_airports_gid_seq                                         | S
- wv_trn_intermodal_terminals_gid_seq                             | S
- wv_trn_mnf_recreation_trails_gid_seq                            | S
- wv_trn_mnf_roads_gid_seq                                        | S
- wv_trn_railroad_lines_rti_gid_seq                               | S
- wv_trn_railroads_amtrak_gid_seq                                 | S
- wv_trn_railroads_excursion_gid_seq                              | S
- wv_trn_railroads_national_network_gid_seq                       | S
- wv_trn_recreational_trails_gid_seq                              | S
- wv_trn_roads_interstate_gid_seq                                 | S
- wv_trn_roads_major_4800_gid_seq                                 | S
- wv_trn_roads_state_routes_gid_seq                               | S
- wv_trn_roads_us_highways_gid_seq                                | S
- wv_trn_roads_us_routes_gid_seq                                  | S
- wv_trn_whitewater_trails_gid_seq                                | S
- wv_util_sewer_treatment_plants_gid_seq                          | S
- wv_util_solid_waste_facilities_gid_seq                          | S
- wv_wv_county_boundaries_24k_topo_updated_2026_utm83_gid_seq     | S
- wv_wv_county_boundaries_24k_topo_updated_2026_wma84_gid_seq     | S
- wv_atm_weather_stations                                         | table
- wv_bio_biodiversity_rank                                        | table
- wv_bio_ecoregions                                               | table
- wv_bio_red_spruce_cover                                         | table
- wv_bnd_appalachian_basin_boundary                               | table
- wv_bnd_arc_counties                                             | table
- wv_bnd_canaan_valley_nwr                                        | table
- wv_bnd_census_designated_places                                 | table
- wv_bnd_county_24k                                               | table
- wv_bnd_county_municipal_dlg                                     | table
- wv_bnd_mnf_basic_ownership                                      | table
- wv_bnd_mnf_management_prescriptions                             | table
- wv_bnd_mnf_ranger_districts                                     | table
- wv_bnd_mnf_recreation_campgrounds                               | table
- wv_bnd_mnf_recreation_sites                                     | table
- wv_bnd_mnf_wilderness                                           | table
- wv_bnd_morgantown_wards                                         | table
- wv_bnd_nhd_mussel_streams                                       | table
- wv_bnd_public_lands_county_city_parks                           | table
- wv_bnd_public_lands_national_forest                             | table
- wv_bnd_public_lands_national_park                               | table
- wv_bnd_public_lands_nwr                                         | table
- wv_bnd_public_lands_state_forests                               | table
- wv_bnd_public_lands_state_parks                                 | table
- wv_bnd_public_lands_wildlife_resources                          | table
- wv_bnd_state_boundary_100k                                      | table
- wv_bnd_voting_districts_2000                                    | table
- wv_bnd_voting_districts_2002                                    | table
- wv_bnd_workforce_investment_areas                               | table
- wv_censustracts_census_2020_utm83                               | table
- wv_county_belief_snapshot                                       | table
- wv_county_boundaries_24k_topo_updated_2026_utm83_gdb            | table
- wv_county_boundaries_24k_topo_updated_2026_wma84_gdb            | table
- wv_county_dataset_coverage                                      | table
- wv_county_identity                                              | table
- wv_county_representation                                        | table
- wv_county_representation_pre_gid_rebind                         | table
- wv_eco_abandoned_mine_lands_line                                | table
- wv_eco_abandoned_mine_lands_point                               | table
- wv_eco_abandoned_mine_lands_polygon                             | table
- wv_eco_coal_fields                                              | table
- wv_eco_ezec_communities                                         | table
- wv_eco_industrial_sites                                         | table
- wv_eco_manufacturing_directory                                  | table
- wv_eco_mineral_operations                                       | table
- wv_eco_mountaintop_removal                                      | table
- wv_elv_summit_names                                             | table
- wv_entity_registry                                              | table
- wv_env_air_nonattainment                                        | table
- wv_env_epa_facilities                                           | table
- wv_env_timber_removal_volume                                    | table
- wv_env_wildfire_regions                                         | table
- wv_env_wind_energy_resources                                    | table
- wv_geo_coal_beds                                                | table
- wv_geo_geological_map_generalized                               | table
- wv_geo_karst                                                    | table
- wv_hlt_health_providers                                         | table
- wv_hlt_public_health_departments                                | table
- wv_hlt_rural_health_facilities                                  | table
- wv_hyd_dams_dmr                                                 | table
- wv_hyd_dams_nid                                                 | table
- wv_hyd_dams_noncoal                                             | table
- wv_hyd_hazus_floodplain_zones                                   | table
- wv_hyd_high_water_marks                                         | table
- wv_hyd_navigable_waterways                                      | table
- wv_hyd_navigable_waterways_river_miles                          | table
- wv_hyd_navigable_waterways_structures                           | table
- wv_hyd_springs_100gpm                                           | table
- wv_hyd_streamflow_stations                                      | table
- wv_hyd_streams_high_quality                                     | table
- wv_hyd_streams_national_atlas                                   | table
- wv_hyd_streams_tiger                                            | table
- wv_hyd_watershed_boundary_11digit                               | table
- wv_hyd_watershed_boundary_12digit_hu                            | table
- wv_hyd_watershed_boundary_8_10_12                               | table
- wv_layer_categories                                             | table
- wv_loc_census_urbanized_areas                                   | table
- wv_loc_county_seats                                             | table
- wv_loc_geodetic_control_points                                  | table
- wv_loc_populated_places_census                                  | table
- wv_loc_sams2_address_road_centerlines                           | table
- wv_mil_army_reserve_facilities                                  | table
- wv_mil_national_guard_armories                                  | table
- wv_plc_hazus_level1                                             | table
- wv_plc_regional_planning_councils                               | table
- wv_plc_tax_district_boundaries                                  | table
- wv_plc_tax_parcels_surface_mineral                              | table
- wv_soc_911_centers                                              | table
- wv_soc_census_blockgroups_2020                                  | table
- wv_soc_census_tracts_2020                                       | table
- wv_soc_cities_pop10k                                            | table
- wv_soc_cities_pop2500                                           | table
- wv_soc_communities_pop_change                                   | table
- wv_soc_courthouses_county                                       | table
- wv_soc_courthouses_federal                                      | table
- wv_soc_fish_hatcheries                                          | table
- wv_soc_fishing_boating_access                                   | table
- wv_soc_fishing_lakes                                            | table
- wv_soc_higher_ed_facilities                                     | table
- wv_soc_hospitals_wvdem                                          | table
- wv_soc_libraries                                                | table
- wv_soc_national_register_historic_points                        | table
- wv_soc_national_register_historic_polygons                      | table
- wv_soc_nursing_homes                                            | table
- wv_soc_places_of_worship_wvgistc                                | table
- wv_soc_population_by_decade                                     | table
- wv_soc_schools_k12                                              | table
- wv_soc_towers_am                                                | table
- wv_soc_towers_asr                                               | table
- wv_soc_towers_cellular                                          | table
- wv_soc_towers_fm                                                | table
- wv_soc_towers_microwave                                         | table
- wv_soc_towers_pager                                             | table
- wv_soc_towers_private                                           | table
- wv_soc_towers_tv                                                | table
- wv_soc_va_facilities                                            | table
- wv_soc_zcta_2020                                                | table
- wv_str_bridges                                                  | table
- wv_str_correctional_institutions                                | table
- wv_str_flood_atrisk_structures                                  | table
- wv_str_parole_offices                                           | table
- wv_str_places_of_worship_hsip                                   | table
- wv_str_samb_building_points                                     | table
- wv_str_samb_building_polygons                                   | table
- wv_tract_belief_snapshot                                        | table
- wv_tract_dataset_coverage                                       | table
- wv_tract_identity                                               | table
- wv_tract_representation                                         | table
- wv_tract_representation_pre_gid_rebind                          | table
- wv_trn_airport_facilities                                       | table
- wv_trn_airport_proposed                                         | table
- wv_trn_airport_runways                                          | table
- wv_trn_airports                                                 | table
- wv_trn_intermodal_terminals                                     | table
- wv_trn_mnf_recreation_trails                                    | table
- wv_trn_mnf_roads                                                | table
- wv_trn_railroad_lines_rti                                       | table
- wv_trn_railroads_amtrak                                         | table
- wv_trn_railroads_excursion                                      | table
- wv_trn_railroads_national_network                               | table
- wv_trn_recreational_trails                                      | table
- wv_trn_roads_interstate                                         | table
- wv_trn_roads_major_4800                                         | table
- wv_trn_roads_state_routes                                       | table
- wv_trn_roads_us_highways                                        | table
- wv_trn_roads_us_routes                                          | table
- wv_trn_whitewater_trails                                        | table
- wv_util_sewer_treatment_plants                                  | table
- wv_util_solid_waste_facilities                                  | table
- wv_wv_county_boundaries_24k_topo_updated_2026_utm83             | table
- wv_wv_county_boundaries_24k_topo_updated_2026_wma84             | table
- wv_county_belief_vector_ready                                   | view
- wv_tract_belief_vector_ready                                    | view
-(583 rows)
+    id.blockgroup_geoid AS bg_geoid,
+    jsonb_build_object(
+        'bg_geoid', id.blockgroup_geoid,
+        'identity', to_jsonb(id) - 'blockgroup_geoid',
+        'coverage', COALESCE(cov.coverage_json, '[]'::jsonb)
+    ) AS attrs_json
+FROM public.wv_blockgroup_identity AS id
+LEFT JOIN (
+    SELECT
+        dc.blockgroup_geoid,
+        jsonb_agg(
+            jsonb_build_object(
+                'datasettype', dc.dataset_type,
+SQLIT 3; bg_geoidblockgroup_featuresttrs_pretty(attrs_json);
+DROP TABLE
+CREATE TABLE
+INSERT 0 1639
+CREATE INDEX
+ANALYZE
+ rows 
+------
+ 1639
+(1 row)
+
+   bg_geoid   |                                           attrs_pretty                                            
+--------------+---------------------------------------------------------------------------------------------------
+ 540019655001 | {                                                                                                +
+              |     "bg_geoid": "540019655001",                                                                  +
+              |     "coverage": [                                                                                +
+              |         {                                                                                        +
+              |             "notes": "Blockgroup address-point coverage for Kanawha (v1, SRID-aligned)",         +
+              |             "datasettype": "address_points_kanawha",                                             +
+              |             "sourcetable": "public.wv_address_points_kanawha_part1 + part2",                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "unknown",                                                          +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T16:34:51.846304-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "Statewide county-unioned address-point coverage (v1)",                     +
+              |             "datasettype": "address_points_statewide",                                           +
+              |             "sourcetable": "public.wv_address_points_statewide_mv",                              +
+              |             "featurecount": 445,                                                                 +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T16:50:27.968289-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for biodiversity priority areas",            +
+              |             "datasettype": "public.wv_bio_biodiversity_rank",                                    +
+              |             "sourcetable": "public.wv_bio_biodiversity_rank",                                    +
+              |             "featurecount": 68,                                                                  +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:17:41.562932-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for EPA-regulated facilities",               +
+              |             "datasettype": "public.wv_env_epa_facilities",                                       +
+              |             "sourcetable": "public.wv_env_epa_facilities",                                       +
+              |             "featurecount": 2,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:18:12.262701-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_env_wildfire_regions",         +
+              |             "datasettype": "public.wv_env_wildfire_regions",                                     +
+              |             "sourcetable": "public.wv_env_wildfire_regions",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_env_wind_energy_resources",    +
+              |             "datasettype": "public.wv_env_wind_energy_resources",                                +
+              |             "sourcetable": "public.wv_env_wind_energy_resources",                                +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_health_providers",         +
+              |             "datasettype": "public.wv_hlt_health_providers",                                     +
+              |             "sourcetable": "public.wv_hlt_health_providers",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_public_health_departments",+
+              |             "datasettype": "public.wv_hlt_public_health_departments",                            +
+              |             "sourcetable": "public.wv_hlt_public_health_departments",                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_rural_health_facilities",  +
+              |             "datasettype": "public.wv_hlt_rural_health_facilities",                              +
+              |             "sourcetable": "public.wv_hlt_rural_health_facilities",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for floodplains",                            +
+              |             "datasettype": "public.wv_hyd_hazus_floodplain_zones",                               +
+              |             "sourcetable": "public.wv_hyd_hazus_floodplain_zones",                               +
+              |             "featurecount": 3,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T20:49:55.705615-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for high-quality streams",                   +
+              |             "datasettype": "public.wv_hyd_streams_high_quality",                                 +
+              |             "sourcetable": "public.wv_hyd_streams_high_quality",                                 +
+              |             "featurecount": 8,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:18:23.427246-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for fishing & boating access sites",         +
+              |             "datasettype": "public.wv_rec_fishing_boating_access",                               +
+              |             "sourcetable": "public.wv_rec_fishing_boating_access",                               +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.065318-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for fishing lakes",                          +
+              |             "datasettype": "public.wv_rec_fishing_lakes",                                        +
+              |             "sourcetable": "public.wv_rec_fishing_lakes",                                        +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.050938-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for national forest lands",                  +
+              |             "datasettype": "public.wv_rec_national_forest",                                      +
+              |             "sourcetable": "public.wv_rec_national_forest",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:53.989436-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for NPS units",                              +
+              |             "datasettype": "public.wv_rec_nps_units",                                            +
+              |             "sourcetable": "public.wv_rec_nps_units",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.000461-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for national wildlife refuges",              +
+              |             "datasettype": "public.wv_rec_nwr_units",                                            +
+              |             "sourcetable": "public.wv_rec_nwr_units",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.010841-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for state forests",                          +
+              |             "datasettype": "public.wv_rec_state_forests",                                        +
+              |             "sourcetable": "public.wv_rec_state_forests",                                        +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:53.95526-04:00",                                +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for state parks",                            +
+              |             "datasettype": "public.wv_rec_state_parks",                                          +
+              |             "sourcetable": "public.wv_rec_state_parks",                                          +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.036266-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for trail points",                           +
+              |             "datasettype": "public.wv_rec_trail_points",                                         +
+              |             "sourcetable": "public.wv_rec_trail_points",                                         +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.075949-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for trails",                                 +
+              |             "datasettype": "public.wv_rec_trails",                                               +
+              |             "sourcetable": "public.wv_rec_trails",                                               +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.086327-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for whitewater trails",                      +
+              |             "datasettype": "public.wv_rec_whitewater_trails",                                    +
+              |             "sourcetable": "public.wv_rec_whitewater_trails",                                    +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.103075-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for WVDNR managed lands",                    +
+              |             "datasettype": "public.wv_rec_wvdnr_managed_lands",                                  +
+              |             "sourcetable": "public.wv_rec_wvdnr_managed_lands",                                  +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.021343-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for hospitals",                              +
+              |             "datasettype": "public.wv_soc_hospitals_wvdem",                                      +
+              |             "sourcetable": "public.wv_soc_hospitals_wvdem",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:02.788746-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_soc_libraries",                +
+              |             "datasettype": "public.wv_soc_libraries",                                            +
+              |             "sourcetable": "public.wv_soc_libraries",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_soc_places_of_worship_wvgistc",+
+              |             "datasettype": "public.wv_soc_places_of_worship_wvgistc",                            +
+              |             "sourcetable": "public.wv_soc_places_of_worship_wvgistc",                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for K–12 schools",                           +
+              |             "datasettype": "public.wv_soc_schools_k12",                                          +
+              |             "sourcetable": "public.wv_soc_schools_k12",                                          +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:18:55.160838-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_str_bridges",                  +
+              |             "datasettype": "public.wv_str_bridges",                                              +
+              |             "sourcetable": "public.wv_str_bridges",                                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for airports",                               +
+              |             "datasettype": "public.wv_trn_airports",                                             +
+              |             "sourcetable": "public.wv_trn_airports",                                             +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:13.251108-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_railroad_lines_rti",       +
+              |             "datasettype": "public.wv_trn_railroad_lines_rti",                                   +
+              |             "sourcetable": "public.wv_trn_railroad_lines_rti",                                   +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_interstate",         +
+              |             "datasettype": "public.wv_trn_roads_interstate",                                     +
+              |             "sourcetable": "public.wv_trn_roads_interstate",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_major_4800",         +
+              |             "datasettype": "public.wv_trn_roads_major_4800",                                     +
+              |             "sourcetable": "public.wv_trn_roads_major_4800",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_state_routes",       +
+              |             "datasettype": "public.wv_trn_roads_state_routes",                                   +
+              |             "sourcetable": "public.wv_trn_roads_state_routes",                                   +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_us_highways",        +
+              |             "datasettype": "public.wv_trn_roads_us_highways",                                    +
+              |             "sourcetable": "public.wv_trn_roads_us_highways",                                    +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_us_routes",          +
+              |             "datasettype": "public.wv_trn_roads_us_routes",                                      +
+              |             "sourcetable": "public.wv_trn_roads_us_routes",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for wastewater treatment plants",            +
+              |             "datasettype": "public.wv_util_sewer_treatment_plants",                              +
+              |             "sourcetable": "public.wv_util_sewer_treatment_plants",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:22.973058-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_util_solid_waste_facilities",  +
+              |             "datasettype": "public.wv_util_solid_waste_facilities",                              +
+              |             "sourcetable": "public.wv_util_solid_waste_facilities",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         }                                                                                        +
+              |     ],                                                                                           +
+              |     "identity": {                                                                                +
+              |         "county_id": "54001",                                                                    +
+              |         "created_at": "2026-07-12T16:21:02.317186-04:00",                                        +
+              |         "county_geoid": "54001",                                                                 +
+              |         "blockgroup_name": "Block Group 1"                                                       +
+              |     }                                                                                            +
+              | }
+ 540019655002 | {                                                                                                +
+              |     "bg_geoid": "540019655002",                                                                  +
+              |     "coverage": [                                                                                +
+              |         {                                                                                        +
+              |             "notes": "Blockgroup address-point coverage for Kanawha (v1, SRID-aligned)",         +
+              |             "datasettype": "address_points_kanawha",                                             +
+              |             "sourcetable": "public.wv_address_points_kanawha_part1 + part2",                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "unknown",                                                          +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T16:34:51.846304-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "Statewide county-unioned address-point coverage (v1)",                     +
+              |             "datasettype": "address_points_statewide",                                           +
+              |             "sourcetable": "public.wv_address_points_statewide_mv",                              +
+              |             "featurecount": 701,                                                                 +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T16:50:27.968289-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for biodiversity priority areas",            +
+              |             "datasettype": "public.wv_bio_biodiversity_rank",                                    +
+              |             "sourcetable": "public.wv_bio_biodiversity_rank",                                    +
+              |             "featurecount": 142,                                                                 +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:17:41.562932-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for EPA-regulated facilities",               +
+              |             "datasettype": "public.wv_env_epa_facilities",                                       +
+              |             "sourcetable": "public.wv_env_epa_facilities",                                       +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:18:12.262701-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_env_wildfire_regions",         +
+              |             "datasettype": "public.wv_env_wildfire_regions",                                     +
+              |             "sourcetable": "public.wv_env_wildfire_regions",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_env_wind_energy_resources",    +
+              |             "datasettype": "public.wv_env_wind_energy_resources",                                +
+              |             "sourcetable": "public.wv_env_wind_energy_resources",                                +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_health_providers",         +
+              |             "datasettype": "public.wv_hlt_health_providers",                                     +
+              |             "sourcetable": "public.wv_hlt_health_providers",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_public_health_departments",+
+              |             "datasettype": "public.wv_hlt_public_health_departments",                            +
+              |             "sourcetable": "public.wv_hlt_public_health_departments",                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_rural_health_facilities",  +
+              |             "datasettype": "public.wv_hlt_rural_health_facilities",                              +
+              |             "sourcetable": "public.wv_hlt_rural_health_facilities",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for floodplains",                            +
+              |             "datasettype": "public.wv_hyd_hazus_floodplain_zones",                               +
+              |             "sourcetable": "public.wv_hyd_hazus_floodplain_zones",                               +
+              |             "featurecount": 8,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T20:49:55.705615-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for high-quality streams",                   +
+              |             "datasettype": "public.wv_hyd_streams_high_quality",                                 +
+              |             "sourcetable": "public.wv_hyd_streams_high_quality",                                 +
+              |             "featurecount": 33,                                                                  +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:18:23.427246-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for fishing & boating access sites",         +
+              |             "datasettype": "public.wv_rec_fishing_boating_access",                               +
+              |             "sourcetable": "public.wv_rec_fishing_boating_access",                               +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.065318-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for fishing lakes",                          +
+              |             "datasettype": "public.wv_rec_fishing_lakes",                                        +
+              |             "sourcetable": "public.wv_rec_fishing_lakes",                                        +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.050938-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for national forest lands",                  +
+              |             "datasettype": "public.wv_rec_national_forest",                                      +
+              |             "sourcetable": "public.wv_rec_national_forest",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:53.989436-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for NPS units",                              +
+              |             "datasettype": "public.wv_rec_nps_units",                                            +
+              |             "sourcetable": "public.wv_rec_nps_units",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.000461-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for national wildlife refuges",              +
+              |             "datasettype": "public.wv_rec_nwr_units",                                            +
+              |             "sourcetable": "public.wv_rec_nwr_units",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.010841-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for state forests",                          +
+              |             "datasettype": "public.wv_rec_state_forests",                                        +
+              |             "sourcetable": "public.wv_rec_state_forests",                                        +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:53.95526-04:00",                                +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for state parks",                            +
+              |             "datasettype": "public.wv_rec_state_parks",                                          +
+              |             "sourcetable": "public.wv_rec_state_parks",                                          +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.036266-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for trail points",                           +
+              |             "datasettype": "public.wv_rec_trail_points",                                         +
+              |             "sourcetable": "public.wv_rec_trail_points",                                         +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.075949-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for trails",                                 +
+              |             "datasettype": "public.wv_rec_trails",                                               +
+              |             "sourcetable": "public.wv_rec_trails",                                               +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.086327-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for whitewater trails",                      +
+              |             "datasettype": "public.wv_rec_whitewater_trails",                                    +
+              |             "sourcetable": "public.wv_rec_whitewater_trails",                                    +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.103075-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for WVDNR managed lands",                    +
+              |             "datasettype": "public.wv_rec_wvdnr_managed_lands",                                  +
+              |             "sourcetable": "public.wv_rec_wvdnr_managed_lands",                                  +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.021343-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for hospitals",                              +
+              |             "datasettype": "public.wv_soc_hospitals_wvdem",                                      +
+              |             "sourcetable": "public.wv_soc_hospitals_wvdem",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:02.788746-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_soc_libraries",                +
+              |             "datasettype": "public.wv_soc_libraries",                                            +
+              |             "sourcetable": "public.wv_soc_libraries",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_soc_places_of_worship_wvgistc",+
+              |             "datasettype": "public.wv_soc_places_of_worship_wvgistc",                            +
+              |             "sourcetable": "public.wv_soc_places_of_worship_wvgistc",                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for K–12 schools",                           +
+              |             "datasettype": "public.wv_soc_schools_k12",                                          +
+              |             "sourcetable": "public.wv_soc_schools_k12",                                          +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:18:55.160838-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_str_bridges",                  +
+              |             "datasettype": "public.wv_str_bridges",                                              +
+              |             "sourcetable": "public.wv_str_bridges",                                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for airports",                               +
+              |             "datasettype": "public.wv_trn_airports",                                             +
+              |             "sourcetable": "public.wv_trn_airports",                                             +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:13.251108-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_railroad_lines_rti",       +
+              |             "datasettype": "public.wv_trn_railroad_lines_rti",                                   +
+              |             "sourcetable": "public.wv_trn_railroad_lines_rti",                                   +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_interstate",         +
+              |             "datasettype": "public.wv_trn_roads_interstate",                                     +
+              |             "sourcetable": "public.wv_trn_roads_interstate",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_major_4800",         +
+              |             "datasettype": "public.wv_trn_roads_major_4800",                                     +
+              |             "sourcetable": "public.wv_trn_roads_major_4800",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_state_routes",       +
+              |             "datasettype": "public.wv_trn_roads_state_routes",                                   +
+              |             "sourcetable": "public.wv_trn_roads_state_routes",                                   +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_us_highways",        +
+              |             "datasettype": "public.wv_trn_roads_us_highways",                                    +
+              |             "sourcetable": "public.wv_trn_roads_us_highways",                                    +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_us_routes",          +
+              |             "datasettype": "public.wv_trn_roads_us_routes",                                      +
+              |             "sourcetable": "public.wv_trn_roads_us_routes",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for wastewater treatment plants",            +
+              |             "datasettype": "public.wv_util_sewer_treatment_plants",                              +
+              |             "sourcetable": "public.wv_util_sewer_treatment_plants",                              +
+              |             "featurecount": 2,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:19:22.973058-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_util_solid_waste_facilities",  +
+              |             "datasettype": "public.wv_util_solid_waste_facilities",                              +
+              |             "sourcetable": "public.wv_util_solid_waste_facilities",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         }                                                                                        +
+              |     ],                                                                                           +
+              |     "identity": {                                                                                +
+              |         "county_id": "54001",                                                                    +
+              |         "created_at": "2026-07-12T16:21:02.317186-04:00",                                        +
+              |         "county_geoid": "54001",                                                                 +
+              |         "blockgroup_name": "Block Group 2"                                                       +
+              |     }                                                                                            +
+              | }
+ 540019655003 | {                                                                                                +
+              |     "bg_geoid": "540019655003",                                                                  +
+              |     "coverage": [                                                                                +
+              |         {                                                                                        +
+              |             "notes": "Blockgroup address-point coverage for Kanawha (v1, SRID-aligned)",         +
+              |             "datasettype": "address_points_kanawha",                                             +
+              |             "sourcetable": "public.wv_address_points_kanawha_part1 + part2",                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "unknown",                                                          +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T16:34:51.846304-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "Statewide county-unioned address-point coverage (v1)",                     +
+              |             "datasettype": "address_points_statewide",                                           +
+              |             "sourcetable": "public.wv_address_points_statewide_mv",                              +
+              |             "featurecount": 966,                                                                 +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T16:50:27.968289-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for biodiversity priority areas",            +
+              |             "datasettype": "public.wv_bio_biodiversity_rank",                                    +
+              |             "sourcetable": "public.wv_bio_biodiversity_rank",                                    +
+              |             "featurecount": 132,                                                                 +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:17:41.562932-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for EPA-regulated facilities",               +
+              |             "datasettype": "public.wv_env_epa_facilities",                                       +
+              |             "sourcetable": "public.wv_env_epa_facilities",                                       +
+              |             "featurecount": 1,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:18:12.262701-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_env_wildfire_regions",         +
+              |             "datasettype": "public.wv_env_wildfire_regions",                                     +
+              |             "sourcetable": "public.wv_env_wildfire_regions",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_env_wind_energy_resources",    +
+              |             "datasettype": "public.wv_env_wind_energy_resources",                                +
+              |             "sourcetable": "public.wv_env_wind_energy_resources",                                +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_health_providers",         +
+              |             "datasettype": "public.wv_hlt_health_providers",                                     +
+              |             "sourcetable": "public.wv_hlt_health_providers",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_public_health_departments",+
+              |             "datasettype": "public.wv_hlt_public_health_departments",                            +
+              |             "sourcetable": "public.wv_hlt_public_health_departments",                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_rural_health_facilities",  +
+              |             "datasettype": "public.wv_hlt_rural_health_facilities",                              +
+              |             "sourcetable": "public.wv_hlt_rural_health_facilities",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for floodplains",                            +
+              |             "datasettype": "public.wv_hyd_hazus_floodplain_zones",                               +
+              |             "sourcetable": "public.wv_hyd_hazus_floodplain_zones",                               +
+              |             "featurecount": 12,                                                                  +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T20:49:55.705615-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for high-quality streams",                   +
+              |             "datasettype": "public.wv_hyd_streams_high_quality",                                 +
+              |             "sourcetable": "public.wv_hyd_streams_high_quality",                                 +
+              |             "featurecount": 53,                                                                  +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:18:23.427246-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for fishing & boating access sites",         +
+              |             "datasettype": "public.wv_rec_fishing_boating_access",                               +
+              |             "sourcetable": "public.wv_rec_fishing_boating_access",                               +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.065318-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for fishing lakes",                          +
+              |             "datasettype": "public.wv_rec_fishing_lakes",                                        +
+              |             "sourcetable": "public.wv_rec_fishing_lakes",                                        +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.050938-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for national forest lands",                  +
+              |             "datasettype": "public.wv_rec_national_forest",                                      +
+              |             "sourcetable": "public.wv_rec_national_forest",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:53.989436-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for NPS units",                              +
+              |             "datasettype": "public.wv_rec_nps_units",                                            +
+              |             "sourcetable": "public.wv_rec_nps_units",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.000461-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for national wildlife refuges",              +
+              |             "datasettype": "public.wv_rec_nwr_units",                                            +
+              |             "sourcetable": "public.wv_rec_nwr_units",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.010841-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for state forests",                          +
+              |             "datasettype": "public.wv_rec_state_forests",                                        +
+              |             "sourcetable": "public.wv_rec_state_forests",                                        +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:53.95526-04:00",                                +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for state parks",                            +
+              |             "datasettype": "public.wv_rec_state_parks",                                          +
+              |             "sourcetable": "public.wv_rec_state_parks",                                          +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.036266-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for trail points",                           +
+              |             "datasettype": "public.wv_rec_trail_points",                                         +
+              |             "sourcetable": "public.wv_rec_trail_points",                                         +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.075949-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for trails",                                 +
+              |             "datasettype": "public.wv_rec_trails",                                               +
+              |             "sourcetable": "public.wv_rec_trails",                                               +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.086327-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for whitewater trails",                      +
+              |             "datasettype": "public.wv_rec_whitewater_trails",                                    +
+              |             "sourcetable": "public.wv_rec_whitewater_trails",                                    +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.103075-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for WVDNR managed lands",                    +
+              |             "datasettype": "public.wv_rec_wvdnr_managed_lands",                                  +
+              |             "sourcetable": "public.wv_rec_wvdnr_managed_lands",                                  +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.021343-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for hospitals",                              +
+              |             "datasettype": "public.wv_soc_hospitals_wvdem",                                      +
+              |             "sourcetable": "public.wv_soc_hospitals_wvdem",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:02.788746-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_soc_libraries",                +
+              |             "datasettype": "public.wv_soc_libraries",                                            +
+              |             "sourcetable": "public.wv_soc_libraries",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_soc_places_of_worship_wvgistc",+
+              |             "datasettype": "public.wv_soc_places_of_worship_wvgistc",                            +
+              |             "sourcetable": "public.wv_soc_places_of_worship_wvgistc",                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for K–12 schools",                           +
+              |             "datasettype": "public.wv_soc_schools_k12",                                          +
+              |             "sourcetable": "public.wv_soc_schools_k12",                                          +
+              |             "featurecount": 1,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:18:55.160838-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_str_bridges",                  +
+              |             "datasettype": "public.wv_str_bridges",                                              +
+              |             "sourcetable": "public.wv_str_bridges",                                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for airports",                               +
+              |             "datasettype": "public.wv_trn_airports",                                             +
+              |             "sourcetable": "public.wv_trn_airports",                                             +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:13.251108-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_railroad_lines_rti",       +
+              |             "datasettype": "public.wv_trn_railroad_lines_rti",                                   +
+              |             "sourcetable": "public.wv_trn_railroad_lines_rti",                                   +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_interstate",         +
+              |             "datasettype": "public.wv_trn_roads_interstate",                                     +
+              |             "sourcetable": "public.wv_trn_roads_interstate",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_major_4800",         +
+              |             "datasettype": "public.wv_trn_roads_major_4800",                                     +
+              |             "sourcetable": "public.wv_trn_roads_major_4800",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_state_routes",       +
+              |             "datasettype": "public.wv_trn_roads_state_routes",                                   +
+              |             "sourcetable": "public.wv_trn_roads_state_routes",                                   +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_us_highways",        +
+              |             "datasettype": "public.wv_trn_roads_us_highways",                                    +
+              |             "sourcetable": "public.wv_trn_roads_us_highways",                                    +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_us_routes",          +
+              |             "datasettype": "public.wv_trn_roads_us_routes",                                      +
+              |             "sourcetable": "public.wv_trn_roads_us_routes",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for wastewater treatment plants",            +
+              |             "datasettype": "public.wv_util_sewer_treatment_plants",                              +
+              |             "sourcetable": "public.wv_util_sewer_treatment_plants",                              +
+              |             "featurecount": 1,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:19:22.973058-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_util_solid_waste_facilities",  +
+              |             "datasettype": "public.wv_util_solid_waste_facilities",                              +
+              |             "sourcetable": "public.wv_util_solid_waste_facilities",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         }                                                                                        +
+              |     ],                                                                                           +
+              |     "identity": {                                                                                +
+              |         "county_id": "54001",                                                                    +
+              |         "created_at": "2026-07-12T16:21:02.317186-04:00",                                        +
+              |         "county_geoid": "54001",                                                                 +
+              |         "blockgroup_name": "Block Group 3"                                                       +
+              |     }                                                                                            +
+              | }
+(3 rows)
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ psql -U postgres -p 5436 -d msjarvisgis_v2 <<'SQL'
+DROP TABLE IF EXISTS public.gbim_blockgroup_vector;
+
+CREATE TABLE public.gbim_blockgroup_vector (
+    bg_geoid       text PRIMARY KEY,
+    vector_json    jsonb NOT NULL,
+    semantic_text  text  NOT NULL
+);
+
+INSERT INTO public.gbim_blockgroup_vector (bg_geoid, vector_json, semantic_text)
+WITH expanded AS (
+    SELECT
+        gf.bg_geoid,
+        gf.attrs_json->'identity' AS identity_json,
+        gf.attrs_json->'coverage' AS coverage_json
+    FROM public.gbim_blockgroup_features gf
+),
+coverage_flat AS (
+    SELECT
+        e.bg_geoid,
+        cf->>'datasettype'   AS dataset_type,
+        COALESCE(cf->>'sourcetable', 'unknown_layer') AS source_table,
+        COALESCE((cf->>'featurecount')::integer, 0)    AS feature_count,
+SQLIT 3; bg_geoidblockgroup_vectort, 1000) AS previewjson);_text, '')
+DROP TABLE
+CREATE TABLE
+INSERT 0 1639
+CREATE INDEX
+ANALYZE
+ rows 
+------
+ 1639
+(1 row)
+
+   bg_geoid   |                                                                         preview                                                                         
+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------
+ 540019655001 | Blockgroup: 540019655001                                                                                                                               +
+              | Identity: {"county_id": "54001", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54001", "blockgroup_name": "Block Group 1"}        +
+              | Coverage layers:                                                                                                                                       +
+              | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area+
+              | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=445 | state=present | reason=features_intersected                  +
+              | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=68 | state=present | reason=features_intersected                  +
+              | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                         +
+              | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area         +
+              | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_fe
+ 540019655002 | Blockgroup: 540019655002                                                                                                                               +
+              | Identity: {"county_id": "54001", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54001", "blockgroup_name": "Block Group 2"}        +
+              | Coverage layers:                                                                                                                                       +
+              | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area+
+              | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=701 | state=present | reason=features_intersected                  +
+              | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=142 | state=present | reason=features_intersected                 +
+              | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area             +
+              | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area         +
+              | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent |
+ 540019655003 | Blockgroup: 540019655003                                                                                                                               +
+              | Identity: {"county_id": "54001", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54001", "blockgroup_name": "Block Group 3"}        +
+              | Coverage layers:                                                                                                                                       +
+              | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area+
+              | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=966 | state=present | reason=features_intersected                  +
+              | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=132 | state=present | reason=features_intersected                 +
+              | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                         +
+              | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area         +
+              | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_f
+(3 rows)
 
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ 
 
