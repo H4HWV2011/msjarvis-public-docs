@@ -1,3320 +1,1186 @@
-_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=1 | state=present | reason=features_intersected                                +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=2 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070005002 | 54107        | Block Group 2   | Blockgroup: 541070005002                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=534 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=5 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070005003 | 54107        | Block Group 3   | Blockgroup: 541070005003                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=458 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=2 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070005004 | 54107        | Block Group 4   | Blockgroup: 541070005004                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 4"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=479 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=2 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=4 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070007011 | 54107        | Block Group 1   | Blockgroup: 541070007011                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=381 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=6 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=11 | state=present | reason=features_intersected                                 +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=5 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070007012 | 54107        | Block Group 2   | Blockgroup: 541070007012                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=473 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=3 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070007013 | 54107        | Block Group 3   | Blockgroup: 541070007013                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=565 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=4 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070007021 | 54107        | Block Group 1   | Blockgroup: 541070007021                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=474 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=3 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070007022 | 54107        | Block Group 2   | Blockgroup: 541070007022                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=335 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=6 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=2 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070008011 | 54107        | Block Group 1   | Blockgroup: 541070008011                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=731 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=8 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=11 | state=present | reason=features_intersected                                 +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=2 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070008021 | 54107        | Block Group 1   | Blockgroup: 541070008021                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=438 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=10 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=5 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=9 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070008022 | 54107        | Block Group 2   | Blockgroup: 541070008022                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=650 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=10 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=2 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=2 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070008023 | 54107        | Block Group 3   | Blockgroup: 541070008023                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=697 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=4 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=6 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070009011 | 54107        | Block Group 1   | Blockgroup: 541070009011                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=810 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=11 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=4 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=1 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=2 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070009021 | 54107        | Block Group 1   | Blockgroup: 541070009021                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=475 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=7 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=1 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070009022 | 54107        | Block Group 2   | Blockgroup: 541070009022                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=282 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=5 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070009031 | 54107        | Block Group 1   | Blockgroup: 541070009031                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=767 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=6 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070009032 | 54107        | Block Group 2   | Blockgroup: 541070009032                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=747 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=4 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=2 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070009033 | 54107        | Block Group 3   | Blockgroup: 541070009033                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=658 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=7 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070101011 | 54107        | Block Group 1   | Blockgroup: 541070101011                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=1148 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=52 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=7 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070101021 | 54107        | Block Group 1   | Blockgroup: 541070101021                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=419 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=24 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=6 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070101022 | 54107        | Block Group 2   | Blockgroup: 541070101022                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=550 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=15 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=3 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070102001 | 54107        | Block Group 1   | Blockgroup: 541070102001                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=649 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=7 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=1 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070102002 | 54107        | Block Group 2   | Blockgroup: 541070102002                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=384 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=4 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=3 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=2 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070102003 | 54107        | Block Group 3   | Blockgroup: 541070102003                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=658 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=11 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=4 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=4 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070103001 | 54107        | Block Group 1   | Blockgroup: 541070103001                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=1066 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=7 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070103002 | 54107        | Block Group 2   | Blockgroup: 541070103002                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=1026 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=4 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=2 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070104001 | 54107        | Block Group 1   | Blockgroup: 541070104001                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=371 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=14 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=6 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070104002 | 54107        | Block Group 2   | Blockgroup: 541070104002                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=542 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=4 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070105011 | 54107        | Block Group 1   | Blockgroup: 541070105011                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=376 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=4 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=3 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070105012 | 54107        | Block Group 2   | Blockgroup: 541070105012                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=490 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=8 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=5 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=2 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070105021 | 54107        | Block Group 1   | Blockgroup: 541070105021                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=645 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=7 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070105022 | 54107        | Block Group 2   | Blockgroup: 541070105022                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=565 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=4 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070105023 | 54107        | Block Group 3   | Blockgroup: 541070105023                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=878 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=8 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=1 | state=present | reason=features_intersected                                +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070106011 | 54107        | Block Group 1   | Blockgroup: 541070106011                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=529 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=20 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=1 | state=present | reason=features_intersected                                              +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=9 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070106012 | 54107        | Block Group 2   | Blockgroup: 541070106012                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=927 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=45 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=1 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=10 | state=present | reason=features_intersected               +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070106013 | 54107        | Block Group 3   | Blockgroup: 541070106013                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=932 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=49 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=8 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=9 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=4 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070106021 | 54107        | Block Group 1   | Blockgroup: 541070106021                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=555 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=14 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=6 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070106022 | 54107        | Block Group 2   | Blockgroup: 541070106022                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=653 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=39 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=9 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070106023 | 54107        | Block Group 3   | Blockgroup: 541070106023                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=500 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=72 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=8 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=15 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070106024 | 54107        | Block Group 4   | Blockgroup: 541070106024                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 4"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=435 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=83 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=8 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=23 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070107031 | 54107        | Block Group 1   | Blockgroup: 541070107031                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=412 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=8 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=2 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=1 | state=present | reason=features_intersected                                              +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070107032 | 54107        | Block Group 2   | Blockgroup: 541070107032                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=867 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=22 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=9 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070107033 | 54107        | Block Group 3   | Blockgroup: 541070107033                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=782 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=97 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=8 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=18 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070107034 | 54107        | Block Group 4   | Blockgroup: 541070107034                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 4"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=425 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=15 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=1 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070107041 | 54107        | Block Group 1   | Blockgroup: 541070107041                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=751 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=59 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=8 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070107042 | 54107        | Block Group 2   | Blockgroup: 541070107042                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=949 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=70 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=2 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070107051 | 54107        | Block Group 1   | Blockgroup: 541070107051                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=646 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=141 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=8 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=35 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=3 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070107052 | 54107        | Block Group 2   | Blockgroup: 541070107052                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=666 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=53 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=19 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=5 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070107061 | 54107        | Block Group 1   | Blockgroup: 541070107061                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=523 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=26 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=13 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070107062 | 54107        | Block Group 2   | Blockgroup: 541070107062                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=894 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=45 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=5 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=3 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070107063 | 54107        | Block Group 3   | Blockgroup: 541070107063                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=411 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=9 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=7 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070108001 | 54107        | Block Group 1   | Blockgroup: 541070108001                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=509 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=100 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=55 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070108002 | 54107        | Block Group 2   | Blockgroup: 541070108002                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=491 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=125 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=8 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=86 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070108003 | 54107        | Block Group 3   | Blockgroup: 541070108003                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=740 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=106 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=8 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=89 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070109011 | 54107        | Block Group 1   | Blockgroup: 541070109011                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=760 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=42 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=2 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070109012 | 54107        | Block Group 2   | Blockgroup: 541070109012                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=450 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=21 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=14 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070109013 | 54107        | Block Group 3   | Blockgroup: 541070109013                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=601 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=32 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=18 | state=present | reason=features_intersected                                 +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=13 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070109014 | 54107        | Block Group 4   | Blockgroup: 541070109014                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 4"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=502 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=14 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070109021 | 54107        | Block Group 1   | Blockgroup: 541070109021                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=587 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=14 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070109022 | 54107        | Block Group 2   | Blockgroup: 541070109022                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=450 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=22 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=4 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=2 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070109023 | 54107        | Block Group 3   | Blockgroup: 541070109023                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=974 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=14 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=5 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070110001 | 54107        | Block Group 1   | Blockgroup: 541070110001                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=412 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=6 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=4 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=2 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070110002 | 54107        | Block Group 2   | Blockgroup: 541070110002                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=383 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=7 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=3 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=4 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=1 | state=present | reason=features_intersected                                +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070110003 | 54107        | Block Group 3   | Blockgroup: 541070110003                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=386 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=7 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=4 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=1 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541070110004 | 54107        | Block Group 4   | Blockgroup: 541070110004                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54107", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54107", "blockgroup_name": "Block Group 4"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=458 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=5 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=0 | state=absent | reason=no_features_found_in_covered_area          +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090028001 | 54109        | Block Group 1   | Blockgroup: 541090028001                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=498 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=139 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=5 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=25 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090028002 | 54109        | Block Group 2   | Blockgroup: 541090028002                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=907 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=157 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=39 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=5 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090029011 | 54109        | Block Group 1   | Blockgroup: 541090029011                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=950 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=134 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=7 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=17 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090029012 | 54109        | Block Group 2   | Blockgroup: 541090029012                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=1261 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=147 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=8 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=25 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090029021 | 54109        | Block Group 1   | Blockgroup: 541090029021                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=395 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=8 | state=present | reason=features_intersected                            +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=9 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090029022 | 54109        | Block Group 2   | Blockgroup: 541090029022                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=1134 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=93 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=21 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090029023 | 54109        | Block Group 3   | Blockgroup: 541090029023                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=498 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=42 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=13 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=5 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090030001 | 54109        | Block Group 1   | Blockgroup: 541090030001                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=521 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=106 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=10 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090030002 | 54109        | Block Group 2   | Blockgroup: 541090030002                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=910 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=131 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=8 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=95 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=3 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090031001 | 54109        | Block Group 1   | Blockgroup: 541090031001                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=911 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=275 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=12 | state=present | reason=features_intersected                                 +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=98 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090031002 | 54109        | Block Group 2   | Blockgroup: 541090031002                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=1162 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=72 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=3 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=11 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090031003 | 54109        | Block Group 3   | Blockgroup: 541090031003                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=373 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=39 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=14 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=3 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090031004 | 54109        | Block Group 4   | Blockgroup: 541090031004                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 4"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=1057 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=69 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=26 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=1 | state=present | reason=features_intersected                                              +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=6 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090032001 | 54109        | Block Group 1   | Blockgroup: 541090032001                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 1"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=671 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=159 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=25 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=1 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090032002 | 54109        | Block Group 2   | Blockgroup: 541090032002                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 2"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=773 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=118 | state=present | reason=features_intersected                          +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=5 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=48 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=1 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090032003 | 54109        | Block Group 3   | Blockgroup: 541090032003                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 3"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=742 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=60 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                                  +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=4 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=15 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=2 | state=present | reason=features_intersected                                        +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=2 | state=present | reason=features_intersected                +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090032004 | 54109        | Block Group 4   | Blockgroup: 541090032004                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 4"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=564 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=61 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=8 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=21 | state=present | reason=features_intersected                     +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=0 | state=absent | reason=no_features_found_in_covered_area                                  +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
- 541090032005 | 54109        | Block Group 5   | Blockgroup: 541090032005                                                                                                                                        +
-              |              |                 | Identity: {"county_id": "54109", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54109", "blockgroup_name": "Block Group 5"}                 +
-              |              |                 | Coverage layers:                                                                                                                                                +
-              |              |                 | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area         +
-              |              |                 | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=649 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=65 | state=present | reason=features_intersected                           +
-              |              |                 | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area                      +
-              |              |                 | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_features_found_in_covered_area        +
-              |              |                 | layer=public.wv_hlt_health_providers | type=public.wv_hlt_health_providers | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_hlt_public_health_departments | type=public.wv_hlt_public_health_departments | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_hlt_rural_health_facilities | type=public.wv_hlt_rural_health_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_hyd_hazus_floodplain_zones | type=public.wv_hyd_hazus_floodplain_zones | count=8 | state=present | reason=features_intersected                  +
-              |              |                 | layer=public.wv_hyd_streams_high_quality | type=public.wv_hyd_streams_high_quality | count=6 | state=present | reason=features_intersected                      +
-              |              |                 | layer=public.wv_rec_fishing_boating_access | type=public.wv_rec_fishing_boating_access | count=0 | state=absent | reason=no_features_found_in_covered_area      +
-              |              |                 | layer=public.wv_rec_fishing_lakes | type=public.wv_rec_fishing_lakes | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_national_forest | type=public.wv_rec_national_forest | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_rec_nps_units | type=public.wv_rec_nps_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_nwr_units | type=public.wv_rec_nwr_units | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_rec_state_forests | type=public.wv_rec_state_forests | count=0 | state=absent | reason=no_features_found_in_covered_area                        +
-              |              |                 | layer=public.wv_rec_state_parks | type=public.wv_rec_state_parks | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_rec_trail_points | type=public.wv_rec_trail_points | count=0 | state=absent | reason=no_features_found_in_covered_area                          +
-              |              |                 | layer=public.wv_rec_trails | type=public.wv_rec_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                                      +
-              |              |                 | layer=public.wv_rec_whitewater_trails | type=public.wv_rec_whitewater_trails | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_rec_wvdnr_managed_lands | type=public.wv_rec_wvdnr_managed_lands | count=0 | state=absent | reason=no_features_found_in_covered_area            +
-              |              |                 | layer=public.wv_soc_hospitals_wvdem | type=public.wv_soc_hospitals_wvdem | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_soc_libraries | type=public.wv_soc_libraries | count=0 | state=absent | reason=no_features_found_in_covered_area                                +
-              |              |                 | layer=public.wv_soc_places_of_worship_wvgistc | type=public.wv_soc_places_of_worship_wvgistc | count=0 | state=absent | reason=no_features_found_in_covered_area+
-              |              |                 | layer=public.wv_soc_schools_k12 | type=public.wv_soc_schools_k12 | count=0 | state=absent | reason=no_features_found_in_covered_area                            +
-              |              |                 | layer=public.wv_str_bridges | type=public.wv_str_bridges | count=0 | state=absent | reason=no_features_found_in_covered_area                                    +
-              |              |                 | layer=public.wv_trn_airports | type=public.wv_trn_airports | count=1 | state=present | reason=features_intersected                                              +
-              |              |                 | layer=public.wv_trn_railroad_lines_rti | type=public.wv_trn_railroad_lines_rti | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_interstate | type=public.wv_trn_roads_interstate | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_major_4800 | type=public.wv_trn_roads_major_4800 | count=0 | state=absent | reason=no_features_found_in_covered_area                  +
-              |              |                 | layer=public.wv_trn_roads_state_routes | type=public.wv_trn_roads_state_routes | count=0 | state=absent | reason=no_features_found_in_covered_area              +
-              |              |                 | layer=public.wv_trn_roads_us_highways | type=public.wv_trn_roads_us_highways | count=0 | state=absent | reason=no_features_found_in_covered_area                +
-              |              |                 | layer=public.wv_trn_roads_us_routes | type=public.wv_trn_roads_us_routes | count=0 | state=absent | reason=no_features_found_in_covered_area                    +
-              |              |                 | layer=public.wv_util_sewer_treatment_plants | type=public.wv_util_sewer_treatment_plants | count=0 | state=absent | reason=no_features_found_in_covered_area    +
-              |              |                 | layer=public.wv_util_solid_waste_facilities | type=public.wv_util_solid_waste_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area
-(1639 rows)
-
-   bg_geoid   | hq_streams_ct | floodplain_ct | biodiversity_ct | epa_facilities_ct | hospitals_ct | wastewater_plants_ct | solid_waste_facilities_ct | state_parks_ct | state_forests_ct | national_forest_ct | fishing_lakes_ct | trails_ct | has_state_parks | has_state_forests | has_national_forest | has_fishing_lakes | has_trails 
---------------+---------------+---------------+-----------------+-------------------+--------------+----------------------+---------------------------+----------------+------------------+--------------------+------------------+-----------+-----------------+-------------------+---------------------+-------------------+------------
- 540019655001 |             8 |             3 |              68 |                 2 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019655002 |            33 |             8 |             142 |                 0 |            0 |                    2 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019655003 |            53 |            12 |             132 |                 1 |            0 |                    1 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019655004 |           113 |            12 |             126 |                 0 |            0 |                    3 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019656001 |             7 |             4 |              33 |                 0 |            1 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019656002 |             2 |             4 |              16 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019656003 |            10 |             4 |              18 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019656004 |             3 |             4 |              17 |                 2 |            0 |                    1 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019657001 |            59 |             8 |             141 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019657002 |            76 |            12 |             171 |                 0 |            0 |                    1 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019657003 |            52 |             4 |             163 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019657004 |            31 |             4 |             102 |                 0 |            0 |                    2 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019658001 |            18 |             4 |              21 |                 1 |            0 |                    1 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019658002 |            30 |             4 |              25 |                 0 |            0 |                    1 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019658003 |             8 |             4 |              52 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540019658004 |            12 |             7 |              40 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039711011 |             5 |             4 |              25 |                 4 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039711012 |             0 |             4 |              14 |                 0 |            0 |                    1 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039711013 |             0 |             4 |              11 |                 0 |            0 |                    3 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039711014 |             0 |             0 |              11 |                 3 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039711031 |             0 |             4 |              16 |                 0 |            0 |                    4 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039711041 |             0 |             4 |              24 |                 0 |            0 |                    1 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039711042 |             0 |             0 |              24 |                 0 |            0 |                    4 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039711051 |             2 |             0 |              22 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039711052 |             0 |             0 |              14 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039712031 |            21 |             8 |              38 |                 0 |            0 |                    2 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039712032 |            27 |             4 |              59 |                 0 |            0 |                    1 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039712041 |             5 |             4 |              31 |                 0 |            0 |                    1 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039712042 |            16 |             4 |              71 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039712051 |            11 |             4 |              41 |                 0 |            0 |                    1 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039712052 |            29 |             4 |              44 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039712061 |             1 |             0 |              20 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039712062 |             3 |             0 |              20 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039712063 |             0 |             0 |               8 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039712064 |            11 |             4 |              40 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039713011 |             0 |             0 |               7 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039713012 |             0 |             0 |               6 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039713013 |             0 |             0 |              11 |                 5 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039713014 |             0 |             0 |              19 |                 2 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039713021 |             8 |             4 |              19 |                 1 |            0 |                    4 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039713022 |             0 |             0 |               6 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039713023 |             8 |             4 |              14 |                 1 |            0 |                    1 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039714011 |            13 |             8 |              57 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039714012 |            11 |             8 |              44 |                 2 |            0 |                    2 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039714021 |             2 |             0 |               5 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039714022 |             5 |             4 |              11 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039714023 |             4 |             0 |               6 |                 0 |            0 |                    1 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039715001 |             0 |             0 |               3 |                 0 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039715002 |             0 |             2 |               4 |                 7 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
- 540039715003 |             3 |             4 |               5 |                 1 |            0 |                    0 |                         0 |              0 |                0 |                  0 |                0 |         0 | f               | f                 | f                   | f                 | f
-(50 rows)
-
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ 
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ psql -U postgres -p 5436 -d msjarvisgis_v2 <<'SQL'
+-- Confirm feature table
+SELECT COUNT(*) AS rows
+FROM public.gbim_blockgroup_features;
+
+SELECT bg_geoid,
+       jsonb_pretty(attrs_json) AS attrs_pretty
+FROM public.gbim_blockgroup_features
+ORDER BY bg_geoid
+LIMIT 3;
+
+-- Confirm vector table
+SELECT COUNT(*) AS rows
+FROM public.gbim_blockgroup_vector;
+
+SELECT bg_geoid, left(semantic_text, 1000) AS preview
+FROM public.gbim_blockgroup_vector
+ORDER BY bg_geoid
+LIMIT 3;
+
+ANALYZE public.gbim_blockgroup_features;
+ANALYZE public.gbim_blockgroup_vector;
+SQL
+ rows 
+------
+ 1639
+(1 row)
+
+   bg_geoid   |                                           attrs_pretty                                            
+--------------+---------------------------------------------------------------------------------------------------
+ 540019655001 | {                                                                                                +
+              |     "bg_geoid": "540019655001",                                                                  +
+              |     "coverage": [                                                                                +
+              |         {                                                                                        +
+              |             "notes": "Blockgroup address-point coverage for Kanawha (v1, SRID-aligned)",         +
+              |             "datasettype": "address_points_kanawha",                                             +
+              |             "sourcetable": "public.wv_address_points_kanawha_part1 + part2",                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "unknown",                                                          +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T16:34:51.846304-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "Statewide county-unioned address-point coverage (v1)",                     +
+              |             "datasettype": "address_points_statewide",                                           +
+              |             "sourcetable": "public.wv_address_points_statewide_mv",                              +
+              |             "featurecount": 445,                                                                 +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T16:50:27.968289-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for biodiversity priority areas",            +
+              |             "datasettype": "public.wv_bio_biodiversity_rank",                                    +
+              |             "sourcetable": "public.wv_bio_biodiversity_rank",                                    +
+              |             "featurecount": 68,                                                                  +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:17:41.562932-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for EPA-regulated facilities",               +
+              |             "datasettype": "public.wv_env_epa_facilities",                                       +
+              |             "sourcetable": "public.wv_env_epa_facilities",                                       +
+              |             "featurecount": 2,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:18:12.262701-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_env_wildfire_regions",         +
+              |             "datasettype": "public.wv_env_wildfire_regions",                                     +
+              |             "sourcetable": "public.wv_env_wildfire_regions",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_env_wind_energy_resources",    +
+              |             "datasettype": "public.wv_env_wind_energy_resources",                                +
+              |             "sourcetable": "public.wv_env_wind_energy_resources",                                +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_health_providers",         +
+              |             "datasettype": "public.wv_hlt_health_providers",                                     +
+              |             "sourcetable": "public.wv_hlt_health_providers",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_public_health_departments",+
+              |             "datasettype": "public.wv_hlt_public_health_departments",                            +
+              |             "sourcetable": "public.wv_hlt_public_health_departments",                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_rural_health_facilities",  +
+              |             "datasettype": "public.wv_hlt_rural_health_facilities",                              +
+              |             "sourcetable": "public.wv_hlt_rural_health_facilities",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for floodplains",                            +
+              |             "datasettype": "public.wv_hyd_hazus_floodplain_zones",                               +
+              |             "sourcetable": "public.wv_hyd_hazus_floodplain_zones",                               +
+              |             "featurecount": 3,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T20:49:55.705615-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for high-quality streams",                   +
+              |             "datasettype": "public.wv_hyd_streams_high_quality",                                 +
+              |             "sourcetable": "public.wv_hyd_streams_high_quality",                                 +
+              |             "featurecount": 8,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:18:23.427246-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for fishing & boating access sites",         +
+              |             "datasettype": "public.wv_rec_fishing_boating_access",                               +
+              |             "sourcetable": "public.wv_rec_fishing_boating_access",                               +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.065318-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for fishing lakes",                          +
+              |             "datasettype": "public.wv_rec_fishing_lakes",                                        +
+              |             "sourcetable": "public.wv_rec_fishing_lakes",                                        +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.050938-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for national forest lands",                  +
+              |             "datasettype": "public.wv_rec_national_forest",                                      +
+              |             "sourcetable": "public.wv_rec_national_forest",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:53.989436-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for NPS units",                              +
+              |             "datasettype": "public.wv_rec_nps_units",                                            +
+              |             "sourcetable": "public.wv_rec_nps_units",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.000461-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for national wildlife refuges",              +
+              |             "datasettype": "public.wv_rec_nwr_units",                                            +
+              |             "sourcetable": "public.wv_rec_nwr_units",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.010841-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for state forests",                          +
+              |             "datasettype": "public.wv_rec_state_forests",                                        +
+              |             "sourcetable": "public.wv_rec_state_forests",                                        +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:53.95526-04:00",                                +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for state parks",                            +
+              |             "datasettype": "public.wv_rec_state_parks",                                          +
+              |             "sourcetable": "public.wv_rec_state_parks",                                          +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.036266-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for trail points",                           +
+              |             "datasettype": "public.wv_rec_trail_points",                                         +
+              |             "sourcetable": "public.wv_rec_trail_points",                                         +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.075949-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for trails",                                 +
+              |             "datasettype": "public.wv_rec_trails",                                               +
+              |             "sourcetable": "public.wv_rec_trails",                                               +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.086327-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for whitewater trails",                      +
+              |             "datasettype": "public.wv_rec_whitewater_trails",                                    +
+              |             "sourcetable": "public.wv_rec_whitewater_trails",                                    +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.103075-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for WVDNR managed lands",                    +
+              |             "datasettype": "public.wv_rec_wvdnr_managed_lands",                                  +
+              |             "sourcetable": "public.wv_rec_wvdnr_managed_lands",                                  +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.021343-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for hospitals",                              +
+              |             "datasettype": "public.wv_soc_hospitals_wvdem",                                      +
+              |             "sourcetable": "public.wv_soc_hospitals_wvdem",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:02.788746-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_soc_libraries",                +
+              |             "datasettype": "public.wv_soc_libraries",                                            +
+              |             "sourcetable": "public.wv_soc_libraries",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_soc_places_of_worship_wvgistc",+
+              |             "datasettype": "public.wv_soc_places_of_worship_wvgistc",                            +
+              |             "sourcetable": "public.wv_soc_places_of_worship_wvgistc",                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for K–12 schools",                           +
+              |             "datasettype": "public.wv_soc_schools_k12",                                          +
+              |             "sourcetable": "public.wv_soc_schools_k12",                                          +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:18:55.160838-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_str_bridges",                  +
+              |             "datasettype": "public.wv_str_bridges",                                              +
+              |             "sourcetable": "public.wv_str_bridges",                                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for airports",                               +
+              |             "datasettype": "public.wv_trn_airports",                                             +
+              |             "sourcetable": "public.wv_trn_airports",                                             +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:13.251108-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_railroad_lines_rti",       +
+              |             "datasettype": "public.wv_trn_railroad_lines_rti",                                   +
+              |             "sourcetable": "public.wv_trn_railroad_lines_rti",                                   +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_interstate",         +
+              |             "datasettype": "public.wv_trn_roads_interstate",                                     +
+              |             "sourcetable": "public.wv_trn_roads_interstate",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_major_4800",         +
+              |             "datasettype": "public.wv_trn_roads_major_4800",                                     +
+              |             "sourcetable": "public.wv_trn_roads_major_4800",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_state_routes",       +
+              |             "datasettype": "public.wv_trn_roads_state_routes",                                   +
+              |             "sourcetable": "public.wv_trn_roads_state_routes",                                   +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_us_highways",        +
+              |             "datasettype": "public.wv_trn_roads_us_highways",                                    +
+              |             "sourcetable": "public.wv_trn_roads_us_highways",                                    +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_us_routes",          +
+              |             "datasettype": "public.wv_trn_roads_us_routes",                                      +
+              |             "sourcetable": "public.wv_trn_roads_us_routes",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for wastewater treatment plants",            +
+              |             "datasettype": "public.wv_util_sewer_treatment_plants",                              +
+              |             "sourcetable": "public.wv_util_sewer_treatment_plants",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:22.973058-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_util_solid_waste_facilities",  +
+              |             "datasettype": "public.wv_util_solid_waste_facilities",                              +
+              |             "sourcetable": "public.wv_util_solid_waste_facilities",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         }                                                                                        +
+              |     ],                                                                                           +
+              |     "identity": {                                                                                +
+              |         "county_id": "54001",                                                                    +
+              |         "created_at": "2026-07-12T16:21:02.317186-04:00",                                        +
+              |         "county_geoid": "54001",                                                                 +
+              |         "blockgroup_name": "Block Group 1"                                                       +
+              |     }                                                                                            +
+              | }
+ 540019655002 | {                                                                                                +
+              |     "bg_geoid": "540019655002",                                                                  +
+              |     "coverage": [                                                                                +
+              |         {                                                                                        +
+              |             "notes": "Blockgroup address-point coverage for Kanawha (v1, SRID-aligned)",         +
+              |             "datasettype": "address_points_kanawha",                                             +
+              |             "sourcetable": "public.wv_address_points_kanawha_part1 + part2",                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "unknown",                                                          +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T16:34:51.846304-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "Statewide county-unioned address-point coverage (v1)",                     +
+              |             "datasettype": "address_points_statewide",                                           +
+              |             "sourcetable": "public.wv_address_points_statewide_mv",                              +
+              |             "featurecount": 701,                                                                 +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T16:50:27.968289-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for biodiversity priority areas",            +
+              |             "datasettype": "public.wv_bio_biodiversity_rank",                                    +
+              |             "sourcetable": "public.wv_bio_biodiversity_rank",                                    +
+              |             "featurecount": 142,                                                                 +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:17:41.562932-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for EPA-regulated facilities",               +
+              |             "datasettype": "public.wv_env_epa_facilities",                                       +
+              |             "sourcetable": "public.wv_env_epa_facilities",                                       +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:18:12.262701-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_env_wildfire_regions",         +
+              |             "datasettype": "public.wv_env_wildfire_regions",                                     +
+              |             "sourcetable": "public.wv_env_wildfire_regions",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_env_wind_energy_resources",    +
+              |             "datasettype": "public.wv_env_wind_energy_resources",                                +
+              |             "sourcetable": "public.wv_env_wind_energy_resources",                                +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_health_providers",         +
+              |             "datasettype": "public.wv_hlt_health_providers",                                     +
+              |             "sourcetable": "public.wv_hlt_health_providers",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_public_health_departments",+
+              |             "datasettype": "public.wv_hlt_public_health_departments",                            +
+              |             "sourcetable": "public.wv_hlt_public_health_departments",                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_rural_health_facilities",  +
+              |             "datasettype": "public.wv_hlt_rural_health_facilities",                              +
+              |             "sourcetable": "public.wv_hlt_rural_health_facilities",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for floodplains",                            +
+              |             "datasettype": "public.wv_hyd_hazus_floodplain_zones",                               +
+              |             "sourcetable": "public.wv_hyd_hazus_floodplain_zones",                               +
+              |             "featurecount": 8,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T20:49:55.705615-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for high-quality streams",                   +
+              |             "datasettype": "public.wv_hyd_streams_high_quality",                                 +
+              |             "sourcetable": "public.wv_hyd_streams_high_quality",                                 +
+              |             "featurecount": 33,                                                                  +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:18:23.427246-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for fishing & boating access sites",         +
+              |             "datasettype": "public.wv_rec_fishing_boating_access",                               +
+              |             "sourcetable": "public.wv_rec_fishing_boating_access",                               +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.065318-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for fishing lakes",                          +
+              |             "datasettype": "public.wv_rec_fishing_lakes",                                        +
+              |             "sourcetable": "public.wv_rec_fishing_lakes",                                        +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.050938-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for national forest lands",                  +
+              |             "datasettype": "public.wv_rec_national_forest",                                      +
+              |             "sourcetable": "public.wv_rec_national_forest",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:53.989436-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for NPS units",                              +
+              |             "datasettype": "public.wv_rec_nps_units",                                            +
+              |             "sourcetable": "public.wv_rec_nps_units",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.000461-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for national wildlife refuges",              +
+              |             "datasettype": "public.wv_rec_nwr_units",                                            +
+              |             "sourcetable": "public.wv_rec_nwr_units",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.010841-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for state forests",                          +
+              |             "datasettype": "public.wv_rec_state_forests",                                        +
+              |             "sourcetable": "public.wv_rec_state_forests",                                        +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:53.95526-04:00",                                +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for state parks",                            +
+              |             "datasettype": "public.wv_rec_state_parks",                                          +
+              |             "sourcetable": "public.wv_rec_state_parks",                                          +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.036266-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for trail points",                           +
+              |             "datasettype": "public.wv_rec_trail_points",                                         +
+              |             "sourcetable": "public.wv_rec_trail_points",                                         +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.075949-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for trails",                                 +
+              |             "datasettype": "public.wv_rec_trails",                                               +
+              |             "sourcetable": "public.wv_rec_trails",                                               +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.086327-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for whitewater trails",                      +
+              |             "datasettype": "public.wv_rec_whitewater_trails",                                    +
+              |             "sourcetable": "public.wv_rec_whitewater_trails",                                    +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.103075-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for WVDNR managed lands",                    +
+              |             "datasettype": "public.wv_rec_wvdnr_managed_lands",                                  +
+              |             "sourcetable": "public.wv_rec_wvdnr_managed_lands",                                  +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.021343-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for hospitals",                              +
+              |             "datasettype": "public.wv_soc_hospitals_wvdem",                                      +
+              |             "sourcetable": "public.wv_soc_hospitals_wvdem",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:02.788746-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_soc_libraries",                +
+              |             "datasettype": "public.wv_soc_libraries",                                            +
+              |             "sourcetable": "public.wv_soc_libraries",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_soc_places_of_worship_wvgistc",+
+              |             "datasettype": "public.wv_soc_places_of_worship_wvgistc",                            +
+              |             "sourcetable": "public.wv_soc_places_of_worship_wvgistc",                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for K–12 schools",                           +
+              |             "datasettype": "public.wv_soc_schools_k12",                                          +
+              |             "sourcetable": "public.wv_soc_schools_k12",                                          +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:18:55.160838-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_str_bridges",                  +
+              |             "datasettype": "public.wv_str_bridges",                                              +
+              |             "sourcetable": "public.wv_str_bridges",                                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for airports",                               +
+              |             "datasettype": "public.wv_trn_airports",                                             +
+              |             "sourcetable": "public.wv_trn_airports",                                             +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:13.251108-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_railroad_lines_rti",       +
+              |             "datasettype": "public.wv_trn_railroad_lines_rti",                                   +
+              |             "sourcetable": "public.wv_trn_railroad_lines_rti",                                   +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_interstate",         +
+              |             "datasettype": "public.wv_trn_roads_interstate",                                     +
+              |             "sourcetable": "public.wv_trn_roads_interstate",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_major_4800",         +
+              |             "datasettype": "public.wv_trn_roads_major_4800",                                     +
+              |             "sourcetable": "public.wv_trn_roads_major_4800",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_state_routes",       +
+              |             "datasettype": "public.wv_trn_roads_state_routes",                                   +
+              |             "sourcetable": "public.wv_trn_roads_state_routes",                                   +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_us_highways",        +
+              |             "datasettype": "public.wv_trn_roads_us_highways",                                    +
+              |             "sourcetable": "public.wv_trn_roads_us_highways",                                    +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_us_routes",          +
+              |             "datasettype": "public.wv_trn_roads_us_routes",                                      +
+              |             "sourcetable": "public.wv_trn_roads_us_routes",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for wastewater treatment plants",            +
+              |             "datasettype": "public.wv_util_sewer_treatment_plants",                              +
+              |             "sourcetable": "public.wv_util_sewer_treatment_plants",                              +
+              |             "featurecount": 2,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:19:22.973058-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_util_solid_waste_facilities",  +
+              |             "datasettype": "public.wv_util_solid_waste_facilities",                              +
+              |             "sourcetable": "public.wv_util_solid_waste_facilities",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         }                                                                                        +
+              |     ],                                                                                           +
+              |     "identity": {                                                                                +
+              |         "county_id": "54001",                                                                    +
+              |         "created_at": "2026-07-12T16:21:02.317186-04:00",                                        +
+              |         "county_geoid": "54001",                                                                 +
+              |         "blockgroup_name": "Block Group 2"                                                       +
+              |     }                                                                                            +
+              | }
+ 540019655003 | {                                                                                                +
+              |     "bg_geoid": "540019655003",                                                                  +
+              |     "coverage": [                                                                                +
+              |         {                                                                                        +
+              |             "notes": "Blockgroup address-point coverage for Kanawha (v1, SRID-aligned)",         +
+              |             "datasettype": "address_points_kanawha",                                             +
+              |             "sourcetable": "public.wv_address_points_kanawha_part1 + part2",                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "unknown",                                                          +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T16:34:51.846304-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "Statewide county-unioned address-point coverage (v1)",                     +
+              |             "datasettype": "address_points_statewide",                                           +
+              |             "sourcetable": "public.wv_address_points_statewide_mv",                              +
+              |             "featurecount": 966,                                                                 +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T16:50:27.968289-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for biodiversity priority areas",            +
+              |             "datasettype": "public.wv_bio_biodiversity_rank",                                    +
+              |             "sourcetable": "public.wv_bio_biodiversity_rank",                                    +
+              |             "featurecount": 132,                                                                 +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:17:41.562932-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for EPA-regulated facilities",               +
+              |             "datasettype": "public.wv_env_epa_facilities",                                       +
+              |             "sourcetable": "public.wv_env_epa_facilities",                                       +
+              |             "featurecount": 1,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:18:12.262701-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_env_wildfire_regions",         +
+              |             "datasettype": "public.wv_env_wildfire_regions",                                     +
+              |             "sourcetable": "public.wv_env_wildfire_regions",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_env_wind_energy_resources",    +
+              |             "datasettype": "public.wv_env_wind_energy_resources",                                +
+              |             "sourcetable": "public.wv_env_wind_energy_resources",                                +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_health_providers",         +
+              |             "datasettype": "public.wv_hlt_health_providers",                                     +
+              |             "sourcetable": "public.wv_hlt_health_providers",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_public_health_departments",+
+              |             "datasettype": "public.wv_hlt_public_health_departments",                            +
+              |             "sourcetable": "public.wv_hlt_public_health_departments",                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_hlt_rural_health_facilities",  +
+              |             "datasettype": "public.wv_hlt_rural_health_facilities",                              +
+              |             "sourcetable": "public.wv_hlt_rural_health_facilities",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for floodplains",                            +
+              |             "datasettype": "public.wv_hyd_hazus_floodplain_zones",                               +
+              |             "sourcetable": "public.wv_hyd_hazus_floodplain_zones",                               +
+              |             "featurecount": 12,                                                                  +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T20:49:55.705615-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for high-quality streams",                   +
+              |             "datasettype": "public.wv_hyd_streams_high_quality",                                 +
+              |             "sourcetable": "public.wv_hyd_streams_high_quality",                                 +
+              |             "featurecount": 53,                                                                  +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:18:23.427246-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for fishing & boating access sites",         +
+              |             "datasettype": "public.wv_rec_fishing_boating_access",                               +
+              |             "sourcetable": "public.wv_rec_fishing_boating_access",                               +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.065318-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for fishing lakes",                          +
+              |             "datasettype": "public.wv_rec_fishing_lakes",                                        +
+              |             "sourcetable": "public.wv_rec_fishing_lakes",                                        +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.050938-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for national forest lands",                  +
+              |             "datasettype": "public.wv_rec_national_forest",                                      +
+              |             "sourcetable": "public.wv_rec_national_forest",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:53.989436-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for NPS units",                              +
+              |             "datasettype": "public.wv_rec_nps_units",                                            +
+              |             "sourcetable": "public.wv_rec_nps_units",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.000461-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for national wildlife refuges",              +
+              |             "datasettype": "public.wv_rec_nwr_units",                                            +
+              |             "sourcetable": "public.wv_rec_nwr_units",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.010841-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for state forests",                          +
+              |             "datasettype": "public.wv_rec_state_forests",                                        +
+              |             "sourcetable": "public.wv_rec_state_forests",                                        +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:53.95526-04:00",                                +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for state parks",                            +
+              |             "datasettype": "public.wv_rec_state_parks",                                          +
+              |             "sourcetable": "public.wv_rec_state_parks",                                          +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.036266-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for trail points",                           +
+              |             "datasettype": "public.wv_rec_trail_points",                                         +
+              |             "sourcetable": "public.wv_rec_trail_points",                                         +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.075949-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for trails",                                 +
+              |             "datasettype": "public.wv_rec_trails",                                               +
+              |             "sourcetable": "public.wv_rec_trails",                                               +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.086327-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for whitewater trails",                      +
+              |             "datasettype": "public.wv_rec_whitewater_trails",                                    +
+              |             "sourcetable": "public.wv_rec_whitewater_trails",                                    +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.103075-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for WVDNR managed lands",                    +
+              |             "datasettype": "public.wv_rec_wvdnr_managed_lands",                                  +
+              |             "sourcetable": "public.wv_rec_wvdnr_managed_lands",                                  +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-13T02:13:54.021343-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for hospitals",                              +
+              |             "datasettype": "public.wv_soc_hospitals_wvdem",                                      +
+              |             "sourcetable": "public.wv_soc_hospitals_wvdem",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:02.788746-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_soc_libraries",                +
+              |             "datasettype": "public.wv_soc_libraries",                                            +
+              |             "sourcetable": "public.wv_soc_libraries",                                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_soc_places_of_worship_wvgistc",+
+              |             "datasettype": "public.wv_soc_places_of_worship_wvgistc",                            +
+              |             "sourcetable": "public.wv_soc_places_of_worship_wvgistc",                            +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for K–12 schools",                           +
+              |             "datasettype": "public.wv_soc_schools_k12",                                          +
+              |             "sourcetable": "public.wv_soc_schools_k12",                                          +
+              |             "featurecount": 1,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:18:55.160838-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_str_bridges",                  +
+              |             "datasettype": "public.wv_str_bridges",                                              +
+              |             "sourcetable": "public.wv_str_bridges",                                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for airports",                               +
+              |             "datasettype": "public.wv_trn_airports",                                             +
+              |             "sourcetable": "public.wv_trn_airports",                                             +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T21:19:13.251108-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_railroad_lines_rti",       +
+              |             "datasettype": "public.wv_trn_railroad_lines_rti",                                   +
+              |             "sourcetable": "public.wv_trn_railroad_lines_rti",                                   +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_interstate",         +
+              |             "datasettype": "public.wv_trn_roads_interstate",                                     +
+              |             "sourcetable": "public.wv_trn_roads_interstate",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_major_4800",         +
+              |             "datasettype": "public.wv_trn_roads_major_4800",                                     +
+              |             "sourcetable": "public.wv_trn_roads_major_4800",                                     +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_state_routes",       +
+              |             "datasettype": "public.wv_trn_roads_state_routes",                                   +
+              |             "sourcetable": "public.wv_trn_roads_state_routes",                                   +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_us_highways",        +
+              |             "datasettype": "public.wv_trn_roads_us_highways",                                    +
+              |             "sourcetable": "public.wv_trn_roads_us_highways",                                    +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_trn_roads_us_routes",          +
+              |             "datasettype": "public.wv_trn_roads_us_routes",                                      +
+              |             "sourcetable": "public.wv_trn_roads_us_routes",                                      +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for wastewater treatment plants",            +
+              |             "datasettype": "public.wv_util_sewer_treatment_plants",                              +
+              |             "sourcetable": "public.wv_util_sewer_treatment_plants",                              +
+              |             "featurecount": 1,                                                                   +
+              |             "coveragestate": "present",                                                          +
+              |             "coveragereason": "features_intersected",                                            +
+              |             "calculationtime": "2026-07-12T21:19:22.973058-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         },                                                                                       +
+              |         {                                                                                        +
+              |             "notes": "GBIM blockgroup coverage load for public.wv_util_solid_waste_facilities",  +
+              |             "datasettype": "public.wv_util_solid_waste_facilities",                              +
+              |             "sourcetable": "public.wv_util_solid_waste_facilities",                              +
+              |             "featurecount": 0,                                                                   +
+              |             "coveragestate": "absent",                                                           +
+              |             "coveragereason": "no_features_found_in_covered_area",                               +
+              |             "calculationtime": "2026-07-12T20:28:35.867556-04:00",                               +
+              |             "sourcelayerhash": null                                                              +
+              |         }                                                                                        +
+              |     ],                                                                                           +
+              |     "identity": {                                                                                +
+              |         "county_id": "54001",                                                                    +
+              |         "created_at": "2026-07-12T16:21:02.317186-04:00",                                        +
+              |         "county_geoid": "54001",                                                                 +
+              |         "blockgroup_name": "Block Group 3"                                                       +
+              |     }                                                                                            +
+              | }
+(3 rows)
+
+ rows 
+------
+ 1639
+(1 row)
+
+   bg_geoid   |                                                                         preview                                                                         
+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------
+ 540019655001 | Blockgroup: 540019655001                                                                                                                               +
+              | Identity: {"county_id": "54001", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54001", "blockgroup_name": "Block Group 1"}        +
+              | Coverage layers:                                                                                                                                       +
+              | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area+
+              | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=445 | state=present | reason=features_intersected                  +
+              | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=68 | state=present | reason=features_intersected                  +
+              | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=2 | state=present | reason=features_intersected                         +
+              | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area         +
+              | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_fe
+ 540019655002 | Blockgroup: 540019655002                                                                                                                               +
+              | Identity: {"county_id": "54001", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54001", "blockgroup_name": "Block Group 2"}        +
+              | Coverage layers:                                                                                                                                       +
+              | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area+
+              | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=701 | state=present | reason=features_intersected                  +
+              | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=142 | state=present | reason=features_intersected                 +
+              | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=0 | state=absent | reason=no_features_found_in_covered_area             +
+              | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area         +
+              | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent |
+ 540019655003 | Blockgroup: 540019655003                                                                                                                               +
+              | Identity: {"county_id": "54001", "created_at": "2026-07-12T16:21:02.317186-04:00", "county_geoid": "54001", "blockgroup_name": "Block Group 3"}        +
+              | Coverage layers:                                                                                                                                       +
+              | layer=public.wv_address_points_kanawha_part1 + part2 | type=address_points_kanawha | count=0 | state=unknown | reason=no_features_found_in_covered_area+
+              | layer=public.wv_address_points_statewide_mv | type=address_points_statewide | count=966 | state=present | reason=features_intersected                  +
+              | layer=public.wv_bio_biodiversity_rank | type=public.wv_bio_biodiversity_rank | count=132 | state=present | reason=features_intersected                 +
+              | layer=public.wv_env_epa_facilities | type=public.wv_env_epa_facilities | count=1 | state=present | reason=features_intersected                         +
+              | layer=public.wv_env_wildfire_regions | type=public.wv_env_wildfire_regions | count=0 | state=absent | reason=no_features_found_in_covered_area         +
+              | layer=public.wv_env_wind_energy_resources | type=public.wv_env_wind_energy_resources | count=0 | state=absent | reason=no_f
+(3 rows)
+
+ANALYZE
+ANALYZE
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ 
+
