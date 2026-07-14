@@ -1,7 +1,7 @@
 # 50. Per-User Direct Sum Decomposition of Conversational Memory
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 13, 2026*
 
 ---
 
@@ -89,8 +89,8 @@ Per-user subspaces are populated by retention-governed admission, not by convers
 
 The system therefore distinguishes among at least three classes of conversational state:
 
-- sandbox traces generated during live reasoning;
-- staged conversational conclusions under evaluation;
+- sandbox traces generated during live reasoning;  
+- staged conversational conclusions under evaluation;  
 - approved conversational memory admitted into \(H_{\mathrm{conv}}^{(u)}\).
 
 This distinction prevents the architecture from turning every interaction into indiscriminate durable capture. It also ensures that user subspaces remain meaningful: they contain what the system has been permitted to remember, not everything it happened to process.
@@ -131,9 +131,9 @@ A database can separate rows by user ID without conveying any deeper architectur
 
 This formal separation supports several operational consequences:
 
-- user continuity can be maintained without global profiling;
-- deletion, restriction, and review can be scoped to a user-governed subspace;
-- disclosure can be computed as a projection over already separated memory;
+- user continuity can be maintained without global profiling;  
+- deletion, restriction, and review can be scoped to a user-governed subspace;  
+- disclosure can be computed as a projection over already separated memory;  
 - commons-level aggregation must occur as a governed operation over sovereign subspaces rather than over a raw merged pool.
 
 The direct-sum model therefore clarifies both memory organization and the ethics of its use.
