@@ -1,7 +1,7 @@
 # 44. Phi Probe — Semantic Coherence Measurement in H_App
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 13, 2026*
 
 ---
 
@@ -10,6 +10,8 @@
 The Phi probe measures semantic coherence within **H_App**, the application-facing Hilbert domain of Ms. Allis. Its purpose is not to declare whether a claim is true, but to determine whether an active semantic state, candidate conclusion, or cross-domain configuration is internally well-formed, structurally aligned, and sufficiently coherent to support further reasoning, validation, or governed promotion.
 
 This chapter places Phi inside the live architecture rather than outside it. Semantic coherence is tied to hilbert-state service coherence keys, can influence sandbox validation and promotion decisions, and functions as one component of the broader gate structure that governs whether provisional reasoning may cross into higher-authority system state.
+
+As with Chapters 42 and 43, this revision separates design from audit. Sections 44.1 through 44.9 state what the probe is and how it participates in governance. Sections 44.10 through 44.12 record what is verified as built as of this writing: which parts of the measurement substrate are live, which parts of the probe exist as code but have not been exercised, and one production incident that demonstrates why the quality of the measured state matters as much as the measurement itself.
 
 ---
 
@@ -121,8 +123,45 @@ The result is a governance-relevant coherence instrument embedded in the live ar
 
 ---
 
-## 44.10 Closing Statement
+## 44.10 Implementation Status (July 2026)
+
+In the demonstrated/not-yet-demonstrated discipline of Chapter 52:
+
+**Demonstrated — the measurement substrate:**
+
+- The hilbert-state service is live. State writeback POSTs to the hilbert-state embed endpoint on every chat job, producing a 384-dimensional vector stored in Redis under per-job coherence keys of the form `hilbert:state:chat:<jobid>`. Cold-start embedding runs near 37 seconds; warm embedding completes in under 100 milliseconds. This is the keyed structure Section 44.2 describes, and it exists in production.
+- The embedding-space discipline the probe depends on is enforced by hard experience: all coherence-bearing collections use the all-minilm 384-dimensional model, and the incompatible 768-dimensional alternative was ruled out after a live dimension-mismatch incident earlier in the build. Coherence comparison is only meaningful inside a single embedding space, so this constraint is a precondition of every claim in this chapter — the same embedder-consistency requirement Chapter 46 imposes on the tensor bridge, applied here to measurement.
+- The probe itself exists as code. Its domain map routes coherence queries to named collection sets — the self-identity domain, for instance, reads the system memory and identity collections together with conversational history. Following the per-user memory decomposition of Chapter 50, that conversational component now resolves through the per-user manifest (`conversation_history_user_<slug>`) at request time rather than reading a shared conversation collection. The probe therefore measures coherence against the requesting user's own memory partition, which is both a privacy property and a correctness property: cross-user echoes are structurally excluded from the self-identity reading.
+
+**Not yet demonstrated:**
+
+- The probe has not been exercised in the current diagnostic cycle. No Phi reading appears in the July 2026 verification logs, and no coherence score has been produced against the governed collections built out in Chapters 45–52.
+- \(G_{\mathrm{coherence}}\) is not wired as an enforced gate. No sandbox validation or manifest promotion currently blocks, narrows, or escalates on a Phi finding. Promotion in the publication manifest today is gated by acceptance tests and human judgment; the coherence gate exists in the algebra, not in the promotion path.
+- No coherence thresholds are calibrated. The probe can produce a reading, but the system has no validated mapping from score ranges to the reject / revise / review / approve outcomes Section 44.6 describes. Calibration requires a labeled history of candidates and outcomes that does not yet exist.
+- Multidomain coherence measurement across the governed geographic collections (counties, tracts, block groups) has not been attempted. The vertical slice of Chapter 52 proves retrieval and reverse-traceability; it does not yet prove that Phi can meaningfully score cross-domain fit between, say, a geographic belief and an identity-linked context.
+
+---
+
+## 44.11 Worked Lesson: When the Measured State Degenerates
+
+One production incident belongs in this chapter because it demonstrates the failure mode this probe is most vulnerable to — not a wrong measurement, but a faithful measurement of a degenerate state.
+
+During the June 2026 autonomous-learner audit, the Hilbert state in Redis was found to be roughly 98 percent conversation echoes: near-duplicate restatements of recent exchanges, written back cycle after cycle, crowding out genuinely new semantic material. A coherence probe reading that state would have reported high coherence — and the reading would have been technically correct, because a state composed of echoes of itself is maximally self-consistent. It would also have been governance-useless, because the coherence was an artifact of redundancy, not of integration.
+
+The remediation was structural rather than interpretive: near-duplicate detection at a 0.92 cosine-similarity threshold was added to the write path, collapsing the echo fan-out and restoring genuine diversity to the measured state. The lesson generalizes and belongs in the chapter's permanent record:
+
+1. **A coherence instrument inherits the quality of its substrate.** Phi measures fit within the represented state; if the representation process is degenerate, high coherence is a symptom, not a virtue.
+2. **Write-path hygiene is part of the measurement architecture.** Deduplication, provenance discipline, and the governed intake of Chapter 52 are not adjacent concerns — they are what make a Phi reading interpretable.
+3. **Suspiciously stable coherence is itself a diagnostic signal.** A state whose coherence never moves should prompt inspection of the write path before celebration of the score. The 26-hour topic pin that accompanied the echo saturation was exactly such a signal, visible in retrospect.
+
+This incident is the coherence-domain instance of the pattern Chapters 42 and 45 record in their own domains: discovering that an instrument was reading a silently corrupted substrate is an epistemic event, and recording it is part of the instrument's provenance.
+
+---
+
+## 44.12 Closing Statement
 
 The Phi probe measures semantic coherence in H_App by reading and evaluating the live coherence conditions exposed through hilbert-state service coherence keys. Its findings may be used during sandbox validation and may also contribute to promotion decisions as the coherence component of the broader gate structure.
 
 Multidomain coherence is treated in this chapter as a measured property of internal semantic fit across coupled domains. It is not automatic truth. Phi therefore serves as a live architectural instrument for evaluating whether a candidate state is sufficiently coherent to continue through governed reasoning and authority-preserving promotion.
+
+As of this writing, the substrate is live and disciplined — keyed state, single embedding space, per-user memory partitions — while the probe itself remains code-present but unexercised, its gate unwired and its thresholds uncalibrated. Stating that plainly is the chapter's own coherence condition: the claim that Ms. Allis measures her semantic integrity must itself remain integrated with what the system demonstrably does.
