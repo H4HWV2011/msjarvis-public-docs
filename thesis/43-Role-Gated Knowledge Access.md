@@ -1,7 +1,7 @@
 # 43. Role-Gated Knowledge Access
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 13, 2026*
 
 ---
 
@@ -12,6 +12,8 @@ Role-gated knowledge access determines who may see what, under which conditions,
 In Ms. Allis, this applies not only to durable memory stores and established records, but also to sandbox-derived knowledge, reasoning traces, staged outputs, and promotion-adjacent logs. The chapter therefore governs disclosure across both persistent and provisional knowledge domains. What matters is not merely where a piece of information is stored, but whether the requester has the right combination of role, consent, context, purpose, timing, and legal authority to receive it.
 
 This makes access control part of the authority architecture. Knowledge that remains inside the system is not thereby ungoverned.
+
+As with Chapter 42, this revision separates design from audit. Sections 43.2 through 43.10 state what the architecture requires. Sections 43.11 through 43.14 record what is verified as built as of this writing: which gating mechanisms are live in code and schema, which disclosure conditions of the projection operator are actually computed, and which remain design intent. Access control is the one domain where an undocumented gap is itself a disclosure risk, so the gaps are named.
 
 ---
 
@@ -29,6 +31,8 @@ That includes:
 - per-user memory views and related personalized history.
 
 This scope matters because a modern governed system can leak more through traces and logs than through its final answer channel. A chapter on knowledge access is incomplete if it protects only persistent databases while leaving sandbox artifacts comparatively exposed.
+
+The governed-belief infrastructure of Chapters 45–52 adds two further artifact classes to this scope: governed collections published to the vector store, whose documents carry their own authority and access classifications as metadata, and the publication manifest itself, whose rows record what has been promoted, when, and under what permitted use. Both are knowledge-bearing artifacts in the full sense, and both now fall under this chapter's gating framework.
 
 ---
 
@@ -112,6 +116,8 @@ The system does not simply “release” knowledge as a single object. Instead, 
 
 Projection also helps maintain coherence between privacy and governance. A role that permits access to a conclusion does not automatically imply access to the underlying trace, and access to a user-specific memory view does not imply access to unrelated system reasoning artifacts.
 
+The commons pipeline of Chapter 51 is the strongest built instance of this principle: individual opt-in civic records are never released, and what becomes visible is a computed view — anonymized cluster centroids that exist only when at least k contributing records stand behind them. Disclosure there is literally a projection followed by a suppression rule, and an empty commons is a valid projection result, not a failure.
+
 ---
 
 ## 43.9 Authority and Knowledge Boundaries
@@ -137,8 +143,68 @@ These distinctions help the system avoid both under-sharing and over-sharing. Th
 
 ---
 
-## 43.11 Closing Statement
+## 43.11 Read-Side and Write-Side Gating
+
+The built system has clarified something the earlier draft left implicit: role gating operates on two distinct sides of the knowledge boundary, and both now exist in code.
+
+**Read-side gating** governs what a requester may retrieve. Its live mechanisms are the per-document metadata carried into the vector store (every governed document is published with its `authority_class` and `access_class` attached, so the projection conditions travel with the knowledge itself), the constrained-retrieval discipline of Chapter 52 (authority, access, time, and geography restrict the retrieval domain before semantic ranking, so ineligible documents are never candidates rather than being filtered after the fact), and the per-user partitioning of conversational memory (Chapter 50's `conversation_history_user_<slug>` collections make identity-scoping structural — a memory view is a separate collection resolved from the requesting identity at request time, not a filter applied to a shared pool).
+
+**Write-side gating** governs what may enter the knowledge state and at what standing. Its live mechanisms are the registration-layer discipline (every H_p ingest carries a `registration_layer` of 1, 2, or 3, validated at write time and rejected otherwise, together with an explicit `public_opt_in` boolean — consent is a stored field, not an assumption), and the five-stage write pipeline for appearance records, which returns an explicit `DisclosureVerdict` of permitted, suppressed, or escalated. A suppressed write is refused with a recorded reason and a provenance hash: the refusal itself is logged as an epistemic event, in exactly the sense Chapter 52 treats refusal as a first-class output.
+
+The two sides are not symmetric, and conflating them is a classic access-control failure. Authority to write a record at layer 1 with opt-in consent is not authority to read the commons projection built from it, and vice versa.
+
+---
+
+## 43.12 The Publication Manifest as an Access-Control Surface
+
+The publication manifest introduced in Chapter 52 turns out to be this chapter's most concrete instrument, and deserves explicit standing here.
+
+Every published collection is registered with `authority_class`, `access_class`, and `permitted_use` — a declared purpose, which is the first appearance of the purpose variable \(p\) from Section 43.6 as a stored, queryable field rather than an aspiration. Each row also carries a `build_status` constrained by schema to a fixed lifecycle (planned, building, built, validated, active, failed, superseded), with separate timestamps for building, validation, promotion, and supersession.
+
+Two properties make this an access-control surface and not merely a catalog:
+
+1. **Promotion is a distinct, human-gated act.** A collection can be built, registered, and validated and still not be active; only promotion changes what retrieval serves. Disclosure status and existence status are therefore separated in schema, which is Section 43.4's distinction between promotion and disclosure made mechanical.
+2. **The lifecycle is enforced, not conventional.** The status vocabulary is a database constraint. Chapter 45's coverage-vocabulary lesson applies directly: a governance vocabulary that is merely a convention drifts on the first unsupervised write, so the gate must live in the schema.
+
+---
+
+## 43.13 Implementation Status (July 2026)
+
+In the demonstrated/not-yet-demonstrated discipline of Chapter 52:
+
+**Demonstrated:**
+
+- Registration-layer validation (1–3) and stored opt-in consent on all H_p writes, with a Layer-3 opt-in grant path administered as an explicit, auditable operation across the H_p and temporal collections.
+- Disclosure verdicts (permit, suppress, escalate) on the appearance write path, with provenance hashes recorded on refusals.
+- Per-collection `authority_class`, `access_class`, `permitted_use`, and enforced `build_status` lifecycle in the publication manifest; promotion human-gated and timestamped.
+- Per-document authority and access metadata in every published governed collection.
+- Structural identity-scoping of conversational memory via per-user collections.
+- Record-level consent and projection flags honored end to end for a sovereign subspace: the Ms. Allis subspace carries `public_opt_in` false and commons-projection disabled on every record, and repeated aggregator runs confirm nothing from that subspace reaches any shared or public collection.
+- Database-layer role scoping in H_people: the application role is granted only on the hp schema, with no connect rights to the KYC vault, so the least-knowledge rule is enforced below the application layer.
+- A completed remediation cycle on a discovered gap (Section 43.14).
+
+**Not yet demonstrated:**
+
+- Full computation of the projection operator. Of the six conditions in \(\Pi_{c,r,x,t,p,\ell}\), consent, role, and context are enforced per-record and per-collection today; purpose exists as a declared collection property but is not yet checked against the requester's purpose at query time; time-conditioned disclosure and legal-authority verification are design intent only.
+- Role-gating of reasoning traces and operational logs. Section 43.3 states the requirement, but pipeline logs and diagnostic transcripts currently rest on host-level file permissions rather than the projection framework. This is the largest gap between this chapter's scope and its implementation, and it is recorded rather than elided.
+- A consent registry richer than the boolean opt-in flag — revocation, scope-limited consent, and consent expiry are not yet modeled.
+
+---
+
+## 43.14 Worked Example: The wv_parcels Remediation
+
+One production incident belongs in this chapter as precedent, because it exercised the full pattern the chapter prescribes: discovery, classification, and structural remediation.
+
+The July 2026 production audit found that a parcels table containing personally identifying columns had been imported with no role-based access control of any kind — every database role that could connect could read every column. The remediation was not an application-layer filter but a database-layer projection: a dedicated application role was created and granted column-level access only, so that the PII columns are structurally invisible to the service path rather than conditionally hidden by query logic.
+
+The incident is instructive on three points. First, ingestion is an access-control event: data acquires an audience the moment it lands, whether or not anyone decided one. Second, the least-knowledge rule is cheapest to enforce at the lowest layer that can express it — a column grant cannot be forgotten by a future query the way a WHERE clause can. Third, the discovery of an ungated table is, like Chapter 42's verifier defect, an epistemic event worth recording: the audit trail of what was exposed, for how long, and to which roles is itself governance-relevant knowledge, and is subject to this chapter's gating in turn.
+
+---
+
+## 43.15 Closing Statement
 
 Role-gated knowledge access in Ms. Allis covers both persistent knowledge and sandbox-derived knowledge.
 
 Reasoning traces, sandbox logs, approved conclusions, and per-user memory views all belong inside the role-gating framework, and the least-knowledge rule applies across the full lifecycle of knowledge rather than only to durable stores. By expressing disclosure as the projection operator \(\Pi_{c,r,x,t,p,\ell}(K)\), this chapter makes clear that access depends jointly on consent, role, context, time, purpose, and legal authority, so that disclosure remains governed even when the system has already formed or approved the underlying knowledge.
+
+The built system now enforces that principle at four distinct layers — record flags, collection manifest, per-user collection structure, and database role grants — while the projection over time, purpose, and legal authority, and the gating of traces and logs, remain open work. Stating which layers are load-bearing and which are still scaffolding is itself an act of least-knowledge honesty: the chapter discloses exactly what the access-control system can currently be trusted to do, and no more.
