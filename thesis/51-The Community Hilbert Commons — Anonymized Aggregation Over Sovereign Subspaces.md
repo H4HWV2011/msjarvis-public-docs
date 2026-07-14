@@ -1,7 +1,7 @@
 # 51. The Community Hilbert Commons — Anonymized Aggregation Over Sovereign Subspaces
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 13, 2026*
 
 ---
 
@@ -45,9 +45,9 @@ Sandbox boundaries ensure that provisional reasoning remains internal until it h
 
 Because of these gates, commons-level intelligence is never the immediate byproduct of raw system activity. It is formed only after internal reasoning has been bounded, reviewed, and approved for further use. This creates a layered architecture:
 
-- raw interaction and sandbox reasoning;
-- gated approval and retention;
-- anonymized or aggregated contribution;
+- raw interaction and sandbox reasoning;  
+- gated approval and retention;  
+- anonymized or aggregated contribution;  
 - commons-level intelligence.
 
 The commons is therefore a downstream public layer built from filtered and governed inputs.
