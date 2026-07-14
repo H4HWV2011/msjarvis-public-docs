@@ -37,16 +37,19 @@ The chapter is therefore not limited to identity in the abstract. It covers the 
 The sandbox and guardian links deserve special emphasis.
 A sandbox result is still provisional, but the communication carrying that result toward validation can become authority-relevant the moment it enters review. For that reason, the channel from sandbox service to validator or guardian service should be secured with the same seriousness applied to more visibly external security boundaries. If this channel is compromised, an adversary could alter candidate content, inject misleading metadata, tamper with provenance, or forge review context before gate evaluation.
 Guardian channels are especially sensitive because they carry payloads that determine whether a candidate is constitutionally or procedurally admissible. PQ-secure transport at this stage helps ensure that review decisions are being made over the intended payload rather than over manipulated substitutes.
+
 ---
 ## 42.5 Bridge, Identity, and Authority Channels
 Bridge, identity, and authority services also require PQ-secure communication.
 The bridge is the point at which approved or limited-approved candidates are handed toward higher-authority system state. Identity and authority services establish who is permitted to assert, review, approve, or receive the resulting transition. If those channels are weak, the system may preserve logical gate structure on paper while losing practical control over who can trigger or impersonate an authority-bearing event.
 This is why secured promotion channels are part of sovereignty-preserving reasoning. The system preserves sovereignty not only by thinking safely, but by ensuring that the path from thought to promoted action cannot be intercepted, forged, downgraded, replayed, or silently redirected.
+
 ---
 ## 42.6 Sovereignty-Preserving Reasoning
 Sovereignty-preserving reasoning includes secured internal promotion, not only secured external communication.
 In this thesis, sovereignty means that Ms. Allis retains governed control over how internal candidates become accepted, durable, or consequential system state. That control depends not only on formal review logic but also on the integrity of the channels connecting sandbox, guardian, bridge, identity, and authority services. If those channels can be manipulated, sovereignty is weakened from within even when perimeter protections appear strong.
 For that reason, post-quantum security belongs inside the reasoning pipeline itself. A reasoning system is not fully sovereign if the communications that determine promotion can be forged by a more capable adversary.
+
 ---
 ## 42.7 Security in the Promotion Algebra
 The broader promotion algebra should include an explicit security-gate component.
@@ -56,21 +59,25 @@ G(x) = G_{\mathrm{truth}}(x)\, G_{\mathrm{guardian}}(x)\, G_{\mathrm{constitutio
 \]
 Here \(G_{\mathrm{security}}(x)\) represents the security-gate component. It covers the security conditions necessary for the candidate to move across the authority boundary without channel compromise, cryptographic impersonation, or integrity loss. In a post-quantum framing, this includes whether the relevant service path satisfies the cryptographic and transport requirements needed for sovereignty-preserving promotion.
 This expression is useful because it makes clear that secure communication is not external ornamentation. It is one of the constitutive conditions of valid promotion.
+
 ---
 ## 42.8 Security-Gate Meaning
 The security gate should be interpreted broadly enough to cover the operational authority path.
 \(G_{\mathrm{security}}(x)\) is not only a check for whether a message was encrypted somewhere in transit. It concerns whether the candidate’s full path across sandbox, validator, guardian, bridge, identity, and authority services remained protected against substitution, replay, unauthorized disclosure, forged approval, or cryptographic downgrade. A candidate should not be promotion-eligible if its transit path fails the security conditions required for trust in the resulting authority change.
 This means the security gate can block promotion even when truth and policy checks are otherwise favorable. Safe content transmitted over an untrustworthy authority channel is still not safe to promote.
+
 ---
 ## 42.9 Internal and External Communications
 The chapter should distinguish between two truths without separating them.
 First, post-quantum security is still relevant to external communication, public interaction, and cross-boundary transport. Second, and equally important here, internal service-to-service communications involved in sandbox reasoning and promotion review also require protection when they carry authority-bearing consequences. The second point is what anchors this chapter to the internal path rather than to identity alone.
 This architecture therefore treats internal security and external security as parts of one sovereignty problem. A system that secures its outer edge but leaves its internal promotion chain cryptographically weak has not preserved control over its own reasoning-to-authority transition.
+
 ---
 ## 42.10 Operational Consequences
 Operationally, this chapter changes how the security layer should be discussed and evaluated.
 Security review should ask whether sandbox-to-guardian communication is protected, whether guardian-to-bridge handoff is protected, whether identity assertions are cryptographically trustworthy, whether authority services can detect downgrade or replay conditions, and whether compromised or non-compliant channels prevent promotion. These are not optional hardening extras. They are requirements for the authority path itself.
 This also means that fail-closed behavior should apply when required secured channels are unavailable or invalid. If the path cannot satisfy the security-gate conditions, promotion should not proceed.
+
 ---
 ## 42.11 Implementation Status (July 2026)
 This section records what is verified as built, in the same demonstrated/not-yet-demonstrated discipline Chapter 52 applies to the epistemic loop.
@@ -83,6 +90,7 @@ This section records what is verified as built, in the same demonstrated/not-yet
 - PQ-secured transport across the governed-belief promotion path (Section 42.13).
 - Replay resistance and cryptographic binding of authority claims on promotion-bearing messages outside the judge pipeline.
 - Fail-closed enforcement of the security gate: no service currently refuses a promotion because a channel failed a security condition.
+
 ---
 ## 42.12 Known Defect: Verification Failure at the BBB
 The most consequential open defect in this layer is on the verification side, and it is recorded here rather than hidden, because a signature scheme whose verifier is broken provides authenticity in name only.
@@ -91,6 +99,7 @@ Two things should be said plainly about this state:
 1. The failure mode is fail-closed in form — nothing verifies, so nothing is trusted on the basis of a forged-but-accepted signature. But a verifier that rejects everything provides no discrimination between authentic and forged verdicts, which means the BBB is currently operating without the authenticity guarantee this chapter assigns to it. Combined with the BBB's log-and-passthrough calibration, verdict authenticity is effectively unenforced at this boundary.
 2. The remediation path is already identified and does not require new cryptography: route verification through the existing, working `verify_verdict` function in `judgesigner.py` rather than reconstructing key objects through the broken import. Until that routing is applied and a signed-verdict round trip is demonstrated, this chapter's claims about judge-to-BBB channel integrity must be read as design intent, not operational fact.
 This defect is itself an instance of the pattern Chapter 52 names: discovering that a governance mechanism was silently non-functional is an epistemic event, and recording it is part of the layer's provenance.
+
 ---
 ## 42.13 Unprotected Surfaces in the Governed-Belief Path
 The governed-belief infrastructure built out in Chapters 45–52 created authority-bearing channels that predate any PQ protection. As of this writing, the following operate over plain HTTP or unauthenticated local transport:
@@ -102,6 +111,7 @@ The governed-belief infrastructure built out in Chapters 45–52 created authori
 - GIS-RAG retrieval (port 8004) and the assertion gateway (port 8009).
 The loopback-only binding discipline is the current compensating control for all of these. It is honest to state the consequence: against a local adversary or a compromised container on the shared Docker networks, the governed-belief promotion path currently fails \(G_{\mathrm{security}}\) across the board. The gate exists in the algebra; it is not yet wired into these services. Promotion in the publication manifest today is gated by human judgment and acceptance tests (Chapter 52's battery), not by any cryptographic condition.
 Bringing these surfaces under the security gate — authenticated service identity, integrity protection on manifest writes, and signed promotion events at minimum — is the layer's next phase of work, and should be sequenced ahead of any expansion of autonomous action, since Chapter 52 conditions real-world action on exactly this kind of channel trust.
+
 ---
 ## 42.14 Closing Statement
 The Post-Quantum Security Layer protects the integrity of the full promotion pathway in Ms. Allis.
