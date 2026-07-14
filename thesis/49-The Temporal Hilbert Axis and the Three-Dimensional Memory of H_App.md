@@ -1,7 +1,7 @@
 # 49. The Temporal Hilbert Axis and the Three-Dimensional Memory of \(H_{\mathrm{App}}\)
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 13, 2026*
 
 ---
 
@@ -17,8 +17,8 @@ H_{\mathrm{App}} \otimes H_{\mathrm{geo}} \otimes H_{t}
 
 which may be read as:
 
-- \(H_{\mathrm{App}}\): what
-- \(H_{\mathrm{geo}}\): where
+- \(H_{\mathrm{App}}\): what  
+- \(H_{\mathrm{geo}}\): where  
 - \(H_{t}\): when
 
 This chapter treats the temporal axis as both a formal dimension of state and an operational mechanism tied to real session and promotion mechanics. Sandbox sessions are temporal reasoning events. They may produce provisional, time-indexed candidate states, and those candidates may later become durable historical memory only if the governing promotion path approves them. The chapter therefore distinguishes carefully between ephemeral reasoning time and consolidated historical memory, while also introducing hysteresis, temporal continuity, and revision without instability as core temporal properties of the architecture.
@@ -34,7 +34,7 @@ This axis is not an isolated clock variable. It is the temporal component of a j
 That is why the joint tensor structure
 
 \[
-H_{\mathrm{App}} \otimes H_{\mathrm{geo}} \otimes H_{t}
+H_{\mathrm{App}} \otimes H_{\mathrm{geo}}} \otimes H_{t}
 \]
 
 is essential. Application-facing state is interpreted through temporal placement as well as semantic and spatial relation. The system does not only ask what is happening and where; it also asks when this state exists, how long it persists, and whether it belongs to immediate reasoning or durable history.
@@ -85,8 +85,8 @@ A state becomes historical memory only after the relevant promotion path has app
 
 This means the architecture separates:
 
-- session-bounded temporal reasoning;
-- staged but non-promoted time-indexed candidate memory;
+- session-bounded temporal reasoning;  
+- staged but non-promoted time-indexed candidate memory;  
 - consolidated historical memory admitted under governance.
 
 Only the third category belongs fully to durable memory. This preserves the difference between temporal interpretation and temporal record.
@@ -145,9 +145,9 @@ Revision is necessary because some admitted historical states may later need cor
 
 This means the temporal axis should support:
 
-- correction of admitted historical records where governance permits;
-- supersession of outdated temporal conclusions by newer admitted ones;
-- preservation of temporal lineage so the system knows what changed and why;
+- correction of admitted historical records where governance permits;  
+- supersession of outdated temporal conclusions by newer admitted ones;  
+- preservation of temporal lineage so the system knows what changed and why;  
 - bounded revision practices that avoid erasing continuity unnecessarily.
 
 Revision without instability therefore combines honesty and steadiness. The architecture is able to change its mind across time without becoming temporally incoherent.
@@ -158,8 +158,8 @@ Revision without instability therefore combines honesty and steadiness. The arch
 
 The practical temporal architecture of \(H_{\mathrm{App}} \otimes H_{\mathrm{geo}} \otimes H_{t}\) contains at least three layers.
 
-- **Ephemeral temporal reasoning**: the sandbox domain of present-session interpretation, candidate sequencing, and provisional time relations.
-- **Staged temporal candidates**: time-indexed states under review that have not yet become durable memory.
+- **Ephemeral temporal reasoning**: the sandbox domain of present-session interpretation, candidate sequencing, and provisional time relations.  
+- **Staged temporal candidates**: time-indexed states under review that have not yet become durable memory.  
 - **Consolidated historical memory**: admitted time-indexed states that belong to durable application history.
 
 This layering is what makes the temporal Hilbert axis operational. It prevents confusion between being temporally aware and being historically committed. A system can think in time during a session without automatically writing every temporal judgment into durable memory.
