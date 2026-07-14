@@ -4,8 +4,10 @@
 ---
 ## 42.1 Purpose
 The Post-Quantum Security Layer protects Ms. Allis against adversaries who can exploit present or future cryptanalytic capabilities to observe, alter, replay, or counterfeit authority-bearing communication.
+
 In this architecture, post-quantum security is not only a matter of external identity or public-facing transport. It applies directly to the governed path by which sandbox reasoning, guardian review, bridge transition, identity assertions, and promotion authority interact. The chapter therefore treats post-quantum security as part of the internal sovereignty of the system, not merely as a boundary defense at the edge of the network.
 This matters because reasoning can remain formally sandboxed while still becoming unsafe if the channels governing promotion and review are weak. Secure channels are part of the reasoning architecture whenever those channels carry authority.
+
 Unlike earlier drafts of this chapter, this revision separates the design requirements from the implementation record. Sections 42.2 through 42.10 state what the architecture requires. Sections 42.11 through 42.13 state what is verified as built, what is known to be broken, and what remains unprotected as of this writing. That separation is itself a governance decision: a security chapter that cannot distinguish its aspirations from its audit results is not a security chapter.
 
 ---
