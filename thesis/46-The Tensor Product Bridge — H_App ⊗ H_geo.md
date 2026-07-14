@@ -1,7 +1,7 @@
 # 46. The Tensor Product Bridge — H_App \(\otimes\) H_geo
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 13, 2026*
 
 ---
 
@@ -10,6 +10,8 @@
 The tensor product bridge expresses how application-facing semantic state and spatial state are brought into structured relation within Ms. Allis. In formal terms, the bridge is written as \(H_{\mathrm{App}} \otimes H_{\mathrm{geo}}\). In operational terms, it is the bounded internal-state process by which application-linked meaning and place-linked meaning are jointly reasoned over without immediately becoming broader system authority.
 
 This chapter therefore treats the tensor bridge in two registers at once. It is a formal representation of coupled state across the application and spatial Hilbert bodies, and it is also an architectural description of how those coupled states are handled inside gated internal-state operations. The key principle is that tensor-derived reasoning may occur internally, but broader system state changes require governed promotion.
+
+As with Chapters 42 through 45, this revision separates design from audit. Sections 46.1 through 46.9 state what the bridge is and how coupled state is governed. Sections 46.10 through 46.13 record what is verified as built as of this writing: the concrete form the coupling takes in every published governed document, a publication defect that quietly severed the bridge for one grain, and the consistency condition without which the two sides of the bridge stop speaking the same geometry.
 
 ---
 
@@ -91,7 +93,7 @@ That means the notation \(H_{\mathrm{App}} \otimes H_{\mathrm{geo}}\) expresses 
 
 This note is necessary for rigor. The thesis uses mathematical language to describe structure, but the reader should not assume that every formal expression automatically corresponds to a complete low-level implementation unless that guarantee is specifically stated. The tensor bridge is therefore both a real design principle and, in some parts of the stack, an interpretive architectural lens.
 
-This does not weaken the chapter. It strengthens it by distinguishing formal description from explicit operational guarantee.
+This does not weaken the chapter. It strengthens it by distinguishing formal description from explicit operational guarantee. Sections 46.10 through 46.13 now state exactly where each guarantee stands, so the reader is never left to guess which register a given claim occupies.
 
 ---
 
@@ -117,8 +119,72 @@ This is why the bridge is both formally elegant and operationally practical. It 
 
 ---
 
-## 46.10 Closing Statement
+## 46.10 The Built Bridge: Spatial Projection in Every Published Document
+
+The most concrete realization of the tensor coupling now ships inside every governed geographic document, and it is worth stating plainly what form the coupling takes.
+
+Each document published to the vector store from the West Virginia corpus — 55 counties, 546 tracts, 1,639 block groups — carries its spatial state as structured metadata traveling with its semantic content. The metadata includes the centroid in retrieval-facing geographic coordinates, the bounding box, the declared source spatial reference system, and the provenance triple that anchors the document to its grounded origin: source table, source feature identifier, and source feature hash. The semantic side of the document is the governed belief prose; the spatial side is this scalar projection of the geometry; and the two are inseparable in the published artifact.
+
+This is the tensor bridge in its shipped form: not a runtime join between two stores, but a coupling baked into the published state itself, so that semantic retrieval returns place-qualified results without a second query. A retrieval hit is simultaneously a semantic match and a located object, and the location is not an annotation added afterward — it was computed from the authoritative geometry at publication time and carried across the bridge with the meaning.
+
+Two consequences follow. First, the reverse trace demonstrated at the tract grain — from a vector document identifier back through the belief snapshot to the source feature in the relational store — is a traversal of the bridge in the opposite direction, proving the coupling is bidirectional rather than a one-way export. Second, because the spatial scalars are ordinary metadata fields, the retrieval domain can in principle be restricted geographically before semantic ranking, which is the operational meaning of projecting the joint space down to a jurisdiction or locality. The metadata support for that projection is demonstrated; its enforcement as a query-time condition is not yet, and Section 46.13 records the distinction.
+
+---
+
+## 46.11 Worked Lesson: The Split-Brain Publication
+
+One defect discovered during the block-group work belongs permanently in this chapter, because it is the precise failure mode of a bridge that exists in code but not in fact.
+
+The block-group refresh path was found to be writing its published collection to a local embedded vector store at a filesystem path — while the retrieval service read a networked vector store in a container, under a different collection name. The publication ran on schedule. The counts came back correct. The embeddings were valid. And every refresh updated a store that nothing queries. The semantic side of the bridge was being rebuilt nightly into a dead end, while the retrieval side served whatever the live store last held.
+
+The defect is instructive because nothing in it was individually wrong. The publisher wrote correctly to the store it was pointed at; the retrieval service read correctly from the store it was pointed at; the two were simply not the same store, and no check existed that would have noticed. A tensor bridge severed in this way fails silently in the worst direction: the system continues to answer spatial-semantic queries, confidently, from stale joint state.
+
+The remediation established two invariants that now govern all publication across the bridge:
+
+1. **Publish only to the store the consuming service reads.** The publication target is not a deployment detail; it is part of the bridge's definition. A collection that is not reachable by the retrieval path is not published in any governance-relevant sense, whatever the publisher's logs say.
+2. **Verify through the consumer, not the producer.** The acceptance check for a published collection is a live query through the retrieval service, returning sensible hits from the newly published documents. Publisher-side counts are necessary but structurally incapable of detecting a severed bridge, because the publisher cannot see which store the consumer reads.
+
+The episode is this chapter's instance of the pattern Chapters 42 and 45 record in their own domains: an authority-bearing mechanism that had silently stopped connecting to what it claimed to connect to, discovered by audit, and repaired with the discovery itself preserved in the record.
+
+---
+
+## 46.12 Embedder Consistency: The Bridge's Shared Geometry
+
+The two sides of the bridge meet in one vector space, and that meeting imposes a consistency condition the formalism takes for granted but the implementation must actively enforce.
+
+A semantic query is answered by embedding the query text and ranking published document embeddings against it. That comparison is meaningful only if the query-side and publish-side embeddings were produced in the same space — same model, same dimensionality, and in practice the same runtime, since nominally identical model families served by different runtimes can produce vectors that are mutually incoherent. The corpus standard is the 384-dimensional all-minilm space, locked in after a live dimension-mismatch incident ruled out the 768-dimensional alternative; the county and tract collections were embedded through the shared inference service in that space, and the block-group publication was brought through the same embedder with counts verified end to end.
+
+The residual risk is not dimensional but distributional: a collection embedded through one runtime and queried through another can pass every count check and still rank garbage, because the geometry of the two spaces disagrees in ways no cardinality test can see. For that reason, the embedder-consistency check is folded into the acceptance battery of Section 46.11: the live retrieval query through the consuming service is simultaneously the severed-bridge test and the shared-geometry test, and a collection advances to active status in the publication manifest only after it passes.
+
+One further housekeeping condition belongs here because it is a bridge-integrity matter rather than a naming preference. The publication manifest currently carries the governed collections under their new physical names alongside legacy rows under older names, and the retrieval service's collection list still references the legacy names for two grains. Until the retrieval configuration is repointed and the legacy rows superseded, the system holds two descriptions of which collections constitute the live spatial-semantic state — a duality that is documented, bounded, and scheduled for resolution, but that must be closed before the naming question can be called governed rather than merely tracked.
+
+---
+
+## 46.13 Implementation Status (July 2026)
+
+In the demonstrated/not-yet-demonstrated discipline of Chapter 52:
+
+**Demonstrated:**
+
+- Spatial-semantic coupling in every published governed document across all three grains: centroid, bounding box, declared source reference system, and full provenance triple carried as metadata with the governed prose.
+- Bidirectional bridge traversal at the tract grain: semantic retrieval through the GIS retrieval service resolving to the correct governed document, and reverse trace from vector document identifier back to the source feature in the relational store.
+- Publication-count verification at the block-group grain: 1,639 relational rows to 1,639 vector documents, zero missing, zero unexpected, embedded in the corpus-standard 384-dimensional space.
+- Split-brain remediation: block-group publication repointed to the live store the retrieval service reads, with the dead local store identified and retired from the refresh path.
+- Coordinate discipline across the bridge: authoritative geometry in the declared projected system, retrieval-facing coordinates in the geographic system, both stated per document, with a sanity gate confirming published coordinates land inside West Virginia.
+
+**Not yet demonstrated:**
+
+- The block-group retrieval battery through the consuming service — the count verification passed, but the live-query acceptance test that jointly proves bridge connectivity and shared embedding geometry had not been run against the block-group collection as of this writing, and its manifest row should not advance to active until it passes.
+- Retrieval-configuration repoint: the retrieval service's collection list still names the legacy county and tract collections; the repoint to the governed physical names, and supersession of the legacy manifest rows, are prescribed but not executed.
+- Geographic restriction of the retrieval domain as an enforced query-time condition — the metadata scalars support it, but no live query path yet projects the joint space down to a jurisdiction before ranking.
+- Tensor-derived inference in the full sense of Sections 46.3 through 46.5: the built bridge governs the publication and retrieval of coupled state, but no reasoning cycle yet produces joint application-spatial candidate conclusions that flow through a staged-then-promoted path.
+
+---
+
+## 46.14 Closing Statement
 
 The tensor product bridge \(H_{\mathrm{App}} \otimes H_{\mathrm{geo}}\) is the formal and operational structure through which Ms. Allis reasons across application-facing and spatial state together.
 
 Tensor-product reasoning occurs within gated internal-state operations, and any approved tensor-derived conclusion enters broader system state only through the relevant promotion path. The mathematical form of the bridge expresses the intended architecture of coupled state, while its strongest operational meaning depends on where explicit implementation guarantees are present. In this way, the chapter preserves both rigor and restraint: the bridge is real as an architectural mechanism of joint reasoning, but authority still belongs to governed promotion rather than to tensor formation alone.
+
+As of this writing, the coupling is load-bearing in one direction — every published geographic belief carries its spatial state across the bridge, retrievably and reverse-traceably — while the inferential direction remains design intent. The chapter also records that the bridge was once severed in production without a single error being raised, and that the repair produced the two invariants now guarding it: publish only where the consumer reads, and verify only through the consumer's own eyes. A bridge that has learned how it fails silently is stronger than one that has never been tested at all.
