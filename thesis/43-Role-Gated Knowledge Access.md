@@ -1,7 +1,6 @@
 # 43. Role-Gated Knowledge Access
-
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 13, 2026*
+*Last updated: July 15, 2026*
 
 ---
 
@@ -112,7 +111,7 @@ This is important because it shows that disclosure is not a binary property of t
 
 The projection framing clarifies how the chapter should think about access.
 
-The system does not simply “release” knowledge as a single object. Instead, it computes a permitted view. One requester may receive a narrow summary, another may receive a record-level view, and a third may receive nothing at all. This is especially important for sandbox outputs and traces, where the difference between operational necessity and over-disclosure can be large.
+The system does not simply "release" knowledge as a single object. Instead, it computes a permitted view. One requester may receive a narrow summary, another may receive a record-level view, and a third may receive nothing at all. This is especially important for sandbox outputs and traces, where the difference between operational necessity and over-disclosure can be large.
 
 Projection also helps maintain coherence between privacy and governance. A role that permits access to a conclusion does not automatically imply access to the underlying trace, and access to a user-specific memory view does not imply access to unrelated system reasoning artifacts.
 
@@ -182,6 +181,7 @@ In the demonstrated/not-yet-demonstrated discipline of Chapter 52:
 - Record-level consent and projection flags honored end to end for a sovereign subspace: the Ms. Allis subspace carries `public_opt_in` false and commons-projection disabled on every record, and repeated aggregator runs confirm nothing from that subspace reaches any shared or public collection.
 - Database-layer role scoping in H_people: the application role is granted only on the hp schema, with no connect rights to the KYC vault, so the least-knowledge rule is enforced below the application layer.
 - A completed remediation cycle on a discovered gap (Section 43.14).
+- **Read-side gating metadata confirmed end-to-end through the GIS-RAG retrieval battery (July 15, 2026).** A live retrieval query against the governed county collection returned documents carrying `authority_class: "official"` and `access_class: "public"` in their Chroma metadata alongside the governed belief text and full provenance triple. Section 43.11's claim that projection conditions travel with the knowledge itself through the full retrieval chain is now a demonstrated fact, not a design aspiration.
 
 **Not yet demonstrated:**
 
@@ -207,4 +207,4 @@ Role-gated knowledge access in Ms. Allis covers both persistent knowledge and sa
 
 Reasoning traces, sandbox logs, approved conclusions, and per-user memory views all belong inside the role-gating framework, and the least-knowledge rule applies across the full lifecycle of knowledge rather than only to durable stores. By expressing disclosure as the projection operator \(\Pi_{c,r,x,t,p,\ell}(K)\), this chapter makes clear that access depends jointly on consent, role, context, time, purpose, and legal authority, so that disclosure remains governed even when the system has already formed or approved the underlying knowledge.
 
-The built system now enforces that principle at four distinct layers — record flags, collection manifest, per-user collection structure, and database role grants — while the projection over time, purpose, and legal authority, and the gating of traces and logs, remain open work. Stating which layers are load-bearing and which are still scaffolding is itself an act of least-knowledge honesty: the chapter discloses exactly what the access-control system can currently be trusted to do, and no more.
+The built system now enforces that principle at four distinct layers — record flags, collection manifest, per-user collection structure, and database role grants — while the projection over time, purpose, and legal authority, and the gating of traces and logs, remain open work. Stating which layers are load-bearing and which are still scaffolding is itself an act of least-knowledge honesty: the chapter discloses exactly what the access-control system can currently be trusted to do, and no more. The retrieval battery of July 15 added a fifth confirmed enforcement point: the access classification travels with every governed document through the retrieval chain to the consumer, making the projection conditions inspectable at the point of use rather than only at the point of publication.
