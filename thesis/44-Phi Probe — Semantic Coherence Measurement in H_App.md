@@ -1,7 +1,6 @@
 # 44. Phi Probe — Semantic Coherence Measurement in H_App
-
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 13, 2026*
+*Last updated: July 15, 2026*
 
 ---
 
@@ -11,7 +10,7 @@ The Phi probe measures semantic coherence within **H_App**, the application-faci
 
 This chapter places Phi inside the live architecture rather than outside it. Semantic coherence is tied to hilbert-state service coherence keys, can influence sandbox validation and promotion decisions, and functions as one component of the broader gate structure that governs whether provisional reasoning may cross into higher-authority system state.
 
-As with Chapters 42 and 43, this revision separates design from audit. Sections 44.1 through 44.9 state what the probe is and how it participates in governance. Sections 44.10 through 44.12 record what is verified as built as of this writing: which parts of the measurement substrate are live, which parts of the probe exist as code but have not been exercised, and one production incident that demonstrates why the quality of the measured state matters as much as the measurement itself.
+As with Chapters 42 and 43, this revision separates design from audit. Sections 44.1 through 44.9 state what the probe is and how it participates in governance. Sections 44.10 through 44.12 record what is verified as built as of this writing: the measurement substrate that is live, the first real coherence reading produced against all three governed geographic grains, and one production incident that demonstrates why the quality of the measured state matters as much as the measurement itself.
 
 ---
 
@@ -45,7 +44,7 @@ The hilbert-state services provide the current semantic geometry in keyed form. 
 
 This connection matters because it ties coherence to live system behavior. A coherence score that is disconnected from the active services would remain interpretive only. Phi belongs to governance because it operates over the same state that live services use for active reasoning, routing, and internal evaluation.
 
-In this sense, Phi is not merely a descriptive instrument. It is part of the architecture’s running semantic instrumentation.
+In this sense, Phi is not merely a descriptive instrument. It is part of the architecture's running semantic instrumentation.
 
 ---
 
@@ -77,7 +76,7 @@ That makes Phi part of the difference between merely generating a candidate and 
 
 Coherence findings may also participate in promotion decisions after sandbox validation.
 
-A candidate that reaches the promotion boundary is not judged solely by whether it exists, nor solely by whether it is coherent. Rather, the system asks whether it satisfies the full set of conditions required to move from provisional reasoning into higher-authority state. Phi contributes to that judgment by indicating whether the candidate’s semantic structure is sufficiently coherent in the relevant domains for the requested transition.
+A candidate that reaches the promotion boundary is not judged solely by whether it exists, nor solely by whether it is coherent. Rather, the system asks whether it satisfies the full set of conditions required to move from provisional reasoning into higher-authority state. Phi contributes to that judgment by indicating whether the candidate's semantic structure is sufficiently coherent in the relevant domains for the requested transition.
 
 A strong coherence finding may support promotion. A weak coherence finding may instead support reject, revise, human review, or limited approval outcomes. This is especially important when the candidate affects several domains at once, since apparent adequacy in one area may conceal fracture in another. Phi helps prevent promotion decisions from depending only on surface fluency or local fit.
 
@@ -97,7 +96,7 @@ Here \(G_{\mathrm{coherence}}(x)\) is the coherence gate for candidate state \(x
 
 Placing coherence explicitly inside the gate structure clarifies its status. Coherence is not decorative, and it is not sovereign over the other conditions. It is one of the operational requirements for promotion. A candidate that fails the coherence gate may still contain useful material, but it is not yet in the right condition to cross an authority boundary without additional revision or review.
 
-This also helps preserve the proper distinction between semantic fit and truth. The gate does not ask whether coherence proves correctness. It asks whether the candidate’s measured internal structure is sufficiently sound to proceed alongside the other required checks.
+This also helps preserve the proper distinction between semantic fit and truth. The gate does not ask whether coherence proves correctness. It asks whether the candidate's measured internal structure is sufficiently sound to proceed alongside the other required checks.
 
 ---
 
@@ -123,26 +122,49 @@ The result is a governance-relevant coherence instrument embedded in the live ar
 
 ---
 
-## 44.10 Implementation Status (July 2026)
+## 44.10 The Three Modes and What They Mean in This System
 
-In the demonstrated/not-yet-demonstrated discipline of Chapter 52:
+Before recording the implementation status, it is worth stating precisely what the probe's three modes mean in the context of Ms. Allis — because the probe was calibrated against *this* system's natural resting state, not against an abstract theoretical norm.
 
-**Demonstrated — the measurement substrate:**
+Ms. Allis reasons simultaneously across seven maximally diverse semantic domains: worldview, Appalachian culture, civic infrastructure, governance and law, psychology and learning, self-identity, and spiritual grounding. These domains are deliberately chosen to be as different from each other as possible. The empirically observed baseline cross-domain cosine similarity across them is approximately 0.15. The three modes are defined relative to that baseline:
 
-- The hilbert-state service is live. State writeback POSTs to the hilbert-state embed endpoint on every chat job, producing a 384-dimensional vector stored in Redis under per-job coherence keys of the form `hilbert:state:chat:<jobid>`. Cold-start embedding runs near 37 seconds; warm embedding completes in under 100 milliseconds. This is the keyed structure Section 44.2 describes, and it exists in production.
-- The embedding-space discipline the probe depends on is enforced by hard experience: all coherence-bearing collections use the all-minilm 384-dimensional model, and the incompatible 768-dimensional alternative was ruled out after a live dimension-mismatch incident earlier in the build. Coherence comparison is only meaningful inside a single embedding space, so this constraint is a precondition of every claim in this chapter — the same embedder-consistency requirement Chapter 46 imposes on the tensor bridge, applied here to measurement.
-- The probe itself exists as code. Its domain map routes coherence queries to named collection sets — the self-identity domain, for instance, reads the system memory and identity collections together with conversational history. Following the per-user memory decomposition of Chapter 50, that conversational component now resolves through the per-user manifest (`conversation_history_user_<slug>`) at request time rather than reading a shared conversation collection. The probe therefore measures coherence against the requesting user's own memory partition, which is both a privacy property and a correctness property: cross-user echoes are structurally excluded from the self-identity reading.
+**Superposition (0.08–0.35)** is the healthy normal state. The seven domains are doing their jobs independently — each contributing its own semantic perspective without collapsing into each other. The system holds multiple distinct frames of reference simultaneously. This is not fragmentation; it is the designed condition of a system meant to reason across culture, geography, governance, identity, and spirit at once. The name is deliberate: like quantum superposition, it means multiple states coexisting without forcing premature resolution.
 
-**Not yet demonstrated:**
+**Coherent (above 0.35)** means the sampled domains are reading as unusually unified — their centroids pull toward each other beyond the expected baseline. For a purposely unified corpus, such as geographic beliefs all rendered with the same template and the same embedder, a coherent reading is expected and positive. For the full seven-domain system, a coherent reading would warrant inspection: unusual unity can mean genuine integration, or it can mean the echo saturation problem Section 44.11 documents.
 
-- The probe has not been exercised in the current diagnostic cycle. No Phi reading appears in the July 2026 verification logs, and no coherence score has been produced against the governed collections built out in Chapters 45–52.
-- \(G_{\mathrm{coherence}}\) is not wired as an enforced gate. No sandbox validation or manifest promotion currently blocks, narrows, or escalates on a Phi finding. Promotion in the publication manifest today is gated by acceptance tests and human judgment; the coherence gate exists in the algebra, not in the promotion path.
-- No coherence thresholds are calibrated. The probe can produce a reading, but the system has no validated mapping from score ranges to the reject / revise / review / approve outcomes Section 44.6 describes. Calibration requires a labeled history of candidates and outcomes that does not yet exist.
-- Multidomain coherence measurement across the governed geographic collections (counties, tracts, block groups) has not been attempted. The vertical slice of Chapter 52 proves retrieval and reverse-traceability; it does not yet prove that Phi can meaningfully score cross-domain fit between, say, a geographic belief and an identity-linked context.
+**Decoherent (below 0.08)** means the domains have fragmented below the minimum expected cross-domain similarity — a signal that something has gone wrong with the measurement substrate itself.
+
+Understanding these modes is essential to interpreting the reading in Section 44.10 correctly. A coherent score on the GEO_BELIEF domain is a good finding. The same score on the full seven-domain system would be a warning.
 
 ---
 
-## 44.11 Worked Lesson: When the Measured State Degenerates
+## 44.11 Implementation Status (July 2026)
+
+In the demonstrated/not-yet-demonstrated discipline of Chapter 52:
+
+**Demonstrated — the measurement substrate and the first real reading:**
+
+- The hilbert-state service is live. State writeback POSTs to the hilbert-state embed endpoint on every chat job, producing a 384-dimensional vector stored in Redis under per-job coherence keys of the form `hilbert:state:chat:<jobid>`. Cold-start embedding runs near 37 seconds; warm embedding completes in under 100 milliseconds. This is the keyed structure Section 44.2 describes, and it exists in production.
+- The embedding-space discipline the probe depends on is enforced by hard experience: all coherence-bearing collections use the all-minilm 384-dimensional model, and the incompatible 768-dimensional alternative was ruled out after a live dimension-mismatch incident earlier in the build. Coherence comparison is only meaningful inside a single embedding space, so this constraint is a precondition of every claim in this chapter.
+- The probe runs as a live service (`jarvis-phi-probe`, port 8026) with `/phi`, `/phi/cached`, and `/health` endpoints, auto-resampling every five minutes and writing state to Redis under `pituitary:phi_state`. A `GEO_BELIEF` domain was added to its cluster map covering `gbimwvcountiesv2`, `gbimwvtractsv2`, and `gbimwvblockgroupsv1` in both `PROBE_COLLECTIONS` and `QUERY_COLLECTIONS`.
+- **The first real coherence reading was produced on July 15, 2026** against all three governed WV geographic grains. With counties (55 vectors), tracts (200 vectors), and block groups (200 vectors) sampled at dim=384, the probe returned:
+  - `mode: coherent`
+  - `coherence_raw: 0.414911`
+  - `coherence_normalized: 0.364034`
+  - `collections_sampled: [gbimwvcountiesv2, gbimwvtractsv2, gbimwvblockgroupsv1]`
+
+  A score of 0.415 is above the `PHI_COHERENT` threshold of 0.35. The result is substantive: the county, tract, and block group governed beliefs are semantically integrated across all three grains in the all-minilm embedding space. The score drop from an earlier two-grain reading of 0.828 (counties and tracts only) to 0.415 when block groups are added is expected and meaningful — block group beliefs are more locally specific than county beliefs, so adding a finer grain pulls cross-grain cosine similarity down. That is the data telling the truth about the corpus: finer granularity introduces more local semantic variation, which is a property of the data, not a defect. A corpus where block groups read identically to counties would be suspicious. The three-grain reading is the definitive baseline for the GEO_BELIEF domain.
+- The per-user memory decomposition of Chapter 50 is already wired into the probe's domain map: the self-identity domain resolves through `conversation_history_user_<slug>` at request time rather than reading a shared conversation collection. Cross-user echoes are structurally excluded from the self-identity reading before any coherence measurement begins.
+
+**Not yet demonstrated:**
+
+- \(G_{\mathrm{coherence}}\) is not wired as an enforced gate. No sandbox validation or manifest promotion currently blocks, narrows, or escalates on a Phi finding. The coherence gate exists in the algebra and the service produces readings; the wiring between them does not yet exist.
+- Coherence thresholds for the governed geographic domain are not calibrated against outcomes. The probe produced a reading and the score is interpretable against the probe's built-in thresholds, but there is no validated mapping from geographic coherence scores to the reject / revise / review / approve outcomes Section 44.6 describes. The July 15 reading is a baseline, not a calibration.
+- Cross-domain coherence between the GEO_BELIEF cluster and non-geographic domains (identity, governance, spiritual) has not been measured. The July 15 reading covers three grains of one cluster; the broader seven-cluster coherence the probe was designed to measure requires the other primary collections to reach the `MIN_COHERENCE_VECTORS` threshold of 10.
+
+---
+
+## 44.12 Worked Lesson: When the Measured State Degenerates
 
 One production incident belongs in this chapter because it demonstrates the failure mode this probe is most vulnerable to — not a wrong measurement, but a faithful measurement of a degenerate state.
 
@@ -158,10 +180,10 @@ This incident is the coherence-domain instance of the pattern Chapters 42 and 45
 
 ---
 
-## 44.12 Closing Statement
+## 44.13 Closing Statement
 
 The Phi probe measures semantic coherence in H_App by reading and evaluating the live coherence conditions exposed through hilbert-state service coherence keys. Its findings may be used during sandbox validation and may also contribute to promotion decisions as the coherence component of the broader gate structure.
 
 Multidomain coherence is treated in this chapter as a measured property of internal semantic fit across coupled domains. It is not automatic truth. Phi therefore serves as a live architectural instrument for evaluating whether a candidate state is sufficiently coherent to continue through governed reasoning and authority-preserving promotion.
 
-As of this writing, the substrate is live and disciplined — keyed state, single embedding space, per-user memory partitions — while the probe itself remains code-present but unexercised, its gate unwired and its thresholds uncalibrated. Stating that plainly is the chapter's own coherence condition: the claim that Ms. Allis measures her semantic integrity must itself remain integrated with what the system demonstrably does.
+As of this writing, the substrate is live and disciplined, the probe service is running and auto-resampling every five minutes, and the first coherence reading has been taken across all three governed geographic grains: `coherence_raw 0.415`, mode coherent. The gate remains unwired and cross-domain calibration remains future work — but the chapter can no longer say the probe has never been exercised. It has been, and the governed geographic corpus passed at the coherent threshold. The score itself is interpretable: not so high as to suggest echo saturation, not so low as to suggest fragmentation, but unified enough to confirm that counties, tracts, and block groups form a semantically coherent body of governed belief across three levels of geographic granularity. That is what this system was built to say about West Virginia, and now it has said it with a number.
