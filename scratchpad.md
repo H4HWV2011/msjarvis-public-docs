@@ -1,31 +1,38 @@
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ OUTDIR="$HOME/msjarvis-db-recovery/vector-ready-inspection"
-mkdir -p "$OUTDIR"
 
-echo '== 0) verify authoritative backup is present =='
-stat -c '%s bytes %n' "$HOME/msjarvis-db-recovery/msjarvisgis_v2_complete.dump"
-cat "$HOME/msjarvis-db-recovery/msjarvisgis_v2_complete.dump.sha256"
+echo '== artifact manifest =='
+find "$OUTDIR" -maxdepth 1 -type f | sort
+== artifact manifest ==
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/01_snapshot_columns.tsv
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/02_snapshot_constraints.tsv
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/03_snapshot_indexes.tsv
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/04_snapshot_counts.tsv
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/05_county_json_keys.tsv
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/06_tract_json_keys.tsv
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/07_county_sample_pretty.txt
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/08_tract_sample_pretty.txt
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/09_county_json_types.tsv
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/10_tract_json_types.tsv
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/11_geometry_inventory.tsv
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/12_county_spatial_preview.tsv
+/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/13_tract_spatial_preview.tsv
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ OUTDIR="$HOME/msjarvis-db-recovery/vector-ready-inspection"
 
-echo '== 1) snapshot table columns =='
-psql \
-  -h localhost \
-  -p 5436 \
-  -U postgres \
-  -d msjarvisgis_v2 \
-  -P pager=off \
-  -F $'\t' \
-  -A <<'SQL' | tee "$OUTDIR/01_snapshot_columns.tsv"
-SELECT table_schema,
-       table_name,
-       ordinal_position,
-       column_name,
-       data_type,
-       udt_name,
-       is_nullable,
-find "$OUTDIR" -maxdepth 1 -type f | sortract_idat,S centroid_lat,026_wma84')
-== 0) verify authoritative backup is present ==
-21368604 bytes /home/cakidd/msjarvis-db-recovery/msjarvisgis_v2_complete.dump
-2213ae868030449ca70dc6d58d79c2c05237918e9a11852f40d29eb2f93a05d4  /home/cakidd/msjarvis-db-recovery/msjarvisgis_v2_complete.dump
-== 1) snapshot table columns ==
+echo '== columns for both snapshot tables =='
+sed -n '1,200p' "$OUTDIR/01_snapshot_columns.tsv"
+
+echo '== county JSON sample =='
+sed -n '1,220p' "$OUTDIR/07_county_sample_pretty.txt"
+
+echo '== tract JSON sample =='
+sed -n '1,220p' "$OUTDIR/08_tract_sample_pretty.txt"
+
+echo '== top-level JSON keys (county) =='
+sed -n '1,200p' "$OUTDIR/05_county_json_keys.tsv"
+
+echo '== top-level JSON keys (tract) =='
+sed -n '1,200p' "$OUTDIR/06_tract_json_keys.tsv"
+== columns for both snapshot tables ==
 table_schema	table_name	ordinal_position	column_name	data_type	udt_name	is_nullable	column_default
 public	wv_county_belief_snapshot	1	snapshot_id	uuid	uuid	NO	gen_random_uuid()
 public	wv_county_belief_snapshot	2	canonical_county_id	text	text	NO	
@@ -43,53 +50,7 @@ public	wv_tract_belief_snapshot	6	belief_hash	text	text	NO
 public	wv_tract_belief_snapshot	7	generated_at	timestamp with time zone	timestamptz	NO	now()
 public	wv_tract_belief_snapshot	8	verification_state	text	text	NO	'derived'::text
 (15 rows)
-== 2) snapshot indexes and constraints ==
-schema_name	table_name	constraint_name	constraint_type	constraint_def
-public	wv_county_belief_snapshot	wv_county_belief_snapshot_canonical_county_id_fkey	f	FOREIGN KEY (canonical_county_id) REFERENCES wv_county_identity(canonical_county_id)
-public	wv_county_belief_snapshot	wv_county_belief_snapshot_pkey	p	PRIMARY KEY (snapshot_id)
-public	wv_county_belief_snapshot	wv_county_belief_snapshot_canonical_county_id_snapshot_vers_key	u	UNIQUE (canonical_county_id, snapshot_version)
-public	wv_tract_belief_snapshot	wv_tract_belief_snapshot_canonical_county_id_fkey	f	FOREIGN KEY (canonical_county_id) REFERENCES wv_county_identity(canonical_county_id)
-public	wv_tract_belief_snapshot	wv_tract_belief_snapshot_pkey	p	PRIMARY KEY (snapshot_id)
-public	wv_tract_belief_snapshot	wv_tract_belief_snapshot_canonical_tract_id_snapshot_versio_key	u	UNIQUE (canonical_tract_id, snapshot_version)
-(6 rows)
-schemaname	tablename	indexname	indexdef
-public	wv_county_belief_snapshot	wv_county_belief_snapshot_canonical_county_id_snapshot_vers_key	CREATE UNIQUE INDEX wv_county_belief_snapshot_canonical_county_id_snapshot_vers_key ON public.wv_county_belief_snapshot USING btree (canonical_county_id, snapshot_version)
-public	wv_county_belief_snapshot	wv_county_belief_snapshot_pkey	CREATE UNIQUE INDEX wv_county_belief_snapshot_pkey ON public.wv_county_belief_snapshot USING btree (snapshot_id)
-public	wv_tract_belief_snapshot	wv_tract_belief_snapshot_canonical_tract_id_snapshot_versio_key	CREATE UNIQUE INDEX wv_tract_belief_snapshot_canonical_tract_id_snapshot_versio_key ON public.wv_tract_belief_snapshot USING btree (canonical_tract_id, snapshot_version)
-public	wv_tract_belief_snapshot	wv_tract_belief_snapshot_pkey	CREATE UNIQUE INDEX wv_tract_belief_snapshot_pkey ON public.wv_tract_belief_snapshot USING btree (snapshot_id)
-(4 rows)
-== 3) row counts ==
-table_name	row_count
-wv_county_belief_snapshot	110
-wv_tract_belief_snapshot	1092
-(2 rows)
-== 4) top-level JSON keys ==
-top_level_key
-canonical_county_id
-county_geoid
-county_name
-coverage
-generated_at
-generated_from
-representations
-snapshot_version
-state_abbrev
-state_name
-summary_counts
-verification_state
-(12 rows)
-top_level_key
-canonical_county_id
-canonical_tract_id
-coverage
-generated_at
-generated_from
-representations
-snapshot_version
-tract_geoid
-verification_state
-(9 rows)
-== 5) newest sample belief documents ==
+== county JSON sample ==
              snapshot_id              | canonical_county_id |   snapshot_version    |                           belief_hash                            | verification_state |         generated_at          |                                            belief_document                                            
 --------------------------------------+---------------------+-----------------------+------------------------------------------------------------------+--------------------+-------------------------------+-------------------------------------------------------------------------------------------------------
  541fa3df-bc65-49a0-b9ab-8fa708219cd7 | 54001               | wv-county-snapshot-v2 | f106cc746f4478f6d0d0a1ea22c687e9a10663f7e6db3d25798dd5c83dfad5ce | derived            | 2026-07-11 22:11:11.329423-04 | {                                                                                                    +
@@ -310,30 +271,7 @@ verification_state
                                       |                     |                       |                                                                  |                    |                               |         {                                                                                            +
                                       |                     |                       |                                                                  |                    |                               |             "table_name": "wv_county_boundaries_24k_topo_updated_2026_utm83_gdb",                    +
                                       |                     |                       |                                                                  |                    |                               |             "source_feature_id": 2,                                                                  +
-                                      |                     |                       |                                                                  |                    |                               |             "source_feature_hash": "27b7e1c6a26c8287d31f73fc8631119dcc6995b41151556e7f417a4a11b58bb0"+
-                                      |                     |                       |                                                                  |                    |                               |         },                                                                                           +
-                                      |                     |                       |                                                                  |                    |                               |         {                                                                                            +
-                                      |                     |                       |                                                                  |                    |                               |             "table_name": "wv_county_boundaries_24k_topo_updated_2026_wma84_gdb",                    +
-                                      |                     |                       |                                                                  |                    |                               |             "source_feature_id": 2,                                                                  +
-                                      |                     |                       |                                                                  |                    |                               |             "source_feature_hash": "a260786b3ca961ef266e81c137bb470316abe7a7819dcc52da8f83865ed3a1e2"+
-                                      |                     |                       |                                                                  |                    |                               |         },                                                                                           +
-                                      |                     |                       |                                                                  |                    |                               |         {                                                                                            +
-                                      |                     |                       |                                                                  |                    |                               |             "table_name": "wv_wv_county_boundaries_24k_topo_updated_2026_utm83",                     +
-                                      |                     |                       |                                                                  |                    |                               |             "source_feature_id": 49,                                                                 +
-                                      |                     |                       |                                                                  |                    |                               |             "source_feature_hash": "ed4c15aa19bb2786ec513472a9e8e8e3223049d392b5a7abdc1f29be60288f81"+
-                                      |                     |                       |                                                                  |                    |                               |         },                                                                                           +
-                                      |                     |                       |                                                                  |                    |                               |         {                                                                                            +
-                                      |                     |                       |                                                                  |                    |                               |             "table_name": "wv_wv_county_boundaries_24k_topo_updated_2026_wma84",                     +
-                                      |                     |                       |                                                                  |                    |                               |             "source_feature_id": 49,                                                                 +
-                                      |                     |                       |                                                                  |                    |                               |             "source_feature_hash": "1fc0b602bde807a4638bacd51894d8c4bfe31956744d50f91b52b4fb3b74d8b3"+
-                                      |                     |                       |                                                                  |                    |                               |         }                                                                                            +
-                                      |                     |                       |                                                                  |                    |                               |     ],                                                                                               +
-                                      |                     |                       |                                                                  |                    |                               |     "snapshot_version": "wv-county-snapshot-v2",                                                     +
-                                      |                     |                       |                                                                  |                    |                               |     "verification_state": "derived",                                                                 +
-                                      |                     |                       |                                                                  |                    |                               |     "canonical_county_id": "54005"                                                                   +
-                                      |                     |                       |                                                                  |                    |                               | }
-(3 rows)
-
+== tract JSON sample ==
              snapshot_id              |  canonical_tract_id  | canonical_county_id |   snapshot_version   |                           belief_hash                            | verification_state |         generated_at          |                                              belief_document                                              
 --------------------------------------+----------------------+---------------------+----------------------+------------------------------------------------------------------+--------------------+-------------------------------+-----------------------------------------------------------------------------------------------------------
  0bb8fe9a-114a-4965-aab5-9918c4e2c074 | 1400000US54001965500 | 54001               | wv-tract-snapshot-v2 | d498f1dd7f3de6d3599784ec7f2fab36571a87cdb16573fd7317ba9b01162b77 | derived            | 2026-07-11 22:11:11.345586-04 | {                                                                                                        +
@@ -473,44 +411,49 @@ verification_state
                                       |                      |                     |                      |                                                                  |                    |                               | }
 (3 rows)
 
-== 6) JSON type profile for top-level keys ==
-top_level_key	json_type	rows_with_type
-canonical_county_id	string	110
-county_geoid	string	55
-county_name	string	110
-coverage	array	110
-generated_at	string	110
-generated_from	string	110
-representations	array	110
-snapshot_version	string	110
-state_abbrev	string	55
-state_name	string	55
-summary_counts	object	55
-verification_state	string	110
+== top-level JSON keys (county) ==
+top_level_key
+canonical_county_id
+county_geoid
+county_name
+coverage
+generated_at
+generated_from
+representations
+snapshot_version
+state_abbrev
+state_name
+summary_counts
+verification_state
 (12 rows)
-top_level_key	json_type	rows_with_type
-canonical_county_id	null	546
-canonical_county_id	string	546
-canonical_tract_id	string	1092
-coverage	array	1092
-generated_at	string	1092
-generated_from	string	1092
-representations	array	1092
-snapshot_version	string	1092
-tract_geoid	string	546
-verification_state	string	1092
-(10 rows)
-== 7) geometry metadata candidates from canonical physical tables ==
-f_table_schema	f_table_name	f_geometry_column	coord_dimension	srid	type
-public	wv_censustracts_census_2020_utm83	geom	2	26917	GEOMETRY
-public	wv_county_boundaries_24k_topo_updated_2026_utm83_gdb	geom	2	26917	GEOMETRY
-public	wv_county_boundaries_24k_topo_updated_2026_wma84_gdb	geom	2	3857	GEOMETRY
-public	wv_county_boundaries_24k_topo_updated_2026_wma84_gdb	geom_26917	20	GEOMETRY
-public	wv_wv_county_boundaries_24k_topo_updated_2026_utm83	geom	2	26917	GEOMETRY
-public	wv_wv_county_boundaries_24k_topo_updated_2026_wma84	geom	2	3857	GEOMETRY
-public	wv_wv_county_boundaries_24k_topo_updated_2026_wma84	geom_26917	20	GEOMETRY
-(7 rows)
-== 8) county canonical spatial scalar preview ==
+== top-level JSON keys (tract) ==
+top_level_key
+canonical_county_id
+canonical_tract_id
+coverage
+generated_at
+generated_from
+representations
+snapshot_version
+tract_geoid
+verification_state
+(9 rows)
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ OUTDIR="$HOME/msjarvis-db-recovery/vector-ready-inspection"
+
+echo '== snapshot row counts =='
+sed -n '1,40p' "$OUTDIR/04_snapshot_counts.tsv"
+
+echo '== county spatial scalar preview =='
+sed -n '1,120p' "$OUTDIR/12_county_spatial_preview.tsv"
+
+echo '== tract spatial scalar preview =='
+sed -n '1,120p' "$OUTDIR/13_tract_spatial_preview.tsv"
+== snapshot row counts ==
+table_name	row_count
+wv_county_belief_snapshot	110
+wv_tract_belief_snapshot	1092
+(2 rows)
+== county spatial scalar preview ==
 canonical_county_id	county_geoid	county_name	srid	centroid_lon	centroid_lat	min_lon	min_lat	max_lon	max_lat	source_feature_hash
 54001	54001	Barbour	3857	-80.00296563458419	39.133051719784405	-80.22708132024299	38.94714000804916	-79.8088411031146	39.30329437685102	7eb68083ee49834d4c5a6172b2680890884cc2f5e9e3c1265837f52b08a29936
 54003	54003	Berkeley	3857	-78.02750767742677	39.46419404340294	-78.2288967766838	39.26461719660661	-77.82350923063576	39.62101136503839	d14e0228f5bd2d30447bc69631fcd9528d7e8a9be0e2fceffb11a1260f783ddd
@@ -518,7 +461,7 @@ canonical_county_id	county_geoid	county_name	srid	centroid_lon	centroid_lat	min_
 54007	54007	Braxton	3857	-80.7192026267233	38.700195817385286	-81.03174579779028	38.5070194852754	-80.44202922046682	38.90516558494034	fdde06d39c22ef7bb79c289a9ca0f0005ae5fc3423b840cdf7783db6f7c157a9
 54009	54009	Brooke	3857	-80.57669469918976	40.27400861313693	-80.68020019314254	40.15968020961628	-80.51886726867426	40.39985384288832	51018f960c47ce691c2dd3b4e156b688e345ed3c90624c2b335200feaa0c0556
 (5 rows)
-== 9) tract canonical spatial scalar preview ==
+== tract spatial scalar preview ==
 canonical_tract_id	tract_geoid	canonical_county_id	srid	centroid_lon	centroid_lat	min_lon	min_lat	max_lon	max_lat	source_feature_hash
 1400000US54001965500	54001965500	54001	26917	-80.10019965877112	39.110216969997936	-80.227173	38.947236000000004	-79.95940199999998	39.245792999999985	9dc2982ec2886190dd3e07f02b1c7ad83ee66e7971d0cf1b8c9ed6fbc5a47715
 1400000US54001965600	54001965600	54001	26917	-80.05128635443342	39.148016128577716	-80.107936	39.110672	-79.999785	39.18558799999999	add3ea28ccdd9e873a3d71fc95f1cf4c88d3d3308621c8f9cb544f3ff94fc9bb
@@ -526,19 +469,5 @@ canonical_tract_id	tract_geoid	canonical_county_id	srid	centroid_lon	centroid_la
 1400000US54001965800	54001965800	54001	26917	-79.92033226064692	39.01940984377633	-79.981614	38.962702	-79.86059299999998	39.082019	0cb05699df089392aaa73f64a93d1cbb5045d7640ae91626eef0520f054fc1e5
 1400000US54003971101	54003971101	54003	26917	-77.88006346398454	39.55057620822226	-77.92404499998614	39.51489299999993	-77.83038699998295	39.586161999999916	3ce1d7135b3e1233cde7bc613f7c82c16cdd7ed08ac597fd488a562289433845
 (5 rows)
-== 10) artifact manifest ==
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/01_snapshot_columns.tsv
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/02_snapshot_constraints.tsv
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/03_snapshot_indexes.tsv
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/04_snapshot_counts.tsv
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/05_county_json_keys.tsv
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/06_tract_json_keys.tsv
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/07_county_sample_pretty.txt
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/08_tract_sample_pretty.txt
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/09_county_json_types.tsv
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/10_tract_json_types.tsv
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/11_geometry_inventory.tsv
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/12_county_spatial_preview.tsv
-/home/cakidd/msjarvis-db-recovery/vector-ready-inspection/13_tract_spatial_preview.tsv
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ 
 
