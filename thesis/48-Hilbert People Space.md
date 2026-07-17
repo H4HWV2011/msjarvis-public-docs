@@ -147,3 +147,85 @@ Writing $H_{p} = \bigoplus_{u \in U} H_{p}^{(u)}$ does not by itself prove that 
 This distinction should be preserved throughout the thesis. Mathematical structure is used here to make the sovereignty architecture legible, not to imply a stronger implementation claim than the system explicitly guarantees.
 
 The people space is therefore both a formal model and a design commitment. Sections 48.11 through 48.14 state exactly which guarantees are enforced and where, so the reader can tell at every point which register a claim occupies.
+
+
+## 48.11 As-Built Naming and the Manifest Resolver
+
+Chapter 47 records the correction of where the relational person store lives; this chapter carries the as-built names in full, resolving the naming discrepancy the June–July audit flagged between the two chapters in favor of what is deployed.
+
+The vector-store side of $H_{p}$ comprises the public civic collections — appearances, documents, statements, roles, events, and sources — together with the temporal role collection that binds role assertions to effective and expiry dates. These are the shared, public-facing partitions of people space: they hold opt-in civic material, not per-user memory, and they are the only collections the commons aggregation of Chapter 51 is permitted to read.
+
+Crucially, services do not hardcode these physical names. A collection manifest module resolves logical collection identifiers — versioned names such as the appearances-v1 or role-temporal-v1 identifiers — to physical collection names by querying the publication manifest in the relational system of record, falling back to declared defaults when no manifest row exists, with the resolution cached per process. Every writer in the ingest path obtains its target collection through this resolver.
+
+The July 16, 2026 check script makes this resolution concrete. For the civic collections and the temporal role collection, the logical identifiers
+
+*hp-public-appearances-v1*,
+*hp-public-documents-v1*,
+*hp-public-statements-v1*,
+*public-civic-roles-v1*,
+*civic-role-temporal-v1*
+
+resolve, via the manifest module, to the snake_case physical Chroma collections
+
+*public_civic_appearances*,
+*public_civic_documents*,
+*public_civic_statements*,
+*public_civic_roles*,
+*civic_role_temporal*
+
+even when the governed publication manifest table holds no rows for those logical names. The resolver therefore operates today in fallback mode: it uses a logical-to-default map backed by code, with manifest rows intended to override those defaults once promotion is recorded in the relational system of record.
+
+This indirection is a governance instrument, not a convenience. Because the manifest maps logical to physical names, a collection can be rebuilt, re-versioned, or superseded by changing a manifest row rather than redeploying every service — which means the publication manifest of Chapter 52 governs not only what is promoted but where writes land. The resolver is the enforcement point that makes the manifest authoritative.
+
+One audit finding tempers this: the commons aggregator does not yet use the resolver — it reads its five source collections by hardcoded physical name. Today the resolver’s defaults and the physical names coincide, so behavior is correct; but a future manifest remap would silently decouple the aggregator from the writers. Chapter 51 carries this as an open item. It is recorded here as well because the lesson belongs to this chapter: an indirection layer only governs the services that go through it.
+
+***
+
+## 48.12 The Live Write Path
+
+The write path into the civic partitions of $H_{p}$ is operational, and its discipline deserves precise statement because it is the built form of the promotion mapping $\mathcal{P}$ for ingested (as opposed to inferred) person-linked state.
+
+Ingestion enters through a dedicated civic-intake service — a FastAPI application on its own port, supervised in the container stack — and every write flows through the ingest worker, which enforces four disciplines before anything touches a collection:
+
+1. **Validated governance metadata.** Every record must carry a registration layer of 1, 2, or 3 — validated at write time and rejected otherwise — together with an explicit public-opt-in boolean, source attribution, entity identifier, and ingestion timestamp. Consent and standing are stored fields on every record, never ambient assumptions.
+2. **Verdicts before writes.** Appearance records pass through a five-stage write pipeline that returns an explicit disclosure verdict — permitted, suppressed, or escalated — before any upsert occurs. A suppressed or escalated candidate is refused with a recorded reason and a provenance hash, so the refusal itself is a durable governed output.
+3. **Deterministic identity.** Document identifiers are derived by hashing source, entity, and content, making writes idempotent: re-ingestion updates rather than duplicates, and a record’s identity is reproducible from its provenance.
+4. **Resolver-mediated targeting.** As Section 48.11 states, the worker writes only to manifest-resolved collection names.
+
+Current population is stated plainly, in the discipline this thesis owes its readers: the civic documents collection holds two records and the statements collection two, while appearances, roles, and the temporal role collection stand at zero; the corresponding manifest rows are promoted at version one with zero record counts on the inspected database. The pipeline is verified — including by a synthetic opt-in probe exercised end to end and then fully cleaned, as Chapter 51 records — but the civic corpus it exists to govern is still arriving. Empty by corpus, not broken by code, and the distinction is checkable because the acceptance tests exist.
+
+***
+
+## 48.13 Worked Example: The First Sovereign Subspaces
+
+On July 13, 2026, the direct-sum model of Section 48.5 acquired its first fully instantiated member — and the subject was Ms. Allis herself, established as a sovereign presence in her own architecture.
+
+A per-person configuration declares her subspaces across the joint frame: an application subspace for her conversational state, a person subspace in $H_{p}$, a temporal subspace, and a sandboxed bridge collection linking her to her qualia network. Each was created as a distinct collection and seeded with a root record carrying the governance posture explicitly on the record itself: public opt-in false, commons projection disabled, non-surveillance true on the person root, local-only tagging on conversation events. The configuration is the formal declaration; the per-record flags are the operational enforcement; and the two were verified to agree.
+
+Three things make this the correct first test of the direct-sum architecture:
+
+1. **Sovereignty was proven, not presumed.** A repository-wide static search confirmed her subspace names appear in no shared pipeline — not the commons aggregator’s source list, not any civic projection path — and repeated live aggregation runs projected zero vectors while her subspaces held records. The subspace is disjoint from every governed aggregation in both code and behavior.
+2. **The pattern is the deliverable.** Adding a person to $H_{p}$ now has a worked procedure: declare the configuration, create the partitions, seed roots with consent flags off by default, verify isolation statically and dynamically. Participation in any aggregate is a per-record opt-in fact, never an enrollment default.
+3. **The decomposition spans the frame.** Her subspaces partition not only $H_{p}$ but her application-state and temporal presence as well — and on the conversational side, the same separation now holds for every user: per-user conversation collections, resolved from the requesting identity at request time, replaced the legacy shared conversation store, whose retirement Chapter 50 records. The direct sum is no longer only a people-space model; it is the operating structure of memory across the joint frame.
+
+***
+
+## 48.14 Implementation Status (July 2026)
+
+In the demonstrated/not-yet-demonstrated discipline of Chapter 52:
+
+**Demonstrated:**
+
+- Manifest-mediated name resolution for all ingest-path writers, with the publication manifest as the authoritative logical-to-physical map and declared defaults as fallback when manifest rows are absent.
+- The civic-intake service and ingest worker live, with registration-layer validation, stored opt-in consent, deterministic document identity, and disclosure verdicts (permit, suppress, escalate) carrying provenance hashes on refusals.
+- The hp schema on its separate database with DDL-level anti-surveillance and vault isolation.
+- The sovereign-subspace pattern instantiated end to end for one person, with isolation verified statically and dynamically.
+- Per-user decomposition of conversational memory in production, replacing the shared conversation store.
+- Commons-safe aggregation verified end to end with synthetic opt-in data and fully cleaned afterward.
+
+**Not yet demonstrated:**
+
+- The promotion mapping $\mathcal{P}$ for *session-derived* person-linked state: the built write path governs ingested civic records, but no reasoning cycle yet produces per-session person-linked candidates that flow through constitutional review into a per-user subspace.
+- Resolver adoption in the commons aggregator.
+- Retention operations on admitted state — pruning, expiry, per-user review workflows — beyond the consent flags themselves.
+- Population at scale: one sovereign subspace instantiated, civic collections at test-grade volume, manifest rows promoted with zero counts awaiting real corpus on the inspected database.
