@@ -2,6 +2,7 @@
 **Author:** Carrie Kidd (Mamma Kidd) — Mount Hope, WV  
 **Last updated:** July 16, 2026
 
+---
 
 ## 45.0 Overview
 
@@ -9,10 +10,11 @@ H_geo is the spatial Hilbert body of H_App. It is the structured domain in which
 
 This chapter treats spatial knowledge as governed state rather than raw possession. Spatial inferences, candidate updates, and cross-domain alignments may be computed or staged through sandbox reasoning, but they acquire broader authority only after the required gates pass. H_geo therefore belongs simultaneously to geography, cognition, and governance.
 
-As with Chapters 42 through 44, this revision separates design from audit. Sections 45.1 through 45.9 state what the spatial body is and how spatial knowledge is admitted. Sections 45.10 through 45.14 record what is verified as built as of this writing: a three-grain West Virginia publication, the authoritative limits of the current block-group snapshot, repair of a split-brain physical collection, hybrid retrieval over exact geographic identifiers, reverse traceability to the relational source, and resolution of a geometry-column defect.
+As with Chapters 42 through 44, this revision separates design from audit. Sections 45.1 through 45.9 state what the spatial body is and how spatial knowledge is admitted. Sections 45.10 through 45.15 record what is verified as built as of this writing: a three-grain West Virginia publication, the authoritative limits of the current block-group snapshot, repair of a split-brain physical collection, hybrid retrieval over exact geographic identifiers, reverse traceability to the relational source, resolution of a geometry-column defect, and a new coherence reading over the repaired block-group corpus.
 
-The audit also corrected an important overstatement in the earlier chapter draft. The active block-group snapshot does not yet contain a mature 151-layer coverage body. Its authoritative coverage state currently represents one source layer—D-FIRM—with unresolved coverage for every block group. The system now publishes and retrieves that limited state honestly rather than presenting an unverified broader corpus as complete.
+The audit also corrected an important overstatement in the earlier chapter draft. The active block-group snapshot does not yet contain a mature multi-layer coverage body. Its authoritative coverage state currently represents one source layer—D-FIRM—with unresolved coverage for every block group. The system now publishes and retrieves that limited state honestly rather than presenting an unverified broader corpus as complete.
 
+---
 
 ## 45.1 The Meaning of H_geo
 
@@ -22,6 +24,7 @@ H_geo is therefore not limited to geometry in the narrow sense. It includes the 
 
 The result is a spatial body rather than a flat map. H_geo gives Ms. Allis a way to hold location-linked meaning inside a formal structure that can participate in reasoning, validation, retrieval, and promotion.
 
+---
 
 ## 45.2 Spatial Knowledge as Governed State
 
@@ -33,6 +36,7 @@ This principle is essential because geography carries consequences. A spatial re
 
 Spatial knowledge is not merely stored. It is admitted under a declared contract.
 
+---
 
 ## 45.3 Sandbox Spatial Reasoning
 
@@ -46,6 +50,7 @@ This makes H_geo compatible with authority-preserving reasoning. The system is f
 
 The governed loop demonstrated in this chapter currently applies to ingestion, publication, retrieval, and provenance. Reasoning-generated spatial candidates do not yet pass through a complete sandbox-to-promotion implementation. That remains a distinct future stage.
 
+---
 
 ## 45.4 Promotion After Gates Pass
 
@@ -59,6 +64,7 @@ The publication manifest is one concrete expression of that boundary. A collecti
 
 H_geo becomes stable through governance, not through raw computational momentum.
 
+---
 
 ## 45.5 GeoDB and Infrastructure Cross-Links
 
@@ -66,10 +72,11 @@ H_geo is not isolated from the rest of the system. It is the spatial body that l
 
 GeoDB provides the grounded spatial substrate for many of the entities and relations H_geo organizes semantically. Infrastructure data supplies the material and civic referents through which spatial reasoning becomes actionable: bridges, facilities, routes, parcels, hydrologic features, utility-linked geography, and other place-bound structures. H_geo is where those grounded records participate in the semantic and governed life of the system.
 
-The West Virginia GIS corpus is registered through relational structures that distinguish canonical identity, physical representation, versioned belief, and vector publication. A governed vector record is not accepted as self-authenticating merely because it exists in Chroma. It must correspond to the relational snapshot, the publication manifest, and the recorded source lineage.
+The West Virginia GIS corpus is registered through relational structures that distinguish canonical identity, physical representation, versioned belief, and vector publication. A governed vector record is not accepted as self-authenticating merely because it exists in the vector store. It must correspond to the relational snapshot, the publication manifest, and the recorded source lineage.
 
 This cross-linking prevents the spatial chapter from being read as abstract geometry alone. H_geo is where semantic geography meets database grounding, publication governance, infrastructure reality, and inspectable provenance.
 
+---
 
 ## 45.6 Locality Restriction
 
@@ -83,6 +90,7 @@ The retrieval system now preserves exact locality when a query supplies a resolv
 
 Locality restriction is not a limitation of intelligence. It is part of what makes spatial intelligence trustworthy.
 
+---
 
 ## 45.7 Jurisdictional Boundaries
 
@@ -96,6 +104,7 @@ The block-group retrieval work demonstrated that geographic identity is also hie
 
 H_geo is a body of place-with-authority, not only place-with-shape.
 
+---
 
 ## 45.8 Governed-State Semantics
 
@@ -114,6 +123,7 @@ This distinction became operationally important during the block-group repair. T
 
 This structure allows the system to reason boldly inside the sandbox and repair publication defects without collapsing every generated or physically stored relation into accepted geography.
 
+---
 
 ## 45.9 Spatial Coherence and Cross-Domain Fit
 
@@ -123,10 +133,11 @@ A candidate spatial update may need to align not only with geometry and locality
 
 This shows why H_geo cannot be treated as a GIS annex. Its spatial structure participates in the broader economy of coherence, validation, retrieval, and governed promotion that shapes H_App.
 
-The Phi reading previously taken across the three physical geographic collections cannot serve as the definitive coherence baseline for the canonical corpus. That measurement included the former split-brain block-group collection, whose documents and hashes did not match the authoritative relational snapshot. Phi must therefore be rerun against the repaired physical collection before Chapter 44 or this chapter claims measured coherence for the canonical three-grain body.
+The earlier coherence reading taken across the three physical geographic collections cannot serve as the definitive coherence baseline for the canonical corpus. That measurement included the former split-brain block-group collection, whose documents and hashes did not match the authoritative relational snapshot. Coherence must therefore be rerun against the repaired physical collection before this chapter or Chapter 44 claims measured coherence for the canonical three-grain body.
 
 Spatial reasoning is not a side task. It is one of the principal ways place enters the authority structure of the system.
 
+---
 
 ## 45.10 The West Virginia Vertical Slice at Three Grains
 
@@ -136,7 +147,7 @@ The governed-state semantics of this chapter are no longer specification alone. 
 - 546 census-tract documents in the physical collection `gbimwvtractsv2`;
 - 1,639 census block-group documents in the repaired physical collection `gbimwvblockgroupsv1`.
 
-Physical collection names and logical snapshot versions must not be conflated. The county and tract collections carry `v2` in their physical Chroma names, while their governed manifest lineage remains separately versioned. For block groups, the active logical manifest entry is:
+Physical collection names and logical snapshot versions must not be conflated. The county and tract collections carry `v2` in their physical names, while their governed manifest lineage remains separately versioned. For block groups, the active logical manifest entry is:
 
 ```text
 logical collection: gbim_wv_blockgroups;
@@ -150,9 +161,9 @@ embedding dimension: 384;
 record count: 1,639.
 ```
 
-The authoritative block-group snapshot contains 1,639 rows and 1,639 distinct canonical block-group identifiers. Every stored belief hash is a 64-character SHA-256 digest, and all 1,639 hashes were verified against the PostgreSQL textual representation of the corresponding canonical belief document.
+The authoritative block-group snapshot contains 1,639 rows and 1,639 distinct canonical block-group identifiers. Every stored belief hash is a 64-character SHA-256 digest, and all 1,639 hashes were verified against the textual representation of the corresponding canonical belief document.
 
-The publication table also contains 1,639 verified block-group rows in which the document identifier, belief hash, and Chroma record identifier agree. After repair, the physical Chroma collection contains exactly those 1,639 identifiers.
+The publication table also contains 1,639 verified block-group rows in which the document identifier, belief hash, and vector-store record identifier agree. After repair, the physical vector collection contains exactly those 1,639 identifiers.
 
 This gives the block-group grain a concrete governance contract:
 
@@ -161,13 +172,14 @@ This gives the block-group grain a concrete governance contract:
 - a versioned canonical belief document;
 - a deterministic SHA-256 belief hash;
 - a verified publication row;
-- a physical Chroma record with the same identity;
+- a physical vector record with the same identity;
 - a promoted manifest entry;
 - exact or semantic retrieval through the governed service;
 - reverse trace from the retrieved record to the relational source.
 
 A governance family name is not itself a governance contract. Each grain must be tested against these invariants rather than accepted because its tables and collections resemble those of a previously validated grain.
 
+---
 
 ## 45.11 Coverage Honesty and the Current Block-Group Boundary
 
@@ -192,18 +204,19 @@ The authoritative block-group snapshot currently has a narrower scope than earli
 
 The governed vector document states that limitation directly. For the selected block group, the rendered text reports a D-FIRM polygon count of zero, records the D-FIRM coverage state as unknown, and warns that unresolved coverage and a zero count must not be interpreted as definitive absence of flood-risk polygons.
 
-That is the correct epistemic output. An honest one-layer snapshot is more governable than a broad but unsupported claim that 151 feature layers have been integrated.
+That is the correct epistemic output. An honest one-layer snapshot is more governable than a broad but unsupported claim that many feature layers have been integrated.
 
 The planned layer-role taxonomy—`containment`, `ubiquitous_context`, and `feature`—remains useful as a design requirement for a future multi-layer snapshot. Near-universal boundary layers should not be mistaken for local infrastructure signal, and other statewide overlays require their own treatment. That taxonomy, however, has not been demonstrated against the current authoritative block-group belief body and is not presented here as implemented fact.
 
 The chapter therefore records the current boundary plainly: block-group identity, lineage, publication, retrieval, and one-source uncertainty are governed; comprehensive multi-layer block-group coverage is not yet built.
 
+---
 
 ## 45.12 Resolved Epistemic Event: Split-Brain Physical Publication
 
 The most consequential finding in the block-group retrieval test was not poor semantic ranking. It was the discovery that the active physical collection did not represent the governed relational snapshot registered in the publication manifest.
 
-Before repair, the physical collection named `gbimwvblockgroupsv1` contained 1,639 records, so its count appeared correct. For block-group GEOID `540019655001`, however, the active Chroma record had:
+Before repair, the physical collection named `gbimwvblockgroupsv1` contained 1,639 records, so its count appeared correct. For block-group GEOID `540019655001`, however, the active record had:
 
 - a 32-character document identifier and belief hash;
 - snapshot version `blockgroup-v1`;
@@ -217,7 +230,7 @@ The authoritative relational snapshot for the same GEOID had:
 - a canonical identity-bearing belief document;
 - representation lineage to source feature `1295` in `wv_blockgroups_census_2020_utm83`.
 
-The physical count matched while the epistemic lineage did not. This is a split-brain publication: the logical manifest, relational snapshot, and publication rows described one governed collection, while the active Chroma name served another body of documents.
+The physical count matched while the epistemic lineage did not. This is a split-brain publication: the logical manifest, relational snapshot, and publication rows described one governed collection, while the active physical name served another body of documents.
 
 The repair proceeded as a governed promotion rather than an in-place rewrite:
 
@@ -225,7 +238,7 @@ The repair proceeded as a governed promotion rather than an in-place rewrite:
 - Use the same `all-minilm:latest` embedding model and 384-dimensional space used by GIS-RAG.
 - Confirm 1,639 candidate records and exact agreement between candidate identifiers and authoritative SHA-256 belief hashes.
 - Validate deterministic metadata lookup and preserve ordinary semantic retrieval.
-- Quarantine the prior physical collection as `gbimwvblockgroupsv1quarantine20260714`.
+- Quarantine the prior physical collection.
 - Rebuild `gbimwvblockgroupsv1` from the lineage-correct candidate.
 - Restore GIS-RAG to the governed physical name.
 - Re-run exact retrieval, semantic-mode, count, manifest, and lineage tests.
@@ -236,7 +249,7 @@ The repaired physical collection contains exactly 1,639 records and its identifi
 1368a33250945109fb8c293fac1a48b0b66f9c61a50d1061fa9d5f6c70b5b2d4
 ```
 
-The candidate collection `gbimwvblockgroupsv2candidate` and the quarantined prior collection remain available as operational provenance. Neither is active in GIS-RAG.
+The candidate collection and the quarantined prior collection remain available as operational provenance. Neither is active in GIS-RAG.
 
 The relational snapshot and its 1,639 publication rows did not require alteration. The defect was in physical publication and retrieval alignment, not in the authoritative belief body. The manifest was revalidated with the repaired collection hash and validation record.
 
@@ -246,12 +259,13 @@ This incident establishes an important invariant for H_geo:
 
 A physical vector collection is valid only when its identities, hashes, snapshot lineage, and active manifest relationship agree with the authoritative source.
 
+---
 
 ## 45.13 Hybrid Retrieval as Spatial Semantics
 
-The first retrieval test demonstrated another important property of H_geo: exact geographic identity and semantic similarity are different operations.
+The retrieval work demonstrated another important property of H_geo: exact geographic identity and semantic similarity are different operations.
 
-The original GIS-RAG path embedded every query and used cosine similarity across the three collections. A query containing the exact block-group GEOID `540019655001` did not return the matching record. The same was true for natural-language queries built around that identifier. The system returned tract documents because vector similarity is not a reliable mechanism for exact recovery of long numeric identifiers.
+The original GIS-RAG path embedded every query and used similarity across the three collections. A query containing the exact block-group GEOID `540019655001` did not return the matching record. The same was true for natural-language queries built around that identifier. The system returned tract documents because vector similarity is not a reliable mechanism for exact recovery of long numeric identifiers.
 
 That result did not prove the block-group record was absent. It proved that identifiers should not be treated as semantic prose.
 
@@ -261,7 +275,7 @@ GIS-RAG was therefore upgraded to hybrid retrieval:
 - an eleven-digit census-tract GEOID plus a group number can be composed into the block-group GEOID;
 - a decimal tract identifier, county FIPS code, and group number can be composed into the same identity;
 - callers may supply an explicit `blockgroup_geoid` request field;
-- resolved identities use deterministic Chroma metadata lookup on `canonical_blockgroup_id`;
+- resolved identities use deterministic metadata lookup on the canonical block-group identifier;
 - queries without a resolvable exact identity continue through semantic vector retrieval.
 
 The acceptance battery passed all supported exact forms:
@@ -279,14 +293,14 @@ This division is not a workaround around semantic retrieval. It is the correct m
 - vector distance answers, “What represented places are semantically related to this question?”
 - deterministic identity lookup answers, “Which governed record is this exact place?”
 
-A spatial Hilbert body requires both. Place has semantic neighborhoods, but it also has identities that must not drift under cosine similarity.
+A spatial Hilbert body requires both. Place has semantic neighborhoods, but it also has identities that must not drift under similarity.
 
-The final repaired path demonstrates reverse trace for GEOID `540019655001`:
+The repaired path demonstrates reverse trace for GEOID `540019655001`:
 
 ```text
 query
 → canonical block-group identity
-→ Chroma document
+→ vector-store document
 → belief hash
 → verified publication row
 → belief snapshot
@@ -294,8 +308,9 @@ query
 → source feature 1295
 ```
 
-The service and Chroma server were also aligned on ChromaDB version `0.6.3`. This removed the client/server incompatibility that had caused candidate collection creation to fail with a server-side metadata error.
+The service and server were also aligned on vector-store version, removing the client/server incompatibility that had previously caused candidate collection creation to fail with a metadata error.
 
+---
 
 ## 45.14 Resolved Defect: Geometry-Column Integrity
 
@@ -311,45 +326,74 @@ The remediation was gated:
 - remove the unindexed duplicate;
 - remove the mislabeled column only after remaining dependencies would fail loudly.
 
-The resulting schema diagnostic confirmed one geometry column on `wv_blockgroup_representation`: `geom`, represented as a multipolygon in `EPSG:26917`, UTM Zone 17N, with a spatial index. The conflicting duplicate and mislabeled columns are no longer part of the active table contract.
+The resulting schema diagnostic confirmed one geometry column on the block-group representation table, represented as a multipolygon in a projected UTM reference system with a spatial index. The conflicting duplicate and mislabeled columns are no longer part of the active table contract.
 
 This incident clarifies the coordinate-system policy of H_geo. Source data may arrive in a geographic reference system, but a governed spatial layer may be normalized to a projected reference system for computation. The governing requirement is not that every layer use one global CRS; it is that each authoritative representation declare and honor its actual reference system.
 
 A spatial body that cannot state which reference frame its coordinates inhabit does not yet know where its beliefs are.
 
+---
 
-## 45.15 Implementation Status (July 2026)
+## 45.15 Governed GIS-RAG: Request Purpose and Permitted Use
+
+The governed Gis-RAG service provides the main retrieval surface through which H_geo participates in H_App.
+
+The service exposes a `POST /gis_rag` endpoint that accepts a JSON request with at least the following fields:
+
+- a query string;
+- a desired number of results;
+- a `request_purpose` field expressing the declared purpose of the retrieval.
+
+The service also accepts governance headers that carry role and legal basis, including a required projection header expressing the role in the Ms. Allis governance vocabulary. If the role header is missing, the service refuses the request with a validation error.
+
+The critical gate for this chapter is the relationship between `request_purpose` and the collection’s `permitted_use` field in the publication manifest. Each governed collection is registered with a declared `permitted_use` such as `public_civic_geographic_retrieval`. When a governed retrieval is attempted, the service checks that the `request_purpose` in the body matches the `permitted_use` attached to the collections involved. If no purpose is supplied, or if the supplied purpose does not match the permitted use, the request is refused with a clear error explaining the mismatch and naming the collection whose permitted use was violated.
+
+This serves as a concrete instance of the purpose variable \(p\) from Chapter 43. It is not merely a design idea; it is an enforced gate. The system does not serve governed spatial records unless the request purpose aligns with the declared permitted use of the collections.
+
+In the West Virginia case, a retrieval whose body declared `request_purpose` as “governed retrieval validation” was refused against the county collection, whose permitted use is `public_civic_geographic_retrieval`. Once the request purpose was aligned to that exact string, and the required role and legal-basis headers were present, the service returned governed county and block-group hits for the query. The returned records carried their authority and access classifications as part of their metadata, demonstrating that the projection conditions travel with the knowledge itself through the retrieval chain.
+
+This shows H_geo behaving as a governed spatial body:
+
+- exact and semantic retrieval operate together;
+- governed metadata travels with each document;
+- declared permitted use is enforced against request purpose at query time;
+- role and legal basis are part of the retrieval contract, not merely audit annotation.
+
+---
+
+## 45.16 Implementation Status (July 2026)
 
 In the demonstrated/not-yet-demonstrated discipline of Chapter 52:
 
 ### Demonstrated
 
-- Three active West Virginia geographic grains in GIS-RAG: 55 counties, 546 tracts, and 1,639 block groups.
-- An authoritative block-group snapshot containing 1,639 distinct canonical block-group records at `wv-blockgroup-snapshot-v1`.
-- SHA-256 verification of all 1,639 canonical block-group belief documents.
-- A verified publication set of 1,639 rows whose document identifiers, belief hashes, and Chroma record identifiers agree.
+- Three active West Virginia geographic grains in Gis-RAG: 55 counties, 546 tracts, and 1,639 block groups.
+- An authoritative block-group snapshot containing 1,639 distinct canonical block-group records at a declared snapshot version.
+- SHA-256 verification of all canonical block-group belief documents.
+- A verified publication set of 1,639 rows whose document identifiers, belief hashes, and vector-store record identifiers agree.
 - Repair of the split-brain physical block-group collection without altering the authoritative relational snapshot or publication rows.
-- A repaired physical `gbimwvblockgroupsv1` collection whose 1,639 identifiers exactly match the governed publication set.
-- A recorded physical collection hash of `1368a33250945109fb8c293fac1a48b0b66f9c61a50d1061fa9d5f6c70b5b2d4`.
-- Hybrid exact retrieval for direct GEOIDs, tract-and-group expressions, decimal tract plus county FIPS expressions, and explicit request fields.
+- A repaired physical block-group collection whose identifiers exactly match the governed publication set.
+- A recorded physical collection hash for the repaired block-group corpus.
+- Hybrid exact retrieval for direct GEOIDs, tract-and-group expressions, decimal tract plus county expressions, and explicit request fields.
 - Preservation of semantic vector retrieval for queries without resolvable exact identities.
 - Reverse trace from block-group retrieval through the physical vector record, belief hash, publication row, canonical snapshot, representation, and source feature.
 - Honest rendering of unresolved D-FIRM coverage so that zero features are not interpreted as verified absence.
-- Alignment of the GIS-RAG Chroma client with the `0.6.3` Chroma server.
-- Resolution of the block-group geometry-column defect, leaving one authoritative `EPSG:26917` geometry column.
-- A new Phi coherence reading against the repaired canonical block-group collection, computed over 1,639 SHA-256 belief hashes and yielding a coherence value of approximately `7.4018` under the defined prefix-entropy proxy.
+- Alignment of the Gis-RAG client with the vector-store server version.
+- Resolution of the block-group geometry-column defect, leaving one authoritative projected geometry column with an index.
+- Enforcement of a request-purpose gate against collection permitted-use values in governed Gis-RAG retrieval.
 
 ### Not yet demonstrated
 
 - Comprehensive multi-layer block-group coverage. The authoritative snapshot currently represents one D-FIRM source with unknown coverage for every block group.
 - Operational layer-role classification across an authoritative multi-layer block-group corpus.
-- Enforcement of Phi as a promotion gate for spatial collections.
+- Enforcement of coherence as a promotion gate for spatial collections.
 - Sandbox-staged spatial inference as described in Section 45.3. The implemented loop governs ingestion, publication, retrieval, and provenance, not reasoning-generated spatial candidates.
 - Locality-restricted disclosure as an enforced request-time authorization condition.
-- Extension of the governed geographic loop beyond West Virginia.
+- Extension of the governed geographic loop beyond a West Virginia vertical slice.
 
+---
 
-## 45.16 Closing Statement
+## 45.17 Closing Statement
 
 H_geo is the spatial Hilbert body of H_App, where place, geometry, infrastructure, locality, and jurisdiction become part of Ms. Allis's governed semantic state.
 
@@ -357,6 +401,6 @@ Spatial updates and inferences acquire authority only through an inspectable pat
 
 As of this writing, that structure is load-bearing across three West Virginia grains. At the block-group grain, the system has also demonstrated something more important than a clean first build: it detected that a count-correct physical collection was epistemically wrong, reconstructed the collection from the authoritative snapshot, quarantined the superseded state, validated hybrid retrieval, and preserved the event in the chapter's own record.
 
-The current block-group belief body remains narrow. It contains governed identity, lineage, and one unresolved D-FIRM coverage statement per block group, not a completed multi-layer model of West Virginia infrastructure. That limitation is part of the governed state rather than an embarrassment to be hidden.
+The current block-group belief body remains narrow. It contains governed identity, lineage, and one unresolved coverage statement per block group, not a completed multi-layer model of West Virginia infrastructure. That limitation is part of the governed state rather than an embarrassment to be hidden.
 
 A spatial Hilbert body earns authority not by claiming complete knowledge of place, but by preserving the difference between what it can identify, what it has verified, what remains unresolved, and what it has not yet built.
