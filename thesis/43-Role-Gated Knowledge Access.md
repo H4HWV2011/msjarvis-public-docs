@@ -1,5 +1,4 @@
-
-# 43. Role-Gated Knowledge Access
+# 43. Role-Gated Knowledge Access  
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
 *Last updated: July 15, 2026*
 
