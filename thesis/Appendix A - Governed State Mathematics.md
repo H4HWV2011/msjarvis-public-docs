@@ -1,4 +1,5 @@
-# Appendix A — Verified Architecture and Epistemic Discipline
+
+# Appendix A — Verified Architecture and Epistemic Discipline  
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
 *Last updated: July 20, 2026*
 
@@ -8,6 +9,8 @@ Appendix A defines the verification discipline for Ms. Allis as it exists after 
 
 This appendix is not a generic testing note. It is the thesis-wide rule for what counts as built, what counts as only intended, and what evidence is required before a chapter may describe a mechanism as demonstrated.
 
+It now explicitly includes the governed GBIM promotion contract: a provenance-bearing coherence evaluator, an enforced activation trigger, and a single controlled promotion entry point.
+
 ## A.1 Verification Registers
 
 Every claim in the thesis must appear in one of two registers:
@@ -16,6 +19,8 @@ Every claim in the thesis must appear in one of two registers:
 - **Not yet demonstrated.** A claim is not yet demonstrated when it remains architectural, partially implemented, synthetic-only, manually staged, or inferable from code shape without confirmed runtime evidence.
 
 This distinction applies to all chapters equally. No mechanism may be described as live merely because a formal operator has been written in the chapter text or because a helper function exists in source.
+
+The GBIM promotion path is treated as demonstrated because its trigger, evaluator, and procedure have all been exercised against real tables and data.
 
 ## A.2 Multi-Layer Route Verification
 
@@ -30,6 +35,8 @@ Governed routes must be verified as routes, not as isolated components. Every ro
 
 A route is not considered verified if only one layer has been checked. For example, a running service on a port is not enough without endpoint behavior; a database row is not enough without the route that created it; a formal chapter statement is not enough without code or runtime evidence.
 
+The GBIM activation gate was verified with both positive and negative transactional tests: valid activations succeed, and invalid ones raise an explicit exception at the trigger boundary.
+
 ## A.3 Verification Objects
 
 Appendix A recognizes the following verification objects across the current architecture:
@@ -41,7 +48,7 @@ Appendix A recognizes the following verification objects across the current arch
 - **Crontab and scheduled runners,** including retention, promotion, DGM, and reporting cycles.
 - **Projection and gate code,** including request-purpose, consent, legal-authority, and role-gated enforcement paths.
 
-The architecture is therefore verified across service, store, and scheduler layers together.
+The architecture is therefore verified across service, store, and scheduler layers together. GBIM’s promotion contract is one of the canonical examples of a governed schema-plus-trigger-plus-procedure path.
 
 ## A.4 Discrepancy Recording
 
@@ -76,7 +83,8 @@ A mechanism belongs here only if there is evidence of live behavior. Examples in
 - a governed endpoint admitting, suppressing, or refusing requests in line with policy;
 - a per-user collection being resolved at request time through the active service path;
 - a commons route returning health on its named port and exposing its active collection name;
-- Redis keys or Chroma collections showing the named state partition actually exists.
+- Redis keys or Chroma collections showing the named state partition actually exists;
+- a promotion procedure updating manifests and active pointers while guarded by an activation trigger and a coherence evaluator.
 
 ### Not yet demonstrated
 
@@ -217,7 +225,7 @@ Appendix A therefore requires commons chapters to distinguish between a demonstr
 
 Governed retrieval and assertion paths must verify projection gates in code and endpoint behavior.
 
-The July 2026 verification pass confirmed live `request_purpose` enforcement and manifest-aligned `permitted_use` matching in `gis_rag_service.py`, including fail-closed behavior when purpose is missing or mismatched. It also confirmed explicit `legal_authority` gating in projection wrappers and the governed query router.
+The July 2026 verification pass confirmed live `request_purpose` enforcement and manifest-aligned `permitted_use` matching in the governed GIS retrieval service, including fail-closed behavior when purpose is missing or mismatched. It also confirmed explicit `legal_authority` gating in projection wrappers and the governed query router.
 
 These projection gates are considered demonstrated because they are visible in active source, tied to named request fields or headers, and enforced along a live route rather than only in utility code.
 
@@ -246,7 +254,7 @@ The following are demonstrated in the current architecture:
 - request-purpose and permitted-use gating;
 - disclosure-verdict write paths;
 - belief revision and suppression behavior;
-- self-assess or epistemic-log traces at the level already confirmed in the July 2026 audit trail;
+- epistemic-log traces at the level already confirmed in the July 2026 audit trail;
 - scheduled DGM and retention cycles.
 
 ### A.10.3 Not yet demonstrated epistemic mechanisms
@@ -289,7 +297,55 @@ Appendix A therefore requires database-target verification before applying enfor
 
 This rule prevents architectural enforcement from being “successfully” applied to the wrong store.
 
-## A.13 Verification Commands as First-Class Evidence
+## A.13 GBIM Promotion Contract Verification
+
+GBIM activation and promotion are now treated as a governed contract, not as a bare pointer write.
+
+### A.13.1 Manifest schema and verdict provenance
+
+The GBIM manifest schema carries a coherence verdict and provenance fields, including:
+
+- a boolean `coherence_ok` flag;
+- verdict timing such as `validated_at`;
+- build and promotion status fields (`build_status`, `promoted_at`, `superseded_at`) that are consistent with coherence gating.
+
+These fields are written by a coherence evaluator that runs as part of the GBIM build-and-validate pipeline, not by ad hoc manual toggles except for initial backfill.
+
+### A.13.2 Activation trigger (guardrail)
+
+`gbim_active_collection` has a BEFORE trigger that enforces the coherence gate on activation. Any attempt to insert or update an active pointer to a manifest that is not coherence-approved and in the correct status results in a raised exception with a clear error message.
+
+This trigger has been exercised in transaction-level tests against:
+
+- a superseded manifest with `coherence_ok = false`, which correctly rejected activation; and
+- an otherwise active manifest temporarily forced to `coherence_ok = false` inside a transaction, which also failed activation.
+
+These negative tests prove the trigger is a real guardrail on activation writes.
+
+### A.13.3 Promotion procedure (sanctioned path)
+
+A stored procedure such as `promote_gbim_collection(...)` exists as the single sanctioned promotion path. It performs the governed sequence:
+
+1. checks the manifest’s build and coherence verdict;
+2. updates the manifest to the `active` status when appropriate;
+3. points `gbim_active_collection` at the new manifest version;
+4. relies on the activation trigger to fail the promotion if any coherence or status condition is not met.
+
+This procedure is considered demonstrated because it has been executed against production GBIM data with the trigger and evaluator in place.
+
+### A.13.4 Publication sync companion
+
+A companion trigger updates the publication manifest’s `promoted_at` timestamp whenever `gbim_active_collection` changes. This ensures that active-pointer shifts are mirrored in publication timing without creating a separate promotion path.
+
+### A.13.5 One-active-manifest rule
+
+The architecture calls for a uniqueness rule ensuring only one active manifest per logical GBIM collection. Where this rule exists as a partial index or unique constraint, it will be treated as demonstrated; where it remains only architectural, Appendix A will mark it as not yet demonstrated and require promotion procedures and triggers to uphold the invariant in practice.
+
+### A.13.6 GBIM status in the thesis
+
+Because the guardrail (trigger), the judge (coherence evaluator), and the sanctioned path (`promote_gbim_collection(...)`) are all live and exercised, GBIM promotion is now one of the core examples in the demonstrated register. Chapters dealing with spatial governance, block-group coverage, and promotion should name GBIM explicitly as a verified governed promotion pipeline.
+
+## A.14 Verification Commands as First-Class Evidence
 
 Command-level verification belongs inside the thesis discipline. For major routes, the command classes themselves are part of the evidence:
 
@@ -303,8 +359,8 @@ Command-level verification belongs inside the thesis discipline. For major route
 
 Appendix A does not require these exact commands to be printed in every chapter. It does require that chapter claims rest on this style of evidence and that future verification passes preserve the same level of inspectability.
 
-## A.14 Closing Statement
+## A.15 Closing Statement
 
-Appendix A is the operational conscience of the thesis. It binds formal chapters to live routes, live stores, live schedulers, and live discrepancies. It also requires humility: architecture may be elegant in formal notation while still partial in runtime, and the thesis remains trustworthy only when it says exactly which mechanisms are demonstrated, which are partial, and which are still aspirational.
+Appendix A is the operational conscience of the thesis. It binds formal chapters to live routes, live stores, live schedulers, live promotion contracts, and live discrepancies. It also requires humility: architecture may be elegant in formal notation while still partial in runtime, and the thesis remains trustworthy only when it says exactly which mechanisms are demonstrated, which are partial, and which are still aspirational.
 
 The result is a verification discipline that matches Ms. Allis itself: governed, inspectable, discrepancy-aware, and capable of revision without pretending that a design is already the same thing as a running system.
