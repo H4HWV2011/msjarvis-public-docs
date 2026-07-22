@@ -1,7 +1,7 @@
 # Chapter 9. Darwin-Gödel Machines
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
@@ -135,43 +135,35 @@ The unifying principle is that no candidate becomes production consequence merel
 
 ---
 
-## 9.10 The Fifth DGM
+## 9.10 Live Governed DGM Cycle
 
-The 5th DGM remains part of the chapter and stays in place.
+The current architecture includes a live governed DGM cycle that operates over an allowlisted workspace.
 
-It functions as a particularly important holding and shaping layer for latent, pre-promotional, or subconscious candidate material. In the current architecture, its role is interpreted in continuity with the internal-state sandbox and governed promotion path. The 5th DGM is not just a queue of hidden content; it is a staging and evaluative region where candidate states may persist provisionally while awaiting admissibility checks, contradiction handling, or later promotion.
+A governed DGM cycle performs proposal, evaluation, guarded application, rejection, evidence recording, and rollback. Valid proposals are applied only to allowlisted DGM workspace targets. Immutable production targets, such as core service code, are rejected outright. Proposals that fail safety, coherence, or hash consistency checks are rejected, and applied changes carry explicit rollback evidence so previous content can be restored.
 
-This interpretation keeps the 5th DGM connected to the current system rather than isolating it as a purely metaphorical subconscious container. Its significance lies in the fact that latent candidate material can affect future reasoning and optimization while still remaining below the threshold of committed state.
-
----
-
-## 9.11 Fractal Optimization Links
-
-This chapter cross-links directly to the fractal optimization and DGM chapters later in the thesis.
-
-The DGM loop is not only about immediate pass/fail decisions. It also participates in longer-horizon self-improvement. Fractal optimization uses recursive evaluation across scales, and DGMs provide the gate structure through which those optimization proposals become allowable. That means the optimization layer must include reasoning-pipeline safety, not just performance gain or utility increase.
-
-A DGM-guided self-improvement loop therefore includes:
-
-- generation of candidate code or reasoning changes;
-- sandboxed evaluation;
-- multidomain validation;
-- safety and governance gating;
-- selective promotion;
-- monitoring of downstream effects;
-- iterative refinement.
-
-Self-improvement here includes both computational efficiency and safer reasoning-pipeline behavior.
+The recurrent epistemic runner invokes this governed cycle via its `dgm_cycle.sh` script, ensuring that periodic self-improvement activity uses the same bounded transition logic rather than bypassing governance or safety constraints.
 
 ---
 
-## 9.12 Evaluation Links
+## 9.11 Application, Rejection, and Rollback
 
-This chapter also cross-links to the formal evaluation and audit chapters.
+The live DGM cycle can be described in terms of three primary verdicts:
 
-If DGMs govern reasoning promotion, then evaluation can no longer focus only on task success, output style, or code correctness. It must also test whether sandbox isolation holds, whether promotion gates are correctly enforced, whether evidence-bounded certainty is preserved, whether rollback leaves no unauthorized durable side effects, and whether candidate conclusions are prevented from bypassing constitutional and privacy constraints.
+- **APPLY**, where a proposal against the governed workspace passes evidence, safety, constitutional, and coherence gates and is written to the allowlisted target along with an evidence record and rollback file.
+- **REJECT**, where proposals are refused because the target is immutable, the safety score is too low, the precondition hash does not match, or other gate checks fail.
+- **ROLLBACK**, where previously applied changes are reversed, restoring the earlier content recorded in rollback evidence.
 
-DGM behavior is therefore made testable. A DGM is only trustworthy if its gate logic can be observed, challenged, and verified in practice.
+This triplet keeps the DGM cycle bounded. Code evolution and state evolution occur only within controlled workspaces, unsafe or mismatched proposals are rejected, and rollback remains available and verified for applied changes.
+
+---
+
+## 9.12 Relationship to BBB, Guardians, and Temporal Bodies
+
+The governed DGM cycle operates alongside BBB, constitutional guardians, temporal Hilbert bodies, and Phi-aware recurrent runners.
+
+During verification, these components remain live and participate in the evaluation and gating of proposals. BBB and constitutional guardians enforce non-overrideable safety and boundary conditions. Temporal and Phi-aware layers help ensure that proposals are evaluated in light of time, continuity, and recurrent behavior rather than as isolated instantaneous changes.
+
+The result is that DGM activity is not a free agent; it is embedded within a wider safety and governance apparatus.
 
 ---
 
