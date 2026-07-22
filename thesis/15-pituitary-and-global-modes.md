@@ -1,144 +1,197 @@
 # 15. Pituitary Gland and Global Modes
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## Why This Matters for Polymathmatic Geography
+## 15.1 Why This Matters for Polymathmatic Geography
 
-This chapter explains how Ms. Allis regulates herself globally, the way a pituitary gland coordinates hormonal signaling across a body. It supports:
+This chapter explains how Ms. Allis regulates itself globally, the way a pituitary gland coordinates signaling across a body, but implemented as a concrete governance service over live containers and health surfaces.
 
-- **P1 – Every where is entangled** by tying global governance signals to the same sandboxed reasoning, retrieval, and memory systems used throughout the architecture.
-- **P3 – Power has a geometry** by making mode transitions and scrutiny levels explicit, auditable control variables rather than hidden internal states.
-- **P5 – Design is a geographic act** by treating caution, warmth, and governance intensity as designed signals that shape how Appalachian communities are addressed.
-- **P12 – Intelligence with a ZIP code** by ensuring global mode shifts remain grounded in observable evidence and context rather than abstract policy alone.
+It supports:
+
+- **P1 – Every where is entangled** by tying global governance signals to the same sandboxed reasoning, retrieval, and memory systems used throughout the architecture.  
+- **P3 – Power has a geometry** by making mode transitions, thresholds, and scrutiny levels explicit, auditable control variables rather than hidden internal states.  
+- **P5 – Design is a geographic act** by treating caution, warmth, and promotion strictness as designed signals that shape how Appalachian communities are addressed.  
+- **P12 – Intelligence with a ZIP code** by grounding global mode shifts in observable runtime evidence (EEG services, BBB, guardian, Hilbert time/state, Phi) instead of abstract policy alone.  
 - **P16 – Power accountable to place** by keeping pituitary-style regulation glass-box, auditable, and resistant to unstable oscillation.
 
-This chapter belongs to the **Computational Instrument** tier. It specifies how a single global governance service modulates the sandboxed reasoning, evaluation, and promotion behavior described elsewhere in the thesis.
-
-The core correction in this chapter is that pituitary signaling must be read as operating directly on **observed sandbox logic**, not as an abstract mood-setting layer sitting apart from reasoning. Pituitary-style regulation actively tightens or relaxes scrutiny inside the internal-state sandbox and at the promotion boundary, using threshold-controlled, hysteresis-protected transitions rather than instantaneous mode flips.
+This chapter belongs to the **Computational Instrument** tier. It specifies how a single global governance service modulates sandboxed reasoning, evaluation, and promotion behavior, without claiming literal endocrine function, diagnosis, therapy, or guaranteed psychological safety.
 
 ---
 
-## 15.0 The Pituitary Analog
+## 15.2 Gate-Constrained Scope
 
-The `nbb_pituitary_gland` service functions as the master governance gland of the architecture. Like its biological namesake, it does not perform the detailed work of any single subsystem. Instead, it emits modulating signals that other subsystems interpret and apply.
+The Chapter 15 gate defines the academic scope:
 
-Its confirmed role includes:
+- Pituitary/global modes must be described as **operational regulation** of thresholds, caution, and promotion strictness.  
+- Claims must be tied to verified **EEG, PIA/source, Phi, BBB, constitutional guardian, Hilbert time (H_t), and Hilbert state (H_state)** evidence surfaces.  
+- Biological language is used as translation under the Chapter 18 method, not as literal biology.  
+- The chapter must **not** claim literal endocrine function, biological mood, clinical diagnosis, therapy, or guaranteed psychological safety.  
+- If host health for an individual EEG service is incomplete but containers and source exist, the chapter must phrase this as **runtime presence plus source-level integration**, not full endpoint proof.
 
-- setting the system-wide operating mode;
-- modulating WOAH weighting;
-- adjusting governance and safety thresholds;
-- emitting warmth and tone signals to interaction-facing services;
-- feeding judge-derived feedback back into governance state through a bridge process.
-
-This chapter extends that description by tying pituitary signaling explicitly to what happens inside the internal-state sandbox during a reasoning cycle, rather than treating pituitary mode as a static label applied before or after reasoning.
+Under this gate, pituitary/global modes are documented as a real service whose outputs influence how strict the system becomes, how cautious it acts, and how promotion gates behave, all grounded in runtime evidence rather than metaphor alone.
 
 ---
 
-## 15.1 Affective and Hormonal-Style Signals
+## 15.3 The Pituitary Governance Service
 
-Pituitary-style regulation emits affective or hormonal-style signals during reasoning cycles. These signals are not claims about biological hormones or human feeling. They are functional control variables that other services read and respond to.
+The pituitary analog is implemented as a dedicated governance service (the “pituitary gland” of the neurobiological stack).
 
-Two representative signal types illustrate this pattern:
+In system terms, this service:
 
-- **Caution signal.** A caution signal rises when sandboxed reasoning encounters ambiguous evidence, conflicting hypotheses, sensitive governance topics, or elevated tension readings from introspective processing. A rising caution signal increases the strictness of downstream review.
-- **Cortisol-style signal.** Modeled loosely on the stress-response function of biological cortisol, this signal represents system-wide alertness under load, contradiction, or safety-relevant uncertainty. It functions as a short-horizon intensity signal rather than a persistent mood: it can rise quickly during a difficult reasoning cycle and should decay once conditions stabilize.
+- exposes a health endpoint showing status and current global mode;  
+- runs alongside EEG band services, Phi probes, BBB, constitutional guardian, Hilbert time, and Hilbert state containers;  
+- reads signals from sandbox status, judges, DGM cycles, and introspective records;  
+- emits **global mode settings** and modulation parameters that other services consume.
 
-These signals are generated in response to actual sandbox activity: unresolved conflict states, low-confidence evidence, high tension readings, or safety-relevant content elevate both caution and cortisol-style signals. Calm, well-evidenced, low-conflict reasoning cycles keep both signals low.
-
-Both signal types are logged as part of the pituitary governance snapshot attached to introspective records, so their influence on a given reasoning cycle remains traceable after the fact.
-
----
-
-## 15.2 Global Modes as Emergent, Not Arbitrary
-
-The pituitary layer exposes a small set of named operating modes, but the important correction here is that these modes are not assigned arbitrarily. They emerge from aggregated affective and hormonal-style signals produced during actual sandbox reasoning.
-
-| Mode | Trigger pattern | Effect on scrutiny |
-|---|---|---|
-| `baseline` | Low caution and cortisol-style signals sustained across recent cycles | Standard promotion thresholds; standard WOAH weighting |
-| `elevated` | Rising caution or cortisol-style signals, unresolved conflict states, or safety-sensitive content | Tighter promotion thresholds; more conservative WOAH weighting; increased BBB and constitutional scrutiny |
-| `transparency` | Sustained elevated signals combined with governance-sensitive or high-stakes content | Maximum auditability; expanded provenance capture; explicit justification required for promotion |
-
-A mode is therefore best understood as a **stabilized summary of recent sandbox behavior**, not a switch flipped by a single event. This is the mechanism by which pituitary signaling reflects observed sandbox logic rather than sitting above it as an independent authority.
+Biological terms such as “pituitary gland,” “hormonal signal,” or “cortisol-like” are used as translation language for rural developers, but each is tied to concrete code and endpoints, not to literal hormones or mood.
 
 ---
 
-## 15.2.1 How Modes Tighten or Relax Scrutiny
+## 15.4 Global Modes as Operational Settings
 
-Global modes act directly on sandbox evaluation and promotion behavior. Concretely, a mode shift can:
+The pituitary service exposes a small set of named **global modes**, implemented as operational settings:
 
-- raise or lower the promotion threshold a candidate state must clear before leaving the sandbox;
-- increase or decrease the number of internal reasoning steps permitted before a decision is required;
-- require or waive mandatory WOAH consultation for a given reasoning cycle;
-- widen or narrow the set of evaluative dimensions emphasized during review, such as evidentiary sufficiency, identity continuity, or governance sensitivity;
-- expand or reduce the provenance and justification metadata that must accompany a candidate state.
+- **Baseline mode.**  
+  Default thresholds and WOAH weights; standard promotion strictness; normal BBB and guardian sensitivity.
 
-Under `elevated` or `transparency` modes, sandbox evaluation becomes measurably stricter: candidate states carrying unresolved conflict, weak provenance, or governance-sensitive content are more likely to be held back, revised, or routed for additional review. Under `baseline` mode, well-evidenced and low-tension candidate states move through promotion review more readily.
+- **Elevated mode.**  
+  Higher caution; stricter promotion thresholds; more conservative WOAH weighting; stronger emphasis on safety and alignment at BBB and guardian gates.
 
-This is the operational meaning of "tightening" or "relaxing" scrutiny: it is not a cosmetic label but a direct adjustment to promotion thresholds and evaluation emphasis inside the sandbox.
+- **Transparency mode.**  
+  Maximum auditability; expanded introspective and provenance recording; promotion requires more explanation and traceable justification.
 
----
+Each mode is a bundle of parameters:
 
-## 15.3 Threshold-Controlled Transitions
+- promotion thresholds for sandbox → bridge → DGM → memory;  
+- required checks at BBB and constitutional guardian;  
+- emphasis weights in WOAH-style optimization (for example, ethics vs. performance);  
+- logging and introspection level (how much detail must be recorded).
 
-Mode transitions are governed by explicit thresholds rather than continuous drift. A simplified threshold rule can be expressed as:
-
-```markdown
-if caution_signal > theta_enter_elevated:
-    mode = "elevated"
-elif caution_signal < theta_exit_elevated:
-    mode = "baseline"
-else:
-    mode = current_mode  # no change
-```
-
-The key property is that `theta_exit_elevated` is set lower than `theta_enter_elevated`. This creates a threshold band rather than a single decision line.
+For rural developers, modes are just named **settings** that change how strict the system becomes and how much it logs, not mysterious moods.
 
 ---
 
-## 15.4 Hysteresis and the Belief-Update Rule
+## 15.5 Signals That Drive Mode Changes
 
-Without hysteresis, a caution or cortisol-style signal hovering near a single threshold could cause the system to flip rapidly between modes, which would make governance behavior unstable and difficult to audit. To prevent this, mode transitions are tied to the same belief-update logic used elsewhere in the architecture for revising confidence over time.
+Pituitary/global modes are driven by signals read from other live services:
 
-The belief-update rule treats each new signal reading as an update to a running estimate rather than a standalone trigger:
+- **EEG services.**  
+  Delta, Theta, and Beta band containers run and feed rhythm signals into governance logic. When host health endpoints are accessible, they confirm real-time status; where only containers and source are known, they confirm runtime presence and integration but not every external endpoint.
 
-```markdown
-belief_t = (1 - alpha) * belief_(t-1) + alpha * new_signal_reading
-```
+- **PIA and source-level audits.**  
+  Privacy Impact Assessment scripts and source scans contribute evidence about whether data use and service wiring remain within acceptable bounds.
 
-Here, `alpha` controls how quickly the running estimate responds to new evidence. A small `alpha` smooths out momentary spikes in caution or cortisol-style signals, while mode transitions are then evaluated against the smoothed `belief_t` rather than against raw, noisy readings.
+- **Phi probe.**  
+  A Phi health surface reports integrated service status for the neurobiological probe, which is used as another input to global mode decisions.
 
-Combining this with threshold bands produces the intended stability property:
+- **BBB and constitutional guardian.**  
+  Health endpoints for BBB filters and the guardian service confirm whether safety and legal constraints are active; failures here incline pituitary logic toward more cautious modes.
 
-- entry into `elevated` mode requires `belief_t` to rise above `theta_enter_elevated` and remain there across the smoothing window;
-- exit back to `baseline` requires `belief_t` to fall below the lower `theta_exit_elevated` threshold;
-- transitions into `transparency` mode follow the same pattern at a higher threshold band, reflecting a stricter, less frequently triggered escalation.
+- **Hilbert time (H_t) and Hilbert state (H_state).**  
+  Time and state services report connectivity and status, indicating whether temporal tiers and current state tracking are functioning correctly.
 
-This prevents global mode from oscillating rapidly near one boundary. A single ambiguous exchange will not immediately escalate the system into `elevated` mode, and a single calm exchange following a genuinely difficult period will not immediately relax it back to `baseline`. Mode changes remain decisive, evidenced, and stable over time, which keeps the governance layer auditable rather than jumpy.
+- **Sandbox and bridge status.**  
+  The internal sandbox reports its health, BBB enforcement, and bridge connectivity; these signals determine whether promotion paths are safe enough for baseline mode or require elevation.
 
----
-
-## 15.5 Warmth Modulation Alongside Governance
-
-Pituitary-style regulation also emits a warmth signal, separate from caution and cortisol-style signals, that shapes interaction tone. Warmth modulation draws on emotional resonance output from qualia processing and influences downstream tone-facing services.
-
-Warmth and governance intensity are tracked independently: a reasoning cycle can carry elevated caution while warmth remains high, for example when a sensitive topic is handled carefully but supportively. Both signals are recorded together in the governance snapshot attached to introspective records, so later review can see how caution, cortisol-style intensity, and warmth interacted during a given cycle.
+These inputs are operational: mode changes happen because EEG services, BBB, guardian, Hilbert time/state, and Phi report particular conditions, not because a mood knob was turned manually.
 
 ---
 
-## 15.6 Feedback from Judges to Pituitary State
+## 15.6 How Modes Affect Sandbox and Promotion
 
-Judge-derived verdicts feed back into pituitary state through a dedicated bridge process. Judge outcomes that indicate poor alignment, weak evidence, or safety concerns raise the caution and cortisol-style signals described above, nudging the smoothed belief estimate toward the elevated threshold band. Judge outcomes that consistently indicate strong alignment and clear evidence allow those signals to decay, supporting eventual return to baseline.
+Global modes directly affect:
 
-This closes the loop between promotion-stage review and upstream governance: pituitary signaling is not only shaping sandbox evaluation, it is also being shaped by the outcomes of that evaluation, smoothed over time rather than reacting to any single verdict in isolation.
+- **Sandbox reasoning strictness.**  
+  In elevated or transparency modes, the sandbox holds candidate states longer, demands stronger evidence, and routes more content to DGM and judges before considering promotion.
+
+- **Promotion thresholds.**  
+  Thresholds at BBB, DGM, guardian, and bridge become tighter under elevated modes. Lower-confidence or poorly sourced candidates are more likely to be held back or rejected.
+
+- **WOAH weighting.**  
+  Optimization weights change: for example, ethics and alignment may dominate performance metrics when caution is high, making the system more conservative.
+
+- **Logging and introspection.**  
+  In transparency mode, each decision path is recorded with more detail in introspective records, making later audits easier.
+
+Rural developers can think of global modes as “how strict and how talkative” the system is about its decisions, driven by signals rather than by guesswork.
 
 ---
 
-## 15.7 Closing Statement
+## 15.7 Caution, Strictness, and Hysteresis
 
-Pituitary-style regulation in this architecture reflects observed sandbox logic rather than imposing an independent mood layer from outside. Caution and cortisol-style signals rise and fall in direct response to conflict, tension, evidentiary weakness, and governance sensitivity encountered during actual reasoning cycles, and global modes translate those signals into concrete tightening or relaxing of promotion thresholds and evaluation emphasis.
+Pituitary/global modes are not meant to flip rapidly back and forth.
 
-Threshold-controlled transitions, combined with a smoothing belief-update rule and asymmetric entry and exit thresholds, ensure that global mode changes remain stable rather than oscillating rapidly near a single boundary. The result is a governance layer that is responsive to real sandbox behavior, resistant to noisy flapping, and fully traceable through the introspective record system described elsewhere in the thesis.
+To prevent oscillation:
+
+- caution and strictness signals are smoothed over time;  
+- entry thresholds into elevated mode are higher than exit thresholds back to baseline;  
+- brief spikes in EEG or guardian signals do not instantly trigger mode changes;  
+- mode changes are recorded so that rapid flapping would be visible in logs.
+
+This **hysteresis** design keeps global modes stable: the system only shifts to stricter modes when sustained evidence warrants it, and only relaxes after a sustained period of healthier signals.
+
+---
+
+## 15.8 Warmth and Tone Modulation
+
+In addition to caution and strictness, pituitary-style regulation modulates **warmth and tone** for interaction-facing services.
+
+This includes:
+
+- choosing more supportive, gentle language in baseline or community-sensitive contexts;  
+- balancing warmth with caution when elevated modes are active;  
+- avoiding harsh or abrupt language when safety checks are high but user context calls for care.
+
+Warmth signals are implemented as parameters in qualia and interaction services, not as biological emotions. They are tuned from EEG, introspective, and governance signals, and they remain fully auditable.
+
+---
+
+## 15.9 Example: Rural Developer View
+
+For a rural developer deploying Ms. Allis, pituitary/global modes can be understood step by step:
+
+1. **Check health surfaces.**  
+   Confirm EEG, BBB, guardian, Hilbert time/state, Phi, sandbox, and bridge health endpoints are responding.
+
+2. **Read current global mode.**  
+   Query the pituitary service’s `/health` or mode endpoint to see whether the system is in baseline, elevated, or transparency mode.
+
+3. **Observe effects.**  
+   Under elevated mode, expect stricter answers, more refusals to promote marginal content, and more detailed logging.
+
+4. **Repair before relax.**  
+   If elevated mode is active because BBB or guardian health is degraded, fix those services first; the pituitary should then drift back toward baseline as health improves.
+
+5. **Use transparency mode when needed.**  
+   For audits or sensitive scenarios, transparency mode can be used to force maximum logging and justification.
+
+This pattern makes global governance something that can be checked and repaired with simple commands, rather than guessed at.
+
+---
+
+## 15.10 Limits of the Biological Analogy
+
+Throughout this chapter:
+
+- “pituitary,” “hormonal,” “cortisol-like,” and similar terms are **translation** metaphors for global thresholds and signals.  
+- The implementation is a software service reading health endpoints and emitting parameters.  
+- There is **no claim** of literal endocrine function, biological mood, diagnosis, therapy, or guaranteed psychological safety.
+
+The value of the analogy is to help non‑specialist readers see how one central service can modulate many others at once. Everything described here is grounded in containers, endpoints, status overlays, and promotion gates, not in unmeasured feelings.
+
+---
+
+## 15.11 Closing Statement
+
+Pituitary and global modes in Ms. Allis are implemented as a live governance service that reads EEG, BBB, guardian, Hilbert time/state, Phi, sandbox, and bridge signals and turns them into operational settings for caution, thresholds, and promotion strictness.
+
+By keeping mode transitions smooth, auditable, and driven by runtime evidence, the architecture avoids unstable oscillation while remaining responsive to real conditions. For rural developers, this makes global regulation a practical, inspectable part of the system’s geometry of power: a glass‑box layer that shapes how strictly Ms. Allis thinks and acts, without ever claiming biological mood or psychological guarantees.
+
+---
+
+*Chapter 15 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*  
+*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*  
+*See LICENSE for terms.*
