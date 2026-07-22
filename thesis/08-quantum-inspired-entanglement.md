@@ -1,7 +1,7 @@
 # Chapter 8. Quantum-Inspired Entanglement and Coupled State
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
@@ -116,3 +116,6 @@ This chapter does **not** claim that Ms. Allis runs on quantum hardware, that ev
 Quantum-inspired entanglement in Ms. Allis names the disciplined coupling of provisional state across semantic, spatial, temporal, people-linked, and governance-relevant domains. Its clearest architectural expression appears in the interaction among routed context assembly, internal-state sandbox processing, multidomain coherence testing, and gated promotion into validated state.
 
 That framing keeps the metaphor honest. The chapter can therefore use entanglement language with confidence, so long as it distinguishes implemented behavior from formal interpretation and formal interpretation from future research extensions.
+*Chapter 8 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*  
+*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*  
+*See LICENSE for terms.*
