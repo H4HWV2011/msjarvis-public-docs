@@ -1,7 +1,7 @@
 # 7. RAG Pipeline and Routers
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
