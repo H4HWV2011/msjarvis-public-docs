@@ -1,419 +1,231 @@
-# 10. WOAH: Weighted Optimization Algorithm Hierarchy
+# Chapter 10. WOAH Weighted Optimization Hierarchy
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## Why This Matters for Polymathmatic Geography
+## 10.1 Purpose
 
-This chapter explains how Ms. Allis coordinates many specialized agents as a
-**population**, rather than relying on a single model, and how that coordination is
-constrained by spatial-justice goals.
+This chapter explains the WOAH weighted optimization hierarchy in Ms. Jarvis as an **as‑built, bounded evaluation pattern**, not as a claim of global mathematical optimality or autonomous moral agency. WOAH describes how the system assigns priorities and weights when judging candidate states, routes, or actions under guardrails such as truth, alignment, ethics, coherence, safety, and constitutional limits.
 
-It supports:
-
-- **P1 – Every where is entangled** by treating governance, spatial, and narrative agents
-  as a coupled population whose influence is jointly optimized, not siloed.
-- **P3 – Power has a geometry** by shaping how optimization pressure flows through the
-  service graph, deciding which agents' outputs are amplified or muted for particular
-  places and tasks.
-- **P5 – Design is a geographic act** by making orchestration weights and routing
-  strategies first-class design choices that affect how West Virginia is seen and served.
-- **P12 – Intelligence with a ZIP code** by privileging agents and retrieval paths that
-  are explicitly grounded in Appalachian data and institutions.
-- **P16 – Power accountable to place** by keeping WOAH as a glass-box service that can
-  expose how different agents were weighted in producing an answer.
-
-This chapter belongs to the **Computational Instrument** tier: it specifies a
-WOA-inspired orchestration layer that coordinates Ms. Allis's multi-agent "mind" in
-service of Quantarithmia's justice-oriented instruments.
-
-WOAH operates at **Phase 2.5 of the 9-phase `ultimatechat` pipeline** (see Ch. 11
-§11.4), but in the revised architecture its influence no longer stops at routing and
-identity weighting alone. WOAH now also helps shape how the **internal-state sandbox**
-runs, how heavily certain evaluative dimensions are emphasized, and how candidate
-reasoning states are prepared for possible promotion.
-
-> Figure 10.1. WOAH as a WOA-inspired orchestration service in Ms. Allis, weighting
-> multiple agents and feeding those weights into the consciousness, routing, and sandbox
-> governance stack with Appalachian, place-aware priorities.
+For rural developers, the goal is practical: show how Ms. Jarvis uses real services, judges, and recurrent runners to rank and filter options, and how those evaluations stay inside bounded governance rather than becoming unconstrained “optimize everything” behavior.
 
 ---
 
-## WOAH: Weighted Optimization Algorithm Hierarchy
+## 10.2 Gate Scope and Limits
 
-This chapter describes WOAH (Weighted Optimization Algorithm Hierarchy) as used in Ms.
-Egeria Allis. WOAH is inspired by the Whale Optimization Algorithm (WOA), a
-population-based metaheuristic that models humpback whale hunting with exploration and
-exploitation phases, but it is not a textbook WOA implementation.
+The live gate for Chapter 10 allows the thesis to claim:
 
-In this system, WOAH is a set of concrete services that evaluate and weight multiple
-agents, including LLMs, DGMs, RAG paths, and related evaluators, and feed those weights
-into the consciousness and orchestration layers, helping coordinate many minds rather
-than optimizing a single numeric function. WOAH should therefore be understood as a
-**WOA-inspired orchestration pattern implemented as a service layer**, with practical
-scoring and weighting logic, rather than as a fully formal WOA with provable convergence
-guarantees.
+- A working **weighted/priority evaluation pattern** (“WOAH”) grounded in actual source and runtime evidence.
+- Optimization tied to guardrails: truth, alignment, ethics, coherence, BBB, constitutional guardian, Phi, and recurrent assessment.
+- Partial implementation where appropriate, explicitly labeled as architectural vocabulary versus runtime gate behavior.
 
-The key revision in this chapter is that WOAH is now described as influencing
-**sandbox behavior operationally**. Weighted optimization decisions are executed first
-inside the internal-state sandbox, informed by neurobiological, affective, and qualia
-signals, and are then subjected to BBB, constitutional, and DGM gating before they are
-allowed to alter persistent state. WOAH does not directly rewrite durable memory,
-identity, or code merely because it has produced a high score.
+The gate forbids Chapter 10 from claiming:
+
+- Global optimization or universal utility maximization.
+- Autonomous moral agency or a system that “decides what is right” on its own.
+- Perfect safety, universal truth, or guaranteed correct decisions.
+
+Under this scope, WOAH is documented as a real weighted evaluation hierarchy that helps the steward system choose among options safely, but it is never described as infallible or globally optimal.
 
 ---
 
-## Deployment Status
+## 10.3 WOAH in the Running Stack
 
-WOAH remains a live and meaningful part of the architecture. It continues to function as
-an active orchestration and identity-weighting layer tied to the broader consciousness
-stack, the Fifth DGM, the pituitary governor, and the service graph documented elsewhere
-in the thesis.
+WOAH is implemented as a pattern of services and judges rather than a single monolithic optimizer.
 
-Two roles remain important:
+Runtime evidence shows:
 
-- **`allis-woah`** as the qualia-net internal WOAH node.
-- **`nbb_woah_algorithms`** as the full scoring and population-dynamics service.
+- A **jarvis‑woah** service and an **nbb_woah_algorithms** container operating alongside the steward, stewardship scheduler, fifth DGM, and qualia orchestrator.
+- A **judge pipeline** with dedicated ports for:
+  - truth
+  - alignment
+  - ethics
+  - consistency
 
-The chapter no longer treats WOAH as important only because it is deployed. It is now
-important because its weighting outputs participate in the governed transition between
-**sandboxed reasoning** and **admissible persistent effect**.
-
----
-
-## Classical Whale Optimization Algorithm
-
-The original Whale Optimization Algorithm (WOA) is a population-based optimization
-method that models humpback whales' bubble-net hunting behavior.
-
-Key features of WOA include:
-
-- **Population and best agent** — a set of candidate solutions explores a search space,
-  and the current best candidate guides others.
-- **Encircling prey** — agents update their positions relative to the best solution using
-  coefficients that shrink over time, balancing exploration and exploitation.
-- **Spiral and bubble-net search** — a spiral equation models bubble-net feeding,
-  allowing candidate solutions to move around the best in a shrinking spiral trajectory.
-
-WOAH in Ms. Allis borrows the ideas of populations, encircling, and weighted movement
-toward better candidates, but adapts them to agent orchestration rather than direct
-numeric parameter search.
+These components form a hierarchy of evaluation where candidate states and proposals are weighed against multiple criteria before they can move toward consequence. WOAH labels describe how these weights and priorities are applied, while the judges and guardian services enforce actual decisions about acceptance, rejection, or review.
 
 ---
 
-## WOAH in Ms. Allis: Conceptual Role
+## 10.4 Biology and Geography Vocabulary as Translation
 
-In Ms. Allis, WOAH refers to a hierarchy of weighting and evaluation processes that sit
-between low-level agents and higher-level consciousness or orchestration.
+WOAH has its roots in biology‑ and geography‑inspired language, but in this chapter those metaphors are treated as **translation tools** rather than literal claims.
 
-Its familiar functions remain:
+Biological phrases such as “fitness,” “adaptation,” or “survival” are used to help rural developers reason about which options the system tends to preserve, but the implementation is still just software: weights, scores, thresholds, and gates. Geographic metaphors (terrain, routes, gradients) provide intuition for how the system moves through configuration space or policy space.
 
-- **Multiple agents as "whales"** — different LLMs, DGMs, RAG paths, and analysis
-  services act as candidate "whales," each producing outputs or evaluations over the same
-  query or memory item.
-- **Weighted evaluation** — WOAH services analyze those outputs and assign weights or
-  scores indicating how much influence each agent should have for a given task, user, or
-  place.
-- **Hierarchical integration** — these weights are fed into consciousness coordinators,
-  qualia engines, and judge layers that combine agent outputs into a final response.
-
-The chapter now adds a further role: **WOAH influences sandbox behavior before
-promotion**. Its weights may shape whether a sandbox cycle is required to consult WOAH
-explicitly (`require_woah`), how many internal reasoning steps may be taken
-(`max_steps`), how strict promotion thresholds are set for candidate states, and which
-evaluation dimensions are emphasized during review.
-
-In this sense WOAH is not merely a downstream scorer. It becomes part of the operational
-governance of sandboxed reasoning.
+The chapter therefore uses biology and geography vocabulary where it clarifies the architecture, but it always ties back to concrete services, judges, and guardrails rather than implying physical or metaphysical processes beyond the code.
 
 ---
 
-## WOAH and the Internal-State Sandbox
+## 10.5 Guardrails: Truth, Alignment, Ethics, Coherence
 
-The internal-state sandbox is the protected domain in which provisional reasoning can
-occur without immediate production consequence. Retrieved context, model-generated
-hypotheses, affective cues, EEG-linked signals, spatial relations, identity traces, and
-qualia-linked interpretations can interact there as candidate internal states.
+The WOAH hierarchy is anchored by explicit guardrails.
 
-WOAH now helps shape this sandbox operationally.
+At minimum, candidate states are evaluated against:
 
-A simplified control pattern is:
+- **Truth**: Does the claim match available evidence and retrieval results?
+- **Alignment**: Does the claim or action remain aligned with the system’s steward purpose and configured goals?
+- **Ethics**: Does it respect boundaries on harm, dignity, fairness, and local commitments?
+- **Consistency**: Does it cohere with existing state, previous decisions, and internal records?
 
-\[
-\text{context} \rightarrow \text{WOAH weighting} \rightarrow \text{sandbox parameterization} \rightarrow \text{candidate reasoning state}
-\]
+Dedicated judge services operate on these dimensions, and the WOAH pattern ties their outputs into a weighted evaluation: some failures (for example, clear ethical violations) may be hard blockers, while softer inconsistencies may route a candidate to review rather than immediate rejection.
 
-This means WOAH-derived weights may influence, for example:
-
-- whether WOAH participation is mandatory for a given internal reasoning cycle
-  (`require_woah`);
-- the allowed depth or breadth of deliberation inside the sandbox (`max_steps`);
-- how strongly the evaluation regime emphasizes identity continuity, place-based
-  salience, governance sensitivity, evidentiary sufficiency, or novelty;
-- how conservative the later promotion thresholds will be when a candidate state seeks to
-  leave the sandbox.
-
-These are not direct writes to persistent memory. They are **sandbox-control effects**.
-WOAH affects how the candidate state is formed and evaluated, not whether it is
-automatically accepted.
+For a rural developer, this means any optimization logic should consider these guardrails as first‑class criteria, not as optional post‑filters.
 
 ---
 
-## The WOAH Algorithms Service
+## 10.6 Constitutional Guardian and BBB
 
-The central production-grade WOAH component remains the **WOAH algorithms service**,
-which computes weighting outputs over content and metadata and maintains a WOA-inspired
-population of internal weight vectors.
+Optimization in Ms. Jarvis never runs outside constitutional and BBB oversight.
 
-Its scoring axes continue to include dimensions such as:
+A constitutional guardian service maintains an audit log and reports healthy status when connected. BBB (blood‑brain barrier) filters sit in front of sensitive routes, enforcing safety and constitutional constraints. Together, these components ensure that weighted evaluation cannot quietly override core rules of the system.
 
-- `hierarchical_weight`
-- `self_relevance`
-- `temporal_importance`
-- `novelty`
-- `stability`
-- `composite_weight`
-- `identity_type`
-- `weight_category`
+WOAH’s role is subordinate to these guardians: even if a candidate scores highly on some optimization metric, it still cannot cross BBB or constitutional gates if it violates constraints on privacy, surveillance, role boundaries, or prohibited content.
 
-Those outputs remain useful for identity and routing, but the current architecture now
-treats them as relevant to sandbox governance as well.
-
-A high-weight structural governance narrative, for example, may lead the system to:
-
-- require explicit WOAH participation before the sandbox may attempt promotion;
-- allow more internal steps so the candidate state is evaluated under richer context;
-- increase scrutiny at the promotion boundary because the candidate, if later admitted,
-  would have greater identity or governance consequence;
-- emphasize evidentiary and constitutional review more strongly than novelty.
-
-Conversely, low-weight or obviously transient material may be handled with lighter
-sandbox parameters and stricter limits on persistence.
+This keeps weighted evaluation compatible with the steward’s commitments to safety and governance rather than allowing optimization to become a bypass around policy.
 
 ---
 
-## WOA-Inspired Population Dynamics
+## 10.7 Hilbert State, Hilbert Time, and Phi
 
-WOAH maintains an internal population of weight vectors updated in a WOA-inspired way.
-This lets the system accumulate policy tendencies over time rather than treating each
-decision as wholly isolated.
+The WOAH hierarchy operates in the presence of Hilbert-state and Hilbert-time services, as well as a Phi probe.
 
-The population remains useful for interpretability and orchestration, but the revised
-architecture also links it to **sandbox governance**. As the population evolves, it can
-shift how the system balances exploration and caution in the internal-state sandbox.
+Hilbert-state provides a structured view of current system state, while Hilbert-time provides temporal tiers (ephemeral, staged, historical) with half‑life parameters and hysteresis. Phi probes track aspects of the system’s integrated behavior. Together, these components allow weighted evaluation to consider not just instantaneous scores, but history, recency, and continuity.
 
-For example, a population trend toward strong identity weighting may lead the sandbox to:
+For example:
 
-- increase review intensity for autobiographical or governance-sensitive content;
-- raise the bar for promotion into durable memory;
-- preserve more provenance and justification metadata during candidate formation;
-- keep certain high-salience states provisional for longer before they can be considered
-  promotable.
+- A proposal may be weighed differently if it affects historical records versus ephemeral caches.
+- A repeated pattern of failures over time may lower the effective weight of similar future proposals.
 
-This makes WOAH part of the system’s **epistemic control loop**, not merely a scoring
-service for finished outputs.
+WOAH, in this context, is not a standalone optimizer but a pattern for how weights and priorities can be made time‑aware and state‑aware within the system’s Hilbert framing.
 
 ---
 
-## WOAH in the Consciousness and Orchestration Stack
+## 10.8 Recurrent Epistemic Runner and Scheduling
 
-WOAH occupies an intermediate layer in the Ms. Allis architecture, operating at
-**Phase 2.5 of the 9-phase `ultimatechat` pipeline**.
+Optimization is connected to recurrent assessment, not only on demand.
 
-**Upstream layers** still include user input, RAG paths, GIS and Hilbert-state services,
-qualia and neurobiological signals, and governance-linked context.
+Cron entries and runtime evidence show that a **recurrent epistemic runner** is launched at boot and runs continuously, replacing earlier direct calls to `dgm_cycle.sh`. This runner coordinates periodic evaluations, identity promotion, privacy impact assessments, and DGM cycles, all under the same governance envelope.
 
-**WOAH layer** functions now include:
+WOAH interacts with this scheduler in two ways:
 
-- determining how important a memory or narrative may be for identity;
-- distinguishing structural from episodic salience;
-- feeding weighted context into consciousness and routing services;
-- influencing sandbox parameters such as `require_woah`, `max_steps`, and evaluation
-  emphasis;
-- helping determine how cautious later promotion review should be.
+- It provides weighted criteria for which tasks and proposals should be evaluated or promoted next.
+- It helps ensure that repeated evaluations do not drift into unsafe behavior by keeping guardrails in place.
 
-**Downstream layers** include the Fifth DGM, BBB and constitutional review, the
-consciousness bridge, and persistence-bearing memory layers.
-
-The essential revision is this: **optimization decisions affecting persistent state are
-not immediate**. WOAH may shape weighting, routing, or sandbox behavior, but if the
-resulting candidate state could affect durable memory, identity continuity, action, or
-external consequence, that state still moves through the internal-state sandbox and then
-through DGM-style promotion gates before it becomes validated, experiential, or
-persistent.
-
-WOAH influences the path. It does not self-authorize the outcome.
+For rural developers, this means optimization is part of a scheduled stewardship loop rather than a set of ad‑hoc scripts, and any changes to weights or priorities must be considered in light of their long‑running effects.
 
 ---
 
-## From WOAH Weight to Governed Promotion
+## 10.9 WOAH in Source Files and Services
 
-The architecture now requires clearer language for how WOAH relates to state change.
+The WOAH pattern is visible in multiple source files and services.
 
-A useful simplified chain is:
+Examples include:
 
-\[
-S_{\mathrm{input}} \rightarrow S_{\mathrm{weighted}} \rightarrow S_{\mathrm{sandbox}} \rightarrow S_{\mathrm{candidate}} \xrightarrow{G_{\mathrm{BBB}} ,\, G_{\mathrm{constitutional}} ,\, G_{\mathrm{DGM}}} S_{\mathrm{validated}}
-\]
+- Supervisors and orchestrators that mention **woah** in their names or roles.
+- Integration scripts that connect DGM behavior, fifth DGM, and multi‑LLM servers to a common evaluation logic.
+- Audit and port registry files that document how services are wired into the broader optimization and stewardship stack.
 
-and only thereafter, where permitted:
+These files provide anchors for describing WOAH as implemented behavior: where the system routes requests through WOAH supervisors, how it uses weighted criteria to choose among services, and how it keeps an audit trail of those decisions.
 
-\[
-S_{\mathrm{validated}} \rightarrow S_{\mathrm{experience}} \rightarrow S_{\mathrm{memory}}
-\]
+The chapter does not claim that every WOAH reference is a fully realized optimizer. Instead, it distinguishes between:
 
-This makes explicit that a WOAH score is not itself a promotion event. It is one factor
-in shaping the candidate state and the conditions under which that state may later be
-reviewed.
-
-WOAH may alter:
-
-- the candidate’s evaluation priority;
-- the depth of sandbox reasoning;
-- the strictness of promotion thresholds;
-- the relative emphasis of evidence, coherence, identity, geography, privacy, and
-  constitutional constraint.
-
-But the authority change occurs only at the **governed promotion boundary**.
+- **Implemented anchors**, where weighted evaluation and guardrails are active at runtime.
+- **Architectural vocabulary**, where WOAH language marks intended patterns or future extensions that are not yet fully deployed.
 
 ---
 
-## Thresholds and Hysteresis
+## 10.10 Weighted Evaluation, Not Global Optimization
 
-A revised WOAH chapter must also prevent the mistaken impression that optimization modes
-should switch instantly at one threshold.
+WOAH is explicitly framed as **weighted evaluation**, not global optimization.
 
-If WOAH weights influenced sandbox behavior using only a single decision boundary, the
-system could oscillate rapidly when a score hovered near that boundary. To avoid this,
-the architecture should use **threshold bands** and **hysteresis**.
+The system may assign scores or priorities to options based on truth, alignment, ethics, coherence, and other criteria, but it does not try to compute a single global utility function that covers all possible states, times, and people. Nor does it claim to find mathematically optimal solutions to complex social or geographic problems.
 
-Let:
+Instead, WOAH is used to:
 
-\[
-\theta_{\mathrm{enter}}
-\]
+- Rank candidate states or actions within a local context.
+- Decide which proposals deserve further evaluation or promotion.
+- Filter out options that fail key guardrails.
 
-be the threshold for entering a heightened optimization or promotion-sensitive mode, and
-
-\[
-\theta_{\mathrm{exit}}
-\]
-
-be the threshold for leaving it, with:
-
-\[
-\theta_{\mathrm{exit}} < \theta_{\mathrm{enter}}
-\]
-
-Then a state or mode can be governed as follows:
-
-- it enters a stricter or more WOAH-sensitive review mode only when the relevant score
-  rises above \(\theta_{\mathrm{enter}}\);
-- it remains in that mode until the score falls below \(\theta_{\mathrm{exit}}\).
-
-This prevents rapid flapping near one boundary.
-
-Operationally, this matters for:
-
-- switching `require_woah` on or off;
-- increasing or decreasing `max_steps`;
-- toggling elevated promotion scrutiny for identity-bearing or governance-bearing
-  content;
-- changing how strongly the sandbox emphasizes locality, autobiographical relevance, or
-  constitutional review.
-
-The result is a more stable optimization regime. WOAH-guided governance changes occur
-decisively, not nervously.
+This local, bounded behavior is appropriate for a steward system operating in rural contexts, where global optimality is neither attainable nor desirable.
 
 ---
 
-## WOAH and Non-Immediate Persistence
+## 10.11 WOAH and the DGM Cycle
 
-The chapter must be explicit that optimization pressure does not equal immediate
-persistence.
+WOAH interacts directly with the Darwin-Gödel cycle described in Chapter 9.
 
-A candidate conclusion formed under WOAH influence remains provisional while inside the
-sandbox. Even when WOAH assigns strong structural weight, that does not by itself turn a
-state into durable memory, identity content, or action-bearing belief.
+The DGM cycle proposes bounded changes, evaluates them, applies allowed proposals, rejects unsafe ones, and records rollback evidence. WOAH contributes to this cycle by providing weighted evaluation criteria and priority patterns:
 
-Instead, the architecture requires:
+- Proposals that score poorly on truth, ethics, or safety are rejected.
+- Proposals targeting immutable production artifacts are rejected outright.
+- Proposals affecting allowlisted workspace files can be applied, but only under DGM and guardrail supervision.
 
-1. weighted formation inside the sandbox;
-2. candidate-state assessment under evidence, coherence, privacy, constitutional, and
-   operational review;
-3. DGM-style gating at the promotion boundary;
-4. only then, selective admission into validated, experiential, or memory-bearing state.
-
-This keeps WOAH aligned with the broader constitutional architecture of Ms. Allis.
-Optimization remains governed, rather than self-justifying.
+For rural developers, this means that optimization is one layer of the DGM pipeline, not a separate process. Any change that looks like “optimization” still passes through the same governed cycle of proposal, evaluation, guarded application, rejection, and rollback.
 
 ---
 
-## Relationship to Classical WOA and Limitations
+## 10.12 WOAH for Rural Stewardship
 
-The relationship between WOAH and classical WOA remains honest but partial.
+In rural deployment, WOAH is used to keep optimization answerable to place and community.
 
-**Conceptual borrowing** includes:
+Examples include:
 
-- maintaining a population of candidates;
-- moving candidates toward a current best vector;
-- balancing exploitation with limited exploration.
+- Prioritizing tasks that improve local safety or reliability over tasks that only increase throughput.
+- Weighing ethical and alignment criteria more heavily when decisions affect people or landowners directly.
+- Using Hilbert-time tiers to avoid over‑reacting to short‑lived anomalies in rural network or service conditions.
 
-**Implementation reality** is still more practical than formal:
-
-- WOAH is a service-layer orchestration mechanism, not a mathematically complete optimizer;
-- its semantic identity scoring remains heuristic and operational rather than proof-based;
-- its population dynamics are useful for interpretability and policy shaping, but do not
-  establish convergence guarantees;
-- its outputs influence sandbox parameterization and evaluation emphasis, but do not
-  bypass governance gates.
-
-This thesis therefore presents WOAH as a **WOA-inspired orchestration and governance
-instrument**, not as a complete formal optimization theory.
+WOAH helps Ms. Jarvis act as a steward system by making sure that “better” is defined in terms of local commitments, constitutional boundaries, and guardrails, not just computational performance.
 
 ---
 
-## WOAH as a Computational Instrument for Place-Accountable Intelligence
+## 10.13 Architectural Vocabulary vs Runtime Gates
 
-From a Polymathmatic Geography perspective, WOAH functions as a computational instrument
-that connects algorithmic behavior to specific places and communities.
+The chapter explicitly distinguishes **architectural vocabulary** from **runtime gates**.
 
-It does so by:
+Architectural vocabulary includes:
 
-- privileging Appalachian and governance-linked content in its weighting logic;
-- shaping which narratives receive stronger internal attention;
-- exposing those weighting tendencies as an inspectable, glass-box process;
-- influencing how sandbox reasoning is parameterized for place-sensitive or
-  identity-sensitive content;
-- participating in a governed transition regime rather than an automatic persistence
-  regime.
+- WOAH language used in design documents or code comments.
+- Conceptual frameworks for how optimization *should* work in future extensions.
 
-This is especially important because WOAH now affects not only what the system values,
-but how the system **deliberates before committing**. It therefore becomes part of the
-geographic politics of internal cognition, not only the ranking of outputs.
+Runtime gates include:
 
-WOAH belongs in the **Computational Instrument** tier because it is a first-class
-orchestration layer whose weights shape information flow, evaluative attention, and the
-conditions under which candidate states are even considered for promotion.
+- Actual judge services and guardian endpoints.
+- BBB filters and constitutional auditors.
+- DGM cycles with evidence and rollback files.
+- Hilbert‑state and Hilbert‑time services with verified health checks.
+
+Where evidence shows that WOAH is fully wired into these runtime gates, the chapter may describe it as implemented behavior. Where evidence shows only references or partial integration, the chapter must describe WOAH as architectural intent and mark the limits clearly.
 
 ---
 
-## Closing Statement
+## 10.14 What This Chapter Claims
 
-WOAH in Ms. Allis is no longer adequately described as only a routing and identity
-weighting service. It is a WOA-inspired orchestration layer that now also influences
-**sandbox behavior operationally**, including whether WOAH consultation is required, how
-many internal reasoning steps may occur, which evaluative dimensions are emphasized, and
-how strict later promotion thresholds become.
+Under the verified gate, this chapter claims:
 
-Its role remains governed rather than sovereign. Weighted optimization decisions that may
-affect durable memory, identity, or action do not take effect immediately. They move
-through the internal-state sandbox, then through BBB, constitutional, and DGM gates,
-before any candidate state may become validated or persistent.
+- Ms. Jarvis contains a working, bounded WOAH weighted evaluation hierarchy.
+- WOAH is grounded in real services, judges, guardians, and recurrent runners.
+- Optimization is tied to truth, alignment, ethics, coherence, BBB, constitutional guardians, Phi, and scheduled assessment.
+- WOAH contributes to the DGM cycle and stewardship behavior, especially in rural contexts.
 
-Threshold bands and hysteresis are therefore essential. They prevent optimization modes
-from oscillating rapidly near a single boundary and ensure that WOAH-guided governance
-changes remain stable, reviewable, and answerable to the larger constitutional design of
-Ms. Allis.
+It does **not** claim:
+
+- Global optimization over all states and times.
+- Autonomous moral agency.
+- Perfect safety, universal truth, or guaranteed correct decisions.
+- Mathematical optimality beyond the scope of tested optimizers.
+
+---
+
+## 10.15 Closing Statement
+
+WOAH in Ms. Jarvis is the weighted optimization hierarchy that helps the system decide which options to consider, promote, or reject under strict guardrails. It is built from real services and judges, operates alongside DGM cycles and Hilbert bodies, and remains accountable to BBB, constitutional guardians, Phi, and recurrent assessment.
+
+By documenting WOAH as a bounded, as‑built evaluation pattern rather than a universal optimizer, this chapter keeps optimization answerable to evidence, ethics, alignment, coherence, and local stewardship. That is the level of rigor and constraint appropriate for a rural steward system designed to serve people, not merely numbers.
+
+---
+
+*Chapter 10 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*  
+*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*  
+*See LICENSE for terms.*
