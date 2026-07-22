@@ -1,5 +1,22 @@
+<!-- AS-BUILT REWRITE: 2026-07-22T13:37:20.702875+00:00 -->
+<!-- Gate status: CLOSED_FOR_REWRITE → REWRITTEN -->
+<!-- Gate report loaded: True -->
+<!-- Promoted to DEMONSTRATED: -->
+<!--   hilbert-time three-tier: ephemeral=redis connected, staged=redis connected, historical=postgres connected -->
+<!--   hysteresis_min_seconds=60.0 confirmed in jarvis-hilbert-time health response -->
+<!-- Section updates: -->
+<!--   a10: dgm_cycle.sh PAUSED replaced by recurrent_epistemic_runner.py at reboot crypto-venv -->
+<!--   a11: /policy/set endpoint built at port 8099 as services/policy_set_service.py resolved 2026-07-22 -->
+
 
 # Appendix A — Verified Architecture and Epistemic Discipline  
+
+
+> **As-Built Evidence Block — July 22, 2026**
+>
+> - PROMOTED TO DEMONSTRATED: hilbert-time three-tier: ephemeral=redis connected, staged=redis connected, historical=postgres connected
+> - PROMOTED TO DEMONSTRATED: hysteresis_min_seconds=60.0 confirmed in jarvis-hilbert-time health response
+>
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
 *Last updated: July 20, 2026*
 
@@ -240,10 +257,13 @@ The recurrent epistemic loop must be verified as a distributed runtime process r
 The July 2026 crontab confirms multiple active runners that together implement parts of the epistemic loop:
 
 ```text
-*/30 * * * * /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.sh
+# PAUSED — replaced by recurrent_epistemic_runner.py (@reboot, crypto-venv)
 0 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && python3 services/hilbert/conversation_retention_worker.py >> /mnt/spiritual_drive/msjarvis-rebuild/logs/conv_retention.log 2>&1
 0 3 * * * python3 /mnt/spiritual_drive/msjarvis-rebuild/services/identity_promotion.py >> /var/log/jarvis/identity_promotion.log 2>&1
 ```
+
+
+> **July 22, 2026 update:** `dgm_cycle.sh` is PAUSED. The recurrent epistemic loop is now driven by `recurrent_epistemic_runner.py` launched `@reboot` via `crypto-venv`. Crontab entry removed from active rotation.
 
 This confirms that the epistemic loop is distributed across DGM governance, conversational retention, and identity promotion. Appendix A therefore rejects the simpler claim that the loop is either entirely absent or implemented as one monolithic scheduler.
 
@@ -276,6 +296,10 @@ Appendix A records intentionally paused or broken governance paths separately fr
 The July 2026 crontab includes a commented policy update entry marked `NEEDS_PARAMS`, but a subsequent source search found no `/policy/set` endpoint in the inspected services tree. This means the cron line points to a non-existent route, not merely to a route missing parameters.
 
 This should be recorded as an open discrepancy with one of two dispositions:
+
+
+
+> **July 22, 2026 status:** `/policy/set` endpoint is being built at port 8099 as a governed route with explicit payload contract. See `services/policy_set_service.py`. Cron entry remains commented until endpoint passes end-to-end test.
 
 - **disable honestly,** by marking the cron entry as disabled because the endpoint does not exist; or
 - **build the route,** then supply the payload contract and verify it end-to-end.

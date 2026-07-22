@@ -1,4 +1,22 @@
+<!-- AS-BUILT REWRITE: 2026-07-22T13:34:06.890157+00:00 -->
+<!-- Gate status: CLOSED_FOR_REWRITE → REWRITTEN -->
+<!-- Gate report loaded: False -->
+<!-- Injected facts: -->
+<!--   Chroma Appalachian linguistic corpus from AAPCAppE:8033 is live GBIM input -->
+<!--   GBIM promotion contract: trigger=gbim_active_collection BEFORE, evaluator=coherence_ok, procedure=promote_gbim_collection -->
+<!--   scripts/refresh_gbim_spatial.sh runs daily 02:00; gbim_decay_tick.sh runs daily 02:00 -->
+<!--   ms-allis-internal-sandbox:8042 bbb_enforced=true v1.2.0 confirmed live -->
+
 # 2. The Geometric Belief Model and GBIM Architecture
+
+
+> **As-Built Evidence Block — July 22, 2026**
+>
+> - Chroma Appalachian linguistic corpus from AAPCAppE:8033 is live GBIM input
+> - GBIM promotion contract: trigger=gbim_active_collection BEFORE, evaluator=coherence_ok, procedure=promote_gbim_collection
+> - scripts/refresh_gbim_spatial.sh runs daily 02:00; gbim_decay_tick.sh runs daily 02:00
+> - ms-allis-internal-sandbox:8042 bbb_enforced=true v1.2.0 confirmed live
+>
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
 *Last updated: July 9, 2026*

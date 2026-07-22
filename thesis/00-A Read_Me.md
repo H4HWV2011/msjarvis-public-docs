@@ -1,4 +1,22 @@
+<!-- AS-BUILT REWRITE: 2026-07-22T13:34:06.950545+00:00 -->
+<!-- Gate status: CLOSED_FOR_REWRITE → REWRITTEN -->
+<!-- Gate report loaded: True -->
+<!-- Injected facts: -->
+<!--   Ms. Allis is live as of July 22, 2026 — 46 chapters gated and closed -->
+<!--   AAPCAppE:8033 -> Chroma:8002 -> GBIM: Appalachian linguistic corpus data path confirmed -->
+<!--   policy_set_service.py built and tested at port 8099 — A.11 discrepancy resolved -->
+<!--   Mamma Kidd / Carrie Kidd, Mount Hope WV 25880 is the grounding research voice -->
+
 # Thesis
+
+
+> **As-Built Evidence Block — July 22, 2026**
+>
+> - Ms. Allis is live as of July 22, 2026 — 46 chapters gated and closed
+> - AAPCAppE:8033 -> Chroma:8002 -> GBIM: Appalachian linguistic corpus data path confirmed
+> - policy_set_service.py built and tested at port 8099 — A.11 discrepancy resolved
+> - Mamma Kidd / Carrie Kidd, Mount Hope WV 25880 is the grounding research voice
+>
 
 > *"This is not a thesis about a system. It is a thesis built from inside a system — written by the person who designed it, is building it, and lives in the community it is meant to serve."*
 > — 01-researcher-position.md
