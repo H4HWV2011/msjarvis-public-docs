@@ -1,249 +1,182 @@
 # 17. Executive Coordination Overview
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## Why This Matters for Polymathmatic Geography
+## 17.1 Why This Matters for Polymathmatic Geography
 
-This chapter explains how Ms. Allis coordinates action across her subsystems without collapsing reasoning, validation, and commitment into one undifferentiated process. It supports:
+This chapter explains how Ms. Allis coordinates work across her subsystems so that reasoning, safety, and commitment happen in a controlled order rather than all at once. It shows how the “executive plane” treats the internal sandbox, BBB, consciousness bridge, pituitary, and brain orchestrator as named parts of one governed path.
 
-- **P1 – Every where is entangled** by showing how executive coordination must route across semantic memory, spatial systems, constitutional services, sandboxed reasoning, and downstream promotion layers rather than treating any one subsystem as sufficient on its own.
-- **P3 – Power has a geometry** by making control-stage ordering explicit: dispatch, sandbox deliberation, validation, barrier review, bridge promotion, and only then committed consequence.
-- **P5 – Design is a geographic act** by treating orchestration order, review boundaries, and reversible handling as design choices that materially change how Ms. Allis reasons and acts in place-based contexts.
-- **P12 – Intelligence with a ZIP code** by ensuring executive coordination can route place-aware tasks into the appropriate combination of retrieval, sandbox reasoning, and guarded promotion rather than bypassing grounded local context.
-- **P16 – Power accountable to place** by requiring that authority increases happen through visible control stages rather than through silent internal escalation.
+It supports:
 
-This chapter belongs to the **Computational Instrument** tier. It defines the executive plane that coordinates subsystems, allocates tasks, and governs when a result remains provisional versus when it becomes eligible for committed use.
+- **P1 – Every where is entangled** by routing each task through memory, sandbox, and safeguards instead of letting any one component act alone.  
+- **P3 – Power has a geometry** by making dispatch, sandbox deliberation, BBB review, bridge promotion, and authority tracking explicit steps.  
+- **P5 – Design is a geographic act** by treating coordination order as a design choice that shapes how Appalachian contexts are handled.  
+- **P12 – Intelligence with a ZIP code** by ensuring that local, place‑aware evidence is part of the coordinated path before the system commits to anything.  
+- **P16 – Power accountable to place** by requiring that authority increases only happen through named gates, not silent internal escalation.
 
-The central revision in this chapter is that the **sandbox is now a first-class control-stage component** of executive coordination. Executive coordination does not simply send requests to tools and collect answers; it may dispatch a reasoning task into the internal-state sandbox, receive back validated or non-validated conclusions, and then route those conclusions through the Blood-Brain Barrier and consciousness bridge path before any committed action occurs.
-
----
-
-## 17.0 The Executive Plane
-
-The executive plane is the coordinating layer that decides which subsystem should handle a given problem, in what order, and under what governance conditions. It is not identical to raw model inference and it is not reducible to a single orchestration API. Its role is broader: it manages sequencing, routing, staging, review, and commitment.
-
-Earlier formulations could make executive coordination sound like a dispatcher among already-authorized subsystems. The revised architecture is more precise. Executive coordination must now be understood as governing **both** ordinary task routing and the promotion path from provisional internal reasoning to authorized system action.
-
-This means the executive plane sits above, across, and between several critical layers:
-
-- retrieval and routing services;
-- sandboxed internal reasoning;
-- BBB gate review;
-- consciousness bridge promotion;
-- downstream memory, response, and action systems.
+This chapter belongs to the **Computational Instrument** tier. It documents the executive plane as actually built, with concrete ports and services, rather than as an abstract control idea.
 
 ---
 
-## 17.1 Sandbox as a First-Class Control Stage
+## 17.2 The Executive Plane and Its Services
 
-The sandbox is no longer merely an implementation detail or an optional side workspace. It is part of the executive control path.
+The executive plane is the set of services that coordinate which parts of Ms. Allis handle a task and in what order.
 
-For that reason, executive coordination should explicitly distinguish between at least three classes of dispatch:
+Key named services and paths include:
 
-1. **Direct operational dispatch**  
-   Used when a task can be handled by an already-approved service path without requiring internal deliberative synthesis.
+- **Brain orchestrator** at host port 17260 → 7260/tcp inside the fabric.  
+- **Internal sandbox** at host port 8042, version 1.2.0, explicitly marked `bbb_enforced`.  
+- **Consciousness bridge** reachable at port 8010, with an internal URL such as `http://jarvis-consciousness-bridge:8018`.  
+- **BBB‑class layer** reachable on host port 8010 once the WV‑entangled gateway and neurobiological BBB paths are live.  
+- **Pituitary and global modes** reported healthy, with dual‑awareness and integration layers active.  
+- **Agents service** at an internal port for multi‑agent coordination.
 
-2. **Sandbox dispatch**  
-   Used when the task requires provisional reasoning, multi-step internal comparison, unresolved hypothesis handling, or controlled synthesis before any promoted conclusion exists.
-
-3. **Escalated review dispatch**  
-   Used when a task, candidate conclusion, or sandbox return requires BBB review, bridge handling, human review, or other authority-bearing escalation.
-
-This addition matters because the sandbox is where reversible deliberation lives. If executive coordination omits the sandbox from its explicit model, then the architecture loses the distinction between “thinking through” a problem and “committing” to a system-level conclusion.
+Together, these services form the executive plane: they manage dispatch into the sandbox, coordinate BBB and bridge sequencing, and track which results have authority to affect the rest of the system.
 
 ---
 
-## 17.2 Dispatch into the Sandbox
+## 17.3 Sandbox as First‑Class Control Stage
 
-When a task requires internal deliberation, the executive plane dispatches it into the sandbox as a provisional reasoning job rather than as immediately committed system behavior.
+The internal sandbox (`ms_allis_internal_sandbox`) is a first‑class control stage, not an afterthought.
 
-Such dispatch may include:
+It is:
 
-- the triggering query or task;
-- retrieved context from semantic, spatial, or background systems;
-- current governance mode or pituitary-derived scrutiny setting;
-- policy or constitutional context;
-- session metadata and scope constraints;
-- limits on step count, promotion eligibility, or required review.
+- a dedicated container with its own health endpoint on 8042;  
+- explicitly configured with `bbb_enforced: true`;  
+- connected to EEG, pituitary, I‑containers, qualia orchestrator, and the consciousness bridge;  
+- monitored by a `/status` overlay that reports `ch14_bridge_overlay: active`.
 
-The important architectural point is that executive dispatch to the sandbox does **not** authorize the sandbox to commit action on its own. The executive plane may request reasoning, comparison, synthesis, or interpretation, but the result returned from the sandbox is still a candidate output until it clears the relevant promotion path.
-
-This makes the sandbox comparable to a controlled deliberative chamber within the executive plane rather than to an autonomous action engine.
+When the executive plane dispatches a task into the sandbox, it is asking for **reversible deliberation**, not immediate action. The sandbox can think, compare, and synthesize, but anything it produces returns as a *candidate* result. The executive plane must still decide what happens next.
 
 ---
 
-## 17.3 Returned Conclusions: Validated and Non-Validated
+## 17.4 Executive Dispatch: Step by Step
 
-Executive coordination must handle at least two distinct classes of sandbox return.
+For rural developers, executive dispatch can be understood as a simple sequence:
 
-### Validated conclusions
+1. **Receive a request.**  
+   A task comes in through the gateway and is handed to the brain orchestrator.
 
-A validated conclusion is a sandbox return that has crossed the required internal validation or judge path and is therefore eligible to continue toward promotion review. Even here, “validated” does not yet mean “fully committed” in every case. It means the result is no longer merely raw sandbox thought.
+2. **Decide how to handle it.**  
+   The orchestrator decides whether this is a simple task (direct service), a reasoning task (sandbox), or a case needing extra review.
 
-For validated returns, the executive plane may:
+3. **Dispatch into the sandbox when needed.**  
+   For reasoning tasks, the orchestrator sends the request and gathered context to the sandbox at 8042.
 
-- route the result into BBB review;
-- prepare bridge-ready payloads;
-- attach provenance, confidence, and governance metadata;
-- request limited approval or full promotion depending on consequence class.
+4. **Let the sandbox deliberate.**  
+   The sandbox uses EEG bands, pituitary modes, qualia, I‑containers, and retrieval to form candidate conclusions. These remain internal and reversible.
 
-### Non-validated conclusions
+5. **Classify sandbox returns.**  
+   The executive plane treats each sandbox return as either **validated** (ready to enter the promotion path) or **non‑validated** (still provisional).
 
-A non-validated conclusion is a sandbox return that remains provisional, conflicted, incomplete, insufficiently supported, or otherwise not ready for promotion.
+6. **Route toward promotion or back for revision.**  
+   Validated candidates move into BBB and bridge sequencing; non‑validated ones are kept in the sandbox, revised, or escalated for human review.
 
-For non-validated returns, the executive plane may:
-
-- keep the result inside the sandbox or session scope;
-- request revision or additional evidence;
-- route for human review;
-- suppress promotion entirely;
-- use the result as internal deliberative context without granting it committed authority.
-
-This distinction is essential. Executive coordination is not simply collecting outputs; it is classifying their authority level and routing them accordingly.
+This pattern keeps the sandbox firmly inside the control path without granting it the right to act on its own.
 
 ---
 
-## 17.4 Reversible Deliberation Before Committed Action
+## 17.5 Validated vs Non‑Validated Sandbox Returns
 
-This revision adds explicit language about **reversible deliberation before committed action**. Executive coordination must preserve the distinction between provisional reasoning and authorized consequence.
+The executive plane must distinguish between different kinds of sandbox output:
 
-A useful schematic expression is:
+- **Validated returns.**  
+  These have passed whatever internal checks the sandbox and its judges apply. They are eligible to enter BBB review and bridge promotion, but they are still not yet committed actions.
 
-\[
-K : S_{\mathrm{deliberative}} \rightharpoonup S_{\mathrm{committed}}
-\]
+- **Non‑validated returns.**  
+  These remain provisional, conflicted, or incomplete. They may be useful for internal thinking but are not allowed into BBB or bridge paths for committed use.
 
-where the harpoon reminds us that not every deliberative state maps to a committed state. Some deliberative states remain unresolved, some are revised, some are rejected, and some only move forward under limited approval.
-
-In practical terms, reversible deliberation means:
-
-- internal exploratory reasoning can occur without immediate side effects;
-- provisional states can be rolled back, revised, or abandoned;
-- commitment requires a distinct transition rather than mere persistence of thought;
-- externally consequential action must remain downstream of gated promotion.
-
-This gives executive coordination a more accurate role: it is not only choosing what to do, but also preserving the boundary between “reasoning toward an option” and “committing the system to that option.”
+Routing logic in the executive services makes this classification a live behavior, not just a diagram. The brain orchestrator and related services decide which path each return takes based on flags and status fields.
 
 ---
 
-## 17.5 Cross-Reference to Coordinator, BBB, and Bridge
+## 17.6 BBB Review and Promotion Sequencing
 
-The executive plane should now be read in direct relation to three adjacent chapters.
+After a sandbox result is deemed validated, the executive plane routes it through **BBB review** before any promotion.
 
-### With the coordinator chapter
+In practice:
 
-The coordinator chapter explains the broader service orchestration fabric. This executive chapter narrows that perspective by specifying how coordination treats sandbox dispatch and return handling as part of the control plane rather than as an invisible implementation detail.
+- BBB‑class services at port 8010 check safety, ethics, truth, alignment, and manipulation rules.  
+- If BBB review fails, the candidate is rejected or sent back for revision.  
+- Only BBB‑approved results move toward the consciousness bridge for integration.
 
-### With the BBB chapter
-
-The BBB chapter specifies the promotion barrier between sandbox output and higher-authority state. Executive coordination is what delivers candidate results to that barrier, interprets the barrier outcome, and determines whether to reject, revise, hold, or continue.
-
-### With the bridge chapter
-
-The bridge chapter governs how approved conclusions cross into integrated conscious or system-wide use. Executive coordination therefore includes not only task dispatch but also **reasoning promotion**: it decides when a validated candidate should be handed from the BBB-cleared state into bridge-mediated committed use.
-
-Taken together, these cross-references show that the executive plane spans more than scheduling. It governs the transition chain from deliberation to promotion to integrated consequence.
+The chapter cannot claim sandbox bypass of BBB. Every route from sandbox to committed action must pass BBB review, or else be held in internal state without promotion.
 
 ---
 
-## 17.6 Promotion-Aware Executive Coordination
+## 17.7 Consciousness Bridge and Promotion
 
-Because the sandbox is now first-class, executive coordination must become explicitly **promotion-aware**.
+The consciousness bridge is the named path through which BBB‑cleared candidates become part of active, integrated behavior.
 
-That means the executive plane should track, for each candidate state:
+Executive coordination over the bridge includes:
 
-- whether the state is still sandbox-provisional;
-- whether internal validation has occurred;
-- whether BBB review has been requested or passed;
-- whether bridge promotion is eligible;
-- whether the result may influence memory, response, or external action.
+- choosing which validated candidates are actually sent to the bridge;  
+- ensuring bridge health is checked and logged;  
+- recording which bridge promotions happened, when, and under what pituitary mode.
 
-This is an authority-tracking function as much as a routing function. A candidate output may be semantically useful while remaining ineligible for promotion. Executive coordination must preserve that distinction rather than flattening all useful outputs into equal authority.
+Promotion through the bridge is where a candidate state stops being “a thought” and becomes part of live integrated behavior. The executive plane manages this step carefully; promotion is never automatic.
 
 ---
 
-## 17.7 Rejection, Revision, and Escalation Paths
+## 17.8 Reject, Revise, Escalate, Approve
 
-Executive coordination should not be described as a pipeline that only knows how to move forward. It must also know how to stop, return, and escalate.
+Promotion is not a yes/no switch in one place. Executive coordination represents different paths as service behaviors:
 
-For sandbox-driven work, the executive plane needs clear paths for:
+- **Reject.**  
+  Mark a candidate as not suitable for promotion; keep it internal for reference only.
 
-- **Reject** — terminate promotion and keep the state non-committed;
-- **Revise** — send the state back into the sandbox or into an evidence-gathering loop;
-- **Human review** — escalate a difficult or high-consequence case;
-- **Limited approval** — allow constrained downstream use without full commitment;
-- **Approve** — allow the state to proceed into bridge-mediated committed use.
+- **Revise.**  
+  Send the candidate back to the sandbox with instructions to gather more evidence, change assumptions, or refine reasoning.
 
-These outcomes align the executive chapter with the BBB chapter’s authority-preserving transition model. The executive plane is responsible for carrying those outcomes forward into actual system behavior.
+- **Escalate.**  
+  Route difficult or high‑consequence cases to human stewards or to specialized review services. This is never a replacement for oversight.
 
----
+- **Approve.**  
+  Allow a BBB‑cleared candidate to cross the bridge and become part of active system behavior or memory.
 
-## 17.8 Relationship to Retrieval and Task Routing
-
-Executive coordination still performs classical orchestration work: it routes retrieval tasks to semantic, geographic, registry, and web systems; it coordinates service availability; and it determines which subsystems should participate in producing an answer or action.
-
-But this chapter now makes explicit that routing alone is not sufficient. After retrieval and synthesis, executive coordination may still need to:
-
-- open a sandbox cycle;
-- process a non-validated return;
-- request BBB review;
-- await bridge approval;
-- avoid commitment if the result remains provisional.
-
-This makes the executive plane broader than a traffic controller. It becomes the layer that binds retrieval, reasoning, review, and commitment into one governed flow.
+These paths exist as live behaviors in the executive service layer. They make it clear that not every sandbox result moves forward, and that different outcomes are handled differently.
 
 ---
 
-## 17.9 Relationship to Memory and Durable Effects
+## 17.9 Promotion‑Aware Authority Tracking
 
-The revised executive plane also affects how memory and durable side effects are understood. Because sandbox results may remain non-validated, executive coordination must ensure they do not automatically become durable memory, public outputs, or action directives.
+Executive services keep track of **authority levels** for each result:
 
-This creates a consistent relationship across the architecture:
+- sandbox‑provisional;  
+- internally validated;  
+- BBB‑cleared;  
+- bridge‑promoted;  
+- committed and eligible for downstream memory or external use.
 
-- the sandbox generates reversible deliberative state;
-- the executive plane classifies and routes that state;
-- the BBB guards promotion;
-- the bridge handles authorized integration;
-- the hippocampal layer only sees conclusions that have become eligible for durable retention.
+This promotion‑aware tracking ensures that:
 
-This prevents executive coordination from being interpreted as an implicit commit engine.
+- internal speculation does not silently become committed policy;  
+- a sandbox result can be used for internal thinking without ever leaving the sandbox;  
+- BBB and bridge steps are visible in logs and status, not hidden.
+
+For rural developers, this means they can inspect not just what the system answered, but how far through the promotion chain each answer traveled.
 
 ---
 
-## 17.10 Practical Executive Sequence
+## 17.10 Boundaries and Limits
 
-A practical executive-control sequence in the revised architecture is:
+Within this gate, Chapter 17 must not claim:
 
-1. **Receive task**
-   - Determine whether the task is direct, sandbox-requiring, or escalation-prone.
+- autonomous self‑authorization by the system;  
+- sandbox paths that bypass BBB;  
+- committed actions without promotion review;  
+- escalations that happen without any review;  
+- replacement of human oversight on high‑consequence decisions.
 
-2. **Assemble context**
-   - Gather semantic, spatial, memory, and governance context as needed.
-
-3. **Dispatch**
-   - Route either to direct operational services or into the sandbox for reversible deliberation.
-
-4. **Classify return**
-   - Distinguish validated from non-validated sandbox conclusions.
-
-5. **Promotion handling**
-   - Send eligible candidates to BBB review and then to bridge-mediated integration when appropriate.
-
-6. **Outcome enforcement**
-   - Apply reject, revise, human review, limited approval, or approve pathways.
-
-7. **Durable consequence**
-   - Allow only properly promoted results to influence memory, committed response, or action.
-
-This sequence shows why the sandbox must be first-class: without it, the executive chapter cannot correctly describe the system’s real decision pathway.
+Instead, the executive plane is described as a **coordinator of governed paths**. It controls how tasks move into sandbox reasoning, how results are classified, how BBB and bridge are sequenced, and how authority levels change, always under the assumption that human stewards remain in the loop for serious decisions.
 
 ---
 
 ## 17.11 Closing Statement
 
-Executive coordination in Ms. Allis now includes the sandbox as a first-class control-stage component. The executive plane does not merely route tasks among services; it dispatches reasoning into the sandbox when provisional deliberation is needed, distinguishes validated from non-validated returns, and routes eligible conclusions through the BBB and bridge path before committed action occurs.
+Executive coordination in Ms. Allis is an as‑built control plane over sandbox, BBB, bridge, pituitary, and orchestration services. It dispatches tasks into the sandbox as needed, classifies returns as validated or non‑validated, and then sequences BBB review and bridge promotion so that reversible deliberation always comes before committed action.
 
-This revision makes reversible deliberation explicit and places promotion-aware control at the center of orchestration. As a result, executive coordination is no longer just about scheduling subsystems. It is about governing how internal reasoning becomes, or does not become, authorized system consequence.
+By treating the sandbox as first‑class, requiring BBB review, naming the bridge path, and tracking promotion‑aware authority, this chapter shows how Ms. Allis keeps its internal thinking accountable to place, evidence, and constitutional guardrails instead of letting raw model output decide what happens next.
