@@ -5,166 +5,240 @@
 
 ---
 
-## 29.1 Why This Matters for Polymathmatic Geography
+## 29.1 Purpose and Scope
 
-This chapter explains how Ms. Jarvis’s **people‑space subspaces (H_p)** are reviewed for privacy, stability, and non‑surveillance properties. It treats PIA (Privacy Impact Assessment) as a live gate over how person‑linked subspaces behave, not as a clinic or counseling tool.
+This chapter explains how Ms. Jarvis’s **people‑space subspaces (\(H_p\))** are reviewed under a **Privacy Impact Assessment (PIA)** for privacy, retention, coherence, non‑surveillance, and safeguard behavior.
 
-It supports:
+Within this sealed gate, Chapter 29 may claim:
 
-- **P1 – Every where is entangled** by acknowledging that person‑linked state, geography, memory, and governance are intertwined, while still policing how identity‑shaped subspaces are handled.  
-- **P3 – Power has a geometry** by making people‑space a partitioned region with its own rules, instead of letting it smear across the whole system.  
-- **P5 – Design is a geographic act** by treating subspace layout, retention, and suppression as design decisions subject to review.  
-- **P12 – Intelligence with a ZIP code** by ensuring that “who” and “where” are handled together in a way that respects retention, consent, and pruning.  
-- **P16 – Power accountable to place** by requiring PIA review to keep people‑space from turning into surveillance or unbounded profiling.
+- **BBB and guardian safeguards** over the \(H_p\)/subspace stability pathway;  
+- **per‑user partitioning** of people‑space;  
+- **non‑surveillance suppression** of surveillance‑shaped metadata or behavior;  
+- support for **deletion** and **pruning**;  
+- **commons isolation** from private people‑space;  
+- a **Phi stability floor** or equivalent coherence safeguard;  
+- **guardian audit** over relevant actions and policy decisions.
 
-This chapter belongs to the **Computational Instrument** tier. It describes an operational PIA stability review, not a diagnostic or therapeutic process.
-
----
-
-## 29.2 What PIA Subspace Stability Means
-
-A **PIA subspace stability review** checks how Ms. Jarvis’s people‑space (H_p) behaves over time:
-
-- how per‑user subspaces are partitioned;  
-- how identity‑shaped metadata is suppressed or allowed;  
-- how deletion and retention pruning work;  
-- how commons and public spaces are kept separate from private subspaces;  
-- how coherence and Phi‑like stability signals are monitored.
-
-The goal is **privacy, coherence, and non‑surveillance**, not mental health assessment. The review asks, “Is this people‑space behaving like a governed memory and retrieval area?” not “How is this person doing psychologically?”
+It must **not** present this chapter as clinical diagnosis, therapy, guaranteed psychological safety, or live psychology‑service continuity. This is a chapter about **system safeguards**, not mental‑health care.
 
 ---
 
-## 29.3 Per‑User H_p Partitioning
+## 29.2 What H_p / Subspace Means
 
-The review verifies that Ms. Jarvis treats H_p as **per‑user partitions**, not as one big shared identity bucket.
+For rural developers, \(H_p\) can be understood as **the part of the system that holds person‑linked memory, retrieval state, and identity‑shaped associations**.
 
-Concretely, this means:
+A subspace inside \(H_p\) is a bounded region that may include:
 
-- each person’s subspace is tagged and separated;  
-- retrieval for one user does not automatically reach into another’s H_p;  
-- per‑user operations (like deletion) can target that user’s subspace specifically.
+- conversation history linked to a specific person;  
+- embeddings or retrieval traces connected to that person;  
+- tags, notes, or structured metadata about prior interactions;  
+- policy‑controlled memory used to support later answers.
 
-For rural developers, you can think of H_p as **a set of labeled folders** rather than one pile. The PIA review checks that these folders exist, are correctly separated, and are used as intended.
+This chapter asks a practical question: **Is that people‑space being handled in a privacy‑aware, non‑surveillance, coherent, and governable way?** It does not ask whether the person is mentally well, diagnosable, or in need of therapy.
 
 ---
 
-## 29.4 Surveillance-Shaped Metadata Suppression
+## 29.3 Why the PIA Review Matters
 
-The review also checks for **surveillance‑shaped metadata** and makes sure it is suppressed where required.
+PIA subspace review matters because people‑linked memory can easily become **over‑retained, over‑shared, or surveillance‑shaped** if it is not explicitly governed.
 
-Examples of metadata that must be controlled:
+This chapter therefore treats PIA review as a live gate over:
 
-- detailed cross‑user activity traces that could be used for covert profiling;  
+- how person‑linked subspaces are created;  
+- what kinds of data are allowed into them;  
+- how long those records remain;  
+- whether those records stay separated from public or commons spaces;  
+- whether the system has enough coherence safeguards to keep people‑space from drifting into contradiction or misuse.
+
+In plain language: this chapter is about making sure Ms. Jarvis uses people‑space like a **governed memory system**, not like a hidden dossier engine.
+
+---
+
+## 29.4 Per‑User Partitioning
+
+A core claim of this chapter is that \(H_p\) is handled as **per‑user partitioned space**, not as one blended identity bucket.
+
+Operationally, that means:
+
+- each user’s people‑space is kept in a distinct partition or equivalent logical boundary;  
+- retrieval for one person does not automatically pull from another person’s partition;  
+- operations like deletion, pruning, or review can be applied to a **specific person’s subspace** without spilling into someone else’s.
+
+For rural operators, the easiest picture is a wall of labeled file drawers:
+
+- one drawer per person;  
+- rules on who may open which drawer;  
+- no casual dumping of everyone’s papers into one shared pile.
+
+The PIA review checks that those drawers are real, separated, and used as intended.
+
+---
+
+## 29.5 Non‑Surveillance Suppression
+
+This chapter also allows a claim about **non‑surveillance suppression**.
+
+That means the system is reviewed to ensure it does not quietly turn people‑space into a background tracking apparatus through things like:
+
 - unnecessary fine‑grained location trails;  
-- identifiers that would allow reconstructing a person’s full dossier from internal logs alone.
+- covert cross‑session profiling fields;  
+- metadata that reconstructs a person’s full dossier without a clear, governed purpose;  
+- hidden accumulation of activity trails beyond what the user’s interaction requires.
 
-The PIA review verifies that:
+The PIA review asks whether such data is:
 
-- such fields are either **not stored** in H_p, or  
-- are redacted/suppressed before entering H_p, or  
-- are held only under strict, configured conditions consistent with privacy posture.
+- **not collected**;  
+- **suppressed or redacted** before entering \(H_p\);  
+- or kept only under strict, policy‑bound conditions.
 
-The point is to keep people‑space from quietly growing into a **surveillance subspace**.
-
----
-
-## 29.5 Deletion and Retention Pruning
-
-An operational stability review must confirm that **deletion and pruning actually work**.
-
-The PIA logic checks that:
-
-- per‑user deletion requests cause the relevant H_p entries to be removed;  
-- retention rules (for example, maximum age, maximum size) trigger **pruning** of old or low‑value records;  
-- pruning does not silently break partitioning (for example, pruning one user’s data should not disturb another’s);  
-- logs or metrics exist to show that pruning is happening as configured.
-
-For a rural operator, this means you can:
-
-- clear a user’s people‑space;  
-- rely on the system to clean up expired records over time;  
-- inspect that these behaviors are not just configured, but actually running.
+This is one of the strongest plain‑language promises in the chapter: *people‑space is for helping with the task at hand, not for building a secret surveillance record.*
 
 ---
 
-## 29.6 Commons Isolation from People-Space
+## 29.6 Deletion and Pruning
 
-The review verifies **isolation between H_p and commons‑style collections**.
+A governed people‑space must support both **deletion** and **pruning**.
 
-Key checks include:
+Within this gate, the chapter may claim that:
 
-- private people‑space data does **not** automatically flow into public or shared commons;  
-- commons collections (for example, Chapter 48‑style evidence) are populated under explicit consent and governance, not as a side effect of H_p retention;  
-- any bridges between H_p and commons are role‑ and policy‑guarded.
+- a person’s subspace can be targeted for deletion;  
+- retention rules can prune old, stale, or low‑value entries;  
+- deletion and pruning are operational behaviors, not just good intentions;  
+- these behaviors are part of privacy and coherence review.
 
-This keeps Ms. Jarvis from turning private memory into public knowledge without a proper **opt‑in path** and governance process.
+Step by step, the logic is:
 
----
+1. A deletion or retention rule is triggered.  
+2. The request or policy is evaluated under system safeguards.  
+3. The targeted people‑space records are removed or reduced.  
+4. Future retrievals reflect the updated state of the subspace.
 
-## 29.7 Phi/Coherence Floor for Stability
-
-The PIA review also checks for a **Phi/coherence floor** or similar stability signal.
-
-That means:
-
-- the system must be able to measure basic coherence for the H_p subspace;  
-- if coherence or Phi‑like metrics drop below a configured floor, this is visible to operators;  
-- stability problems can trigger alerts, additional review, or mode changes.
-
-The intent is not to model a person’s mental health. It is to make sure that the **people‑space itself** is not drifting into inconsistent, contradictory, or obviously broken structure.
+For rural developers, this means people‑space is **editable and reducible**, not a permanent trapdoor that only grows.
 
 ---
 
-## 29.8 BBB and Constitutional Guardian Audit Logging
+## 29.7 Commons Isolation
 
-PIA subspace review is tied back into the broader safeguard stack:
+This chapter may also claim **commons isolation**.
 
-- **BBB** must be active for relevant operations that might cross authority boundaries;  
-- the **constitutional guardian** must log its decisions when people‑space operations involve policy constraints (for example, cross‑region transfers, sensitive attributes, or high‑risk topics).
+That means the system distinguishes between:
+
+- **private people‑space** tied to a person’s \(H_p\); and  
+- **commons collections** used for shared civic, Appalachian, or public knowledge.
 
 The review checks that:
 
-- these components are live when needed;  
-- **audit logs** exist so that later, someone can answer “who did what and why” for subspace‑affecting actions.
+- private \(H_p\) content does **not automatically flow** into commons;  
+- movement from people‑space into shared knowledge requires explicit governance;  
+- commons retrieval does not silently expose private person‑linked subspace material.
 
-Again, the emphasis is on **privacy, coherence, and safeguards**, not on diagnosing or judging users.
-
----
-
-## 29.9 No Clinical or Diagnostic Claims
-
-Chapter 29 is explicitly **non‑clinical**.
-
-The PIA review does **not**:
-
-- diagnose mental health conditions;  
-- provide therapeutic or counseling evaluations;  
-- claim to detect sentience, consciousness level, or inner experience;  
-- provide legal or medical advice about individuals.
-
-All of its checks are on the **system’s behavior** around people‑space: partitioning, suppression, deletion, pruning, commons isolation, stability, and auditability.
+For rural communities, this matters because using Ms. Jarvis personally should not automatically make a person’s private memory part of the public commons.
 
 ---
 
-## 29.10 Step-by-Step View for Rural Developers
+## 29.8 Phi Stability Floor and Coherence Safeguards
 
-If you are running this stack locally, the PIA subspace review effectively gives you this checklist:
+The gate allows Chapter 29 to speak about a **Phi stability floor** or equivalent coherence safeguard.
 
-1. **Partitions:** Each person has a separate H_p area.  
-2. **Suppression:** Surveillance‑style metadata is either not present or explicitly suppressed.  
-3. **Deletion:** You can delete a user’s people‑space and see it cleared.  
-4. **Pruning:** Old or excess entries are pruned automatically according to policy.  
-5. **Isolation:** Private H_p data does not flow into commons without clear consent.  
-6. **Stability:** Basic coherence/Phi monitoring is in place for H_p.  
-7. **Audit:** BBB and guardian leave a trail when important people‑space actions are taken.
+This should be understood as an operational rule about the **stability of the system’s people‑space**, not about a person’s psychology.
 
-That is what “PIA subspace stability review” means in this chapter.
+Within this scope, the chapter may claim that:
+
+- the system monitors some form of coherence or stability signal over the \(H_p\) pathway;  
+- if that signal drops below a configured floor, operators or guardrails can see that condition;  
+- low‑stability conditions can justify blocking, reviewing, or withholding writes to longer‑term people‑space.
+
+In plain language: if the system’s handling of person‑linked memory becomes obviously unstable or contradictory, it should **slow down, review, or stop**, not keep writing unstable material as if it were trustworthy.
 
 ---
 
-## 29.11 Closing Statement
+## 29.9 BBB and Guardian Safeguards
 
-Chapter 29 seals an **operational PIA stability review** over Ms. Jarvis’s people‑space subspaces. It confirms per‑user partitioning, suppression of surveillance‑shaped metadata, working deletion and pruning, commons isolation, coherence‑floor monitoring, and BBB/guardian‑backed audit logging.
+BBB and guardian are part of the PIA review because people‑space actions can become **authority‑bearing operations**.
 
-The result is a people‑space that is **governed and privacy‑aware**, rather than a hidden profiling engine or clinical instrument, and one that rural operators can understand and inspect using concrete behaviors instead of abstract promises.
+Within this chapter, it is appropriate to say that:
+
+- relevant reads, writes, transfers, or policy‑sensitive operations over \(H_p\) pass through **BBB/guardian safeguards**;  
+- the guardian can review or block actions that conflict with privacy, retention, or non‑surveillance rules;  
+- the BBB helps ensure that only properly reviewed actions cross into higher‑authority system effects.
+
+This matters because privacy protections are not just about storage format. They also depend on **who is allowed to do what to people‑space**, and under what safeguards.
+
+---
+
+## 29.10 Guardian Audit
+
+The chapter may also claim **guardian audit** over the \(H_p\)/subspace pathway.
+
+That means the system keeps enough record to inspect:
+
+- what kinds of subspace actions were attempted;  
+- whether those actions were allowed, blocked, or flagged for review;  
+- whether repeated attempts suggest over‑collection, policy mismatch, or surveillance‑shaped use.
+
+For operators, this creates a practical audit trail that helps answer questions like:
+
+- “Was a private subspace operation approved or blocked?”  
+- “Were deletion and pruning requests actually carried out?”  
+- “Did the system prevent private material from crossing into commons?”
+
+The audit function is therefore part of the chapter’s **governance story**, not an optional extra.
+
+---
+
+## 29.11 What This Chapter Does Not Claim
+
+To stay exactly within the gate, Chapter 29 does **not** claim:
+
+- clinical diagnosis;  
+- therapy or counseling;  
+- guaranteed psychological safety;  
+- detection of a person’s inner mental state;  
+- continuity of a live psychology service.
+
+It only claims an **operational PIA review** over the \(H_p\)/subspace pathway, centered on:
+
+- privacy;  
+- retention;  
+- coherence;  
+- non‑surveillance;  
+- safeguard review.
+
+This is a chapter about **how the system handles person‑linked space**, not about evaluating people as patients.
+
+---
+
+## 29.12 Step‑by‑Step View for Rural Developers
+
+For rural developers, the PIA subspace stability pathway can be pictured as this checklist:
+
+1. **Identify the person’s subspace.**  
+   - The system works inside the correct per‑user partition.
+
+2. **Check BBB and guardian safeguards.**  
+   - Sensitive reads or writes do not bypass governance.
+
+3. **Suppress surveillance‑shaped data.**  
+   - Only the minimum, policy‑appropriate information is retained.
+
+4. **Maintain deletion and pruning.**  
+   - Old or unwanted entries can be removed.
+
+5. **Keep commons separate.**  
+   - Private memory does not flow into shared collections by accident.
+
+6. **Watch the Phi stability floor.**  
+   - Low‑coherence conditions trigger caution rather than blind accumulation.
+
+7. **Record the action for audit.**  
+   - Operators can later inspect what happened and why.
+
+That is what this chapter means by **PIA subspace stability review**: not psychology, but governed privacy and coherence for person‑linked memory.
+
+---
+
+## 29.13 Closing Statement
+
+Chapter 29 defines a **bounded, operational privacy review** over Ms. Jarvis’s people‑space pathway.
+
+It allows claims about per‑user partitioning, non‑surveillance suppression, deletion, pruning, commons isolation, Phi/coherence safeguards, and BBB/guardian‑backed audit, all framed as privacy, retention, coherence, and safeguard review. By refusing to drift into clinical or therapeutic language, the chapter keeps its promise narrow, inspectable, and useful for rural developers who need to understand exactly how people‑space is governed.
