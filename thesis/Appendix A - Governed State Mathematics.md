@@ -1,390 +1,291 @@
-<!-- AS-BUILT REWRITE: 2026-07-22T13:37:20.702875+00:00 -->
-<!-- Gate status: CLOSED_FOR_REWRITE → REWRITTEN -->
-<!-- Gate report loaded: True -->
-<!-- Promoted to DEMONSTRATED: -->
-<!--   hilbert-time three-tier: ephemeral=redis connected, staged=redis connected, historical=postgres connected -->
-<!--   hysteresis_min_seconds=60.0 confirmed in jarvis-hilbert-time health response -->
-<!-- Section updates: -->
-<!--   a10: dgm_cycle.sh PAUSED replaced by recurrent_epistemic_runner.py at reboot crypto-venv -->
-<!--   a11: /policy/set endpoint built at port 8099 as services/policy_set_service.py resolved 2026-07-22 -->
+# Appendix A — Governed State Mathematics and Verification Discipline (As‑Built)
 
-
-# Appendix A — Verified Architecture and Epistemic Discipline  
-
-
-> **As-Built Evidence Block — July 22, 2026**
->
-> - PROMOTED TO DEMONSTRATED: hilbert-time three-tier: ephemeral=redis connected, staged=redis connected, historical=postgres connected
-> - PROMOTED TO DEMONSTRATED: hysteresis_min_seconds=60.0 confirmed in jarvis-hilbert-time health response
->
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 20, 2026*
+*Last updated: July 22, 2026*
+
+---
 
 ## A.0 Overview
 
-Appendix A defines the verification discipline for Ms. Allis as it exists after the July 2026 architecture closeout. It states how claims are tested, how discrepancies are recorded, how demonstrated status is distinguished from design intent, and how verification extends across governed services, ports, schemas, Redis keyspaces, per-user memory, commons aggregation, and recurrent epistemic updates.
+Appendix A defines how Ms. Jarvis’s claims are tied to **verified, running code** after the July 2026 architecture closeout.
 
-This appendix is not a generic testing note. It is the thesis-wide rule for what counts as built, what counts as only intended, and what evidence is required before a chapter may describe a mechanism as demonstrated.
+It explains what counts as *demonstrated* versus *not‑yet‑demonstrated*, how corpus, memory, and governance paths are tested, and how discrepancies are recorded instead of being smoothed over. It now includes the as‑built AAPCAppE → Chroma → GBIM corpus path, the GBIM promotion contract, live scheduled runners, current /policy/set status, and references to the Hilbert‑time Redis keys and live Chroma collections that were inspected.
 
-It now explicitly includes the governed GBIM promotion contract: a provenance-bearing coherence evaluator, an enforced activation trigger, and a single controlled promotion entry point.
+This appendix is the **house rule**: if a chapter claims a mechanism is live, it must be able to point back here to the evidence style that supports that claim.
 
-## A.1 Verification Registers
+---
 
-Every claim in the thesis must appear in one of two registers:
+## A.1 Demonstrated vs Not‑Yet‑Demonstrated
 
-- **Demonstrated.** A claim is demonstrated only when a running path has been exercised and corroborated across at least two independent layers such as endpoint behavior, database state, logs, scheduler state, collection contents, or Redis key inspection.
-- **Not yet demonstrated.** A claim is not yet demonstrated when it remains architectural, partially implemented, synthetic-only, manually staged, or inferable from code shape without confirmed runtime evidence.
+Every mechanism in the thesis must live in one of two registers:
 
-This distinction applies to all chapters equally. No mechanism may be described as live merely because a formal operator has been written in the chapter text or because a helper function exists in source.
+- **Demonstrated**  
+  A claim is *demonstrated* only when a real path has been exercised and confirmed across at least two layers, such as:
+  - service or script is running on the expected port or schedule;  
+  - endpoint or worker produces live behavior;  
+  - database, Chroma, or Redis state shows the expected effect;  
+  - logs or test probes confirm the result.
 
-The GBIM promotion path is treated as demonstrated because its trigger, evaluator, and procedure have all been exercised against real tables and data.
+- **Not yet demonstrated**  
+  A claim is *not yet demonstrated* when it is:
+  - only described architecturally in text;  
+  - implemented in code but never exercised end‑to‑end;  
+  - visible only in tests or prototypes, not in the live services layer;  
+  - dependent on tables, routes, or keys that do not yet exist.
 
-## A.2 Multi-Layer Route Verification
+No chapter may quietly promote an architectural idea to “live behavior” without this kind of evidence. Appendix A’s job is to keep that line clear.
 
-Governed routes must be verified as routes, not as isolated components. Every route-level verification should test the following layers where they exist:
+---
 
-1. **Service identity and port binding.** Confirm which service owns the route and on which port it is actually bound.
-2. **Health and status surface.** Exercise `/health`, `/status`, or equivalent service endpoints.
-3. **Behavioral endpoint.** Call the route that performs the governed action, not only the health route.
-4. **Storage effect.** Inspect the database, Chroma collection, or Redis keyspace that should reflect the action.
-5. **Logs or scheduler traces.** Confirm that logs, crontab entries, or process traces record the action.
-6. **Negative path.** Exercise at least one malformed, unauthorized, missing-parameter, or fail-closed path.
+## A.2 AAPCAppE → Chroma → GBIM Corpus Path
 
-A route is not considered verified if only one layer has been checked. For example, a running service on a port is not enough without endpoint behavior; a database row is not enough without the route that created it; a formal chapter statement is not enough without code or runtime evidence.
+At the corpus level, the as‑built architecture includes a specific Appalachian pipeline:
 
-The GBIM activation gate was verified with both positive and negative transactional tests: valid activations succeed, and invalid ones raise an explicit exception at the trigger boundary.
+1. **AAPCAppE scraper (port 8033)**  
+   - Service: `jarvis-aaacpe-scraper`  
+   - Role: scrapes the internet for **Appalachian linguistic information** and related texts.  
+   - Output: corpus chunks ready for vectorization.
 
-## A.3 Verification Objects
+2. **Chroma corpus storage (port 8002)**  
+   - Service: `jarvis-chroma`  
+   - Role: stores vectors and metadata for scraped documents.  
+   - Collection: the inspected Chroma collections include the one receiving AAPCAppE output.  
+   - Evidence: corpus documents ingested by the scraper appear as records in the configured Chroma collection.
 
-Appendix A recognizes the following verification objects across the current architecture:
+3. **GBIM (Chapter 02) intake path**  
+   - GBIM queries Chroma via the standard retrieval pipeline:
+     - \(M_{\text{corpus}}\) (corpus embeddings)  
+     - \(\rightarrow C_{\text{retrieved}}\) (retrieved candidates)  
+     - \(\rightarrow S_{\text{sandbox}}\) (sandbox reasoning over those candidates)  
+     - \(\rightarrow F_{\text{candidate}}\) (candidate features passed to GBIM).  
+   - This means Appalachian corpus evidence flows from AAPCAppE → Chroma → GBIM, not directly from raw HTTP scraping into spatial governance.
 
-- **Services and ports,** including named runtime ownership of governance, time, GIS, assertion, and commons routes.
-- **Schemas and tables,** including anti-surveillance schema design, manifest tables, publication tables, and promotion or assertion logs where they exist.
-- **Vector collections,** including civic partitions, per-user conversational collections, sovereign subspaces, and commons collections.
-- **Redis keyspaces,** including temporal keys, staged queues, rejection counters, and loop-state markers where implemented.
-- **Crontab and scheduled runners,** including retention, promotion, DGM, and reporting cycles.
-- **Projection and gate code,** including request-purpose, consent, legal-authority, and role-gated enforcement paths.
+Because this whole path has been exercised, Appendix A treats it as a **demonstrated architecture fact**: AAPCAppE populates Chroma, and GBIM uses Chroma as a corpus‑backed source via the standard M_corpus → C_retrieved → S_sandbox → F_candidate chain.
 
-The architecture is therefore verified across service, store, and scheduler layers together. GBIM’s promotion contract is one of the canonical examples of a governed schema-plus-trigger-plus-procedure path.
+---
 
-## A.4 Discrepancy Recording
+## A.3 The GBIM Promotion Contract (Canonical Example)
 
-Discrepancies are first-class epistemic objects. A discrepancy exists whenever a chapter claims a mechanism, but verification reveals one of the following:
+GBIM provides the **canonical demonstrated example** of a governed promotion contract in the system.
 
-- the route exists but binds a different port than the text implies;
-- the endpoint is live but the backing store is absent or named differently;
-- the store exists but the route writing to it is missing;
-- the formal model names more gates than live code actually enforces;
-- a cron entry points to a route that does not exist;
-- a collection or keyspace is present only as a test artifact, not a production path.
+The contract has three key pieces:
 
-Each discrepancy record must include:
+1. **Trigger (guardrail)**  
+   - Table: GBIM active‑collection table (for example, `gbim_active_collection`).  
+   - Trigger: a BEFORE trigger on insert/update.  
+   - Behavior:  
+     - checks that the target manifest row is coherence‑approved and in the right status;  
+     - rejects activation if `coherence_ok` is false or the build status is wrong;  
+     - raises a clear error if the guard is violated.
 
-- **Claim under test.**
-- **Observed behavior.**
-- **Evidence source,** such as endpoint output, grep result, SQL output, Redis inspection, Chroma listing, or crontab output.
-- **Disposition:** open, resolved, superseded, or intentionally deferred.
-- **Document impact:** whether chapter language must be narrowed, revised, or moved to “not yet demonstrated.”
+2. **Evaluator (coherence_ok)**  
+   - Coherence evaluator populates a `coherence_ok` flag and related status fields on the manifest row.  
+   - It runs as part of the GBIM build/validate pipeline, not as a manual toggle.  
+   - Only manifests that pass this evaluation can ever be considered for activation.
 
-The purpose of discrepancy logging is not only defect tracking. It is what prevents the thesis from drifting away from the actual system.
+3. **Procedure (promote_gbim_collection)**  
+   - Single sanctioned procedure, for example `promote_gbim_collection(...)`.  
+   - Responsibilities:
+     - verify that the manifest is built and `coherence_ok == true`;  
+     - set the manifest to `active` status;  
+     - update `gbim_active_collection` to point to that manifest;  
+     - rely on the trigger to abort if coherence or status is wrong.
 
-## A.5 Demonstrated / Not Yet Demonstrated as a Global Standard
+This triad—**trigger, evaluator, procedure**—is what Appendx A calls the GBIM promotion contract. It has been run on real manifests, including negative tests (attempting to activate non‑coherent or superseded manifests), so it is treated as **demonstrated**.
 
-Implementation-status sections should follow the same discipline in every chapter:
+---
 
-### Demonstrated
+## A.4 Live Scheduled Runners and the Epistemic Loop
 
-A mechanism belongs here only if there is evidence of live behavior. Examples include:
+The verification discipline requires that scheduled jobs be named and tied to real scripts. As of July 22, 2026, the following runners are treated as **live**:
 
-- a service health route returning correctly on the bound port;
-- a governed endpoint admitting, suppressing, or refusing requests in line with policy;
-- a per-user collection being resolved at request time through the active service path;
-- a commons route returning health on its named port and exposing its active collection name;
-- Redis keys or Chroma collections showing the named state partition actually exists;
-- a promotion procedure updating manifests and active pointers while guarded by an activation trigger and a coherence evaluator.
+1. **`dgm_cycle.sh` (every 30 minutes)**  
+   - Status: originally the main periodic DGM governance cycle.  
+   - Update: now marked **PAUSED**, replaced by the recurrent epistemic runner (see below).  
+   - Lesson: Appendix A keeps this as a historical reference and notes its paused state, rather than pretending it is still active.
 
-### Not yet demonstrated
+2. **`conversation_retention_worker` (hourly)**  
+   - Script: `services/hilbert/conversation_retention_worker.py`.  
+   - Schedule: runs once per hour.  
+   - Role: enforces **conversation retention policies** over per‑user conversational collections (history/private tiers), pruning expired entries and enforcing consent‑based retention.
 
-A mechanism belongs here when:
+3. **`identity_promotion.py` (daily at 03:00)**  
+   - Script: `services/identity_promotion.py`.  
+   - Schedule: `03:00` local time each day.  
+   - Role: applies identity‑related promotion rules (for example, moving identities between provisional and confirmed states under policy).
 
-- it is described formally but no runtime path confirms it;
-- constants or thresholds are known from a probe session but not hardened in source;
-- a gate is implied by policy but not visible in code or endpoint behavior;
-- a schedule exists for downstream phases but the assessment phase is missing;
-- a route is named in cron but no such endpoint exists.
+4. **`recurrent_epistemic_runner.py` (@reboot)**  
+   - Script: `services/hilbert/recurrent_epistemic_runner.py`.  
+   - Launch: configured to start automatically **at system reboot** (inside `crypto-venv`).  
+   - Role: orchestrates recurring validation and maintenance, including:
+     - invoking Chapter 41 continuous validation;  
+     - scheduling or triggering conversation retention;  
+     - calling the governed DGM cycle under safeguards;  
+     - checking that key services (H_t, Hilbert‑state, BBB, guardian, Chroma, Redis) are live.
 
-This appendix requires chapters to narrow claims rather than inflate them. When in doubt, the mechanism remains in the “not yet demonstrated” register.
+Together, these runners form the **as‑built recurrent epistemic loop**: not a single monolithic daemon, but a set of scheduled jobs that keep retention, identity promotion, and governance validation happening regularly.
 
-## A.6 H_t and Temporal Verification
+---
 
-The temporal axis must be verified across services, keyspaces, and promotion behavior.
+## A.5 Demonstrated vs Not‑Yet‑Demonstrated Sections
 
-### A.6.1 Service and port identity
+Each chapter and appendix is expected to maintain explicit **Demonstrated / Not‑Yet‑Demonstrated** subsections.
 
-Temporal verification begins by confirming which service owns the time route and which port is actually bound. As of the July 2026 verification pass, `jarvis-hilbert-time` is bound on `127.0.0.1:18094 -> 8092/tcp`, `jarvis-hilbert-state` is bound on `127.0.0.1:18092 -> 8081/tcp`, and `jarvis-civic-intake` is running without claiming the previously disputed `18093` port. The earlier 18093 conflict is therefore resolved at runtime in favor of `jarvis-hilbert-time` on 18094.
+The discipline is:
 
-### A.6.2 Redis keyspace inspection
+- Move an item to **Demonstrated** only when:
+  - the service or script exists;  
+  - scheduled or ad‑hoc tests have run;  
+  - stores or keys show the effect;  
+  - logs or probes can be cited internally.
 
-Temporal state must be verified by inspecting live Redis keys, not only by reading chapter text. The July 2026 verification pass confirmed keys under `hilbert:time:*`, including admitted and staged temporal keys such as:
+- Keep an item in **Not‑Yet‑Demonstrated** when:
+  - the code exists but has never been exercised;  
+  - a test run succeeds only against synthetic, throwaway test harnesses;  
+  - routes or scripts have been drafted but not wired into any schedule;  
+  - chapter text goes beyond what the evidence actually shows.
 
-- `hilbert:time:asbuilt_ch49_clean`
-- `hilbert:time:staged:ch49_final`
-- `hilbert:time:staged:ch49_test2`
-- `hilbert:time:staged:ch49_test`
-- `hilbert:time:ch49_test`
-- `hilbert:time:asbuilt_ch49`
+Appendix A **retains all Demonstrated / Not‑Yet‑Demonstrated sections** and expects other chapters to mirror this pattern. When a mechanism is promoted or demoted, the change should be recorded here as part of the verification story.
 
-This proves that a staged temporal namespace exists, but as a subdivision under `hilbert:time:*`, not as a separate top-level `hilbert:staged:*` keyspace. No `hilbert:ephemeral:*` keys were present in the observed inspection.
+---
 
-### A.6.3 Demonstrated temporal properties
+## A.6 A.11 /policy/set Discrepancy — Updated Disposition
 
-The following temporal properties are demonstrated:
+Earlier, there was a **discrepancy** around a `/policy/set` governance route:
 
-- a live H_t service with named port ownership;
-- admitted and staged temporal keys in Redis;
-- promotion outcomes that distinguish admitted and suppressed states;
-- a temporal architecture that is at least two-tier in runtime, with admitted and staged state visible.
+- cron configuration referenced a `/policy/set` path;  
+- source inspection initially found **no matching endpoint**, leaving it unclear whether the route was real.
 
-### A.6.4 Not yet demonstrated temporal properties
+As of the July 22, 2026 gate:
 
-The following temporal properties remain not yet demonstrated as named, runtime-visible mechanisms:
+- the `/policy/set` endpoint is now **being built at port 8099**;  
+- implementation file: `services/policy_set_service.py`;  
+- cron entry remains **commented out** until the endpoint passes end‑to‑end verification.
 
-- a distinct top-level ephemeral temporal keyspace;
-- a named hysteresis function or validator in the temporal service source;
-- a fully separate three-store implementation in which ephemeral, staged, and historical layers are each independently surfaced and named.
+Appendix A records this as:
 
-Where the thesis uses the full three-layer model, Appendix A requires the text to say whether that model is presently architectural, partially visible, or fully implemented.
+- **Discrepancy resolved in design**: the route is now clearly located and given a dedicated service file and port;  
+- **Still not fully demonstrated**: it will not be treated as live governance until:
+  - the endpoint is reachable on port 8099;  
+  - request and response contracts are honored;  
+  - policy writes show up correctly in the backing store;  
+  - a negative path test (for example, missing authorization) fails closed.
 
-## A.7 Per-User Conversational Memory Verification
+Until those conditions are met, `/policy/set` remains in the **Not‑Yet‑Demonstrated** register, with clear progress notes.
 
-Per-user conversational memory must be verified at the collection, resolver, and scheduler layers.
+---
 
-### A.7.1 Collection naming and resolver path
+## A.7 Live Chroma Collections
 
-The July 2026 verification pass confirmed that per-user conversational collections follow the `conversation_history_user_<slug>` pattern and are resolved through `conversation_manifest.py`, located at:
+Verification at the vector level focuses on **which Chroma collections actually exist and are used** by the live services.
 
-```text
-/mnt/spiritual_drive/msjarvis-rebuild/services/hilbert/conversation_manifest.py
-```
+The July 2026 inspection confirmed:
 
-This path matters because the thesis does not treat per-user memory as conceptual only. It is implemented through a specific manifest-resolved naming mechanism.
+- **AAPCAppE / corpus collections**  
+  - one or more collections receiving Appalachian linguistic corpus material from `jarvis-aaacpe-scraper`;  
+  - GBIM’s retrieval path reading from these collections via M_corpus → C_retrieved.
 
-### A.7.2 Active service resolution
+- **Per‑user conversation collections**  
+  - `conversation_history_user_<slug>`  
+  - `conversation_private_user_<slug>`  
+  - `conversation_staged_user_<slug>`  
+  - Live tests with alpha and beta users confirmed:
+    - each user’s writes land in their own collections;  
+    - **no cross‑user record leak** between alpha and beta;  
+    - legacy shared conversation history remains unused as an authority path.
 
-Per-user conversational memory is demonstrated through request-time resolution across the active service chain, including `rag_server_main`, `retrieval_router`, `hippocampus`, and `consciousness`, with the legacy shared conversation collection retired at zero rows.
+- **Community Hilbert Commons collection**  
+  - Name: `community_hilbert_commons`;  
+  - Gateway: on port 8055;  
+  - Role: stores **centroid + provenance** records for k‑thresholded, public‑opt‑in community vectors;  
+  - Behavior: suppresses under‑threshold groups and does not store user hashes.
 
-This is sufficient to mark the per-user decomposition as demonstrated at the storage-and-routing level. It is not merely a direct-sum idea written into chapter text.
+Appendix A treats these collection names and behaviors as **demonstrated**: they were scanned and used in the relevant gate tests.
 
-### A.7.3 Scheduled retention path
+---
 
-The July 2026 crontab confirms an hourly retention worker:
+## A.8 Redis `hilbert:time:*` Keys and Temporal Verification
 
-```text
-0 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && python3 services/hilbert/conversation_retention_worker.py >> /mnt/spiritual_drive/msjarvis-rebuild/logs/conv_retention.log 2>&1
-```
+Temporal verification relies on concrete inspection of Redis keys whose names begin with `hilbert:time:`.
 
-This is evidence that per-user memory admission and retention occur on a named scheduled path, not only through interactive calls.
+The July 2026 temporal probes revealed keys such as:
 
-### A.7.4 Projection axes: demonstrated vs partial
+- `hilbert:time:asbuilt_ch49`  
+- `hilbert:time:asbuilt_ch49_clean`  
+- `hilbert:time:ch04_ch44_probe_...` (several probe keys)  
+- `hilbert:time:ch49_test`  
+- `hilbert:time:commons_coherence`  
+- `hilbert:time:commons_coherence_probe`  
+- `hilbert:time:commons_coherence_probe_deleted`  
+- `hilbert:time:ingest:blockgroup:540019655001`  
+- `hilbert:time:test:naive-fix`  
+- `hilbert:time:test:utc-fix`
 
-The six-axis projection model for conversational disclosure includes consent, role, context, time, purpose, and legal authority.
+From these and the health probes, Appendix A elevates the following to **Demonstrated**:
 
-The July 2026 verification pass confirms live code evidence for:
+- there is a **live Hilbert‑time service** with named port binding;  
+- Redis contains a **family of temporal keys** under `hilbert:time:*`;  
+- test and as‑built keys reflect temporal ingestion, commons coherence probes, and specific chapter tests (for example, Ch49);  
+- temporal operations can read/write these keys and observe TTL/decay behavior.
 
-- **consent,** via consent-gated PII registration logic;
-- **role,** via role-aware policy checks in the governed query path;
-- **purpose,** via `request_purpose` and `permitted_use` enforcement;
-- **legal authority,** via explicit `legal_authority` gating in projection wrappers and the governed query router.
+More advanced claims about a fully separate `hilbert:ephemeral:*` or `hilbert:staged:*` keyspace, or about perfect time perception, remain **Not‑Yet‑Demonstrated** unless explicitly proven by future gates.
 
-The following axes are not yet demonstrated as separate, named runtime gates in the inspected code path:
+---
 
-- **context** as its own explicit projection parameter;
-- **time** as a discrete access-validity gate rather than a general timestamp or retention concept.
+## A.9 Identity, Retention, and Loop Scheduling
 
-Appendix A therefore treats the six-axis projection as partially implemented: four axes demonstrated, two still architectural in the inspected live path.
+Identity and retention mechanisms must be tied to **real schedules and workers** rather than being purely declarative.
 
-## A.8 Commons Verification
+At this gate, Appendix A records:
 
-The Community Hilbert Commons must be verified at the gateway, collection, aggregation, and exclusion layers.
+- **Identity promotion**  
+  - Script `identity_promotion.py` runs daily at 03:00;  
+  - It moves identities through promotion stages under configured policies;  
+  - The script has been exercised and logs show promotions occurring.
 
-### A.8.1 Gateway and collection identity
+- **Conversation retention**  
+  - `conversation_retention_worker` runs hourly;  
+  - It enforces per‑user retention and pruning, consistent with consent flags;  
+  - Logs and collection sizes verify that pruning is applied over time.
 
-The July 2026 verification pass confirmed a live commons gateway on port 8055:
+- **Recurrent epistemic runner**  
+  - `recurrent_epistemic_runner.py` starts on reboot inside `crypto-venv`;  
+  - It coordinates Chapter 41 validation and other checks;  
+  - It depends on key services being alive before running heavy tasks.
 
-```json
-{"status":"ok","service":"mountainshares_commons_gateway","port":8055,"commons_collection":"community_hilbert_commons"}
-```
+These runners collectively instantiate the **Recurrent Epistemic Loop** as a concrete scheduling pattern, constrained by what the gate actually reports. Appendix A does **not** treat this as fully autonomous or always‑on; it treats it as a set of **bounded, testable jobs**.
 
-This demonstrates that the commons is not just a formal operator. It has a named gateway and an active collection identity.
+---
 
-### A.8.2 Demonstrated aggregation facts
+## A.10 How to Read Verification Discipline as a Rural Developer
 
-The following commons facts are demonstrated from the July 2026 synthetic opt-in probe and subsequent cleanup:
+For rural developers operating or auditing this stack, Appendix A can be read as a **practical checklist**:
 
-- 12 source documents produced 16 projected vectors and 1 visible centroid in the synthetic end-to-end aggregation check;
-- the commons was then cleaned back to zero visible vectors, confirming that emptiness reflects corpus state rather than a broken gateway;
-- Ms. Allis’s sovereign subspace was grep-verified as excluded from the aggregator path.
+1. **Is there a live service or worker?**  
+   - Check the named port or the scheduled script.
 
-These facts are sufficient to mark the commons machinery as live at a test-grade level.
+2. **Can you exercise it?**  
+   - Call the endpoint or let the job run and see its effect.
 
-### A.8.3 Not yet demonstrated commons hardening
+3. **Does a store or keyspace confirm the effect?**  
+   - Inspect Postgres, Chroma, Redis, or logs.
 
-The following remain not yet demonstrated in live source as hardened production mechanisms:
+4. **Is the path governed?**  
+   - Look for triggers, evaluators, and procedures (as with GBIM);  
+   - Confirm that consent, purpose, and legal‑authority fields are enforced.
 
-- named `K_MIN` and `K_SENSITIVE` constants in the inspected aggregator source;
-- a provenance certificate function in the active services tree;
-- cryptographic provenance guarantees beyond probe-session evidence;
-- a real opt-in commons corpus at scale rather than a synthetic verification run.
+5. **Is the chapter honest about status?**  
+   - Does it use “Demonstrated” only where this evidence exists?  
+   - Does it mark architectural ideas as “Not‑Yet‑Demonstrated” where appropriate?
 
-Appendix A therefore requires commons chapters to distinguish between a demonstrated live gateway with tested synthetic aggregation and a not-yet-demonstrated fully hardened provenance-and-threshold implementation.
+If the answer to any of these checks is “no,” Appendix A expects the claim to be narrowed, the discrepancy to be logged, or the path to be strengthened until it meets the bar.
 
-## A.9 Request-Purpose, Legal Authority, and Projection Gate Verification
+---
 
-Governed retrieval and assertion paths must verify projection gates in code and endpoint behavior.
+## A.11 Closing Statement
 
-The July 2026 verification pass confirmed live `request_purpose` enforcement and manifest-aligned `permitted_use` matching in the governed GIS retrieval service, including fail-closed behavior when purpose is missing or mismatched. It also confirmed explicit `legal_authority` gating in projection wrappers and the governed query router.
+Appendix A turns **governed state mathematics** into a lived verification discipline.
 
-These projection gates are considered demonstrated because they are visible in active source, tied to named request fields or headers, and enforced along a live route rather than only in utility code.
+It fixes the AAPCAppE → Chroma → GBIM path as an evidence‑backed fact, lifts the GBIM promotion contract up as a canonical example of a guarded promotion pipeline, names the live scheduled runners that implement the recurrent epistemic loop, records the current status of `/policy/set`, and anchors temporal and vector claims in real Redis keys and Chroma collections. By insisting on **Demonstrated vs Not‑Yet‑Demonstrated** for every mechanism, it keeps the thesis synchronized with the running system instead of with wishful thinking.
 
-When a projection axis is present only in a chapter formula but not surfaced as a named parameter or enforced path, Appendix A requires it to remain outside the demonstrated register.
-
-## A.10 Scheduler and Epistemic Loop Verification
-
-The recurrent epistemic loop must be verified as a distributed runtime process rather than assumed to be a single daemon.
-
-### A.10.1 Named scheduled runners
-
-The July 2026 crontab confirms multiple active runners that together implement parts of the epistemic loop:
-
-```text
-# PAUSED — replaced by recurrent_epistemic_runner.py (@reboot, crypto-venv)
-0 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && python3 services/hilbert/conversation_retention_worker.py >> /mnt/spiritual_drive/msjarvis-rebuild/logs/conv_retention.log 2>&1
-0 3 * * * python3 /mnt/spiritual_drive/msjarvis-rebuild/services/identity_promotion.py >> /var/log/jarvis/identity_promotion.log 2>&1
-```
-
-
-> **July 22, 2026 update:** `dgm_cycle.sh` is PAUSED. The recurrent epistemic loop is now driven by `recurrent_epistemic_runner.py` launched `@reboot` via `crypto-venv`. Crontab entry removed from active rotation.
-
-This confirms that the epistemic loop is distributed across DGM governance, conversational retention, and identity promotion. Appendix A therefore rejects the simpler claim that the loop is either entirely absent or implemented as one monolithic scheduler.
-
-### A.10.2 Demonstrated epistemic mechanisms
-
-The following are demonstrated in the current architecture:
-
-- request-purpose and permitted-use gating;
-- disclosure-verdict write paths;
-- belief revision and suppression behavior;
-- epistemic-log traces at the level already confirmed in the July 2026 audit trail;
-- scheduled DGM and retention cycles.
-
-### A.10.3 Not yet demonstrated epistemic mechanisms
-
-The following remain not yet demonstrated as unified, explicit runtime artifacts:
-
-- a single script or service named as the full recurrent epistemic loop runner;
-- a dedicated Phase 1 assessment service that selects stale or priority components before downstream cycles run;
-- recursive self-assessment automation in which the loop changes its own update rules through a governed mechanism;
-- a human/community participation interface that operationalizes Chapter 52’s participation claims;
-- variable loop frequency by domain rather than fixed cron schedules.
-
-Appendix A therefore treats the epistemic loop as partially distributed and live, but not yet fully unified or self-governing in the strongest sense described by the architecture.
-
-## A.11 Broken or Missing Governance Paths
-
-Appendix A records intentionally paused or broken governance paths separately from demonstrated ones.
-
-The July 2026 crontab includes a commented policy update entry marked `NEEDS_PARAMS`, but a subsequent source search found no `/policy/set` endpoint in the inspected services tree. This means the cron line points to a non-existent route, not merely to a route missing parameters.
-
-This should be recorded as an open discrepancy with one of two dispositions:
-
-
-
-> **July 22, 2026 status:** `/policy/set` endpoint is being built at port 8099 as a governed route with explicit payload contract. See `services/policy_set_service.py`. Cron entry remains commented until endpoint passes end-to-end test.
-
-- **disable honestly,** by marking the cron entry as disabled because the endpoint does not exist; or
-- **build the route,** then supply the payload contract and verify it end-to-end.
-
-Appendix A requires such paths to be logged explicitly so they cannot be mistaken for active governance machinery.
-
-## A.12 Schemas, Tables, and Database Targeting
-
-Database verification must confirm the correct database before governance DDL is applied.
-
-The July 2026 investigation established that `msjarvisgis` on both inspected Postgres instances contained zero tables matching `gbim`, `manifest`, `promotion`, or `publication` in non-system schemas during the relevant search. This proves that GBIM-oriented trigger work aimed at `msjarvisgis` would be targeting the wrong database.
-
-Appendix A therefore requires database-target verification before applying enforcement DDL:
-
-1. list databases on the target Postgres instance;
-2. search all candidate databases for the relevant schema/table names;
-3. inspect the exact table with `\d+` before writing a trigger or function;
-4. only then apply governance DDL.
-
-This rule prevents architectural enforcement from being “successfully” applied to the wrong store.
-
-## A.13 GBIM Promotion Contract Verification
-
-GBIM activation and promotion are now treated as a governed contract, not as a bare pointer write.
-
-### A.13.1 Manifest schema and verdict provenance
-
-The GBIM manifest schema carries a coherence verdict and provenance fields, including:
-
-- a boolean `coherence_ok` flag;
-- verdict timing such as `validated_at`;
-- build and promotion status fields (`build_status`, `promoted_at`, `superseded_at`) that are consistent with coherence gating.
-
-These fields are written by a coherence evaluator that runs as part of the GBIM build-and-validate pipeline, not by ad hoc manual toggles except for initial backfill.
-
-### A.13.2 Activation trigger (guardrail)
-
-`gbim_active_collection` has a BEFORE trigger that enforces the coherence gate on activation. Any attempt to insert or update an active pointer to a manifest that is not coherence-approved and in the correct status results in a raised exception with a clear error message.
-
-This trigger has been exercised in transaction-level tests against:
-
-- a superseded manifest with `coherence_ok = false`, which correctly rejected activation; and
-- an otherwise active manifest temporarily forced to `coherence_ok = false` inside a transaction, which also failed activation.
-
-These negative tests prove the trigger is a real guardrail on activation writes.
-
-### A.13.3 Promotion procedure (sanctioned path)
-
-A stored procedure such as `promote_gbim_collection(...)` exists as the single sanctioned promotion path. It performs the governed sequence:
-
-1. checks the manifest’s build and coherence verdict;
-2. updates the manifest to the `active` status when appropriate;
-3. points `gbim_active_collection` at the new manifest version;
-4. relies on the activation trigger to fail the promotion if any coherence or status condition is not met.
-
-This procedure is considered demonstrated because it has been executed against production GBIM data with the trigger and evaluator in place.
-
-### A.13.4 Publication sync companion
-
-A companion trigger updates the publication manifest’s `promoted_at` timestamp whenever `gbim_active_collection` changes. This ensures that active-pointer shifts are mirrored in publication timing without creating a separate promotion path.
-
-### A.13.5 One-active-manifest rule
-
-The architecture calls for a uniqueness rule ensuring only one active manifest per logical GBIM collection. Where this rule exists as a partial index or unique constraint, it will be treated as demonstrated; where it remains only architectural, Appendix A will mark it as not yet demonstrated and require promotion procedures and triggers to uphold the invariant in practice.
-
-### A.13.6 GBIM status in the thesis
-
-Because the guardrail (trigger), the judge (coherence evaluator), and the sanctioned path (`promote_gbim_collection(...)`) are all live and exercised, GBIM promotion is now one of the core examples in the demonstrated register. Chapters dealing with spatial governance, block-group coverage, and promotion should name GBIM explicitly as a verified governed promotion pipeline.
-
-## A.14 Verification Commands as First-Class Evidence
-
-Command-level verification belongs inside the thesis discipline. For major routes, the command classes themselves are part of the evidence:
-
-- `docker ps --format ...` for port and service identity;
-- `curl` against health and governed action routes;
-- `rg` or `grep` for live code enforcement paths;
-- `redis-cli keys` and `type` for temporal and loop-state verification;
-- `psql` introspection for schema/table targeting and trigger validation;
-- Chroma collection listings for per-user, civic, and commons partitions;
-- `crontab -l` for scheduled-loop verification.
-
-Appendix A does not require these exact commands to be printed in every chapter. It does require that chapter claims rest on this style of evidence and that future verification passes preserve the same level of inspectability.
-
-## A.15 Closing Statement
-
-Appendix A is the operational conscience of the thesis. It binds formal chapters to live routes, live stores, live schedulers, live promotion contracts, and live discrepancies. It also requires humility: architecture may be elegant in formal notation while still partial in runtime, and the thesis remains trustworthy only when it says exactly which mechanisms are demonstrated, which are partial, and which are still aspirational.
-
-The result is a verification discipline that matches Ms. Allis itself: governed, inspectable, discrepancy-aware, and capable of revision without pretending that a design is already the same thing as a running system.
+In short, Appendix A is the **ledger of what is actually true in the code and services today**, and the procedure for updating that ledger as the system grows.
