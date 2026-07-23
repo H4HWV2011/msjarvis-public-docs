@@ -1,207 +1,214 @@
 # 26. Temporal Toroidal Semaphore Structure
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## Why This Matters for Polymathmatic Geography
+## 26.1 Why This Matters for Polymathmatic Geography
 
-This chapter explains how time is regulated in Ms. Allis so that reasoning, validation, promotion, and persistence occur within controlled temporal cycles rather than as a flat sequence of immediate writes.
+This chapter explains how Ms. Allis regulates **time and cycles** so that reasoning, validation, promotion, and retention happen in **bounded intervals** instead of as instant, fire‑and‑forget writes. It shows how temporal structure acts as part of governance, not just plumbing.
 
 It supports:
 
-- **P1 – Every where is entangled** by showing that temporal coordination is part of the same coupled architecture that links reasoning, gating, memory, and downstream effect.
-- **P3 – Power has a geometry** by giving authority transitions a temporal shape, not just a logical one; what may proceed depends not only on content but also on timing, stability, and promotion window.
-- **P5 – Design is a geographic act** by treating temporal orchestration as infrastructure: semaphores, retry windows, gating cycles, and continuity constraints shape what kinds of state can safely move.
-- **P12 – Intelligence with a ZIP code** by allowing local and situational reasoning to unfold in bounded sessions without forcing immediate promotion into wider system consequence.
-- **P16 – Power accountable to place** by ensuring that temporal promotion is observable, bounded, and aligned with validation timing rather than uncontrolled propagation.
+- **P1 – Every where is entangled** by tying time, reasoning, gating, and memory into one coupled system instead of treating them as separate.  
+- **P3 – Power has a geometry** by giving authority transitions a temporal shape: whether something may advance depends on *when* and *for how long* it stays stable.  
+- **P5 – Design is a geographic act** by treating timing layers—semaphores, windows, retries, and hysteresis—as part of the system’s map.  
+- **P12 – Intelligence with a ZIP code** by letting local reasoning unfold inside bounded sessions without forcing immediate system‑wide consequences.  
+- **P16 – Power accountable to place** by making temporal promotion observable and bounded rather than letting state jump straight from thought to lasting effect.
 
-This chapter belongs to the **Computational Instrument** tier. The temporal toroidal semaphore structure is the timing framework that keeps sandbox reasoning, candidate experience, gating, and commitment synchronized across cycles.
-
----
-
-## 26.1 The Temporal Semaphore Role
-
-The temporal toroidal semaphore structure is the system’s timing architecture for controlled passage between internal reasoning and broader consequence. It regulates when a process may deliberate, when it must pause, when it may retry, and when promotion is allowed to open or must remain closed.
-
-This means the semaphore is not only a concurrency primitive in the narrow software sense. It is also a temporal governance structure. It shapes how long candidate reasoning may remain provisional, how validation windows are enforced, and how state stability over time is taken into account before commitment.
-
-The toroidal language remains useful because the structure is cyclical rather than purely linear. Processes recur, revisit, re-evaluate, and re-enter timing windows while still preserving state continuity across passes.
+This chapter belongs to the **Computational Instrument** tier. It describes the **as‑built temporal governance layer** over Ms. Allis.
 
 ---
 
-## 26.2 Sandbox Sessions in Temporal Orchestration
+## 26.2 What the Temporal Semaphore Does
 
-Sandbox sessions fit directly inside the temporal semaphore structure.
+The **temporal toroidal semaphore structure** is the timing framework that controls when:
 
-A sandbox session is a bounded interval of internal deliberation. It begins when the coordinator routes a task into the sandbox, continues while candidate reasoning is being formed, and remains temporally provisional until the relevant gate cycle either advances it, delays it, or closes it.
+- a sandbox session can run;  
+- validation checks happen;  
+- promotion windows open or stay closed;  
+- retries or holds are allowed;  
+- a candidate must expire or roll back.
 
-Within the semaphore architecture, a sandbox session is not floating outside time. It occupies a timed slot with:
+You can think of it as a **traffic light plus calendar** for internal reasoning:
 
-- a session start condition;
-- an active deliberation interval;
-- one or more validation checkpoints;
-- a retry or hold period if validation does not settle immediately;
-- a promotion window if the candidate remains admissible;
-- an expiration or rollback condition if the candidate cannot be stabilized.
+- green: you may proceed to the next gate;  
+- yellow: hold or retry;  
+- red: stop or roll back;  
+- clock: these lights change on a schedule tied to system heartbeat and Hilbert‑time.
 
-This makes sandbox reasoning part of temporal orchestration rather than an isolated cognitive side channel.
-
----
-
-## 26.3 Temporal Semaphores and Gating Cycles
-
-The temporal toroidal semaphore structure should speak explicitly in terms of **gating cycles**.
-
-A gating cycle is the timed sequence in which a candidate state is examined for truth, coherence, guardian admissibility, mode compatibility, and promotion eligibility. The cycle may complete in one pass, but it may also iterate if the state requires additional evidence, stabilization, or supervisory delay.
-
-That cycle can be described as:
-
-1. semaphore acquisition for a sandbox session;
-2. internal reasoning interval;
-3. validation checkpoint;
-4. retry, hold, or proceed decision;
-5. promotion window if the candidate remains admissible;
-6. commitment or expiration.
-
-This chapter should make clear that sandbox sessions and gating cycles are nested together. The sandbox is where the candidate is formed. The gating cycle is how time decides whether that candidate may advance.
+It is **not** a promise of perfect monitoring or real‑time determinism. It is a practical timing mesh that keeps important steps from collapsing into one instant.
 
 ---
 
-## 26.4 Validation Timing, Retries, and Promotion Windows
+## 26.3 Live Time and State Services
 
-Temporal orchestration includes explicit timing around validation, retries, and promotion.
+Chapter 26 builds on live services that are already up:
 
-### Validation timing
+- **Hilbert‑time service** on a dedicated port with:  
+  - ephemeral Redis for short‑term slices;  
+  - staged Redis for near‑term windows;  
+  - historical Postgres for longer records.
 
-Validation is not only a logical check; it is a timed event. A candidate conclusion may be valid only if it remains coherent across the relevant interval, survives the active checkpoint, and does not destabilize as additional signals arrive.
+- **Hilbert‑state service** with Redis attached, tracking current state snapshots and coordination flags.
 
-### Retries
+These services give the semaphore layer:
 
-Retries belong to the temporal structure because some candidates are not immediately rejectable but are not yet ready for promotion. A retry window allows the system to pause, revise, or re-evaluate without prematurely committing or discarding the state.
+- a notion of **“now”** and **“then”**;  
+- a way to tell **ephemeral** from **staged** from **historical** data;  
+- a way to check whether a candidate has stayed stable across an interval instead of just at one instant.
 
-### Promotion windows
-
-Promotion occurs only inside a valid promotion window. A candidate that passes validation outside that window, or that fails to maintain admissibility long enough, should not be treated as promotion-ready. This makes promotion a timed authority transition rather than a mere boolean change.
-
-These three timing concepts prevent the system from acting as if the first plausible answer must immediately become durable consequence.
-
----
-
-## 26.5 Hysteresis and Temporal Continuity
-
-The temporal semaphore structure should include **hysteresis** and **temporal continuity** explicitly.
-
-Hysteresis means that state transitions should not oscillate too easily in response to small fluctuations. A candidate state should not repeatedly cross from admissible to inadmissible and back on trivial variation alone. Instead, the system should require sufficient stability over time before opening a promotion path.
-
-Temporal continuity means the system tracks whether a candidate remains coherent across successive temporal slices. A single momentary positive result is not always enough. What matters is whether the candidate maintains acceptable form long enough to count as stable.
-
-Taken together, hysteresis and temporal continuity provide state stability over time. They reduce flapping, protect against premature promotion, and keep timing-sensitive reasoning from becoming consequential merely because it briefly looked acceptable.
+They are part of the “toroidal” idea: the system cycles through time slices, but keeps enough memory of the loop to reason about stability.
 
 ---
 
-## 26.6 Session Stability Over Time
+## 26.4 Sandbox Sessions as Timed Intervals
 
-A sandbox session should therefore be understood not only as an isolated reasoning episode but as a temporally evaluated state trajectory.
+A **sandbox session** is a **timed interval** of internal reasoning.
 
-The question is not just “did the sandbox produce something?” The question is also:
+For each session, the temporal layer tracks:
 
-- did the candidate remain coherent across the active session interval;
-- did it survive the relevant validation checkpoints;
-- did it remain stable long enough for the semaphore to open a promotion window;
-- did it avoid oscillation that would trigger hold, retry, or rollback instead.
+- when it **starts**;  
+- how long active deliberation runs;  
+- when **validation checkpoints** occur;  
+- whether a **retry window** is open;  
+- when a **promotion window** opens (if at all);  
+- when the session must **expire** or roll back.
 
-This is where temporal continuity becomes operational. Session outputs are judged not only by content but also by duration, persistence of coherence, and stability under repeated check.
+Step‑by‑step, a typical session looks like:
 
----
+1. A task is routed into the sandbox and gets a time‑stamped session ID.  
+2. The session runs reasoning steps inside a bounded interval.  
+3. Validation checks fire at planned times (for example, at the end of a reasoning phase).  
+4. If checks fail but the state is promising, a **retry/hold** period is opened.  
+5. If checks pass and the state stays stable, a **promotion window** can open.  
+6. If windows close or time runs out, the session either finishes without promotion or rolls back.
 
-## 26.7 Relationship to Heartbeat
-
-This chapter should cross-link directly to the heartbeat chapter.
-
-Heartbeat provides the rhythm by which temporal checks recur. The temporal toroidal semaphore structure uses that rhythm to determine when a sandbox session is polled, when a candidate is revisited, when a hold expires, and when a promotion window opens or closes.
-
-In that relationship:
-
-- **heartbeat** provides recurrence and temporal pulse;
-- **temporal semaphore** provides gating structure across that pulse;
-- **sandbox sessions** occupy intervals between pulses and across pulses;
-- **promotion** occurs only when the candidate remains admissible through the relevant timed cycle.
-
-Heartbeat therefore gives cadence to the semaphore. The semaphore gives discipline to the cadence.
+This keeps sandbox work from silently lingering or promoting itself outside the timing plan.
 
 ---
 
-## 26.8 Relationship to Temporal Memory
+## 26.5 Gating Cycles Over Time
 
-This chapter should also cross-link directly to the temporal-memory chapter.
+A **gating cycle** is the timed sequence a candidate goes through on its way to possible promotion.
 
-Temporal memory concerns how states persist, decay, recur, or remain available over time. The temporal semaphore structure determines which sandbox-derived states are allowed to become eligible for that longer-lived treatment.
+One cycle can be sketched as:
 
-That means temporal memory does not receive raw sandbox output simply because it existed during a session. It receives only state that remained stable across the relevant gating cycle and crossed a valid promotion window.
+1. **Acquire a semaphore slot** for a given candidate/session.  
+2. Run internal reasoning for that slot’s active interval.  
+3. Hit a **validation checkpoint** (truth, guardian, coherence, etc.).  
+4. Decide whether to:  
+   - **proceed** toward promotion;  
+   - **hold** and inspect again later;  
+   - **retry** with more context;  
+   - **terminate** or roll back.  
+5. If strong enough and within timing constraints, enter a **promotion window**.  
+6. Either commit to a broader layer or let the window close.
 
-In that relationship:
-
-- the semaphore governs timed admissibility;
-- temporal memory governs retention across time;
-- hysteresis helps determine whether a state has enough continuity to deserve retention;
-- failed continuity or missed promotion windows leave the state non-retained.
-
-This keeps temporal memory aligned with controlled transformation rather than unrestricted persistence.
-
----
-
-## 26.9 Relationship to Feedback and Coordination
-
-The temporal toroidal semaphore structure also connects directly to the chapters on feedback into broader layers and consciousness coordination.
-
-The coordinator sends tasks into sandbox sessions and manages candidate experience through timed validation paths. Feedback into broader layers occurs only after those candidates survive their temporal gating cycle and reach a valid promotion window.
-
-This makes the three chapters fit together cleanly:
-
-- **coordinator and services** manages routing and candidate experience;
-- **temporal semaphore** manages the timing of validation, retries, and promotion windows;
-- **feedback into broader layers** describes what happens only after timed promotion has succeeded.
-
-Without the temporal semaphore, the movement from thought to consequence would appear too immediate. With it, time itself becomes part of the safeguard stack.
+The “toroidal” part is that cycles can repeat: a candidate may circle back through more than one pass, but always under timing rules instead of looping freely.
 
 ---
 
-## 26.10 Toroidal Recurrence
+## 26.6 Hysteresis and Stability (Preventing Flapping)
 
-The toroidal aspect of the semaphore structure matters because the system often revisits related states rather than traversing a simple one-way line.
+The temporal structure includes **hysteresis**, which is a fancy way of saying: “Don’t change your mind too quickly on tiny changes.”
 
-A candidate may enter a session, fail a checkpoint, return through a retry interval, reappear under new signal conditions, and only later become stable enough for promotion. The temporal structure therefore loops without simply resetting. Earlier state influences later state, but does so through controlled recurrence.
+Applied here:
 
-This is why toroidal structure is more accurate than a simple queue metaphor. The system circles through timed states, but continuity is preserved across those cycles. Hysteresis prevents trivial oscillation, and promotion windows ensure that recurrence does not collapse into uncontrolled drift.
+- a candidate is not allowed to bounce rapidly between “ready” and “not ready” just because of very small perturbations;  
+- once a candidate crosses into an admissible state, it must stay acceptable long enough before a promotion window fully opens;  
+- once it is judged unstable, it may need to re‑earn admissibility across a meaningful interval.
 
----
+This prevents **flapping**, where the system would otherwise:
 
-## 26.11 Formal Timing View
+- promote a candidate on one tick;  
+- retract or overturn it on the next;  
+- promote again on the third.
 
-A compact formal view helps summarize the timing logic.
-
-Let \(S_t\) denote sandbox state at time \(t\), let \(V_t(S)\) denote validation at time \(t\), and let \(W_t\) denote whether the promotion window is open at time \(t\). Then a candidate becomes promotion-eligible only when stability is preserved across an interval, not just at one instant:
-
-\[
-S_{t_0:t_1}\ \text{is promotable only if}\ \forall t \in [t_0,t_1],\ V_t(S)=1
-\]
-
-and the relevant promotion window is open:
-
-\[
-P(S) \Rightarrow \Big(\forall t \in [t_0,t_1],\ V_t(S)=1\Big) \land W_{t_1}=1
-\]
-
-This is the role of temporal continuity. A state must hold together across time, not merely flash positive once.
-
-Hysteresis can be described conceptually as a threshold gap between entering and leaving admissibility, so that small fluctuations do not repeatedly open and close the path. That gap is what gives the semaphore temporal stability.
+Hysteresis requires **stability over time**, not just a single lucky check.
 
 ---
 
-## 26.12 Closing Statement
+## 26.7 Recurrent Epistemic Runner
 
-The temporal toroidal semaphore structure is the timing discipline for governed cognition in Ms. Allis. It places sandbox sessions inside timed cycles, ties validation to checkpoints and retry windows, opens promotion only inside bounded promotion intervals, and uses hysteresis and temporal continuity to ensure that stable state over time matters.
+A **recurrent epistemic runner** is registered and live. It is responsible for:
 
-This is what keeps temporal orchestration from becoming immediate propagation. Heartbeat provides the pulse, temporal memory provides longer-lived retention context, the coordinator manages candidate experience, and the temporal semaphore determines when a candidate may actually advance.
+- regularly polling health and gate‑state surfaces;  
+- triggering **recurrent checks** on DGM cycles, BBB, guardian, and other components;  
+- feeding its findings back into continuous validation and timing decisions.
+
+In practical terms, the runner:
+
+- makes sure checks happen **again and again** at safe intervals;  
+- ensures that temporal windows are driven by current information instead of stale status;  
+- writes logs so operators can see a history of how gates and health looked over time.
+
+This gives the temporal structure a **heartbeat‑like enforcement**: checks are not one‑off events.
+
+---
+
+## 26.8 Links to DGM and Continuous Validation
+
+Chapter 26 leans on two important prior closures:
+
+- **Chapter 09 DGM closure.**  
+  Shows that DGM self‑modification is bounded: immutable targets and low‑score proposals are rejected, and rollbacks are verified.
+
+- **Chapter 41 continuous validation closure.**  
+  Shows that core health, sandbox dependencies, guardian schemas, DGM run cycles, and classification invariants are watched over time.
+
+The temporal semaphore layer **hooks into these** by:
+
+- scheduling or pacing DGM cycles;  
+- ensuring DGM changes are considered only within defined windows;  
+- coordinating continuous validation checks so they occur at predictable times;  
+- reflecting validation outcomes in whether promotion windows stay open or close.
+
+Time, here, is part of the guardrail: DGM and validation don’t fire arbitrarily; they are woven into the timing mesh.
+
+---
+
+## 26.9 What the Temporal Layer Does *Not* Claim
+
+Within this gate, Chapter 26 does **not** claim:
+
+- perfect monitoring;  
+- real‑time determinism;  
+- a mathematical proof of all future states;  
+- total absence of stale containers;  
+- universal safety;  
+- legal or clinical guarantees;  
+- sentience or biological consciousness.
+
+It only claims:
+
+- **implemented timing structure** over gate cycles and promotion windows;  
+- **bounded state transition checks** driven by Hilbert‑time/state, DGM closure, and continuous validation;  
+- **monitorable behavior** via health endpoints and logs.
+
+The temporal semaphore is a strong safety scaffold—not a guarantee.
+
+---
+
+## 26.10 Step-by-Step View for Rural Developers
+
+From a rural developer’s perspective, you can think of the temporal layer like this:
+
+1. **Hilbert‑time and Hilbert‑state** keep track of “when” and “what’s going on now.”  
+2. The **recurrent runner** wakes up on a schedule, checks health, DGM, guardian, and other components.  
+3. **Sandbox sessions** run only inside time‑bounded slots.  
+4. **Validation checkpoints** happen at specific times, not randomly.  
+5. **Promotion windows** open only when a candidate has stayed coherent and admissible long enough.  
+6. **Hysteresis** makes sure the system doesn’t keep flickering between promote and rollback on tiny wobbles.  
+7. **Logs and status endpoints** give you a trail to audit what actually happened over time.
+
+You can inspect Hilbert‑time/state, runner logs, and gate statuses to see how the system handled a given period.
+
+---
+
+## 26.11 Closing Statement
+
+The temporal toroidal semaphore structure gives Ms. Allis a **time‑aware backbone** for safe decision‑making. Sandbox sessions, gate cycles, retries, promotion windows, hysteresis, and recurrent checks all work together so that internal reasoning cannot instantly become lasting consequence without surviving **time‑based scrutiny**.
+
+This chapter therefore seals time itself as part of the governance architecture: not a passive backdrop, but an active set of semaphores that say when the system may think, when it must wait, and when it is finally allowed to act.
