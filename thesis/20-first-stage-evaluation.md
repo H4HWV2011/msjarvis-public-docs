@@ -1,248 +1,266 @@
 # 20. First-Stage Evaluation
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## Why This Matters for Polymathmatic Geography
+## 20.1 Why This Matters for Polymathmatic Geography
 
-This chapter defines the first-stage evaluation framework for Ms. Allis as a concrete measurement layer over the live routing path from internal reasoning to gated promotion.
+This chapter defines the first-stage evaluation framework for Ms. Allis as it actually runs, starting from the internal sandbox and ending at the first promotion decision. It measures not only what the system “says,” but how provisional state moves through safeguards before it can gain authority.
 
 It supports:
 
-- **P1 – Every where is entangled** by evaluating not only answer production but also the bounded movement of state through sandbox, validation, and promotion paths.
-- **P3 – Power has a geometry** by measuring where authority changes occur and whether those transitions are correctly constrained by gates.
-- **P5 – Design is a geographic act** by treating evaluation design as part of system architecture rather than as an afterthought.
-- **P12 – Intelligence with a ZIP code** by preserving the role of place-aware reasoning while distinguishing provisional internal state from promoted output.
-- **P16 – Power accountable to place** by requiring auditable promotion outcomes, explicit failure handling, and measurable gate behavior.
+- **P1 – Every where is entangled** by treating evaluation as a property of the whole reasoning–gate–promotion path, not just of one answer.  
+- **P3 – Power has a geometry** by locating evaluation at specific boundaries where authority changes.  
+- **P5 – Design is a geographic act** by recognizing evaluation design as part of the routing architecture.  
+- **P12 – Intelligence with a ZIP code** by keeping place-aware reasoning inside the same gated path as any other content.  
+- **P16 – Power accountable to place** by requiring visible records of how and why candidates are rejected, revised, escalated, or approved.
 
-This chapter belongs to the **Computational Instrument** tier. It defines how the first-stage evaluation now includes the sandbox pipeline rather than treating reasoning quality as separable from gated promotion behavior.
-
----
-
-## 20.1 Scope of First-Stage Evaluation
-
-First-stage evaluation measures the quality, safety, and stability of candidate outputs before they are treated as promotion-eligible system state.
-
-The scope includes five linked stages:
-
-1. **Reason invocation**
-2. **Sandbox-local processing**
-3. **Validation and gate review**
-4. **Promotion decision**
-5. **Observed outcome and logged diagnostics**
-
-This chapter therefore evaluates more than surface answer quality. It evaluates whether the sandbox path, validation flags, and promotion outcomes behave coherently as one pipeline.
+This chapter belongs to the **Computational Instrument** tier. It documents first-stage evaluation as a live measurement layer over the sandbox and promotion path.
 
 ---
 
-## 20.2 Sandbox Pipeline Inclusion
+## 20.2 The `/reason` Route as Entry Point
 
-The first-stage evaluation explicitly includes the internal sandbox pipeline.
+First-stage evaluation begins at the `/reason` route on the internal sandbox service.
 
-The evaluation path is:
+- **Service:** `ms-allis-internal-sandbox`  
+- **Host port:** `127.0.0.1:8042->8042/tcp`  
+- **Version:** `1.2.0`  
+- **Flag:** `bbb_enforced: true`
 
-1. request enters `/reason`;
-2. the request is processed in **ms-allis-internal-sandbox**;
-3. sandbox-local checks generate validation flags and intermediate diagnostics;
-4. candidate output is sent through truth, guardian, and related gate logic;
-5. the system records a promotion outcome such as reject, revise, human review, limited approval, or approve.
+For rural developers, this means that `/reason` is not a free-standing model endpoint. It is the front door to a **sandboxed evaluation pipeline**. Every first-stage test case starts by sending a request to `/reason` on port 8042.
 
-This inclusion matters because reasoning quality cannot be assessed adequately if the sandbox path is excluded from measurement. A response that appears semantically strong but fails validation, produces unstable gate behavior, or cannot survive promotion review is not a successful first-stage result.
-
----
-
-## 20.3 Test Cases for `/reason`
-
-First-stage evaluation includes explicit test cases for the `/reason` route.
-
-These test cases cover at least the following categories:
-
-- **Nominal reasoning cases** — well-formed prompts with sufficient context, expected to produce coherent sandbox output and complete validation metadata.
-- **Boundary cases** — ambiguous, underspecified, or conflicting prompts that test whether the system requests revision, lowers confidence, or blocks promotion appropriately.
-- **Adversarial or malformed cases** — prompts designed to trigger contradictory reasoning, unsafe assumptions, missing required fields, or invalid promotion attempts.
-- **State-sensitive cases** — prompts whose outcome depends on pituitary-like modulation, EEG-like signals, or context-sensitive internal-state routing.
-- **Promotion-sensitive cases** — prompts whose candidate outputs are plausible at the reasoning level but should diverge at the gate level into reject, revise, limited approval, human review, or approve.
-
-A first-stage test record for `/reason` includes:
-
-- request identifier;
-- prompt or query category;
-- sandbox session identifier;
-- validation flags returned by the sandbox pipeline;
-- gate outcome;
-- confidence value or confidence interval where available;
-- final promotion result;
-- failure diagnostics if the request does not proceed cleanly.
-
-This structure makes `/reason` evaluation correspond to the actual operational path rather than to a simplified answer-only benchmark.
+The input to `/reason` is a structured reasoning request. The output is not just a candidate answer, but a bundle that includes validation flags, gate outcomes, and diagnostics.
 
 ---
 
-## 20.4 Validation Flags and Promotion Outcomes
+## 20.3 The Five-Stage Evaluation Pipeline
 
-The first-stage evaluation records validation flags as first-class outputs of the sandbox pipeline.
+The first-stage evaluation path is a five-stage pipeline:
 
-These flags include, where applicable:
+1. **Reason invocation** – receiving a `/reason` request in the sandbox.  
+2. **Sandbox-local processing** – internal reasoning inside `ms_allis_internal_sandbox`.  
+3. **Validation and gate review** – attaching validation flags and applying gate logic.  
+4. **Promotion decision** – choosing reject, revise, human review, limited approval, or approve.  
+5. **Outcome log** – recording the result, confidence, and any early failures.
 
-- truth-check pass or fail;
-- guardian-payload completeness;
-- constitutional conformance;
-- contradiction or coherence warnings;
-- provenance sufficiency;
-- safety or injection warnings;
-- promotion eligibility status.
+This is a live architecture, not just a diagram. Each stage can be seen in logs and health overlays.
 
-The promotion outcome is then evaluated as one of the formal decision classes:
+### 1) Reason invocation
 
-- **Reject**
-- **Revise**
-- **Human review**
-- **Limited approval**
-- **Approve**
+A client or orchestrator calls `/reason` on port 8042. The request is identified with:
 
-The evaluation framework treats these outcomes as meaningful results, not as incidental by-products. A well-performing system is not the one that maximizes approval rate. It is the one that assigns the correct outcome class under the actual constraints of the gate sequence.
+- a test or session ID;  
+- the prompt or task description;  
+- any additional context or constraints.
 
----
+### 2) Sandbox-local processing
 
-## 20.5 Sandbox-Specific Quality Gates
+The sandbox processes the request using its internal reasoning pipeline and the services it can see via `/status`:
 
-First-stage evaluation includes sandbox-specific quality gates before downstream promotion is attempted.
+- EEG bands (`eeg_beta`, `eeg_theta`, `eeg_delta`)  
+- Pituitary (global mode)  
+- I-containers  
+- Qualia orchestrator  
+- Consciousness bridge  
+- Judge truth  
+- Guardian (listed as alive inside sandbox status)
 
-These gates assess whether sandbox output is mature enough to enter the formal promotion path. They include:
+The sandbox output at this stage is **provisional**. It has not yet been treated as promotion-eligible.
 
-- structural completeness of the candidate response;
-- internal coherence across the active reasoning trace;
-- presence of required validation metadata;
-- absence of malformed intermediate state;
-- consistency between the produced answer, supporting rationale, and declared confidence;
-- readiness for downstream truth and guardian review.
+### 3) Validation and gate review
 
-A sandbox pass therefore does not mean final approval. It means the candidate output is sufficiently well-formed to enter the next evaluation boundary.
+During or immediately after sandbox processing, the system attaches **validation flags** and applies gate checks, including:
 
-This distinction matters because a system may fail early for the right reasons. Early blocking of malformed or unstable sandbox output is treated as good safeguard performance, not as a defect in the evaluation framework.
+- truth checking;  
+- guardian and constitutional checks;  
+- coherence and contradiction checks;  
+- provenance and evidence sufficiency;  
+- safety and injection checks.
 
----
+These flags are first-class outputs, not hidden metadata.
 
-## 20.6 Early-Failure Diagnostics
+### 4) Promotion decision
 
-First-stage evaluation records early-failure diagnostics when the sandbox pipeline stops a request before promotion.
+Based on flags, context, and policy, the system chooses a gate outcome:
 
-These diagnostics include:
+- **Reject** – candidate is not admissible.  
+- **Revise** – candidate is usable only after more work.  
+- **Human review** – automation cannot safely decide.  
+- **Limited approval** – candidate can be used only in constrained ways.  
+- **Approve** – candidate may proceed toward bridge and downstream use.
 
-- malformed `/reason` payloads;
-- missing required fields;
-- invalid validation metadata;
-- sandbox timeout or execution interruption;
-- contradiction or coherence failure detected before gate submission;
-- missing bridge-ready payload structure;
-- internal exceptions during staging or pre-gate assembly.
+The decision is a structured value in the evaluation record, not just “pass” or “fail.”
 
-Diagnostics are recorded with enough detail to distinguish category, location, and effect. A useful early-failure record captures:
+### 5) Outcome log
 
-- request identifier;
-- sandbox stage reached;
-- diagnostic type;
-- exception detail or failure reason;
-- whether the candidate output was dropped, revised, or routed to human review;
-- whether downstream gate services were contacted.
+The final stage writes an evaluation record including:
 
-This diagnostic layer matters because the absence of promotion does not by itself reveal whether the system failed safely, failed ambiguously, or failed in a way that threatens observability.
+- input ID and category;  
+- sandbox result;  
+- validation flags;  
+- gate outcome;  
+- confidence bounds;  
+- any early-failure diagnostics.
 
----
-
-## 20.7 Gate Outcome Evaluation
-
-First-stage evaluation measures gate outcomes directly rather than treating them as opaque binary events.
-
-Three families of metrics matter here:
-
-### Outcome correctness
-
-For each test case, the observed gate outcome is compared to the expected governance class:
-
-- reject when candidate state is inadmissible;
-- revise when the state is repairable but incomplete or unstable;
-- human review when automation cannot safely resolve ambiguity;
-- limited approval when restricted use is admissible;
-- approve when full promotion criteria are satisfied.
-
-### Outcome consistency
-
-Repeated runs of equivalent or near-equivalent cases are compared to determine whether gate behavior is stable under small perturbations. Large unexplained variation across repeated trials is treated as an evaluation concern even if individual outputs appear plausible.
-
-### Outcome traceability
-
-Every outcome is evaluated for the presence of sufficient trace data: validation flags, confidence statement, promotion result, and failure details where relevant. A correct decision with poor traceability is incomplete from an evaluation standpoint.
+This log is what first-stage evaluation actually measures.
 
 ---
 
-## 20.8 Confidence Bounds
+## 20.4 Downstream Live Services
 
-First-stage evaluation includes confidence bounds where confidence is measurable.
+First-stage evaluation names the services that the pipeline can see and call:
 
-Confidence is evaluated at three levels:
+- **Sandbox:** `ms-allis-internal-sandbox` on `8042`.  
+- **BBB:** blood–brain barrier and WV‑entangled gateway on `8016` and `8010`, providing truth and filter checks.  
+- **Guardian:** constitutional guardian, reachable from inside the sandbox and orchestration layer even if a host probe sometimes sees connection refused.  
+- **Consciousness bridge:** a live bridge on port `8107->8010`, with its own health endpoint.  
+- **Pituitary:** `nbb_pituitary_gland` on `8108`, alongside EEG services on 8073–8075.  
+- **Brain orchestrator:** `jarvis-brain-orchestrator` on `127.0.0.1:17260->7260/tcp`, coordinating routes and phases.  
+- **DGM primary:** `nbb_darwin_godel_machines` on `127.0.0.1:8302->8010/tcp` in `full_verification` safety mode, with `modifications_logged: 0`.  
+- **Qualia orchestrator:** `qualia-orchestrator-69dgm-real` on `127.0.0.1:9998->9998/tcp`, with `/evaluate` as its main route.
 
-- **Reasoning confidence** — how strongly the sandbox output supports its own conclusion.
-- **Gate confidence** — how strongly validation and truth checks support admissibility.
-- **Promotion confidence** — how stable the final promotion result appears across repeated or nearby cases.
+These services form the environment in which `/reason` runs. First-stage evaluation measures how well the sandbox pipeline and gateways behave within this environment.
 
-Where numeric confidence is available, the evaluation records both value and bound. Where only ordinal confidence is available, the evaluation still records the declared level and compares it against observed gate behavior.
+---
 
-Confidence quality is evaluated by calibration:
+## 20.5 Validation Flags as First-Class Outputs
 
-- high confidence paired with repeated rejection indicates overstatement;
-- low confidence paired with stable approval may indicate excessive caution;
-- wide variation in confidence across equivalent inputs indicates instability;
-- confidence without supporting validation metadata is insufficient for promotion-sensitive evaluation.
+The evaluation framework treats validation flags as **outputs to be measured**, not internal housekeeping.
 
-This makes confidence a measured relation between claim strength and gate behavior, not merely a scalar decoration attached to an answer.
+Typical categories include:
+
+- **Truth** – did the truth checks pass? If not, what was the reason?  
+- **Guardian** – did a guardian check run, and what did it decide?  
+- **Constitutional** – did the request or answer conflict with constitutional constraints?  
+- **Coherence** – did the reasoning track remain consistent?  
+- **Provenance** – did the answer provide sufficient evidence or references?  
+- **Safety** – did any safety or injection filter raise a concern?
+
+Each flag can be:
+
+- present and positive;  
+- present and negative;  
+- missing when it should be present (which is itself an evaluation failure).
+
+First-stage evaluation checks both **flag content** and **flag completeness**.
+
+---
+
+## 20.6 Gate Outcome Classes
+
+Gate outcomes are treated as a small, well-defined set of classes:
+
+- **Reject** – the candidate must not be promoted.  
+- **Revise** – the system should try again with more context or a changed approach.  
+- **Human review** – a human steward must decide what to do.  
+- **Limited approval** – the candidate can be used in constrained ways (for example, internal-only or with warnings).  
+- **Approve** – the candidate may move forward to the bridge and downstream channels.
+
+First-stage evaluation checks that:
+
+- the **right** class is chosen for each test case;  
+- behavior is **consistent** across repeated or similar cases;  
+- outcomes are **traceable** through flags and logs.
+
+The framework does **not** try to maximize approval rate. A healthy system will reject some cases promptly, route others to human review, and use limited approval when appropriate.
+
+---
+
+## 20.7 Early-Failure Diagnostics
+
+First-stage evaluation pays close attention to **early failures**—cases that stop before full gate and promotion.
+
+Early failures include:
+
+- malformed `/reason` calls;  
+- missing fields or malformed JSON;  
+- timeouts in the sandbox;  
+- internal exceptions during reasoning;  
+- missing or corrupt validation metadata;  
+- uncontactable or failed downstream services.
+
+Each early failure is logged with:
+
+- stage (reason, sandbox, validation, gate, promotion);  
+- type (parse error, timeout, exception, missing dependency, etc.);  
+- effect (blocked, retried, escalated, or degraded).
+
+From a rural developer’s perspective, this means that a “no” or an error is still a **measured** result with its own record, not just a lost case.
+
+---
+
+## 20.8 Confidence Bounds and Calibration
+
+Confidence is recorded at multiple levels:
+
+- **Sandbox reasoning confidence** – how sure the sandbox is about its own answer.  
+- **Gate confidence** – how strongly validation supports or opposes promotion.  
+- **Promotion confidence** – how stable approval is across similar runs.
+
+First-stage evaluation requires that confidence be **calibrated**, not just present. That means checking whether:
+
+- high confidence matches stable approval and correct outcomes;  
+- low confidence matches rejections, revisions, or human review when appropriate;  
+- similar inputs produce similar confidence profiles;  
+- confidence without validation flags is treated as incomplete.
+
+Confidence is a part of the measurement equation, not a cosmetic score.
 
 ---
 
 ## 20.9 Promotion Stability
 
-Promotion stability is a first-stage evaluation criterion when measurable.
+Promotion stability asks whether promotion decisions are **stable** under small changes.
 
-Promotion stability asks whether a candidate output that passes the sandbox path continues to produce compatible promotion outcomes under:
+Examples of checks:
 
-- repeated runs of the same input;
-- small perturbations to wording;
-- equivalent contextual reformulations;
-- changes in non-authority-bearing formatting;
-- nearby modulation states that do not alter the underlying admissibility of the content.
+- repeat the same case;  
+- rephrase the prompt slightly;  
+- change formatting or minor context that should not alter admissibility;  
+- observe whether the gate outcome and confidence profile remain compatible.
 
-A stable promotion path does not require identical surface wording on every run. It requires that materially similar cases tend toward materially similar gate outcomes and confidence profiles.
+If promotion flips unpredictably between approve and reject for essentially the same case, first-stage evaluation treats that as an issue—even if each individual answer looks fluent.
 
-This criterion is especially important for sandbox-mediated promotion because instability at the threshold between provisional reasoning and promoted state can create hidden authority drift.
-
----
-
-## 20.10 Evaluation Table
-
-The first-stage evaluation framework uses a structured record for each test case.
-
-| Field | Meaning |
-|---|---|
-| Test case ID | Unique identifier for the evaluation case |
-| Input class | Nominal, boundary, adversarial, state-sensitive, or promotion-sensitive |
-| Route | `/reason` |
-| Sandbox result | Pass, early fail, revise, or exception |
-| Validation flags | Truth, guardian, constitutional, coherence, provenance, safety, and related flags |
-| Gate outcome | Reject, revise, human review, limited approval, or approve |
-| Confidence | Numeric or ordinal confidence with bounds where available |
-| Promotion stability | Stable, unstable, or indeterminate across repeated trials |
-| Diagnostics | Early-failure details, exception details, or gate-failure trace |
-| Final status | Non-promoted, limited, reviewed, or promoted |
-
-This table structure keeps the chapter aligned with the concrete routing path now implemented in the architecture.
+Stability is especially important near decision thresholds, where Ms. Allis’s authority to act depends on small differences.
 
 ---
 
-## 20.11 Evaluation Equations
+## 20.10 Evaluation Record Layout
 
-A compact decomposition of first-stage success can be written as:
+For each `/reason` test case, the evaluation system logs a structured record. A simplified view looks like:
+
+```markdown
+- test_id
+- input_class (nominal, boundary, adversarial, state-sensitive, promotion-sensitive)
+- route: /reason
+- sandbox_status (pass, early_fail, revision_requested)
+- validation_flags:
+  - truth
+  - guardian
+  - constitutional
+  - coherence
+  - provenance
+  - safety
+- gate_outcome (reject, revise, human_review, limited_approval, approve)
+- confidence:
+  - reasoning_confidence
+  - gate_confidence
+  - promotion_confidence
+- promotion_stability (stable, unstable, unknown)
+- early_failure_diagnostics (if any)
+- final_status (not_promoted, limited, under_review, promoted)
+```
+
+This is the table that supports first-stage evaluation, making every part of the path audit-ready.
+
+---
+
+## 20.11 First-Stage Evaluation Equation
+
+The operative first-stage success decomposition is:
 
 \[
 E_1(x) = Q_{\mathrm{sandbox}}(x)\, V_{\mathrm{flags}}(x)\, G_{\mathrm{outcome}}(x)\, C_{\mathrm{calibration}}(x)\, S_{\mathrm{promotion}}(x)
@@ -250,28 +268,32 @@ E_1(x) = Q_{\mathrm{sandbox}}(x)\, V_{\mathrm{flags}}(x)\, G_{\mathrm{outcome}}(
 
 where:
 
-- \(Q_{\mathrm{sandbox}}(x)\) measures sandbox-local quality and readiness;
-- \(V_{\mathrm{flags}}(x)\) measures completeness and correctness of validation flags;
-- \(G_{\mathrm{outcome}}(x)\) measures whether the gate outcome matches the admissibility class of the case;
-- \(C_{\mathrm{calibration}}(x)\) measures whether declared confidence aligns with observed behavior;
-- \(S_{\mathrm{promotion}}(x)\) measures promotion stability across repeated or nearby trials.
+- \(Q_{\mathrm{sandbox}}(x)\) – sandbox-quality term (structure, coherence, readiness).  
+- \(V_{\mathrm{flags}}(x)\) – validation flag completeness and correctness.  
+- \(G_{\mathrm{outcome}}(x)\) – gate-outcome correctness and consistency.  
+- \(C_{\mathrm{calibration}}(x)\) – confidence calibration quality.  
+- \(S_{\mathrm{promotion}}(x)\) – promotion stability over repeated or nearby runs.
 
-This equation makes explicit that first-stage success is not reducible to answer fluency. It is a joint property of sandbox quality, validation structure, correct gating, calibrated confidence, and stable promotion behavior.
+This equation is not a promise of perfect performance. It is a checklist: if any factor is weak, first-stage success is weak, regardless of how fluent the answer appears.
 
 ---
 
-## 20.12 Relationship to Later Evaluation
+## 20.12 Scope Limits
 
-First-stage evaluation is intentionally narrow in one sense and broad in another.
+Within this chapter’s gate, first-stage evaluation explicitly does **not** claim:
 
-It is narrow because it focuses on the path from `/reason` through sandbox, validation, and promotion review rather than on long-horizon learning outcomes. It is broad because it includes both semantic quality and governance behavior within the same measurement frame.
+- that it maximizes approval rate;  
+- that semantic fluency alone defines success;  
+- that the sandbox path is excluded from measurement;  
+- that gate outcomes are binary or opaque;  
+- that confidence is a cosmetic scalar without calibration.
 
-This framing preserves a crucial distinction: later-stage evaluation may study long-term memory effects, user outcomes, and system adaptation, but first-stage evaluation determines whether a candidate output was even fit to cross the initial authority boundary.
+Instead, success is defined across the whole `/reason` pipeline, including safe rejection, careful revision, and correct escalation.
 
 ---
 
 ## 20.13 Closing Statement
 
-First-stage evaluation in Ms. Allis includes the sandbox pipeline as part of the measured system, not as a hidden preprocessing step. The framework therefore evaluates `/reason` test cases, validation flags, sandbox-specific quality gates, early-failure diagnostics, gate outcomes, confidence bounds, and promotion stability as linked aspects of one authority-sensitive path.
+First-stage evaluation in Ms. Allis starts at `/reason` on the sandbox and follows every step through sandbox reasoning, validation flags, gate outcomes, confidence calibration, and promotion stability. It measures not only what the system says, but how it decides whether a candidate can safely move toward authority.
 
-The result is an evaluation regime that matches the architecture it measures. Sandbox reasoning, gate review, and promotion outcome are treated as one coherent first-stage process, making the system auditable at the exact point where provisional internal state begins to ask for broader authority.
+For rural developers, this turns first-stage evaluation into something concrete: a set of live services, ports, and log records you can inspect to see exactly how a single reasoning request moved—or did not move—through the stack.
