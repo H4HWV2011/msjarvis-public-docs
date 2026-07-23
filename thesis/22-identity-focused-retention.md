@@ -1,221 +1,201 @@
 # 22. Identity-Focused Retention
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## Why This Matters for Polymathmatic Geography
+## 22.1 Why This Matters for Polymathmatic Geography
 
-This chapter describes how Ms. Allis retains identity-linked material without collapsing session-scoped reasoning into durable personal memory.
+This chapter explains how Ms. Allis keeps identity‑linked information without turning every session into a permanent file. It describes how per‑user retention is gated by consent, pruning, and clear separation between private memory and public disclosure.
 
 It supports:
 
-- **P1 – Every where is entangled** by showing that identity, memory, meaning, and governance remain connected while still preserving strict distinctions between provisional reasoning and retained person-linked structure.
-- **P3 – Power has a geometry** by locating identity retention after validation and approval rather than at the moment of raw internal generation.
-- **P5 – Design is a geographic act** by treating identity retention, consent boundaries, and disclosure projections as governed design choices rather than passive by-products of interaction.
-- **P12 – Intelligence with a ZIP code** by allowing place-aware, person-relevant meaning to persist only when it has crossed the proper gate and retention path.
-- **P16 – Power accountable to place** by requiring that identity-linked updates be gated, consent-sensitive, and traceable before they influence long-horizon personal structure.
+- **P1 – Every where is entangled** by letting identity, place, and meaning stay connected while keeping strict retention boundaries.  
+- **P3 – Power has a geometry** by locating identity retention behind explicit gates instead of letting it happen at the moment of thought.  
+- **P5 – Design is a geographic act** by treating identity retention and disclosure as design decisions, not accidental side effects.  
+- **P12 – Intelligence with a ZIP code** by allowing place‑aware, person‑relevant memory only when it has crossed the right consent and retention paths.  
+- **P16 – Power accountable to place** by making identity‑linked updates traceable, prunable, and separate from public “commons” content.
 
-This chapter belongs to the **Computational Instrument** tier. It defines how identity-focused retention aligns with the sandbox-approved memory flow.
-
----
-
-## 22.1 Identity Retention Role
-
-Identity-focused retention governs the movement of person-linked and meaning-bearing content from ephemeral internal handling into durable stores that may affect future retrieval, interpretation, and relationship continuity.
-
-Its role is not to preserve everything that arises during an interaction. It exists to retain only those identity-relevant conclusions, preferences, meanings, or relationship inferences that have crossed the appropriate validation, approval, and retention thresholds.
-
-For that reason, identity retention begins with a distinction between **session-scoped reasoning** and **identity-linked memory**. What is actively reasoned about in a session is not automatically what becomes part of the enduring identity-linked structure.
+This chapter belongs to the **Computational Instrument** tier. It documents identity‑focused retention as built, not as a promise of legal proof or indefinite storage.
 
 ---
 
-## 22.2 Ephemeral Holding Before Approval
+## 22.2 What Identity-Focused Retention Covers
 
-Session-scoped reasoning and identity-linked candidate content are held ephemerally before approval.
+Identity‑focused retention governs **how Ms. Allis remembers a person over time**.
 
-This ephemeral layer may include:
+It covers:
 
-- active session context;
-- provisional interpretations of user meaning;
-- tentative identity-linked inferences;
-- draft relational summaries;
-- candidate self-other mappings used during current reasoning;
-- temporary disclosure assessments;
-- sandbox-local reflections about how content might relate to a user, role, or identity graph.
+- per‑user preferences (for example, “prefers step‑by‑step guidance”);  
+- stable constraints (for example, “has limited connectivity”);  
+- long‑term projects or situations the user chooses to track;  
+- place‑linked identity context (for example, “works on Appalachian community mapping”).
 
-These materials remain in bounded, reversible, session-scoped form while they are being evaluated. They are not treated as durable identity facts merely because they were useful during reasoning.
+It does **not** simply mirror everything that passes through the sandbox or chat:
 
-This chapter therefore treats identity-related sandbox content the same way the broader architecture treats sandbox output generally: it is held ephemerally first, and it becomes retention-eligible only after the relevant gates have been crossed.
+- not every sentence is kept;  
+- not every inference becomes identity memory;  
+- not every session becomes a permanent story.
 
----
-
-## 22.3 Consolidation Rule After Validation
-
-Only a limited class of identity-linked content may be consolidated into per-user or identity-linked stores after validation.
-
-Consolidation eligibility requires all of the following:
-
-- the relevant content has passed the applicable validation and gate path;
-- the resulting conclusion is retention-eligible under memory and consolidation rules;
-- the content is sufficiently stable and meaningful to warrant reuse across sessions;
-- provenance is preserved so the retained item can be traced to its evidentiary basis;
-- the retention action is consistent with disclosure limits, consent posture, and the system’s identity-governance rules.
-
-The result is that not every validated statement becomes identity memory. Validation is necessary, but identity-focused consolidation also depends on retention relevance, stability, and consent-sensitive appropriateness.
+Retention is a separate, governed step.
 
 ---
 
-## 22.4 What May Enter Identity-Linked Stores
+## 22.3 Consent-Gated Identity Registration
 
-The content that may enter per-user or identity-linked stores after validation includes only material whose retention is justified by continuity, relevance, and governance.
+No identity memory is created without **explicit retention consent**.
 
-This may include:
+The system distinguishes between:
 
-- stable user preferences or constraints that have crossed the approval path;
-- identity-relevant meanings that have been sufficiently confirmed for later use;
-- durable relational context needed for continuity of assistance;
-- consent-compatible memory items that improve future interpretation or personalization;
-- approved meaning updates that affect how later context should be understood.
+- **Using information in the moment** – allowed for answering the current question.  
+- **Registering information as identity** – only allowed when the user has opted in to retention.
 
-This does not include raw scratchpad material, discarded hypotheses, transient emotional projections, or internal exploratory content that never became approved and retention-eligible.
+Concretely:
 
-Identity-linked retention is therefore selective. Its purpose is continuity with discipline, not accumulation without limit.
+- if retention consent is **missing or revoked**, identity registration is suppressed;  
+- if the user has consented, identity updates can still be **selective and bounded**;  
+- consent can be reconsidered, and retention behavior must follow the latest setting.
 
----
-
-## 22.5 Gating Before Graph or Hilbert-Person Change
-
-Identity and meaning updates are gated before graph or Hilbert-person changes occur.
-
-This is a core architectural rule. No candidate interpretation of personhood, identity relation, meaning structure, or personal continuity alters the identity graph, person-linked semantic structure, or Hilbert-person representation until it has crossed the relevant validation and retention path.
-
-That means:
-
-- sandbox-local reasoning about identity remains provisional;
-- graph updates do not occur at the moment of draft inference;
-- Hilbert-person or person-linked semantic structure changes require approved, retention-eligible material;
-- the system does not silently convert internal speculation into durable personal ontology.
-
-This rule protects both accuracy and governance. Identity structure carries more consequence than transient session reasoning, so it requires a stricter threshold for change.
+This keeps the default posture closer to “forget by default, remember on purpose” instead of “remember everything unless told otherwise.”[web:141]
 
 ---
 
-## 22.6 Meaning Updates and Retention Discipline
+## 22.4 Per-User Identity Partitioning
 
-Meaning updates are handled with the same caution as identity updates.
+Identity‑linked data is stored in **per‑user partitions**, not in one global pool.
 
-A conversation may generate tentative interpretations about what a user means, values, fears, prefers, or is trying to do. Those interpretations can be useful inside a live session, but they do not become durable meaning structures unless they cross validation, approval, and retention eligibility thresholds.
+Each user gets:
 
-This chapter therefore distinguishes between:
+- a private identity/people‑space area;  
+- session‑linked collections for recent context;  
+- staged or experimental areas that can be pruned before consolidation.
 
-- **session meaning** — current working interpretation used for active reasoning;
-- **retained meaning** — approved, provenance-bearing interpretation that may be reused later.
+This per‑user design means:
 
-That distinction matters because meaning inference is powerful. If every temporary interpretation were retained, the system could harden ambiguity into identity-linked memory prematurely.
+- one user’s identity memory does not automatically leak into another’s;  
+- deletion can be scoped to a single user;  
+- inspection tools can show “what this system knows about this person” in one place.
 
----
-
-## 22.7 Disclosure Projections
-
-Identity-focused retention includes disclosure projections.
-
-A disclosure projection estimates what kinds of future exposure or relational consequence could result from retaining a given identity-linked item. It asks, in effect, what later inferences, retrievals, or graph behaviors become more likely if this material is consolidated.
-
-This projection informs retention by considering:
-
-- sensitivity of the material;
-- likely future contexts in which it may surface;
-- whether it changes how the user is represented or interpreted;
-- whether it increases exposure of identity-linked attributes across subsystems;
-- whether retention would create a broader disclosure footprint than the immediate interaction warrants.
-
-Disclosure projections therefore act as a forward-looking governance layer. They help the system decide not only whether a memory item is true or useful, but whether retaining it changes the disclosure geometry in ways that require additional caution.
+From a rural developer’s point of view, the key idea is that identity memory is **namespaced by user**, so you can clear or audit one person’s space without touching others.
 
 ---
 
-## 22.8 Consent-Controlled Escalation
+## 22.5 Session-Derived People-Space and Pruning
 
-Identity-linked retention is governed by consent-controlled escalation.
+Identity‑linked content usually starts as **session‑derived** context.
 
-When material is especially sensitive, especially identity-defining, or especially consequential for graph and meaning structure, the system does not treat validation alone as sufficient for durable retention. Instead, escalation to higher-retention status is controlled by the applicable consent posture and disclosure rules.
+The pipeline is:
 
-This means:
+1. A conversation creates provisional identity‑relevant observations.  
+2. Those observations live in **session‑scoped** or **staged** collections.  
+3. Retention logic decides what, if anything, should be consolidated.
 
-- some material may remain session-local even if it is semantically useful;
-- some material may be retained only in limited or bounded form;
-- some material may require explicit user-aligned permission or stronger governance conditions before it affects durable identity-linked stores;
-- some material may be routed to human review or remain non-consolidated when consent or disclosure status is uncertain.
+Session‑derived people‑space retention must support:
 
-Consent-controlled escalation thus preserves a graded retention model rather than a single all-or-nothing memory decision.
+- **deletion** – the ability to remove a user’s records on request;  
+- **expired‑record pruning** – automatic trimming of old or low‑value entries;  
+- **bounded size** – no unlimited growth of per‑user histories.
 
----
-
-## 22.9 Provenance and Identity Lineage
-
-Identity-focused retention preserves provenance and meaning lineage.
-
-When a preference, interpretation, identity-linked fact, or meaning update is consolidated, the retained item preserves enough lineage to indicate:
-
-- what interaction or approved conclusion produced it;
-- what evidence or conversational basis supported it;
-- what validation or gate path it crossed;
-- what consent and disclosure posture applied at the time of consolidation;
-- what later graph or person-linked structure it influenced.
-
-This lineage matters because identity memory is not merely a storage problem. It is a responsibility problem. A system that cannot trace its identity-linked updates cannot reliably explain why a person was represented in a certain way.
+If these behaviors fail, identity retention gates block until fixed, as seen in the gate’s early “people_session_retention_probe_failed” status.
 
 ---
 
-## 22.10 Formal Retention Path
+## 22.6 Private, Staged, and Public Memory Families
 
-A compact formal path for identity-focused retention can be written as:
+The architecture uses distinct **memory families** for identity‑related information:
 
-\[
-I_{\mathrm{session}} \rightarrow I_{\mathrm{validated}} \rightarrow I_{\mathrm{approved}} \rightarrow I_{\mathrm{retained}}
-\]
+- **Private per‑user collections** – only visible to that user’s context; not shared or published.  
+- **Staged conversation collections** – recent or experimental material that may be pruned or consolidated later.  
+- **Commons collections** – public resources; **not** identity‑focused by default.
 
-where \(I_{\mathrm{session}}\) denotes session-scoped, ephemeral identity-related reasoning, \(I_{\mathrm{validated}}\) denotes material that has crossed the relevant validation path, \(I_{\mathrm{approved}}\) denotes material judged eligible for retention under gate and consent conditions, and \(I_{\mathrm{retained}}\) denotes durable identity-linked storage.
+Chapter 22’s gate closes only when:
 
-The exclusion rule can be stated as:
+- per‑user/private/staged conversation families are visible in the backing store;  
+- identity content resides in private/staged families by default;  
+- no identity‑linked item is sent to commons without explicit `public_opt_in`.
 
-\[
-I_{\mathrm{retained}} \neq I_{\mathrm{sandbox\ raw}}
-\]
-
-This expresses the central commitment of the chapter: raw sandbox identity reasoning is not itself durable identity memory.
+This separation prevents accidental “promotion” of private identity material into public resources.
 
 ---
 
-## 22.11 Relationship to Memory and Person Structure
+## 22.7 Public Disclosure vs Retention
 
-Identity-focused retention sits at the intersection of memory, meaning, and person representation.
+Identity‑focused retention and **public disclosure** are deliberately separated.
 
-Its relationship to the broader memory architecture is therefore ordered:
+- Retention says, “May the system remember this about you for future interactions?”  
+- Public disclosure says, “May this content or pattern be made visible to others as part of a commons or shared artifact?”
 
-- session reasoning holds candidate identity-linked content ephemerally;
-- validation and gate review determine admissibility;
-- memory and consolidation rules determine whether retention is allowed;
-- disclosure projection and consent posture determine whether escalation is appropriate;
-- only then may person-linked stores, graphs, or Hilbert-person structure change.
+Rules:
 
-This sequence keeps identity continuity aligned with the same safeguard logic that governs promoted knowledge more generally.
+- **Missing `public_opt_in` → no public disclosure.**  
+- Consent for retention does **not** imply consent for commons publication.  
+- Public sharing requires a separate, explicit yes.
 
----
-
-## 22.12 Narrative Commitment
-
-The narrative commitment of this chapter is direct.
-
-Identity retention does not begin when the system first entertains a person-linked interpretation. It begins only when session-scoped reasoning has crossed the relevant validation, approval, and retention thresholds, and when disclosure and consent conditions support durable consolidation.
-
-This commitment prevents the system from confusing live interpretive flexibility with durable personal knowledge.
+For example, a user might allow Ms. Allis to remember that they are working on a specific community project, but not to use their stories or patterns in any public knowledge base.
 
 ---
 
-## 22.13 Closing Statement
+## 22.8 Suppression Rules
 
-Identity-focused retention in Ms. Allis aligns with the sandbox-approved memory flow. Session-scoped reasoning and identity-linked candidate content are held ephemerally before approval, and only validated, retention-eligible, provenance-bearing material may be consolidated into per-user or identity-linked stores.
+Two suppression behaviors are central and are now enforced:
 
-Identity and meaning updates are therefore gated before graph or Hilbert-person changes occur, and disclosure projections together with consent-controlled escalation determine whether durable retention is appropriate. This keeps person-linked continuity useful, accountable, and governed by the same authority-sensitive architecture that separates provisional reasoning from durable system state.
+1. **Missing retention consent is suppressed.**  
+   - When consent is missing, the system does not write new identity records.  
+   - Existing identity records may be pruned or held back from use, depending on policy.
+
+2. **Public disclosure without opt‑in is suppressed.**  
+   - Even if data is correctly retained in per‑user space, it does not enter commons without a `public_opt_in` flag.  
+   - Queries or processes that try to treat identity memory as public are blocked or downscoped.
+
+These suppression rules are what turned Chapter 22 from “BLOCKED” into “CLOSED_FOR_REWRITE” in the gate reports.
+
+---
+
+## 22.9 What Chapter 22 Does Not Claim
+
+Within this gate, identity‑focused retention does **not** claim:
+
+- legal identity proofing or strong verification of who the user “really” is;  
+- indefinite retention or archival guarantees;  
+- automatic public disclosure of any retained fact;  
+- biometric production readiness;  
+- clinical or psychological safety guarantees.
+
+Instead, it claims:
+
+- **bounded, consent‑gated retention**;  
+- **per‑user partitions** with deletion and pruning;  
+- **clear separation** between private identity memory and public commons content.
+
+---
+
+## 22.10 Step-by-Step View for Rural Developers
+
+If you are running Ms. Allis on your own hardware, identity‑focused retention behaves like this:
+
+1. **Consent setup.**  
+   - You decide whether retention is enabled and at what level.
+
+2. **Live use.**  
+   - Ms. Allis can use what you say during a session to help you, regardless of retention.
+
+3. **Retention check.**  
+   - If retention is enabled, selected, validated pieces of identity‑relevant information may be written to your per‑user collections.
+
+4. **Pruning and deletion.**  
+   - You (or an operator) can prune or delete per‑user records.  
+   - Systems jobs clean up old or expired entries.
+
+5. **Public sharing (optional).**  
+   - Only if you explicitly opt in, certain patterns or artifacts may be promoted into commons collections.
+
+At every step, the separation between **using** information and **remembering** it—and between **remembering** and **publishing**—is part of the design, not something bolted on later.
+
+---
+
+## 22.11 Closing Statement
+
+Identity‑focused retention in Ms. Allis is consent‑gated, per‑user partitioned, and prunable. Identity‑linked material begins life in session‑scoped or staged collections, becomes retention‑eligible only after validation and consent checks, and never becomes public without explicit opt‑in.
+
+This structure lets Ms. Allis offer continuity and personalization while remaining accountable to the people and places it serves, rather than silently accumulating and broadcasting personal histories.
