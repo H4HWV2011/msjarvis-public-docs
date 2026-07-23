@@ -1,141 +1,177 @@
 # 41. Test Harness and Continuous Validation
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## 41.1 Purpose
+## 41.1 What This Chapter Is Allowed to Claim
 
-The test harness exists to verify that Ms. Allis behaves correctly across the full governed service chain, not merely that individual services respond.
+Chapter 41 is limited to **an implemented continuous validation harness** over the currently built governed chain.
 
-Continuous validation must therefore cover the path from sandbox availability and request handling through validator behavior, guardian review, DGM pass/fail decisions, bridge behavior, and successful gated promotion. The aim is to detect failure, drift, or silent contract breakage before those conditions become authority-bearing system faults.
+At the July 2026 sealed scope, it may claim that:
 
-This chapter treats testing as an operational discipline rather than as a collection of isolated unit checks. The object under test is the architecture in motion.
+- a continuous validation harness is installed at `services/hilbert/continuous_validation_harness.py`;  
+- harness unit tests pass;  
+- the final live harness status is recorded as **closed**;  
+- core health endpoints pass along the governed chain;  
+- sandbox readiness, BBB enforcement, guardian, judge, and bridge visibility are validated;  
+- guardian valid/risk/malformed schema probes pass;  
+- DGM pass/fail/immutable‑target behavior is validated through the actual governed DGM `run_cycle` contract when direct test targets are outside the allowlist;  
+- classification outcomes stay inside the declared set;  
+- an hourly cron runner (`scripts/ch41_continuous_validation.sh`) is installed and has executed successfully at least once.
 
----
-
-## 41.2 Service Chain Under Test
-
-The continuous validation path begins with the sandbox service and ends only when the candidate has either been safely blocked or has crossed the governed promotion route.
-
-The relevant service chain includes:
-
-- sandbox health and readiness;
-- sandbox `/status`;
-- sandbox `/reason`;
-- validator behavior and validator failure handling;
-- guardian payload review and schema enforcement;
-- DGM pass/fail handling;
-- bridge handoff and fallback behavior;
-- successful gated promotion or explicit fail-closed termination.
-
-This ordering matters because later-stage correctness depends on earlier-stage contract integrity. A bridge success claim is not meaningful if the candidate never passed a valid guarded path.
+It must **not** claim exhaustive coverage, perfect system health, mathematical completeness for all future invariants, or absolute drift prevention.
 
 ---
 
-## 41.3 Sandbox Health and Readiness Tests
+## 41.2 Harness Location and Installation
 
-Continuous validation should begin with sandbox health and readiness checks.
+The continuous validation harness is a real, installed program, not just a design sketch.
 
-These tests confirm that the sandbox service is reachable, reports healthy status, and exposes the expected operational surface before any reasoning request is submitted. The `/status` check should verify not only liveness, but also whether the sandbox reports dependencies, readiness indicators, or connected downstream services in a way that matches the architecture’s declared behavior.
+Within this chapter, it may claim that:
 
-A healthy sandbox is a prerequisite for all later tests, but it is not by itself sufficient. Health without bounded reasoning behavior is only partial validation.
+- the harness code lives at `services/hilbert/continuous_validation_harness.py`;  
+- the harness has its own **unit tests**, and those tests pass;  
+- the harness has been exercised against the live governed chain at least once, with its final status marked as **closed** in the evidence.
 
----
-
-## 41.4 Request-Handling and 422 Tests
-
-The test harness should include explicit malformed-request tests.
-
-These tests should exercise missing fields, incorrect field names, structurally invalid payloads, and semantically incomplete requests in order to verify that request validation works as intended. Where schema validation is enforced by the service framework, the harness should assert correct 422 handling rather than treating validation failure as a vague error condition.
-
-This is especially important for endpoints whose contracts carry governance meaning. If malformed requests are accepted, the system can appear healthy while silently eroding the safety guarantees of the service chain.
+For rural developers, the practical meaning is that there is a **single, named script** you can look at and run to see how the system tests itself.
 
 ---
 
-## 41.5 Validator Failure Tests
+## 41.3 Core Health and Readiness Checks
 
-Validator failure must be treated as a first-class outcome in continuous validation.
+The harness begins by checking **core health endpoints** along the governed chain.
 
-The harness should include tests in which the candidate generated by the sandbox encounters a validator rejection, contradiction, incoherence, or other review failure. These tests should confirm that failed validation blocks promotion, preserves the candidate’s lower-authority status, and records the outcome in a diagnosable form rather than allowing downstream ambiguity.
+These checks cover at least:
 
-Validator-failure tests are operationally important because they verify the chain under precisely the conditions where governance must do real work. It is easier to pass happy-path checks than to prove that bad candidates stay bounded.
+- BBB and Constitutional Guardian health;  
+- Commons Gateway;  
+- Chroma;  
+- Hilbert State;  
+- Hilbert Time;  
+- Phi;  
+- the internal sandbox.
 
----
+It also verifies **sandbox readiness**, which includes:
 
-## 41.6 Successful Gated Promotion Tests
+- sandbox itself is healthy;  
+- BBB enforcement is visible;  
+- guardian, truth‑judging, and consciousness‑bridge dependencies appear as live from the sandbox point of view.
 
-The harness should also verify the fully successful path.
-
-A successful gated promotion test should confirm that a valid sandbox candidate can traverse the required review sequence, receive the necessary gate outcomes, and complete bridge handoff without bypassing the authority structure. The expected result is not merely an HTTP success code, but an auditable promotion state showing that the candidate moved through the proper gated route.
-
-This test is essential because a system can be excellent at rejecting malformed or unsafe inputs while still failing to realize approved outcomes correctly. Continuous validation must confirm both safe blocking and correct admission.
-
----
-
-## 41.7 Guardian Schema Checks
-
-Guardian payload schema belongs inside continuous validation, not outside it.
-
-The harness should submit well-formed guardian payloads, incomplete payloads, and malformed payloads to verify that the guardian path enforces the expected contract. The test should confirm that required fields are actually required, that malformed structures do not slip through by permissive parsing, and that responses align with the intended constitutional or governance review semantics.
-
-This matters because schema correctness is part of the review boundary. If the guardian path accepts structurally wrong payloads, later approval signals cannot be trusted as evidence of real review.
+This confirms that the core path needed for governed reasoning is **up and reachable** before deeper tests run.
 
 ---
 
-## 41.8 Bridge Fallback and DGM Handling
+## 41.4 Guardian Schema and Risk Probes
 
-Continuous validation should test bridge fallback behavior and DGM pass/fail handling as explicit parts of the chain.
+The harness exercises the **guardian** with several categories of payloads.
 
-Bridge tests should cover successful handoff, handoff failure, and fallback or non-promotion behavior when the bridge cannot complete its role. DGM handling tests should verify that pass conditions allow the governed path to continue, while fail conditions prevent unauthorized promotion and leave a visible record of the blocking result.
+Within this scope, Chapter 41 may claim that the harness successfully sends:
 
-These checks matter because the service chain is not complete at the moment of internal approval. A candidate that reaches the bridge but fails there is operationally different from a candidate that was never approved, and the test harness should preserve that distinction.
+- **valid** guardian payloads that should pass;  
+- **risk‑flagged** payloads that should be treated as review or block;  
+- **malformed or schema‑broken** payloads that should be rejected or fail closed.
 
----
+The passing probes show that:
 
-## 41.9 Mathematical Invariant Tests
+- required fields are enforced;  
+- malformed submissions are not silently accepted;  
+- the guardian’s responses stay inside the **declared outcome set** for its classification scheme.
 
-Where implementation permits, the harness should include mathematical invariant tests; where implementation does not yet fully support them, the harness should include stubs and expected contracts.
-
-Three important invariant families belong here:
-
-- **Provenance retention**: the mapping from promoted or blocked state back to originating sandbox episode should remain preserved across the chain.
-- **Threshold logic**: thresholded decisions should respect declared boundary conditions so that values below threshold do not pass and values above threshold do not fail without explicit explanation.
-- **Promotion classification**: candidate outcomes should remain classifiable into bounded categories such as reject, revise, human review, limited approval, approve, or fail-closed block.
-
-A useful formal framing is to treat classification as a function
-
-\[
-C(x) \in \{\text{reject},\ \text{revise},\ \text{human review},\ \text{limited approval},\ \text{approve},\ \text{fail-closed}\}
-\]
-
-and to require the harness to verify that observed outcomes remain inside the declared set. Likewise, threshold logic can later be validated against explicit decision rules once those values are exposed in implementation.
+This keeps the guardian’s schema contract tied to live, repeatable tests.
 
 ---
 
-## 41.10 Continuous Validation Cadence
+## 41.5 DGM Pass/Fail and Immutable Targets
 
-Continuous validation should run on a repeated cadence and not only at release time.
+The harness also validates **DGM behavior** through the actual governed `run_cycle` contract.
 
-The harness should include lightweight recurring checks for health, route presence, malformed-request handling, and key gate outcomes, along with heavier scenario tests for bridge behavior and successful promotion paths. This layered cadence helps detect both sudden breakage and slower drift in payload contracts, route semantics, or promotion behavior.
+At the sealed scope, it may claim that:
 
-The goal is sustained confidence in the governed pathway. A service chain that passed once but is not continuously exercised can drift into unsafe mismatch without obvious outward signs.
+- DGM **pass** cases are handled as expected;  
+- DGM **fail** cases are handled as expected;  
+- attempts against **immutable targets** are blocked according to the governed rules;  
+- when direct test targets are outside the allowlist, the validation is still tied to the **real `run_cycle` contract**, not to a fake or bypass route.
 
----
-
-## 41.11 Observability and Test Evidence
-
-Tests are only as useful as the evidence they leave behind.
-
-The harness should retain enough artifacts to show what request was sent, what response was returned, what gate state was observed, and where the chain terminated. For success cases, this means evidence of gated promotion. For blocked cases, this means evidence of fail-closed handling, validator failure, guardian rejection, DGM block, or bridge fallback.
-
-This evidence should support diagnosis rather than mere pass/fail counting. The point of continuous validation is to keep the architecture inspectable as it evolves.
+This means DGM testing is anchored to the same governed pathway that would operate in practice, while still respecting the allowlist boundaries.
 
 ---
 
-## 41.12 Closing Statement
+## 41.6 Classification Outcome Invariants
 
-The test harness and continuous validation framework for Ms. Allis must cover the full governed service chain.
+The harness verifies that classification outcomes stay inside a **declared outcome set**.
 
-That includes sandbox health, malformed requests, 422 handling, validator failures, successful gated promotions, guardian payload schema checks, bridge fallback behavior, and DGM pass/fail handling. Where deeper mathematical structure is later implemented, the framework should also enforce invariants for provenance retention, threshold logic, and promotion classification so that continuous validation remains aligned with the authority-preserving design of the system.
+Within this chapter, classification invariants are limited to statements such as:
+
+- guardian and harness classification results remain within a fixed set of allowed labels;  
+- tests confirm that no unexpected or out‑of‑contract outcome labels appear during harness runs.
+
+The chapter may **not** claim that every future classifier or decision rule has been proven mathematically complete. It only claims that, for the harnessed chain, **observed outcomes stay within the intended classification space**.
+
+---
+
+## 41.7 Continuous Validation Cadence
+
+Continuous validation is wired into the running system via an **hourly cron runner**.
+
+This chapter may claim that:
+
+- `scripts/ch41_continuous_validation.sh` is installed as a scheduled runner;  
+- the cron entry has been executed successfully at least once;  
+- the harness can be invoked on a repeating schedule to re‑check the governed chain over time.
+
+For rural operators, the key idea is that validation is **not a one‑time event**. The system is set up to keep testing itself as it runs.
+
+---
+
+## 41.8 Bounded Claims About Coverage and Drift
+
+The rewrite rule keeps the chapter honest about what it **cannot** say.
+
+Chapter 41 does **not** claim:
+
+- exhaustive coverage of every service, route, or edge case;  
+- perfect system health at all times;  
+- a mathematically complete set of invariants for all future behaviors;  
+- permanent protection against configuration drift or regression.
+
+Instead, it claims:
+
+- an implemented, passing harness over the **currently built governed chain**;  
+- a real schedule for running that harness;  
+- specific validated behaviors (health, readiness, guardian schema, DGM pass/fail/immutable, classification outcomes) inside that chain.
+
+---
+
+## 41.9 Step‑by‑Step View for Rural Developers
+
+From a rural developer’s perspective, the Chapter 41 harness can be understood as a simple, repeatable script that checks:
+
+1. **Core health.**  
+   - Call the health endpoints for BBB, guardian, commons gateway, Chroma, Hilbert time/state, Phi, and the sandbox.
+
+2. **Sandbox and enforcement visibility.**  
+   - Ask the sandbox for its status and verify it sees BBB, guardian, judge, and bridge as live.
+
+3. **Guardian behavior.**  
+   - Send good, risky, and malformed payloads; check that the guardian’s responses and classifications match the contract.
+
+4. **DGM behavior.**  
+   - Through the governed `run_cycle`, confirm pass, fail, and immutable‑target handling behaves as designed, respecting any allowlist limits.
+
+5. **Classification invariants.**  
+   - Confirm that all classification outputs are within the allowed label set.
+
+6. **Schedule and logs.**  
+   - Let the hourly runner invoke this harness; watch its logs or status to see whether the governed chain still passes.
+
+If any of these checks fail, the harness is doing its job: it flags drift or breakage early, before those problems become authority‑bearing faults.
+
+---
+
+## 41.10 Closing Statement
+
+Chapter 41 presents a **living test harness** for Ms. Allis’s governed chain.
+
+By installing a continuous validation script, running unit tests, exercising core health endpoints, checking sandbox readiness and enforcement visibility, probing guardian schema behavior, validating DGM pass/fail/immutable handling, enforcing classification outcome sets, and wiring an hourly cron runner, the system gains a practical way to keep its core governance path under ongoing scrutiny—without pretending that coverage is exhaustive or that future drift is impossible.
