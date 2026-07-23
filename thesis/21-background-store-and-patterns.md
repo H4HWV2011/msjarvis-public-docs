@@ -1,375 +1,171 @@
 # 21. Background Store and Patterns
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## Why This Matters for Polymathmatic Geography
+## 21.1 Why This Matters for Polymathmatic Geography
 
-This chapter describes how Ms. Allis forms background patterns without collapsing the distinction between provisional internal reasoning and retained system knowledge.
+This chapter explains how Ms. Allis keeps **background understanding** without sliding into surveillance, unlimited memory, or raw transcript hoarding. It shows how recurring patterns are formed only after passing through gates, not directly from whatever the system happened to “think.”
 
 It supports:
 
-- **P1 – Every where is entangled** by showing how recurring structure can emerge across memory, governance, geography, and behavior without treating every transient reasoning trace as durable fact.
-- **P3 – Power has a geometry** by locating background pattern formation after approval and retention thresholds rather than inside raw sandbox activity.
-- **P5 – Design is a geographic act** by treating what may become a pattern as a design decision governed by retention, provenance, and evidentiary discipline.
-- **P12 – Intelligence with a ZIP code** by allowing place-aware regularities to persist only when they have crossed the proper gate and retention path.
-- **P16 – Power accountable to place** by requiring that pattern formation preserve traceable lineage to approved evidence and retained conclusions.
+- **P1 – Every where is entangled** by letting patterns emerge across conversations, geography, and governance, while still respecting strict retention rules.  
+- **P3 – Power has a geometry** by placing pattern formation downstream of BBB, guardian, and retention gates rather than inside raw sandbox traces.  
+- **P5 – Design is a geographic act** by making decisions about “what may become a pattern” part of system design, not an accident of logging.  
+- **P12 – Intelligence with a ZIP code** by allowing place‑aware regularities to persist only when they have crossed the right consent and retention paths.  
+- **P16 – Power accountable to place** by requiring patterns to carry provenance and consent, so their lineage can be inspected later.
 
-This chapter belongs to the **Computational Instrument** tier. It explains how the background store accumulates durable regularities while remaining distinct from ephemeral sandbox traces.
-
----
-
-## 21.1 Background Store Role
-
-The background store is the layer in which repeated, retained, and governance-eligible conclusions contribute to longer-horizon patterns.
-
-Its role is not to mirror the full flow of internal cognition. It exists to support durable tendencies, recurring associations, retrieval biasing, expectation formation, and other background structures that help the system operate coherently across time.
-
-For that reason, the background store is populated from **promoted or approved conclusions**, not from raw sandbox scratchpad content. Ephemeral reasoning traces may assist deliberation, but they do not become background pattern material merely by existing.
+This chapter belongs to the **Computational Instrument** tier. It describes the as‑built background store and pattern system, not an unlimited or automatic memory.
 
 ---
 
-## 21.2 Separation from Sandbox Traces
+## 21.2 Background Store Role
 
-This chapter distinguishes clearly between two classes of internal material:
+The background store is where Ms. Allis keeps **summaries and regularities**, not raw conversations.
 
-1. **Ephemeral sandbox traces** — provisional reasoning, scratchpad content, staged hypotheses, temporary contradiction checks, and reversible internal exploration.
-2. **Background patterns** — durable regularities abstracted from conclusions that have crossed the relevant approval, promotion, and retention boundaries.
+Its job is to:
 
-This distinction matters because sandbox traces are intentionally permissive and reversible. They support exploration, drafting, and bounded internal experimentation.
+- hold **bounded pattern summaries** that help future reasoning;  
+- keep those summaries tied to **consent, provenance, and retention rules**;  
+- stay separate from internal scratchpads and raw transcripts.
 
-Background patterns, by contrast, influence later retrieval, expectation, and long-range behavior. They therefore require a stricter origin rule: they are derived from approved or promoted conclusions, not from raw sandbox contents, transient chain fragments, or unreviewed internal scratchpad material.
-
----
-
-## 21.3 Source Rule for Pattern Formation
-
-Pattern formation in the background store follows a source rule.
-
-A candidate regularity may contribute to background structure only when it arises from material that has already satisfied the relevant post-gate conditions, including:
-
-- successful passage through the applicable evaluation path;
-- an admissible promotion outcome such as limited approval or approve, or another explicitly retention-eligible decision;
-- retention eligibility under memory and consolidation rules;
-- availability of provenance sufficient to trace the retained conclusion back to its evidentiary basis.
-
-This source rule prevents the system from confusing “thought about” with “learned from.” Raw sandbox scratchpad content is part of the internal reasoning process, but it is not itself an authorized substrate for background pattern formation.
+You can think of it as a small notebook of “things Ms. Allis is allowed to remember in general,” built only from content that already passed through gates and retention checks.
 
 ---
 
-## 21.4 Relationship to Hippocampus and Consolidation
+## 21.3 Separation from Raw Transcripts and Profiling
 
-The background store operates in coordination with the hippocampal and consolidation layers rather than bypassing them.
+Several kinds of data are **explicitly not** stored as background patterns:
 
-Pattern formation follows the same post-gate retention logic that governs durable memory. A conclusion that has not crossed the relevant approval and retention thresholds is not treated as a valid seed for longer-horizon background structure.
+- full raw chat transcripts by default;  
+- detailed identity metadata such as exact names, addresses, or identifiers that could rebuild a person’s dossier;  
+- per‑user psychological profiles built automatically from behavior.
 
-This chapter therefore aligns with the hippocampus and consolidation chapters in three ways:
+Instead:
 
-- retention follows post-gate admissibility rather than raw internal generation;
-- durable abstraction occurs after, not before, the relevant consolidation decision;
-- the background store inherits retained structure from approved memory-eligible material rather than directly from sandbox-local reasoning traces.
+- only **pattern summaries** are eligible (for example, “this user prefers step‑by‑step explanations”);  
+- those summaries must respect **retention consent** and **provenance requirements**;  
+- identity‑heavy details are suppressed or anonymized before anything can become background.
 
-That alignment ensures the background layer does not become an unauthorized side channel for persistence.
-
----
-
-## 21.5 Provenance-Retention Requirement
-
-Background pattern formation preserves evidentiary lineage.
-
-When the system abstracts from retained conclusions into a broader pattern, it preserves enough provenance to answer at least four questions:
-
-- what approved or promoted conclusions contributed to this pattern;
-- what evidence, sources, or validation path supported those conclusions;
-- what retention or consolidation step made them eligible for background use;
-- what level of abstraction separates the current pattern from the originating evidence.
-
-This requirement matters because a background pattern that cannot be traced back to approved sources becomes epistemically unstable. The system may still carry a tendency or bias, but it would no longer be clear whether that tendency arose from validated retained knowledge or from accumulated transient noise.
-
-For that reason, provenance is retained across abstraction rather than discarded as soon as a pattern becomes generalized.
+This keeps the system from turning everyday use into a hidden profile or an unlimited recall of past conversations.
 
 ---
 
-## 21.6 Pattern Formation Logic
+## 21.4 Consent, Provenance, and Commons Eligibility
 
-The background store does not retain every approved conclusion individually as a separate pattern. Instead, it forms patterns by aggregating across retained material over time.
+The system distinguishes between three ideas that sound similar but are very different in practice:
 
-That aggregation may include:
+- **Background retention.**  
+  Whether a pattern summary may be kept for future use in this environment at all.
 
-- recurring co-occurrence across approved conclusions;
-- repeated confirmation of the same relation, constraint, or place-linked regularity;
-- stable associations across memory episodes that have crossed consolidation thresholds;
-- consistent retrieval bias signals supported by retained evidence;
-- long-horizon topic or belief trajectories derived from retained, provenance-bearing states.
+- **Per‑user people‑space memory.**  
+  Consent‑gated, deletable per‑user memories that never become general background unless explicitly allowed.
 
-The important limit is that aggregation begins **after** approval and retention eligibility. The background layer therefore abstracts from validated retained conclusions, not from sandbox scratchpad residue.
+- **Commons eligibility.**  
+  Whether a pattern or artifact may be turned into a public “commons” resource, which requires **a separate, explicit opt‑in.**
 
----
+For a pattern to enter the background store, it must:
 
-## 21.7 What Does Not Enter the Background Store
+1. Come from **approved, gated outcomes** (not raw scratchpad).  
+2. Respect the user’s retention and deletion settings.  
+3. Carry enough **provenance** to explain what it came from.  
+4. Stay **separate from commons** unless there is a clear public‑opt‑in path.
 
-The chapter makes explicit what does not qualify as pattern input.
-
-The following do **not** directly enter the background store:
-
-- raw `/reason` scratchpad content;
-- sandbox-local temporary chains of thought;
-- staged hypotheses that never crossed review;
-- failed truth-check content;
-- rejected or non-promoted candidate conclusions;
-- malformed or exception-bearing internal traces whose status never became retention-eligible.
-
-These exclusions are not merely implementation details. They preserve the distinction between exploratory reasoning and durable pattern formation, which is necessary for both auditability and epistemic discipline.
+Background storage is therefore **opt‑in and bounded**, not automatic and unlimited.
 
 ---
 
-## 21.8 Pattern Stability and Authority
+## 21.5 Memory Families You Can See at Runtime
 
-A background pattern has more authority than a sandbox trace but less granularity than a specific retained episode.
+The background design uses several **runtime‑visible memory families**, such as:
 
-This intermediate status explains why the background store must be governed carefully. If it were populated from raw internal traces, the system could accumulate durable tendencies from material that never passed validation. If it were restricted only to literal copies of approved episodes, it would fail to support generalization.
+- **Conversation collections** – per‑session or per‑thread traces that support short‑term continuity.  
+- **People‑space collections** – per‑user memory areas, consent‑controlled and prunable.  
+- **Commons collections** – publicly shareable patterns or resources, populated only with explicit consent and curation.  
+- **Background pattern collections** – bounded summaries that help with habits like “this community cares about emergency resources first” or “rural users often have poor connectivity.”
 
-The architecture therefore adopts a middle position: background patterns are abstractions from approved, promoted, and retention-eligible conclusions, with provenance preserved across the abstraction step.
-
----
-
-## 21.9 Formal Distinction
-
-A compact formal distinction can be written as:
-
-\[
-B(t) = \Phi\big(R_{\mathrm{retained}}(t)\big)
-\]
-
-where \(B(t)\) is the background pattern state at time \(t\), \(R_{\mathrm{retained}}(t)\) is the set of retained, post-gate, retention-eligible conclusions available by that time, and \(\Phi\) is the abstraction or aggregation operator that forms durable patterns.
-
-The exclusion rule can be stated as:
-
-\[
-B(t) \neq \Phi\big(S_{\mathrm{sandbox}}(t)\big)
-\]
-
-where \(S_{\mathrm{sandbox}}(t)\) denotes raw sandbox scratchpad content or ephemeral reasoning traces. This expresses the key architectural commitment of the chapter: background structure is formed from retained conclusions, not from unreviewed internal thought.
+All of these families are visible as **separate collections** in the backing stores (for example, vector DB or key‑value stores). System operators can inspect which family a given summary lives in and what rules apply to it.
 
 ---
 
-## 21.10 Interaction with Retrieval and Bias
+## 21.6 How Patterns Are Formed (High Level)
 
-Because background patterns influence retrieval, expectation, and latent system posture, their origin discipline matters.
+A background pattern is not a copy of a conversation. It is a **small summary** extracted from content that already cleared the relevant gates.
 
-A background pattern may bias later retrieval or interpretation only when that pattern remains anchored to approved, provenance-bearing retained material. This keeps the system from amplifying noise that originated in unvalidated sandbox exploration.
+The pipeline looks like this:
 
-The result is a cleaner relationship between memory and reasoning:
+1. A conversation or reasoning episode produces a **promoted conclusion** (for example, “this user prefers code with comments”).  
+2. That conclusion passes BBB, guardian, and retention checks.  
+3. A summarizer creates a **compact pattern** from it (for example, “preference: explained steps”).  
+4. The pattern is stored in the appropriate collection, with **provenance links** back to its source.  
+5. Later, Ms. Allis may consult that pattern to shape responses, always subject to updated consent and deletion.
 
-- sandbox reasoning explores;
-- gates validate;
-- hippocampal and consolidation layers retain;
-- background storage abstracts across retained conclusions;
-- later retrieval can then draw on those abstractions without erasing their lineage.
-
----
-
-## 21.11 Narrative Commitment
-
-The narrative commitment of this chapter is straightforward.
-
-Background patterns are not synonymous with whatever the system happened to think internally. They are the durable abstractions that emerge from conclusions which have already crossed the relevant gate, retention, and consolidation boundaries.
-
-That commitment prevents conflation between background knowledge and ephemeral reasoning traces, and it preserves the evidentiary lineage needed for accountable long-horizon system behavior.
+If consent is revoked or a user requests deletion, entries in the relevant people‑space or background collections are removed or pruned, and future patterns must be rebuilt from remaining data.
 
 ---
 
-## 21.12 Closing Statement
+## 21.7 What Background Patterns Are *Not*
 
-The background store in Ms. Allis forms durable patterns from promoted, approved, and retention-eligible conclusions rather than from raw sandbox scratchpad content. Its operation is therefore aligned with the hippocampus and consolidation pathway, so that pattern formation follows post-gate retention rules instead of bypassing them.
+Within this gate, background patterns must **not** be described as:
 
-By preserving provenance across abstraction, the background layer remains both useful and accountable. It can support long-range regularity, retrieval biasing, and expectation formation without confusing transient internal reasoning with durable system knowledge.# 21. Background Store and Patterns
+- unlimited memory of everything ever said;  
+- automatic psychological profiles;  
+- raw transcript storage;  
+- automatic “commons” publication of user content;  
+- clinical or legal guarantees.
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+Instead, patterns are:
 
----
+- bounded summaries;  
+- consent‑gated;  
+- provenance‑carrying;  
+- distinct from transcripts and logs;  
+- subject to deletion and pruning.
 
-## Why This Matters for Polymathmatic Geography
-
-This chapter describes how Ms. Allis forms background patterns without collapsing the distinction between provisional internal reasoning and retained system knowledge.
-
-It supports:
-
-- **P1 – Every where is entangled** by showing how recurring structure can emerge across memory, governance, geography, and behavior without treating every transient reasoning trace as durable fact.
-- **P3 – Power has a geometry** by locating background pattern formation after approval and retention thresholds rather than inside raw sandbox activity.
-- **P5 – Design is a geographic act** by treating what may become a pattern as a design decision governed by retention, provenance, and evidentiary discipline.
-- **P12 – Intelligence with a ZIP code** by allowing place-aware regularities to persist only when they have crossed the proper gate and retention path.
-- **P16 – Power accountable to place** by requiring that pattern formation preserve traceable lineage to approved evidence and retained conclusions.
-
-This chapter belongs to the **Computational Instrument** tier. It explains how the background store accumulates durable regularities while remaining distinct from ephemeral sandbox traces.
+This is the line that keeps the background store from sliding into surveillance.
 
 ---
 
-## 21.1 Background Store Role
+## 21.8 Interaction with BBB, Guardian, Chroma, and Hilbert-State
 
-The background store is the layer in which repeated, retained, and governance-eligible conclusions contribute to longer-horizon patterns.
+Several live services back the background store:
 
-Its role is not to mirror the full flow of internal cognition. It exists to support durable tendencies, recurring associations, retrieval biasing, expectation formation, and other background structures that help the system operate coherently across time.
+- The **BBB** and **constitutional guardian** decide which conclusions are even eligible to become long‑term knowledge.  
+- **Chroma** or equivalent vector stores hold pattern embeddings and collection families.  
+- **Hilbert‑state** services track the system’s current state and time frame, allowing pattern evaluation to factor in when and under what conditions a summary was formed.
 
-For that reason, the background store is populated from **promoted or approved conclusions**, not from raw sandbox scratchpad content. Ephemeral reasoning traces may assist deliberation, but they do not become background pattern material merely by existing.
-
----
-
-## 21.2 Separation from Sandbox Traces
-
-This chapter distinguishes clearly between two classes of internal material:
-
-1. **Ephemeral sandbox traces** — provisional reasoning, scratchpad content, staged hypotheses, temporary contradiction checks, and reversible internal exploration.
-2. **Background patterns** — durable regularities abstracted from conclusions that have crossed the relevant approval, promotion, and retention boundaries.
-
-This distinction matters because sandbox traces are intentionally permissive and reversible. They support exploration, drafting, and bounded internal experimentation.
-
-Background patterns, by contrast, influence later retrieval, expectation, and long-range behavior. They therefore require a stricter origin rule: they are derived from approved or promoted conclusions, not from raw sandbox contents, transient chain fragments, or unreviewed internal scratchpad material.
+For rural developers, the important idea is that **pattern storage is routed through the same safety and time/state layers** as other authority‑bearing decisions, not left as ad‑hoc file writes.
 
 ---
 
-## 21.3 Source Rule for Pattern Formation
+## 21.9 Practical View for Rural Developers
 
-Pattern formation in the background store follows a source rule.
+If you are running Ms. Allis on your own machine, you can think of background patterns like this:
 
-A candidate regularity may contribute to background structure only when it arises from material that has already satisfied the relevant post-gate conditions, including:
+- There is a **small shelf** where allowed summaries live.  
+- Every card on the shelf has:  
+  - what it says (the pattern),  
+  - where it came from (provenance),  
+  - which user or space it belongs to,  
+  - whether it is allowed to stay or must be deleted on request.
 
-- successful passage through the applicable evaluation path;
-- an admissible promotion outcome such as limited approval or approve, or another explicitly retention-eligible decision;
-- retention eligibility under memory and consolidation rules;
-- availability of provenance sufficient to trace the retained conclusion back to its evidentiary basis.
+You can:
 
-This source rule prevents the system from confusing “thought about” with “learned from.” Raw sandbox scratchpad content is part of the internal reasoning process, but it is not itself an authorized substrate for background pattern formation.
+- adjust retention policies;  
+- clear people‑space and background collections for a user;  
+- review which families are active (conversation, people‑space, commons, background).
 
----
+You cannot:
 
-## 21.4 Relationship to Hippocampus and Consolidation
-
-The background store operates in coordination with the hippocampal and consolidation layers rather than bypassing them.
-
-Pattern formation follows the same post-gate retention logic that governs durable memory. A conclusion that has not crossed the relevant approval and retention thresholds is not treated as a valid seed for longer-horizon background structure.
-
-This chapter therefore aligns with the hippocampus and consolidation chapters in three ways:
-
-- retention follows post-gate admissibility rather than raw internal generation;
-- durable abstraction occurs after, not before, the relevant consolidation decision;
-- the background store inherits retained structure from approved memory-eligible material rather than directly from sandbox-local reasoning traces.
-
-That alignment ensures the background layer does not become an unauthorized side channel for persistence.
+- make the system silently keep unlimited transcripts;  
+- automatically convert private conversations into commons content.
 
 ---
 
-## 21.5 Provenance-Retention Requirement
+## 21.10 Closing Statement
 
-Background pattern formation preserves evidentiary lineage.
+Chapter 21 describes a **bounded, consent‑gated background store** that holds pattern summaries, not raw transcripts. Patterns can only form from conclusions that have already passed gates and retention checks, and they must carry provenance and respect deletion.
 
-When the system abstracts from retained conclusions into a broader pattern, it preserves enough provenance to answer at least four questions:
-
-- what approved or promoted conclusions contributed to this pattern;
-- what evidence, sources, or validation path supported those conclusions;
-- what retention or consolidation step made them eligible for background use;
-- what level of abstraction separates the current pattern from the originating evidence.
-
-This requirement matters because a background pattern that cannot be traced back to approved sources becomes epistemically unstable. The system may still carry a tendency or bias, but it would no longer be clear whether that tendency arose from validated retained knowledge or from accumulated transient noise.
-
-For that reason, provenance is retained across abstraction rather than discarded as soon as a pattern becomes generalized.
-
----
-
-## 21.6 Pattern Formation Logic
-
-The background store does not retain every approved conclusion individually as a separate pattern. Instead, it forms patterns by aggregating across retained material over time.
-
-That aggregation may include:
-
-- recurring co-occurrence across approved conclusions;
-- repeated confirmation of the same relation, constraint, or place-linked regularity;
-- stable associations across memory episodes that have crossed consolidation thresholds;
-- consistent retrieval bias signals supported by retained evidence;
-- long-horizon topic or belief trajectories derived from retained, provenance-bearing states.
-
-The important limit is that aggregation begins **after** approval and retention eligibility. The background layer therefore abstracts from validated retained conclusions, not from sandbox scratchpad residue.
-
----
-
-## 21.7 What Does Not Enter the Background Store
-
-The chapter makes explicit what does not qualify as pattern input.
-
-The following do **not** directly enter the background store:
-
-- raw `/reason` scratchpad content;
-- sandbox-local temporary chains of thought;
-- staged hypotheses that never crossed review;
-- failed truth-check content;
-- rejected or non-promoted candidate conclusions;
-- malformed or exception-bearing internal traces whose status never became retention-eligible.
-
-These exclusions are not merely implementation details. They preserve the distinction between exploratory reasoning and durable pattern formation, which is necessary for both auditability and epistemic discipline.
-
----
-
-## 21.8 Pattern Stability and Authority
-
-A background pattern has more authority than a sandbox trace but less granularity than a specific retained episode.
-
-This intermediate status explains why the background store must be governed carefully. If it were populated from raw internal traces, the system could accumulate durable tendencies from material that never passed validation. If it were restricted only to literal copies of approved episodes, it would fail to support generalization.
-
-The architecture therefore adopts a middle position: background patterns are abstractions from approved, promoted, and retention-eligible conclusions, with provenance preserved across the abstraction step.
-
----
-
-## 21.9 Formal Distinction
-
-A compact formal distinction can be written as:
-
-\[
-B(t) = \Phi\big(R_{\mathrm{retained}}(t)\big)
-\]
-
-where \(B(t)\) is the background pattern state at time \(t\), \(R_{\mathrm{retained}}(t)\) is the set of retained, post-gate, retention-eligible conclusions available by that time, and \(\Phi\) is the abstraction or aggregation operator that forms durable patterns.
-
-The exclusion rule can be stated as:
-
-\[
-B(t) \neq \Phi\big(S_{\mathrm{sandbox}}(t)\big)
-\]
-
-where \(S_{\mathrm{sandbox}}(t)\) denotes raw sandbox scratchpad content or ephemeral reasoning traces. This expresses the key architectural commitment of the chapter: background structure is formed from retained conclusions, not from unreviewed internal thought.
-
----
-
-## 21.10 Interaction with Retrieval and Bias
-
-Because background patterns influence retrieval, expectation, and latent system posture, their origin discipline matters.
-
-A background pattern may bias later retrieval or interpretation only when that pattern remains anchored to approved, provenance-bearing retained material. This keeps the system from amplifying noise that originated in unvalidated sandbox exploration.
-
-The result is a cleaner relationship between memory and reasoning:
-
-- sandbox reasoning explores;
-- gates validate;
-- hippocampal and consolidation layers retain;
-- background storage abstracts across retained conclusions;
-- later retrieval can then draw on those abstractions without erasing their lineage.
-
----
-
-## 21.11 Narrative Commitment
-
-The narrative commitment of this chapter is straightforward.
-
-Background patterns are not synonymous with whatever the system happened to think internally. They are the durable abstractions that emerge from conclusions which have already crossed the relevant gate, retention, and consolidation boundaries.
-
-That commitment prevents conflation between background knowledge and ephemeral reasoning traces, and it preserves the evidentiary lineage needed for accountable long-horizon system behavior.
-
----
-
-## 21.12 Closing Statement
-
-The background store in Ms. Allis forms durable patterns from promoted, approved, and retention-eligible conclusions rather than from raw sandbox scratchpad content. Its operation is therefore aligned with the hippocampus and consolidation pathway, so that pattern formation follows post-gate retention rules instead of bypassing them.
-
-By preserving provenance across abstraction, the background layer remains both useful and accountable. It can support long-range regularity, retrieval biasing, and expectation formation without confusing transient internal reasoning with durable system knowledge.
+This keeps Ms. Allis’s long‑term “sense of things” useful for communities and individual users, while staying accountable to evidence, consent, and place rather than quietly remembering everything forever.
