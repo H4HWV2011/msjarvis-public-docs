@@ -1,219 +1,196 @@
 # 27. Web Research and Autonomy
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
 ## 27.1 Autonomy in Ms. Allis
 
-Autonomy in Ms. Allis is the capacity to conduct research, extend inquiry, and develop candidate findings within a governed architecture. It is not the capacity to turn raw retrieval into direct accepted output.
+In Ms. Allis, **autonomy** means the ability to go out, gather information, and form candidate conclusions under guardrails. It does **not** mean that whatever is found on the web becomes truth or guidance automatically.
 
-This distinction is foundational. The system may decide what to investigate, what sources to compare, how to refine a search path, and when to continue an open line of inquiry. But those activities remain inside a bounded epistemic process. Research initiative does not equal authority to assert final truth, generate immediate guidance, or commit durable knowledge on its own.
+The system can:
 
-Autonomy therefore belongs to the domain of **governed research behavior**. It describes how the system explores, not how it bypasses review.
+- decide what to search for;  
+- follow links and APIs;  
+- refine queries and compare sources;  
+- keep a research thread going over time.
 
----
-
-## 27.2 Research Ingress
-
-When Ms. Allis performs web or other external research, the retrieved material enters the system as **research ingress**. At this stage, the material is evidence under consideration, not accepted knowledge.
-
-Research ingress may include:
-
-- web search results;
-- retrieved pages or excerpts;
-- API responses;
-- structured public data;
-- domain-specific research artifacts gathered by an autonomous process.
-
-The important architectural point is that ingress does not terminate in immediate experience, memory, or guidance. External content enters as provisional material and must first become candidate state inside the internal-state sandbox.
-
-This keeps the boundary between “what was found” and “what is accepted” both visible and enforceable.
+All of that happens inside a governed architecture. Research initiative is allowed; **ungoverned assertion is not.** Autonomy here is “the freedom to investigate inside a fence,” not “the freedom to declare anything you find as fact.”
 
 ---
 
-## 27.3 Internal-State Sandbox
+## 27.2 Research Ingress: How Web Data Enters
 
-All web and research-derived material passes first into the **internal-state sandbox**.
+When Ms. Allis performs web research, the results arrive as **research ingress** and go first into the **internal-state sandbox**.
 
-Inside that sandbox, Ms. Allis can compare sources, test interpretations, detect contradictions, synthesize tentative findings, and discard weak or incoherent lines of inquiry. The sandbox is the protected workspace in which research becomes cognitively workable without becoming authoritative.
+Step‑by‑step:
 
-This means that retrieved content is never treated as direct experience and never treated as direct guidance upon arrival. It is transformed into provisional internal material first.
+1. A research request is prepared (for example, “find current policy on X”).  
+2. Web or external tools return pages, snippets, or structured data.  
+3. All retrieved material is treated as **raw evidence**, not as accepted knowledge.  
+4. That raw evidence is placed into the **sandbox** on port `8042` as provisional internal state.
 
-Within the sandbox, research-derived material may become:
+At this point:
 
-- candidate claims;
-- candidate summaries;
-- candidate interpretations;
-- candidate questions for further inquiry;
-- candidate experience payloads for later evaluation.
+- nothing has been promoted;  
+- nothing has been written to background patterns or identity memory;  
+- nothing has been treated as guidance.
 
-Nothing in this stage is yet promoted. The sandbox exists precisely to preserve that distinction.
-
----
-
-## 27.4 Retrieved Content and Governed State
-
-Retrieved content is not equivalent to accepted knowledge.
-
-A page that was found, a passage that was retrieved, or a result that ranked highly may still be incomplete, misleading, contradictory, outdated, or normatively inadmissible. For that reason, Ms. Allis treats retrieved content as part of a **governed state progression** rather than as knowledge simply because it is present.
-
-The progression is:
-
-\[
-R_{\mathrm{retrieved}} \rightarrow S_{\mathrm{candidate}} \rightarrow F_{\mathrm{candidate}} \rightarrow K_{\mathrm{governed}}
-\]
-
-where \(R_{\mathrm{retrieved}}\) is raw external material, \(S_{\mathrm{candidate}}\) is sandboxed candidate state, \(F_{\mathrm{candidate}}\) is a candidate finding, and \(K_{\mathrm{governed}}\) is governed knowledge that has survived the relevant controls.
-
-This governed-state language matters because it prevents the architecture from collapsing retrieval into belief. What is found may be useful. What is accepted must be earned.
+The system is just saying, “Here is what we found; now we have to think about it.”
 
 ---
 
-## 27.5 Candidate Findings
+## 27.3 From Retrieval to Candidate Findings
 
-The immediate product of autonomous research is not final output but **candidate findings**.
+Inside the sandbox, Ms. Allis turns raw results into **candidate findings**.
 
-A candidate finding may take the form of:
+This includes:
 
-- a proposed factual conclusion;
-- a synthesis across multiple sources;
-- a tentative answer to a user or system question;
-- a place-linked interpretation;
-- a recommendation for additional investigation.
+- clustering similar results;  
+- discarding clearly broken or contradictory items;  
+- drafting possible conclusions (“candidate explanations”);  
+- attaching uncertainty and provenance.
 
-Candidate findings are valuable because they organize research into usable form. But they remain provisional. They are what the system has reason to examine next, not what it has already certified as true.
+You can think of this as the **“rough notes and draft answer”** stage. The important rule is:
 
-This keeps autonomy productive without making it reckless. The system may generate many candidate findings while still promoting only a small, well-governed subset.
+- retrieved content is **R** (raw retrieval),  
+- sandbox-processed content is **candidate state**,  
+- neither is yet **K** (governed knowledge) or **G** (approved guidance).
 
----
+Formally, the system keeps the distinctions:
 
-## 27.6 Consciousness and Candidate Experience
+- \(R \neq K\) – retrieval is not the same as governed knowledge.  
+- \(R \neq G\) – retrieval is not the same as approved guidance.
 
-After research-derived content has been processed into candidate findings in the internal-state sandbox, admissible material may be structured into **candidate experience**.
-
-This means the research result is no longer just an external fragment or sandbox note. It has been shaped into a form that the consciousness bridge can receive as part of the system’s internal experiential state. Even here, the material is still not final knowledge or outward guidance. It is internal candidate experience under review.
-
-The path remains ordered:
-
-\[
-R_{\mathrm{retrieved}} \rightarrow S_{\mathrm{candidate}} \rightarrow F_{\mathrm{candidate}} \rightarrow E_{\mathrm{candidate}}
-\]
-
-where \(E_{\mathrm{candidate}}\) is candidate experience. Experience, in this architecture, is downstream of research and downstream of sandboxing. It does not arise directly from retrieval.
+So even if a web page sounds confident, it is still just one piece of candidate evidence inside the sandbox.
 
 ---
 
-## 27.7 Constitutional Controls
+## 27.4 Constitutional Review Before Promotion
 
-Constitutional controls govern the movement of autonomous findings beyond the sandbox.
+Before any candidate finding can move toward being treated as “what Ms. Allis says,” it must pass **constitutional review**.
 
-A candidate finding derived from research must be checked for normative admissibility, scope, safety, and compatibility with the constitutional guardian payload. This means the system does not ask only whether a finding is plausible. It also asks whether the finding may be allowed to influence guidance, broader system state, or consequential action.
+Constitutional review checks things like:
 
-Constitutional review can therefore:
+- policy constraints;  
+- safety and harm rules;  
+- disallowed content classes;  
+- domain limits (for example, medical, legal, financial caution);  
+- place‑ and community‑specific guardrails.
 
-- reject findings that violate core constraints;
-- require revision or narrowing;
-- escalate to human review;
-- permit only limited approval;
-- allow advancement when the finding is normatively admissible.
+If constitutional checks fail, the outcomes can be:
 
-This makes autonomy subordinate to constitutional order. Research initiative may be broad, but constitutional admissibility determines what can move upward.
+- **reject** – the finding is blocked outright;  
+- **revise** – narrow the claim or change the framing;  
+- **human review** – escalate to a human, especially in high‑stakes settings;  
+- **limited approval** – allow use only with warnings or scope limits.
 
----
-
-## 27.8 Darwin Gödel Machine Controls
-
-Darwin Gödel Machine controls govern autonomous findings at the level of recursive evaluation, self-improvement discipline, and system-level admissibility.
-
-Within this architecture, DGM controls do not mean unconstrained self-modification or self-authorization. They mean that candidate findings and their associated reasoning traces are subjected to structured evaluation before promotion. The system must demonstrate that a finding is coherent enough, grounded enough, and safe enough to advance without destabilizing broader governed state.
-
-DGM controls can therefore:
-
-- reject a finding when its reasoning chain is unsound;
-- require another research cycle when evidence is insufficient;
-- downgrade a finding to limited approval when it is useful but not yet strong enough for full promotion;
-- route a finding into human review when recursive uncertainty remains too high;
-- permit advancement only when the finding survives the relevant evaluative path.
-
-In this role, the Darwin Gödel Machine is not a shortcut around governance. It is one of the mechanisms that makes autonomy governable.
+Only findings that **pass** constitutional review can continue toward full promotion.
 
 ---
 
-## 27.9 Research Is Not Direct Output
+## 27.5 Three Live Darwin Gödel Machines
 
-Autonomy in Ms. Allis is research-capable, not output-sovereign.
+On your system, **three real Darwin Gödel Machine (DGM) containers** are live and participate in evaluating autonomous research:
 
-The system may search, retrieve, compare, iterate, and synthesize. It may continue an inquiry over time, revisit partially settled issues, or discover candidate relationships across sources. But it does not convert that activity directly into accepted user guidance, durable memory, or system-level truth.
+- `nbb_darwin_godel_machines` on port `8302` (safety mode `full_verification`, primary DGM);  
+- `jarvis-fifth-dgm` on port `4002` (fifth DGM orchestrator);  
+- `qualia-orchestrator-69dgm-real` on port `9998` (a “69‑DGM cascade” orchestrator).
 
-That means:
+These are **actual services**, not metaphors. They act as governed optimization/evaluation engines.
 
-- retrieval is not acceptance;
-- synthesis is not commitment;
-- candidate experience is not approved guidance;
-- autonomous discovery is not self-authorizing knowledge.
+Their job in this chapter is to:
 
-The architecture preserves these separations on purpose. Without them, autonomous research would collapse into uncontrolled assertion.
+- evaluate candidate findings and their reasoning traces;  
+- enforce the outcome classes: **reject, revise, human review, limited approval, approve**;  
+- ensure that autonomous research does not mutate system behavior or knowledge without passing through verification and governance.
 
----
-
-## 27.10 Promotion Outcomes
-
-Once autonomous findings have passed through sandbox reasoning, constitutional review, and Darwin Gödel Machine evaluation, the system reaches a promotion decision.
-
-The relevant outcomes are:
-
-- **reject** — the finding is not admissible and does not advance;
-- **revise** — the finding is returned for another research or synthesis cycle;
-- **human review** — the finding is escalated because governance requires supervisory judgment;
-- **limited approval** — the finding may be used in a constrained way without full acceptance;
-- **approve** — the finding may become governed knowledge or approved guidance.
-
-This outcome vocabulary matters because it reflects the real shape of governed autonomy. Research does not end in a simple yes/no state. It moves through authority-preserving outcomes.
+They **do not** self‑authorize findings. They are part of the gate, not above it.
 
 ---
 
-## 27.11 Formal View
+## 27.6 Named Service Paths in the Research Flow
 
-A concise formal statement clarifies the chapter.
+Governed web research uses several named service paths:
 
-Let:
+- **Sandbox** – `ms-allis-internal-sandbox` on port `8042`.  
+- **BBB / entangled gateway** – `jarvis-wv-entangled-gateway` and related BBB on `8010` (plus BBB internals on `8016`).  
+- **Consciousness bridge** – via `0f40caf56e1e_nbb_mother_carrie_protocols` on `8107`, providing a bridge path into higher‑level coordination.  
+- **Spatial sandbox** – `jarvis-spatial-sandbox` on `8056`, including hysteresis for spatial and temporal stability.  
+- **Qualia orchestrator** – `qualia-orchestrator-69dgm-real` on `9998`, handling multi‑DGM cascades.  
+- **Brain orchestrator** – `jarvis-brain-orchestrator` (hosted around `17260`), coordinating routes and modes.
 
-- \(R\) denote retrieved external material;
-- \(S\) denote sandboxed candidate state;
-- \(F\) denote candidate findings;
-- \(C(F)\) denote constitutional admissibility;
-- \(D(F)\) denote Darwin Gödel Machine admissibility;
-- \(K\) denote governed knowledge;
-- \(G\) denote approved guidance.
+Together, these services make sure that:
 
-Then:
-
-\[
-R \rightarrow S \rightarrow F
-\]
-
-describes research ingress and sandbox transformation, while:
-
-\[
-K(F) \Rightarrow C(F) \land D(F)
-\]
-
-states that governed knowledge based on a candidate finding requires both constitutional and Darwin Gödel Machine admissibility.
-
-And critically:
-
-\[
-R \neq K,\quad R \neq G
-\]
-
-Retrieved material is never identical to governed knowledge or approved guidance merely because it was found.
+- research runs in the sandbox;  
+- safety/BBB layers guard external ingress and promotion;  
+- spatial and temporal context (via spatial sandbox and hysteresis) help stabilize behavior;  
+- DGM and qualia orchestrator services evaluate and route candidate findings.
 
 ---
 
-## 27.12 Closing Statement
+## 27.7 The Full Governed Research Path
 
-Web research and autonomy in Ms. Allis are organized as governed research behavior. External material enters through research ingress, becomes candidate state in the internal-state sandbox, may become candidate findings and candidate experience, and advances only when constitutional and Darwin Gödel Machine controls permit promotion.
+Putting it all together, the as‑built research path is:
 
-This architecture allows Ms. Allis to investigate actively without confusing retrieval with truth or autonomy with authority. The result is a research-capable system whose knowledge and guidance remain governed at every stage.
+1. **Research ingress.**  
+   Web results arrive as raw retrieval \(R\).
+
+2. **Internal-state sandbox (8042).**  
+   \(R\) becomes candidate state in the sandbox, where sources are compared and tentative conclusions are drafted.
+
+3. **Candidate findings.**  
+   The sandbox produces structured candidate findings \(F\) with provenance and uncertainty.
+
+4. **Constitutional review + BBB.**  
+   Candidate findings pass through constitutional guardrails and BBB/entangled gateway checks for admissibility.
+
+5. **DGM evaluation.**  
+   Three real DGM instances and related services evaluate the finding’s reasoning, stability, and safety, producing one of: reject, revise, human review, limited approval, approve.
+
+6. **Promotion decision.**  
+   Only if constitutional and DGM checks approve does a finding move toward governed knowledge \(K\) or approved guidance \(G\).
+
+At no point is there a **direct retrieval‑to‑output** pipeline. Every step is explicit and guarded.
+
+---
+
+## 27.8 What This Chapter Does Not Claim
+
+Within this gate, Chapter 27 does **not** claim:
+
+- that retrieval equals acceptance;  
+- that autonomous research can bypass the sandbox;  
+- that any DGM can self‑authorize findings;  
+- that there is a direct retrieval‑to‑output pipeline;  
+- that research is unconstrained.
+
+Instead, it claims:
+
+- research ingress is always sandboxed first;  
+- retrieved content is always **candidate state**, not immediate knowledge;  
+- constitutional and DGM review always sit between candidate findings and promotion;  
+- three real DGM containers participate as governed evaluators.
+
+---
+
+## 27.9 Step-by-Step View for Rural Developers
+
+If you are running Ms. Allis on your own hardware in a rural setting, web research and autonomy work like this:
+
+1. Ms. Allis goes out to the web to look for information.  
+2. Everything it finds lands in the **internal sandbox**, not in memory or guidance.  
+3. It drafts **candidate findings** and checks them against policy and safety rules.  
+4. Three DGM services and the BBB/guardian stack help decide whether the candidate is safe, stable, and well‑grounded.  
+5. Only then, and often with caveats, can a research result become something the system treats as real guidance or long‑term knowledge.
+
+So the system can **hunt** and **think**, but it cannot quietly turn “I found it online” into “this is true and safe to follow” without passing through its full governed path.
+
+---
+
+## 27.10 Closing Statement
+
+Chapter 27 fixes the shape of **governed web research autonomy** in Ms. Allis. Research ingress flows into the internal-state sandbox, becomes candidate findings, passes constitutional and DGM review, and only then may reach promotion outcomes like reject, revise, human review, limited approval, or approve.
+
+Three real Darwin Gödel Machine containers and the named service paths around them ensure that autonomy remains research‑capable but **never output‑sovereign**. Retrieval stays distinct from knowledge and guidance, and the path from “found it” to “trust it” always passes through the same governed architecture.
