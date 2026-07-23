@@ -1,206 +1,236 @@
 # 24. Feedback into Broader Layers
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## Why This Matters for Polymathmatic Geography
+## 24.1 Why This Matters for Polymathmatic Geography
 
-This chapter explains how reasoning in Ms. Allis can influence broader system layers without allowing provisional output to write directly into memory, governance, commons, or infrastructure pathways.
+This chapter explains how Ms. Allis sends **feedback signals** into broader layers of the system without letting raw sandbox output rewrite memory, governance, or commons directly. It shows how feedback is bounded, consent‑gated, and provenance‑bearing.
 
 It supports:
 
-- **P1 – Every where is entangled** by showing how local reasoning can eventually affect wider layers while still passing through explicit gate and commitment structure.
-- **P3 – Power has a geometry** by treating upward feedback as a controlled change in authority rather than a direct spread of agent output.
-- **P5 – Design is a geographic act** by locating feedback pathways inside a staged promotion architecture rather than describing them as unrestricted propagation.
-- **P12 – Intelligence with a ZIP code** by allowing place-linked reasoning to inform broader civic, memory, and governance systems only after approval.
-- **P16 – Power accountable to place** by making feedback auditable, gate-dependent, and bounded by commitment rules.
+- **P1 – Every where is entangled** by letting local observations influence retrieval, learning, and governance, but only through explicit records.  
+- **P3 – Power has a geometry** by treating upward feedback as movement across authority layers, not as a free write.  
+- **P5 – Design is a geographic act** by making feedback routing part of the system’s map: which signals may travel where, and under what rules.  
+- **P12 – Intelligence with a ZIP code** by letting place‑ and people‑specific gaps or patterns nudge broader behavior without leaking raw transcripts.  
+- **P16 – Power accountable to place** by logging feedback into auditable collections instead of silently changing behavior.
 
-This chapter belongs to the **Computational Instrument** tier. It revises feedback so that it is shown as gated rather than immediate.
-
----
-
-## 24.1 Feedback Is Not Immediate
-
-The central revision in this chapter is simple but important: feedback from reasoning into broader layers is **not** an immediate write.
-
-A reasoning result produced inside the sandbox is first a candidate state. It does not become memory, governance guidance, commons influence, or infrastructure-relevant state merely because it was generated or even because it was returned in an answer.
-
-This distinction matters because “feedback loop” language can otherwise imply an automatic reflex from output to system-wide change. The actual architecture is stricter: feedback occurs through **promotion, commitment, and approved transformation**.
+This chapter belongs to the **Computational Instrument** tier. It documents feedback as built: **records written into governed stores**, not ad‑hoc self‑modification.
 
 ---
 
-## 24.2 The Upward Path
+## 24.2 What Counts as Feedback Into Broader Layers
 
-Approved reasoning may feed upward into memory, governance, commons, or infrastructure layers, but only through a staged path.
+“Feedback into broader layers” means **writing small, structured records** that other subsystems can read later. These records never contain raw transcripts or unreviewed sandbox traces.
 
-That path should be understood in this order:
+Allowed **source types** for feedback include:
 
-1. sandbox reasoning produces candidate conclusions;
-2. candidate conclusions enter gate review, including truth and constitutional checks;
-3. only approved or otherwise retention-eligible outcomes become promotion candidates;
-4. promotion candidates may then be committed into a broader layer under that layer’s own admissibility rules;
-5. the receiving layer transforms the approved conclusion into its own native representation rather than accepting a raw direct write.
+- retained conversation summaries (already approved and retention‑eligible);  
+- background patterns that passed Chapter 21 rules;  
+- automated learning gaps (for example, “system is weak on X”);  
+- continuous validation results (for example, “Phi/coherence degraded here”);  
+- DGM cycle outcomes;  
+- PIA reviews;  
+- commons governance records (for example, decisions about what belongs in commons).
 
-This applies across multiple destinations:
+Allowed **target layers** include:
 
-- **memory layers** receive retention-eligible, provenance-bearing conclusions;
-- **governance layers** receive approved guidance, constraints, or review artifacts rather than raw internal thought;
-- **commons layers** receive bounded, policy-compatible contributions;
-- **infrastructure layers** receive only properly authorized commitments, never unchecked agent output.
+- retrieval bias hints;  
+- background pattern updates;  
+- automated learning gap queues;  
+- WOAH (optimization) hints;  
+- pituitary (global mode) hints;  
+- governance review queues;  
+- continuous validation watch lists.
 
----
+Each feedback record is:
 
-## 24.3 Warning Against Direct-Write Language
-
-This chapter should explicitly warn against describing feedback loops as direct writes from agent output.
-
-Phrases such as “the agent writes to memory,” “the response updates governance,” or “the output propagates into infrastructure” are too loose unless they are carefully qualified. They suggest that outward-facing output itself is the causal mechanism of system update.
-
-That is not the right model here. The broader layers are not supposed to ingest raw agent output directly. They receive only what has survived the relevant gate path and what has been transformed into a committed representation appropriate to the destination layer.
-
-This warning is not stylistic. It protects the thesis from implying a level of automatic propagation that the safeguard architecture is designed to prevent.
-
----
-
-## 24.4 Promotion Before Broader Influence
-
-Feedback into broader layers is therefore framed in terms of **promotion**.
-
-A candidate conclusion influences broader layers only after the system determines that it is eligible to cross an authority boundary. Promotion is the transition from provisional reasoning status to approved system-usable status.
-
-That means:
-
-- sandbox output is provisional;
-- approved output is not yet the same as fully committed broader-layer state;
-- broader-layer influence begins only after a promotion decision has occurred;
-- even after promotion, the receiving layer may still impose additional transformation or admissibility rules.
-
-This makes feedback upward an authority-sensitive event rather than a mere continuation of inference.
+- **bounded** – small, focused, and scoped;  
+- **consent‑gated** – respecting user retention settings;  
+- **provenance‑bearing** – with a hash or pointer to its source;  
+- **auditable** – stored in a Chroma collection such as `broader_layer_feedback_records`.
 
 ---
 
-## 24.5 Commitment Rather Than Propagation
+## 24.3 How Feedback Records Are Structured
 
-This revision also adds **commitment** language so that feedback is framed as controlled transformation rather than unrestricted propagation.
+Every feedback record has a compact structure, for example:
 
-Propagation suggests that a result simply spreads. Commitment means that a receiving layer explicitly accepts, records, or instantiates an approved conclusion under that layer’s own structure.
+```markdown
+- source_type        # e.g., retained_conversation, background_pattern, automated_learning_gap
+- source_id          # identifier within that source
+- target_layer       # e.g., retrieval_bias, automated_learning_gap_queue, governance_review
+- request_purpose    # almost always “governance” or a similarly bounded purpose
+- actor_role         # typically “system” for internal feedback
+- retention_consent  # true/false
+- phi_floor_met      # true/false (coherence/health check)
+- provenance_hash    # hash linking back to evidentiary context
+- human_review_required  # true/false
+```
 
-For example:
+The gate you ran shows concrete examples, such as:
 
-- a memory layer may commit a conclusion as episodic, semantic, or pattern-eligible retained material;
-- a governance layer may commit an approved constraint, review note, or bounded recommendation;
-- a commons layer may commit a contribution only in a role-appropriate and policy-compatible form;
-- an infrastructure layer may commit an operational change only when authorized by the relevant gate, role, and interface conditions.
+- a **valid** record where a background pattern gently biases retrieval;  
+- a **learning_gap** record where a recognized gap is sent to an automated learning queue.
 
-This vocabulary matters because commitment implies traceability, selectivity, and authority control.
-
----
-
-## 24.6 Controlled Transformation by Layer
-
-Broader layers do not all receive the same thing, even when they are influenced by the same approved reasoning result.
-
-Instead, each layer performs a controlled transformation:
-
-- **memory transformation** converts approved conclusions into retained forms governed by consolidation and provenance rules;
-- **governance transformation** converts approved reasoning into policies, constraints, flags, or reviewed guidance;
-- **commons transformation** converts approved conclusions into socially shareable or collectively legible forms subject to role and consent limits;
-- **infrastructure transformation** converts approved reasoning into operationally actionable state only through explicit authorized interfaces.
-
-This is why feedback should not be described as simple upward copying. The destination layer matters, and each destination has its own commitment semantics.
+Only records that pass all checks are written to the feedback collection.
 
 ---
 
-## 24.7 Feedback and Non-Promotion
+## 24.4 Consent and Raw-Data Suppression
 
-An important corollary follows from the revised architecture: many reasoning results produce **no broader-layer feedback at all**.
+Two hard suppression rules govern feedback:
 
-If a candidate conclusion fails truth review, fails constitutional review, lacks required guardian context, triggers an exception, or otherwise remains non-promoted, then no commitment into broader layers should occur. The result may remain useful within the local session, may trigger revision, or may simply terminate.
+1. **No consent → no feedback write.**  
+   If `retention_consent` is false for a `retained_conversation` source, the verdict is **SUPPRESS** and the record is not written, even if everything else is valid.
 
-This ensures that feedback loops do not function as hidden persistence channels. Non-promoted output stays non-authoritative.
+2. **Raw transcript or forbidden metadata → SUPPRESS.**  
+   If the projection attempts to include raw transcripts, private identity data, or forbidden fields (for example, `raw_private_transcript`), the feedback record is suppressed.
 
-In that sense, the absence of feedback is not a failure of the architecture. It is often the correct safeguard outcome.
+In your gate output, you can see:
 
----
+- a `no_consent` case where feedback from a conversation is suppressed;  
+- a `raw_trace` case where a would‑be background pattern record is suppressed because it tried to use raw transcript metadata.
 
-## 24.8 Formal Path of Upward Feedback
-
-A compact formalization of the revised path can be written as:
-
-\[
-R_{\mathrm{sandbox}} \rightarrow R_{\mathrm{approved}} \rightarrow R_{\mathrm{promoted}} \rightarrow C_L\big(R_{\mathrm{promoted}}\big)
-\]
-
-where \(R_{\mathrm{sandbox}}\) is the provisional reasoning result, \(R_{\mathrm{approved}}\) is a gate-cleared result, \(R_{\mathrm{promoted}}\) is a result that has crossed the relevant authority boundary, and \(C_L(\cdot)\) is the commitment transformation performed by broader layer \(L\).
-
-This expression makes two things explicit:
-
-- broader-layer feedback occurs after approval and promotion;
-- the receiving layer does not ingest raw reasoning unchanged, but instead applies a layer-specific commitment transformation.
-
-The prohibited shortcut can be stated as:
-
-\[
-R_{\mathrm{sandbox}} \nrightarrow L_{\mathrm{broader}}
-\]
-
-meaning raw sandbox output does not directly write into broader layers.
+This ensures broader layers see **clean signals**, not copies of user conversations.
 
 ---
 
-## 24.9 Memory, Governance, Commons, Infrastructure
+## 24.5 Phi/Coherence Floors and Review
 
-The revised wording should make clear how the same architectural logic applies to multiple upward destinations.
+Feedback records also depend on **system coherence**, via Phi and related measures:
 
-### Memory
+- If `phi_floor_met` is **true**, and other conditions are satisfied, a feedback record can be **PERMIT**ted and written.  
+- If `phi_floor_met` is **false**, even with consent and a valid source type, the verdict is **REVIEW**, and no direct write occurs.
 
-Approved reasoning may feed memory only when the conclusion is retention-eligible and consistent with consolidation rules. Memory receives retained representations, not raw output.
+In your probe, the `low_phi` case shows:
 
-### Governance
+- source_type: `continuous_validation`;  
+- target_layer: `continuous_validation_watch`;  
+- `phi_floor_met: false`;  
+- verdict: **REVIEW**.
 
-Approved reasoning may feed governance when it yields reviewable constraints, alerts, or guidance. Governance receives structured, auditable commitments rather than free-form output injection.
-
-### Commons
-
-Approved reasoning may feed commons layers when it is suitable for shared or collective use under the relevant policy and role conditions. Commons commitment is therefore bounded and governance-aware.
-
-### Infrastructure
-
-Approved reasoning may influence infrastructure only through explicit authorized interfaces and commitment conditions. Infrastructure should never be described as being directly written by agent output.
+This means: “The system noticed a coherence problem. Instead of automatically pushing this into the watch list, it flags it for review.”
 
 ---
 
-## 24.10 Feedback as Transformation of Authority
+## 24.6 Examples of Permitted Feedback
 
-What broader-layer feedback really represents is a transformation of authority.
+The gate shows two concrete permitted examples:
 
-A conclusion begins as provisional internal reasoning. If it survives review, it may become approved. If it crosses promotion, it becomes eligible for commitment. Only then may some portion of it become broader-layer state in memory, governance, commons, or infrastructure form.
+1. **Background pattern → retrieval bias.**  
+   - `source_type`: `background_pattern`  
+   - `target_layer`: `retrieval_bias`  
+   - `verdict`: **PERMIT**  
+   - Written as `fb24_3169…` into `broader_layer_feedback_records`.
 
-This sequence matters because it preserves the difference between:
+   This lets a vetted background pattern slightly influence which documents are retrieved, without exposing raw data.
 
-- what the system considered,
-- what the system approved,
-- what the system promoted,
-- what the system committed.
+2. **Automated learning gap → learning gap queue.**  
+   - `source_type`: `automated_learning_gap`  
+   - `target_layer`: `automated_learning_gap_queue`  
+   - `verdict`: **PERMIT**  
+   - Written as `fb24_b0f11…` into `broader_layer_feedback_records`.
 
-Those are not identical stages, and the chapter should not describe them as though they were.
+   This lets the system remember, “I struggled with this topic; please schedule a learning task later,” without altering the core models directly.
+
+In both cases:
+
+- consent is true;  
+- Phi floor is met;  
+- forbidden metadata is absent;  
+- provenance is recorded.
 
 ---
 
-## 24.11 Narrative Commitment
+## 24.7 Examples of Suppressed Feedback
 
-The narrative commitment of this chapter is direct.
+The same contract also shows what **may not** be written:
 
-Feedback loops are real, but they are not immediate reflexes from output to system-wide state. They are controlled, gated, and layer-specific transformations of approved reasoning into committed broader-layer forms.
+- **Binding legal action.**  
+  A projection with source_type `commons_governance_record` and target_layer `governance_review` is blocked when it carries `binding_legal_action` metadata. Verdict: **SUPPRESS**.
 
-This avoids conflating “the system said something” with “the system wrote something into the world.”
+- **No retention consent.**  
+  A `retained_conversation` projection targeting `background_pattern` is suppressed when `retention_consent` is false.
+
+- **Raw transcript.**  
+  Any projection marked with forbidden `raw_transcript` or similar metadata is suppressed.
+
+These examples enforce the gate’s scope:
+
+- no binding legal action;  
+- no clinical diagnosis;  
+- no financial instruction;  
+- no unreviewed self‑modification;  
+- no raw trace propagation.
 
 ---
 
-## 24.12 Closing Statement
+## 24.8 Allowed vs Blocked Flows (Table)
 
-Feedback into broader layers in Ms. Allis is not unrestricted propagation. It is a staged path in which sandbox reasoning becomes eligible for broader influence only through approval, promotion, and destination-specific commitment.
+| Source type              | Target layer                     | Status    | Reason                                   |
+|--------------------------|----------------------------------|----------:|------------------------------------------|
+| background_pattern       | retrieval_bias                   | PERMIT    | bounded feedback record permitted        |
+| automated_learning_gap   | automated_learning_gap_queue     | PERMIT    | bounded feedback record permitted        |
+| continuous_validation    | continuous_validation_watch      | REVIEW    | Phi floor not met → review               |
+| retained_conversation    | background_pattern (no consent)  | SUPPRESS  | retention consent required               |
+| retained_conversation    | background_pattern (raw_trace)   | SUPPRESS  | forbidden metadata: raw_transcript       |
+| commons_governance_record| governance_review (binding)      | SUPPRESS  | forbidden metadata: binding_legal_action |
 
-This revised framing clarifies how approved reasoning may feed upward into memory, governance, commons, or infrastructure while warning against direct-write descriptions. Broader feedback is therefore best understood as controlled transformation across authority boundaries, not as immediate spread from agent output.
+This table is the “wiring diagram” for Chapter 24.
+
+---
+
+## 24.9 What Chapter 24 Does Not Claim
+
+Within this gate, Chapter 24 does **not** claim:
+
+- automatic or unconstrained self‑modification;  
+- direct propagation of raw sandbox traces into broader layers;  
+- binding legal actions;  
+- clinical diagnosis or therapeutic decisions;  
+- financial instructions;  
+- guaranteed safety.
+
+Instead, it claims:
+
+- **bounded feedback records** with consent and provenance;  
+- **suppression** when consent, Phi, or metadata rules fail;  
+- **review** when coherence is low or stakes are high.
+
+Broader layers see **small, structured hints**, not uncontrolled writes.
+
+---
+
+## 24.10 Step-by-Step View for Rural Developers
+
+On a running system, feedback into broader layers behaves like this:
+
+1. **Some event happens.**  
+   For example, a DGM cycle finds a gap, or a background pattern is updated.
+
+2. **A projection is built.**  
+   A small record is drafted with `source_type`, `source_id`, `target_layer`, `provenance_hash`, and flags.
+
+3. **Contract rules run.**  
+   The system checks consent, Phi/coherence, and forbidden metadata.
+
+4. **Verdict is chosen.**  
+   - PERMIT → record written to `broader_layer_feedback_records`.  
+   - REVIEW → no write; requires human or higher‑level review.  
+   - SUPPRESS → no write; case is blocked.
+
+5. **Broader layer reads records later.**  
+   Retrieval, learning queues, or governance dashboards treat these records as **inputs**, not commands.
+
+For you as an operator, the important point is: you can inspect the feedback collection and see exactly what kinds of hints the system is using to adjust itself.
+
+---
+
+## 24.11 Closing Statement
+
+Feedback into broader layers in Ms. Allis is implemented as **small, governed records**, not as free‑flowing self‑rewrites. Only approved, consent‑respecting, provenance‑bearing signals are written into Chroma collections for retrieval biasing, learning gaps, governance reviews, or similar tasks.
+
+By suppressing raw transcripts, binding actions, and low‑Phi projections, Chapter 24 keeps the feedback path accountable to the same safeguards that govern everything else in the system—so local reasoning can inform the whole without quietly taking it over.
