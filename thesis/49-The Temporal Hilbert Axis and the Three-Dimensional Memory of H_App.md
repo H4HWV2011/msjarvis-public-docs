@@ -1,203 +1,357 @@
-# 49. The Temporal Hilbert Axis and the Three-Dimensional Memory of \(H_{\mathrm{App}}\)
+# 49. The Temporal Hilbert Axis and the Three-Tier Memory of \(H_{\mathrm{App}}\)
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 13, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## 49.0 Overview
+## 49.1 What This Chapter Is Allowed to Claim
 
-The temporal Hilbert axis gives \(H_{\mathrm{App}}\) a formal and operational account of time. It explains how application-facing meaning is not only about what a thing is, but also when it occurs, how it persists, and under what conditions it may become part of durable system memory.
+Within this gate, Chapter 49 may be rewritten as an **as‑built temporal Hilbert axis chapter**.
 
-Within the broader architecture, temporal memory belongs to the joint frame
+It may claim that:
 
-\[
-H_{\mathrm{App}} \otimes H_{\mathrm{geo}} \otimes H_{t}
-\]
+- \(H_{t}\) is **live** with three connected tiers: **ephemeral**, **staged**, and **historical**;  
+- ephemeral and staged temporal states are **Redis‑backed**, visible and round‑trippable via the temporal health probe;  
+- historical temporal memory is backed by the **`public.temporal_historical_memory`** Postgres table;  
+- **staged promotion observes a hysteresis window**, so events are not promoted prematurely;  
+- **historical admission requires retention consent, coherence, and promotion readiness**;  
+- **raw, unreviewed temporal traces are suppressed** and not auto‑promoted;  
+- temporal decay is represented by a **bounded half‑life weighting**.
 
-which may be read as:
+It must **not** claim:
 
-- \(H_{\mathrm{App}}\): what  
-- \(H_{\mathrm{geo}}\): where  
-- \(H_{t}\): when
+- perfect time perception;  
+- a complete historical archive of all events;  
+- unconsented historical retention;  
+- automatic promotion of raw traces;  
+- clinical, legal, or universal safety guarantees.
 
-This chapter treats the temporal axis as both a formal dimension of state and an operational mechanism tied to real session and promotion mechanics. Sandbox sessions are temporal reasoning events. They may produce provisional, time-indexed candidate states, and those candidates may later become durable historical memory only if the governing promotion path approves them. The chapter therefore distinguishes carefully between ephemeral reasoning time and consolidated historical memory, while also introducing hysteresis, temporal continuity, and revision without instability as core temporal properties of the architecture.
-
----
-
-## 49.1 The Temporal Axis in the Joint State
-
-The temporal dimension of \(H_{\mathrm{App}}\) is represented by \(H_{t}\), the Hilbert axis of when.
-
-This axis is not an isolated clock variable. It is the temporal component of a joint semantic state in which what, where, and when are held together. A program status, a need, a route, a local condition, or a service event acquires part of its meaning from its position in time. A state that is valid now may not have been valid yesterday. A local condition that mattered in one season may not matter in another. Time therefore belongs to meaning, not merely to metadata.
-
-That is why the joint tensor structure
-
-\[
-H_{\mathrm{App}} \otimes H_{\mathrm{geo}}} \otimes H_{t}
-\]
-
-is essential. Application-facing state is interpreted through temporal placement as well as semantic and spatial relation. The system does not only ask what is happening and where; it also asks when this state exists, how long it persists, and whether it belongs to immediate reasoning or durable history.
+The chapter stays inside these proven boundaries.
 
 ---
 
-## 49.2 Three-Dimensional Memory of \(H_{\mathrm{App}}\)
+## 49.2 Plain‑Language Purpose for Rural Developers
 
-The phrase “three-dimensional memory” refers to memory organized across what, where, and when.
+For rural operators, this chapter answers:
 
-A memory item in this framework is not merely a content token or a semantic embedding. It is a state that may be located within the joint tensor structure of application meaning, spatial grounding, and temporal position. A durable memory may therefore encode not only what happened, but also where it was situated and when it was valid, observed, inferred, or admitted.
+> “How does Ms. Jarvis remember ‘when things happened’ without turning every moment into permanent history?”
 
-This structure allows memory to become historically meaningful rather than flat. A remembered service interaction may be tied to a place and a date. A resource condition may be valid only across a bounded temporal interval in a specific locality. A user-linked application event may belong to one temporal regime and not another. Three-dimensional memory therefore means that remembered state is indexed by meaning, place, and time together.
+This chapter explains, step by step:
 
-The temporal axis is what keeps this memory from collapsing into an undifferentiated store of facts.
+- how the temporal axis \(H_{t}\) is implemented in three tiers;  
+- how Redis and Postgres divide **short‑term vs historical** time;  
+- how **hysteresis**, **consent**, and **coherence** control promotion;  
+- how **decay/half‑life** keeps historical memory bounded.
 
----
-
-## 49.3 Sandbox Sessions as Temporal Reasoning Events
-
-Sandbox sessions are temporal reasoning events.
-
-A session in Ms. Allis is not only a container of current interaction. It is also a bounded episode in time within which internal reasoning unfolds. During a session, the system may construct provisional states, explore possible interpretations, compare alternatives, and form candidate temporal relations between application, space, and time. These session-level states belong first to ephemeral reasoning time.
-
-This means that session time is a real temporal layer of the architecture. The system may reason over what is true now, what has just occurred, what may follow from the current state, and how the current moment relates to prior admitted history. But these temporal interpretations remain bounded while they are in the sandbox domain.
-
-A sandbox session is therefore a temporal event of reasoning, not yet a historical commitment.
+It describes **how time works in practice** for this system, not how time should work in theory.
 
 ---
 
-## 49.4 Ephemeral Reasoning Time
+## 49.3 Three Tiers of Temporal Memory
 
-Ephemeral reasoning time is the temporal mode of non-durable internal cognition.
+The as‑built temporal system uses three tiers:
 
-Within this mode, Ms. Allis may hold candidate sequences, provisional continuities, current-context assumptions, or short-lived temporal correlations that are useful for the present reasoning cycle. Such states may include tentative forecasts, interpretations of an unfolding interaction, or time-sensitive relations that have not yet been confirmed or admitted. These are real temporal states, but they do not automatically become part of consolidated history.
+- **Ephemeral**: very short‑lived temporal state in Redis;  
+- **Staged**: medium‑lived state in Redis waiting for review;  
+- **Historical**: admitted temporal events in Postgres.
 
-This distinction is necessary because a system that treats every temporary temporal inference as durable memory becomes unstable and intrusive. Not every “now” deserves to become a lasting “was.” Ephemeral reasoning time therefore protects the architecture from prematurely freezing fluid temporal judgment into historical fact.
+Each tier has its own **Redis prefix or table**:
 
-The temporal axis must support thinking in time without requiring the system to remember every temporal thought.
+- `hilbert:ephemeral:` for ephemeral;  
+- `hilbert:staged:` for staged;  
+- `public.temporal_historical_memory` for historical.
 
----
+The temporal health probe shows that:
 
-## 49.5 Consolidated Historical Memory
-
-Consolidated historical memory is the admitted layer of time-indexed durable state.
-
-A state becomes historical memory only after the relevant promotion path has approved its transition from session-bounded reasoning into durable memory. Once admitted, the state belongs not to ephemeral reasoning time but to the historical structure of \(H_{\mathrm{App}} \otimes H_{\mathrm{geo}} \otimes H_{t}\). It may then function as retained continuity, reviewed history, or durable temporal context for future reasoning.
-
-This means the architecture separates:
-
-- session-bounded temporal reasoning;  
-- staged but non-promoted time-indexed candidate memory;  
-- consolidated historical memory admitted under governance.
-
-Only the third category belongs fully to durable memory. This preserves the difference between temporal interpretation and temporal record.
-
-Historical memory is therefore not everything the system has ever considered in time. It is what has been permitted to remain.
+- keys with these prefixes exist;  
+- ephemeral and staged keys can be written and read;  
+- the historical table exists with the expected schema, even though its current row count is zero on this deployment.
 
 ---
 
-## 49.6 Promotion from Session to History
+## 49.4 Ephemeral Temporal State (Redis)
 
-The movement from sandbox session to historical memory is a governed promotion.
+**Ephemeral** temporal state is the first tier.
 
-Let \(S^{(k)}\) denote a candidate time-indexed state produced during session \(k\). That candidate may carry semantic content, spatial context, and temporal placement. But it is not written directly into durable memory simply because it exists. Instead, it moves toward durable status only through the appropriate promotion path.
+The probe shows an ephemeral example:
 
-This may be expressed schematically as:
+- tier: `ephemeral`;  
+- `storage_key`: `hilbert:ephemeral:9c65d5…`;  
+- `age_seconds`: about 5;  
+- `promotion_ready`: `false`;  
+- `retention_consent`: `false`;  
+- `coherence_ok`: `false`;  
+- `verdict`: `PERMIT`;  
+- `reason`: `"ephemeral_temporal_state_permitted"`.
 
-\[
-\mathcal{P}\!\left(S^{(k)}\right) \longrightarrow M_{\mathrm{hist}}
-\]
+In plain terms:
 
-where \(\mathcal{P}\) denotes the governing promotion operation and \(M_{\mathrm{hist}}\) denotes admitted historical memory. The promotion path may include truth conditions, provenance checks, constitutional limits, role-gated authority, privacy safeguards, locality fit, and temporal validity review. If those conditions are not met, the candidate remains ephemeral, staged, revised, or discarded.
+- very fresh, system‑role events can be **temporarily stored** in Redis;  
+- they are allowed as ephemeral state for **`request_purpose: "temporal_memory"`**;  
+- they are **not yet candidates** for durable history (promotion_ready is false, no consent).
 
-This promotion structure ties the temporal chapter to real memory mechanics. Time-indexed durable memory is not merely a byproduct of passage through time. It is the result of approved admission.
+TTL checks show a non‑zero time‑to‑live (for example, 3600 seconds), meaning:
 
----
+- ephemeral events **expire automatically** from Redis if nothing else happens.
 
-## 49.7 Temporal Continuity
-
-Temporal continuity is the property that allows the system to remain coherent across successive moments without treating each moment as wholly disconnected.
-
-A session should be able to inherit the relevant admitted past, recognize ongoing patterns, and preserve identity of a developing situation across time. Without temporal continuity, the system would repeatedly restart its understanding of application and spatial state as if nothing had happened before. The temporal axis therefore supports continuity across reasoning events, allowing the architecture to carry forward what has been durably admitted while still distinguishing that from provisional present interpretation.
-
-Temporal continuity also supports accountable service. A person, place, or program should not appear to have no past merely because the system is currently operating in a new session. Yet continuity must be grounded in admitted memory, not in uncontrolled accumulation.
-
-The temporal axis therefore preserves continuity through governed historical persistence.
-
----
-
-## 49.8 Hysteresis and Stability
-
-Hysteresis is the temporal property by which the system does not overreact to every immediate fluctuation.
-
-In this chapter, hysteresis means that the current interpreted state may depend not only on the instantaneous input but also on the recent admitted temporal trajectory. This prevents oscillation, abrupt state flipping, and interpretive instability when conditions are noisy, incomplete, or rapidly changing. A single transient signal should not automatically erase a broader historical pattern, and a momentary anomaly should not instantly redefine durable understanding.
-
-Hysteresis is therefore a stabilizing principle of temporal memory. It allows the architecture to revise itself while maintaining temporal continuity. The system can acknowledge new evidence without behaving as though every new moment wipes out all prior structure.
-
-This matters especially in civic and person-aware systems, where volatile state changes can produce confusion, unfairness, or harmful inconsistency.
+This tier is how the system thinks in the short term without committing to history.
 
 ---
 
-## 49.9 Revision Without Instability
+## 49.5 Staged Temporal State (Redis)
 
-A temporal memory architecture must support revision without instability.
+**Staged** temporal state is the second tier.
 
-Revision is necessary because some admitted historical states may later need correction, refinement, supersession, or reinterpretation in light of better evidence. But revision must not collapse into constant temporal churn. The system should be capable of updating its historical understanding while preserving a traceable and coherent continuity of state.
+The probe shows a staged example:
 
-This means the temporal axis should support:
+- tier: `staged`;  
+- `storage_key`: `hilbert:staged:d187f5…`;  
+- `age_seconds`: about 3600;  
+- `promotion_ready`: `false`;  
+- `retention_consent`: `false`;  
+- `coherence_ok`: `false`;  
+- `verdict`: `PERMIT`;  
+- `reason`: `"staged_temporal_state_permitted"`.
 
-- correction of admitted historical records where governance permits;  
-- supersession of outdated temporal conclusions by newer admitted ones;  
-- preservation of temporal lineage so the system knows what changed and why;  
-- bounded revision practices that avoid erasing continuity unnecessarily.
+There is also a **premature** staged example:
 
-Revision without instability therefore combines honesty and steadiness. The architecture is able to change its mind across time without becoming temporally incoherent.
+- `age_seconds`: 2;  
+- `tier`: `staged`;  
+- `verdict`: `REVIEW`;  
+- `reason`: `"hysteresis_window_not_satisfied"`.
 
----
+This shows that:
 
-## 49.10 Temporal Layering in Practice
+- staged events live in Redis under `hilbert:staged:`;  
+- they represent **candidates under observation**, not yet committed history;  
+- if an event is **too fresh** (inside the hysteresis window), the system returns `REVIEW` rather than promoting it.
 
-The practical temporal architecture of \(H_{\mathrm{App}} \otimes H_{\mathrm{geo}} \otimes H_{t}\) contains at least three layers.
-
-- **Ephemeral temporal reasoning**: the sandbox domain of present-session interpretation, candidate sequencing, and provisional time relations.  
-- **Staged temporal candidates**: time-indexed states under review that have not yet become durable memory.  
-- **Consolidated historical memory**: admitted time-indexed states that belong to durable application history.
-
-This layering is what makes the temporal Hilbert axis operational. It prevents confusion between being temporally aware and being historically committed. A system can think in time during a session without automatically writing every temporal judgment into durable memory.
-
-The result is a temporal architecture that is both flexible and restrained.
-
----
-
-## 49.11 Why the Temporal Axis Matters
-
-The temporal axis matters because application intelligence is inseparable from time.
-
-Eligibility windows, service continuity, recurring need, route relevance, jurisdictional change, and user history all depend on the difference between what is happening now and what belongs to durable past. A system without an explicit temporal axis becomes flat and forgetful. A system that remembers every temporal candidate without governance becomes unstable and intrusive. The temporal Hilbert axis provides the middle path: time-aware reasoning in the sandbox, governed promotion into history, and continuity stabilized by hysteresis and bounded revision.
-
-Three-dimensional memory therefore matters not only for representation but for governance. It keeps \(H_{\mathrm{App}}\) accountable to what, where, and when together.
+For rural developers: staged events are **“waiting room” events**—the system is watching them, but has not decided to write them into history.
 
 ---
 
-## 49.12 Architectural Interpretation and Implementation Status
+## 49.6 Historical Temporal State (Postgres)
 
-The temporal Hilbert formalism should be read as an architectural interpretation unless explicit operational guarantees are stated.
+**Historical** temporal memory is the third tier, stored in Postgres.
 
-Writing memory in terms of \(H_{\mathrm{App}} \otimes H_{\mathrm{geo}} \otimes H_{t}\) does not by itself prove that every low-level store, query path, or scheduler already implements the full mathematical structure of an abstract Hilbert model. What it does provide is the correct architectural statement of how time is supposed to function within the system: as a governed axis connecting sandboxed reasoning events to durable historical memory through promotion.
+The probe shows:
 
-Where implementation explicitly realizes these guarantees in session tracking, approval logic, retention rules, and time-indexed storage, the model has direct operational force. Where the implementation remains partial, the formalism still clarifies the intended organization of temporal memory.
+- `historical_table`: `public.temporal_historical_memory`;  
+- `exists.stdout`: `t` (table exists);  
+- `columns.stdout` listing:
 
-This distinction preserves rigor. The mathematics describes the architecture faithfully without claiming more implementation than has been explicitly guaranteed.
+  - `id:bigint`  
+  - `entity_id:text`  
+  - `event_id:text`  
+  - `event_type:text`  
+  - `payload:jsonb`  
+  - `truth_score:double precision`  
+  - `provenance_hash:text`  
+  - `admitted_at:timestamp with time zone`  
+  - `valid_from:timestamp with time zone`  
+  - `valid_to:timestamp with time zone`  
+  - `superseded_at:timestamp with time zone`  
+  - `superseded_by:text`  
+
+- `count.stdout`: `"0"` (no rows yet on this deployment).
+
+A historical example in the probe uses:
+
+- tier: `historical`;  
+- `verdict`: `PERMIT`;  
+- `reason`: `"historical_temporal_state_permitted"`;  
+- `record_id`: `httime_18b58182…`;  
+- `storage_key`: `"public.temporal_historical_memory"`;  
+- `age_seconds`: 3600;  
+- `coherence_ok`: `true`;  
+- `retention_consent`: `true`;  
+- `promotion_ready`: `true`.
+
+This combination shows **how** a historical event would be admitted:
+
+- the event meets the gates (consent, coherence, promotion_ready);  
+- it is written to the Postgres table with **truth score and provenance**;  
+- later supersession can be tracked via `valid_from/valid_to` and `superseded_*` columns.
+
+Even though the current row count is zero, the **table and contract exist and are tested**.
+
+---
+
+## 49.7 Hysteresis: Waiting Before Promotion
+
+The probe constants include:
+
+- `hysteresis_seconds`: `60.0`.
+
+This means:
+
+- the system requires a **minimum age** (here, 60 seconds) before an event can be treated as a serious candidate for historical promotion.
+
+The “premature” case in the probe shows:
+
+- `age_seconds`: 2.0;  
+- `tier`: `staged`;  
+- `promotion_ready`: `false`;  
+- `verdict`: `REVIEW`;  
+- `reason`: `"hysteresis_window_not_satisfied"`.
+
+So if an event is **too recent**, the temporal gate refuses to commit it and returns a “review” verdict instead.
+
+For rural operators, hysteresis is the system’s way of saying:
+
+> “Let’s wait a little before writing this into history, in case it changes or turns out to be noise.”
+
+---
+
+## 49.8 Consent, Coherence, and Promotion Readiness
+
+Historical admission is **not just about age**. The probe shows three distinct gate failures:
+
+1. **Low coherence**  
+   - `coherence_ok`: `false`;  
+   - `retention_consent`: `true`;  
+   - `promotion_ready`: `true`;  
+   - `tier`: `historical`;  
+   - `verdict`: `REVIEW`;  
+   - `reason`: `"historical_coherence_required"`.
+
+   The system says: “Even with consent and readiness, you can’t write incoherent temporal state into history.”
+
+2. **No retention consent**  
+   - `coherence_ok`: `true`;  
+   - `retention_consent`: `false`;  
+   - `promotion_ready`: `true`;  
+   - `verdict`: `SUPPRESS`;  
+   - `reason`: `"historical_retention_consent_required"`.
+
+   Here coherence is fine, but there is **no consent to retain**, so the event is suppressed from historical memory.
+
+3. **Raw, unreviewed trace**  
+   - `coherence_ok`: `true`;  
+   - `retention_consent`: `true`;  
+   - `promotion_ready`: `true`;  
+   - `verdict`: `SUPPRESS`;  
+   - `reason`: `"forbidden_metadata:raw_unreviewed_trace"`.
+
+   Even with consent and coherence, **raw unreviewed traces** are forbidden as historical entries.
+
+These cases show that historical promotion requires:
+
+- age outside the hysteresis window;  
+- `coherence_ok == true`;  
+- `retention_consent == true`;  
+- no forbidden metadata;  
+- `promotion_ready == true`.
+
+Only then does the system return `verdict: "PERMIT"` for the historical tier.
+
+---
+
+## 49.9 Temporal Decay and Half‑Life Weighting
+
+The probe includes `decay_weight` in each projection, and constants:
+
+- `half_life_days`: `30.0`.
+
+This describes a **half‑life decay model**:
+
+- the longer ago an event occurred (`age_seconds`), the **smaller its weight** becomes;  
+- `decay_weight` represents this decayed influence in the temporal axis.
+
+Examples from the probe:
+
+- ephemeral event at 5 seconds: `decay_weight ≈ 0.99999866`;  
+- historical event at 3600 seconds: `decay_weight ≈ 0.99903776`.
+
+The numbers are close to 1 for short times, but will gradually **drop over days** according to the half‑life.
+
+For rural developers, half‑life weighting means:
+
+- older events **still exist** in history, but their influence in time‑sensitive reasoning is **bounded and fades**;  
+- temporal memory doesn’t treat every event as equally fresh forever.
+
+---
+
+## 49.10 Redis and Postgres Health
+
+The probe confirms that:
+
+- Redis read/write operations for `hilbert:ephemeral:` and `hilbert:staged:` keys return `OK`;  
+- TTLs are set (for example, 3600 seconds);  
+- lists of existing keys include:
+
+  - `hilbert:ephemeral:9c65d5…`;  
+  - `hilbert:staged:d187f5…`;  
+  - multiple `hilbert:time:*` keys for probes and tests.
+
+- Postgres reports:
+
+  - `public.temporal_historical_memory` **exists**;  
+  - the columns match the temporal contract;  
+  - current count is `"0"`.
+
+This shows that the temporal axis has:
+
+- **live Redis support** for ephemeral and staged tiers;  
+- a **live Postgres table** ready for historical admission.
+
+---
+
+## 49.11 Three‑Tier Temporal Flow for Rural Developers
+
+The as‑built temporal axis can be pictured as this flow:
+
+1. **Ephemeral tier (Redis, `hilbert:ephemeral:`)**  
+   - Very fresh events;  
+   - System role;  
+   - Not ready for promotion;  
+   - No retention consent yet;  
+   - Allowed only as short‑term state.
+
+2. **Staged tier (Redis, `hilbert:staged:`)**  
+   - Events under observation;  
+   - Must satisfy **hysteresis_seconds** (60s) before serious consideration;  
+   - Still not historical;  
+   - May be reviewed or dropped.
+
+3. **Historical tier (Postgres, `public.temporal_historical_memory`)**  
+   - Events that pass:
+
+     - age/hysteresis;  
+     - coherence;  
+     - retention consent;  
+     - promotion readiness;  
+     - metadata checks (no forbidden raw traces).
+
+   - Stored with truth score, provenance hash, validity interval, and supersession fields.
+
+The system moves events **forward through tiers only when gates pass**, and may stop or suppress them at any point.
+
+---
+
+## 49.12 What This Chapter Does Not Claim
+
+To stay within the gate:
+
+- It does **not** claim that the system perceives time perfectly or detects every event;  
+- It does **not** claim that `public.temporal_historical_memory` contains a complete archive;  
+- It does **not** claim that any event can be retained without consent;  
+- It does **not** claim that raw traces are automatically refined and promoted;  
+- It does **not** claim temporal behavior as a clinical or legal safety guarantee.
+
+It only claims:
+
+- a **bounded temporal axis \(H_{t}\)** with three tiers;  
+- **Redis‑backed ephemeral and staged states**;  
+- a **Postgres‑backed historical table**;  
+- **hysteresis, consent, coherence, and promotion gates**;  
+- **half‑life decay weighting**.
 
 ---
 
 ## 49.13 Closing Statement
 
-The temporal Hilbert axis \(H_{t}\) gives \(H_{\mathrm{App}}\) a governed account of when, completing the joint frame
+Chapter 49, at this closure, presents **the temporal Hilbert axis as it is actually built and tested**.
 
-\[
-H_{\mathrm{App}} \otimes H_{\mathrm{geo}} \otimes H_{t}
-\]
-
-of what, where, and when.
-
-Sandbox sessions are temporal reasoning events in which provisional time-indexed states may be formed, but only approved candidates become durable historical memory. By distinguishing ephemeral reasoning time from consolidated history, and by adding temporal continuity, hysteresis, and revision without instability, the chapter gives Ms. Allis a temporal memory architecture that is formally coherent, operationally disciplined, and suitable for accountable continuity across time.
+Time in Ms. Jarvis is handled through a three‑tier system: ephemeral and staged temporal states in Redis, and gated historical memory in Postgres. Promotion from “now” to “history” respects hysteresis, coherence, and retention consent, suppresses raw traces, and weights older events with a half‑life model. This gives rural developers a concrete, inspectable picture of how the system remembers **when things happened**—enough to provide continuity and context, but bounded so that not every trace becomes permanent history.
