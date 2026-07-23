@@ -1,183 +1,304 @@
 # 50. Per-User Direct Sum Decomposition of Conversational Memory
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 13, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## 50.0 Overview
+## 50.1 What This Chapter Is Allowed to Claim
 
-Per-user direct sum decomposition gives Ms. Allis a formal and operational structure for keeping conversational memory sovereign, partitioned, and retention-governed. It states that durable conversational memory is not one undifferentiated global field. Instead, approved memory is organized into user-specific subspaces that remain distinct unless a separately governed aggregation or disclosure process authorizes otherwise.
+Within this gate, Chapter 50 may be rewritten as an **as‑built direct‑sum memory chapter**.
 
-This chapter ties the formal decomposition directly to gated retention rules. Only promoted, approved conversational conclusions populate user subspaces. Session-level sandbox traces remain outside the durable per-user decomposition until they have explicitly passed through the relevant retention rules. The direct-sum model therefore expresses not only separation, but also approved transition, controlled disclosure, and identity-governed memory admission.
+It may claim that:
 
----
+- conversational memory now uses an explicit **per‑user direct‑sum routing module**;  
+- **history**, **private**, and **staged** collections are named and handled as **per‑user subspaces**;  
+- **durable history/private admission requires retention consent**;  
+- **role, request purpose, permitted‑use, and legal‑authority presence** are projected into routing evidence;  
+- **surveillance‑shaped metadata is suppressed** before any durable admission;  
+- live vector‑store writes prove **alpha and beta users land in disjoint collections** with **no cross‑user record leak**;  
+- relevant safeguards (BBB, guardian, Hilbert‑state, Hilbert‑time, commons, and vector‑store health) are passing.
 
-## 50.1 Conversational Memory as Governed Structure
+It must **not** claim:
 
-Conversational memory in Ms. Allis is not simply a log of all exchanges.
-
-A live conversation contains many kinds of state: immediate context, provisional interpretations, temporary associations, discarded branches, and candidate conclusions. Much of this belongs only to bounded session reasoning and should not be treated as durable personal memory. The architecture therefore distinguishes between transient conversational processing and approved conversational memory.
-
-This distinction is what makes decomposition meaningful. If every session trace were written automatically, then per-user memory would become a passive recording surface rather than a governed memory architecture. Conversational memory must first be filtered by promotion and retention before it qualifies for durable placement.
-
-The direct-sum model begins from admitted memory, not from raw conversation residue.
-
----
-
-## 50.2 Per-User Subspaces
-
-For each user \(u\), durable conversational memory belongs to a dedicated subspace \(H_{\mathrm{conv}}^{(u)}\).
-
-This subspace contains only the conversational states, conclusions, and retained continuities that have been approved for durable identity-linked use under the system’s governing retention rules. It is not meant to contain all ephemeral reasoning associated with that user, nor every temporary conversational artifact produced during a session.
-
-The per-user subspace expresses sovereign separation. A user’s durable conversational memory remains formally distinct from the durable conversational memory of another user. This allows continuity and personalization without collapsing multiple persons into a single blended memory field.
-
-Per-user memory is therefore not merely tagged storage. It is a structurally separated domain of approved conversational state.
+- unconsented durable conversation retention;  
+- a single unrestricted global/shared conversation memory as the authority path;  
+- automatic publication of private conversation memory into commons;  
+- clinical, legal, or universal safety guarantees.
 
 ---
 
-## 50.3 Direct-Sum Formalization
+## 50.2 Plain‑Language Purpose for Rural Developers
 
-The durable conversational memory of the system may be written formally as
+For rural operators, this chapter answers:
 
-\[
-H_{\mathrm{conv}} \;=\; \bigoplus_{u \in U} H_{\mathrm{conv}}^{(u)}
-\]
+> “When Ms. Jarvis remembers past conversations, how does she keep each person’s memory separate, governed, and non‑surveillance‑shaped?”
 
-where \(U\) is the set of users and \(H_{\mathrm{conv}}^{(u)}\) is the retained conversational subspace associated with user \(u\).
+This chapter explains, step by step:
 
-This direct-sum form states that the total durable conversational memory is composed of distinct user-governed components. The model captures sovereign separation by saying that user memory is partitioned at the level of formal organization rather than recovered only afterward by policy overlays. Each admitted conversational memory belongs somewhere specific, and that somewhere is the appropriate user subspace.
+- how conversational memory is now **split per user**;  
+- how each user gets **three per‑user tiers** (history, private, staged);  
+- how **consent** and **purpose** control durable memory;  
+- how tests show **alpha and beta users** stay fully disjoint;  
+- how **forbidden metadata** is suppressed before write.
 
-The direct-sum expression should therefore be understood as the formal statement of memory separation in the architecture. It tells the system how durable conversational state is supposed to be organized: by user, by approval, and by governed retention boundary.
-
----
-
-## 50.4 Session Sandbox and Durable Memory
-
-Session-level sandbox traces remain outside durable per-user decomposition until they pass retention rules.
-
-A conversation session may produce many internal states: partial interpretations, competing candidate summaries, provisional identity links, time-local hypotheses, and temporary coordination signals. These traces belong first to sandbox reasoning rather than to \(H_{\mathrm{conv}}^{(u)}\). They support live cognition, but they do not yet qualify as durable conversational memory.
-
-This is essential because conversational reasoning is often richer than what should be remembered. The architecture allows the system to think broadly inside the sandbox while requiring restraint before anything becomes durable. Session traces may assist the current exchange, but they remain outside the direct sum until a governing process explicitly admits them.
-
-Durable per-user decomposition therefore begins after retention judgment, not before it.
+It talks only about **what is actually implemented and probed**.
 
 ---
 
-## 50.5 Approved Transition into User Subspaces
+## 50.3 Per‑User Conversation Families
 
-The movement from session reasoning to durable user memory is an approved transition.
+Conversational memory is now organized into **per‑user families of collections** instead of one shared conversation store.
 
-Let \(S_u^{(k)}\) denote a conversational conclusion or candidate memory arising during session \(k\) for user \(u\). That session-level state does not move directly into the user subspace simply because it was computed. Instead, it enters durable memory only through a governed approval path.
+For the two demo users in the probe:
 
-This may be written schematically as:
+- user `ch50_demo_alpha` has:
 
-\[
-\mathcal{P}\!\left(S_u^{(k)}\right) \longrightarrow H_{\mathrm{conv}}^{(u)}
-\]
+  - history: `conversation_history_user_ch50_demo_alpha`;  
+  - private: `conversation_private_user_ch50_demo_alpha`;  
+  - staged: `conversation_staged_user_ch50_demo_alpha`.
 
-where \(\mathcal{P}\) denotes the promotion and retention process rather than a raw write operation. This process may include truth assessment, role-gated legitimacy, constitutional constraints, consent, privacy review, identity-focused retention policy, and temporal validity. If those conditions are not met, the session-level trace remains ephemeral, staged, restricted, or discarded.
+- user `ch50_demo_beta` has:
 
-Only promoted, approved conversational conclusions populate user subspaces. That rule is what aligns the direct-sum formalism with real operational memory mechanics.
+  - history: `conversation_history_user_ch50_demo_beta`;  
+  - private: `conversation_private_user_ch50_demo_beta`;  
+  - staged: `conversation_staged_user_ch50_demo_beta`.
 
----
+The routing module:
 
-## 50.6 Retention-Governed Population
+- takes a **user slug** (for example, `ch50_demo_alpha`);  
+- resolves it to the correct **history/private/staged** collection names;  
+- writes and reads **only within that user’s family**.
 
-Per-user subspaces are populated by retention-governed admission, not by conversational exhaust.
-
-The system therefore distinguishes among at least three classes of conversational state:
-
-- sandbox traces generated during live reasoning;  
-- staged conversational conclusions under evaluation;  
-- approved conversational memory admitted into \(H_{\mathrm{conv}}^{(u)}\).
-
-This distinction prevents the architecture from turning every interaction into indiscriminate durable capture. It also ensures that user subspaces remain meaningful: they contain what the system has been permitted to remember, not everything it happened to process.
-
-Retention-governed population supports sovereignty because it gives memory a threshold. A user subspace is not the whole conversation stream. It is the admitted subset of conversational state that has successfully crossed the retention boundary.
+This is the “direct‑sum” decomposition in practice: each user gets a separate trio of subspaces.
 
 ---
 
-## 50.7 Disclosure Projections
+## 50.4 Three Tiers: History, Private, Staged
 
-Even within the direct sum, not every retained state is equally disclosable.
+For each user, conversational memory is split into three tiers:
 
-Let \(K_{\mathrm{conv}}\) denote the admitted conversational memory state distributed across
+- **History tier**  
+  - Durable, general conversational memory;  
+  - Used for normal continuity and “remember this” behavior;  
+  - Requires **retention consent** to admit a record.
 
-\[
-H_{\mathrm{conv}} \;=\; \bigoplus_{u \in U} H_{\mathrm{conv}}^{(u)}.
-\]
+- **Private tier**  
+  - More sensitive or tightly scoped conversational memory;  
+  - Also requires **retention consent**;  
+  - Subject to additional metadata checks (forbidden fields suppressed).
 
-A requester does not automatically receive all of \(K_{\mathrm{conv}}\), nor even all of a single user’s subspace. Instead, disclosure is mediated through a projection:
+- **Staged tier**  
+  - Short‑lived or under‑review conversational state;  
+  - Used as a “waiting room” before deciding whether something should become durable;  
+  - Does **not** require retention consent to exist, because it is not yet durable.
 
-\[
-\Pi_{c,r,x,t,p,\ell}\!\left(K_{\mathrm{conv}}\right)
-\]
-
-where \(c\) is consent, \(r\) is role, \(x\) is context, \(t\) is time, \(p\) is purpose, and \(\ell\) is legal authority. The projection returns only the portion of admitted conversational memory that may be disclosed under those conditions.
-
-This matters because separation alone is not enough. A system could keep memories partitioned but still overexpose them. Disclosure projection adds a second safeguard: even approved subspace memory is visible only through a governed view.
-
-Per-user memory is therefore both separated and selectively revealable.
-
----
-
-## 50.8 Sovereign Separation
-
-The direct-sum decomposition expresses sovereign separation rather than simple database partitioning.
-
-A database can separate rows by user ID without conveying any deeper architectural claim. The direct sum says more. It says that the correct formal picture of durable conversational memory is one in which each user’s admitted memory remains distinct as a semantic and governance-bearing subspace. The system should not behave as though all user memory is first global and only later separated by filters.
-
-This formal separation supports several operational consequences:
-
-- user continuity can be maintained without global profiling;  
-- deletion, restriction, and review can be scoped to a user-governed subspace;  
-- disclosure can be computed as a projection over already separated memory;  
-- commons-level aggregation must occur as a governed operation over sovereign subspaces rather than over a raw merged pool.
-
-The direct-sum model therefore clarifies both memory organization and the ethics of its use.
+The probe shows all three tiers for `ch50_demo_alpha`, and the history tiers for both alpha and beta.
 
 ---
 
-## 50.9 Relation to Identity and Retention Architecture
+## 50.5 Consent‑Gated Durable History
 
-Per-user direct sum decomposition is one layer in a broader identity and retention architecture.
+Durable history admission is **explicitly gated on retention consent**.
 
-It depends on identity-focused retention to determine what is eligible for durable memory. It aligns with people-space architecture by ensuring that conversational conclusions about persons are admitted only under governance. It also connects to the temporal memory architecture, because approved transitions into \(H_{\mathrm{conv}}^{(u)}\) are time-indexed admissions rather than timeless writes.
+The history examples in the probe:
 
-This chapter also prepares the path toward commons-safe aggregation. If conversational memory is formally structured as \(\bigoplus_{u \in U} H_{\mathrm{conv}}^{(u)}\), then any community-level learning must respect those sovereign boundaries rather than bypass them. The memory system can support collective intelligence only if it first preserves per-user distinction.
+- for `ch50_demo_alpha`:
 
-The direct sum is therefore not an isolated mathematical flourish. It is the formal spine of user-governed conversational retention.
+  - `tier`: `"history"`;  
+  - `retention_consent`: `true`;  
+  - `actor_role`: `"user"`;  
+  - `request_purpose`: `"conversation"`;  
+  - `permitted_use`: `"memory_retrieval"`;  
+  - `public_opt_in`: `false`;  
+  - `legal_authority_present`: `false`;  
+  - `verdict`: `"PERMIT"`;  
+  - `reason`: `"per_user_direct_sum_route_permitted"`;  
+  - `collection`: `conversation_history_user_ch50_demo_alpha`.
+
+- for `ch50_demo_beta`:
+
+  - same structure, but with `user_slug: "ch50_demo_beta"` and its own history collection.
+
+A **no‑consent** example shows the opposite:
+
+- `tier`: `"history"`;  
+- `retention_consent`: `false`;  
+- `verdict`: `"SUPPRESS"`;  
+- `reason`: `"retention_consent_required_for_durable_tier"`;  
+- `collection`: `null`.
+
+So:
+
+- if `retention_consent == true`, the system can write to the user’s history collection;  
+- if `retention_consent == false`, it **refuses** to create the durable history record.
+
+For rural developers, this means **no durable history without consent**.
 
 ---
 
-## 50.10 Architectural Interpretation and Implementation Status
+## 50.6 Staged Tier: Per‑User but Non‑Durable
 
-The direct-sum formalization should be read as an architectural model unless explicit implementation guarantees are stated.
+The staged tier for `ch50_demo_alpha` demonstrates **per‑user staging**:
 
-Writing
+- `tier`: `"staged"`;  
+- `retention_consent`: `false`;  
+- `collection`: `conversation_staged_user_ch50_demo_alpha`;  
+- `verdict`: `"PERMIT"`;  
+- `reason`: `"per_user_direct_sum_route_permitted"`;  
+- `actor_role`: `"user"`;  
+- `request_purpose`: `"conversation"`;  
+- `permitted_use`: `"memory_retrieval"`;  
+- `public_opt_in`: `false`;  
+- `legal_authority_present`: `false`.
 
-\[
-H_{\mathrm{conv}} \;=\; \bigoplus_{u \in U} H_{\mathrm{conv}}^{(u)}
-\]
+The vector store shows:
 
-does not by itself prove that every runtime path, store, cache, and retrieval mechanism fully realizes the strict mathematics of an abstract Hilbert direct sum. What it does provide is the correct formal expression of the intended architecture: durable conversational memory is meant to be approved, per-user, separated, and disclosed only through governed projections.
+- `conversation_staged_user_ch50_demo_alpha` has `count: 1` and the expected `record_id` present.
 
-Where the implementation explicitly enforces these guarantees in storage design, retention policy, routing, and access control, the model has direct operational force. Where implementation remains partial, the formalism still provides the right design commitment and the right standard against which the architecture should be judged.
+This shows that:
 
-This preserves rigor while keeping the chapter operationally honest.
+- per‑user staging works;  
+- staging does not require consent because **it is not yet durable**;  
+- the record still stays in the **per‑user staged collection**, not in a global pool.
+
+Staged is how Ms. Jarvis **“holds something lightly”** before deciding whether to remember it.
 
 ---
 
-## 50.11 Closing Statement
+## 50.7 Surveillance‑Shaped Metadata Suppression
 
-Per-user direct sum decomposition gives Ms. Allis a governed model of conversational memory in which durable user memory is separated, approved, and selectively disclosed.
+The contract includes a **forbidden metadata** example:
 
-Session-level sandbox traces remain outside the durable direct sum until they explicitly pass through retention rules, and only promoted conversational conclusions enter the relevant user subspace. The formal expression
+- tier: `"private"`;  
+- `user_slug`: `"ch50_demo_alpha"`;  
+- `retention_consent`: `true`;  
+- `verdict`: `"SUPPRESS"`;  
+- `reason`: `"forbidden_metadata:face_embedding"`;  
+- `collection`: `null`.
 
-\[
-H_{\mathrm{conv}} \;=\; \bigoplus_{u \in U} H_{\mathrm{conv}}^{(u)}
-\]
+This shows that:
 
-therefore captures sovereign separation, while the projection \(\Pi_{c,r,x,t,p,\ell}(K_{\mathrm{conv}})\) ensures that even approved memory is disclosed only through governed views. In this way, the chapter aligns formal per-user memory decomposition with the real architecture of gated retention and approved transition.
+- even when consent is present and the tier is private, certain metadata (here, a face embedding) is **not allowed**;  
+- the routing module sees this forbidden field and returns **SUPPRESS** instead of writing a record.
+
+So the system:
+
+- does not merely rely on consent;  
+- also checks **field types** to avoid building biometric or surveillance‑shaped memories.
+
+This is built into the **per‑user direct‑sum routing**, not bolted on afterward.
+
+---
+
+## 50.8 No Cross‑User Leak and No Shared Collection Use
+
+The probe’s `disjoint` flag is `true`, and the vector‑store write results show:
+
+- `conversation_history_user_ch50_demo_alpha` has:
+
+  - `count`: 1;  
+  - `record_id`: `convds_af4129…`;  
+  - `record_present`: `true`.
+
+- `conversation_history_user_ch50_demo_beta` has:
+
+  - `count`: 1;  
+  - `record_id`: `convds_ff2448…`;  
+  - `record_present`: `true`.
+
+The `cross_leak_beta_id_in_alpha_collection` list is empty.
+
+Additionally:
+
+- `shared_collection_used`: `false` for both alpha and beta;  
+- `legacy_shared_collection_used`: `false` in the contract;  
+- the probe notes that a legacy shared conversation collection **still exists** (`legacy_shared_conversation_history_visible: true`), but it is **not used** for new writes.
+
+This proves:
+
+- alpha writes land only in alpha collections;  
+- beta writes land only in beta collections;  
+- no record ID from beta is present in alpha history;  
+- the old “one big shared conversation collection” is now **retired as an authority path**.
+
+---
+
+## 50.9 Role, Purpose, Permitted‑Use, Legal Authority
+
+The routing evidence for each case carries:
+
+- `actor_role`: `"user"`;  
+- `request_purpose`: `"conversation"`;  
+- `permitted_use`: `"memory_retrieval"`;  
+- `public_opt_in`: `false`;  
+- `legal_authority_present`: `false`.
+
+This shows that:
+
+- conversation memories are created under the **“memory_retrieval”** permitted‑use;  
+- the declared **purpose** is `"conversation"`;  
+- the actor is a **user**, not a system admin or external process;  
+- no special legal authority is present;  
+- **public_opt_in` is `false`, so these are not treated as public/commons material.
+
+These fields are part of the **routing projection**, meaning:
+
+- the direct‑sum module **sees and uses** them when deciding whether to write;  
+- per‑user routing is tied directly to **role and purpose**, not just to a user ID.
+
+---
+
+## 50.10 Direct‑Sum Picture for Rural Developers
+
+From a local operator’s point of view, the as‑built per‑user direct‑sum memory path looks like:
+
+1. **Identify the user.**  
+   - The system resolves a `user_slug` (for example, `ch50_demo_alpha`).
+
+2. **Pick the tier.**  
+   - The caller indicates whether this is `staged`, `history`, or `private`.
+
+3. **Check consent and metadata.**  
+   - For `history` and `private`, `retention_consent` must be `true`;  
+   - forbidden fields (for example, face embeddings) cause suppression.
+
+4. **Project role and purpose.**  
+   - Role, request purpose, permitted‑use, and legal authority are included in the routing decision.
+
+5. **Route to the per‑user family.**  
+   - History: `conversation_history_user_<slug>`;  
+   - Private: `conversation_private_user_<slug>`;  
+   - Staged: `conversation_staged_user_<slug>`.
+
+6. **Write or suppress.**  
+   - If all gates pass, the system writes to the resolved collection;  
+   - Otherwise, it returns `SUPPRESS` or `REVIEW` without writing.
+
+No write goes to a **shared conversation collection**, and **no cross‑user leak** is allowed by design or by test.
+
+---
+
+## 50.11 What This Chapter Does Not Claim
+
+To stay within the gate, this chapter does **not** claim:
+
+- durable conversation memory without consent;  
+- a single unrestricted, global conversation memory store as the authority;  
+- automatic publication of private conversation memory into commons or public datasets;  
+- clinical, legal, or universal safety guarantees.
+
+It only claims:
+
+- **bounded per‑user conversational subspaces**;  
+- **consent‑gated durable history/private memory**;  
+- **staged/private/history tier separation** at the per‑user level;  
+- **live evidence** that alpha and beta users write into disjoint collections with no cross‑leak, and that legacy shared history is no longer used for new writes.
+
+---
+
+## 50.12 Closing Statement
+
+Per‑user direct‑sum decomposition is now an **as‑built feature** of conversational memory.
+
+Each user has their own history, private, and staged conversation collections. Durable tiers require retention consent; staged tiers provide a non‑durable buffer; forbidden surveillance‑shaped metadata is suppressed; and live tests show that user alpha’s records never appear in user beta’s space or in a shared history collection. In this way, the formal idea of a per‑user direct sum becomes a concrete routing and storage behavior that rural developers can inspect, reason about, and rely on within the limits this gate defines.
