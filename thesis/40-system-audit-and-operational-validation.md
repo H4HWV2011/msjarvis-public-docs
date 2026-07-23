@@ -1,141 +1,208 @@
 # 40. System Audit and Operational Validation
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## 40.1 Purpose of System Audit
+## 40.1 What This Chapter Is Allowed to Claim
 
-System audit in Ms. Allis is the disciplined practice of checking whether the governed architecture is behaving as claimed.
+System audit in Ms. Allis is limited to **bounded operational validation** over a specific chain of core services and the closure ledger that records their state.
 
-Operational validation is not limited to uptime or isolated endpoint reachability. It examines whether sandboxed reasoning, gate traversal, guardian review, bridge handoff, logging, and authority-preserving promotion all occur in a way that can be inspected, reproduced, and challenged. The aim is to verify not only that components exist, but that they participate correctly in the full pathway from provisional state to approved system effect.
+At the July 2026 sealed scope, this chapter may claim that:
 
-An audit chapter therefore has two jobs. It identifies what must be checked, and it defines how discrepancies between claimed behavior and observed behavior are to be recorded and resolved.
+- required dependency closures are present in the closure index;  
+- the latest Chapter 41 continuous‑validation harness artifact is closed and passing for its focused tests;  
+- core health endpoints respond for BBB, Constitutional Guardian, Commons Gateway, Chroma, Hilbert State, Hilbert Time, Phi, and the internal sandbox;  
+- sandbox status reports guardian, judge‑truth, and consciousness‑bridge dependencies as live;  
+- required core containers are present and running;  
+- focused Chapter 41 harness tests pass against this chain.
 
----
-
-## 40.2 Audit Targets
-
-The audit framework should explicitly include the new concrete targets introduced by the current architecture.
-
-These include sandbox service health, sandbox `/status`, sandbox `/reason`, and promotion diagnostics as first-class audit targets. They also include guardian endpoint behavior, guardian payload correctness, and bridge handoff logging as validation items rather than incidental implementation details.
-
-This matters because the system now relies on a more concrete gate path than a generic theory of safe ingress and egress. Audit must therefore follow the actual operational route used by sandboxed reasoning, promotion attempts, and downstream authority transitions.
+It must not claim perfect system health, total stack coverage, absence of defects, or permanent drift prevention. The audit here is **partial, evidence‑led**, and explicitly bounded.
 
 ---
 
-## 40.3 Sandbox Service Validation
+## 40.2 Core Service Chain Under Audit
 
-The sandbox service is a direct audit object.
+This chapter focuses on a named **core service chain**, not the entire universe of services.
 
-Audit should confirm service health, verify that the sandbox exposes its expected status surface, and test whether reasoning requests can be accepted and processed within the bounded environment. The sandbox `/status` path is important because it reveals whether the reasoning environment is reachable, what dependencies are visible, and whether the service is in a state suitable for controlled reasoning. The sandbox `/reason` path is important because it tests the live formation of candidate reasoning outputs under the governed pathway.
+Within that chain, the audit targets include:
 
-Validation at this layer should distinguish three different questions:
+- the **blood–brain barrier (BBB)**;  
+- the **Constitutional Guardian**;  
+- the **Commons Gateway**;  
+- **Chroma** as the vector store;  
+- **Hilbert State**;  
+- **Hilbert Time**;  
+- the **Phi probe**;  
+- the **internal sandbox**.
 
-- Is the sandbox service reachable and healthy?
-- Can it report meaningful status about its internal readiness?
-- Can it accept a bounded reasoning request and return a candidate result without bypassing the promotion structure?
+Operational validation may describe these services as:
 
-These are different audit claims and should not be collapsed into one health check.
+- present in the deployment;  
+- exposing core health endpoints;  
+- responding at the time of closure;  
+- participating in the governed path that ties sandboxed reasoning to promotion and audit.
 
----
-
-## 40.4 Promotion Diagnostics
-
-Promotion diagnostics are also audit targets.
-
-A valid audit must verify not only that sandbox reasoning occurs, but that promotion attempts are visible, diagnosable, and bounded by gate outcomes. Promotion diagnostics should reveal whether a candidate reached the promotion path, what gate stages were encountered, whether the attempt failed or succeeded, and whether any fail-closed condition blocked advancement.
-
-This is necessary because many architectural errors occur between candidate formation and approved promotion. A system can reason successfully in the sandbox while still failing at the point where authority is meant to change.
-
----
-
-## 40.5 Guardian Validation Items
-
-The guardian endpoint is a mandatory validation object.
-
-Audit should inspect guardian endpoint behavior, confirm that requests are shaped correctly, and verify that malformed or incomplete payloads are not silently accepted. The correctness of the guardian payload matters because constitutional and governance review can only be trusted when the service receives the fields necessary for actual evaluation. Payload shape is therefore not merely a developer convenience; it is part of the governance contract.
-
-Validation should cover at least the following:
-
-- required field presence;
-- structural correctness of the payload;
-- rejection or fail-closed handling for malformed submissions;
-- observable review outcome;
-- consistency between returned result and recorded promotion state.
-
-A guardian endpoint that responds without enforcing payload integrity is not operationally equivalent to a working constitutional gate.
+It does **not** extend this claim to every other container or legacy script referenced anywhere in the repository.
 
 ---
 
-## 40.6 Bridge Handoff Logging
+## 40.3 Closure Index and Closure Ledger
 
-Bridge handoff logging is a separate validation item and should be audited as such.
+The chapter is allowed to rely on a **closure index** and **closure ledger** as part of its evidence.
 
-When a candidate state receives sufficient approval to attempt bridge transition, the system should leave an auditable trace of that handoff. This includes the existence of the handoff event, the relevant identifiers tying it to the originating sandbox episode or promotion attempt, and the outcome of the bridge interaction. If a bridge call fails, the logs should make that failure visible rather than allowing the event to vanish into ambiguity.
+In practical terms:
 
-This requirement matters because authority transitions are most fragile at handoff boundaries. Without bridge logging, an auditor cannot reliably distinguish “candidate never approved,” “candidate approved but bridge failed,” and “candidate bridged successfully but downstream state did not materialize.”
+- each major gate or chapter closure, including Chapter 40 and the latest Chapter 41 harness, leaves a record in a central ledger;  
+- that ledger shows which closures are present and what evidence supported them;  
+- Chapter 40’s audit claims are grounded in those prior, closed artifacts rather than free‑floating assertions.
 
----
-
-## 40.7 Appendix A Verification Pattern
-
-This chapter should link directly to the Appendix A style of verification.
-
-That means operational claims should be checked using multi-layer confirmation rather than single-source assertion. A valid pattern is to combine endpoint checks, payload tests, status inspection, and logs, then record any mismatch between claimed architecture and observed behavior as a discrepancy requiring follow-up. Appendix A style verification is valuable because it treats discrepancy tracking as part of rigor, not as a sign of failure.
-
-In practice, this means an auditor should not treat one successful response as sufficient proof. The audit should compare declared routes to observed routes, expected payload contracts to actual validation behavior, expected gate logging to actual log artifacts, and claimed bridge transitions to concrete evidence of handoff.
+For rural developers, this means you can treat the closure ledger as a **logbook of what has actually been checked**, not as a promise that everything everywhere is perfect.
 
 ---
 
-## 40.8 Discrepancy Tracking
+## 40.4 Health Endpoints for the Core Chain
 
-Discrepancy tracking is a core part of operational validation.
+For the named core services, this chapter may claim that **core health endpoints responded** at the time of audit.
 
-If the chapter claims a route exists, the audit should confirm that it exists. If the architecture claims a payload is required, the audit should test malformed and incomplete variants. If the system claims fail-closed promotion, the audit should verify that blocked cases remain blocked. If the bridge is claimed to log handoff events, the audit should verify those entries are present and interpretable.
+That includes:
 
-Each discrepancy should be recorded in a form that preserves the claim, the observed result, the likely interpretation, and the disposition status. This allows the audit process to remain cumulative, transparent, and useful across time rather than collapsing into one-time spot checks.
+- BBB health;  
+- Constitutional Guardian health;  
+- Commons Gateway health;  
+- Chroma health;  
+- Hilbert State health;  
+- Hilbert Time health;  
+- Phi probe health;  
+- internal sandbox health.
 
----
+This does **not** claim that:
 
-## 40.9 Audit Invariants
+- every minor endpoint was tested;  
+- performance was perfect;  
+- no intermittent issues exist.
 
-The audit framework should state explicit invariants wherever feasible.
-
-The following invariants are especially important:
-
-- **Provenance preservation**: the audit trail should preserve enough linkage to trace a candidate action back to its sandbox origin, review path, and promotion attempt.
-- **Authority transitions**: authority should rise only through documented gate passage and approved bridge transition, never through silent side effects.
-- **Gate status visibility**: gate outcomes should be observable enough to distinguish approval, rejection, revise, human review, fail-closed block, and bridge failure where those states exist.
-- **Confidence non-inflation**: confidence values, verdict language, or approval signals should not become stronger as they move through the pipeline unless a documented gate or review process justifies the increase.
-
-These invariants matter because they allow audit to test structure rather than only symptoms. An audit becomes stronger when it can ask not merely “did this request work?” but “did authority change in the right way, with the right evidence, and without unjustified amplification?”
-
----
-
-## 40.10 Provenance and Confidence
-
-Provenance and confidence deserve special treatment in audit.
-
-A well-audited pathway preserves the origin of the candidate state, the transformations applied to it, the services it encountered, and the basis on which later stages interpreted it. This is what allows reviewers to tell whether the final promoted form remains faithful to the originating material or has drifted beyond what the evidence supports.
-
-Confidence non-inflation belongs here because systems often become unsafe not by inventing outputs from nothing, but by converting tentative signals into stronger claims than the pathway justifies. Audit should therefore check whether confidence, approval language, or apparent certainty increases only when justified by explicit review and not by mere passage through the pipeline.
+The claim is narrower: the central health surfaces for these services responded successfully under the audit harness and are recorded in the closure evidence.
 
 ---
 
-## 40.11 Practical Audit Sequence
+## 40.5 Sandbox Status and Dependencies
 
-A practical audit sequence for this chapter should move in the same order as the governed architecture.
+The internal sandbox is a direct audit object.
 
-First, confirm sandbox health and inspect sandbox `/status`. Second, submit a bounded request to sandbox `/reason` and confirm that the response behaves as a candidate formation event rather than a direct execution path. Third, inspect promotion diagnostics to determine whether the candidate entered gate review. Fourth, validate guardian endpoint behavior with correct, malformed, and incomplete payloads. Fifth, inspect logs for bridge handoff behavior, including any failure trace. Sixth, compare all findings against expected architectural claims and record discrepancies in Appendix A style form.
+Within this chapter, the system may claim that sandbox status:
 
-This sequence matters because it mirrors the actual authority path. An audit that checks the bridge before confirming candidate formation, or checks a guardian response without relating it to promotion diagnostics, will miss the structural logic of the system.
+- reports **guardian**, **judge‑truth**, and **consciousness‑bridge** dependencies as live;  
+- exposes a status surface that can be queried by the audit harness;  
+- shows that the sandbox is able to participate in governed reasoning at the time of the audit.
+
+This gives auditors a way to verify not just that the sandbox exists, but that it **sees** the governance components it depends on. It does **not** assert that sandbox reasoning is flawless or that every possible dependency has been tested.
 
 ---
 
-## 40.12 Closing Statement
+## 40.6 Required Core Containers
 
-System audit and operational validation in Ms. Allis are now anchored to concrete targets inside the governed pathway.
+The closure evidence includes a check that **required core containers are present and running**.
 
-Sandbox service health, `/status`, `/reason`, promotion diagnostics, guardian endpoint behavior, payload correctness, and bridge handoff logging all belong to the audit surface. The chapter therefore ties operational validation to Appendix A style verification and discrepancy tracking, while also stating audit invariants for provenance preservation, authority transitions, gate visibility, and confidence non-inflation so that the architecture can be checked as a real authority-bearing system rather than as a collection of isolated services.
+For this chapter, that means:
+
+- the containers that host the core service chain listed above are up;  
+- they are reachable by the audit harness;  
+- they are in a state consistent with the closures claimed in prior chapters (such as 28, 37, 38, and 39).
+
+It does not mean that:
+
+- no extra containers are stale;  
+- no unused services remain from earlier experiments;  
+- the entire Docker or compose landscape is fully cleaned.
+
+The audit scope is “required core containers present and running,” not “every container is perfect.”
+
+---
+
+## 40.7 Relationship to Chapter 41 Harness
+
+Chapter 40 is allowed to lean on the **Chapter 41 continuous‑validation harness** as part of its operational story.
+
+Specifically:
+
+- the **latest Chapter 41 harness artifact is closed**;  
+- **focused harness tests pass** against the core service chain;  
+- these tests exercise a subset of end‑to‑end behaviors that involve sandbox, guardian, gateways, and state/time services.
+
+Chapter 40 does not claim that Chapter 41 covers all possible behaviors. It only claims there exists a **live, focused harness** whose passing results are part of the operational validation picture.
+
+---
+
+## 40.8 Bounded Operational Validation
+
+Within this gate, “operational validation” is intentionally **bounded**.
+
+The system may claim that:
+
+- at the time of closure, the named core chain responded correctly to health checks;  
+- sandbox status saw its key dependencies as live;  
+- the closure ledger shows consistent, closed artifacts for dependencies (including Chapter 41);  
+- focused harness tests passed across that chain.
+
+It may **not** claim:
+
+- total stack coverage;  
+- complete absence of bugs;  
+- permanent immunity from configuration drift;  
+- that no future change could break these properties.
+
+The chapter is about **“here is what has been checked, and how,”** not **“nothing can ever go wrong.”**
+
+---
+
+## 40.9 Step‑by‑Step View for Rural Developers
+
+For rural developers operating Ms. Allis, Chapter 40’s audit behavior can be understood as a short, repeatable checklist:
+
+1. **Check the closure ledger.**  
+   - Confirm that required chapter closures (such as 28, 37, 38, 39, and 41) are present and closed.
+
+2. **Call core health endpoints.**  
+   - Verify that BBB, Constitutional Guardian, Commons Gateway, Chroma, Hilbert State, Hilbert Time, Phi, and the internal sandbox report healthy status.
+
+3. **Inspect sandbox status.**  
+   - Confirm that sandbox lists guardian, judge‑truth, and consciousness‑bridge as live dependencies.
+
+4. **Confirm core containers.**  
+   - Make sure the containers that host these services are running, not stopped or crashed.
+
+5. **Run the focused Chapter 41 harness.**  
+   - Verify that the harness tests that rely on this chain still pass.
+
+When all of these checks succeed, Chapter 40’s bounded claim—**“this core chain is operationally validated at this moment, with this evidence”**—is supported.
+
+---
+
+## 40.10 What This Chapter Does Not Claim
+
+Within the rewrite rule, Chapter 40 does **not** claim:
+
+- perfect system health;  
+- total coverage of every service, script, or container;  
+- absence of all defects;  
+- permanent prevention of configuration drift or regression.
+
+It also does not:
+
+- guarantee any specific performance level;  
+- claim legal, clinical, or safety certification;  
+- treat passing tests as proof that no new problems can arise.
+
+Instead, it documents the **current, evidence‑backed operational validation** of a core service chain, and ties that validation to traceable artifacts in the closure ledger.
+
+---
+
+## 40.11 Closing Statement
+
+System audit and operational validation in Ms. Allis, at this sealed scope, are about **showing the work**.
+
+By pointing to a concrete closure ledger, a named chain of core services, live health endpoints, sandbox status surfaces, required containers, and a passing continuous‑validation harness, Chapter 40 explains how to check that the governed architecture is behaving as claimed **right now**, without pretending that the entire stack is perfect or unchanging.
+
+For rural communities and operators, this chapter offers a practical way to say: *“These are the pieces we check, this is how we check them, and here is where the evidence lives,”* while staying squarely within the bounded claims allowed by the gate.
