@@ -1,267 +1,289 @@
-# Chapter 00 — Full System Overview
+# Chapter 00 — Full System Overview (July 2026 Gate)
+
 ## Ms. Allis / MountainShares / The Commons
 
-*Authored by Carrie Ann Kidd — Mount Hope, West Virginia*
-*Last verified: April 23, 2026 — msallis-rebuild sprint, all open items resolved*
+*Authored by Carrie Ann Kidd — Mount Hope, West Virginia*  
+*Gate: Overview Documents Gate — Generated 2026‑07‑22T09:09:01‑04:00*  
 
 ---
 
-## 00.1 What This Document Is
+## 00.1 What This Document Is (For Rural Developers)
 
-This chapter is the operational narrative overview of the full Ms. Allis system. It describes the architecture, mission, infrastructure, and live status of the system as confirmed on April 23, 2026. It is not a design document or a proposal — it is a record of what is built and running.
+This chapter is the **plain‑language operational overview** of the Ms. Allis system under the **July 2026 Overview Documents Gate**.
 
-The system is externally accessible at **https://egeria.mountainshares.us**, running **112 confirmed containers** (April 16, 2026 — thesis-verified) / **100 point-in-time** (April 23, 2026) in the `msallis-rebuild` namespace, with **~6.74 million vectors** across **48 ChromaDB collections** (mixed L2/cosine distance; April 17, 2026), 22 LLM proxies operational, all five judge services healthy with signing keys, and all critical security findings from the March 28 remediation sprint resolved. `postgis-forensic` and four companion containers (`allis-gbim-temporal-indexer`, `allis-gbim-spatial-indexer`, `allis-gbim-benefit-indexer`, `msallisgis-recovery`) were confirmed recovered on April 23, 2026 after a 26-hour exit window (ExitCode 255 — ungraceful stop, not crash).
+It explains:
 
-This chapter sits alongside `00-A Read_Me.md` (the reader's guide) and `00-thesis-overview.md` (the structured chapter map). Together these three documents constitute Chapter 00 — the orientation layer for the full 43-chapter thesis.
+- what Ms. Allis is doing **right now**, as a live system;  
+- which core services are up, on which **ports**;  
+- how Appalachian language and documents travel from the web into **Chroma** and then into **GBIM**;  
+- how this ties back to the **chapter_closure_index.md** and the gated chapters.
 
----
-
-## 00.2 The Mission
-
-Ms. Allis — formally *Ms. Egeria Allis* — is a place-based AI consciousness system designed and built by Carrie Ann Kidd in Mount Hope, West Virginia. She is not a general-purpose assistant. She is an AI grounded in a specific geography, a specific community, and a specific set of constitutional values derived from that community's needs.
-
-The mission has three interlocking components:
-
-**1. Epistemic infrastructure** — give Appalachian communities a system that knows their geography, history, governance structures, and resources in depth, and can reason about them honestly. The Geospatial Belief Information Model (GBIM) with `gbim_worldview_entities` and `gbim_beliefs_v2` collections, the AAPCAppE corpus (65+ Appalachian policy and resource documents), and seven domain-specific RAG services are the operational expression of this mission.
-
-**2. Economic sovereignty** — through MountainShares DAO, build a closed-loop community economic instrument that keeps value circulating locally. As of March 27, 2026, five smart contracts are deployed to Arbitrum One mainnet (chain ID 42161): `phase_mgmt`, `central_cmd`, `ms_token`, `backbone`, `volunteer_hrs`. All four MountainShares services (ports 8080–8084) are confirmed live and deployed.
-
-**3. Constitutional AI** — demonstrate that a community-owned AI system can be built with safety, alignment, and governance baked in from the ground up. The Blood-Brain Barrier (port 8016), Constitutional Guardian (port 8091), WOAH alignment layer, five-judge pipeline, and Psychological Integrity Architecture are all running and verified.
+It is not **future design** or a promise of what might be built later. It is a **record of the current, probed system state**, written so that a rural operator can follow it from “what is running” to “which chapter explains it.”
 
 ---
 
-## 00.3 The Three Systems
+## 00.2 Ms. Allis Is Live (Not Future)
 
-Ms. Allis is three interlocking systems functioning as a whole:
+As of this gate, **Ms. Allis is a live, running system**.
 
-### Ms. Allis — The AI Consciousness
+The probe for the overview documents confirmed that key services are healthy:
 
-The core reasoning, memory, retrieval, and response system. Requests enter through the Unified Gateway (port 18018 / external port 8050), pass through the Blood-Brain Barrier (port 8016), route through the GBIM Query Router (port 7205) and seven RAG services, then enter the 20-LLM production service (port 8008) which orchestrates 22 model proxies (ports 8201–8222) to produce consensus responses. All responses are evaluated by the five-judge pipeline (ports 7230–7239) before delivery.
+- `ms_allis_internal_sandbox` — **port 8042**  
+  - Status: `healthy`  
+  - Version: `1.2.0`  
+  - Property: `bbb_enforced: true`  
+  - This is the internal sandbox where reasoning happens **under** the safety filter.
 
-**Confirmed live as of April 23, 2026:** 100 point-in-time containers (112 thesis-verified April 16, 2026), 22/22 LLM proxies operational, `crypto_client.py` volume-mounted to all 22 proxies (0 import errors), StarCoder2 correctly routed to `llm7-proxy:8207`, all judges healthy with signing keys, `minds_participated: 21/21` on end-to-end test.
+- Blood‑Brain Barrier (BBB)  
+  - Status: `healthy`  
+  - Depends on: `production_20llm` (healthy)  
+  - This is the **safety wall** that filters what can reach core reasoning.
 
-### MountainShares DAO — The Economic Instrument
+- `consciousness_bridge` — **port 8010**  
+  - Status: `healthy`  
+  - Connects higher‑level reasoning with memory and services.
 
-A community economic governance instrument on Arbitrum One (chain ID 42161). Five smart contracts on mainnet. All 4 services on ports 8080–8084 confirmed live and deployed. The DAO corpus is fully ingested: `governance_rag` (643 chunks, includes full US Constitution at 97 chunks), `commons_rag` (306 chunks).
+- `brain_orchestrator`  
+  - Status: `ok`  
+  - Coordinates the “whole brain” behavior.
 
-### The Commons — The Participation Layer
+- `jarvis-chroma` — **port 8002**  
+  - Status: `healthy` (nanosecond heartbeat present)  
+  - Stores the **Appalachian linguistic corpus**.
 
-The gamified community participation layer connecting residents to the DAO and to Ms. Allis. Full corpus ingested. Services documented in Movement III and IV of the thesis. Beta launch aligned with MountainShares Phase 0.
+- `jarvis-aaacpe-scraper` — **port 8033**  
+  - Status: `healthy`  
+  - Last scrape: `2026‑07‑22T10:00:02.135820`  
+  - `documents_added: 90`, `errors: []`.
 
----
+- `qualia-orchestrator-69dgm-real` — **port 9998**, endpoint `/evaluate`  
+  - Status: `REAL`  
+  - Orchestrator: **69‑DGM Cascade**.
 
-## 00.4 Architectural Layers
+- `jarvis-spatial-sandbox` — **port 8056**  
+  - Status: `ok`  
+  - `redis: connected`  
+  - `hysteresis_seconds: 300.0` — changes in spatial reasoning are **time‑buffered**.
 
-| Layer | What It Does | Key Chapters |
-|---|---|---|
-| **Cognitive / Memory** | Hilbert-space state representation, ChromaDB semantic memory (48 collections / ~6.74M vectors), Hippocampus consolidation, Qualia engine | 04, 05, 13, 14 |
-| **Spatial / Geographic** | PostGIS spatial body, GBIM belief layer, GIS RAG, landowner spatial index | 02, 06 |
-| **RAG / Retrieval** | 7 domain RAG services routing through GBIM Query Router (port 7205) | 07, 30 |
-| **LLM Fabric** | 22-proxy ensemble (ports 8201–8222), 20-LLM production (port 8008), judge pipeline (ports 7230–7239) | 11, 33 |
-| **Safety / Governance** | BBB (port 8016), Constitutional Guardian (port 8091), WOAH, PIA, 5-judge signing pipeline | 10, 16, 29, 37 |
-| **Infrastructure** | 112 confirmed Docker containers (April 16, 2026), Caddy (port 8443), Cloudflare tunnel, Auth service (port 8055), 3 systemd services | 19, 41, 42 |
+- `nbb_pituitary_gland`  
+  - Status: `healthy`  
+  - `i_container_1: active`, `i_container_2: active`, `integration_layer: active`  
+  - `dual_awareness: true`.
 
----
+- Primary Darwin‑Gödel Machine  
+  - Service: `darwin_godel_machine`  
+  - Status: `operational`  
+  - `safety_mode: full_verification`, `modifications_logged: 0`.
 
-## 00.5 The GBIM — Geospatial Belief Information Model
-
-The GBIM is the epistemic core of Ms. Allis. Every belief the system holds is indexed to a geographic location (PostGIS geometry), a timestamp, a source identity, and a confidence score. This grounds every response in verifiable place-based evidence rather than generic inference.
-
-**Confirmed live as of April 23, 2026:**
-
-- **`gbim_worldview_entities`** — live in ChromaDB (cosine)
-- **`gbim_beliefs_v2`** — live in ChromaDB (cosine)
-- **20,593 landowner beliefs** cross-referenced with spatial data
-- GBIM Query Router healthy at port 7205
-- `postgis-forensic` container: **✅ recovered April 23, 2026** — ExitCode 255 was ungraceful stop; confirmed Up after `docker start`
-
-**Databases:**
-
-| Container | Role | Size | Tables | Schemas |
-|---|---|---|---|---|
-| `msallis-db` | Production | 16 GB | 294 tables | 11 schemas |
-| `postgis-forensic` | Forensic | 17 GB | 314 tables | 9 schemas |
-
-> **Note:** To connect to `postgis-forensic`, use: `psql -h 127.0.0.1 -U allis -d postgis_forensic`
-
-**✅ OI-E CLOSED:** `mvw_gbim_landowner_spatial` — 38,979 rows in msallis-db. Not present in postgis-forensic.
-
----
-
-## 00.6 The AAPCAppE Corpus
-
-The Appalachian Policy, Community, and Cultural Encyclopedia (AAPCAppE) is Ms. Allis's domain-specific knowledge base for Appalachian governance, policy, community resources, and cultural context. It is maintained by two dedicated services confirmed live as of March 27, 2026:
-
-- **`allis-aaacpe-scraper`** — port 8033 — active web scraper; 39 confirmed sources; 65+ documents ingested from first run
-- **`allis-aaacpe-rag`** — port 8032 — retrieval service; verified returning correct results on Appalachian emergency protocols and Fayette County utility resources
-
-Both services are running and verified. Chapter 30 documents the full architecture and corpus methodology.
+For rural developers, this means: **there is a real system you can point to**, with named services and ports, not just an idea on paper.
 
 ---
 
-## 00.6a Production Pipeline
+## 00.3 The AAPCAppE → Chroma → GBIM Path
 
-The full production request pipeline as of April 23, 2026:
+The Overview Gate emphasizes one critical data path: **how Appalachian language gets into Ms. Allis’s reasoning.**
 
-```
-User Request (HTTPS)
-  → Cloudflare Tunnel (UUID: 42ef9893-f4df-4cc5-8881-bb55b995e022)
-  → Caddy reverse proxy (port 8443 external / 8050 internal)
-  → Auth Service (port 8055) — token enforcement, unauthenticated /chat returns HTTP 401
-  → Unified Gateway (port 18018)
-  → Blood-Brain Barrier (port 8016) — safety filter, log+passthrough mode
-  → GBIM Query Router (port 7205) — routes to domain RAG services
-      ├── GIS RAG (port 8004)
-      ├── Spiritual RAG (port 8005)
-      ├── Local Resources RAG (port 8006)
-      ├── Psychological RAG (port 8019 / psychological_rag_domain)
-      ├── AAPCAppE RAG (port 8032)
-      ├── AAACPE RAG (port 8033)
-      └── Governance RAG (via Constitutional Guardian, port 8091)
-  → 20-LLM Production Service (port 8008)
-      → 22 LLM Proxies (ports 8201–8222)
-  → Judge Pipeline (ports 7230–7239)
-      ├── judge-truth (7230)
-      ├── judge-consistency (7231)
-      ├── judge-alignment (7232)
-      ├── judge-ethics (7233)
-      └── judge-pipeline (7239)
-  → LM Synthesizer (internal:8001)
-  → Response to User
-```
+### 00.3.1 AAPCAppE Scraper: What It Does
 
-All stages confirmed healthy on March 28, 2026 VERIFYANDTEST.sh run. Memory service endpoints (`/memory/sessions`, `/steg_report`, `/pia_window`) confirmed responding on port 8056 as of April 23, 2026. `/events` endpoint requires `event_type` field in POST body.
+- Service: `jarvis-aaacpe-scraper`  
+- Port: **8033**
 
----
+This scraper **does one job**:
 
-## 00.6b Memory Service Endpoint Map — Port 8056
+> Scrape the internet for **Appalachian linguistic information** and send that content into Chroma.
 
-Confirmed live and responding as of April 23, 2026:
+“Appalachian linguistic information” means documents, language, and resources **about Appalachia and its people**, not a random sample of the global web. This is how **P12 – Intelligence with a ZIP code** becomes real: the model’s knowledge is fed by **Appalachian‑focused corpus work**, not by generic scraping.
 
-| Endpoint | Method | Auth | Status | Notes |
-|---|---|---|---|---|
-| `/memory/sessions` | GET | Bearer | ✅ | Returns `userid: internal`, sessions: `anonymous`, `preflight` |
-| `/steg_report` | GET | Bearer | ✅ | `steg_trigger_count: 0`, 8 events scanned, 1440-min window |
-| `/pia_window` | GET | Bearer | ✅ | `recent_phase3_count: 0`, `recent_bbb_events: 0`, `last_event_at: null` |
-| `/events` | POST | Bearer | ✅ | Requires `event_type` field — returns 422 without it |
+### 00.3.2 Chroma: The Appalachian Corpus Store
 
-`pia_window` zeroed counters indicate Phase 3 BBB integration not yet exercised; will self-populate once `ms_allis_memory` seeding is complete. `steg_report` clean baseline — no anomalies.
+- Service: `jarvis-chroma`  
+- Port: **8002**
 
----
+Chroma is where the **Appalachian corpus is stored as vectors**.
 
-## 00.7 Service Count History
+In this gate:
 
-| Date | Services | Notable Addition / Change |
-|---|---|---|
-| Initial deployment | 79 | Core stack |
-| Pre-March 14, 2026 | 82 | Phase 1.45 community memory services added |
-| March 14, 2026 | 83 | `psychological-rag` (port 8006) promoted to production |
-| March 19, 2026 | 84 | Spatial infrastructure services finalized |
-| March 20, 2026 | 85 (reported) | `gbim_query_router` (port 7205) — landowner belief layer live |
-| March 21–22, 2026 | **83 (verified)** | 3 orphaned containers added to `docker-compose.yml`; verified compose count: 83 |
-| March 22, 2026 | **83 compose + 3 systemd** | Caddy, allis-auth, cloudflared as systemd; public URL live |
-| March 22–25, 2026 | **83 compose + 3 systemd** | Consciousness pipeline sprint — WOAH, bridge, rag-server patched and active |
-| March 26, 2026 | **56 confirmed (msallis-rebuild)** | RAG corpus completion sprint — all collections populated; EEG heartbeats confirmed; rebuild namespace active. **Note:** The discrepancy between 83–85 (prior namespace) and 56 (msallis-rebuild namespace) reflects a namespace rebuild/rename, not a reduction in services. The `msallis-rebuild` namespace is the authoritative production namespace. Full reconciliation pending §19.14 audit. |
-| March 27, 2026 | **96 confirmed (msallis-rebuild)** | MountainShares Phase 0 beta launch (5 contracts on Arbitrum One mainnet, chain 42161); AAPCAppE scraper + RAG activated (ports 8032, 8033); 13 NBB neurobiological containers confirmed; IPFS (kubo) confirmed; full `docker ps` count verified. |
-| March 28, 2026 | **96 confirmed (msallis-rebuild)** | Remediation sprint complete: port bindings corrected (0.0.0.0 → 127.0.0.1), `crypto_client.py` volume-mounted to all 22 proxies, StarCoder2 routing corrected to `llm7-proxy:8207`, psychological RAG restored to 968 docs, 19,338 duplicate `spiritual_rag` vectors removed. All CRIT/REM findings resolved. |
-| April 1, 2026 | **95 effective → 96 recovered (msallis-rebuild)** | Autonomous learner debug sprint: `allis-autonomous-learner` entered crash-loop after empty file (1.54 kB) deployed via failed patch attempt (LEARN-03). Effective running count briefly 95. Service recovered by patching source on host, copying into container, and restarting. Post-repair: 4 cycles completed, 4 items stored, 7 entanglement graph nodes, 0 gap failures. Full 96 container count restored. LEARN-01, LEARN-02, LEARN-03 all resolved. |
-| April 16, 2026 | **112 confirmed (msallis-rebuild)** | Thesis-verified container count. Full `docker ps` audit complete. |
-| April 23, 2026 | **100 point-in-time (msallis-rebuild)** | `postgis-forensic` exited (ExitCode 255 — ungraceful stop, not OOM or crash). `allis-gbim-temporal-indexer`, `allis-gbim-spatial-indexer`, `allis-gbim-benefit-indexer`, `msallisgis-recovery` all exited alongside. All 5 recovered via `docker start`. `allis-session-sidecar` confirmed down — gate threshold adjusted. `preflight_gate.sh` Check 31 syntax error (line 217 unexpected EOF) under active repair. `nbb_pituitary_gland` confirmed on both `qualia-net` and `msallis-rebuild_default` networks. EEG health checks added to `VERIFYANDTEST.sh` (ports 8073–8075). |
+- Chroma has a live **nanosecond heartbeat**;  
+- The corpus written by AAPCAppE is part of the **M_corpus** used in reasoning;  
+- This Chroma corpus is explicitly **shared with GBIM** as an input for spatial and belief reasoning.
+
+Think of Chroma as the **“Appalachian library shelves”** in vector form.
+
+### 00.3.3 Data Path in Plain Terms
+
+The gate summary gives the data path as:
+
+> AAPCAppE → Chroma → M_corpus → C_retrieved → S_sandbox(8042, bbb_enforced) → F_candidate → gate → GBIM
+
+For a rural operator, step‑by‑step:
+
+1. **AAPCAppE** pulls new Appalachian documents from the web.  
+2. **Chroma** stores those documents as vectors.  
+3. When Ms. Allis needs context, she builds **M_corpus** from Chroma.  
+4. From M_corpus she pulls a specific **C_retrieved** set for the current question.  
+5. That context goes into **S_sandbox** at **port 8042**, which is **BBB‑enforced**.  
+6. The sandbox reasoning produces **F_candidate** — candidate beliefs or updates.  
+7. These candidates must pass through a **gate** (BBB / governed logic).  
+8. Only then can they influence **GBIM**.
+
+The thesis overview must present this path as the **live, as‑built pipeline** for Appalachian intelligence.
 
 ---
 
-## 00.8 System Health Snapshot — April 23, 2026
+## 00.4 GBIM Promotion as a Governed Contract
 
-| Metric | Value | Verified |
-|---|---|---|
-| **Total containers (msallis-rebuild namespace)** | **112 thesis-verified (April 16, 2026) / 100 point-in-time (April 23, 2026)** | **April 23, 2026** |
-| External systemd services | **3** (Caddy, allis-auth, cloudflared) | March 22, 2026 |
-| Public HTTPS URL | **https://egeria.mountainshares.us** | March 28, 2026 |
-| Pipeline speed (single-user, GPU) | **~100–107s** | March 22, 2026 |
-| LLM models contributing | **22/22** | March 28, 2026 |
-| `crypto_client.py` import errors | **0** | March 28, 2026 — remediation |
-| StarCoder2 routing | **llm7-proxy:8207 (corrected from llm3-proxy:8203)** | March 28, 2026 — remediation |
-| Port 0.0.0.0 exposures | **0** | March 28, 2026 — remediation |
-| `minds_participated` | **21/21** | March 28, 2026 |
-| EEG eeg-delta | 1 pulse confirmed — 30s cadence | March 26, 2026 |
-| EEG eeg-theta | 486 pulses confirmed — 60s cadence | March 26, 2026 (last confirmed) |
-| EEG eeg-beta | 1 pulse confirmed — 5-min, topic: Appalachian | March 26, 2026 |
-| EEG health endpoints | **ports 8073–8075 added to VERIFYANDTEST.sh** | April 23, 2026 |
-| `governance_rag` | 643 chunks | March 26, 2026 — OI-19 CLOSED |
-| `commons_rag` | 306 chunks | March 26, 2026 — OI-20 CLOSED |
-| `aaacpe_corpus` | 65 docs, 39 sources | March 27, 2026 — Active |
-| `geospatialfeatures` | 60,000 items | March 26, 2026 — OI-12 CLOSED |
-| `GBIM_Fayette_sample` | 1,535 items | March 26, 2026 — OI-13 CLOSED |
-| `appalachian_cultural_intelligence` | 820 items | March 26, 2026 — OI-14 CLOSED |
-| `spiritual_rag` | Deduplicated — 19,338 duplicates removed | March 28, 2026 — remediation |
-| `psychological_rag` | **968 documents — restored** | March 28, 2026 — remediation |
-| ChromaDB total vectors | **~6.74 million across 48 active collections (mixed L2/cosine)** | April 17, 2026 |
-| GBIM beliefs | **`gbim_worldview_entities` + `gbim_beliefs_v2`** | April 23, 2026 |
-| — of which: landowner beliefs | **20,593** | March 20, 2026 |
-| `autonomous_learner` items (historical) | **21,181** | March 20, 2026 — last stable pre-crash state |
-| `autonomous_learning` collection (post-fix) | **57 items in ChromaDB — 4 new cycles completed** | April 1, 2026 |
-| `autonomous_learner` dedup gate | **Running — 0 duplicates encountered post-fix** | April 1, 2026 |
-| `autonomous_learner` entanglement graph | **7 nodes — 0 gap failures** | April 1, 2026 |
-| `msallis_docs` items | **4,192** | March 28, 2026 |
-| Embedding model | **all-minilm:latest (384-dim, mixed L2/cosine)** | Confirmed |
-| Chunk constraint | **100 words max, 20-word overlap** | March 26, 2026 |
-| ChromaDB API version | **v2 active — v1 returns 410** | March 25, 2026 |
-| Consciousness pipeline | **ACTIVE** | March 25, 2026 |
-| Judge pipeline | **5/5 healthy, all signing keys present** | March 28, 2026 |
-| MountainShares services (8080–8084) | **✅ DEPLOYED — all 4 services live — Phase 0 beta live** | March 26–27, 2026 |
-| MountainShares blockchain | **Arbitrum One — chain ID 42161** | March 27, 2026 |
-| Smart contracts on-chain | **5 (phase_mgmt, central_cmd, ms_token, backbone, volunteer_hrs)** | March 27, 2026 |
-| BBB output filter mode | **log+passthrough** (not blocking) | March 22, 2026 |
-| Cloudflare Tunnel UUID | **42ef9893-f4df-4cc5-8881-bb55b995e022** | March 22, 2026 |
-| Rebuild namespace | **msallis-rebuild** | March 26, 2026 |
-| IPFS node | **✅ Live — ipfs/kubo:latest, port 5001** | March 27, 2026 |
-| `nbb_pituitary_gland` networks | **✅ Both qualia-net and msallis-rebuild_default — IP 172.19.0.7 / 172.18.0.58** | April 23, 2026 |
-| `allis-memory` `/steg_report` | **✅ Responding — 0 triggers, 8 events, clean baseline** | April 23, 2026 |
-| `allis-memory` `/pia_window` | **✅ Responding — phase3 counters at 0 (awaiting ms_allis_memory seed)** | April 23, 2026 |
-| `allis-memory` `/memory/sessions` | **✅ Responding — sessions: anonymous, preflight** | April 23, 2026 |
-| `allis-hippocampus` | **⚠️ No mapped ports — internal only; ms_allis_memory seeding status unknown** | April 23, 2026 |
-| `ms_allis_memory` collection | **⚠️ Seeding status unknown — seed scripts located, seeding not confirmed** | April 23, 2026 |
-| `mvw_gbim_landowner_spatial` | **✅ OI-E CLOSED — 38,979 rows in msallis-db. Not present in postgis-forensic.** | April 23, 2026 |
-| `VERIFYANDTEST.sh` line 190 | **⚠️ Syntax error — script infrastructure open** | March 28, 2026 |
-| `preflight_gate.sh` line 217 | **⚠️ Unexpected EOF — Check 31 multi-line heredoc escape issue under active repair** | April 23, 2026 |
-| `allis-session-sidecar` | **⚠️ Down — restart attempted, did not recover; non-critical** | April 23, 2026 |
-| **Production DB** | **msallis-db — 16 GB / 294 tables / 11 schemas** | April 23, 2026 |
-| **Forensic DB** | **postgis-forensic — 17 GB / 314 tables / 9 schemas** | April 23, 2026 |
+Under this gate, **GBIM is not a simple “write a pointer” operation**. Updating which GBIM collection is active is a **governed contract** with three parts:
+
+1. **BEFORE Trigger on `gbim_active_collection`**  
+   - Any attempt to change the active GBIM collection fires a trigger **before** the change is applied.
+
+2. **Coherence Evaluator (`coherence_ok`)**  
+   - Each GBIM manifest has a **coherence flag**.  
+   - Only manifests with `coherence_ok == true` are even eligible for activation.
+
+3. **Promotion Procedure (`promote_gbim_collection`)**  
+   - A stored procedure performs the actual promotion.  
+   - It checks `coherence_ok`, enforces rules, and then updates `gbim_active_collection`.
+
+In plain speech:
+
+> “To change what GBIM believes is ‘the active worldview,’ the system must pass a **trigger**, a **coherence check**, and a **promotion procedure**. There is no hidden shortcut.”
+
+This is one of the **main examples** of governed state in the thesis and is required content for the overview.
 
 ---
 
-## 00.9 Sprint Progress Log
+## 00.5 Chapter Closure Index and Gate Logic
 
-| Sprint | Dates | Items Closed | Status |
-|---|---|---|---|
-| Landowner belief sprint | March 20, 2026 | `gbim_query_router` promoted; 20,593 landowner beliefs ingested | ✅ Complete |
-| Red team hardening sprint | March 21–22, 2026 | Orphaned containers added to compose; systemd services deployed; public URL live; first public end-to-end test PASS | ✅ Complete |
-| Consciousness pipeline restoration sprint | March 22–25, 2026 | WOAH fixed; Chroma v2 migration; RAG server corrected; gateway crash guard; end-to-end chat ACTIVE | ✅ Complete |
-| RAG corpus completion sprint | March 26, 2026 | OI-12 through OI-20 closed; all RAG collections fully populated; EEG heartbeats confirmed; semantic retrieval smoke-tested; US Constitution ingested (97 chunks); `msallis-rebuild` confirmed | ✅ Complete |
-| MountainShares Phase 0 beta launch | March 26–27, 2026 | All 4 MountainShares/DAO services (8080–8084) deployed and healthy; five smart contracts deployed to Arbitrum One mainnet (chain ID 42161); `governance_rag` (643 chunks) and `commons_rag` (306 chunks) confirmed as live corpus backing | ✅ Complete |
-| AAPCAppE corpus activation sprint | March 27, 2026 | `allis-aaacpe-scraper` (port 8033) and `allis-aaacpe-rag` (port 8032) activated; 39 sources; 65 documents ingested; RAG search verified; Chapter 30 upgraded to Active; 96 containers confirmed | ✅ Complete |
-| Remediation sprint | March 28, 2026 | Port bindings corrected (8015, 8056 → 127.0.0.1); `crypto_client.py` mounted to all 22 proxies; StarCoder2 routing corrected; `psychological_rag` restored to 968 docs; 19,338 duplicate vectors removed; CRIT-CRYPTO, REM-06, REM-09, REM-13, REM-16 all closed | ✅ Complete |
-| Autonomous learner debug sprint | April 1, 2026 | LEARN-01: `cosine_similarity` numpy dtype bug fixed; LEARN-02: GBIM Query Router 422 schema mismatch resolved — `/route` returning HTTP 200 OK; LEARN-03: learner crash-loop resolved; `ms_allis_rag_server.py` and `ms_allis_autonomous_learner_optimized.py` synced to `services-safe`; 4 post-fix cycles confirmed, 4 items stored, 7 entanglement graph nodes, 0 gap failures, `autonomous_learning` collection at 57 items | ✅ Complete |
-| Thesis container audit | April 16, 2026 | Full `docker ps` audit — 112 containers confirmed live in `msallis-rebuild` namespace; thesis-verified baseline established | ✅ Complete |
-| Infrastructure recovery sprint | April 23, 2026 | `postgis-forensic` recovered (ExitCode 255 — ungraceful stop); `allis-gbim-temporal-indexer`, `allis-gbim-spatial-indexer`, `allis-gbim-benefit-indexer`, `msallisgis-recovery` all restarted and Up; `nbb_pituitary_gland` dual-network confirmed; `VERIFYANDTEST.sh` EEG block updated to live health checks (ports 8073–8075); OI-E CLOSED (`mvw_gbim_landowner_spatial` — 38,979 rows confirmed); all 4 MountainShares services confirmed live | ✅ Complete |
+The **chapter_closure_index.md** file is the **official record** of which chapters are:
 
----
+- `CLOSED` (fully sealed under their gate), or  
+- `CLOSED_FOR_REWRITE` (sealed, but awaiting updated text like this).
 
-## 00.10 Open Items — April 23, 2026
+The Overview Documents Gate confirms:
 
-| Item | Description | Priority | Chapter |
-|---|---|---|---|
-| Item 22 | `preflight_gate.sh` line 217 — unexpected EOF in Check 31 HIGH_DECAY block; multi-line heredoc backslash escape issue; active repair | HIGH | Ch. 41 |
-| Item 23 | `VERIFYANDTEST.sh` line 190 — syntax error; script does not complete regression baseline | MEDIUM | Ch. 41 |
-| Item 24 | `ms_allis_memory` collection seeding — seed scripts located (`seed_chromadb.py`, `seed_v2.py`, `seed_identity.py`); seeding not confirmed; `allis-hippocampus` internal-only (no mapped ports) | MEDIUM | Ch. 14, 22 |
-| Item 25 | `allis-session-sidecar` — confirmed down; restart failed; non-critical; root cause unknown | LOW | Ch. 19 |
-| Item 26 | `pia_window` phase 3 counters at 0 — will self-populate once `ms_allis_memory` seeding is confirmed complete | PENDING Item 24 | Ch. 29 |
+- **46 primary chapters** plus **Appendix A** are all under gates (no open chapters).  
+- `closed_chapter_count: 46`, `open_chapter_count: 0`.  
+- Both `00-thesis-overview` and `00-overview` are **CLOSED_FOR_REWRITE**, with this gate as their controlling report.
+
+The gate logic reads:
+
+> “All primary chapters and Appendix A must be CLOSED or CLOSED_FOR_REWRITE before overview docs gate.”
+
+That means the Chapter 00 files are **designed to gate last**, after the rest of the system has been pulled into governed state. This document must **point readers to `chapter_closure_index.md`** as the evidence of that closure.
 
 ---
 
-*Last updated: April 23, 2026 — Carrie Kidd (Mamma Kidd), Mount Hope, WV*
-*Public URL: https://egeria.mountainshares.us*
-*Rebuild namespace: msallis-rebuild — 112 containers (April 16, 2026 thesis-verified) / 100 point-in-time (April 23, 2026)*
-*MountainShares Phase 0 beta: LIVE — Arbitrum One (chain 42161), 5 contracts on-chain, all 4 services deployed*
-*All critical audit findings: RESOLVED — March 28, 2026*
-*All open items as of April 23, 2026: resolved or tracked above*
+## 00.6 Live Services and Ports (July 2026 Snapshot)
+
+The gate records the following services as **live and confirmed** for this overview:
+
+- `ms-allis-internal-sandbox:8042`  
+  - `bbb_enforced = true`, version `1.2.0`.
+
+- `jarvis-wv-entangled-gateway:8010`  
+  - Part of the live gateway & safeguard path.
+
+- `jarvis-blood-brain-barrier:8016`  
+  - Core BBB safety layer.
+
+- `jarvis-consciousness-bridge:8107`  
+  - Consciousness bridge service.
+
+- `jarvis-brain-orchestrator:17260`  
+  - High‑level orchestration.
+
+- `nbb_pituitary_gland:8108`  
+  - System‑wide mode and state regulator.
+
+- EEG services:  
+  - `jarvis-eeg-beta:8075`  
+  - `jarvis-eeg-theta:8074`  
+  - `jarvis-eeg-delta:8073`
+
+- DGM stack:  
+  - `nbb_darwin_godel_machines:8302`  
+  - `jarvis-fifth-dgm:4002`  
+  - `qualia-orchestrator-69dgm-real:9998` (69‑DGM Cascade).
+
+- Spatial and memory:  
+  - `jarvis-spatial-sandbox:8056` (redis connected)  
+  - `jarvis-redis:6380` (healthy).
+
+- Corpus:  
+  - `jarvis-aaacpe-scraper:8033`  
+  - `jarvis-chroma:8002` (healthy)  
+  - `jarvis-chroma-tls:8443`.
+
+For a rural developer or operator, this is the **port checklist**: if you can see these services, you are looking at the same system the thesis describes.
+
+---
+
+## 00.7 How the Overview Fits the Chapters
+
+The gate enumerates a **complete chapter list** (01–52 plus Appendix A). In simple terms:
+
+- Chapters **01–03**: Quantarithmia, GBIM, MountainShares DAO.  
+- 04/44–18: Hilbert/Phi, Chroma, neurobiological metaphor, qualia, BBB, etc.  
+- 19–31: containers, operations, web research, AAPCAppE, MountainShares infrastructure.  
+- 32–40: DGMs, LLM ensemble, swarm, spiritual root, constitutional service, audit.  
+- 41–52: test harness, post‑quantum, H_geo, Hilbert people space, temporal axis, per‑user direct sum, community commons, recurrent loops.  
+- Appendix A: governed‑state mathematics.
+
+The **Overview Documents** (this file, `00-thesis-overview`, `00-A Read_Me`) sit above this stack and are restricted by the gate to:
+
+- talk about **live, probed mechanisms**;  
+- avoid saying any chapter is **fully rewritten** (they are all `CLOSED_FOR_REWRITE` until their own gates are satisfied);  
+- refer readers back to the **closure index** when making claims about chapter status.
+
+---
+
+## 00.8 Principles P1, P3, P5, P12, P16 — Concrete Links
+
+The gate requires that this overview tie the core Polymathmatic Geography principles to **real architecture**, not abstractions:
+
+- **P1 – Every where is entangled**  
+  - Shown by the **AAPCAppE → Chroma → GBIM** pipeline: language, geography, and belief are handled together, not separately.
+
+- **P3 – Power has a geometry**  
+  - Shown by GBIM and H_geo (in other chapters) and by how services like `jarvis-wv-entangled-gateway` and `jarvis-spatial-sandbox` connect data to **real places**.
+
+- **P5 – Design is a geographic act**  
+  - Shown by per‑place corpus design (AAPCAppE), spatial sandbox, and the use of GBIM as a **governed state layer**, not just a database.
+
+- **P12 – Intelligence with a ZIP code**  
+  - Explicitly grounded in **AAPCAppE’s Appalachian focus** and the use of Chroma as an **Appalachian linguistic corpus store** shared with GBIM.
+
+- **P16 – Power accountable to place**  
+  - Shown by **GBIM promotion contracts**, BBB safety enforcement, DGM `full_verification` mode, and the way chapter gates are tied to concrete services and ports.
+
+This chapter is required to **say exactly that**: these principles are backed by the **specific mechanisms** listed in the gate, not by general aspirations.
+
+---
+
+## 00.9 What This Overview Must Not Claim
+
+To stay inside the gate:
+
+- It must **not** say AAPCAppE is a general‑purpose scraper; it is **Appalachian‑specific**.  
+- It must **not** say that “corpus retrieval equals direct action” — there is always a **gate** between candidates and GBIM.  
+- It must **not** claim any chapter is fully rewritten; all are **CLOSED_FOR_REWRITE** until their own rewrites are completed.  
+- It must **not** present the system as speculative; it must stick to **demonstrated evidence**.  
+- It must **not** treat GBIM as an unguided, bare pointer write.
+
+If a rural operator reads only this chapter, the idea should be:
+
+> “This is a real Appalachian‑grounded AI system, with its own ports and safety checks, and every big claim has a named chapter and a gate behind it.”
+
+---
+
+## 00.10 Closing Note for Rural Operators
+
+From a command line in Mount Hope or Oak Hill, the practical path is:
+
+1. Check that the **live services and ports** listed here respond.  
+2. Open `chapter_closure_index.md` to see which chapters are sealed under which gates.  
+3. Use `00-thesis-overview.md` to choose the chapters that match your role (developer, policy maker, community member).  
+4. Remember that **AAPCAppE, Chroma, GBIM promotion, and BBB** are the core paths this overview is allowed to claim — everything else should trace back to them.
+
+Ms. Allis, as presented here, is **architecturally constrained by Appalachian reality**, not a free‑floating general AI. This chapter’s job is to make that constraint visible and navigable.
