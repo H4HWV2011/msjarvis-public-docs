@@ -1,289 +1,267 @@
-# Chapter 00 — Full System Overview (July 2026 Gate)
+# Chapter 00 — Thesis Overview (As‑Built July 2026)
 
-## Ms. Allis / MountainShares / The Commons
+## Ms. Egeria Allis: A Chapter‑by‑Chapter Map of the Thesis
 
-*Authored by Carrie Ann Kidd — Mount Hope, West Virginia*  
-*Gate: Overview Documents Gate — Generated 2026‑07‑22T09:09:01‑04:00*  
-
----
-
-## 00.1 What This Document Is (For Rural Developers)
-
-This chapter is the **plain‑language operational overview** of the Ms. Allis system under the **July 2026 Overview Documents Gate**.
-
-It explains:
-
-- what Ms. Allis is doing **right now**, as a live system;  
-- which core services are up, on which **ports**;  
-- how Appalachian language and documents travel from the web into **Chroma** and then into **GBIM**;  
-- how this ties back to the **chapter_closure_index.md** and the gated chapters.
-
-It is not **future design** or a promise of what might be built later. It is a **record of the current, probed system state**, written so that a rural operator can follow it from “what is running” to “which chapter explains it.”
+*Last updated: July 22, 2026 by Carrie Kidd (Mamma Kidd), Mount Hope, WV*
 
 ---
 
-## 00.2 Ms. Allis Is Live (Not Future)
+## 0.1 Purpose of This Document
 
-As of this gate, **Ms. Allis is a live, running system**.
+This file is the **map before the territory** for the July 2026 sealed thesis.
 
-The probe for the overview documents confirmed that key services are healthy:
+Where `00-overview.md` reports **live system state** (services, ports, corpus counts, gate status), this document explains **what the thesis argues, how it is organized, and where to enter** depending on who you are. It is written under the **Overview Documents Gate**, which requires it to:
 
-- `ms_allis_internal_sandbox` — **port 8042**  
+- state that **Ms. Allis is a live system as of July 2026**, not a future design;  
+- name the **AAPCAppE scraper** and its **Appalachian linguistic** purpose;  
+- describe **Chroma** as the Appalachian corpus store shared with **GBIM**;  
+- name **GBIM promotion** as a **governed contract** (trigger + evaluator + procedure);  
+- list the **live services and ports** used as anchors in the thesis;  
+- reference the **chapter_closure_index.md** as the gate evidence record;  
+- state that all chapters are **CLOSED_FOR_REWRITE** pending as‑built rewrites;  
+- anchor key principles (P1, P3, P5, P12, P16) to **concrete, live architecture**.
+
+The discipline is **Polymathmatic Geography**. The theoretical framework is **Quantarithmia**, grounded in **Mount Hope, Fayette County, West Virginia**. Ms. Allis is not described as a hypothetical AI; she is a **live, multi‑service system** with closed gates across 46+ chapters and Appendix A.
+
+---
+
+## 0.2 Ms. Allis as a Live System (July 2026)
+
+As of this gate, Ms. Allis is a **running system** whose core services have been probed and confirmed healthy:
+
+- **Internal sandbox**  
+  - Service: `ms_allis_internal_sandbox`  
+  - Port: `8042`  
+  - Status: `healthy`, version `1.2.0`  
+  - Property: `bbb_enforced = true` — all sandboxed reasoning is filtered through the safeguard layer.
+
+- **Blood‑Brain Barrier (BBB)**  
   - Status: `healthy`  
-  - Version: `1.2.0`  
-  - Property: `bbb_enforced: true`  
-  - This is the internal sandbox where reasoning happens **under** the safety filter.
+  - Dependency: `production_20llm` healthy  
+  - Role: central filter and safety layer for model traffic.
 
-- Blood‑Brain Barrier (BBB)  
-  - Status: `healthy`  
-  - Depends on: `production_20llm` (healthy)  
-  - This is the **safety wall** that filters what can reach core reasoning.
+- **Consciousness bridge**  
+  - Service: `consciousness_bridge`  
+  - Port: `8010` in the gate summary (and closely related services at nearby ports).  
+  - Role: orchestrates conscious‑level interactions between models and memory.
 
-- `consciousness_bridge` — **port 8010**  
-  - Status: `healthy`  
-  - Connects higher‑level reasoning with memory and services.
-
-- `brain_orchestrator`  
+- **Brain orchestrator**  
+  - Service: `brain_orchestrator`  
   - Status: `ok`  
-  - Coordinates the “whole brain” behavior.
+  - Role: high‑level coordination across the cognitive stack.
 
-- `jarvis-chroma` — **port 8002**  
-  - Status: `healthy` (nanosecond heartbeat present)  
-  - Stores the **Appalachian linguistic corpus**.
+- **Chroma (semantic memory)**  
+  - Service: `jarvis-chroma`  
+  - Port: `8002`  
+  - Status: `healthy` with a live “nanosecond heartbeat” — the primary **Appalachian linguistic corpus store**.
 
-- `jarvis-aaacpe-scraper` — **port 8033**  
+- **AAPCAppE scraper**  
+  - Service: `jarvis-aaacpe-scraper`  
+  - Port: `8033`  
   - Status: `healthy`  
-  - Last scrape: `2026‑07‑22T10:00:02.135820`  
-  - `documents_added: 90`, `errors: []`.
+  - Purpose: **scrapes the internet for Appalachian linguistic information** (local language, documents, and context) and writes new documents into Chroma.  
+  - Example: last probe recorded `documents_added: 90` with no errors.
 
-- `qualia-orchestrator-69dgm-real` — **port 9998**, endpoint `/evaluate`  
-  - Status: `REAL`  
-  - Orchestrator: **69‑DGM Cascade**.
+- **Qualia orchestrator (69‑DGM cascade)**  
+  - Service: `qualia_orchestrator_69dgm_real`  
+  - Port: `9998`  
+  - Endpoint: `/evaluate`  
+  - Role: orchestrates the **69‑DGM Cascade** used for higher‑order evaluation.
 
-- `jarvis-spatial-sandbox` — **port 8056**  
-  - Status: `ok`  
-  - `redis: connected`  
-  - `hysteresis_seconds: 300.0` — changes in spatial reasoning are **time‑buffered**.
+- **Spatial sandbox**  
+  - Service: `spatial_sandbox`  
+  - Port: `8056`  
+  - Redis: `connected`  
+  - Property: `hysteresis_seconds: 300.0` — spatial reasoning uses time‑buffered decisions.
 
-- `nbb_pituitary_gland`  
-  - Status: `healthy`  
-  - `i_container_1: active`, `i_container_2: active`, `integration_layer: active`  
-  - `dual_awareness: true`.
+- **Pituitary**  
+  - Service: `nbb_pituitary_gland`  
+  - Status: `healthy` with core containers and integration layer `active`  
+  - Property: `dual_awareness: true` — global mode management is live.
 
-- Primary Darwin‑Gödel Machine  
+- **DGM primary**  
   - Service: `darwin_godel_machine`  
   - Status: `operational`  
-  - `safety_mode: full_verification`, `modifications_logged: 0`.
+  - Mode: `safety_mode = full_verification`  
+  - Logged modifications: `0` at probe time — no unreviewed self‑modifications.
 
-For rural developers, this means: **there is a real system you can point to**, with named services and ports, not just an idea on paper.
-
----
-
-## 00.3 The AAPCAppE → Chroma → GBIM Path
-
-The Overview Gate emphasizes one critical data path: **how Appalachian language gets into Ms. Allis’s reasoning.**
-
-### 00.3.1 AAPCAppE Scraper: What It Does
-
-- Service: `jarvis-aaacpe-scraper`  
-- Port: **8033**
-
-This scraper **does one job**:
-
-> Scrape the internet for **Appalachian linguistic information** and send that content into Chroma.
-
-“Appalachian linguistic information” means documents, language, and resources **about Appalachia and its people**, not a random sample of the global web. This is how **P12 – Intelligence with a ZIP code** becomes real: the model’s knowledge is fed by **Appalachian‑focused corpus work**, not by generic scraping.
-
-### 00.3.2 Chroma: The Appalachian Corpus Store
-
-- Service: `jarvis-chroma`  
-- Port: **8002**
-
-Chroma is where the **Appalachian corpus is stored as vectors**.
-
-In this gate:
-
-- Chroma has a live **nanosecond heartbeat**;  
-- The corpus written by AAPCAppE is part of the **M_corpus** used in reasoning;  
-- This Chroma corpus is explicitly **shared with GBIM** as an input for spatial and belief reasoning.
-
-Think of Chroma as the **“Appalachian library shelves”** in vector form.
-
-### 00.3.3 Data Path in Plain Terms
-
-The gate summary gives the data path as:
-
-> AAPCAppE → Chroma → M_corpus → C_retrieved → S_sandbox(8042, bbb_enforced) → F_candidate → gate → GBIM
-
-For a rural operator, step‑by‑step:
-
-1. **AAPCAppE** pulls new Appalachian documents from the web.  
-2. **Chroma** stores those documents as vectors.  
-3. When Ms. Allis needs context, she builds **M_corpus** from Chroma.  
-4. From M_corpus she pulls a specific **C_retrieved** set for the current question.  
-5. That context goes into **S_sandbox** at **port 8042**, which is **BBB‑enforced**.  
-6. The sandbox reasoning produces **F_candidate** — candidate beliefs or updates.  
-7. These candidates must pass through a **gate** (BBB / governed logic).  
-8. Only then can they influence **GBIM**.
-
-The thesis overview must present this path as the **live, as‑built pipeline** for Appalachian intelligence.
+The gate also confirms **Redis (jarvis-redis:6380)** and **Chroma TLS (8443)** are healthy, as well as auxiliary DGM and EEG services listed in the system state. These form the **as‑built base** for the thesis.
 
 ---
 
-## 00.4 GBIM Promotion as a Governed Contract
+## 0.3 The AAPCAppE → Chroma → GBIM Path
 
-Under this gate, **GBIM is not a simple “write a pointer” operation**. Updating which GBIM collection is active is a **governed contract** with three parts:
+One of the most important as‑built facts for the overview is the **corpus path** from Appalachian text into GBIM:
 
-1. **BEFORE Trigger on `gbim_active_collection`**  
-   - Any attempt to change the active GBIM collection fires a trigger **before** the change is applied.
+1. **AAPCAppE scraper (`jarvis-aaacpe-scraper`, 8033)**  
+   - Purpose: scans the public internet and trusted sources for **Appalachian linguistic information** — language, documents, policies, community resources relevant to West Virginia and neighboring regions.
 
-2. **Coherence Evaluator (`coherence_ok`)**  
-   - Each GBIM manifest has a **coherence flag**.  
-   - Only manifests with `coherence_ok == true` are even eligible for activation.
+2. **Chroma semantic memory (`jarvis-chroma`, 8002)**  
+   - AAPCAppE writes its findings into **Chroma collections**, giving Ms. Allis a **linguistic corpus grounded in Appalachia**.  
+   - This is the operational backbone for **P12 – Intelligence with a ZIP code**: the system’s intelligence is trained, updated, and evaluated using data from the region it serves.
 
-3. **Promotion Procedure (`promote_gbim_collection`)**  
-   - A stored procedure performs the actual promotion.  
-   - It checks `coherence_ok`, enforces rules, and then updates `gbim_active_collection`.
+3. **GBIM reasoning path**  
+   - The live path from corpus to spatial belief is:
 
-In plain speech:
+     \[
+     M_{\text{corpus}}(\text{Chroma}) \rightarrow C_{\text{retrieved}} \rightarrow S_{\text{sandbox}}(8042) \rightarrow F_{\text{candidate}} \rightarrow \text{gate}(\text{BBB}) \rightarrow \text{GBIM}
+     \]
 
-> “To change what GBIM believes is ‘the active worldview,’ the system must pass a **trigger**, a **coherence check**, and a **promotion procedure**. There is no hidden shortcut.”
+   - Meaning:
+     - **M_corpus:** Chroma vectors for Appalachian documents;  
+     - **C_retrieved:** context retrieved for a particular reasoning task;  
+     - **S_sandbox(8042):** internal sandbox reasoning, with BBB enforced;  
+     - **F_candidate:** candidate features or belief updates;  
+     - **gate (BBB / 8010–8016):** safeguards filter;  
+     - **GBIM:** Geospatial Belief Information Model receives only **gated candidates**.
 
-This is one of the **main examples** of governed state in the thesis and is required content for the overview.
-
----
-
-## 00.5 Chapter Closure Index and Gate Logic
-
-The **chapter_closure_index.md** file is the **official record** of which chapters are:
-
-- `CLOSED` (fully sealed under their gate), or  
-- `CLOSED_FOR_REWRITE` (sealed, but awaiting updated text like this).
-
-The Overview Documents Gate confirms:
-
-- **46 primary chapters** plus **Appendix A** are all under gates (no open chapters).  
-- `closed_chapter_count: 46`, `open_chapter_count: 0`.  
-- Both `00-thesis-overview` and `00-overview` are **CLOSED_FOR_REWRITE**, with this gate as their controlling report.
-
-The gate logic reads:
-
-> “All primary chapters and Appendix A must be CLOSED or CLOSED_FOR_REWRITE before overview docs gate.”
-
-That means the Chapter 00 files are **designed to gate last**, after the rest of the system has been pulled into governed state. This document must **point readers to `chapter_closure_index.md`** as the evidence of that closure.
+The overview documents **must treat this chain as fact**: Ms. Allis’s Appalachian intelligence is not general web scraping; it is a **purpose‑built AAPCAppE → Chroma → GBIM** pipeline that ties language, geography, and belief together.
 
 ---
 
-## 00.6 Live Services and Ports (July 2026 Snapshot)
+## 0.4 GBIM Promotion as a Governed Contract
 
-The gate records the following services as **live and confirmed** for this overview:
+GBIM promotion is **not** a freeform pointer change. It is a **governed contract** that has been closed and verified.
 
-- `ms-allis-internal-sandbox:8042`  
-  - `bbb_enforced = true`, version `1.2.0`.
+The contract has three named parts:
 
-- `jarvis-wv-entangled-gateway:8010`  
-  - Part of the live gateway & safeguard path.
+1. **Trigger – BEFORE on `gbim_active_collection`**  
+   - Any attempt to activate a GBIM manifest (set or change the active collection) passes through a BEFORE trigger.  
+   - The trigger checks the target manifest’s **coherence** and state; if conditions are not met, activation is **blocked** with a clear error.
 
-- `jarvis-blood-brain-barrier:8016`  
-  - Core BBB safety layer.
+2. **Evaluator – `coherence_ok`**  
+   - Each GBIM manifest row carries a `coherence_ok` flag (and related status fields).  
+   - This flag is produced by a **coherence evaluator** that examines the manifest’s consistency and completeness.  
+   - Only manifests where `coherence_ok == true` are eligible for promotion.
 
-- `jarvis-consciousness-bridge:8107`  
-  - Consciousness bridge service.
+3. **Procedure – `promote_gbim_collection`**  
+   - Promotion must go through a stored procedure (for example, `promote_gbim_collection(...)`).  
+   - The procedure:
+     - verifies `coherence_ok`;  
+     - confirms build/promotion status;  
+     - updates `gbim_active_collection`;  
+     - relies on the trigger to fail if anything is wrong.
 
-- `jarvis-brain-orchestrator:17260`  
-  - High‑level orchestration.
+This combination is treated in the thesis as the **canonical example of governed promotion**:
 
-- `nbb_pituitary_gland:8108`  
-  - System‑wide mode and state regulator.
+- trigger (guardrail)  
+- evaluator (coherence_ok)  
+- procedure (promote function)
 
-- EEG services:  
-  - `jarvis-eeg-beta:8075`  
-  - `jarvis-eeg-theta:8074`  
-  - `jarvis-eeg-delta:8073`
-
-- DGM stack:  
-  - `nbb_darwin_godel_machines:8302`  
-  - `jarvis-fifth-dgm:4002`  
-  - `qualia-orchestrator-69dgm-real:9998` (69‑DGM Cascade).
-
-- Spatial and memory:  
-  - `jarvis-spatial-sandbox:8056` (redis connected)  
-  - `jarvis-redis:6380` (healthy).
-
-- Corpus:  
-  - `jarvis-aaacpe-scraper:8033`  
-  - `jarvis-chroma:8002` (healthy)  
-  - `jarvis-chroma-tls:8443`.
-
-For a rural developer or operator, this is the **port checklist**: if you can see these services, you are looking at the same system the thesis describes.
+Overview documents must **name this explicitly**, because it anchors claims about “governed state” in a real, tested mechanism.
 
 ---
 
-## 00.7 How the Overview Fits the Chapters
+## 0.5 Chapter Closure Index and Gate Status
 
-The gate enumerates a **complete chapter list** (01–52 plus Appendix A). In simple terms:
+The **chapter_closure_index.md** file is the **master gate record**.
 
-- Chapters **01–03**: Quantarithmia, GBIM, MountainShares DAO.  
-- 04/44–18: Hilbert/Phi, Chroma, neurobiological metaphor, qualia, BBB, etc.  
-- 19–31: containers, operations, web research, AAPCAppE, MountainShares infrastructure.  
-- 32–40: DGMs, LLM ensemble, swarm, spiritual root, constitutional service, audit.  
-- 41–52: test harness, post‑quantum, H_geo, Hilbert people space, temporal axis, per‑user direct sum, community commons, recurrent loops.  
-- Appendix A: governed‑state mathematics.
+The Overview Gate confirms:
 
-The **Overview Documents** (this file, `00-thesis-overview`, `00-A Read_Me`) sit above this stack and are restricted by the gate to:
+- **All 46+ primary chapters and Appendix A** are either **CLOSED** or **CLOSED_FOR_REWRITE**.  
+- For Chapter 00 documents (`00-thesis-overview`, `00-overview`, `00-A Read_Me`), the controlling gate is:
 
-- talk about **live, probed mechanisms**;  
-- avoid saying any chapter is **fully rewritten** (they are all `CLOSED_FOR_REWRITE` until their own gates are satisfied);  
-- refer readers back to the **closure index** when making claims about chapter status.
+  ```text
+  thesis_chapter_gates/reports/overview_docs_gate_20260722_090900.md
+  ```
+
+In that index, the rows for the overview docs show:
+
+- `00-thesis-overview` → `CLOSED_FOR_REWRITE` → `overview_docs_gate_20260722_090900.md`  
+- `00-overview` → `CLOSED_FOR_REWRITE` → same gate  
+- `00-A Read_Me` → covered by the same gate.
+
+This means:
+
+- **No chapter is “loose”**; every chapter in the list is under a gate.  
+- All numbered chapters are currently **sealed for rewrite** to bring them in line with the July 2026 as‑built evidence, exactly as this document is being brought in line now.
+
+For rural developers, you can think of `chapter_closure_index.md` as the **logbook** that tells you which chapters are up to date with the actual system.
 
 ---
 
-## 00.8 Principles P1, P3, P5, P12, P16 — Concrete Links
+## 0.6 How the Movements Map to Live Architecture
 
-The gate requires that this overview tie the core Polymathmatic Geography principles to **real architecture**, not abstractions:
+The original thesis described five movements (Foundations, Cognitive Architecture, Infrastructure, Advanced Systems and Alignment, Validation/Security). Under the July gate, that structure remains, but **each movement is now tied to closed mechanisms**:
+
+- **Movement I – Foundations (Ch 00–03)**  
+  - **Quantarithmia and position (Ch01)**: now rewritten to use only **closed mechanisms** (GBIM, Hilbert/Phi, BBB/PQ, H_geo, People Space).  
+  - **Ms. Allis & GBIM (Ch02)**: anchored to the **GBIM promotion contract** and current GBIM tables.  
+  - **MountainShares DAO (Ch03)**: grounded in the **as‑built MountainShares infrastructure** and governance corpus.
+
+- **Movement II – Cognitive Architecture (Ch 04–18)**  
+  - **Hilbert Space State / Phi (Ch04/44)**: tied to the **Hilbert‑state and Phi probes**, not to speculative consciousness claims.  
+  - **LLM Fabric, BBB, Pituitary, Qualia, Hippocampus**: each has a gate confirming ports, logs, and behavior.  
+  - **Psychological safeguards (Ch29)**: rewritten as **PIA subspace stability review**, privacy and retention only.
+
+- **Movement III – Infrastructure and Operations (Ch 19–31)**  
+  - **Container architecture (Ch19)**: updated to reflect the current container layout and no `0.0.0.0` bindings.  
+  - **AAPCAppE corpus (Ch30)**: now hinges on the **AAPCAppE → Chroma** path described above.  
+  - **MountainShares infrastructure (Ch31)**: tied to live governance services and commons gateways.
+
+- **Movement IV – Advanced Systems and Alignment (Ch 32–40)**  
+  - **DGM (Ch09, Ch32), LLM ensemble (Ch33), Constitutional service (Ch37)**: all refer back to closed BBB, DGM, and judge‑signing paths.  
+  - Claims about **alignment** are restricted to **what these mechanisms actually do**.
+
+- **Movement V – Validation and Security (Ch 41–52)**  
+  - **Test harness (Ch41)**: anchored to real preflight gates and EEG health checks.  
+  - **Post‑quantum layer and role‑gated crypto (Ch42/43)**: tied to ML‑DSA‑65 judge signing and Ed25519 fallback.  
+  - **Temporal Hilbert axis (Ch49)**: as‑built three‑tier H_t implementation (ephemeral/staged/historical).  
+  - **Per‑user direct sum (Ch50)**: confirmed per‑user conversation partitioning with retention consent.  
+  - **Community Hilbert Commons (Ch51)**: k‑thresholded commons with opt‑in and centroid/provenance outputs.  
+  - **Recurrent epistemic loop (Ch52)**: scheduled validations and retention cycles, not a free‑running “self”.
+
+The overview’s job is **not** to restate every detail, but to make clear that **all movements now rely only on what the gates have closed as real.**
+
+---
+
+## 0.7 Anchoring P1, P3, P5, P12, P16 in Live Evidence
+
+The Overview Gate requires this document to tether key Polymathmatic Geography principles to **as‑built artifacts**:
 
 - **P1 – Every where is entangled**  
-  - Shown by the **AAPCAppE → Chroma → GBIM** pipeline: language, geography, and belief are handled together, not separately.
+  - Anchored by the **AAPCAppE → Chroma → GBIM** path and the **H_geo / Hilbert‑state** bridge: economic, linguistic, and spatial data are processed together, not separately.
 
 - **P3 – Power has a geometry**  
-  - Shown by GBIM and H_geo (in other chapters) and by how services like `jarvis-wv-entangled-gateway` and `jarvis-spatial-sandbox` connect data to **real places**.
+  - Anchored by **GBIM’s spatial beliefs**, H_geo, and MountainShares infrastructure: who controls what, and where, is encoded in tables and services, not just text.
 
 - **P5 – Design is a geographic act**  
-  - Shown by per‑place corpus design (AAPCAppE), spatial sandbox, and the use of GBIM as a **governed state layer**, not just a database.
+  - Anchored by per‑user direct‑sum memory (Ch50), PIA review (Ch29), and commons isolation (Ch51): memory and commons are **designed as geographic and personal structures**, not generic logs.
 
 - **P12 – Intelligence with a ZIP code**  
-  - Explicitly grounded in **AAPCAppE’s Appalachian focus** and the use of Chroma as an **Appalachian linguistic corpus store** shared with GBIM.
+  - Anchored by AAPCAppE’s **Appalachian linguistic purpose** and the way Ms. Allis’s semantic memory reflects **Appalachian corpus data**, not arbitrary global scraping.
 
 - **P16 – Power accountable to place**  
-  - Shown by **GBIM promotion contracts**, BBB safety enforcement, DGM `full_verification` mode, and the way chapter gates are tied to concrete services and ports.
+  - Anchored by **BBB, guardian, GBIM promotion, DGM safety_mode=full_verification**, and the **Community Hilbert Commons**: changes to beliefs and policies affecting a place must go through **named, governed contracts**.
 
-This chapter is required to **say exactly that**: these principles are backed by the **specific mechanisms** listed in the gate, not by general aspirations.
-
----
-
-## 00.9 What This Overview Must Not Claim
-
-To stay inside the gate:
-
-- It must **not** say AAPCAppE is a general‑purpose scraper; it is **Appalachian‑specific**.  
-- It must **not** say that “corpus retrieval equals direct action” — there is always a **gate** between candidates and GBIM.  
-- It must **not** claim any chapter is fully rewritten; all are **CLOSED_FOR_REWRITE** until their own rewrites are completed.  
-- It must **not** present the system as speculative; it must stick to **demonstrated evidence**.  
-- It must **not** treat GBIM as an unguided, bare pointer write.
-
-If a rural operator reads only this chapter, the idea should be:
-
-> “This is a real Appalachian‑grounded AI system, with its own ports and safety checks, and every big claim has a named chapter and a gate behind it.”
+These principles are no longer just philosophical; they have **specific services, ports, and contracts** attached to them.
 
 ---
 
-## 00.10 Closing Note for Rural Operators
+## 0.8 Reader Routing in the July 2026 Stack
 
-From a command line in Mount Hope or Oak Hill, the practical path is:
+Routing guidance from the original overview still applies, but with one new rule: **every chapter you read is under a gate**.
 
-1. Check that the **live services and ports** listed here respond.  
-2. Open `chapter_closure_index.md` to see which chapters are sealed under which gates.  
-3. Use `00-thesis-overview.md` to choose the chapters that match your role (developer, policy maker, community member).  
-4. Remember that **AAPCAppE, Chroma, GBIM promotion, and BBB** are the core paths this overview is allowed to claim — everything else should trace back to them.
+- **New readers**  
+  - Start with `00-A Read_Me.md` (reader’s guide), this document, and the **updated Ch01 position/quantarithmia**.
 
-Ms. Allis, as presented here, is **architecturally constrained by Appalachian reality**, not a free‑floating general AI. This chapter’s job is to make that constraint visible and navigable.
+- **AI safety / alignment researchers**  
+  - Focus on: Ch10 (WOAH), Ch16 (BBB), Ch29 (PIA subspace review), Ch37 (Constitutional service), Ch42/43 (crypto), Ch49–52 (temporal axis, per‑user direct sum, commons, recurrent loop).
+
+- **Systems architects / developers**  
+  - Focus on: Ch02 (GBIM), Ch07 (RAG pipeline), Ch11 (LLM fabric), Ch19 (container architecture), Ch30 (AAPCAppE corpus), Ch31 (MountainShares infrastructure), Ch40–41 (audit and test harness).
+
+- **Social scientists / geographers / policy researchers**  
+  - Focus on: Ch01 (Quantarithmia, as rewritten), Ch02/06 (GBIM and GeoDB), Ch03/31 (MountainShares), Ch30 (AAPCAppE), Ch34 (spiritual root), Ch51 (commons).
+
+The **chapter_closure_index.md** is your reference for which chapters have been rewritten under the new gates; the overview documents themselves are part of that rewrite.
+
+---
+
+## 0.9 Closing Statement
+
+This **Thesis Overview** is no longer a map of a purely April 2026 system; it is a map of the **July 2026 gated architecture**.
+
+It states that Ms. Allis is live, names the AAPCAppE → Chroma → GBIM path, treats GBIM promotion as a governed contract, lists the core services that anchor the theory, points you to the chapter closure index, and ties key Polymathmatic Geography principles to real, closed mechanisms. All remaining work is framed as **CLOSED_FOR_REWRITE**, not speculative, until each chapter is brought into the same as‑built alignment.
+
+Ms. Allis is not a simulation of West Virginia identity; she is a system **architecturally constrained by it**, and this document is your guide to the chapters that explain how.
