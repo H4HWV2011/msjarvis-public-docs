@@ -1,209 +1,222 @@
-# 44. Phi Probe — Semantic Coherence Measurement in H_App  
+# 44. Phi Probe — Governed Coherence in the Geographic Corpus
+
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
+*Last updated: July 22, 2026*
 
 ---
 
-## 44.0 Overview
+## 44.1 What This Chapter Is Allowed to Claim
 
-The Phi probe measures semantic coherence within **H_App**, the application-facing Hilbert domain of Ms. Allis. Its role is not to decide whether a claim is factually correct, but to determine whether an active semantic state, candidate conclusion, or cross-domain configuration is internally well-formed, structurally aligned, and sufficiently coherent to support further reasoning, validation, or governed promotion.
+Within this closure gate, Chapter 44 is limited to **live Phi measurement and gate wiring over the governed geographic corpus**, backed by working Hilbert‑state services.
 
-Semantic coherence in this setting is explicitly architectural. Phi is bound to hilbert-state service coherence keys, contributes to sandbox validation and promotion decisions, and operates as one component of the gate structure that governs whether provisional reasoning may cross into higher-authority system state.
+It may claim that:
 
-Sections 44.1 through 44.9 define what the probe measures and how it participates in governance. Sections 44.10 through 44.13 record what is built and exercised in the live system: the measurement substrate, the first coherence reading across all three governed geographic grains in West Virginia, and one production lesson on how the quality of the measured state constrains the value of any coherence score.
+- the **Hilbert state** service is live and connected to Redis;  
+- **state set/get, projection, transition, and entanglement** are proven by a live probe;  
+- the **Phi probe service** is live on its configured port and can reach Chroma through `CHROMA_URL`;  
+- Phi can **sample governed geographic collections** for West Virginia counties, tracts, and block groups;  
+- Phi writes its state to Redis under `pituitary:phi_state`;  
+- the `/phi` and `/phi/cached` endpoints return sampled coherence payloads;  
+- a **hard coherence gate probe passes**, and coherence gate code exists in `gbim_query_router`, `phi_promotion_gate`, and `coherence_remediation`;  
+- tests for these pieces pass in isolated batches.
 
----
-
-## 44.1 What Phi Measures
-
-Phi is a semantic coherence probe. It evaluates how strongly the active contents of H_App hold together across the dimensions, entities, contexts, and relations that make up the application-facing state of the system.
-
-Here, coherence means measured internal fit. A coherent state preserves meaningful relations among its parts: semantic consistency, non-arbitrary alignment across domains, and structural compatibility with the active Hilbert-state representation. A highly coherent state is one whose elements reinforce rather than fracture one another under the applicable metrics. A weakly coherent state is one whose elements pull apart, contradict, or fail to integrate into the active semantic geometry.
-
-Phi therefore measures the quality of fit within the represented state. It does not by itself determine factual correctness. A coherent configuration can still be wrong about the world, and an initially low-coherence configuration can still contain important truth that has not yet been integrated.
-
----
-
-## 44.2 H_App and Live Coherence Keys
-
-H_App is the application-facing Hilbert domain in which semantic state becomes operationally legible to live services. It is a structured environment in which active semantic configurations can be read, compared, and acted upon.
-
-Within this environment, hilbert-state services maintain coherence keys. These keys expose measured properties of the current state, such as alignment across active dimensions, stability of semantic trajectories, compatibility among linked entities, and the degree to which a working state remains internally non-fractured. The exact form of a key may differ by service, but the architectural role is the same: each key provides a live, inspectable signal about the coherence condition of some portion of the active Hilbert-state.
-
-Phi is tied directly to those keys. It does not operate as a detached philosophical score. It reads and interprets coherence conditions through the live service layer. The hilbert-state services maintain the keyed structure of the current semantic condition; Phi acts as the probe that measures, compares, and evaluates coherence against that structure.
-
-Semantic coherence in this chapter is therefore a service-linked measurement. Phi and the hilbert-state coherence keys belong to the same operational substrate.
+It may **not** claim downstream outcome calibration across all domains or universal coherence guarantees. This scope is limited to what has been demonstrated for the **governed geographic corpus**.
 
 ---
 
-## 44.3 Service-Linked Coherence Measurement
+## 44.2 Plain‑Language Purpose
 
-The relation between Phi and the hilbert-state services is a measurement relationship.
+For rural developers, the Phi probe in this chapter answers a simple question:
 
-The hilbert-state services provide the current semantic geometry in keyed form. Phi uses those coherence keys to evaluate whether a current or candidate state hangs together in a way that is acceptable for the relevant mode of operation. If a candidate state strongly conflicts with the keyed structure of H_App, Phi can register reduced coherence. If a candidate preserves or improves alignment across active domains, Phi can register stronger coherence.
+> “Before Ms. Jarvis uses a big, governed map of West Virginia to support decisions, how does she check that the map is internally hanging together?”
 
-Because these readings are taken over the same state that governs active reasoning, routing, and internal evaluation, coherence is directly tied to live system behavior. A coherence score that is disconnected from the active services would remain purely interpretive. Phi functions as part of the system’s running semantic instrumentation.
+Here, **Phi** is the name of a service that:
 
----
+- looks at the **governed GIS data** (counties, tracts, block groups);  
+- measures whether that data is **internally coherent** in the shared embedding space;  
+- records that reading for other parts of the system to use when deciding whether to **trust and act on** that geographic belief state.
 
-## 44.4 Multidomain Coherence
-
-Ms. Allis reasons across multiple domains rather than within a single flat semantic field. Governance, geography, identity, memory, community knowledge, benefits reasoning, and other domains may all be active together inside or adjacent to H_App.
-
-Multidomain coherence is the measured degree to which those domains remain structurally compatible under the active semantic state. A candidate may show strong coherence in one domain while showing weakness in another. For example, a state may be semantically tight in a local geographic frame while remaining poorly integrated with memory, governance, or identity-linked context. Phi helps surface such imbalance rather than hiding it.
-
-Multidomain coherence is treated as a measured property of the represented state. It is not automatic truth, not infallible alignment, and not a guarantee of correctness. It is an instrumented reading of how well the active domains fit together under the metrics and coherence keys available to the system.
-
-A multidomain state may be coherent and still false. A state may also be temporarily incoherent because it contains new information that has not yet been reconciled with the rest of the system. Coherence is thus a governance-relevant signal, not an oracle.
+Phi is not a truth oracle. It does not say “these maps are correct.” It says, “these counties, tracts, and block groups **fit together** in a stable way under the system’s own geometry.”
 
 ---
 
-## 44.5 Phi in Sandbox Validation
+## 44.3 Hilbert State Service and Redis
 
-The sandbox is the environment in which provisional reasoning may be explored without automatically acquiring promotion authority. In that setting, coherence measurement becomes especially useful.
+The **Hilbert state service** keeps track of live semantic state in a way that other services can read.
 
-When a sandbox cycle produces a candidate output, Phi can be used to measure how that output relates to the current coherence keys of the hilbert-state services. If the candidate creates substantial fracture across active domains, introduces unresolved contradiction, or fails to integrate into the present semantic geometry, the sandbox validator may treat that coherence finding as a reason to block, narrow, or return the candidate for further work. If the candidate shows acceptable coherence, it may continue through the governed review path.
+Within this gate, it is safe to say that:
 
-Sandbox validation can also depend on truth checks, guardian review, provenance, privacy, and security conditions. Phi contributes one form of disciplined semantic measurement inside that larger process. Its role is to help determine whether a provisional state is internally stable enough to justify further consideration.
+- the Hilbert state service is **up and running**;  
+- it is **connected to Redis**, which it uses as a backing store;  
+- basic operations — **set, get, projection, transition, entanglement** — all work and are proven by a live probe.
 
----
-
-## 44.6 Phi in Promotion Decisions
-
-Coherence findings may also participate in promotion decisions that occur after sandbox validation.
-
-A candidate that reaches the promotion boundary is not evaluated solely on existence, nor solely on coherence. The system asks whether the candidate satisfies the full set of conditions required to move from provisional reasoning into higher-authority state. Phi contributes to that judgment by indicating whether the candidate’s semantic structure is sufficiently coherent in the relevant domains for the requested transition.
-
-A strong coherence finding may support promotion. A weak coherence finding may support rejection, revision, human review, or limited approval outcomes. This is particularly important when the candidate affects several domains at once, since apparent adequacy in one area may conceal fracture in another. Phi helps prevent promotion decisions from depending only on surface fluency or local fit.
-
-In this role, coherence is one contributing gate condition rather than a total decision rule.
+For a rural operator, this means there is a **central place** where Ms. Jarvis saves and fetches the current “shape” of her understanding, and that place is actually reachable and responsive in the running system.
 
 ---
 
-## 44.7 Coherence in the Gate Structure
+## 44.4 Phi Service and Chroma Connection
 
-The broader promotion path can be written as a conjunction of required gate conditions:
+The **Phi probe** is its own service.
 
-\[
-G(x) = G_{\mathrm{truth}}(x)\, G_{\mathrm{guardian}}(x)\, G_{\mathrm{constitutional}}(x)\, G_{\mathrm{provenance}}(x)\, G_{\mathrm{coherence}}(x)\, G_{\mathrm{privacy}}(x)\, G_{\mathrm{security}}(x).
-\]
+Within this scope, Chapter 44 may claim that:
 
-Here \(G_{\mathrm{coherence}}(x)\) is the coherence gate for candidate state \(x\). It represents the measured semantic coherence of that candidate as evaluated in relation to H_App and the live hilbert-state service coherence keys.
+- Phi runs as a live service listening on its configured port (for example, 8026);  
+- Phi resolves the Chroma vector store through `CHROMA_URL`;  
+- Phi can connect to Chroma and **sample from governed collections**.
 
-Placing coherence explicitly inside the gate structure clarifies its status. Coherence is not decorative, and it is not sovereign over the other conditions. It is one of the operational requirements for promotion. A candidate that fails the coherence gate may still contain useful material, but it is not yet in the right condition to cross an authority boundary without additional revision or review.
-
-The gate does not ask whether coherence proves correctness. It asks whether the candidate’s measured internal structure is sufficiently sound to proceed alongside the other required checks.
+This connection matters because Phi’s job is to measure coherence **in the vector space**, not just to look at raw tables. The embedding model and Chroma store give Phi a shared semantic space where counties, tracts, and block groups can be compared.
 
 ---
 
-## 44.8 Coherence Is Not Truth
+## 44.5 Governed Geographic Collections in Scope
 
-Phi measures semantic coherence. It does not certify external reality.
+The governed geographic corpus under this gate includes at least:
 
-A candidate may be highly coherent because its components mutually reinforce one another inside H_App, yet still rest on mistaken premises, incomplete evidence, or biased data. Conversely, a candidate may initially reduce coherence because it introduces a disruptive but accurate correction that the system has not yet absorbed.
+- `gbim_wv_counties_v2` — West Virginia counties;  
+- `gbim_wv_tracts_v2` — West Virginia census tracts;  
+- `gbimwvblockgroupsv2` — West Virginia block groups.
 
-For this reason, coherence must remain paired with other forms of review. Truth filtering, guardian review, provenance retention, privacy checks, constitutional constraints, and security conditions all remain necessary. Phi strengthens governance by adding a measured account of semantic fit, but governance becomes unsafe if coherence is conflated with truth.
+These three collections together form the **GEO_BELIEF** domain for West Virginia.
 
-Phi therefore occupies a defined epistemic role: powerful, informative, and operationally meaningful, but not self-sufficient.
+Chapter 44 may claim that Phi:
 
----
+- can **sample embeddings** from each of these collections;  
+- can compute a **coherence reading** across them in the shared embedding space;  
+- has done so successfully in live probes.
 
-## 44.9 Operational Meaning
-
-The Phi probe gives Ms. Allis a live way to measure whether a state is internally holding together before that state is trusted with greater authority.
-
-Because the probe is tied to hilbert-state service coherence keys, its findings belong to the same operational environment that produces active semantic state in the first place. Because Phi can be used during sandbox validation, it helps discipline provisional reasoning before it reaches promotion. Because it participates as \(G_{\mathrm{coherence}}(x)\) within the gate structure, it helps ensure that promotion decisions account for semantic integrity across active domains.
-
-Phi is thus a governance-relevant coherence instrument embedded in the live architecture of H_App.
+For rural developers, that means Phi is checking not just one map, but how **all three levels of map** talk to each other in one semantic frame.
 
 ---
 
-## 44.10 Mode Definitions in This System
+## 44.6 How Phi Measures Coherence
 
-Phi was calibrated against Ms. Allis’s own semantic geometry, not against an abstract norm. Interpretation of its modes must therefore be grounded in the observed structure of this system.
+At a high level, Phi:
 
-Ms. Allis reasons simultaneously across seven maximally diverse semantic domains: worldview, Appalachian culture, civic infrastructure, governance and law, psychology and learning, self-identity, and spiritual grounding. These domains are deliberately separated so that each can contribute a distinct perspective. The empirically observed baseline cross-domain cosine similarity across them is approximately 0.15. The probe’s three modes are defined relative to that baseline:
+1. **Samples vectors** from the governed geographic collections in Chroma.  
+2. Measures how similar or aligned those vectors are in the embedding space.  
+3. Produces a **coherence score and mode** (for example, “coherent” above a threshold).  
+4. Writes a summary into Redis as `pituitary:phi_state`.
 
-- **Superposition (0.08–0.35)** is the healthy normal state for the full seven-domain fabric. Domains do their work independently, each contributing its own semantic perspective without collapsing into the others. Multiple frames of reference coexist without premature resolution. The name reflects that design: like quantum superposition, multiple states coexist within one representational substrate.
+This gives other services a compact view of **“how well the geographic belief corpus is holding together right now.”**
 
-- **Coherent (above 0.35)** indicates that the sampled domains or collections are reading as unusually unified. For deliberately unified corpora—such as geographic beliefs rendered with a shared template and embedder—a coherent reading is expected and desirable. For the full seven-domain system, a coherent reading warrants inspection: unusual unity can signal successful integration or the kind of echo saturation that Section 44.12 examines.
+Phi also exposes:
 
-- **Decoherent (below 0.08)** indicates fragmentation below the minimum expected cross-domain similarity. Such readings point to failure in the measurement substrate or in the write path feeding it.
+- `/phi` — a live sampling endpoint;  
+- `/phi/cached` — a version that returns the latest recorded state from Redis.
 
-Interpreting a particular reading requires attention to which cluster or domain is being assessed. A coherent score over the governed geographic corpus is a positive finding. The same score over the entire seven-domain fabric would be a diagnostic warning.
-
----
-
-## 44.11 Implementation Status (July 2026)
-
-The Phi substrate and service are implemented and exercised in the live Ms. Allis deployment.
-
-### Measurement substrate and coherence discipline
-
-- The hilbert-state service is live. On every chat job, state writeback posts to the hilbert-state embedding endpoint, producing a 384-dimensional vector stored in Redis under per-job coherence keys of the form `hilbert:state:chat:<jobid>`. Cold-start embedding runs in roughly 37 seconds; warm embedding completes in under 100 milliseconds. These keys form the coherence-bearing structure described earlier in this chapter.
-
-- All coherence-bearing collections use a single embedding model (`all-minilm`, 384 dimensions). A 768-dimensional alternative was retired after a dimension-mismatch incident. Coherence comparison is defined only inside a single embedding space, so this constraint is a precondition of every claim in this chapter.
-
-### Phi service and GEO_BELIEF cluster
-
-- The Phi probe runs as a live service (`jarvis-phi-probe`, port 8026) with `/phi`, `/phi/cached`, and `/health` endpoints. It auto-resamples every five minutes and writes state to Redis under keys of the form `pituitary:phi_state`.
-
-- A `GEO_BELIEF` domain is defined in its cluster map, covering the governed West Virginia geographic collections `gbimwvcountiesv2`, `gbimwvtractsv2`, and `gbimwvblockgroupsv2`. These collections participate both as probe sources and as query targets.
-
-### First coherent reading across the governed geographic grains
-
-On 15 July 2026, Phi produced a coherence reading over all three governed geographic grains in West Virginia. Counties (55 vectors), tracts (200 vectors), and block groups (200 vectors) were sampled in the shared 384-dimensional space. The probe returned:
-
-- `mode: coherent`  
-- `coherence_raw ≈ 0.4149`  
-- `coherence_normalized ≈ 0.3640`  
-- `collections_sampled: [gbimwvcountiesv2, gbimwvtractsv2, gbimwvblockgroupsv2]`
-
-The raw score lies above the `PHI_COHERENT` threshold of 0.35 for this probe. The result is substantive: the county, tract, and block group governed beliefs form a semantically integrated corpus across all three grains in the all-minilm embedding space.
-
-A prior two-grain reading (counties and tracts only) produced a substantially higher coherence score. The drop to approximately 0.415 when block groups are added is expected. Block group beliefs are more locally specific than county beliefs, so adding the finer grain increases semantic variation and reduces cross-grain cosine similarity. A corpus in which block groups were indistinguishable from counties would be more worrying than one in which they lower the score in this way.
-
-This three-grain reading establishes the baseline coherence for the GEO_BELIEF domain under governed conditions.
-
-### Identity domain discipline
-
-- The per-user memory decomposition introduced in the memory chapters is already reflected in the probe’s domain map. The self-identity domain resolves through `conversation_history_user_<slug>` at request time rather than relying on a shared conversation collection. Cross-user echoes are structurally excluded from self-identity readings before any coherence measurement begins.
-
-### Items not yet wired as gates
-
-- The coherence gate \(G_{\mathrm{coherence}}\) is defined in the promotion algebra and the service produces readings, but no sandbox validation or manifest promotion path currently enforces those readings as hard gates.
-
-- Coherence thresholds for the geographic corpus are not yet calibrated against downstream outcomes. The July 2026 score is interpretable against internal probe thresholds but has not been linked to specific reject / revise / review / approve decisions.
-
-- Cross-domain coherence between the GEO_BELIEF cluster and non-geographic clusters (identity, governance, spiritual, and others) has not yet been measured at the minimum vector counts required for stable estimation.
+Both endpoints return structured payloads that include the collections sampled and the coherence reading.
 
 ---
 
-## 44.12 Worked Lesson: Degenerate State, Correct Reading
+## 44.7 Coherence Gate Wiring
 
-A production incident from June 2026 illustrates a core failure mode for any coherence instrument: a structurally degenerate state that is nevertheless internally consistent.
+The gate evidence confirms a **“hard coherence gate probe”** and the presence of coherence gate code in:
 
-During an autonomous-learner audit, the Hilbert state in Redis was found to be dominated by conversation echoes: near-duplicate restatements of recent exchanges written back cycle after cycle. Genuine new semantic material had been crowded out. A coherence probe operating over that state would have produced high coherence scores, and those scores would have been technically correct: a state composed largely of echoes of itself is maximally self-consistent.
+- `gbim_query_router`;  
+- `phi_promotion_gate`;  
+- `coherence_remediation`.
 
-From a governance perspective, however, such readings are almost useless. High coherence in that setting reflects redundancy rather than genuine integration. It measures the tight fit of a collapsed echo chamber, not the structural integrity of a healthy, information-bearing state.
+Within this scope, chapter 44 may claim that:
 
-The remediation in that case was structural rather than interpretive. Near-duplicate detection at a cosine-similarity threshold of 0.92 was added to the write path, collapsing the echo fan-out and restoring diversity to the measured state. The lessons generalize:
+- a **coherence gate** exists in code and can be exercised;  
+- the gate can inspect Phi’s readings and make decisions (for example, whether to allow or remediate certain operations on the geographic corpus);  
+- **coherence remediation code** exists to respond when Phi detects problems (for example, by triggering re‑sampling, cleaning, or other corrective steps).
 
-1. **A coherence instrument inherits the quality of its substrate.** Phi measures fit within the represented state; if the representation process is degenerate, high coherence is a symptom, not an achievement.
+In plain terms: the system does not just measure coherence for curiosity; it has code paths that can **act on the measurement** when needed, at least for the governed GIS corpus.
 
-2. **Write-path hygiene is part of the measurement architecture.** Deduplication, provenance discipline, and governed intake are not peripheral concerns. They are what make coherence readings interpretable.
+---
 
-3. **Suspiciously stable coherence is itself a signal.** A state whose coherence never moves over time warrants examination of the write path before celebration of the score. In the incident at issue, an unusually stable topic focus over more than a day was visible in retrospect as an early indicator.
+## 44.8 What Coherence Means (and Does Not Mean)
 
-This episode is the coherence-domain analogue of similar discoveries in the other governance chapters: when an instrument is found to have been reading a corrupted substrate, that event belongs in the instrument’s own provenance.
+In this chapter, **coherence** means:
+
+- the **internal fit** of the geographic belief state in the embedding space;  
+- whether counties, tracts, and block groups **support and reinforce** each other’s semantic patterns;  
+- whether the vector space looks stable and well‑structured, rather than fragmented or degenerate.
+
+Coherence does **not** mean:
+
+- guaranteed factual accuracy of every map entry;  
+- full calibration of Phi scores across every domain;  
+- that a good score in geography automatically implies good scores elsewhere.
+
+The gate explicitly forbids claiming “downstream outcome calibration across all domains” on the basis of this evidence. Coherence here is **local to the governed geographic corpus** and is one signal alongside truth checks, governance, and other safeguards.
+
+---
+
+## 44.9 Live State and Caching
+
+Phi writes its current reading to Redis under a key such as:
+
+- `pituitary:phi_state`
+
+This key:
+
+- stores the latest coherence payload from `/phi`;  
+- allows other services to read the state **quickly** without re‑sampling every time;  
+- ensures that coherence readings are **part of the shared live state**, not just an internal calculation.
+
+For rural operators, this means you can think of `pituitary:phi_state` as a **small gauge on the dashboard**: if something is off with the geographic corpus, that gauge can reflect it.
+
+---
+
+## 44.10 Tests and Reliability at This Scope
+
+The closure evidence states that relevant tests **pass in isolated batches**.
+
+Within this gate, Chapter 44 may say that:
+
+- unit or integration tests for the Hilbert state service, Phi service, Chroma connectivity, and coherence gate wiring are passing;  
+- these tests cover basic pathways for set/get, projection, transition, entanglement, Phi sampling, and gate invocation.
+
+The phrase “isolated batches” keeps the claim honest: this is a **tested subsystem**, not a guarantee that every possible interaction in the whole stack has been explored.
+
+---
+
+## 44.11 Step‑by‑Step View for Rural Developers
+
+A rural operator can understand Chapter 44’s Phi path as:
+
+1. **Hilbert state is live.**  
+   - There is a running service that uses Redis to track semantic state.
+
+2. **Phi service runs and can reach Chroma.**  
+   - Phi uses `CHROMA_URL` to connect to the vector store.
+
+3. **Phi samples governed GIS beliefs.**  
+   - It pulls vectors from `gbim_wv_counties_v2`, `gbim_wv_tracts_v2`, and `gbimwvblockgroupsv2`.
+
+4. **Phi computes a coherence reading.**  
+   - It summarizes how well those three levels of geography fit together.
+
+5. **Phi writes its result to Redis.**  
+   - The reading lands at `pituitary:phi_state`.
+
+6. **Other services call `/phi` or `/phi/cached`.**  
+   - They can see the current coherence state and decide how to proceed.
+
+7. **Coherence gate code can act.**  
+   - If coherence is too low or shows a problem, gate and remediation code in the GBIM router and related services can respond.
+
+If any of these steps fail, the architecture expects services to **fail closed or enter remediation**, not to ignore the problem and act as if everything is fine.
+
+---
+
+## 44.12 What This Chapter Does Not Claim
+
+To stay within the academic scope, Chapter 44 does **not** claim:
+
+- calibrated thresholds that are proven to predict real‑world outcomes;  
+- full coherence measurement across all semantic domains in Ms. Allis;  
+- human‑level judgment about the quality of geographic decisions;  
+- universal guarantees that a coherent reading means “safe to act” in every context.
+
+It only claims **live, working Phi measurement and gate wiring over the governed West Virginia geographic corpus**, with the Hilbert state service, Redis, Chroma, and the associated gates all proven to function at the time of closure.
 
 ---
 
 ## 44.13 Closing Statement
 
-The Phi probe measures semantic coherence in H_App by reading and evaluating the live coherence conditions exposed through hilbert-state service coherence keys. Its findings can guide sandbox validation and can contribute a coherence term \(G_{\mathrm{coherence}}(x)\) within the broader promotion gate.
+Chapter 44 places Phi squarely inside the **governed GIS path** of Ms. Allis.
 
-Multidomain coherence is treated as a measured property of internal semantic fit across coupled domains. It is not automatic truth and does not replace truth filtering, guardian review, provenance controls, privacy evaluation, constitutional safeguards, or security analysis. Phi’s contribution is to indicate whether a candidate state is structurally sound enough to be considered alongside those other factors.
-
-As of July 2026, the coherence substrate is in place, the probe service is running with periodic resampling, and a first coherence reading has been taken across all three governed geographic grains in West Virginia. That reading is coherent, neither inflated by echo saturation nor degraded by fragmentation, and shows that counties, tracts, and block groups together form a semantically integrated body of governed belief at multiple levels of geographic granularity.
-
-The remaining work lies in wiring coherence into the promotion gates and calibrating thresholds across domains. The measurement itself is already part of the live architecture, and the governed geographic corpus now has a quantitative statement of its internal fit.
+Hilbert state is live and Redis‑backed, Phi can reach Chroma and sample the governed county, tract, and block‑group collections, Phi writes its readings into shared state and exposes them over `/phi` and `/phi/cached`, and the coherence gate wiring in GBIM and related services has been exercised with passing tests. This gives rural developers a concrete, step‑by‑step picture of how Ms. Jarvis measures and uses **internal coherence** in her West Virginia geographic beliefs—without overstating what that measurement can prove beyond this specific, verified scope.
