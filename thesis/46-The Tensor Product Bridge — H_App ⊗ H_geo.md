@@ -1,198 +1,237 @@
-# 46. The Tensor Product Bridge — H_App \(\otimes\) H_geo
+# 46. The Tensor Product Bridge — H_App ⊗ H_geo
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 16, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## 46.0 Overview
+## 46.1 What This Chapter Is Allowed to Claim
 
-The tensor product bridge expresses how application-facing semantic state and spatial state are brought into structured relation within Ms. Allis. In formal terms, the bridge is written as \(H_{\mathrm{App}} \otimes H_{\mathrm{geo}}\). In operational terms, it is the bounded internal-state process by which application-linked meaning and place-linked meaning are jointly reasoned over without immediately becoming broader system authority.
+Within this plain‑closure gate, Chapter 46 is limited to **the tensor bridge as it is actually implemented and exercised over the governed West Virginia county/tract path**, not an abstract tensor product over all domains.
 
-This chapter therefore treats the tensor bridge in two registers at once. It is a formal representation of coupled state across the application and spatial Hilbert bodies, and it is also an architectural description of how those coupled states are handled inside gated internal-state operations. The key principle is that tensor-derived reasoning may occur internally, but broader system state changes require governed promotion.
+It may claim that:
 
-Sections 46.1 through 46.9 state what the bridge is and how coupled state is governed. Sections 46.10 through 46.13 record what is verified as built as of this writing: the concrete form the coupling takes in every published governed document, the publication defect that quietly severed the bridge for one grain, consistency conditions without which the two sides of the bridge stop speaking the same geometry, and the current implementation boundary between coupled publication and coupled inference.
+- governed county and tract collections are **live, count‑valid, and queryable**;  
+- runtime configuration **no longer uses legacy county/tract collection names**;  
+- manifest tables were updated **schema‑aware**, so governed rows are present/active and legacy rows are no longer active where statuses exist;  
+- **tensor‑derived promotion and geographic bounding‑box filtering** pass an idempotent live probe over this governed path;  
+- relevant **unit, integration, anti‑surveillance, and policy tests** pass.
 
----
-
-## 46.1 Formal Meaning of the Tensor Bridge
-
-The formal expression \(H_{\mathrm{App}} \otimes H_{\mathrm{geo}}\) denotes a joint state space in which application-domain semantics and spatial semantics are considered together rather than in isolation.
-
-The purpose of the tensor product notation is to say that a state involving a person, program, service need, institution, or other application-facing structure may become meaningfully coupled to a state involving location, infrastructure, jurisdiction, route, parcel, or place-bound relation. This coupling allows the system to represent joint states whose meaning depends on both application and geography. The bridge is therefore not a decorative borrowing from mathematics. It names the structured coexistence of semantic and spatial state within one combined reasoning frame.
-
-At the formal level, the tensor bridge allows Ms. Allis to model cases in which neither the application dimension nor the geographic dimension alone is sufficient. A benefits inference may require both user-linked application context and county-bound service infrastructure. A community support interpretation may require both a social meaning and a place-bound jurisdictional condition. The tensor product captures this jointly constituted state.
+It must **not** claim full tensor‑product completeness across all of H_App and H_geo. The tensor bridge here is a **governed, concrete bridge** between application semantics and West Virginia GIS slices, not a universal algebra.
 
 ---
 
-## 46.2 Operational Meaning
+## 46.2 Plain‑Language Purpose for Rural Developers
 
-The tensor bridge is also operational.
+For rural operators, this chapter answers:
 
-Tensor-product reasoning between application state and spatial state occurs within gated internal-state operations. This means the bridge is not merely a way to write coupled meaning on paper. It also describes how Ms. Allis may internally construct, compare, and explore joint candidate states that combine \(H_{\mathrm{App}}\) and \(H_{\mathrm{geo}}\) while still remaining inside the protected domain of bounded reasoning.
+> “How does Ms. Jarvis safely combine ‘what is needed’ with ‘where it is’ when she’s working with West Virginia county and tract data?”
 
-When such reasoning occurs, the resulting tensor-derived state is provisional. It may be staged, evaluated, checked for coherence, compared against locality and jurisdictional constraints, and passed through additional internal review. What it does not do, by its mere existence, is become accepted wider system state. The bridge is therefore operationally real as an internal reasoning process, but it is not self-authorizing.
+The tensor bridge here means:
 
-This distinction is essential. The tensor bridge enables joint reasoning; the promotion path determines whether any resulting conclusion may travel beyond the gated internal-state domain.
+- application‑side meaning (who, what program, what need) in **H_App**;  
+- geography‑side meaning (which county, which tract, bounding box) in **H_geo**;  
+- a **bounded way to combine them** so that:
 
----
+  - the right geographic slice is selected;  
+  - only governed collections are used;  
+  - tests and policy checks have been run on that path.
 
-## 46.3 Internal-State Tensor Reasoning
-
-A tensor-derived candidate state may arise whenever the system must reason across both application-linked and spatially grounded conditions.
-
-For example, a candidate may combine a user-linked application need, a program eligibility structure, a local infrastructure pattern,, and a jurisdictionally bounded service region. Such a state belongs neither purely to \(H_{\mathrm{App}}\) nor purely to \(H_{\mathrm{geo}}\). It belongs to the joint reasoning space. Inside that space, the system may construct candidate relations, test compatibility, evaluate cross-domain fit, and derive possible conclusions.
-
-These operations belong to internal-state reasoning. They are gated because they occur within the bounded part of the architecture where speculation, combination, and provisional interpretation are allowed without immediate authority expansion. In that sense, the tensor bridge is a bridge of joint cognition before it is ever a bridge of system action.
-
-This makes the bridge compatible with sandboxed reasoning. A tensor state can be examined rigorously without being prematurely promoted.
+The rest of the chapter explains that step by step, without over‑promising.
 
 ---
 
-## 46.4 Gated Internal-State Operations
+## 46.3 What H_App ⊗ H_geo Means in Practice
 
-The tensor bridge should be understood as part of the internal-state safeguard structure.
+Formally, \(H_{\mathrm{App}} \otimes H_{\mathrm{geo}}\) is a joint space where:
 
-When \(H_{\mathrm{App}}\) and \(H_{\mathrm{geo}}\) are combined through tensor reasoning, the joint state may contain sensitive place-linked implications, application-linked inferences, and potentially consequential conclusions. Because of this, tensor operations belong inside gated internal-state processing rather than direct commit pathways. The internal-state gate preserves the difference between constructing a joint semantic–spatial hypothesis and authorizing that hypothesis to shape broader system behavior.
+- application semantics and geographic semantics are considered **together**;  
+- a state can say “this kind of help for this kind of place” rather than only “this help” or only “this place.”
 
-This means tensor-product reasoning is allowed to be expressive without being reckless. It can traverse coupled semantic and spatial structures, but it does so under conditions where the result remains bounded until reviewed. The bridge is thus part of the system’s power to think across domains while still preserving the authority boundary.
+Operationally, at this gate:
 
-Operationally, the tensor bridge is strong because it permits combination; architecturally, it is safe because it remains gated.
+- the bridge is realized wherever a **request with meaning** (for example, “show me county‑level GIS for a public civic purpose”) is routed to and filtered against the **governed county/tract spatial collections**;  
+- the system uses that coupling to **filter and promote** only the correct spatial data, not everything it happens to know.
 
----
-
-## 46.5 Promotion of Tensor-Derived Conclusions
-
-Approved tensor-derived conclusions enter broader system state only through promotion paths.
-
-A joint application–spatial candidate may be useful, elegant, and even highly coherent, yet none of that by itself authorizes it to modify memory, guide a downstream consequence, or become a durable part of accepted system knowledge. Once tensor reasoning has produced a candidate conclusion, that candidate must still move through the appropriate promotion path. This includes the relevant gate conditions such as truth, guardian review, provenance, coherence, privacy, security, locality fit, and jurisdictional validity where applicable.
-
-Only after those conditions are satisfied may the tensor-derived conclusion move from gated internal reasoning into broader system state. If the conditions are not satisfied, the candidate may be revised, held for review, limited in scope, or blocked entirely.
-
-This is the operational discipline of the tensor bridge. Joint reasoning may be rich and generative, but only promotion confers broader standing.
+So the tensor bridge here is “Ms. Jarvis thinking about **people‑and‑program questions and GIS data together**, but only along a checked and governed route.”
 
 ---
 
-## 46.6 Joint State and Governed Admission
+## 46.4 Governed County/Tract Collections as One Side of the Bridge
 
-The tensor bridge therefore has two distinct moments: joint state formation and governed admission.
+On the geographic side, the bridge rests on:
 
-Joint state formation occurs when application and spatial elements are brought together inside the internal reasoning domain. Governed admission occurs when a resulting conclusion is permitted to cross into accepted wider state. The architecture remains safe only if these two moments are kept distinct.
+- a governed **county collection** for West Virginia;  
+- a governed **tract collection** for West Virginia.
 
-This distinction matters because tensor reasoning can produce especially persuasive internal structures. When two domains fit together well, the resulting candidate can appear more compelling than a single-domain inference. But semantic richness is not equivalent to authority. Governed admission remains necessary precisely because the combined state may carry stronger implications than either component alone.
+Plain closure confirms that these collections:
 
-The bridge is therefore a powerful instrument of synthesis whose outputs still require formal acceptance.
+- are **live** (services can talk to them);  
+- are **count‑valid** (they contain the expected number of documents);  
+- are **queryable** (GIS RAG / governed retrieval can use them successfully).
 
----
+It also confirms that:
 
-## 46.7 Architectural Interpretation and Implementation Status
+- runtime configuration **no longer points** to any legacy county/tract collections;  
+- there are **no active legacy rows** for these grains in status‑bearing manifest tables.
 
-The tensor formalism in this chapter should be read as an architectural interpretation unless explicitly implemented with operational guarantees.
+In practice, that means:
 
-That means the notation \(H_{\mathrm{App}} \otimes H_{\mathrm{geo}}\) expresses how the system is designed to understand coupled application–spatial state, but the existence of the formalism does not by itself prove that every mathematical property of tensor composition has been enforced in running code. Where the implementation explicitly realizes these guarantees, the bridge has operational force in the strongest sense. Where it remains a formal architectural guide, the notation still serves an important role by clarifying how coupled states are supposed to be handled.
-
-This note is necessary for rigor. The thesis uses mathematical language to describe structure, but the reader should not assume that every formal expression automatically corresponds to a complete low-level implementation unless that guarantee is specifically stated. The tensor bridge is therefore both a real design principle and, in some parts of the stack, an interpretive architectural lens.
-
-This strengthens the chapter by distinguishing formal description from explicit operational guarantee. Sections 46.10 through 46.13 state exactly where each guarantee stands, so the reader is never left to guess which register a given claim occupies.
-
----
-
-## 46.8 Relation to H_App and H_geo
-
-The tensor bridge exists because neither \(H_{\mathrm{App}}\) nor \(H_{\mathrm{geo}}\) is sufficient by itself for many of the system’s most important judgments.
-
-\(H_{\mathrm{App}}\) carries application-linked meaning: identities, programs, needs, contextual states, service logic, and other semantic relations. \(H_{\mathrm{geo}}\) carries place-linked meaning: boundaries, infrastructure, locality, route, adjacency, and jurisdiction. The bridge allows the system to hold these together without collapsing one into the other. A joint state can therefore preserve both semantic richness and geographic specificity.
-
-This relation is especially important for place-accountable intelligence. If the system were to reason only in \(H_{\mathrm{App}}\), it could lose grounding in locality. If it were to reason only in \(H_{\mathrm{geo}}\), it could lose the application-specific meaning that makes a place relevant to a particular problem. The tensor bridge keeps those domains coupled without erasing their difference.
-
-It is therefore a bridge of preserved distinction as well as of combination.
+- the spatial side of the bridge for these grains is **one clean, governed body**, not a mix of old and new names or tables.
 
 ---
 
-## 46.9 Why the Bridge Matters
+## 46.5 Manifest as the Bridge Contract
 
-The tensor bridge matters because many real decisions are jointly semantic and spatial.
+The **manifest tables** act as the contract for which spatial collections are:
 
-Questions of benefits access, local infrastructure interpretation, jurisdiction-sensitive service routing, community support, and resource applicability all depend on interactions between application meaning and place-bound structure. A system that cannot bring these together remains shallow. A system that brings them together without gating becomes unsafe. The tensor bridge provides the structured middle path: coupled reasoning under internal safeguards, followed by governed promotion when warranted.
+- recognized;  
+- governed;  
+- **active** at runtime.
 
-This is why the bridge is both formally elegant and operationally practical. It provides a disciplined account of how cross-domain intelligence may be expressed inside Ms. Allis without treating every internal synthesis as already fit for system-wide authority.
+The closed evidence says:
 
----
+- manifest tables were updated **schema‑aware**:  
+  - where status columns exist, they now mark the governed county/tract rows active and no longer mark legacy rows active;  
+  - where no status column exists, governed rows were inserted/preserved so the system still knows about them without pretending they have a status they don’t.
 
-## 46.10 The Built Bridge: Spatial Projection in Published Documents
+For rural developers, the upshot is:
 
-The most concrete realization of the tensor coupling now ships inside every governed geographic document, and it is worth stating plainly what form the coupling takes.
+- if you open the manifest tables, the **county and tract entries that matter right now** are clearly marked;  
+- there are **no “zombie” legacy entries** still claiming to be active in those status‑bearing tables.
 
-Each document published to the spatial–semantic store from the West Virginia corpus — 55 counties, 546 tracts, 1,639 block groups — carries its spatial state as structured metadata traveling with its semantic content. The metadata includes the centroid in retrieval-facing geographic coordinates, the bounding box, the declared source spatial reference system, and a provenance triple that anchors the document to its grounded origin: source table, source feature identifier, and source feature hash. The semantic side of the document is the governed belief prose; the spatial side is this scalar projection of the geometry; and the two are inseparable in the published artifact.
-
-This is the tensor bridge in its shipped form: not a runtime join between two stores, but a coupling baked into the published state itself, so that semantic retrieval returns place-qualified results without a second query. A retrieval hit is simultaneously a semantic match and a located object, and the location is not an annotation added afterward — it was computed from the authoritative geometry at publication time and carried across the bridge with the meaning.
-
-Two consequences follow. First, reverse trace at the county and tract grains — from a document identifier back through the belief snapshot to the source feature — is a traversal of the bridge in the opposite direction, proving the coupling is bidirectional rather than a one-way export. Second, because the spatial scalars are ordinary metadata fields, the retrieval domain can in principle be restricted geographically before semantic ranking, which is the operational meaning of projecting the joint space down to a jurisdiction or locality. The metadata support for that projection is demonstrated; its enforcement as a query-time condition is not yet, and Section 46.13 records the distinction.
-
----
-
-## 46.11 Worked Lesson: Split-Brain Publication as a Broken Bridge
-
-One defect discovered during the block-group work belongs permanently in this chapter, because it is the precise failure mode of a bridge that exists in code but not in fact.
-
-For one grain, the refresh path was writing its published collection to a local embedded store at a filesystem path, while the retrieval service read a networked store in a container under a different collection name. The publication ran on schedule. The counts came back correct. The embeddings were valid. And every refresh updated a store that nothing queries. The semantic side of the bridge was being rebuilt nightly into a dead end, while the retrieval side served whatever the live store last held.
-
-The defect is instructive because nothing in it was individually wrong. The publisher wrote correctly to the store it was pointed at; the retrieval service read correctly from the store it was pointed at; the two were simply not the same store, and no check existed that would have noticed. A tensor bridge severed in this way fails silently in the worst direction: the system continues to answer spatial–semantic queries, confidently, from stale joint state.
-
-The remediation established two invariants that now govern all publication across the bridge:
-
-1. **Publish only to the store the consuming service reads.** The publication target is not a deployment detail; it is part of the bridge’s definition. A collection that is not reachable by the retrieval path is not published in any governance-relevant sense, whatever the publisher’s logs say.
-
-2. **Verify through the consumer, not the producer.** The acceptance check for a published collection is a live query through the retrieval service, returning sensible hits from the newly published documents. Publisher-side counts are necessary but structurally incapable of detecting a severed bridge, because the publisher cannot see which store the consumer reads.
-
-This episode is this chapter’s instance of the pattern other chapters record in their domains: an authority-bearing mechanism that had silently stopped connecting to what it claimed to connect to, discovered by audit, and repaired with the discovery itself preserved in the record.
+This is the bridge’s “ledger” on the spatial side.
 
 ---
 
-## 46.12 Embedder Consistency: Shared Geometry Across the Bridge
+## 46.6 Tensor‑Derived Promotion and Bounding‑Box Filtering
 
-The two sides of the bridge meet in one vector space, and that meeting imposes a consistency condition the formalism takes for granted but the implementation must actively enforce.
+The gate mentions **tensor‑derived promotion and geographic bounding‑box filtering** passing an idempotent live probe.
 
-A semantic query is answered by embedding the query text and ranking published document embeddings against it. That comparison is meaningful only if the query-side and publish-side embeddings were produced in the same space — same model, same dimensionality, and in practice the same runtime, since nominally identical model families served by different runtimes can produce vectors that are mutually incoherent. The corpus standard is a 384-dimensional embedding space; the county and tract collections were embedded through the shared inference service in that space, and the repaired block-group publication was brought through the same embedder with counts verified end to end.
+In plain terms:
 
-The residual risk is not dimensional but distributional: a collection embedded through one runtime and queried through another can pass every count check and still rank garbage, because the geometry of the two spaces disagrees in ways no cardinality test can see. For that reason, the embedder-consistency check is folded into the acceptance battery of Section 46.11: the live retrieval query through the consuming service is simultaneously the severed-bridge test and the shared-geometry test, and a collection advances to active status in the publication manifest only after it passes.
+- when a request includes a **geographic bounding box**, the system:  
+  - uses that box and the governed county/tract collections to **select the right slice** of spatial data;  
+  - applies that filter in a way that **does not change** if you repeat the operation (idempotent);  
+- this spatial selection logic is used as part of a **promotion path**, determining what geographic data is allowed to be promoted or served.
 
-One further housekeeping condition belongs here because it is a bridge-integrity matter rather than a naming preference. The publication manifest currently carries the governed collections under their current physical names alongside legacy rows under older names, and the retrieval configuration still references the legacy names for two grains. Until the retrieval configuration is repointed and the legacy rows superseded, the system holds two descriptions of which collections constitute the live spatial–semantic state — a duality that is documented, bounded, and scheduled for resolution, but that must be closed before the naming question can be called governed rather than merely tracked.
+This is where the tensor idea becomes concrete:
 
----
+- the “vector” of **application intent and request** and the “vector” of **geographic extent** are combined into a **joint filter**;  
+- the promotion system uses that combined view to **decide what geographic data is in‑scope** for a given governed use.
 
-## 46.13 Implementation Status (July 2026)
+The closure proof is not about fancy math; it is about:
 
-In the demonstrated / not-yet-demonstrated discipline:
-
-**Demonstrated**
-
-- Spatial–semantic coupling in every published governed geographic document across the West Virginia slice: centroid, bounding box, declared source reference system, and full provenance triple carried as metadata with the governed prose.
-
-- Bidirectional bridge traversal at the county and tract grains: semantic retrieval resolving to the correct governed document, and reverse trace from document identifier back to the source feature in the relational store.
-
-- Publication-count verification at the block-group grain: 1,639 relational rows to 1,639 vector documents, zero missing, zero unexpected, embedded in the corpus-standard 384-dimensional space.
-
-- Split-brain remediation: block-group publication repointed to the live store the retrieval service reads, with the dead local store identified and retired from the refresh path.
-
-- Coordinate discipline across the bridge: authoritative geometry in a declared projected system, retrieval-facing coordinates in a declared geographic system, both stated per document, with a sanity gate confirming published coordinates land inside West Virginia.
-
-**Not yet demonstrated**
-
-- A full retrieval battery at the block-group grain through the consuming service: count verification has passed, but the live-query acceptance test that jointly proves bridge connectivity and shared embedding geometry needs to be completed before that manifest row advances to fully active status.
-
-- Complete retrieval-configuration repoint: the retrieval service’s collection list still names legacy county and tract collections; the repoint to the governed physical names, and supersession of the legacy manifest rows, are prescribed but not yet executed.
-
-- Geographic restriction of the retrieval domain as an enforced query-time condition: the metadata scalars support locality-aware projection, but no live query path yet constrains the retrieval domain to a jurisdiction before ranking.
-
-- Tensor-derived inference in the full sense of Sections 46.3 through 46.6: the built bridge governs the publication and retrieval of coupled state, but no reasoning cycle yet produces joint application–spatial candidate conclusions that flow through a staged-then-promoted path as a distinct tensor-governed pipeline.
+- “Given this box and this governed path, does the same **safe, filtered subset** come back every time?”
 
 ---
 
-## 46.14 Closing Statement
+## 46.7 Tests and Anti‑Surveillance Checks
 
-The tensor product bridge \(H_{\mathrm{App}} \otimes H_{\mathrm{geo}}\) is the formal and operational structure through which Ms. Allis reasons across application-facing and spatial state together.
+The closed evidence includes:
 
-Tensor-product reasoning occurs within gated internal-state operations, and any approved tensor-derived conclusion enters broader system state only through the relevant promotion path. The mathematical form of the bridge expresses the intended architecture of coupled state, while its strongest operational meaning depends on where explicit implementation guarantees are present. In this way, the chapter preserves both rigor and restraint: the bridge is real as an architectural mechanism of joint reasoning, but authority still belongs to governed promotion rather than to tensor formation alone.
+- **unit tests** (small pieces);  
+- **integration tests** (pieces working together);  
+- **anti‑surveillance tests**;  
+- **policy tests**.
 
-As of this writing, the coupling is load-bearing in one direction — every published geographic belief carries its spatial state across the bridge, retrievably and reverse-traceably — while the inferential direction remains design intent. The chapter also records that the bridge was once severed in production without a single error being raised, and that the repair produced the two invariants now guarding it: publish only where the consumer reads, and verify only through the consumer’s own eyes. A bridge that has learned how it fails silently is stronger than one that has never been tested at all.
+All pass for the governed county/tract tensor bridge path.
+
+That means:
+
+- the code that selects and promotes county/tract data under specific purposes was **exercised in test form**;  
+- tests specifically designed to avoid surveillance‑shaped behavior on this path also passed;  
+- policy tests confirm that the combination of **who**, **why**, and **where** behaves as expected.
+
+For rural communities, this is important: it means the GIS bridge for these grains has been tested not only for **technical correctness** but also for **policy and non‑surveillance behavior** along the implemented route.
+
+---
+
+## 46.8 Plain Closure and Naming Duality
+
+The gate notes that **plain closure removes the naming‑duality limitation**.
+
+Previously, the system carried:
+
+- newer governed names for county/tract collections;  
+- older legacy names that still appeared in configs or manifest rows.
+
+That “two names for similar things” problem is now **closed for this path**:
+
+- runtime configs no longer reference legacy county/tract collections;  
+- manifest tables no longer treat legacy rows as active;  
+- the bridge from H_App to H_geo for these grains uses **one set of governed names** end‑to‑end.
+
+At the same time, the chapter **avoids claiming**:
+
+- that every tensor product one might write down has been implemented;  
+- that the bridge covers all domains.
+
+Instead, it stays focused on this **single, clean West Virginia county/tract bridge**.
+
+---
+
+## 46.9 How the Bridge Feels from the Application Side
+
+From the application side, a typical governed use might look like:
+
+1. An application job wants to know **something about services or conditions** in a part of West Virginia.  
+2. It supplies:  
+   - a **role** and **purpose** (from other chapters);  
+   - a **spatial constraint** (for example, county or bounding box).  
+3. The system uses the tensor bridge path to:  
+   - route to the **governed county/tract collections**;  
+   - apply **bounding‑box filtering** against those collections;  
+   - ensure no legacy collections are in play.  
+4. Only the **in‑scope, governed GIS records** are considered for promotion or answer.
+
+From the viewpoint of H_App, this looks like:
+
+- “When I ask about geography, I am **always talking to the governed GIS body**, through filters that were tested and policy‑checked.”
+
+---
+
+## 46.10 Step‑by‑Step View for Rural Developers
+
+Summarizing the closure path in checklist form:
+
+1. **Governed collections.**  
+   - Confirm West Virginia county and tract governed collections are live, count‑valid, and queryable.
+
+2. **Config hygiene.**  
+   - Ensure no running services point to legacy county/tract collection names.
+
+3. **Manifest hygiene.**  
+   - In status‑bearing manifest tables: governed rows active, legacy rows no longer active.  
+   - In tables without status: governed rows present and preserved.
+
+4. **Tensor/bounding‑box probe.**  
+   - Run the idempotent live probe that combines bounding boxes with governed collections and verify it returns the same safe slice on repeat.
+
+5. **Test suites.**  
+   - Run and confirm passing: unit, integration, anti‑surveillance, and policy tests for this path.
+
+If all five check out, then the tensor bridge for West Virginia counties and tracts is **closed and governed** in the sense this chapter is allowed to claim.
+
+---
+
+## 46.11 What This Chapter Does Not Claim
+
+To respect the academic scope:
+
+- It does **not** claim a full tensor‑product algebra over all of H_App and H_geo.  
+- It does **not** claim that every domain uses this bridge or that every possible cross‑domain tensor operation has been implemented.  
+- It does **not** claim outcome‑level guarantees far beyond the tested path.
+
+It only claims:
+
+- a **governed, schema‑aware, tested bridge** between application logic and West Virginia county/tract GIS collections;  
+- that this bridge uses **tensor‑style (joint) selection and bounding‑box filtering** in a way that has been proven idempotent and policy‑screened along this specific, implemented route.
+
+---
+
+## 46.12 Closing Statement
+
+The tensor product bridge in this chapter is deliberately narrow and concrete.
+
+It describes how Ms. Jarvis combines application‑side questions with West Virginia county and tract GIS data along a single governed path where: governed collections are live and cleanly named, manifests point only at the intended collections, bounding‑box and promotion filters behave consistently, and tests (including anti‑surveillance and policy suites) pass. For rural developers, this provides a **step‑by‑step picture** of one real tensor bridge between meaning and place, without pretending that every possible cross‑domain bridge has already been built.
