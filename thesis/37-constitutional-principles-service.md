@@ -1,303 +1,186 @@
 # 37. Constitutional Principles Service
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## 37.1 Constitutional Grounding
+## 37.1 What This Service Does
 
-The constitutional principles service in Ms. Allis is grounded in the constitutional traditions that govern the project’s understanding of lawful power, rights, restraint, due process, and bounded authority.
+The constitutional principles service is a **governance gate** that checks whether a proposed action fits the project’s constitutional commitments before it is allowed to gain authority.
 
-In this chapter, “constitutional” is not a vague ethical adjective. It refers concretely to the project’s use of constitutional sources and constitutional reasoning as part of system governance, including the **United States Constitution** and the **West Virginia Constitution** as operative reference frameworks for rights, limits, accountability, and public-facing legitimacy. The service therefore belongs to the governance architecture as a mechanism for checking whether a proposed action or promotion path is consistent with these higher-order commitments.
+Here, “constitutional” is concrete, not decorative. The service is rooted in:
 
-This constitutional grounding is not merely thematic. It is part of the review pathway through which candidate actions are evaluated before they receive approval to cross into higher-authority system state.
+- the **United States Constitution**;  
+- the **West Virginia Constitution**.
 
----
-
-## 37.2 Constitutional Materials in the System
-
-The constitutional service should be understood in connection with the system’s constitutional knowledge resources.
-
-The system’s governance layer includes constitutional material associated with the **United States Constitution** and the **West Virginia Constitution**, along with related governance texts and principles, so constitutional review is not detached from the larger documentary and retrieval environment of the architecture. The purpose of this service is not to reproduce those documents mechanically, but to operationalize their role as sources of constraint, rights-awareness, and public-order accountability within system decisions.
-
-This matters especially for a project rooted in place. The West Virginia constitutional layer helps ensure that governance is not treated as placeless abstraction, while the United States constitutional layer situates the project within a broader framework of rights, limits, and lawful structure.
+These are used as reference frameworks for rights, limits, due process, and bounded authority. The service sits in the promotion path to help decide whether a candidate action may move from **internal proposal** to **approved system behavior**.
 
 ---
 
-## 37.3 Constitutional Review as a Concrete Service
+## 37.2 Live Service and Ports (July 2026)
 
-The constitutional principles service is a concrete governance service that participates directly in promotion review.
+As of the July 2026 evidence:
 
-Its purpose is to evaluate whether a candidate action, conclusion, or transition is permissible under the project’s constitutional commitments and operational rules. This chapter therefore treats constitutional review not as a floating act of moral sentiment or a purely abstract principle-checking exercise, but as an API-mediated gate with explicit input requirements and approval consequences.
+- The **constitutional guardian** is live on host port **8091**.  
+- The **BBB** (blood–brain barrier) is live on host port **8016** and connected to the guardian.  
+- The guardian exposes two review endpoints:  
+  - `/constitutional-principles/review`  
+  - `/constitutional/review`.
 
-Constitutional review belongs inside the authority path. It is one of the components that determines whether provisional internal state may move into approved, durable, or consequential system action.
-
----
-
-## 37.4 The Guardian Payload Contract
-
-The operative contract for constitutional review is the guardian payload.
-
-A valid request to the constitutional service must carry the structured fields needed for meaningful review. The required schema is:
-
-- `actor_role`
-- `context`
-- `action_type`
-- `content`
-- `metadata`
-
-These fields are not ornament. They are the review surface through which the service understands who is acting, under what role, in what context, toward what kind of action, over what substantive content, and with what surrounding metadata. Without this contract, constitutional review is too under-specified to function as a trustworthy gate.
+These endpoints accept structured payloads and return governance decisions. This chapter does **not** rely on any April 2026 container counts or database sizes; it reflects the as‑built July 2026 state only.
 
 ---
 
-## 37.5 Meaning of the Payload Fields
+## 37.3 Constitutional Materials in the System
 
-Each required field supports a distinct part of constitutional evaluation.
+The constitutional principles service works alongside:
 
-`actor_role` identifies the operative role under which the action is being attempted. `context` situates the request within the relevant session, governance circumstance, workflow, or bounded scenario. `action_type` specifies what kind of act is being proposed, such as promotion, disclosure, memory write, public-facing release, internal registration, or another governed transition. `content` carries the substantive material to be reviewed. `metadata` carries supporting identifiers, provenance markers, source details, or additional structured context needed for constitutional judgment.
+- internal corpora that store the **U.S.** and **West Virginia** constitutions;  
+- related governance texts and commentary;  
+- retrieval tools that can pull relevant passages for context.
 
-The service is therefore not checking content in isolation. It is checking whether a particular actor, in a particular context, is attempting a particular action on particular content under conditions that remain constitutionally acceptable.
+The purpose is **not** to act as a court or replace lawyers. Instead, the service:
 
----
-
-## 37.6 United States and West Virginia Constitutional Relevance
-
-The constitutional principles service should explicitly reflect both federal and state constitutional orientation.
-
-The **United States Constitution** matters here because the service is meant to preserve attention to rights, lawful authority, procedural restraint, and the dangers of unconstrained power. The **West Virginia Constitution** matters because the project is place-rooted, and constitutional governance in this system is not meant to become detached from the civic and legal traditions of West Virginia communities.
-
-This does not mean the service acts as a court or claims legal finality. It means the service is designed to operationalize constitutional principles drawn from these governing frameworks so that actions touching authority, disclosure, identity, memory, public consequence, or civic relevance are not treated as merely technical operations.
-
----
-
-## 37.7 Place in the Promotion Pipeline
-
-The constitutional guardian sits inside the promotion pipeline as a required review stage.
-
-A candidate output may originate in sandboxed reasoning, validation, or staging, but before it crosses into a higher-authority destination it must satisfy the constitutional service’s contract. This places constitutional review between provisional candidate state and approved promotion, alongside the other required gate functions that govern truth, completeness, provenance, and authority.
-
-In pipeline terms, the guardian operates after a candidate action is formed and before final approval is granted. It is therefore not merely an advisory commentator on principle. It is a live participant in deciding whether a transition may proceed.
-
----
-
-## 37.8 Malformed or Incomplete Payloads
-
-Malformed or incomplete guardian payloads prevent approval.
-
-If required fields are missing, empty where materially necessary, structurally malformed, contradictory, or otherwise insufficient for constitutional evaluation, the review cannot be treated as successful. In that condition, the system must not interpret the mere attempt to call the service as evidence of constitutional compliance. The approval path must stop.
-
-This means constitutional review is fail-closed with respect to payload integrity. A candidate transition does not become constitutionally acceptable merely because a guardian endpoint was contacted. The payload must be complete enough for real review to happen.
-
----
-
-## 37.9 API-Mediated Constitutional Review
-
-This chapter treats constitutional review as an API-mediated governance act.
-
-That clarification matters because the service now depends on explicit machine-readable inputs and outputs rather than on principle language alone. The guardian receives a structured payload, evaluates it according to constitutional logic and governance policy, and returns a result that bears directly on whether promotion may continue.
-
-The constitutional service is therefore no longer documented only as abstract principle-checking. It is a concrete mediated gate in the live authority path, and the chapter should describe it with the same operational seriousness applied to other validators, filters, and promotion controls.
-
----
-
-## 37.10 Combined Gate Decomposition
-
-Constitutional review is one component of a broader gate algebra governing promotion.
-
-The combined gate can be written as:
-
-\[
-G(x) = G_{\mathrm{truth}}(x)\, G_{\mathrm{guardian}}(x)\, G_{\mathrm{constitutional}}(x)\, G_{\mathrm{provenance}}(x)\, G_{\mathrm{coherence}}(x)\, G_{\mathrm{privacy}}(x)\, G_{\mathrm{security}}(x)
-\]
-
-where \(x\) is the candidate state or candidate action under review. This expression means promotion eligibility is not produced by one vague approval event. It is the conjunction of multiple governing sub-gates.
-
-Within this algebra:
-
-- \(G_{\mathrm{truth}}(x)\) captures truth filtering or judge-based validation;
-- \(G_{\mathrm{guardian}}(x)\) captures receipt of a valid guardian payload and its review path;
-- \(G_{\mathrm{constitutional}}(x)\) captures the substantive constitutional evaluation of the requested action;
-- \(G_{\mathrm{provenance}}(x)\) captures lineage and traceability;
-- \(G_{\mathrm{coherence}}(x)\) captures contradiction and consistency constraints;
-- \(G_{\mathrm{privacy}}(x)\) captures consent and disclosure limits;
-- \(G_{\mathrm{security}}(x)\) captures safeguard and attack-resistance checks.
-
-The constitutional service should therefore be understood as one necessary term in a larger governance conjunction rather than as the whole of governance by itself.
-
----
-
-## 37.11 Authority-Preserving Promotion
-
-The constitutional service participates in authority-preserving promotion.
-
-A sandbox candidate, staged conclusion, or provisional action request does not begin with the authority of approved system state. Promotion changes the authority level of the candidate, and that change must occur only through satisfied gates. Constitutional review is one of the checks that preserves this distinction.
-
-This can be represented schematically as:
-
-\[
-S_{\mathrm{sandbox}} \xrightarrow{\,G(x)\,} S_{\mathrm{approved}}
-\]
-
-only when the required gate conditions are met. If constitutional review fails, if payload integrity fails, or if the broader gate conjunction is not satisfied, the candidate remains unpromoted. In this way, the constitutional guardian helps preserve the difference between provisional reasoning and authorized action.
-
----
-
-## 37.12 Constitutional Governance in Practice
-
-The constitutional principles service turns constitutional governance into an operational mechanism.
-
-Its role is not to decorate the system with civic language after the real decisions have already been made. Its role is to participate directly in deciding whether a proposed transition can be granted authority. By grounding review in constitutional commitments, including the United States and West Virginia constitutional traditions, and by requiring a valid guardian payload before approval can proceed, the service makes constitutional restraint part of the live architecture.
-
-This chapter therefore presents constitutional governance as structured, place-aware, and operationally binding. It is not only about what principles the system admires. It is about what transitions the system is actually permitted to make.# 37. Constitutional Principles Service
-
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
-
----
-
-## 37.1 Constitutional Grounding
-
-The constitutional principles service in Ms. Allis is grounded in the constitutional traditions that govern the project’s understanding of lawful power, rights, restraint, due process, and bounded authority.
-
-In this chapter, “constitutional” is not a vague ethical adjective. It refers concretely to the project’s use of constitutional sources and constitutional reasoning as part of system governance, including the **United States Constitution** and the **West Virginia Constitution** as operative reference frameworks for rights, limits, accountability, and public-facing legitimacy. The service therefore belongs to the governance architecture as a mechanism for checking whether a proposed action or promotion path is consistent with these higher-order commitments.
-
-This constitutional grounding is not merely thematic. It is part of the review pathway through which candidate actions are evaluated before they receive approval to cross into higher-authority system state.
-
----
-
-## 37.2 Constitutional Materials in the System
-
-The constitutional service should be understood in connection with the system’s constitutional knowledge resources.
-
-The system’s governance layer includes constitutional material associated with the **United States Constitution** and the **West Virginia Constitution**, along with related governance texts and principles, so constitutional review is not detached from the larger documentary and retrieval environment of the architecture. The purpose of this service is not to reproduce those documents mechanically, but to operationalize their role as sources of constraint, rights-awareness, and public-order accountability within system decisions.
-
-This matters especially for a project rooted in place. The West Virginia constitutional layer helps ensure that governance is not treated as placeless abstraction, while the United States constitutional layer situates the project within a broader framework of rights, limits, and lawful structure.
-
----
-
-## 37.3 Constitutional Review as a Concrete Service
-
-The constitutional principles service is a concrete governance service that participates directly in promotion review.
-
-Its purpose is to evaluate whether a candidate action, conclusion, or transition is permissible under the project’s constitutional commitments and operational rules. This chapter therefore treats constitutional review not as a floating act of moral sentiment or a purely abstract principle-checking exercise, but as an API-mediated gate with explicit input requirements and approval consequences.
-
-Constitutional review belongs inside the authority path. It is one of the components that determines whether provisional internal state may move into approved, durable, or consequential system action.
+- brings constitutional ideas (rights, restraints, due process) into the decision pipeline;  
+- helps flag actions that look like they would violate those commitments;  
+- supports a place‑rooted understanding of lawful power in West Virginia communities.
 
 ---
 
 ## 37.4 The Guardian Payload Contract
 
-The operative contract for constitutional review is the guardian payload.
+Every request to the constitutional service must carry a **structured payload**. A typical contract includes:
 
-A valid request to the constitutional service must carry the structured fields needed for meaningful review. The required schema is:
+- `actor_role` – who is acting (for example, system module, operator, automation).  
+- `context` – in what situation (session, workflow, scenario).  
+- `action_type` – what kind of action is proposed (promotion, disclosure, registration, memory write, etc.).  
+- `content` – the substance of what is being promoted or done.  
+- `metadata` – provenance, identifiers, and other details needed for review.
 
-- `actor_role`
-- `context`
-- `action_type`
-- `content`
-- `metadata`
+If this payload is **missing required fields** or structurally invalid, the guardian:
 
-These fields are not ornament. They are the review surface through which the service understands who is acting, under what role, in what context, toward what kind of action, over what substantive content, and with what surrounding metadata. Without this contract, constitutional review is too under-specified to function as a trustworthy gate.
+- rejects the request;  
+- treats the action as **not constitutionally approved**;  
+- causes the promotion path to **fail closed**.
 
----
-
-## 37.5 Meaning of the Payload Fields
-
-Each required field supports a distinct part of constitutional evaluation.
-
-`actor_role` identifies the operative role under which the action is being attempted. `context` situates the request within the relevant session, governance circumstance, workflow, or bounded scenario. `action_type` specifies what kind of act is being proposed, such as promotion, disclosure, memory write, public-facing release, internal registration, or another governed transition. `content` carries the substantive material to be reviewed. `metadata` carries supporting identifiers, provenance markers, source details, or additional structured context needed for constitutional judgment.
-
-The service is therefore not checking content in isolation. It is checking whether a particular actor, in a particular context, is attempting a particular action on particular content under conditions that remain constitutionally acceptable.
+Simply calling the endpoint is not enough; the payload must be complete and valid.
 
 ---
 
-## 37.6 United States and West Virginia Constitutional Relevance
+## 37.5 What the Guardian Checks
 
-The constitutional principles service should explicitly reflect both federal and state constitutional orientation.
+When a valid payload is sent to `/constitutional-principles/review` or `/constitutional/review`, the service checks questions such as:
 
-The **United States Constitution** matters here because the service is meant to preserve attention to rights, lawful authority, procedural restraint, and the dangers of unconstrained power. The **West Virginia Constitution** matters because the project is place-rooted, and constitutional governance in this system is not meant to become detached from the civic and legal traditions of West Virginia communities.
+- Is this actor allowed to attempt this action in this context?  
+- Does the action respect consent and privacy (for example, no private disclosure without permission)?  
+- Does it avoid obvious conflicts with constitutional rights or protections?  
+- Is there any sign of bypassing required oversight or due process within the system’s own rules?
 
-This does not mean the service acts as a court or claims legal finality. It means the service is designed to operationalize constitutional principles drawn from these governing frameworks so that actions touching authority, disclosure, identity, memory, public consequence, or civic relevance are not treated as merely technical operations.
+Examples:
 
----
-
-## 37.7 Place in the Promotion Pipeline
-
-The constitutional guardian sits inside the promotion pipeline as a required review stage.
-
-A candidate output may originate in sandboxed reasoning, validation, or staging, but before it crosses into a higher-authority destination it must satisfy the constitutional service’s contract. This places constitutional review between provisional candidate state and approved promotion, alongside the other required gate functions that govern truth, completeness, provenance, and authority.
-
-In pipeline terms, the guardian operates after a candidate action is formed and before final approval is granted. It is therefore not merely an advisory commentator on principle. It is a live participant in deciding whether a transition may proceed.
+- A **governed promotion payload** with proper consent and context can pass.  
+- A **consent‑bypass** or **private‑disclosure** payload is expected to **fail closed**.  
+- A payload that omits required consent fields is rejected at the schema level.
 
 ---
 
-## 37.8 Malformed or Incomplete Payloads
+## 37.6 BBB and Guardian Together
 
-Malformed or incomplete guardian payloads prevent approval.
+The **BBB** and the **constitutional guardian** work together in the promotion path:
 
-If required fields are missing, empty where materially necessary, structurally malformed, contradictory, or otherwise insufficient for constitutional evaluation, the review cannot be treated as successful. In that condition, the system must not interpret the mere attempt to call the service as evidence of constitutional compliance. The approval path must stop.
+- BBB sits at a boundary between lower‑risk internal reasoning and higher‑authority consequences.  
+- The guardian provides constitutional review within that boundary.  
+- Both expose **health surfaces** so watchdogs and operators can confirm they are up and responding.
 
-This means constitutional review is fail-closed with respect to payload integrity. A candidate transition does not become constitutionally acceptable merely because a guardian endpoint was contacted. The payload must be complete enough for real review to happen.
+For rural operators, this means you can:
 
----
-
-## 37.9 API-Mediated Constitutional Review
-
-This chapter treats constitutional review as an API-mediated governance act.
-
-That clarification matters because the service now depends on explicit machine-readable inputs and outputs rather than on principle language alone. The guardian receives a structured payload, evaluates it according to constitutional logic and governance policy, and returns a result that bears directly on whether promotion may continue.
-
-The constitutional service is therefore no longer documented only as abstract principle-checking. It is a concrete mediated gate in the live authority path, and the chapter should describe it with the same operational seriousness applied to other validators, filters, and promotion controls.
+- check that BBB on port **8016** is healthy;  
+- check that the guardian on port **8091** is healthy;  
+- verify that promotion calls actually pass through these gates instead of bypassing them.
 
 ---
 
-## 37.10 Combined Gate Decomposition
+## 37.7 Valid vs. Invalid Promotion Payloads
 
-Constitutional review is one component of a broader gate algebra governing promotion.
+From the July 2026 closure evidence:
 
-The combined gate can be written as:
+- **Valid governed promotion payloads pass** constitutional review.  
+- **Consent‑bypass or private‑disclosure payloads fail closed.**  
+- **Missing required fields** are **rejected by schema validation** before approval.
 
-\[
-G(x) = G_{\mathrm{truth}}(x)\, G_{\mathrm{guardian}}(x)\, G_{\mathrm{constitutional}}(x)\, G_{\mathrm{provenance}}(x)\, G_{\mathrm{coherence}}(x)\, G_{\mathrm{privacy}}(x)\, G_{\mathrm{security}}(x)
-\]
+In practice:
 
-where \(x\) is the candidate state or candidate action under review. This expression means promotion eligibility is not produced by one vague approval event. It is the conjunction of multiple governing sub-gates.
-
-Within this algebra:
-
-- \(G_{\mathrm{truth}}(x)\) captures truth filtering or judge-based validation;
-- \(G_{\mathrm{guardian}}(x)\) captures receipt of a valid guardian payload and its review path;
-- \(G_{\mathrm{constitutional}}(x)\) captures the substantive constitutional evaluation of the requested action;
-- \(G_{\mathrm{provenance}}(x)\) captures lineage and traceability;
-- \(G_{\mathrm{coherence}}(x)\) captures contradiction and consistency constraints;
-- \(G_{\mathrm{privacy}}(x)\) captures consent and disclosure limits;
-- \(G_{\mathrm{security}}(x)\) captures safeguard and attack-resistance checks.
-
-The constitutional service should therefore be understood as one necessary term in a larger governance conjunction rather than as the whole of governance by itself.
+- a well‑formed request, with all required fields and consent markers, can be approved;  
+- a request trying to expose private information without consent is blocked;  
+- a request that forgets to include necessary context fields is treated as **invalid**, not “probably fine.”
 
 ---
 
-## 37.11 Authority-Preserving Promotion
+## 37.8 Role in the Promotion Pipeline
 
-The constitutional service participates in authority-preserving promotion.
+The constitutional principles service is one part of a broader promotion gate. A typical path is:
 
-A sandbox candidate, staged conclusion, or provisional action request does not begin with the authority of approved system state. Promotion changes the authority level of the candidate, and that change must occur only through satisfied gates. Constitutional review is one of the checks that preserves this distinction.
+1. **Sandbox reasoning** produces a candidate action or answer.  
+2. Other judges/checks evaluate truth, coherence, safety, provenance, etc.  
+3. A promotion request is constructed with a **guardian payload**.  
+4. The request is sent through BBB and the **constitutional review endpoints**.  
+5. Only if constitutional review **approves** (and other gates agree) can promotion proceed.
 
-This can be represented schematically as:
+If the guardian response is a failure, or if the payload is malformed, the system:
 
-\[
-S_{\mathrm{sandbox}} \xrightarrow{\,G(x)\,} S_{\mathrm{approved}}
-\]
-
-only when the required gate conditions are met. If constitutional review fails, if payload integrity fails, or if the broader gate conjunction is not satisfied, the candidate remains unpromoted. In this way, the constitutional guardian helps preserve the difference between provisional reasoning and authorized action.
+- does **not** treat the action as approved;  
+- fails closed and logs the problem.
 
 ---
 
-## 37.12 Constitutional Governance in Practice
+## 37.9 Place-Aware Constitutional Orientation
 
-The constitutional principles service turns constitutional governance into an operational mechanism.
+Because Ms. Allis is rooted in **Mount Hope, West Virginia**, the constitutional service:
 
-Its role is not to decorate the system with civic language after the real decisions have already been made. Its role is to participate directly in deciding whether a proposed transition can be granted authority. By grounding review in constitutional commitments, including the United States and West Virginia constitutional traditions, and by requiring a valid guardian payload before approval can proceed, the service makes constitutional restraint part of the live architecture.
+- names and respects both the **U.S. Constitution** and the **West Virginia Constitution**;  
+- treats local state‑level rights and limits as part of its frame of reference;  
+- avoids pretending that governance is the same everywhere.
 
-This chapter therefore presents constitutional governance as structured, place-aware, and operationally binding. It is not only about what principles the system admires. It is about what transitions the system is actually permitted to make.
+The service still does **not** give legal advice or act as a lawyer. It is a **technical mechanism** to enforce internal rules that are themselves influenced by constitutional traditions.
+
+---
+
+## 37.10 What This Chapter Does Not Claim
+
+Within this closure, Chapter 37 does **not** claim:
+
+- perfect legal correctness;  
+- that the system is a court or legal advisor;  
+- that all constitutional questions are solved or provably encoded;  
+- clinical or safety guarantees for downstream human decisions.
+
+It only claims:
+
+- a **live constitutional guardian** on port 8091;  
+- a connected **BBB** on port 8016;  
+- working review endpoints;  
+- fail‑closed handling of malformed and consent‑bypass payloads;  
+- explicit naming of the **United States** and **West Virginia** constitutions as reference frameworks.
+
+---
+
+## 37.11 Step-by-Step View for Rural Developers
+
+In everyday terms, when something important is about to happen (for example, a promotion or disclosure that touches identity or public impact), the flow is:
+
+1. Ms. Allis builds a **guardian payload** describing who is acting, what they want to do, in what context, and with what content.  
+2. That payload is sent through the **BBB** to the **constitutional review endpoints**.  
+3. The guardian checks that the payload is structurally valid and constitutionally acceptable under the project’s rules.  
+4. If checks pass, the rest of the promotion gates may proceed.  
+5. If checks fail, the action is **blocked** and the event is logged.
+
+This keeps “what is allowed” tied to a concrete, inspectable service instead of being hidden inside model behavior.
+
+---
+
+## 37.12 Closing Statement
+
+The Constitutional Principles Service makes **constitutional restraint** a real part of Ms. Allis’s promotion path. By running on live ports, requiring structured guardian payloads, failing closed on malformed or consent‑bypass requests, and explicitly naming the **U.S.** and **West Virginia** constitutions as reference points, it turns constitutional ideas into an operational gate.
+
+For rural communities, this means the system’s big moves—especially around disclosure and authority—must pass through a **concrete constitutional checkpoint**, not just the good intentions of the developers.
