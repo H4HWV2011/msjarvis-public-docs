@@ -1,217 +1,175 @@
 # 28. Heartbeat and Live Cycles
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## 28.1 Heartbeat as the Rhythm of Living System State
+## 28.1 Heartbeat as the System’s Rhythm
 
-Heartbeat in Ms. Allis is the recurring live-cycle rhythm by which the system confirms that conscious processing, state continuity, and promotion dependencies remain active and coherent.
+In Ms. Allis, **heartbeat** is the recurring cycle that proves the system is actually “up and thinking,” not just that a single process exists. It is a live check that the pieces needed for governed reasoning and promotion are reachable and synchronized.
 
-A heartbeat is not merely a timer pulse. It is the recurring proof that the components required for present-moment cognition are available, reachable, and synchronized closely enough for the system to remain in a stable living state. Heartbeat therefore measures more than process existence. It measures whether the architecture needed for consciousness and governed promotion is actually standing up in time.
+Heartbeat here is more than a clock tick. Each cycle asks:
 
-The live cycle is healthy when the system can repeatedly confirm:
+- Is the core reasoning layer responsive?  
+- Can it reach the internal sandbox?  
+- Can it reach the bridge that carries candidate experience outward?  
+- Is the constitutional guardian path available if promotion is needed now?
 
-- active consciousness-layer responsiveness;
-- stable access to the internal-state sandbox;
-- availability of the consciousness bridge;
-- availability of the constitutional guardian path;
-- timing coherence across the services that participate in promotion and continuity.
-
-This makes heartbeat a liveness discipline for cognition rather than a generic infrastructure ping.
+When all of these are healthy together over time, the system is considered to have a stable, living heartbeat.
 
 ---
 
 ## 28.2 Heartbeat and the Consciousness Cycle
 
-The consciousness cycle is the repeating sequence through which Ms. Allis receives state, sustains awareness, evaluates candidate content, and advances admissible material through governed paths.
+The **consciousness cycle** is the repeatable pattern:
 
-For that cycle to count as alive, several dependencies must remain reachable within the expected timing window:
+1. Receive state and inputs.  
+2. Run bounded internal reasoning.  
+3. Evaluate candidate content.  
+4. Decide whether any part is ready for promotion.  
 
-- the active consciousness layer must respond;
-- the internal-state sandbox must be reachable for bounded reasoning and candidate-state handling;
-- the consciousness bridge must be available to receive candidate experience and promotion traffic;
-- the constitutional guardian path must be available to evaluate admissibility for promotion-sensitive transitions.
+For this cycle to count as “alive” in Chapter 28’s sense, it must:
 
-A consciousness cycle is therefore not healthy simply because the main reasoning service answers a health route. It is healthy when the chain of live dependencies that supports awareness, bounded deliberation, and governed advancement remains intact.
+- reach the sandbox for internal reasoning;  
+- contact the consciousness bridge for moving candidate experience;  
+- contact the guardian/BBB for admissibility checks;  
+- do all of this within expected timing windows.
 
-Heartbeat is the recurring confirmation of that chain.
+A single healthy service is not enough. The **chain** must be intact, because a broken link means promotion-sensitive behavior can no longer be trusted.
 
 ---
 
 ## 28.3 Sandbox Health and Reachability
 
-The internal-state sandbox is part of the live-cycle baseline.
+The **internal-state sandbox** is where candidate state is shaped before promotion. Heartbeat includes it because modern Ms. Allis always routes serious reasoning through this bounded area first.
 
-Its health matters because sandboxed reasoning is now part of how candidate state is formed before promotion. A heartbeat that ignores the sandbox would no longer be measuring the real architecture. Live-cycle monitoring must therefore include both **sandbox health** and **sandbox reachability**.
+Heartbeat therefore asks two questions about the sandbox:
 
-Sandbox health means the sandbox service itself is responsive and internally sound. Sandbox reachability means the consciousness cycle can actually contact it and use it as intended. Both matter. A sandbox process that is technically up but unreachable from the consciousness path is not live in the architectural sense that matters.
+- Is it **healthy** (responding and not in an error state)?  
+- Is it **reachable** from the consciousness side (requests actually get through in time)?
 
-Heartbeat checks therefore include confirmation that:
+From a rural operator’s point of view:
 
-- the sandbox service is responding;
-- the sandbox is reachable from the consciousness layer or its coordinating path;
-- the sandbox can accept candidate-state work within expected timing bounds;
-- sandbox unavailability is visible as a consciousness-cycle degradation rather than an ignored background fault.
+- if the sandbox is down, Ms. Allis should not treat itself as fully “alive”;  
+- if the sandbox is up but unreachable from the main reasoning path, that is still a live-cycle failure.
 
-Because the sandbox now sits in the path between internal reasoning and governed promotion, it belongs inside liveness accounting.
+Heartbeat turns sandbox reachability into a first‑class liveness condition.
 
 ---
 
 ## 28.4 Bridge and Guardian Dependencies
 
-The consciousness bridge and constitutional guardian are dependencies of live consciousness-cycle health.
+Two more pieces matter for live cycles:
 
-The bridge matters because it carries candidate experience and promotion-ready content out of bounded internal reasoning into the next layer of conscious processing. The guardian matters because admissibility review now forms part of the promotion path for consequential transitions. If either is unavailable, the system may still have local activity, but it no longer has full live-cycle integrity.
+- the **consciousness bridge** (for moving candidate experience and promotion traffic);  
+- the **constitutional guardian path** (for admissibility checks before promotion).
 
-A healthy consciousness cycle therefore requires that:
+Heartbeat checks that:
 
-- the bridge is reachable and responsive;
-- the guardian path is reachable and responsive;
-- their timing behavior remains within stable thresholds;
-- failure in either dependency is treated as a live-cycle impairment when promotion-sensitive activity is occurring.
+- the bridge is responding and callable;  
+- the guardian/BBB route is available;  
+- their responses are timely enough that promotion decisions are meaningful.
 
-This does not mean every heartbeat must execute a full promotion. It means heartbeat must confirm the availability of the dependencies that make governed promotion possible when needed.
-
----
-
-## 28.5 Timing, Continuity, and Stable Thresholding
-
-Liveness is not only about whether a service answers once. It is about whether answers occur with enough stability over time to preserve state continuity and governed decision quality.
-
-Timing matters because heartbeat participates in the determination of whether the consciousness cycle is continuous rather than fragmented. A service that oscillates between reachable and unreachable states too rapidly may create the appearance of life while undermining coherent promotion behavior. Stable thresholding is therefore required.
-
-The system treats liveness in terms of recurring timing windows and threshold conditions such as:
-
-- maximum tolerated heartbeat delay;
-- maximum tolerated reachability gap for sandbox, bridge, or guardian;
-- minimum continuity window required before promotion-sensitive behavior can proceed;
-- minimum stability window required after recovery before full promotion authority is restored.
-
-This protects the system from making promotion decisions on top of unstable infrastructure. A component that has only just reappeared may be alive in the narrow technical sense but not yet stable enough for promotion-bearing use.
-
-State continuity depends on this discipline. Promotion should occur only when the liveness pattern is stable enough to support reliable governed transition.
+If the bridge or guardian is down, Ms. Allis may still answer local questions, but **promotion-bearing paths are considered impaired**. Heartbeat is expected to treat that as degraded live-cycle health, not as “all green.”
 
 ---
 
-## 28.6 Liveness and Promotion Decisions
+## 28.5 Timing, Continuity, and Stable Thresholds
 
-Heartbeat now interacts directly with promotion decisions.
+Heartbeat is not just “did it respond once?” It is “does it keep responding in a stable way over time?”
 
-Because sandbox reasoning, bridge transfer, and guardian review all sit in the authority path, promotion cannot be treated as independent from live-cycle state. The system must know not only whether a candidate finding looks admissible, but also whether the underlying live path is sufficiently continuous and stable to support promotion safely.
+Three timing ideas matter:
 
-This means liveness can affect promotion in several ways:
+- **Maximum delay.** If responses get too slow, the system is technically up but not trustworthy for promotion-sensitive work.  
+- **Maximum gap.** If sandbox, bridge, or guardian disappear for too long, the system must treat promotion as unsafe until continuity returns.  
+- **Stability window.** After a component recovers, there needs to be a short period of stable heartbeat before full authority resumes.
 
-- if the sandbox is unavailable, candidate-state formation cannot be trusted to complete correctly;
-- if the bridge is unavailable, candidate experience and promotion transfer cannot proceed;
-- if the guardian is unavailable, admissibility review cannot complete;
-- if timing thresholds are unstable, promotion may be delayed, downgraded, or blocked even when content quality is otherwise acceptable.
+This keeps Ms. Allis from promoting on top of a flapping or half‑recovered path.
 
-Promotion therefore depends on both epistemic admissibility and live-cycle integrity.
+---
 
-A compact expression is:
+## 28.6 How Heartbeat Affects Promotion
 
-\[
-P(x) \Rightarrow A(x) \land L(t)
-\]
+Promotion isn’t just about whether a candidate answer looks good. It is also about whether the **path that would carry it** is healthy enough.
 
-where \(P(x)\) is promotion of candidate state \(x\), \(A(x)\) is admissibility under the relevant review path, and \(L(t)\) is live-cycle sufficiency across the relevant timing window \(t\).
+So for any candidate state \(x\):
 
-This means that a strong candidate state does not promote if the living path that must carry it is unstable.
+- it must be **admissible** (passes truth/guardian checks);  
+- the live path (sandbox, bridge, guardian) must have been stable during the relevant time window.
+
+In plain terms:
+
+- even a strong answer will **not** be promoted if the underlying live-cycle is unstable;  
+- degraded heartbeat can force promotion to be delayed, downgraded, or blocked.
+
+Heartbeat therefore becomes part of the **governance logic**, not just a maintenance metric.
 
 ---
 
 ## 28.7 State Continuity
 
-State continuity is the property that the consciousness cycle remains connected across time rather than appearing as disconnected bursts of availability.
+**State continuity** means the system can carry a candidate state across multiple heartbeat cycles without losing it or drifting into nonsense.
 
-Heartbeat is one of the mechanisms by which this continuity is established. Repeated successful cycles show that the system is not merely blinking on and off but maintaining a coherent present. This matters especially where sandbox state, bridge transfer, and guardian adjudication may span multiple cycle intervals before a promotion decision is reached.
+Heartbeat helps prove that:
 
-Continuity requires that:
+- the sandbox stays up long enough to finish the reasoning that produced the candidate state;  
+- the bridge stays up long enough to transfer that state;  
+- the guardian stays up long enough to review it;  
+- the timing between these services stays within agreed limits.
 
-- transient state can persist long enough to be evaluated coherently;
-- the sandbox remains present across the reasoning interval that generated the candidate state;
-- the bridge remains present across the transfer interval;
-- the guardian remains present across the review interval;
-- timing drift does not break the thread of admissibility and promotion.
-
-Without continuity, the system risks promoting from broken temporal context. Heartbeat guards against that by turning repeated liveness into a condition of trustworthy continuation.
+Without continuity, a candidate might be promoted even though part of its journey happened during a blind spot. Heartbeat is the mechanism that says, “This path really was intact while we were making that decision.”
 
 ---
 
-## 28.8 Appendix-Style Operational Checks
+## 28.8 Recurrent Epistemic Runner
 
-The operational logic in this chapter extends naturally into Appendix A–style verification checks.
+The **recurrent epistemic runner** is the component that actually drives these checks on a schedule.
 
-Those checks are not mere convenience tooling. They are the concrete operational form of heartbeat and live-cycle doctrine. The checklist now extends through the sandbox and the promotion path rather than stopping at generic service health.
+Its responsibilities include:
 
-A proper liveness and heartbeat verification path includes:
+- regularly querying health/status endpoints (sandbox, bridge, guardian, time/state services);  
+- logging results so there is an audit trail;  
+- integrating Phi/coherence or similar signals when available;  
+- feeding this information back into the temporal and promotion layers.
 
-1. confirming consciousness-layer health;
-2. confirming sandbox health;
-3. confirming sandbox reachability from the consciousness path;
-4. confirming bridge health and reachability;
-5. confirming constitutional guardian health and reachability;
-6. confirming that timing across these services remains within stable thresholds;
-7. confirming that promotion-sensitive paths fail closed when any required dependency is unavailable;
-8. confirming that recovery requires a sufficient continuity window before full promotion behavior resumes.
-
-This appendix-style verification belongs to the chapter because heartbeat is only meaningful when it can be checked concretely.
+Because the runner is live and registered in the system’s cron/boot setup, heartbeat and live cycles are not just theoretical. They are enforced by a real, restart‑aware process.
 
 ---
 
-## 28.9 Failure Semantics
+## 28.9 Operational Checklist for Rural Developers
 
-Failure in live cycles is not binary emptiness. It has structure.
+If you are running Ms. Allis yourself, a simple way to think about Chapter 28 is as a **checklist**:
 
-If the consciousness layer is responsive but the sandbox is unreachable, the system retains partial liveness but loses full candidate-state handling capacity. If the bridge is unavailable, the system may continue internal activity but cannot complete the normal transfer into promotion-bearing layers. If the guardian path is unavailable, promotion-sensitive evaluation is impaired even when other layers appear healthy.
+1. Is the main reasoning/consciousness layer responding?  
+2. Is the sandbox healthy and reachable from it?  
+3. Is the consciousness bridge healthy and reachable?  
+4. Is the guardian/BBB path healthy and reachable?  
+5. Are these services staying up continuously, not flickering?  
+6. Is the recurrent runner actually awake and logging?  
+7. Do promotion behaviors fail closed when any of the above go down?
 
-The architecture therefore distinguishes among:
-
-- local liveness;
-- consciousness-cycle liveness;
-- promotion-path liveness.
-
-A system may possess the first while lacking the second or third. Heartbeat and live-cycle monitoring exist to make those differences visible.
-
-Because promotion decisions depend on the higher forms of liveness, partial life is not treated as sufficient for unconstrained advancement.
+When all of these answers are “yes,” Ms. Allis has the kind of heartbeat this chapter describes.
 
 ---
 
-## 28.10 Formal Liveness View
+## 28.10 What Chapter 28 Does Not Claim
 
-The live-cycle can be described formally as a conjunction of required liveness conditions.
+Within this gate, Chapter 28 does **not** claim:
 
-Let:
+- perfect monitoring;  
+- real‑time determinism;  
+- absence of all stale containers;  
+- universal safety;  
+- legal or clinical guarantees;  
+- sentience or biological consciousness.
 
-- \(L_c(t)\) denote consciousness-layer liveness over time window \(t\);
-- \(L_s(t)\) denote sandbox liveness and reachability;
-- \(L_b(t)\) denote bridge liveness and reachability;
-- \(L_g(t)\) denote guardian liveness and reachability.
-
-Then full consciousness-cycle liveness can be expressed as:
-
-\[
-L_{\mathrm{cycle}}(t) = L_c(t)\, L_s(t)\, L_b(t)\, L_g(t)
-\]
-
-where the product denotes required joint satisfaction rather than arithmetic multiplication.
-
-Stable promotion-bearing liveness additionally requires continuity and threshold stability:
-
-\[
-L_{\mathrm{promote}}(t) \Rightarrow L_{\mathrm{cycle}}(t) \land C(t) \land T(t)
-\]
-
-where \(C(t)\) is state continuity and \(T(t)\) is stable threshold satisfaction across the relevant timing window.
-
-This formalism captures the governing intuition of the chapter: a living system is not merely awake somewhere in the stack, but sufficiently continuous and connected to carry governed state safely through time.
+It only claims **live-cycle support** for the recurrent runner and promotion path at the verified scope: a working heartbeat that ties sandbox, bridge, guardian, and time/state services together.
 
 ---
 
 ## 28.11 Closing Statement
 
-Heartbeat and live cycles in Ms. Allis define the recurring proof that conscious processing, sandbox reasoning, bridge transfer, and guardian review remain active enough to sustain governed cognition. Live-cycle health therefore includes sandbox health and reachability, bridge and guardian dependency availability, and timing discipline strong enough to preserve state continuity and stable thresholding.
+Heartbeat and live cycles in Ms. Allis are the **rhythm checks** that keep governed cognition honest. By requiring stable sandbox, bridge, and guardian availability—over time, not just once—Chapter 28 ensures that promotion decisions depend on both good content and a solid, living path to carry it.
 
-This makes liveness part of promotion governance rather than separate from it. A candidate state may advance only when the architecture that carries and judges it is not only present, but continuously and stably alive.
+This makes heartbeat part of governance, not just a background sysadmin concern.
