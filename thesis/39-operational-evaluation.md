@@ -1,152 +1,231 @@
-# 39. Operational Evaluation
+# 39. Operational Evaluation and Automated Learning
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
-## 39.1 Purpose of Operational Evaluation
+## 39.1 What This Chapter Is Allowed to Claim
 
-Operational evaluation in Ms. Allis measures not only whether individual services answer requests, but whether the full governed pathway from sandboxed reasoning to gated promotion behaves reliably under real conditions.
+In Ms. Allis, Chapter 39 is limited to **operational evaluation** of a very specific loop.
 
-The object of evaluation is therefore the entire controlled sequence: internal or external input, sandbox interpretation, intermediate validation, promotion attempt, bridge behavior, gated experience creation, and fail-closed handling where approval is not obtained. This chapter treats successful operation as a property of the whole path rather than of any single endpoint in isolation.
+At the July 2026 sealed scope, it may claim that the system supports:
 
-For that reason, health metrics alone are insufficient. A healthy service can still participate in an unsafe or unstable pipeline if promotion control, bridge handling, or fail-closed behavior is weak.
+- **gap detection** in the local corpus;  
+- **escalation to web research** when Ms. Jarvis cannot answer truthfully from local data;  
+- **truth‑oriented review** of research results;  
+- **storage of reviewed findings** into a Chroma learning sink such as `autonomous_learner`.
 
----
-
-## 39.2 The Full Sandbox Pathway
-
-The operational pathway under evaluation begins in the sandbox.
-
-A candidate reasoning cycle enters a bounded workspace in which provisional state may be explored without immediate authority escalation. From there, the system may produce a sandbox result, attempt a promotion, encounter one or more gates, and, if approved, create a higher-authority experience through the relevant bridge. If the gates do not pass, the candidate remains unpromoted and the pathway must terminate safely.
-
-Operational evaluation must therefore observe at least five distinct stages:
-
-- sandbox initiation;
-- sandbox success or failure;
-- promotion attempt;
-- gate outcome;
-- bridge-mediated experience creation or fail-closed non-creation.
-
-This decomposition matters because the system can succeed at one stage and fail at another. A good evaluation framework must preserve those distinctions.
+It must not claim universal truth, hallucination impossibility, clinical cognition, or unrestricted autonomous authority. Automated learning here is a **bounded, governed process**, not a guarantee that the system is always right.
 
 ---
 
-## 39.3 Sandbox Success and Failure
+## 39.2 Automated Learning as a Process, Not a Database
 
-Sandbox success is not the same as final system success.
+The sealed gate stresses that **automated learning is a process**, and the learning sinks are **destinations**.
 
-A sandbox cycle counts as successful when the bounded reasoning environment completes its internal work coherently enough to produce a candidate output, intermediate state, or actionable proposal for further review. A sandbox cycle counts as failed when the internal path cannot complete due to error, contradiction, timeout, malformed state, unavailable dependencies, or another condition that prevents a viable candidate from being formed.
+In this chapter:
 
-These outcomes should be measured separately from promotion outcomes. The sandbox may succeed while the gates correctly block promotion, and the sandbox may fail before any promotion attempt is even possible. Treating all non-promotion as one undifferentiated failure would erase an important part of the system’s behavior.
+- **Automated learning** means:  
+  1. reviewing what the local corpus knows;  
+  2. detecting when that is not enough for an honest answer;  
+  3. escalating to web research;  
+  4. reviewing the new material for truth and coherence;  
+  5. writing only the reviewed pieces into a learning sink.
 
----
+- **`automated_learner` / `autonomous_learner`** are **Chroma learning sink collections** that hold the results of that loop.
 
-## 39.4 Promotion Attempts and Gate Outcomes
-
-A promotion attempt begins when the system presents a sandbox-derived candidate for authority-bearing review.
-
-At that point, operational evaluation should measure whether the candidate actually reached the gate path, which sub-gates were traversed, whether the review completed, and what outcome was returned. This includes approval, limited approval, revise, human review, reject, and fail-closed termination where the pathway cannot safely continue.
-
-The gate path should be evaluated as a sequence of observable outcome states rather than a single pass/fail bit. This allows the system to distinguish “good candidate, blocked on bridge,” “candidate rejected by truth review,” “candidate blocked by missing guardian fields,” and “candidate never reached promotion because sandbox formation failed.”
-
----
-
-## 39.5 Gated Experience Creation
-
-A central object of evaluation is gated experience creation.
-
-In this architecture, a promoted experience is not merely an internal computation that happened to occur. It is a higher-authority state that has crossed the relevant gate path and has been admitted through the bridge into a form the system is allowed to treat as operative, durable, or consequential. This can include authorized internal registration, consciousness-bridge promotion, durable memory eligibility, or another governed form of admitted state.
-
-Operational evaluation should therefore ask not only whether a candidate was generated, but whether a gated experience was actually created. The distinction matters because the system is designed to produce many provisional states that should never become authoritative experiences.
+The chapter must not describe those collections as “the automated‑learning loop.” They are **where** truth‑reviewed research is stored, not **how** the learning happens.
 
 ---
 
-## 39.6 Health and Availability Metrics
+## 39.3 Gap Detection in the Local Corpus
 
-Health metrics remain necessary, but they belong inside a wider evaluation frame.
+Operational evaluation begins with **corpus‑gap detection**.
 
-Relevant health measures include sandbox service health, gate service health, bridge availability, memory availability where applicable, and the health of supporting governance services involved in promotion. A healthy stack should show that the required services are reachable, responsive, and able to participate in the governed pathway without hidden degradation.
+When Ms. Jarvis is asked a question, the system first searches her **local corpora**, which include collections such as:
 
-These metrics should be read alongside pathway outcomes. A service reporting healthy status does not prove that sandbox cycles are forming valid candidates, that gates are behaving coherently, or that approved candidates are crossing the bridge correctly.
+- conversation histories;  
+- community and Appalachian corpora;  
+- commons and civic RAG collections;  
+- other domain‑specific knowledge bases.
 
----
+The evaluation logic asks:
 
-## 39.7 Approval Rates and Bridge Failures
+- Is there enough relevant material to support a truthful, grounded answer?  
+- Are the retrieved documents consistent and coherent?  
+- Do internal truth filters agree that a draft answer is adequately supported?
 
-Approval rates and bridge failures are indispensable operational metrics.
+If the answer is no, the system treats this as a **gap**. The correct operational behavior is:
 
-Approval rate should be measured over attempted promotions, not over raw user turns or raw sandbox starts. This makes it possible to distinguish between low approval because the system is appropriately selective and low approval because upstream formation is poor or downstream gates are malformed. Bridge failure rate should be measured over approved or approval-eligible candidates that attempted bridge transition but did not successfully create the intended higher-authority experience.
+- admit that the local corpus is insufficient;  
+- avoid pretending to know;  
+- consider escalation to web research rather than fabricating.
 
-These metrics reveal different pathologies:
-
-- low sandbox success suggests formation instability;
-- low promotion-attempt rate suggests candidates are not reaching review;
-- low approval rate may indicate strict but working governance, poor candidate quality, or gate misconfiguration;
-- high bridge failure rate indicates a breakdown after approval-stage progress;
-- high fail-closed rate with poor logs indicates observability weakness rather than safe governance.
-
----
-
-## 39.8 Fail-Closed Behavior
-
-Fail-closed behavior is part of successful operation, not merely an exception case.
-
-When a required review does not complete, a bridge call fails, a non-200 response occurs, a truth check fails, required guardian fields are missing, or an exception interrupts promotion, the correct behavior is controlled non-promotion. The system should preserve the lower-authority status of the candidate and should not create an unauthorized experience merely because the pathway was partially traversed.
-
-Operational evaluation should therefore include explicit fail-closed scenarios. These scenarios test whether blocked promotions remain blocked, whether partial downstream effects are prevented, and whether the system records the failure in a way that permits diagnosis without granting accidental authority.
+This gap‑first posture is the chapter’s anchored anti‑hallucination behavior.
 
 ---
 
-## 39.9 Scenario-Based Evaluation
+## 39.4 Escalation to Web Research
 
-Operational evaluation should include scenario families rather than only aggregate counts.
+When a gap is detected and policy allows it, the system escalates to **web research**.
 
-Useful scenarios include: normal sandbox completion followed by approval, sandbox completion followed by rejection, sandbox completion followed by bridge failure, malformed guardian payload causing fail-closed review, truth-check failure blocking promotion, service-health degradation during promotion, and external directive intake that remains bounded inside the sandbox rather than bypassing gates. These scenarios probe whether the architecture preserves authority order under different operational stresses.
+This happens through a dedicated **web research service** running in its own container, which the gate evidence confirms is present in the deployment. That container:
 
-Scenario testing is especially important because averages can hide unsafe edges. A system that performs well under ordinary traffic but misbehaves during bridge interruption or malformed review payloads is not operationally trustworthy in the sense this thesis requires.
+- receives a structured research request derived from the gap;  
+- queries external sources;  
+- returns candidate documents, passages, or snippets relevant to the question.
 
----
+At this stage, web content is treated as **candidate evidence**, not as trusted truth. Operational evaluation is concerned with verifying that:
 
-## 39.10 Confidence Bounds and Uncertainty
-
-Where measured quantitatively, operational results should be reported with confidence bounds or equivalent uncertainty language.
-
-If approval rates, bridge failure rates, sandbox success rates, or stability indicators are estimated from observed runs, those estimates should be presented as bounded measurements rather than as absolute timeless facts. This is especially important when sample size is limited, scenarios are heterogeneous, or the system configuration changes over time.
-
-Confidence language matters because operational evaluation is empirical, not metaphysical. The chapter should therefore distinguish clearly between observed results, estimated rates, and architectural expectations.
+- gap conditions actually trigger the research path;  
+- research calls go through the dedicated service;  
+- failures or timeouts are handled without granting accidental authority.
 
 ---
 
-## 39.11 Stability Properties
+## 39.5 Truth‑Reviewed Storage into Learning Sinks
 
-Operational evaluation should also document stability properties where they are measured.
+After web research, candidate findings enter a **truth‑oriented review** step.
 
-Relevant stability properties include repeatability of gate outcomes for similar inputs, bounded variation in approval behavior across runs, resilience of fail-closed behavior under degraded service conditions, and consistency of bridge-mediated promotion when all prerequisite conditions are satisfied. Stability in this context does not require identical outputs in every case. It requires that authority transitions remain governed, non-accidental, and interpretable across repeated operation.
+In this step:
 
-This makes stability a governance property as much as a performance property. A system that answers quickly but varies unpredictably in promotion or disclosure behavior is operationally unstable in a way that matters more than raw latency.
+1. Candidate snippets are brought into the internal sandbox and judged for:  
+   - basic factual plausibility;  
+   - consistency with known, trusted material;  
+   - presence of obvious contradictions or low‑quality sources.
+
+2. Findings that fail these checks are **rejected** or quarantined.  
+3. Surviving findings are structured with:  
+   - provenance hashes;  
+   - source identifiers or URLs;  
+   - timestamps;  
+   - topical tags or embeddings.
+
+4. Only these reviewed entries are written into the **learning sink collections** such as `autonomous_learner`.
+
+Operational evaluation can therefore claim that the learning sink is:
+
+- a **durable Chroma destination** for externally researched information;  
+- populated **after** corpus gaps, web research, and truth‑oriented review;  
+- not a raw dump of everything the web service ever returns.
 
 ---
 
-## 39.12 Formal Evaluation Frame
+## 39.6 Learning Sinks and Collection Structure
 
-A compact formal frame helps organize the measured pathway.
+The sealed probe shows that the deployment includes many Chroma collections, including at least:
 
-Let \(s\) denote a sandbox episode, \(p\) a promotion attempt, \(g\) a gate outcome, and \(b\) a bridge result. Then an evaluated run may be represented as:
+- `autonomous_learner` (for learning sink storage);  
+- other collections like `appalachian_cultural_intelligence`, `commons_rag`, civic role and GBIM collections, and multiple conversation histories.
 
-\[
-s \rightarrow p \rightarrow g \rightarrow b
-\]
+Within this architecture:
 
-with the understanding that some runs terminate earlier. A sandbox failure may stop before \(p\); a gate rejection may stop before \(b\); and a bridge failure may occur after a favorable gate outcome but before authorized experience creation.
+- **Learning sinks** (`autonomous_learner` and related names) are **write targets** for reviewed research results.  
+- They sit alongside other collections but are conceptually different:  
+  - local corpora store baseline knowledge and conversation history;  
+  - learning sinks store **post‑research, post‑review** material.
 
-Where measured, one may report quantities such as sandbox success probability, promotion-attempt rate conditional on sandbox completion, gate outcome frequencies, bridge success rate conditional on approval, and fail-closed retention rate. These quantities are useful only if they preserve the ordering of the pathway rather than collapsing all outcomes into a single undifferentiated score.
+The chapter is allowed to say that these collections exist and serve as **durable destinations** for the automated learning loop, but only at the level demonstrated by the gate: presence, healthy Chroma family membership, and successful writes in tested scenarios.
 
 ---
 
-## 39.13 Closing Statement
+## 39.7 Role of the Recurrent Epistemic Runner and EEG Context
 
-Operational evaluation in Ms. Allis concerns the full governed pathway from sandbox reasoning to gated experience creation.
+Chapters 28 and 39 share the **recurrent epistemic runner** as a backbone.
 
-It therefore includes sandbox success and failure, promotion attempts, gate outcomes, bridge failures, approval rates, service health, and fail-closed behavior as distinct evaluative objects. Where results are measured, they should be reported with formal uncertainty language, explicit gate-outcome interpretation, and stability properties that show whether the system preserves bounded authority under repeated operation.
+From the closed evidence, operational evaluation of automated learning can rely on:
+
+- a live recurrent runner process;  
+- reboot/cron registration so the runner survives restart;  
+- healthy **Hilbert time** and **Hilbert state** services;  
+- a healthy **Phi probe** at its actual deployed host mapping;  
+- present **EEG containers** (theta, delta, beta) that provide additional state context.
+
+For Chapter 39, this means:
+
+- gap‑review and web research escalation run **on top of** a live‑cycle that is already heart‑checked;  
+- learning updates can be conditioned on time/state stability and coherence signals;  
+- the system is not supposed to write into long‑term sinks during obvious runtime instability.
+
+Operational evaluation can therefore talk about automated learning as a loop that **respects heartbeat and coherence**, not as a free‑running background scraper.
+
+---
+
+## 39.8 What Operational Evaluation Measures
+
+Within this chapter, operational evaluation looks at questions such as:
+
+- How often does the system correctly **detect gaps** instead of answering from inadequate local data?  
+- When gaps are detected, how reliably does it **escalate to web research**?  
+- How frequently do research calls **succeed**, timeout, or fail?  
+- What fraction of research results pass truth‑review and are written to the **learning sink**?  
+- How often does the system **fail closed** rather than writing unreviewed or contradictory material?
+
+These quantities are empirical, not absolute. They should be reported as **observed behavior**, not as timeless guarantees. The chapter remains clear that this is about **bounded improvement over time**, not about perfection.
+
+---
+
+## 39.9 Anti‑Hallucination in This Scope
+
+At this gate, Chapter 39’s anti‑hallucination claim is deliberately narrow.
+
+It may claim that:
+
+- the system **detects when it does not know** enough to answer truthfully from local corpus;  
+- when allowed, it **goes out to research** instead of fabricating;  
+- it performs **truth‑oriented review** on research results;  
+- it **only writes reviewed findings** into learning sinks.
+
+It may **not** claim that:
+
+- the system always tells the truth;  
+- hallucinations are impossible;  
+- the system has clinical judgment or cognitive parity with humans;  
+- the system can act with unrestricted autonomous authority.
+
+In plain language, the promise is: *“When I don’t know, I say so, go look, and try to store only what holds up under review,”* not *“I can never be wrong.”*
+
+---
+
+## 39.10 Step‑by‑Step View for Rural Developers
+
+For someone running Ms. Allis on the ground, the automated learning path in this chapter can be pictured as:
+
+1. **Question comes in.**  
+2. System searches its **local Chroma corpora**.  
+3. If local hits are strong and consistent, it answers from that base.  
+4. If there is a **gap**, it marks the gap instead of pretending to know.  
+5. If policy allows, it calls the **web research service**.  
+6. The research results are pulled into the **sandbox** as candidates.  
+7. Truth and coherence filters review those candidates.  
+8. Only reviewed findings are written into the **`autonomous_learner` learning sink** with provenance.  
+9. Future answers can draw on that sink, but still pass through normal guardrails.
+
+At every step, the system is expected to **fail closed**—not answer or not write—when something important is missing or broken.
+
+---
+
+## 39.11 What This Chapter Does Not Claim
+
+Within the sealed constraints, Chapter 39 does **not** claim:
+
+- universal truth or hallucination impossibility;  
+- medical, legal, or clinical cognition;  
+- unrestricted autonomous authority or self‑governance;  
+- any guarantee that all research sources are perfect or unbiased.
+
+It only claims:
+
+- operational **gap detection** in the local corpus;  
+- **web‑research escalation** when permitted;  
+- **truth‑reviewed storage** into learning sinks such as `autonomous_learner`;  
+- a clear separation between the **automated learning loop** and the **Chroma collections** that store its outcomes.
+
+---
+
+## 39.12 Closing Statement
+
+Operational evaluation in Chapter 39 treats automated learning as a **governed, step‑by‑step loop** that runs on top of the verified live‑cycle from Chapter 28. The system notices when local knowledge is not enough, uses web research to fill gaps, reviews what it finds, and writes only reviewed results into durable learning sinks.
+
+By keeping a sharp line between **process** (automated learning) and **storage** (`autonomous_learner` and related collections), and by refusing to over‑claim about truth or autonomy, this chapter stays exactly within the academic scope sealed by the joint 28/39 gate.
