@@ -1,257 +1,202 @@
 # 32. Fractal Optimization and DGMs
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 10, 2026*
+*Last updated: July 22, 2026*
 
 ---
 
 ## 32.1 Fractal Optimization in Ms. Allis
 
-Fractal optimization in Ms. Allis is the recursive improvement architecture through which local subsystems, evaluators, and Darwin Gödel Machine loops refine behavior at multiple scales while remaining inside governed authority boundaries.
+Fractal optimization in Ms. Allis means **repeating the same “propose → test → evaluate → gate” pattern** at several levels of the system, without ever letting an optimizer promote its own changes directly into production. The pattern looks similar at each scale, but the authority and safety boundaries stay fixed.
 
-The term *fractal* matters because the same pattern recurs across levels of the system: propose, test, evaluate, constrain, and either adopt or reject. A local optimization may affect one module, a coordinated optimization may affect a family of modules, and a higher-level optimization may affect the evaluative rules by which lower-level candidates are judged. The pattern repeats, but authority does not collapse. Each layer remains bounded by the governance conditions appropriate to its role.
-
-This chapter treats optimization as a governed process of controlled improvement rather than open-ended self-modification. The central point is that recursive change is allowed only when it remains inspectable, bounded, and safe across both code and reasoning pathways.
+This chapter treats optimization as **governed improvement**, not free‑running self‑modification. DGMs can suggest better ways of doing things, try them in safe sandboxes, and compare results; but any change that might touch production must still go through outside safety channels.
 
 ---
 
-## 32.2 The 23/69 Darwin Gödel Machines
+## 32.2 23/69 DGM Sandboxes as Bounded Experiment Environments
 
-The 23/69 Darwin Gödel Machines are the principal recursive optimization engines in this architecture.
+The architecture includes **23/69 DGM sandboxes** as **bounded experiment environments**.
 
-They are not merely code mutators. They generate candidate changes, test them under bounded conditions, evaluate their effects, and determine whether those changes should remain local, be discarded, or move toward broader system adoption. Their scope includes executable logic, evaluation policy, threshold behavior, and other operational parameters that shape how the broader system behaves.
+Key points:
 
-The 23/69 DGM structure also has its own sandbox. This is essential. A DGM does not test proposed changes directly against production authority. It first operates inside an independent bounded environment where candidate changes can be explored without automatically affecting live system behavior.
+- Each DGM sandbox is **separate from the main reasoning sandbox** (the one on port 8042).  
+- Inside a DGM sandbox, the system can test:  
+  - new thresholds;  
+  - judge combinations;  
+  - small code or policy tweaks;  
+  - alternative evaluation strategies.  
+- These experiments are **local**: they do not change live system behavior on their own.
 
-That independent sandbox is what makes the DGMs Darwinian in a governed way. Variation occurs there. Selection occurs there. But survival into production depends on a later path that leaves the independent sandbox and passes through external safety channels.
-
----
-
-## 32.3 The Three-Stage DGM Process
-
-The DGM process can be described as a three-stage path for determining whether a proposed change may influence production code or production-governing behavior.
-
-### Stage 1: variation and local testing inside the DGM sandbox
-
-A DGM begins by generating or selecting a candidate modification. This may include:
-
-- a code change;
-- an evaluation-rule change;
-- a threshold adjustment;
-- a judge-sequencing change;
-- a change in revision behavior or acceptance logic.
-
-This candidate is tested inside the DGM’s own independent sandbox. The point of this stage is to determine whether the candidate is at least locally viable. The DGM sandbox allows bounded experimentation, failure, rollback, and comparative scoring without granting the candidate any production authority.
-
-At this stage, the DGM asks questions such as:
-
-- does the candidate execute correctly;
-- does it improve the local objective it was designed to optimize;
-- does it create obvious regressions;
-- does it remain within the DGM’s allowed search space;
-- does it preserve the minimal boundedness conditions of the local domain.
-
-A candidate that fails here does not continue. It remains a discarded variation inside the DGM sandbox.
-
-### Stage 2: comparative selection and adoption candidacy
-
-If a candidate survives local sandbox testing, it enters a comparative selection stage. Here the DGM does not merely ask whether the change works at all. It asks whether the change is preferable to the current baseline or to other candidate variants under the chosen objective and constraints.
-
-This stage may consider:
-
-- performance improvement;
-- reduction of contradiction or instability;
-- better judge behavior;
-- better threshold calibration;
-- cleaner state revision behavior;
-- fewer unsafe or incoherent promotion outcomes.
-
-A candidate that performs well enough may become an **adoption candidate**. That still does not make it production code or live production policy. It means only that the DGM’s internal selection logic regards it as eligible to leave the DGM sandbox and enter the external governance path.
-
-This distinction is crucial. Internal DGM selection is not final authority. It is only the completion of the optimizer’s own local decision procedure.
-
-### Stage 3: external safety channels and production decision
-
-A candidate that exits the DGM sandbox must then pass through safety channels outside the DGM’s independent sandbox.
-
-This is where the system reasserts that the DGM is not sovereign over production. The optimizer can propose and internally select, but external governance determines whether the selected change may actually affect production code, production reasoning policy, or promotion behavior.
-
-These external safety channels can include:
-
-- truth and consistency review where applicable;
-- constitutional or guardian checks;
-- policy compatibility review;
-- boundedness review;
-- stability review;
-- fail-closed handling if a required review path is unavailable;
-- human review or limited approval where the change has elevated consequence.
-
-Only after this outside review path succeeds may a DGM-selected change influence production behavior. This is the operative separation between optimization and authorization.
+You can think of each DGM sandbox as a **workbench** where the system tries adjustments safely before anything is considered for wider use.
 
 ---
 
-## 32.4 DGM Sandbox Versus External Safety Channels
+## 32.3 Three-Stage DGM Process
 
-The DGM sandbox and the external safety channels serve different functions and must not be conflated.
+Optimization via DGMs follows a **three-stage gated process**:
 
-The DGM sandbox is the optimizer’s private bounded experiment space. It exists so candidate modifications can be created, tested, scored, and discarded without direct production consequence.
+1. **Local DGM sandbox.**  
+   - The DGM proposes candidate changes (for example, “tighten this threshold” or “try a different judge ordering”).  
+   - It tests them in its own sandbox, scoring how well they work **locally**.
 
-The external safety channels exist to determine whether something that looks promising inside optimization is actually acceptable for the live governed system. A candidate can therefore succeed in the DGM sandbox and still fail the external channel. This is not an error. It is the intended architecture.
+2. **Comparative selection.**  
+   - The DGM compares candidates against the current baseline and against each other.  
+   - It picks a “winner” or a small set of promising variants.  
+   - At this point, the change is only an **adoption candidate**, not a production rule.
 
-The distinction can be stated simply:
+3. **External safety channels.**  
+   - Adoption candidates are sent out of the DGM sandbox and into external safety channels (truth checks, guardians, policy review, etc.).  
+   - Only if these **external checks** approve can the change move toward affecting production behavior.
 
-- the DGM sandbox asks whether a change is locally viable and comparatively beneficial;
-- the external safety path asks whether that change is admissible for broader authority.
-
-This separation is what keeps recursive optimization from becoming direct self-authorization.
-
----
-
-## 32.5 DGM Governance Over Reasoning Promotion
-
-The DGMs govern more than code evolution. They also govern reasoning promotion.
-
-This matters because the reasoning sandbox now functions as a governed domain whose evaluative behavior can be optimized. The DGM layer may tune the conditions under which candidate reasoning is judged, revised, limited, or promoted. In that sense, optimization reaches into the authority boundary between provisional reasoning and promoted consequence.
-
-Examples of DGM governance over reasoning promotion include tuning:
-
-- which judge ensembles are used for particular reasoning classes;
-- how much corroboration is required before promotion;
-- contradiction thresholds that trigger revise or reject;
-- conditions for limited approval versus full approval;
-- escalation rules for human review;
-- ordering of evaluation stages where ordering changes outcome reliability.
-
-This does not mean the DGMs can directly promote reasoning states by fiat. It means they can propose and optimize the evaluative machinery that later governs promotion decisions, subject to the external safety path.
+This keeps optimization and authorization separate: **DGMs can propose and internally select**, but only **external safety channels** can approve for production.
 
 ---
 
-## 32.6 The Reasoning Sandbox as a Governed Domain
+## 32.4 Named Services in the Optimization Fabric
 
-The reasoning sandbox is a governed optimization domain in its own right.
+Several services participate in how fractal optimization plugs into the rest of the system:
 
-It is the place where corpus-derived context, internal hypotheses, judge behavior, and candidate conclusions are held in reversible form before promotion. Because it is reversible, bounded, and evaluable, it is a legitimate target of fractal optimization. The system can optimize how the reasoning sandbox behaves without granting its contents automatic authority.
+- **Qualia orchestrator (9998).**  
+  A “69‑DGM cascade” orchestrator that coordinates multiple DGMs, reachable at port 9998.
 
-Optimization in this domain can affect:
+- **Brain orchestrator (17260).**  
+  `jarvis-brain-orchestrator` routes work and coordinates which DGMs, sandboxes, and evaluation paths are used.
 
-- acceptance thresholds for candidate conclusions;
-- revision thresholds for incomplete or contradictory states;
-- truth-filter sensitivity;
-- judge ordering and weighting;
-- the balance between reject, revise, limited approval, and approve outcomes.
+- **Reasoning sandbox (8042).**  
+  `ms-allis-internal-sandbox` is the main reasoning sandbox, with `bbb_enforced=true`, separate from DGM sandboxes.
 
-This makes the reasoning sandbox more than a neutral holding area. It is part of the system’s governed optimization surface.
+- **BBB / entangled gateway (8010).**  
+  Blood–brain barrier and entangled gateway provide external safety checks and policy filters.
 
----
+- **Pituitary.**  
+  Mode and modulation controller, influencing global “how hard to push” or “how cautious to be.”
 
-## 32.7 What Optimization Loops May Tune
+- **Consciousness bridge.**  
+  A bridge service that lets vetted candidate changes and behaviors connect into higher‑level coordination.
 
-Optimization loops may tune thresholds, judges, and evaluation behavior, but only within bounded governance.
-
-These loops may adjust:
-
-- evidentiary thresholds for candidate reasoning;
-- contradiction tolerance;
-- confidence thresholds for limited approval;
-- judge composition or judge weighting;
-- ordering of evaluation passes;
-- revision depth or retry limits;
-- escalation criteria for human review.
-
-The reason these parameters matter is that they shape how strict or permissive the reasoning pipeline becomes in practice. A small shift in thresholding can alter which candidate states survive, which are revised, and which are blocked from promotion.
-
-For that reason, optimization of evaluative behavior is treated as a high-consequence domain. It is not enough that a tuning change improves a narrow metric. It must also remain bounded, stable, and admissible under the external safety channels.
+These services together ensure that DGM experiments stay **sandboxed**, and that any proposed change must cross known, inspectable boundaries.
 
 ---
 
-## 32.8 Boundedness
+## 32.5 DGM Sandbox vs Production Reasoning Sandbox
 
-Boundedness is the first safeguard on recursive optimization.
+This chapter draws a hard line between:
 
-When a DGM proposes changes to code, judges, thresholds, or revision behavior, those changes must remain within a constrained search region and a constrained authority region. Without boundedness, local optimization could gradually reshape the production system in ways that are difficult to inspect or reverse.
+- **DGM sandbox.**  
+  Used for *optimization experiments*; lives alongside BBB and qualia orchestrator; does not handle user‑facing reasoning.
 
-Boundedness applies to:
+- **Production reasoning sandbox (8042).**  
+  Used for normal `/reason` flows; handles candidate answers for users; is itself governed and monitored.
 
-- the space of allowed candidate changes;
-- the size of permitted threshold movement;
-- the scope of judge or evaluation reconfiguration;
-- the duration and reach of sandbox experiments;
-- the number of system surfaces a single optimization step may affect.
-
-This ensures that optimization remains corrigible. A DGM may explore alternatives, but it may not expand its own power merely by finding a locally successful variation.
+Fractal optimization treats the **DGM sandbox** as a place to adjust evaluation machinery and policies, while the **reasoning sandbox** remains the place where user‑facing candidate states are formed and judged. A DGM never uses its sandbox to “sneak” changes straight into the reasoning sandbox.
 
 ---
 
-## 32.9 Non-Expansive Promotion
+## 32.6 Boundedness of Candidate Change Search
 
-Where optimization affects reasoning promotion, the system requires **non-expansive promotion**.
+All DGM optimization is **bounded** in at least two ways:
 
-Non-expansive promotion means that accepted optimization changes must not widen promotion authority faster than governance can justify. A threshold reduction or evaluation shortcut cannot silently create a broader class of promotable states simply because it produced a local performance gain in the DGM sandbox.
+- **Search space bounds.**  
+  - What can be changed (for example, only certain thresholds, judge combinations, or small code areas).  
+  - How far a parameter can move per step (no wild jumps).
 
-In practice, non-expansive promotion means:
+- **Authority bounds.**  
+  - DGMs cannot add new unchecked powers to themselves.  
+  - They cannot widen their own domain of influence without going through external review.
 
-- a tuning change cannot bypass required judge or guardian stages;
-- a judge-selection optimization cannot remove needed contradiction or truth checks;
-- a threshold change cannot silently reclassify many previously non-promotable states as promotable without explicit external validation;
-- local optimization success does not imply production expansion of authority.
-
-This requirement preserves the difference between improving evaluation quality and enlarging what the system is allowed to accept.
-
----
-
-## 32.10 Stability
-
-Stability is required wherever optimization affects acceptance thresholds, revision policy, or judge behavior.
-
-A system that retunes itself too rapidly may become inconsistent across similar cases. The same candidate state might be revised on Monday, limited on Tuesday, and approved on Wednesday without any principled reason except unstable optimization dynamics. That would make the reasoning pipeline less trustworthy even if local metrics appeared to improve.
-
-Stability therefore requires:
-
-- limits on how quickly thresholds may move;
-- continuity in evaluation behavior across adjacent optimization epochs;
-- hysteresis against oscillation in revise / reject / approve boundaries;
-- observation windows long enough to distinguish real improvement from noise.
-
-The role of stability is to ensure that recursive improvement does not destroy evaluative coherence. A better optimizer is not enough if it produces a less intelligible system.
+This prevents a slow drift where small “good” changes gradually turn into a major shift in behavior that nobody reviewed.
 
 ---
 
-## 32.11 State Revision Under Optimization
+## 32.7 Non-Expansive Promotion
 
-State revision is one of the most sensitive objects of optimization.
+Optimization is required to be **non‑expansive** with respect to authority:
 
-Revision policy determines whether a borderline candidate state is repaired, constrained, escalated, or rejected. Small tuning changes here can substantially alter the behavior of the whole reasoning pipeline.
+- A DGM can make evaluation smarter or more calibrated.  
+- It **cannot** silently expand what is allowed to be promoted or approved.
 
-A DGM may optimize revision behavior by proposing changes to:
+Examples of what non‑expansive promotion forbids:
 
-- how much contradiction triggers revision;
-- how much incompleteness is tolerated before escalation;
-- how many revision cycles are allowed;
-- when limited approval is preferable to repeated revision;
-- when the system should stop local repair and require outside review.
+- Removing a guardian or truth check just to speed things up.  
+- Lowering approval thresholds so more things get approved without review.  
+- Reordering checks to skip safety paths.
 
-But these changes must remain bounded and stable. Otherwise optimization may create endless revision loops, permissive drift, or superficial gains obtained only by lowering standards. This is why revision tuning belongs inside the same governance discipline as code changes and promotion thresholds.
-
----
-
-## 32.12 Fractal Coherence Across Nested Sandboxes
-
-The architecture contains nested sandboxes that must remain coherent across scales.
-
-The 23/69 DGMs have their own independent sandboxes for optimization. The reasoning pipeline has its own sandbox for provisional cognition. A change proposed in one sandbox may affect the conditions inside another, but it does not do so automatically. It passes through a staged path of local testing, internal selection, and external safety review.
-
-This nested structure creates a controlled recursion:
-
-- the reasoning sandbox contains provisional cognition;
-- the DGM sandbox contains provisional optimization;
-- the external safety path mediates what may leave either bounded domain with greater authority.
-
-Fractal coherence means that a local gain inside one sandbox is not considered sufficient if it destabilizes the larger system. Improvement must remain compatible across layers, from local evaluator behavior up through governed production consequence.
+Any change that would expand promotion authority must be **explicitly validated via external safety channels**, not inferred from a local optimization score.
 
 ---
 
-## 32.13 Closing Statement
+## 32.8 Stability and Anti-Oscillation
 
-Fractal optimization and the 23/69 Darwin Gödel Machines give Ms. Allis a governed recursive improvement architecture in which candidate changes are first explored in independent DGM sandboxes, then comparatively selected, and only then sent through external safety channels before any production effect is allowed. This three-stage process preserves the difference between optimizer judgment and system authorization.
+Optimization is only useful if it leads to **stable behavior**, not to flapping between settings.
 
-Within that architecture, the reasoning sandbox is also a governed domain. DGMs may optimize thresholds, judges, evaluation behavior, and promotion-related machinery, but boundedness, non-expansive promotion, and stability keep those changes from silently widening authority or destabilizing state revision. The result is recursive adaptation without self-authorizing drift.
+Stability requirements include:
+
+- **No rapid oscillation** around promotion thresholds (for example, approve‑reject‑approve‑reject on nearly identical cases).  
+- Limits on how fast key parameters can move, even if DGM experiments suggest they could be pushed harder.  
+- Sufficient observation windows to tell real improvements from noise.
+
+In practice, this means a DGM must:
+
+- demonstrate that a proposed change **stays helpful** across many trials;  
+- avoid “chasing” short‑term metrics at the cost of long‑term coherence.
+
+---
+
+## 32.9 Fractal Optimization Across Nested Sandboxes
+
+The term **fractal** comes from how the same pattern repeats across nested levels:
+
+- Inside DGM sandboxes (23/69), the system proposes and tests **optimizer‑level changes**.  
+- Inside the reasoning sandbox, it proposes and tests **answer‑level changes**.  
+- Above both, external safety channels (BBB, guardian, truth checks, pituitary modes) perform **governance‑level checks**.
+
+At every level, the loop is:
+
+1. Propose a candidate.  
+2. Test in a bounded sandbox.  
+3. Compare and select internally.  
+4. Send promising candidates outward.  
+5. Let external safety decide what, if anything, can be adopted.
+
+Fractal coherence means that **improvements at one level do not break safety at another**. A smarter DGM must still respect external guards; a smarter reasoning sandbox must still respect promotion rules.
+
+---
+
+## 32.10 What Chapter 32 Does Not Claim
+
+Within this gate, Chapter 32 **does not** claim:
+
+- that a DGM can self‑authorize changes into production;  
+- that any sandbox can bypass external safety channels;  
+- that optimization can remove guardian or truth checks;  
+- that DGMs can perform unconstrained recursive self‑modification;  
+- that thresholds can widen autonomously without external validation.
+
+Instead, it claims:
+
+- 23/69 DGM sandboxes exist as bounded experiment environments;  
+- a **three-stage process** is in place (local sandbox → comparative selection → external safety channels);  
+- promotion remains **non‑expansive and bounded**;  
+- stability and fractal coherence are enforced via external safety paths.
+
+---
+
+## 32.11 Step-by-Step View for Rural Developers
+
+If you are operating this system yourself, fractal optimization via DGMs behaves roughly like this:
+
+1. A DGM tries a small change in **its own sandbox** and scores the result.  
+2. It compares multiple candidates and picks a “winner.”  
+3. That winner is sent to **outside safety mechanisms** (BBB, guardian, etc.).  
+4. If external checks approve, the change may be rolled into configuration or code used by the main reasoning sandbox.  
+5. If external checks reject or ask for revision, the DGM must try again within its bounds.
+
+No matter how clever a DGM gets, **it cannot skip step 3–4**.
+
+---
+
+## 32.12 Closing Statement
+
+Fractal optimization in Ms. Allis uses 23/69 DGMs and nested sandboxes to refine thresholds, judges, and evaluation behavior without letting optimization turn into self‑authorization. A three‑stage process—DGM sandbox, comparative selection, external safety channels—ensures that every proposed improvement remains bounded, non‑expansive, and stable before it can touch production behavior.
+
+This keeps the system adaptive and tunable while preserving the same core rule throughout: **optimization suggests, governance decides.**
