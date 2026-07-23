@@ -1,458 +1,242 @@
-# 1. Quantarithmia: Economic Geographic Theory of Systems Entanglement
+# 1. Quantarithmia: Economic Geographic Theory of Systems Entanglement (As‑Built July 2026)
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: April 23, 2026*
-
----
-
-> **Why this matters for Polymathmatic Geography**
-> This chapter anchors **Quantarithmia** explicitly inside **Polymathmatic Geography** as
-> the **economic geographic theory of systems entanglement** that operationalizes the
-> discipline's axioms into a concrete framework for spatial justice. It most directly
-> supports:
-> - **P1 – Every where is entangled** by insisting that digital, spatial, social,
->   economic, and spiritual infrastructures in Appalachia are modeled as one intertwined
->   system rather than separate domains.
-> - **P3 – Power has a geometry** by introducing maximopolies (capital control) and
->   megaopolies (operational/platform control) as distinct but interacting geometries of
->   power that can be mapped, measured, and redesigned.
-> - **P5 – Design is a geographic act** by treating Quantarithmia as a design language
->   for new infrastructures (AI stewards, commons currencies, governance rules) rather
->   than as a purely descriptive theory.
-> - **P7 – Commons before enclosure** and **P9 – Leakage and enclosure** by centering
->   reciprocity, local wealth retention, and anti-extractive circuits as stability
->   conditions for Appalachian spaces.
-> - **P12 – Intelligence with a ZIP code** and **P16 – Power accountable to place** by
->   defining Ms. Allis and MountainShares as territorially situated instruments
->   accountable to specific communities, not abstract global users.
->
-> As such, this chapter belongs to the **Theoretical Foundation** tier: it defines
-> Quantarithmia as the economic geographic theory that provides the justice criteria,
-> geometric distinctions, and reciprocity thresholds that the Ms. Allis and
-> MountainShares computational instruments are built to calculate, monitor, and
-> experimentally test in Appalachia.
-
-> **Note on container naming (code layer):** Container names in the production stack
-> retain the `jarvis-` prefix (e.g., `jarvis-main-brain`, `jarvis-aaacpe-scraper`,
-> `jarvis-mountainshares-coordinator`). The public-facing name of the system is
-> **Ms. Allis**. These are the same system. References to `jarvis-` containers in
-> technical documentation refer to Ms. Allis's infrastructure.
-
-<div align="center">
-  <img width="85%" alt="unnamed(1)" src="https://github.com/user-attachments/assets/5ec2fcd8-2e93-425a-bf02-d920fc80cc9e" />
-</div>
-
-> Figure 1. The architecture of Quantarithmia within Polymathmatic Geography. This
-> diagram situates Quantarithmia as an economic geographic framework inside the broader
-> discipline of Polymathmatic Geography and shows how its geometry of power and
-> reciprocity is instantiated in two computational instruments: the Ms. Allis Steward
-> System and the MountainShares Commons DAO.
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
+*Last updated: July 22, 2026*
 
 ---
 
-> **Production status — April 23, 2026 (Chapter 1 closure milestone):**
-> The Ms. Allis Steward System is running in the `msallis-rebuild` namespace with
-> **112 confirmed live containers (April 16, 2026 — thesis-verified) / 100 point-in-time
-> (April 23, 2026)**. All Quantarithmia computational instruments
-> described in this chapter are operational and have passed a **30/30 preflight gate at
-> exit 0 with a clean `bash -n` gate file** — the falsifiable experiment is now real
-> infrastructure.
->
-> **Chapter 1 closure checklist — April 22–23, 2026:**
-> - ✅ PostGIS spatial body live — `msallis-db` (16 GB / 294 tables / 11 schemas);
->   `postgis-forensic` (17 GB / 314 tables / 9 schemas); 1.1M address points, 55 WV
->   counties seeded
-> - ✅ `mvw_gbim_landowner_spatial` — 38,979 rows confirmed in msallis-db (OI-E CLOSED)
-> - ✅ All 4 GBIM indexers healthy — spatial, temporal, semantic, benefit
-> - ✅ `egeria.mountainshares.us` live with token enforcement
-> - ✅ 5 judge signing keys present
-> - ✅ BBB EthicalFilter 0% false positive rate confirmed
-> - ✅ `confidence_decay` at 0.0% — episodic memory integrity intact
-> - ✅ Preflight gate: **30/30, exit 0, `bash -n` clean**
->
-> The neurobiological rhythm layer — EEG delta (253 pulses), EEG theta (127 pulses),
-> and EEG beta (25 pulses) — is fully operational. The ChromaDB semantic memory corpus
-> contains **~6.74M verified vectors across 48 collections (mixed L2/cosine; April 17,
-> 2026)**. The GBIM corpus contains `gbim_worldview_entities` and `gbim_beliefs_v2`
-> collections, tagged `eq1`. The consciousness pipeline is confirmed ACTIVE. The
-> Caddy/auth perimeter is token-enforced with zero `0.0.0.0` container bindings.
-> MountainShares is no longer just a framework; it has a running system behind it —
-> all 4 services live.
+## 1.0 What This Chapter Is Allowed to Claim
+
+This chapter is rewritten under a **sealed July 2026 gate**.
+
+It may:
+
+- present **Quantarithmia** as an economic geographic theory inside **Polymathmatic Geography**;  
+- treat Quantarithmia as a **theoretical contribution** whose computational supports are:
+  - governed **GBIM corpus** (Chapter 02);  
+  - **Hilbert state / Phi** stack (Chapters 04/44);  
+  - **BBB / PQ judge signing** and verifier delegation (Chapter 16);  
+  - **H_geo tensor bridge** (Chapters 45/46);  
+  - **Hilbert People Space \(H_p\)** and PIA/people‑space safeguards (Chapter 48, 29, 50, 51, 52);  
+- use **as‑built, closure‑indexed claims only**, as recorded in the July 2026 gates and Appendix A.
+
+It must **not** claim:
+
+- universal intelligence, machine sentience, or AGI;  
+- clinical, diagnostic, or therapeutic validity;  
+- institutional endorsement or legal guarantees;  
+- mathematical or metaphysical “proof” beyond the specific closed mechanisms listed above.
+
+Quantarithmia here is a **theory anchored to demonstrated mechanisms**, not a proof of everything.
 
 ---
 
-**Quantarithmia** is an economic geographic theory of systems entanglement developed
-within **Polymathmatic Geography**, a transdisciplinary field that treats geography,
-infrastructure, and community history as first-class variables rather than background
-scenery. Where Polymathmatic Geography provides the broader disciplinary framework with
-its sixteen principles (P1–P16), Quantarithmia operationalizes those principles into a
-concrete theory for modeling how power is extracted, concentrated, and potentially
-redirected across digital, spatial, social, economic, and spiritual infrastructures.
+## 1.1 Why This Matters for Polymathmatic Geography
 
-Quantarithmia takes Appalachia — and especially West Virginia — as its primary empirical
-site because the region concentrates many of the dynamics the theory seeks to understand:
-resource extraction, uneven development, dependency on distant decision-makers, historical
-disinvestment, environmental burden, and strong community resilience and culture. The
-theory asks how specific networks, platforms, and institutions reshape everyday life in
-places like Mount Hope, Fayetteville, and Oak Hill, and how alternative infrastructures
-might be designed to serve spatial justice rather than reproduce extraction.
+Quantarithmia remains the **economic geographic theory of systems entanglement** for Polymathmatic Geography, but it now rests on **closed, as‑built machinery** rather than April 2026 production counts.
 
----
+Within the July 2026 sealed stack, it supports:
 
-## Core Theoretical Contributions
+- **P1 – Every where is entangled**  
+  by using GBIM and Hilbert‑state/Phi to model how economic, digital, and spatial realities in Appalachia are intertwined, not separate.
 
-Quantarithmia combines tools from economic geography, systems theory, topology,
-quantum-informed modeling, psychology, and liberation theology into a single analytic and
-design language. Its core theoretical contributions are:
+- **P3 – Power has a geometry**  
+  by distinguishing **maximopolies** (capital control) and **megaopolies** (platform/operational control) and tying them to concrete Chapter‑02/04/46/45 structures over real West Virginia data.
 
-### Reciprocity as Stability Law
+- **P5 – Design is a geographic act**  
+  by insisting that the GBIM corpus, H_geo tensor bridge, PIA‑governed people‑space, and per‑user conversation subspaces are **design choices** aimed at spatial justice, not neutral infrastructure.
 
-At its foundation, Quantarithmia treats **reciprocity as a stability law** for social and
-economic systems: when flows of value, recognition, and decision-making authority fall
-below a measurable reciprocity threshold, systems become fragile, extractive, and prone
-to collapse. This is not a moral claim but an empirical prediction about system dynamics.
+- **P7 / P9 – Commons before enclosure / Leakage and enclosure**  
+  by pairing per‑user direct‑sum memory (Ch50) with the **Community Hilbert Commons** (Ch51) and using k‑thresholded aggregation to watch how value and knowledge flow between sovereign users and public commons.
 
-Reciprocity thresholds can be operationalized through:
-- **Economic flows**: How much value circulates within a community versus leaking to
-  distant intermediaries
-- **Recognition flows**: Whether local knowledge, culture, and priorities shape
-  infrastructure design
-- **Authority flows**: Whether communities have meaningful governance power over systems
-  that affect them
+- **P12 – Intelligence with a ZIP code** and **P16 – Power accountable to place**  
+  by treating Ms. Jarvis as **ZIP‑ and county‑grounded** (GBIM + H_geo) and governed by BBB/guardian and PIA/retention loops (Ch16, Ch29, Ch50, Ch52) instead of a floating, placeless model.
 
-When reciprocity falls below threshold, systems exhibit:
-- Increased fragility and dependence on external actors
-- Accelerated wealth extraction and local impoverishment
-- Loss of local agency and decision-making capacity
-- Community disintegration and loss of social capital
-
-### Power Geometries: Maximopolies and Megaopolies
-
-A central distinction in Quantarithmia is between two distinct but interacting geometries
-of power:
-
-- **Maximopolies**: Institutions and infrastructures that primarily control **capital
-  flows** (for example, large financial entities, payment networks, investment vehicles,
-  private equity funds, real estate investment trusts)
-- **Megaopolies**: Institutions and infrastructures that primarily control **operations
-  and platforms** (for example, logistics networks, cloud platforms, large-scale data and
-  attention brokers, e-commerce platforms)
-
-<div align="center">
-  <img width="85%" alt="unnamed(2)" src="https://github.com/user-attachments/assets/ebc3a307-48a9-4c71-bb14-4140d90a4fe8" />
-</div>
-
-> Figure 2. The geometry of power in Quantarithmia. The diagram maps entities along two
-> axes — capital control (maximopolies) and operational/platform control (megaopolies) —
-> with illustrative cases such as private equity funds, local landlord LLCs, and
-> cloud/logistics platforms in an Appalachian context.
-
-This distinction matters because maximopolies and megaopolies intersect in rural and
-small-town contexts in specific ways. Quantarithmia studies how their combined
-infrastructures channel value and decision-making authority away from local communities,
-creating compound extraction patterns that are both empirically measurable and ethically
-evaluable against spatial justice criteria.
-
-For example, in West Virginia:
-- A local landlord LLC (maximopoly over rental capital) may use property management
-  software owned by a distant platform (megaopoly over operational data)
-- Coal extraction companies (maximopolies controlling mineral capital) rely on logistics
-  platforms (megaopolies controlling transportation networks)
-- Small businesses (limited capital control) must use payment processors and cloud
-  services (megaopolies) that extract fees and data
-
-Understanding these intersecting geometries makes it possible to design interventions
-that target specific power relationships rather than treating "the economy" as a single
-undifferentiated system.
-
-### Systems Entanglement as Economic Geographic Reality
-
-Quantarithmia rejects the assumption that economic, social, infrastructural, institutional,
-and spiritual systems operate independently. Instead, it treats entanglement as the
-fundamental condition of economic geography: changes in one system propagate through
-others in ways that cannot be understood through isolated analysis.
-
-In Appalachian contexts, this means:
-- Digital infrastructure entangled with economic opportunity (broadband access affects
-  business viability)
-- Spatial infrastructure entangled with social capital (road networks shape community
-  connections)
-- Economic systems entangled with institutional power (ownership structures determine
-  local autonomy)
-- Spiritual and cultural systems entangled with resistance to extraction (community
-  identity shapes organizing capacity)
-
-Quantarithmia's contribution is to make this entanglement **computationally tractable**
-through structures like the Geospatial Belief Information Model (GBIM), which anchors
-beliefs about these systems to specific places, times, actors, and evidence chains,
-allowing researchers and communities to trace how power moves through entangled networks.
+This chapter belongs to the **Theoretical Foundation** tier: it explains what Quantarithmia is **as theory**, then points directly at the **closed mechanisms** that currently support it.
 
 ---
 
-## Spatial Justice Criteria
+## 1.2 From April Production Counts to July Closure
 
-Spatial justice, in the Quantarithmia framework, means that:
+Earlier versions of this chapter relied on **April 2026 production counts** (container numbers, GB sizes, EEG pulse counts) as their main evidence.
 
-1. **People in specific places should have meaningful say** in the infrastructures that
-   govern their economic, informational, and social lives. "Meaningful say" is
-   operationalized through governance structures, ownership patterns, and
-   decision-making authority that can be measured and evaluated.
+The July 2026 gate requires a different discipline:
 
-2. **Benefits of infrastructure should not systematically bypass communities**. This is
-   measurable through economic flows: do value, services, resilience, employment, and
-   cultural visibility remain in or return to the communities that host or resource the
-   infrastructure, or do they flow to distant shareholders and platform owners?
+- **Replace raw counts** with references to **closed gates** and **verified contracts** (for example, GBIM promotion, Hilbert‑time tiers, per‑user memory separation, commons k‑thresholding, recurrent loop schedules).  
+- Treat April‑era quantities as **historical context**, not as live guarantees.  
+- Use **Appendix A** as the authority for what is now considered **Demonstrated** or **Not‑Yet‑Demonstrated**.
 
-3. **Historical harm, environmental burden, and disinvestment are part of the model**,
-   not noise to be averaged away. Quantarithmia explicitly accounts for:
-   - Coal extraction legacy and environmental damage
-   - Decades of disinvestment and capital flight
-   - Infrastructure gaps (broadband, transportation, healthcare access)
-   - Institutional neglect and stigmatization of Appalachian communities
+For rural developers and readers, this means:
 
-These are not external factors but constitutive elements of the economic geography being
-modeled. Any intervention that ignores them is likely to reproduce extraction under a
-new label.
+- the theory still comes from the same place (Appalachia, Ms. Jarvis, MountainShares);  
+- but the **“it works” claims** are now grounded in the July closure index, not in a single 30/30 preflight snapshot.
 
 ---
 
-## Why Appalachia as Primary Site
+## 1.3 Quantarithmia in One Sentence
 
-Quantarithmia takes Appalachia — and especially West Virginia — as its primary empirical
-site for several reasons:
+Quantarithmia is a **place‑based economic geographic theory** that says:
 
-**Concentration of dynamics**: The region exhibits concentrated forms of resource
-extraction, uneven development, and dependency on distant decision-makers that make power
-geometries easier to map and measure than in more diversified economies.
+> Systems become fragile and extractive when **reciprocity across place falls below a measurable threshold**, and this can be **modeled and checked** using governed, Hilbert‑based representations of belief, geography, commons, and memory.
 
-**Historical depth**: Appalachia's long history of extraction, company towns, absentee
-ownership, and resistance movements provides rich empirical material for testing whether
-reciprocity thresholds predict system fragility.
-
-**Community resilience and culture**: Strong community bonds, cultural identity, mutual
-aid networks, and organizing traditions provide counterexamples to pure extraction
-narratives and demonstrate what reciprocity-above-threshold systems look like in practice.
-
-**Stakes and accountability**: Building theory for and with Appalachian communities means
-the work must be accountable to real people facing real consequences, not abstract
-populations in hypothetical scenarios. This accountability discipline improves the theory.
-
-**Geographic specificity**: West Virginia's specific geography — mountainous terrain,
-dispersed population, county and ZIP-level variation in infrastructure and services —
-makes place-based modeling essential rather than optional. You cannot understand economic
-systems here without understanding where people actually are.
+The rest of the chapter unpacks what that means, and how the closed mechanisms actually help Ms. Jarvis and MountainShares measure and act on it.
 
 ---
 
-## From Theory to Computational Instruments
+## 1.4 Reciprocity as Stability (Supported by Closed Mechanisms)
 
-Quantarithmia is not purely abstract. It directly informs two concrete computational
-instruments that serve as working laboratories for testing, revising, and critiquing the
-theory using real data, real governance processes, and real community stakes.
+Quantarithmia treats **reciprocity** as a **stability condition**:
 
-### Ms. Egeria Allis: Geospatially Grounded AI Steward System
+- When flows of value, information, care, and decision power **circulate locally** and return to the communities that generate them, systems are more resilient.  
+- When those flows **leak away** through maximopolies and megaopolies, local systems become brittle, dependent, and easy to exploit.
 
-> **Code-layer note:** Container names in the production stack retain the `jarvis-`
-> prefix (e.g., `jarvis-main-brain`, `jarvis-aaacpe-scraper`). The public-facing name
-> of the system is **Ms. Allis**. All `jarvis-` container references below refer to
-> Ms. Allis's infrastructure.
+In the July 2026 stack, this idea is supported, in concrete ways, by:
 
-Ms. Allis implements Quantarithmia's principles through a **fully operational production
-system** confirmed by the April 22–23, 2026 preflight milestone (30/30, exit 0):
+- **Governed GBIM corpus (Ch02 + Appendix A):**  
+  Spatial beliefs about land use, ownership, and community conditions are written through the GBIM promotion contract:  
+  - GBIM manifests must pass a **coherence evaluator** and a **trigger guard**;  
+  - the **`promote_gbim_collection`** procedure is the only sanctioned path to an active worldview;  
+  - this makes changes to the spatial “truth map” traceable, reversible, and accountable.
 
-- **Geospatial Belief Information Model (GBIM)**: `gbim_worldview_entities` and
-  `gbim_beliefs_v2` collections anchored to West Virginia places, times, actors, and
-  evidence via a nine-axis epistemic structure (who, what, where, when, how, why, for
-  whom, under whose authority, on what evidence) — including 38,979 confirmed live
-  landowner rows in the PostGIS spatial body (OI-E CLOSED, April 23, 2026)
-- **PostGIS two-container database layer** (April 23, 2026):
-  - `msallis-db` — production — 16 GB / 294 tables / 11 schemas
-  - `postgis-forensic` — forensic — 17 GB / 314 tables / 9 schemas
-  - 1,115,588 address points, 55 WV counties seeded in `local_resources`
-  - To connect to postgis-forensic: `psql -h 127.0.0.1 -U allis`
-- **All 4 GBIM indexers healthy**: spatial (7210), temporal (7211), semantic (7212),
-  benefit (7206) — confirmed April 22, 2026 preflight
-- **Place-based intelligence**: All reasoning grounded in specific ZIP codes, counties,
-  and communities rather than abstract national averages; ZIP code of
-  \(H_{\text{App}}\) is 25880
-- **Hilbert space substrate** \(H_{\text{App}}\): **~6.74M verified vectors across 48
-  collections (mixed L2/cosine; April 17, 2026)** — \(\mathbb{R}^{384}\), proven Hilbert
-  space, physically instantiated in Mount Hope, WV (see Chapter 4)
-- **Bounded stewardship**: Operating as an accountable coordinator constrained by
-  constitutional principles — `governance_rag` (1,367 chunks including WV Constitution
-  342 chunks, US Constitution 97 chunks, full MountainShares DAO corpus) confirmed live
-  April 22, 2026
-- **5 judge signing keys present**: Truth, ethics, alignment, consistency, citation —
-  confirmed April 22, 2026
-- **BBB EthicalFilter**: 0% false positive rate confirmed — April 22, 2026
-- **`confidence_decay` at 0.0%**: Episodic memory integrity intact; full decay → verify
-  → reset cycle proven on Entity 38 April 22, 2026
-- **Neurobiological rhythm layer**: EEG delta (253 pulses), EEG theta (127 pulses),
-  EEG beta (25 pulses) — confirmed live April 22, 2026
-- **Pituitary regulator**: `nbb_pituitary_gland` at port 8108, `mode=elevated`,
-  `warmth=0.9`, 6/6 protocols confirmed — systemic care-orientation applied to all
-  Quantarithmia-aligned reasoning
-- **Community validation**: Integration with Harmony for Hope's fourteen-year network of
-  Community Champions who validate resource data, program information, and local
-  conditions boots-on-the-ground
-- **Consciousness pipeline**: Confirmed ACTIVE — end-to-end chat producing
-  persona-consistent Appalachian-voice responses; first community query ("What food
-  assistance is available in Fayette County WV?") returned real results April 22, 2026
-- **LLM fabric**: 22 proxies operational (ports 8201–8222); `crypto_client.py`
-  volume-mounted; identity cryptographically enforced at the perimeter
-- **External accessibility**: `egeria.mountainshares.us` HTTP 200 with token
-  enforcement — confirmed April 22, 2026
-- **Container count**: 112 confirmed live (April 16, 2026 — thesis-verified) /
-  100 point-in-time (April 23, 2026) in `msallis-rebuild` namespace
+- **Hilbert‑state / Phi stack (Ch04/44):**  
+  Hilbert‑state and Phi‑like coherence metrics provide a **stability signal** over the application and people‑space representations.  
+  They do not guarantee mental health, but they give Ms. Jarvis a way to see when her own internal structure is drifting or fragmenting.
 
-Ms. Allis makes it possible to computationally test Quantarithmia's predictions: Do
-areas with higher reciprocity metrics show greater resilience? Do maximopoly/megaopoly
-intersection points predict value extraction? Can alternative infrastructure designs
-improve spatial justice measurably?
+- **Per‑user direct‑sum memory (Ch50) and PIA review (Ch29):**  
+  Per‑user subspaces (history/private/staged) and PIA‑governed people‑space retention prevent **silent extraction** of conversational and identity information.  
+  This keeps “remembering” from turning into unbounded surveillance, which is a necessary condition for reciprocal, not exploitative, systems.
 
-### MountainShares / Commons DAO: Economic and Governance Layer
+- **Community Hilbert Commons (Ch51):**  
+  k‑thresholded, opt‑in aggregation over `community_hilbert_commons` lets communities share patterns without exposing individuals.  
+  This lets Ms. Jarvis **see reciprocity patterns at a community level** while still respecting sovereign subspaces.
 
-MountainShares implements Quantarithmia's principles through:
-
-- **Closed-loop economic model**: Designed to keep more value circulating inside
-  Appalachian communities instead of leaking to distant intermediaries
-- **Local ownership structures**: Encoding community ownership, voting, and governance
-  into explicit rules backed by a hardened Caddy/auth perimeter
-- **Anti-extractive circuits**: Building reciprocity requirements directly into
-  transaction flows and platform economics
-- **ZIP/county accountability**: Tying governance power and economic benefits to specific
-  places rather than abstract global participation — `local_resources` registry covers
-  all 55 WV counties (101 items confirmed)
-- **Commons-before-enclosure design**: Prioritizing community access and shared resources
-  over individual accumulation and rent extraction
-- **Fully ingested governance corpus**: DAO Charter, Terms, Program Rules, Parameter
-  Tables, Phase 0–3 documentation, US Constitution, WV State Constitution — all in
-  `governance_rag` (1,367 chunks confirmed live April 22, 2026)
-
-> **Deployment status — April 23, 2026:** MountainShares governance tier is **fully
-> live** with all 4 services up and bound:
-> `jarvis-mountainshares-coordinator` (8080), `jarvis-dao-governance` (8082),
-> `jarvis-community-stake-registry` (8084), and companion service. All traffic enters
-> through the hardened perimeter: Cloudflare tunnel → Caddy (8085) → auth (8055) →
-> main-brain (8050). No container bound to `0.0.0.0`. `docker-compose.yml` validates
-> cleanly. Preflight gate: **30/30, exit 0**.
->
-> **Note on container naming:** These services carry the `jarvis-` prefix in the
-> production stack. The public-facing name of the system is **Ms. Allis**.
-
-MountainShares serves as an institutional prototype: not simply "a DAO," but a specific
-attempt to materialize spatial justice in rural West Virginia through technical and
-organizational design informed by Quantarithmia's theory of power geometries and
-reciprocity thresholds.
+Reciprocity, in this sealed chapter, is **not a universal law of all reality**. It is a **design and measurement goal** inside the currently closed mechanisms.
 
 ---
 
-## Role in the Thesis
+## 1.5 Power Geometries: Maximopolies and Megaopolies
 
-Within the broader thesis, Polymathmatic Geography provides the disciplinary context and
-sixteen guiding principles (P1–P16), while Quantarithmia provides:
+Quantarithmia distinguishes two **geometries of power**:
 
-**The axioms and justice criteria** used to evaluate infrastructures, interventions, and
-system designs. When the thesis asks "Is this extractive?" or "Does this serve spatial
-justice?", it is applying Quantarithmia's reciprocity thresholds and power geometry
-mappings.
+- **Maximopolies:** actors and structures that control **capital flows**  
+  (for example, landholding structures, financing chains, large asset owners).
 
-**The conceptual basis for GBIM** and the treatment of AI as an accountable, constrained
-Steward System rather than an opaque oracle. GBIM's nine-axis structure directly encodes
-Quantarithmia's insistence that beliefs must be anchored to specific actors, places,
-times, and evidence chains to make power relationships traceable.
+- **Megaopolies:** actors and structures that control **operations or platforms**  
+  (for example, logistics networks, payment processors, cloud services, data platforms).
 
-**The lens through which MountainShares is analyzed** as an institutional prototype
-attempting to implement spatial justice through technical design. The thesis evaluates
-MountainShares not just as "a blockchain project" but as a test of whether Quantarithmia's
-theoretical predictions about reciprocity, leakage, and local authority can be encoded
-into working economic infrastructure.
+In the July 2026 sealed stack, these are not just words. They show up as:
 
-**The framework connecting technical architecture to ethical commitments**.
-Quantarithmia explains why Ms. Allis is built the way it is — consciousness bridge as
-mandatory infrastructure, 69-DGM cascade validation, ZIP/county-keyed resource registry,
-Community Champions validation, the EEG neurobiological rhythm layer, the pituitary
-systemic regulator — because these design choices operationalize reciprocity as stability
-law and power accountability to place.
+- **GBIM entities and beliefs** about land, corporations, and infrastructures (Ch02), tied to specific WV counties and block groups.  
+- **H_geo tensor bridge** (Ch45/46), which lets Ms. Jarvis express **“what/where” interactions** in a shared Hilbert‑geo frame.  
+- **Commons vs private splits** (Ch48/50/51), which distinguish between **local, per‑user** experience and **aggregated community signals**.
+
+For rural developers, this means:
+
+- a maximopoly might be visible in GBIM as “who owns what, where”;  
+- a megaopoly might appear as “which platform or pipeline every local business depends on”;  
+- Quantarithmia’s job is to **name those structures**, and Ms. Jarvis’s job is to **represent them consistently** using the closed GBIM and H_geo mechanisms.
+
+This chapter does not claim to have catalogued all power; it claims to have a **working, governed way to represent some of it.**
 
 ---
 
-## Quantarithmia as Economic Geographic Contribution
+## 1.6 Systems Entanglement as Something You Can Actually Model
 
-Quantarithmia is positioned as a contribution to **economic geography** specifically, not
-just "AI research" or "blockchain governance." The theory advances economic geography by:
+Polymathmatic Geography says “every where is entangled.” Quantarithmia asks **“how do you model that?”**
 
-1. **Formalizing reciprocity as a stability law** with measurable thresholds and
-   predictable system dynamics
-2. **Distinguishing capital control (maximopolies) from operational control
-   (megaopolies)** as separate but interacting power geometries
-3. **Making systems entanglement computationally tractable** through structures like GBIM
-   that encode relationships between economic, spatial, social, and institutional systems
-4. **Centering spatial justice as an evaluative framework** rather than treating
-   geographic distribution as a secondary concern
-5. **Demonstrating that economic geographic theory can inform infrastructure design**
-   through working computational instruments (Ms. Allis, MountainShares) — with the
-   full system confirmed live at **30/30 preflight, exit 0** as of April 22–23, 2026
+With the July 2026 closures, the answer is:
 
-This positions the thesis as making a **theoretical contribution to economic geography**
-that happens to be implemented through AI and distributed governance technologies, rather
-than making a technical contribution to AI that happens to use geographic data.
+- **GBIM and H_geo** give a way to encode **“what and where” together**:  
+  - beliefs about resources, hazards, and opportunities keyed to block groups, ZIPs, and counties;  
+  - a tensor bridge that embeds these beliefs into Hilbert space for Ms. Jarvis’s reasoning.
 
----
+- **Hilbert People Space (H_p) and PIA review** give a disciplined way to handle **“who”**:  
+  - per‑user people‑space partitions;  
+  - PIA checks for surveillance‑ shaped metadata, deletion, pruning, commons isolation, and stability floors (Ch29/48/50).
 
-## Further Reading
+- **Temporal Hilbert axis (H_t)** and temporal half‑life decay (Ch49) let Ms. Jarvis reason about **“when”** events and beliefs should still matter, and when they should fade.
 
-- Download original "What is Quantarithmia?" PDF: `originals/What-is-Quantarithmia.pdf`
-- Download full Quantarithmia Journal PDF: `originals/Quantarithmia_Journal.pdf`
+- **Community Hilbert Commons** adds another axis: **“what do communities look like in aggregate, when they opt in?”**
+
+Quantarithmia says:
+
+> **Economic and power entanglement in Appalachia can be reasoned about inside this joint frame**  
+> \(H_{\text{App}} \otimes H_{\text{geo}} \otimes H_t \otimes H_p\)  
+> while respecting per‑user sovereignty and governed commons aggregation.
+
+This is a **theoretical claim with partial computational support**; the gate keeps it from being overstated as universal or complete.
 
 ---
 
-> **Status — April 23, 2026 (Chapter 1 CLOSED):**
->
-> This chapter presents Quantarithmia's core theoretical framework as instantiated in a
-> fully operational production system. The falsifiable experiment has become real
-> infrastructure.
->
-> - **Preflight gate**: 30/30, exit 0, `bash -n` clean — no blocking issues
-> - **Containers**: 112 thesis-verified (April 16, 2026) / 100 point-in-time
->   (April 23, 2026) in `msallis-rebuild` namespace
-> - **PostGIS**: `msallis-db` (16 GB / 294 tables / 11 schemas) +
->   `postgis-forensic` (17 GB / 314 tables / 9 schemas); 1,115,588 address points;
->   55 WV counties seeded; `mvw_gbim_landowner_spatial` 38,979 rows (OI-E CLOSED)
-> - **GBIM indexers**: All 4 healthy — spatial, temporal, semantic, benefit
-> - **External access**: `egeria.mountainshares.us` live, token-enforced
-> - **Judge signing keys**: 5 present and confirmed
-> - **BBB EthicalFilter**: 0% false positive rate
-> - **`confidence_decay`**: 0.0% — episodic memory integrity intact
-> - **Hilbert space** \(H_{\text{App}}\): ~6.74M vectors (48 collections, mixed L2/cosine),
->   ZIP 25880, proven operational
-> - **Pituitary**: `mode=elevated`, `warmth=0.9`, 6/6 protocols, port 8108
-> - **EEG**: delta 253 / theta 127 / beta 25 pulses
-> - **MountainShares**: all 4 services live — coordinator, governance API, stake
->   registry, companion service
-> - **Cloudflare tunnel**: active, `egeria.mountainshares.us` HTTP 200
-> - **`docker-compose.yml`**: validates cleanly
-> - **Container naming**: `jarvis-` prefix retained in code layer; public name is
->   **Ms. Allis**
->
-> Quantarithmia Chapter 1 — the study of how quantum-geographic entanglement shapes
-> community power and resource flow in Appalachia — now has working infrastructure to
-> prove it. MountainShares is no longer just a framework. It has a running system behind
-> it. **Chapter 1 is CLOSED.**
->
-> Formal mathematical treatments, empirical case studies, and detailed analyses of
-> maximopoly/megaopoly intersections in specific Appalachian contexts are developed in
-> subsequent thesis chapters and related publications.
+## 1.7 Quantarithmia’s Role in Ms. Jarvis and MountainShares
+
+Under the July 2026 gate, Quantarithmia’s role is:
+
+- **For Ms. Jarvis (the steward system):**
+  - Provide the **justice and reciprocity criteria** that shape GBIM design, PIA review, per‑user memory boundaries, and commons aggregation rules.  
+  - Motivate the use of **BBB/guardian, judge signatures, and DGM cycles** (Ch16, Ch52) as tools for keeping reasoning aligned with those criteria.  
+  - Guide the **temporal and recurrent check patterns** (Ch49, Ch52), so the system doesn’t quietly drift away from its commitments.
+
+- **For MountainShares (the commons/governance layer):**
+  - Interpret per‑user and commons signals in terms of **leakage, enclosure, and reciprocity**:  
+    - Are benefits staying local, or being siphoned off?  
+    - Are commons outputs returned to communities as better services, or just exported?  
+  - Frame **k‑threshold choices** and opt‑in requirements as part of a **spatial justice stance**, not just a privacy detail.
+
+This chapter **does not** claim that Quantarithmia is completely implemented. It claims that:
+
+- key parts of the Ms. Jarvis and MountainShares stack have been **closed as working mechanisms**;  
+- those mechanisms were designed **under Quantarithmia’s theoretical guidance**.
 
 ---
 
-*Chapter 1 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
-*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
-*See [LICENSE](../LICENSE) for terms.*
-*Last verified: April 23, 2026 — preflight 30/30; exit 0; bash -n clean;
-containers 112 thesis-verified (April 16) / 100 point-in-time (April 23);
-msallis-db 16 GB / 294 tables / 11 schemas; postgis-forensic 17 GB / 314 tables / 9 schemas;
-4 GBIM indexers healthy; egeria.mountainshares.us token-enforced; 5 judge keys;
-BBB 0% false positive; confidence_decay 0.0%; H_App ~6.74M vectors / 48 collections /
-mixed L2-cosine / ZIP 25880; pituitary 6/6; EEG 253/127/25.
-The falsifiable experiment is real infrastructure. Chapter CLOSED.*
+## 1.8 What This Chapter Explicitly Does Not Claim
+
+To respect the gate:
+
+This chapter **does not** say:
+
+- that Ms. Jarvis is universally intelligent, sentient, or an AGI;  
+- that the theory is **proven** in a mathematical or metaphysical sense;  
+- that institutions, courts, or clinics have endorsed these mechanisms;  
+- that any human or community can safely outsource all judgment to the system.
+
+Instead, it says:
+
+- Quantarithmia is **a theory for thinking about power, reciprocity, and entanglement in Appalachia**;  
+- Ms. Jarvis and MountainShares are **partial, as‑built instruments** that try to implement parts of that theory;  
+- the **ground truth for what is live** is the closure index (Ch02, 04/44, 16, 45/46, 48, 49, 50, 51, 52, Appendix A).
+
+---
+
+## 1.9 Step‑by‑Step Reading for Rural Developers
+
+If you are reading this from a command line in Mount Hope or Oak Hill, Appendix‑style, you can think of Chapter 1 like this:
+
+1. **Quantarithmia is the story.**  
+   It gives the language for talking about **who holds power, how value flows, and what reciprocity should look like** in your county.
+
+2. **GBIM and H_geo are the map.**  
+   They are the closed mechanisms that let Ms. Jarvis tie beliefs and data to actual **places in West Virginia**.
+
+3. **Hilbert‑state/Phi, H_t, and H_p are the memory and rhythm.**  
+   They help the system track **what it believes, when, and about whom**, with stability floors and decay so it doesn’t run away from itself.
+
+4. **BBB, guardian, PIA, and per‑user direct sums are the brakes.**  
+   They stop the system from silently turning memory into surveillance, or from using your data in ways you didn’t consent to.
+
+5. **The Community Hilbert Commons is the megaphone.**  
+   It lets communities share patterns (not people) in a k‑thresholded, opt‑in way so **civic planning and governance** can see what’s happening without exposing individuals.
+
+6. **The recurrent loop is the weekly check‑up.**  
+   Scheduled runners go back and ask: “Are these safeguards still working the way we said they do?”
+
+Quantarithmia is what ties all of that together as **an economic geographic theory of systems entanglement**, grounded in Appalachia and limited, on purpose, to the closed mechanisms that actually exist.
+
+---
+
+## 1.10 Closing Statement
+
+Under the July 2026 gate, **Chapter 1 no longer claims that the experiment is fully complete or universally proven**.
+
+It claims that Quantarithmia is a **place‑rooted theory of power and reciprocity**, and that Ms. Jarvis and MountainShares now contain a set of **closed, governed mechanisms**—GBIM, Hilbert/Phi, BBB/PQ, H_geo, Hilbert People Space, temporal and commons layers, per‑user direct sums, and recurrent validation loops—that begin to make that theory operational in West Virginia. The distance between theory and implementation is now **visible, named, and governed**, not glossed over, and that is itself part of the epistemic discipline this appendix demands.
