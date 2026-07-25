@@ -1,276 +1,306 @@
-# The Spacetime Contract
+# Chapter: The Spacetime Contract
 
-*How Ms. Allis is prevented from inventing geography.*
+## How a rural civic AI is prevented from inventing geography
 
-Status: implemented and calibrated (2026-07-24). Scope: the civic-geography
-retrieval path only. This document describes a guard that is running, not a
-proposal — every threshold below is traceable to a measured result reproduced
-in the tables that follow.
+### What this chapter is for
 
----
+If you are building an AI system that answers questions about real places —
+counties, towns, census tracts — you will run into a problem that is easy to
+miss until it embarrasses you in front of the people you serve. This chapter
+explains that problem, shows a working solution running in production, and gives
+you the reasoning so you can build the same guard for your own region.
 
-## 1. The problem this exists to solve
+It is written for a developer in a small organization with limited resources,
+because that is who built the system it describes: a nonprofit in Mount Hope,
+West Virginia. Everything here was calibrated against a live system on a single
+laptop. You do not need a research lab to do this. You need to measure honestly
+and refuse to guess.
 
-Ms. Allis answers questions about West Virginia places by retrieving governed
-belief documents from a vector store (Chroma), keyed to canonical geographic
-identifiers and a `snapshot_version`. Retrieval uses cosine similarity over
-embedded text, across three collections — counties, tracts, and block groups.
-
-Vector retrieval has a property that is convenient for search and dangerous for
-grounding: **it always returns the nearest neighbor.** There is no null result.
-A query that corresponds to no West Virginia place still comes back with the
-closest West Virginia county the embedding space can find, at some distance.
-Nothing in the raw retrieval says "this is not really a match" — it only says
-"this is the closest one."
-
-Without a guard, that means every query produces a geographic answer, whether or
-not the query is about West Virginia at all. Measured directly against the live
-service on 2026-07-24:
-
-| Query | Resolved to | Cosine distance |
-|---|---|---|
-| Cook County Illinois | Taylor County, WV | 0.5960 |
-| Harris County Texas | Brooke County, WV | 0.6102 |
-| the surface of the moon | Putnam County, WV | 0.8216 |
-| how do I bake sourdough bread | Cabell County, WV | 0.8638 |
-
-Each of these is a confident, specific, wrong answer waiting to be stated as
-fact. "The surface of the moon" resolving to Putnam County is the failure mode
-in its purest form. The spacetime contract is the mechanism that turns these
-into explicit refusals instead of hallucinated locations.
+The scope of this chapter is deliberately narrow. It covers one thing: how the
+system decides whether it knows *where* a question is about, and what it does
+when it does not. It does not cover how the answer is written, how the data was
+gathered, or how the system remembers past conversations. Those are other
+chapters. Keeping the scope narrow is itself part of the method — a guard that
+tries to do everything is a guard you cannot test.
 
 ---
 
-## 2. The contract
+### 1. The problem: retrieval always answers, even when it shouldn't
 
-Every grounded geographic claim Ms. Allis makes must attach to a canonical
-**(where, when)** tuple:
+The system stores knowledge about West Virginia geography as *embeddings* —
+numeric fingerprints of text — inside a vector database. When someone asks a
+question, the system turns their question into the same kind of fingerprint and
+asks the database: *which stored places are closest to this?*
 
-- **where** — a canonical spatial key: `(county_id)`, `(county_id, tract_id)`,
-  or `(county_id, tract_id, blockgroup_id)`, drawn from the resolved retrieval
-  hit's metadata (`county_geoid`, `entity_type`, and so on).
-- **when** — a `snapshot_version` from the belief document (e.g.
-  `wv-county-snapshot-v2`), and where applicable an effective date from the
-  underlying policy or benefit source.
+Here is the trap. A vector database always returns the closest match. It has no
+concept of "nothing here fits." Ask it about a place it has never heard of, and
+it will still hand back the nearest West Virginia county it happens to have,
+along with a distance number saying how far off the match was. Nothing in that
+result says *this is not really a match* — it only says *this is the closest one
+I have.*
 
-The contract is a single rule: **no geographic claim without a (where, when)
-that supports it.** If retrieval cannot produce a trustworthy `where`, the
-system must say so and decline, rather than answer against the nearest vector.
+We measured this directly against the live system. These are real results:
 
-The whole difficulty is in the word *trustworthy*. Retrieval always produces
-*a* where. The guard's job is deciding whether that where is real.
+```
+query: "Cook County Illinois"        -> resolved to Taylor County, WV
+query: "the surface of the moon"     -> resolved to Putnam County, WV
+query: "how do I bake sourdough"     -> resolved to Cabell County, WV
+```
 
----
+Cook County is in Illinois. The moon is not in West Virginia. "How do I bake
+sourdough" is not a place at all. Yet each one came back as a confident,
+specific West Virginia county. If the system had simply trusted retrieval, it
+would have told a community member that the moon is in Putnam County — and said
+it with the same certainty it uses for real answers.
 
-## 3. Why a distance threshold alone does not work
-
-The obvious guard is a distance ceiling: reject any hit farther than some
-threshold T. We tested whether one exists, by measuring the top-hit distance for
-known in-corpus queries (real WV geography) against known out-of-corpus queries
-(other states, other countries, non-places).
-
-**In-corpus (should resolve):**
-
-| Query | Resolved | Distance |
-|---|---|---|
-| Kanawha county West Virginia | Kanawha | 0.2517 |
-| McDowell county | McDowell | 0.2769 |
-| Fayette county West Virginia | Fayette | 0.2971 |
-| Raleigh county | Raleigh | 0.3302 |
-| Monongalia county Morgantown | Monongalia | 0.3710 |
-| census tract 54019020101 | Jefferson | 0.5067 |
-| Mount Hope West Virginia | Wyoming | 0.5783 |
-
-**Out-of-corpus (should refuse):**
-
-| Query | Resolved | Distance |
-|---|---|---|
-| King County Washington | Jefferson | 0.5180 |
-| Cook County Illinois | Taylor | 0.5960 |
-| Harris County Texas | Brooke | 0.6102 |
-| Los Angeles California | Berkeley | 0.6298 |
-| Miami-Dade Florida | Marion | 0.6810 |
-| Toronto Ontario Canada | Tucker | 0.7982 |
-| the surface of the moon | Putnam | 0.8216 |
-| how do I bake sourdough bread | Cabell | 0.8638 |
-
-The two clusters **overlap**. The worst legitimate in-corpus query
-("Mount Hope WV" → Wyoming, 0.5783) scored *farther* than the closest
-out-of-corpus query ("King County WA" → Jefferson, 0.5180). Overlap = 0.0603.
-
-Any single threshold placed in that band either rejects a real West Virginia
-query or accepts an out-of-state one. **Distance alone cannot separate West
-Virginia geography from other states' geography** — because the embedding space
-treats "X County" as similar text regardless of which state X is in. It rewards
-*placeness*, not *West-Virginia-ness*.
-
-This is the empirical crux of the whole design. It is why the guard is layered
-rather than a single number.
+That is the failure this chapter prevents. The goal is not to make the system
+smarter about geography. The goal is to make it honest about the edges of what
+it knows.
 
 ---
 
-## 4. The guard
+### 2. The contract: no claim without a where and a when
 
-Three mechanisms, each doing work the others cannot.
+The rule is simple to state. Every grounded claim the system makes about a place
+must be able to point back to two things:
 
-### Layer 1 — distance ceiling (coarse backstop)
+- a **where** — a specific, canonical place identifier: a county, or a county
+  and tract, or a county and tract and block group, drawn from the matched
+  record.
+- a **when** — a version stamp saying which snapshot of the data the claim came
+  from, so the answer can always be traced to a dated source.
 
-`DISTANCE_CEILING = 0.75`. Reject any top hit farther than this.
+Together these form a *(where, when)* tuple. The contract is one sentence: **the
+system may not state a geographic fact unless it can attach that fact to a
+(where, when) it actually retrieved.** If it cannot produce a trustworthy where,
+it must say so and decline, rather than answer against the nearest guess.
 
-This does not separate the overlapping band — it is not trying to. It catches
-only the absurd tail: queries that correspond to no place at all. "The capital
-of France" (0.9069), "how tall is Mount Everest" (0.9027), "the moon" (0.8020),
-"recipe for cornbread" (0.8438) all exceed it. The ceiling is deliberately set
-*above* the worst legitimate in-corpus distance (0.5783) so it never rejects a
-real West Virginia query. Its only job is the non-place tail.
-
-### Layer 2 — named-place check (the decisive separator)
-
-The layer that actually distinguishes West Virginia from elsewhere does not use
-distance at all. It reads the query:
-
-- **If the query names a US state other than West Virginia** — refuse. "Cook
-  County Illinois", "Los Angeles California", "Boston Massachusetts" are caught
-  here regardless of how close the nearest WV vector sits.
-- **If the query names a major non-WV US city that is not also a WV place** —
-  refuse. This closes the gap distance leaves open: bare city names with no
-  state token. "Chicago" (0.6921), "Los Angeles" (0.6530), "Silicon Valley"
-  (0.6213) sit *below* the ceiling and name no state, so Layer 1 and the
-  state-check both miss them; the city gazetteer catches them by name.
-- **If the query carries an affirmative West Virginia signal** ("West Virginia",
-  "WV", "W. Va.") — accept. This overrides the state check so that
-  "Jefferson county West Virginia" is not rejected for containing the substring
-  "virginia".
-
-### Collision handling — the part that makes it safe
-
-A naive city or state list would reject legitimate West Virginia queries,
-because West Virginia shares names with places elsewhere:
-
-- **WV municipalities that are also big-city names elsewhere** — Charleston
-  (WV capital; also SC), Huntington, Parkersburg. These are removed from the
-  reject list automatically, sourced from the authoritative TIGER/Line 2023
-  places file (439 WV places), so the guard never refuses a real WV town.
-- **WV counties that are also non-WV city or state names** — Raleigh (WV county;
-  also NC city), Marion, Lincoln, Jackson. All 55 WV county names are excluded
-  from the reject set.
-- **Names that are both a US state and a WV county** — Wyoming and Ohio. These
-  are disambiguated by context: "Wyoming county" and "Ohio county" mean the West
-  Virginia county (no US state has "county" in its name), so they accept; bare
-  "Wyoming" or "Ohio" remain state signals and refuse.
-
-The WV place list is baked into the guard as a frozen constant, so it is
-self-contained and requires no data file at runtime. If the TIGER shapefile is
-present it is merged in as a refresh source; if absent, the baked list stands.
-This means the guard is portable and survives deletion of the source GIS data.
-
-### Refusal, not silence
-
-When any layer rejects, the guard returns an explicit, user-facing message —
-"That location appears to be outside West Virginia. Right now I only hold West
-Virginia civic geographic data, so I can't answer about other places without
-guessing." The chat path must surface this message; a rejected query that
-produces silence is a failure of integration, not of the guard.
+The entire difficulty lives in the word *trustworthy*. Retrieval always produces
+*a* where. The job of the guard is to decide whether that where is real.
 
 ---
 
-## 5. Validation
+### 3. Why the obvious solution does not work
 
-The guard was tested against every calibrated query from both measurement runs,
-plus the collision cases and both sides of the state/county ambiguity:
-**24 of 24 correct.**
+The obvious idea is a distance threshold. The database gives you a distance
+number for each match — smaller means closer. So pick a cutoff: accept matches
+closer than some number, reject the rest. Clean and simple.
 
-- All 7 in-corpus WV queries accept, including "Mount Hope WV" at the 0.5783
-  distance that overlaps the out-of-corpus band.
-- All WV county-name queries accept, including "Raleigh county" (collides with
-  Raleigh, NC) and "Wyoming county" / "Ohio county West Virginia" (collide with
-  US states).
-- Every out-of-state query refuses — the six that name a state via the state
-  check, the bare cities (Chicago, LA, Silicon Valley) via the gazetteer.
-- Every non-place refuses via the distance ceiling.
-- Bare ambiguous state names with no "county" ("tell me about Wyoming", "Ohio")
-  correctly refuse as state signals.
+We tested whether that cutoff exists. We ran a set of questions we knew were
+about real West Virginia places, and a set we knew were not, and recorded the
+distance of the closest match for each.
 
----
+Questions about real West Virginia places (should be accepted):
 
-## 6. Known limitations
+```
+Kanawha county West Virginia    distance 0.2517
+McDowell county                 distance 0.2769
+Fayette county West Virginia    distance 0.2971
+Raleigh county                  distance 0.3302
+Monongalia county Morgantown    distance 0.3710
+census tract 54019020101        distance 0.5067
+Mount Hope West Virginia        distance 0.5783
+```
 
-Stated plainly, because a guard that hides its gaps is worse than one that names
-them.
+Questions about places elsewhere (should be refused):
 
-1. **The city gazetteer is not exhaustive.** It holds roughly 90 major non-WV US
-   cities after WV-collision removal. Obscure out-of-state towns, and any city
-   not on the list, are caught only if they also exceed the distance ceiling —
-   which most place-like queries do not. "Akron" or "Toledo" without a state
-   token can still slip through. The gazetteer shrinks the bare-city gap from
-   "every city leaks" to "listed cities are caught"; it does not close it.
+```
+King County Washington          distance 0.5180
+Cook County Illinois            distance 0.5960
+Harris County Texas             distance 0.6102
+Los Angeles California          distance 0.6298
+Toronto Ontario Canada          distance 0.7982
+the surface of the moon         distance 0.8216
+how do I bake sourdough bread   distance 0.8638
+```
 
-2. **The distance ceiling rests on a modest sample.** T = 0.75 is calibrated
-   against roughly 28 out-of-corpus queries across two runs. It is well-placed
-   for the non-place tail (nothing legitimate approached it; the closest was
-   "downtown Manhattan" at 0.7293, itself out-of-corpus), but a larger
-   calibration would firm the exact value. It is evidence-based, not proven.
+Look at the two lists carefully. The worst real West Virginia question —
+"Mount Hope West Virginia" at 0.5783 — is *farther away* than a genuinely
+out-of-state question, "King County Washington" at 0.5180. The two groups
+overlap. There is no single cutoff you can draw that keeps every real place and
+rejects every foreign one. Any line that catches King County also throws out
+Mount Hope, a real West Virginia town.
 
-3. **Misspellings and paraphrases evade the named-place check.** "Illinios",
-   "the Windy City" (caught, but only because it was added explicitly), or a
-   descriptive reference with no proper noun ("the big city up north") are not
-   matched by the state or city lists and fall to Layer 1 only.
+The reason is worth understanding, because it will be true for your region too.
+The embedding measures how similar the *text* is. "King County Washington" and
+"Kanawha County West Virginia" are both "[name] County [state]" — structurally
+almost identical. The fingerprint rewards *sounding like a place*, not *being in
+West Virginia*. Distance alone cannot tell the difference between a county here
+and a county two thousand miles away, because as text, they are nearly the same
+shape.
 
-4. **Temporal enforcement is not yet complete.** The (where) half of the tuple
-   is enforced by this guard. The (when) half — verifying that a stated benefit
-   rule or statistic matches the `snapshot_version` of the resolved geography —
-   depends on the non-geographic fact tables carrying a snapshot or
-   effective-date key. Whether they do is an open schema question (see §8).
-
-None of these are reasons not to ship the guard. They are the measured surface
-of what it does not yet cover, so that the next layer of work is aimed
-correctly.
-
----
-
-## 7. Scope boundary — what this contract does NOT govern
-
-This contract applies to the **civic-geography retrieval path only** — the
-pipeline that resolves a place query against the WV county/tract/blockgroup
-collections and grounds an answer in governed belief documents.
-
-It explicitly does **not** govern the per-user conversation-memory path (the
-Hilbert People Space, one Chroma collection per user). Those are different
-pipelines with opposite requirements: civic geography *should* search across all
-three geographic collections; conversation memory *must not* search across
-users. Applying "search everything" reasoning from this contract to the memory
-path would violate per-user sovereignty. The two must never be conflated. Any
-guard on the memory read path is a separate artifact with its own rules.
+This is the central finding of the chapter: **distance measures placeness, not
+belonging.** A guard built only on distance will confidently misplace the world.
 
 ---
 
-## 8. What remains
+### 4. The guard: three signals, each doing one job
 
-1. **Wire the guard into the retrieval response.** The guard is implemented and
-   tested as a pure module (`spacetime_guard.py`). Integrating it into
-   `gis_rag()` requires adding optional `refused` / `refusal_reason` / `message`
-   fields to the response model and having the chat path speak the refusal. Kept
-   as a deliberate, isolated step so a wiring bug cannot silence retrieval.
+Because no single number works, the guard uses layers. Each layer catches a
+different kind of mistake, and together they cover the field.
 
-2. **Broaden the ceiling calibration.** Run 30–40 out-of-corpus queries,
-   including bare cities and neighbor-state counties, and confirm nothing
-   legitimate approaches 0.75 before treating the value as fixed.
+#### Layer one: a loose distance ceiling for nonsense
 
-3. **Audit the temporal keys.** Determine whether the benefit and policy tables
-   carry `snapshot_version` or an effective-date column. This decides whether the
-   (when) half of the contract is enforceable at all, or whether it is
-   aspirational pending a schema change.
+Set a distance ceiling — we use 0.75 — and reject anything beyond it. This does
+not try to separate West Virginia from other states; we just proved that is
+impossible with distance. It only catches the truly absurd: questions that
+correspond to no place at all.
 
-4. **Extend beyond refusal, eventually.** Phase 0 refuses any non-WV place. A
-   later phase, once comparison data exists, could scope-and-answer — resolving
-   the WV portion of a comparative query and remaining explicit about the rest —
-   rather than refusing outright. The contract's structure supports this
-   extension without change: it is a policy choice about what to do when a query
-   names a non-WV place, not a change to how (where, when) is enforced.
+```
+what is the capital of France   distance 0.9069   rejected
+how tall is Mount Everest        distance 0.9027   rejected
+the surface of the moon          distance 0.8020   rejected
+recipe for cornbread             distance 0.8438   rejected
+```
+
+The ceiling sits *above* the worst real West Virginia question (0.5783), so it
+never throws out a legitimate query. Its only job is the far tail of nonsense.
+
+#### Layer two: check the words of the question
+
+This is the layer that actually separates West Virginia from elsewhere, and it
+does not use distance at all. It reads the question itself:
+
+- If the question names a US state other than West Virginia — "Illinois",
+  "Texas", "California" — refuse it. It does not matter how close the nearest
+  West Virginia match sits; the person asked about another state.
+- If the question names a major city that is not in West Virginia — "Chicago",
+  "Los Angeles", "Boston" — refuse it. This catches the cases distance misses:
+  a bare city name with no state attached, sitting below the ceiling.
+- If the question affirmatively says "West Virginia" or "WV", accept it. This
+  protects real queries from being rejected by accident.
+
+To make the city check work, the guard carries a list of the state's own
+places — every incorporated town and every county — so it never mistakes a real
+West Virginia place for a foreign one.
+
+#### Handling the collisions
+
+This is the part that takes care, because West Virginia shares names with the
+rest of the country, and a careless list would reject its own towns.
+
+- **Charleston** is the capital of West Virginia. It is also a city in South
+  Carolina. It must never go on the reject list.
+- **Raleigh** is a West Virginia county. It is also the capital of North
+  Carolina. A naive city list would reject "Raleigh county" — a real place here.
+- **Wyoming** and **Ohio** are both US states *and* West Virginia counties. The
+  guard resolves this by context: "Wyoming county" means the West Virginia
+  county and is accepted; bare "Wyoming" is read as the state and refused.
+
+The guard handles all of these by starting from the state's authoritative list
+of its own places and never rejecting a name that appears on it. The place list
+holds 493 names — every West Virginia town and county — and it is built directly
+into the guard so it keeps working even if the source map file is deleted from
+the machine. The system was tested with that file removed, and it still
+correctly accepted Mount Hope, Oak Hill, Thurmond, and every other small town.
+
+#### Refuse out loud, never in silence
+
+When any layer rejects a question, the guard does not simply return nothing. It
+returns a plain message: *that location appears to be outside West Virginia; I
+only hold West Virginia civic data, so I can't answer about other places without
+guessing.* A refusal the person never sees is just as confusing as a wrong
+answer. The system must say why it is declining.
 
 ---
 
-*Every threshold and claim in this document is traceable to a measured result
-from the 2026-07-24 calibration runs against the live GIS-RAG service. The guard
-implementation is `services/spacetime_guard.py`; the calibration harness is
-`calibrate_gis_threshold.py`.*
+### 5. Proof that it works
+
+The guard was checked against every measured question above, plus the tricky
+name collisions, and it answered all of them correctly. In production, on the
+live system:
+
+```
+Kanawha county West Virginia   ->  answered normally
+Cook County Illinois           ->  refused: names another state
+the surface of the moon        ->  refused: beyond the distance ceiling
+```
+
+Every real West Virginia question is answered, including Mount Hope at the
+overlapping distance that broke the simple threshold. Every out-of-state
+question is refused by name. Every non-place is refused by the ceiling. The moon
+no longer lives in Putnam County.
+
+---
+
+### 6. What this guard does not do
+
+An honest guard names its own gaps. This one has three.
+
+First, the city list is not the whole country. It holds the major cities most
+likely to come up. A small out-of-state town that no one thought to add, with no
+state named alongside it, can still slip through to the loose ceiling. The list
+shrinks the problem from "every city leaks" to "listed cities are caught." It is
+an improvement, not a proof.
+
+Second, the ceiling number was set from a few dozen test questions. Nothing
+legitimate came near it, so it is well placed — but a larger test set would make
+it firmer. Treat 0.75 as evidence-based, not eternal.
+
+Third, misspellings and vague references — "the big city up north" — carry no
+state or city name for the word-check to catch, and fall through to the ceiling
+only.
+
+None of these are reasons to skip the guard. They are the honest edges of what
+it covers, written down so the next piece of work aims correctly.
+
+---
+
+### 7. The boundary of this chapter
+
+This guard governs one path only: the path that answers questions about public
+civic geography. It does not govern the system's private, per-person memory,
+which follows the opposite rule — that path must *never* reach across people,
+while the geography path is meant to reach across all of the region's counties
+and tracts. The two must not be confused. Applying this chapter's "search
+broadly" logic to private memory would break the promise of privacy that memory
+path is built to keep. A guard for that path is a separate piece of work with
+its own rules, and it is not this chapter.
+
+---
+
+### 8. The half that is not yet built: time
+
+The contract asks for a *where* and a *when*. The *where* is enforced, live, and
+proven. The *when* is not — and the reason is honest and specific.
+
+Enforcing the *when* would mean checking a stated fact — say, an eligibility rule
+for a benefit program — against the dated version of the data it came from. That
+requires the benefit and policy facts to live in structured tables that carry a
+version stamp or an effective date. In this system, those facts are not yet in
+the corpus at all; re-adding them is future work.
+
+That timing is an opportunity, not a defect. Because the data has not been
+re-added yet, the decision about how to store it is still open — and this is the
+moment to make it correctly. When benefit and policy facts are brought back,
+they must land in structured tables that carry a version or effective-date
+stamp, not as loose document text. Document text has no *when* to check against;
+a rule pulled from an undated manual can never be verified as current. If the
+facts return as keyed tables, the *when* half of the contract becomes
+enforceable. If they return as plain text, it never will. The contract, by
+existing before the data returns, tells you which choice to make.
+
+---
+
+### 9. What to take away for your own region
+
+If you are building this for somewhere else, the method transfers directly:
+
+1. Do not trust retrieval distance to tell you whether a place is in scope. Test
+   it against known in-scope and out-of-scope questions. You will almost
+   certainly find the same overlap we did.
+2. Get your region's authoritative list of its own place names. Census place and
+   county files exist for every US state and most jurisdictions. Build that list
+   into your guard so it survives losing the source file.
+3. Refuse by name, not by distance, for the cases that matter — questions that
+   name somewhere else. Use distance only for the nonsense tail.
+4. Handle the name collisions deliberately. Your region shares names with
+   others; find them before they embarrass you.
+5. Refuse out loud. A silent empty answer teaches people nothing.
+6. If your facts carry dates — benefit rules, policies, anything that changes —
+   store them in tables with a version stamp from the start, so the *when* half
+   is enforceable rather than aspirational.
+
+The whole discipline reduces to one habit: when the system does not know, it must
+say so, and you must be able to prove it says so. Everything above is machinery
+in service of that one honest sentence.
