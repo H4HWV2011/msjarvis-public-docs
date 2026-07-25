@@ -1,21 +1,22 @@
+
 # 31. MountainShares and Infrastructure Closure
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 22, 2026*
+*Last updated: July 25, 2026*
 
 ---
 
 ## 31.1 Why This Matters for Polymathmatic Geography
 
-This chapter explains **MountainShares** as a documented and partially live **commons infrastructure layer**, not as a finished public currency or investment scheme. It focuses on knowledge, retrieval corpora, and governed commons aggregation rather than on treasury execution or securities.
+This chapter explains **MountainShares** as a documented and partially live **commons infrastructure layer**, not as a finished public currency or investment scheme. It focuses on knowledge, retrieval corpora, governed commons aggregation, and a future‑facing civic‑energy model rather than on treasury execution or securities.
 
 It supports:
 
-- **P1 – Every where is entangled** by treating local knowledge, infrastructure, and governance as interconnected.  
-- **P3 – Power has a geometry** by putting MountainShares inside supervised gateways and bounded corpora, not in a free-floating financial cloud.  
+- **P1 – Every where is entangled** by treating local knowledge, infrastructure, governance, and civic effort as interconnected.  
+- **P3 – Power has a geometry** by putting MountainShares inside supervised gateways and bounded corpora, not in a free‑floating financial cloud.  
 - **P5 – Design is a geographic act** by grounding commons infrastructure in specific services, ports, and collections, instead of an abstract “platform.”  
 - **P12 – Intelligence with a ZIP code** by privileging **MountainShares commons documentation** and local knowledge inside a governed retrieval layer.  
-- **P16 – Power accountable to place** by keeping MountainShares within BBB/guardian supervision and bounded corpus volumes.
+- **P16 – Power accountable to place** by keeping MountainShares within BBB/guardian supervision and bounded corpus volumes, and by treating civic energy as something that must be recorded in accountable, place‑aware ledgers rather than extracted invisibly.
 
 This chapter belongs to the **Computational Instrument** tier. It treats MountainShares as partially live infrastructure with working knowledge stores and gateways, not as a deployed DAO or public currency.
 
@@ -28,6 +29,8 @@ Within this gate, **MountainShares** should be understood as:
 - a **knowledge and commons infrastructure layer**;  
 - a set of **retrieval corpora and services** about MountainShares and Commons;  
 - a **gateway** that exposes those corpora for governed use inside Ms. Allis.
+
+Within this architecture, MountainShares is also framed conceptually as a **civic energy ledger**: citizens are treated as embodied sources of civic energy whose charitable acts, mutual‑aid work, and local knowledge contributions could be recorded as governed transactions over time, place, and person. In this chapter, those ledgers exist only as design commitments and partially wired infrastructure; live valuation or circulation of that energy as a public currency lies outside the current scope.
 
 It is **not** claimed to be:
 
@@ -57,7 +60,7 @@ These collections are designed to support:
 - question‑answering for operators and local stewards;  
 - future expansion into community‑facing tools, subject to later gates.
 
-They are **knowledge corpora**, not wallets or ledgers.
+They are **knowledge corpora**, not wallets or ledgers. Future MountainShares work may layer governed civic‑energy ledgers on top of these corpora, but within this chapter those ledgers remain conceptual and are not exposed as live financial instruments.
 
 ---
 
@@ -153,7 +156,7 @@ Instead, it claims:
 - a governed **community Hilbert commons** aggregation target;  
 - working Chroma, Hilbert state, and Hilbert time dependencies.
 
-Any move toward real money, securities, or public DAO behavior must pass **later, separate gates**.
+Any move toward real money, securities, public DAO behavior, or live civic‑energy settlement must pass **later, separate gates**.
 
 ---
 
@@ -176,6 +179,9 @@ On a running system, the MountainShares infrastructure behaves roughly like this
 5. **Time/state framing.**  
    Hilbert state and time help keep track of when and how these corpora are updated, pruned, and queried.
 
+6. **Civic energy (future).**  
+   Later chapters and deployments may describe how governed civic‑energy ledgers and stake accounting sit on top of this infrastructure. In this chapter, those ledgers are acknowledged only as design intent, not as live financial systems.
+
 For now, MountainShares is a **knowledge and commons layer** with working infrastructure, not a full financial or governance deployment.
 
 ---
@@ -184,4 +190,4 @@ For now, MountainShares is a **knowledge and commons layer** with working infras
 
 Chapter 31 closes MountainShares and Commons as a **documented, partially live infrastructure layer**: knowledge corpora, a commons RAG seed, a community Hilbert commons aggregation target, and a healthy gateway, all running under BBB/guardian and Hilbert state/time supervision.
 
-It stops short of claiming a public DAO, live currency, or investment rights, and instead fixes MountainShares in this thesis as a **governed commons knowledge substrate** that can later support more ambitious community systems when separate gates are passed.
+It stops short of claiming a public DAO, live currency, or investment rights, and instead fixes MountainShares in this thesis as a **governed commons knowledge substrate** that can later support more ambitious community systems — including civic‑energy accounting — when separate gates are passed.
