@@ -1,286 +1,241 @@
-# 44. Phi Probe — Governed Coherence in the Geographic Corpus (As-Built)
+# 44 — Phi Probe — Semantic Coherence Measurement in H_App
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: July 27, 2026*
-
----
-
-## 44.1 What This Chapter Is Allowed to Claim
-
-Within this closure gate, Chapter 44 is limited to **live Phi measurement and gate wiring over the governed geographic corpus**, backed by working Hilbert-state services and confirmed row-count evidence from the July 26, 2026 architecture closeout.
-
-It may claim that:
-
-- the **Hilbert state** service is live and connected to Redis;
-- **state set/get, projection, transition, and entanglement** are proven by a live probe;
-- the **Phi probe service** is live on its configured port and can reach Chroma through `CHROMA_URL`;
-- Phi can **sample governed geographic collections** for West Virginia counties, tracts, and block groups;
-- Phi writes its state to Redis under `pituitary:phi_state`;
-- the `/phi` and `/phi/cached` endpoints return sampled coherence payloads;
-- a **hard coherence gate probe passes**, and coherence gate code exists in `gbim_query_router`, `phi_promotion_gate`, and `coherence_remediation`;
-- the **current baseline Phi measurement** — 93,423 admissible rows out of 237,655 total GBIM records (39.3% admissibility rate), confirmed on July 26, 2026 — is the concrete, verified coherence baseline against which future measurements are compared;
-- tests for these pieces pass in isolated batches.
-
-It may **not** claim downstream outcome calibration across all domains or universal coherence guarantees. This scope is limited to what has been demonstrated for the **governed geographic corpus**.
+*Carrie Kidd (Mamma Kidd) — Mount Hope, West Virginia*  
+*Last Updated: July 27, 2026*
 
 ---
 
-## 44.2 Plain-Language Purpose
+## 44.1 Purpose of the Phi Probe
 
-For rural developers, the Phi probe in this chapter answers a simple question:
+This chapter explains how Ms. Jarvis measures the **semantic coherence of governed state** inside H_App using a concrete probe: the fraction of governed records that are admissible for public claims.
 
-> "Before Ms. Allis uses a big, governed map of West Virginia to support decisions, how does she check that the map is internally hanging together?"
+The name “Phi probe” here refers to a measurement of how much of the stored governed corpus is ready to be spoken as evidence, not just stored as data. It is a way of asking: “How coherent is our governed state today?” and answering that question with a real number rather than a feeling.
 
-Here, **Phi** is the name of a service that:
-
-- looks at the **governed GIS data** (counties, tracts, block groups);
-- measures whether that data is **internally coherent** in the shared embedding space;
-- records that reading for other parts of the system to use when deciding whether to **trust and act on** that geographic belief state.
-
-Phi is not a truth oracle. It does not say "these maps are correct." It says, "these counties, tracts, and block groups **fit together** in a stable way under the system's own geometry."
-
-As of July 26, 2026, Phi has a concrete baseline to compare future readings against: **39.3% of GBIM records are admissible** — meaning they satisfy all ten conditions of the public admissibility predicate. That ratio is the system's first measured coherence baseline.
+For rural developers, this provides a practical handle on an abstract idea. Instead of saying “the system is pretty coherent,” the system can say “39.3% of governed rows are admissible as of July 26, 2026.”
 
 ---
 
-## 44.3 Hilbert State Service and Redis
+## 44.2 What Semantic Coherence Means Here
 
-The **Hilbert state service** keeps track of live semantic state in a way that other services can read.
+Semantic coherence, in the context of H_App, means that a governed record:
 
-Within this gate, it is safe to say that:
+- Has all required spatial and temporal anchors.
+- Has clear provenance and lifecycle state.
+- Satisfies the ten-condition admissibility predicate.
+- Is ready to back a public answer without further qualification.
 
-- the Hilbert state service is **up and running**;
-- it is **connected to Redis**, which it uses as a backing store;
-- basic operations — **set, get, projection, transition, entanglement** — all work and are proven by a live probe.
+A corpus with high semantic coherence has many records that meet these conditions. A corpus with low coherence has many records that are stored but not yet ready to speak.
 
-For a rural operator, this means there is a **central place** where Ms. Allis saves and fetches the current "shape" of her understanding, and that place is actually reachable and responsive in the running system.
-
----
-
-## 44.4 Phi Service and Chroma Connection
-
-The **Phi probe** is its own service.
-
-Within this scope, Chapter 44 may claim that:
-
-- Phi runs as a live service listening on its configured port (port 8026);
-- Phi resolves the Chroma vector store through `CHROMA_URL`;
-- Phi can connect to Chroma and **sample from governed collections**.
-
-This connection matters because Phi's job is to measure coherence **in the vector space**, not just to look at raw tables. The embedding model and Chroma store give Phi a shared semantic space where counties, tracts, and block groups can be compared.
+The Phi probe is the measurement that tells us where we stand.
 
 ---
 
-## 44.5 Governed Geographic Collections in Scope
+## 44.3 The Governed Corpus Under Measurement
 
-The governed geographic corpus under this gate includes at least:
+The corpus under measurement is:
 
-- `gbim_wv_counties_v2` — West Virginia counties;
-- `gbim_wv_tracts_v2` — West Virginia census tracts;
-- `gbimwvblockgroupsv2` — West Virginia block groups.
+- The set of rows in `public.gbim_record` that represent governed state from the spatial body.
+- The admissible subset of those rows in `public.public_admissible_gbim_mv`, defined by the ten-condition predicate described in earlier chapters.
 
-These three collections together form the **GEO_BELIEF** domain for West Virginia.
+This corpus includes:
 
-Chapter 44 may claim that Phi:
+- Spatial anchors such as blockgroup GEOIDs.
+- Temporal anchors such as `valid_time_start`.
+- Provenance fields such as `company_name` and `under_whose_authority`.
+- Lifecycle fields such as `degradation_status`.
 
-- can **sample embeddings** from each of these collections;
-- can compute a **coherence reading** across them in the shared embedding space;
-- has done so successfully in live probes.
-
-For rural developers, that means Phi is checking not just one map, but how **all three levels of map** talk to each other in one semantic frame.
+It is the same corpus from which the overflow proof and public answer paths draw their evidence.
 
 ---
 
-## 44.6 The July 26, 2026 Baseline Coherence Measurement
+## 44.4 Concrete Phi Probe Measurement — July 26, 2026
 
-On July 26, 2026, the architecture closeout produced the following row counts, confirmed in `runtime_governance.public_answer_audit` and verified by the `ALTER TABLE` spacetime/provenance CHECK constraint pass:
+As of the July 26, 2026 gate, the Phi probe measurement is:
 
-| Measurement | Count |
-|---|---|
-| Total rows in `public.gbim_record` | 237,655 |
-| Rows satisfying all ten admissibility conditions | 93,423 |
-| Rows stored but not yet admissible | 144,232 |
-| **Admissibility rate (Phi baseline)** | **39.3%** |
+- **Total authorized governed rows:** 237,655.
+- **Admissible for public claims (all ten conditions):** 93,423.
+- **Admissibility fraction:** approximately 39.3%.
 
-This ratio — **93,423 admissible out of 237,655 total, or 39.3%** — is the system's first concrete **Phi Probe baseline measurement**. It represents the proportion of the governed GBIM corpus that, as of July 26, 2026, simultaneously satisfies all of the following:
+### 44.4.1 How the Fraction Is Computed
 
-- is promoted to `authorized` status (`C2`);
-- is explicitly flagged as publicly claimable (`C3`);
-- carries fully populated provenance (`C4`, `C5`, `C6`);
-- is in a `fresh` or `aging` lifecycle state (`C7`);
-- carries the three new structural columns added on July 26, 2026: `spatial_unit_id` (`C8`), `spatial_unit_kind` (`C9`), and `valid_time_start` (`C10`).
+The Phi probe fraction is:
 
-### 44.6.1 What 39.3% Means
+\[
+\Phi_{\text{admissible}} = \frac{\text{admissible rows}}{\text{total authorized rows}} \approx \frac{93{,}423}{237{,}655} \approx 0.393
+\]
 
-A 39.3% admissibility rate means that **more than half the stored records are currently inadmissible**, not because they are wrong or corrupt, but because they have not yet completed the full promotion and spacetime-anchoring journey required by the ten-condition predicate.
+Expressed as a percentage, this is about **39.3% admissibility**.
 
-The 144,232 inadmissible rows fall into several categories:
+### 44.4.2 What the Numbers Mean
 
-- records with `public_claim_allowed = false` — held in the governed store but not cleared for public claims;
-- records missing one or more of `spatial_unit_id`, `spatial_unit_kind`, or `valid_time_start` — ingested before the July 26, 2026 spacetime columns were added, and awaiting backfill;
-- records with `degradation_status = 'stale'` — aged out of the admissible window by the lifecycle decay schedule.
+These numbers mean:
 
-None of these categories represent a coherence failure. They represent **work in the pipeline** — records that are stored and governed but not yet speakable. The baseline measurement makes the current state visible so that future Phi readings can be compared against it.
+- Out of all governed records that have passed authorization, only a subset (93,423) currently satisfy all ten admissibility conditions and are allowed to back public claims.
+- The remaining records (144,232) are stored but inadmissible — for example, because they are not yet marked `public_claim_allowed`, or because their lifecycle status is `stale`, or because other conditions are not met.
 
-### 44.6.2 How to Use the Baseline
-
-The 39.3% rate is recorded in `runtime_governance.public_answer_audit` with a `snapshot_at` timestamp of `2026-07-26`. Future lifecycle jobs and Phi probe runs should compare against this snapshot:
-
-- A **rising admissibility rate** signals that backfill, promotion, and lifecycle management are progressing correctly.
-- A **falling admissibility rate** is not automatically bad: it may reflect intentional expiry, lifecycle decay, or a change in the admissibility predicate. The direction and cause should both be logged.
-- A **sudden large drop** — for example, more than 10 percentage points between scheduled lifecycle jobs — should trigger a coherence investigation.
-
-For rural developers, this baseline functions like a **known-good reading on a gauge**. You always compare the current reading to the baseline, not to an abstract ideal.
+The Phi probe does not treat inadmissible records as errors. It treats them as part of the stored corpus that is still in motion: records that may be promoted, corrected, or aged out over time.
 
 ---
 
-## 44.7 How Phi Measures Coherence
+## 44.5 Why Phi Probe Matters for Coherence
 
-At a high level, Phi:
+### 44.5.1 Coherence as a Ratio, Not a Guess
 
-1. **Samples vectors** from the governed geographic collections in Chroma.
-2. Measures how similar or aligned those vectors are in the embedding space.
-3. Produces a **coherence score and mode** (for example, "coherent" above a threshold).
-4. Writes a summary into Redis as `pituitary:phi_state`.
+By defining semantic coherence as a ratio of admissible to total governed records, the system:
 
-The July 26, 2026 baseline row-count ratio is the **structural coherence measure** — what fraction of stored GBIM records meet every governance condition simultaneously. The Chroma-based vector coherence measure — how well the embeddings of admitted records align in the shared semantic space — is a complementary reading. Both together constitute the Phi Probe's full picture.
+- Anchors coherence in the same governed corpus that powers answers and overflow.
+- Avoids vague statements like “the system is mostly coherent.”
+- Provides a concrete, repeatable measurement that can be compared over time.
 
-Phi also exposes:
+For rural developers, this is useful because it turns a high-level concept into something that can be monitored like a gauge.
 
-- `/phi` — a live sampling endpoint;
-- `/phi/cached` — a version that returns the latest recorded state from Redis.
+### 44.5.2 What 39.3% Admissibility Tells Us
 
-Both endpoints return structured payloads that include the collections sampled and the coherence reading.
+A 39.3% admissibility fraction tells us:
 
----
+- The system is storing more records than it speaks.
+- Almost two out of five authorized records are fully admissible.
+- The corpus has room to grow in coherence as more records are promoted and lifecycle conditions are met.
 
-## 44.8 Coherence Gate Wiring
-
-The gate evidence confirms a **"hard coherence gate probe"** and the presence of coherence gate code in:
-
-- `gbim_query_router`;
-- `phi_promotion_gate`;
-- `coherence_remediation`.
-
-Within this scope, Chapter 44 may claim that:
-
-- a **coherence gate** exists in code and can be exercised;
-- the gate can inspect Phi's readings and make decisions (for example, whether to allow or remediate certain operations on the geographic corpus);
-- **coherence remediation code** exists to respond when Phi detects problems (for example, by triggering re-sampling, cleaning, or other corrective steps).
-
-In plain terms: the system does not just measure coherence for curiosity; it has code paths that can **act on the measurement** when needed, at least for the governed GIS corpus. The 39.3% baseline gives those code paths a concrete reference point for "normal" versus "anomalous" admissibility.
+This is not a failure. It reflects an intentional design choice: the system stores candidates, partial records, and aging records that are useful internally but not suitable for public claims.
 
 ---
 
-## 44.9 What Coherence Means (and Does Not Mean)
+## 44.6 Ten-Condition Admissibility and Phi
 
-In this chapter, **coherence** means:
+The Phi probe is tied directly to the ten-condition admissibility predicate defined elsewhere.
 
-- the **internal fit** of the geographic belief state in the embedding space;
-- whether counties, tracts, and block groups **support and reinforce** each other's semantic patterns;
-- whether the vector space looks stable and well-structured, rather than fragmented or degenerate;
-- at the structural level: whether the proportion of admissible-to-total records is stable and understood.
+### 44.6.1 Conditions Recap
 
-Coherence does **not** mean:
+To be admissible, a record must satisfy ten conditions, including:
 
-- guaranteed factual accuracy of every map entry;
-- full calibration of Phi scores across every domain;
-- that a good score in geography automatically implies good scores elsewhere;
-- that a 39.3% admissibility rate is the correct or ideal long-term target — it is the **current measured baseline**, not a design target.
+- Having a non-null `gbim_id`.
+- Being in `promotion_state = 'authorized'`.
+- Having `public_claim_allowed = true`.
+- Having non-null provenance fields (`under_whose_authority`, `company_name`, `ingested_at`).
+- Having `degradation_status` in `('fresh', 'aging')`.
+- Having non-null `spatial_unit_id`, `spatial_unit_kind`, and `valid_time_start`.
 
-The gate explicitly forbids claiming "downstream outcome calibration across all domains" on the basis of this evidence. Coherence here is **local to the governed geographic corpus** and is one signal alongside truth checks, governance, and other safeguards.
+The admissible view filters records according to these conditions. The Phi probe then measures how many authorized records pass the filter.
 
----
+### 44.6.2 Phi as a Coherence Lens
 
-## 44.10 Live State and Caching
+Because the predicate is strict, Phi serves as a coherence lens:
 
-Phi writes its current reading to Redis under a key such as:
+- When more records meet all ten conditions, Phi increases.
+- When records shift into `stale` status or lose public claim flags, Phi decreases.
+- When new records are ingested but not yet promoted, they enter the corpus without changing Phi until they pass the predicate.
 
-- `pituitary:phi_state`
-
-This key:
-
-- stores the latest coherence payload from `/phi`;
-- allows other services to read the state **quickly** without re-sampling every time;
-- ensures that coherence readings are **part of the shared live state**, not just an internal calculation.
-
-The July 26, 2026 lifecycle snapshot — 93,423 admissible / 237,655 total — is stored in `runtime_governance.public_answer_audit` with a `snapshot_at` timestamp and serves as the baseline for Redis-cached state comparisons.
-
-For rural operators, you can think of `pituitary:phi_state` as a **small gauge on the dashboard**: if something is off with the geographic corpus, that gauge can reflect it — and you now have a concrete number to compare it against.
+For rural developers, this means that improving Phi is not about generating more data alone; it is about improving the completeness and lifecycle quality of existing data.
 
 ---
 
-## 44.11 Tests and Reliability at This Scope
+## 44.7 Overflow Proof Inside the Governed Corpus
 
-The closure evidence states that relevant tests **pass in isolated batches**.
+The overflow proof — showing cognition-to-overflow behavior — lives inside the same governed corpus measured by the Phi probe.
 
-Within this gate, Chapter 44 may say that:
+### 44.7.1 Overflow Events and Admissible Evidence
 
-- unit or integration tests for the Hilbert state service, Phi service, Chroma connectivity, and coherence gate wiring are passing;
-- these tests cover basic pathways for set/get, projection, transition, entanglement, Phi sampling, and gate invocation.
+Overflow events are constructed from:
 
-The phrase "isolated batches" keeps the claim honest: this is a **tested subsystem**, not a guarantee that every possible interaction in the whole stack has been explored.
+- Person-space validation results.
+- Minimized public-context fields.
+- Governed evidence that passes through admissible surfaces.
 
----
+These events are not arbitrary logs. They are structured records that rely on the governed state being coherent enough to support safe overflow.
 
-## 44.12 Step-by-Step View for Rural Developers
+### 44.7.2 Why Coherence Matters for Overflow
 
-A rural operator can understand Chapter 44's Phi path as:
+If governed state were incoherent:
 
-1. **Hilbert state is live.**
-   - There is a running service that uses Redis to track semantic state.
+- Overflow events might carry incomplete or misleading context.
+- Person-space validation might be unable to determine whether an event is safe to route.
+- Queued events might not map cleanly back to governed evidence.
 
-2. **Phi service runs and can reach Chroma.**
-   - Phi uses `CHROMA_URL` to connect to the vector store.
+The Phi probe’s 39.3% admissibility measurement shows that:
 
-3. **Phi samples governed GIS beliefs.**
-   - It pulls vectors from `gbim_wv_counties_v2`, `gbim_wv_tracts_v2`, and `gbimwvblockgroupsv2`.
+- A significant subset of governed records are coherent enough to back both answers and overflow events.
+- The overflow proof is grounded in real, admissible data, not just conceptual sketches.
 
-4. **Phi computes a coherence reading.**
-   - It summarizes how well those three levels of geography fit together in the embedding space.
-
-5. **Phi compares against the baseline.**
-   - The July 26, 2026 baseline is 93,423 admissible out of 237,655 total (39.3%). Any new reading is compared to this number. A rising rate means the pipeline is progressing. A large sudden drop is a signal to investigate.
-
-6. **Phi writes its result to Redis.**
-   - The reading lands at `pituitary:phi_state`.
-
-7. **Other services call `/phi` or `/phi/cached`.**
-   - They can see the current coherence state and decide how to proceed.
-
-8. **Coherence gate code can act.**
-   - If coherence is too low or shows a problem, gate and remediation code in the GBIM router and related services can respond.
-
-If any of these steps fail, the architecture expects services to **fail closed or enter remediation**, not to ignore the problem and act as if everything is fine.
+For rural developers, this is a reassurance: the overflow mechanisms are not attached to a random or broken corpus; they attach to a corpus with measurable coherence.
 
 ---
 
-## 44.13 What This Chapter Does Not Claim
+## 44.8 Using Phi Probe Over Time
 
-To stay within the academic scope, Chapter 44 does **not** claim:
+The Phi probe is not a one-time measurement. It is designed to be rerun as the system evolves.
 
-- that 39.3% is the target or ideal admissibility rate — it is only the confirmed baseline as of July 26, 2026;
-- calibrated thresholds that are proven to predict real-world outcomes;
-- full coherence measurement across all semantic domains in Ms. Allis;
-- human-level judgment about the quality of geographic decisions;
-- universal guarantees that a coherent reading means "safe to act" in every context.
+### 44.8.1 Tracking Changes
 
-It only claims **live, working Phi measurement and gate wiring over the governed West Virginia geographic corpus**, with the Hilbert state service, Redis, Chroma, and the associated gates all proven to function, and a concrete baseline admissibility measurement of 39.3% (93,423 / 237,655) confirmed on July 26, 2026.
+Over time, developers and stewards can track:
+
+- How the admissibility fraction changes as new data is ingested.
+- How lifecycle decay affects the fraction.
+- How improvements in promotion processes and provenance capture raise coherence.
+
+This allows the system to answer questions like:
+
+- “Did our recent migration increase or decrease admissibility?”
+- “Are we improving how we capture spatial and temporal anchors?”
+
+### 44.8.2 Practical Use for Rural Developers
+
+Rural developers can use Phi as a simple health indicator:
+
+- If Phi rises, more governed records are ready to speak.
+- If Phi falls unexpectedly, something may be wrong in lifecycle handling or promotion logic.
+- If Phi remains steady while the corpus grows, it may be time to invest in promotion and cleanup work.
+
+The measurement is practical: it is a ratio of counts, not an obscure statistic.
 
 ---
 
-## 44.14 Closing Statement
+## 44.9 Implementation Status
 
-Chapter 44 places Phi squarely inside the **governed GIS path** of Ms. Allis, and adds the first concrete baseline coherence measurement to the thesis record.
+**Phi Probe — Semantic Coherence Measurement: Demonstrated.**
 
-Hilbert state is live and Redis-backed. Phi can reach Chroma and sample the governed county, tract, and block-group collections. Phi writes its readings into shared state and exposes them over `/phi` and `/phi/cached`. The coherence gate wiring in GBIM and related services has been exercised with passing tests.
+As of July 26, 2026:
 
-As of July 26, 2026, the structural Phi baseline is **93,423 admissible records out of 237,655 total — a 39.3% admissibility rate**. This number is stored in `runtime_governance.public_answer_audit`, anchored to a `snapshot_at` timestamp, and available for comparison by every future Phi reading, lifecycle job, and coherence gate invocation. It is not a design target; it is a measured fact about the system's current governed state, recorded here so that future change is visible and auditable.
+- Total authorized governed rows: 237,655.
+- Admissible rows for public claims: 93,423.
+- Admissibility fraction: approximately 39.3%.
 
-This gives rural developers a concrete, step-by-step picture of how Ms. Allis measures and uses **internal coherence** in her West Virginia geographic beliefs — without overstating what that measurement can prove beyond this specific, verified scope.
+These numbers reflect a live inspection of the governed corpus, not a hypothetical estimate. The Phi probe is therefore a demonstrated measurement of semantic coherence within H_App at that time.
+
+Within the academic scope of this chapter, the system is allowed to claim that:
+
+- Coherence is measurable.
+- The current coherence level is known.
+- Overflow behavior is grounded in this measured corpus.
 
 ---
 
-*Chapter 44 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
-*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
-*See LICENSE for terms.*
+## 44.10 Step-by-Step Summary for Rural Developers
+
+To understand and use this chapter:
+
+1. **Know what Phi measures.**  
+   It measures the fraction of governed records that are admissible for public claims.
+
+2. **Remember the concrete numbers.**  
+   93,423 admissible rows out of 237,655 total give about 39.3% admissibility as of July 26, 2026.
+
+3. **Connect Phi to the ten conditions.**  
+   Only records that meet all ten admissibility conditions count as coherent for public claims.
+
+4. **See the link to overflow.**  
+   Overflow events depend on coherent governed state; the Phi measurement shows that such coherence is present.
+
+5. **Use Phi as a health gauge.**  
+   Track Phi over time to see whether coherence is improving or degrading.
+
+6. **Stay within scope.**  
+   This chapter does not claim to measure every kind of coherence. It focuses on admissibility-based semantic coherence within the governed corpus.
+
+---
+
+## 44.11 Closing
+
+The Phi probe gives H_App a way to talk about semantic coherence with numbers instead of metaphors. By tying coherence to the fraction of governed records that are admissible for public claims, and by reporting 39.3% admissibility as of July 26, 2026, the system shows that its governed corpus is both measurable and meaningfully constrained.
+
+For rural developers, that means they can look at the corpus not just as a pile of data, but as a living, governed body whose coherence can be monitored, improved, and trusted.
