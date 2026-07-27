@@ -1,244 +1,256 @@
-# 29. PIA Subspace Stability Review
+# 29 — PIA Subspace Stability Review
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 22, 2026*
-
----
-
-## 29.1 Purpose and Scope
-
-This chapter explains how Ms. Jarvis’s **people‑space subspaces (\(H_p\))** are reviewed under a **Privacy Impact Assessment (PIA)** for privacy, retention, coherence, non‑surveillance, and safeguard behavior.
-
-Within this sealed gate, Chapter 29 may claim:
-
-- **BBB and guardian safeguards** over the \(H_p\)/subspace stability pathway;  
-- **per‑user partitioning** of people‑space;  
-- **non‑surveillance suppression** of surveillance‑shaped metadata or behavior;  
-- support for **deletion** and **pruning**;  
-- **commons isolation** from private people‑space;  
-- a **Phi stability floor** or equivalent coherence safeguard;  
-- **guardian audit** over relevant actions and policy decisions.
-
-It must **not** present this chapter as clinical diagnosis, therapy, guaranteed psychological safety, or live psychology‑service continuity. This is a chapter about **system safeguards**, not mental‑health care.
+*Carrie Kidd (Mamma Kidd) — Mount Hope, West Virginia*  
+*Last Updated: July 27, 2026*
 
 ---
 
-## 29.2 What H_p / Subspace Means
+## 29.1 Purpose of This Chapter
 
-For rural developers, \(H_p\) can be understood as **the part of the system that holds person‑linked memory, retrieval state, and identity‑shaped associations**.
+This chapter explains how Ms. Jarvis protects the stability of person-centered information inside the broader governed system. The key question is simple: when a cognition packet, memory candidate, or derived public-context event touches a person-linked subspace, what stops it from leaking, mutating, or crossing into the wrong lane?
 
-A subspace inside \(H_p\) is a bounded region that may include:
+The answer is that person-linked material does not move by informal convention. It moves only through explicit gates. Those gates determine whether a cognition is promotable, whether a person-space event is valid, and whether overflow handling is allowed to emit only a minimized public-context record rather than the full underlying payload.
 
-- conversation history linked to a specific person;  
-- embeddings or retrieval traces connected to that person;  
-- tags, notes, or structured metadata about prior interactions;  
-- policy‑controlled memory used to support later answers.
-
-This chapter asks a practical question: **Is that people‑space being handled in a privacy‑aware, non‑surveillance, coherent, and governable way?** It does not ask whether the person is mentally well, diagnosable, or in need of therapy.
+For rural developers, this chapter matters because it turns a high-level privacy promise into something operational. If a developer in Fayette County or anywhere else needs to inspect whether the system is protecting a person-linked event correctly, this chapter gives the exact conceptual checklist to follow.
 
 ---
 
-## 29.3 Why the PIA Review Matters
+## 29.2 What a PIA Subspace Is
 
-PIA subspace review matters because people‑linked memory can easily become **over‑retained, over‑shared, or surveillance‑shaped** if it is not explicitly governed.
+A **PIA subspace** is the governed portion of system state where person-linked information is handled under tighter stability rules than ordinary public civic data. “PIA” here points to privacy-impact discipline: the system treats person-linked records as requiring explicit constraints on promotion, projection, storage, and overflow routing.
 
-This chapter therefore treats PIA review as a live gate over:
+In plain language, think of the system as having different rooms for different kinds of information. Public civic facts belong in one room. Candidate reasoning belongs in another. Person-linked records belong in a room with more locks on the door. A PIA subspace review asks whether those locks are working, whether the room is staying tidy, and whether anything leaves the room without permission.
 
-- how person‑linked subspaces are created;  
-- what kinds of data are allowed into them;  
-- how long those records remain;  
-- whether those records stay separated from public or commons spaces;  
-- whether the system has enough coherence safeguards to keep people‑space from drifting into contradiction or misuse.
-
-In plain language: this chapter is about making sure Ms. Jarvis uses people‑space like a **governed memory system**, not like a hidden dossier engine.
+This chapter stays within that scope. It does not claim a complete finished per-user Hilbert implementation across all conversational memory. It addresses the narrower and demonstrably supported point: person-linked events are governed by explicit gates, and recent proof-of-execution shows those gates working together end-to-end.
 
 ---
 
-## 29.4 Per‑User Partitioning
+## 29.3 Stability Means Governed Non-Leakage
 
-A core claim of this chapter is that \(H_p\) is handled as **per‑user partitioned space**, not as one blended identity bucket.
+In this chapter, **stability** does not mean emotional steadiness, thermodynamic equilibrium, or a general poetic idea of calm. It means that the person-linked state remains inside its allowed lane unless a named rule authorizes a transition.
 
-Operationally, that means:
+A stable PIA subspace has three properties:
 
-- each user’s people‑space is kept in a distinct partition or equivalent logical boundary;  
-- retrieval for one person does not automatically pull from another person’s partition;  
-- operations like deletion, pruning, or review can be applied to a **specific person’s subspace** without spilling into someone else’s.
+- Material does not move from candidate state into a committed person-linked event without promotion.
+- A committed person-linked event is checked again before downstream use.
+- If overflow handling is needed, the downstream record is minimized so that the overflow lane carries only the fields that are necessary for the public-context task.
 
-For rural operators, the easiest picture is a wall of labeled file drawers:
-
-- one drawer per person;  
-- rules on who may open which drawer;  
-- no casual dumping of everyone’s papers into one shared pile.
-
-The PIA review checks that those drawers are real, separated, and used as intended.
+That definition matters because privacy failures usually happen when systems rely on “we would never do that” assumptions instead of explicit transition rules. This architecture chooses the opposite approach: each move is named, checked, and bounded.
 
 ---
 
-## 29.5 Non‑Surveillance Suppression
+## 29.4 The Three Gates
 
-This chapter also allows a claim about **non‑surveillance suppression**.
+The current as-built review supports a three-gate description of person-space stability.
 
-That means the system is reviewed to ensure it does not quietly turn people‑space into a background tracking apparatus through things like:
+### 29.4.1 Gate One — Cognition Promotion
 
-- unnecessary fine‑grained location trails;  
-- covert cross‑session profiling fields;  
-- metadata that reconstructs a person’s full dossier without a clear, governed purpose;  
-- hidden accumulation of activity trails beyond what the user’s interaction requires.
+A cognition packet begins in a staged state. It is not yet allowed to behave like a committed record, and it is not yet allowed to produce person-space effects merely because it exists.
 
-The PIA review asks whether such data is:
+Promotion is the first gate. The packet must be evaluated and approved before it becomes promotable. In the demonstrated run, the staged packet was approved and promoted with `readiness_score = 0.916`. That score matters less as a universal magic number than as evidence that the system is not skipping the evaluation step. A person-linked event is not supposed to emerge from unreviewed cognition.
 
-- **not collected**;  
-- **suppressed or redacted** before entering \(H_p\);  
-- or kept only under strict, policy‑bound conditions.
+For rural developers, the practical test is straightforward: if a packet never passes the approval/promotion step, it should never appear downstream as a committed person-linked event. If it does, the gate has failed.
 
-This is one of the strongest plain‑language promises in the chapter: *people‑space is for helping with the task at hand, not for building a secret surveillance record.*
+### 29.4.2 Gate Two — Person-Space Validation
 
----
+Promotion alone is not enough. A promoted record still has to pass a second check specific to person-space handling.
 
-## 29.6 Deletion and Pruning
+In the demonstrated path, the promoted record carried both a `person_space_event` and a validation object:
 
-A governed people‑space must support both **deletion** and **pruning**.
+```json
+{
+  "person_space_validation": {
+    "ok": true,
+    "reason": "promotable"
+  }
+}
+```
 
-Within this gate, the chapter may claim that:
+This second gate is important because it separates “this cognition is promotable in general” from “this person-linked event is valid for person-space handling.” That distinction is a real stability guard. Without it, any promoted cognition could claim the right to create or modify person-linked downstream state.
 
-- a person’s subspace can be targeted for deletion;  
-- retention rules can prune old, stale, or low‑value entries;  
-- deletion and pruning are operational behaviors, not just good intentions;  
-- these behaviors are part of privacy and coherence review.
+For a rural developer auditing the system, this means that a promoted record should still be considered incomplete for person-space purposes unless the validation object is present and positive. Promotion says “eligible to move.” Person-space validation says “eligible to move here.”
 
-Step by step, the logic is:
+### 29.4.3 Gate Three — Overflow Minimization
 
-1. A deletion or retention rule is triggered.  
-2. The request or policy is evaluated under system safeguards.  
-3. The targeted people‑space records are removed or reduced.  
-4. Future retrievals reflect the updated state of the subspace.
+Sometimes the system needs to route a derived event into an overflow lane for retry or deferred handling. That is where many systems accidentally leak too much.
 
-For rural developers, this means people‑space is **editable and reducible**, not a permanent trapdoor that only grows.
+The demonstrated overflow path shows a stronger design. The queue accepted a minimized public-context event with:
 
----
+- `ok: true`
+- `queue_key: "overflow:queue:overflow_retriable_public_context"`
+- queue depth changing from `0` to `1`
 
-## 29.7 Commons Isolation
+The queued event contained allowlisted public-context fields only, such as:
 
-This chapter may also claim **commons isolation**.
+- `entity_id`
+- `event_timestamp`
+- `public_role_state`
+- `agency_state`
+- `consent_scope`
+- `truth_score`
+- `spatial_ref`
+- `person_ref`
+- `promotion_reason`
+- `priority`
+- `ttl_class`
+- `retry_count`
 
-That means the system distinguishes between:
-
-- **private people‑space** tied to a person’s \(H_p\); and  
-- **commons collections** used for shared civic, Appalachian, or public knowledge.
-
-The review checks that:
-
-- private \(H_p\) content does **not automatically flow** into commons;  
-- movement from people‑space into shared knowledge requires explicit governance;  
-- commons retrieval does not silently expose private person‑linked subspace material.
-
-For rural communities, this matters because using Ms. Jarvis personally should not automatically make a person’s private memory part of the public commons.
+The important fact is not just that overflow succeeded. It is that the overflow lane did **not** carry conversational text or the full cognition payload. That is what makes the overflow gate a stability gate rather than just a queue operation.
 
 ---
 
-## 29.8 Phi Stability Floor and Coherence Safeguards
+## 29.5 Step-by-Step Walkthrough for Rural Developers
 
-The gate allows Chapter 29 to speak about a **Phi stability floor** or equivalent coherence safeguard.
+This section explains the demonstrated chain in plain working order.
 
-This should be understood as an operational rule about the **stability of the system’s people‑space**, not about a person’s psychology.
+### Step 1 — Stage the Cognition Packet
 
-Within this scope, the chapter may claim that:
+A cognition packet enters the system in a staged state. At this point it is only a candidate. It can be inspected, scored, and refused, but it is not yet a committed event.
 
-- the system monitors some form of coherence or stability signal over the \(H_p\) pathway;  
-- if that signal drops below a configured floor, operators or guardrails can see that condition;  
-- low‑stability conditions can justify blocking, reviewing, or withholding writes to longer‑term people‑space.
+The system should treat staged material as non-speakable and non-projectable. If a developer sees staged material producing downstream effects before approval, that is a red flag.
 
-In plain language: if the system’s handling of person‑linked memory becomes obviously unstable or contradictory, it should **slow down, review, or stop**, not keep writing unstable material as if it were trustworthy.
+### Step 2 — Evaluate Readiness
 
----
+The packet is evaluated for readiness. In the demonstrated run, the packet passed with `readiness_score = 0.916`.
 
-## 29.9 BBB and Guardian Safeguards
+The exact threshold may belong to the implementation layer, but the architectural point is firm: there is an evaluation surface between staging and promotion. The packet does not self-authorize.
 
-BBB and guardian are part of the PIA review because people‑space actions can become **authority‑bearing operations**.
+### Step 3 — Promote the Packet
 
-Within this chapter, it is appropriate to say that:
+Once approved, the packet is promoted. Promotion means the system now recognizes it as eligible to participate in governed downstream behavior.
 
-- relevant reads, writes, transfers, or policy‑sensitive operations over \(H_p\) pass through **BBB/guardian safeguards**;  
-- the guardian can review or block actions that conflict with privacy, retention, or non‑surveillance rules;  
-- the BBB helps ensure that only properly reviewed actions cross into higher‑authority system effects.
+Promotion is not the same thing as unconstrained publication. It is only the first move from provisional status into committed status.
 
-This matters because privacy protections are not just about storage format. They also depend on **who is allowed to do what to people‑space**, and under what safeguards.
+### Step 4 — Construct the Person-Space Event
 
----
+After promotion, the system constructs a `person_space_event`. This is the point where the cognition touches the person-linked lane.
 
-## 29.10 Guardian Audit
+A stable design does not simply copy the whole cognition record forward. It produces a governed event form appropriate for the destination lane.
 
-The chapter may also claim **guardian audit** over the \(H_p\)/subspace pathway.
+### Step 5 — Validate the Person-Space Event
 
-That means the system keeps enough record to inspect:
+The event is validated with a separate result object. In the demonstrated chain, validation returned:
 
-- what kinds of subspace actions were attempted;  
-- whether those actions were allowed, blocked, or flagged for review;  
-- whether repeated attempts suggest over‑collection, policy mismatch, or surveillance‑shaped use.
+```json
+{
+  "ok": true,
+  "reason": "promotable"
+}
+```
 
-For operators, this creates a practical audit trail that helps answer questions like:
+That validation result is the proof that the person-space lane is not operating on assumption. The event is checked at the boundary where person-linked handling begins.
 
-- “Was a private subspace operation approved or blocked?”  
-- “Were deletion and pruning requests actually carried out?”  
-- “Did the system prevent private material from crossing into commons?”
+### Step 6 — Route Overflow Through a Bounded Queue
 
-The audit function is therefore part of the chapter’s **governance story**, not an optional extra.
+If the event must enter the overflow lane, it is sent to:
 
----
+```text
+overflow:queue:overflow_retriable_public_context
+```
 
-## 29.11 What This Chapter Does Not Claim
+The queue depth moving from `0` to `1` proves this was not just a dry-run object; the system actually enqueued the minimized event.
 
-To stay exactly within the gate, Chapter 29 does **not** claim:
+### Step 7 — Confirm the Payload Is Minimized
 
-- clinical diagnosis;  
-- therapy or counseling;  
-- guaranteed psychological safety;  
-- detection of a person’s inner mental state;  
-- continuity of a live psychology service.
+The queued record must be inspected to ensure it contains only allowlisted public-context fields and no raw conversational text.
 
-It only claims an **operational PIA review** over the \(H_p\)/subspace pathway, centered on:
-
-- privacy;  
-- retention;  
-- coherence;  
-- non‑surveillance;  
-- safeguard review.
-
-This is a chapter about **how the system handles person‑linked space**, not about evaluating people as patients.
+This last step is what closes the loop. A queue key and a depth increment are not enough by themselves. Stability requires content minimization, not just successful transport.
 
 ---
 
-## 29.12 Step‑by‑Step View for Rural Developers
+## 29.6 Why This Counts as a PIA Stability Proof
 
-For rural developers, the PIA subspace stability pathway can be pictured as this checklist:
+This end-to-end chain is a direct PIA stability example because it demonstrates that person-linked downstream handling is bounded at each transition point.
 
-1. **Identify the person’s subspace.**  
-   - The system works inside the correct per‑user partition.
+The proof supports four concrete claims:
 
-2. **Check BBB and guardian safeguards.**  
-   - Sensitive reads or writes do not bypass governance.
+1. A cognition candidate does not become person-linked downstream state without passing a promotion gate.
+2. A promoted record does not become a valid person-space event without an additional validation gate.
+3. Overflow handling does not inherit the full cognition payload.
+4. The overflow queue accepts only a minimized public-context event and preserves bounded queue behavior.
 
-3. **Suppress surveillance‑shaped data.**  
-   - Only the minimum, policy‑appropriate information is retained.
-
-4. **Maintain deletion and pruning.**  
-   - Old or unwanted entries can be removed.
-
-5. **Keep commons separate.**  
-   - Private memory does not flow into shared collections by accident.
-
-6. **Watch the Phi stability floor.**  
-   - Low‑coherence conditions trigger caution rather than blind accumulation.
-
-7. **Record the action for audit.**  
-   - Operators can later inspect what happened and why.
-
-That is what this chapter means by **PIA subspace stability review**: not psychology, but governed privacy and coherence for person‑linked memory.
+That combination matters more than any single log line. A stable person-linked architecture is not built from one good check; it is built from several checks that reinforce one another. The demonstrated path shows that reinforcement in action.
 
 ---
 
-## 29.13 Closing Statement
+## 29.7 What This Chapter Does Not Claim
 
-Chapter 29 defines a **bounded, operational privacy review** over Ms. Jarvis’s people‑space pathway.
+Academic honesty requires a narrow claim here.
 
-It allows claims about per‑user partitioning, non‑surveillance suppression, deletion, pruning, commons isolation, Phi/coherence safeguards, and BBB/guardian‑backed audit, all framed as privacy, retention, coherence, and safeguard review. By refusing to drift into clinical or therapeutic language, the chapter keeps its promise narrow, inspectable, and useful for rural developers who need to understand exactly how people‑space is governed.
+This chapter does **not** claim that the full per-user conversational memory partitioning story is complete across all layers of Chroma, retention, and consent law. Later chapters address those broader commitments and clearly mark some of them as architecturally committed or Phase 2 work.
+
+This chapter also does **not** claim that every possible promotion path in the system has already adopted this exact minimized-event-plus-overflow pattern. The demonstrated claim is narrower and stronger: one real cognition-to-person-space-to-overflow path has been exercised and proven under explicit gates.
+
+For rural developers, this distinction is important. A chapter is strongest when it says exactly what the run proved and no more.
+
+---
+
+## 29.8 Relation to Non-Surveillance Design
+
+PIA stability is closely related to non-surveillance design. If the system let raw cognition payloads, conversational text, or unnecessary identity material flow into retry lanes or public-context queues, then the architecture would be creating an accidental surveillance surface.
+
+The demonstrated overflow behavior cuts against that risk. The event that entered the queue was minimized to allowlisted public-context fields only. That means the overflow path functions more like a narrow shipping label than a full diary entry.
+
+This is the right design instinct for rural civic technology. People in small communities are often exposed to higher practical privacy risk because information can travel socially faster than policy catches up. A stable PIA subspace reduces that risk by making the system technically unable, or at least technically resistant, to carrying extra person-linked detail into the wrong lane.
+
+---
+
+## 29.9 Relation to the Broader Thesis
+
+This chapter fits into the broader thesis in three ways.
+
+First, it supports the claim that governed cognition is not merely a language metaphor. Promotion, validation, and overflow routing are real transition surfaces with observable outcomes.
+
+Second, it strengthens the later people-space chapters by showing one demonstrated case of explicit gates around person-linked projection. Even where the broader per-user direct-sum architecture remains partly future-facing, this chapter can now point to a real worked example.
+
+Third, it complements the thesis-wide rule that architecture should be described as **Demonstrated**, **Architecturally Committed**, or **Planned**, rather than being allowed to blur those statuses together. Chapter 29 belongs in the demonstrated category for the narrower claim made here: per-person-space stability gates are not just described; they have been exercised in an end-to-end path.
+
+---
+
+## 29.10 Implementation Status
+
+**Status: Demonstrated for the gate pattern described in this chapter.**
+
+The July 25, 2026 overflow gate smoke test demonstrated a complete cognition-to-overflow path: a cognition packet was staged, approved, and promoted; the promoted record carried a minimized and validated `person_space_event`; and a bounded overflow event was enqueued onto `overflow:queue:overflow_retriable_public_context` with queue depth increasing from 0 to 1.
+
+Within the academic scope of Chapter 29, that is enough to support the chapter’s central as-built claim: person-linked downstream handling in this path is governed by explicit gates rather than informal assumptions.
+
+---
+
+## 29.11 Practical Audit Checklist
+
+A rural developer reviewing this chapter against a live system should ask these questions in order:
+
+1. **Was the packet staged first?**  
+   If not, there is no meaningful promotion discipline.
+
+2. **Was readiness evaluated before promotion?**  
+   A score, verdict, or approval record should exist.
+
+3. **Did promotion actually occur?**  
+   The packet must move into a committed state before it can produce downstream effects.
+
+4. **Was a `person_space_event` created rather than the raw cognition payload being forwarded?**  
+   If the full payload is forwarded unchanged, minimization has failed.
+
+5. **Did `person_space_validation` return `ok: true`?**  
+   If not, the event should not proceed.
+
+6. **Did overflow use the correct queue lane?**  
+   For the demonstrated path, that lane is `overflow:queue:overflow_retriable_public_context`.
+
+7. **Did queue depth change in the expected direction?**  
+   This confirms a real enqueue happened.
+
+8. **Was the queued event minimized to allowlisted public-context fields only?**  
+   This is the key anti-leak test.
+
+If a developer cannot answer “yes” to all eight questions, then the path may still be partially implemented, but the Chapter 29 claim has not been fully demonstrated for that run.
+
+---
+
+## 29.12 Closing
+
+PIA subspace stability is the discipline of keeping person-linked state inside its proper lane until each transition has earned permission. In Ms. Jarvis, that discipline is now supported by a demonstrated three-gate path: cognition promotion, person-space validation, and minimized overflow routing.
+
+That does not finish the entire people-space story for the whole thesis. It does something more useful for this chapter: it gives a narrow, honest, and operationally verified proof that person-linked downstream behavior is governed by explicit gates. For Chapter 29, that is the right scope, the right claim, and the right level of proof.
