@@ -1,193 +1,220 @@
+# 31 — MountainShares and Infrastructure
 
-# 31. MountainShares and Infrastructure Closure
-
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 25, 2026*
-
----
-
-## 31.1 Why This Matters for Polymathmatic Geography
-
-This chapter explains **MountainShares** as a documented and partially live **commons infrastructure layer**, not as a finished public currency or investment scheme. It focuses on knowledge, retrieval corpora, governed commons aggregation, and a future‑facing civic‑energy model rather than on treasury execution or securities.
-
-It supports:
-
-- **P1 – Every where is entangled** by treating local knowledge, infrastructure, governance, and civic effort as interconnected.  
-- **P3 – Power has a geometry** by putting MountainShares inside supervised gateways and bounded corpora, not in a free‑floating financial cloud.  
-- **P5 – Design is a geographic act** by grounding commons infrastructure in specific services, ports, and collections, instead of an abstract “platform.”  
-- **P12 – Intelligence with a ZIP code** by privileging **MountainShares commons documentation** and local knowledge inside a governed retrieval layer.  
-- **P16 – Power accountable to place** by keeping MountainShares within BBB/guardian supervision and bounded corpus volumes, and by treating civic energy as something that must be recorded in accountable, place‑aware ledgers rather than extracted invisibly.
-
-This chapter belongs to the **Computational Instrument** tier. It treats MountainShares as partially live infrastructure with working knowledge stores and gateways, not as a deployed DAO or public currency.
+*Carrie Kidd (Mamma Kidd) — Mount Hope, West Virginia*  
+*Last Updated: July 27, 2026*
 
 ---
 
-## 31.2 What MountainShares Is in This Chapter
+## 31.1 Purpose of MountainShares
 
-Within this gate, **MountainShares** should be understood as:
+MountainShares is the thesis’s long-term vision for a **shared civic infrastructure** that lets Appalachian communities hold and govern their own digital commons. The idea is simple: instead of civic data living only in distant systems, it should live in shared spaces that local people can help oversee.
 
-- a **knowledge and commons infrastructure layer**;  
-- a set of **retrieval corpora and services** about MountainShares and Commons;  
-- a **gateway** that exposes those corpora for governed use inside Ms. Allis.
+In this chapter, MountainShares is treated as a planned, governed infrastructure layer, not as a finished product. The design is aimed at rural communities like Mount Hope, Beckley, or Oak Hill, where people often feel that technical systems are built elsewhere and only explained after the fact.
 
-Within this architecture, MountainShares is also framed conceptually as a **civic energy ledger**: citizens are treated as embodied sources of civic energy whose charitable acts, mutual‑aid work, and local knowledge contributions could be recorded as governed transactions over time, place, and person. In this chapter, those ledgers exist only as design commitments and partially wired infrastructure; live valuation or circulation of that energy as a public currency lies outside the current scope.
-
-It is **not** claimed to be:
-
-- a fully public, spendable currency;  
-- a live financial DAO with broad public membership;  
-- an actively executing treasury;  
-- a securities‑like investment instrument;  
-- a completed public rollout.
-
-In plain terms, the chapter says, “The plumbing and documentation are there, and they are wired into the system,” not “The money and governance system is live for public use.”
+This chapter explains the MountainShares concept step-by-step for rural developers and local stewards, while staying honest about what is **Phase 3 — planned** and what depends on earlier per-user work.
 
 ---
 
-## 31.3 MountainShares Knowledge and Commons RAG
+## 31.2 What “Infrastructure” Means Here
 
-The MountainShares infrastructure includes populated retrieval corpora:
+Infrastructure in this context is not just servers or cables. It means the full stack of:
 
-- **`mountainshares_knowledge`**  
-  A knowledge collection seeded with MountainShares design documents, policies, and technical descriptions. It answers questions like “What is MountainShares supposed to do?” and “How is it structured on paper?”
+- **Storage surfaces** where shared civic data and commons vectors live.
+- **Governance rules** that decide who can read, add, or change shared records.
+- **Interfaces** that let local people see what is happening and make decisions in a way that feels like community governance, not remote control.
 
-- **`commons_rag`**  
-  A retrieval corpus built from **public MountainShares / Commons documentation**. This lets the system perform retrieval‑augmented generation (RAG) over the parts of MountainShares that are documented and public.
+MountainShares is designed to sit on top of the existing governed architecture. It inherits the Hilbert people-space principles, the runtime governance layer, and the admissibility rules described in earlier chapters, and then extends them into a shared commons.
 
-These collections are designed to support:
-
-- internal reasoning about MountainShares and Commons;  
-- question‑answering for operators and local stewards;  
-- future expansion into community‑facing tools, subject to later gates.
-
-They are **knowledge corpora**, not wallets or ledgers. Future MountainShares work may layer governed civic‑energy ledgers on top of these corpora, but within this chapter those ledgers remain conceptual and are not exposed as live financial instruments.
+For rural developers, that means MountainShares is not a separate system. It is a way of using the same disciplined gates and roles to build community-run commons.
 
 ---
 
-## 31.4 Community Hilbert Commons
+## 31.3 The Commons Idea in Practical Terms
 
-The **`community_hilbert_commons`** collection serves as a governed aggregation target for MountainShares‑related commons content.
+A **commons** is a shared resource that a community manages together. In the digital setting, that might be:
 
-Key properties:
+- A shared vector space representing community knowledge and civic priorities.
+- A set of shared records describing local projects, agreements, and infrastructure plans.
+- A governed mechanism for contributing, revising, and auditing those records over time.
 
-- It aggregates **community and commons knowledge**, not arbitrary private data.  
-- Its total corpus volume is explicitly **bounded** by findings in Chapter 51, which governs commons population.  
-- It provides a place where MountainShares and broader commons knowledge can be **jointly reasoned over** under Hilbert‑state/time supervision.
+MountainShares treats these commons as first-class citizens of the architecture. Instead of assuming that “public data” simply belongs to anyone who can fetch it, the system defines explicit commons spaces with clear boundaries.
 
-In practice, this means:
-
-- not every document flows into `community_hilbert_commons`;  
-- population follows rules and caps;  
-- operators can inspect what has been accepted into this “commons brain” and why.
-
-This turns the commons layer into a **governed public knowledge substrate**, not an uncontrolled data lake.
+From a rural developer’s point of view, the commons can be thought of as a special library in the system: anyone with the right role can borrow or contribute, but no one can silently take or change things without leaving a trace and passing through gates.
 
 ---
 
-## 31.5 MountainShares Commons Gateway (8055)
+## 31.4 Role of People-Space in MountainShares
 
-A **MountainShares Commons gateway** is live and healthy on port **8055**.
+MountainShares is not a commons floating in isolation. It must respect the separation between:
 
-Its role is to:
+- **Per-person spaces** — where individual histories and private context live.
+- **Community commons spaces** — where aggregated, anonymized, or shared material resides.
 
-- expose **MountainShares and Commons corpora** (like `mountainshares_knowledge` and `commons_rag`) to internal consumers;  
-- serve as a **choke point** where BBB and guardian rules can be applied;  
-- provide a single, inspectable interface for commons‑related retrieval.
+This chapter assumes the following:
 
-From a rural developer’s perspective, you can think of the gateway as:
+- Per-user partitions, described in Chapter 50, are **architecturally committed but not yet fully demonstrated**.
+- Community Hilbert commons, described in Chapter 51, are **Phase 3 — planned**, and depend on per-user partition completion.
 
-- a “front door” to the MountainShares knowledge layer;  
-- something you can health‑check and log;  
-- an internal service, not a public internet endpoint, at this stage.
+MountainShares sits in the governance layer that ties those two together. It is intended to be the bridge where private person-space information can influence commons decisions without exposing individual records.
 
-Its health is part of what makes MountainShares “partially live” in this chapter.
+For rural developers, the key rule to remember is: MountainShares does not directly pull from private person-space lanes. It only interacts with aggregates and governed projections.
 
 ---
 
-## 31.6 Safeguards: BBB, Guardian, and Time/State
+## 31.5 Planned MountainShares Commons Vectors (Phase 3)
 
-MountainShares infrastructure is attached to the same safeguard stack as the rest of Ms. Allis:
+As of July 27, 2026, **MountainShares commons vectors remain a Phase 3 plan**. They are not yet live in the code or database. Their future implementation is **explicitly gated on Chapter 50’s per-user partition completion**.
 
-- **BBB (blood–brain barrier)** and the **Constitutional Guardian** are healthy and connected.  
-- Access through the MountainShares Commons gateway can be filtered, logged, and limited by these services.  
-- **Chroma** backs the corpora; **Hilbert state** and **Hilbert time** provide a temporal/state context for commons operations.
+### 31.5.1 What Commons Vectors Will Represent
 
-This ensures that:
+When built, MountainShares commons vectors are intended to represent:
 
-- commons queries and updates can be constrained by policy;  
-- temporal context (when something was added, when it should be pruned) is available;  
-- stateful behaviors (like population caps and retention rules) can be tied to Hilbert‑state/time logic.
+- Aggregated community preferences or needs.
+- Shared indicators about infrastructure, connectivity, and civic projects.
+- Anonymized summaries of per-user patterns that have been safely projected into a commons space.
 
-Even though MountainShares is not a live public financial system here, it **already lives inside the same safety envelope** as more sensitive components.
+These vectors will live in their own governed collection. They will have clear provenance, clear admissibility rules, and clear thresholds like k-anonymity (for example, k ≥ 5) to ensure that no vector stands for a single person.
 
----
+### 31.5.2 Why They Are Phase 3
 
-## 31.7 Bounded Commons Volume
+The thesis explicitly marks commons vectors as Phase 3 for three reasons:
 
-A key part of the closure is that **commons corpus volume is bounded**.
+- **Dependency on per-user partitions:** Without solid per-user direct-sum decomposition, the system cannot safely project individual patterns into a shared commons.
+- **Dependency on consent and legal authority:** Commons projections must respect legal and ethical conditions. Those parameters are committed but scheduled for later phases.
+- **Dependency on community governance:** MountainShares vectors must be governed by local structures, not just system administrators. That requires time to design.
 
-Specifically:
-
-- `community_hilbert_commons` is subject to limits determined in a higher‑numbered chapter (Chapter 51).  
-- That chapter constrains how much material can be added, and under what rules.  
-- The present chapter simply notes that MountainShares and Commons corpora respect those bounds.
-
-For rural stewards, this means:
-
-- the commons brain will not grow without limit by accident;  
-- there is a design plan for keeping the data footprint modest, inspectable, and community‑curated.
+For rural developers, Phase 3 means “not yet,” but in a disciplined way: commons vectors will not appear as live surfaces until the prerequisites are satisfied.
 
 ---
 
-## 31.8 What Chapter 31 Does Not Claim
+## 31.6 Governance Layer Tying People-Space and Commons
 
-Within this gate, Chapter 31 **does not** claim:
+MountainShares is envisioned as the governance layer where people-space informs commons decisions without exposing individual histories.
 
-- a fully public live financial DAO;  
-- spendable public currency;  
-- active treasury execution;  
-- securities‑like investment rights;  
-- broad public rollout of MountainShares as a transactable asset.
+### 31.6.1 From Person-Space to Commons
 
-Instead, it claims:
+The intended flow is:
 
-- documented MountainShares and Commons **knowledge corpora**;  
-- a healthy **Commons gateway** at port 8055;  
-- a governed **community Hilbert commons** aggregation target;  
-- working Chroma, Hilbert state, and Hilbert time dependencies.
+1. Per-user partitions in Chapter 50 keep individual conversational memory and identity data inside isolated user sectors.
+2. A projection layer, governed by explicit rules and consent, converts parts of these sectors into anonymized signals.
+3. These signals are aggregated into MountainShares commons vectors in Chapter 51.
 
-Any move toward real money, securities, public DAO behavior, or live civic‑energy settlement must pass **later, separate gates**.
+The architecture is designed so that the only material reaching the MountainShares commons space is properly aggregated and anonymized. Raw person-space records do not feed the commons directly.
 
----
+### 31.6.2 From Commons to Infrastructure Decisions
 
-## 31.9 Step-by-Step View for Rural Developers
+Once MountainShares commons vectors exist, they will guide infrastructure decisions in three main ways:
 
-On a running system, the MountainShares infrastructure behaves roughly like this:
+- **Priority setting:** Which projects to fund or build first based on shared community patterns.
+- **Impact assessment:** How changes affect the community as a whole, not just specific users.
+- **Feedback loops:** How community feedback updates the commons vectors over time.
 
-1. **Knowledge loading.**  
-   `mountainshares_knowledge` and `commons_rag` are populated with public MountainShares and Commons documentation.
-
-2. **Gateway exposure.**  
-   The MountainShares Commons gateway (8055) exposes retrieval access to these corpora for internal use.
-
-3. **Commons aggregation.**  
-   Selected, governed materials feed into `community_hilbert_commons`, respecting volume and policy limits.
-
-4. **Safeguards.**  
-   BBB and the constitutional guardian stand between this layer and any promotion to outward guidance or action.
-
-5. **Time/state framing.**  
-   Hilbert state and time help keep track of when and how these corpora are updated, pruned, and queried.
-
-6. **Civic energy (future).**  
-   Later chapters and deployments may describe how governed civic‑energy ledgers and stake accounting sit on top of this infrastructure. In this chapter, those ledgers are acknowledged only as design intent, not as live financial systems.
-
-For now, MountainShares is a **knowledge and commons layer** with working infrastructure, not a full financial or governance deployment.
+For rural developers, this means that the system’s infrastructure plans are meant to be traceable back to shared community signals rather than opaque decisions.
 
 ---
 
-## 31.10 Closing Statement
+## 31.7 MountainShares Infrastructure Components
 
-Chapter 31 closes MountainShares and Commons as a **documented, partially live infrastructure layer**: knowledge corpora, a commons RAG seed, a community Hilbert commons aggregation target, and a healthy gateway, all running under BBB/guardian and Hilbert state/time supervision.
+While commons vectors themselves are Phase 3, some infrastructure components can be outlined clearly.
 
-It stops short of claiming a public DAO, live currency, or investment rights, and instead fixes MountainShares in this thesis as a **governed commons knowledge substrate** that can later support more ambitious community systems — including civic‑energy accounting — when separate gates are passed.
+### 31.7.1 Storage and Routing
+
+MountainShares will rely on:
+
+- Governed databases and views for commons records.
+- Routing rules that keep commons reads and writes separate from per-user lanes.
+- Background jobs that maintain commons vector freshness without leaking per-user detail.
+
+These components are designed to reuse the runtime governance patterns established elsewhere: scheduled jobs with clear names, admissibility predicates, and audit tables.
+
+### 31.7.2 Governance Interfaces
+
+On the human side, MountainShares infrastructure must include:
+
+- Interfaces where community members can see commons aggregates and understand where they come from.
+- Mechanisms for community members to propose changes, veto moves, or approve new uses of the commons.
+- Visible audit trails showing who changed what and why.
+
+For rural developers, these interfaces need to be accessible and understandable. They should not require specialized technical vocabulary to interpret basic governance actions.
+
+---
+
+## 31.8 How Rural Developers Can Prepare
+
+Even though MountainShares commons vectors are Phase 3, rural developers can begin preparing in three practical ways.
+
+### 31.8.1 Learn the Gate Patterns
+
+The person-space and overflow gate patterns demonstrated in other chapters will be reused here. Developers should become comfortable with:
+
+- Promotion gates — what moves a candidate into a committed state.
+- Validation gates — what checks a record or event at the boundary of a sensitive lane.
+- Overflow gates — what minimizes and routes events safely when the normal path cannot proceed.
+
+Knowing these patterns makes it easier to extend them into MountainShares infrastructure.
+
+### 31.8.2 Strengthen Local Data Practices
+
+MountainShares will be more successful if local data practices are already disciplined. That means:
+
+- Recording provenance and consent clearly.
+- Avoiding the temptation to keep private notes in public fields.
+- Being explicit about which records are meant to be individual and which are meant to be shared.
+
+These habits simplify the later step of projecting per-user signals into commons vectors.
+
+### 31.8.3 Participate in Governance Design
+
+The “commons” part of MountainShares will not work if governance is designed far away. Rural developers and community members should help define:
+
+- What counts as a commons vector.
+- What thresholds and anonymity guarantees are acceptable.
+- What representation patterns feel fair to their communities.
+
+This chapter encourages local input early, so that Phase 3 does not arrive as a surprise.
+
+---
+
+## 31.9 Implementation Status
+
+**MountainShares commons vectors: Phase 3 — planned.**
+
+As of July 27, 2026:
+
+- MountainShares commons vectors are not yet live as a governed collection.
+- Their implementation is **explicitly gated** on completion of per-user direct-sum decomposition in Chapter 50 and on the governed community commons architecture in Chapter 51.
+- The k-anonymity threshold and related aggregation rules are architecturally committed, but remain future work.
+
+Within the academic scope of this chapter, the honest claim is: MountainShares is a designed infrastructure concept with clear dependencies and governance patterns, but its commons vectors and full infrastructure behavior are still in the planned phase.
+
+---
+
+## 31.10 Step-by-Step Summary for Rural Developers
+
+To read this chapter as a rural developer, follow these steps:
+
+1. **Understand the commons concept.**  
+   MountainShares is about shared community data managed together, not privately owned by distant systems.
+
+2. **Keep people-space and commons separate.**  
+   Per-user spaces hold individual histories. Commons spaces hold aggregated community signals. MountainShares ties these together without mixing them.
+
+3. **Note the Phase 3 status.**  
+   Commons vectors themselves are planned, not yet live. They depend on per-user partitions and commons governance.
+
+4. **Recognize the governance layer.**  
+   MountainShares is where shared signals influence infrastructure choices. It is not just storage; it is a decision-making surface.
+
+5. **Prepare by strengthening local practices.**  
+   Good provenance, clear consent, and disciplined fields now will make safe commons projections possible later.
+
+6. **Stay within scope.**  
+   This chapter does not claim that MountainShares is fully implemented. It documents the design and dependencies in clear terms and marks the status as Phase 3 — planned.
+
+---
+
+## 31.11 Closing
+
+MountainShares and its commons infrastructure are part of the thesis’s long-term commitment to building civic technology **with** rural communities rather than simply **for** them. This chapter defines the concept, the dependencies, and the governance patterns needed to make that commitment real.
+
+By marking commons vectors as Phase 3 and tying them explicitly to per-user partition completion, the thesis keeps its promises disciplined. The architecture does not pretend that the commons exist in code today. It sets the stage so that, when they do, rural developers and communities will be able to see how they were built and how they are meant to be governed.
