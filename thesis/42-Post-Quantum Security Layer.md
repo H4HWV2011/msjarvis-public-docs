@@ -1,272 +1,241 @@
-# 42. Post‑Quantum Signature and Verification Layer
+# 42 — Post-Quantum Security Layer
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: July 27, 2026*
-
----
-
-## 42.1 Purpose and Gate‑Bound Scope
-
-This chapter describes how Ms. Allis uses **post‑quantum judge signing and verification** to protect authority‑bearing verdicts as they cross the Blood–Brain Barrier (BBB), and how the **public answer path** is hardened at the database layer through `SECURITY DEFINER` function design and a pinned `search_path`.
-
-Within this sealed gate, Chapter 42 may claim only that:
-
-- judge verdicts are signed with **ML‑DSA‑65** at the verified runtime scope;
-- corresponding **public keys** are available for verification;
-- **tampered** or **unsigned** verdicts are rejected rather than silently accepted;
-- the **BBB** delegates signature checking to a trusted verifier component;
-- a bounded **Ed25519 fallback** exists and is used only where explicitly allowed and observed;
-- the `runtime_governance.public_answer_packet` function implements **post-quantum-adjacent security hardening** through `SECURITY DEFINER` semantics and a pinned `search_path = public, runtime_governance, pg_temp`, confirmed as live on July 26, 2026.
-
-It must **not** claim universal post‑quantum coverage, perfect cryptography across the entire stack, or future‑proof security against all quantum advances. The focus is on what is **implemented and tested**, not on ideal theory.
+*Carrie Kidd (Mamma Kidd) — Mount Hope, West Virginia*  
+*Last Updated: July 27, 2026*
 
 ---
 
-## 42.2 Why Post‑Quantum Judge Signing Matters
+## 42.1 Purpose of This Layer
 
-For rural developers, think of the judges as a panel whose written decisions control whether an action is allowed to move forward.
+This chapter explains how the public answer path in Ms. Jarvis is hardened at the database function level, using Postgres features that help protect against subtle attacks — including those that could become more important in a post-quantum world.
 
-If anyone could forge those decisions, the rest of the safety architecture would not matter. This chapter therefore:
+Instead of focusing on encryption algorithms, this chapter focuses on **authorization discipline**: the way the system ensures that only governed evidence enters public answers, and that even privileged functions cannot be tricked into reading or writing the wrong tables.
 
-- treats judge verdicts as **authority‑bearing messages**;
-- protects them with **ML‑DSA‑65** signatures so that an attacker, even with future quantum capabilities, cannot easily forge them;
-- ensures that only verdicts with valid signatures can pass through the BBB into higher‑authority parts of the system.
-
-The same principle — that **authority‑bearing paths must be hardened against injection and impersonation** — applies to the database-layer public answer path. The `public_answer_packet` function enforces this at the SQL level through `SECURITY DEFINER` and a pinned `search_path`, described fully in §42.10 below.
-
-In plain language: *"The judges sign their work, and the system checks the signature before it trusts what they say. At the database layer, the public answer function runs under its own pinned authority so that no caller can redirect it to malicious objects."*
+For rural developers, this chapter translates those ideas into a step-by-step explanation of how one function, `runtime_governance.public_answer_packet`, is secured.
 
 ---
 
-## 42.3 ML‑DSA‑65 Judge Signing
+## 42.2 The Public Answer Path in Plain Terms
 
-At the verified runtime scope, every verdict that leaves the judge pipeline is:
+The **public answer path** is the route by which a civic question, such as “How many weather stations are in this blockgroup?” turns into a structured answer backed by governed evidence.
 
-1. **Serialized** into a stable, canonical format.
-2. **Signed** with **ML‑DSA‑65** using a private key held by the judge signer.
-3. **Bundled** as a payload that includes:
-   - the verdict body;
-   - the ML‑DSA‑65 signature;
-   - a key identifier for the corresponding public key.
+Inside the database, the central piece of this path is the function:
 
-The chapter is allowed to state that:
-
-- ML‑DSA‑65 signing is the **default and active** method for judge verdicts in this configuration;
-- verdicts are not supposed to leave the judge pipeline unsigned.
-
-Other messages in the system may still use other schemes, but this chapter's claims are limited to the **judge verdict path**.
-
----
-
-## 42.4 Public‑Key Availability at Runtime
-
-A signature is only meaningful if verifiers can find the right **public key**.
-
-Within this gate, Chapter 42 may claim that:
-
-- the judge's ML‑DSA‑65 public key (or an equivalent verifying key) is made available to verification components at runtime;
-- the BBB and its verifier can obtain this key through configuration or a small internal endpoint;
-- the key identifier in each verdict matches one of the **known, live public keys**, allowing correct verification.
-
-For rural operators, this means there is a concrete answer to:
-
-- "Where does the BBB get the judge's public key?"
-- "How does it know which key to use for a given verdict?"
-
-The architecture expects that answer to be **visible and checkable**, not hidden magic.
-
----
-
-## 42.5 BBB Verifier Delegation
-
-The **Blood–Brain Barrier (BBB)** is the choke point between lower‑authority reasoning and higher‑authority action.
-
-Earlier, a broken verifier left the BBB unable to distinguish valid signatures from invalid ones. The fix, which this chapter is allowed to rely on, is:
-
-- the BBB no longer tries to implement its own low‑level verifier in isolation;
-- instead, it **delegates** signature checking to a shared verifier component that already implements ML‑DSA‑65 (and its allowed fallbacks) correctly.
-
-Operationally, at the verified scope:
-
-1. A verdict arrives at the BBB with payload, signature, and key identifier.
-2. The BBB calls the shared verifier with these fields.
-3. The verifier:
-   - looks up the correct public key;
-   - checks the ML‑DSA‑65 signature;
-   - returns "valid" or "invalid" (plus any diagnostic result).
-4. The BBB uses this result to make gate decisions.
-
-The key point is that **verification code is centralized and known to work**, and the BBB depends on it rather than re‑implementing cryptography in a fragile way.
-
----
-
-## 42.6 Tamper and Unsigned Verdict Rejection
-
-Within this gate, Chapter 42 may claim that the BBB enforces **strict rejection** of verdicts that do not verify:
-
-- If the ML‑DSA‑65 signature check fails, the verdict is classified as **invalid / forged / unsigned**.
-- Such verdicts are **not** allowed to grant promotion authority, regardless of their content.
-- The failure is treated as a meaningful event to be logged and investigated, not as a warning that can be ignored.
-
-For rural developers, you can think of the logic as:
-
-- "No valid signature, no power."
-
-Even if the system otherwise likes what the verdict says, it cannot act on it without a passing signature check.
-
----
-
-## 42.7 Ed25519 Fallback: Bounded and Explicit
-
-The gate instructions allow a **bounded Ed25519 fallback** at the verified runtime scope.
-
-This chapter is allowed to claim that:
-
-- Ed25519 is used only in **specific, documented paths**, such as compatibility with existing tools or legacy data;
-- those paths are known to the verifier and are handled explicitly;
-- Ed25519 is **not** the primary algorithm for judge verdicts; ML‑DSA‑65 is.
-
-In practice, this means:
-
-- the verifier component understands when a verdict or associated metadata indicates an Ed25519‑signed context;
-- the BBB can distinguish between:
-  - properly ML‑DSA‑65‑signed verdicts (normal case);
-  - permitted Ed25519 cases (bounded fallback);
-  - everything else, which must be rejected.
-
-This chapter does **not** claim that Ed25519 is post‑quantum secure. It only acknowledges its controlled, limited use where the runtime evidence shows it is still in play.
-
----
-
-## 42.8 Step‑by‑Step View for Rural Developers: Judge Signing Path
-
-For someone running Ms. Allis in a rural setting, the judge signing path is this sequence:
-
-1. **Judges make a decision.**
-   - The system generates a verdict payload in a clear, structured format.
-
-2. **Verdict is post‑quantum signed.**
-   - The judge signer uses ML‑DSA‑65 to sign the payload with its private key.
-
-3. **BBB receives verdict + signature.**
-   - The package arrives at the BBB as part of the governance pipeline.
-
-4. **BBB calls the verifier.**
-   - The BBB hands the payload, signature, and key ID to the shared verifier.
-
-5. **Verifier checks the signature.**
-   - Under normal conditions, it uses ML‑DSA‑65 and the matching public key.
-   - In specific, allowed cases, it can recognize and handle Ed25519.
-
-6. **If verification passes.**
-   - The BBB treats the verdict as authentic and allows the promotion path to continue.
-
-7. **If verification fails or is missing.**
-   - The BBB blocks the verdict from granting authority and records the failure.
-
-If any step in this chain is broken — for example, if the verifier cannot load the key — the expected behavior is to **fail closed**, not to silently treat all verdicts as valid.
-
----
-
-## 42.9 Step‑by‑Step View for Rural Developers: Public Answer Path Hardening
-
-The `runtime_governance.public_answer_packet` function is the public-facing evidence surface of the database-layer governance cycle. It is the function that `public_instrument_role` calls to receive a structured `(where, when)` answer. Because it executes with access to admissible governed evidence and writes to `runtime_governance.public_answer_audit`, it is a security-sensitive path. Two database-level hardening measures, both confirmed live on July 26, 2026, protect it.
-
-### Measure 1 — SECURITY DEFINER
-
-The function is declared `SECURITY DEFINER`:
-
-```sql
-CREATE OR REPLACE FUNCTION runtime_governance.public_answer_packet(
-    p_geoid      text,
-    p_metric_name text
-)
-RETURNS jsonb
-LANGUAGE plpgsql
-SECURITY DEFINER
-SET search_path = public, runtime_governance, pg_temp
-AS $$
--- function body
-$$;
+```text
+runtime_governance.public_answer_packet(p_geoid text, p_metric_name text)
 ```
 
-`SECURITY DEFINER` means the function executes with the privileges of the **function owner** — the `runtime_governance_role` — rather than the privileges of the **caller**. This is the same principle as the ML‑DSA‑65 judge signing path: authority is attached to the signed/defined artifact, not granted freely to the caller.
+When the public instrument calls this function, it expects:
 
-For rural developers, the practical effect is:
+- To receive an answer packet that states whether it has **seen**, **inferred**, or has **no admissible evidence** for the requested geoid and metric.
+- To rely on the function to enforce admissibility rules and evidence selection.
+- To avoid direct access to raw internal tables.
 
-- `public_instrument_role` can call `public_answer_packet` and receive a governed answer.
-- `public_instrument_role` cannot directly read `public.gbim_record`, cannot read internal `runtime_governance` tables beyond what is explicitly granted, and cannot write to `runtime_governance.public_answer_audit`.
-- Yet the function itself can do all of those things — because it runs as the owner.
-
-This is delegation with a locked door. The caller gets a governed result. The caller does not get the keys.
-
-### Measure 2 — Pinned search_path = public, runtime_governance, pg_temp
-
-The function declaration includes `SET search_path = public, runtime_governance, pg_temp`. This is the post-quantum-adjacent hardening measure.
-
-In PostgreSQL, `search_path` controls which schemas are searched when an unqualified object name (a table name or function name without a schema prefix) is resolved. If `search_path` is not pinned, a caller with the ability to create objects in any schema that appears earlier in the search path could create a malicious substitute — for example, a `public.gbim_record` shadow table or a replacement `refresh_public_admissible_gbim_mv` function — and the `SECURITY DEFINER` function would silently resolve to the attacker's object instead of the legitimate one.
-
-Pinning `search_path = public, runtime_governance, pg_temp` means:
-
-- Only objects in `public`, `runtime_governance`, and the session-local `pg_temp` schema are resolved by unqualified names inside the function body.
-- The `pg_temp` inclusion is intentional and standard: it allows temporary tables created during the session to be used, but temporary objects are session-scoped and cannot be pre-planted by an attacker across sessions.
-- No other schema — including `pg_catalog` implicitly prepended in unpinned configurations — can be used to inject substitute objects.
-
-For rural developers, the plain-language description is:
-
-- Without a pinned `search_path`, a `SECURITY DEFINER` function is like a trusted official who reads whatever paper is placed on their desk. An attacker can swap the paper.
-- With a pinned `search_path`, the official only reads papers from two specific locked filing cabinets (`public` and `runtime_governance`) and their own current session scratch pad (`pg_temp`). No substitution is possible from outside those cabinets.
-
-This is called "post-quantum-adjacent" because it addresses the same threat model as post-quantum cryptography at a different layer: it prevents an attacker who has gained partial access to the environment from forging or substituting the authority-bearing objects the function relies on. The attack this prevents is not a quantum cryptographic attack — it is a SQL injection/schema confusion attack — but the defensive posture is structurally identical: the path from "caller invokes function" to "function produces governed answer" must be immune to substitution.
-
-### Why Both Measures Are Required Together
-
-`SECURITY DEFINER` without a pinned `search_path` is dangerous: it elevates caller privilege but leaves the function vulnerable to schema injection. A pinned `search_path` without `SECURITY DEFINER` is incomplete: it pins name resolution but does not prevent the caller from using their own elevated privileges to read directly from the tables the function reads.
-
-Together, they enforce two independent properties:
-
-| Property | Enforced by | Effect |
-|---|---|---|
-| Caller cannot exceed their granted privileges | `SECURITY DEFINER` + role boundary | `public_instrument_role` cannot read `gbim_record` directly |
-| Function cannot be redirected to malicious objects | pinned `search_path` | No schema injection possible for unqualified object names inside the function body |
-
-Both were confirmed live on July 26, 2026. The July 26 behavioral Test 4 (Public Reader Isolation, Chapter 41) validated the first property. The `SECURITY DEFINER` and `SET search_path` declarations are visible in the function definition and were verified as part of the July 26 session.
+The Post-Quantum Security Layer described in this chapter ensures that this function behaves correctly, safely, and consistently, even when called by different roles or in different contexts.
 
 ---
 
-## 42.10 What This Chapter Does Not Claim
+## 42.3 SECURITY DEFINER — What It Is and Why It Matters
 
-Staying within the sealed scope, Chapter 42 explicitly does **not** claim:
+### 42.3.1 What SECURITY DEFINER Does
 
-- that every internal or external message in Ms. Allis is post‑quantum protected;
-- that all possible cryptographic attacks have been ruled out;
-- that Ed25519 is safe against large‑scale quantum adversaries;
-- that no configuration change could ever weaken the judge‑signing path;
-- that `SECURITY DEFINER` and a pinned `search_path` are post-quantum cryptographic measures — they are database-level hardening measures that address injection and impersonation attacks at the SQL layer, and are described as "post-quantum-adjacent" because they share the same fail-closed, substitution-resistant defensive posture as the ML‑DSA‑65 judge signing path.
+In Postgres, a function marked with `SECURITY DEFINER` runs with the privileges of its owner, not the privileges of the caller.
 
-Instead, it makes the narrower claims that:
+For `runtime_governance.public_answer_packet`, this means:
 
-- judge verdicts at the verified runtime scope are **signed with ML‑DSA‑65**;
-- the corresponding public keys are **available and used** for verification;
-- the BBB **delegates** verification to a working component;
-- **tampered or unsigned** verdicts are rejected;
-- **Ed25519 fallback** exists only in clearly bounded, observed contexts;
-- `runtime_governance.public_answer_packet` is declared `SECURITY DEFINER` with `search_path = public, runtime_governance, pg_temp`, confirmed live on July 26, 2026, hardening the public answer path against caller privilege escalation and schema injection.
+- The function can read from governed views and tables that the calling role cannot see directly.
+- The function can perform operations that would normally require higher privileges.
+- The function can package governed evidence into a safe answer packet without exposing raw internals.
 
----
+In everyday terms, the function acts like a trusted clerk inside the system. Rural developers can think of it as a person behind the counter who is allowed to look in the back room but only brings the right items to the front.
 
-## 42.11 Closing Statement
+### 42.3.2 Why SECURITY DEFINER Is Used Here
 
-Chapter 42 anchors post‑quantum security directly to **who gets to speak with authority inside Ms. Allis**.
+Using `SECURITY DEFINER` on `public_answer_packet` is a deliberate choice:
 
-By requiring ML‑DSA‑65 signatures for judge verdicts, ensuring that the BBB delegates to a working verifier, rejecting tampered or unsigned decisions, and keeping Ed25519 as a small, explicit fallback, the system makes verdict authenticity a concrete, testable property instead of a wish.
+- It keeps admissibility logic in one place, inside the function.
+- It lets the public instrument role call the function without needing broad read access.
+- It ensures that the function is the only path by which raw governed evidence is transformed into a public answer.
 
-At the database layer, the same principle is applied through the `SECURITY DEFINER` declaration and pinned `search_path = public, runtime_governance, pg_temp` on `runtime_governance.public_answer_packet`. These two implementation details, confirmed live on July 26, 2026, close the public answer path against the two most practical attack vectors at the SQL layer: a caller using the function's elevated privileges to read beyond their grant, and a schema-injection attack that would redirect the function to malicious substitute objects. Together with the ML‑DSA‑65 judge signing path, they form a coherent security posture across two layers of the architecture: the verdict authority path and the public evidence surface.
-
-For rural developers, this chapter offers a step‑by‑step picture of how Ms. Allis protects two distinct authority paths — from "the judges decided" to "the system is allowed to act" at the application layer, and from "the caller asked a question" to "the system produced a governed answer" at the database layer — using implementation techniques that are documented, confirmed, and re-testable.
+This reduces the number of places where mistakes or attacks could slip through. Instead of many scripts duplicating logic, one hardened function carries the responsibility.
 
 ---
 
-*Chapter 42 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
-*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
-*See LICENSE for terms.*
+## 42.4 Pinning the search_path — public, runtime_governance, pg_temp
+
+### 42.4.1 What search_path Is
+
+In Postgres, `search_path` is the ordered list of schemas the system searches when a function references a table or view without specifying a schema name.
+
+By default, temporary tables live in a schema that can be first in the search path. If a function is not careful, it might accidentally read or write a temporary table that a caller has created, instead of the intended table in a governed schema.
+
+### 42.4.2 How search_path Is Pinned for public_answer_packet
+
+To prevent that, `public_answer_packet` is defined with a pinned search path:
+
+```text
+SET search_path = public, runtime_governance, pg_temp
+```
+
+This ordering does three things:
+
+- Ensures that references to objects in `public` and `runtime_governance` resolve as intended.
+- Puts `pg_temp` at the end of the search path rather than at the front.
+- Makes it explicit which schemas the function is allowed to search.
+
+### 42.4.3 Why This Hardening Matters
+
+Pinning the search path protects against a subtle class of attacks:
+
+- A caller with permission to create temporary tables could create a table with the same name as a governed view.
+- If `pg_temp` were implicitly at the front of the search path, the function might read from that temporary table instead of the real governed view.
+- By placing `pg_temp` at the end and naming the intended schemas, the function avoids this confusion.
+
+For rural developers, this means that the function is not easily tricked into reading or writing the wrong data. It consistently uses the intended governed objects.
+
+---
+
+## 42.5 How the Function Is Hardened Step-by-Step
+
+This section explains the security measures around `public_answer_packet` in clear order.
+
+### Step 1 — Define the Function with SECURITY DEFINER
+
+The function is created with:
+
+- `SECURITY DEFINER` — runs with the owner’s rights.
+- A carefully chosen owner — typically a governance role, not a general user.
+
+This ensures the function can access governed evidence while the caller cannot.
+
+### Step 2 — Pin search_path to Known Schemas
+
+The function’s definition includes:
+
+```text
+SET search_path = public, runtime_governance, pg_temp
+```
+
+This ensures:
+
+- `public` — the schema where admissible views live — is used reliably.
+- `runtime_governance` — the schema where audit tables and helper functions live — is available.
+- `pg_temp` — the temporary schema — is present but not first, preventing accidental or malicious masking.
+
+### Step 3 — Restrict Execution to the Intended Role
+
+After defining the function, its execution permissions are tightened:
+
+- All default execution rights are revoked from `PUBLIC`.
+- Execution is granted only to the intended public instrument role.
+
+This way, not just anyone can call the function. Only the public instrument, which has been designed to operate within specific bounds, can use it.
+
+### Step 4 — Use Governed Views Instead of Raw Tables
+
+Inside the function:
+
+- Evidence is drawn from governed views like the admissible materialized view.
+- Raw tables holding stored state are not directly exposed to callers.
+
+This keeps the function aligned with the broader governance rules. It acts only on already-filtered evidence surfaces.
+
+### Step 5 — Log Each Invocation in an Audit Table
+
+The function writes an entry to an audit table in the `runtime_governance` schema whenever it is called.
+
+This records:
+
+- The requested geoid and metric.
+- The type of answer returned (`seen`, `inferred`, or `inadmissible`).
+- When the answer was generated.
+
+For rural developers, this is the equivalent of keeping a logbook of who asked what and what the system answered.
+
+---
+
+## 42.6 Relation to Overflow and Bounded Events
+
+The same function-level discipline that hardens `public_answer_packet` applies to overflow handling.
+
+### 42.6.1 Overflow Events and Minimal Payloads
+
+Overflow events, such as those in the `overflow:queue:overflow_retriable_public_context` lane, are constructed as minimized records:
+
+- Only allowlisted public-context fields are included.
+- Person-space validation ensures the event is safe to route.
+- Queue behavior is bounded, preventing uncontrolled growth.
+
+These events are handled by scripts and functions that follow similar principles: they operate on minimized payloads and governed queues, not on arbitrary raw state.
+
+### 42.6.2 Shared Hardening Philosophy
+
+The shared philosophy is:
+
+- Use privileged functions that are tightly scoped and configured.
+- Pin their search paths so they cannot be tricked by temporary objects.
+- Restrict their execution to roles that are designed for their specific job.
+- Log their behavior for later review.
+
+By treating overflow routing and public answering as governed function paths rather than open queries, the system reduces exposure to both conventional and future threats, including those that may arise in post-quantum scenarios.
+
+---
+
+## 42.7 Why This Matters in a Post-Quantum Context
+
+Post-quantum security usually focuses on cryptographic algorithms resistant to quantum attacks. This chapter focuses on **structural hardening**, which complements cryptography.
+
+If a future attacker can break or weaken encryption, the system still benefits from:
+
+- Narrow roles and permissions.
+- Hardened function paths that refuse to operate on unexpected tables or views.
+- Clear boundaries between stored state and public evidence.
+
+For rural developers, the lesson is that good security is not just about math; it is also about clear, disciplined architecture. Even as cryptographic methods evolve, these structural protections remain valuable.
+
+---
+
+## 42.8 Implementation Status
+
+**Post-Quantum Security Layer (function-level hardening of public answers): Demonstrated for `public_answer_packet`.**
+
+As of July 27, 2026:
+
+- `runtime_governance.public_answer_packet` is defined as a `SECURITY DEFINER` function with a pinned `search_path = public, runtime_governance, pg_temp`.
+- Its execution is restricted to the public instrument role.
+- It uses governed views and audit tables to transform admissible evidence into structured answer packets.
+- Its hardening shows how overflow and answer paths are protected at the function level, not just at the application or network level.
+
+Within the academic scope of this chapter, the thesis is justified in claiming that the public answer path is hardened by design, using concrete database mechanisms that guard against subtle misuse.
+
+---
+
+## 42.9 Step-by-Step Summary for Rural Developers
+
+To understand and apply this chapter:
+
+1. **Recognize the critical function.**  
+   `public_answer_packet` is the main path from questions to governed answers.
+
+2. **Understand SECURITY DEFINER.**  
+   The function runs with owner privileges, allowing it to access governed evidence without exposing raw data.
+
+3. **See why search_path is pinned.**  
+   Pinning `search_path` prevents temporary tables from tricking the function into using the wrong objects.
+
+4. **Note the execution restrictions.**  
+   Only the public instrument role can call the function. Others cannot.
+
+5. **Appreciate the audit trail.**  
+   Each call is logged, making the function’s behavior reviewable.
+
+6. **Connect the pattern to overflow.**  
+   Overflow handling uses the same idea: privileged, bounded functions and queues rather than open, unguarded paths.
+
+---
+
+## 42.10 Closing
+
+The Post-Quantum Security Layer in this chapter is not about a specific encryption algorithm. It is about **function-level discipline**: using `SECURITY DEFINER`, pinned search paths, restricted execution roles, and governed evidence surfaces to keep public answers safe.
+
+For rural developers, this means that public-facing behavior is not left to chance. It is routed through hardened, auditable functions that respect the system’s governance rules, now and as security expectations evolve.
