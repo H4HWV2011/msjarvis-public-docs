@@ -1,164 +1,121 @@
 # 18. Translation Method and Limits of Metaphor
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 22, 2026*
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
+*Last updated: July 27, 2026*
 
 ---
 
 ## 18.1 Why This Chapter Matters
 
-This chapter explains how biological and geographic language is used as **translation**, not as a claim that Ms. Allis is literally a brain or a person. When development began, the only solid starting points were geography, GIS, and biology, not computer science. Those disciplines supplied the first vocabulary for flows, regions, boundaries, and feedback.
+This chapter explains how biological, geographic, and spacetime language is used as **translation** — not as a claim that Ms. Allis is literally a brain, a person, or a physics engine. When development began, the only solid starting points were geography, GIS, and biology, not computer science. Those disciplines supplied the first vocabulary for flows, regions, boundaries, and feedback. Later, as the Spacetime Contract took shape across Chapters 51–53, mathematical physics language entered the thesis for the same reason: it was a genuinely useful structural template for disciplining how the system talks about *where* and *when*.
 
-Now that the system runs as a concrete stack of services, ports, data stores, and logs, the same metaphors must be kept in step with **as‑built mechanisms**. This chapter describes how to pair every major metaphor with the actual runtime evidence behind it, and where to stop the metaphor when the code stops.
+Now that the system runs as a concrete stack of services, ports, data stores, and logs — and now that the July 26, 2026 architecture closeout formalized the ten-condition public admissibility predicate, the spacetime/provenance CHECK constraint, and the `spatial_unit_id`/`spatial_unit_kind`/`valid_time_start` structural columns — every metaphor must be kept in step with **as-built mechanisms**. This chapter describes how to pair every major metaphor with the actual runtime evidence behind it, identifies where analogies are productive, and draws the hard line where they must stop.
 
----
-
-## 18.2 Why a Geographer Used Biology and Geography
-
-The author is a geographer by training, not a computer scientist. GIS, field work, and biology were the available mental tools at the start:
-
-- Geography supplied ideas like regions, boundaries, routes, and spatial bodies.  
-- Biology supplied ideas like organs, membranes, hormones, rhythms, and memory systems.  
-- GIS supplied the habit of tying every abstract idea back to real places, tables, and coordinates.
-
-When the work began, there was no ready vocabulary for “sandboxed internal reasoning,” “promotion paths,” or “bounded DGM cycles.” There were, however, well‑understood ideas like hippocampus, pituitary, blood‑brain barrier, and spatial body. Those became the first names for roles the system needed, and only later were they tied to specific services and data flows.
-
-This chapter keeps that history visible while making clear where metaphor ends and mechanism begins.
+Chapter 18 is a **calibration chapter**. It does not introduce new services or gates. It seals the translation method so that rural developers, reviewers, and future maintainers can talk clearly about what the system does without overstating it.
 
 ---
 
-## 18.3 Translation Table: Metaphor to Mechanism
+## 18.2 Why a Geographer Used Biology, Geography, and Spacetime Language
+
+The author is a geographer by training, not a computer scientist or a physicist. GIS, field work, and biology were the available mental tools at the start:
+
+- **Geography** supplied ideas like regions, boundaries, routes, and spatial bodies.
+- **Biology** supplied ideas like organs, membranes, hormones, rhythms, and memory systems.
+- **GIS** supplied the habit of tying every abstract idea back to real places, tables, and coordinates.
+- **Spacetime language** entered later, through the Spacetime Contract, as a precise way to say that a civic claim is only meaningful if it can be placed *somewhere* and *somewhen* simultaneously.
+
+When the work began, there was no ready vocabulary for "sandboxed internal reasoning," "promotion paths," or "bounded GBIM cycles." There were, however, well-understood ideas like hippocampus, pituitary, blood-brain barrier, spatial body — and, later, coordinate, causal structure, and domain restriction. Those became the first names for roles the system needed, and only later were they tied to specific services and data flows.
+
+Chapter 18 keeps that history visible while making clear where metaphor ends and mechanism begins.
+
+---
+
+## 18.3 Translation Table: Biological and Geographic Metaphor to Mechanism
 
 The core rule is: **do not remove the biological or geographic terms; pair them with their implemented mechanism.**
 
-| Author vocabulary       | As‑built mechanism                                                    |
-|-------------------------|-----------------------------------------------------------------------|
+| Author vocabulary | As-built mechanism |
+|---|---|
 | hippocampus / memory body | Governed memory stores and retention tiers across Chroma, Postgres, Redis; rules for what can be consolidated and when |
-| blood‑brain barrier     | BBB services, constitutional guardian, fail‑closed filters, post‑quantum signature verification, and audited gating behavior |
-| people space            | Per‑user H_p collections, consented promotion flows, deletion and pruning, and suppression of surveillance‑like queries |
-| heartbeat / live cycle  | Recurrent epistemic runner, cron schedules, H_t (Hilbert time) tiers, H_state service, and Phi probe health checks |
-| learning pathway        | Automated gap‑review and web‑research cycles feeding the `autonomous_learner` Chroma collection under bounded scope |
-| coherence / Phi         | Phi probe services over governed collections, with coherence thresholds and health signals tied to actual indexes |
-| spatial body            | GBIM and GIS collections, manifests, active bindings, geographic filters, and PostGIS‑backed tables |
+| blood-brain barrier | BBB services, constitutional guardian, fail-closed filters, post-quantum signature verification, and audited gating behavior |
+| people space | Per-user H_p collections, consented promotion flows, deletion and pruning, and suppression of surveillance-like queries |
+| heartbeat / live cycle | Recurrent epistemic runner, cron schedules, H_t (Hilbert time) tiers, H_state service, and Phi probe health checks |
+| learning pathway | Automated gap-review and web-research cycles feeding the `autonomous_learner` Chroma collection under bounded scope |
+| coherence / Phi | Phi probe services over governed collections, with coherence thresholds and health signals tied to actual indexes |
+| spatial body | GBIM and GIS collections, manifests, active bindings, geographic filters, and PostGIS-backed tables |
 
-Throughout the rest of the thesis, these terms should appear together: metaphor on one side, and the concrete service or data path that implements it on the other.
-
----
-
-## 18.4 Verified Mechanism Anchors
-
-Several mechanisms are now verified enough to anchor the metaphors:
-
-- **H_t (Hilbert time)** is live, with Redis tiers for ephemeral and staged time and PostgreSQL for historical time slices.  
-- **H_state** is live, exposing structured state snapshots.  
-- **Phi probe** is live on a real health endpoint, reporting coherence and service status.  
-- **BBB and constitutional guardian** run as active services, with fail‑closed filters and signed verdicts.  
-- **Chapter 16** sealed the BBB and signature metaphor at runtime: PQ signatures, judge keys, and detached verification are implemented, not just described.  
-- **Chapters 28 and 39** framed automated learning as a bounded gap‑review and web‑research loop, with `autonomous_learner` as the Chroma sink instead of free‑running self‑change.  
-- **Chapter 29** sealed PIA as a privacy, coherence, retention, and non‑surveillance review, not as clinical diagnosis or therapy.  
-- **Chapters 47 and 48** constrained people‑space language to consented, per‑user scopes with deletion and pruning, explicitly rejecting surveillance use.
-
-Because these anchors exist, Chapter 18 can now insist that metaphors be pinned to them instead of floating unconnected above the running system.
+Throughout the rest of the thesis, these terms appear together: metaphor on one side, and the concrete service or data path that implements it on the other.
 
 ---
 
-## 18.5 What Metaphor May Not Claim
+## 18.4 The Spacetime Analogy: Why It Is Disciplined, Not Decorative
 
-Biological and geographic language remains allowed, but certain claims are explicitly **out of scope**:
+Chapter 53 introduced the term "Spacetime Contract" to describe the requirement that every public civic claim must carry both a spatial anchor (*where*) and a temporal anchor (*when*). As of July 26, 2026, that contract is enforced structurally: the columns `spatial_unit_id`, `spatial_unit_kind`, and `valid_time_start` are `NOT NULL` on every publicly admissible row in `public.gbim_record`, enforced by the `gbim_record_spacetime_provenance_chk` CHECK constraint.
 
-- no biological consciousness;  
-- no sentience;  
-- no literal emotions or feelings;  
-- no diagnosis or therapy;  
-- no guarantees of safety or universal truth.
+The analogy to spacetime physics is **productive but bounded**. In physics, an event is only meaningful relative to a coordinate system that specifies both spatial and temporal position. In this system, a civic claim is only admissible if it names its spatial unit and states the earliest moment at which it is valid. That structural parallel — *no claim without a (where, when) tuple* — is the source of the analogy's value.
 
-Metaphors describe **roles**, not inner experience. When the thesis speaks of hippocampus, pituitary, BBB, heartbeat, or spatial body, it is naming architectural analogies, not making medical or philosophical claims about the system’s inner life.
-
-Whenever the wording might be read otherwise, Chapter 18 requires either narrowing the metaphor or stating plainly that it is an analogy.
+The analogy is **not** a claim that the system implements general relativity, Lorentzian geometry, or a physical causal law. It is a claim that the architectural discipline behind the Spacetime Contract was borrowed from the same intuition that makes physics coordinate systems useful: a measurement without a location and a time is not a measurement at all.
 
 ---
 
-## 18.6 Using “As‑Built Mechanism” and “Bounded Analogy”
+## 18.5 Keeping the Analogies Disciplined: The Five-Column Mapping
 
-To keep metaphor and mechanism aligned, this chapter adopts a small set of phrases:
+The most important risk in using physics and mathematics language is treating a useful structural analogy as an identification — acting as if the software mechanism *is* the physical phenomenon. The following table is the disciplined version of that mapping for the mechanisms that appear across this thesis. It shows each software mechanism, the defensible mathematical or physical analogue, and the term to avoid on the right-hand side.
 
-- **As‑built mechanism** — the actual services, data stores, ports, routes, and logs that exist now.  
-- **Runtime evidence** — health endpoints, logs, test reports, and traces that show what the system actually does.  
-- **Bounded analogy** — a metaphor that is intentionally limited to certain roles or behaviors, and not stretched beyond evidence.  
-- **Operational scope** — the exact conditions under which a claim is known to hold in the running system.
+| Software mechanism | Defensible mathematical/physical analogue | Avoid calling it |
+|---|---|---|
+| Schema or validation gate | Domain restriction, type constraint, boundary condition | Event horizon |
+| Fail-closed authorization | Safety invariant, guarded state machine | Phase transition |
+| Signed promotion | Verified state transition, proof-carrying record | Wavefunction collapse |
+| User isolation | Noninterference property, sector partition | Quantum orthogonality |
+| Retrieval threshold | Decision boundary or classifier cutoff | Physical potential barrier |
 
-Chapters that use biological or geographic terms should routinely pair them with these anchors, for example:
+**How to read this table as a rural developer:**
 
-- “The pituitary, as a bounded analogy, describes how the pituitary service modulates global modes and thresholds in the running system.”  
-- “The hippocampus metaphor points to the as‑built mechanism of governed memory stores, with runtime evidence in the memory service logs and Chroma collections.”  
-- “The blood‑brain barrier metaphor is backed by runtime evidence from BBB health endpoints, fail‑closed tests, and signature verification logs.”
+- The left column is what the system actually does: it gates records by schema, closes safely when authorization fails, signs verdicts before committing them, isolates users in separate Chroma partitions, and refuses retrieval below a confidence threshold.
+- The middle column is the correct formal name from mathematics, formal methods, or physics for a structure that is genuinely analogous. These are defensible because they describe a structural relationship — not because the software has become a physical system.
+- The right column is the overreach: words that sound impressive but carry physical or mathematical commitments the software has not earned. Using them without qualification misleads readers and weakens the thesis.
 
-This style keeps the original intuitive language while grounding it in concrete behavior.
-
----
-
-## 18.7 When a Metaphor Exceeds Evidence
-
-Sometimes the metaphor is ahead of the code. Chapter 18 requires that situation to be labeled rather than smoothed over.
-
-Two terms help here:
-
-- **Architectural vocabulary** — names for structures or flows that are intentionally part of the design, even if implemented only in part.  
-- **Demonstrated mechanism** — behavior that is actually present, tested, and visible in logs and endpoints.
-
-When a metaphor covers more than the demonstrated mechanism, the text should:
-
-1. Clearly name what is already implemented and evidenced.  
-2. Mark the rest as architectural vocabulary or forward‑looking design.
-
-For example:
-
-- “The ‘learning pathway’ metaphor includes both the as‑built `autonomous_learner` loop and additional learning behaviors that are still architectural vocabulary rather than demonstrated mechanisms.”  
-- “The ‘spatial body’ metaphor describes how GBIM and GIS are organized today and also points to hypothetical future expansions into other datasets.”
-
-This keeps the thesis honest about what runs and what is still planned.
+Each pairing is examined in detail below.
 
 ---
 
-## 18.8 Positioning of Chapter 18 in the Thesis
+## 18.6 Schema or Validation Gate → Domain Restriction, Not Event Horizon
 
-Chapter 18 acts as a **calibration chapter**, not a build chapter. It does not introduce new services, gates, or learning loops. Instead, it calibrates how to talk about the rest of the system now that:
+A schema gate, validation check, or admissibility predicate restricts which inputs are accepted. In formal terms, it defines the **domain of a function**: the set of inputs for which the function produces a meaningful output. In boundary-value terms, it is a **boundary condition** that separates the interior of the admissible region from the exterior.
 
-- H_t, H_state, Phi, BBB, guardian, PIA, autonomous learning, and people‑space rules are live;  
-- several chapters have closed their gates at runtime scope;  
-- a full stack of logs, health endpoints, and tests exists.
+An event horizon is something entirely different. It is a **global geometric property** of a spacetime: roughly, a boundary beyond which future-directed causal signals cannot reach a designated external region. Event horizons arise from a Lorentzian metric and the global causal structure of spacetime. They are not defined by policy rules, score cutoffs, or administrator decisions. General relativity describes gravity as the curvature of spacetime itself, which makes horizon claims especially demanding.
 
-Its job is to seal the **translation method**:
-
-- keep biological and geographic language;  
-- insist that every metaphor be tied to as‑built mechanism when talking about behavior;  
-- mark theoretical and architectural language as such;  
-- avoid implying consciousness, therapy, or perfect safety.
-
-Rural developers can treat Chapter 18 as a style guide: how to talk about a neurobiological/geographic architecture without overstating what the code actually does.
+The `gbim_record_spacetime_provenance_chk` CHECK constraint in this system is a boundary condition. It defines the domain of publicly admissible records. It is not an event horizon.
 
 ---
 
-## 18.9 Practical Guidance for Rural Developers
+## 18.7 Fail-Closed Authorization → Safety Invariant, Not Phase Transition
 
-For rural developers reading or extending this work:
+The fail-closed design principle means that when the system cannot verify authorization, it refuses to act rather than proceeding. This is a **safety invariant**: a property that holds across all states of a guarded state machine, including failure states. The BBB services, constitutional guardian, and PQ signature verification all implement this principle.
 
-- It is fine to use words like hippocampus, pituitary, BBB, or heartbeat when they help you think.  
-- Whenever you do, ask: “What service, data store, port, or log backs this up?”  
-- When you present the system to others, pair every metaphor with the implementation: “Here’s the metaphor, and here is the container, endpoint, or table that implements it.”  
-- When you sketch new ideas, mark clearly what exists today and what is an architectural plan for later.
+A phase transition in physics is a well-defined concept from statistical mechanics and condensed matter theory: it requires a state space, control parameters, an order parameter, and — usually — nonanalytic thermodynamic behavior or a well-defined finite-system analogue (spontaneous symmetry breaking, latent heat, a diverging susceptibility). Cryptographic immutability is not low free energy. Operational stability is not the same as thermodynamic or Lyapunov stability.
 
-This makes it possible to design advanced civic systems starting from GIS and biology intuition, while always returning to evidence and code.
+When Chapter 16 sealed the BBB and signature mechanism, it created a verified state transition from unsigned candidate to signed verdict. That transition is a **guarded state-machine step**. It is not a phase transition unless a specific order parameter, control variable, and distinct thermodynamic phases are defined — which they have not been.
 
 ---
 
-## 18.10 Closing Statement
+## 18.8 Signed Promotion → Verified State Transition, Not Wavefunction Collapse
 
-Metaphor is how this thesis began: a geographer with GIS and biology vocabulary building an AI steward one container at a time. Now that the stack is live, Chapter 18 seals a translation method:
+The GBIM promotion contract (described in Appendix A, §A.9) moves a record from `candidate` status to `authorized` status through a gated procedure: the trigger verifies `coherence_ok = true`, the procedure runs, and the record is cryptographically signed. This is a **verified state transition**: it is deterministic, traceable, and proof-carrying.
 
-- metaphors are **kept**, not erased;  
-- every metaphor is **paired** with an as‑built mechanism;  
-- operational claims name **services, data stores, gates, and logs**;  
-- overreach is **narrowed or labeled** as architectural vocabulary or future work.
+Wavefunction collapse in quantum mechanics is a different concept. It is the discontinuous update of a quantum state upon measurement, associated with the Born rule for probabilities and the projection postulate. It has a specific mathematical meaning — the projection of a state vector onto a measurement eigenspace — and an active research debate about its physical interpretation. A database promotion gate does not collapse a probability amplitude.
 
-Within these limits, biological and geographic language remain a legitimate way to explain a complex, governed AI system to the communities it is meant to serve.
+The useful parallel is that a signed promotion is like a **projection** in the sense that it selects a definite state from a larger possibility space. If the GBIM manifests were modeled as a vector over possible states and the promotion operator were defined as a projection, that would be a mathematically disciplined analogy. Without that formalization, "wavefunction collapse" is overreach.
+
+---
+
+## 18.9 User Isolation → Noninterference Property, Not Quantum Orthogonality
+
+Per-user partitioning in this system — the H_p collections in Chroma, the Row-Level Security policies in Postgres, the `public_instrument_role` boundary described in Appendix A §A.6 — implements a **noninterference property**: no transition authorized under one user's session can produce an observable effect in another user's session. This was verified at the July 26 gate when no cross-user record leak between alpha and beta users was observed.
+
+Noninterference is a formal property from information-flow security. It is the correct technical name for this guarantee.
+
+Quantum orthogonality is a specific mathematical property of a Hilbert space: two state vectors are orthogonal if their inner product is zero, meaning they represent fully distinguishable alternatives under a measurement. Orthogonality in this sense requires a defined inner product and a measurement framework that gives the notion of angle its physical force.
+
+Direct-sum decomposition is mathematically legitimate. If the system's state space is written as:
