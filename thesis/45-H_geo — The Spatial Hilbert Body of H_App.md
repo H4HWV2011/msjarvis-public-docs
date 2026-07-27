@@ -1,6 +1,6 @@
 # 45. H_geo — The Spatial Hilbert Body of H_App (As-Built)
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
 *Last updated: July 27, 2026*
 
 ---
@@ -32,7 +32,7 @@ For rural developers, H_geo answers a concrete question:
 
 This chapter explains:
 
-- how **governed county, tract, and block-group GIS collections** sit inside the larger semantic system;
+- how **governed county, tract, and block-group GIS collections** sit inside the the larger semantic system;
 - how the **manifest** now clearly points at the governed collections and no longer at legacy ones;
 - how **every GBIM record is now spatially and temporally anchored** — not as a plan but as a confirmed fact;
 - how **tensor-style filters** are used in practice (for bounding boxes and promotion) without over-claiming a full tensor calculus.
@@ -76,17 +76,17 @@ WHERE spatial_unit_id IS NULL
 
 The database returned:
 
-```
+```text
 UPDATE 237655
 ```
 
 This single line — `UPDATE 237655` — is the as-built evidence that the H_geo spatial body is fully anchored. Every row in `public.gbim_record` now carries:
 
-| Column | Value assigned | Meaning |
-|---|---|---|
-| `spatial_unit_id` | `geoid` (the row's block-group GEOID) | Uniquely identifies the geographic unit the record describes |
-| `spatial_unit_kind` | `'blockgroup'` | Names the spatial resolution of that unit |
-| `valid_time_start` | `2020-01-01T00:00:00-05:00` | The earliest moment for which the record's metric claim is asserted |
+| Column             | Value assigned                                  | Meaning                                                         |
+|--------------------|--------------------------------------------------|-----------------------------------------------------------------|
+| `spatial_unit_id`  | `geoid` (the row's block-group GEOID)           | Uniquely identifies the geographic unit the record describes    |
+| `spatial_unit_kind`| `'blockgroup'`                                  | Names the spatial resolution of that unit                       |
+| `valid_time_start` | `2020-01-01T00:00:00-05:00`                     | Earliest moment for which the record's metric claim is asserted |
 
 All three columns were made `NOT NULL` by the `gbim_record_spacetime_provenance_chk` CHECK constraint (described in Appendix A), which was applied after the backfill and passed validation against all 237,655 rows without error.
 
@@ -170,8 +170,8 @@ The gate describes **tensor-derived promotion and geographic bounding-box filter
 
 For rural developers, this can be read as:
 
-- Requests that involve a **geographic bounding box** (a rectangle over the map) are correctly filtered to only the relevant county/tract slices;
-- The promotion layer that uses these spatial filters does so in a way that **does not change results if you run it twice in a row** (idempotence).
+- requests that involve a **geographic bounding box** (a rectangle over the map) are correctly filtered to only the relevant county/tract slices;
+- the promotion layer that uses these spatial filters does so in a way that **does not change results if you run it twice in a row** (idempotence).
 
 This is a **practical tensor use**:
 
@@ -208,16 +208,16 @@ For rural communities, this means there is actual code and tests backing the ide
 
 As of July 27, 2026, the spatial state of H_geo can be described precisely and without hedging:
 
-| Property | Value | Evidence |
-|---|---|---|
-| Total rows in `public.gbim_record` | 237,655 | `UPDATE 237655` returned July 26, 2026 |
-| Rows with `spatial_unit_id` populated | 237,655 | Backfill updated all null rows |
-| Rows with `spatial_unit_kind` populated | 237,655 | Backfill updated all null rows |
-| Rows with `valid_time_start` populated | 237,655 | Backfill updated all null rows |
-| Rows passing `gbim_record_spacetime_provenance_chk` | 237,655 | `ALTER TABLE` passed without error |
-| Admissible rows (`public_admissible_gbim_mv`) | 93,423 | Lifecycle audit snapshot, July 26, 2026 |
-| Spatial unit kind | `blockgroup` | Confirmed for all rows in this corpus |
-| Temporal anchor | `2020-01-01T00:00:00-05:00` | Correct for static inventory facts |
+| Property                                         | Value                           | Evidence                        |
+|--------------------------------------------------|---------------------------------|---------------------------------|
+| Total rows in `public.gbim_record`              | 237,655                         | `UPDATE 237655` (July 26, 2026) |
+| Rows with `spatial_unit_id` populated           | 237,655                         | Backfill updated all null rows  |
+| Rows with `spatial_unit_kind` populated         | 237,655                         | Backfill updated all null rows  |
+| Rows with `valid_time_start` populated          | 237,655                         | Backfill updated all null rows  |
+| Rows passing `gbim_record_spacetime_provenance_chk` | 237,655                     | `ALTER TABLE` passed, no error  |
+| Admissible rows (`public_admissible_gbim_mv`)   | 93,423                          | Lifecycle audit, July 26, 2026  |
+| Spatial unit kind                                | `blockgroup`                    | Confirmed for all rows          |
+| Temporal anchor                                  | `2020-01-01T00:00:00-05:00`     | Correct for static inventory    |
 
 The gap between 237,655 total rows and 93,423 admissible rows is not a spatial anchoring gap. All rows are spatially and temporally anchored. The 144,232 non-admissible rows are held back by other admissibility conditions — most commonly `public_claim_allowed = false` or `degradation_status = 'stale'` — not by missing spatial or temporal fields.
 
@@ -227,26 +227,33 @@ The gap between 237,655 total rows and 93,423 admissible rows is not a spatial a
 
 From a local operator's point of view, Chapter 45's closure work can be understood as:
 
-1. **Check the collections.**
-   - Confirm governed county, tract, and block-group collections are live, count-correct, and queryable.
+1. **Check the collections.**  
+   Confirm governed county, tract, and block-group collections are live, count-correct, and queryable.
 
-2. **Check the config.**
-   - Ensure no running service points at legacy county/tract collections.
+2. **Check the config.**  
+   Ensure no running service points at legacy county/tract collections.
 
-3. **Check the manifest tables.**
-   - In tables with status columns, confirm governed rows are marked active and legacy ones are not.
-   - In tables without status, confirm governed rows exist and legacy ones are not treated as current.
+3. **Check the manifest tables.**  
+   In tables with status columns, confirm governed rows are marked active and legacy ones are not.  
+   In tables without status, confirm governed rows exist and legacy ones are not treated as current.
 
-4. **Confirm the spatial backfill.**
-   - Verify that `SELECT count(*) FROM public.gbim_record WHERE spatial_unit_id IS NULL` returns `0`.
-   - Verify the same for `spatial_unit_kind IS NULL` and `valid_time_start IS NULL`.
-   - All three should return zero. The `UPDATE 237655` confirmed this on July 26, 2026.
+4. **Confirm the spatial backfill.**  
+   Verify that:
 
-5. **Run the tensor/bounding-box probe.**
-   - Confirm that geographic filters over counties/tracts behave correctly and idempotently.
+   ```sql
+   SELECT count(*) FROM public.gbim_record
+   WHERE spatial_unit_id IS NULL
+      OR spatial_unit_kind IS NULL
+      OR valid_time_start IS NULL;
+   ```
 
-6. **Run tests.**
-   - Make sure unit, integration, anti-surveillance, and policy tests all pass.
+   returns `0`. The `UPDATE 237655` confirmed this on July 26, 2026.
+
+5. **Run the tensor/bounding-box probe.**  
+   Confirm that geographic filters over counties/tracts behave correctly and idempotently.
+
+6. **Run tests.**  
+   Make sure unit, integration, anti-surveillance, and policy tests all pass.
 
 When all six hold, the promise of Chapter 45 at this gate is kept: West Virginia county, tract, and block-group spatial data live in **H_geo as a governed, manifest-aligned, fully anchored, policy-tested body** — not as a tangle of old and new names, and not as a partially-populated corpus waiting for spatial fields to be added.
 
@@ -283,6 +290,6 @@ For rural developers, this means Ms. Allis's understanding of West Virginia coun
 
 ---
 
-*Chapter 45 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
-*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
-*See LICENSE for terms.*
+*Chapter 45 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*  
+*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*  
+*See LICENSE for terms.* 
