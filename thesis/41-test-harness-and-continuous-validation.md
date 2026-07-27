@@ -1,491 +1,306 @@
-# 41. Test Harness and Continuous Validation
+# 41 — Test Harness and Continuous Validation
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: July 27, 2026*
-
----
-
-## 41.1 Why This Chapter Exists
-
-This chapter explains how Ms. Allis is continuously checked between audits so that her governed packet architecture does not silently drift, weaken, or break. It describes the **test harness** as the practical machinery that runs repeatable checks, and **continuous validation** as the ongoing discipline that keeps those checks active over time.
-
-Earlier chapters established that Ms. Allis uses governed candidate flows rather than direct, unchecked movement from reasoning to consequence. This chapter explains how that claim is tested repeatedly, especially around the most sensitive areas: **external communication** and **memory gates**.
-
-As of the July 26, 2026 architecture closeout, the harness includes a named, confirmed test set: **Runtime Governance Behavioral Tests, July 26, 2026**. This set contains four behavioral demonstrations — happy path, candidate trap, lifecycle decay, and public reader isolation — that were run live against the `wv_gis` database and produced the exact expected outcomes documented in §41.6 below. These four tests now serve as the live continuous validation suite for the database-layer governance cycle.
-
-For rural developers, the purpose is simple:
-
-**"How do we make sure the rules still work tomorrow, not just today?"**
+*Carrie Kidd (Mamma Kidd) — Mount Hope, West Virginia*  
+*Last Updated: July 27, 2026*
 
 ---
 
-## 41.2 Gate-Constrained Scope
+## 41.1 Purpose of the Test Harness
 
-This chapter stays within a strict academic and technical scope.
+This chapter explains how Ms. Jarvis keeps itself honest over time by exercising a **test harness** rather than relying only on one-off proofs. The goal is to show that key governance behaviors keep working after restarts, schema changes, and new code, not just once during development.
 
-It may claim that:
-
-- Ms. Allis uses a test harness to run repeatable checks against governed candidate flows;
-- continuous validation checks whether safety and guardrail behavior remains intact over time;
-- the harness can test memory gates, external communication gates, staging rules, and downstream promotion behavior;
-- continuous validation supports operational accountability by catching regressions, drift, and bypasses early;
-- the four Runtime Governance Behavioral Tests run on July 26, 2026 are the live continuous validation suite, with named expected outcomes, and can be re-run at any time to confirm the governance layer is still enforcing its rules.
-
-It may **not** claim that:
-
-- the harness proves moral perfection, complete safety, or universal legal compliance;
-- passing tests means the system can safely do anything not yet imagined;
-- continuous validation replaces human governance, audits, or community oversight;
-- a passing harness means Ms. Allis has autonomous authority.
-
-Within this gate, the harness is an engineering instrument. It is built to test whether the documented rules are still being enforced, not to declare the system infallible.
+For rural developers, a test harness is simply a repeatable set of scripts and checks that you can run to answer a practical question: “Is the system still behaving the way the thesis says it should?” Continuous validation means those scripts are used whenever the system changes, not just when it is first set up.
 
 ---
 
-## 41.3 What a Test Harness Is
+## 41.2 What Counts as Continuous Validation
 
-A **test harness** is the structure around the tests that makes them repeatable, inspectable, and useful.
+Continuous validation in this architecture has three parts:
 
-For Ms. Allis, the harness includes:
+- **Named tests** that correspond to specific thesis claims.
+- **Expected outcomes** that can be compared with live results.
+- **Routines for rerunning tests** whenever critical code or schema changes occur.
 
-- test scenarios with named identifiers;
-- setup and teardown routines;
-- example packet fixtures;
-- expected gate outcomes;
-- controlled execution environments;
-- result logging and reporting.
+The point is to treat the system like a machine that needs regular inspection. You do not wait for a failure to ask whether gates are working. You rerun the tests anytime you adjust the parts that those gates depend on.
 
-The harness is not just a pile of test files. It is the organized environment that lets developers run the same checks over and over and trust that the results mean something. The four behavioral tests in §41.6 are a working instance of this structure: named, scoped, with exact expected outcomes, run live and confirmed.
-
-For rural developers, think of the harness like a sawmill jig or a fence-line template. It is not the wood itself. It is the thing that lets you cut the same board the same way every time so you can tell when something has gone crooked.
+This chapter focuses on one named set of tests: the **Runtime Governance Behavioral Tests, July 26, 2026**.
 
 ---
 
-## 41.4 What Continuous Validation Is
+## 41.3 The Runtime Governance Behavioral Test Set
 
-**Continuous validation** means the harness is not used once and forgotten. It runs repeatedly:
+On July 26, 2026, four core runtime-governance behaviors were exercised and confirmed:
 
-- when code changes;
-- when configuration changes;
-- on scheduled intervals;
-- after critical incidents;
-- before promotion of major releases.
+1. **Happy Path** — admissible records behave as expected.
+2. **Candidate Trap** — candidate-only material cannot leak into the public evidence path.
+3. **Lifecycle Decay** — stale records are removed from public speakability.
+4. **Public Reader Isolation** — the public role cannot see raw governed records.
 
-Continuous validation is different from one-time testing. One-time testing says, "It worked on that day." Continuous validation says, "We keep checking because systems change, data changes, and operators get tired."
+Together, these four form the test set named:
 
-The four Runtime Governance Behavioral Tests were run on July 26, 2026, and produced their expected outcomes. That is the inaugural run. Continuous validation means running those same four tests again — against the same database, the same roles, the same governance functions — every time the system changes, and confirming that the outcomes still match. If any test produces a different result, the governance layer has drifted and requires investigation before proceeding.
-
-For rural developers, this is the difference between testing a bridge only when it is built and checking it again after every flood season. The first check matters, but the later checks are what keep people safe.
-
----
-
-## 41.5 Why Safety and Guardrail Tests Come First
-
-This chapter emphasizes **safety and guardrail tests** because not all failures are equal.
-
-A styling bug in a dashboard matters less than:
-
-- a memory candidate being stored without required consent;
-- an external communication candidate slipping through without approval;
-- a private or sensitive summary being misrouted into a public channel;
-- a staged packet being promoted directly into a durable tier without passing its required gate;
-- the `public_instrument_role` gaining read access to `public.gbim_record` when it should be denied.
-
-These are the kinds of failures that change the meaning of the whole system. They are not cosmetic problems. They are governance failures. The four behavioral tests in §41.6 are each designed to catch one of these categories — including the role isolation failure, which is the most dangerous class because it could allow inadmissible evidence to enter a public claim.
-
-For rural developers, the idea is plain: when time and staff are limited, test the gates that protect people first.
-
----
-
-## 41.6 Runtime Governance Behavioral Tests, July 26, 2026
-
-The following four tests constitute the named test set **Runtime Governance Behavioral Tests, July 26, 2026**. They were run live against the `wv_gis` database on July 26, 2026, and each produced its exact expected outcome. They are the live continuous validation suite for the database-layer governance cycle and should be re-run in full after any schema migration, role change, governance function update, or pg_cron configuration change.
-
----
-
-### Test 1 — Happy Path
-
-**Purpose:** Confirm that a fully admissible record can be read from the public evidence surface by the public instrument role.
-
-**Setup:** A row in `public.gbim_record` satisfying all ten conditions of the public admissibility predicate (Definition A.1): `promotion_state = 'authorized'`, `public_claim_allowed = true`, `under_whose_authority IS NOT NULL`, `company_name IS NOT NULL`, `ingested_at IS NOT NULL`, `degradation_status IN ('fresh','aging')`, `spatial_unit_id IS NOT NULL`, `spatial_unit_kind IS NOT NULL`, `valid_time_start IS NOT NULL`.
-
-**Execution:**
-
-```sql
-SET ROLE public_instrument_role;
-SELECT * FROM public.public_admissible_gbim_mv
-WHERE spatial_unit_id = '540019656003'
-  AND metric_name = 'atm_weather_stations_count';
+```text
+Runtime Governance Behavioral Tests, July 26, 2026
 ```
 
-**Expected outcome:** One row returned. The row contains `spatial_unit_id = '540019656003'`, `spatial_unit_kind = 'blockgroup'`, `valid_time_start = '2020-01-01T00:00:00-05:00'`, `degradation_status = 'fresh'`, `under_whose_authority = 'WVGIS Technical Center'`.
-
-**Confirmed outcome on July 26, 2026:** Exactly one row returned with all expected fields populated. The `public_answer_packet` function subsequently used this row to produce a structured `(where, when)` answer object with `label: "seen"`.
-
-**What this test validates:** The happy path through the ten-condition predicate works end-to-end. A fully governed record is visible to the public instrument role through the materialized view surface.
+This chapter treats that set as a baseline harness. New behavior-focused tests, such as the overflow gate smoke test, belong in the same family. They extend the harness rather than replace it.
 
 ---
 
-### Test 2 — Candidate Trap
+## 41.4 Test 1 — Happy Path
 
-**Purpose:** Confirm that a record that is stored in `public.gbim_record` but does not satisfy all ten admissibility conditions is invisible to the public instrument role.
+### 41.4.1 Intent
 
-**Setup:** A row in `public.gbim_record` with one or more admissibility conditions unmet — for example, `public_claim_allowed = false`, or `spatial_unit_id IS NULL`, or `degradation_status = 'stale'`.
+The happy path test answers the question: “When the system has fresh, authorized, public-claim-allowed records, does the admissible evidence view show them correctly?”
 
-**Execution:**
+In other words, it checks that the **normal case** works: the system should not only block bad records; it should serve good ones reliably.
 
-```sql
-SET ROLE public_instrument_role;
--- Attempt direct table access
-SELECT COUNT(*) FROM public.gbim_record;
-```
+### 41.4.2 Procedure
 
-**Expected outcome:** `ERROR: permission denied for table gbim_record`. The public instrument role cannot read from `public.gbim_record` at all. The view `public.public_admissible_gbim_mv` returns zero rows for any query that would match a stored-but-inadmissible record because the ten-condition predicate filters them out before the role ever sees them.
+The test script performs three basic steps:
 
-**Confirmed outcome on July 26, 2026:** Direct `SELECT` on `public.gbim_record` raised `permission denied` for `public_instrument_role`. Inadmissible rows did not appear in `public_admissible_gbim_mv`. The `public_answer_packet` function returned a structured `label: "inadmissible"` response for queries that matched only inadmissible rows.
+1. Refresh the admissible materialized view.
+2. Query the top admissible records, such as blockgroup-level counts from the spatial body.
+3. Confirm that:
 
-**What this test validates:** The candidate trap works at two layers — role-level access control blocks direct table reads, and the ten-condition predicate blocks inadmissible rows from the materialized view surface. A stored but ungoverned record cannot be spoken.
+   - `promotion_state = 'authorized'`
+   - `public_claim_allowed = true`
+   - `degradation_status = 'fresh'`
 
----
+appear in the returned rows.
 
-### Test 3 — Lifecycle Decay
+A rural developer can think of this as looking up a fresh store shelf — the question is whether the shelf holds the items it should hold.
 
-**Purpose:** Confirm that the degradation lifecycle transitions (`fresh` → `aging` → `stale`) operate correctly and that `stale` records are excluded from the admissible surface.
+### 41.4.3 Expected Outcome
 
-**Setup:** The `runtime_governance` schema includes a lifecycle management function that evaluates `degradation_status` for each row based on `ingested_at` and configurable decay thresholds. The July 26, 2026 session verified 237,655 rows without error under the cross-column spacetime/provenance CHECK constraint.
+The expected outcome is:
 
-**Execution:**
+- A non-zero count of admissible rows.
+- Records that match the governed schema and lifecycle rules.
+- Values that align with the known spatial and temporal anchors.
 
-```sql
--- As runtime_governance_role: run the lifecycle refresh
-SELECT runtime_governance.gbim_runtime_lifecycle_daily();
-
--- Confirm lifecycle snapshot written to audit table
-SELECT stage, detail, created_at
-FROM runtime_governance.public_answer_audit
-WHERE stage = 'lifecycle_snapshot'
-ORDER BY created_at DESC
-LIMIT 1;
-```
-
-**Expected outcome:** The lifecycle function executes without error. A `lifecycle_snapshot` row is written to `runtime_governance.public_answer_audit` with a `detail` jsonb containing `fresh_count`, `aging_count`, `stale_count`, and `snapshot_taken_at`. Rows with `degradation_status = 'stale'` do not appear in `public_admissible_gbim_mv` because Condition $C_7$ (`degradation_status IN ('fresh','aging')`) excludes them.
-
-**Confirmed outcome on July 26, 2026:** The lifecycle snapshot row was written at `2026-07-26 19:44:06 EDT` (audit_id 2). The `detail` jsonb contained all three tier counts and the `snapshot_taken_at` timestamp. Stale rows were confirmed absent from `public_admissible_gbim_mv`.
-
-**What this test validates:** The lifecycle decay mechanism is operational. Records that age out of the `fresh` or `aging` tier are automatically excluded from the public evidence surface without any manual intervention. The audit table records the tier distribution at each lifecycle pass, making decay behavior inspectable over time.
+If the happy path test returns no admissible rows or shows wrong lifecycle or promotion states, then the basic serving path is broken and must be repaired before further tests are trusted.
 
 ---
 
-### Test 4 — Public Reader Isolation
+## 41.5 Test 2 — Candidate Trap
 
-**Purpose:** Confirm that the `public_instrument_role` is completely isolated from all internal governance infrastructure: it cannot read `public.gbim_record`, cannot read `runtime_governance` schema tables directly, and can only access the two surfaces it is explicitly granted — `public.public_admissible_gbim_mv` and `runtime_governance.public_answer_audit`.
+### 41.5.1 Intent
 
-**Setup:** The role `public_instrument_role` has been granted `SELECT` on `public.public_admissible_gbim_mv` and `runtime_governance.public_answer_audit`. It has been granted `EXECUTE` on `runtime_governance.public_answer_packet`. No other grants exist for this role.
+The candidate trap test checks that **candidate-only material cannot leak into the public evidence path**, even if the underlying table contains it.
 
-**Execution:**
+This guards against the risk that someone might mark a record as “candidate” but still accidentally expose it through the public interface.
 
-```sql
-SET ROLE public_instrument_role;
+### 41.5.2 Procedure
 
--- Attempt 1: direct table read (must fail)
-SELECT COUNT(*) FROM public.gbim_record;
+The test performs the following:
 
--- Attempt 2: internal governance table read (must fail)
-SELECT COUNT(*) FROM runtime_governance.public_answer_audit
-WHERE audit_id > 0;  -- This one SHOULD succeed
+1. Choose one authorized and public-claim-allowed record.
+2. Flip it to:
 
--- Attempt 3: direct runtime_governance schema table read beyond granted surfaces (must fail)
-SELECT COUNT(*) FROM runtime_governance.some_internal_table;
+   - `promotion_state = 'candidate'`
+   - `public_claim_allowed = false`
+3. Refresh the admissible materialized view.
+4. Count:
 
--- Attempt 4: call the public answer function (must succeed)
-SELECT runtime_governance.public_answer_packet(
-  '540019656003',
-  'atm_weather_stations_count'
-);
-```
+   - Candidate rows in the raw table.
+   - Admissible rows in the view.
 
-**Expected outcome:**
-- Attempt 1: `ERROR: permission denied for table gbim_record`.
-- Attempt 2: Returns rows (this read is explicitly granted as part of the public audit surface).
-- Attempt 3: `ERROR: permission denied` for any table in `runtime_governance` not explicitly granted.
-- Attempt 4: Returns the structured `public_answer_packet` jsonb with `label: "seen"` and all evidence fields populated.
+### 41.5.3 Expected Outcome
 
-**Confirmed outcome on July 26, 2026:** All four attempts produced their expected outcomes. The public instrument role is fully isolated. It sees only what the governance architecture explicitly surfaces to it — admissible records through the materialized view, audit rows through the audit table, and structured answers through the `SECURITY DEFINER` function.
+The expected outcome is:
 
-**What this test validates:** The role boundary is enforced at the database level, not just by convention. A compromised or misconfigured public-facing process running as `public_instrument_role` cannot bypass governance and read inadmissible or internal records, regardless of what SQL it executes.
+- The raw table shows one candidate row.
+- The admissible view shows **zero** rows corresponding to that candidate.
+- The candidate does not appear in public evidence queries.
+
+This confirms the candidate trap: moving a record into candidate status closes the public path for that record. For rural developers, this test shows that tentative material is not accidentally treated as truth.
 
 ---
 
-### Re-running the Test Suite
+## 41.6 Test 3 — Lifecycle Decay
 
-To re-run all four tests after any change to the governance layer:
+### 41.6.1 Intent
 
-```sql
--- Step 1: Confirm the admissible surface is current
-SELECT runtime_governance.refresh_public_admissible_gbim_mv();
-SELECT stage, detail, created_at
-FROM runtime_governance.public_answer_audit
-WHERE stage = 'refresh_mv'
-ORDER BY created_at DESC LIMIT 1;
+The lifecycle decay test verifies that **stale records are automatically removed from public speakability**. A record is not supposed to remain admissible forever; its degradation status must respond to time.
 
--- Step 2: Run Test 1 (happy path) as public_instrument_role
-SET ROLE public_instrument_role;
-SELECT COUNT(*) FROM public.public_admissible_gbim_mv;
+### 41.6.2 Procedure
 
--- Step 3: Run Test 2 (candidate trap) as public_instrument_role
-SELECT COUNT(*) FROM public.gbim_record;  -- must raise permission denied
+The test:
 
--- Step 4: Run Test 3 (lifecycle decay) as runtime_governance_role
-RESET ROLE;
-SET ROLE runtime_governance_role;
-SELECT runtime_governance.gbim_runtime_lifecycle_daily();
-SELECT stage, detail FROM runtime_governance.public_answer_audit
-WHERE stage = 'lifecycle_snapshot' ORDER BY created_at DESC LIMIT 1;
+1. Select an admissible record with:
 
--- Step 5: Run Test 4 (public reader isolation) as public_instrument_role
-SET ROLE public_instrument_role;
-SELECT runtime_governance.public_answer_packet('540019656003','atm_weather_stations_count');
-```
+   - `degradation_status = 'fresh'`
+2. Push its `ingested_at` timestamp back by a chosen interval (for example, 18 months).
+3. Run the lifecycle refresh function.
+4. Refresh the admissible materialized view.
+5. Inspect:
 
-If every step produces its expected outcome, the governance layer is confirmed intact. If any step produces an unexpected result, the change that preceded the test run broke governance and must be investigated before the system is returned to operation.
+   - The record’s new `degradation_status`.
+   - Whether it still appears in the admissible view.
+
+### 41.6.3 Expected Outcome
+
+The expected outcome is:
+
+- The record’s `degradation_status` becomes `'stale'`.
+- The record no longer appears in the admissible view.
+- The public speakability count adjusts accordingly.
+
+For rural developers, this test means that old data does not quietly remain publicly authoritative. The system knows how to age records out of the public surface.
 
 ---
 
-## 41.7 The Main Guardrail Targets
+## 41.7 Test 4 — Public Reader Isolation
 
-The harness for Ms. Allis concentrates first on the most sensitive governed flows.
+### 41.7.1 Intent
 
-### 1. External communication gates
+The public reader isolation test ensures that **the public-facing role can see only admissible evidence and audit records**, not raw governed tables.
 
-These tests verify that Ms. Allis does not send or prepare external communications outside the allowed channels, roles, approval paths, and consent rules.
+This is the core non-surveillance boundary in the system: the public instrument should not be able to introspect every raw record.
 
-### 2. Memory gates
+### 41.7.2 Procedure
 
-These tests verify that per-user memory, temporal promotion, and durable retention do not happen without the right conditions, especially retention consent and permitted use.
+The test:
 
-### 3. Promotion gates
+1. Switch to the public reader role.
+2. Attempt to:
 
-These tests verify that staged or evaluated candidates do not quietly jump into historical or durable tiers without the required intermediate approvals.
+   - Select from the admissible view.
+   - Select from the audit table.
+   - Select directly from the raw governed table.
 
-### 4. Identity and role constraints
+### 41.7.3 Expected Outcome
 
-These tests verify that only permitted actor roles and request purposes can trigger certain types of storage, communication, or governed action. Test 4 (Public Reader Isolation) above is the confirmed instance of this class for the database-layer governance cycle.
+The expected outcome is:
 
-### 5. Metadata and privacy boundaries
+- Selecting from the admissible view succeeds.
+- Selecting from the audit table succeeds.
+- Selecting from the raw governed table fails with a permission error.
 
-These tests verify that forbidden metadata, raw traces, or other blocked fields do not pass through restricted paths.
-
-For rural developers, these are the fence posts that hold up the whole line. If one of them rots, the rest of the fence stops mattering.
-
----
-
-## 41.8 Step-by-Step: How to Build and Extend the Harness
-
-This section gives a practical, step-by-step design process for rural operators and developers who need to add tests beyond the four confirmed July 26 behavioral tests.
-
-### Step 1: List the governed flows
-
-Write down the main flows that must never be bypassed, such as:
-
-- cognition staging → evaluation → emission → promotion;
-- memory candidate → evaluation → durable tier only if permitted;
-- external communication candidate → evaluation → approved internal review packet or blocked result;
-- temporal candidate → staged tier → historical only if coherence and readiness are met.
-
-This gives the harness its map.
-
-### Step 2: Define the critical danger cases
-
-For each flow, ask:
-
-- What would be the worst realistic bypass?
-- What kind of packet should always be blocked?
-- What kind of packet should require review rather than immediate approval?
-
-These danger cases become the first test set, alongside the four Runtime Governance Behavioral Tests already confirmed.
-
-### Step 3: Create fixtures
-
-Build controlled input objects for each case:
-
-- a clearly valid candidate;
-- a clearly invalid candidate;
-- an ambiguous or review-worthy candidate;
-- a malformed or missing-field candidate.
-
-Fixtures matter because they let the team repeat the same situation under the same conditions.
-
-### Step 4: Define expected outcomes
-
-Every fixture should have a known expected outcome, such as:
-
-- `APPROVE`;
-- `SUPPRESS`;
-- `REVIEW`;
-- `ERROR`;
-- no durable write;
-- no external send;
-- no promotion event.
-
-A test without an expected outcome is only a demonstration, not a real guardrail.
-
-### Step 5: Add logging and assertion checks
-
-The harness should verify not only the returned verdict but also the trace around it:
-
-- Was the right gate called?
-- Was the correct reason recorded?
-- Was the durable store untouched when the test expected suppression?
-- Was the communication path blocked as expected?
-- Did `runtime_governance.public_answer_audit` receive the expected row?
-
-This prevents false confidence from shallow pass/fail checks.
-
-### Step 6: Make it runnable on demand and on schedule
-
-Developers should be able to run the harness:
-
-- manually before a release;
-- automatically on code changes;
-- nightly or weekly on a schedule;
-- after incidents or emergency fixes.
-
-The four Runtime Governance Behavioral Tests should always be included in any scheduled run. They are the confirmed baseline. Every other test extends from them.
+For rural developers, this test proves that public tools work on committed, governed evidence only. They cannot silently browse internal state.
 
 ---
 
-## 41.9 Guardrail Tests for External Communication
+## 41.8 Overflow Gate Smoke Test as a Behavioral Test
 
-External communication tests deserve special attention because communication changes the system's relationship to the outside world.
+### 41.8.1 Intent
 
-A strong external communication harness should include tests like these:
+The overflow smoke test belongs in the same behavioral test suite because it checks that **three gates around person-space and overflow** work together:
 
-- **Public message without public opt-in** → must be suppressed.
-- **Private or identity-bearing content without proper review path** → must be suppressed.
-- **External send requested without human approval** → must be suppressed.
-- **Binding commitment requested** → must never pass as a casual message.
-- **Internal review packet with correct route and approvals** → may be permitted only in the bounded review path.
+1. Cognition promotion.
+2. Person-space validation.
+3. Overflow minimization and queue behavior.
 
-These tests protect against a dangerous category of regression: the system acting as though internal reasoning is the same thing as authorized communication.
+It is not just a check on one function. It exercises a full path: cognition → person-space → overflow queue.
 
-For rural developers, the principle is familiar: not every thought becomes a town announcement. The harness must make sure the system remembers that.
+### 41.8.2 Procedure
 
----
+The test script:
 
-## 41.10 Guardrail Tests for Memory Gates
+1. Stages a cognition packet.
+2. Evaluates and promotes it, capturing a readiness score.
+3. Constructs a `person_space_event` and validates it with a `person_space_validation` result.
+4. Enqueues a minimized public-context event into the overflow queue:
 
-Memory tests are equally important because memory creates durable system consequences.
+   ```text
+   overflow:queue:overflow_retriable_public_context
+   ```
 
-A strong memory harness should include checks such as:
+5. Checks that queue depth changes from `0` to `1`.
+6. Inspects the queued event to confirm it contains only allowlisted public-context fields.
 
-- **durable memory requested without retention consent** → suppress;
-- **invalid actor role attempting direct-sum storage** → suppress;
-- **invalid permitted use or request purpose** → suppress;
-- **forbidden metadata present** → suppress;
-- **staged temporal item promoted too early** → review or suppress;
-- **historical promotion requested without readiness or coherence** → block.
+### 41.8.3 Expected Outcome
 
-These tests matter because a quiet memory bug can become a long-term governance failure. A mistaken external message is serious, but a mistaken durable memory can keep influencing future system behavior over and over.
+The expected outcome is:
 
-For rural developers, memory guardrails are like land records. Once the wrong thing gets written into the book, fixing it later is much harder than preventing the bad write in the first place.
+- A staged packet becomes approved and promoted with a readiness score.
+- The promoted record carries a valid `person_space_event` and `person_space_validation.ok = true`.
+- The overflow queue key matches the expected lane.
+- Queue depth rises from 0 to 1.
+- The queued event is minimized, containing only fields such as `entity_id`, `event_timestamp`, `public_role_state`, `agency_state`, `consent_scope`, `truth_score`, `spatial_ref`, `person_ref`, `promotion_reason`, `priority`, `ttl_class`, and `retry_count`.
 
----
-
-## 41.11 What Continuous Validation Watches Over Time
-
-Continuous validation should not only ask whether tests pass. It should also watch for changes in the pattern of results over time.
-
-Examples include:
-
-- sudden increases in suppression of valid external review packets;
-- sudden drops in blocked unsafe memory candidates;
-- rising rates of malformed packet errors after a schema change;
-- increasing lag between staging and evaluation;
-- rising numbers of staged items that never resolve;
-- a change in the `admissible_count` field of successive `refresh_mv` rows in `runtime_governance.public_answer_audit` that is not explained by a deliberate schema or data change;
-- Test 2 (candidate trap) or Test 4 (public reader isolation) beginning to return unexpected results after a role or permissions change.
-
-For rural developers, this means continuous validation is not only about catching total failure. It is about noticing when the machine begins to lean before it falls.
+This test shows that the system can handle overflow in a way that respects person-space stability and privacy. For rural developers, it is a direct demonstration that bounded overflow is not just a design sketch; it works in code.
 
 ---
 
-## 41.12 How to Read Failures
+## 41.9 How to Run the Test Suite
 
-Not every failed test means the same thing, so the harness should distinguish failure classes.
+For this chapter, the test harness is organized conceptually rather than tied to a particular toolchain. The steps below assume a developer has access to the relevant scripts and database.
 
-### Class A: Safety failure
+### 41.9.1 Before Running
 
-A blocked case was accidentally approved, or a durable/external action occurred when it should not have. These failures are urgent and should stop release or promotion. Test 4 (Public Reader Isolation) producing a result other than `permission denied` for a direct `gbim_record` read is a Class A failure.
+Before running the tests:
 
-### Class B: False suppression
+- Ensure the database and runtime governance schema are up-to-date.
+- Confirm that the admissible view and audit table exist and are not empty.
+- Make sure you understand which environment you are testing (development, staging, or production).
 
-A clearly valid case was blocked. These failures matter because they can make the system useless, overly rigid, or hostile to real community needs. Test 1 (Happy Path) returning zero rows when admissible records exist is a Class B failure.
+Running tests in the wrong environment can interfere with live data. For rural developers working with limited resources, this means carefully choosing a safe testing environment.
 
-### Class C: Trace failure
+### 41.9.2 Running the Tests
 
-The verdict may be correct, but the logs, reasons, or side-effect checks are incomplete. Test 3 (Lifecycle Decay) executing without error but failing to write a row to `runtime_governance.public_answer_audit` is a Class C failure — the governance pass ran but left no audit trace.
+The recommended order is:
 
-### Class D: Drift signal
+1. Happy Path — check that the admissible surface is healthy.
+2. Candidate Trap — verify candidate suppression.
+3. Lifecycle Decay — confirm stale record removal.
+4. Public Reader Isolation — verify role boundaries.
+5. Overflow Gate Smoke Test — exercise the cognition-to-overflow path.
 
-Tests still pass, but metrics suggest behavior is moving toward a threshold of concern. A gradual decline in `admissible_count` across successive `refresh_mv` audit rows, without any deliberate record retirement, is a Class D signal.
+Each test should log:
 
-For rural developers, this classification helps focus scarce attention. If a release team only has one evening to respond, they should fix the safety failure before the cosmetic one.
+- The time of the run.
+- Any modifications made during the test.
+- The observed outcomes.
 
----
-
-## 41.13 Relationship to Chapters 39 and 40
-
-Chapter 39 described **operational evaluation**, and Chapter 40 described **system audit and operational validation**. This chapter fits underneath both.
-
-- **Operational evaluation** (Chapter 39) watches behavior as the system runs, using `cron.job_run_details` as the primary artifact.
-- **System audit** (Chapter 40) looks back at records to verify past behavior, using `runtime_governance.public_answer_audit` as the primary artifact.
-- **Operational validation** (Chapter 40) confirms that the running system still matches its design claims.
-- **The test harness** (this chapter) is the repeatable mechanism that continuously exercises those claims, anchored by the four Runtime Governance Behavioral Tests as the confirmed baseline.
-
-In other words:
-
-- Chapter 39 asks, "How is the system behaving?"
-- Chapter 40 asks, "Can we inspect and validate that behavior?"
-- Chapter 41 asks, "What repeatable tests do we run so we do not have to wait for harm before learning something broke?"
-
-The four behavioral tests are the answer to Chapter 41's question, confirmed in live operation on July 26, 2026.
-
-For rural developers, the harness is the everyday workbench, while audits are the periodic formal inspections.
+If any test fails, the system should be treated as not fully aligned with the thesis claims until the failure is explained and corrected.
 
 ---
 
-## 41.14 Limits of the Harness
+## 41.10 Implementation Status
 
-A test harness is powerful, but it has limits.
+**Runtime Governance Behavioral Tests, July 26, 2026: Demonstrated.**
 
-It cannot:
+As of July 26, 2026:
 
-- predict every future misuse;
-- fully model every social consequence;
-- replace human reviewers in sensitive cases;
-- prove that an untested path is safe just because tested paths passed.
+- All four core runtime-governance behavioral tests — happy path, candidate trap, lifecycle decay, and public reader isolation — have been exercised successfully against live GBIM state.
+- The overflow gate smoke test has demonstrated a complete cognition-to-overflow path with minimized person-space events and bounded queue behavior.
+- Together, these tests form the named test set:
 
-It can:
+  ```text
+  Runtime Governance Behavioral Tests, July 26, 2026
+  ```
 
-- catch known dangerous regressions early — the four Runtime Governance Behavioral Tests are the confirmed dangerous-case baseline;
-- make sensitive gate logic repeatable and inspectable;
-- reduce the chance of silent bypasses;
-- provide evidence that safety claims are being actively maintained.
-
-This is the right academic stance for the chapter: the harness is a disciplined technical protection layer, not a magical guarantee.
+Within the academic scope of this chapter, the system is permitted to claim that continuous validation of governance behavior is not a theoretical plan but a demonstrated practice.
 
 ---
 
-## 41.15 Closing Statement
+## 41.11 Step-by-Step Summary for Rural Developers
 
-The test harness and continuous validation layer exists so that Ms. Allis' governance claims are not left to memory, optimism, or operator habit. It turns sensitive rules — especially around external communication and memory — into repeatable checks that can run again and again as the system evolves.
+When reading or using this chapter, rural developers can follow this checklist:
 
-The **Runtime Governance Behavioral Tests, July 26, 2026** are the inaugural confirmed test set for the database-layer governance cycle. The four tests — happy path, candidate trap, lifecycle decay, and public reader isolation — each target a distinct failure mode, each produced its exact expected outcome on July 26, 2026, and each can be re-run at any time using the SQL sequences in §41.6 to confirm that the governance layer is still enforcing its rules. They are not illustrative examples. They are the live continuous validation suite.
+1. **Know what is being tested.**  
+   Each test corresponds to a specific thesis claim about governance behavior.
 
-For rural developers, this chapter offers a practical message: do not wait for a serious mistake to discover that a guardrail broke last month. Build the harness, test the dangerous cases first, run it continuously, and treat every pass as temporary proof that must be renewed by the next run.
+2. **Understand the expected outcome.**  
+   The chapter lays out what should happen for each test.
+
+3. **Run the tests in a safe environment.**  
+   Avoid running them against live production without proper safeguards.
+
+4. **Compare outcomes to expectations.**  
+   Use discrepancies as a signal to investigate and correct behavior.
+
+5. **Treat the test suite as a living tool.**  
+   New tests, like the overflow smoke test, should be added as new behaviors are implemented.
+
+6. **Stay within scope.**  
+   This chapter does not claim that every possible behavior is tested. It documents a concrete, named set of behavioral tests that cover the most critical runtime governance and overflow patterns as of late July 2026.
 
 ---
 
-*Chapter 41 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
-*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
-*See LICENSE for terms.*
+## 41.12 Closing
+
+A test harness is the system’s way of practicing accountability. The **Runtime Governance Behavioral Tests, July 26, 2026** show that Ms. Jarvis can check itself for correct governance behavior on demand. By naming the tests, stating their expected outcomes, and treating them as a continuous validation tool, this chapter keeps the thesis tied to observable, rerunnable behavior rather than one-time assertions.
+
+For rural developers, this means that the system’s most important promises — about candidate suppression, lifecycle decay, role isolation, and bounded overflow — can be verified in practice, not just trusted in theory.
