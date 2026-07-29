@@ -1,4 +1,4 @@
-# 0. Researcher Position and Observer Role
+# 0000. Researcher Position and Observer Role
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
 *Last updated: April 23, 2026*
