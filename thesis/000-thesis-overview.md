@@ -1,4 +1,4 @@
-# Chapter 00 — Thesis Overview (As‑Built July 2026)
+# Chapter 000 — Thesis Overview (As‑Built July 2026)
 
 ## Ms. Egeria Allis: A Chapter‑by‑Chapter Map of the Thesis
 
