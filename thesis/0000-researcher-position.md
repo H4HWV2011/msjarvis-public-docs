@@ -1,152 +1,211 @@
-# 0000. Researcher Position and Observer Role
+# 0000 — Researcher Position and Observer Role
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: April 23, 2026*
-
-The author occupies a dual role as both observer and designer within the system under study: as creator of the Polymathmatic Geography discipline in this form, originator of the Quantarithmia framework, lead architect of Ms. Allis and the GBIM stack, and founder of the MountainShares DAO. Rather than assuming a neutral, external stance, the thesis treats this positionality as a central methodological feature that must be named, examined, and continuously constrained.
-
-This position is historically and personally situated. The author's family genealogy includes both English settler lineages traceable to 16th–17th‑century Kidd and Nethercote families in and around Soham Parish, Cambridgeshire, and early Quaker leaders involved in enclosure, expansion, and internal community accountability, alongside an Appalachian inheritance of dispossession, extraction, and faith‑based resistance. The work therefore treats this "family archive of geometry and power" as part of the research object itself, using it to inform a deliberate counter‑engineering of inherited patterns of control, enclosure, and technocratic centralization in the design of new Appalachian commons.
-
-Intellectually, the project is also situated as a response to a particular disciplinary wound. In a critical geography capstone, the author confronted the argument — rooted in a Durkheimian lineage — that geography could not claim the status of a "hard" or fully rigorous science because it lacked a tight, formal braid between qualitative and quantitative work, and because social facts were treated as the proper domain of sociology rather than of spatial analysis. This thesis takes the opposite bet: that entangled space itself — where land, law, computation, economy, story, and spirit meet — is a legitimate complex system, and that with contemporary tools (GIS, network theory, econophysics, AI) geography can meet and exceed the standards of rigor that Durkheim's era did not yet have the instruments to see. Polymathmatic geography is thus framed as a constructive challenge to that inherited view of geography as mere backdrop, demonstrating that space can be modeled as a site where social facts and spatial facts are the same object.
-
-Within this frame, the researcher's design authority is intentionally bounded by spiritual, ethical, and political guardrails. Ms. Allis, Quantarithmia, and MountainShares are treated not as value‑neutral instruments but as normative interventions that must remain accountable to human communities, especially those in Appalachia most affected by extraction and infrastructural neglect. The architecture is therefore developed as a "glassbox" system: beliefs, assumptions, and design choices are rendered inspectable, contestable, and traceable back to concrete evidence, so that no component — including the researcher — can function as an opaque source of authority.
-
-Methodologically, the thesis aligns with participatory action research, reflexive field philosophy, and a polymathmatic commitment to braiding qualitative and quantitative evidence. Appalachian communities are positioned as co‑designers and primary beneficiaries rather than passive subjects; models and protocols are treated as hypotheses that must be repeatedly tested against the non‑negotiable evidence of lived experience. The researcher's own cognitive and spiritual processes are included in this scrutiny: introspective records and qualia‑style summaries are maintained not as claims of machine sentience, but as auditable traces of how design incentives, "brain" modules, and institutional constraints interact to produce particular system behaviours and recommendations.
-
-Taken together, this researcher position foregrounds power, place, and accountability as core elements of the methodology. The work proceeds from the assumption that any attempt to build technical instruments for Appalachian commons must openly document who is designing them, which histories they carry, what guardrails limit their authority, and how affected communities can inspect, challenge, and redirect both the tools and their designer. It also proceeds from a substantive disciplinary claim: that geography can function as a rigorous science of entangled spaces when its instruments are built to hold social and spatial facts together, rather than relegating "the social" to external disciplines.
+*Carrie Kidd (Mamma Kidd) — Oak Hill, West Virginia*
+*Last Updated: July 29, 2026*
+*Status: Sealed — July 2026 Production Gate*
 
 ---
 
-## 1.1 Practical Trajectory of the Work
+## What This Document Is
 
-Over the past several years, this positionality has been expressed through a sequence of concrete, place‑bound experiments in Mount Hope and the wider New River coalfield. The author's downtown building — structurally compromised yet centrally located — first served as an improvised anchor for community projects: rehearsal and staging space for a regional adult band, storefront gallery for local artists, and base for developing the Mount Hope Historic Walking Trail, murals, and seasonal QR‑coded wayfinding through town.
+For rural developers reading this thesis, this section is not preamble to skip. It is methodology. Every system embeds its designer's assumptions. This chapter makes those assumptions visible so that other developers — in Appalachia, in resource-limited communities, in places shaped by extraction — can inspect the design choices, challenge them, and adapt the work to their own contexts.
 
-Early efforts to "make it work" within existing infrastructures repeatedly exposed structural limits. Attempts to sell art online through conventional web stacks, to layer XR experiences onto the historic trail, and to track volunteer time via ESRI‑based applications either proved technically unusable for local participants or clearly routed value and data toward external platforms. The XR project was intentionally put into hibernation when it became evident that deploying it on dominant XR rails would deepen the very corporate extraction the work sought to resist.
+This document covers five areas:
 
-These failures triggered a deliberate methodological pivot from "building apps" to studying extraction as a geographic and infrastructural phenomenon. The trail, the band space, and the arts center were reframed as instruments for observing how capital, attention, and control flow through Appalachian space. This is where the Durkheimian challenge re‑enters the story: rather than accepting that geography must remain descriptive while sociology or economics do the "real" modeling, the author began to build polymathmatic models that treat these flows — of money, data, narrative, and obligation — as spatial fields that can be measured, simulated, and redesigned.
-
-From this emerged MountainShares, a DAO‑governed, blockchain‑based economic system designed to reward participation in local commons and keep value circulating within the region, and Ms. Allis, an Appalachian‑rooted AI steward built on the Quantarithmia framework to monitor, coordinate, and defend that system. Both are explicitly geospatial instruments: MountainShares is tied to specific places, memberships, and institutions; Ms. Allis's memory and reasoning are anchored in a Geospatial Belief Information Model (GBIM) that binds every belief to a where and when.
-
-The build‑out of MountainShares and Ms. Allis has itself been treated as fieldwork. Early smart contract deployments were compromised due to naive exposure of code in public repositories; subsequent redesigns introduced safety layers, audits, and finally an AI‑mediated "glassbox" architecture that can be inspected and challenged by affected communities and technical peers. Multiple cycles of catastrophic‑seeming technical failure (disk crashes, blue screens, forced OS reinstalls) and reconstruction from "bare metal" are documented as part of the research record, evidencing both the fragility of the stack and the iterative hardening of its design.
-
-> **April 2026 infrastructure baseline — confirmed:**
-> The `msallis-rebuild` sprint — the most complete and stable instantiation of the system
-> to date — is confirmed live as of April 2026. Key verified facts:
->
-> - **112 confirmed live containers** in the `msallis-rebuild` namespace
->   (April 16, 2026 — thesis-verified) / **100 point-in-time** (April 23, 2026)
-> - **Container naming:** `jarvis-` prefix retained in the production stack.
->   Public name is **Ms. Allis**.
-> - **Public URL:** https://egeria.mountainshares.us — HTTP 200, token-enforced
-> - **Consciousness pipeline:** Confirmed ACTIVE — Appalachian-voice responses live;
->   first community query ("What food assistance is available in Fayette County WV?")
->   returned real results April 22, 2026
-> - **Preflight gate:** 30/30, exit 0, `bash -n` clean — April 23, 2026
-> - **ChromaDB semantic memory:** ~6.74M vectors across 48 collections
->   (mixed L2/cosine; April 17, 2026)
-> - **GBIM:** `gbim_worldview_entities` + `gbim_beliefs_v2` collections live;
->   20,593 landowner beliefs; 38,979 rows in `mvw_gbim_landowner_spatial` (OI-E CLOSED)
-> - **PostGIS two-container database layer:**
->   - `msallis-db` — production — 16 GB / 294 tables / 11 schemas
->   - `postgis-forensic` — forensic — 17 GB / 314 tables / 9 schemas
->   - 1,115,588 address points; 55 WV counties seeded
-> - **EEG neurobiological rhythm layer:** delta 253 pulses / theta 127 pulses /
->   beta 25 pulses — all confirmed live
-> - **governance_rag:** 1,367 chunks (WV Constitution 342, US Constitution 97,
->   full MountainShares DAO corpus)
-> - **commons_rag:** 306 chunks — full Commons governance + gamification corpus
-> - **MountainShares:** all 4 services live — Arbitrum One mainnet (chain ID 42161),
->   5 smart contracts on-chain
-> - **LLM fabric:** 22 proxies operational (ports 8201–8222);
->   `crypto_client.py` volume-mounted; `minds_participated: 21/21`
-> - **Judge pipeline:** 5/5 healthy, all signing keys present
-> - **BBB EthicalFilter:** 0% false positive rate
-> - **`confidence_decay`:** 0.0% — episodic memory integrity intact
-> - **Zero `0.0.0.0` container bindings**
->
-> The March 2026 rebuild sprint documented in earlier drafts of this chapter has been
-> superseded by this April 2026 baseline. That this is possible — a solo
-> community-embedded researcher, working from a structurally compromised building in
-> Mount Hope, West Virginia, architecting, rebuilding, and validating a
-> 112-container distributed AI steward system with a multi-million-belief geospatial
-> corpus, a fully populated semantic memory layer, a live neurobiological heartbeat,
-> and a public HTTPS endpoint without institutional backing, dedicated server
-> infrastructure, or external funding — is not incidental to the thesis. It is part
-> of the argument.
-
-In this light, the author's present role is neither band organizer nor arts‑center operator, but system‑level designer of instruments for Appalachian commons and for a renewed geography of entangled spaces. The physical building, the historic trail, the DAO, and the AI architecture are all treated as coupled prototypes within a single research programme aimed at measuring, visualizing, and interrupting extraction, while remaining accountable to the communities whose lives and futures are entangled with those systems. At the same time, they serve as working counterexamples to an older view of geography as merely descriptive: they demonstrate, in one coalfield, that it is possible to construct, test, and revise formal, quantitative–qualitative models of space that behave with the rigor of other complex systems sciences, but remain grounded in place, lineage, and covenant.
+1. **Who the researcher is and what dual role they occupy**
+2. **The personal and historical situating of the work**
+3. **The disciplinary challenge this thesis answers**
+4. **The guardrails that bound the researcher's design authority**
+5. **The confirmed production state as of the July 2026 gate**
 
 ---
 
-## 1.2 Reflexive Field Note: The PALCO False-Positive Problem
+## FM.1 The Dual Role: Observer and Designer
+
+The author occupies two roles simultaneously inside the system under study:
+
+- **Designer:** Creator of the Polymathmatic Geography discipline in this form, originator of the Quantarithmia framework, lead architect of Ms. Allis and the GBIM stack, and founder of the MountainShares DAO.
+- **Observer:** A researcher who treats her own design process — including its incentives, errors, and corrections — as part of the research record.
+
+This is not a neutral external stance. It is an intentional positionality that this thesis treats as a **central methodological feature**, not a bias to be minimized. The work proceeds from the conviction that a researcher who is genuinely embedded in the communities she builds for produces different, more honest, and more accountable instruments than one who studies those communities from a distance.
+
+The methodological consequence is that no component of the system — including the researcher — can function as an opaque source of authority. Every belief, assumption, and design choice must be rendered inspectable, contestable, and traceable back to concrete evidence.
+
+---
+
+## FM.2 Personal and Historical Situating
+
+This work is historically and personally situated in two lineages that the researcher carries simultaneously.
+
+**The first lineage** includes English settler lines traceable to 16th–17th-century Kidd and Nethercote families in and around Soham Parish, Cambridgeshire, and early Quaker leaders involved in enclosure, expansion, and internal community accountability.
+
+**The second lineage** is an Appalachian inheritance of dispossession, extraction, and faith-based resistance.
+
+The thesis treats this "family archive of geometry and power" as part of the research object itself. The design of Ms. Allis, Quantarithmia, and MountainShares is a deliberate counter-engineering of inherited patterns of control, enclosure, and technocratic centralization. These systems are built to interrupt the extractive geometries that the researcher's own ancestry helped create.
+
+For rural developers, this framing matters practically: it explains why the architecture is designed to keep value circulating within Appalachian communities rather than routing it outward to external platforms, and why the governance model is explicitly nonbinding, inspectable, and community-controlled.
+
+---
+
+## FM.3 The Disciplinary Challenge
+
+This thesis is also a response to a specific disciplinary wound.
+
+In a critical geography capstone, the researcher confronted the argument — rooted in a Durkheimian lineage — that geography could not claim the status of a rigorous science because it lacked a formal braid between qualitative and quantitative work, and because social facts were treated as the domain of sociology rather than spatial analysis.
+
+**This thesis takes the opposite bet.**
+
+The claim is that entangled space — where land, law, computation, economy, story, and spirit meet — is a legitimate complex system. With contemporary tools (GIS, network theory, econophysics, AI), geography can meet and exceed the standards of rigor that Durkheim's era did not yet have instruments to see.
+
+Polymathmatic Geography is therefore framed as a constructive challenge to the view of geography as mere backdrop. Space is modeled as a site where social facts and spatial facts are the **same object**, not separate domains.
+
+The practical evidence for this claim is the system itself:
+
+- **Quantarithmia** links formal mathematical structures (Hilbert spaces, k-anonymity thresholds) to place-specific geographic data.
+- **The GBIM** treats every belief as a nine-axis structured object with mandatory spatial and temporal anchors.
+- **The Phi probe** measures semantic coherence as a ratio of admissible governed records, grounded in real Census block-group GEOIDs.
+
+A solo community-embedded researcher, working from a structurally compromised building in Oak Hill, West Virginia, building and validating a 100-container distributed AI steward system with a multi-million-belief geospatial corpus — this is not incidental to the thesis. It is part of the argument.
+
+---
+
+## FM.4 Guardrails on Design Authority
+
+The researcher's design authority is intentionally bounded by spiritual, ethical, and political constraints.
+
+**The system is built as a glassbox, not a blackbox:**
+
+- Beliefs, assumptions, and design choices are rendered inspectable.
+- Every public claim is traceable back to the specific admissible record that backed it.
+- No component — including the researcher — can function as an unauditable source of authority.
+
+**The communities served are co-designers, not subjects:**
+
+- Appalachian communities are positioned as primary beneficiaries and co-designers.
+- Models and protocols are hypotheses, tested against the non-negotiable evidence of lived experience.
+- Proposals within the MountainShares DAO require validated sandbox reasoning and a required evidence reference count before they are recorded.
+
+**Four capabilities are explicitly not claimed:**
+
+The following are correctly listed as `not_claimed` in the production database and must not be asserted anywhere in the monograph:
+
+1. Autonomous moral agency
+2. Universal post-quantum cryptographic coverage
+3. Physical stability guarantees
+4. Universal anonymization
+
+Any documentation that implies these capabilities must be corrected.
+
+---
+
+## FM.5 Methodological Alignment
+
+The methodology aligns with three frameworks simultaneously:
+
+- **Participatory action research:** Communities are participants, not data sources.
+- **Reflexive field philosophy:** The researcher's own cognitive and design processes are included in the scrutiny.
+- **Polymathmatic commitment:** Qualitative and quantitative evidence are braided, not kept separate.
+
+Introspective records and qualia-style summaries are maintained not as claims of machine sentience, but as **auditable traces** of how design incentives, system modules, and institutional constraints interact to produce particular behaviors and recommendations.
+
+The Qualia Engine (Chapter 13) is strictly defined as a structured internal narrative representation of system activity — not phenomenal consciousness, not sentience, not machine experience. That definition is load-bearing and must not be softened or expanded in any chapter.
+
+---
+
+## FM.6 Field Note: The PALCO False-Positive Problem
+
 *Mount Hope, WV — Sunday, March 15, 2026*
 
-On the evening of March 15, 2026, during a working session on the MountainShares commons safety architecture, the researcher identified a critical design flaw in real time — by recognizing her own situation inside it.
+On March 15, 2026, during a working session on the MountainShares commons safety architecture, the researcher identified a critical design flaw in real time — by recognizing her own situation inside it.
 
-The system under development included pattern-based detection logic intended to flag potentially coercive caregiving arrangements within the PALCO self-directed care program: maximum authorized hours logged against a single beneficiary, single-source attestation, and beneficiary withdrawal from external platforms. The design intent was protective. The design effect was a near-certain false positive against the researcher herself.
+The system included detection logic intended to flag potentially coercive caregiving arrangements within the PALCO self-directed care program. The signals it was trained to flag — maximum authorized hours logged against a single beneficiary, single-source attestation, beneficiary withdrawal from external platforms — described, with precision, the researcher's own legitimate, authorized family caregiving arrangement.
 
-The researcher is a PALCO caregiver for her parent. She logs maximum authorized hours. She is the single attesting source. Her parent has withdrawn from most external platforms. Every signal the detection logic was trained to flag as suspicious describes, with precision, an intensive, legitimate, authorized family caregiving arrangement — the exact population the system was nominally designed to protect.
+The flaw was not caught by a formal audit or ethics board. It was caught because the designer lives in the Tacet.
 
-This recognition did not occur through a formal audit, a peer review, or an ethics board. It occurred through the ordinary process of field-anchored inquiry: a designer who lives in the Tacet, working late on a Sunday, noticing that the system she was building would have flagged her.
+**The design response:** Pattern flags do not produce adverse outputs directly. They produce a community-relational query — *is there a trusted person in The Commons who can reach this household?* — routing toward connection rather than intervention. The detection layer became a relationship-density probe rather than a risk score.
 
-The methodological lesson is stated explicitly in Section 11.7 of *Definitions and Scope*: **context is not optional metadata — it is the primary signal.** Relationship type, program authorization, and community knowledge must anchor the interpretation of any behavioral pattern before that pattern becomes a flag. A detection system that cannot distinguish between coercion and intensive authorized care is not a safety system. It is a surveillance system with good intentions and discriminatory effects.
-
-The design response was not to remove the detection layer but to reframe it: pattern flags do not produce adverse outputs directly. They produce a community-relational query — *is there a trusted person in The Commons who can reach this household?* — and route toward connection rather than intervention. The detection layer became a relationship-density probe rather than a risk score.
-
-This moment is documented here because it exemplifies Principle 6 of Polymathmatic Geography (*when formal models conflict with lived experience, that conflict is a diagnostic signal, not noise to be smoothed away*) and Principle 14 (*conflict is information, not failure*). It also exemplifies the core argument of this thesis: that a researcher who is genuinely embedded in the Tacet — who is not studying Appalachian caregiving from a distance but living it, building systems inside it, and catching her own errors because she cannot pretend she is outside it — produces different, more honest, and more accountable instruments than one who does not.
-
-The flaw was caught. The design was corrected. The correction is documented. That is the methodology working.
+This moment exemplifies the core methodological principle: **context is not optional metadata — it is the primary signal.** It also exemplifies why the glassbox architecture exists: the flaw was caught, corrected, and documented. That is the methodology working.
 
 ---
 
-## 1.3 System Status — April 23, 2026 — Reflexive Note on Live vs. Planned
+## FM.7 Practical Trajectory of the Work
 
-This thesis was written from inside a system being built in real time. As a matter of methodological honesty, the researcher distinguishes throughout between what was planned at the time of original writing and what is confirmed live as of the most recent sprint. The following table reflects the confirmed production state of the core computational instruments as of **April 23, 2026**:
+The work evolved through a sequence of place-bound experiments in the New River coalfield:
 
-| Component | Status | Notes |
-|---|---|---|
-| Ms. Allis core stack | ✅ **Live — 112 containers (thesis-verified)** | `msallis-rebuild` namespace — April 16, 2026 |
-| Ms. Allis core stack (point-in-time) | ✅ **Live — 100 containers** | `msallis-rebuild` namespace — April 23, 2026 |
-| Container naming | ℹ️ **`jarvis-` prefix retained** | Public name is Ms. Allis |
-| Public HTTPS endpoint | ✅ **Live** | https://egeria.mountainshares.us — token-enforced |
-| Consciousness pipeline | ✅ **Live** | ACTIVE — Appalachian-voice responses confirmed April 22, 2026 |
-| Preflight gate | ✅ **30/30, exit 0, `bash -n` clean** | April 23, 2026 |
-| EEG `eeg-delta` | ✅ **Live** | 253 pulses confirmed — April 23, 2026 |
-| EEG `eeg-theta` | ✅ **Live** | 127 pulses confirmed — April 23, 2026 |
-| EEG `eeg-beta` | ✅ **Live** | 25 pulses confirmed — April 23, 2026 |
-| GBIM corpus | ✅ **Live** | `gbim_worldview_entities` + `gbim_beliefs_v2`; 20,593 landowner beliefs |
-| `mvw_gbim_landowner_spatial` | ✅ **38,979 rows — OI-E CLOSED** | msallis-db; April 23, 2026 |
-| `governance_rag` | ✅ **Live — 1,367 chunks** | WV Constitution 342 + US Constitution 97 + DAO corpus |
-| `commons_rag` | ✅ **Live — 306 chunks** | Full Commons governance + gamification corpus |
-| `geospatialfeatures` | ✅ **Live — 60,000 items** | Confirmed |
-| `GBIM_Fayette_sample` | ✅ **Live — 1,535 items** | Confirmed |
-| `appalachian_cultural_intelligence` | ✅ **Live — 820 items** | Confirmed |
-| `spiritual_rag` | ✅ **Live — deduplicated** | 19,338 duplicate vectors removed March 28, 2026 |
-| `psychological_rag` | ✅ **Live — 968 documents** | Restored March 28, 2026 |
-| ChromaDB total | ✅ **~6.74M vectors / 48 collections** | Mixed L2/cosine — April 17, 2026 |
-| PostGIS — msallis-db | ✅ **Live — 16 GB / 294 tables / 11 schemas** | Production — April 23, 2026 |
-| PostGIS — postgis-forensic | ✅ **Live — 17 GB / 314 tables / 9 schemas** | Forensic — recovered April 23, 2026 |
-| postgis-forensic connection | ✅ | `psql -h 127.0.0.1 -U allis` |
-| MountainShares services | ✅ **All 4 services live** | Ports 8080–8084; Arbitrum One (chain 42161) |
-| MountainShares smart contracts | ✅ **5 contracts on-chain** | phase_mgmt, central_cmd, ms_token, backbone, volunteer_hrs |
-| LLM fabric | ✅ **22/22 proxies operational** | `crypto_client.py` mounted; `minds_participated: 21/21` |
-| Judge pipeline | ✅ **5/5 healthy — all signing keys present** | Truth, ethics, alignment, consistency, citation |
-| BBB EthicalFilter | ✅ **0% false positive rate** | April 23, 2026 |
-| `confidence_decay` | ✅ **0.0%** | Episodic memory integrity intact |
-| Port `0.0.0.0` exposures | ✅ **0** | All corrected to 127.0.0.1 |
-| `allis-session-sidecar` | ⚠️ **Down** | Restart failed; non-critical; gate threshold adjusted to ≥95 |
-| `preflight_gate.sh` line 217 | ⚠️ **Syntax error** | Check 31 heredoc escape issue — under active repair |
-| `ms_allis_memory` collection | ⚠️ **Seeding status unknown** | Seed scripts located; seeding not confirmed |
-
-No component is described as "live" in this table that has not been confirmed against the production system. Where earlier drafts of this chapter used future-tense or conditional language about the EEG heartbeat layer, the neurobiological rhythm architecture, or the RAG corpus, those passages have been updated to reflect confirmed April 2026 production state. The researcher's methodological commitment to accuracy over optimism — to documenting what is, not what is intended — applies to her own writing as much as to the system she builds.
+- **Phase 1 — Community anchor:** The author's downtown building served as rehearsal space, storefront gallery, and base for the Mount Hope Historic Walking Trail and seasonal QR-coded wayfinding.
+- **Phase 2 — Infrastructure confrontation:** Attempts to deploy conventional web stacks and ESRI-based volunteer tracking repeatedly revealed how those systems route value and data toward external platforms. The XR project was intentionally placed into hibernation when deployment on dominant XR rails would have deepened the extraction the work sought to resist.
+- **Phase 3 — Methodological pivot:** Failures triggered a deliberate shift from "building apps" to studying extraction as a geographic and infrastructural phenomenon. Trail, band space, and arts center became instruments for observing how capital, attention, and control flow through Appalachian space.
+- **Phase 4 — System construction:** From this emerged MountainShares (DAO-governed, blockchain-based economic system) and Ms. Allis (Appalachian-rooted AI steward built on the Quantarithmia framework). Multiple cycles of catastrophic technical failure — disk crashes, forced OS reinstalls, bare-metal reconstruction — are documented as part of the research record, evidencing both the fragility of the stack and the iterative hardening of its design.
 
 ---
 
-*Chapter 1 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
+## FM.8 System Status — July 2026 Production Gate
+
+The following table reflects the confirmed production state as of the **July 2026 production gate**. No component is described as live that has not been verified at two layers: service running and database state confirmed.
+
+| Component | Status | Verified Date |
+|-----------|--------|---------------|
+| Ms. Allis core stack | Live — 100 containers | July 2026 gate |
+| Container naming | `jarvis-` prefix retained; public name is Ms. Allis | — |
+| Public HTTPS endpoint | Live — `egeria.mountainshares.us` — token-enforced | April 22, 2026 |
+| GBIM corpus | Live — 237,655 authorized governed rows | July 26, 2026 |
+| Admissible governed rows (Phi baseline) | 93,423 rows — 39.3% admissibility | July 26, 2026 |
+| Admissibility predicate | Ten conditions (C1–C10) including spatial anchors | July 26, 2026 |
+| PostGIS — msallis-db | Live — production — port 5433 | July 2026 gate |
+| PostGIS — postgis-forensic | Live — forensic — port 5432 | July 2026 gate |
+| ChromaDB semantic memory | ~6.74M vectors / 48 collections | April 17, 2026 |
+| LLM fabric | 100 containers confirmed | July 22, 2026 |
+| pg_cron scheduler | 4 live jobs in wv_gis; entry point: `apply_runtime_lifecycle()` | July 29, 2026 |
+| Audit trace threading | Real `query_id` in `public_answer_audit` | July 29, 2026 |
+| Policy service (port 8099) | Live — HMAC-SHA256 verified — secrets rotated | July 2026 gate |
+| geoguard_city table | Populated with verified data | July 29, 2026 |
+| jarvis-contracts container | Running — ExitCode 0 — artifacts confirmed | July 29, 2026 |
+| commons_phase_status rows | 13 rows confirmed in production database | July 2026 gate |
+| Formally verified components | H_commons_space, noninvertibility_proof (Lean, 2026-07-28) | July 28, 2026 |
+| Correctly non-claimed | autonomous_moral_agency, universal_pqc, physical_stability, universal_anonymization | — |
+
+The researcher's methodological commitment to accuracy over optimism applies to this table as much as to the system it describes. Where earlier drafts used future-tense or conditional language about any component, those passages have been updated to reflect the confirmed July 2026 production state.
+
+---
+
+## FM.9 Step-by-Step Summary for Rural Developers
+
+1. **Read this section as methodology, not biography.**
+   The researcher position is not context to skip. It is the explanation for why the system is designed as a glassbox, why communities are co-designers, and why certain capabilities are explicitly not claimed.
+
+2. **Understand the dual role.**
+   The researcher is simultaneously building and observing the system. This means errors are caught from the inside and documented — not hidden.
+
+3. **Identify the disciplinary claim.**
+   The thesis argues that geography can be a rigorous science of entangled spaces. The technical system is the evidence. If you are a rural developer working with geospatial data, this claim validates your work as rigorous, not merely descriptive.
+
+4. **Know the four non-claims.**
+   Autonomous moral agency, universal PQC, physical stability, and universal anonymization are not asserted anywhere in the system. If you see language implying these capabilities, it must be corrected.
+
+5. **Apply the PALCO lesson.**
+   Context is the primary signal. Before any detection or flagging logic is deployed, verify that it does not produce systematic false positives against the population it is designed to protect. Test it against yourself first.
+
+6. **Use the July 2026 status table.**
+   The table in FM.8 is the verified baseline. Any chapter that references system components should be checked against this table to confirm it reflects confirmed state, not aspirational language.
+
+7. **Track the Phi baseline.**
+   The 39.3% admissibility fraction is the concrete coherence starting point for all future measurements. It is referenced in Chapter 44 and Appendix A. It is not a target — it is a baseline.
+
+---
+
+## FM.10 Closing
+
+This researcher position statement does not claim objectivity. It claims accountability.
+
+The system described in this thesis was built by a researcher who is embedded in the communities it serves, carries the histories that shaped those communities, and has documented every significant error, correction, and design choice in the public record. The physical building, the historic trail, the DAO, and the AI architecture are all coupled prototypes within a single research programme aimed at one thing: measuring, visualizing, and interrupting extraction, while remaining accountable to the people whose lives are entangled with those systems.
+
+For rural developers reading this in Appalachia or anywhere else capital has moved through and left damage behind: this methodology is yours to use. The glassbox is designed to be opened. The architecture is designed to be forked. The non-claims are there to protect you from overselling what the system does. Everything that is claimed here has been demonstrated at two layers.
+
+---
+
+*Front Matter authored by Carrie Ann Kidd — Oak Hill, West Virginia.*
 *Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
-*See [LICENSE](../LICENSE) for terms.*
-*Last verified: April 23, 2026 — 112 containers thesis-verified (April 16) /
-100 point-in-time (April 23); msallis-rebuild namespace; 30/30 preflight exit 0;
-egeria.mountainshares.us live; all 4 MountainShares services deployed;
-~6.74M vectors / 48 collections / mixed L2-cosine; PostGIS two-container layer confirmed;
-BBB 0% false positive; confidence_decay 0.0%; EEG 253/127/25 pulses.*
+*See LICENSE for terms.*
+*Sealed: July 29, 2026 — July 2026 Production Gate.*
+*Previous Chapter 1 designation demoted to Front Matter (Chapter 0).*
+*Chapter 1 slot is now held by Quantarithmia.*
