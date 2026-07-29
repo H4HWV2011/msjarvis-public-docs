@@ -5,16 +5,14 @@
 *Last Updated: July 29, 2026*
 *Status: Implemented — July 2026 Production Gate*
 
-> **Gate Corrections Applied (July 29, 2026):**
-> All prior text describing the candidate revision loop as "partial" or
-> "no named revision component" is superseded. The `jarvis-epistemic-runner`
-> container is live on `qualia-net` and successfully completed its first
-> self-assessment cycle — Candidate Revision Loop status is `implemented`.
-> Recursive self-assessment remains correctly `not_claimed` and deferred to
-> Phase 2 — this is an intentional design boundary, not an oversight or gap.
+> Recursive self-assessment (auto-calibration of gate thresholds without
+> human review) remains correctly `not_claimed` and deferred to Phase 2.
+> This is an intentional design boundary, not an oversight or gap. The
+> distinction between "the system cycles and reports" (implemented) and
+> "the system self-adjusts its own governance thresholds" (not claimed) is
+> explained in full in Section 52.11.
 >
-> All references to `gbim_runtime_lifecycle_hourly()` are removed throughout
-> this chapter. The verified functional entry point for all four pg_cron
+> The verified functional entry point for all four pg_cron
 > governance lifecycle jobs is `apply_runtime_lifecycle()`. Four live jobs
 > are confirmed active in `wv_gis`: hourly (`:15`), daily (`03:05`),
 > weekly (Sunday `02:00`), monthly (1st `01:30`).
@@ -36,6 +34,19 @@ The answer is a bounded, scheduled set of recurring tasks that re-test
 important assumptions instead of trusting them forever. This is not an
 all-seeing self. It is a governed heartbeat.
 
+There is a second, equally important question that this chapter answers
+explicitly:
+
+> "Why can the system check itself on a schedule but cannot adjust its
+> own thresholds automatically — and why is that boundary intentional?"
+
+That question is answered in full in Section 52.11. Rural developers and
+community stewards should read that section carefully. It defines the exact
+line between what the system does on its own (cycles, reports, surfaces
+evidence) and what requires a human governance reviewer (calibrating,
+adjusting, or changing any gate condition). That line is not a gap in the
+implementation — it is a governance design principle.
+
 **This chapter may claim:**
 
 - A running, scheduled recurrent runner (`jarvis-epistemic-runner`) is live
@@ -55,8 +66,9 @@ all-seeing self. It is a governed heartbeat.
 - Continuous real-time self-awareness beyond supported schedules
 - Autonomous moral agency or self-certifying truth
 - Sentience or biological consciousness
-- Recursive self-assessment (auto-calibrating gate thresholds) — this is
-  correctly `not_claimed` and deferred to Phase 2
+- Recursive self-assessment (auto-calibrating gate thresholds without human
+  review) — correctly `not_claimed`, deferred to Phase 2; see Section 52.11
+  for the full rationale
 
 ---
 
@@ -110,9 +122,9 @@ the verified entry point `apply_runtime_lifecycle()`.
 | `gbim-runtime-lifecycle-monthly` | `30 1 1 * *` (01:30 first of month) | Full lifecycle reconciliation; archives stale audit records; writes monthly snapshot |
 
 > **Deprecation notice:** `gbim_runtime_lifecycle_hourly()` and its
-> per-cadence siblings no longer exist as standalone functions. All four jobs
-> call `apply_runtime_lifecycle()` as the verified functional entry point.
-> Remove any references to the deprecated function names from all
+> per-cadence siblings no longer exist as standalone functions. All four
+> jobs call `apply_runtime_lifecycle()` as the verified functional entry
+> point. Remove any references to the deprecated function names from all
 > configuration, documentation, and code.
 
 To verify all four jobs are live:
@@ -152,8 +164,8 @@ a restart, and operators do not have to manually re-start jobs. Epistemic
 checks are part of the baseline system behavior, not an afterthought.
 
 For rural developers: this is the engine. You do not have to remember to
-start it. If the system comes back up after a power outage at a WV data
-center, the runner comes back with it.
+start it. If the system comes back up after a power outage, the runner comes
+back with it.
 
 ---
 
@@ -171,6 +183,7 @@ On each cycle the runner:
   defined in Ch28/39 and Ch36
 
 These checks are:
+
 - **Bounded** — they run at defined times over defined scopes
 - **Repeatable** — the same tests can be re-run to detect regressions
 - **Concrete** — they confirm specific invariants ("this collection and
@@ -278,7 +291,7 @@ The corrected status of all five loop phases as of the July 2026 gate:
 | Governance filtering | Constitutional Principles Service (Ch. 37) + DGM validators | **Built** |
 | Admission and logging | `gbim_record_spacetime_provenance_chk` + `runtime_governance.public_answer_audit` | **Built** |
 | Candidate revision and stability evaluation | `jarvis-epistemic-runner` live on `qualia-net`, cycling as of July 29, 2026 | **Implemented** |
-| Recursive self-assessment | Auto-calibration of gate thresholds without human review | **`not_claimed`** — Phase 2 deferral |
+| Recursive self-assessment | Auto-calibration of gate thresholds without human review | **`not_claimed`** — Phase 2 deferral — see Section 52.11 |
 
 ---
 
@@ -304,32 +317,102 @@ previously absent from this phase. It is now live and cycling.
 
 ---
 
-## 52.11 Recursive Self-Assessment: Correctly not_claimed
+## 52.11 Recursive Self-Assessment: Why It Is Correctly not_claimed
 
-Recursive self-assessment — the capability for the system to automatically
-adjust its own gate thresholds and scheduling parameters without human review
-— is correctly `not_claimed`. This is an intentional Phase 2 deferral, not
-a gap.
+This section exists because the distinction between what is implemented
+(the candidate revision loop) and what is not claimed (recursive
+self-assessment) is important enough to state plainly and in full. Rural
+developers, community stewards, and governance reviewers should understand
+exactly where this line is and why it is drawn here.
 
-The distinction matters:
+### What recursive self-assessment means in this system
 
-- The `jarvis-epistemic-runner` **completes cycles and reports results**.
-  That is implemented.
-- The runner does **not auto-calibrate** K_MIN, K_SENSITIVE, lifecycle decay
-  intervals, or gate conditions without governance review. That boundary is
-  intentional.
+Recursive self-assessment means: **the system automatically adjusts its
+own gate thresholds and scheduling parameters without human review.**
 
-A system that silently adjusts its own thresholds would violate the
-MountainShares non-autonomous-agency principle. Keeping recursive
-self-assessment `not_claimed` preserves that governance boundary.
+Concretely, that would mean the system reading its own job run history,
+deciding that `K_MIN` should change, that a lifecycle decay interval should
+shorten, that an admissibility condition should be loosened or tightened —
+and making that change on its own, without a governance reviewer approving it.
 
-**What Phase 2 would add (future, not current):**
+That is what is `not_claimed`. It is not implemented. It is not scheduled
+for the current phase. It is not described anywhere in this chapter as if
+it were running.
 
-- A named component that reads job run history and flags anomalies
-- A calibration mechanism that proposes threshold adjustments for human review
-- A reporting surface making loop health visible to governance reviewers
+### What is implemented, and how it differs
 
-None of these are claimed at this gate. Do not describe them as implemented.
+The `jarvis-epistemic-runner` **completes cycles and reports results.** It
+reads `cron.job_run_details` and `public_answer_audit`, confirms the loop
+ran, and surfaces what happened. That is implemented.
+
+What the runner does **not** do:
+
+- It does not adjust `K_MIN`, `K_SENSITIVE`, or any other gate threshold
+- It does not change lifecycle decay intervals
+- It does not modify admissibility conditions in `public_admissible_gbim_mv`
+- It does not alter any CHECK constraint or governance rule
+
+All of those changes require a human governance reviewer to propose,
+review, and apply them. The runner gives that reviewer evidence. It does
+not act for them.
+
+### Why this boundary is a design principle, not a gap
+
+The MountainShares non-autonomous-agency principle holds that the system
+does not act as an autonomous moral agent. Gate conditions — the thresholds
+that determine which civic claims reach community members in Fayette County
+and across West Virginia — are governance decisions. They are not
+optimization targets for an algorithm to self-tune.
+
+If the system could silently adjust its own thresholds, two things would
+follow that this design explicitly rejects:
+
+1. **Governance accountability would dissolve.** A threshold that an
+   algorithm adjusted is not the same as a threshold that a named
+   governance reviewer approved. When a community member asks "why did
+   the system change what it says about my SNAP eligibility," the answer
+   must be a human decision, not a self-tuning event.
+
+2. **The audit trail would be unreadable.** The `public_answer_audit`
+   table records what the system claimed and under what conditions. If
+   the conditions themselves can shift autonomously, the audit trail
+   loses its meaning as a governance record.
+
+Keeping recursive self-assessment `not_claimed` is what preserves both
+of those properties.
+
+### What Phase 2 would add — and what it would not bypass
+
+When Phase 2 is built, it will introduce:
+
+- A named component that reads job run history and flags anomalies in
+  threshold performance
+- A calibration mechanism that **proposes** threshold adjustments for
+  human review — it does not apply them automatically
+- A reporting surface that makes loop health visible to governance reviewers
+  before any gate condition is changed
+
+Phase 2 reduces the cost of governance review by surfacing evidence
+clearly. It does not remove the governance review step. The human
+reviewer remains in the loop for any change to a gate condition.
+
+None of Phase 2 is claimed at this gate. Do not describe any part of it
+as implemented.
+
+### For rural developers: the practical meaning
+
+If you are building a civic AI for a rural nonprofit, local health access
+network, or mutual aid system, this boundary matters in your own
+deployment too. The moment your system begins adjusting its own thresholds
+automatically — even in ways that look like improvements — you have
+transferred a governance function to an algorithm. Community members and
+partner organizations cannot audit what they cannot see. A threshold that
+was reviewed is trustworthy. A threshold that self-adjusted is not, even
+if the numeric result is similar.
+
+Build the reporting surface. Require human review for threshold changes.
+Keep recursive self-assessment on your own Phase 2 list until you have a
+governance process to match it.
 
 ---
 
@@ -387,8 +470,9 @@ even when nothing else is running.
 
 7. **Candidate revision cycle.**
    `jarvis-epistemic-runner` reads job run history, assesses lifecycle decay
-   transitions, and reports cycle completion to `commons_phase_status`.
-   This phase is implemented as of July 29, 2026.
+   transitions, and reports cycle completion to `commons_phase_status`. This
+   phase is implemented as of July 29, 2026. It surfaces evidence for human
+   review. It does not auto-adjust any gate condition.
 
 8. **pg_cron governance lifecycle (database layer).**
    Independently, the four jobs run `apply_runtime_lifecycle()` on their
@@ -398,10 +482,8 @@ even when nothing else is running.
 
 9. **Logging and sleep.**
    The runner records what happened and sleeps until the next scheduled run.
-   pg_cron results are visible in `cron.job_run_details`.
-
-If something is unhealthy or misconfigured, the loop surfaces it for human
-review. It does not fix problems silently.
+   pg_cron results are visible in `cron.job_run_details`. Nothing is adjusted
+   automatically. Problems surface for human review.
 
 ---
 
@@ -413,7 +495,8 @@ To remain within the gate, this chapter does not claim:
 - Constant real-time monitoring of every possible system state
 - That passing recurrent checks guarantees safety in all circumstances
 - Sentience or biological consciousness
-- Recursive self-assessment — `not_claimed`, Phase 2 deferral, intentional
+- Recursive self-assessment — `not_claimed`, Phase 2 deferral, intentional;
+  full rationale in Section 52.11
 
 It claims:
 
@@ -440,14 +523,18 @@ candidate revision cycles are regularly revisited — instead of being trusted
 once and forgotten.
 
 The `jarvis-epistemic-runner` is live. The four pg_cron jobs are active via
-`apply_runtime_lifecycle()`. The candidate revision loop is implemented. The
-recursive self-assessment boundary is intentionally held at `not_claimed` for
-Phase 2.
+`apply_runtime_lifecycle()`. The candidate revision loop is implemented.
+The recursive self-assessment boundary is intentionally held at `not_claimed`
+for Phase 2 — because governance accountability and a readable audit trail
+require a human reviewer in the loop for any change to a gate condition.
+That is not a limitation. It is the design.
 
 For rural developers and community stewards in Mount Hope and across
-Appalachia: this is a system whose machinery re-examines itself on a schedule,
-surfaces problems for human review, and keeps its own governance lifecycle
-running even when the application layer is restarting. That is what bounded,
+Appalachia: this is a system whose machinery re-examines itself on a
+schedule, surfaces problems for human review, and keeps its own governance
+lifecycle running even when the application layer is restarting. Any
+threshold that governs what civic claims reach you was reviewed and approved
+by a named human reviewer — not adjusted automatically. That is what bounded,
 governed epistemic discipline looks like in production.
 
 ---
@@ -459,5 +546,5 @@ governed epistemic discipline looks like in production.
 *`jarvis-epistemic-runner`: live on `qualia-net`, cycling confirmed.*
 *Candidate Revision Loop: `implemented`.*
 *Recursive Self-Assessment: `not_claimed` — Phase 2 deferral, intentional.*
+*Full rationale: Section 52.11.*
 *pg_cron entry point: `apply_runtime_lifecycle()` — four live jobs in `wv_gis`.*
-*Deprecated: all `gbim_runtime_lifecycle_hourly()` references — remove.*
