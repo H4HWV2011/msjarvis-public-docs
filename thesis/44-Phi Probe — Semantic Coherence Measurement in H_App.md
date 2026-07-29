@@ -1,241 +1,307 @@
 # 44 — Phi Probe — Semantic Coherence Measurement in H_App
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, West Virginia*  
-*Last Updated: July 27, 2026*
+*Carrie Kidd (Mamma Kidd) — Oak Hill, West Virginia*
+*Last Updated: July 29, 2026*
+*Status: Demonstrated — July 2026 Production Gate*
 
 ---
 
-## 44.1 Purpose of the Phi Probe
+## What This Chapter Is About
 
-This chapter explains how Ms. Jarvis measures the **semantic coherence of governed state** inside H_App using a concrete probe: the fraction of governed records that are admissible for public claims.
+This chapter explains how Ms. Jarvis measures **semantic coherence** — the degree to which its governed data is ready to back public claims — using a single, concrete number called the **Phi probe fraction**.
 
-The name “Phi probe” here refers to a measurement of how much of the stored governed corpus is ready to be spoken as evidence, not just stored as data. It is a way of asking: “How coherent is our governed state today?” and answering that question with a real number rather than a feeling.
+For rural developers in West Virginia and across Appalachia, abstract ideas like "semantic coherence" can feel distant from practical work. This chapter translates the concept into a ratio you can query, monitor, and act on. By the end, you will understand what Phi measures, how it is computed from real database rows, why the baseline number is 39.3%, and how to use it as a health gauge as your system grows.
 
-For rural developers, this provides a practical handle on an abstract idea. Instead of saying “the system is pretty coherent,” the system can say “39.3% of governed rows are admissible as of July 26, 2026.”
-
----
-
-## 44.2 What Semantic Coherence Means Here
-
-Semantic coherence, in the context of H_App, means that a governed record:
-
-- Has all required spatial and temporal anchors.
-- Has clear provenance and lifecycle state.
-- Satisfies the ten-condition admissibility predicate.
-- Is ready to back a public answer without further qualification.
-
-A corpus with high semantic coherence has many records that meet these conditions. A corpus with low coherence has many records that are stored but not yet ready to speak.
-
-The Phi probe is the measurement that tells us where we stand.
+This chapter operates strictly within the academic scope of the July 2026 production gate. It does not claim to measure every kind of coherence — only admissibility-based semantic coherence within the governed corpus.
 
 ---
 
-## 44.3 The Governed Corpus Under Measurement
+## 44.1 The Core Idea: Coherence as a Ratio
 
-The corpus under measurement is:
+The system stores many records. Not all of them are ready to speak.
 
-- The set of rows in `public.gbim_record` that represent governed state from the spatial body.
-- The admissible subset of those rows in `public.public_admissible_gbim_mv`, defined by the ten-condition predicate described in earlier chapters.
+Some records are fresh, fully anchored, and approved for public claims. Others are aging, incomplete, or still moving through the promotion lifecycle. The Phi probe answers a simple question:
 
-This corpus includes:
+> *Of all the authorized governed records in the system right now, what fraction are admissible for public claims?*
 
-- Spatial anchors such as blockgroup GEOIDs.
-- Temporal anchors such as `valid_time_start`.
-- Provenance fields such as `company_name` and `under_whose_authority`.
-- Lifecycle fields such as `degradation_status`.
-
-It is the same corpus from which the overflow proof and public answer paths draw their evidence.
-
----
-
-## 44.4 Concrete Phi Probe Measurement — July 26, 2026
-
-As of the July 26, 2026 gate, the Phi probe measurement is:
-
-- **Total authorized governed rows:** 237,655.
-- **Admissible for public claims (all ten conditions):** 93,423.
-- **Admissibility fraction:** approximately 39.3%.
-
-### 44.4.1 How the Fraction Is Computed
-
-The Phi probe fraction is:
+That fraction — expressed as a decimal or percentage — is Phi.
 
 \[
-\Phi_{\text{admissible}} = \frac{\text{admissible rows}}{\text{total authorized rows}} \approx \frac{93{,}423}{237{,}655} \approx 0.393
+\Phi_{\text{admissible}} = \frac{\text{admissible rows}}{\text{total authorized rows}}
 \]
 
-Expressed as a percentage, this is about **39.3% admissibility**.
+**As of July 26, 2026:**
 
-### 44.4.2 What the Numbers Mean
+\[
+\Phi_{\text{admissible}} \approx \frac{93{,}423}{237{,}655} \approx 0.393 \quad (39.3\%)
+\]
 
-These numbers mean:
-
-- Out of all governed records that have passed authorization, only a subset (93,423) currently satisfy all ten admissibility conditions and are allowed to back public claims.
-- The remaining records (144,232) are stored but inadmissible — for example, because they are not yet marked `public_claim_allowed`, or because their lifecycle status is `stale`, or because other conditions are not met.
-
-The Phi probe does not treat inadmissible records as errors. It treats them as part of the stored corpus that is still in motion: records that may be promoted, corrected, or aged out over time.
+This is the verified baseline established at the July 2026 production gate. It is not an estimate. It is a live inspection of the governed corpus.
 
 ---
 
-## 44.5 Why Phi Probe Matters for Coherence
+## 44.2 Why This Matters for Rural Developers
 
-### 44.5.1 Coherence as a Ratio, Not a Guess
+Rural data systems face a specific challenge: data is often collected under resource constraints, with incomplete provenance, inconsistent spatial anchors, or gaps in the temporal record. The result is a corpus that holds more than it can safely speak.
 
-By defining semantic coherence as a ratio of admissible to total governed records, the system:
+The Phi probe gives you a concrete handle on that gap. Instead of saying "we have a lot of data but some of it is messy," you can say:
 
-- Anchors coherence in the same governed corpus that powers answers and overflow.
-- Avoids vague statements like “the system is mostly coherent.”
-- Provides a concrete, repeatable measurement that can be compared over time.
+> *39.3% of our governed records are fully admissible. The rest are stored but not yet ready to back public claims.*
 
-For rural developers, this is useful because it turns a high-level concept into something that can be monitored like a gauge.
-
-### 44.5.2 What 39.3% Admissibility Tells Us
-
-A 39.3% admissibility fraction tells us:
-
-- The system is storing more records than it speaks.
-- Almost two out of five authorized records are fully admissible.
-- The corpus has room to grow in coherence as more records are promoted and lifecycle conditions are met.
-
-This is not a failure. It reflects an intentional design choice: the system stores candidates, partial records, and aging records that are useful internally but not suitable for public claims.
+That sentence is actionable. It tells you how much cleanup, promotion, and lifecycle work remains. It gives stewards and developers a shared vocabulary. And it allows you to track progress over time with a single number.
 
 ---
 
-## 44.6 Ten-Condition Admissibility and Phi
+## 44.3 The Governed Corpus: What Is Being Measured
 
-The Phi probe is tied directly to the ten-condition admissibility predicate defined elsewhere.
+The measurement operates on two database objects.
 
-### 44.6.1 Conditions Recap
+**The full authorized corpus:**
 
-To be admissible, a record must satisfy ten conditions, including:
+```sql
+SELECT COUNT(*)
+FROM public.gbim_record
+WHERE promotion_state = 'authorized';
+-- Result: 237,655 rows
+```
 
-- Having a non-null `gbim_id`.
-- Being in `promotion_state = 'authorized'`.
-- Having `public_claim_allowed = true`.
-- Having non-null provenance fields (`under_whose_authority`, `company_name`, `ingested_at`).
-- Having `degradation_status` in `('fresh', 'aging')`.
-- Having non-null `spatial_unit_id`, `spatial_unit_kind`, and `valid_time_start`.
+**The admissible subset:**
 
-The admissible view filters records according to these conditions. The Phi probe then measures how many authorized records pass the filter.
+```sql
+SELECT COUNT(*)
+FROM public.public_admissible_gbim_mv;
+-- Result: 93,423 rows
+```
 
-### 44.6.2 Phi as a Coherence Lens
+The materialized view `public_admissible_gbim_mv` applies the ten-condition admissibility predicate (described in full in Appendix A) and returns only the records that pass all ten conditions.
 
-Because the predicate is strict, Phi serves as a coherence lens:
+Every record in the admissible subset is ready to:
 
-- When more records meet all ten conditions, Phi increases.
-- When records shift into `stale` status or lose public claim flags, Phi decreases.
-- When new records are ingested but not yet promoted, they enter the corpus without changing Phi until they pass the predicate.
+- Back a public answer via `public_answer_packet`.
+- Appear on the public evidence surface.
+- Anchor an overflow event in person-space.
 
-For rural developers, this means that improving Phi is not about generating more data alone; it is about improving the completeness and lifecycle quality of existing data.
-
----
-
-## 44.7 Overflow Proof Inside the Governed Corpus
-
-The overflow proof — showing cognition-to-overflow behavior — lives inside the same governed corpus measured by the Phi probe.
-
-### 44.7.1 Overflow Events and Admissible Evidence
-
-Overflow events are constructed from:
-
-- Person-space validation results.
-- Minimized public-context fields.
-- Governed evidence that passes through admissible surfaces.
-
-These events are not arbitrary logs. They are structured records that rely on the governed state being coherent enough to support safe overflow.
-
-### 44.7.2 Why Coherence Matters for Overflow
-
-If governed state were incoherent:
-
-- Overflow events might carry incomplete or misleading context.
-- Person-space validation might be unable to determine whether an event is safe to route.
-- Queued events might not map cleanly back to governed evidence.
-
-The Phi probe’s 39.3% admissibility measurement shows that:
-
-- A significant subset of governed records are coherent enough to back both answers and overflow events.
-- The overflow proof is grounded in real, admissible data, not just conceptual sketches.
-
-For rural developers, this is a reassurance: the overflow mechanisms are not attached to a random or broken corpus; they attach to a corpus with measurable coherence.
+Records outside the admissible subset are not errors. They are candidates, aging records, or records still moving through the promotion lifecycle. The system stores them intentionally.
 
 ---
 
-## 44.8 Using Phi Probe Over Time
+## 44.4 The Ten-Condition Admissibility Predicate
 
-The Phi probe is not a one-time measurement. It is designed to be rerun as the system evolves.
+The Phi probe is only as meaningful as the predicate it measures against. A record must satisfy all ten conditions (C1–C10) to be counted as admissible.
 
-### 44.8.1 Tracking Changes
+| Condition | Field or State | What It Requires |
+|-----------|----------------|-----------------|
+| C1 | `gbim_id` | NOT NULL |
+| C2 | `promotion_state` | = `'authorized'` |
+| C3 | `public_claim_allowed` | = `true` |
+| C4 | `under_whose_authority` | NOT NULL |
+| C5 | `company_name` | NOT NULL |
+| C6 | `ingested_at` | NOT NULL |
+| C7 | `degradation_status` | IN `('fresh', 'aging')` |
+| C8 | `spatial_unit_id` | NOT NULL (blockgroup GEOID) |
+| C9 | `spatial_unit_kind` | = `'blockgroup'` |
+| C10 | `valid_time_start` | NOT NULL (≥ 2020-01-01) |
 
-Over time, developers and stewards can track:
+Conditions C8, C9, and C10 are the **structural anchors** added at the schema level on July 26, 2026. They enforce that every admissible record is grounded in a real place (a Census block group) and a real time period. This is what the monograph calls the Spacetime Contract at the data layer.
 
-- How the admissibility fraction changes as new data is ingested.
-- How lifecycle decay affects the fraction.
-- How improvements in promotion processes and provenance capture raise coherence.
-
-This allows the system to answer questions like:
-
-- “Did our recent migration increase or decrease admissibility?”
-- “Are we improving how we capture spatial and temporal anchors?”
-
-### 44.8.2 Practical Use for Rural Developers
-
-Rural developers can use Phi as a simple health indicator:
-
-- If Phi rises, more governed records are ready to speak.
-- If Phi falls unexpectedly, something may be wrong in lifecycle handling or promotion logic.
-- If Phi remains steady while the corpus grows, it may be time to invest in promotion and cleanup work.
-
-The measurement is practical: it is a ratio of counts, not an obscure statistic.
+For rural developers, the spatial conditions matter especially. A record without a blockgroup GEOID cannot be placed on the map. A record without `valid_time_start` cannot be read as evidence for a specific moment in community history. These are not bureaucratic requirements — they are what make the data meaningful.
 
 ---
 
-## 44.9 Implementation Status
+## 44.5 How Phi Connects to the Overflow Proof
+
+The overflow proof — which demonstrates that Ms. Jarvis can route cognition safely out of its internal state into person-space — depends on the governed corpus being coherent enough to support safe overflow events.
+
+**The chain works as follows:**
+
+1. A query arrives at `public_answer_packet`.
+2. The function draws evidence from `public_admissible_gbim_mv`.
+3. If the evidence surface is coherent (high Phi), the answer is well-grounded.
+4. If an overflow event is triggered, it carries a reference back to this admissible evidence.
+5. Person-space validation confirms the event is safe to route.
+
+If the governed corpus were incoherent — if most records failed the admissibility predicate — the overflow proof would be grounded in noise. The 39.3% baseline shows that is not the case: 93,423 fully admissible records are available to anchor both answers and overflow events at the July 2026 gate.
+
+---
+
+## 44.6 Computing Phi: Step-by-Step
+
+This is the complete procedure for computing the Phi probe measurement on a live system.
+
+**Step 1 — Count total authorized rows:**
+
+```sql
+SELECT COUNT(*) AS total_authorized
+FROM public.gbim_record
+WHERE promotion_state = 'authorized';
+```
+
+**Step 2 — Refresh the admissible materialized view:**
+
+```sql
+REFRESH MATERIALIZED VIEW CONCURRENTLY public.public_admissible_gbim_mv;
+```
+
+**Step 3 — Count admissible rows:**
+
+```sql
+SELECT COUNT(*) AS admissible_rows
+FROM public.public_admissible_gbim_mv;
+```
+
+**Step 4 — Compute the fraction:**
+
+```sql
+SELECT
+    admissible.cnt AS admissible_rows,
+    total.cnt AS total_authorized,
+    ROUND(admissible.cnt::numeric / total.cnt * 100, 1) AS phi_percent
+FROM
+    (SELECT COUNT(*) AS cnt FROM public.public_admissible_gbim_mv) admissible,
+    (SELECT COUNT(*) AS cnt FROM public.gbim_record
+     WHERE promotion_state = 'authorized') total;
+```
+
+**Expected output at the July 2026 gate:**
+
+```
+ admissible_rows | total_authorized | phi_percent
+-----------------+------------------+------------
+          93423  |          237655  |       39.3
+```
+
+---
+
+## 44.7 What the 39.3% Baseline Tells You
+
+**What it means — and what it does not mean:**
+
+| Interpretation | Correct? |
+|----------------|----------|
+| 39.3% of governed records are ready for public claims | ✓ Yes |
+| The remaining 60.7% are errors or broken data | ✗ No — they are in motion |
+| The system is 39.3% "done" | ✗ No — Phi measures coherence, not completeness |
+| A higher Phi is always better | ✗ Not necessarily — new ingestion will temporarily lower Phi |
+| Phi can be tracked over time as a health gauge | ✓ Yes — this is the primary use |
+
+A 39.3% admissibility fraction reflects an intentional design: the system stores candidates, partial records, and lifecycle-aging records that are useful internally but not yet suitable for public claims. As promotion workflows mature and spatial/temporal anchors are backfilled, Phi will rise.
+
+---
+
+## 44.8 Using Phi as a Health Gauge Over Time
+
+The Phi probe is designed to be rerun. Developers and data stewards can run it after every major ingestion, migration, or lifecycle event.
+
+**Questions Phi can answer over time:**
+
+- Did last week's data migration improve or degrade admissibility?
+- Are records aging out faster than new admissible records are being promoted?
+- Is the spatial anchor backfill project raising Phi as expected?
+
+**Practical thresholds (not formal requirements):**
+
+| Phi Range | Interpretation |
+|-----------|---------------|
+| < 20% | High inadmissibility — investigate lifecycle or promotion gaps |
+| 20–40% | Normal range during active ingestion phases |
+| 40–60% | Healthy governed corpus with mature promotion workflows |
+| > 60% | Well-curated corpus; monitor for stale records masquerading as fresh |
+
+The July 2026 baseline of 39.3% places the system at the upper end of the active ingestion range — coherent enough to back answers and overflow events, with meaningful room to grow as the corpus matures.
+
+---
+
+## 44.9 Phi and the pg_cron Lifecycle Scheduler
+
+Phi does not stay fixed on its own. The lifecycle scheduler — driven by four `pg_cron` jobs registered in `wv_gis` — continuously advances record states:
+
+```
+-- Hourly: advances degradation status
+SELECT cron.schedule('lifecycle-hourly', '0 * * * *',
+    'SELECT apply_runtime_lifecycle();');
+
+-- Daily: refreshes the admissible materialized view
+SELECT cron.schedule('admissible-refresh-daily', '0 2 * * *',
+    'REFRESH MATERIALIZED VIEW CONCURRENTLY public.public_admissible_gbim_mv;');
+```
+
+> **Note:** The correct entry point is `apply_runtime_lifecycle()`. Do not use the deprecated `gbim_runtime_lifecycle_hourly()` function, which no longer exists. Any documentation or cron job referencing the old function name must be updated.
+
+As records age from `fresh` to `aging` to `stale`, some will drop out of the admissible view. As new records are promoted and anchored, others will enter it. Phi reflects this living process.
+
+---
+
+## 44.10 Audit Traceability and the Phi Measurement
+
+When `public_answer_packet` or `public_geoid_panel` are called to draw from the admissible corpus, each call is logged to `public_answer_audit` with a real trace ID threaded through the `query_id` field.
+
+This means that the Phi measurement is not just a count — it is auditable. You can trace any public claim back to the specific admissible record that backed it, and from there to the promotion event that authorized it.
+
+```sql
+-- Inspect recent audit entries with trace IDs
+SELECT query_id, gbim_id, called_at, function_name
+FROM public.public_answer_audit
+ORDER BY called_at DESC
+LIMIT 10;
+```
+
+For rural developers building systems that serve public accountability functions — zoning, SNAP eligibility, infrastructure assessment — this auditability is not optional. It is what makes the system trustworthy.
+
+---
+
+## 44.11 Step-by-Step Summary for Rural Developers
+
+1. **Understand what Phi measures.**
+   The fraction of authorized governed records that satisfy all ten admissibility conditions and are ready to back public claims.
+
+2. **Remember the verified baseline.**
+   93,423 admissible rows out of 237,655 authorized rows = **39.3% admissibility** as of July 26, 2026.
+
+3. **Know the ten conditions.**
+   C1–C7 are provenance and lifecycle conditions. C8–C10 are spatial and temporal anchors added July 26, 2026. A record must pass all ten to count.
+
+4. **Connect Phi to public answers and overflow.**
+   Every public claim and every overflow event draws from the admissible corpus. Phi tells you how large and healthy that corpus is.
+
+5. **Run the four-step query procedure.**
+   Count authorized rows → refresh the materialized view → count admissible rows → compute the fraction. This gives you a live Phi reading.
+
+6. **Use the scheduler correctly.**
+   The entry point is `apply_runtime_lifecycle()`. The deprecated `gbim_runtime_lifecycle_hourly()` function is gone.
+
+7. **Track Phi over time.**
+   Run the probe after migrations, ingestion events, and promotion campaigns. A rising Phi means coherence is improving. An unexpected drop means something needs investigation.
+
+8. **Stay within scope.**
+   This chapter measures admissibility-based semantic coherence within the governed corpus. It does not claim to measure every form of system coherence.
+
+---
+
+## 44.12 Implementation Status
 
 **Phi Probe — Semantic Coherence Measurement: Demonstrated.**
 
-As of July 26, 2026:
+| Metric | Value | Date Verified |
+|--------|-------|---------------|
+| Total authorized governed rows | 237,655 | July 26, 2026 |
+| Admissible rows (all ten conditions) | 93,423 | July 26, 2026 |
+| Phi admissibility fraction | 39.3% | July 26, 2026 |
+| Admissibility predicate conditions | 10 (C1–C10) | July 26, 2026 |
+| Lifecycle scheduler entry point | `apply_runtime_lifecycle()` | July 29, 2026 |
+| Audit trace threading | Real `query_id` in `public_answer_audit` | July 29, 2026 |
 
-- Total authorized governed rows: 237,655.
-- Admissible rows for public claims: 93,423.
-- Admissibility fraction: approximately 39.3%.
-
-These numbers reflect a live inspection of the governed corpus, not a hypothetical estimate. The Phi probe is therefore a demonstrated measurement of semantic coherence within H_App at that time.
-
-Within the academic scope of this chapter, the system is allowed to claim that:
-
-- Coherence is measurable.
-- The current coherence level is known.
-- Overflow behavior is grounded in this measured corpus.
+These numbers reflect a live inspection of the production governed corpus, not a hypothetical estimate. The Phi probe is a demonstrated measurement of semantic coherence within H_App at the July 2026 production gate.
 
 ---
 
-## 44.10 Step-by-Step Summary for Rural Developers
+## 44.13 Closing
 
-To understand and use this chapter:
+The Phi probe gives H_App a way to talk about the health of its governed corpus with numbers instead of metaphors. A corpus that is 39.3% admissible is a corpus that is alive, curated, and accountable — with the majority of its records still in motion and a significant, verified subset ready to back public claims today.
 
-1. **Know what Phi measures.**  
-   It measures the fraction of governed records that are admissible for public claims.
-
-2. **Remember the concrete numbers.**  
-   93,423 admissible rows out of 237,655 total give about 39.3% admissibility as of July 26, 2026.
-
-3. **Connect Phi to the ten conditions.**  
-   Only records that meet all ten admissibility conditions count as coherent for public claims.
-
-4. **See the link to overflow.**  
-   Overflow events depend on coherent governed state; the Phi measurement shows that such coherence is present.
-
-5. **Use Phi as a health gauge.**  
-   Track Phi over time to see whether coherence is improving or degrading.
-
-6. **Stay within scope.**  
-   This chapter does not claim to measure every kind of coherence. It focuses on admissibility-based semantic coherence within the governed corpus.
+For rural developers in Appalachia and beyond, that means the data beneath Ms. Jarvis is not a pile of records. It is a governed body whose coherence can be measured, tracked, and improved. That is the difference between a system that stores data and a system that earns the right to speak.
 
 ---
 
-## 44.11 Closing
-
-The Phi probe gives H_App a way to talk about semantic coherence with numbers instead of metaphors. By tying coherence to the fraction of governed records that are admissible for public claims, and by reporting 39.3% admissibility as of July 26, 2026, the system shows that its governed corpus is both measurable and meaningfully constrained.
-
-For rural developers, that means they can look at the corpus not just as a pile of data, but as a living, governed body whose coherence can be monitored, improved, and trusted.
+*Chapter 44 is sealed for the July 2026 production gate.*
+*All values verified against the live production database.*
+*No claims are made beyond what has been demonstrated at two layers: service running and database state confirmed.*
