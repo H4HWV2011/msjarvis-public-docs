@@ -1,241 +1,413 @@
 # 42 — Post-Quantum Security Layer
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, West Virginia*  
-*Last Updated: July 27, 2026*
+*Carrie Kidd (Mamma Kidd) — Mount Hope, West Virginia*
+*Last Updated: July 29, 2026*
+*Status: Demonstrated — July 2026 Production Gate*
+
+> **Gate Corrections Applied (July 29, 2026):**
+> All references to `gbim_runtime_lifecycle_hourly()` are removed. The verified
+> functional entry point for all four pg_cron governance lifecycle jobs is
+> `apply_runtime_lifecycle()`. Four live jobs are confirmed active in `wv_gis`:
+> hourly (`:15`), daily (`03:05`), weekly (Sunday `02:00`), monthly (1st `01:30`).
 
 ---
 
-## 42.1 Purpose of This Layer
+## What This Chapter Is About
 
-This chapter explains how the public answer path in Ms. Jarvis is hardened at the database function level, using Postgres features that help protect against subtle attacks — including those that could become more important in a post-quantum world.
+This chapter explains how the public answer path in Ms. Jarvis is hardened at
+the database function level — using Postgres security mechanisms that guard
+against subtle misuse, including attacks that become more dangerous as
+cryptographic assumptions weaken in a post-quantum world.
 
-Instead of focusing on encryption algorithms, this chapter focuses on **authorization discipline**: the way the system ensures that only governed evidence enters public answers, and that even privileged functions cannot be tricked into reading or writing the wrong tables.
+The central question for rural developers is:
 
-For rural developers, this chapter translates those ideas into a step-by-step explanation of how one function, `runtime_governance.public_answer_packet`, is secured.
+> "When someone asks Ms. Jarvis a civic question about my community, how does
+> the system make sure the answer comes from governed evidence and cannot be
+> tricked, forged, or misdirected?"
+
+The answer is **function-level discipline**: a hardened, auditable function path
+that enforces authorization, pins its own search scope, restricts who can call
+it, and logs every invocation.
+
+**This chapter may claim:**
+
+- `runtime_governance.public_answer_packet` is a `SECURITY DEFINER` function
+  with pinned `search_path = public, runtime_governance, pg_temp`
+- Execution is restricted to the `public_instrument_role` only
+- The function uses governed views and audit tables — never raw internal tables
+- Each invocation is logged in `runtime_governance.public_answer_audit`
+- Overflow handling follows the same hardening philosophy: minimized payloads,
+  bounded queues, governed paths
+- The four pg_cron lifecycle jobs run via `apply_runtime_lifecycle()` and provide
+  an independent governance pulse at the database level
+
+**This chapter must not claim:**
+
+- That this layer replaces cryptographic post-quantum algorithms
+- Universal security guarantees beyond the specific function-level mechanisms
+- Clinical, legal, or platform-wide security certifications
 
 ---
 
-## 42.2 The Public Answer Path in Plain Terms
+## 42.1 The Public Answer Path in Plain Terms
 
-The **public answer path** is the route by which a civic question, such as “How many weather stations are in this blockgroup?” turns into a structured answer backed by governed evidence.
+The public answer path is the route by which a civic question — "How many
+weather stations are in this blockgroup?" — turns into a structured answer
+backed by governed evidence.
 
-Inside the database, the central piece of this path is the function:
+Inside the database, the central piece of this path is:
 
-```text
+```
 runtime_governance.public_answer_packet(p_geoid text, p_metric_name text)
 ```
 
 When the public instrument calls this function, it expects:
 
-- To receive an answer packet that states whether it has **seen**, **inferred**, or has **no admissible evidence** for the requested geoid and metric.
-- To rely on the function to enforce admissibility rules and evidence selection.
-- To avoid direct access to raw internal tables.
+- An answer packet stating whether the system has **seen**, **inferred**, or
+  has **no admissible evidence** for the requested geographic unit and metric
+- Admissibility rules and evidence selection enforced inside the function
+- No direct access to raw internal tables — all evidence is pre-filtered
 
-The Post-Quantum Security Layer described in this chapter ensures that this function behaves correctly, safely, and consistently, even when called by different roles or in different contexts.
+The Post-Quantum Security Layer described in this chapter ensures that function
+behaves correctly and safely regardless of who calls it or in what context.
 
----
-
-## 42.3 SECURITY DEFINER — What It Is and Why It Matters
-
-### 42.3.1 What SECURITY DEFINER Does
-
-In Postgres, a function marked with `SECURITY DEFINER` runs with the privileges of its owner, not the privileges of the caller.
-
-For `runtime_governance.public_answer_packet`, this means:
-
-- The function can read from governed views and tables that the calling role cannot see directly.
-- The function can perform operations that would normally require higher privileges.
-- The function can package governed evidence into a safe answer packet without exposing raw internals.
-
-In everyday terms, the function acts like a trusted clerk inside the system. Rural developers can think of it as a person behind the counter who is allowed to look in the back room but only brings the right items to the front.
-
-### 42.3.2 Why SECURITY DEFINER Is Used Here
-
-Using `SECURITY DEFINER` on `public_answer_packet` is a deliberate choice:
-
-- It keeps admissibility logic in one place, inside the function.
-- It lets the public instrument role call the function without needing broad read access.
-- It ensures that the function is the only path by which raw governed evidence is transformed into a public answer.
-
-This reduces the number of places where mistakes or attacks could slip through. Instead of many scripts duplicating logic, one hardened function carries the responsibility.
+The July 26, 2026 gate confirmed this function returned its first live structured
+civic answer for geoid `540019656003`, metric `atm_weather_stations_count`,
+under `public_instrument_role`. It emitted a `seen` answer with full provenance
+— or it would have refused entirely.
 
 ---
 
-## 42.4 Pinning the search_path — public, runtime_governance, pg_temp
+## 42.2 SECURITY DEFINER: The Trusted Clerk Model
 
-### 42.4.1 What search_path Is
+### What It Does
 
-In Postgres, `search_path` is the ordered list of schemas the system searches when a function references a table or view without specifying a schema name.
+In Postgres, a function marked `SECURITY DEFINER` runs with the privileges of
+its **owner**, not the privileges of the **caller**.
 
-By default, temporary tables live in a schema that can be first in the search path. If a function is not careful, it might accidentally read or write a temporary table that a caller has created, instead of the intended table in a governed schema.
+For `public_answer_packet`, this means:
 
-### 42.4.2 How search_path Is Pinned for public_answer_packet
+- The function can read from governed views and tables that the calling role
+  cannot see directly
+- The function can perform operations that would normally require higher
+  privileges
+- The function packages governed evidence into a safe answer packet without
+  exposing raw internals to the caller
 
-To prevent that, `public_answer_packet` is defined with a pinned search path:
+For rural developers: think of this as a trusted clerk behind a counter. The
+caller (the public instrument) can ask a question. The clerk (the function) is
+allowed to go into the back room and retrieve the right records. The caller
+never gets direct access to the back room. Only the clerk does, and the clerk
+only brings back what the governance rules permit.
 
-```text
+### Why It Is Used Here
+
+Using `SECURITY DEFINER` on `public_answer_packet` is a deliberate architectural
+choice:
+
+- Admissibility logic lives in exactly one place — inside the function
+- The public instrument role can call the function without needing broad read
+  access to internal schemas
+- The function is the only sanctioned path by which raw governed evidence is
+  transformed into a public answer
+
+This reduces the attack surface. Instead of many scripts duplicating logic in
+different ways, one hardened function carries the sole responsibility.
+
+---
+
+## 42.3 Pinning the search_path
+
+### What search_path Is
+
+In Postgres, `search_path` is the ordered list of schemas the database searches
+when a query references an object without specifying its schema. By default,
+temporary tables live in a schema that can silently appear first in that list.
+
+If a function is not careful, an attacker or misconfiguration could cause it to
+read or write a temporary table with the same name as a governed view — instead
+of the real governed object. This is a subtle but real class of database attack.
+
+### How It Is Pinned for public_answer_packet
+
+The function is defined with:
+
+```sql
 SET search_path = public, runtime_governance, pg_temp
 ```
 
 This ordering does three things:
 
-- Ensures that references to objects in `public` and `runtime_governance` resolve as intended.
-- Puts `pg_temp` at the end of the search path rather than at the front.
-- Makes it explicit which schemas the function is allowed to search.
+1. `public` — where admissible views live — is the first search target
+2. `runtime_governance` — where audit tables and helper functions live — is
+   second
+3. `pg_temp` — the temporary schema — is present but **last**, not first,
+   preventing temporary objects from masking governed ones
 
-### 42.4.3 Why This Hardening Matters
+### Why This Matters for Rural Developers
 
-Pinning the search path protects against a subtle class of attacks:
+Without this pinning, a caller with permission to create temporary tables could:
 
-- A caller with permission to create temporary tables could create a table with the same name as a governed view.
-- If `pg_temp` were implicitly at the front of the search path, the function might read from that temporary table instead of the real governed view.
-- By placing `pg_temp` at the end and naming the intended schemas, the function avoids this confusion.
+- Create a temp table named `public_admissible_gbim_mv`
+- Trick the function into reading from that temp table instead of the real
+  governed materialized view
+- Receive a fabricated answer that looks legitimate
 
-For rural developers, this means that the function is not easily tricked into reading or writing the wrong data. It consistently uses the intended governed objects.
+With `pg_temp` pinned to the end of the search path, this cannot happen. The
+function will always find the real governed object first.
 
 ---
 
-## 42.5 How the Function Is Hardened Step-by-Step
+## 42.4 Execution Restrictions: Only the Right Role Can Call It
 
-This section explains the security measures around `public_answer_packet` in clear order.
+After the function is defined, its execution permissions are tightened through
+two steps:
 
-### Step 1 — Define the Function with SECURITY DEFINER
+**Step 1 — Revoke from PUBLIC:**
 
-The function is created with:
-
-- `SECURITY DEFINER` — runs with the owner’s rights.
-- A carefully chosen owner — typically a governance role, not a general user.
-
-This ensures the function can access governed evidence while the caller cannot.
-
-### Step 2 — Pin search_path to Known Schemas
-
-The function’s definition includes:
-
-```text
-SET search_path = public, runtime_governance, pg_temp
+```sql
+REVOKE ALL ON FUNCTION runtime_governance.public_answer_packet
+FROM PUBLIC;
 ```
 
-This ensures:
+This removes the default assumption that any authenticated user can call the
+function.
 
-- `public` — the schema where admissible views live — is used reliably.
-- `runtime_governance` — the schema where audit tables and helper functions live — is available.
-- `pg_temp` — the temporary schema — is present but not first, preventing accidental or malicious masking.
+**Step 2 — Grant only to public_instrument_role:**
 
-### Step 3 — Restrict Execution to the Intended Role
+```sql
+GRANT EXECUTE ON FUNCTION runtime_governance.public_answer_packet
+TO public_instrument_role;
+```
 
-After defining the function, its execution permissions are tightened:
+Only the public instrument — a role designed to operate within specific civic
+bounds — can invoke this function. No other role, no general user, no internal
+admin process calling from outside the governed pathway has execution rights.
 
-- All default execution rights are revoked from `PUBLIC`.
-- Execution is granted only to the intended public instrument role.
-
-This way, not just anyone can call the function. Only the public instrument, which has been designed to operate within specific bounds, can use it.
-
-### Step 4 — Use Governed Views Instead of Raw Tables
-
-Inside the function:
-
-- Evidence is drawn from governed views like the admissible materialized view.
-- Raw tables holding stored state are not directly exposed to callers.
-
-This keeps the function aligned with the broader governance rules. It acts only on already-filtered evidence surfaces.
-
-### Step 5 — Log Each Invocation in an Audit Table
-
-The function writes an entry to an audit table in the `runtime_governance` schema whenever it is called.
-
-This records:
-
-- The requested geoid and metric.
-- The type of answer returned (`seen`, `inferred`, or `inadmissible`).
-- When the answer was generated.
-
-For rural developers, this is the equivalent of keeping a logbook of who asked what and what the system answered.
+For rural developers, this is the equivalent of a county courthouse where only
+the clerk of court can stamp and issue official records. Anyone can submit a
+request. Only the authorised clerk can produce the official document.
 
 ---
 
-## 42.6 Relation to Overflow and Bounded Events
+## 42.5 Governed Views, Not Raw Tables
 
-The same function-level discipline that hardens `public_answer_packet` applies to overflow handling.
+Inside `public_answer_packet`, evidence is drawn exclusively from governed
+views — specifically `public.public_admissible_gbim_mv`, the ten-condition
+admissibility materialized view that is refreshed by the hourly
+`apply_runtime_lifecycle()` pg_cron job.
 
-### 42.6.1 Overflow Events and Minimal Payloads
+Raw tables holding stored state are not directly exposed to callers. This means:
 
-Overflow events, such as those in the `overflow:queue:overflow_retriable_public_context` lane, are constructed as minimized records:
+- The function operates on already-filtered evidence surfaces
+- A record that failed the admissibility predicate at ingestion time cannot
+  appear in a public answer
+- There is no code path inside the function that bypasses the admissibility gate
 
-- Only allowlisted public-context fields are included.
-- Person-space validation ensures the event is safe to route.
-- Queue behavior is bounded, preventing uncontrolled growth.
-
-These events are handled by scripts and functions that follow similar principles: they operate on minimized payloads and governed queues, not on arbitrary raw state.
-
-### 42.6.2 Shared Hardening Philosophy
-
-The shared philosophy is:
-
-- Use privileged functions that are tightly scoped and configured.
-- Pin their search paths so they cannot be tricked by temporary objects.
-- Restrict their execution to roles that are designed for their specific job.
-- Log their behavior for later review.
-
-By treating overflow routing and public answering as governed function paths rather than open queries, the system reduces exposure to both conventional and future threats, including those that may arise in post-quantum scenarios.
+The admissibility predicate enforces ten conditions on every row before it
+enters the view. The function then draws only from that pre-filtered surface.
+This is two layers of filtering: the view enforces what is admissible, and the
+function enforces how admissible evidence becomes a public answer.
 
 ---
 
-## 42.7 Why This Matters in a Post-Quantum Context
+## 42.6 The Audit Trail: Every Call Is Logged
 
-Post-quantum security usually focuses on cryptographic algorithms resistant to quantum attacks. This chapter focuses on **structural hardening**, which complements cryptography.
+Every invocation of `public_answer_packet` writes an entry to
+`runtime_governance.public_answer_audit`. The entry records:
 
-If a future attacker can break or weaken encryption, the system still benefits from:
+- The requested `geoid` and `metric_name`
+- The answer label returned: `seen`, `inferred`, or `inadmissible`
+- The timestamp when the answer was generated (`generated_at`)
+- The evidence IDs that supported the answer, if any
 
-- Narrow roles and permissions.
-- Hardened function paths that refuse to operate on unexpected tables or views.
-- Clear boundaries between stored state and public evidence.
+For rural developers, this is the logbook. If a community steward or outside
+reviewer asks "what did the system say about this blockgroup on this date, and
+what evidence was it using?", the audit table provides the answer.
 
-For rural developers, the lesson is that good security is not just about math; it is also about clear, disciplined architecture. Even as cryptographic methods evolve, these structural protections remain valuable.
-
----
-
-## 42.8 Implementation Status
-
-**Post-Quantum Security Layer (function-level hardening of public answers): Demonstrated for `public_answer_packet`.**
-
-As of July 27, 2026:
-
-- `runtime_governance.public_answer_packet` is defined as a `SECURITY DEFINER` function with a pinned `search_path = public, runtime_governance, pg_temp`.
-- Its execution is restricted to the public instrument role.
-- It uses governed views and audit tables to transform admissible evidence into structured answer packets.
-- Its hardening shows how overflow and answer paths are protected at the function level, not just at the application or network level.
-
-Within the academic scope of this chapter, the thesis is justified in claiming that the public answer path is hardened by design, using concrete database mechanisms that guard against subtle misuse.
+The audit trail is not optional and not bypassable — it is written inside the
+`SECURITY DEFINER` function before the answer packet is returned. The caller
+cannot suppress it.
 
 ---
 
-## 42.9 Step-by-Step Summary for Rural Developers
+## 42.7 The pg_cron Governance Lifecycle Pulse
 
-To understand and apply this chapter:
+The post-quantum security layer does not operate in isolation. It depends on the
+governance lifecycle being kept current. This is done by the four pg_cron jobs
+registered in `wv_gis`, all running via the verified entry point
+`apply_runtime_lifecycle()`.
 
-1. **Recognize the critical function.**  
-   `public_answer_packet` is the main path from questions to governed answers.
+| Schedule | What It Does |
+|----------|-------------|
+| Every hour at `:15` | Refreshes `public_admissible_gbim_mv` — keeps the evidence surface current |
+| Daily at `03:05` | Runs degradation status updates — advances `fresh` → `aging` → `stale` |
+| Sunday at `02:00` | Deeper coherence check across the governed corpus |
+| 1st of month at `01:30` | Full lifecycle reconciliation; archives stale audit records |
 
-2. **Understand SECURITY DEFINER.**  
-   The function runs with owner privileges, allowing it to access governed evidence without exposing raw data.
+> **Deprecation notice:** The function `gbim_runtime_lifecycle_hourly()` no
+> longer exists. Any configuration, documentation, or code referencing that
+> name must be updated to use `apply_runtime_lifecycle()` as the entry point.
 
-3. **See why search_path is pinned.**  
-   Pinning `search_path` prevents temporary tables from tricking the function into using the wrong objects.
+To verify all four jobs are live:
 
-4. **Note the execution restrictions.**  
-   Only the public instrument role can call the function. Others cannot.
+```sql
+SELECT jobname, schedule, command, active
+FROM cron.job
+WHERE jobname LIKE 'gbim-runtime-lifecycle-%'
+ORDER BY jobname;
+```
 
-5. **Appreciate the audit trail.**  
-   Each call is logged, making the function’s behavior reviewable.
-
-6. **Connect the pattern to overflow.**  
-   Overflow handling uses the same idea: privileged, bounded functions and queues rather than open, unguarded paths.
+If the hourly job is not running, `public_admissible_gbim_mv` will go stale and
+`public_answer_packet` will operate on outdated evidence. The audit trail will
+still record calls — but the evidence surface feeding them will not be fresh.
+Keeping the pg_cron jobs active is therefore a direct security concern, not just
+an operational one.
 
 ---
 
-## 42.10 Closing
+## 42.8 Overflow Handling: The Same Philosophy
 
-The Post-Quantum Security Layer in this chapter is not about a specific encryption algorithm. It is about **function-level discipline**: using `SECURITY DEFINER`, pinned search paths, restricted execution roles, and governed evidence surfaces to keep public answers safe.
+The same hardening discipline that governs `public_answer_packet` applies to
+overflow event handling.
 
-For rural developers, this means that public-facing behavior is not left to chance. It is routed through hardened, auditable functions that respect the system’s governance rules, now and as security expectations evolve.
+Overflow events (such as those in the
+`overflow:queue:overflow_retriable_public_context` lane) are constructed as
+**minimized records**:
+
+- Only allowlisted public-context fields are included
+- Person-space validation ensures the event is safe to route
+- Queue behavior is bounded — no uncontrolled growth
+
+These events are handled by functions that follow the same principles:
+- Operate on minimized, governed payloads
+- Use privileged, tightly scoped functions
+- Pin search paths
+- Restrict execution to the intended role
+- Log behavior for review
+
+For rural developers: overflow is not an escape hatch. An event that overflows
+the primary path does not bypass the security layer — it enters a governed
+secondary lane that applies the same rules.
+
+---
+
+## 42.9 Why This Is Post-Quantum Security
+
+"Post-quantum security" typically refers to cryptographic algorithms that remain
+safe against quantum computers. This chapter focuses on **structural hardening**,
+which is the complement to cryptography — not a replacement for it.
+
+If a future attacker breaks or weakens an encryption layer, the system still
+benefits from:
+
+- Narrow roles and permissions that cannot be escalated by decryption alone
+- Hardened function paths that refuse to read wrong tables regardless of who
+  calls them
+- Clear boundaries between stored state and public evidence that encryption
+  alone cannot enforce
+- Audit trails that record behavior even if network-layer security is compromised
+
+For rural developers, the practical lesson is: good security is not only
+mathematics. It is disciplined architecture. The structural protections in this
+chapter remain effective as cryptographic methods evolve, because they are
+enforced at the database level — below the application layer and independent of
+which encryption algorithm is in use.
+
+---
+
+## 42.10 Step-by-Step Summary for Rural Developers
+
+1. **Identify the hardened function.**
+   `runtime_governance.public_answer_packet` is the single governed path from
+   civic questions to structured answers. It is the only function that may
+   produce public answer packets.
+
+2. **Understand SECURITY DEFINER.**
+   The function runs with owner privileges. The caller cannot see the back room.
+   Only the function can, and it only brings back what governance permits.
+
+3. **Understand search_path pinning.**
+   `SET search_path = public, runtime_governance, pg_temp` ensures the function
+   always finds the real governed objects — never a temporary masking table.
+   `pg_temp` is present but last.
+
+4. **Know the execution restriction.**
+   Only `public_instrument_role` can call the function. All other execution
+   rights are revoked. No workaround, no shortcut.
+
+5. **Know the evidence source.**
+   The function reads from `public.public_admissible_gbim_mv` only. Raw tables
+   are not accessible. Evidence has already passed the ten-condition
+   admissibility predicate before the function sees it.
+
+6. **Check the audit table.**
+   `runtime_governance.public_answer_audit` records every call. Query it to
+   confirm the function is being used as intended and to audit what the system
+   said about any given blockgroup.
+
+7. **Keep the pg_cron jobs active.**
+   All four jobs run via `apply_runtime_lifecycle()`. The deprecated
+   `gbim_runtime_lifecycle_hourly()` no longer exists. If the hourly job stops,
+   the evidence surface goes stale. Verify with:
+
+   ```sql
+   SELECT jobname, schedule, active
+   FROM cron.job
+   WHERE jobname LIKE 'gbim-runtime-lifecycle-%';
+   ```
+
+8. **Apply the same philosophy to overflow.**
+   Overflow paths use minimized payloads, bounded queues, and governed function
+   paths. Overflow is not an escape from the security layer.
+
+9. **Understand the structural-plus-cryptographic model.**
+   Structural hardening (this chapter) and cryptographic algorithms work
+   together. Structural protections remain effective even as cryptographic
+   assumptions evolve. They are enforced at the database level, independent of
+   the application or network layer.
+
+---
+
+## 42.11 What This Chapter Does Not Claim
+
+To remain within the gate:
+
+- This chapter does not claim that function-level hardening replaces
+  post-quantum cryptographic algorithms
+- It does not claim universal security against all possible attacks
+- It does not claim clinical, legal, or platform-wide security certification
+- It claims only that `public_answer_packet` is hardened by demonstrated
+  database mechanisms, and that those mechanisms are live and auditable
+  as of the July 2026 production gate
+
+---
+
+## 42.12 Closing Statement
+
+The Post-Quantum Security Layer in this chapter is function-level discipline
+made concrete.
+
+`SECURITY DEFINER` ensures the function runs under the right privileges.
+A pinned `search_path` ensures it never reads the wrong objects. Execution
+restrictions ensure only the intended role can invoke it. Governed views ensure
+it operates on pre-filtered evidence. An audit trail ensures every call is
+recorded. The four pg_cron jobs keep the evidence surface fresh via
+`apply_runtime_lifecycle()`.
+
+For rural developers in Mount Hope and across Appalachia, the practical
+consequence is this: the civic answers your community receives from this system
+come through a hardened, auditable path. It cannot be tricked into reading
+fabricated data. It cannot be called by unauthorised roles. It records what it
+said and why. That is structural security — and it is live.
+
+---
+
+*Chapter 42 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
+*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
+*See LICENSE for terms.*
+*Sealed: July 29, 2026 — July 2026 Production Gate.*
+*`public_answer_packet`: live, SECURITY DEFINER, pinned search_path, restricted*
+*to `public_instrument_role`, audit-logged.*
+*pg_cron entry point: `apply_runtime_lifecycle()` — four live jobs in `wv_gis`.*
+*Deprecated: `gbim_runtime_lifecycle_hourly()` — remove all references.*
