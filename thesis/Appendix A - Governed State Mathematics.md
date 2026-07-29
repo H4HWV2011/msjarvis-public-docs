@@ -1,322 +1,370 @@
-# Appendix A — Governed State Mathematics (As‑Built)
+# Appendix A: Admissibility Predicate
+## The Ten-Condition Conjunction — As-Built, July 29, 2026
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 26, 2026*
+**Author:** C. A. Kidd — Mount Hope, West Virginia
+**Last Updated:** July 29, 2026
+**Status:** As-Built — Both Halves Fully Enforced — July 2026 Production Gate
 
----
-
-## A.0 Overview and Purpose
-
-Appendix A defines the mathematical structure of governed state in the Ms. Jarvis / Ms. Allis system and maintains the **verification discipline** that keeps the thesis honest about what is running versus what is planned.
-
-After the July 26, 2026 architecture closeout, governed state gained three new structural columns — `spatial_unit_id`, `spatial_unit_kind`, and `valid_time_start` — that close the spatial and temporal halves of the Spacetime Contract (Chapter 53). This appendix now contains the formal admissibility predicate derived from those changes, the verification discipline rules, all demonstrated paths through the stack, and guidance for rural developers who need to audit or extend this system.
-
-If a chapter claims a mechanism is live, it must be able to point back here to evidence that meets the standard defined in §A.1.
-
----
-
-## A.1 Demonstrated vs. Not‑Yet‑Demonstrated
-
-Every mechanism in the thesis must live in one of two registers.
-
-**Demonstrated** — A claim is demonstrated only when a real path has been exercised and confirmed across at least two layers:
-- A service or script is running on the expected port or schedule.
-- An endpoint or worker produces live behavior.
-- Database, Chroma, or Redis state shows the expected effect.
-- Logs or test probes confirm the result.
-
-**Not Yet Demonstrated** — A claim is not yet demonstrated when it is:
-- Only described architecturally in text.
-- Implemented in code but never exercised end‑to‑end.
-- Visible only in tests or prototypes, not in the live services layer.
-- Dependent on tables, routes, or keys that do not yet exist.
-
-No chapter may quietly promote an architectural idea to "live behavior" without this kind of evidence. Appendix A's job is to keep that line clear.
+> **Gate Corrections Applied (July 29, 2026):**
+> The prior seven-condition conjunction has been superseded by the
+> ten-condition conjunction (C1–C10). Three new conditions — C8, C9, C10 —
+> were added on July 26, 2026 as part of the full spacetime/provenance
+> schema migration. The Verification Discipline rule is now in force.
+> All infrastructure corrections listed below are applied and sealed.
 
 ---
 
-## A.2 The Governed State Definition
+## What This Appendix Is About
 
-A *governed state record* in this system is a row in `public.gbim_record` that has been promoted to `authorized` status and satisfies all structural constraints. As of July 26, 2026, the governed state definition includes three new structural columns that were not present in earlier versions of the schema.
+This appendix defines the full admissibility predicate governing which rows
+in `public.gbim_record` are visible to the public instrument. It is written
+step by step for rural developers who need to understand, reproduce, or
+extend the governed state model described in the main thesis.
 
-### A.2.1 Structural Columns Added July 26, 2026
-
-The following columns were added to `public.gbim_record` and made `NOT NULL`:
-
-| Column | Type | Role in Governed State |
-|---|---|---|
-| `spatial_unit_id` | `text NOT NULL` | Normalized spatial key (e.g., blockgroup GEOID). Anchors the record to a specific geographic unit in the authoritative WV spatial domain. |
-| `spatial_unit_kind` | `text NOT NULL` | Classification of the spatial unit: `'blockgroup'`, `'tract'`, `'county'`, or equivalent. Makes the spatial anchor self‑describing. |
-| `valid_time_start` | `timestamptz NOT NULL` | The earliest moment for which the record's metric claim is asserted. Closes the temporal half of the Spacetime Contract. |
-
-These three columns are **structural requirements**, not runtime filters. Every row in `public.gbim_record` must have them populated; the system will reject an insert or update that would leave them null on a row where `promotion_state = 'authorized'` and `public_claim_allowed = true`, due to the cross‑column CHECK constraint described in §A.3.
-
-### A.2.2 What This Means for Rural Developers
-
-Before July 26, 2026, a record could be marked as authorized for public claims without having an explicit spatial unit identifier or a time anchor. That gap meant the system could make a claim without being able to answer "where exactly?" and "as of when?" simultaneously.
-
-Adding these three columns closes that gap. Now every public claim the system emits is tied to a named spatial unit at a specific resolution (`spatial_unit_kind`) with a specific key (`spatial_unit_id`) that is valid starting from a specific point in time (`valid_time_start`). If those fields are missing, the record is stored but inadmissible.
+The predicate is not aspirational. Every condition listed here is enforced
+in production as of July 29, 2026 — at the database schema level, the
+materialized view level, and the role access level. The Verification
+Discipline rule below explains exactly what "enforced in production" must
+mean before any claim may be retired from the "Not Yet Demonstrated"
+register.
 
 ---
 
-## A.3 The Cross‑Column Spacetime/Provenance CHECK Constraint
+## A.1 The Ten-Condition Admissibility Conjunction (C1–C10)
 
-The following CHECK constraint was added to `public.gbim_record` on July 26, 2026 and was verified against 237,655 rows without error:
+For a row in `public.gbim_record` to appear in `public_admissible_gbim_mv`
+and be accessible to `public_instrument_role`, it must satisfy **all ten**
+of the following conditions simultaneously. Failure of any single condition
+makes the row stored-but-inadmissible: visible to the governance role for
+audit and repair, but invisible to the public instrument.
+
+| Condition | Predicate | Notes |
+|-----------|-----------|-------|
+| C1 | `gbim_id IS NOT NULL` | Record identity — unchanged from prior version |
+| C2 | `promotion_state = 'authorized'` | Governance gate — unchanged from prior version |
+| C3 | `public_claim_allowed = true` | Public emission flag — unchanged from prior version |
+| C4 | `under_whose_authority IS NOT NULL` | Provenance authority — unchanged from prior version |
+| C5 | `company_name IS NOT NULL` | Provenance organization — unchanged from prior version |
+| C6 | `ingested_at IS NOT NULL` | Memory event timestamp — unchanged from prior version |
+| C7 | `degradation_status IN ('fresh', 'aging')` | Lifecycle freshness — unchanged from prior version |
+| C8 | `spatial_unit_id IS NOT NULL` | Blockgroup GEOID — **added July 26, 2026** |
+| C9 | `spatial_unit_kind IS NOT NULL` | Spatial kind anchor (`'blockgroup'` for all current records) — **added July 26, 2026** |
+| C10 | `valid_time_start IS NOT NULL` | Temporal anchor (≥ 2020-01-01) — **added July 26, 2026** |
+
+Conditions C1–C7 are unchanged from the prior seven-condition version.
+Conditions C8–C10 are the spacetime extension: they enforce the **where**
+(C8, C9) and the **when** (C10) of the spacetime contract defined in
+Chapter 53.
+
+### The Enforcing CHECK Constraint
+
+C8–C10 are enforced at write time by the following database constraint on
+`public.gbim_record`:
 
 ```sql
-ALTER TABLE public.gbim_record
-ADD CONSTRAINT gbim_record_spacetime_provenance_chk
-CHECK (
+CONSTRAINT gbim_record_spacetime_provenance_chk CHECK (
   NOT (promotion_state = 'authorized' AND public_claim_allowed = true)
   OR (
-    spatial_unit_id IS NOT NULL
+    spatial_unit_id       IS NOT NULL
     AND spatial_unit_kind IS NOT NULL
-    AND valid_time_start IS NOT NULL
+    AND valid_time_start  IS NOT NULL
     AND under_whose_authority IS NOT NULL
-    AND company_name IS NOT NULL
-    AND ingested_at IS NOT NULL
+    AND company_name      IS NOT NULL
+    AND ingested_at       IS NOT NULL
   )
-);
+)
 ```
 
-This constraint is evaluated at the table level on every insert and update. Its logic reads: *if a row is both authorized and flagged as publicly claimable, then all spatial, temporal, and provenance fields must be populated; otherwise the row is rejected*. Rows that are stored but not yet authorized, or that have `public_claim_allowed = false`, are not subject to these requirements and may be held in an incomplete state during ingestion or review.
+Any attempt to mark a row `authorized` and `public_claim_allowed = true`
+without satisfying all six fields is rejected at the database level. The
+predicate is not a post-hoc filter — it is a write barrier. Hallucinated
+geography and unanchored temporal claims cannot enter the public evidence
+surface because they are blocked before they can be committed.
 
-The constraint passed `ALTER TABLE` cleanly, which confirms that all existing rows satisfied these requirements at the time of the gate.
+### Step-by-Step for Rural Developers
 
----
+1. **Start with your governance gate (C2, C3).** Every row must be
+   explicitly promoted to `authorized` and flagged for public emission.
+   Nothing becomes public by default.
 
-## A.4 Formal Definition — The Ten‑Condition Public Admissibility Predicate
+2. **Require provenance (C4, C5, C6).** Every public row must name who
+   authorized it, which organization it comes from, and when it was
+   ingested. These are not metadata — they are admissibility conditions.
 
-**Definition A.1 (Public Admissibility).**  
-Let $r$ denote a row in `public.gbim_record`. The row $r$ is *publicly admissible* — meaning it may enter the public evidence surface `public_admissible_gbim_mv` and back a public claim — if and only if all ten of the following conditions hold simultaneously:
+3. **Enforce lifecycle (C7).** A row that was `fresh` at ingestion becomes
+   `aging` and then `stale` over time. Stale rows automatically fall out
+   of the admissible set. Build a scheduler (see A.4) to maintain this
+   automatically.
 
-$$\text{admissible}(r) \iff C_1(r) \wedge C_2(r) \wedge C_3(r) \wedge C_4(r) \wedge C_5(r) \wedge C_6(r) \wedge C_7(r) \wedge C_8(r) \wedge C_9(r) \wedge C_{10}(r)$$
+4. **Add the spacetime anchor (C8, C9, C10).** Every public civic claim
+   must carry a geographic unit identity (`spatial_unit_id`), a geographic
+   kind (`spatial_unit_kind`), and a policy effective date
+   (`valid_time_start`). Without all three, the row cannot be public.
 
-where the ten conditions are:
-
-| Condition | SQL predicate | What it enforces |
-|---|---|---|
-| $C_1$ | `g.gbim_id IS NOT NULL` | Record identity — every admissible record must have a non‑null primary key. |
-| $C_2$ | `g.promotion_state = 'authorized'` | Authorization — the record has passed the GBIM promotion gate and is not merely a candidate or provisional entry. |
-| $C_3$ | `g.public_claim_allowed = true` | Explicit public flag — a separate column that must be affirmatively set, independent of authorization. |
-| $C_4$ | `g.under_whose_authority IS NOT NULL` | Legal provenance — the authorizing body for the record must be named. |
-| $C_5$ | `g.company_name IS NOT NULL` | Organizational provenance — the originating organization must be named. |
-| $C_6$ | `g.ingested_at IS NOT NULL` | Ingestion timestamp — the moment of record acceptance into the governed store must be documented. |
-| $C_7$ | `g.degradation_status IN ('fresh', 'aging')` | Lifecycle state — only records that are fresh or aging are admissible; stale records are excluded from public claims even if authorized. |
-| $C_8$ | `g.spatial_unit_id IS NOT NULL` | Spatial anchor — added July 26, 2026; no record may be publicly admitted without identifying its geographic unit. |
-| $C_9$ | `g.spatial_unit_kind IS NOT NULL` | Spatial resolution — the kind of spatial unit (blockgroup, tract, county) must be specified. |
-| $C_{10}$ | `g.valid_time_start IS NOT NULL` | Temporal anchor — the earliest moment of validity for the claim must be specified. |
-
-**Remark.** Conditions $C_1$ through $C_7$ were present in the pre‑July 26 architecture. Conditions $C_8$, $C_9$, and $C_{10}$ were added on July 26, 2026, closing the spatial and temporal halves of the Spacetime Contract. The admissibility predicate is a conjunction: any single false condition renders the entire row inadmissible regardless of the status of the other nine.
-
-### A.4.1 Implementation in SQL
-
-The predicate above is directly instantiated as the `WHERE` clause of `public.public_admissible_gbim`:
-
-```sql
-CREATE VIEW public.public_admissible_gbim AS
-SELECT g.*
-FROM public.gbim_record g
-WHERE g.gbim_id IS NOT NULL                           -- C1
-  AND g.promotion_state = 'authorized'               -- C2
-  AND g.public_claim_allowed = true                  -- C3
-  AND g.under_whose_authority IS NOT NULL            -- C4
-  AND g.company_name IS NOT NULL                     -- C5
-  AND g.ingested_at IS NOT NULL                      -- C6
-  AND g.degradation_status IN ('fresh','aging')      -- C7
-  AND g.spatial_unit_id IS NOT NULL                  -- C8
-  AND g.spatial_unit_kind IS NOT NULL                -- C9
-  AND g.valid_time_start IS NOT NULL;                -- C10
-```
-
-`public.public_admissible_gbim_mv` is a materialized version of this view, refreshed by `runtime_governance.refresh_public_admissible_gbim_mv()`.
-
-### A.4.2 Verified Row Counts (July 26, 2026 Gate)
-
-The lifecycle audit at the July 26 gate produced the following counts, recorded in `runtime_governance.public_answer_audit`:
-
-| Metric | Count |
-|---|---|
-| Total authorized rows | 237,655 |
-| Admissible for public claims (all ten conditions) | 93,423 |
-| Stored but inadmissible | 144,232 |
-
-The 144,232 inadmissible rows are not errors. They represent records held in the governed store that do not meet all ten conditions — for example, records with `public_claim_allowed = false` or with lifecycle status `stale`. The system stores them; it does not speak them.
+5. **Enforce at the write boundary, not only the read boundary.** Use a
+   CHECK constraint so the predicate is checked when the row is written,
+   not only when it is queried. An answer can be regenerated; a corrupted
+   belief persists.
 
 ---
 
-## A.5 The Separation of Stored State from Speakable State
+## A.2 The Verification Discipline Rule
 
-A key principle of this architecture is that *stored* and *speakable* are different registers.
+**Any claim of live behavior must be demonstrated at two layers before it
+may be removed from the "Not Yet Demonstrated" register:**
 
-**Stored state** is everything in `public.gbim_record`. The governance runtime (`runtime_governance_role`) can read, write, and audit all stored state. This broad access is intentional: governance and lifecycle maintenance require visibility into inadmissible records to understand why they are inadmissible, to backfill missing fields, and to promote or demote records over time.
+**Layer 1 — Service Running:** The relevant service, container, or function
+must be confirmed healthy at runtime. This means an observed HTTP response,
+a successful function invocation, or a verified container status — not a
+configuration file asserting the service is intended to run.
 
-**Speakable state** is only what passes the ten‑condition predicate and appears in `public_admissible_gbim_mv`. The public instrument (`public_instrument_role`) can only read from this materialized view and from `runtime_governance.public_answer_audit`. A direct `SELECT` on `public.gbim_record` returns `permission denied` for the public role — confirmed at the July 26 gate.
+**Layer 2 — Database State Confirmed:** The underlying database state that
+the service depends on must be independently confirmed via a live `psql`
+session or equivalent direct query. Service health alone does not confirm
+that the evidence the service reads is admissible, current, or correctly
+structured.
 
-This separation means the system can evolve its internal state freely without risking premature public disclosure. Records ingested today may not be publicly admissible until they complete their promotion and lifecycle journey. That journey is tracked; the destination is enforced.
+A claim satisfies the Verification Discipline rule only when **both** layers
+have been observed and recorded. A claim that satisfies Layer 1 but not
+Layer 2 remains on the "Not Yet Demonstrated" register with a note that
+service health is confirmed but database state is pending.
+
+### Why Two Layers Are Required
+
+A service can be running and healthy while the database it reads from holds
+stale, inadmissible, or incorrectly structured rows. Conversely, the
+database can hold correctly structured admissible rows while the service
+that reads them is down or misconfigured. Neither layer alone constitutes
+proof of live civic behavior.
+
+For rural developers running systems on laptops, shared machines, or
+intermittent infrastructure: this rule protects you from the commonest
+class of false confidence — "I can see the container is up" without
+checking whether the data it serves is actually admissible.
 
 ---
 
-## A.6 The Runtime Governance Role Structure
+## A.3 Infrastructure Corrections (Cross-Cutting)
 
-Two roles were established on July 26, 2026 to enforce the stored/speakable boundary:
+The following items were corrected as part of the July 29, 2026 production
+gate. Prior descriptions are removed and replaced with verified as-built
+status.
 
-**`runtime_governance_role`**  
-- Full `SELECT`, `INSERT`, `UPDATE`, `DELETE` on `public.gbim_record`.  
-- Row‑Level Security policy `gbim_read_policy` with `USING (true)` — sees all rows.  
-- Responsible for running lifecycle refresh functions, backfilling spacetime columns, and promoting records.  
-- This is an internal governance role, not exposed to the public instrument surface.
+### A.3.1 Audit Trace IDs
 
-**`public_instrument_role`**  
-- `SELECT` only on `public.public_admissible_gbim_mv` and `runtime_governance.public_answer_audit`.  
-- No access to `public.gbim_record` — any attempt raises `permission denied`.  
-- This role backs the public‑facing answer function `runtime_governance.public_answer_packet(geoid, metric_name)`.  
-- Only admissible evidence may enter a public claim through this role.
+| Item | Prior Description (Removed) | Verified As-Built Status |
+|------|------------------------------|--------------------------|
+| Audit trace IDs | `query_id` hardcoded as a placeholder | Real trace IDs threaded through `public_answer_packet` and `public_geoid_panel` into `public_answer_audit`; every public claim invocation produces a durable UUID audit record |
+
+The `public_answer_audit` table in the `runtime_governance` schema receives
+a logged row on every invocation of `public_answer_packet`. The trace ID
+is a real UUID drawn from the `gbim_record.gbim_id` of the evidence row
+used to construct the answer, not a hardcoded placeholder. Downstream
+systems may query `public_answer_audit` to reconstruct the provenance chain
+for any answer the system has produced.
+
+### A.3.2 pg_cron Target
+
+| Item | Prior Description (Removed) | Verified As-Built Status |
+|------|------------------------------|--------------------------|
+| pg_cron lifecycle target | `gbim_runtime_lifecycle_hourly()` named as the cron target | `apply_runtime_lifecycle` is the correct function name called by all four scheduled jobs |
+
+The four registered pg_cron jobs (`gbim-runtime-lifecycle-hourly`,
+`gbim-runtime-lifecycle-daily`, `gbim-runtime-lifecycle-weekly`,
+`gbim-runtime-lifecycle-monthly`) all invoke `apply_runtime_lifecycle` —
+not the previously documented `gbim_runtime_lifecycle_hourly()`. Any
+documentation, monitoring configuration, or operational runbook that
+references the old function name must be updated to `apply_runtime_lifecycle`.
+
+### A.3.3 Policy Service
+
+| Item | Prior Description (Removed) | Verified As-Built Status |
+|------|------------------------------|--------------------------|
+| Policy service | "Not Yet Demonstrated" | `jarvis-crypto-policy` is healthy on port 8099; HMAC-SHA256 verified; secrets rotated as of July 29, 2026 |
+
+`jarvis-crypto-policy` satisfies the Verification Discipline rule at both
+layers: the service is confirmed running and responding on port 8099
+(Layer 1), and the `civic_policy_fact` table it reads from carries verified
+PY2026 SNAP eligibility rules with dual temporal axes — `recorded_at` and
+`valid_time_start` — confirmed via live `psql` session (Layer 2). HMAC-SHA256
+message authentication is in force; secrets have been rotated.
+
+### A.3.4 geoguard_city
+
+| Item | Prior Description (Removed) | Verified As-Built Status |
+|------|------------------------------|--------------------------|
+| `geoguard_city` | "Planned / empty" | Populated with verified data as of July 29, 2026 |
+
+The `geoguard_city` table is no longer empty or planned. It holds the
+verified city-level entries used by the geographic guard's lexical scope
+check layer (described in Chapter 53, Section 9.2). The table was
+populated as part of the July 29, 2026 production gate. Rural developers
+extending the guard to a new region should populate this table from the
+Census TIGER/Line places file for their region, following the same pattern
+used for the West Virginia deployment.
+
+### A.3.5 Contracts Container
+
+| Item | Prior Description (Removed) | Verified As-Built Status |
+|------|------------------------------|--------------------------|
+| `jarvis-contracts` container | "Failing / ExitCode non-zero" | `jarvis-contracts` running (ExitCode 0); compiled artifacts confirmed |
+
+The `jarvis-contracts` container previously failed to reach a healthy state.
+As of July 29, 2026, the container is running with ExitCode 0 and compiled
+artifacts have been confirmed present and loadable. The Verification
+Discipline rule is satisfied at both layers: container status verified
+(Layer 1) and contract artifact integrity confirmed (Layer 2).
 
 ---
 
-## A.7 The public_answer_packet Function
+## A.4 The Admissibility Lifecycle: Step-by-Step for Rural Developers
 
-The function `runtime_governance.public_answer_packet(p_geoid text, p_metric_name text)` is the primary public evidence surface. It is a `SECURITY DEFINER` PL/pgSQL function with `search_path` pinned to `public, runtime_governance, pg_temp`.
+The admissibility predicate is a snapshot. What keeps it honest over time
+is the lifecycle scheduler. The following steps describe how to reproduce
+the full governed lifecycle in another rural deployment.
 
-When called as `public_instrument_role`, it returns a `jsonb` document with the following structure, shown here from the July 26, 2026 live run against geoid `540019656003`:
+**Step 1: Define your admissibility conditions explicitly.**
+Write them down as a numbered list. Every condition must be testable with
+a SQL query. If you cannot write the SQL, the condition is not enforceable.
+
+**Step 2: Encode the conditions in a CHECK constraint and a materialized
+view.**
+The CHECK constraint enforces conditions at write time. The materialized
+view enforces them at read time. Both are required. One without the other
+leaves a gap.
+
+**Step 3: Create the role hierarchy.**
+`runtime_governance_role` sees everything. `public_instrument_role` reads
+only `public_admissible_gbim_mv`. Test the boundary directly: attempt a
+direct SELECT from `public.gbim_record` as the public role and confirm
+it returns a permission denied error.
+
+**Step 4: Wire the four lifecycle jobs.**
+Register hourly, daily, weekly, and monthly pg_cron jobs all calling
+`apply_runtime_lifecycle`. Do not name the jobs after the function; name
+them after the cadence (`gbim-runtime-lifecycle-hourly`, etc.) so
+monitoring is readable without knowing the implementation.
+
+**Step 5: Verify the scheduler at both layers.**
+Confirm the cron jobs appear in `cron.job` with `active = true` (Layer 1).
+Confirm that running the lifecycle function directly produces the expected
+degradation state transitions in `public.gbim_record` (Layer 2).
+
+**Step 6: Add the Verification Discipline rule to your project's definition
+of done.**
+Any feature, migration, or infrastructure change that claims to be "live"
+must satisfy both layers before the claim is recorded in any document,
+chapter, or audit log. A two-row table — "Layer 1: service confirmed" and
+"Layer 2: database state confirmed" — is a sufficient record format.
+
+**Step 7: Maintain the "Not Yet Demonstrated" register.**
+Keep a running list of any behavior that has been designed but not yet
+verified at both layers. Remove items only when both layers are confirmed.
+This register is not a shame list — it is an honest inventory of the gap
+between architecture and evidence.
+
+---
+
+## A.5 Verified Admissibility Counts (July 26, 2026)
+
+The following snapshot was captured from a live
+`runtime_governance.log_lifecycle_counts()` invocation on July 26, 2026:
 
 ```json
 {
-    "query": {
-        "geoid": "540019656003",
-        "metric_name": "atm_weather_stations_count"
-    },
-    "generated_at": "2026-07-26T20:45:58.110893-04:00",
-    "answer_blocks": [
-        {
-            "text": "atm_weather_stations_count for geoid 540019656003 is 1 count.",
-            "label": "seen",
-            "evidence": {
-                "bg_table": "public.wv_bg_atm_weather_stations",
-                "ingested_at": "2026-07-26T18:37:29.43012-04:00",
-                "company_name": "WVGIS Technical Center",
-                "source_table": "public.wv_atm_weather_stations",
-                "valid_time_end": null,
-                "spatial_unit_id": "540019656003",
-                "valid_time_start": "2020-01-01T00:00:00-05:00",
-                "spatial_unit_kind": "blockgroup",
-                "degradation_status": "fresh",
-                "under_whose_authority": "WVGIS Technical Center"
-            },
-            "evidence_ids": ["24e12e70-8c3d-4f27-8ee2-bc2011bb15a5"]
-        }
-    ],
-    "admissibility_summary": {
-        "seen_count": 1,
-        "inferred_count": 0,
-        "inadmissible_count": 0
-    }
+  "fresh": 237655,
+  "aging": 0,
+  "stale": 0,
+  "authorized": 237655,
+  "admissible_public": 93423,
+  "inadmissible_public": 144232,
+  "public_claim_allowed": 93423,
+  "logged_at": "2026-07-26T19:44:06.530415-04:00"
 }
 ```
 
-The `label` field distinguishes three answer states:
-- **`"seen"`** — Direct admissible evidence exists for the requested geoid and metric.
-- **`"inferred"`** — Multiple admissible evidence rows exist and a summary is produced.
-- **`"inadmissible"`** — No admissible evidence exists; the answer is a structured refusal, not a guess.
-
-This is the Spacetime Contract at runtime: every answer carries `spatial_unit_id`, `spatial_unit_kind`, and `valid_time_start` in its evidence block, or it does not answer at all.
-
----
-
-## A.8 AAPCAppE → Chroma → GBIM Corpus Path
-
-At the corpus level, the as‑built architecture includes a specific Appalachian pipeline:
-
-1. **AAPCAppE scraper (port 8033)** — Service `jarvis-aaacpe-scraper`. Scrapes Appalachian linguistic information and related texts. Output: corpus chunks ready for vectorization.
-2. **Chroma corpus storage (port 8002)** — Service `jarvis-chroma`. Stores vectors and metadata for scraped documents; the inspected Chroma collections include the one receiving AAPCAppE output.
-3. **GBIM intake path** — GBIM queries Chroma via the standard retrieval pipeline: $M_{\text{corpus}} \rightarrow C_{\text{retrieved}} \rightarrow S_{\text{sandbox}} \rightarrow F_{\text{candidate}}$. Appalachian corpus evidence flows AAPCAppE → Chroma → GBIM.
-
-This entire path has been exercised and is treated as **demonstrated**.
+The split — 93,423 admissible, 144,232 stored-but-inadmissible — is
+correct by design. Many rows are held internally for governance and repair
+purposes but are not authorized for public claim emission. The 144,232
+inadmissible rows are not errors; they are rows that correctly fail one or
+more of C1–C10 and are therefore correctly excluded from the public
+evidence surface.
 
 ---
 
-## A.9 The GBIM Promotion Contract
+## A.6 The civic_policy_fact Table and PY2026 SNAP Eligibility
 
-GBIM provides the canonical demonstrated example of a governed promotion contract in the system. The contract has three key pieces:
+The `civic_policy_fact` table is live with dual temporal axes:
 
-1. **Trigger (guardrail)** — A BEFORE trigger on insert/update checks that the target manifest row is coherence‑approved and in the correct status. It rejects activation if `coherence_ok` is false.
-2. **Evaluator (`coherence_ok`)** — Populates a `coherence_ok` flag on the manifest row. Runs as part of the GBIM build/validate pipeline, not as a manual toggle.
-3. **Procedure (`promote_gbim_collection`)** — The single sanctioned promotion path. Verifies `coherence_ok == true`, sets `active` status, and updates `gbim_active_collection`. The trigger aborts if the guard is violated.
+- **`recorded_at`** — when the fact was ingested (the memory event timestamp,
+  equivalent to `ingested_at` in `gbim_record`)
+- **`valid_time_start`** — the effective date of the policy rule itself
+  (when the rule became legally operative under its governing program year)
 
-This triad — trigger, evaluator, procedure — is **demonstrated**: it has been run on real manifests including negative tests that attempted to activate non‑coherent or superseded manifests.
+These two timestamps are not the same and must not be conflated. A PY2026
+SNAP income threshold was legally effective on October 1, 2025. It was
+ingested into the system on a later date. The `valid_time_start` carries
+the legal effective date; `recorded_at` carries the ingestion date. Both
+are required by C6 and C10 respectively.
 
----
+`commons_current_policy()` is returning verified PY2026 SNAP eligibility
+rules as of July 29, 2026. This function satisfies the Verification
+Discipline rule: the service (`jarvis-crypto-policy`, port 8099) is
+confirmed healthy at Layer 1, and the `civic_policy_fact` rows it reads
+carry both `recorded_at` and `valid_time_start` confirmed at Layer 2.
 
-## A.10 Live Scheduled Runners and the Epistemic Loop
-
-As of July 26, 2026, the following pg_cron jobs are registered and active in `wv_gis`:
-
-| Job name | Schedule | Procedure |
-|---|---|---|
-| `gbim-runtime-lifecycle-daily` | `5 3 * * *` | `runtime_governance.gbim_runtime_lifecycle_daily()` |
-| `gbim-runtime-lifecycle-hourly` | `15 * * * *` | `runtime_governance.gbim_runtime_lifecycle_hourly()` |
-| `gbim-runtime-lifecycle-weekly` | `0 2 * * 0` | `runtime_governance.gbim_runtime_lifecycle_weekly()` |
-| `gbim-runtime-lifecycle-monthly` | `30 1 $ * *` | `runtime_governance.gbim_runtime_lifecycle_monthly()` |
-
-These jobs implement the recurrent epistemic loop described in Chapter 52. In addition, the following application‑layer workers contribute:
-
-| Worker | Schedule | Role |
-|---|---|---|
-| `conversation_retention_worker.py` | Hourly | Enforces per‑user conversational retention policies over Chroma. |
-| `identity_promotion.py` | Daily at 03:00 | Moves identities between provisional and confirmed states. |
-| `recurrent_epistemic_runner.py` | On reboot (crypto-venv) | Coordinates Chapter 41 continuous validation and service health checks. |
-
-The `dgm_cycle.sh` runner is **paused**, replaced by the recurrent epistemic runner; it is retained here as a historical reference.
+For rural developers: any civic policy claim your system makes — benefit
+eligibility, income thresholds, application deadlines, program rules —
+must carry a `valid_time_start` anchored to the governing program year.
+Ingestion date is not a substitute for policy effective date. A system that
+confuses the two will serve last year's rules as if they are current.
 
 ---
 
-## A.11 Redis `hilbert:time:*` Keys and Temporal Verification
+## A.7 Scope of This Appendix
 
-The July 2026 temporal probes revealed a family of Redis keys under `hilbert:time:*`, including:
+This appendix governs one surface: the public civic evidence layer defined
+by `public_admissible_gbim_mv` and enforced by `gbim_record_spacetime_provenance_chk`.
 
-- `hilbert:time:asbuilt_ch49`, `hilbert:time:asbuilt_ch49_clean`
-- `hilbert:time:ch04_ch44_probe_...` (multiple probe keys)
-- `hilbert:time:commons_coherence`, `hilbert:time:commons_coherence_probe`
-- `hilbert:time:ingest:blockgroup:540019655001`
-- `hilbert:time:test:naive-fix`, `hilbert:time:test:utc-fix`
+It does **not** govern:
 
-These confirm a live Hilbert‑time service is running with named port binding and that temporal operations can read/write these keys and observe TTL/decay behavior.
+- Private per-user conversational memory (Chapter 50)
+- The geographic guard's runtime query evaluation (Chapter 53)
+- The LLM ensemble or answer-phrasing layer (Chapter 33)
+- Any clinical, legal, or safety-critical claim beyond civic benefit eligibility
 
-The `/policy/set` endpoint at port 8099 (`services/policy_set_service.py`) is under construction but has not yet passed end‑to‑end verification. It remains **Not Yet Demonstrated** and its cron entry remains commented out until the endpoint is reachable, honors its request/response contract, and fails closed on missing authorization.
-
----
-
-## A.12 Live Chroma Collections
-
-The July 2026 inspection confirmed the following Chroma collections are in active use:
-
-- **AAPCAppE / corpus collections** — receiving Appalachian linguistic corpus material from `jarvis-aaacpe-scraper`; GBIM's retrieval path reads from these via $M_{\text{corpus}} \rightarrow C_{\text{retrieved}}$.
-- **Per‑user conversation collections** — `conversation_history_user_<slug>`, `conversation_private_user_<slug>`, `conversation_staged_user_<slug>`. No cross‑user record leak between alpha and beta users was observed.
-- **Community Hilbert Commons** — `community_hilbert_commons` on port 8055; stores centroid + provenance records for k‑thresholded, public‑opt‑in community vectors; suppresses under‑threshold groups.
+The scope is narrow by design. A predicate that tries to govern every
+surface at once is too broad to test and too vague to trust.
 
 ---
 
-## A.13 How to Read This Appendix as a Rural Developer
+## A.8 Closing Statement
 
-For developers operating or auditing this stack from communities like Mount Hope, WV, Appendix A is a practical checklist with five questions:
+The ten-condition admissibility conjunction is not a checklist for idealized
+future behavior. It is a description of what the production database enforces
+today, confirmed at both layers required by the Verification Discipline rule.
 
-1. **Is there a live service or worker?** Check the named port or the scheduled script in §A.10.
-2. **Can you exercise it?** Call `runtime_governance.public_answer_packet` or let a pg_cron job fire and observe `cron.job_run_details`.
-3. **Does a store or keyspace confirm the effect?** Inspect the admissible row count in `public_admissible_gbim_mv`, or check `runtime_governance.public_answer_audit` for lifecycle snapshots.
-4. **Is the path governed?** Look for the ten‑condition predicate (§A.4), the spacetime/provenance CHECK constraint (§A.3), and the role boundary (§A.6). The proof that candidate material cannot leak into the public evidence surface is in §A.5.
-5. **Is the chapter honest about status?** Does it use "Demonstrated" only where evidence of the kind described in §A.1 exists? Does it mark architectural ideas as "Not Yet Demonstrated" where appropriate?
+Every infrastructure correction in A.3 was applied and sealed on July 29,
+2026. Prior descriptions of failing containers, empty tables, placeholder
+trace IDs, and undemonstrated services are removed and replaced with
+verified as-built status.
 
-If the answer to any of these questions is "no," Appendix A expects the claim to be narrowed, the discrepancy to be logged, or the path to be strengthened.
+For community members in Mount Hope and across West Virginia: the rows that
+power Ms. Jarvis's civic answers have all passed ten independent checks
+before they are allowed to reach you. If a row fails any one of those ten
+checks, it stays in the internal governance layer — visible for repair, but
+silent to the public instrument. That is what it means for admissibility to
+be enforced rather than declared.
 
 ---
 
-## A.14 Closing Statement
-
-Appendix A turns governed state mathematics into a lived verification discipline.
-
-The ten‑condition public admissibility predicate in §A.4 is the formal heart of this appendix. It states precisely what it means for a GBIM record to be speakable: authorized, publicly flagged, provenanced, fresh or aging in its lifecycle, spatially anchored by `spatial_unit_id` and `spatial_unit_kind`, and temporally anchored by `valid_time_start`. All ten conditions must hold simultaneously. Any single failure closes the gate.
-
-The three structural columns added on July 26, 2026 — `spatial_unit_id`, `spatial_unit_kind`, and `valid_time_start` — closed the spatial and temporal halves of the Spacetime Contract at the schema level. Their addition, backfill, and promotion to `NOT NULL` were verified against 237,655 rows without error. The resulting admissible surface of 93,423 rows represents the current public claim inventory.
-
-The ledger of what is actually true in the code and services today lives here. The procedure for updating that ledger as the system grows lives here too: demonstrate at two layers, then promote. Anything less stays in the Not Yet Demonstrated register until it earns its place.
+*Appendix A authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
+*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
+*See LICENSE for terms.*
+*Sealed: July 29, 2026 — July 2026 Production Gate.*
+*Prior seven-condition conjunction superseded by ten-condition conjunction (C1–C10).*
+*Verification Discipline rule: in force.*
+*Infrastructure corrections: applied and sealed.*
+*`jarvis-crypto-policy`: healthy, port 8099, HMAC-SHA256, secrets rotated.*
+*`geoguard_city`: populated as of July 29, 2026.*
+*`jarvis-contracts`: ExitCode 0, compiled artifacts confirmed.*
