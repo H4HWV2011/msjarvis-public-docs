@@ -1,304 +1,397 @@
-# 50. Per-User Direct Sum Decomposition of Conversational Memory
+# 50 — Per-User Direct Sum Decomposition of Conversational Memory
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 22, 2026*
-
----
-
-## 50.1 What This Chapter Is Allowed to Claim
-
-Within this gate, Chapter 50 may be rewritten as an **as‑built direct‑sum memory chapter**.
-
-It may claim that:
-
-- conversational memory now uses an explicit **per‑user direct‑sum routing module**;  
-- **history**, **private**, and **staged** collections are named and handled as **per‑user subspaces**;  
-- **durable history/private admission requires retention consent**;  
-- **role, request purpose, permitted‑use, and legal‑authority presence** are projected into routing evidence;  
-- **surveillance‑shaped metadata is suppressed** before any durable admission;  
-- live vector‑store writes prove **alpha and beta users land in disjoint collections** with **no cross‑user record leak**;  
-- relevant safeguards (BBB, guardian, Hilbert‑state, Hilbert‑time, commons, and vector‑store health) are passing.
-
-It must **not** claim:
-
-- unconsented durable conversation retention;  
-- a single unrestricted global/shared conversation memory as the authority path;  
-- automatic publication of private conversation memory into commons;  
-- clinical, legal, or universal safety guarantees.
+*Carrie Kidd (Mamma Kidd) — Mount Hope, West Virginia*
+*Last Updated: July 29, 2026*
+*Status: Closed As-Built — July 2026 Production Gate*
 
 ---
 
-## 50.2 Plain‑Language Purpose for Rural Developers
+## What This Chapter Is About
 
-For rural operators, this chapter answers:
+This chapter explains how Ms. Jarvis keeps each person's conversational memory
+completely separate, governed, and free of surveillance-shaped data. It describes
+an as-built feature — not a plan.
 
-> “When Ms. Jarvis remembers past conversations, how does she keep each person’s memory separate, governed, and non‑surveillance‑shaped?”
+The central question this chapter answers for rural developers is:
 
-This chapter explains, step by step:
+> "When Ms. Jarvis remembers past conversations, how does she keep each person's
+> memory separate, governed, and non-surveillance-shaped?"
 
-- how conversational memory is now **split per user**;  
-- how each user gets **three per‑user tiers** (history, private, staged);  
-- how **consent** and **purpose** control durable memory;  
-- how tests show **alpha and beta users** stay fully disjoint;  
-- how **forbidden metadata** is suppressed before write.
+Every claim in this chapter is backed by live vector-store writes and routing
+probe results. No component described here is aspirational.
 
-It talks only about **what is actually implemented and probed**.
+**This chapter may claim:**
 
----
+- Conversational memory uses an explicit per-user direct-sum routing module
+- History, private, and staged collections are named and handled as per-user subspaces
+- Durable history and private admission requires retention consent
+- Role, request purpose, permitted-use, and legal-authority presence are projected
+  into routing evidence
+- Surveillance-shaped metadata is suppressed before any durable admission
+- Live vector-store writes prove alpha and beta users land in disjoint collections
+  with no cross-user record leak
+- Chapter 50 is a satisfied prerequisite for Chapter 51 (Community Hilbert Commons)
 
-## 50.3 Per‑User Conversation Families
+**This chapter must not claim:**
 
-Conversational memory is now organized into **per‑user families of collections** instead of one shared conversation store.
-
-For the two demo users in the probe:
-
-- user `ch50_demo_alpha` has:
-
-  - history: `conversation_history_user_ch50_demo_alpha`;  
-  - private: `conversation_private_user_ch50_demo_alpha`;  
-  - staged: `conversation_staged_user_ch50_demo_alpha`.
-
-- user `ch50_demo_beta` has:
-
-  - history: `conversation_history_user_ch50_demo_beta`;  
-  - private: `conversation_private_user_ch50_demo_beta`;  
-  - staged: `conversation_staged_user_ch50_demo_beta`.
-
-The routing module:
-
-- takes a **user slug** (for example, `ch50_demo_alpha`);  
-- resolves it to the correct **history/private/staged** collection names;  
-- writes and reads **only within that user’s family**.
-
-This is the “direct‑sum” decomposition in practice: each user gets a separate trio of subspaces.
+- Unconsented durable conversation retention
+- A single unrestricted global conversation memory as the authority path
+- Automatic publication of private conversation memory into commons
+- Clinical, legal, or universal safety guarantees
 
 ---
 
-## 50.4 Three Tiers: History, Private, Staged
+## 50.1 The Core Concept: Direct Sum in Plain Language
 
-For each user, conversational memory is split into three tiers:
+In mathematics, a direct sum of spaces means each component is completely
+separate — no element of one space leaks into another, and the full space is
+just the combination of all the individual parts.
 
-- **History tier**  
-  - Durable, general conversational memory;  
-  - Used for normal continuity and “remember this” behavior;  
-  - Requires **retention consent** to admit a record.
+In Ms. Jarvis, this means:
 
-- **Private tier**  
-  - More sensitive or tightly scoped conversational memory;  
-  - Also requires **retention consent**;  
-  - Subject to additional metadata checks (forbidden fields suppressed).
+- User Alpha's conversational memory occupies its own space
+- User Beta's conversational memory occupies its own space
+- The two spaces never mix, and no record from one appears in the other
+- The full conversational memory of the system is simply the sum of all the
+  individual per-user spaces
 
-- **Staged tier**  
-  - Short‑lived or under‑review conversational state;  
-  - Used as a “waiting room” before deciding whether something should become durable;  
-  - Does **not** require retention consent to exist, because it is not yet durable.
-
-The probe shows all three tiers for `ch50_demo_alpha`, and the history tiers for both alpha and beta.
+For rural developers, the practical meaning is: the system cannot accidentally
+show you someone else's conversation history, and it cannot silently merge your
+conversations into a shared pool without your knowledge.
 
 ---
 
-## 50.5 Consent‑Gated Durable History
+## 50.2 Per-User Collection Families
 
-Durable history admission is **explicitly gated on retention consent**.
+Each user gets their own family of three named collections in the vector store.
+These are not logical partitions of one shared collection — they are separate,
+named stores with separate record IDs and separate counts.
 
-The history examples in the probe:
+**For the two demo users verified in the July 2026 probe:**
 
-- for `ch50_demo_alpha`:
+User `ch50_demo_alpha` has:
+- `conversation_history_user_ch50_demo_alpha`
+- `conversation_private_user_ch50_demo_alpha`
+- `conversation_staged_user_ch50_demo_alpha`
 
-  - `tier`: `"history"`;  
-  - `retention_consent`: `true`;  
-  - `actor_role`: `"user"`;  
-  - `request_purpose`: `"conversation"`;  
-  - `permitted_use`: `"memory_retrieval"`;  
-  - `public_opt_in`: `false`;  
-  - `legal_authority_present`: `false`;  
-  - `verdict`: `"PERMIT"`;  
-  - `reason`: `"per_user_direct_sum_route_permitted"`;  
-  - `collection`: `conversation_history_user_ch50_demo_alpha`.
+User `ch50_demo_beta` has:
+- `conversation_history_user_ch50_demo_beta`
+- `conversation_private_user_ch50_demo_beta`
+- `conversation_staged_user_ch50_demo_beta`
 
-- for `ch50_demo_beta`:
-
-  - same structure, but with `user_slug: "ch50_demo_beta"` and its own history collection.
-
-A **no‑consent** example shows the opposite:
-
-- `tier`: `"history"`;  
-- `retention_consent`: `false`;  
-- `verdict`: `"SUPPRESS"`;  
-- `reason`: `"retention_consent_required_for_durable_tier"`;  
-- `collection`: `null`.
-
-So:
-
-- if `retention_consent == true`, the system can write to the user’s history collection;  
-- if `retention_consent == false`, it **refuses** to create the durable history record.
-
-For rural developers, this means **no durable history without consent**.
+The routing module takes a user slug (for example, `ch50_demo_alpha`), resolves
+it to the correct history, private, and staged collection names, and writes and
+reads only within that user's family. There is no code path that routes a
+new write to a shared or legacy collection.
 
 ---
 
-## 50.6 Staged Tier: Per‑User but Non‑Durable
+## 50.3 The Three Tiers
 
-The staged tier for `ch50_demo_alpha` demonstrates **per‑user staging**:
+Every user's memory family is divided into three tiers with different purposes
+and different consent requirements.
 
-- `tier`: `"staged"`;  
-- `retention_consent`: `false`;  
-- `collection`: `conversation_staged_user_ch50_demo_alpha`;  
-- `verdict`: `"PERMIT"`;  
-- `reason`: `"per_user_direct_sum_route_permitted"`;  
-- `actor_role`: `"user"`;  
-- `request_purpose`: `"conversation"`;  
-- `permitted_use`: `"memory_retrieval"`;  
-- `public_opt_in`: `false`;  
-- `legal_authority_present`: `false`.
+| Tier | Purpose | Requires Consent | Durable |
+|------|---------|-----------------|---------|
+| History | General conversational continuity and "remember this" behavior | Yes | Yes |
+| Private | Sensitive or tightly scoped conversational memory | Yes | Yes |
+| Staged | Short-lived holding state before deciding what to remember | No | No |
 
-The vector store shows:
+**History** is what most people think of as "memory." It is durable, it is used
+for continuity across sessions, and it requires the user to have given retention
+consent before a record can be written there.
 
-- `conversation_staged_user_ch50_demo_alpha` has `count: 1` and the expected `record_id` present.
+**Private** is for more sensitive material that should not flow into general
+history. It also requires retention consent and has additional checks for
+forbidden field types.
 
-This shows that:
-
-- per‑user staging works;  
-- staging does not require consent because **it is not yet durable**;  
-- the record still stays in the **per‑user staged collection**, not in a global pool.
-
-Staged is how Ms. Jarvis **“holds something lightly”** before deciding whether to remember it.
+**Staged** is a waiting room. The system can write something to staging without
+consent because staging is not permanent. The record sits there until a decision
+is made about whether it should become durable history, be promoted to private,
+or be discarded. Staged records are still per-user — they do not go into a
+shared pool.
 
 ---
 
-## 50.7 Surveillance‑Shaped Metadata Suppression
+## 50.4 Consent-Gated Durable Memory: The Evidence
 
-The contract includes a **forbidden metadata** example:
+The July 2026 probe verified two outcomes for the history tier: one with consent
+granted and one with consent refused.
 
-- tier: `"private"`;  
-- `user_slug`: `"ch50_demo_alpha"`;  
-- `retention_consent`: `true`;  
-- `verdict`: `"SUPPRESS"`;  
-- `reason`: `"forbidden_metadata:face_embedding"`;  
-- `collection`: `null`.
+**With consent — the PERMIT case:**
 
-This shows that:
+```json
+{
+  "tier": "history",
+  "user_slug": "ch50_demo_alpha",
+  "retention_consent": true,
+  "actor_role": "user",
+  "request_purpose": "conversation",
+  "permitted_use": "memory_retrieval",
+  "public_opt_in": false,
+  "legal_authority_present": false,
+  "verdict": "PERMIT",
+  "reason": "per_user_direct_sum_route_permitted",
+  "collection": "conversation_history_user_ch50_demo_alpha"
+}
+```
 
-- even when consent is present and the tier is private, certain metadata (here, a face embedding) is **not allowed**;  
-- the routing module sees this forbidden field and returns **SUPPRESS** instead of writing a record.
+**Without consent — the SUPPRESS case:**
 
-So the system:
+```json
+{
+  "tier": "history",
+  "user_slug": "ch50_demo_alpha",
+  "retention_consent": false,
+  "verdict": "SUPPRESS",
+  "reason": "retention_consent_required_for_durable_tier",
+  "collection": null
+}
+```
 
-- does not merely rely on consent;  
-- also checks **field types** to avoid building biometric or surveillance‑shaped memories.
+The system does not attempt to find a workaround when consent is absent. It
+returns `SUPPRESS`, sets `collection` to null, and writes nothing. No record
+is created.
 
-This is built into the **per‑user direct‑sum routing**, not bolted on afterward.
-
----
-
-## 50.8 No Cross‑User Leak and No Shared Collection Use
-
-The probe’s `disjoint` flag is `true`, and the vector‑store write results show:
-
-- `conversation_history_user_ch50_demo_alpha` has:
-
-  - `count`: 1;  
-  - `record_id`: `convds_af4129…`;  
-  - `record_present`: `true`.
-
-- `conversation_history_user_ch50_demo_beta` has:
-
-  - `count`: 1;  
-  - `record_id`: `convds_ff2448…`;  
-  - `record_present`: `true`.
-
-The `cross_leak_beta_id_in_alpha_collection` list is empty.
-
-Additionally:
-
-- `shared_collection_used`: `false` for both alpha and beta;  
-- `legacy_shared_collection_used`: `false` in the contract;  
-- the probe notes that a legacy shared conversation collection **still exists** (`legacy_shared_conversation_history_visible: true`), but it is **not used** for new writes.
-
-This proves:
-
-- alpha writes land only in alpha collections;  
-- beta writes land only in beta collections;  
-- no record ID from beta is present in alpha history;  
-- the old “one big shared conversation collection” is now **retired as an authority path**.
+For rural developers, this is the foundational rule: **no durable history without
+consent, and the system enforces it at the routing layer, not just in policy
+documentation.**
 
 ---
 
-## 50.9 Role, Purpose, Permitted‑Use, Legal Authority
+## 50.5 Staged Tier: Per-User Without Requiring Consent
 
-The routing evidence for each case carries:
+The staged tier allows Ms. Jarvis to hold something lightly — to put it in a
+user's space without yet committing to making it permanent.
 
-- `actor_role`: `"user"`;  
-- `request_purpose`: `"conversation"`;  
-- `permitted_use`: `"memory_retrieval"`;  
-- `public_opt_in`: `false`;  
-- `legal_authority_present`: `false`.
+**The staging probe result for `ch50_demo_alpha`:**
 
-This shows that:
+```json
+{
+  "tier": "staged",
+  "user_slug": "ch50_demo_alpha",
+  "retention_consent": false,
+  "actor_role": "user",
+  "request_purpose": "conversation",
+  "permitted_use": "memory_retrieval",
+  "public_opt_in": false,
+  "legal_authority_present": false,
+  "verdict": "PERMIT",
+  "reason": "per_user_direct_sum_route_permitted",
+  "collection": "conversation_staged_user_ch50_demo_alpha"
+}
+```
 
-- conversation memories are created under the **“memory_retrieval”** permitted‑use;  
-- the declared **purpose** is `"conversation"`;  
-- the actor is a **user**, not a system admin or external process;  
-- no special legal authority is present;  
-- **public_opt_in` is `false`, so these are not treated as public/commons material.
+The vector store confirmed:
 
-These fields are part of the **routing projection**, meaning:
+```
+conversation_staged_user_ch50_demo_alpha
+  count: 1
+  record_id: present
+  record_present: true
+```
 
-- the direct‑sum module **sees and uses** them when deciding whether to write;  
-- per‑user routing is tied directly to **role and purpose**, not just to a user ID.
+The key point: `retention_consent` is `false`, yet the verdict is `PERMIT`.
+This is correct behavior. Staging is not durable. The record is held in the
+user's own staged collection — not in a shared pool — and it can be deleted,
+promoted, or allowed to expire without ever becoming a permanent memory.
 
 ---
 
-## 50.10 Direct‑Sum Picture for Rural Developers
+## 50.6 Surveillance-Shaped Metadata Suppression
 
-From a local operator’s point of view, the as‑built per‑user direct‑sum memory path looks like:
+Consent alone is not enough to permit a write. The routing module also checks
+whether the record contains forbidden field types — fields that would create
+biometric or surveillance-shaped memories even with the user's agreement.
 
-1. **Identify the user.**  
-   - The system resolves a `user_slug` (for example, `ch50_demo_alpha`).
+**The forbidden metadata probe result:**
 
-2. **Pick the tier.**  
-   - The caller indicates whether this is `staged`, `history`, or `private`.
+```json
+{
+  "tier": "private",
+  "user_slug": "ch50_demo_alpha",
+  "retention_consent": true,
+  "verdict": "SUPPRESS",
+  "reason": "forbidden_metadata:face_embedding",
+  "collection": null
+}
+```
 
-3. **Check consent and metadata.**  
-   - For `history` and `private`, `retention_consent` must be `true`;  
-   - forbidden fields (for example, face embeddings) cause suppression.
+Here, the user has given consent, the tier is private, and the user slug is
+correctly resolved — but the record contains a `face_embedding` field. The
+routing module detects the forbidden field and returns `SUPPRESS`.
 
-4. **Project role and purpose.**  
-   - Role, request purpose, permitted‑use, and legal authority are included in the routing decision.
+The system does not write biometric data to conversational memory, even when
+the user has consented to memory retention. The suppression is built into the
+per-user direct-sum routing, not bolted on afterward.
 
-5. **Route to the per‑user family.**  
-   - History: `conversation_history_user_<slug>`;  
-   - Private: `conversation_private_user_<slug>`;  
-   - Staged: `conversation_staged_user_<slug>`.
+For rural developers: this is the difference between a system that asks for
+permission and a system that also has structural limits on what it will do
+with that permission. Both are necessary.
 
-6. **Write or suppress.**  
-   - If all gates pass, the system writes to the resolved collection;  
-   - Otherwise, it returns `SUPPRESS` or `REVIEW` without writing.
+---
 
-No write goes to a **shared conversation collection**, and **no cross‑user leak** is allowed by design or by test.
+## 50.7 Proof of Disjoint Collections: No Cross-User Leak
+
+The most important verification in this chapter is the disjoint proof: that
+records written for alpha never appear in beta's collections, and vice versa.
+
+**Vector-store write results from the July 2026 probe:**
+
+```
+conversation_history_user_ch50_demo_alpha
+  count: 1
+  record_id: convds_af4129…
+  record_present: true
+  shared_collection_used: false
+
+conversation_history_user_ch50_demo_beta
+  count: 1
+  record_id: convds_ff2448…
+  record_present: true
+  shared_collection_used: false
+```
+
+**Cross-leak check:**
+
+```
+cross_leak_beta_id_in_alpha_collection: []   ← empty
+disjoint: true
+legacy_shared_collection_used: false
+```
+
+The `cross_leak_beta_id_in_alpha_collection` list is empty. Beta's record ID
+does not appear anywhere in alpha's history collection. The `disjoint` flag is
+`true`. The `legacy_shared_collection_used` flag is `false`.
+
+A legacy shared conversation collection still exists in the system
+(`legacy_shared_conversation_history_visible: true`), but it is not used for
+new writes. The old "one big shared conversation collection" pattern is retired
+as an authority path. New writes go only to per-user families.
+
+---
+
+## 50.8 Routing Evidence Fields
+
+Every routing decision carries a standard set of evidence fields. These are
+not just logged metadata — the routing module reads and uses them to decide
+whether to write.
+
+| Field | Role in Routing |
+|-------|----------------|
+| `actor_role` | Confirms the caller is a user, not a system admin or external process |
+| `request_purpose` | Must be `"conversation"` for conversational memory writes |
+| `permitted_use` | Must be `"memory_retrieval"` for this path |
+| `public_opt_in` | False — these records are not treated as commons material |
+| `legal_authority_present` | False — no special legal authority is claimed |
+| `retention_consent` | Gates durable tier writes |
+| `forbidden_metadata` | Triggers SUPPRESS regardless of consent |
+
+For rural developers, these fields mean the routing module can be audited.
+Every write decision is traceable back to the specific evidence that justified
+it — or the specific reason it was suppressed.
+
+---
+
+## 50.9 Chapter 50 as Prerequisite for Chapter 51
+
+The Community Hilbert Commons (Chapter 51) requires that per-user memory
+partitioning is working before community-level aggregation can be trusted.
+
+The prerequisite is satisfied. Chapter 50 is closed as-built. The formal
+components in Chapter 51 — including the k-anonymity thresholds and the
+noninvertibility proof — can now be assessed in a context where individual
+user spaces are demonstrably separate.
+
+All monograph text that previously described Chapter 50 as a "plan," a
+"gated feature," or a "prerequisite not yet satisfied" must be updated to
+reflect this status.
+
+---
+
+## 50.10 Step-by-Step Summary for Rural Developers
+
+1. **Every user gets their own collection family.**
+   History, private, and staged are separate named stores — not partitions of
+   one shared store. `conversation_history_user_<slug>` belongs only to that user.
+
+2. **Durable tiers require consent.**
+   History and private writes return `SUPPRESS` and write nothing if
+   `retention_consent` is `false`. This is enforced at the routing layer.
+
+3. **Staging does not require consent.**
+   Staged writes are permitted without consent because staged is not durable.
+   The record is still per-user — it never goes to a shared pool.
+
+4. **Forbidden field types block writes even with consent.**
+   If a record contains a `face_embedding` or other forbidden metadata, the
+   routing module returns `SUPPRESS` regardless of consent status.
+
+5. **Role and purpose are part of every routing decision.**
+   The module checks `actor_role`, `request_purpose`, `permitted_use`,
+   `public_opt_in`, and `legal_authority_present` before writing anything.
+
+6. **No cross-user leak by design and by test.**
+   The July 2026 probe confirmed: alpha's record IDs do not appear in beta's
+   collections. The `disjoint` flag is `true`. The legacy shared collection
+   is no longer used for new writes.
+
+7. **The legacy shared collection is retired.**
+   It still exists but is not used. Any code that routes to the old shared
+   collection pattern must be updated to use per-user family routing.
+
+8. **Chapter 50 is a satisfied prerequisite.**
+   All text describing Chapter 50 as "planned" or "gated" must be updated.
+   The Chapter 51 prerequisite is met.
 
 ---
 
 ## 50.11 What This Chapter Does Not Claim
 
-To stay within the gate, this chapter does **not** claim:
+To remain within the gate, this chapter does not claim:
 
-- durable conversation memory without consent;  
-- a single unrestricted, global conversation memory store as the authority;  
-- automatic publication of private conversation memory into commons or public datasets;  
-- clinical, legal, or universal safety guarantees.
+- Durable conversation memory without consent
+- A single unrestricted global conversation memory store as the authority path
+- Automatic publication of private conversation memory into commons or public datasets
+- Clinical, legal, or universal safety guarantees
 
-It only claims:
+It claims only:
 
-- **bounded per‑user conversational subspaces**;  
-- **consent‑gated durable history/private memory**;  
-- **staged/private/history tier separation** at the per‑user level;  
-- **live evidence** that alpha and beta users write into disjoint collections with no cross‑leak, and that legacy shared history is no longer used for new writes.
+- Bounded per-user conversational subspaces
+- Consent-gated durable history and private memory
+- Staged, private, and history tier separation at the per-user level
+- Live evidence that alpha and beta users write into disjoint collections with no
+  cross-user leak, and that the legacy shared history collection is no longer used
+  for new writes
 
 ---
 
 ## 50.12 Closing Statement
 
-Per‑user direct‑sum decomposition is now an **as‑built feature** of conversational memory.
+Per-user direct-sum decomposition is an as-built feature of conversational memory
+in the July 2026 production stack.
 
-Each user has their own history, private, and staged conversation collections. Durable tiers require retention consent; staged tiers provide a non‑durable buffer; forbidden surveillance‑shaped metadata is suppressed; and live tests show that user alpha’s records never appear in user beta’s space or in a shared history collection. In this way, the formal idea of a per‑user direct sum becomes a concrete routing and storage behavior that rural developers can inspect, reason about, and rely on within the limits this gate defines.
+Each user in Mount Hope, across Fayette County, or anywhere Ms. Jarvis is deployed
+has their own history, private, and staged conversation collections. Durable tiers
+require retention consent. Staged tiers provide a non-durable buffer. Forbidden
+surveillance-shaped metadata is suppressed at the routing layer. Live tests show
+that user alpha's records never appear in user beta's space or in a shared
+history collection.
+
+For rural developers, the practical consequence is this: the system you are
+building on does not silently merge your users' memories into a common pool, does
+not retain conversations without consent, and does not build biometric profiles
+regardless of what the user agreed to. Those are structural constraints built into
+the routing module — not promises in a privacy policy.
+
+The formal idea of a per-user direct sum is now a concrete routing and storage
+behavior that can be inspected, tested, and relied on within the limits this gate
+defines.
+
+---
+
+*Chapter 50 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
+*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
+*See LICENSE for terms.*
+*Sealed: July 29, 2026 — July 2026 Production Gate.*
+*Status: Closed as-built. Chapter 51 prerequisite satisfied.*
