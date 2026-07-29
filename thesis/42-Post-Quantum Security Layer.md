@@ -4,12 +4,6 @@
 *Last Updated: July 29, 2026*
 *Status: Demonstrated — July 2026 Production Gate*
 
-> **Gate Corrections Applied (July 29, 2026):**
-> All references to `gbim_runtime_lifecycle_hourly()` are removed. The verified
-> functional entry point for all four pg_cron governance lifecycle jobs is
-> `apply_runtime_lifecycle()`. Four live jobs are confirmed active in `wv_gis`:
-> hourly (`:15`), daily (`03:05`), weekly (Sunday `02:00`), monthly (1st `01:30`).
-
 ---
 
 ## What This Chapter Is About
