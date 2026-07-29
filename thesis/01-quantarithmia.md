@@ -1,6 +1,6 @@
 # 1 — Quantarithmia: Economic Geographic Theory of Systems Entanglement
 
-*Carrie Kidd (Mamma Kidd) — Oak Hill, West Virginia*
+*Carrie Kidd (Mamma Kidd) — Mount Hope, West Virginia*
 *Last Updated: July 29, 2026*
 *Status: Sealed — July 2026 Production Gate*
 
@@ -395,7 +395,7 @@ measurement. We have the instrument.
 
 ---
 
-*Chapter 1 authored by Carrie Ann Kidd — Oak Hill, West Virginia.*
+*Chapter 1 authored by Carrie Ann Kidd — Mount Hope West Virginia.*
 *Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
 *See LICENSE for terms.*
 *Sealed: July 29, 2026 — July 2026 Production Gate.*
