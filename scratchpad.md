@@ -1,385 +1,402 @@
-ind: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/local_resources’: Permission denied
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/mysql/sys’: Permission denied
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/mysql/#innodb_temp’: Permission denied
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/mysql/quantum_ai’: Permission denied
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/mysql/mysql’: Permission denied
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/mysql/performance_schema’: Permission denied
-find: ‘/mnt/spiritual_drive/msjarvis-rebuild/data/mysql/#innodb_redo’: Permission denied
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_types.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_onnx_mini_lm_l6_v2.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/property/invariants.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_api.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/click/core.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/click/types.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/generic.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/h11/_events.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/httpx/_urlparse.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/httpx/_urls.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/importlib_metadata/compat/py39.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/importlib_metadata/__init__.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/markdown_it/common/utils.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/mpmath/function_docs.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/numpy/exceptions.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/numpy/fft/__init__.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/numpy/fft/_pocketfft.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/numpy/lib/tests/test_histograms.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/numpy/ma/extras.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/onnxruntime/tools/symbolic_shape_infer.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/onnxruntime/transformers/convert_generation.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_attention.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_layernorm.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_ort_cuda.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_tf.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_phi.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_tnlr.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/attributes/db_attributes.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/db_attributes.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/dns_attributes.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/pip/_internal/metadata/base.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/pip/_internal/utils/egg_link.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/controller.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/pip/_vendor/distlib/version.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/pip/_vendor/urllib3/connection.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/pygments/lexers/freefem.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/pygments/lexers/macaulay2.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/referencing/tests/test_referencing_suite.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/core/mul.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/core/numbers.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/core/tests/test_numbers.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/geometry/tests/test_line.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/geometry/tests/test_plane.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/integrals/rde.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/matrices/eigen.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/physics/hydrogen.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/physics/pring.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/physics/qho_1d.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/physics/quantum/gate.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/physics/quantum/spin.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/physics/quantum/state.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/physics/sho.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/polys/tests/test_puiseux.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/sympy/stats/random_matrix_models.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/tokenizers/implementations/byte_level_bpe.py
-/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/tokenizers/implementations/char_level_bpe.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/apscheduler/triggers/calendarinterval.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/cachecontrol/controller.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/charset_normalizer/legacy.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/test/property/invariants.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/click/core.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/click/types.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/cligj/features.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/cyclonedx/model/bom.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/cyclonedx/model/license.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/debugpy/_vendored/pydevd/pydevd_file_utils.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/distro/distro.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/email_validator/syntax.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/email_validator/types.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/email_validator/validate_email.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/ens/exceptions.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/ens/_normalization.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/ens/utils.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/eth/tools/builder/chain/builders.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/eth/tools/fixtures/fillers/common.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/eth/tools/fixtures/fillers/state.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/eth/tools/fixtures/fillers/vm.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/eth/tools/fixtures/helpers.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/eth/tools/fixtures/__init__.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/eth/tools/fixtures/loading.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/fontTools/misc/roundTools.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/fontTools/ttLib/tables/otData.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/fontTools/varLib/__init__.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/fontTools/varLib/instancer/__init__.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/fsspec/generic.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/git_filter_repo.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/h11/_events.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/httpx/_urlparse.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/httpx/_urls.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/importlib_metadata/compat/py39.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/importlib_metadata/__init__.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/IPython/lib/display.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/markdown_it/common/utils.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/matplotlib/artist.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/matplotlib/axes/_axes.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/matplotlib/axis.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/matplotlib/cm.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/matplotlib/collections.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/matplotlib/colorbar.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/matplotlib/colorizer.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/matplotlib/colors.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/matplotlib/image.p5849/signature.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnx/backend/test/case/node/groupnormalization.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnx/backend/test/case/node/layernormalization.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnx/backend/test/case/node/lpnormalization.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnx/backend/test/case/node/rmsnormalization.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnx/reference/ops/aionnxml/op_normalizer.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnx/reference/ops/op_layer_normalization.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnx/reference/ops/_op_list.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnx/reference/ops/op_rms_normalization.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxruntime/tools/symbolic_shape_infer.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxruntime/transformers/convert_generation.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_attention.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_layernorm.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_ort_cuda.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_tf.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_phi.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_tnlr.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/function_libs/torch_lib/ops/core.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/function_libs/torch_lib/ops/fft.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/onnx_opset/_impl/opset13.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/onnx_opset/_impl/opset14.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/onnx_opset/_impl/opset15.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/onnx_opset/_impl/opset17.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/onnx_opset/_impl/opset1.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/onnx_opset/_impl/opset21.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/onnx_opset/_impl/opset22.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/onnx_opset/_impl/opset23.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/onnx_opset/_impl/opset6.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/onnx_opset/_impl/opset7.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/onnx_opset/_impl/opset9.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/onnx_opset/_impl/opset_ai_onnx_ml1.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/rewriter/models/_bart_encoder.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/rewriter/onnx_fusions/_onnx_fusions.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/rewriter/ort_fusions/_core.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/rewriter/ort_fusions/gqa.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/rewriter/ort_fusions/group_normalization_merge_silu.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/rewriter/ort_fusions/instance_to_group_normalization.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/rewriter/ort_fusions/rms_normalization.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/rewriter/ort_fusions/skip_normalization.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/rewriter/rules/fusion/_layer_norm.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/rewriter/rules/fusion/_rms_normalization.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxscript/versionayout.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/plotly/graph_objs/_scatter.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pygments/lexers/freefem.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pygments/lexers/macaulay2.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pyomo/dae/flatten.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/_pytest/fixtures.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pyunormalize/__init__.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pyunormalize/normalization.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pyunormalize/_unicode_data.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/referencing/tests/test_referencing_suite.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/fft/_basic.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/fftpack/_realtransforms.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/fft/_pocketfft/basic.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/fft/_pocketfft/helper.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/fft/_pocketfft/realtransforms.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/fft/_realtransforms.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/integrate/_bvp.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/interpolate/_fitpack_repro.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/_lib/array_api_extra/_delegation.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/_lib/_util.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/linalg/_decomp.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/linalg/lapack.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/ndimage/_filters.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/optimize/_hessian_update_strategy.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/signal/_filter_design.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/signal/_fir_filter_design.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/signal/_spectral_py.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/signal/tests/test_filter_design.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/signal/tests/test_spectral.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/signal/tests/test_windows.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/signal/windows/_windows.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/sparse/csgraph/_laplacian.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/sparse/linalg/_eigen/lobpcg/tests/test_lobpcg.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/sparse/linalg/_isolve/iterative.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/spatial/transform/_rigid_transform.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/spatial/transform/_rigid_transform_xp.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/spatial/transform/_rotation.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/special/_ellip_harm.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/special/__init__.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/special/_orthogonal.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/special/tests/test_data.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/stats/_continuous_distns.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/scipy/stats/_multieprecated/realm/configuration_realm.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/deprecated/realm/modeling_realm.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/deprecated/retribert/configuration_retribert.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/deprecated/trajectory_transformer/configuration_trajectory_transformer.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/configuration_transfo_xl.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/modeling_tf_transfo_xl.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/modeling_transfo_xl.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/deprecated/tvlt/configuration_tvlt.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/deprecated/van/configuration_van.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/deprecated/van/modeling_van.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/deprecated/vit_hybrid/configuration_vit_hybrid.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/deprecated/vit_hybrid/image_processing_vit_hybrid.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/detr/convert_detr_to_pytorch.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/dinat/configuration_dinat.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/dinov2/configuration_dinov2.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/donut/configuration_donut_swin.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/donut/image_processing_donut.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/dpr/configuration_dpr.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/dpt/configuration_dpt.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/efficientnet/configuration_efficientnet.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/efficientnet/convert_efficientnet_to_pytorch.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/electra/configuration_electra.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/encodec/modeling_encodec.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/ernie/configuration_ernie.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/esm/configuration_esm.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/falcon/configuration_falcon.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/configuration_falcon_mamba.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/flaubert/configuration_flaubert.py
-/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/transformers/models/flava/configuration_flava.py
-GitHub /repo/crypto-venv/lib/python3.12/site-packages/sklearn/preprocessing/__init__.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sklearn/semi_supervised/tests/test_label_propagation.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sklearn/tests/test_calibration.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sklearn/utils/extmath.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sqlalchemy/dialects/oracle/base.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sqlalchemy/engine/cursor.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/core/mul.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/core/numbers.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/core/tests/test_numbers.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/geometry/tests/test_line.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/geometry/tests/test_plane.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/integrals/rde.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/matrices/eigen.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/physics/hydrogen.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/physics/pring.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/physics/qho_1d.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/physics/quantum/gate.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/physics/quantum/spin.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/physics/quantum/state.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/physics/sho.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/polys/tests/test_puiseux.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/crypto-venv/lib/python3.12/site-packages/sympy/stats/random_matrix_models.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_compypto-venv/lib/python3.12/site-packages/werkzeug/datastructures/accept.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/crypto-venv/lib/python3.12/site-packages/xarray/core/computation.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/crypto-venv/lib/python3.12/site-packages/xarray/plot/utils.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/crypto-venv/lib/python3.12/site-packages/yarl/_parse.py
-/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/crypto-venv/lib/python3.12/site-packages/yarl/_url.py
-NAMES                                             IMAGE                                                     STATUS
-jarvis-crypto-policy                              jarvis-main-brain:latest                                  Up 5 hours
-jarvis-dgm-23                                     msjarvis-rebuild-jarvis-dgm-23                            Up 14 hours
-jarvis-dgm-22                                     msjarvis-rebuild-jarvis-dgm-22                            Up 14 hours
-jarvis-dgm-21                                     msjarvis-rebuild-jarvis-dgm-21                            Up 14 hours
-jarvis-dgm-20                                     msjarvis-rebuild-jarvis-dgm-20                            Up 14 hours
-jarvis-dgm-19                                     msjarvis-rebuild-jarvis-dgm-19                            Up 14 hours
-jarvis-dgm-18                                     msjarvis-rebuild-jarvis-dgm-18                            Up 14 hours
-jarvis-dgm-17                                     msjarvis-rebuild-jarvis-dgm-17                            Up 14 hours
-jarvis-dgm-16                                     msjarvis-rebuild-jarvis-dgm-16                            Up 14 hours
-jarvis-dgm-15                                     msjarvis-rebuild-jarvis-dgm-15                            Up 14 hours
-jarvis-dgm-14                                     msjarvis-rebuild-jarvis-dgm-14                            Up 14 hours
-jarvis-dgm-13                                     msjarvis-rebuild-jarvis-dgm-13                            Up 14 hours
-jarvis-dgm-12                                     msjarvis-rebuild-jarvis-dgm-12                            Up 14 hours
-jarvis-dgm-11                                     msjarvis-rebuild-jarvis-dgm-11                            Up 14 hours
-jarvis-dgm-10                                     msjarvis-rebuild-jarvis-dgm-10                            Up 14 hours
-jarvis-dgm-09                                     msjarvis-rebuild-jarvis-dgm-09                            Up 14 hours
-jarvis-dgm-08                                     msjarvis-rebuild-jarvis-dgm-08                            Up 14 hours
-jarvis-dgm-07                                     msjarvis-rebuild-jarvis-dgm-07                            Up 14 hours
-jarvis-dgm-06                                     msjarvis-rebuild-jarvis-dgm-06                            Up 14 hours
-jarvis-dgm-05                                     msjarvis-rebuild-jarvis-dgm-05                            Up 14 hours
-jarvis-nbb-i-containers-2                         nbb-i-containers:asbuilt-20260728-v3                      Up 14 hours
-jarvis-commons-optin-intake                       jarvis-commons-optin-intake:closeout-20260728-v2          Up 15 hours
-nbb_darwin_godel_machines                         nbb-darwin-godel-machines:asbuilt-20260728                Up 25 hours
-jarvis-belief-revision                            jarvis-belief-revision:asbuilt-20260728                   Up 26 hours
-jarvis-blood-brain-barrier                        jarvis-blood-brain-barrier:asbuilt-20260728               Up 26 hours
-jarvis-wv-entangled-gateway                       jarvis-wv-entangled-gateway:asbuilt-20260728              Up 26 hours
-jarvis-brain-orchestrator                         jarvis-brain-orchestrator:asbuilt-20260728                Up 26 hours (healthy)
-jarvis-main-brain                                 jarvis-main-brain:asbuilt-20260728                        Up 26 hours
-jarvis-lm-synthesizer                             jarvis-lm-synthesizer:asbuilt-20260728                    Up 26 hours
-jarvis-20llm-production                           jarvis-20llm-production:asbuilt-20260728                  Up 27 hours
-jarvis-fifth-dgm                                  jarvis-fifth-dgm:asbuilt-20260728                         Up 27 hours
-jarvis-chat-worker                                jarvis-chat-worker:asbuilt-20260728                       Up 27 hours
-jarvis-woah                                       jarvis-woah:asbuilt-20260728                              Up 27 hours
-jarvis-stewardship-scheduler                      jarvis-main-brain:latest                                  Up 27 hours
-jarvis-steward                                    jarvis-main-brain:latest                                  Up 27 hours
-jarvis-spatial-sandbox                            python:3.11-slim                                          Up 27 hours
-jarvis-pia-sampler                                python:3.11-slim                                          Up 27 hours
-jarvis-kyc-vault                                  msjarvis-rebuild-jarvis-kyc-vault                         Up 27 hours
-jarvis-hilbert-time                               jarvis-main-brain:latest                                  Up 27 hours
-jarvis-hilbert-gateway                            jarvis-main-brain:latest                                  Up 27 hours
-jarvis-autonomous-learner                         msjarvis-rebuild-jarvis-rag-server:latest                 Up 27 hours
-jarvis-assertion-gateway                          msjarvis-rebuild-jarvis-assertion-gateway                 Up 27 hours
-jarvis-fractal-consciousness                      msjarvis-rebuild-jarvis-fractal-consciousness             Up 34 hours
-jarvis-civic-intake                               jarvis-civic-intake:closeout-20260728                     Up 34 hours
-jarvis-mountainshares-commons-gateway             jarvis-commons-gateway:closeout-20260728                  Up 35 hours
-jarvis-gis-rag                                    msjarvis-rebuild-jarvis-gis-rag                           Up 4 days
-jarvis-judge-truth                                msjarvis-rebuild-jarvis-judge-truth                       Up 4 days
-ms-allis-internal-sandbox                         msjarvis-rebuild-ms-allis-internal-sandbox                Up 5 days
-jarvis-memory                                     msjarvis-rebuild-jarvis-memory                            Up 5 days
-jarvis-auth-api                                   msjarvis/jarvis-auth-api:patched                          Up 5 days
-jarvis-dgm-03                                     msjarvis-rebuild-jarvis-dgm-03                            Up 5 days
-jarvis-dgm-02                                     msjarvis-rebuild-jarvis-dgm-02                            Up 5 days
-jarvis-dgm-01                                     msjarvis-rebuild-jarvis-dgm-01                            Up 5 days
-jarvis-dgm-04                                     msjarvis-rebuild-jarvis-dgm-04                            Up 5 days
-jarvis-phi-probe                                  msjarvis-rebuild-jarvis-phi-probe                         Up 5 days
-jarvis-hilbert-state                              jarvis-main-brain:latest                                  Up 5 days
-nbb_prefrontal_cortex                             msjarvis-rebuild-nbb_prefrontal_cortex                    Up 5 days
-jarvis-rag-server                                 msjarvis-rebuild-jarvis-rag-server                        Up 5 days
-hp-local-db                                       postgis/postgis:15-3.4                                    Up 5 days
-jarvis-ollama                                     ollama/ollama:latest                                      Up 5 days
-jarvis-i-containers                               msjarvis-rebuild-jarvis-i-containers                      Up 5 days
-jarvis-neurobiological-master                     msjarvis-rebuild-jarvis-neurobiological-master            Up 5 days
-jarvis-intake-service                             jarvis-main-brain:latest                                  Up 5 days
-neo4j                                             neo4j:5.13-community                                      Up 5 days
-nbb_qualia_engine                                 msjarvis-rebuild-nbb_qualia_engine                        Up 5 days
-qualia-orchestrator-69dgm-real                    qualia-orchestrator:real                                  Up 5 days (healthy)
-jarvis-hp-sidecar                                 jarvis-hp-sidecar:local                                   Up 5 days
-56c99d59f7a5_jarvis-session-sidecar               jarvis-session-sidecar:latest                             Up 5 days
-jarvis-redis                                      redis:7-alpine                                            Up 5 days (healthy)
-e665651c00d5_llm2-proxy                           msjarvis-rebuild-llm2-proxy                               Up 4 days
-2d6c035dc9fe_llm20-proxy                          msjarvis-rebuild-llm20-proxy                              Up 4 days
-b91b3c2adba5_llm17-proxy                          msjarvis-rebuild-llm17-proxy                              Up 4 days
-b5a2b182f1b7_llm19-proxy                          msjarvis-rebuild-llm19-proxy                              Up 4 days
-c68db82137f8_llm9-proxy                           msjarvis-rebuild-llm9-proxy                               Up 4 days
-05cbdb9d8b63_llm18-proxy                          msjarvis-rebuild-llm18-proxy                              Up 4 days
-a8416407179c_nbb_spiritual_root                   msjarvis-rebuild-nbb_spiritual_root                       Up 5 days
-1d653a8a0fcb_jarvis-mother-protocols              msjarvis-rebuild-jarvis-mother-protocols                  Up 5 days
-07868f87c30f_llm10-proxy                          msjarvis-rebuild-llm10-proxy                              Up 4 days
-f970d6243de9_llm1-proxy                           msjarvis-rebuild-llm1-proxy                               Up 4 days
-1e1783a0cae3_jarvis-temporal-consciousness        msjarvis-rebuild-jarvis-temporal-consciousness            Up 5 days
-bbd55aa39149_llm13-proxy                          msjarvis-rebuild-llm13-proxy                              Up 4 days
-cdb1cfcf3615_llm15-proxy                          msjarvis-rebuild-llm15-proxy                              Up 4 days
-03da3490dbba_llm12-proxy                          msjarvis-rebuild-llm12-proxy                              Up 4 days
-b9f25945034e_llm6-proxy                           msjarvis-rebuild-llm6-proxy                               Up 4 days
-0f40caf56e1e_nbb_mother_carrie_protocols          msjarvis-rebuild-nbb_mother_carrie_protocols              Up 5 days
-6c076127418c_llm4-proxy                           msjarvis-rebuild-llm4-proxy                               Up 4 days
-6dd05bcbf535_llm5-proxy                           msjarvis-rebuild-llm5-proxy                               Up 4 days
-f49af6a3d696_llm7-proxy                           msjarvis-rebuild-llm7-proxy                               Up 4 days
-687596ae0eb1_llm22-proxy                          msjarvis-rebuild-llm22-proxy                              Up 4 days
-aae4a8928928_nbb_spiritual_maternal_integration   msjarvis-rebuild-nbb_spiritual_maternal_integration       Up 5 days
-a40eece620f3_nbb_woah_algorithms                  msjarvis-rebuild-nbb_woah_algorithms                      Up 5 days
-eeb98757a243_llm21-proxy                          msjarvis-rebuild-llm21-proxy                              Up 4 days
-8dffd2f7b142_llm3-proxy                           msjarvis-rebuild-llm3-proxy                               Up 4 days
-22cb4468dbd5_llm8-proxy                           msjarvis-rebuild-llm8-proxy                               Up 4 days
-675f8bd43968_llm11-proxy                          msjarvis-rebuild-llm11-proxy                              Up 4 days
-be5c6613bca3_llm14-proxy                          msjarvis-rebuild-llm14-proxy                              Up 4 days
-69ee8c1dadfb_llm16-proxy                          msjarvis-rebuild-llm16-proxy                              Up 4 days
-nbb_pituitary_gland                               msjarvis-rebuild-nbb_pituitary_gland                      Up 5 days
-jarvis-constitutional-guardian                    msjarvis-rebuild-jarvis-constitutional-guardian           Up 5 days
-jarvis-judge-pipeline                             msjarvis-rebuild-jarvis-judge-pipeline                    Up 4 days
-jarvis-semaphore                                  msjarvis-rebuild-jarvis-semaphore                         Up 44 hours
-jarvis-web-research                               msjarvis-rebuild-jarvis-web-research                      Up 5 days
-jarvis-judge-alignment                            msjarvis-rebuild-jarvis-judge-alignment                   Up 5 days
-jarvis-spiritual-rag                              msjarvis-rebuild-jarvis-spiritual-rag                     Up 5 days
-jarvis-eeg-theta                                  msjarvis-rebuild-jarvis-eeg-theta                         Up 5 days
-jarvis-eeg-delta                                  msjarvis-rebuild-jarvis-eeg-delta                         Up 5 days
-jarvis-swarm-intelligence                         msjarvis-rebuild-jarvis-swarm-intelligence                Up 5 days
-jarvis-provenance                                 msjarvis-rebuild-jarvis-provenance                        Up 5 days
-jarvis-ingest-api                                 python:3.11-slim                                          Up 18 hours
-jarvis-eeg-beta                                   msjarvis-rebuild-jarvis-eeg-beta                          Up 5 days
-jarvis-rag-router                                 msjarvis-rebuild-jarvis-rag-router                        Up 5 days
-jarvis-aaacpe-rag                                 msjarvis-rebuild-jarvis-aaacpe-rag                        Up 5 days
-jarvis-aaacpe-scraper                             msjarvis-rebuild-jarvis-aaacpe-scraper                    Up 4 days
-jarvis-judge-ethics                               msjarvis-rebuild-jarvis-judge-ethics                      Up 5 days
-jarvis-agents-service                             msjarvis-rebuild-jarvis-agents-service                    Up 5 days
-jarvis-judge-consistency                          msjarvis-rebuild-jarvis-judge-consistency                 Up 4 days
-jarvis-jaeger                                     jaegertracing/all-in-one:1.52                             Up 5 days
-jarvis-toroidal                                   msjarvis-toroidal:latest                                  Up 5 days
-jarvis-psychology-services                        msjarvis-rebuild-jarvis-psychology-services               Up 5 days
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild/formal/commons_proofs$ docker exec -i jarvis-msjarvis-db psql -U postgres -d msjarvisgis_v2 -X -P pager=off -c \ 
-  "SELECT jobid, schedule, command, jobname 
-   FROM cron.job 
-   ORDER BY jobid;"
- jobid |    schedule    |                                                                            command                                                                            |            jobname             
--------+----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------
-     1 | 5 3 * * *      | SELECT runtime_governance.public_answer_packet('000000000000','lifecycle_daily',  'scheduled_run',0,'standard','lifecycle-daily-'  ||gen_random_uuid()::text) | gbim_runtime_lifecycle_daily
-     2 | 15 * * * *     | SELECT runtime_governance.public_answer_packet('000000000000','lifecycle_hourly', 'scheduled_run',0,'standard','lifecycle-hourly-' ||gen_random_uuid()::text) | gbim_runtime_lifecycle_hourly
-     3 | 0 2 * * 0      | SELECT runtime_governance.public_answer_packet('000000000000','lifecycle_weekly', 'scheduled_run',0,'standard','lifecycle-weekly-' ||gen_random_uuid()::text) | gbim_runtime_lifecycle_weekly
-     4 | 30 1 28-31 * * | SELECT runtime_governance.public_answer_packet('000000000000','lifecycle_monthly','scheduled_run',0,'standard','lifecycle-monthly-'||gen_random_uuid()::text) | gbim_runtime_lifecycle_monthly
-(4 rows)
+mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/thesis_chapter_gates/reports/ch26_governance_watchdog_probe_20260722_001621.json:238:      "stdout": "# Ms. Jarvis Master Crontab\n\n#PAUSED-INVESTIGATING */5 * * * * /usr/local/bin/jarvis_bbb_watchdog.sh\n#PAUSED-INVESTIGATING */15 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && ./scripts/watchdog-containers.sh\n#PAUSED-INVESTIGATING */15 * * * * /home/cakidd/msjarvis-monitoring/monitor_services.sh\n#PAUSED-INVESTIGATING */30 * * * * /home/cakidd/msjarvis-monitoring/monitor_databases.sh\n0 * * * * /home/cakidd/msjarvis-monitoring/monitor_disk.sh\n0 */6 * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/run_aaacpe_scraper.sh\n0 2 * * * docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c \"REFRESH MATERIALIZED VIEW CONCURRENTLY county_tax_building_summary\" >> /var/log/jarvis_mv_refresh.log 2>&1\n0 2 * * * /mnt/spiritual_drive/msjarvis-rebuild/backup_postgresql.sh >> /home/cakidd/logs/backup_postgresql.log 2>&1\n0 2 * * * cd /mnt/spiritual_drive/msjarvis-rebuild && bash scripts/refresh_gbim_spatial.sh >> logs/gbim_refresh.log 2>&1\n# DISABLED - copies 0-byte sqlite3, useless: 0 2 * * * cp /home/ms-jarvis/msjarvis-rebuild/persistent/chroma/chroma.sqlite3 \"/mnt/nvme1/msjarvis-backups/chromadb/chroma-$(date +%Y%m%d-%H%M%S).sqlite3\"\n0 3 * * 0 docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c \"REFRESH MATERIALIZED VIEW CONCURRENTLY building_parcel_county_tax_mv\" >> /var/log/jarvis_mv_refresh.log 2>&1\n# DISABLED - 77GB rsync too large, chroma-live is the live mount, postgresql backups confirmed current: 0 3 * * * rsync -a /home/ms-jarvis/msjarvis-rebuild/persistent/chroma/ /mnt/nvme1/msjarvis-backups/chromadb/chroma-latest/ >> /tmp/chroma_backup.log 2>&1\n0 3 * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/refresh_mvw.sh >> /var/log/mvw_refresh.log 2>&1\n0 3 * * * python3 /mnt/spiritual_drive/msjarvis-rebuild/services/identity_promotion.py >> /var/log/jarvis/identity_promotion.log 2>&1\n0 4 * * * /mnt/spiritual_drive/msjarvis-rebuild/backup_configs.sh >> /home/cakidd/logs/backup_configs.log 2>&1\n0 8 * * 1 cd /mnt/spiritual_drive/msjarvis-rebuild && bash scripts/pia/run_pia_audit.sh >> /var/log/msjarvis-pia.log 2>&1\n# NEEDS_PARAMS: 0 1 * * * curl -sf -X POST http://localhost:8099/policy/set -H \"Content-Type: application/json\" -d \"{}\" >> /var/log/jarvis/policy_update.log 2>&1\n0 2 * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/gbim_decay_tick.sh >> /var/log/gbim_decay.log 2>&1\n# RETENTION - Keep only last 2 ChromaDB main tarballs (~6.6G cap)\n30 4 * * * find /mnt/nvme1/msjarvis-backups/chromadb -name \"chroma_main_*.tar.gz\" -mtime +2 -delete\n# MAINTENANCE - Weekly Docker build cache prune, keep 10GB headroom\n0 3 * * 0 /usr/bin/docker builder prune -f --keep-storage 10GB >> /tmp/docker_prune.log 2>&1\n0 2 * * 0 cd /mnt/spiritual_drive/msjarvis-rebuild && .venv/bin/python3 scripts/audit_happiness_v2.py >> logs/manipulation_proximity_audit.log 2>&1\n0 */6 * * * /home/cakidd/scripts/local_resources_gap_report.sh >> /home/cakidd/allis-reports/coverage-gaps/gap-report.log 2>&1\n#PAUSED-INVESTIGATING */5 * * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/check_proxies.sh >> /home/cakidd/logs/msjarvis-proxy-health.log 2>&1\n#PAUSED */30 * * * * tail -1 /mnt/spiritual_drive/msjarvis-rebuild/migration.log >> /mnt/spiritual_drive/msjarvis-rebuild/progress_history.log\n17 2 * * * /home/cakidd/.local/bin/purge-kyc-location-strip.sh\n\n# PAUSED - replaced by recurrent_epistemic_runner.py: */30 * * * * /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.sh\n# DGM: rotate rejected patches inside container (weekly Sunday 3am)\n0 3 * * 0 find /mnt/spiritual_drive/msjarvis-rebuild/rejected_patches -name \"*.py\" -mtime +7 -delete\n# DGM: trim cycle log to last 1000 lines (daily 4am)\n0 4 * * * tail -n 1000 /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log > /tmp/dgm_log_trim && mv /tmp/dgm_log_trim /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log\n0 * * * * curl -sS -o /dev/null -w \"%{http_code} %{time_total}s\\n\" --max-time 60 -X POST -H \"Content-Type: application/json\" -d \"{\\\"message\\\":\\\"What county is Mount Hope in?\\\",\\\"user_id\\\":\\\"heartbeat\\\"}\" https://egeria.mountainshares.us/chat_wv >> /home/cakidd/smoke_test.log 2>&1\n0 3 * * * /mnt/spiritual_drive/msjarvis-rebuild/backup_chroma.sh >> /home/cakidd/logs/backup_chroma.log 2>&1\n0 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && python3 services/hilbert/conversation_retention_worker.py >> /mnt/spiritual_drive/msjarvis-rebuild/logs/conv_retention.log 2>&1\n@reboot cd /mnt/spiritual_drive/msjarvis-rebuild && nohup /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py >> logs/recurrent_epistemic_runner.boot.log 2>&1 &\n@hourly cd /opt/msjarvis-rebuild/msjarvis-rebuild && scripts/ch41_continuous_validation.sh >> logs/ch41_continuous_validation.cron.log 2>&1\n"
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/thesis_chapter_gates/reports/ch28_crontab_20260721_211313.txt:36:0 * * * * curl -sS -o /dev/null -w "%{http_code} %{time_total}s\n" --max-time 60 -X POST -H "Content-Type: application/json" -d "{grep: /mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/msjarvis-rebuild: warning: recursive directory loop
+\"message\":\"What county is Mount Hope in?\",\"user_id\":\"heartbeat\"}" https://egeria.mountainshares.us/chat_wv >> /home/cakidd/smoke_test.log 2>&1
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/thesis_chapter_gates/reports/appendix_a_gate_probe_20260722_090854.json:425:    "0 * * * * curl -sS -o /dev/null -w \"%{http_code} %{time_total}s\\n\" --max-time 60 -X POST -H \"Content-Type: application/json\" -d \"{\\\"message\\\":\\\"What county is Mount Hope in?\\\",\\\"user_id\\\":\\\"heartbeat\\\"}\" https://egeria.mountainshares.us/chat_wv >> /home/cakidd/smoke_test.log 2>&1",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/thesis_chapter_gates/reports/ch52_recurrent_epistemic_loop_probe_20260722_003710.json:191:          "stdout": "# Ms. Jarvis Master Crontab\n\n#PAUSED-INVESTIGATING */5 * * * * /usr/local/bin/jarvis_bbb_watchdog.sh\n#PAUSED-INVESTIGATING */15 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && ./scripts/watchdog-containers.sh\n#PAUSED-INVESTIGATING */15 * * * * /home/cakidd/msjarvis-monitoring/monitor_services.sh\n#PAUSED-INVESTIGATING */30 * * * * /home/cakidd/msjarvis-monitoring/monitor_databases.sh\n0 * * * * /home/cakidd/msjarvis-monitoring/monitor_disk.sh\n0 */6 * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/run_aaacpe_scraper.sh\n0 2 * * * docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c \"REFRESH MATERIALIZED VIEW CONCURRENTLY county_tax_building_summary\" >> /var/log/jarvis_mv_refresh.log 2>&1\n0 2 * * * /mnt/spiritual_drive/msjarvis-rebuild/backup_postgresql.sh >> /home/cakidd/logs/backup_postgresql.log 2>&1\n0 2 * * * cd /mnt/spiritual_drive/msjarvis-rebuild && bash scripts/refresh_gbim_spatial.sh >> logs/gbim_refresh.log 2>&1\n# DISABLED - copies 0-byte sqlite3, useless: 0 2 * * * cp /home/ms-jarvis/msjarvis-rebuild/persistent/chroma/chroma.sqlite3 \"/mnt/nvme1/msjarvis-backups/chromadb/chroma-$(date +%Y%m%d-%H%M%S).sqlite3\"\n0 3 * * 0 docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c \"REFRESH MATERIALIZED VIEW CONCURRENTLY building_parcel_county_tax_mv\" >> /var/log/jarvis_mv_refresh.log 2>&1\n# DISABLED - 77GB rsync too large, chroma-live is the live mount, postgresql backups confirmed current: 0 3 * * * rsync -a /home/ms-jarvis/msjarvis-rebuild/persistent/chroma/ /mnt/nvme1/msjarvis-backups/chromadb/chroma-latest/ >> /tmp/chroma_backup.log 2>&1\n0 3 * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/refresh_mvw.sh >> /var/log/mvw_refresh.log 2>&1\n0 3 * * * python3 /mnt/spiritual_drive/msjarvis-rebuild/services/identity_promotion.py >> /var/log/jarvis/identity_promotion.log 2>&1\n0 4 * * * /mnt/spiritual_drive/msjarvis-rebuild/backup_configs.sh >> /home/cakidd/logs/backup_configs.log 2>&1\n0 8 * * 1 cd /mnt/spiritual_drive/msjarvis-rebuild && bash scripts/pia/run_pia_audit.sh >> /var/log/msjarvis-pia.log 2>&1\n# NEEDS_PARAMS: 0 1 * * * curl -sf -X POST http://localhost:8099/policy/set -H \"Content-Type: application/json\" -d \"{}\" >> /var/log/jarvis/policy_update.log 2>&1\n0 2 * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/gbim_decay_tick.sh >> /var/log/gbim_decay.log 2>&1\n# RETENTION - Keep only last 2 ChromaDB main tarballs (~6.6G cap)\n30 4 * * * find /mnt/nvme1/msjarvis-backups/chromadb -name \"chroma_main_*.tar.gz\" -mtime +2 -delete\n# MAINTENANCE - Weekly Docker build cache prune, keep 10GB headroom\n0 3 * * 0 /usr/bin/docker builder prune -f --keep-storage 10GB >> /tmp/docker_prune.log 2>&1\n0 2 * * 0 cd /mnt/spiritual_drive/msjarvis-rebuild && .venv/bin/python3 scripts/audit_happiness_v2.py >> logs/manipulation_proximity_audit.log 2>&1\n0 */6 * * * /home/cakidd/scripts/local_resources_gap_report.sh >> /home/cakidd/allis-reports/coverage-gaps/gap-report.log 2>&1\n#PAUSED-INVESTIGATING */5 * * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/check_proxies.sh >> /home/cakidd/logs/msjarvis-proxy-health.log 2>&1\n#PAUSED */30 * * * * tail -1 /mnt/spiritual_drive/msjarvis-rebuild/migration.log >> /mnt/spiritual_drive/msjarvis-rebuild/progress_history.log\n17 2 * * * /home/cakidd/.local/bin/purge-kyc-location-strip.sh\n\n# PAUSED - replaced by recurrent_epistemic_runner.py: */30 * * * * /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.sh\n# DGM: rotate rejected patches inside container (weekly Sunday 3am)\n0 3 * * 0 find /mnt/spiritual_drive/msjarvis-rebuild/rejected_patches -name \"*.py\" -mtime +7 -delete\n# DGM: trim cycle log to last 1000 lines (daily 4am)\n0 4 * * * tail -n 1000 /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log > /tmp/dgm_log_trim && mv /tmp/dgm_log_trim /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log\n0 * * * * curl -sS -o /dev/null -w \"%{http_code} %{time_total}s\\n\" --max-time 60 -X POST -H \"Content-Type: application/json\" -d \"{\\\"message\\\":\\\"What county is Mount Hope in?\\\",\\\"user_id\\\":\\\"heartbeat\\\"}\" https://egeria.mountainshares.us/chat_wv >> /home/cakidd/smoke_test.log 2>&1\n0 3 * * * /mnt/spiritual_drive/msjarvis-rebuild/backup_chroma.sh >> /home/cakidd/logs/backup_chroma.log 2>&1\n0 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && python3 services/hilbert/conversation_retention_worker.py >> /mnt/spiritual_drive/msjarvis-rebuild/logs/conv_retention.log 2>&1\n@reboot cd /mnt/spiritual_drive/msjarvis-rebuild && nohup /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py >> logs/recurrent_epistemic_runner.boot.log 2>&1 &\n@hourly cd /opt/msjarvis-rebuild/msjarvis-rebuild && scripts/ch41_continuous_validation.sh >> logs/ch41_continuous_validation.cron.log 2>&1\n"
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/thesis_chapter_gates/reports/appendix_a_gate_20260722_090854.md:456:    "0 * * * * curl -sS -o /dev/null -w \"%{http_code} %{time_total}s\\n\" --max-time 60 -X POST -H \"Content-Type: application/json\" -d \"{\\\"message\\\":\\\"What county is Mount Hope in?\\\",\\\"user_id\\\":\\\"heartbeat\\\"}\" https://egeria.mountainshares.us/chat_wv >> /home/cakidd/smoke_test.log 2>&1",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/thesis_chapter_gates/reports/ch52_recurrent_epistemic_loop_probe_20260722_003832.json:188:          "stdout": "# Ms. Jarvis Master Crontab\n\n#PAUSED-INVESTIGATING */5 * * * * /usr/local/bin/jarvis_bbb_watchdog.sh\n#PAUSED-INVESTIGATING */15 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && ./scripts/watchdog-containers.sh\n#PAUSED-INVESTIGATING */15 * * * * /home/cakidd/msjarvis-monitoring/monitor_services.sh\n#PAUSED-INVESTIGATING */30 * * * * /home/cakidd/msjarvis-monitoring/monitor_databases.sh\n0 * * * * /home/cakidd/msjarvis-monitoring/monitor_disk.sh\n0 */6 * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/run_aaacpe_scraper.sh\n0 2 * * * docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c \"REFRESH MATERIALIZED VIEW CONCURRENTLY county_tax_building_summary\" >> /var/log/jarvis_mv_refresh.log 2>&1\n0 2 * * * /mnt/spiritual_drive/msjarvis-rebuild/backup_postgresql.sh >> /home/cakidd/logs/backup_postgresql.log 2>&1\n0 2 * * * cd /mnt/spiritual_drive/msjarvis-rebuild && bash scripts/refresh_gbim_spatial.sh >> logs/gbim_refresh.log 2>&1\n# DISABLED - copies 0-byte sqlite3, useless: 0 2 * * * cp /home/ms-jarvis/msjarvis-rebuild/persistent/chroma/chroma.sqlite3 \"/mnt/nvme1/msjarvis-backups/chromadb/chroma-$(date +%Y%m%d-%H%M%S).sqlite3\"\n0 3 * * 0 docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c \"REFRESH MATERIALIZED VIEW CONCURRENTLY building_parcel_county_tax_mv\" >> /var/log/jarvis_mv_refresh.log 2>&1\n# DISABLED - 77GB rsync too large, chroma-live is the live mount, postgresql backups confirmed current: 0 3 * * * rsync -a /home/ms-jarvis/msjarvis-rebuild/persistent/chroma/ /mnt/nvme1/msjarvis-backups/chromadb/chroma-latest/ >> /tmp/chroma_backup.log 2>&1\n0 3 * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/refresh_mvw.sh >> /var/log/mvw_refresh.log 2>&1\n0 3 * * * python3 /mnt/spiritual_drive/msjarvis-rebuild/services/identity_promotion.py >> /var/log/jarvis/identity_promotion.log 2>&1\n0 4 * * * /mnt/spiritual_drive/msjarvis-rebuild/backup_configs.sh >> /home/cakidd/logs/backup_configs.log 2>&1\n0 8 * * 1 cd /mnt/spiritual_drive/msjarvis-rebuild && bash scripts/pia/run_pia_audit.sh >> /var/log/msjarvis-pia.log 2>&1\n# NEEDS_PARAMS: 0 1 * * * curl -sf -X POST http://localhost:8099/policy/set -H \"Content-Type: application/json\" -d \"{}\" >> /var/log/jarvis/policy_update.log 2>&1\n0 2 * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/gbim_decay_tick.sh >> /var/log/gbim_decay.log 2>&1\n# RETENTION - Keep only last 2 ChromaDB main tarballs (~6.6G cap)\n30 4 * * * find /mnt/nvme1/msjarvis-backups/chromadb -name \"chroma_main_*.tar.gz\" -mtime +2 -delete\n# MAINTENANCE - Weekly Docker build cache prune, keep 10GB headroom\n0 3 * * 0 /usr/bin/docker builder prune -f --keep-storage 10GB >> /tmp/docker_prune.log 2>&1\n0 2 * * 0 cd /mnt/spiritual_drive/msjarvis-rebuild && .venv/bin/python3 scripts/audit_happiness_v2.py >> logs/manipulation_proximity_audit.log 2>&1\n0 */6 * * * /home/cakidd/scripts/local_resources_gap_report.sh >> /home/cakidd/allis-reports/coverage-gaps/gap-report.log 2>&1\n#PAUSED-INVESTIGATING */5 * * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/check_proxies.sh >> /home/cakidd/logs/msjarvis-proxy-health.log 2>&1\n#PAUSED */30 * * * * tail -1 /mnt/spiritual_drive/msjarvis-rebuild/migration.log >> /mnt/spiritual_drive/msjarvis-rebuild/progress_history.log\n17 2 * * * /home/cakidd/.local/bin/purge-kyc-location-strip.sh\n\n# PAUSED - replaced by recurrent_epistemic_runner.py: */30 * * * * /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.sh\n# DGM: rotate rejected patches inside container (weekly Sunday 3am)\n0 3 * * 0 find /mnt/spiritual_drive/msjarvis-rebuild/rejected_patches -name \"*.py\" -mtime +7 -delete\n# DGM: trim cycle log to last 1000 lines (daily 4am)\n0 4 * * * tail -n 1000 /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log > /tmp/dgm_log_trim && mv /tmp/dgm_log_trim /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log\n0 * * * * curl -sS -o /dev/null -w \"%{http_code} %{time_total}s\\n\" --max-time 60 -X POST -H \"Content-Type: application/json\" -d \"{\\\"message\\\":\\\"What county is Mount Hope in?\\\",\\\"user_id\\\":\\\"heartbeat\\\"}\" https://egeria.mountainshares.us/chat_wv >> /home/cakidd/smoke_test.log 2>&1\n0 3 * * * /mnt/spiritual_drive/msjarvis-rebuild/backup_chroma.sh >> /home/cakidd/logs/backup_chroma.log 2>&1\n0 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && python3 services/hilbert/conversation_retention_worker.py >> /mnt/spiritual_drive/msjarvis-rebuild/logs/conv_retention.log 2>&1\n@reboot cd /mnt/spiritual_drive/msjarvis-rebuild && nohup /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py >> logs/recurrent_epistemic_runner.boot.log 2>&1 &\n@hourly cd /opt/msjarvis-rebuild/msjarvis-rebuild && scripts/ch41_continuous_validation.sh >> logs/ch41_continuous_validation.cron.log 2>&1\n"
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/thesis_chapter_gates/reports/ch26_governance_watchdog_probe_20260722_001621.json:238:      "stdout": "# Ms. Jarvis Master Crontab\n\n#PAUSED-INVESTIGATING */5 * * * * /usr/local/bin/jarvis_bbb_watchdog.sh\n#PAUSED-INVESTIGATING */15 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && ./scripts/watchdog-containers.sh\n#PAUSED-INVESTIGATING */15 * * * * /home/cakidd/msjarvis-monitoring/monitor_services.sh\n#PAUSED-INVESTIGATING */30 * * * * /home/cakidd/msjarvis-monitoring/monitor_databases.sh\n0 * * * * /home/cakidd/msjarvis-monitoring/monitor_disk.sh\n0 */6 * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/run_aaacpe_scraper.sh\n0 2 * * * docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c \"REFRESH MATERIALIZED VIEW CONCURRENTLY county_tax_building_summary\" >> /var/log/jarvis_mv_refresh.log 2>&1\n0 2 * * * /mnt/spiritual_drive/msjarvis-rebuild/backup_postgresql.sh >> /home/cakidd/logs/backup_postgresql.log 2>&1\n0 2 * * * cd /mnt/spiritual_drive/msjarvis-rebuild && bash scripts/refresh_gbim_spatial.sh >> logs/gbim_refresh.log 2>&1\n# DISABLED - copies 0-byte sqlite3, useless: 0 2 * * * cp /home/ms-jarvis/msjarvis-rebuild/persistent/chroma/chroma.sqlite3 \"/mnt/nvme1/msjarvis-backups/chromadb/chroma-$(date +%Y%m%d-%H%M%S).sqlite3\"\n0 3 * * 0 docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c \"REFRESH MATERIALIZED VIEW CONCURRENTLY building_parcel_county_tax_mv\" >> /var/log/jarvis_mv_refresh.log 2>&1\n# DISABLED - 77GB rsync too large, chroma-live is the live mount, postgresql backups confirmed current: 0 3 * * * rsync -a /home/ms-jarvis/msjarvis-rebuild/persistent/chroma/ /mnt/nvme1/msjarvis-backups/chromadb/chroma-latest/ >> /tmp/chroma_backup.log 2>&1\n0 3 * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/refresh_mvw.sh >> /var/log/mvw_refresh.log 2>&1\n0 3 * * * python3 /mnt/spiritual_drive/msjarvis-rebuild/services/identity_promotion.py >> /var/log/jarvis/identity_promotion.log 2>&1\n0 4 * * * /mnt/spiritual_drive/msjarvis-rebuild/backup_configs.sh >> /home/cakidd/logs/backup_configs.log 2>&1\n0 8 * * 1 cd /mnt/spiritual_drive/msjarvis-rebuild && bash scripts/pia/run_pia_audit.sh >> /var/log/msjarvis-pia.log 2>&1\n# NEEDS_PARAMS: 0 1 * * * curl -sf -X POST http://localhost:8099/policy/set -H \"Content-Type: application/json\" -d \"{}\" >> /var/log/jarvis/policy_update.log 2>&1\n0 2 * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/gbim_decay_tick.sh >> /var/log/gbim_decay.log 2>&1\n# RETENTION - Keep only last 2 ChromaDB main tarballs (~6.6G cap)\n30 4 * * * find /mnt/nvme1/msjarvis-backups/chromadb -name \"chroma_main_*.tar.gz\" -mtime +2 -delete\n# MAINTENANCE - Weekly Docker build cache prune, keep 10GB headroom\n0 3 * * 0 /usr/bin/docker builder prune -f --keep-storage 10GB >> /tmp/docker_prune.log 2>&1\n0 2 * * 0 cd /mnt/spiritual_drive/msjarvis-rebuild && .venv/bin/python3 scripts/audit_happiness_v2.py >> logs/manipulation_proximity_audit.log 2>&1\n0 */6 * * * /home/cakidd/scripts/local_resources_gap_report.sh >> /home/cakidd/allis-reports/coverage-gaps/gap-report.log 2>&1\n#PAUSED-INVESTIGATING */5 * * * * /mnt/spiritual_drive/msjarvis-rebuild/scripts/check_proxies.sh >> /home/cakidd/logs/msjarvis-proxy-health.log 2>&1\n#PAUSED */30 * * * * tail -1 /mnt/spiritual_drive/msjarvis-rebuild/migration.log >> /mnt/spiritual_drive/msjarvis-rebuild/progress_history.log\n17 2 * * * /home/cakidd/.local/bin/purge-kyc-location-strip.sh\n\n# PAUSED - replaced by recurrent_epistemic_runner.py: */30 * * * * /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.sh\n# DGM: rotate rejected patches inside container (weekly Sunday 3am)\n0 3 * * 0 find /mnt/spiritual_drive/msjarvis-rebuild/rejected_patches -name \"*.py\" -mtime +7 -delete\n# DGM: trim cycle log to last 1000 lines (daily 4am)\n0 4 * * * tail -n 1000 /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log > /tmp/dgm_log_trim && mv /tmp/dgm_log_trim /mnt/spiritual_drive/msjarvis-rebuild/dgm_cycle.log\n0 * * * * curl -sS -o /dev/null -w \"%{http_code} %{time_total}s\\n\" --max-time 60 -X POST -H \"Content-Type: application/json\" -d \"{\\\"message\\\":\\\"What county is Mount Hope in?\\\",\\\"user_id\\\":\\\"heartbeat\\\"}\" https://egeria.mountainshares.us/chat_wv >> /home/cakidd/smoke_test.log 2>&1\n0 3 * * * /mnt/spiritual_drive/msjarvis-rebuild/backup_chroma.sh >> /home/cakidd/logs/backup_chroma.log 2>&1\n0 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && python3 services/hilbert/conversation_retention_worker.py >> /mnt/spiritual_drive/msjarvis-rebuild/logs/conv_retention.log 2>&1\n@reboot cd /mnt/spiritual_drive/msjarvis-rebuild && nohup /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py >> logs/recurrent_epistemic_runner.boot.log 2>&1 &\n@hourly cd /opt/msjarvis-rebuild/msjarvis-rebuild && scripts/ch41_continuous_validation.sh >> logs/ch41_continuous_validation.cron.log 2>&1\n"
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/thesis_chapter_gates/reports/ch28_crontab_20260721_211313.txt:36:0 * * * * curl -sS -o /dev/null -w "%{http_code} %{time_total}s\n" --max-timgrep: /mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/msjarvis-rebuild: warning: recursive directory loop
+e 60 -X POST -H "Content-Type: application/json" -d "{\"message\":\"What county is Mount Hope in?\",\"user_id\":\"heartbeat\"}" https://egeria.mountainshares.us/chat_wv >> /home/cakidd/smoke_test.log 2>&1
+grep: /mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/pg_hba.conf.before_policy_writer_20260728_012433: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/pg_hba.conf.before_policy_host_network_20260728_012810: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/services/ms_jarvis_mother_carrie_protocols.py: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/local_resources: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/#ib_16384_0.dblwr: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/mysql.ibd: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/private_key.pem: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/sys: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000007: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/ib_buffer_pool: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/auto.cnf: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000005: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/client-key.pem: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/undo_002: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000008: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000002: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000009: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000003: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000001: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.index: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/server-key.pem: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000010: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/ca-key.pem: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/#innodb_temp: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/mysql.sock: No such device or address
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/quantum_ai: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/mysql: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/#ib_16384_1.dblwr: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/ibdata1: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000004: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/performance_schema: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000006: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/#innodb_redo: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/undo_001: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/msjarvis-rebuild: warning: recursive directory loop
+grep: /mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/msjarvis-rebuild: warning: recursive directory loop
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:27:        "wv-entangled-forward-debug keys=%s has_judge_context_packet=%s has_userid=%s has_role=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:29:        isinstance(c.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:146:    incoming_packet = incoming_context.get("judge_context_packet")
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:163:            "judge_context_packet": incoming_packet,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:446:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:448:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:456:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:446:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:448:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:456:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/msjarvis_wv_entangled_gateway.py:159:    WV‑focused chat: send message + WV entangled context + judge_context_packet to 20‑LLM /chat_with_context.
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/msjarvis_wv_entangled_gateway.py:167:    incoming_packet = incoming_context.get("judge_context_packet")
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/msjarvis_wv_entangled_gateway.py:184:            "judge_context_packet": incoming_packet,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/msjarvis_wv_entangled_gateway.py:193:        "wv-entangled-live-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/msjarvis_wv_entangled_gateway.py:195:        isinstance((forward_payload.get("context") or {}).get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_154012:448:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/main_brain.py.bak.spec.20260727_163924:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py:36:    pkt = context.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py:491:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py:493:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py:501:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py:512:            "has_judge_context_packet": has_jcp,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_20llm_PRODUCTION.py:513:            "judge_context_packet": ctx.get("judge_context_packet"),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/main_brain.py.bak.spec3.20260727_164043:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:26:        "wv-entangled-forward-debug keys=%s has_judge_context_packet=%s has_userid=%s has_role=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:28:        isinstance(c.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:151:            "judge_context_packet": incoming_context.get("judge_context_packet"),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/main_brain.py.bak.spec2.20260727_164007:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/main_brain.py:2039:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/main_brain.py.bak.20260727_154647:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/msjarvis_semaphore.py:15:        "semaphore-proxy-debug json_keys=%s ctx_keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/msjarvis_semaphore.py:18:        isinstance(ctx.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728/repo/services/ai_server_22llm.py:37:    pkt = context.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:27:        "wv-entangled-forward-debug keys=%s has_judge_context_packet=%s has_userid=%s has_role=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:29:        isinstance(c.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:146:    incoming_packet = incoming_context.get("judge_context_packet")
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:163:            "judge_context_packet": incoming_packet,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:446:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:448:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:456:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:446:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:448:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:456:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/msjarvis_wv_entangled_gateway.py:159:    WV‑focused chat: send message + WV entangled context + judge_context_packet to 20‑LLM /chat_with_context.
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/msjarvis_wv_entangled_gateway.py:167:    incoming_packet = incoming_context.get("judge_context_packet")
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/msjarvis_wv_entangled_gateway.py:184:            "judge_context_packet": incoming_packet,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/msjarvis_wv_entangled_gateway.py:193:        "wv-entangled-live-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/msjarvis_wv_entangled_gateway.py:195:        isinstance((forward_payload.get("context") or {}).get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py.bak.20260727_154012:448:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/main_brain.py.bak.spec.20260727_163924:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py:36:    pkt = context.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py:491:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py:493:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py:501:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py:512:            "has_judge_context_packet": has_jcp,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_20llm_PRODUCTION.py:513:            "judge_context_packet": ctx.get("judge_context_packet"),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/main_brain.py.bak.spec3.20260727_164043:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:26:        "wv-entangled-forward-debug keys=%s has_judge_context_packet=%s has_userid=%s has_role=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:28:        isinstance(c.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:151:            "judge_context_packet": incoming_context.get("judge_context_packet"),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/main_brain.py.bak.spec2.20260727_164007:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/main_brain.py:2039:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/main_brain.py.bak.20260727_154647:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/msjarvis_semaphore.py:15:        "semaphore-proxy-debug json_keys=%s ctx_keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/msjarvis_semaphore.py:18:        isinstance(ctx.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/bbb-asbuilt-build-context.UentYg/services/ai_server_22llm.py:37:    pkt = context.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:27:        "wv-entangled-forward-debug keys=%s has_judge_context_packet=%s has_userid=%s has_role=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:29:        isinstance(c.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:146:    incoming_packet = incoming_context.get("judge_context_packet")
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:163:            "judge_context_packet": incoming_packet,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:446:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:448:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:456:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:446:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:448:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:456:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/msjarvis_wv_entangled_gateway.py:159:    WV‑focused chat: send message + WV entangled context + judge_context_packet to 20‑LLM /chat_with_context.
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/msjarvis_wv_entangled_gateway.py:167:    incoming_packet = incoming_context.get("judge_context_packet")
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/msjarvis_wv_entangled_gateway.py:184:            "judge_context_packet": incoming_packet,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/msjarvis_wv_entangled_gateway.py:193:        "wv-entangled-live-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/msjarvis_wv_entangled_gateway.py:195:        isinstance((forward_payload.get("context") or {}).get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py.bak.20260727_154012:448:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/main_brain.py.bak.spec.20260727_163924:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py:36:    pkt = context.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py:491:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py:493:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py:501:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py:512:            "has_judge_context_packet": has_jcp,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_20llm_PRODUCTION.py:513:            "judge_context_packet": ctx.get("judge_context_packet"),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/main_brain.py.bak.spec3.20260727_164043:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:26:        "wv-entangled-forward-debug keys=%s has_judge_context_packet=%s has_userid=%s has_role=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:28:        isinstance(c.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:151:            "judge_context_packet": incoming_context.get("judge_context_packet"),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/main_brain.py.bak.spec2.20260727_164007:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/main_brain.py:2039:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/main_brain.py.bak.20260727_154647:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshogrep: /mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/msjarvis-rebuild: warning: recursive directory loop
+t_deploy/nbb-i-containers-build-context.IWcKqD/services/msjarvis_semaphore.py:15:        "semaphore-proxy-debug json_keys=%s ctx_keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/msjarvis_semaphore.py:18:        isinstance(ctx.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/snapshot_deploy/nbb-i-containers-build-context.IWcKqD/services/ai_server_22llm.py:37:    pkt = context.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:27:        "wv-entangled-forward-debug keys=%s has_judge_context_packet=%s has_userid=%s has_role=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:29:        isinstance(c.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:146:    incoming_packet = incoming_context.get("judge_context_packet")
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:163:            "judge_context_packet": incoming_packet,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:446:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:448:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:456:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:446:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:448:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:456:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/msjarvis_wv_entangled_gateway.py:159:    WV‑focused chat: send message + WV entangled context + judge_context_packet to 20‑LLM /chat_with_context.
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/msjarvis_wv_entangled_gateway.py:167:    incoming_packet = incoming_context.get("judge_context_packet")
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/msjarvis_wv_entangled_gateway.py:184:            "judge_context_packet": incoming_packet,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/msjarvis_wv_entangled_gateway.py:193:        "wv-entangled-live-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/msjarvis_wv_entangled_gateway.py:195:        isinstance((forward_payload.get("context") or {}).get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py.bak.20260727_154012:448:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/main_brain.py.bak.spec.20260727_163924:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py:36:    pkt = context.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py:491:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py:493:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py:501:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py:512:            "has_judge_context_packet": has_jcp,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_20llm_PRODUCTION.py:513:            "judge_context_packet": ctx.get("judge_context_packet"),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/main_brain.py.bak.spec3.20260727_164043:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:26:        "wv-entangled-forward-debug keys=%s has_judge_context_packet=%s has_userid=%s has_role=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:28:        isinstance(c.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:151:            "judge_context_packet": incoming_context.get("judge_context_packet"),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/main_brain.py.bak.spec2.20260727_164007:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/main_brain.py:2039:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/main_brain.py.bak.20260727_154647:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/msjarvis_semaphore.py:15:        "semaphore-proxy-debug json_keys=%s ctx_keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/msjarvis_semaphore.py:18:        isinstance(ctx.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ai_server_22llm.py:37:    pkt = cgrep: /mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/pg_hba.conf.before_policy_writer_20260728_012433ontext.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4001:+    pkt = context.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4274:+        "wv-entangled-forward-debug keys=%s has_judge_context_packet=%s has_userid=%s has_role=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4276:+        isinstance(c.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4292:+    incoming_packet = incoming_context.get("judge_context_packet")
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4309:+            "judge_context_packet": incoming_packet,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4668:+                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4708:+        "semaphore-proxy-debug json_keys=%s ctx_keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4711:+        isinstance(ctx.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4744:+    WV‑focused chat: send message + WV entangled context + judge_context_packet to 20‑LLM /chat_with_context.
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asb: Permission denieduilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4752:+    incoming_packet = incoming_context.get("judge_context_packet")
 
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild/formal/commons_proofs$ 
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4769:+            "judge_context_packet": incoming_packet,
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4778:+        "wv-entangled-live-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/manifest/tracked_worktree.patch:4780:+        isinstance((forward_payload.get("context") or {}).get("judge_context_packet"), dict),
+grep: /mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/pg_hba.conf.before_policy_host_network_20260728_012810: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/services/ms_jarvis_mother_carrie_protocols.py: Permission denied
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:27:        "wv-entangled-forward-debug keys=%s has_judge_context_packet=%s has_userid=%s has_role=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:29:        isinstance(c.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:146:    incoming_packet = incoming_context.get("judge_context_packet")
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:163:            "judge_context_packet": incoming_packet,
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:446:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:448:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260727_161901:456:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:446:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:448:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260727_162510:456:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis_wv_entangled_gateway.py:159:    WV‑focused chat: send message + WV entangled context + judge_context_packet to 20‑LLM /chat_with_context.
+/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis_wv_entangled_gateway.py:167:    incoming_packet = incoming_context.get("judge_context_packet")
+/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis_wv_entangled_gateway.py:184:            "judge_context_packet": incoming_packet,
+/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis_wv_entangled_gateway.py:193:        "wv-entangled-live-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis_wv_entangled_gateway.py:195:        isinstance((forward_payload.get("context") or {}).get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260727_154012:448:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/services/main_brain.py.bak.spec.20260727_163924:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:36:    pkt = context.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:88:    pkt = context.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:526:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:528:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:536:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:547:            "has_judge_context_packet": has_jcp,
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py:548:            "judge_context_packet": ctx.get("judge_context_packet"),
+/mnt/spiritual_drive/msjarvis-rebuild/services/main_brain.py.bak.spec3.20260727_164043:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:26:        "wv-entangled-forward-debug keys=%s has_judge_context_packet=%s has_userid=%s has_role=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:28:        isinstance(c.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py.bak.20260727_172920:151:            "judge_context_packet": incoming_context.get("judge_context_packet"),
+/mnt/spiritual_drive/msjarvis-rebuild/services/main_brain.py.bak.spec2.20260727_164007:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260730_145015:36:grep: /mnt/spiritual_drive/msjarvis-rebuild/data/local_resources: Permission denied
+    pkt = context.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260730_145015:491:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260730_145015:493:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260730_145015:501:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260730_145015:512:            "has_judge_context_packet": has_jcp,
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260730_145015:513:            "judge_context_packet": ctx.get("judge_context_packet"),
+/mnt/spiritual_drive/msjarvis-rebuild/services/main_brain.py:2039:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260730_144956:36:    pkt = context.get("judge_context_packet") or {}
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260730_144956:491:    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260730_144956:493:        "20llm-context-debug keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260730_144956:501:            "has_judge_context_packet": isinstance((request.context or {}).get("judge_context_packet"), dict) if isinstance(request.context, dict) else False,
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260730_144956:512:            "has_judge_context_packet": has_jcp,
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py.bak.20260730_144956:513:            "judge_context_packet": ctx.get("judge_context_packet"),
+/mnt/spiritual_drive/msjarvis-rebuild/services/main_brain.py.bak.20260727_154647:2021:                                      | {"judge_context_packet": request_context_packet}
+/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis_semaphore.py:15:        "semaphore-proxy-debug json_keys=%s ctx_keys=%s has_judge_context_packet=%s",
+/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis_semaphore.py:18:        isinstance(ctx.get("judge_context_packet"), dict),
+/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_22llm.py:37:    pkt = context.get("judge_context_packet") or {}
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/#ib_16384_0.dblwr: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/mysql.ibd: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/private_key.pem: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/sys: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000007: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/ib_buffer_pool: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/auto.cnf: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000005: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/client-key.pem: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/undo_002: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000008: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000002: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000009: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000003: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000001: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.index: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/server-key.pem: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000010: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/ca-key.pem: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/#innodb_temp: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/mysql.sock: No such device or address
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/quantum_ai: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/mysql: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/#ib_16384_1.dblwr: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/ibdata1: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000004: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/performance_schema: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/binlog.000006: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/#innodb_redo: Permission denied
+grep: /mnt/spiritual_drive/msjarvis-rebuild/data/mysql/undo_001: Permission denied
+NAMES                                             CONTAINER ID
+jarvis-chat-worker                                80e2aebfe309
+jarvis-20llm-production                           95a4b99f6a76
+jarvis-epistemic-runner                           08d54934c893
+jarvis-crypto-policy                              8bbb6068c565
+jarvis-mountainshares-commons-gateway             123a4aec70f3
+jarvis-dgm-23                                     d3ea49ac57a7
+jarvis-dgm-22                                     ae3ce17787a1
+jarvis-dgm-21                                     f79a991133bd
+jarvis-dgm-20                                     12217e969e20
+jarvis-dgm-19                                     f9dabad05f77
+jarvis-dgm-18                                     dc991af28353
+jarvis-dgm-17                                     1ba9ea2e2797
+jarvis-dgm-16                                     04ff8fa47f63
+jarvis-dgm-15                                     c9161c3afa7f
+jarvis-dgm-14                                     a7b6ad8cdac0
+jarvis-dgm-13                                     999f1d562ba3
+jarvis-dgm-12                                     c6e073aa0895
+jarvis-dgm-11                                     e01adb28b5ec
+jarvis-dgm-10                                     f9dd224b0081
+jarvis-dgm-09                                     8e68631c3e88
+jarvis-dgm-08                                     d512340a4117
+jarvis-dgm-07                                     6a4faa23f509
+jarvis-dgm-06                                     568f664a0084
+jarvis-dgm-05                                     032ac082d1a1
+jarvis-contracts                                  189df20e9a5d
+jarvis-nbb-i-containers-2                         a61d064d2901
+jarvis-commons-optin-intake                       d91ccf962dbf
+nbb_darwin_godel_machines                         13d514ef3fda
+jarvis-belief-revision                            4cb9f9ab2244
+jarvis-blood-brain-barrier                        b91e71952587
+jarvis-wv-entangled-gateway                       758f611015db
+jarvis-brain-orchestrator                         e183780b8c54
+jarvis-main-brain                                 a11fe710fb86
+jarvis-lm-synthesizer                             f5b50ec52369
+jarvis-fifth-dgm                                  ffa02fa63fd1
+jarvis-woah                                       5ed3e920ae8a
+jarvis-stewardship-scheduler                      e59a183a8d4f
+jarvis-steward                                    7239e08ad162
+jarvis-spatial-sandbox                            50f4b052ab12
+jarvis-pia-sampler                                bb94fb696188
+jarvis-ollama-tls                                 ab983b25ea7d
+jarvis-kyc-vault                                  d7718c0b4ca4
+jarvis-hilbert-time                               9e8f38747f39
+jarvis-hilbert-gateway                            4cc77f3590b0
+jarvis-gis-rag-tls                                2146db5a358a
+jarvis-chroma-tls                                 fb9121998db7
+jarvis-autonomous-learner                         f8a77fee3e52
+jarvis-assertion-gateway                          b2ab7c573b7f
+jarvis-fractal-consciousness                      e9967f950abc
+jarvis-civic-intake                               76299ef2eaba
+jarvis-gis-rag                                    197939bc14b0
+jarvis-judge-truth                                615c4b783c3e
+ms-allis-internal-sandbox                         b8fc26b8aa3e
+jarvis-memory                                     4f6a973dc700
+jarvis-unified-gateway                            459fc07e51e3
+jarvis-auth-api                                   8bb7e22ef46a
+jarvis-dgm-03                                     082e7a2a1c41
+jarvis-dgm-02                                     b51ec7f91617
+jarvis-dgm-01                                     c150a17e1ef9
+jarvis-dgm-04                                     7a2030b63e13
+jarvis-chroma                                     176b05c21680
+jarvis-phi-probe                                  d82b226b7f45
+jarvis-hilbert-state                              726ffeb76526
+jarvis-msjarvis-db                                ff0a3e021fd2
+nbb_prefrontal_cortex                             dcfe4ac54fa3
+jarvis-rag-server                                 0f410deb2a1e
+hp-local-db                                       12f4ee393f59
+jarvis-ollama                                     aa6da26825cb
+jarvis-i-containers                               50d7ae0f4f43
+jarvis-neurobiological-master                     55e2824e1e9b
+jarvis-intake-service                             15b51087eaa7
+neo4j                                             74b317576285
+nbb_qualia_engine                                 2620dac29ebb
+qualia-orchestrator-69dgm-real                    527a0fca691c
+jarvis-hp-sidecar                                 406c478dedeb
+56c99d59f7a5_jarvis-session-sidecar               55df4a081751
+jarvis-redis                                      f51ab5ec580e
+e665651c00d5_llm2-proxy                           d68ba2f39218
+2d6c035dc9fe_llm20-proxy                          3e9f9e5eacd5
+b91b3c2adba5_llm17-proxy                          33cc8c54665f
+b5a2b182f1b7_llm19-proxy                          bb5199581bf7
+c68db82137f8_llm9-proxy                           b1cf6a9ce368
+05cbdb9d8b63_llm18-proxy                          c0f034c275aa
+a8416407179c_nbb_spiritual_root                   6ffa201bc5cb
+1d653a8a0fcb_jarvis-mother-protocols              77a6d8da8cfd
+07868f87c30f_llm10-proxy                          d74fd7b97159
+f970d6243de9_llm1-proxy                           2f4e05f8a3dc
+1e1783a0cae3_jarvis-temporal-consciousness        466acb2b5bdc
+bbd55aa39149_llm13-proxy                          45c222470dcf
+cdb1cfcf3615_llm15-proxy                          16ea04409c5f
+03da3490dbba_llm12-proxy                          4b5ad0424420
+b9f25945034e_llm6-proxy                           7cf6540cb8d7
+0f40caf56e1e_nbb_mother_carrie_protocols          7af7d2f41930
+6c076127418c_llm4-proxy                           c78837fed345
+6dd05bcbf535_llm5-proxy                           ce480ed1f93b
+f49af6a3d696_llm7-proxy                           b22197a3d613
+687596ae0eb1_llm22-proxy                          2151a6caeb4d
+aae4a8928928_nbb_spiritual_maternal_integration   81dc8f91368e
+a40eece620f3_nbb_woah_algorithms                  9732ba6ed169
+eeb98757a243_llm21-proxy                          0410a12c0f87
+8dffd2f7b142_llm3-proxy                           ba01a2bd26bf
+22cb4468dbd5_llm8-proxy                           0040918f6e83
+675f8bd43968_llm11-proxy                          ca9f3938f31c
+be5c6613bca3_llm14-proxy                          502f270952e9
+69ee8c1dadfb_llm16-proxy                          d9715beb5c89
+nbb_pituitary_gland                               7b8bfefe633a
+jarvis-constitutional-guardian                    8b13bbdfc71d
+jarvis-judge-pipeline                             934bfec75dfa
+jarvis-semaphore                                  c3b8c5c2fc27
+jarvis-web-research                               8a7b36c5a662
+jarvis-judge-alignment                            3f68fcbda89c
+jarvis-spiritual-rag                              2d538adc61b8
+jarvis-eeg-theta                                  e4d6dd1f05eb
+jarvis-eeg-delta                                  4d5bbc5d4275
+jarvis-swarm-intelligence                         bf6b32fd56a6
+jarvis-provenance                                 1150428c1b27
+jarvis-ingest-api                                 2f88be593aa8
+jarvis-eeg-beta                                   91786e706452
+jarvis-rag-router                                 24173709208f
+jarvis-aaacpe-rag                                 940dd621fb68
+jarvis-aaacpe-scraper                             b287b0a25afd
+jarvis-judge-ethics                               d13b32b9e454
+jarvis-agents-service                             3bb8f7e2af17
+jarvis-judge-consistency                          0b482fedf39c
+jarvis-jaeger                                     bfd56587c08f
+jarvis-toroidal                                   f57029960345
+jarvis-psychology-services                        55be93b371b2
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/spiritual_drive/msjarvis-rebuild$ 
 
