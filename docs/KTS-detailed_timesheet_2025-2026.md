@@ -1,5 +1,5 @@
 # Kidd's Technical Services, LLC
-## Detailed Timesheet: March 23, 2025 – May 14, 2026
+## Detailed Timesheet: March 23, 2025 – June 17, 2026
 
 | Field | Value |
 |---|---|
