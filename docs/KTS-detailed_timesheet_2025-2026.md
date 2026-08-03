@@ -2075,7 +2075,3 @@
 | June 18 – August 2, 2026 (worked; thematic descriptions) | 728.0 | $109,200 |
 | August 3 – August 7, 2026 (ahead — to be completed) | 88.0 | $13,200 |
 | **Total through August 7, 2026** | **7,351.0** | **$1,102,650** |
-
-> *Correction note:* March 2026 re-derived to 435.5 hrs (late-March days confirmed at 16 hrs each; 3/13 = 3.5). May 2026 duplicate block removed; 5/14 retained at 3.5 hrs. Net vs prior stated total (6,611.5 / $991,725): **−76.5 hrs / −$11,475**.
-
-> *June 18 – August 2 descriptions* are stated at the level of the active workstreams during that period (Ms. Allis production stabilization; MountainShares Phase 1; grant and institutional briefing preparation), consistent with the continuous-operation model. Specific dated deliverables can be sharpened from commit history or session notes where a given day is individually recalled.
