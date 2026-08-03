@@ -51,7 +51,7 @@ MountainShares Commons is a community-owned economic and intelligence platform i
 
 Three systems work together:
 
-**Ms. Allis** — Artificial Learning and Location Intelligence System — is a GIS place-based AI steward grounded in 26.9 million geospatial features covering West Virginia critical infrastructure, parcels, roads, and facilities — each individually addressable, semantically searchable, and probabilistically updatable as a geospatial belief. She operates on a live Hilbert space architecture (H_App ⊗ H_geo) where language meaning and spatial location fuse into a single composite state. Every answer is traceable. Every constraint is published. No surveillance — only anonymized, community-consented data. She supports decisions — she never makes them. A live ALLIS learning architecture runs continuous 30-60 second knowledge consolidation cycles — each pulse making the next richer.
+**Ms. Allis** — Artificial Learning and Location Intelligence System — is a GIS place-based AI steward grounded in 237,655 governed geospatial block-group records covering West Virginia, with 2,240 vectors currently active in the live semantic belief layer — each individually addressable, semantically searchable, and probabilistically updatable as a geospatial belief. She operates on a live Hilbert space architecture (H_App ⊗ H_geo) where language meaning and spatial location fuse into a single composite state. Every answer is traceable. Every constraint is published. No surveillance — only anonymized, community-consented data. She supports decisions — she never makes them. A live ALLIS learning architecture runs continuous 30-60 second knowledge consolidation cycles — each pulse making the next richer.
 
 **MountainShares** is a closed-loop local economy. Participants earn tokens through volunteering, caregiving, and contribution — redeemable locally. Explicitly designed safe for people on SNAP, SSI, and Medicaid.
 
@@ -107,16 +107,17 @@ As the corridor scales, every gateway community gains the same locally owned inf
 
 ### Why you selected PROTOTYPE — what has been built and tested *(Word Limit: 200 | Count: 200)*
 
-MountainShares Commons maintains probability distributions over physical-world entity states, updated via Bayesian inference from heterogeneous observations, with temporal decay and semantic entanglement propagation, queryable via natural language.
+MountainShares Commons tracks the real state of real places — roads, parcels, services, facilities — and updates that knowledge continuously as new information arrives, answering questions in plain English.
 
 What has been built and tested:
 
 - Containerized microservices stack (Docker, FastAPI, Uvicorn) hardened through multiple real infrastructure incidents
-- Hilbert space architecture — H_App ⊗ H_geo — formally verified as a provably real inner product space (ℝ³⁸⁴, ⟨·,·⟩_cos), with 26.9 million West Virginia geospatial features fully vectorized; meaning and place geometrically entangled in a single composite state
+- Hilbert space architecture — H_App ⊗ H_geo — formally verified as a provably real inner product space (ℝ³⁸⁴, ⟨·,·⟩_cos), with 237,655 West Virginia geospatial block-group records in the governed GBIM store and 2,240 vectors active in the live Chroma semantic belief layer; meaning and place joined in one governed answer object
 - Φ-inspired semantic coherence probe verifying knowledge is integrated — not merely disconnected vectors
 - Role-gated knowledge access — different roles access different geometric subspaces of H_App
-- Vector-based semantic search and LLM orchestration for place-based natural language queries
-- ALLIS live learning architecture: three-frequency consolidation cycles (BETA/THETA/DELTA) against 3.8 million grounded belief vectors — each pulse compounding the next
+- Vector-based semantic search and LLM orchestration for place-based natural language queries across 22 active LLM nodes
+- ALLIS live learning architecture: three-frequency consolidation cycles (BETA/THETA/DELTA) against grounded belief vectors — each pulse compounding the next
+- Per-user direct-sum memory decomposition: each user's conversational memory is a structurally disjoint subspace — proven by live test July 2026, not promised in a privacy policy
 - Smart contract proof of concept achieved July 4, 2025; tested on Sepolia testnet with Arbitrum deployment pathway
 - Benefits-Sensitive Account architecture safe for SNAP, SSI, and Medicaid participants
 - Phase 0 red team testing active with first external users onboarded June 2026
@@ -130,10 +131,10 @@ Academic validation: Dr. Anurag K. Srivastava, Raymond J. Lane Professor and Cha
 The theoretical physics and computer science communities have spent decades trying to build a unified framework for observer-dependent spatiotemporal reasoning — from the top down. We built it from the bottom up, in a coalfield town, because a community needed it to work on Tuesday. Here is what we built.
 
 **Ms. Allis is a place-based reasoning engine, not a chatbot.**
-H_App = (ℝ³⁸⁴, ⟨·,·⟩_cos) is an axiomatically verified Hilbert space where 21 LLMs are operators on a shared state — not concurrent responders passing strings. H_App ⊗ H_geo fuses semantic and spatial dimensions: a query about a flood-prone road in Fayette County is geometrically entangled with that place. A Φ-inspired probe ensures knowledge is integrated rather than fragmented. Glassbox AI — not black-box AI making consequential decisions without accountability.
+H_App = (ℝ³⁸⁴, ⟨·,·⟩_cos) is an axiomatically verified Hilbert space where 22 LLMs are operators on a shared state — not concurrent responders passing strings. H_App ⊗ H_geo is the operational bridge where semantic and spatial state are joined in one governed answer: a query about a flood-prone road in Fayette County returns both the governed claim and the spatial anchor it belongs to — in a single auditable packet. A Φ-inspired probe ensures knowledge is integrated rather than fragmented. Glassbox AI — not black-box AI making consequential decisions without accountability.
 
 **The architecture's validity is proven independent of its outputs.**
-Constraints imposed by reality: roads without addresses, parcels with conflicting records, data that goes stale in underserved communities. Those constraints forced an honesty top-down theoretical work never confronts. A formally verified system where Hilbert space geometry, spatial reference frames, observer-dependent states, and Bayesian temporal decay operate simultaneously on 26.9 million real-world features. A live ALLIS learning architecture runs compounding consolidation cycles — each stored synthesis becomes future retrieval context, densifying the belief space continuously. Built in a coalfield town, for $600 cash. It exists. It runs. MIT should study it.
+Constraints imposed by reality: roads without addresses, parcels with conflicting records, data that goes stale in underserved communities. Those constraints forced an honesty top-down theoretical work never confronts. A formally verified system where Hilbert space geometry, spatial reference frames, observer-dependent states, and Bayesian temporal decay operate simultaneously on 237,655 governed geospatial records — with 2,240 vectors active in the live semantic belief layer. Per-user memory spaces are mathematically disjoint — live tests confirm no record from one user appears in another's space. Built in a coalfield town, for $600 cash. It exists. It runs. MIT should study it.
 
 **MountainShares encodes participant protection as a hard design constraint.**
 No existing community exchange system is engineered around SNAP, SSI, and Medicaid eligibility preservation. The Benefits-Sensitive Account architecture treats the benefits cliff as a structural design problem — and solves it in code.
@@ -150,7 +151,7 @@ MountainShares Commons changes outcomes for rural residents by aligning three sy
 The core problem is structural. People in Mount Hope navigate housing, work, health, and benefits with fragmented information, no safe way to earn supplemental value, and limited local control over the tools that shape their lives. Each gap reinforces the others.
 
 **Activity 1 — Deploy Ms. Allis as a locally grounded intelligence layer.**
-She answers natural-language questions about real parcels, roads, services, and programs — accurate, traceable, surveillance-free, without reliable cellular coverage. The expected outcome is reduced information gaps preventing residents from accessing opportunities they already qualify for. Locally controlled information measurably increases program uptake and reduces administrative burden on residents and service providers.
+She answers natural-language questions about real parcels, roads, services, and programs — accurate, traceable, surveillance-free, without reliable cellular coverage. The expected outcome is reduced information gaps preventing residents from accessing opportunities they already qualify for. Research consistently shows that locally controlled, trusted information increases program uptake and reduces administrative burden on residents and service providers.
 
 **Activity 2 — Launch MountainShares with account protections built into the ledger.**
 Residents earn local value for caregiving, volunteering, and community contribution without risking program eligibility. The expected outcome is recognition of invisible labor, more local circulation of value, and reduced reliance on predatory financial products. Well-governed local exchange systems increase social cohesion and perceived economic security.
@@ -276,77 +277,66 @@ MountainShares is a community-owned economic infrastructure system for Appalachi
 
 **The Commons** is a neighbor-to-neighbor marketplace where residents of West Virginia's 55 counties buy, sell, trade, hire, give, and find — paid in U.S. dollars or in EMS (MountainShares), earned through verified community contribution. Every listing is posted by a verified County Champion. The currency is not speculative — it is earned through work that benefits the community and spent locally.
 
-**Ms. Allis** is a locally hosted, place-anchored AI platform that gives organizations a named intelligence node grounded in verified local data. She runs on locally managed hardware, operates in degraded connectivity environments, and never sends community data to an external cloud. Her Hilbert space architecture — a formally verified inner product space where semantic and spatial state are geometrically unified — means she answers questions about specific parcels, roads, and facilities with traceable, probabilistically grounded confidence. Government and nonprofit nodes are permanently free. Commercial nodes pay for cluster membership.
+**Ms. Allis** is a locally hosted, place-anchored AI platform that gives organizations a named intelligence node grounded in verified local data. She runs on locally managed hardware, operates in degraded connectivity environments, and answers natural-language questions about real parcels, roads, services, and programs — accurate, traceable, and surveillance-free.
 
-**Who we serve:** Coalfield Appalachian residents in counties with high poverty, infrastructure deficits, and post-extraction economic conditions — people excluded from digital economic participation not because they lack capability, but because the infrastructure was never built for them.
+**Revenue streams (planned):**
+- Municipal and county government SaaS licensing for Ms. Allis infrastructure
+- NPS and regional tourism corridor licensing for place-based intelligence
+- Transaction fees on U.S. dollar Commons marketplace listings (not on EMS token transactions)
+- Foundation and federal grant funding during the build-out phase
+- Corporate and institutional partnerships for corridor-scale deployment
 
-**Why they need it:** The region has no local digital marketplace, no locally owned AI infrastructure, and no mesh network that functions without cellular. MountainShares builds all three simultaneously, governed by the community it serves.
-
-**Revenue:** The Commons generates transaction and EMS issuance fees. Ms. Allis generates deployment, cluster membership, and operations fees from commercial clients. Government and nonprofit access is permanently free.
-
----
-
-**PRIMARY CUSTOMERS / SERVICE MODEL**
-→ Individual consumers or stakeholders (B2C)
+**Why this model is sustainable:** The core value — locally governed intelligence and locally circulating currency — cannot be replicated by an outside platform without the community trust and data sovereignty that took 15 years to build. Every dollar earned stays in the model. Every answer Ms. Allis gives strengthens the belief layer for the next query.
 
 ---
 
-### What is your plan for becoming financially sustainable? *(Word Limit: 300 | Count: 263)*
+### What is your path to financial sustainability? *(Word Limit: 200)*
 
-Harmony for Hope reaches structural self-sustainability through four converging revenue streams, with sustainability threshold projected for 2030–2031.
+Phase 0 (current): Foundation grant funding covers infrastructure and staffing. MIT Solve semifinalist resources directly address capacity gaps.
 
-**Earned transaction revenue** is the primary engine. Every dollar loaded generates a 3.05% program fee; every merchant payment generates 1.75%; every user-to-user transfer generates 0.25% — automatically split across operations, treasury reserves, infrastructure, and community programs. Harmony for Hope receives 30% of fee streams directly for nonprofit operations. Projected fee revenue scales from approximately $1,175 in 2026 to $1.3 million in 2028, reaching $24 million at the 2030 sustainability threshold.
+Phase 1 (Year 1–2): Municipal SaaS licensing to Fayette and Mercer county agencies. NPS corridor licensing for New River Gorge gateway communities. First paid County Champions onboarded.
 
-**Ms. Allis commercial node fees** — deployment, cluster membership, and operations contracts with private-sector organizations — provide a second earned revenue stream fully independent of the commons economy.
+Phase 2 (Year 2–3): Corridor-scale expansion to all seven gateway communities. Marshall University and WVU research partnership revenue. Federal rural broadband and digital equity grant pipeline activated.
 
-**West Virginia diaspora premium:** The Commons USD storefront accepts any Mastercard, allowing hundreds of thousands of West Virginians living outside the state to purchase authentic Appalachian goods at a premium flowing directly into the treasury reserve — projected at $20 million annually from Phase 3 forward.
+Phase 3 (Year 3+): Replication licensing to other Appalachian and rural corridors. The blueprint — governed local AI + benefits-safe local currency + mesh connectivity — is exportable. Mount Hope becomes the proof-of-concept every rural county in America can point to.
 
-**Federal and foundation grants**, including Appalachian Regional Commission, USDA Rural Development, Claude Worthington Benedum Foundation, and WV Community Foundation, are actively targeted at each phase.
-
-**Evidence to date:** Kidd's Technical Services has contributed 6,515 documented hours of senior technical work — approximately $977,000 at $150/hour — fully auditable for grant in-kind match. Live production infrastructure is operational in Mount Hope: 51,000+ modules, 175 services, and 26.9 million geospatial records fully vectorized into the H_App ⊗ H_geo Hilbert space. Phase 0 invite-only testing is active. A fully executed Master Services Agreement between KTS and Harmony for Hope establishes all legal and IP foundations.
+The moat is not the technology. The moat is the trust, the 15-year community relationship, and the governance model that makes residents owners rather than users.
 
 ---
 
-### What was your organizational budget for FY2025 & FY2026? *(Word Limit: 150 | Count: 132)*
+## SECTION 6: IMPACT MEASUREMENT
 
-Harmony for Hope operated in pre-revenue founding mode for both fiscal years, with organizational cash expenditures of approximately $600 in 2025 and $0 to date in 2026.
+### How do you know your solution is working? *(Word Limit: 200)*
 
-These figures reflect a deliberate bootstrap strategy, not organizational weakness. All infrastructure development — 6,515 hours of senior technical work valued at approximately $977,000 — was contributed as founder's capital by Kidd's Technical Services and is fully documented in FA-001. The system that exists today was built without grants, without investors, and without organizational debt.
+Phase 0 red team testing (June 2026 onward) tracks four early indicators:
 
-The absence of cash budget is the evidence: a production-scale AI and economic infrastructure platform — including a formally verified Hilbert space architecture grounding 26.9 million geospatial features — was built for $600. Truist Foundation's investment would be the first external dollar, deployed into a system that is already running.
+1. **Query resolution rate** — does Ms. Allis return a governed, traceable answer to place-based questions residents actually ask?
+2. **Benefits cliff incidents** — zero tolerance. Any MountainShares participation that triggers a SNAP, SSI, or Medicaid review is treated as a system failure requiring immediate architectural response.
+3. **Participant retention** — do red team testers return? Do they refer neighbors?
+4. **System uptime under real conditions** — degraded connectivity, hardware constraints, and real infrastructure incidents are the test environment, not exceptions to it.
 
----
+Long-term indicators (Phase 1+): number of residents with active Commons accounts, volume of EMS tokens earned and redeemed locally, reduction in self-reported information barriers to accessing services, and number of municipal partners with active Ms. Allis licensing agreements.
 
-### How is your current budget allocated? *(Word Limit: 150 | Count: 128)*
-
-Current budget allocation is 100% founder time — zero cash, zero staff payroll, zero overhead.
-
-All organizational capacity is carried by Carrie Kidd as sole founder, contributing technical architecture, system deployment, governance design, community outreach, and grant development simultaneously. This is documented as 6,515 hours of in-kind founder investment valued at approximately $977,000 at $150/hour — fully auditable for grant in-kind match.
-
-When external funding arrives, intended allocation is:
-
-- ~40% — technical staffing and infrastructure (Regional Champions, geospatial engineers, cluster maintenance)
-- ~25% — community outreach and County Champion network
-- ~20% — organizational operations and compliance
-- ~10% — legal, audit, and governance
-- ~5% — equipment and hosting
-
-The program fee structure built into every transaction is designed so that at scale, operational costs become self-funded without ongoing grant dependency.
+Academic validation partnership with Dr. Anurag K. Srivastava, WVU, provides independent measurement framework development.
 
 ---
 
-**OPERATING AT A DEFICIT?**
-→ NO
+## SECTION 7: DIVERSITY, EQUITY & INCLUSION
+
+### How does your solution advance equity? *(Word Limit: 200)*
+
+MountainShares Commons was designed from inside the inequity it addresses — not as a response to it.
+
+The Benefits-Sensitive Account architecture exists because two real people lost real benefits. The place-based intelligence layer exists because residents without broadband, without transportation, and without institutional trust deserve the same quality of information as anyone else. The local currency exists because the formal economy has systematically failed to recognize the labor that sustains rural communities.
+
+Every design decision has a named resident behind it. The platform is governed by the people it serves — not administered for them. Residents earn ownership through participation. County Champions are community members, not appointed administrators.
+
+The corridor model explicitly centers the communities most harmed by extraction: coalfield counties with the highest poverty rates, the worst broadband gaps, and the longest history of outside institutions taking value and leaving. MountainShares does not extract. It circulates.
+
+Equity here is not a program feature. It is the architecture.
 
 ---
 
-## TERMS & AGREEMENTS
-
-- Terms of Service Agreement (MIT Solve ToS, Media Release, Privacy Policy): **I AGREE**
-- Accuracy / GenAI Acknowledgment: **I AGREE**
-
----
-
-*End of Application — Truist Foundation Inspire Awards Year 4*
-*Harmony for Hope, Inc. / MountainShares Commons*
-*Draft Version 7 — June 21, 2026*
+*Version 10 — August 3, 2026*
+*All technical figures verified from live system: psql wv_gis + Chroma v2 API, August 3, 2026*
+*237,655 GBIM records (PostGIS) | 2,240 active belief vectors (Chroma) | 22 LLM nodes*
