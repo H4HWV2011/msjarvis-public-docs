@@ -280,8 +280,8 @@ MountainShares is a community-owned economic infrastructure system for Appalachi
 **Ms. Allis** is a locally hosted, place-anchored AI platform that gives organizations a named intelligence node grounded in verified local data. She runs on locally managed hardware, operates in degraded connectivity environments, and answers natural-language questions about real tax parcels, roads, services, and programs — accurate, traceable, and surveillance-free.
 
 **Revenue streams (planned):**
-- Municipal and county government SaaS licensing for Ms. Allis infrastructure
-- NPS and regional tourism corridor licensing for place-based intelligence
+- Business and industrial enterprise SaaS licensing for Ms. Allis infrastructure (a county employer, a mining company, a hospital system)
+- Private sector and commercial operator licensing for place-based intelligence tools (a tourism operator, a real estate developer, a logistics company)
 - Transaction fees on U.S. dollar Commons marketplace listings (not on EMS token transactions)
 - Foundation and federal grant funding during the build-out phase
 - Corporate and institutional partnerships for corridor-scale deployment
@@ -294,11 +294,11 @@ MountainShares is a community-owned economic infrastructure system for Appalachi
 
 Phase 0 (current): Foundation grant funding covers infrastructure and staffing. MIT Solve semifinalist resources directly address capacity gaps.
 
-Phase 1 (Year 1–2): Municipal SaaS licensing to Fayette and Mercer county agencies. NPS corridor licensing for New River Gorge gateway communities. First paid County Champions onboarded.
+Phase 1 (Year 1–2): Enterprise SaaS licensing to Fayette and Mercer county businesses. NPS corridor licensing for New River Gorge gateway communities. First rewarded County Champions onboarded.
 
 Phase 2 (Year 2–3): Corridor-scale expansion to all seven gateway communities. Marshall University and WVU research partnership revenue. Federal rural broadband and digital equity grant pipeline activated.
 
-Phase 3 (Year 3+): Replication licensing to other Appalachian and rural corridors. The blueprint — governed local AI + benefits-safe local currency + mesh connectivity — is exportable. Mount Hope becomes the proof-of-concept every rural county in America can point to.
+Phase 3 (Year 3+): Replication licensing to other Appalachian and rural corridors. The blueprint — governed local AI + benefits-safe local currency + mesh connectivity — is exportable. Mount Hope becomes the proof-of-concept every rural community in America can point to.
 
 The moat is not the technology. The moat is the trust, the 15-year community relationship, and the governance model that makes residents owners rather than users.
 
