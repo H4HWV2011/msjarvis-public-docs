@@ -173,7 +173,7 @@ The Benefits-Sensitive Account architecture wasn't born from research — it was
 
 Our network extends across Fayette and Mercer counties through the Oakvale Area Outreach Team, the Fayette County Community Arts Center, and 15 years of nonprofit operations. The City of Mount Hope has provided a formal Letter of Support. The National Park Service has indicated active corridor engagement. Starry Eyes Media in Bluefield has provided a letter of support.
 
-The technical infrastructure — 6,515 documented hours, approximately $977,000 in founder-provided capital — was built by someone who lives here, cares for a family member under Medicaid Waiver, and understood the benefits cliff personally before she solved it in code. The Hilbert space architecture powering Ms. Allis was designed, proved, and built from first principles in a coalfield town.
+The technical infrastructure — 7,351 documented hours, $1,102,650 in founder-provided capital (Kidd's Technical Services, LLC at $150/hour, audit-ready through August 7, 2026) — was built by someone who lives here, cares for a family member under Medicaid Waiver, and understood the benefits cliff personally before she solved it in code. The Hilbert space architecture powering Ms. Allis was designed, proved, and built from first principles in a coalfield town.
 
 This is not a solution designed for Appalachia. It is a solution designed from inside it.
 
@@ -201,8 +201,8 @@ This is not a solution designed for Appalachia. It is a solution designed from i
 → YES
 
 **LINKS**
-- https://egeria.mountainshares.us/commons
-- https://github.com/H4HWV2011/msjarvis-public-docs
+- [https://egeria.mountainshares.us/commons](https://egeria.mountainshares.us/commons)
+- [https://github.com/H4HWV2011/msjarvis-public-docs](https://github.com/H4HWV2011/msjarvis-public-docs)
 
 ---
 
@@ -227,7 +227,7 @@ We are not here for a check. We are here because this network is the missing pie
 | Name | Carrie A. Kidd |
 | Title | Founder & Executive Director, Harmony for Hope, Inc. |
 | Age 18+ | YES |
-| Email | ckidd@harmonyforhopewv.org |
+| Email | [ckidd@harmonyforhopewv.org](mailto:ckidd@harmonyforhopewv.org) |
 | Phone | 1-304-877-7688 |
 | City/State | Mt. Hope, WV, USA |
 | US Resident | YES |
@@ -237,7 +237,7 @@ We are not here for a check. We are here because this network is the missing pie
 | Field | Detail |
 |---|---|
 | Name | Aubrey Dickerson |
-| Email | aubrey.dickerson@gmail.com |
+| Email | [aubrey.dickerson@gmail.com](mailto:aubrey.dickerson@gmail.com) |
 | Phone | 1-304-516-1184 |
 
 **PREVIOUSLY SELECTED FOR SOLVE CHALLENGE?** → NO
@@ -257,7 +257,7 @@ Referred by Gabe Peña, WV Community Development Hub, and a former AmeriCorps su
 - Part-time staff: 0
 - Contractors or other workers: 2 (Founder/ED working as unpaid volunteer; 1 Phase 0 red team tester)
 
-MountainShares is currently a single-founder project with one active red team tester onboarded in Phase 0. The Executive Director has contributed over 6,500 documented hours in an unpaid capacity. Paid staffing is planned following initial grant funding.
+MountainShares is currently a single-founder project with one active red team tester onboarded in Phase 0. The Executive Director has contributed over 7,351 documented hours in an unpaid capacity. Paid staffing is planned following initial grant funding.
 
 ---
 
@@ -337,6 +337,7 @@ Equity here is not a program feature. It is the architecture.
 
 ---
 
-*Version 10 — August 3, 2026*
+*Version 11 — August 3, 2026*
 *All technical figures verified from live system: psql wv_gis + Chroma v2 API, August 3, 2026*
 *237,655 GBIM records (PostGIS) | 2,240 active belief vectors (Chroma) | 22 LLM nodes*
+*Founder investment verified from KTS timesheet: 7,351 hours / $1,102,650 @ $150/hr, audit-ready through August 7, 2026*
