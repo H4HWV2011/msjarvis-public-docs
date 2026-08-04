@@ -33,7 +33,7 @@ Nonprofit
 
 ### What specific problem are you solving? *(Word Limit: 200 | Count: 197)*
 
-Building a volunteer tracking app for a rural West Virginia nonprofit revealed the same wall every time: every digital tool built for a community like Mount Hope sends the value somewhere else. Google. Amazon. Someone who doesn't live here.
+Building a volunteer rewards app for a rural West Virginia nonprofit revealed the same wall every time: every digital tool built for a community like Mount Hope sends the value somewhere else. Google. Amazon. Someone who doesn't live here.
 
 When two community members lost SSI benefits because an AmeriCorps stipend counted as unearned income, the system designed to reward their service took their stability instead. That is the problem MountainShares was built to solve.
 
