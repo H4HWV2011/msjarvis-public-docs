@@ -107,7 +107,7 @@ As the corridor scales, every gateway community gains the same locally owned inf
 
 ### Why you selected PROTOTYPE — what has been built and tested *(Word Limit: 200 | Count: 200)*
 
-MountainShares Commons tracks the real state of real places — roads, parcels, services, facilities — and updates that knowledge continuously as new information arrives, answering questions in plain English.
+MountainShares Commons tracks the real state of real places — roads, tax parcels, services, facilities — and updates that knowledge continuously as new information arrives, answering questions in plain English.
 
 What has been built and tested:
 
@@ -134,7 +134,7 @@ The theoretical physics and computer science communities have spent decades tryi
 H_App = (ℝ³⁸⁴, ⟨·,·⟩_cos) is an axiomatically verified Hilbert space where 22 LLMs are operators on a shared state — not concurrent responders passing strings. H_App ⊗ H_geo is the operational bridge where semantic and spatial state are joined in one governed answer: a query about a flood-prone road in Fayette County returns both the governed claim and the spatial anchor it belongs to — in a single auditable packet. A Φ-inspired probe ensures knowledge is integrated rather than fragmented. Glassbox AI — not black-box AI making consequential decisions without accountability.
 
 **The architecture's validity is proven independent of its outputs.**
-Constraints imposed by reality: roads without addresses, parcels with conflicting records, data that goes stale in underserved communities. Those constraints forced an honesty top-down theoretical work never confronts. A formally verified system where Hilbert space geometry, spatial reference frames, observer-dependent states, and Bayesian temporal decay operate simultaneously on 237,655 governed geospatial records — with 2,240 vectors active in the live semantic belief layer. Per-user memory spaces are mathematically disjoint — live tests confirm no record from one user appears in another's space. Built in a coalfield town, for $600 cash. It exists. It runs. MIT should study it.
+Constraints imposed by reality: roads without addresses, tax parcels with conflicting records, data that goes stale in underserved communities. Those constraints forced an honesty top-down theoretical work never confronts. A formally verified system where Hilbert space geometry, spatial reference frames, observer-dependent states, and Bayesian temporal decay operate simultaneously on 237,655 governed geospatial records — with 2,240 vectors active in the live semantic belief layer. Per-user memory spaces are mathematically disjoint — live tests confirm no record from one user appears in another's space. Built in a coalfield town, for $600 cash. It exists. It runs. MIT should study it.
 
 **MountainShares encodes participant protection as a hard design constraint.**
 No existing community exchange system is engineered around SNAP, SSI, and Medicaid eligibility preservation. The Benefits-Sensitive Account architecture treats the benefits cliff as a structural design problem — and solves it in code.
@@ -151,7 +151,7 @@ MountainShares Commons changes outcomes for rural residents by aligning three sy
 The core problem is structural. People in Mount Hope navigate housing, work, health, and benefits with fragmented information, no safe way to earn supplemental value, and limited local control over the tools that shape their lives. Each gap reinforces the others.
 
 **Activity 1 — Deploy Ms. Allis as a locally grounded intelligence layer.**
-She answers natural-language questions about real parcels, roads, services, and programs — accurate, traceable, surveillance-free, without reliable cellular coverage. The expected outcome is reduced information gaps preventing residents from accessing opportunities they already qualify for. Research consistently shows that locally controlled, trusted information increases program uptake and reduces administrative burden on residents and service providers.
+She answers natural-language questions about real tax parcels, roads, services, and programs — accurate, traceable, surveillance-free, without reliable cellular coverage. The expected outcome is reduced information gaps preventing residents from accessing opportunities they already qualify for. Research consistently shows that locally controlled, trusted information increases program uptake and reduces administrative burden on residents and service providers.
 
 **Activity 2 — Launch MountainShares with account protections built into the ledger.**
 Residents earn local value for caregiving, volunteering, and community contribution without risking program eligibility. The expected outcome is recognition of invisible labor, more local circulation of value, and reduced reliance on predatory financial products. Well-governed local exchange systems increase social cohesion and perceived economic security.
@@ -277,7 +277,7 @@ MountainShares is a community-owned economic infrastructure system for Appalachi
 
 **The Commons** is a neighbor-to-neighbor marketplace where residents of West Virginia's 55 counties buy, sell, trade, hire, give, and find — paid in U.S. dollars or in EMS (MountainShares), earned through verified community contribution. Every listing is posted by a verified County Champion. The currency is not speculative — it is earned through work that benefits the community and spent locally.
 
-**Ms. Allis** is a locally hosted, place-anchored AI platform that gives organizations a named intelligence node grounded in verified local data. She runs on locally managed hardware, operates in degraded connectivity environments, and answers natural-language questions about real parcels, roads, services, and programs — accurate, traceable, and surveillance-free.
+**Ms. Allis** is a locally hosted, place-anchored AI platform that gives organizations a named intelligence node grounded in verified local data. She runs on locally managed hardware, operates in degraded connectivity environments, and answers natural-language questions about real tax parcels, roads, services, and programs — accurate, traceable, and surveillance-free.
 
 **Revenue streams (planned):**
 - Municipal and county government SaaS licensing for Ms. Allis infrastructure
