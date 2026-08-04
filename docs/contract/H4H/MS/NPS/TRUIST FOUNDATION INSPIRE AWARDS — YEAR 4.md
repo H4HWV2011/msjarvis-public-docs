@@ -282,7 +282,7 @@ MountainShares is a community-owned economic infrastructure system for Appalachi
 **Revenue streams (planned):**
 - Business and industrial enterprise SaaS licensing for Ms. Allis infrastructure (a county employer, a mining company, a hospital system)
 - Private sector and commercial operator licensing for place-based intelligence tools (a tourism operator, a real estate developer, a logistics company)
-- Transaction fees on U.S. dollar Commons marketplace listings (not on EMS token transactions)
+- Transaction fees on U.S. dollar Commons listings, including WV diaspora commerce flowing capital back into local communities (EMS token transactions fee-free)
 - Foundation and federal grant funding during the build-out phase
 - Corporate and institutional partnerships for corridor-scale deployment
 
