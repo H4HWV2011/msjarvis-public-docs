@@ -122,7 +122,7 @@ What has been built and tested:
 - Benefits-Sensitive Account architecture safe for SNAP, SSI, and Medicaid participants
 - Phase 0 red team testing active with first external users onboarded June 2026
 
-Academic validation: Dr. Anurag K. Srivastava, Raymond J. Lane Professor and Chair, WVU Lane Department of Computer Science and Electrical Engineering.
+Academic Letter of Support: Dr. Anurag K. Srivastava, Raymond J. Lane Professor and Chair, WVU Lane Department of Computer Science and Electrical Engineering.
 
 ---
 
@@ -159,7 +159,7 @@ Residents earn local value for caregiving, volunteering, and community contribut
 **Activity 3 — Build a governed Commons where residents own and shape these tools.**
 The long-term outcome is a replicable corridor model where rural communities govern their own economic and intelligence infrastructure rather than depending on outside platforms that extract value and leave when funding ends.
 
-Evidence base: Academic validation from Dr. Anurag K. Srivastava, WVU Lane Department Chair. Municipal letter of support from Mount Hope. Active NPS corridor engagement confirmed. Community trust built over 15 years of Harmony for Hope operations in Fayette and Mercer counties.
+Evidence base: Academic Letter of Support from Dr. Anurag K. Srivastava, WVU Lane Department Chair. Municipal letter of support from Mount Hope. Active NPS corridor engagement confirmed. Community trust built over 15 years of Harmony for Hope operations in Fayette and Mercer counties.
 
 ---
 
@@ -317,7 +317,7 @@ Phase 0 red team testing (June 2026 onward) tracks four early indicators:
 
 Long-term indicators (Phase 1+): number of residents with active Commons accounts, volume of EMS tokens earned and redeemed locally, reduction in self-reported information barriers to accessing services, and number of municipal partners with active Ms. Allis licensing agreements.
 
-Academic validation partnership with Dr. Anurag K. Srivastava, WVU, provides independent measurement framework development.
+Academic Letter of Support with Dr. Anurag K. Srivastava, WVU, provides independent measurement framework development.
 
 ---
 
