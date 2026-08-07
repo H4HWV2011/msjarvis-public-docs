@@ -1,6 +1,6 @@
 # MountainShares / Ms. Jarvis Trust Architecture v1.0
 
-**Status:** Architecture Specification  
+**Status:** Architecture Freeze Candidate  
 **Authority:** Canonical design reference for pilot trust-boundary work  
 **Date:** 2026-08-07  
 **Scope:** Software provenance, user sovereignty, Commons integrity, and policy-governed AI projections.
@@ -24,7 +24,7 @@ This architecture does not attempt to:
 - Treat hashes as identity.
 - Treat AI inference as authority.
 - Replace human governance with automated decisions.
-- Guarantee deletion of information that has already been disclosed to another recipient.
+- Guarantee deletion of information already disclosed to another recipient.
 - Claim anonymization solely from a cryptographic commitment.
 - Treat the existence of a container, file, service, image, or repository branch as proof that it is canonical or authorized.
 - Give a reasoning model unrestricted access to personal memory, private identity data, or long-lived decryption keys.
@@ -194,7 +194,7 @@ The Projection Service MUST verify:
 - Use count.
 - Vault-root match.
 - Current revocation state.
-- Referenced policy and policy-decision validity.
+- Referenced policy and Policy Decision Receipt validity.
 
 Revocation prevents future authorization and decryption. It cannot erase plaintext already disclosed to a recipient. Short-lived receipts, narrow scopes, minimal projections, and limited plaintext retention reduce exposure.
 
@@ -248,7 +248,56 @@ A decision marked `indeterminate` MUST NOT authorize protected data projection.
 
 The `request_id` binds the decision to one request and supports replay detection. A MAR derived from a Policy Decision Receipt MUST not exceed the scope, lifetime, or use count established by that receipt.
 
-## 10. Constitutional Guardian Contract
+## 10. Projection Receipt
+
+A Projection Receipt records the transformation from an authorized data scope into the context supplied to a reasoning system.
+
+It answers the question:
+
+> What information actually crossed the protected vault boundary into the reasoning boundary?
+
+A Projection Receipt MUST be created whenever protected vault material is transformed into a reasoning-context projection.
+
+```json
+{
+  "type": "mountainshares.projection-receipt/v1",
+
+  "projection_id": "urn:uuid:<projection-id>",
+  "mar_id": "urn:uuid:<memory-authorization-receipt-id>",
+  "policy_decision_id": "urn:uuid:<policy-decision-id>",
+
+  "source_vault_root": "sha256:<signed-vault-root>",
+  "source_scope_commitment": "sha256:<authorized-record-set>",
+
+  "projection_type": "redacted-semantic-context",
+  "projection_policy": "redacted-semantic-context",
+
+  "records_released": 3,
+  "tokens_released": 1200,
+
+  "recipient_runtime_digest": "sha256:<approved-jarvis-runtime-image>",
+  "projection_runtime_digest": "sha256:<approved-projection-service-image>",
+
+  "created_at": "RFC3339 timestamp",
+  "expires_at": "RFC3339 timestamp",
+
+  "projection_output_commitment": "sha256:<canonical-projection-output>",
+  "projection_signature": "<projection-service-signature>"
+}
+```
+
+The Projection Receipt MUST:
+
+- Reference a valid, unexpired MAR.
+- Bind the released projection to the MAR’s approved vault root and scope.
+- Identify the approved runtime that received the projection.
+- Identify the approved projection-service runtime that generated it.
+- Record the projection type and minimization policy.
+- Commit to the canonical projection output without requiring publication of its plaintext.
+- Expire no later than the associated MAR.
+- Be auditable without becoming a second plaintext memory store.
+
+## 11. Constitutional Guardian Contract
 
 The Constitutional Guardian decides whether a protected capability may be exercised.
 
@@ -280,7 +329,7 @@ Guardian unavailable                 -> no receipt
 
 The system MAY provide a clearly labeled, non-personalized response when protected capabilities are unavailable. It MUST NOT silently degrade into unauthorized private-memory access.
 
-## 11. Commons Contribution Domain
+## 12. Commons Contribution Domain
 
 The Commons receives explicitly authorized transformations, not raw private-vault graphs.
 
@@ -307,7 +356,9 @@ A Commons Merkle root proves a committed aggregate history. It does not itself p
 
 The Commons MUST NOT ingest raw private-vault graphs merely because a user has interacted with Ms. Jarvis.
 
-## 12. Receipts and Audit
+> Interaction history with Ms. Jarvis is not itself a contribution authorization event.
+
+## 13. Receipts and Audit
 
 Required receipt classes:
 
@@ -334,7 +385,7 @@ Each receipt MUST have:
 
 Audit records MUST minimize personal data. Auditability is not permission to create a parallel surveillance database.
 
-## 13. Current Implementation Alignment
+## 14. Current Implementation Alignment
 
 | Component | Current state |
 |---|---|
@@ -344,6 +395,7 @@ Audit records MUST minimize personal data. Auditability is not permission to cre
 | User Vault Merkle Root | Architecture defined; implementation pending |
 | Memory Authorization Receipt | Architecture and initial payload shape defined; schema and implementation pending |
 | Policy Decision Receipt | Architecture and initial payload shape defined; schema and implementation pending |
+| Projection Receipt | Architecture and initial payload shape defined; schema and implementation pending |
 | Projection Service | Architecture defined; implementation pending |
 | Chroma and semantic memory | Existing semantic-memory capability; must be placed behind projection and authorization boundaries for protected data |
 | Hilbert People Space | Existing conceptual and implementation layer; must operate as a projection/indexing layer rather than unrestricted private-memory authority |
@@ -355,14 +407,14 @@ Audit records MUST minimize personal data. Auditability is not permission to cre
 
 This table distinguishes architecture intent from demonstrated implementation. A declared or built component is not automatically running, called, verified, or fail-safe.
 
-## 14. Verification Requirements
+## 15. Verification Requirements
 
 | Capability | Required proof |
 |---|---|
 | Approved production service | Pinned digest, SBOM, runtime manifest, release approvals, health checks, contract checks |
 | Private-memory access | Valid MAR, valid Policy Decision Receipt, vault-root match, recipient/runtime binding, unexpired scope |
-| Semantic projection | Projection Receipt with source commitments, purpose, minimization policy, expiry, and use record |
-| Commons contribution | User authorization, valid contribution receipt, applicable policy decision |
+| Semantic projection | Projection Receipt with source commitments, purpose, minimization policy, expiry, output commitment, and use record |
+| Commons contribution | User authorization, valid Contribution Receipt, applicable Policy Decision Receipt |
 | Commons transformation | Transformation Receipt, approved runtime digest, stated privacy mechanism, cohort threshold, required attestations |
 | Governance decision | Epoch root, approved aggregation method, policy record, required signatures |
 | Revocation | Current revocation-state check before every new protected projection |
@@ -370,7 +422,7 @@ This table distinguishes architecture intent from demonstrated implementation. A
 | Unapproved runtime | Receipt verification failure and denial of protected projection |
 | Receipt replay | Request binding, expiry, use-count enforcement, and replay detection |
 
-## 15. Pilot Implementation Order
+## 16. Pilot Implementation Order
 
 1. Define governance roles, keys, policy versions, threshold requirements, and the failure-mode matrix.
 2. Produce a signed Runtime Authority Manifest for the pilot deployment.
@@ -383,6 +435,6 @@ This table distinguishes architecture intent from demonstrated implementation. A
 9. Test denial, expiration, replay, revocation, policy-version mismatch, unapproved-image access, invalid signature, and Guardian-outage cases.
 10. Build and verify one reproducible pilot release from a signed Runtime Authority Manifest.
 
-## 16. Governing Rule
+## 17. Governing Rule
 
 > Every request for protected memory must produce a verifiable answer to: who authorized it, what was authorized, why it was allowed, what was disclosed, which runtime processed it, which policy governed it, and when that authority expired.
