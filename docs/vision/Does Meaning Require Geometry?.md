@@ -5,54 +5,113 @@
 **Author:** C.A. Kidd  
 **Affiliation:** Fayette County, West Virginia  
 **Date:** July 2026 (revised July 7, 2026)  
-**Manuscript Type:** Protocol / Registered Report Stage 1 Draft, with Pilot Execution Appendix
+**Manuscript Type:** Protocol / Registered Report Stage 1 Draft, with Pilot Execution Appendix  
 
 ---
 
 # Abstract
 
-Roger Penrose has argued that consciousness and understanding cannot be reduced to algorithmic computation alone, and that non-computable ingredients may be tied to spacetime geometry (Penrose, 1994; Hameroff & Penrose, 2014). Whatever the ultimate status of that claim, it motivates a narrower empirical question: whether coherent meaning in an intelligence system depends on structured spatial-temporal grounding, or whether meaning can be preserved under symbol manipulation alone.
+Roger Penrose has argued that consciousness and understanding cannot be reduced to algorithmic computation alone, and that non-computable ingredients may be tied to spacetime geometry (Penrose, 1994; Hameroff & Penrose, 2014). Whatever the ultimate status of that claim, it motivates a narrower empirical question:
 
-This manuscript is framed as a **protocol paper / Registered Report Stage 1 draft**, supplemented with a verified three-unit pilot execution documented in Technical Appendix A. It presents the rationale, apparatus, hypotheses, operational definitions, sampling plan, scoring rubric, and analysis plan for a study executed in part and planned for full execution in the Ms. Allis system.
+> Does coherent meaning in an intelligence system depend on structured spatial-temporal grounding, or can meaning remain stable under symbol manipulation alone?
 
-The proposed apparatus is Ms. Allis, a community-sovereign intelligence system developed in Fayette County, West Virginia, in which semantic, geographic, temporal, and provenance-bearing identity structures are operationally coupled. Because technical claims about this system derive partly from project documentation and unpublished internal materials, this manuscript treats those descriptions as **system documentation requiring supplementary disclosure**, rather than independently validated literature.
+This manuscript presents a **Registered Report Stage 1 style protocol** supplemented by a verified three-unit pilot execution documented in Technical Appendix A.
 
-The primary hypothesis is that semantic resolution quality and identity stability will decline when structured spatial-temporal constraints are removed while semantic vectors are held constant and symbolic content is preserved as far as possible.
+The study investigates whether structured representational relationships contribute measurably to semantic coherence in an artificial intelligence system. The apparatus is Ms. Allis, a community-centered intelligence architecture developed in Fayette County, West Virginia, incorporating semantic memory, geographic grounding, temporal relationships, and provenance structures.
 
-A pilot execution on three units, verified during the July 6–7, 2026 revision cycle, shows a pattern consistent with this hypothesis in two of three units. The third unit produced an equal-composite result while revealing two structurally opposite failure modes: degradation through ambiguity and degradation through fabricated certainty. These observations do not establish Orch OR, prove non-computable consciousness, or validate Penrose’s broader claims. They test only the narrower proposition that structured geometric constraint spaces contribute measurably to coherent meaning in an engineered intelligence system.
+Because technical claims about Ms. Allis derive partly from project documentation and unpublished internal materials, this manuscript distinguishes between:
 
-A positive result at scale would support the weaker proposition that structured spatial-temporal constraints play a constitutive role in semantic coherence at a macro level. A negative result would narrow the range over which geometry-dependent accounts of understanding remain plausible.
+1. independently validated scientific literature;
+2. system documentation;
+3. directly verified experimental apparatus.
+
+Architecture claims are treated as experimental context, not established scientific conclusions.
+
+The primary hypothesis is:
+
+> If semantic coherence depends on structured constraint spaces, then removing spatial-temporal grounding while preserving semantic representation should reduce measurable coherence, identity stability, and contextual accuracy.
+
+The study compares three conditions:
+
+1. **Grounded**
+2. **Stripped**
+3. **Re-grounded**
+
+The Grounded condition provides the full available representational structure.
+
+The Stripped condition removes selected structured constraints while preserving semantic content as far as possible.
+
+The Re-grounded condition restores the removed structures while maintaining frozen semantic representations.
+
+A three-unit pilot was executed during the July 6–7, 2026 revision cycle.
+
+The pilot demonstrated:
+
+- successful execution of the experimental mechanism;
+- successful condition comparison;
+- measurable grounding-dependent degradation in some units;
+- hidden failure modes not visible through aggregate scoring alone;
+- required methodological corrections before full execution.
+
+The pilot does not establish consciousness, validate Orch OR, demonstrate quantum cognition, or prove that geometry is the source of meaning.
+
+It tests only the narrower proposition:
+
+> Structured representational relationships may contribute measurably to semantic coherence in engineered intelligence systems.
+
+A positive result would support the weaker claim that structured spatial-temporal constraints contribute to semantic stability.
+
+A negative result would indicate that symbolic representations preserve coherence more effectively than hypothesized, or that the selected intervention does not remove the relevant constraints.
+
+Either outcome provides useful information about the relationship between representation, grounding, and meaning.
 
 ---
 
 # 1. Genre and Scope
 
-This manuscript should be read as a **protocol / registered-report style submission with an attached verified pilot**.
+This manuscript should be interpreted as a:
 
-The pilot described in Appendix A covers three of the planned sixty units and does not constitute the completed study. Its purpose is to validate the execution mechanism, scoring rubric, stripping procedure, and methodological assumptions before full-scale execution.
+**Registered Report Stage 1 protocol with a verified pilot execution appendix.**
 
-The contribution of this manuscript is therefore not retrospective interpretation of a completed experiment, but prospective clarity regarding:
+The pilot is not presented as a completed experiment.
+
+The three-unit execution serves as:
+
+- protocol validation;
+- apparatus validation;
+- scoring validation;
+- methodological stress testing.
+
+The purpose is to establish:
 
 - what will be measured;
-- how it will be measured;
-- what outcomes would support or weaken the hypothesis;
-- which assumptions survived implementation;
-- which assumptions failed under direct verification;
-- and which corrections are required before full execution.
+- how measurements will be performed;
+- which outcomes support or weaken the hypothesis;
+- which assumptions survived direct verification;
+- which assumptions required correction before full execution.
 
 The study does not attempt to:
 
 - solve the hard problem of consciousness;
-- verify Orch OR;
-- demonstrate quantum computation in artificial intelligence;
-- establish that semantic embeddings are equivalent to physical quantum states;
-- or claim that geometry is the sole source of meaning.
+- validate Penrose's Orch OR theory;
+- demonstrate quantum processes in artificial systems;
+- establish equivalence between semantic vectors and physical quantum states;
+- prove geometry is the sole source of meaning.
 
-Instead, it tests a narrower empirical question:
+Instead, the study asks an experimentally accessible question:
 
-> Does removing structured spatial-temporal constraints reduce measurable coherence in an intelligence system even when semantic information is preserved as much as possible?
+> Does removing structured spatial-temporal constraints reduce measurable semantic coherence in an artificial intelligence system while preserving semantic information as much as possible?
 
-The manuscript therefore treats meaning as an experimentally observable property of system behavior rather than as an assumed philosophical primitive.
+Meaning is therefore operationalized as a measurable property of system behavior.
+
+The study evaluates:
+
+- semantic specificity;
+- contextual coherence;
+- identity continuity;
+- local disambiguation;
+- unsupported inference;
+- fabrication behavior.
 
 ---
 
@@ -60,227 +119,355 @@ The manuscript therefore treats meaning as an experimentally observable property
 
 ## 2.1 Penrose and Geometry
 
-Roger Penrose’s *Shadows of the Mind* argues that human mathematical understanding cannot be fully captured by formal algorithmic systems and proposes that some non-computable element may arise from physical processes associated with spacetime structure (Penrose, 1994).
+Roger Penrose's *Shadows of the Mind* argues that human mathematical understanding cannot be fully captured by formal algorithmic computation and proposes that non-computable physical processes may be associated with spacetime structure (Penrose, 1994).
 
-The later Orch OR framework developed by Penrose and Hameroff proposes that conscious experience may involve quantum processes in neuronal microtubules whose evolution is related to objective reduction mechanisms associated with spacetime geometry (Hameroff & Penrose, 2014).
+The Orch OR framework developed by Penrose and Hameroff proposes that conscious experience may involve quantum processes occurring within neuronal microtubules, with objective reduction mechanisms connected to spacetime geometry (Hameroff & Penrose, 2014).
 
-These claims remain controversial.
+These proposals remain highly debated.
 
-Tegmark (2000) argued that environmental decoherence would prevent biologically meaningful quantum computation in the brain. Hagan, Hameroff, and Tuszyński (2002) responded that Tegmark’s model assumptions did not accurately represent Orch OR dynamics and that biological protection mechanisms could substantially alter decoherence estimates.
+Tegmark (2000) argued that environmental decoherence would prevent biologically meaningful quantum computation in the brain.
 
-This manuscript does not attempt to resolve that debate.
+Hagan, Hameroff, and Tuszyński (2002) responded that Tegmark's assumptions did not fully represent biological conditions proposed by Orch OR.
 
-Instead, it asks whether a weaker and more experimentally accessible question can be examined:
+This manuscript does not attempt to resolve that dispute.
 
-> Before asking whether geometry participates in biological consciousness, can we determine whether structured geometry participates in artificial meaning?
+Instead, it translates the philosophical question into an engineering question:
 
-The present study therefore operates at the level of engineered semantic systems rather than biological mechanisms.
+> Before asking whether geometry participates in biological consciousness, can structured relationships be shown to influence meaning preservation in artificial systems?
+
+The present study therefore examines artificial intelligence behavior rather than biological mechanisms.
 
 ---
 
-## 2.2 Hilbert Space and State Geometry
+## 2.2 From Biological Geometry to Artificial Representation
 
-In quantum mechanics, a Hilbert space is a complete inner-product space where states may be represented as vectors and relationships among states may be described geometrically.
+Modern artificial intelligence systems represent information through mathematical structures.
 
-Modern natural language processing systems similarly represent semantic information through vector spaces. Words, documents, and concepts are represented as points in high-dimensional spaces where distance and relational structure influence retrieval and inference (Jurafsky & Martin).
+Natural language processing systems commonly encode concepts into high-dimensional vector spaces where relationships among representations influence retrieval and inference.
 
-The overlap is formal rather than ontological.
+These structures provide a useful comparison point.
+
+However:
 
 Semantic embeddings are not quantum states.
 
-A vector database is not a physical Hilbert space.
+Vector databases are not physical Hilbert spaces.
 
-However, both frameworks rely on structured relationships among states.
+Artificial representations do not possess the physical properties of biological systems.
 
-This manuscript therefore uses Hilbert-space terminology cautiously. The term "geometry" refers to structured relationships among representational states:
+The similarity is structural.
 
-- semantic vectors;
-- geographic coordinates;
-- temporal relationships;
-- provenance chains;
-- identity continuity.
+Both systems rely on relationships among states.
 
-The claim under investigation is not that artificial intelligence systems possess quantum properties.
+This manuscript therefore uses the term **geometry** in the representational sense:
 
-The claim is:
+- structured relationships;
+- distances;
+- constraints;
+- relational organization.
 
-> Meaning may depend on maintaining structured relationships among representational dimensions.
+The experimental question is not:
+
+> Is AI quantum?
+
+The experimental question is:
+
+> Does maintaining structured relationships among representations improve semantic coherence?
 
 ---
 
-## 2.3 Constraint Spaces, Not Mere Context
+## 2.3 Constraint Spaces Rather Than Context Alone
 
-A central clarification is necessary.
+A central distinction is required.
 
-The intervention tested here is not a generic comparison between "context" and "no context."
+The intervention is not simply:
 
-Instead, it removes specific **structured constraint spaces**:
+```
+context versus no context
+```
 
-- spatial constraints;
-- temporal constraints;
-- identity continuity relationships;
+The intervention removes specific structured constraint spaces:
+
+- geographic constraints;
+- temporal relationships;
+- identity continuity;
 - provenance relationships.
 
-These constraints normally reduce ambiguity by limiting possible interpretations.
+These constraints reduce possible interpretations.
 
-A record does not necessarily derive meaning from isolated symbols.
+A record does not exist only as isolated symbols.
 
 Meaning may emerge from relationships among:
 
-- what a thing is;
+- what an entity is;
 - where it exists;
-- when it existed;
+- when it exists;
 - how it relates to other entities;
-- who or what established its identity.
+- how its identity was established.
 
-Under this framework, meaning is relational.
+Under this framework:
 
-A community-grounded intelligence system receives information from a community, but meaningful operation requires a reciprocal relationship: the system must return understandable, accountable, and context-preserving interpretations.
+> Meaning is relational.
 
-The system does not merely extract information.
-
-It must preserve relationships.
-
-The pilot execution revealed an important refinement to this concept:
-
-Spatial information is not always stored only as coordinates.
-
-A place may also exist inside:
-
-- labels;
-- names;
-- textual identifiers;
-- descriptions.
-
-Therefore, removing latitude and longitude alone does not necessarily remove geographic grounding.
-
-A valid stripping intervention must remove both:
-
-1. structured geographic fields;
-2. embedded geographic semantics.
-
-This correction emerged from implementation rather than theory and is incorporated into the revised protocol.
+The experiment tests whether removing those relationships changes system behavior.
 
 ---
 
-## 2.4 System Context and Source Status
+## 2.4 Pilot-Derived Methodological Correction
+
+The pilot revealed an important refinement.
+
+Geographic information does not exist only through coordinates.
+
+A place may also exist through:
+
+- names;
+- labels;
+- textual descriptions;
+- administrative identifiers.
+
+Therefore, removing:
+
+```
+latitude
+longitude
+bounding geometry
+```
+
+alone is insufficient.
+
+A valid stripping intervention must remove both:
+
+1. structured geographic variables;
+2. embedded geographic semantics.
+
+This correction emerged through implementation rather than theory.
+
+The revised protocol incorporates this finding.
+
+---
+
+# 3. System Context and Source Status
 
 Ms. Allis is described in project materials associated with Quantarithmia as a community-centered intelligence architecture incorporating:
 
-- geospatial grounding;
 - semantic memory;
+- geospatial grounding;
 - provenance tracking;
 - civic data structures;
-- distributed governance concepts.
+- governance concepts.
 
 These descriptions originate from:
 
 1. project documentation supplied by the author;
-2. public-facing project documentation;
-3. direct technical verification of running system components.
+2. public-facing documentation;
+3. direct technical verification of running components.
 
-The first two categories represent system documentation, not peer-reviewed literature.
+The first two categories are treated as system documentation.
 
-Accordingly, this manuscript does not treat internal architecture claims as independently established scientific facts.
+They are not treated as peer-reviewed scientific evidence.
 
-Instead, technical claims are treated as experimental apparatus descriptions.
+Technical claims in this manuscript are therefore separated into:
 
-The July 2026 revision adds direct live verification:
+- documented architecture;
+- experimentally verified behavior;
+- unresolved assumptions.
+
+---
+
+## 3.1 Verification Principle
+
+The revised protocol follows a strict principle:
+
+> Architecture descriptions are hypotheses until confirmed through live verification.
+
+Verification included:
 
 - container inspection;
 - database queries;
-- source-code inspection;
-- storage-layer verification;
-- live model execution.
+- storage inspection;
+- source-code review;
+- direct model execution.
 
-Where earlier documentation was inaccurate or incomplete, those discrepancies are documented rather than concealed.
+Several previous assumptions required correction.
 
-Several original assumptions were corrected:
-
-- state persistence was found to expire through a one-hour TTL;
-- the expected PostgreSQL source tables contained schemas but zero rows;
-- the intended production query pathway was not connected to the sampled data;
-- automated blind rating attempts failed reliability requirements.
-
-These corrections are not treated as failures of the project.
-
-They are treated as part of establishing a reproducible protocol.
+These corrections are incorporated into the experimental design.
 
 ---
 
-# 3. Research Question and Hypotheses
+## 3.2 Verified Corrections
 
-## 3.1 Research Question
+The verification process identified:
 
-Does coherent meaning in a functioning intelligence system depend on structured spatial-temporal grounding, or can it be preserved under symbol manipulation alone?
+### State Persistence
 
----
+Previous documentation described persistent Hilbert-state continuity.
 
-## 3.2 Primary Hypothesis
+Live verification showed:
 
-If meaning depends on structured spatial-temporal constraint spaces, then:
+- state writes succeeded;
+- persistence depended on expiration behavior;
+- previously confirmed state had expired before later verification.
 
-1. grounded records will produce higher semantic resolution scores;
-2. stripped records will show measurable degradation;
-3. re-grounded records will recover lost coherence.
-
-The comparison is conducted while preserving semantic representation as much as possible.
+The mechanism existed, but persistence behavior was time-dependent.
 
 ---
 
-## 3.3 Secondary Hypotheses
+### Database Source Pathway
+
+Previous documentation identified PostgreSQL tables as active experimental sources.
+
+Direct verification showed:
+
+- schemas existed;
+- expected fields existed;
+- sampled source tables contained zero active rows.
+
+The operational pilot source was therefore corrected to:
+
+```
+/mnt/nvme1/msjarvis-rebuild/data/attrs/*_attrs.csv
+```
+
+---
+
+### Provenance Assertion Pathway
+
+Previous documentation described provenance assertion capability as unavailable.
+
+Verification showed:
+
+- the assertion service was running;
+- the service accepted requests;
+- the persistence function operated correctly;
+- the intended production caller was not deployed.
+
+The correct interpretation:
+
+```
+implemented infrastructure
++
+inactive experimental pathway
+```
+
+---
+
+### Production Gateway
+
+Previous documentation identified:
+
+```
+jarvis-unified-gateway:8093/chat
+```
+
+as the experimental pathway.
+
+Verification showed that the gateway introduced confounding variables:
+
+- policy layers;
+- downstream routing;
+- long processing chains;
+- inconsistent execution timing.
+
+The controlled experiment therefore uses direct model execution.
+
+---
+
+### Automated Evaluation
+
+Previous assumptions suggested language models might substitute for blind human scoring.
+
+A dedicated investigation tested this assumption.
+
+The result:
+
+Automated LLM scoring did not satisfy fabrication-sensitive reliability requirements.
+
+Human blind raters remain required.
+
+---
+# 4. Research Question and Hypotheses
+
+## 4.1 Research Question
+
+The central research question is:
+
+> Does coherent meaning in an artificial intelligence system depend on structured spatial-temporal grounding, or can it be preserved through symbolic representation alone?
+
+The study does not attempt to define meaning philosophically.
+
+Instead, it examines whether measurable behavioral properties change when structured representational relationships are removed.
+
+---
+
+## 4.2 Primary Hypothesis
+
+If semantic coherence depends on structured constraint spaces, then removing those constraints should produce measurable degradation.
+
+Specifically:
+
+1. Grounded records should produce higher semantic coherence scores than stripped records.
+2. Stripped records should demonstrate increased ambiguity, identity instability, and unsupported inference.
+3. Re-grounded records should recover some or all lost performance.
+
+The comparison is designed to isolate the contribution of structured relationships rather than simply compare different information quantities.
+
+---
+
+## 4.3 Secondary Hypotheses
 
 The following secondary predictions are tested:
 
-- Grounded records will demonstrate higher local disambiguation accuracy.
-- Grounded records will maintain stronger identity continuity across follow-up queries.
-- Re-grounded records will partially or fully recover performance lost during stripping.
-- Place-bound and event-bound prompts will show greater degradation when grounding structures are removed.
+### H1 — Semantic Resolution
+
+Grounded records will demonstrate improved identification of the intended entity or referent.
+
+### H2 — Context Preservation
+
+Grounded records will preserve relationships among facts more reliably.
+
+### H3 — Identity Continuity
+
+Grounded records will maintain stronger referential stability across follow-up questions.
+
+### H4 — Recovery
+
+Restoration of structured constraints will improve performance relative to stripped conditions.
+
+### H5 — Error Mode Shift
+
+Removal of grounding may not simply create uncertainty.
+
+It may create:
+
+- fabricated explanations;
+- unsupported provenance;
+- false confidence.
 
 ---
 
-## 3.4 Pilot-Derived Observation
+# 5. Conceptual Model
 
-Pilot execution revealed an additional possible degradation mode:
+## 5.1 Representational Layers
 
-> Loss of grounding may produce not only uncertainty, but confident invention.
+The study models Ms. Allis as operating through four interacting representational layers:
 
-The system may compensate for missing or ambiguous constraints by generating plausible but unsupported explanations.
+1. Semantic layer
+2. Geographic layer
+3. Temporal layer
+4. Provenance layer
 
-Observed examples included:
+These layers are analytically separated.
 
-- fabricated provenance claims;
-- invented source attribution;
-- unsupported correction of accurate information.
+They are not assumed to independently generate meaning.
 
-This suggests that semantic degradation should not be measured only by absence of information.
-
-It must also measure whether the system becomes confidently wrong.
-
----
-
-# 4. Apparatus and Operational Model
-
-## 4.1 Representational Layers
-
-Ms. Allis is modeled as operating through four coupled representational layers:
-
-1. Semantic layer  
-2. Geographic layer  
-3. Temporal layer  
-4. Provenance layer  
-
-These layers are analytically separable but operationally interconnected.
-
-The study does not assume that any individual layer creates meaning.
-
-Instead, it tests whether maintaining relationships among layers improves semantic stability.
+The hypothesis is that meaning stability may emerge from maintaining relationships among them.
 
 ---
 
-## 4.2 Meaning as Joint State
+## 5.2 Meaning as a Joint Representational State
 
-A simplified conceptual representation is:
+A simplified conceptual model is:
 
 ```
 x = [geo_vec || λ_t · time_toroid || λ_s · s_vec]
@@ -291,111 +478,172 @@ where:
 - `geo_vec` represents geographic state;
 - `time_toroid` represents temporal encoding;
 - `s_vec` represents semantic state;
-- `λ_t` and `λ_s` represent scaling parameters;
+- `λ_t` and `λ_s` represent weighting parameters;
 - `||` represents concatenation.
 
-This equation is not the experimental intervention.
+This equation is not the experimental manipulation.
 
-It is a conceptual representation of the hypothesis that meaningful system state may depend on relationships among multiple structured dimensions.
+It is a conceptual representation of the hypothesis:
 
----
-
-## 4.3 Semantic Invariance Condition
-
-The primary control condition is semantic preservation.
-
-Semantic vectors are frozen before intervention.
-
-The stripping procedure modifies:
-
-- retrieval exposure;
-- geographic fields;
-- temporal fields;
-- selected provenance visibility.
-
-Embeddings are not recomputed after stripping.
-
-This prevents the intervention from simply becoming a comparison of different semantic models.
-# 5. Methods
-
-## 5.1 Study Design
-
-The study uses a **within-unit three-condition paired comparison design**:
-
-1. Grounded condition
-2. Stripped condition
-3. Re-grounded condition
-
-Each unit serves as its own control.
-
-The grounded condition represents the maximum available structured constraint state.
-
-The stripped condition removes selected spatial-temporal constraints while preserving semantic content where possible.
-
-The re-grounded condition restores the removed structures while maintaining the frozen semantic representation.
-
-This design allows measurement of:
-
-- degradation after constraint removal;
-- reversibility after restoration;
-- whether observed effects are attributable to structured constraints rather than semantic information loss alone.
+> Meaningful system state may depend on relationships among multiple structured dimensions.
 
 ---
 
-## 5.2 Manuscript-Execution Status (Revised)
+## 5.3 Semantic Invariance Condition
 
-As of this revision, the study has completed a verified three-unit pilot.
+The experiment attempts to preserve semantic information while modifying structural constraints.
 
-The pilot included:
+The semantic representation is frozen before intervention.
 
-- one civic entity;
-- one knowledge record;
-- one ambiguous referent.
+The stripping procedure modifies exposure to:
 
-Each unit was executed through:
+- geographic variables;
+- temporal variables;
+- selected provenance structures.
 
-- grounded condition;
-- stripped condition;
-- re-grounded condition.
+Embeddings are not regenerated after stripping.
 
-Each condition was evaluated using:
+This prevents the intervention from becoming merely:
 
-- semantic specificity;
-- contextual coherence;
-- identity stability;
-- local disambiguation.
+```
+different embedding
+versus
+different embedding
+```
 
-Identity stability was tested through a continuity probe following the initial response.
+Instead, the intended comparison is:
 
-Scores were written to persistent state and independently verified through direct retrieval.
-
-The pilot served three purposes:
-
-1. Validate that the execution mechanism could complete the protocol.
-2. Validate that the scoring rubric produced interpretable differences.
-3. Identify hidden methodological failures before full-scale execution.
-
-The pilot revealed several necessary corrections:
-
-- geographic stripping required removal of embedded textual place references;
-- PostgreSQL tables originally identified as the source layer contained schemas but no active records;
-- the production gateway was unreliable for controlled execution;
-- automated LLM-based blind rating was insufficiently reliable.
-
-The manuscript therefore represents a validated protocol with:
-
-- a functioning execution pathway;
-- a tested scoring mechanism;
-- identified methodological constraints;
-- unresolved need for qualified human blind raters before full execution.
+```
+same semantic representation
++
+different constraint environment
+```
 
 ---
 
-## 5.3 Sampling Frame and Sample Size
+# 6. Methods
 
-The planned sample consists of **60 units**.
+## 6.1 Study Design
 
-The sample is stratified equally:
+The study uses a within-unit three-condition paired comparison.
+
+Each experimental unit is tested under:
+
+## Condition 1 — Grounded
+
+The record retains available structured relationships:
+
+- geographic information;
+- temporal relationships where available;
+- provenance information where active;
+- semantic representation.
+
+---
+
+## Condition 2 — Stripped
+
+Selected structured constraints are removed while preserving semantic identity where possible.
+
+The unit remains identifiable.
+
+The intervention is not deletion.
+
+It is controlled reduction of relational structure.
+
+---
+
+## Condition 3 — Re-grounded
+
+The removed structures are restored.
+
+The semantic representation remains frozen.
+
+This condition tests reversibility.
+
+---
+
+## 6.2 Experimental Logic
+
+The design measures:
+
+### Loss
+
+```
+Grounded → Stripped
+```
+
+Does removing structure reduce performance?
+
+---
+
+### Recovery
+
+```
+Stripped → Re-grounded
+```
+
+Does restoration recover performance?
+
+---
+
+### Stability
+
+```
+Grounded → Re-grounded
+```
+
+Does the system return toward the original state?
+
+---
+
+# 7. Pilot Execution Status
+
+As of the July 2026 revision, the study completed a verified three-unit pilot.
+
+The pilot was not powered for statistical inference.
+
+Its purpose was methodological validation.
+
+The pilot validated:
+
+- execution pathway;
+- condition generation;
+- scoring rubric;
+- identity continuity testing;
+- qualitative error classification.
+
+---
+
+## 7.1 Pilot Units
+
+Three semantic challenges were selected:
+
+| Unit | Stratum | Experimental Purpose |
+|---|---|---|
+| Arrow Concrete Co | Civic entity | Entity grounding |
+| Block 3014 | Knowledge record | Geographic dependence |
+| L 32 | Ambiguous referent | Identity resolution |
+
+Each unit completed:
+
+- grounded execution;
+- stripped execution;
+- re-grounded execution;
+- continuity probe.
+
+---
+
+# 8. Sampling Frame and Sample Size
+
+## 8.1 Planned Sample
+
+The full study design consists of:
+
+```
+n = 60 units
+```
+
+Stratified equally:
 
 | Stratum | Planned Units |
 |---|---:|
@@ -403,13 +651,17 @@ The sample is stratified equally:
 | Knowledge records | 20 |
 | Ambiguous referents | 20 |
 
-The finalized sampling frame is stored as:
+---
+
+## 8.2 Sampling File
+
+The planned sampling frame is stored as:
 
 ```
 /tmp/protocol_60_units.csv
 ```
 
-with fields:
+Expected fields:
 
 ```
 record_id
@@ -419,123 +671,140 @@ label
 stratum
 ```
 
-A paired design was selected because each unit provides its own comparison baseline.
+---
 
-A medium within-unit effect size (approximately d ≈ 0.5) is expected to reach approximately 80% power with a sample in the mid-30s.
+## 8.3 Statistical Rationale
 
-A completed sample of 60 paired units provides approximately 95% power at α = 0.05 under standard paired assumptions.
+The paired design was selected because each unit provides its own baseline.
 
-If fewer than 60 qualifying units are available, a minimum exploratory sample of 30 paired units is retained as a lower execution boundary.
+A medium within-unit effect size is expected to be detectable with a sample in the mid-range.
+
+A completed sample of sixty paired units provides sufficient power for standard paired comparisons under conventional assumptions.
+
+The pilot does not provide statistical inference.
+
+It validates only that the intended analysis pipeline can be executed.
 
 ---
 
-## 5.4 Inclusion and Exclusion Criteria
+# 9. Inclusion and Exclusion Criteria
 
-A unit is eligible if it satisfies all of the following:
+## 9.1 Inclusion Criteria
 
-### Inclusion Criteria
-
-The unit must contain:
+A unit must contain:
 
 1. A stable semantic representation.
 2. A geographic anchor.
-3. A temporal or event association where applicable.
-4. Provenance or identity continuity information.
-5. Sufficient information to permit grounded and stripped comparisons.
-
-### Exclusion Criteria
-
-A unit is excluded if:
-
-- geographic or temporal grounding is absent;
-- the record is too sparse for meaningful comparison;
-- stripping would destroy the semantic identity of the unit rather than selectively remove constraints;
-- the referent cannot be independently identified.
-
-The objective is not to remove information generally.
-
-The objective is to isolate the contribution of structured constraint spaces.
+3. A temporal or event relationship where applicable.
+4. Identity or provenance information.
+5. Sufficient information to support grounded and stripped comparison.
 
 ---
 
-## 5.5 Provenance Retention Levels
+## 9.2 Exclusion Criteria
 
-The original three-level provenance model is retained:
+A unit is excluded if:
 
-### Minimal Provenance
+- no grounding relationship exists;
+- stripping would destroy the identity of the unit rather than isolate structural constraints;
+- the referent cannot be independently evaluated;
+- insufficient information exists for comparison.
 
-Includes only information necessary to identify the record.
+The purpose is not to remove information generally.
 
-### Structural Provenance
+The purpose is to isolate the effect of structured relationships.
 
-Includes:
+---
+
+# 10. Operational Definition of Provenance
+
+The original protocol included three provenance retention levels.
+
+This model remains conceptually useful.
+
+---
+
+## 10.1 Minimal Provenance
+
+Contains only information required to identify the record.
+
+---
+
+## 10.2 Structural Provenance
+
+Contains:
 
 - source identifiers;
 - relationships;
 - record lineage;
 - structural metadata.
 
-### Full Provenance
+---
 
-Includes all available provenance relationships and assertions.
+## 10.3 Full Provenance
 
-Pilot execution required one correction.
+Contains:
 
-The previously referenced:
-
-```
-hp.appearance_assertion
-```
-
-table was found to contain no active records and was not connected to any deployed scoring pathway.
-
-The assertion service itself exists, but its intended caller is not deployed.
-
-Therefore:
-
-- provenance assertions are not included as an active retention layer for the present pilot;
-- unsupported provenance pathways are excluded from the scoring condition;
-- future implementation should distinguish between available infrastructure and active experimental variables.
+- all available assertions;
+- lineage relationships;
+- external validation information.
 
 ---
 
-## 5.6 Operational Definition of "Stripped" (Revised)
+## 10.4 Pilot Correction
 
-"Stripped" does not mean deletion.
+The pilot revealed that provenance capability and provenance availability are different conditions.
 
-The unit remains present.
+The system contained an assertion service.
 
-The intervention removes selected grounding constraints while preserving:
+However:
 
-- record identity;
-- semantic representation;
-- lexical information where appropriate;
-- experimental continuity.
+- the service was operational;
+- the intended caller was not deployed;
+- assertions were therefore not part of the active scoring pathway.
 
-The pilot demonstrated that the original stripping design was insufficient.
+The experimental model was revised accordingly.
 
-The initial assumption was that geographic grounding existed primarily through coordinate fields.
+Only active provenance pathways are included.
 
-This was incorrect.
+Unsupported architectural capability is not treated as experimental evidence.
 
-A record may contain geographic information embedded in text.
+---
 
-Therefore, stripping must remove both:
+# 11. Operational Definition of "Stripped"
+
+The stripped condition does not mean removal of the record.
+
+The record remains present.
+
+The intervention removes structured constraints.
+
+The pilot demonstrated that the original stripping procedure was incomplete.
+
+Removing only coordinates did not remove geographic meaning.
+
+Geographic semantics remained through:
+
+- names;
+- labels;
+- descriptions.
+
+Therefore, the revised stripping method removes both:
 
 1. structured geographic variables;
-2. explicit geographic semantics.
+2. embedded geographic references.
 
 ---
 
-### Corrected Stripping Procedure
+## 11.1 Corrected Data Source
 
-The operative data source is:
+The active experimental source is:
 
 ```
 /mnt/nvme1/msjarvis-rebuild/data/attrs/*_attrs.csv
 ```
 
-The active record format contains:
+Record fields include:
 
 ```
 geodb_id
@@ -547,21 +816,23 @@ sourcetable
 country
 ```
 
-The stripping procedure is:
+---
 
-### Step 1 — Semantic Preservation
+## 11.2 Step One — Semantic Preservation
 
 Retain:
 
-- `geodb_id`
-- `sourcetable`
-- `country`
+```
+geodb_id
+sourcetable
+country
+```
 
-verbatim.
+where required for experimental identity.
 
 ---
 
-### Step 2 — Geographic Suppression
+## 11.3 Step Two — Geographic Suppression
 
 Remove:
 
@@ -571,1423 +842,161 @@ lon
 bbox
 ```
 
-The fields are set to null.
+The fields are nullified.
 
 ---
 
-### Step 3 — Label Semantic Cleaning
+## 11.4 Step Three — Label Semantic Cleaning
 
-If the label contains embedded geographic identifiers such as:
-
-- county names;
-- city names;
-- state names;
-
-those references are removed.
-
-Structural identifiers remain:
-
-- block numbers;
-- tract numbers;
-- administrative codes without geographic meaning.
+Embedded geographic references are removed.
 
 Example:
 
 Original:
 
 ```
-Block 3014, Block Group 3, Census Tract 9551.01,
+Block 3014, Block Group 3,
+Census Tract 9551.01,
 Mason County, West Virginia
 ```
 
 Stripped:
 
 ```
-Block 3014, Block Group 3, Census Tract 9551.01
+Block 3014, Block Group 3,
+Census Tract 9551.01
 ```
 
-This correction was required because coordinate-only stripping produced a false null result.
+Structural identifiers remain.
+
+Geographic semantic anchors are removed.
 
 ---
 
-### Step 4 — Prompt Parity
+## 11.5 Step Four — Prompt Parity
 
-The same evaluation prompt is used across all conditions.
+All conditions receive identical evaluation prompts.
 
-Only the availability of structured grounding variables changes.
+Only structured constraint availability changes.
+# 12. Operational Definition of "Re-grounded"
+
+The Re-grounded condition restores the same classes of structured constraints removed during stripping.
+
+Restoration includes:
+
+- geographic relationships;
+- temporal relationships where available;
+- active provenance relationships;
+- contextual identity information.
+
+The semantic representation remains frozen.
+
+The purpose is to test whether lost coherence is recoverable through restoration of relational structure.
+
+The interpretation logic is:
+
+```
+Grounded → Stripped
+```
+
+measures degradation.
+
+```
+Stripped → Re-grounded
+```
+
+measures recovery.
+
+A recovery pattern supports the proposition that structured constraints contribute materially to semantic stability.
 
 ---
 
-## 5.7 Operational Definition of "Re-grounded"
+# 13. Query Set and Execution Mechanism
 
-The re-grounded condition restores the same categories of structured constraints removed during stripping.
+## 13.1 Query Design
 
-The semantic vector remains frozen.
-
-The purpose is to test reversibility.
-
-If grounding contributes materially to meaning preservation, restoration should recover some lost performance.
-
----
-
-## 5.8 Query Set and Execution Mechanism (Revised)
-
-Each unit receives three primary query types:
+Each unit receives three primary query classes:
 
 1. Referential query
 2. Contextual query
 3. Disambiguation query
 
-The original design specified execution through:
+These queries evaluate different dimensions of semantic behavior.
+
+---
+
+## 13.2 Referential Query
+
+The system is asked to identify the entity or referent.
+
+Measured properties:
+
+- entity identification;
+- specificity;
+- identity preservation.
+
+---
+
+## 13.3 Contextual Query
+
+The system is asked to explain relationships surrounding the entity.
+
+Measured properties:
+
+- relational reasoning;
+- contextual preservation;
+- unsupported inference.
+
+---
+
+## 13.4 Disambiguation Query
+
+The system is tested against possible competing interpretations.
+
+Measured properties:
+
+- local resolution;
+- uncertainty handling;
+- confidence calibration.
+
+---
+
+# 14. Execution Pathway Revision
+
+The original protocol specified execution through:
 
 ```
 jarvis-unified-gateway:8093/chat
 ```
 
-Live verification showed that this pathway was unsuitable for controlled experimental execution.
+Live verification demonstrated that this pathway was unsuitable for controlled experimentation.
 
-Two independent failures occurred.
+The issue was not that the gateway failed as a deployment component.
 
-### Failure One
+The issue was experimental isolation.
 
-A request entered the complete processing pipeline:
-
-- constitutional layer;
-- blood-brain-barrier filter;
-- consciousness bridge;
-- downstream processing.
-
-However, it exceeded the controlled timeout window.
-
-Direct logs showed the consciousness bridge stage alone required:
-
-```
-2 minutes 31 seconds
-```
-
----
-
-### Failure Two
-
-A second request was given a longer timeout:
-
-```
-400 seconds
-```
-
-No corresponding request entry appeared in gateway logs.
-
-This indicated a failure mode distinct from latency.
-
----
-
-## Corrected Execution Mechanism
-
-The validated execution path is:
-
-```
-localhost:11434/api/generate
-```
-
-using:
-
-```
-llama3.1:8b-instruct-q4_K_M
-```
-
-The experiment therefore uses:
-
-- direct model invocation;
-- injected record context;
-- controlled prompt templates.
-
-The full production pipeline is bypassed.
-
-This is a disclosed methodological deviation.
-
-The pilot demonstrated:
-
-- 6–22 second response times;
-- successful completion of all scoring calls;
-- successful identity continuity probes.
-
-The study therefore measures semantic behavior under controlled model execution, not full production-stack behavior.
-
----
-
-## 5.9 Follow-Up Queries and Identity Stability (Revised)
-
-Because the corrected execution mechanism uses single-shot inference rather than persistent conversation state, identity continuity is operationalized through a two-step probe.
-
-### Turn One
-
-The model receives:
-
-- record context;
-- evaluation prompt.
-
-The response is recorded.
-
-### Turn Two
-
-The model receives:
-
-- the original question;
-- the original answer;
-- a follow-up request asking whether it is discussing the same entity.
-
-The identity stability score measures:
-
-- whether the model maintains referent continuity;
-- whether it preserves entity identity;
-- whether it recognizes the prior context.
-
-This procedure was completed for:
-
-- all three pilot units;
-- all three conditions.
-
----
-
-## 5.10 Scoring and Evaluation Rubric
-
-Each response is scored across four dimensions.
-
-Each dimension receives:
-
-0–3 points.
-
-Maximum composite score:
-
-```
-12 points
-```
-
-The four dimensions are:
-
----
-
-### 1. Semantic Specificity
-
-Measures whether the response identifies the correct entity and relevant characteristics.
-
-Scoring:
-
-0 — incorrect or unrelated  
-1 — vague relationship  
-2 — mostly correct  
-3 — precise identification  
-
----
-
-### 2. Contextual Coherence
-
-Measures whether the answer maintains meaningful relationships among facts.
-
-Scoring:
-
-0 — incoherent  
-1 — partial connection  
-2 — mostly coherent  
-3 — fully contextualized  
-
----
-
-### 3. Identity Stability
-
-Measures whether the model maintains continuity across follow-up questioning.
-
-Scoring:
-
-0 — identity drift  
-1 — uncertain continuity  
-2 — mostly stable  
-3 — stable and explicit  
-
----
-
-### 4. Local Disambiguation
-
-Measures whether geographic and contextual constraints are correctly used.
-
-Scoring:
-
-0 — wrong referent  
-1 — unresolved ambiguity  
-2 — probable correct interpretation  
-3 — correct local interpretation  
-
----
-
-## 5.11 Who Scores (Revised — Open Methodological Finding)
-
-The original protocol required:
-
-- two blind human raters for primary inference;
-- one system-familiar rater for qualitative analysis.
-
-Pilot scoring was initially performed by the author as:
-
-- single rater;
-- system familiar;
-- non-blind.
-
-These scores are retained only as pilot mechanism validation.
-
-They are not treated as final inferential data.
-
-A supplementary investigation examined whether open-weight language models could substitute for human blind raters.
-
-The investigation tested:
-
-- sixteen model configurations;
-- multiple prompt formats;
-- temperature-controlled evaluation;
-- direct fabrication detection tasks.
-
-The conclusion was negative.
-
-No tested configuration demonstrated reliable discrimination between:
-
-1. unsupported fabricated claims;
-2. valid cautious inference.
-
-Failure modes included:
-
-- accepting fabricated claims as factual;
-- incorrectly accusing valid answers of fabrication;
-- generating false supporting quotations.
-
-Therefore:
-
-Automated LLM scoring cannot satisfy the blind-rater requirement for this protocol.
-
-Automated tools may assist with:
-
-- numeric mismatch detection;
-- obvious contradiction checks;
-- administrative preprocessing.
-
-They cannot replace qualified human blind raters for fabrication-sensitive scoring.
-
----
-
-## 5.12 Gold Reference Packet
-
-Gold-reference packets are constructed before final scoring.
-
-Each packet contains:
-
-- correct referent;
-- known geographic context;
-- disambiguation criteria;
-- expected identity relationships;
-- fabrication-sensitive notes.
-
-Pilot execution added a fabrication-check field.
-
-This field improved analysis but did not eliminate automated-rater reliability problems.
-
-It remains a human-rater aid, not an automated validation mechanism.
-
----
-
-## 5.13 Blinding Procedure
-
-Response sets are anonymized.
-
-Condition labels are removed.
-
-Responses are assigned arbitrary identifiers.
-
-Pilot responses have been prepared for blind scoring.
-
-However, because automated blind scoring was rejected, final blind evaluation requires qualified human raters.
-
-The pilot is therefore not yet eligible for final inferential scoring.
-
----
-
-## 5.14 Reliability Checks
-
-Inter-rater reliability requires independent human ratings.
-
-Planned measures:
-
-- Krippendorff's alpha;
-- weighted Cohen's kappa where appropriate.
-
-The pilot does not yet provide valid reliability estimates because:
-
-- only one human system-familiar score exists;
-- automated model comparisons are not equivalent to human raters.
-
-Reliability statistics will be calculated only after independent blind human scoring.
-
----
-
-## 5.15 Statistical Analysis Plan
-
-The primary analysis remains unchanged.
-
-The planned comparison is:
-
-```
-Grounded vs Stripped
-Grounded vs Re-grounded
-Stripped vs Re-grounded
-```
-
-Primary outcome:
-
-Composite rubric score.
-
-Secondary outcomes:
-
-- identity stability;
-- fabrication rate;
-- local disambiguation accuracy;
-- recovery after re-grounding.
-
-The pilot validates that the analysis pipeline is executable.
-
-It does not provide sufficient statistical power for hypothesis testing.
-
----
-
-## 5.16 What Counts as Evidence of Degradation
-
-Evidence supporting degradation includes:
-
-- reduced composite score;
-- increased referential ambiguity;
-- loss of identity continuity;
-- reduced geographic disambiguation;
-- increased unsupported inference;
-- increased fabrication.
-
-Evidence against degradation includes:
-
-- no measurable difference;
-- preserved identity;
-- equivalent contextual reasoning;
-- successful interpretation without grounding.
-
-A successful result does not prove geometry is required for meaning.
-
-It demonstrates only that structured constraints affect measurable semantic performance.
-
----
-
-## 5.17 Situated Meaning Degradation Modes (Revised)
-
-The original five degradation categories are retained.
-
----
-
-## 1. Flattening
-
-Loss of meaningful relationships among entities.
-
----
-
-## 2. Temporal Confusion
-
-Failure to preserve time-dependent relationships.
-
----
-
-## 3. Referential Drift
-
-Failure to maintain identity across interactions.
-
----
-
-## 4. Disambiguation Loss
-
-Failure to resolve multiple possible meanings.
-
----
-
-## 5. Provenance Incoherence
-
-Failure to maintain source and lineage relationships.
-
----
-
-Pilot execution revealed two additional categories.
-
----
-
-## 6. Confident Unsupported Provenance Fabrication
-
-The model invents plausible but unsupported source information.
-
-Observed example:
-
-A model claimed a filename-based source field indicated collection by:
-
-```
-West Virginia Department of Transportation
-```
-
-No such information existed in the record.
-
----
-
-## 7. Confident Overwrite of Accurate Ground Truth
-
-The model rejects accurate supplied information and replaces it with fabricated correction.
-
-Observed example:
-
-The model:
-
-1. correctly quoted an existing longitude value;
-2. stated the value was incorrect;
-3. substituted a different unsupported value.
-
-This behavior is important because degradation was not always caused by missing information.
-
-In the pilot, some failures occurred when information was present.
-
-This suggests that additional information does not always increase reliability.
-
-It may increase the opportunity for confident error.
-
-Full-scale execution is required before general conclusions can be drawn.
-# 6. Interpretation of Outcomes
-
-The interpretation framework remains unchanged from the original protocol.
-
-The central question is not whether Ms. Allis demonstrates consciousness, subjective awareness, or any form of non-computable cognition.
-
-The question is narrower:
-
-> Does removing structured spatial-temporal constraints measurably reduce semantic coherence in an artificial intelligence system?
-
-The study therefore evaluates behavioral changes under controlled representational conditions.
-
-A positive result would mean:
-
-- grounded conditions outperform stripped conditions;
-- re-grounded conditions recover performance;
-- degradation patterns are consistent across units and strata.
-
-Such a result would support the proposition that structured constraint spaces contribute materially to semantic coherence.
-
-It would not demonstrate:
-
-- quantum consciousness;
-- Penrose’s objective reduction theory;
-- biological equivalence between artificial systems and human cognition;
-- or any metaphysical claim regarding meaning itself.
-
-A negative result would also be informative.
-
-If semantic coherence remains stable after structured constraints are removed, this would suggest that:
-
-- symbolic information alone may preserve more meaning than hypothesized;
-- geometric grounding may be less constitutive than proposed;
-- or the chosen intervention failed to remove the relevant constraints.
-
-The three-unit pilot provides an initial but non-conclusive pattern.
-
-Observed results:
-
-| Unit | Stratum | Grounded | Stripped | Re-grounded |
-|---|---|---:|---:|---:|
-| Arrow Concrete Co | Civic Entity | 9 | 5 | 8 |
-| Block 3014 | Knowledge Record | 10 | 9 | 10 |
-| L 32 | Ambiguous Referent | 6 | 6 | 10 |
-
-Two observations are important.
-
-First, Arrow Concrete Co demonstrated the predicted pattern:
-
-```
-Grounded > Stripped
-Re-grounded recovery
-```
-
-The stripped condition showed:
-
-- lower specificity;
-- unsupported provenance fabrication;
-- reduced contextual confidence.
-
-Second, Block 3014 did not show a large numerical difference.
-
-However, this unit exposed a critical methodological discovery.
-
-The original stripping procedure failed because geographic meaning remained embedded in text.
-
-After correcting the stripping intervention, a meaningful difference appeared:
-
-```
-10 / 9 / 10
-```
-
-This demonstrates that the protocol itself required refinement before full execution.
-
-Third, L 32 produced equal grounded and stripped scores while still revealing degradation.
-
-The composite score concealed opposing failure modes.
-
-This indicates that future analysis must examine both:
-
-- aggregate scores;
-- qualitative error categories.
-
-A system can achieve the same numerical score through very different mechanisms.
-
----
-
-# 7. Data Sovereignty and Fayette County: Clarified Scope
-
-This study originates from Fayette County, West Virginia, but the location is not merely a deployment detail.
-
-The system context is intentionally connected to questions of:
-
-- rural data sovereignty;
-- community representation;
-- geographic accountability;
-- local knowledge preservation.
-
-However, the scientific question remains independent of geography.
-
-The protocol does not claim:
-
-- that rural systems uniquely possess meaningful intelligence;
-- that Appalachian knowledge is inherently superior;
-- that geography creates consciousness.
-
-Instead, Fayette County provides the operational environment where the relationship among:
-
-- place;
-- community;
-- data;
-- identity;
-- governance;
-
-can be examined.
-
-The broader principle is:
-
-> Data about communities should preserve the relationships that make that data meaningful.
-
-A community record without context may remain technically available while becoming functionally less understandable.
-
-The protocol therefore treats spatial grounding not merely as a retrieval optimization, but as a possible component of accountable interpretation.
-
----
-
-# 8. Limitations
-
-Several limitations must be acknowledged.
-
----
-
-## 8.1 Structural Interpretation Limitation
-
-The use of geometric language is structural rather than ontological.
-
-The study uses terms such as:
-
-- state space;
-- geometry;
-- embedding;
-- vector relationships.
-
-These terms describe representational organization.
-
-They do not imply that artificial systems possess physical quantum states.
-
-The existence of mathematical structure does not establish physical equivalence.
-
----
-
-## 8.2 Consciousness Limitation
-
-This protocol does not measure subjective experience.
-
-It measures:
-
-- semantic coherence;
-- referential stability;
-- contextual reasoning;
-- grounding dependence.
-
-A system may demonstrate improved meaning preservation without being conscious.
-
-Likewise, a conscious system could theoretically fail this protocol.
-
----
-
-## 8.3 Penrose / Orch OR Limitation
-
-A positive result would not validate Penrose’s full theory.
-
-The experiment does not examine:
-
-- microtubules;
-- quantum collapse;
-- objective reduction;
-- biological consciousness.
-
-The relationship is indirect.
-
-The study asks whether a weaker prediction associated with geometry — that structured relationships matter for understanding — appears measurable in artificial systems.
-
----
-
-## 8.4 Architecture Dependence Limitation (Revised)
-
-The intervention depends on the architecture of Ms. Allis.
-
-This revision demonstrates that system architecture documentation must itself be treated as an empirical object.
-
-Several assumptions from earlier drafts required correction.
-
-Examples:
-
-### State Persistence
-
-Earlier documentation described confirmed Hilbert-state persistence.
-
-Live verification found:
-
-- state writes succeeded;
-- persistence used a one-hour TTL;
-- previously confirmed state had expired before re-verification.
-
-The state mechanism was therefore operational but time-dependent.
-
----
-
-### Provenance Assertion Infrastructure
-
-Earlier documentation described provenance assertion capability as part of the active system.
-
-Verification found:
-
-- the assertion service existed;
-- the service correctly accepted requests;
-- the intended caller was not deployed.
-
-Therefore, the capability existed architecturally but was not an active experimental pathway.
-
----
-
-### Grounded Query Oracle
-
-Earlier documentation identified a grounded query endpoint as the intended scoring pathway.
-
-Source inspection found that the endpoint was limited to a separate four-collection dataset and could not reach the sampling frame used in this study.
-
-The execution mechanism was therefore revised.
-
----
-
-### Database Source Tables
-
-Earlier documentation identified PostgreSQL tables as active geographic sources.
-
-Verification found:
-
-- schemas existed;
-- tables were correctly structured;
-- sampled source tables contained zero rows.
-
-The operational data source was therefore corrected to flat-file CSV exports.
-
----
-
-These corrections do not invalidate the protocol.
-
-They demonstrate why live verification is required for reproducible AI research.
-
----
-
-## 8.5 Rater Reliability Limitation (New)
-
-The rater protocol remains the primary unresolved execution requirement.
-
-The study requires:
-
-- independent;
-- blind;
-- human scoring.
-
-The automated-rater investigation tested sixteen model configurations and found no reliable substitute.
-
-Observed failures included:
-
-- missed fabrication;
-- false accusations;
-- fabricated supporting evidence.
-
-Therefore, full-scale execution should not proceed without qualified human blind raters.
-
-Automated tools may assist with preprocessing but cannot replace the required evaluation process.
-
----
-
-## 8.6 Sample Size Limitation
-
-The pilot sample size is:
-
-```
-n = 3
-```
-
-This is sufficient only for:
-
-- mechanism validation;
-- execution validation;
-- rubric refinement.
-
-It is not sufficient for:
-
-- statistical inference;
-- generalization;
-- population-level conclusions.
-
-The planned n = 60 remains the intended study size.
-
----
-
-# 9. Conclusion
-
-This manuscript presents a registered-report style protocol for testing whether coherent meaning in an artificial intelligence system depends on structured spatial-temporal constraint spaces.
-
-The study does not attempt to prove consciousness.
-
-It does not attempt to validate Orch OR.
-
-It does not claim that semantic vectors are equivalent to physical quantum states.
-
-Instead, it tests a narrower empirical proposition:
-
-> Meaningful interpretation may depend on maintaining structured relationships among semantic, geographic, temporal, and provenance dimensions.
-
-The verified three-unit pilot accomplished two objectives.
-
-First, it demonstrated that the experimental mechanism is viable.
-
-Second, it revealed important hidden assumptions requiring correction:
-
-- geographic meaning can exist in text, not only coordinates;
-- system documentation must be verified against live state;
-- production AI pipelines may not be suitable for controlled experimentation;
-- automated LLM evaluation is insufficient for fabrication-sensitive judgments.
-
-The pilot produced a pattern consistent with the primary hypothesis in two of three units.
-
-The third unit demonstrated that equal composite scores can conceal fundamentally different mechanisms of success and failure.
-
-This finding reinforces the importance of qualitative error analysis alongside numerical scoring.
-
-The broader significance is methodological.
-
-As artificial intelligence systems become more deeply integrated into communities, the question is not only whether they can retrieve information.
-
-The question is whether they can preserve the relationships that make information meaningful.
-
-Penrose argued that understanding may involve geometry in ways not captured by computation alone.
-
-This protocol does not resolve that claim.
-
-It identifies a measurable boundary condition:
-
-whether structured relationships among representations contribute to coherent meaning.
-
-Either outcome advances understanding.
-
-A positive result would demonstrate that geometric grounding contributes measurable semantic stability.
-
-A negative result would demonstrate that meaning can remain robust without those structures.
-
-Both outcomes provide knowledge.
-
----
-
-# References
-
-Hameroff, S., & Penrose, R. (2014). Consciousness in the universe: A review of the "Orch OR" theory. *Physics of Life Reviews, 11*(1), 39–78.
-
-Hagan, S., Hameroff, S. R., & Tuszyński, J. A. (2002). Quantum computation in brain microtubules: Decoherence and biological feasibility. *Physical Review E, 65*(6), 061901.
-
-Jurafsky, D., & Martin, J. H. (draft online chapter). Vector semantics and embeddings. *Speech and Language Processing* (draft edition). Stanford University.
-
-Penrose, R. (1994). *Shadows of the Mind: A Search for the Missing Science of Consciousness*. Oxford University Press.
-
-Tegmark, M. (2000). Importance of quantum decoherence in brain processes. *Physical Review E, 61*(4), 4194–4206.
-# Technical Appendix A
-
-## Versioned System Architecture, Pilot Execution, and Rater-Reliability Investigation
-
-### Supplement to "Does Meaning Require Geometry?"
-
-**System:** Ms. Allis / MS-JARVIS production stack  
-**Original inventory date:** July 5, 2026  
-**Prior audit date:** July 6, 2026 (morning)  
-**Revision verification period:** July 6–7, 2026  
-**Verification method:** Direct live execution against the running system
-
-Methods used:
-
-- Docker container inspection;
-- PostgreSQL queries;
-- Redis inspection;
-- ChromaDB API queries;
-- direct SQLite storage inspection;
-- source-code review;
-- live model execution through Ollama.
-
-No claim in this appendix is asserted solely from prior documentation.
-
-Where previous assumptions were confirmed, that confirmation is stated.
-
-Where previous assumptions were incorrect, the correction and verification evidence are documented.
-
----
-
-# A.1 Physical Topology (Re-verified)
-
-The active system topology was verified as follows.
-
-## Database Layer
-
-Two PostgreSQL containers were confirmed running:
-
-```
-jarvis-msjarvis-db
-```
-
-Databases:
-
-```
-msjarvis
-msjarvisgis
-```
-
-and:
-
-```
-hp-local-db
-```
-
-Database:
-
-```
-hilbert_people
-```
-
----
-
-## Vector Memory Layer
-
-ChromaDB was confirmed operational:
-
-```
-jarvis-chroma
-```
-
-Port:
-
-```
-8002
-```
-
-Version:
-
-```
-0.6.3
-```
-
-The v2 tenant-scoped API was confirmed authoritative.
-
-The older v1 API remained present as an artifact but did not indicate data loss.
-
----
-
-## Cache / State Layer
-
-Redis was confirmed running:
-
-```
-jarvis-redis
-```
-
-External port:
-
-```
-6380
-```
-
-Internal port:
-
-```
-6379
-```
-
----
-
-## Correction to Prior Architecture Description
-
-Earlier documentation described PostgreSQL source tables as active data sources for sampled units.
-
-Direct verification found a different operational reality.
-
-Three source tables spanning the pilot strata were queried:
-
-```
-manufacturingandbusiness_wvdo_200803_utm83
-blocks_census_2020_utm83_full
-surveycontrol_nationalgeodeticsurvey_102011_gcs83
-```
-
-All returned:
-
-```
-0 rows
-```
-
-The tables were not missing.
-
-They contained:
-
-- valid schemas;
-- expected columns;
-- correct data types.
-
-However, they were empty.
-
-Example schema verification showed:
-
-- 70 columns;
-- geographic fields;
-- address fields;
-- source attributes.
-
-The active source of record for pilot units was therefore corrected to:
-
-```
-/mnt/nvme1/msjarvis-rebuild/data/attrs/*_attrs.csv
-```
-
-This distinction is critical.
-
-A schema existing does not demonstrate an active data pathway.
-
----
-
-# A.2 Representational Layers (Re-verified)
-
-The system is evaluated through four conceptual layers:
-
-1. Semantic
-2. Geographic
-3. Temporal
-4. Provenance
-
-Each layer is addressed independently below.
-
----
-
-# A.2.1 Semantic Layer
-
-ChromaDB remains the primary semantic memory layer.
-
-Verified characteristics:
-
-- 248 collections;
-- v2 API operational;
-- stored documents accessible;
-- embeddings available.
-
----
-
-## Document Truncation Finding
-
-A significant storage-layer issue was discovered.
-
-Documents in the:
-
-```
-geospatialfeatures
-```
-
-collection with:
-
-```
-layer:gbim_entities
-```
-
-were found truncated.
-
-The truncation boundary was:
-
-```
-398 characters
-```
-
-This was verified through two independent methods.
-
-### Method One
-
-ChromaDB HTTP API:
-
-```
-get
-include=["documents"]
-```
-
-### Method Two
-
-Direct SQLite inspection:
-
-```
-/mnt/nvme1/msjarvis-data/chroma-live/chroma.sqlite3
-```
-
-Table:
-
-```
-embedding_fulltext_search_content
-```
-
-Column:
-
-```
-c0
-```
-
-Both returned identical 398-character content boundaries.
-
-Therefore:
-
-The truncation occurs at storage time.
-
-It is not a retrieval artifact.
-
----
-
-## Ingestion Script Status
-
-A search was conducted across known repository locations:
-
-```
-~/repos
-~/msjarvis-rebuild*
-/mnt/nvme1/msjarvis-rebuild
-/mnt/spiritual_drive/msjarvis-rebuild
-```
-
-Search targets included:
-
-```
-ingest_source_table
-```
-
-and:
-
-```
-layer:gbim_entities
-```
-
-The original ingestion script responsible for the truncation could not be located.
-
-Possible explanations:
-
-- removed;
-- replaced;
-- superseded.
-
-The cause remains unresolved.
-
----
-
-## Duplicate Ingestion Finding
-
-Direct SQLite inspection found repeated identical documents.
-
-Across four sampled civic-entity units:
-
-Each appeared exactly:
-
-```
-3 times
-```
-
-under different internal Chroma document identifiers.
-
-The duplicate records were:
-
-- byte-identical;
-- semantically identical.
-
-Impact:
-
-No pilot scoring validity issue.
-
-However:
-
-Future corpus analysis must account for duplicate inflation.
-
-Raw document counts should not be interpreted as unique entity counts.
-
----
-
-## Missing Geographic Metadata Finding
-
-The expected Chroma metadata projection was not present.
-
-For:
-
-```
-gbim_entities
-```
-
-documents:
-
-```
-lat
-lon
-layer_name
-```
-
-were absent or empty.
-
-Other collections did contain geographic metadata.
-
-Example:
-
-```
-911centers_wvdem_032819_gcs84
-```
-
-contained populated:
-
-```
-lat
-lon
-```
-
-Therefore:
-
-The absence was collection-specific.
-
-The original Chroma metadata filtering strategy was ineffective for the sampled layer.
-
-The corrected stripping mechanism operates on CSV-derived records.
-
----
-
-# A.2.2 Geographic Layer
-
-The geographic layer required the largest methodological correction.
-
-Earlier design documents specified Postgres-based geographic suppression.
-
-This remains architecturally accurate for some system functions.
-
-However, the sampled units did not originate from active Postgres rows.
-
-The operational source was:
-
-```
-*_attrs.csv
-```
-
-exports.
-
-The geographic intervention therefore moved from:
-
-```
-database field masking
-```
-
-to:
-
-```
-record-level prompt context transformation
-```
-
-The two facts are compatible:
-
-- geographic infrastructure exists;
-- sampled experimental records were sourced elsewhere.
-
----
-
-# A.2.3 Temporal Layer
-
-The temporal layer was not exercised during the pilot.
-
-The pilot units were:
-
-- civic entity;
-- knowledge record;
-- ambiguous referent.
-
-None carried active links through:
-
-```
-hp.civic_event
-hp.appearance_time
-```
-
-or equivalent event structures.
-
-Previous architectural descriptions remain documented but were not revalidated during this execution cycle.
-
-Future full-scale execution should include temporal-linked units if available.
-
----
-
-# A.2.4 Provenance Layer
-
-The provenance layer required correction.
-
-Earlier documentation stated:
-
-```
-hp.appearance_assertion
-```
-
-was unavailable because the assertion gateway was not running.
-
-This was incorrect.
-
-Direct inspection found:
-
-The assertion gateway was running as a native process.
-
-It was:
-
-- not Docker-managed;
-- bound locally;
-- listening on:
-
-```
-127.0.0.1:8009
-```
-
-The service endpoint functioned.
-
-Source review confirmed:
-
-```
-persist_assertion()
-```
-
-correctly inserts assertions.
-
----
-
-## Actual Failure Point
-
-The missing component was the caller.
-
-The intended integration:
-
-```
-services/gbim-router/app/
-```
-
-including:
-
-```
-assertion_client.py
-```
-
-was not deployed.
-
-A full repository search found no active production caller.
-
-Therefore:
-
-The provenance assertion pathway was:
-
-```
-architecturally implemented
-```
-
-but:
-
-```
-experimentally inactive
-```
-
-The consequence:
-
-Provenance assertions are excluded from the current pilot scoring model.
-
-This is documented as a scope limitation, not an unresolved execution failure.
-
----
-
-# A.2.5 Anti-Surveillance Boundary
-
-The anti-surveillance boundary remains unchanged from previous documentation.
-
-It was not re-tested during this verification cycle.
-
-The protocol does not use:
-
-- behavioral monitoring;
-- continuous observation;
-- identity tracking beyond experimental referents;
-- individual surveillance inference.
-
-The study evaluates semantic behavior under controlled representational conditions.
-
-The experimental unit is a record or referent.
-
-It is not a person.
-
----
-
-# A.3 Runtime Execution Environment (Re-verified)
-
-## A.3.1 Production Pipeline Status
-
-The original execution pathway was:
-
-```
-jarvis-unified-gateway:8093/chat
-```
-
-This pathway remains part of the broader MS-JARVIS architecture.
-
-However, it was not suitable for controlled experimental execution.
-
-The reasons were:
-
-1. unpredictable processing duration;
-2. incomplete observability of intermediate stages;
-3. inability to guarantee prompt parity;
-4. inability to isolate model behavior from orchestration behavior.
-
-The production pathway contains additional components:
+The gateway introduced uncontrolled variables:
 
 - constitutional filtering;
 - policy evaluation;
-- downstream routing;
-- consciousness bridge processing;
-- memory integration.
+- routing behavior;
+- downstream services;
+- memory integration;
+- variable processing duration.
 
-These components may be valuable for deployment.
+A controlled experiment requires:
 
-They introduce unacceptable confounds for this experiment.
+- deterministic execution;
+- prompt parity;
+- isolated model behavior.
+
+Therefore, the execution mechanism was revised.
 
 ---
 
-## A.3.2 Controlled Execution Pathway
+# 15. Controlled Execution Pathway
 
-The validated experimental pathway was:
+The validated experimental pathway is:
 
 ```
 localhost:11434/api/generate
@@ -2002,27 +1011,37 @@ llama3.1:8b-instruct-q4_K_M
 Execution characteristics:
 
 - direct model invocation;
-- deterministic prompt template;
 - injected record context;
-- isolated scoring capture.
+- fixed prompt template;
+- controlled output capture.
 
-Observed response duration:
+Observed execution time:
 
 ```
 6–22 seconds
 ```
 
-This pathway allows:
+This pathway separates:
 
-- reproducibility;
-- controlled condition comparison;
-- separation of model behavior from production infrastructure.
+```
+model behavior
+```
+
+from:
+
+```
+production orchestration behavior
+```
+
+The experiment therefore evaluates semantic behavior under controlled inference conditions.
+
+It does not evaluate the entire production architecture.
 
 ---
 
-## A.3.3 Execution Record Structure
+# 16. Execution Record Structure
 
-Each execution produced:
+Each execution produces an experimental artifact containing:
 
 ```
 execution_id
@@ -2046,54 +1065,584 @@ re-grounded
 
 The execution record is considered the authoritative experimental artifact.
 
+System diagrams alone are insufficient.
+
 ---
 
-# A.4 Pilot Unit Selection and Execution
+# 17. Identity Stability Measurement
+
+The original protocol relied on persistent conversation state.
+
+Live verification demonstrated that this introduced dependency on runtime state persistence.
+
+The revised protocol uses explicit continuity testing.
+
+---
+
+## 17.1 Turn One
+
+The model receives:
+
+- record context;
+- evaluation prompt.
+
+The response is captured.
+
+---
+
+## 17.2 Turn Two
+
+The model receives:
+
+- original question;
+- original answer;
+- continuity request.
+
+Example:
+
+```
+Are you referring to the same entity discussed previously?
+Explain why.
+```
+
+---
+
+## 17.3 Identity Stability Measurement
+
+The score evaluates:
+
+- referent continuity;
+- entity preservation;
+- recognition of prior context.
+
+This procedure was completed for:
+
+- all three pilot units;
+- all three experimental conditions.
+
+---
+
+# 18. Scoring and Evaluation Rubric
+
+Each response is scored across four dimensions.
+
+Each dimension receives:
+
+```
+0–3 points
+```
+
+Maximum composite score:
+
+```
+12 points
+```
+
+---
+
+# 18.1 Semantic Specificity
+
+Measures whether the response identifies the correct entity and relevant characteristics.
+
+Scoring:
+
+```
+0 — incorrect or unrelated
+
+1 — vague relationship
+
+2 — mostly correct
+
+3 — precise identification
+```
+
+---
+
+# 18.2 Contextual Coherence
+
+Measures whether relationships among facts are preserved.
+
+Scoring:
+
+```
+0 — incoherent
+
+1 — partial connection
+
+2 — mostly coherent
+
+3 — fully contextualized
+```
+
+---
+
+# 18.3 Identity Stability
+
+Measures whether the system maintains referential continuity.
+
+Scoring:
+
+```
+0 — identity drift
+
+1 — uncertain continuity
+
+2 — mostly stable
+
+3 — stable and explicit
+```
+
+---
+
+# 18.4 Local Disambiguation
+
+Measures whether geographic and contextual constraints are correctly applied.
+
+Scoring:
+
+```
+0 — incorrect referent
+
+1 — unresolved ambiguity
+
+2 — probable interpretation
+
+3 — correct interpretation
+```
+
+---
+
+# 19. Human Evaluation Requirement
+
+The original protocol specified:
+
+- two blind human raters;
+- one system-aware qualitative reviewer.
+
+This requirement remains.
+
+Pilot scoring was performed as:
+
+- single rater;
+- system familiar;
+- non-blind.
+
+These scores are retained only for:
+
+- mechanism validation;
+- rubric testing;
+- qualitative analysis.
+
+They are not treated as final inferential results.
+
+---
+
+# 20. Automated Rater Investigation
+
+A supplementary investigation tested whether automated language models could replace human blind scoring.
+
+The investigation included:
+
+- sixteen model configurations;
+- multiple evaluation prompts;
+- temperature-controlled testing;
+- fabrication-sensitive examples.
+
+The objective was to determine whether automated judges could reliably distinguish:
+
+1. unsupported fabricated claims;
+2. valid cautious inference.
+
+---
+
+# 21. Automated Evaluation Findings
+
+The investigation produced a negative result.
+
+No tested automated configuration met the reliability requirement.
+
+Observed failure modes included:
+
+---
+
+## 21.1 Fabrication Acceptance
+
+The evaluator accepted unsupported statements as factual.
+
+---
+
+## 21.2 False Fabrication Detection
+
+The evaluator incorrectly rejected valid answers.
+
+---
+
+## 21.3 Evidence Hallucination
+
+The evaluator generated nonexistent supporting evidence.
+
+---
+
+## 21.4 Prompt Sensitivity
+
+Minor prompt changes produced unstable judgments.
+
+---
+
+# 22. Final Rater Method
+
+Human blind evaluation remains required.
+
+Automated tools may assist with:
+
+- formatting;
+- contradiction detection;
+- administrative preprocessing;
+- record organization.
+
+Automated systems may not serve as the primary inferential evaluator for fabrication-sensitive scoring.
+
+---
+
+# 23. Gold Reference Packets
+
+Before final scoring, each unit receives a gold-reference packet.
+
+The packet contains:
+
+- correct referent;
+- known geographic relationships;
+- disambiguation criteria;
+- identity relationships;
+- fabrication-sensitive notes.
+
+Pilot execution added a fabrication-check field.
+
+This improved qualitative analysis.
+
+However, it does not replace human evaluation.
+
+---
+
+# 24. Blinding Procedure
+
+Final response sets will be anonymized.
+
+Condition labels will be removed.
+
+Responses will receive arbitrary identifiers.
+
+Example:
+
+```
+Response A17
+Response B04
+Response C29
+```
+
+Raters will not know whether responses originated from:
+
+- grounded;
+- stripped;
+- re-grounded conditions.
+
+The pilot is not yet inferentially complete because independent blind scoring has not occurred.
+
+---
+
+# 25. Reliability Checks
+
+Final reliability analysis requires independent human ratings.
+
+Planned measurements:
+
+```
+Krippendorff's alpha
+```
+
+and:
+
+```
+weighted Cohen's kappa
+```
+
+where applicable.
+
+The pilot does not provide valid reliability statistics because:
+
+- only one human score exists;
+- automated comparisons are not equivalent to human ratings.
+
+Reliability calculations will occur only after blind human evaluation.
+# 26. Statistical Analysis Plan
+
+The primary analysis compares the three experimental conditions:
+
+```
+Grounded vs Stripped
+
+Grounded vs Re-grounded
+
+Stripped vs Re-grounded
+```
+
+The primary outcome measure is:
+
+```
+Composite semantic coherence score
+```
+
+Maximum:
+
+```
+12 points
+```
+
+Secondary outcomes include:
+
+- identity stability;
+- fabrication frequency;
+- local disambiguation accuracy;
+- unsupported inference rate;
+- recovery following restoration.
+
+---
+
+## 26.1 Primary Statistical Question
+
+The primary question is:
+
+> Does removal of structured spatial-temporal constraints produce measurable degradation in semantic coherence?
+
+The predicted pattern is:
+
+```
+Grounded > Stripped
+```
+
+with:
+
+```
+Re-grounded ≥ Stripped
+```
+
+---
+
+## 26.2 Evidence Supporting the Hypothesis
+
+Evidence consistent with the grounding hypothesis includes:
+
+- lower stripped-condition composite scores;
+- increased ambiguity;
+- reduced identity continuity;
+- increased unsupported inference;
+- reduced geographic resolution;
+- recovery after restoration.
+
+---
+
+## 26.3 Evidence Against the Hypothesis
+
+Evidence weakening the hypothesis includes:
+
+- no measurable score difference;
+- preserved identity continuity;
+- equivalent contextual reasoning;
+- successful interpretation without grounding;
+- no recovery effect after restoration.
+
+---
+
+# 27. Situated Meaning Degradation Categories
+
+The original degradation framework identified five categories.
+
+Pilot execution expanded the model.
+
+The final framework contains seven categories.
+
+---
+
+# 27.1 Flattening
+
+Loss of meaningful relationships among entities.
+
+Example:
+
+The system recognizes isolated facts but fails to preserve relationships between them.
+
+---
+
+# 27.2 Temporal Confusion
+
+Failure to preserve time-dependent relationships.
+
+Examples:
+
+- incorrect ordering;
+- failure to distinguish historical from current information;
+- temporal identity drift.
+
+---
+
+# 27.3 Referential Drift
+
+Failure to maintain entity identity across interactions.
+
+Examples:
+
+- switching referents;
+- merging unrelated entities;
+- losing continuity.
+
+---
+
+# 27.4 Disambiguation Loss
+
+Failure to resolve multiple possible meanings.
+
+Examples:
+
+- inability to distinguish local entities;
+- failure to use available constraints;
+- ambiguous answers without appropriate uncertainty.
+
+---
+
+# 27.5 Provenance Incoherence
+
+Failure to preserve source and lineage relationships.
+
+Examples:
+
+- unsupported attribution;
+- incorrect source claims;
+- loss of evidence boundaries.
+
+---
+
+# 27.6 Confident Unsupported Provenance Fabrication
+
+Pilot execution revealed a distinct failure mode.
+
+The system did not merely lose information.
+
+It generated plausible but unsupported explanations.
+
+Observed behavior included:
+
+- invented source attribution;
+- fabricated collection pathways;
+- unsupported institutional claims.
+
+Example:
+
+The model inferred that a filename-based field originated from:
+
+```
+West Virginia Department of Transportation
+```
+
+No such provenance existed in the record.
+
+The failure was not lack of knowledge.
+
+It was confident construction of false structure.
+
+---
+
+# 27.7 Confident Overwrite of Accurate Ground Truth
+
+A second failure mode involved replacing accurate information with fabricated correction.
+
+Observed behavior:
+
+1. The model correctly identified an existing coordinate value.
+2. The model claimed the value was incorrect.
+3. The model substituted a different unsupported value.
+
+This demonstrates that degradation is not always caused by missing information.
+
+Additional information can create additional opportunities for confident error.
+
+---
+
+# 28. Interpretation Framework
+
+The experiment evaluates a narrow proposition:
+
+> Do structured spatial-temporal constraints contribute measurably to semantic coherence in an artificial intelligence system?
+
+It does not evaluate:
+
+- consciousness;
+- subjective awareness;
+- quantum cognition;
+- Orch OR;
+- metaphysical theories of meaning.
+
+---
+
+# 29. Interpretation of Positive Results
+
+A positive result requires:
+
+1. Grounded conditions outperform stripped conditions.
+2. Re-grounded conditions recover performance.
+3. Error patterns are consistent across multiple units.
+4. Human blind scoring demonstrates acceptable reliability.
+
+A positive result would support:
+
+> Structured representational relationships contribute materially to semantic stability.
+
+It would not prove:
+
+- geometry is required for consciousness;
+- artificial systems possess subjective experience;
+- Penrose's theory is correct;
+- semantic vectors are physical equivalents of quantum states.
+
+---
+
+# 30. Interpretation of Negative Results
+
+A negative result would also provide meaningful information.
+
+Possible interpretations:
+
+1. Symbolic representation preserves meaning more effectively than hypothesized.
+2. The selected grounding dimensions are not constitutive.
+3. The stripping intervention failed to remove the relevant constraints.
+4. Another representational mechanism maintains coherence.
+
+A negative result would narrow the possible role of geometry-dependent explanations.
+
+---
+
+# 31. Pilot Results
 
 The verified pilot consisted of three units.
 
-The purpose was not statistical inference.
+The pilot was not designed for statistical inference.
 
-The purpose was protocol validation.
+Its purpose was:
 
-The three pilot units represented different semantic challenges.
+- mechanism validation;
+- scoring validation;
+- methodological refinement.
 
-| Unit | Category | Purpose |
-| --- | --- | --- |
-| Arrow Concrete Co | Civic entity | Test entity grounding |
-| Block 3014 | Knowledge record | Test geographic metadata dependence |
-| L 32 | Ambiguous referent | Test identity resolution |
+Results:
 
-Each unit completed:
-
-- grounded execution;
-- stripped execution;
-- re-grounded execution;
-- identity continuity probe.
+| Unit | Stratum | Grounded | Stripped | Re-grounded |
+|---|---|---:|---:|---:|
+| Arrow Concrete Co | Civic Entity | 9 | 5 | 8 |
+| Block 3014 | Knowledge Record | 10 | 9 | 10 |
+| L 32 | Ambiguous Referent | 6 | 6 | 10 |
 
 ---
 
-# A.5 Pilot Execution Results
-
-The pilot composite scores were:
-
-| Unit | Grounded | Stripped | Re-grounded |
-| --- | ---: | ---: | ---: |
-| Arrow Concrete Co | 9 | 5 | 8 |
-| Block 3014 | 10 | 9 | 10 |
-| L 32 | 6 | 6 | 10 |
-
-The numerical results should not be interpreted as hypothesis testing.
-
-They demonstrate:
-
-- execution feasibility;
-- scoring behavior;
-- methodological sensitivity.
-
----
-
-## A.5.1 Arrow Concrete Co
+# 32. Arrow Concrete Co Interpretation
 
 Observed pattern:
 
@@ -2102,352 +1651,848 @@ Grounded > Stripped
 Re-grounded recovery
 ```
 
-The stripped condition showed:
+The stripped condition demonstrated:
 
 - reduced contextual precision;
-- unsupported provenance inference;
-- weaker relationship preservation.
+- weaker relationship preservation;
+- unsupported provenance inference.
 
 Restoration recovered most performance.
 
-This pattern is consistent with the primary hypothesis.
+This unit followed the predicted grounding-dependent pattern.
 
 ---
 
-## A.5.2 Block 3014
+# 33. Block 3014 Interpretation
 
-The initial result appeared approximately unchanged.
+The initial numerical result appeared nearly unchanged.
 
-However, deeper inspection revealed that the first stripping implementation failed.
+However, qualitative inspection revealed a methodological failure.
 
-The record retained geographic semantics through textual identifiers.
+The original stripping procedure removed coordinates but retained geographic meaning through text.
 
-The correction established that:
+The record still contained:
 
-- coordinates alone are insufficient;
-- labels can preserve hidden geographic constraints.
+- place identifiers;
+- administrative references;
+- geographic labels.
 
-This unit produced the most important protocol refinement.
+The intervention therefore failed to remove the targeted constraint.
 
----
+After correction:
 
-## A.5.3 L 32
+- geographic text cleaning was added;
+- label semantics were removed;
+- future execution was revised.
 
-The composite score remained equal between grounded and stripped conditions.
+This unit produced the most important protocol refinement:
 
-However, qualitative inspection showed different failure modes.
-
-The grounded condition produced uncertainty.
-
-The stripped condition produced confident unsupported interpretation.
-
-This demonstrates why:
-
-```
-same score ≠ same behavior
-```
-
-Future analysis must preserve qualitative error categories.
+> Geographic grounding is not limited to coordinates.
 
 ---
 
-# A.6 Rater Reliability Investigation
+# 34. L 32 Interpretation
 
-The original protocol required:
+The ambiguous referent unit produced:
 
-- two independent blind human raters;
-- one system-aware qualitative reviewer.
+```
+Grounded = 6
 
-Before full execution, an investigation tested whether automated language models could replace human scoring.
+Stripped = 6
+```
 
-The evaluation included:
+The numerical score alone suggested no degradation.
 
-- sixteen model configurations;
-- multiple prompts;
-- temperature-controlled runs;
-- fabrication-sensitive examples.
-
-The result was negative.
+Qualitative analysis revealed two different mechanisms.
 
 ---
 
-## A.6.1 Automated Evaluation Failure Modes
+## Grounded Failure
 
-Observed failures included:
+The grounded model:
 
-### Fabrication Acceptance
-
-The evaluator accepted unsupported claims as valid.
-
-### False Fabrication Detection
-
-The evaluator rejected correct statements.
-
-### Evidence Hallucination
-
-The evaluator generated nonexistent supporting evidence.
-
-### Confidence Instability
-
-The same response could receive different judgments under minor prompt changes.
+- recognized ambiguity;
+- avoided unsupported certainty;
+- failed through uncertainty.
 
 ---
 
-## A.6.2 Rater Requirement Status
+## Stripped Failure
 
-Human blind rating remains required.
+The stripped model:
 
-Automated systems may assist with:
+- lacked sufficient constraints;
+- compensated with invented explanations;
+- failed through fabricated certainty.
 
-- formatting;
-- contradiction detection;
-- record organization;
-- administrative preprocessing.
+The same score represented fundamentally different behaviors.
 
-They may not serve as the primary inferential scoring mechanism.
+Therefore:
+
+```
+same score ≠ same reasoning process
+```
+
+Future analysis must combine:
+
+- quantitative scoring;
+- qualitative error classification.
 
 ---
 
-# A.7 Reproducibility Requirements
+# 35. Data Sovereignty and Fayette County Context
 
-Full execution requires preservation of:
+This study originates from Fayette County, West Virginia.
 
-- source records;
-- frozen semantic representations;
-- prompt templates;
-- model version;
-- runtime configuration;
-- scoring sheets;
-- rater identities;
-- reliability calculations.
+The geographic context is relevant because the system was developed around questions of:
 
-The following principle governs the experiment:
+- rural data sovereignty;
+- community representation;
+- local knowledge preservation;
+- accountable interpretation.
 
-> A result is reproducible only when the conditions producing the result are reproducible.
+However, the scientific claim does not depend on location.
 
-Architecture descriptions alone are insufficient.
+The study does not claim:
 
-Operational state must be captured.
+- rural systems uniquely produce intelligence;
+- Appalachian knowledge is inherently superior;
+- geography creates consciousness.
 
----
+Instead, Fayette County provides an operational environment where relationships among:
 
-# A.8 Known Corrections From Initial Documentation
+- place;
+- community;
+- data;
+- identity;
+- governance;
 
-This appendix records corrections discovered during verification.
+can be examined.
 
-## Correction 1 — Geographic Source
+The broader principle is:
 
-Previous assumption:
+> Data about communities should preserve the relationships that make that data meaningful.
 
-```
-PostgreSQL tables were the active source of sampled records.
-```
-
-Verified correction:
-
-```
-CSV attribute exports were the active pilot source.
-```
+A record can remain technically accessible while becoming functionally less understandable if its relational context is lost.
 
 ---
 
-## Correction 2 — Geographic Stripping
+# 36. Limitations
 
-Previous assumption:
+## 36.1 Structural Interpretation Limitation
 
-```
-Removing coordinates removed geographic grounding.
-```
+The use of geometric terminology is representational.
 
-Verified correction:
+Terms such as:
 
-```
-Textual geographic references must also be removed.
-```
+- state space;
+- vector relationship;
+- embedding;
+- geometry;
 
----
+describe organizational structures.
 
-## Correction 3 — Provenance Assertions
+They do not imply physical equivalence with quantum systems.
 
-Previous assumption:
-
-```
-Assertion service was unavailable.
-```
-
-Verified correction:
-
-```
-Assertion service operated locally, but no production caller was deployed.
-```
+Mathematical structure does not establish physical similarity.
 
 ---
 
-## Correction 4 — Execution Gateway
+## 36.2 Consciousness Limitation
 
-Previous assumption:
+This protocol does not measure subjective experience.
 
-```
-Production gateway was suitable for controlled experiments.
-```
-
-Verified correction:
-
-```
-Direct model invocation provided better experimental isolation.
-```
-
----
-
-## Correction 5 — Automated Raters
-
-Previous assumption:
-
-```
-LLM judges could potentially replace human raters.
-```
-
-Verified correction:
-
-```
-Fabrication-sensitive evaluation requires human blind review.
-```
-
----
-
-# A.9 Full-Scale Execution Plan
-
-The next execution phase requires:
-
-## Step 1
-
-Finalize the 60-unit sampling frame.
-
-Required strata:
-
-```
-20 civic entities
-20 knowledge records
-20 ambiguous referents
-```
-
----
-
-## Step 2
-
-Generate frozen grounded records.
-
-Each record must include:
-
-- semantic representation;
-- geographic context;
-- temporal context where available;
-- provenance information where active.
-
----
-
-## Step 3
-
-Generate stripped records.
-
-Apply the corrected procedure:
-
-- remove coordinates;
-- remove bounding geometry;
-- remove explicit geographic semantics;
-- preserve experimental identity.
-
----
-
-## Step 4
-
-Execute all three conditions.
-
-For each unit:
-
-```
-Grounded
-Stripped
-Re-grounded
-```
-
----
-
-## Step 5
-
-Conduct human blind scoring.
-
-Required outputs:
-
-- dimension scores;
-- qualitative notes;
-- fabrication flags.
-
----
-
-## Step 6
-
-Calculate reliability.
-
-Required:
-
-- Krippendorff's alpha;
-- weighted Cohen's kappa where applicable.
-
----
-
-# A.10 Final Technical Interpretation Boundary
-
-The appendix establishes a strict interpretation boundary.
-
-The experiment can evaluate:
+It measures:
 
 - semantic coherence;
-- grounding dependence;
-- identity stability;
-- contextual preservation.
+- referential stability;
+- contextual reasoning;
+- grounding dependence.
 
-The experiment cannot evaluate:
-
-- consciousness;
-- subjective experience;
-- quantum cognition;
-- Orch OR;
-- metaphysical theories of meaning.
-
-The strongest justified conclusion from a positive result would be:
-
-> Structured representational relationships improve measurable semantic coherence in this artificial intelligence system.
-
-Any stronger claim would exceed the evidence.
+Improved semantic performance does not imply consciousness.
 
 ---
 
-# A.11 Closing Statement
+## 36.3 Orch OR Limitation
 
-The purpose of this appendix is not to present a perfect system.
+A positive result would not validate Orch OR.
 
-It is to document the transition from architectural hypothesis to reproducible experiment.
+The experiment does not examine:
 
-The verification process revealed that several assumptions required correction:
+- microtubules;
+- quantum collapse;
+- biological cognition;
+- objective reduction.
 
-- schemas were not equivalent to active data;
-- implemented services were not equivalent to deployed pathways;
-- stored vectors were not equivalent to preserved meaning;
-- automated evaluation was not equivalent to reliable judgment.
+The relationship is indirect.
 
-These discoveries strengthen the protocol.
+The study examines only whether structured relationships influence artificial semantic behavior.
 
-A rigorous experiment does not avoid discovering uncertainty.
+## 36.4 Model Limitation
 
-It exposes uncertainty before drawing conclusions.
+The experiment evaluates one artificial intelligence architecture under one controlled execution pathway.
 
-The central research question remains:
+Results may depend on:
 
-> Does meaning require geometry?
+- model architecture;
+- parameter scale;
+- training data;
+- prompt design;
+- retrieval mechanism;
+- evaluation procedure.
 
-The answer cannot be established through architecture diagrams, philosophical argument, or system intention.
+A different model may demonstrate different relationships between grounding and semantic coherence.
 
-It requires controlled comparison.
+Therefore, conclusions should be interpreted as:
 
-This appendix establishes the conditions under which that comparison can be performed.
+> Evidence about the tested system under defined conditions.
+
+They should not be generalized to all artificial intelligence systems without replication.
+
+---
+
+## 36.5 Intervention Limitation
+
+The stripped condition attempts to remove structured relationships while preserving semantic content.
+
+This separation is difficult.
+
+Information exists in overlapping forms.
+
+For example:
+
+```
+West Virginia
+```
+
+may function simultaneously as:
+
+- a geographic identifier;
+- a cultural reference;
+- a semantic token;
+- a retrieval cue.
+
+Removing one layer may unintentionally modify another.
+
+The experiment therefore treats stripping as a controlled approximation rather than a perfect isolation of variables.
+
+---
+
+## 36.6 Human Evaluation Limitation
+
+Human scoring introduces interpretation variability.
+
+Even with:
+
+- blind evaluation;
+- gold reference packets;
+- standardized rubrics;
+
+different evaluators may apply criteria differently.
+
+This is why inter-rater reliability is required before inferential conclusions are drawn.
+
+---
+
+## 36.7 Sample Size Limitation
+
+The pilot contains three units.
+
+This is insufficient for statistical conclusions.
+
+The pilot establishes:
+
+- feasibility;
+- measurement validity;
+- failure classification;
+- execution stability.
+
+It does not establish effect size.
+
+The full n=60 study is required before evaluating the primary hypothesis.
+
+---
+
+# 37. Replication and Extension
+
+A future replication program should evaluate whether observed effects generalize across:
+
+- multiple language models;
+- multiple embedding systems;
+- different geographic domains;
+- non-geographic relational structures.
+
+Potential extensions include:
+
+## 37.1 Non-Geographic Grounding
+
+Testing whether other structured relationships produce similar effects:
+
+- organizational relationships;
+- legal relationships;
+- biological relationships;
+- historical relationships.
+
+---
+
+## 37.2 Scale Variation
+
+Comparing:
+
+- small local models;
+- large language models;
+- retrieval-augmented systems;
+- agentic systems.
+
+---
+
+## 37.3 Alternative Representations
+
+Testing whether effects occur across:
+
+- vector embeddings;
+- symbolic knowledge graphs;
+- graph neural networks;
+- hybrid architectures.
+
+---
+
+# 38. Expected Contributions
+
+This study contributes a framework for examining a practical question:
+
+> When artificial intelligence systems interpret information, which relationships are necessary to preserve meaning?
+
+The contribution is not a claim that geometry creates consciousness.
+
+The contribution is methodological.
+
+The protocol provides:
+
+1. a controlled intervention for removing structured constraints;
+2. a measurement framework for semantic degradation;
+3. a distinction between information loss and relational loss;
+4. an evaluation model separating uncertainty from fabrication;
+5. a reproducible pathway for studying grounded intelligence systems.
+
+---
+
+# 39. Broader Theoretical Implications
+
+If supported, the results would suggest that artificial intelligence systems may require more than larger collections of isolated information.
+
+They may require preservation of relationships among information.
+
+This would align with a broader computational principle:
+
+> Information is not only stored in elements. Information is also stored in relationships.
+
+Under this interpretation:
+
+A database containing the correct facts may still fail to preserve meaning if the relationships among those facts are destroyed.
+
+A map without spatial relationships is not merely a smaller map.
+
+It is a different object.
+
+A historical record without temporal relationships is not merely incomplete.
+
+It represents a different understanding of events.
+
+A provenance record without lineage relationships is not merely shorter.
+
+It changes the ability to evaluate trust.
+
+---
+
+# 40. Conclusion
+
+This registered-report style protocol tests a narrow but important question:
+
+> Does structured spatial-temporal grounding contribute measurably to semantic coherence in artificial intelligence systems?
+
+The study does not attempt to determine whether machines are conscious.
+
+It does not test whether Penrose's theories are correct.
+
+It does not establish a physical connection between artificial representations and spacetime geometry.
+
+Instead, it examines whether relationships among representations affect meaning preservation.
+
+The verified pilot demonstrated that:
+
+- the experimental mechanism can be executed;
+- structured constraints can be manipulated;
+- degradation patterns can be measured;
+- qualitative failure modes reveal information hidden by aggregate scores;
+- automated evaluation is insufficient for fabrication-sensitive judgment;
+- geographic grounding must be treated as semantic as well as numerical.
+
+The next phase requires:
+
+- corrected stripping procedures;
+- n=60 execution;
+- independent blind human evaluation;
+- reliability measurement;
+- preregistered statistical analysis.
+
+The central hypothesis remains open:
+
+> Meaning in artificial systems may depend not only on what information is present, but on how that information is structured.
+
+The experiment is designed to determine whether that relationship is measurable.
+
+---
+
+# Technical Appendix A
+
+# Verified Pilot Execution Summary
+
+## A.1 Purpose
+
+The pilot execution was conducted to validate:
+
+- experimental pathway;
+- condition generation;
+- scoring rubric;
+- identity continuity testing;
+- error classification.
+
+The pilot was exploratory.
+
+No confirmatory statistical claims are made.
+
+---
+
+## A.2 Execution Environment
+
+Controlled inference pathway:
+
+```
+localhost:11434/api/generate
+```
+
+Model:
+
+```
+llama3.1:8b-instruct-q4_K_M
+```
+
+Execution mode:
+
+- direct generation;
+- fixed prompts;
+- captured outputs;
+- condition-specific context injection.
+
+---
+
+## A.3 Pilot Artifacts
+
+Each execution produced:
+
+```
+execution_id
+record_id
+condition
+prompt
+response
+timestamp
+score
+notes
+```
+
+These artifacts represent the experimental record.
+
+---
+
+## A.4 Pilot Outcome Summary
+
+| Unit | Grounded | Stripped | Re-grounded | Primary Observation |
+|---|---:|---:|---:|---|
+| Arrow Concrete Co | 9 | 5 | 8 | Grounding loss produced measurable degradation |
+| Block 3014 | 10 | 9 | 10 | Initial stripping insufficient due to retained geographic semantics |
+| L 32 | 6 | 6 | 10 | Equal scores concealed different failure mechanisms |
+
+---
+
+## A.5 Pilot Lessons Incorporated
+
+The pilot produced five methodological revisions:
+
+1. Coordinates alone do not represent geographic grounding.
+2. Textual geographic references must be considered part of the intervention.
+3. Aggregate scores require qualitative error classification.
+4. Fabrication behavior must be measured separately from uncertainty.
+5. Human blind evaluation remains necessary.
+
+---
+
+# Appendix B
+
+# Proposed Final Analysis Workflow
+
+The final execution pipeline is:
+
+```
+Select unit
+    ↓
+Generate grounded condition
+    ↓
+Generate stripped condition
+    ↓
+Generate re-grounded condition
+    ↓
+Execute identical prompts
+    ↓
+Capture responses
+    ↓
+Blind anonymization
+    ↓
+Human scoring
+    ↓
+Reliability analysis
+    ↓
+Statistical comparison
+    ↓
+Interpretation
+```
+
+---
+
+# Appendix C
+
+# Final Research Position
+
+The strongest defensible claim available from this protocol is:
+
+> Structured spatial-temporal and relational constraints may contribute to semantic coherence in artificial intelligence systems, and this contribution can be experimentally tested through controlled removal and restoration of those constraints.
+
+Claims beyond this boundary require additional evidence.
+
+The experiment therefore treats meaning not as a mystical property assigned to machines, but as an observable relationship between representation, context, and behavior.
+
+The question remains empirical:
+
+> When relationships are removed, what happens to meaning?
+# Appendix D
+
+# Registered Report Submission Checklist and Reproducibility Statement
+
+## D.1 Protocol Registration Status
+
+This manuscript represents a Stage 1 registered-report style protocol.
+
+The primary objective of Stage 1 review is to evaluate:
+
+- theoretical justification;
+- experimental design;
+- operational definitions;
+- analysis plan;
+- methodological validity.
+
+The final experimental outcomes are not used to modify the preregistered hypothesis.
+
+---
+
+## D.2 Confirmatory Versus Exploratory Components
+
+The study separates confirmatory and exploratory elements.
+
+## Confirmatory Components
+
+The following elements are defined before final execution:
+
+- research question;
+- primary hypothesis;
+- three-condition experimental design;
+- inclusion and exclusion criteria;
+- scoring dimensions;
+- primary statistical comparisons;
+- human evaluation requirement.
+
+---
+
+## Exploratory Components
+
+The following elements are treated as exploratory:
+
+- newly observed failure categories;
+- qualitative error taxonomy;
+- unexpected model behaviors;
+- implementation discoveries;
+- engineering corrections.
+
+Exploratory findings may generate future hypotheses but are not treated as confirmatory evidence.
+
+---
+
+# D.3 Experimental Freeze Requirements
+
+Before full execution, the following elements should be frozen:
+
+```
+model version
+prompt templates
+sampling file
+stripping procedure
+re-grounding procedure
+scoring rubric
+evaluation instructions
+statistical analysis plan
+```
+
+Changes after execution begins must be documented.
+
+Any deviation from the registered procedure should be reported separately from the primary analysis.
+
+---
+
+# D.4 Data Management Plan
+
+Experimental artifacts should be preserved in a structured format.
+
+Minimum artifact set:
+
+```
+unit_definition.json
+condition_generation_log.json
+prompt_manifest.json
+execution_results.jsonl
+blind_scoring_forms.csv
+rater_reliability_results.csv
+analysis_script
+```
+
+Each result should maintain traceability between:
+
+- source unit;
+- experimental condition;
+- generated response;
+- evaluator judgment;
+- final score.
+
+---
+
+# D.5 Provenance Requirements
+
+Every experimental claim should be traceable to one of three evidence categories:
+
+## Category 1 — Direct Measurement
+
+Examples:
+
+- model outputs;
+- execution timestamps;
+- scores;
+- rater judgments.
+
+---
+
+## Category 2 — System Verification
+
+Examples:
+
+- database inspection;
+- service availability;
+- source-code review;
+- runtime testing.
+
+---
+
+## Category 3 — Conceptual Interpretation
+
+Examples:
+
+- theoretical implications;
+- philosophical discussion;
+- future hypotheses.
+
+Category 3 claims should never be presented as if they were Category 1 measurements.
+
+---
+
+# D.6 Reproducibility Requirements
+
+A successful replication should document:
+
+## Environment
+
+Including:
+
+- hardware;
+- operating system;
+- model runtime;
+- model identifier;
+- dependency versions.
+
+---
+
+## Data
+
+Including:
+
+- source records;
+- transformation procedures;
+- exclusion decisions.
+
+---
+
+## Execution
+
+Including:
+
+- prompts;
+- parameters;
+- inference settings;
+- output capture.
+
+---
+
+## Evaluation
+
+Including:
+
+- scoring instructions;
+- rater identities stored separately from responses;
+- reliability calculations.
+
+---
+
+# D.7 Negative Results Policy
+
+A null result will be considered informative.
+
+Possible outcomes include:
+
+## Outcome A
+
+```
+Grounded > Stripped
+Re-grounded > Stripped
+```
+
+Interpretation:
+
+Structured constraints appear to contribute to semantic coherence.
+
+---
+
+## Outcome B
+
+```
+Grounded ≈ Stripped
+Re-grounded ≈ Stripped
+```
+
+Interpretation:
+
+The tested constraints may not materially affect semantic behavior.
+
+---
+
+## Outcome C
+
+```
+Stripped > Grounded
+```
+
+Interpretation:
+
+The removed constraints may introduce unnecessary complexity, noise, or bias.
+
+---
+
+## Outcome D
+
+Mixed Effects
+
+Interpretation:
+
+Different semantic tasks may depend on different forms of structure.
+
+---
+
+# D.8 Ethical Considerations
+
+The study evaluates artificial intelligence behavior.
+
+It does not involve:
+
+- human subjects as experimental participants;
+- personal psychological inference;
+- claims about machine consciousness;
+- claims about human cognitive superiority.
+
+Community data used for grounding should be handled according to:
+
+- applicable privacy requirements;
+- data minimization principles;
+- provenance documentation;
+- responsible-use standards.
+
+---
+
+# D.9 Final Methodological Statement
+
+This protocol adopts a conservative scientific position:
+
+> A system may demonstrate improved semantic behavior because of structured representation without that result implying subjective experience, consciousness, or biological equivalence.
+
+The experiment therefore separates:
+
+```
+semantic coherence
+```
+
+from:
+
+```
+conscious awareness
+```
+
+and separates:
+
+```
+representational geometry
+```
+
+from:
+
+```
+physical spacetime geometry
+```
+
+The purpose is not to prove a philosophical conclusion.
+
+The purpose is to determine whether relational structure produces measurable changes in artificial intelligence behavior.
+
+---
+
+# Appendix E
+
+# Author Statement of Research Boundary
+
+The central contribution of this work is a testable engineering proposition:
+
+> Information systems may preserve meaning more effectively when relationships among information are maintained.
+
+The hypothesis is intentionally narrower than claims about artificial consciousness.
+
+The experiment asks:
+
+- Does location improve interpretation?
+- Does time improve continuity?
+- Does provenance improve trust?
+- Does restoring relationships recover lost coherence?
+
+These questions can be measured.
+
+The answers may inform the design of future intelligence systems that are:
+
+- more accountable;
+- more interpretable;
+- more context-aware;
+- more faithful to the communities and environments they represent.
+
+The result, whether positive or negative, contributes evidence toward understanding how artificial systems construct and preserve meaning.
