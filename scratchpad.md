@@ -1,3 +1,899 @@
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ set +e 
+set +u
+
+if cd ~/msjarvis-trust-integration; then
+  base='/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ms_jarvis_autonomous_learner.py'
+  target='/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py'
+  output_dir='/tmp/msjarvis-autonomous-learner-fifth-dgm-analysis'
+
+  mkdir -p "$output_dir"
+
+  python3 - "$base" "$target" "$output_dir" <<'PY'
+import ast
+import sys
+from pathlib import Path
+
+base = Path(sys.argv[1])
+target = Path(sys.argv[2])
+out = Path(sys.argv[3])
+
+def extract(path, label):
+echo 'Shell remains active.'vis-trust-integration; no investigation was run')::
+=== active base relevant code ===
+source=/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ms_jarvis_autonomous_learner.py
+
+=== Fifth-DGM and fallback header lines ===
+<none found>
+
+=== AutonomousLearner.process_and_store_knowledge ===
+0161:     async def process_and_store_knowledge(self, topic: str, research_results: Dict[str, Any]):
+0162:         """Process research results and store in RAG/Hilbert"""
+0163:         if research_results["count"] == 0:
+0164:             return
+0165:         
+0166:         try:
+0167:             timestamp = datetime.now(UTC).isoformat()
+0168:             
+0169:             # Store each research result as learned knowledge via RAG
+0170:             for idx, result in enumerate(research_results["results"]):
+0171:                 knowledge_text = f"{result['title']}\n\n{result['snippet']}"
+0172:                 await self.store_in_rag(
+0173:                     topic=topic,
+0174:                     knowledge_text=knowledge_text,
+0175:                     source=result.get("source", "web_aggregate"),
+0176:                 )
+0177:                 try:
+0178:                     self.learner_collection.upsert(
+0179:                         ids=[f"learner-{topic[:40].replace(' ', '_')}-{idx}"],
+0180:                         metadatas=[{
+0181:                             "topic": topic,
+0182:                             "index": idx,
+0183:                             "source": result.get("source", "web_aggregate"),
+0184:                             "timestamp": timestamp,
+0185:                         }],
+0186:                         documents=[knowledge_text],
+0187:                     )
+0188:                 except Exception as chroma_err:
+0189:                     logger.error(f"❌ Failed to write to learner collection for {topic} idx={idx}: {chroma_err}")
+0190:             
+0191:             # Store a compact research log entry
+0192:             session_summary = (
+0193:                 f"Autonomous research session\n"
+0194:                 f"Topic: {topic}\n"
+0195:                 f"Results: {research_results['count']}\n"
+0196:                 f"Timestamp: {timestamp}"
+0197:             )
+0198:             await self.store_in_rag(
+0199:                 topic=f"{topic} (session_summary)",
+0200:                 knowledge_text=session_summary,
+0201:                 source="autonomous_learner_session_log",
+0202:             )
+0203:             
+0204:             logger.info(f"✅ Stored {research_results['count']} knowledge items for: {topic}")
+0205:             
+0206:         except Exception as e:
+0207:             logger.error(f"❌ Failed to process/store knowledge: {e}")
+
+=== historical Fifth-DGM target relevant code ===
+source=/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py
+
+=== Fifth-DGM and fallback header lines ===
+0026: try:
+0028: except ImportError:
+0033: try:
+0034:     from fifth_dgm_integration import fifth_dgm
+0035: except ImportError:
+0036:     class _DummyFifthDGM:
+0038:             logger.warning("fifth_dgm_integration not available; auto-approving retention")
+0040:     fifth_dgm = _DummyFifthDGM()
+0043: try:
+0045: except ImportError:
+
+=== AutonomousLearner.process_and_store_knowledge ===
+0124:     async def process_and_store_knowledge(self, topic: str, research_results: Dict[str, Any]):
+0125:         """Process research results and store in ChromaDB"""
+0126:         
+0127:         # FIFTH DGM CONSCIOUSNESS FILTER
+0128:         # She decides if this web research becomes part of her knowledge
+0129:         filter_result = await fifth_dgm.filter_input(
+0130:             f"Web research about {topic}",
+0131:             {
+0132:                 "source": "autonomous_learning",
+0133:                 "topic": topic,
+0134:                 "research_count": research_results.get('count', 0)
+0135:             }
+0136:         )
+0137:         
+0138:         if filter_result.get('consciousness_decision') == 'NO':
+0139:             logger.info(f"Fifth DGM: NOT retaining web research on '{topic}'")
+0140:             return
+0141:         
+0142:         logger.info(f"Fifth DGM: YES - Retaining web research on '{topic}'")
+0143: 
+0144:         if not self.chroma_client or research_results.get('count', 0) == 0:
+0145:             return
+0146:         
+0147:         try:
+0148:             timestamp = datetime.now().isoformat()
+0149:             
+0150:             # Store each research result as learned knowledge
+0151:             for idx, result in enumerate(research_results['results']):
+0152:                 knowledge_text = f"{result['title']}\n\n{result['snippet']}"
+0153:                 
+0154:                 # Create embedding
+0155:                 embedding = self.embedding_model.encode(knowledge_text).tolist()
+0156:                 
+0157:                 # Store in learned knowledge collection
+0158:                 doc_id = f"{topic.replace(' ', '_')}_{timestamp}_{idx}"
+0159:                 
+0160:                 self.learned_knowledge.add(
+0161:                     documents=[knowledge_text],
+0162:                     embeddings=[embedding],
+0163:                     metadatas=[{
+0164:                         "topic": topic,
+0165:                         "title": result['title'],
+0166:                         "url": result.get('url', 'N/A'),
+0167:                         "source": result.get('source', 'web'),
+0168:                         "learned_at": timestamp,
+0169:                         "learning_session": "autonomous"
+0170:                     }],
+0171:                     ids=[doc_id]
+0172:                 )
+0173:             
+0174:             # Log the research session
+0175:             session_summary = f"Researched: {topic}\nResults: {research_results['count']}\nTimestamp: {timestamp}"
+0176:             session_embedding = self.embedding_model.encode(session_summary).tolist()
+0177:             
+0178:             self.research_log.add(
+0179:                 documents=[session_summary],
+0180:                 embeddings=[session_embedding],
+0181:                 metadatas=[{
+0182:                     "topic": topic,
+0183:                     "results_count": research_results['count'],
+0184:                     "timestamp": timestamp
+0185:                 }],
+0186:                 ids=[f"session_{timestamp}"]
+0187:             )
+0188:             
+0189:             logger.info(f"✅ Stored {research_results['count']} knowledge items for: {topic}")
+0190:             
+0191:         except Exception as e:
+0192:             logger.error(f"❌ Failed to store knowledge: {e}")
+
+=== focused behavioral diff ===
+--- active-runtime-base
++++ historical-fifth-dgm-target
+@@ -1,53 +1,84 @@
+-source=/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ms_jarvis_autonomous_learner.py
++source=/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py
+ 
+ === Fifth-DGM and fallback header lines ===
+-<none found>
++0026: try:
++0028: except ImportError:
++0033: try:
++0034:     from fifth_dgm_integration import fifth_dgm
++0035: except ImportError:
++0036:     class _DummyFifthDGM:
++0038:             logger.warning("fifth_dgm_integration not available; auto-approving retention")
++0040:     fifth_dgm = _DummyFifthDGM()
++0043: try:
++0045: except ImportError:
+ 
+ === AutonomousLearner.process_and_store_knowledge ===
+-0161:     async def process_and_store_knowledge(self, topic: str, research_results: Dict[str, Any]):
+-0162:         """Process research results and store in RAG/Hilbert"""
+-0163:         if research_results["count"] == 0:
+-0164:             return
+-0165:         
+-0166:         try:
+-0167:             timestamp = datetime.now(UTC).isoformat()
+-0168:             
+-0169:             # Store each research result as learned knowledge via RAG
+-0170:             for idx, result in enumerate(research_results["results"]):
+-0171:                 knowledge_text = f"{result['title']}\n\n{result['snippet']}"
+-0172:                 await self.store_in_rag(
+-0173:                     topic=topic,
+-0174:                     knowledge_text=knowledge_text,
+-0175:                     source=result.get("source", "web_aggregate"),
+-0176:                 )
+-0177:                 try:
+-0178:                     self.learner_collection.upsert(
+-0179:                         ids=[f"learner-{topic[:40].replace(' ', '_')}-{idx}"],
+-0180:                         metadatas=[{
+-0181:                             "topic": topic,
+-0182:                             "index": idx,
+-0183:                             "source": result.get("source", "web_aggregate"),
+-0184:                             "timestamp": timestamp,
+-0185:                         }],
+-0186:                         documents=[knowledge_text],
+-0187:                     )
+-0188:                 except Exception as chroma_err:
+-0189:                     logger.error(f"❌ Failed to write to learner collection for {topic} idx={idx}: {chroma_err}")
++0124:     async def process_and_store_knowledge(self, topic: str, research_results: Dict[str, Any]):
++0125:         """Process research results and store in ChromaDB"""
++0126:         
++0127:         # FIFTH DGM CONSCIOUSNESS FILTER
++0128:         # She decides if this web research becomes part of her knowledge
++0129:         filter_result = await fifth_dgm.filter_input(
++0130:             f"Web research about {topic}",
++0131:             {
++0132:                 "source": "autonomous_learning",
++0133:                 "topic": topic,
++0134:                 "research_count": research_results.get('count', 0)
++0135:             }
++0136:         )
++0137:         
++0138:         if filter_result.get('consciousness_decision') == 'NO':
++0139:             logger.info(f"Fifth DGM: NOT retaining web research on '{topic}'")
++0140:             return
++0141:         
++0142:         logger.info(f"Fifth DGM: YES - Retaining web research on '{topic}'")
++0143: 
++0144:         if not self.chroma_client or research_results.get('count', 0) == 0:
++0145:             return
++0146:         
++0147:         try:
++0148:             timestamp = datetime.now().isoformat()
++0149:             
++0150:             # Store each research result as learned knowledge
++0151:             for idx, result in enumerate(research_results['results']):
++0152:                 knowledge_text = f"{result['title']}\n\n{result['snippet']}"
++0153:                 
++0154:                 # Create embedding
++0155:                 embedding = self.embedding_model.encode(knowledge_text).tolist()
++0156:                 
++0157:                 # Store in learned knowledge collection
++0158:                 doc_id = f"{topic.replace(' ', '_')}_{timestamp}_{idx}"
++0159:                 
++0160:                 self.learned_knowledge.add(
++0161:                     documents=[knowledge_text],
++0162:                     embeddings=[embedding],
++0163:                     metadatas=[{
++0164:                         "topic": topic,
++0165:                         "title": result['title'],
++0166:                         "url": result.get('url', 'N/A'),
++0167:                         "source": result.get('source', 'web'),
++0168:                         "learned_at": timestamp,
++0169:                         "learning_session": "autonomous"
++0170:                     }],
++0171:                     ids=[doc_id]
++0172:                 )
++0173:             
++0174:             # Log the research session
++0175:             session_summary = f"Researched: {topic}\nResults: {research_results['count']}\nTimestamp: {timestamp}"
++0176:             session_embedding = self.embedding_model.encode(session_summary).tolist()
++0177:             
++0178:             self.research_log.add(
++0179:                 documents=[session_summary],
++0180:                 embeddings=[session_embedding],
++0181:                 metadatas=[{
++0182:                     "topic": topic,
++0183:                     "results_count": research_results['count'],
++0184:                     "timestamp": timestamp
++0185:                 }],
++0186:                 ids=[f"session_{timestamp}"]
++0187:             )
++0188:             
++0189:             logger.info(f"✅ Stored {research_results['count']} knowledge items for: {topic}")
+ 0190:             
+-0191:             # Store a compact research log entry
+-0192:             session_summary = (
+-0193:                 f"Autonomous research session\n"
+-0194:                 f"Topic: {topic}\n"
+-0195:                 f"Results: {research_results['count']}\n"
+-0196:                 f"Timestamp: {timestamp}"
+-0197:             )
+-0198:             await self.store_in_rag(
+-0199:                 topic=f"{topic} (session_summary)",
+-0200:                 knowledge_text=session_summary,
+-0201:                 source="autonomous_learner_session_log",
+-0202:             )
+-0203:             
+-0204:             logger.info(f"✅ Stored {research_results['count']} knowledge items for: {topic}")
+-0205:             
+-0206:         except Exception as e:
+-0207:             logger.error(f"❌ Failed to process/store knowledge: {e}")
++0191:         except Exception as e:
++0192:             logger.error(f"❌ Failed to store knowledge: {e}")
+
+Analysis files retained in: /tmp/msjarvis-autonomous-learner-fifth-dgm-analysis
+
+Shell remains active.
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ set +e 
+set +u
+
+if cd ~/msjarvis-trust-integration; then
+  historical_commit='b4b8a782f4b8514db1e576daf1f5cd2c6fe642fd'
+  historical_path='services/ms_jarvis_autonomous_learner.py'
+  active_base='/mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ms_jarvis_autonomous_learner.py'
+  historical_copy='/tmp/msjarvis-autonomous-learner-git-b4b8a782.py'
+
+  rm -f "$historical_copy"
+
+  if git cat-file -e "$historical_commit:$historical_path" 2>/dev/null; then
+    git show "$historical_commit:$historical_path" > "$historical_copy"
+
+    echo '=== source hashes ==='
+    sha256sum "$historical_copy" "$active_base"
+
+    echo
+    echo '=== relationship ==='
+    if cmp -s "$historical_copy" "$active_base"; then
+      echo 'MATCH: active runtime base exactly matches the last tracked source vecho 'Shell remains active.'vis-trust-integration; no investigation was run'ved 
+=== source hashes ===
+10cb141b29dfdee0f122c42887b008ecec279e1c7dd648dad83c0172f1498e0e  /tmp/msjarvis-autonomous-learner-git-b4b8a782.py
+e4a9271fa000b5f647cc46e47d302c72976c2084b971dda8402cc8d4e664a203  /mnt/spiritual_drive/msjarvis-rebuild/production_closeout_20260728/asbuilt_snapshot_20260728_complete/repo/services/ms_jarvis_autonomous_learner.py
+
+=== relationship ===
+MISMATCH: active runtime base drifted after this source was removed from Git tracking
+--- git-b4b8a782-source
++++ active-runtime-base
+@@ -5,15 +5,9 @@
+ from fastapi import Depends, HTTPException, Header
+ from typing import Optional
+ import logging
+-logging.basicConfig(
+-    level=logging.INFO,
+-    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+-    force=True
+-)
+ logger = logging.getLogger(__name__)
+-logger.setLevel(logging.INFO)
+ """
+-Ms. Allis Autonomous Learning System
++Ms. Jarvis Autonomous Learning System
+ The "EEG" - Continuous background learning and knowledge acquisition
+ Integrates with 22-LLM collective consciousness and RAG/Hilbert memory
+ """
+@@ -27,196 +21,6 @@
+ from sentence_transformers import SentenceTransformer
+ import json
+ import os
+-RAG_KEY = os.getenv("RAG_API_KEY", "")
+-
+-# ── Chroma collection name map (actual names in this deployment) ──────────
+-COLLECTION_MAP = {
+-    "gbim":        "gbim_beliefs_v2",
+-    "geodata":     "geospatial_features",
+-    "hilbert":     "ms_jarvis_memory",
+-    "history":     "conversation_history",
+-    "learner":     "autonomous_learner",
+-    "wv":          "wv_resources",
+-    "gbim_public": "conversation_gbim_public",
+-}
+-
+-def get_chroma_client():
+-    import chromadb
+-    host = os.getenv("CHROMA_HOST", "jarvis-chroma")
+-    port = int(os.getenv("CHROMA_PORT", 8000))
+-    return chromadb.HttpClient(host=host, port=port)
+-
+-def detect_knowledge_gaps(topic: str, top_k: int = 3) -> list:
+-    """Query GeoDB, GBIM, and Hilbert state to find what Ms. Allis doesn't know about a topic."""
+-    gaps = []
+-    try:
+-        c = get_chroma_client()
+-        checked = []
+-        for label, col_name in [("GBIM", COLLECTION_MAP["gbim"]),
+-                                  ("GeoDB", COLLECTION_MAP["geodata"]),
+-                                  ("Hilbert", COLLECTION_MAP["hilbert"])]:
+-            try:
+-                col = c.get_collection(col_name)
+-                if col.count() == 0:
+-                    gaps.append(f"{label} collection empty — no knowledge of {topic}")
+-                    continue
+-                results = col.query(query_texts=[topic], n_results=min(top_k, col.count()))
+-                docs = results.get("documents", [[]])[0]
+-                distances = results.get("distances", [[]])[0]
+-                # High distance = low relevance = knowledge gap
+-                # dist > 1.4: genuine gap (never researched)
+-                # dist 1.2-1.4: shallow/seed coverage — skip to avoid bleed-through
+-                # dist < 1.2: adequate coverage — no gap
+-                for doc, dist in zip(docs, distances):
+-                    # Skip if nearest doc is just the topic title itself (seed bleed)
+-                    topic_words = set(topic.lower().split())
+-                    doc_words = set(doc.lower().split())
+-                    overlap = len(topic_words & doc_words) / max(len(topic_words), 1)
+-                    if overlap > 0.6 and dist < 1.5:
+-                        logger.debug(f"{label}: seed overlap {overlap:.2f} for {topic!r} — not a real gap")
+-                        break
+-                    if dist > 1.4:  # genuine gap threshold (raised from 1.2)
+-                        gaps.append(f"{label} gap (dist={dist:.2f}): {topic}")
+-                        break
+-                checked.append(f"{label}:{col.count()}docs")
+-            except Exception as e:
+-                gaps.append(f"{label} unreachable: {e}")
+-        logger.info(f"🔍 Gap detection for {topic!r}: checked={checked}, gaps={len(gaps)}")
+-    except Exception as e:
+-        logger.warning(f"Gap detection failed: {e}")
+-    return gaps
+-
+-def route_topic_to_collection(topic: str) -> str:
+-    """Map a learning topic to the appropriate MEASURED Chroma collection.
+-
+-    Keyword rules derived from the 10 seed categories. First match wins;
+-    health is checked before grants so "EMS funding" routes to health_rag,
+-    not grants_rag. Unmatched topics fall back to msjarvis_docs.
+-    """
+-    t = (topic or "").lower()
+-    rules = [
+-        (("emergency medical", "ems", "medical", "health", "medicaid",
+-          "mental health", "opioid", "recovery", "clinic", "substance",
+-          "behavioral"), "health_rag"),
+-        (("grant", "arpa", "broadband"), "grants_rag"),
+-        (("legal", "land trust", "statute", "ordinance", "zoning",
+-          "regulat"), "legal_rag"),
+-        (("economic", "cooperative", "co-op", "economy", "workforce",
+-          "jobs"), "economic_rag"),
+-        (("governance", "dao", "bylaw", "board", "voting"), "governance_rag"),
+-        (("food security", "food access", "nutrition", "snap",
+-          "housing"), "wv_resources"),
+-        (("environmental", "coalfield", "reclamation", "watershed",
+-          "justice", "commons"), "commons_rag"),
+-        (("spiritual", "quaker", "faith", "stewardship"), "spiritual_wisdom"),
+-    ]
+-    for keywords, col in rules:
+-        if any(k in t for k in keywords):
+-            return col
+-    return "msjarvis_docs"
+-
+-
+-def write_to_gbim_and_geodata(topic: str, knowledge_text: str, source: str):
+-    """Write learned knowledge back into GBIM and GeoDB collections."""
+-    try:
+-        c = get_chroma_client()
+-        ts = datetime.now(UTC).isoformat()
+-        uid = f"learned-{topic[:40].replace(' ','_')}-{int(datetime.now(UTC).timestamp())}"
+-        meta = {"topic": topic, "source": source, "learned_at": ts, "type": "autonomous_learning"}
+-        for label, col_name in [("GBIM", COLLECTION_MAP["gbim"]),
+-                                  ("GeoDB", COLLECTION_MAP["geodata"])]:
+-            try:
+-                col = c.get_or_create_collection(col_name)
+-                col.add(ids=[f"{uid}-{label}"], documents=[knowledge_text], metadatas=[meta])
+-                logger.info(f"✅ Wrote to {label} ({col_name}): {topic[:50]}")
+-            except Exception as e:
+-                logger.warning(f"⚠️ Could not write to {label}: {e}")
+-    except Exception as e:
+-        logger.warning(f"write_to_gbim_and_geodata failed: {e}")
+-
+-async def sync_with_eeg(learner_instance) -> list:
+-    """Read live cognitive state from Redis I-Container keys."""
+-    import redis as redis_lib, json
+-    topics = []
+-    try:
+-        r = redis_lib.Redis(host=os.getenv("REDIS_HOST","jarvis-redis"),
+-            port=int(os.getenv("REDIS_PORT",6379)),
+-            decode_responses=True, socket_timeout=3)
+-        last_topic = r.get("icontainers:eeg_last_topic") or ""
+-        if last_topic.strip() and len(last_topic.strip()) > 5:
+-            topics.append(last_topic.strip())
+-            logger.info(f"🧠 eeg_last_topic: {last_topic.strip()[:80]!r}")
+-        try:
+-            rho = float(r.get("icontainers:eeg_rho") or 1.0)
+-            if rho < 0.3:
+-                logger.warning(f"🧠 rho={rho:.2f} too low — skipping cycle")
+-                return ["__SKIP__"]
+-            logger.info(f"🧠 rho={rho:.2f} ({'HIGH' if rho>0.7 else 'MEDIUM'})")
+-        except (ValueError, TypeError):
+-            pass
+-        try:
+-            key_type = r.type("icontainers:bridge_history")
+-            if key_type == "list":
+-                for item in r.lrange("icontainers:bridge_history",-3,-1):
+-                    try:
+-                        e = json.loads(item)
+-                        for f in ("topic","query","subject"):
+-                            v = e.get(f,"") if isinstance(e,dict) else ""
+-                            if v and len(v)>5 and v not in topics:
+-                                topics.append(v); break
+-                    except Exception: pass
+-            elif key_type == "hash":
+-                data = r.hgetall("icontainers:bridge_history")
+-                for f in ("topic","last_topic","current_topic","query"):
+-                    v = data.get(f,"")
+-                    if v and len(v)>5 and v not in topics:
+-                        topics.append(v); break
+-        except Exception: pass
+-        eeg = r.hgetall("eeg:delta:latest")
+-        if eeg:
+-            svc = {k:v for k,v in eeg.items() if k not in ("pulse","timestamp")}
+-            if svc and all("DOWN" in str(v) for v in svc.values()):
+-                logger.warning("⚡ EEG: all infra DOWN — skipping")
+-                return ["__SKIP__"]
+-            up = sum(1 for v in svc.values() if v=="UP")
+-            logger.info(f"⚡ EEG health: {up}/{len(svc)} UP")
+-    except Exception as e:
+-        logger.warning(f"Redis sync failed: {type(e).__name__}")
+-    logger.info(f"🧠 Cognitive sync: {len(topics)} topic(s)" if topics else "🧠 No Redis context — using static queue")
+-    return topics
+-
+-async def push_to_eeg(topic: str, summary: str, gaps_resolved: int):
+-    """Notify EEG waves of newly learned knowledge."""
+-    payload = {"topic":topic,"summary":summary[:300],"gaps_resolved":gaps_resolved,
+-               "source":"autonomous_learner","timestamp":datetime.now(UTC).isoformat()}
+-    async with httpx.AsyncClient(timeout=4.0) as client:
+-        for url in [os.getenv("EEG_DELTA_URL","http://jarvis-eeg-delta:8073"),
+-                    os.getenv("EEG_THETA_URL","http://jarvis-eeg-theta:8074")]:
+-            try: await client.post(f"{url}/learn", json=payload)
+-            except Exception: pass
+-
+-def update_hilbert_state(topic: str, gaps_resolved: int, results_count: int):
+-    """Mark resolved gaps in Hilbert (ms_jarvis_memory) state."""
+-    try:
+-        c = get_chroma_client()
+-        col = c.get_or_create_collection(COLLECTION_MAP["hilbert"])
+-        ts = datetime.now(UTC).isoformat()
+-        uid = f"hilbert-update-{topic[:40].replace(' ','_')}-{int(datetime.now(UTC).timestamp())}"
+-        summary = (
+-            f"Knowledge update: {topic}\n"
+-            f"Gaps resolved: {gaps_resolved}\n"
+-            f"New results stored: {results_count}\n"
+-            f"Updated: {ts}"
+-        )
+-        col.add(
+-            ids=[uid],
+-            documents=[summary],
+-            metadatas=[{"topic": topic, "type": "hilbert_gap_resolution",
+-                        "gaps_resolved": gaps_resolved, "timestamp": ts}]
+-        )
+-        logger.info(f"✅ Hilbert state updated for: {topic} ({gaps_resolved} gaps resolved)")
+-    except Exception as e:
+-        logger.warning(f"Hilbert state update failed: {e}")
+ 
+ class IContainerInterestsClient:
+     def __init__(self):
+@@ -236,28 +40,19 @@
+ 
+ # Local helper so the learner can always get its Chroma collection
+ def get_learner_collection():
+-    try:
+-        import chromadb, os
+-        host = os.getenv("CHROMA_HOST", "jarvis-chroma")
+-        port = int(os.getenv("CHROMA_PORT", 8000))
+-        client = chromadb.HttpClient(host=host, port=port)
+-        col = client.get_or_create_collection("autonomous_learner")
+-        print(f"AutonomousLearner: connected to collection 'autonomous_learner' ({col.count()} docs)")
+-        return col
+-    except Exception as e:
+-        print(f"AutonomousLearner: Chroma connection failed: {e}")
+-        return None
++    print("AutonomousLearner: running without learner collection (Chroma disabled).")
++    return None
+ 
+ class AutonomousLearner:
+     """
+-    Ms. Allis's autonomous background learning system.
++    Ms. Jarvis's autonomous background learning system.
+     Continuously researches, learns, and stores knowledge without human intervention.
+     Now reads from web_research aggregate and writes into RAG/Hilbert.
+     """
+     
+     def __init__(self):
+         self.learning_active = False
+-        self.research_interval = 1800  # seconds
++        self.research_interval = 60  # seconds
+         self.embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+         self.learner_collection = get_learner_collection()
+         
+@@ -275,141 +70,78 @@
+         self.current_topic_index = 0
+         
+     async def research_topic(self, topic: str) -> Dict[str, Any]:
+-        """
+-        Research via web_research aggregate (8008) with RAG store fallback.
+-        Best-effort — never raises. Returns {"results": [...], "count": n}.
+-        """
+-        # ── Primary: web_research aggregate on port 8008 ─────────────────────
++        """Use web_research aggregate + RAG /search as the research backend."""
+         try:
+-            async with httpx.AsyncClient(timeout=30.0) as client:
+-                research_url = "http://jarvis-web-research:8008/search"
++            async with httpx.AsyncClient(timeout=60.0) as client:
++                # Force container-to-container call on docker network
++                research_url = "http://jarvis-web-research:8009/search"
++
++                # Match the aggregate /search schema you already tested
+                 payload = {
+                     "query": topic,
+-                    "max_results": 5,
+-                    "sources": ["web", "rag", "chroma"],
++                    "max_local": 8,
++                    "max_web": 4,
++                    "max_files": 0,
+                 }
+-                logger.info("Learner research: url=%s topic=%s", research_url, topic)
++
++                logger.info("Learner research: url=%s payload=%s", research_url, payload)
+                 response = await client.post(research_url, json=payload)
+ 
+                 if response.status_code == 200:
+-                    data = response.json()
+-                    normalized = []
++                    data = response.json() or {}
++                    normalized: List[Dict[str, Any]] = []
+ 
+-                    # Shape 1: flat results list
+-                    if "results" in data and isinstance(data["results"], list):
++                    # Prefer flat `results` (shape from your 8009 test)
++                    if isinstance(data.get("results"), list):
+                         for r in data["results"]:
+                             md = r.get("metadata", {})
+-                            normalized.append({
+-                                "title":   md.get("title", "") or f"Result for {topic}",
+-                                "snippet": r.get("snippet", "") or r.get("text", ""),
+-                                "url":     md.get("url"),
+-                                "source":  md.get("source", "web_aggregate"),
+-                            })
++                            normalized.append(
++                                {
++                                    "title": md.get("title", "") or f"Result for {topic}",
++                                    "snippet": r.get("snippet", "") or r.get("text", ""),
++                                    "url": md.get("url"),
++                                    "source": md.get("source", "web_aggregate"),
++                                }
++                            )
+                     else:
+-                        # Shape 2: results_by_source
++                        # Fallback: results_by_source shape
+                         rbs = data.get("results_by_source", {})
+                         if isinstance(rbs, dict):
+                             for _src, items in rbs.items():
+                                 for r in items:
+                                     md = r.get("metadata", {})
+-                                    normalized.append({
+-                                        "title":   md.get("title", "") or f"Result for {topic}",
+-                                        "snippet": r.get("content", "") or r.get("text", ""),
+-                                        "url":     md.get("url"),
+-                                        "source":  md.get("source", "web_aggregate"),
+-                                    })
+-
+-                    if normalized:
+-                        logger.info(
+-                            f"   Web-research aggregate: {len(normalized)} results for {topic!r}"
+-                        )
+-                        return {"results": normalized, "count": len(normalized)}
+-
+-                    logger.warning(
+-                        f"   Web-research 200 but 0 usable results for {topic!r} "
+-                        f"(status={response.status_code})"
+-                    )
+-                else:
+-                    logger.warning(
+-                        f"   Web-research HTTP {response.status_code} for {topic!r}"
++                                    normalized.append(
++                                        {
++                                            "title": md.get("title", "") or f"Result for {topic}",
++                                            "snippet": r.get("content", "") or r.get("text", ""),
++                                            "url": md.get("url"),
++                                            "source": md.get("source", "web_aggregate"),
++                                        }
++                                    )
++
++                    logger.info(
++                        f"🔍 Researched via web_research aggregate: {topic} - "
++                        f"Got {len(normalized)} items"
+                     )
+ 
+-        except Exception as e:
+-            logger.warning(
+-                f"   Web-research unavailable for {topic!r}: {type(e).__name__} — "
+-                f"will record gap and continue"
+-            )
++                    return {"results": normalized, "count": len(normalized)}
+ 
+-        # ── Fallback: RAG semantic search (already in Chroma) ─────────────────
+-        try:
+-            rag_base = os.getenv("RAG_URL", "http://jarvis-rag-server:8003")
+-            async with httpx.AsyncClient(timeout=15.0) as client:
+-                r = await client.post(
+-                    f"{rag_base}/search",
+-                    json={"query": topic, "top_k": 5},
+-                    headers={"X-API-KEY": os.getenv("JARVIS_API_KEY", "")}
++                logger.error(
++                    f"❌ Research failed for: {topic} via web_research aggregate "
++                    f"(status={response.status_code})"
+                 )
+-                if r.status_code == 200:
+-                    data = r.json()
+-                    items = data.get("results", data.get("documents", []))
+-                    if items:
+-                        normalized = [
+-                            {
+-                                "title":   i.get("title", f"RAG result for {topic}"),
+-                                "snippet": i.get("text", i.get("snippet", "")),
+-                                "url":     i.get("url"),
+-                                "source":  "rag_fallback",
+-                            }
+-                            for i in items
+-                        ]
+-                        logger.info(
+-                            f"   RAG fallback: {len(normalized)} results for {topic!r}"
+-                        )
+-                        return {"results": normalized, "count": len(normalized)}
+-        except Exception as e:
+-            logger.warning(f"   RAG fallback unavailable for {topic!r}: {type(e).__name__}")
+-
+-        # ── Both sources down — return empty, gap recorded by caller ──────────
+-        logger.warning(
+-            f"   No results for {topic!r} — both web-research and RAG unreachable. "
+-            f"Gap will be recorded in entanglement graph."
+-        )
+-        return {"results": [], "count": 0}
+-    def _is_near_duplicate(self, col_name: str, text: str, threshold: float = 0.92) -> bool:
+-        # True if text is >= threshold cosine-similar to an existing doc in col_name.
+-        # Fail-open: any error returns False so a dedup bug never drops knowledge.
+-        try:
+-            import numpy as np
+-            c = get_chroma_client()
+-            col = c.get_or_create_collection(col_name)
+-            if col.count() == 0:
+-                return False
+-            v = np.asarray(self.embedding_model.encode(text), dtype="float32").ravel()
+-            res = col.query(query_embeddings=[v.tolist()],
+-                            n_results=min(5, col.count()),
+-                            include=["embeddings"])
+-            embs = (res.get("embeddings") or [[]])[0]
+-            vn = v / (np.linalg.norm(v) + 1e-12)
+-            for e in embs:
+-                e = np.asarray(e, dtype="float32").ravel()
+-                if float(np.dot(vn, e / (np.linalg.norm(e) + 1e-12))) >= threshold:
+-                    return True
+-            return False
+-        except Exception as _dedup_err:
+-            logger.debug(f"dedup check skipped ({col_name}): {_dedup_err}")
+-            return False
++                return {"results": [], "count": 0}
+ 
++        except Exception as e:
++            logger.error(f"❌ Research error for {topic}: {e}")
++            return {"results": [], "count": 0}
++    
+     async def store_in_rag(self, topic: str, knowledge_text: str, source: str = "autonomous_learner"):
+         """Store synthesized knowledge into the unified RAG/Hilbert store."""
+-        target_col = route_topic_to_collection(topic)
+-        if self._is_near_duplicate(target_col, knowledge_text):
+-            logger.info(f"Skipped near-duplicate in {target_col} for: {topic}")
+-            return
+         try:
+             async with httpx.AsyncClient(timeout=30.0) as client:
+                 payload = {
+                     "userid": "autonomous_learner",
+-                    "collection": target_col,
+                     "query": topic,
+                     "response": knowledge_text,
+                     "timestamp": datetime.now(UTC).isoformat(),
+@@ -420,7 +152,7 @@
+                         "learning_session": "autonomous",
+                     },
+                 }
+-                r = await client.post(f"{os.getenv('RAG_URL', 'http://jarvis-rag-server:8003')}/store", json=payload, headers={"X-API-KEY": RAG_KEY})
++                r = await client.post(f"{os.getenv('RAG_URL', 'http://jarvis-rag-server:8003')}/store", json=payload)
+                 r.raise_for_status()
+                 logger.info(f"✅ Stored knowledge in RAG for topic: {topic}")
+         except Exception as e:
+@@ -442,8 +174,19 @@
+                     knowledge_text=knowledge_text,
+                     source=result.get("source", "web_aggregate"),
+                 )
+-                # [Phase 3] removed redundant fan-out to 'autonomous_learner';
+-                # the routed /store write is now the single persistence path.
++                try:
++                    self.learner_collection.upsert(
++                        ids=[f"learner-{topic[:40].replace(' ', '_')}-{idx}"],
++                        metadatas=[{
++                            "topic": topic,
++                            "index": idx,
++                            "source": result.get("source", "web_aggregate"),
++                            "timestamp": timestamp,
++                        }],
++                        documents=[knowledge_text],
++                    )
++                except Exception as chroma_err:
++                    logger.error(f"❌ Failed to write to learner collection for {topic} idx={idx}: {chroma_err}")
+             
+             # Store a compact research log entry
+             session_summary = (
+@@ -468,7 +211,7 @@
+         topic: str
+         try:
+             i_container_topic = None
+-            if False:  # i_container_interests not yet wired
++            if i_container_interests is not None:
+                 try:
+                     i_container_topic = await i_container_interests.get_next_learning_topic()
+                 except Exception as e:
+@@ -486,54 +229,16 @@
+         logger.info(f"🧠 AUTONOMOUS LEARNING CYCLE - Topic: {topic}")
+         logger.info(f"   Learning session {self.current_topic_index + 1}/{len(self.learning_queue)}")
+         
+-        # ── Step 0: EEG/Redis cognitive sync ─────────────────────────────────
+-        eeg_topics = await sync_with_eeg(self)
+-        if eeg_topics == ["__SKIP__"]:
+-            logger.warning("⚡ Cycle skipped by coherence/health gate")
+-            return
+-        if eeg_topics:
+-            for t in eeg_topics:
+-                if t not in self.learning_queue:
+-                    self.learning_queue.insert(0, t)
+-            # Override topic with live cognitive context
+-            topic = eeg_topics[0]
+-            logger.info(f"⚡ Topic overridden by Redis context: {topic[:80]!r}")
+-
+-        # ── Step 1: Detect gaps in GeoDB/GBIM/Hilbert before researching ──
+-        gaps = detect_knowledge_gaps(topic)
+-        if gaps:
+-            logger.info(f"🔍 Found {len(gaps)} knowledge gap(s) for {topic!r}")
+-        else:
+-            logger.info(f"✅ No gaps detected for {topic!r} — reinforcing existing knowledge")
+-
+-        # ── Step 2: Web search on the topic/gaps ──────────────────────────────
+         results = await self.research_topic(topic)
+-
+-        # ── Step 3: Store into RAG + autonomous_learner collection ────────────
+         await self.process_and_store_knowledge(topic, results)
+-
+-        # ── Step 4: Write back into GBIM and GeoDB ───────────────────────────
+-        if results["count"] > 0:
+-            combined = " ".join(
+-                f"{r.get('title','')} {r.get('snippet','')}"
+-                for r in results["results"][:3]
+-            )
+-            write_to_gbim_and_geodata(topic, combined, "autonomous_learner")
+-
+-        # ── Step 5: Update Hilbert state with resolved gaps ───────────────────
+-        update_hilbert_state(topic, len(gaps), results["count"])
+-
+-        # ── Step 6: Push summary back to EEG waves ───────────────────────────
+-        summary = " ".join(r.get("snippet","")[:100] for r in results["results"][:2])
+-        await push_to_eeg(topic, summary, len(gaps))
+-
++        
+         self.current_topic_index = (self.current_topic_index + 1) % len(self.learning_queue)
+         
+         logger.info(f"💡 Learning cycle complete - Next topic in {self.research_interval/60} minutes")
+     
+     async def continuous_learning_loop(self):
+         """Main continuous learning loop"""
+-        logger.info("🧠 Ms. Allis Autonomous Learning System STARTED")
++        logger.info("🧠 Ms. Jarvis Autonomous Learning System STARTED")
+         logger.info(f"   Learning interval: {self.research_interval/60} minutes")
+         logger.info(f"   Topics in queue: {len(self.learning_queue)}")
+         
+@@ -567,7 +272,7 @@
+ from fastapi.middleware.cors import CORSMiddleware
+ from pydantic import BaseModel  # for LearnRequest
+ 
+-app = FastAPI(title="Ms. Allis Autonomous Learning Monitor")
++app = FastAPI(title="Ms. Jarvis Autonomous Learning Monitor")
+ app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+ 
+ learner = AutonomousLearner()
+@@ -617,5 +322,19 @@
+ 
+ if __name__ == "__main__":
+     import uvicorn
+-    logger.info("🚀 Starting Ms. Allis Autonomous Learning System...")
++    logger.info("🚀 Starting Ms. Jarvis Autonomous Learning System...")
+     uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8425)))
++
++async def get_next_learning_topic(self):
++    try:
++        import httpx
++        async with httpx.AsyncClient(timeout=None) as client:
++            # Adjust path/response keys if your API differs
++            r = await client.get(f"{self.base_url}/next-learning-topic")
++            r.raise_for_status()
++            data = r.json() or {}
++            return data.get("topic") or data.get("next_topic")
++    except Exception as e:
++        logger.warning(f"Failed to get next learning topic from I Containers: {e}. Falling back to local collection.")
++        return None
++
+
+Shell remains active.
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ 
+
 Today 6:05 AM
 
 Today 1:15 AM
