@@ -1,782 +1,1843 @@
-===== CONTAINER RUNTIME =====
-image=msjarvis-rebuild-jarvis-20llm-production
-command=["python3","ai_server_20llm_PRODUCTION.py"]
-entrypoint=null
-working_dir=/app/services
-mounts=/mnt/spiritual_drive/msjarvis-rebuild/services -> /app/services ro=true
-
-
-===== CONTRACT-PROBE LOGS =====
-2026-08-10T13:45:37.559449688Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['system_overrides']
-2026-08-10T13:45:37.559449689Z INFO:     172.18.0.17:44150 - "POST /chat_with_context HTTP/1.1" 200 OK
-2026-08-10T13:46:37.710914446Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['system_overrides']
-2026-08-10T13:46:37.710952115Z INFO:     172.18.0.17:41000 - "POST /chat_with_context HTTP/1.1" 200 OK
-2026-08-10T13:48:37.386590250Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['system_overrides']
-2026-08-10T13:48:37.386792668Z INFO:     172.18.0.17:37354 - "POST /chat_with_context HTTP/1.1" 200 OK
-2026-08-10T13:51:36.910118514Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['system_overrides']
-2026-08-10T13:51:36.910153538Z INFO:     172.18.0.17:57758 - "POST /chat_with_context HTTP/1.1" 200 OK
-2026-08-10T13:56:38.595294015Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['system_overrides']
-2026-08-10T13:56:38.595631528Z INFO:     172.18.0.17:39864 - "POST /chat_with_context HTTP/1.1" 200 OK
-2026-08-10T13:56:56.461891452Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['contains_experimental_record', 'protocol_contract_probe', 'purpose', 'record_count']
-2026-08-10T13:56:56.461956500Z INFO:__main__:20llm-context-debug keys=['contains_experimental_record', 'protocol_contract_probe', 'purpose', 'record_count'] has_judge_context_packet=False
-2026-08-10T13:56:56.461974390Z INFO:__main__:20llm-context-debug
-2026-08-10T13:56:56.462267654Z INFO:__main__:💬 Contextual query: Return exactly the text PROTOCOL_CONTRACT_OK and n...
-2026-08-10T13:58:22.738482467Z INFO:__main__:   [20/21] dispatching DeepSeek Coder...
-2026-08-10T13:58:31.290509029Z INFO:__main__:   [21/21] dispatching LLaMA 2...
-2026-08-10T14:00:03.945201129Z INFO:httpx:HTTP Request: POST http://llm22-proxy:8222/generate "HTTP/1.1 504 Gateway Timeout"
-2026-08-10T14:00:03.960390542Z WARNING:__main__:⚠️  LLaMA 3.1: HTTP 504 from proxy=http://llm22-proxy:8222/generate; body='{"detail":"LLaMA3 proxy timeout/error: "}'
-2026-08-10T14:00:24.473804731Z INFO:__main__:✅ Complete: 20/21 responded (elapsed=208.0s, parallel max=8)
-2026-08-10T14:01:38.838745240Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['system_overrides']
-2026-08-10T14:01:38.839181227Z INFO:     172.18.0.17:39242 - "POST /chat_with_context HTTP/1.1" 200 OK
-
-===== ANSWER-ROUTE SOURCE INDEX =====
-/app/services/ms_jarvis_email_service.py:51:        return {"status": "error", "message": "Auth failed"}
-/app/services/ms_jarvis_email_service.py:69:        return {"status": "error", "message": r.text}
-/app/services/ms_jarvis_email_service.py:97:        return {"status": "error", "message": r.text}
-/app/services/msjarvis-rebuild-nbb_spiritual_root-1_main.py:13:    return {"message": message}
-/app/services/ms_jarvis_web_research_v2.py:53:        return {"status": "error", "message": str(e), "results": []}
-/app/services/working_full_pipeline.py:101:    return {"response": final, "model": "egeria-warm", "filtered": True}
-/app/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:155:            return unified_response
-/app/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:174:        return fallback_response
-/app/services/service_discovery.py:161:                return response.status_code == 200
-/app/services/implement_judge_pituitary_fixed.py:35:                    return resp.json().get("response", response)
-/app/services/implement_judge_pituitary_fixed.py:39:        return response'''
-/app/services/implement_judge_pituitary_fixed.py:54:            return response_list[0]
-/app/services/implement_judge_pituitary_fixed.py:86:            return response
-/app/services/ms_jarvis_microsoft_integration_FIXED.py:127:            return response.json() if response.content else {}
-/app/services/main_with_rag.py:48:    return response
-/app/services/msjarvis_gateway_v2_final.py:30:            return response.json()
-/app/services/msjarvis_gateway_v2_final.py:64:    Then return a combined response.
-/app/services/msjarvis_gateway_v2_final.py:110:    return {"status": "error", "message": "Service unavailable", "sessionid": sessionid}
-/app/services/ms_jarvis_auto_service.py:94:            return response.status_code == 200
-/app/services/ms_jarvis_auto_service.py:188:        return response.status_code == 200
-/app/services/port_9001_ui_DIRECT.py:116:        return {"response": "Please provide a message"}
-/app/services/port_9001_ui_DIRECT.py:124:            return response.json()
-/app/services/port_9001_ui_DIRECT.py:126:        return {"response": f"Ms. Jarvis is thinking... (connection: {str(e)})"}
-/app/services/ms_jarvis_substack_reader.py:37:        return {"error": f"Status {response.status_code}"}
-/app/services/llm_consensus_22.py:100:    return weighted_responses
-/app/services/msjarvis-rebuild-nbb_mother_carrie_protocols-1_main.py:13:    return {"message": message}
-/app/services/ms_jarvis_neurobiological_master.py:276:        return response.json()
-/app/services/ms_jarvis_neurobiological_master.py:284:        return response.json()
-/app/services/ms_jarvis_link_reader_scheduled_FIXED.py:51:                return {"error": f"Failed: {response.status_code}"}
-/app/services/msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py:11:    return {"response": f"NBB bridge processed: {data.get('message')}"}
-/app/services/ms_jarvis_facebook_full.py:86:                    return result.get("response", fallback)
-/app/services/fix_response_parsing.py:21:new_return = '''                response_text = result.get("response") or result.get("result") or result.get("output") or result.get("answer") or str(result)
-/app/services/egeria_web_ui_working.py:96:        return jsonify({"error": "No message"}), 400
-/app/services/egeria_web_ui_working.py:113:            return jsonify({"response": result.get('response', '').strip()})
-/app/services/egeria_web_ui_working.py:117:    return jsonify({"error": "Failed to get response"}), 500
-/app/services/fix_judge_authentic.py:18:old_judge = r'async def judge_responses\(self, query: str, responses\) -> str:.*?return list\(responses\.values\(\)\)\[0\] if responses else ""'
-/app/services/fix_judge_authentic.py:35:                return response_list[0]
-/app/services/fix_judge_authentic.py:67:            return response_list[0] if response_list else ""'''
-/app/services/fix_judge_authentic.py:70:    r'async def judge_responses\(self, query: str, responses\) -> str:.*?return list\(responses\.values\(\)\)\[0\] if responses else ""',
-/app/services/llm_consensus_20_FINAL.py:256:    return sorted(responses, key=lambda x: x.get("weight", 0.5), reverse=True)
-/app/services/roche_llm.stub.py:20:    return ChatResponse(response=f"[Roche-LLM STUB] Echo: {req.message}")
-/app/services/wire_layers_into_chat.py:22:new_return = '''        # Apply Judge layer - SELECT BEST response
-/app/services/ms_jarvis_blockchain_deployment.py:192:        return {"status": "success", "message": f"Contract {contract_name} deployed successfully on {network}", "contract_address": contract_address}
-/app/services/ms_jarvis_blockchain_deployment.py:195:        return {"status": "failure", "message": f"Failed to deploy contract {contract_name} on {network}: {e}"}
-/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:139:        return response.json()
-/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:148:        return response.json()
-/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:478:        return {"status": "error", "message": str(e)}
-/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:503:        return HTMLResponse(response.text)
-/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:550:        return response.json()
-/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:596:        return response
-/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:618:        return response
-/app/services/llm_consensus_22_SMALL_TO_LARGE.py:80:    return sorted(responses, key=lambda x: x.get('weight', 0.5), reverse=True)
-/app/services/ms_jarvis_facebook_rag.py:121:                return response.json()
-/app/services/domain_service_router.py:58:                return response
-/app/services/domain_service_router.py:101:            return response.json()
-/app/services/domain_service_router.py:103:            return response.text
-/app/services/port_9001_ui_FIXED.py:127:        return {"response": "Please provide a message"}
-/app/services/port_9001_ui_FIXED.py:147:        return {"response": f"Connection error: {str(e)}"}
-/app/services/integrate_complete_architecture.py:53:                return response.json()
-/app/services/integrate_complete_architecture.py:72:                return response.json()
-/app/services/integrate_complete_architecture.py:91:                return response.json()
-/app/services/jarvis-lm-synthesizer_lm_synthesizer.py:21:    return response_text
-/app/services/ms_jarvis_facebook_poster_FIXED.py:32:                return data.get("response", "")
-/app/services/msjarvisunifiedgateway.py:82:    return {"status": "ok", "message": "Ms. Jarvis running"}
-/app/services/ms_jarvis_facebook_intelligent.py:42:            return {"status": "unauthorized", "message": f"Invalid page access token: {PAGE_TOKEN}"}
-/app/services/ms_jarvis_facebook_intelligent.py:44:            return {"status": "not_found", "message": f"Page not found: {PAGE_ID}"}
-/app/services/ms_jarvis_facebook_intelligent.py:82:                    return result.get("response", "AI response")
-/app/services/enhance_pituitary_warmth.py:18:old_persona = r'async def apply_mamma_kidd_persona\(self, response: str\) -> str:.*?return response'
-/app/services/enhance_pituitary_warmth.py:74:    r'async def apply_mamma_kidd_persona\(self, response: str\) -> str:.*?return response',
-/app/services/ai_server_22llm_FIXED.py:30:        return valid_responses
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:6:- Builds WV entangled context and forwards to 20‑LLM /chat_with_context.
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:138:    WV‑focused chat: send message + WV entangled context to 20‑LLM /chat_with_context.
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:175:            f"{SERVICE_URLS['production_20llm']}/chat_with_context",
-/app/services/gateway8050_simple.py:31:    return {"reply": data.get("reply") or data.get("answer") or data}
-/app/services/egeria_web_ui_with_execution.py:62:    if not message: return jsonify({"error": "No message"}), 400
-/app/services/egeria_web_ui_with_execution.py:76:            return jsonify({"response": response.json().get('response', '').strip()})
-/app/services/patch_fractal.py:11:    return await analyze_fractal({"messages": msg_array})
-/app/services/ai_server.py:173:        return valid_responses
-/app/services/ai_server.py:208:                    return result.get("response", responses[0]["response"])
-/app/services/ai_server.py:212:        # Fallback: return highest weighted response
-/app/services/ai_server.py:213:        return max(weighted, key=lambda x: x["weight"])["response"]
-/app/services/ai_server.py:228:                    return resp.json().get("response", response)
-/app/services/ai_server.py:232:        return response
-/app/services/ai_server.py:277:        return {"response": "I apologize, sugar. My collective consciousness is reorganizing. Try again in a moment.", 
-/app/services/msjarvis-rebuild-nbb_heteroglobulin_transport-1_main.py:13:    return {"message": message}
-/app/services/ms_jarvis_facebook_dgm_woah.psychology_patched.py:281:                return response.json()
-/app/services/ms_jarvis_facebook_dgm_woah.psychology_patched.py:298:                return response.json()
-/app/services/ms_jarvis_facebook_brain_integrated.py:225:                return response.json()
-/app/services/ms_jarvis_facebook_brain_integrated.py:471:        return response.json()
-/app/services/ms_jarvis_facebook_webhook.py:62:                return resp.json().get("response", "Processing...")
-/app/services/add_to_main_consciousness.py:18:                return {"error": f"Link read failed: {link_response.status_code}"}
-/app/services/ai_server_19llm_PRODUCTION.py:84:        return responses
-/app/services/ai_server_19llm_PRODUCTION.py:122:        return {"response": "Error processing request", "error": str(e)}
-/app/services/ms_jarvis_fractal_dgm_woah.py:61:        return {'error': 'Need 4+ messages', 'architecture': 'DGM-WOAH'}
-/app/services/bridge_cross_dgm.py:55:        return response.json()
-/app/services/jarvis-psychology-services_psychology_integration_adapter.py:61:        return self._fallback_analysis(message)
-/app/services/jarvis-psychology-services_psychology_integration_adapter.py:140:            return enriched_response
-/app/services/msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py:11:    return {"response": f"NBB bridge processed: {data.get('message')}"}
-/app/services/messenger_service_fixed.py:44:    return JSONResponse({"response": response, "session_id": session_id})
-/app/services/messenger_service_fixed.py:51:    return JSONResponse({"session_id": session_id, "messages": sessions[session_id]["messages"]})
-/app/services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
-/app/services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
-/app/services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
-/app/services/neurobiologicalbrain/i_containers/service/service_discovery.py:156:                return response.status_code == 200
-/app/services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
-/app/services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
-/app/services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
-/app/services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
-/app/services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
-/app/services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
-/app/services/neurobiologicalbrain/prefrontal_cortex/service/service_discovery.py:156:                return response.status_code == 200
-/app/services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
-/app/services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
-/app/services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
-/app/services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
-/app/services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
-/app/services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
-/app/services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
-/app/services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
-/app/services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
-/app/services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
-/app/services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
-/app/services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
-/app/services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
-/app/services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
-/app/services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
-/app/services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
-/app/services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
-/app/services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
-/app/services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
-/app/services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
-/app/services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
-/app/services/ms_jarvis_contract_builder_v2.py:55:        return {"status": "failed", "message": f"{e}"}
-/app/services/ms_jarvis_unified_swagger_gateway_COMPLETE.py:53:            return response.json()
-/app/services/ms_jarvis_unified_swagger_gateway_COMPLETE.py:63:            return response.json()
-/app/services/ms_jarvis_unified_swagger_gateway_COMPLETE.py:73:            return response.json()
-/app/services/ms_jarvis_unified_swagger_gateway_COMPLETE.py:204:            return response.json()
-/app/services/jarvis-assertion-gateway/app/main.py:118:    return scrub_response({
-/app/services/metrics_service.py:22:    return {"message": "Ms. Jarvis Metrics Service", "version": "1.0"}
-/app/services/ms_jarvis_geo_ueid_integration.py:52:        return {"status": "exists", "message": "Entity already in geodatabase"}
-/app/services/msjarvis-rebuild-nbb_woah_algorithms-1_service_discovery.py:156:                return response.status_code == 200
-/app/services/ms_jarvis_llm_bridge_simple.py:49:        return response.json()
-/app/services/ms_jarvis_expiration_monitor.py:132:    return response.status_code == 202
-/app/services/jarvis-judge-alignment_lm_synthesizer.py:27:    return response
-/app/services/jarvis-judge-alignment_lm_synthesizer.py:38:    return response_text
-/app/services/msjarvis-rebuild-nbb_prefrontal_cortex-1_main.py:13:    return {"message": message}
-/app/services/jarvis_synth_llm.py:50:            return "Ollama /api/chat returned no content in 'message'."
-/app/services/jarvis_synth_llm.py:53:        return "Ollama call failed: ReadTimeout while waiting for /api/chat response."
-/app/services/jarvis_synth_llm.py:67:    return {"answer": answer, "prompt": prompt, "model": OLLAMA_MODEL}
-/app/services/ms_jarvis_command_orchestrator.py:45:            return JSONResponse({"status": "crisis_detected", "response": crisis["clarity_statement"], "resources": crisis["resources"]})
-/app/services/ms_jarvis_command_orchestrator.py:115:            return response.json().get("response", "")[:1500]
-/app/services/port_9001_ui_MYSQL_PROD.py:115:            if (d.response) return String(d.response);
-/app/services/port_9001_ui_MYSQL_PROD.py:176:        return {"response": "Connecting..."}
-/app/services/port_9001_ui_MYSQL_PROD.py:200:        return {"conversations": [{"message": r[0], "response": r[1]} for r in rows]}
-/app/services/port_9001_ui_MYSQL_PROD.py:213:        return {"exported": datetime.now().isoformat(), "total": len(rows), "data": [{"user": r[0], "message": r[1], "response": r[2], "timestamp": str(r[3])} for r in rows]}
-/app/services/ms_jarvis_fully_autonomous_coordinator.py:77:                return response.json()
-/app/services/ms_jarvis_fully_autonomous_coordinator.py:210:                        return post_response.json()
-/app/services/ms_jarvis_fully_autonomous_coordinator.py:425:            return response.json()
-/app/services/ms_jarvis_email_identity_verifier.py:125:        return VerificationResponse(status="error", message="Failed to create account")
-/app/services/ms_jarvis_web_research_aggregate.safe.20260119-094221.py:32:        return response
-/app/services/apply_ollama_fix.py:79:                return result.get("response", "I've analyzed your request and I'm ready to help.")
-/app/services/apply_ollama_fix.py:108:                    return result.get("response", judge_response)
-/app/services/apply_ollama_fix.py:111:                return judge_response
-/app/services/apply_ollama_fix.py:114:            return judge_response
-/app/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:155:            return unified_response
-/app/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:174:        return fallback_response
-/app/services/fix_persona_hang.py:11:# Comment it out and return judge response directly
-/app/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:155:            return unified_response
-/app/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:174:        return fallback_response
-/app/services/jarvis-judge-consistency_lm_synthesizer.py:21:    return response_text
-/app/services/gateway_messenger_integration.py:35:        return response.json()
-/app/services/gateway_messenger_integration.py:55:        return response.json()
-/app/services/gateway_messenger_integration.py:70:        return response.json()
-/app/services/msjarvisconsciousnessbridge_mountainshares_private.py:154:    return await bridge.process(payload.message, user_id)
-/app/services/fifth_dgm_integration.py:106:                    return response.json()
-/app/services/ms_jarvis_main_gateway.py:192:        return {"response": f"AI: {message}"}
-/app/services/ms_jarvis_main_gateway.py:213:    return {"level": level, "response": f"Fractal: {query}"}
-/app/services/egeria_api_proxy.py:46:            return response.json()
-/app/services/egeria_api_proxy.py:49:        return {"response": "I apologize, but I'm having trouble processing that right now."}
-/app/services/psychology_integration_adapter.py:61:        return self._fallback_analysis(message)
-/app/services/psychology_integration_adapter.py:140:            return enriched_response
-/app/services/msjarvis-rebuild-nbb_spiritual_maternal_integration-1_main.py:13:    return {"message": message}
-/app/services/jarvis-judge-ethics_lm_synthesizer.py:21:    return response_text
-/app/services/manual_storage_patch.py:16:    if 'return {' in line and '"response":' in line and '"services_used":' in line and '"consciousness_level":' in line:
-/app/services/ms_jarvis_command_orchestrator_v5_backup.py:233:            return response.json().get("response", "")[:1500]
-/app/services/rag_simple.py:35:            return {"status": "success", "consensus": response, "context_docs": len(context.split("\n")), "models_used": min_models}
-/app/services/rag_simple.py:37:            return {"status": "error", "message": f"LLM error: {lr.status_code}"}
-/app/services/rag_simple.py:39:        return {"status": "error", "message": str(e)}
-/app/services/rag_server_main.py:277:    return response_payload
-/app/services/facebook_messenger_integration.py:64:                return data.get("response", "Hello from Ms. Egeria Jarvis!")
-/app/services/facebook_messenger_integration.py:88:            return response.ok
-/app/services/verify_and_document_system.py:83:            return response.json()
-/app/services/integrate_full_brain.py:33:                    return response.json()
-/app/services/integrate_full_brain.py:47:                    return response.json()
-/app/services/phase4_5_integration.py:31:                return response.json()
-/app/services/phase4_5_integration.py:54:                return response.json()
-/app/services/phase4_5_integration.py:56:            return {"response": None, "bridged": False}
-/app/services/phase4_5_integration.py:62:    return await layer.route_through_gateway(data["message"], data.get("metadata", {}))
-/app/services/llm_ensemble_router.py:33:                return {"model": model, "response": data.get("response", ""), "status": "success"}
-/app/services/llm_ensemble_router.py:36:            return {"model": model, "response": "", "status": "error"}
-/app/services/llm_ensemble_router.py:64:        return min(1.0, unique_starts / len(responses))
-/app/services/chat_worker.py:66:            url = f"{SERVICE_URLS['production_20llm']}/chat_with_context"
-/app/services/fifth_dgm.py:19:    return AnalyzeResponse(response=f"[fifth_dgm stub] {req.input}")
-/app/services/advanced_service_dashboard.py:51:                return "🟢 HEALTHY" if response.status_code == 200 else "🔴 UNHEALTHY"
-/app/services/ai_server_19llm_CONSCIOUS.py:166:            return personalized if len(personalized) > 50 else response
-/app/services/ai_server_19llm_CONSCIOUS.py:170:            return response  # Fallback to original
-/app/services/ms_jarvis_web_research_aggregate.py:32:        return response
-/app/services/web_chat_server.py:187:        return response.json()
-/app/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:155:            return unified_response
-/app/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:174:        return fallback_response
-/app/services/ms_jarvis_facebook_async.py:75:    return response
-/app/services/add_background_call.py:20:    # If we're in ultimate_chat and we find a return with the final response
-/app/services/add_background_call.py:21:    if in_ultimate_chat and 'return {' in line and '"response":' in line and not modified:
-/app/services/llm_consensus_19_PRODUCTION.py:71:    return sorted(responses, key=lambda x: x.get('weight', 0.5), reverse=True)
-/app/services/port_9001_ui_WITH_CONVERSATIONS.py:217:        return {"response": "Please provide a message"}
-/app/services/port_9001_ui_WITH_CONVERSATIONS.py:225:            return response.json()
-/app/services/port_9001_ui_WITH_CONVERSATIONS.py:227:        return {"response": f"Connection in progress..."}
-/app/services/comprehensive_storage_fix.py:54:# Look for return with "response", "services_used", "consciousness_level", "processing_time"
-/app/services/swagger_chat_integration.py:75:        return response.json()
-/app/services/gateway_verify_fixed.py:15:        return HTMLResponse(response.text)
-/app/services/fractal_adapter.py:19:        return response.json()
-/app/services/ms_jarvis_production_chat_BEFORE_GIS.py:219:                return response.json()["ueid"]
-/app/services/ms_jarvis_i_containers_service.py:341:        return response
-/app/services/ms_jarvis_i_containers_service.py:348:                return response
-/app/services/egeria_web_ui_fixed_simple.py:35:        return jsonify({"error": "No message"}), 400
-/app/services/egeria_web_ui_fixed_simple.py:60:    return jsonify({"error": "Failed to get response"}), 500
-/app/services/msjarvis_wv_entangled_gateway.py:5:- Builds WV entangled context and forwards to 20‑LLM /chat_with_context.
-/app/services/msjarvis_wv_entangled_gateway.py:112:                f"{SERVICE_URLS['production_20llm']}/chat_with_context",
-/app/services/msjarvis_wv_entangled_gateway.py:216:    WV‑focused chat: send message + WV entangled context to 20‑LLM /chat_with_context.
-/app/services/msjarvis_wv_entangled_gateway.py:234:            f"{SERVICE_URLS['production_20llm']}/chat_with_context",
-/app/services/ai_server_20llm_FINAL.py:54:class ChatRequestWithContext(BaseModel):
-/app/services/ai_server_20llm_FINAL.py:110:        return responses
-/app/services/ai_server_20llm_FINAL.py:125:        return final_response
-/app/services/ai_server_20llm_FINAL.py:133:@app.post("/chat_with_context")
-/app/services/ai_server_20llm_FINAL.py:135:async def chat_with_context(request: ChatRequestWithContext):
-/app/services/ai_server_20llm_FINAL.py:165:        logger.error("Error in /chat_with_context: %s", e)
-/app/services/ai_server_20llm_FINAL.py:183:        return {"response": "Error processing request", "error": str(e)}
-/app/services/add_messenger_to_gateway.py:20:    return response.json()
-/app/services/add_messenger_to_gateway.py:30:    return response.json()
-/app/services/add_messenger_to_gateway.py:36:    return response.json()
-
-===== ANSWER-ROUTE SOURCE CONTEXT =====
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-1-#!/usr/bin/env python3
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-2-"""
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-3-from hp_antisurveillance_guardian_client import require_guarded_join
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-4-Ms. Jarvis WV‑Entangled Gateway
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-5-- Exposes /chat_wv on its own port (8010).
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:6:- Builds WV entangled context and forwards to 20‑LLM /chat_with_context.
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-7-"""
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-8-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-9-import logging
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-10-from datetime import datetime
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-11-from typing import Dict, Any
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-12-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-13-import httpx
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-14-from fastapi import FastAPI
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-15-from request_context_builder import build_request_context_packet
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-16-from fastapi.middleware.cors import CORSMiddleware
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-17-from pydantic import BaseModel
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-18-import uvicorn
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-19-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-20-logging.basicConfig(level=logging.INFO)
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-21-logger = logging.getLogger(__name__)
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-22-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-23-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-24-def _log_forward_context(ctx: dict | None) -> None:
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-25-    c = ctx if isinstance(ctx, dict) else {}
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-26-    logger.info(
---
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-118-    async with httpx.AsyncClient(timeout=5.0) as client:
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-119-        try:
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-120-            r = await client.get(f"{SERVICE_URLS['production_20llm']}/health")
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-121-            ok = r.status_code == 200
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-122-        except Exception as e:
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-123-            logger.error(f"20‑LLM health check failed: {e}")
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-124-            ok = False
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-125-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-126-    return {
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-127-        "status": "healthy" if ok else "degraded",
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-128-        "dependencies": {
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-129-            "production_20llm": "healthy" if ok else "unavailable",
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-130-        },
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-131-        "timestamp": datetime.utcnow().isoformat(),
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-132-    }
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-133-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-134-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-135-@app.post("/chat_wv")
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-136-async def chat_wv(payload: ChatPayload):
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-137-    """
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:138:    WV‑focused chat: send message + WV entangled context to 20‑LLM /chat_with_context.
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-139-    """
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-140-    logger.info("WV‑Entangled /chat_wv invoked")
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-141-    user_id = payload.user_id or "anonymous"
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-142-    wv_ctx = build_wv_entangled_context(payload.message)
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-143-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-144-    incoming_context = payload.context if isinstance(getattr(payload, "context", None), dict) else {}
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-145-    incoming_role = incoming_context.get("role", "community")
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-146-    incoming_packet = incoming_context.get("judge_context_packet")
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-147-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-148-    if not isinstance(incoming_packet, dict):
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-149-        incoming_packet = await build_request_context_packet(
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-150-            message=payload.message,
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-151-            userid=user_id,
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-152-            role=incoming_role,
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-153-            sessionid=None,
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-154-            prebuilt_context=None,
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-155-        )
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-156-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-157-    forward_payload = {
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-158-        "message": payload.message,
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-159-        "user_id": user_id,
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-160-        "context": {
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-161-            "userid": incoming_context.get("userid", user_id),
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-162-            "role": incoming_role,
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-163-            "judge_context_packet": incoming_packet,
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-164-            "system_overrides": {
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-165-                **(incoming_context.get("system_overrides") or {}),
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-166-                "wv_entangled_context": wv_ctx
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-167-            }
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-168-        },
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-169-    }
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-170-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-171-    _log_forward_context(forward_payload.get("context"))
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-172-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-173-    async with httpx.AsyncClient(timeout=600.0) as client:
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-174-        resp = await client.post(
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:175:            f"{SERVICE_URLS['production_20llm']}/chat_with_context",
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-176-            json=forward_payload,
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-177-        )
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-178-        resp.raise_for_status()
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-179-        data = resp.json()
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-180-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-181-    return data
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-182-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-183-
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-184-if __name__ == "__main__":
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-185-    # Run as a long-lived FastAPI service on port 8010, listening on all interfaces
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-186-    uvicorn.run(
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-187-        "msjarvis_wv_entangled_gateway:app",
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-188-        host="0.0.0.0",
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-189-        port=8010,
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-190-        workers=1,
-/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-191-    )
---
-/app/services/chat_worker.py-46-rdb = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB, decode_responses=True)
-/app/services/chat_worker.py-47-
-/app/services/chat_worker.py-48-
-/app/services/chat_worker.py-49-def run_job(job_id: str, message: str, user_id: str, ueid: str | None = None):
-/app/services/chat_worker.py-50-    """Run the 21-model forward call and store the result."""
-/app/services/chat_worker.py-51-    try:
-/app/services/chat_worker.py-52-        wv_ctx = build_wv_entangled_context(message)
-/app/services/chat_worker.py-53-        if FORWARD_MODE == "fullbrain":
-/app/services/chat_worker.py-54-            url = MAIN_BRAIN_URL
-/app/services/chat_worker.py-55-            forward_payload = {
-/app/services/chat_worker.py-56-                "message": message,
-/app/services/chat_worker.py-57-                "userid": user_id or "cakidd",
-/app/services/chat_worker.py-58-                "ueid": ueid,
-/app/services/chat_worker.py-59-                "memory_key": build_memory_key(user_id or "cakidd", ueid),
-/app/services/chat_worker.py-60-                "useallservices": True,
-/app/services/chat_worker.py-61-                "role": "community",
-/app/services/chat_worker.py-62-                "context": {"wv_entangled_context": wv_ctx},
-/app/services/chat_worker.py-63-            }
-/app/services/chat_worker.py-64-            headers = {"X-API-Key": MAIN_BRAIN_KEY, "Content-Type": "application/json"}
-/app/services/chat_worker.py-65-        else:
-/app/services/chat_worker.py:66:            url = f"{SERVICE_URLS['production_20llm']}/chat_with_context"
-/app/services/chat_worker.py-67-            forward_payload = {
-/app/services/chat_worker.py-68-                "message": message,
-/app/services/chat_worker.py-69-                "user_id": user_id or "anonymous",
-/app/services/chat_worker.py-70-                "context": {"system_overrides": {"wv_entangled_context": wv_ctx}},
-/app/services/chat_worker.py-71-            }
-/app/services/chat_worker.py-72-            headers = {}
-/app/services/chat_worker.py-73-        # Long timeout: full pipeline can take ~2.5-4 min.
-/app/services/chat_worker.py-74-        with httpx.Client(timeout=3600.0) as client:
-/app/services/chat_worker.py-75-            resp = client.post(url, json=forward_payload, headers=headers, timeout=None)
-/app/services/chat_worker.py-76-            resp.raise_for_status()
-/app/services/chat_worker.py-77-            raw = resp.json()
-/app/services/chat_worker.py-78-        if FORWARD_MODE == "fullbrain":
-/app/services/chat_worker.py-79-            data = {
-/app/services/chat_worker.py-80-                "response": raw.get("response", ""),
-/app/services/chat_worker.py-81-                "minds_participated": 21,
-/app/services/chat_worker.py-82-                "total_minds": 21,
-/app/services/chat_worker.py-83-                "used_wv_entangled_context": True,
-/app/services/chat_worker.py-84-                "services_used": raw.get("servicesused", []),
-/app/services/chat_worker.py-85-                "consciousness_level": raw.get("consciousnesslevel", ""),
-/app/services/chat_worker.py-86-                "processing_time": raw.get("processingtime", 0),
---
-/app/services/msjarvis_wv_entangled_gateway.py-1-#!/usr/bin/env python3
-/app/services/msjarvis_wv_entangled_gateway.py-2-"""
-/app/services/msjarvis_wv_entangled_gateway.py-3-Ms. Jarvis WV‑Entangled Gateway
-/app/services/msjarvis_wv_entangled_gateway.py-4-- Exposes /chat_wv on its own port (8010).
-/app/services/msjarvis_wv_entangled_gateway.py:5:- Builds WV entangled context and forwards to 20‑LLM /chat_with_context.
-/app/services/msjarvis_wv_entangled_gateway.py-6-"""
-/app/services/msjarvis_wv_entangled_gateway.py-7-
-/app/services/msjarvis_wv_entangled_gateway.py-8-import logging
-/app/services/msjarvis_wv_entangled_gateway.py-9-from datetime import datetime
-/app/services/msjarvis_wv_entangled_gateway.py-10-from typing import Dict, Any
-/app/services/msjarvis_wv_entangled_gateway.py-11-
-/app/services/msjarvis_wv_entangled_gateway.py-12-import httpx
-/app/services/msjarvis_wv_entangled_gateway.py-13-import uuid
-/app/services/msjarvis_wv_entangled_gateway.py-14-import json
-/app/services/msjarvis_wv_entangled_gateway.py-15-import asyncio
-/app/services/msjarvis_wv_entangled_gateway.py-16-import redis.asyncio as aioredis
-/app/services/msjarvis_wv_entangled_gateway.py-17-from fastapi import FastAPI
-/app/services/msjarvis_wv_entangled_gateway.py-18-from fastapi.middleware.cors import CORSMiddleware
-/app/services/msjarvis_wv_entangled_gateway.py-19-from pydantic import BaseModel
-/app/services/msjarvis_wv_entangled_gateway.py-20-
-/app/services/msjarvis_wv_entangled_gateway.py-21-logging.basicConfig(level=logging.INFO)
-/app/services/msjarvis_wv_entangled_gateway.py-22-logger = logging.getLogger(__name__)
-/app/services/msjarvis_wv_entangled_gateway.py-23-
-/app/services/msjarvis_wv_entangled_gateway.py-24-
-/app/services/msjarvis_wv_entangled_gateway.py-25-class ChatPayload(BaseModel):
---
-/app/services/msjarvis_wv_entangled_gateway.py-92-    try:
-/app/services/msjarvis_wv_entangled_gateway.py-93-        logger.info("chat job %s starting", job_id)
-/app/services/msjarvis_wv_entangled_gateway.py-94-        user_id = payload.user_id or "anonymous"
-/app/services/msjarvis_wv_entangled_gateway.py-95-        wv_ctx = build_wv_entangled_context(payload.message)
-/app/services/msjarvis_wv_entangled_gateway.py-96-        _gis_summary = await _fetch_gis_summary(payload.message)
-/app/services/msjarvis_wv_entangled_gateway.py-97-        _context = {"system_overrides": {"wv_entangled_context": wv_ctx}}
-/app/services/msjarvis_wv_entangled_gateway.py-98-        if _gis_summary:
-/app/services/msjarvis_wv_entangled_gateway.py-99-            _context["judge_context_packet"] = {
-/app/services/msjarvis_wv_entangled_gateway.py-100-                "spatial_temporal_context": {
-/app/services/msjarvis_wv_entangled_gateway.py-101-                    "spatial_candidate": {"summary": _gis_summary}
-/app/services/msjarvis_wv_entangled_gateway.py-102-                }
-/app/services/msjarvis_wv_entangled_gateway.py-103-            }
-/app/services/msjarvis_wv_entangled_gateway.py-104-        forward_payload = {
-/app/services/msjarvis_wv_entangled_gateway.py-105-            "message": payload.message,
-/app/services/msjarvis_wv_entangled_gateway.py-106-            "user_id": user_id,
-/app/services/msjarvis_wv_entangled_gateway.py-107-            "context": _context,
-/app/services/msjarvis_wv_entangled_gateway.py-108-        }
-/app/services/msjarvis_wv_entangled_gateway.py-109-        logger.info("chat job %s posting to 20llm", job_id)
-/app/services/msjarvis_wv_entangled_gateway.py-110-        async with httpx.AsyncClient(timeout=3600.0) as client:
-/app/services/msjarvis_wv_entangled_gateway.py-111-            resp = await client.post(
-/app/services/msjarvis_wv_entangled_gateway.py:112:                f"{SERVICE_URLS['production_20llm']}/chat_with_context",
-/app/services/msjarvis_wv_entangled_gateway.py-113-                json=forward_payload,
-/app/services/msjarvis_wv_entangled_gateway.py-114-            )
-/app/services/msjarvis_wv_entangled_gateway.py-115-            resp.raise_for_status()
-/app/services/msjarvis_wv_entangled_gateway.py-116-            data = resp.json()
-/app/services/msjarvis_wv_entangled_gateway.py-117-        logger.info("chat job %s got 20llm response", job_id)
-/app/services/msjarvis_wv_entangled_gateway.py-118-
-/app/services/msjarvis_wv_entangled_gateway.py-119-        key = f"chatjob:{job_id}"
-/app/services/msjarvis_wv_entangled_gateway.py-120-        value = json.dumps({"status": "completed", "result": data})
-/app/services/msjarvis_wv_entangled_gateway.py-121-        await _rdb.set(key, value, ex=JOB_TTL)
-/app/services/msjarvis_wv_entangled_gateway.py-122-        verify = await _rdb.get(key)
-/app/services/msjarvis_wv_entangled_gateway.py-123-        logger.info("chat job %s redis set complete verify_present=%s", job_id, bool(verify))
-/app/services/msjarvis_wv_entangled_gateway.py-124-        logger.info("chat job %s completed", job_id)
-/app/services/msjarvis_wv_entangled_gateway.py-125-    except Exception as e:
-/app/services/msjarvis_wv_entangled_gateway.py-126-        logger.exception("chat job %s failed permanently", job_id)
-/app/services/msjarvis_wv_entangled_gateway.py-127-        try:
-/app/services/msjarvis_wv_entangled_gateway.py-128-            key = f"chatjob:{job_id}"
-/app/services/msjarvis_wv_entangled_gateway.py-129-            value = json.dumps({"status": "failed", "error": f"{type(e).__name__}: {e}"})
-/app/services/msjarvis_wv_entangled_gateway.py-130-            await _rdb.set(key, value, ex=JOB_TTL)
-/app/services/msjarvis_wv_entangled_gateway.py-131-            logger.info("chat job %s failure status written to redis", job_id)
-/app/services/msjarvis_wv_entangled_gateway.py-132-        except Exception:
---
-/app/services/msjarvis_wv_entangled_gateway.py-196-    async with httpx.AsyncClient(timeout=5.0) as client:
-/app/services/msjarvis_wv_entangled_gateway.py-197-        try:
-/app/services/msjarvis_wv_entangled_gateway.py-198-            r = await client.get(f"{SERVICE_URLS['production_20llm']}/health")
-/app/services/msjarvis_wv_entangled_gateway.py-199-            ok = r.status_code == 200
-/app/services/msjarvis_wv_entangled_gateway.py-200-        except Exception as e:
-/app/services/msjarvis_wv_entangled_gateway.py-201-            logger.error(f"20‑LLM health check failed: {e}")
-/app/services/msjarvis_wv_entangled_gateway.py-202-            ok = False
-/app/services/msjarvis_wv_entangled_gateway.py-203-
-/app/services/msjarvis_wv_entangled_gateway.py-204-    return {
-/app/services/msjarvis_wv_entangled_gateway.py-205-        "status": "healthy" if ok else "degraded",
-/app/services/msjarvis_wv_entangled_gateway.py-206-        "dependencies": {
-/app/services/msjarvis_wv_entangled_gateway.py-207-            "production_20llm": "healthy" if ok else "unavailable",
-/app/services/msjarvis_wv_entangled_gateway.py-208-        },
-/app/services/msjarvis_wv_entangled_gateway.py-209-        "timestamp": datetime.utcnow().isoformat(),
-/app/services/msjarvis_wv_entangled_gateway.py-210-    }
-/app/services/msjarvis_wv_entangled_gateway.py-211-
-/app/services/msjarvis_wv_entangled_gateway.py-212-
-/app/services/msjarvis_wv_entangled_gateway.py-213-@app.post("/chat_wv")
-/app/services/msjarvis_wv_entangled_gateway.py-214-async def chat_wv(payload: ChatPayload):
-/app/services/msjarvis_wv_entangled_gateway.py-215-    """
-/app/services/msjarvis_wv_entangled_gateway.py:216:    WV‑focused chat: send message + WV entangled context to 20‑LLM /chat_with_context.
-/app/services/msjarvis_wv_entangled_gateway.py-217-    """
-/app/services/msjarvis_wv_entangled_gateway.py-218-    logger.info("WV‑Entangled /chat_wv invoked")
-/app/services/msjarvis_wv_entangled_gateway.py-219-    user_id = payload.user_id or "anonymous"
-/app/services/msjarvis_wv_entangled_gateway.py-220-    wv_ctx = build_wv_entangled_context(payload.message)
-/app/services/msjarvis_wv_entangled_gateway.py-221-
-/app/services/msjarvis_wv_entangled_gateway.py-222-    forward_payload = {
-/app/services/msjarvis_wv_entangled_gateway.py-223-        "message": payload.message,
-/app/services/msjarvis_wv_entangled_gateway.py-224-        "user_id": user_id,
-/app/services/msjarvis_wv_entangled_gateway.py-225-        "context": {
-/app/services/msjarvis_wv_entangled_gateway.py-226-            "system_overrides": {
-/app/services/msjarvis_wv_entangled_gateway.py-227-                "wv_entangled_context": wv_ctx
-/app/services/msjarvis_wv_entangled_gateway.py-228-            }
-/app/services/msjarvis_wv_entangled_gateway.py-229-        },
-/app/services/msjarvis_wv_entangled_gateway.py-230-    }
-/app/services/msjarvis_wv_entangled_gateway.py-231-
-/app/services/msjarvis_wv_entangled_gateway.py-232-    async with httpx.AsyncClient(timeout=3600.0) as client:
-/app/services/msjarvis_wv_entangled_gateway.py-233-        resp = await client.post(
-/app/services/msjarvis_wv_entangled_gateway.py:234:            f"{SERVICE_URLS['production_20llm']}/chat_with_context",
-/app/services/msjarvis_wv_entangled_gateway.py-235-            json=forward_payload,
-/app/services/msjarvis_wv_entangled_gateway.py-236-        )
-/app/services/msjarvis_wv_entangled_gateway.py-237-        resp.raise_for_status()
-/app/services/msjarvis_wv_entangled_gateway.py-238-        data = resp.json()
-/app/services/msjarvis_wv_entangled_gateway.py-239-
-/app/services/msjarvis_wv_entangled_gateway.py-240-    return data
-/app/services/msjarvis_wv_entangled_gateway.py-241-
-/app/services/msjarvis_wv_entangled_gateway.py-242-
-/app/services/msjarvis_wv_entangled_gateway.py-243-@app.post("/chat_wv/async")
-/app/services/msjarvis_wv_entangled_gateway.py-244-async def chat_wv_async(payload: ChatPayload):
-/app/services/msjarvis_wv_entangled_gateway.py-245-    logger.info("WV async inbound user_id=%r actor_role=%r has_judge_context_packet=%s",
-/app/services/msjarvis_wv_entangled_gateway.py-246-                payload.user_id, None, False)
-/app/services/msjarvis_wv_entangled_gateway.py-247-    """Submit a chat job to the worker queue; returns immediately."""
-/app/services/msjarvis_wv_entangled_gateway.py-248-    logger.info("WV async inbound user_id=%r actor_role=%r has_judge_context_packet=%r", getattr(payload, "user_id", None), getattr(payload, "actor_role", None), bool(getattr(payload, "judge_context_packet", None)))
-/app/services/msjarvis_wv_entangled_gateway.py-249-    job_id = uuid.uuid4().hex
-/app/services/msjarvis_wv_entangled_gateway.py-250-    await _rdb.set(f"chatjob:{job_id}",
-/app/services/msjarvis_wv_entangled_gateway.py-251-                   json.dumps({"status": "queued"}), ex=JOB_TTL)
-/app/services/msjarvis_wv_entangled_gateway.py-252-    await _rdb.lpush("chatjob:queue", json.dumps({
-/app/services/msjarvis_wv_entangled_gateway.py-253-        "job_id": job_id,
-/app/services/msjarvis_wv_entangled_gateway.py-254-        "message": payload.message,
---
-/app/services/ai_server_20llm_FINAL.py-113-        if not responses:
-/app/services/ai_server_20llm_FINAL.py-114-            return "I apologize, I'm having trouble processing right now."
-/app/services/ai_server_20llm_FINAL.py-115-        weighted = calculate_weighted_consensus(responses)
-/app/services/ai_server_20llm_FINAL.py-116-        top_3 = sorted(weighted, key=lambda x: x["weight"], reverse=True)[:3]
-/app/services/ai_server_20llm_FINAL.py-117-        combined = top_3[0]["response"]
-/app/services/ai_server_20llm_FINAL.py-118-        if len(top_3) > 1 and len(combined) < 500:
-/app/services/ai_server_20llm_FINAL.py-119-            combined += "\n\n" + top_3[1]["response"][:300]
-/app/services/ai_server_20llm_FINAL.py-120-        return combined.strip()
-/app/services/ai_server_20llm_FINAL.py-121-
-/app/services/ai_server_20llm_FINAL.py-122-    async def process_with_prompt(self, prompt: str) -> str:
-/app/services/ai_server_20llm_FINAL.py-123-        responses = await self.process_all_sequential(prompt)
-/app/services/ai_server_20llm_FINAL.py-124-        final_response = self.synthesize_responses(responses)
-/app/services/ai_server_20llm_FINAL.py-125-        return final_response
-/app/services/ai_server_20llm_FINAL.py-126-
-/app/services/ai_server_20llm_FINAL.py-127-brain = SequentialBrain()
-/app/services/ai_server_20llm_FINAL.py-128-
-/app/services/ai_server_20llm_FINAL.py-129-@app.get("/health")
-/app/services/ai_server_20llm_FINAL.py-130-async def health():
-/app/services/ai_server_20llm_FINAL.py-131-    return {"status": "healthy", "models": len(brain.models), "mode": "sequential"}
-/app/services/ai_server_20llm_FINAL.py-132-
-/app/services/ai_server_20llm_FINAL.py:133:@app.post("/chat_with_context")
-/app/services/ai_server_20llm_FINAL.py-134-
-/app/services/ai_server_20llm_FINAL.py:135:async def chat_with_context(request: ChatRequestWithContext):
-/app/services/ai_server_20llm_FINAL.py-136-    msg = (getattr(request, "message", None) or "").strip()
-/app/services/ai_server_20llm_FINAL.py-137-    normalized = " ".join(msg.lower().split()).strip(" ?!.")
-/app/services/ai_server_20llm_FINAL.py-138-    if normalized == "what county is mount hope in":
-/app/services/ai_server_20llm_FINAL.py-139-        logger.warning("Mount Hope hard-stop guard triggered user_id=%r", getattr(request, "user_id", None))
-/app/services/ai_server_20llm_FINAL.py-140-        return {
-/app/services/ai_server_20llm_FINAL.py-141-            "response": "HEALTHCHECK_BLOCKED",
-/app/services/ai_server_20llm_FINAL.py-142-            "minds_participated": 0,
-/app/services/ai_server_20llm_FINAL.py-143-            "total_minds": 21,
-/app/services/ai_server_20llm_FINAL.py-144-            "timestamp": None,
-/app/services/ai_server_20llm_FINAL.py-145-            "used_wv_entangled_context": False,
-/app/services/ai_server_20llm_FINAL.py-146-        }
-/app/services/ai_server_20llm_FINAL.py-147-
-/app/services/ai_server_20llm_FINAL.py-148-    try:
-/app/services/ai_server_20llm_FINAL.py-149-        logger.info("💬 Contextual query: %s...", request.message[:50])
-/app/services/ai_server_20llm_FINAL.py-150-        prompt = build_prompt(request.message, request.context or {})
-/app/services/ai_server_20llm_FINAL.py-151-        final_response = await brain.process_with_prompt(prompt)
-/app/services/ai_server_20llm_FINAL.py-152-        active_models = [m for m in brain.models if m.get("active", True)]
-/app/services/ai_server_20llm_FINAL.py-153-        return {
-/app/services/ai_server_20llm_FINAL.py-154-            "response": final_response,
-/app/services/ai_server_20llm_FINAL.py-155-            "minds_participated": len(active_models),
-/app/services/ai_server_20llm_FINAL.py-156-            "total_minds": len(active_models),
-/app/services/ai_server_20llm_FINAL.py-157-            "timestamp": datetime.now().isoformat(),
-/app/services/ai_server_20llm_FINAL.py-158-            "used_wv_entangled_context": bool(
-/app/services/ai_server_20llm_FINAL.py-159-                (request.context or {})
-/app/services/ai_server_20llm_FINAL.py-160-                .get("system_overrides", {})
-/app/services/ai_server_20llm_FINAL.py-161-                .get("wv_entangled_context")
-/app/services/ai_server_20llm_FINAL.py-162-            ),
-/app/services/ai_server_20llm_FINAL.py-163-        }
-/app/services/ai_server_20llm_FINAL.py-164-    except Exception as e:
-/app/services/ai_server_20llm_FINAL.py:165:        logger.error("Error in /chat_with_context: %s", e)
-/app/services/ai_server_20llm_FINAL.py-166-        raise HTTPException(status_code=500, detail="Error processing contextual request")
-/app/services/ai_server_20llm_FINAL.py-167-
-/app/services/ai_server_20llm_FINAL.py-168-@app.post("/chat")
-/app/services/ai_server_20llm_FINAL.py-169-async def chat(request: ChatRequest):
-/app/services/ai_server_20llm_FINAL.py-170-    try:
-/app/services/ai_server_20llm_FINAL.py-171-        logger.info("💬 Query: %s...", request.message[:50])
-/app/services/ai_server_20llm_FINAL.py-172-        responses = await brain.process_all_sequential(request.message)
-/app/services/ai_server_20llm_FINAL.py-173-        final_response = brain.synthesize_responses(responses)
-/app/services/ai_server_20llm_FINAL.py-174-        return {
-/app/services/ai_server_20llm_FINAL.py-175-            "response": final_response,
-/app/services/ai_server_20llm_FINAL.py-176-            "minds_participated": len(responses),
-/app/services/ai_server_20llm_FINAL.py-177-            "total_minds": len(brain.models),
-/app/services/ai_server_20llm_FINAL.py-178-            "processing_mode": "sequential",
-/app/services/ai_server_20llm_FINAL.py-179-            "timestamp": datetime.now().isoformat(),
-/app/services/ai_server_20llm_FINAL.py-180-        }
-/app/services/ai_server_20llm_FINAL.py-181-    except Exception as e:
-/app/services/ai_server_20llm_FINAL.py-182-        logger.error("Error: %s", e)
-/app/services/ai_server_20llm_FINAL.py-183-        return {"response": "Error processing request", "error": str(e)}
-/app/services/ai_server_20llm_FINAL.py-184-
-/app/services/ai_server_20llm_FINAL.py-185-if __name__ == "__main__":
---
-/app/services/ai_server_20llm_PRODUCTION.py-502-
-/app/services/ai_server_20llm_PRODUCTION.py-503-        # Use only the top consensus response to avoid double-voice stitching
-/app/services/ai_server_20llm_PRODUCTION.py-504-        combined = top_3[0]["response"]
-/app/services/ai_server_20llm_PRODUCTION.py-505-
-/app/services/ai_server_20llm_PRODUCTION.py-506-        return combined.strip()
-/app/services/ai_server_20llm_PRODUCTION.py-507-
-/app/services/ai_server_20llm_PRODUCTION.py-508-
-/app/services/ai_server_20llm_PRODUCTION.py-509-brain = ProductionBrain()
-/app/services/ai_server_20llm_PRODUCTION.py-510-
-/app/services/ai_server_20llm_PRODUCTION.py-511-
-/app/services/ai_server_20llm_PRODUCTION.py-512-@app.get("/health")
-/app/services/ai_server_20llm_PRODUCTION.py-513-async def health():
-/app/services/ai_server_20llm_PRODUCTION.py-514-    active_models = [m for m in brain.models if m.get("active", True)]
-/app/services/ai_server_20llm_PRODUCTION.py-515-    return {
-/app/services/ai_server_20llm_PRODUCTION.py-516-        "status": "healthy",
-/app/services/ai_server_20llm_PRODUCTION.py-517-        "models": len(active_models),
-/app/services/ai_server_20llm_PRODUCTION.py-518-        "mode": "production",
-/app/services/ai_server_20llm_PRODUCTION.py-519-    }
-/app/services/ai_server_20llm_PRODUCTION.py-520-
-/app/services/ai_server_20llm_PRODUCTION.py-521-
-/app/services/ai_server_20llm_PRODUCTION.py:522:@app.post("/chat_with_context")
-/app/services/ai_server_20llm_PRODUCTION.py-523-
-/app/services/ai_server_20llm_PRODUCTION.py:524:async def chat_with_context(request: ChatRequestWithContext, x_debug_echo: str | None = Header(default=None)):
-/app/services/ai_server_20llm_PRODUCTION.py-525-    import logging
-/app/services/ai_server_20llm_PRODUCTION.py-526-    logger = logging.getLogger(__name__)
-/app/services/ai_server_20llm_PRODUCTION.py-527-    ctx = request.context if isinstance(request.context, dict) else {}
-/app/services/ai_server_20llm_PRODUCTION.py-528-    logger.info("20llm inbound userid/role debug userid=%r role=%r context_keys=%r", ctx.get("userid"), ctx.get("role"), sorted(list(ctx.keys())) if isinstance(ctx, dict) else None)
-/app/services/ai_server_20llm_PRODUCTION.py-529-    msg = (getattr(request, "message", None) or "").strip()
-/app/services/ai_server_20llm_PRODUCTION.py-530-    normalized = " ".join(msg.lower().split()).strip(" ?!.")
-/app/services/ai_server_20llm_PRODUCTION.py-531-    if normalized == "what county is mount hope in":
-/app/services/ai_server_20llm_PRODUCTION.py-532-        logger.warning("Mount Hope hard-stop guard triggered user_id=%r", getattr(request, "user_id", None))
-/app/services/ai_server_20llm_PRODUCTION.py-533-        return {
-/app/services/ai_server_20llm_PRODUCTION.py-534-            "response": "HEALTHCHECK_BLOCKED",
-/app/services/ai_server_20llm_PRODUCTION.py-535-            "minds_participated": 0,
-/app/services/ai_server_20llm_PRODUCTION.py-536-            "total_minds": 21,
-/app/services/ai_server_20llm_PRODUCTION.py-537-            "timestamp": None,
-/app/services/ai_server_20llm_PRODUCTION.py-538-            "used_wv_entangled_context": False,
-/app/services/ai_server_20llm_PRODUCTION.py-539-        }
-/app/services/ai_server_20llm_PRODUCTION.py-540-
-/app/services/ai_server_20llm_PRODUCTION.py-541-    ctx = request.context if isinstance(request.context, dict) else {}
-/app/services/ai_server_20llm_PRODUCTION.py-542-    keys = sorted(list(ctx.keys())) if isinstance(ctx, dict) else []
-/app/services/ai_server_20llm_PRODUCTION.py-543-    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
-/app/services/ai_server_20llm_PRODUCTION.py-544-    logger.info(
---
-/app/services/ai_server_20llm_PRODUCTION.py-569-        }
-/app/services/ai_server_20llm_PRODUCTION.py-570-
-/app/services/ai_server_20llm_PRODUCTION.py-571-    try:
-/app/services/ai_server_20llm_PRODUCTION.py-572-        logger.info("💬 Contextual query: %s...", request.message[:50])
-/app/services/ai_server_20llm_PRODUCTION.py-573-        # Build WV‑aware prompt when context is present (hard requirement enforced inside)
-/app/services/ai_server_20llm_PRODUCTION.py-574-        prompt = build_prompt(request.message, request.context or {})
-/app/services/ai_server_20llm_PRODUCTION.py-575-        final_response = await brain.process_with_prompt(prompt)
-/app/services/ai_server_20llm_PRODUCTION.py-576-        active_models = [m for m in brain.models if m.get("active", True)]
-/app/services/ai_server_20llm_PRODUCTION.py-577-        return {
-/app/services/ai_server_20llm_PRODUCTION.py-578-            "response": final_response,
-/app/services/ai_server_20llm_PRODUCTION.py-579-            "minds_participated": len(active_models),  # all attempted
-/app/services/ai_server_20llm_PRODUCTION.py-580-            "total_minds": len(active_models),
-/app/services/ai_server_20llm_PRODUCTION.py-581-            "timestamp": datetime.now().isoformat(),
-/app/services/ai_server_20llm_PRODUCTION.py-582-            "used_wv_entangled_context": bool(
-/app/services/ai_server_20llm_PRODUCTION.py-583-                (request.context or {})
-/app/services/ai_server_20llm_PRODUCTION.py-584-                .get("system_overrides", {})
-/app/services/ai_server_20llm_PRODUCTION.py-585-                .get("wv_entangled_context")
-/app/services/ai_server_20llm_PRODUCTION.py-586-            ),
-/app/services/ai_server_20llm_PRODUCTION.py-587-        }
-/app/services/ai_server_20llm_PRODUCTION.py-588-    except Exception as e:
-/app/services/ai_server_20llm_PRODUCTION.py:589:        logger.error("Error in /chat_with_context: %s", e)
-/app/services/ai_server_20llm_PRODUCTION.py-590-        raise HTTPException(status_code=500, detail="Error processing contextual request")
-/app/services/ai_server_20llm_PRODUCTION.py-591-
-/app/services/ai_server_20llm_PRODUCTION.py-592-
-/app/services/ai_server_20llm_PRODUCTION.py-593-@app.post("/chat")
-/app/services/ai_server_20llm_PRODUCTION.py-594-async def chat(request: ChatRequest):
-/app/services/ai_server_20llm_PRODUCTION.py-595-    try:
-/app/services/ai_server_20llm_PRODUCTION.py-596-        logger.info("💬 Query: %s...", request.message[:50])
-/app/services/ai_server_20llm_PRODUCTION.py-597-
-/app/services/ai_server_20llm_PRODUCTION.py-598-        # Hard cap the entire 20‑LLM fabric to 600 seconds.
-/app/services/ai_server_20llm_PRODUCTION.py-599-        # If this trips, we still return a graceful fallback instead of hanging.
-/app/services/ai_server_20llm_PRODUCTION.py-600-        try:
-/app/services/ai_server_20llm_PRODUCTION.py-601-            responses = await asyncio.wait_for(
-/app/services/ai_server_20llm_PRODUCTION.py-602-                brain.process_all(request.message),
-/app/services/ai_server_20llm_PRODUCTION.py-603-                timeout=3600,
-/app/services/ai_server_20llm_PRODUCTION.py-604-            )
-/app/services/ai_server_20llm_PRODUCTION.py-605-        except asyncio.TimeoutError:
-/app/services/ai_server_20llm_PRODUCTION.py-606-            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
-/app/services/ai_server_20llm_PRODUCTION.py-607-            responses = []
-/app/services/ai_server_20llm_PRODUCTION.py-608-
-/app/services/ai_server_20llm_PRODUCTION.py-609-        final_response = brain.synthesize(responses)
---
-/app/services/ai_server_20llm_PRODUCTION.py-618-                "response": r.get("response", ""),
-/app/services/ai_server_20llm_PRODUCTION.py-619-                "confidence": r.get("weight", 0.5),
-/app/services/ai_server_20llm_PRODUCTION.py-620-                "specialty": r.get("specialty", ""),
-/app/services/ai_server_20llm_PRODUCTION.py-621-                "success": bool(r.get("response", "")),
-/app/services/ai_server_20llm_PRODUCTION.py-622-            }
-/app/services/ai_server_20llm_PRODUCTION.py-623-            for r in responses
-/app/services/ai_server_20llm_PRODUCTION.py-624-        ]
-/app/services/ai_server_20llm_PRODUCTION.py-625-
-/app/services/ai_server_20llm_PRODUCTION.py-626-        return {
-/app/services/ai_server_20llm_PRODUCTION.py-627-            "response": final_response,
-/app/services/ai_server_20llm_PRODUCTION.py-628-            "minds_participated": len(responses),
-/app/services/ai_server_20llm_PRODUCTION.py-629-            "total_minds": len(active_models),
-/app/services/ai_server_20llm_PRODUCTION.py-630-            "timestamp": datetime.now().isoformat(),
-/app/services/ai_server_20llm_PRODUCTION.py-631-            "expert_responses": _last_expert_responses,
-/app/services/ai_server_20llm_PRODUCTION.py-632-        }
-/app/services/ai_server_20llm_PRODUCTION.py-633-    except Exception as e:
-/app/services/ai_server_20llm_PRODUCTION.py-634-        logger.error("Error in /chat: %s", e)
-/app/services/ai_server_20llm_PRODUCTION.py-635-        raise HTTPException(status_code=500, detail="Error processing request")
-/app/services/ai_server_20llm_PRODUCTION.py-636-
-/app/services/ai_server_20llm_PRODUCTION.py-637-
-/app/services/ai_server_20llm_PRODUCTION.py:638:@app.get("/cached_expert_responses")
-/app/services/ai_server_20llm_PRODUCTION.py:639:async def cached_expert_responses():
-/app/services/ai_server_20llm_PRODUCTION.py-640-    """Return the expert responses from the last /chat call (Chapter 33 §33.2)"""
-/app/services/ai_server_20llm_PRODUCTION.py-641-    return {
-/app/services/ai_server_20llm_PRODUCTION.py-642-        "expert_responses": _last_expert_responses,
-/app/services/ai_server_20llm_PRODUCTION.py-643-        "count": len(_last_expert_responses),
-/app/services/ai_server_20llm_PRODUCTION.py-644-    }
-/app/services/ai_server_20llm_PRODUCTION.py-645-
-/app/services/ai_server_20llm_PRODUCTION.py-646-
-/app/services/ai_server_20llm_PRODUCTION.py-647-if __name__ == "__main__":
-/app/services/ai_server_20llm_PRODUCTION.py-648-    uvicorn.run(
-/app/services/ai_server_20llm_PRODUCTION.py-649-        app,
-/app/services/ai_server_20llm_PRODUCTION.py-650-        host="0.0.0.0",
-/app/services/ai_server_20llm_PRODUCTION.py-651-        port=int(os.getenv("SERVICE_PORT", "8008")),
-/app/services/ai_server_20llm_PRODUCTION.py-652-    )
---
-/app/services/msjarvismaingateway.py-74-    gbim = client.get_collection("GBIM")
-/app/services/msjarvismaingateway.py-75-    results = gbim.query(query_texts=[query], n_results=1)
-/app/services/msjarvismaingateway.py-76-    context = results['documents'][0] if results['documents'] else "No result"
-/app/services/msjarvismaingateway.py-77-    ollama_payload = {
-/app/services/msjarvismaingateway.py-78-        "model": "llama3",
-/app/services/msjarvismaingateway.py-79-        "prompt": f"Summarize this asset: {context}"
-/app/services/msjarvismaingateway.py-80-    }
-/app/services/msjarvismaingateway.py-81-    response = requests.post("http://localhost:11434/api/generate", json=ollama_payload, stream=True)
-/app/services/msjarvismaingateway.py-82-    summary_chunks = []
-/app/services/msjarvismaingateway.py-83-    for line in response.iter_lines():
-/app/services/msjarvismaingateway.py-84-        if line:
-/app/services/msjarvismaingateway.py-85-            obj = json.loads(line.decode('utf-8'))
-/app/services/msjarvismaingateway.py-86-            if "response" in obj:
-/app/services/msjarvismaingateway.py-87-                summary_chunks.append(obj["response"])
-/app/services/msjarvismaingateway.py-88-    return {
-/app/services/msjarvismaingateway.py-89-        "query": query,
-/app/services/msjarvismaingateway.py-90-        "context": context,
-/app/services/msjarvismaingateway.py-91-        "llm_summary": "".join(summary_chunks)
-/app/services/msjarvismaingateway.py-92-    }
-/app/services/msjarvismaingateway.py-93-
-/app/services/msjarvismaingateway.py:94:PRODUCTION_20LLM_URL = "http://jarvis-20llm-production:8008/chat_with_context"
-/app/services/msjarvismaingateway.py-95-API_KEY = os.getenv("API_KEY")
-/app/services/msjarvismaingateway.py-96-
-/app/services/msjarvismaingateway.py-97-def call_production_20llm(user_message: str, user_id: str):
-/app/services/msjarvismaingateway.py-98-    wv_ctx = build_wv_entangled_context(user_message)
-/app/services/msjarvismaingateway.py-99-    payload = {
-/app/services/msjarvismaingateway.py-100-        "message": user_message,
-/app/services/msjarvismaingateway.py-101-        "user_id": user_id,
-/app/services/msjarvismaingateway.py-102-        "context": {
-/app/services/msjarvismaingateway.py-103-            "system_overrides": {
-/app/services/msjarvismaingateway.py-104-                "wv_entangled_context": wv_ctx
-/app/services/msjarvismaingateway.py-105-            }
-
-===== IMPLEMENTATION INSPECTION MANIFEST =====
-5d835fc76e09f9fc66aac62d065014949fb92d5dc587b4a837bdf878284086a9  /mnt/nvme1/msjarvis-rebuild/research/meaning_geometry_source_record_v1/inspection/governed_route_discovery/20llm-container-runtime.txt
-e3dd12cde2bcb2e96d6cd0a715657836198314ddd35ef6c3660e375a8dd331de  /mnt/nvme1/msjarvis-rebuild/research/meaning_geometry_source_record_v1/inspection/governed_route_discovery/20llm-contract-probe-logs.txt
-d98ddc9745de60576c182d0f912f5546fdc63c9bf95a5e60c93cf67c3acf7ac9  /mnt/nvme1/msjarvis-rebuild/research/meaning_geometry_source_record_v1/inspection/governed_route_discovery/20llm-answer-route-source-index.txt
-a54e9d03652df1de87816f1b26c3fb0293909d439e46868692dbabc507b912ed  /mnt/nvme1/msjarvis-rebuild/research/meaning_geometry_source_record_v1/inspection/governed_route_discovery/20llm-answer-route-source-context.txt
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ 
-
+blind_id,evidence_bounded_interpretation,perplexity_scss_spatial,perplexity_scss_temporal,perplexity_scss_hydrologic_waterbody,perplexity_scss_provenance,perplexity_scss_total,perplexity_invented_waterbody_or_hydrologic_setting,perplexity_invented_location,perplexity_invented_date_or_event,perplexity_invented_source_or_provenance,perplexity_other_unsupported_physical_claim,perplexity_confidence,perplexity_rationale
+B0001,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on July 7, 2016, at location (37.96775000000, -80.76064000000) in Greenbrier County, WV, near Little Sewell Creek, sourced from USGS.",,,,,,,,,,,,
+B0002,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0003,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0004,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0005,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0006,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0007,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0008,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0009,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 7, 2016, at latitude 37.96911000000 and longitude -80.76403000000 in Greenbrier County, WV, near Little Sewell Creek, sourced from the USGS.",,,,,,,,,,,,
+B0010,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B0011,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0012,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 7, 2016, at latitude 37.96731000000 and longitude -80.75703000000 in Greenbrier County, WV, near Little Sewell Creek, sourced from the USGS.",,,,,,,,,,,,
+B0013,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0014,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0015,"A high-water-mark record with a marker type of Other, located at latitude 39.62960000000 and longitude -79.93216389000 in Monongalia County, WV, on July 1, 1996, sourced from the USGS.",,,,,,,,,,,,
+B0016,"A mud marker was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.742778 and longitude -80.472361 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0017,"A high-water-mark record with a marker type of Other, located at latitude 39.62619167000 and longitude -79.93042500000 in Monongalia County, WV, on July 1, 1996, sourced from the USGS.",,,,,,,,,,,,
+B0018,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0019,"A high-water-mark record with a marker type of Other, located in Taylor County, WV at latitude 39.25631944000 and longitude -80.12649722000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0020,"A mud marker with label 'no_label' was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the Greenbrier waterbody.",,,,,,,,,,,,
+B0021,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0022,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0023,"A high-water-mark record with a marker type of Other, located in Randolph County, WV at latitude 38.63624722000 and longitude -80.00844444000, sourced from USGS on 1974/07/01.",,,,,,,,,,,,
+B0024,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0025,"A high-water-mark record with a seed line marker label of no_label was recorded on July 5, 2016, at the Greenbrier River in Greenbrier County, WV.",,,,,,,,,,,,
+B0026,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.50377222000 and longitude -80.17243611000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0027,"A seed line marker with no label was recorded on July 6, 2016, at a location with latitude 37.67844000000 and longitude -80.88633000000 in Summers County, WV, near the New River.",,,,,,,,,,,,
+B0028,"A high-water-mark record with a Seed line marker label of no_label was recorded on July 7, 2016, at latitude 37.68633000000 and longitude -80.87883000000 in Raleigh County, WV, near the New River.",,,,,,,,,,,,
+B0029,"A high-water-mark record was observed on Sewell Creek in Greenbrier County, WV at latitude 37.96206000000 and longitude -80.78083000000 on 2016/07/06, sourced from the USGS.",,,,,,,,,,,,
+B0030,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0031,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0032,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0033,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0034,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0035,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0036,"A high-water-mark record was observed on the Greenbrier River in Monroe County, WV on 2016/07/05, sourced from USGS.",,,,,,,,,,,,
+B0037,"A high-water-mark record with a Seed line marker label of no_label was recorded on July 2, 2016, at the Elk River in Kanawha County, WV.",,,,,,,,,,,,
+B0038,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.52951667000 and longitude -80.34998611000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0039,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on Sewell Creek in Greenbrier County, WV at latitude 37.96194000000 and longitude -80.77853000000 on 2016/07/06, sourced from the USGS.",,,,,,,,,,,,
+B0040,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0041,"A high-water-mark record was observed on the Gauley River in Webster County, WV at a location with latitude 38.36525000000 and longitude -80.60164000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0042,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0043,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0044,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.25459167000 and longitude -80.31820556000, sourced from USGS on 1986/11/01.",,,,,,,,,,,,
+B0045,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0046,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0047,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0048,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0049,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0050,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0051,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on July 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B0052,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0053,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0054,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0055,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0056,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B0057,"A debris marker with no label was recorded on July 3, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0058,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0059,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0060,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0061,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0062,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0063,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0064,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.16291111 and longitude -80.26135, sourced from the USGS on November 1, 1985.",,,,,,,,,,,,
+B0065,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0066,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0067,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0068,"A debris marker was recorded on July 4, 2016, at a location with latitude 37.77164800000 and longitude -80.37501600000 in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0069,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0070,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.46116389000 and longitude -80.21656111000, sourced from USGS on 1963/03/01.",,,,,,,,,,,,
+B0071,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0072,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0073,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0074,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.23401667000 and longitude -80.29628056000, sourced from USGS on November 1st, 1985.",,,,,,,,,,,,
+B0075,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/05 at latitude 37.65767000000, longitude -80.88961000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B0076,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0077,"A high-water-mark record with a marker type of Other, located in Taylor County, WV at latitude 39.24856389000 and longitude -80.13106111000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0078,"A debris marker with no label was recorded on July 9, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0079,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0080,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1986, sourced from the USGS.",,,,,,,,,,,,
+B0081,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B0082,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0083,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0084,"A high-water-mark record with a marker type of Other, located at latitude 39.66666389000 and longitude -80.02239167000 in Monongalia County, WV, on July 1, 1996, sourced from the USGS.",,,,,,,,,,,,
+B0085,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0086,"A high-water-mark record with a marker type of Other, located at latitude 40.07962778000 and longitude -80.69280278000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B0087,"A seed line marker with no label was recorded on July 7, 2016, at a location in Raleigh County, WV, near the New River.",,,,,,,,,,,,
+B0088,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0089,"A mud marker with no label was recorded on July 9, 2016, at a location with latitude 38.22061000000 and longitude -80.53892000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0090,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0091,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0092,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0093,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at latitude 37.72286000000 and longitude -80.62822000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0094,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0095,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04329722000 and longitude -80.46213056000, sourced from USGS on November 1, 1985.",,,,,,,,,,,,
+B0096,"A high-water-mark record with a seed line marker label of no_label was recorded on July 9, 2016, at latitude 38.22311000000 and longitude -80.52694000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0097,"A high-water-mark record with a marker type of Other, located at latitude 40.09843333000 and longitude -80.55539167000 in Ohio County, WV, sourced from the USGS on November 1, 1976.",,,,,,,,,,,,
+B0098,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at the Greenbrier River in Greenbrier County, WV.",,,,,,,,,,,,
+B0099,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0100,"A mud marker with no label was recorded on July 9, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0101,"A high-water-mark record with a marker type of Other, located at latitude 40.04135278000 and longitude -80.70850833000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B0102,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0103,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0104,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0105,"A high-water-mark record was observed on the Gauley River in Webster County, WV at a location with latitude 38.35872000000 and longitude -80.57917000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0106,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0107,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04143056000 and longitude -80.46802778000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0108,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0109,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04480278000 and longitude -80.50028611000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0110,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.67997000000, longitude -80.88078000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B0111,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0112,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.53433889000 and longitude -80.34458333000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0113,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at the Greenbrier River in Greenbrier County, WV.",,,,,,,,,,,,
+B0114,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36327000000 and longitude -80.59124000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0115,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0116,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0117,"A high-water-mark record with a marker type of Other, located in Hancock County, WV at latitude 40.45009167000 and longitude -80.60030278000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0118,"A high-water-mark record with a marker type of Other, located at latitude 39.71504167000 and longitude -80.11057500000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0119,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on July 8, 2016, at the Meadow River in Greenbrier County, WV.",,,,,,,,,,,,
+B0120,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on March 1, 1967, sourced from the USGS.",,,,,,,,,,,,
+B0121,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on 1989/03/01, sourced from USGS.",,,,,,,,,,,,
+B0122,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0123,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0124,"A high-water-mark record with a Seed line marker label of no_label was observed on 2016/07/07 at latitude 37.68461000000, longitude -80.87983000000 in Raleigh County, WV near the New River, sourced from USGS.",,,,,,,,,,,,
+B0125,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0126,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04928056000 and longitude -80.49111944000, sourced from USGS on November 1, 1985.",,,,,,,,,,,,
+B0127,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0128,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0129,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0130,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0131,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0132,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0133,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0134,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0135,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0136,"A high-water-mark record with a marker type of Other, located in Marshall County, WV at latitude 39.97791667000 and longitude -80.72878056000, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B0137,"A high-water-mark record with a marker type of Other, located at latitude 40.04622222000 and longitude -80.71300000000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B0138,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0139,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0140,"A high-water-mark record with a marker type of Other, located at latitude 39.25279167000 and longitude -80.12767222000 in Taylor County, WV, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0141,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0142,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0143,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B0144,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at latitude 37.74392000000 and longitude -80.46431000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0145,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.27210278000 and longitude -80.33476111000, sourced from USGS on 1986/11/01.",,,,,,,,,,,,
+B0146,"A mud marker was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.72610000000 and longitude -80.64167000000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0147,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0148,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0149,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on 1982/03/01, sourced from USGS.",,,,,,,,,,,,
+B0150,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.03748056000 and longitude -80.46939167000, sourced from USGS on 1989/03/01.",,,,,,,,,,,,
+B0151,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0152,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0153,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.46554000000 and longitude -81.43252000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0154,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0155,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0156,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0157,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0158,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 7, 2016, at latitude 37.74903000000 and longitude -80.45736000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0159,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at latitude 37.72367000000 and longitude -80.62914000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0160,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0161,"A mud marker with label 'no_label' was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the Greenbrier waterbody.",,,,,,,,,,,,
+B0162,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0163,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0164,"A high-water-mark record with a marker type of Other, located at latitude 40.08896389000 and longitude -80.68920833000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B0165,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0166,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.46869000000 and longitude -81.40181000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0167,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0168,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0169,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0170,"A high-water-mark record with a seed line marker located at latitude 37.97033000000, longitude -80.76442000000 in Greenbrier County, WV near Little Sewell Creek on July 7, 2016, sourced from the USGS.",,,,,,,,,,,,
+B0171,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0172,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0173,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label, located at latitude 38.99889444000, longitude -80.22670278000, in Upshur County, WV, on 1985/11/01, sourced from USGS.",,,,,,,,,,,,
+B0174,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0175,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0176,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0177,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0178,"A high-water-mark record with a marker type of Other, located at latitude 39.06092500000 and longitude -79.60630278000 in Tucker County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B0179,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0180,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.15657222000 and longitude -80.54803333000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0181,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0182,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0183,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0184,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0185,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0186,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0187,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0188,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0189,"A mud marker with no label was recorded on July 9, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0190,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04219722000 and longitude -80.46617500000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0191,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0192,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0193,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0194,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0195,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0196,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0197,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.43626000000 and longitude -81.12719000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0198,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0199,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0200,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0201,"A high-water-mark record was observed on July 8, 2016, at a location with latitude 37.9905 and longitude -80.74628 in Greenbrier County, WV, near the Meadow River.",,,,,,,,,,,,
+B0202,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0203,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0204,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0205,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1989, sourced from the USGS.",,,,,,,,,,,,
+B0206,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0207,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0208,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0209,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.34436111000 and longitude -80.40128611000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0210,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0211,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0212,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0213,"A high-water-mark record with a Seed line marker label of no_label was observed on the Greenbrier River in Monroe County, WV at latitude 37.72583000000 and longitude -80.64917000000 on 2016/07/05, sourced from USGS.",,,,,,,,,,,,
+B0214,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at the Greenbrier River in Greenbrier County, WV.",,,,,,,,,,,,
+B0215,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0216,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36419000000 and longitude -80.59581000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0217,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0218,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0219,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on July 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B0220,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0221,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0222,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0223,"A high-water-mark record was observed on July 3, 2016, at a location with latitude 38.44443000000 and longitude -81.17641000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0224,"A high-water-mark record with a marker type of Other, located at latitude 40.05523889000 and longitude -80.62089722000 in Ohio County, WV, sourced from USGS on 1976/11/01.",,,,,,,,,,,,
+B0225,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0226,"A high-water-mark record with a marker type of Other, located at latitude 39.62284167000 and longitude -79.98911111000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0227,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0228,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0229,"A mud marker with no label was recorded on July 9, 2016, at a location with latitude 38.22556000000 and longitude -80.52551000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0230,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, in Greenbrier County, WV, near the Greenbrier waterbody.",,,,,,,,,,,,
+B0231,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0232,"A high-water-mark record with a marker type of Other, located in Taylor County, WV at latitude 39.34637500000 and longitude -79.94184722000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0233,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1989, sourced from the USGS.",,,,,,,,,,,,
+B0234,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0235,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0236,"A seed line marker with no label was recorded on July 6, 2016, at a location in Summers County, WV, near the New River.",,,,,,,,,,,,
+B0237,"A high-water-mark record was observed on July 7, 2016, at a location with latitude 37.96781000000 and longitude -80.75517000000 in Greenbrier County, WV, near Little Sewell Creek, sourced from the USGS.",,,,,,,,,,,,
+B0238,"A high-water-mark record with a marker type of Other, located at latitude 40.08269444000 and longitude -80.58118611000 in Ohio County, WV, sourced from USGS on 1976/11/01.",,,,,,,,,,,,
+B0239,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0240,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0241,"A high-water-mark record with a marker type of Other, located at latitude 40.07393889000 and longitude -80.59941389000 in Ohio County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0242,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0243,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0244,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1967, sourced from the USGS.",,,,,,,,,,,,
+B0245,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0246,"A high-water-mark record with a seed line marker label of no_label was observed on 2016/07/09 at latitude 38.2245, longitude -80.5270 in Nicholas County, WV near Cherry River, sourced from USGS.",,,,,,,,,,,,
+B0247,"A high-water-mark record with a seed line marker label of no_label was observed on 2016/07/09 at latitude 38.22083000000, longitude -80.53722000000 in Nicholas County, WV near Cherry River, sourced from USGS.",,,,,,,,,,,,
+B0248,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0249,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.42694000000 and longitude -81.18319000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0250,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0251,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on July 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B0252,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0253,"A high-water-mark record with a marker type of Other, located in Marshall County, WV at latitude 40.01302500000 and longitude -80.72732778000, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B0254,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on December 1, 1969, sourced from the USGS.",,,,,,,,,,,,
+B0255,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0256,"A high-water-mark record with a seed line marker label of no_label was observed on 2016/07/06 at latitude 38.22389000000, longitude -80.57839000000 in Nicholas County, WV near Cherry River, sourced from USGS.",,,,,,,,,,,,
+B0257,"A high-water-mark record was observed on Sewell Creek in Greenbrier County, WV at latitude 37.97389000000 and longitude -80.76092000000 on 2016/07/07, sourced from the USGS.",,,,,,,,,,,,
+B0258,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0259,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0260,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0261,"A debris marker with no label was recorded on July 9, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0262,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0263,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.48473000000 and longitude -81.35974000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0264,"A mud marker with label 'no_label' was recorded on July 6, 2016, at a location in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B0265,"A high-water-mark record was observed on the Gauley River in Webster County, WV at a location with latitude 38.36564000000 and longitude -80.60358000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0266,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the Greenbrier waterbody.",,,,,,,,,,,,
+B0267,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0268,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B0269,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0270,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0271,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0272,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0273,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0274,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0275,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04962222000 and longitude -80.48770556000, sourced from USGS on 1963/03/01.",,,,,,,,,,,,
+B0276,"A high-water-mark record was observed on July 8, 2016, at a location with latitude 37.99856000000 and longitude -80.74994000000 in Greenbrier County, WV, near the Meadow River.",,,,,,,,,,,,
+B0277,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0278,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0279,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0280,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0281,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.44641000000 and longitude -81.09794000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0282,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0283,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0284,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0285,"A mud marker with no label was recorded on July 9, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0286,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0287,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0288,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B0289,"A mud marker with label 'no_label' was recorded on Sewell Creek in Greenbrier County, WV at latitude 37.97306000000 and longitude -80.75964000000 on 2016/07/07, sourced from USGS.",,,,,,,,,,,,
+B0290,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0291,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0292,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0293,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0294,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0295,"A high-water-mark record with a marker type of Other, located at latitude 39.14588056000 and longitude -80.51843611000 in Lewis County, WV, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0296,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0297,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0298,"A high-water-mark record was observed on Sewell Creek in Greenbrier County, WV at latitude 37.95953000000 and longitude -80.78428000000 on 2016/07/06, sourced from the USGS.",,,,,,,,,,,,
+B0299,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0300,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0301,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on December 1, 1969, sourced from the USGS.",,,,,,,,,,,,
+B0302,"A mud marker with no label was recorded on July 7, 2016, at a location in Greenbrier County, WV, near the Meadow River.",,,,,,,,,,,,
+B0303,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0304,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0305,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0306,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0307,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0308,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0309,"A mud marker was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.745333 and longitude -80.469167 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0310,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36369000000 and longitude -80.60872000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0311,"The marker type indicates a physical alteration on the record, but its significance and context are unknown. The absence of a label does not provide additional information. Spatial, temporal, waterbody, event, or provenance details cannot be determined.",,,,,,,,,,,,
+B0312,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0313,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.41755000000 and longitude -81.49361000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0314,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0315,"A high-water-mark record with a marker type of Other, located at latitude 39.26814722000 and longitude -80.16291389000 in Taylor County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B0316,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0317,"A high-water-mark record with a marker type of Other, located in Hancock County, WV at latitude 40.44208056000 and longitude -80.56655556000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0318,"A high-water-mark record with a marker type of Other, located at latitude 40.26346111000 and longitude -80.61476389000 in Brooke County, WV, on March 1, 1936, sourced from the USGS.",,,,,,,,,,,,
+B0319,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0320,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0321,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0322,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0323,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0324,"A high-water-mark record with a Seed line marker label of no_label was observed on July 3, 2016, at the Elk River in Kanawha County, WV.",,,,,,,,,,,,
+B0325,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0326,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0327,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0328,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0329,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at latitude 37.75192000000 and longitude -80.45039000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0330,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0331,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0332,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0333,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label, located at latitude 39.70666944000, longitude -80.17391667000, in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0334,"A high-water-mark record with a marker type of Other, located at latitude 39.40503611000 and longitude -80.48285556000 in Harrison County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B0335,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on July 5, 2016, at latitude 37.64414000000 and longitude -80.88389000000 in Summers County, WV, near the New River.",,,,,,,,,,,,
+B0336,"A mud marker with label 'no_label' was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the Greenbrier waterbody.",,,,,,,,,,,,
+B0337,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.56308611 and longitude -80.19513056, sourced from the USGS on August 1, 1980.",,,,,,,,,,,,
+B0338,"A mud marker was recorded on Sewell Creek in Greenbrier County, WV at latitude 37.9689 and longitude -80.76908 on July 7, 2016, sourced from the USGS.",,,,,,,,,,,,
+B0339,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0340,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on 1989/03/01, sourced from USGS.",,,,,,,,,,,,
+B0341,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0342,"A high-water-mark record with a marker type of Other, located at latitude 40.05859444000 and longitude -80.64163056000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B0343,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0344,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0345,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.14875278000 and longitude -80.49833889000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0346,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label, located at latitude 38.93939722000, longitude -80.23871944000, in Upshur County, WV, on 1985/11/01, sourced from USGS.",,,,,,,,,,,,
+B0347,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0348,"The marker type indicates a physical alteration on the record, but its significance and context are unknown. The absence of a label does not provide additional information. Spatial, temporal, waterbody, event, or provenance details cannot be determined.",,,,,,,,,,,,
+B0349,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1, 1986, sourced from the USGS.",,,,,,,,,,,,
+B0350,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on July 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B0351,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0352,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0353,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0354,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0355,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0356,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0357,"A high-water-mark record with a marker type of Other, located at latitude 39.09736944000 and longitude -79.67801111000 in Tucker County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B0358,"A debris marker with no label was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.73080600000 and longitude -80.48652800000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0359,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0360,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0361,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0362,"A high-water-mark record with a marker type of Other, located in Marshall County, WV at latitude 40.00047778000 and longitude -80.69946111000, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B0363,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0364,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.00173889000 and longitude -80.39410556000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0365,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0366,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at latitude 37.72721000000 and longitude -80.64813000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0367,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0368,"A mud marker with no label was recorded on July 6, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0369,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0370,"A mud marker was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.745333 and longitude -80.466889 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0371,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0372,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0373,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.34995278000 and longitude -80.31777500000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0374,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0375,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0376,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0377,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at latitude 37.72532000000 and longitude -80.64022000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0378,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0379,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.52053611 and longitude -80.38885278, sourced from the USGS on August 1, 1980.",,,,,,,,,,,,
+B0380,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0381,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0382,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0383,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0384,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36383000000 and longitude -80.59308000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0385,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0386,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0387,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0388,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0389,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0390,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0391,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0392,"The marker type indicates a physical alteration on the record, but its significance and context are unknown. The absence of a label does not provide additional information. Spatial, temporal, waterbody, event, or provenance details cannot be determined.",,,,,,,,,,,,
+B0393,"A high-water-mark record with a marker type of Other, located at latitude 39.12140278000 and longitude -79.67544722000 in Tucker County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B0394,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at latitude 37.75972000000 and longitude -80.44122000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0395,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0396,"A high-water-mark record with a Seed line marker label of no_label was recorded on July 5, 2016, at the Greenbrier River in Monroe County, WV.",,,,,,,,,,,,
+B0397,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0398,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.53089444 and longitude -80.34415556, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0399,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0400,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0401,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1, 1986, sourced from the USGS.",,,,,,,,,,,,
+B0402,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0403,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0404,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.38045833000 and longitude -80.44527500000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0405,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0406,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1986, sourced from the USGS.",,,,,,,,,,,,
+B0407,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0408,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.01434444000 and longitude -80.48298333000, sourced from USGS on 1967/03/01.",,,,,,,,,,,,
+B0409,"A mud marker was recorded on the Gauley River in Nicholas County, WV at a location with latitude 38.35734000000 and longitude -80.61039000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0410,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.16600833000 and longitude -80.34665833000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0411,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.05120278000 and longitude -80.35559722000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0412,"A high-water-mark record with a marker type of Other, located at latitude 40.09377778000 and longitude -80.65822500000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B0413,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0414,"A mud marker with no label was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.74755600000 and longitude -80.46375000000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0415,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0416,"A mud marker with label 'no_label' was recorded on July 9, 2016, at a location with latitude 38.2235 and longitude -80.53039 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0417,"A high-water-mark record with a stain line marker labeled 'no_label' was observed on the Greenbrier River in Greenbrier County, WV at latitude 37.74291700000 and longitude -80.47152800000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0418,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0419,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0420,"A high-water-mark record was observed on July 8, 2016, at a location with latitude 37.99656000000 and longitude -80.74875000000 in Greenbrier County, WV, near the Meadow River, sourced from USGS.",,,,,,,,,,,,
+B0421,"A high-water-mark record with a marker type of Other, located at latitude 40.10541389000 and longitude -80.67369444000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B0422,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.51979444000 and longitude -80.30596944000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0423,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0424,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label, located at latitude 38.8745, longitude -80.18956111 in Upshur County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0425,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0426,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/05 at latitude 37.65144000000, longitude -80.88514000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B0427,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0428,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line cannot be determined. The label 'no_label' implies that no specific identifier or description is available for this marker. Consequently, any conclusions about the marker's purpose, origin, or significance are uncertain.",,,,,,,,,,,,
+B0429,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0430,"A high-water-mark record with a seed line marker located at latitude 37.96792000000, longitude -80.76792000000 in Greenbrier County, WV near SEWELL CREEK on 2016/07/05, sourced from USGS.",,,,,,,,,,,,
+B0431,"The marker type 'Debris' indicates that the marker is associated with debris, but does not provide information about its origin or purpose. The label 'LH-20' may be a unique identifier, but without further context, it cannot be interpreted. Spatial and temporal information are unavailable, making it impossible to determine the location or time of deployment.",,,,,,,,,,,,
+B0432,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on June 1, 1968, sourced from the USGS.",,,,,,,,,,,,
+B0433,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0434,"A high-water-mark record with a marker type of Other, located at latitude 40.04348889000 and longitude -80.70911111000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B0435,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0436,"A high-water-mark record was observed on July 3, 2016, at a location with latitude 38.43146000000 and longitude -81.11117000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0437,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0438,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0439,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0440,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0441,"A high-water-mark record with a marker type of Other, located at latitude 40.04246944000 and longitude -80.70920278000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B0442,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0443,"A high-water-mark record was observed on July 3, 2016, at a location with latitude 38.43667000000 and longitude -81.17362000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0444,"A high-water-mark record with a marker type of Other, located in Preston County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0445,"A high-water-mark record with a marker type of Other, located at latitude 40.04368889000 and longitude -80.65859722000 in Ohio County, WV, on November 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B0446,"A high-water-mark record with a marker type of Other, located in Taylor County, WV at latitude 39.34487778000 and longitude -79.94341667000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0447,"A debris marker with no label was recorded on the Gauley River in Webster County, WV at latitude 38.35861000000 and longitude -80.57806000000 on July 9, 2016, sourced from USGS.",,,,,,,,,,,,
+B0448,"A mud marker was recorded on the Gauley River in Nicholas County, WV at a location with latitude 38.35730000000 and longitude -80.61084000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0449,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0450,"A high-water-mark record was observed on July 8, 2016, at a location with latitude 37.99919000000 and longitude -80.75130000000 in Greenbrier County, WV, near the Meadow River, sourced from USGS.",,,,,,,,,,,,
+B0451,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on Sewell Creek in Greenbrier County, WV at latitude 37.96877000000 and longitude -80.76800000000 on 2016/07/07, sourced from the USGS.",,,,,,,,,,,,
+B0452,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0453,"A debris marker with no label was recorded on July 6, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0454,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0455,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0456,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0457,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0458,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0459,"A mud marker with no label was recorded on July 6, 2016, at a location with latitude 38.21944000000 and longitude -80.55503000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0460,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0461,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0462,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0463,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0464,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0465,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04669167000 and longitude -80.53741667000, sourced from USGS on December 1, 1969.",,,,,,,,,,,,
+B0466,"A debris marker with no label was recorded on July 6, 2016, at a location in Greenbrier County, WV, near the green brier waterbody.",,,,,,,,,,,,
+B0467,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0468,"A high-water-mark record with a marker type of Other, located at latitude 40.04852778000 and longitude -80.64255556000 in Ohio County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0469,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.29824444 and longitude -80.51210833, sourced from the USGS on November 1, 1985.",,,,,,,,,,,,
+B0470,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0471,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04634722000 and longitude -80.49611111000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0472,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0473,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0474,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1, 1986, sourced from the USGS.",,,,,,,,,,,,
+B0475,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0476,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0477,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0478,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0479,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36036000000 and longitude -80.58284000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0480,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0481,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0482,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0483,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0484,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0485,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0486,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0487,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0488,"A high-water-mark record with a marker type of Other, located at latitude 40.38937500000 and longitude -80.59746944000 in Brooke County, WV, on August 1, 1979, sourced from the USGS.",,,,,,,,,,,,
+B0489,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0490,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label, located at latitude 38.84238333000, longitude -79.87621667000, in Randolph County, WV, on 1985/11/01, sourced from USGS.",,,,,,,,,,,,
+B0491,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B0492,"A high-water-mark record with a marker type of Other, located at latitude 39.56455278000 and longitude -80.05071667000 in Monongalia County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B0493,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0494,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.28276111 and longitude -80.56443889, sourced from USGS on November 1, 1985.",,,,,,,,,,,,
+B0495,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0496,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.30875833000 and longitude -80.27940000000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0497,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0498,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0499,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0500,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0501,"A high-water-mark record with a seed line marker located at latitude 37.96831000000, longitude -80.76839000000 in Greenbrier County, WV near SEWELL CREEK on 2016/07/05, sourced from USGS.",,,,,,,,,,,,
+B0502,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.54931944000 and longitude -80.15422222000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0503,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0504,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0505,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0506,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0507,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0508,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on July 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B0509,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.54147778000 and longitude -80.34614167000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0510,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B0511,"A mud marker with label 'no_label' was recorded on July 6, 2016, at a location in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B0512,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0513,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0514,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0515,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0516,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0517,"A mud marker was recorded on Gauley River in Webster County, WV at latitude 38.36558000000 and longitude -80.60558000000 on 2016/07/07, sourced from USGS.",,,,,,,,,,,,
+B0518,"A high-water-mark record with a marker type of Other, located at latitude 39.71602222000 and longitude -80.09324722000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0519,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0520,"A debris marker with no label was recorded on the Greenbrier River in Monroe County, WV at latitude 37.72444000000 and longitude -80.64250000000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0521,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0522,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0523,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0524,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0525,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.18943333000 and longitude -80.28102500000, sourced from USGS on 1986/11/01.",,,,,,,,,,,,
+B0526,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0527,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.29806944000 and longitude -80.48506944000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0528,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0529,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0530,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0531,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0532,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.01361667000 and longitude -80.40677222000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0533,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0534,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0535,"A high-water-mark record was observed on July 2, 2016, at a location with latitude 38.4898 and longitude -81.27544 in Kanawha County, WV, near the Elk River, sourced from USGS.",,,,,,,,,,,,
+B0536,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0537,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0538,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.35889000000 and longitude -80.58028000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0539,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0540,"A high-water-mark record with a Seed line marker label of no_label was observed on 2016/07/05 at latitude 37.64828000000, longitude -80.88367000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B0541,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0542,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0543,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0544,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/05 at latitude 37.65217000000, longitude -80.88489000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B0545,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0546,"A high-water-mark record with a marker type of Other, located at latitude 39.66583611000 and longitude -80.01567222000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0547,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0548,"A high-water-mark record was observed on July 3, 2016, at a location with latitude 38.48272000000 and longitude -81.20523000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0549,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at latitude 37.72494000000 and longitude -80.63819000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0550,"A high-water-mark record with a marker type of Other, located in Taylor County, WV at latitude 39.39865556000 and longitude -79.89694167000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0551,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at the Greenbrier River in Greenbrier County, WV.",,,,,,,,,,,,
+B0552,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0553,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0554,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.51722500000 and longitude -80.30173056000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0555,"A high-water-mark record was observed on Sewell Creek in Greenbrier County, WV at latitude 37.96881000000 and longitude -80.76732000000 on 2016/07/07, sourced from the USGS.",,,,,,,,,,,,
+B0556,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0557,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36034000000 and longitude -80.58356000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0558,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0559,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.41794000000 and longitude -81.49342000000 in Kanawha County, WV, near Elk River.",,,,,,,,,,,,
+B0560,"A debris marker with no label was recorded on the Greenbrier River in Monroe County, WV at latitude 37.72417000000 and longitude -80.64167000000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0561,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0562,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0563,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0564,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at the Greenbrier River in Greenbrier County, WV.",,,,,,,,,,,,
+B0565,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0566,"A mud marker with no label was recorded on July 2, 2016, at a location in Clay County, WV, near the Elk River.",,,,,,,,,,,,
+B0567,"A mud marker with label 'no_label' was recorded on July 6, 2016, at a location in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B0568,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0569,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0570,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0571,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0572,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0573,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.44551000000 and longitude -81.17595000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0574,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on July 1, 1974, sourced from the USGS.",,,,,,,,,,,,
+B0575,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0576,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0577,"A high-water-mark record was observed on the Gauley River in Webster County, WV at a location with latitude 38.36003000000 and longitude -80.58559000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0578,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0579,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0580,"A high-water-mark record with a marker type of Other, located at latitude 39.62881667000 and longitude -79.93457778000 in Monongalia County, WV, sourced from the USGS on 1996/07/01.",,,,,,,,,,,,
+B0581,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0582,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0583,"A high-water-mark record was observed on July 3, 2016, at a location with latitude 38.42653000000 and longitude -81.18284000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0584,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0585,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0586,"A mud marker was recorded on July 5, 2016, at a location with latitude 38.40499000000 and longitude -81.53439000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0587,"A debris marker with no label was recorded on the Greenbrier River in Monroe County, WV at latitude 37.7255 and longitude -80.65139 on July 8, 2016, sourced from USGS.",,,,,,,,,,,,
+B0588,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0589,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0590,"A high-water-mark record with a marker type of Other, located in Taylor County, WV at latitude 39.36953056000 and longitude -79.91767778000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0591,"A high-water-mark record was observed on July 6, 2016, at a location with latitude 37.94306000000 and longitude -80.80108000000 in Greenbrier County, WV, near the Greenbrier River.",,,,,,,,,,,,
+B0592,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.28559444 and longitude -80.44453889, sourced from USGS on November 1, 1985.",,,,,,,,,,,,
+B0593,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.55508889000 and longitude -80.17369722000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0594,"A high-water-mark record with a marker type of Other, located at latitude 39.61978333000 and longitude -79.96877778000 in Monongalia County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0595,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0596,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.67906000000, longitude -80.88353000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B0597,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0598,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0599,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0600,"A high-water-mark record was observed on July 5, 2016, at a location with latitude 37.73105600000 and longitude -80.48400000000 in Greenbrier County, WV, near the Greenbrier River.",,,,,,,,,,,,
+B0601,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on 1982/03/01, sourced from USGS.",,,,,,,,,,,,
+B0602,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at latitude 37.74350000000 and longitude -80.46292000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0603,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0604,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0605,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0606,"A debris marker with no label was recorded on July 3, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0607,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.43132000000 and longitude -81.18336000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0608,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0609,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0610,"A debris marker with no label was recorded on July 9, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0611,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.27967222000 and longitude -80.33462222000, sourced from USGS on 1986/11/01.",,,,,,,,,,,,
+B0612,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0613,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 7, 2016, at the Meadow River in Greenbrier County, WV.",,,,,,,,,,,,
+B0614,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0615,"A high-water-mark record with a marker type of Other, located in Randolph County, WV at latitude 38.82588889000 and longitude -80.03468889000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0616,"A high-water-mark record with a marker type of Other, located in Taylor County, WV at latitude 39.33660556000 and longitude -79.99064167000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0617,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0618,"A high-water-mark record with a marker type of Other, located at latitude 39.05148611 and longitude -80.34370556 in Lewis County, WV, sourced from USGS on December 1, 1969.",,,,,,,,,,,,
+B0619,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0620,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0621,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.44923611000 and longitude -80.24483611000, sourced from USGS on November 1st, 1985.",,,,,,,,,,,,
+B0622,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0623,"A mud marker with label 'no_label' was recorded on July 6, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0624,"A high-water-mark record with a seed line marker label of no_label was recorded on July 7, 2016, at latitude 37.68814000000 and longitude -80.87897000000 in Raleigh County, WV, near the New River.",,,,,,,,,,,,
+B0625,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0626,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0627,"A high-water-mark record with a Seed line marker label of no_label was recorded on July 5, 2016, at latitude 37.7274 and longitude -80.64708 in Greenbrier County, WV, near the Greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0628,"A high-water-mark record with a marker type of Other, located in Hancock County, WV at latitude 40.43288889000 and longitude -80.55380278000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0629,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0630,"A debris marker with no label was recorded on July 6, 2016, at a location in Summers County, WV, near the New River.",,,,,,,,,,,,
+B0631,"A high-water-mark record with a marker type of Other, located at latitude 39.15982500000 and longitude -80.14929444000 in Barbour County, WV, sourced from the USGS on 1986/11/01.",,,,,,,,,,,,
+B0632,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0633,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0634,"A mud marker with label 'no_label' was recorded on July 6, 2016, at latitude 38.22017000000 and longitude -80.56064000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0635,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0636,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0637,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B0638,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on 1982/03/01, sourced from USGS.",,,,,,,,,,,,
+B0639,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0640,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04198611000 and longitude -80.46175000000, sourced from USGS on November 1st, 1985.",,,,,,,,,,,,
+B0641,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0642,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 8, 2016, at latitude 38.00353000000 and longitude -80.74758000000 in Greenbrier County, WV, near the Meadow River.",,,,,,,,,,,,
+B0643,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0644,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0645,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0646,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0647,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0648,"A high-water-mark record with a marker type of Other, located at latitude 40.05166667000 and longitude -80.72575278000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B0649,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0650,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0651,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0652,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0653,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.46057000000 and longitude -81.08700000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0654,"A debris marker labeled Z3-RB-41a was recorded on July 6, 2016, at a location with latitude 38.22161000000 and longitude -80.56636000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0655,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0656,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0657,"A high-water-mark record with a marker type of Other, located at latitude 39.71927500000 and longitude -80.24056667000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0658,"A high-water-mark record with a marker type of Other, located at latitude 39.71998611000 and longitude -80.20806389000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0659,"The marker type indicates a physical alteration on the record, but its significance and context are unknown. The absence of a label does not provide additional information. Spatial, temporal, waterbody, event, or provenance details cannot be determined.",,,,,,,,,,,,
+B0660,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0661,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0662,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.28211944000 and longitude -80.35168056000, sourced from USGS on 1986/11/01.",,,,,,,,,,,,
+B0663,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0664,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on June 1, 1972, sourced from the USGS.",,,,,,,,,,,,
+B0665,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0666,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on SEWELL CREEK in Greenbrier County, WV at latitude 37.96692000000 and longitude -80.77011000000 on 2016/07/05, sourced from the USGS.",,,,,,,,,,,,
+B0667,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label, located at latitude 39.21051944000, longitude -79.99406944000 in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0668,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0669,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04798889000 and longitude -80.47965833000, sourced from USGS on 1963/03/01.",,,,,,,,,,,,
+B0670,"A high-water-mark record with a Seed line marker label of no_label was observed on July 2, 2016, at the Elk River in Kanawha County, WV.",,,,,,,,,,,,
+B0671,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at latitude 37.76308000000 and longitude -80.43864000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0672,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0673,"A debris marker with no label was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.73030600000 and longitude -80.48680600000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0674,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0675,"A mud marker with no label was recorded on July 6, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0676,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0677,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36556000000 and longitude -80.60711000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0678,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0679,"A high-water-mark record was observed on the Gauley River in Webster County, WV at a location with latitude 38.35939000000 and longitude -80.58404000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0680,"A high-water-mark record was observed on July 3, 2016, at a location with latitude 38.45043000000 and longitude -81.14596000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0681,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0682,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0683,"A high-water-mark record with a Seed line marker label of no_label was observed on July 2, 2016, at the Elk River in Kanawha County, WV.",,,,,,,,,,,,
+B0684,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0685,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.15064722000 and longitude -80.43631111000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0686,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0687,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0688,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0689,"A high-water-mark record with a marker type of Other, located at latitude 39.41893333000 and longitude -79.89070278000 in Preston County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B0690,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0691,"A high-water-mark record with a marker type of Other, located at latitude 39.05058333000 and longitude -79.72059444000 in Tucker County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B0692,"A high-water-mark record with a marker type of Other, located at latitude 39.04113611000 and longitude -80.46100000000 in Lewis County, WV, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0693,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.28911944000 and longitude -80.35145556000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0694,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.67858000000, longitude -80.88494000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B0695,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0696,"A high-water-mark record with a marker type of Other, located in Hancock County, WV at latitude 40.43558889000 and longitude -80.59260278000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0697,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0698,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0699,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0700,"A mud marker with no label was recorded on July 9, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0701,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.05443889000 and longitude -80.56726667000, sourced from USGS on January 1, 1978.",,,,,,,,,,,,
+B0702,"A high-water-mark record with a marker type of Other, located in Marshall County, WV at latitude 39.97885556000 and longitude -80.73202222000, sourced from USGS on 1976/07/01.",,,,,,,,,,,,
+B0703,"A high-water-mark record with a seed line marker label of no_label was observed on July 2, 2016, at the Elk River in Kanawha County, WV.",,,,,,,,,,,,
+B0704,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0705,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0706,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0707,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0708,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0709,"A high-water-mark record with a marker type of Other, located at latitude 39.41172500000 and longitude -79.88530000000 in Preston County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B0710,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0711,"The marker type indicates a physical alteration on the record, but its significance and context are unknown. The absence of a label does not provide additional information. Spatial, temporal, waterbody, event, or provenance details cannot be determined.",,,,,,,,,,,,
+B0712,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0713,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0714,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0715,"A mud marker was recorded on July 9, 2016, at a location with latitude 38.22294000000 and longitude -80.53514000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0716,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0717,"A high-water-mark record with a marker type of Other, located at latitude 39.62984167000 and longitude -79.93328056000 in Monongalia County, WV, on July 1, 1996, sourced from the USGS.",,,,,,,,,,,,
+B0718,"A high-water mark was recorded on the Meadow River in Greenbrier County, WV at a location with latitude 37.99965 and longitude -80.751 on July 8, 2016, according to data from the USGS.",,,,,,,,,,,,
+B0719,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0720,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0721,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.68419000000, longitude -80.87628000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B0722,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0723,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0724,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0725,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0726,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0727,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0728,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0729,"A debris marker with no label was recorded on July 5, 2016, at a location in Summers County, WV, near the New River.",,,,,,,,,,,,
+B0730,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0731,"A mud marker was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.7385 and longitude -80.480917 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0732,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0733,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0734,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.36702222000 and longitude -80.39918611000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0735,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.44545000000 and longitude -81.09321000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0736,"A high-water-mark record was observed on the Gauley River in Webster County, WV at a location with latitude 38.35936000000 and longitude -80.60803000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0737,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0738,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at latitude 37.75564000000 and longitude -80.44592000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0739,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0740,"A high-water-mark record with a marker type of Other, located in Hancock County, WV at latitude 40.38721944 and longitude -80.60206944, sourced from USGS on 1979/08/01.",,,,,,,,,,,,
+B0741,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0742,"A high-water mark was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.728667 and longitude -80.48625 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0743,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0744,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0745,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0746,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1, 1986, sourced from the USGS.",,,,,,,,,,,,
+B0747,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0748,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0749,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.52463056000 and longitude -80.37837778000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0750,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0751,"A high-water-mark record with a marker type of Other, located at latitude 39.16033611000 and longitude -80.35362778000 in Harrison County, WV, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0752,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0753,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0754,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0755,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0756,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0757,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0758,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0759,"A mud marker with no label was recorded on the Greenbrier River in Monroe County, WV at latitude 37.729817 and longitude -80.660484 on July 6, 2016, sourced from USGS.",,,,,,,,,,,,
+B0760,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04148333000 and longitude -80.46525000000, sourced from USGS on November 1st, 1985.",,,,,,,,,,,,
+B0761,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0762,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0763,"A high-water-mark record with a marker type of Other, located at latitude 39.33015000000 and longitude -80.45101389000 in Harrison County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B0764,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0765,"A high-water mark was recorded on the Meadow River in Greenbrier County, WV at a location with latitude 37.98899000000 and longitude -80.74738000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B0766,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.15744444 and longitude -80.24422778, sourced from the USGS on November 1, 1985.",,,,,,,,,,,,
+B0767,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0768,"A high-water-mark record was observed on July 3, 2016, at a location with latitude 38.46073000000 and longitude -81.08820000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0769,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0770,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0771,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0772,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04337500000 and longitude -80.46209444000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0773,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.55543056000 and longitude -80.35618611000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0774,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.37664722000 and longitude -80.33974444000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0775,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0776,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0777,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 7, 2016, at latitude 37.76183000000 and longitude -80.43939000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0778,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0779,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on 1982/03/01, sourced from USGS.",,,,,,,,,,,,
+B0780,"A high-water-mark record with a seed line marker label of no_label was observed on 2016/07/09 at latitude 38.22278000000, longitude -80.53639000000 in Nicholas County, WV near Cherry River, sourced from USGS.",,,,,,,,,,,,
+B0781,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.52949444 and longitude -80.12107778, sourced from the USGS on August 1, 1980.",,,,,,,,,,,,
+B0782,"A seed line marker with no label was recorded on July 5, 2016, at a location in Summers County, WV, near the New River.",,,,,,,,,,,,
+B0783,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0784,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0785,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0786,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0787,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0788,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0789,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0790,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0791,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0792,"A high-water-mark record with a Seed line marker label of no_label was recorded on July 7, 2016, at the New River in Raleigh County, WV.",,,,,,,,,,,,
+B0793,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0794,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0795,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0796,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0797,"A mud marker with no label was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.722417 and longitude -80.497139 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0798,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/05 at latitude 37.65125000000, longitude -80.88506000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B0799,"A high-water-mark record was observed on the Greenbrier River in Monroe County, WV at a location with latitude 37.72556000000 and longitude -80.64833000000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0800,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0801,"A high-water-mark record with a marker type of Other, located at latitude 39.62924167000 and longitude -79.91436667000 in Monongalia County, WV, sourced from the USGS on 1996/07/01.",,,,,,,,,,,,
+B0802,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0803,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B0804,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0805,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0806,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0807,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at latitude 37.72587000000 and longitude -80.64162000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0808,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0809,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.14951111 and longitude -80.34451667, sourced from the USGS on August 1, 1980.",,,,,,,,,,,,
+B0810,"A high-water mark record was observed on Sewell Creek in Greenbrier County, WV at latitude 37.96258000000 and longitude -80.77997000000 on 2016/07/06, sourced from the USGS.",,,,,,,,,,,,
+B0811,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.30564444000 and longitude -80.48023611000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0812,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0813,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0814,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0815,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0816,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0817,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0818,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.15911389000 and longitude -80.35507222000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0819,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0820,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0821,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0822,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.47057000000 and longitude -81.39916000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0823,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on December 1, 1969, sourced from the USGS.",,,,,,,,,,,,
+B0824,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0825,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on July 1, 1974, sourced from the USGS.",,,,,,,,,,,,
+B0826,"A mud marker was recorded on Sewell Creek in Greenbrier County, WV at latitude 37.97428000000 and longitude -80.75994000000 on 2016/07/07, sourced from the USGS.",,,,,,,,,,,,
+B0827,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0828,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at the SEWELL CREEK waterbody in Greenbrier County, WV.",,,,,,,,,,,,
+B0829,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0830,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0831,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, in Greenbrier County, WV, near the Greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0832,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0833,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0834,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0835,"A high-water-mark record with a seed line marker label of no_label was recorded on July 7, 2016, at latitude 37.68381000000 and longitude -80.88019000000 in Raleigh County, WV, near the New River.",,,,,,,,,,,,
+B0836,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.439151 and longitude -81.48748 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0837,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0838,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0839,"A debris marker with no label was recorded on the Greenbrier River in Monroe County, WV at latitude 37.72556000000 and longitude -80.65222000000 on July 8, 2016, sourced from USGS.",,,,,,,,,,,,
+B0840,"A high-water-mark record with a marker type of Other, located at latitude 39.62968611000 and longitude -79.93511111000 in Monongalia County, WV, sourced from the USGS on 1996/07/01.",,,,,,,,,,,,
+B0841,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0842,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0843,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0844,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0845,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0846,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0847,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0848,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0849,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0850,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0851,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0852,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0853,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0854,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0855,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 7, 2016, at latitude 37.97131000000 and longitude -80.76022000000 in Greenbrier County, WV, near Little Sewell Creek, sourced from the USGS.",,,,,,,,,,,,
+B0856,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on Sewell Creek in Greenbrier County, WV at latitude 37.94411000000 and longitude -80.79794000000 on 2016/07/06, sourced from the USGS.",,,,,,,,,,,,
+B0857,"A high-water-mark record with a marker type of Other, labeled no_label, located at latitude 39.58252500000 and longitude -80.00989444000 in Monongalia County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B0858,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0859,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0860,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0861,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0862,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label, located at latitude 39.71289722000, longitude -80.11625833000, in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0863,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0864,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0865,"A mud marker was recorded on July 7, 2016, at a location with latitude 37.96939000000 and longitude -80.75900000000 in Greenbrier County, WV, near Little Sewell Creek.",,,,,,,,,,,,
+B0866,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0867,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0868,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0869,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0870,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0871,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0872,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0873,"A mud marker with label 'no_label' was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the Greenbrier waterbody.",,,,,,,,,,,,
+B0874,"A high-water-mark record with a marker type of Other, located at latitude 39.34962222000 and longitude -79.66792500000 in Preston County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B0875,"A high-water-mark record with a marker type of Other, located at latitude 40.08628889000 and longitude -80.69154722000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B0876,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1986, sourced from the USGS.",,,,,,,,,,,,
+B0877,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0878,"A high-water-mark record with a Seed line marker label of no_label was observed on 2016/07/05 at latitude 37.65567000000, longitude -80.88717000000 in Summers County, WV near the New River.",,,,,,,,,,,,
+B0879,"A mud marker was recorded on July 6, 2016, at a location with latitude 38.48869000000 and longitude -81.34869000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0880,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0881,"A high-water-mark record with a marker type of Other, located at latitude 39.61844722000 and longitude -80.02040556000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0882,"A high-water-mark record with a marker type of Other, located at latitude 40.09681389000 and longitude -80.68439167000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B0883,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0884,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B0885,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0886,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0887,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at the SEWELL CREEK waterbody in Greenbrier County, WV.",,,,,,,,,,,,
+B0888,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0889,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0890,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0891,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.24045833000 and longitude -80.31163056000, sourced from USGS on 1986/11/01.",,,,,,,,,,,,
+B0892,"A debris marker with no label was recorded on July 8, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0893,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0894,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0895,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0896,"A high-water-mark record with a marker type of Other, located at latitude 39.09751667000 and longitude -79.67809722000 in Tucker County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B0897,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0898,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0899,"A high-water-mark record was observed on July 8, 2016, at a location with latitude 37.99892000000 and longitude -80.75078000000 in Greenbrier County, WV, near the Meadow River.",,,,,,,,,,,,
+B0900,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0901,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0902,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0903,"A mud marker with no label was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.743111 and longitude -80.476306 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B0904,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0905,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.33635833000 and longitude -80.41715000000 on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0906,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.27065278000 and longitude -80.35567500000, sourced from USGS on 1989/03/01.",,,,,,,,,,,,
+B0907,"A high-water-mark record with a marker type of Other, located at latitude 39.43677500000 and longitude -79.68241667000 in Preston County, WV, sourced from the USGS on 1962/03/01.",,,,,,,,,,,,
+B0908,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0909,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0910,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0911,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0912,"The marker type indicates a mud deposit, but the label 'no_label' suggests that no specific information is provided. Therefore, we can conclude that a mud deposit was present at some point in time, but we cannot determine when or where this occurred.",,,,,,,,,,,,
+B0913,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0914,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0915,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0916,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0917,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0918,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0919,"The marker type indicates a physical alteration on the record, but its significance and context are unknown. The absence of a label does not provide additional information. Spatial, temporal, waterbody, event, or provenance details cannot be determined.",,,,,,,,,,,,
+B0920,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0921,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0922,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0923,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0924,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.36159167000 and longitude -80.36483056000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0925,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.08067778000 and longitude -80.46739167000, sourced from USGS on 1989/03/01.",,,,,,,,,,,,
+B0926,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0927,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.68128000000, longitude -80.87858000000 in Summers County, WV near the New River.",,,,,,,,,,,,
+B0928,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.08901111 and longitude -80.389275, sourced from USGS on November 1, 1985.",,,,,,,,,,,,
+B0929,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on July 8, 2016, at the Meadow River in Greenbrier County, WV.",,,,,,,,,,,,
+B0930,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on July 2, 2016, at the Elk River in Kanawha County, WV.",,,,,,,,,,,,
+B0931,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0932,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.10945278000 and longitude -80.40666111000, sourced from USGS on June 1, 1950.",,,,,,,,,,,,
+B0933,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0934,"A debris marker with no label was recorded on July 9, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0935,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0936,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0937,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.49631000000 and longitude -81.20849000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B0938,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0939,"A mud marker with no label was recorded on July 6, 2016, at a location with latitude 38.22447000000 and longitude -80.58042000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0940,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0941,"A high-water-mark record was observed on July 3, 2016, at location 37.80114300000, -80.29984500000 in Greenbrier County, WV near Howard Creek, sourced from USGS.",,,,,,,,,,,,
+B0942,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0943,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0944,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label, located at latitude 39.66095278000, longitude -80.00090556000, in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0945,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0946,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0947,"A high-water-mark record with a marker type of Other, located at latitude 40.09165556000 and longitude -80.68850833000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B0948,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0949,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0950,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on Sewell Creek in Greenbrier County, WV at latitude 37.96926000000 and longitude -80.76635000000 on 2016/07/07, sourced from the USGS.",,,,,,,,,,,,
+B0951,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the Greenbrier waterbody.",,,,,,,,,,,,
+B0952,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on July 7, 2016, at location (37.96983000000, -80.76133000000) in Greenbrier County, WV, near Little Sewell Creek, sourced from the USGS.",,,,,,,,,,,,
+B0953,"A high-water-mark record with a marker type of Other, labeled no_label, located at latitude 39.62338333000 and longitude -79.91266944000 in Monongalia County, WV, on July 1, 1996, sourced from the USGS.",,,,,,,,,,,,
+B0954,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0955,"A high-water-mark record with a marker type of Other, labeled no_label, located in Monongalia County, WV, on July 1, 1996, sourced from the USGS.",,,,,,,,,,,,
+B0956,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B0957,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0958,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0959,"The marker type indicates a physical alteration on the record, but its significance and context are unknown. The absence of a label does not provide additional information. Spatial, temporal, waterbody, event, or provenance details cannot be determined.",,,,,,,,,,,,
+B0960,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0961,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0962,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0963,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.02608333000 and longitude -80.47394722000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0964,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.40944167000 and longitude -80.49030556000, sourced from the USGS, on March 1, 1963.",,,,,,,,,,,,
+B0965,"A high-water-mark record with a marker type of Other, located at latitude 39.71993611000 and longitude -79.85638611000 in Monongalia County, WV, on February 1, 1984, sourced from the USGS.",,,,,,,,,,,,
+B0966,"A high-water-mark record with a marker type of Other, located in Randolph County, WV at latitude 38.63624722000 and longitude -80.00844444000, sourced from USGS on 1982/03/01.",,,,,,,,,,,,
+B0967,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0968,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0969,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at latitude 37.74403000000 and longitude -80.46539000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B0970,"A high-water-mark record with a marker type of Other, located at latitude 40.08964722000 and longitude -80.66854167000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B0971,"A mud marker with label 'no_label' was recorded on July 9, 2016, at latitude 38.22167000000 and longitude -80.56250000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0972,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.53387222000 and longitude -80.12889722000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B0973,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0974,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0975,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0976,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0977,"A debris marker with no label was recorded on July 6, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0978,"A high-water-mark record with a marker type of Other, located at latitude 40.04814167000 and longitude -80.64351944000 in Ohio County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B0979,"A high-water-mark record from the USGS, located at latitude 39.29030000000 and longitude -80.37502500000 in Harrison County, WV, on November 1st, 1985.",,,,,,,,,,,,
+B0980,"A mud marker with no label was recorded on July 6, 2016, at a location with latitude 38.22611 and longitude -80.58219 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B0981,"A mud marker was recorded on July 3, 2016, at a location with latitude 37.803349 and longitude -80.298568 in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B0982,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0983,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0984,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0985,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0986,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0987,"A seed line marker with no label was recorded on July 5, 2016, at a location with latitude 37.64831000000 and longitude -80.88375000000 in Summers County, WV, near the New River.",,,,,,,,,,,,
+B0988,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0989,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B0990,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.14603889000 and longitude -80.49217778000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0991,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.01485833000 and longitude -80.47711944000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B0992,"A high-water-mark record with a marker type of Other, located at latitude 39.1187 and longitude -80.1972 in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0993,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B0994,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B0995,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0996,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B0997,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B0998,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/07 at latitude 37.65869000000, longitude -80.89667000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B0999,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1000,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1001,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1002,"A mud marker was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.74347200000 and longitude -80.47438900000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B1003,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1004,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B1005,"A high-water-mark record with a Seed line marker label of no_label was recorded on July 5, 2016, at the Greenbrier River in Monroe County, WV.",,,,,,,,,,,,
+B1006,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1007,"A high-water-mark record with a marker type of Other, located at latitude 40.08489444000 and longitude -80.57819167000 in Ohio County, WV, sourced from USGS on 1976/11/01.",,,,,,,,,,,,
+B1008,"A high-water-mark record with a marker type of Other, located at latitude 39.23655278000 and longitude -80.39649722000 in Harrison County, WV, sourced from the USGS on 1967/03/01.",,,,,,,,,,,,
+B1009,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at latitude 37.74408000000 and longitude -80.46492000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B1010,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.12652778000 and longitude -80.45214722000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1011,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1012,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1013,"A high-water-mark record with a marker type of Other, located at latitude 39.62321111 and longitude -79.92406944 in Monongalia County, WV, sourced from the USGS on July 1, 1996.",,,,,,,,,,,,
+B1014,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on July 2, 2016, at the Elk River in Kanawha County, WV.",,,,,,,,,,,,
+B1015,"A high-water-mark record with a marker type of Other, located at latitude 40.07649444000 and longitude -80.69645000000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1016,"A high-water-mark record with a marker type of Other, located at latitude 40.04035556000 and longitude -80.70800000000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1017,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1018,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1019,"A mud marker with label 'no_label' was recorded on July 6, 2016, at latitude 38.22378000000 and longitude -80.57900000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1020,"A high-water-mark record with a marker type of Other, located at latitude 39.01535556000 and longitude -80.48433056000 in Lewis County, WV, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1021,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1022,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1023,"A high-water-mark record with a marker type of Other, located at latitude 39.13694167000 and longitude -79.66322500000 in Tucker County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B1024,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1025,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1026,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1027,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1028,"A high-water-mark record with a marker type of Other, located at latitude 40.38975833000 and longitude -80.56881389000 in Brooke County, WV, on August 1, 1979, sourced from the USGS.",,,,,,,,,,,,
+B1029,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1030,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1031,"A high-water-mark record with a marker type of Other, located at latitude 39.16345833000 and longitude -80.45188056000 in Harrison County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B1032,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1033,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1034,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1035,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B1036,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1037,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1038,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1039,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1040,"A debris marker with no label was recorded on SEWELL CREEK in Greenbrier County, WV at latitude 37.95314000000 and longitude -80.79262000000 on 2016/07/06, sourced from USGS.",,,,,,,,,,,,
+B1041,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.23864722000 and longitude -80.30708056000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1042,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1043,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1044,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on July 8, 2016, at the Meadow River in Greenbrier County, WV.",,,,,,,,,,,,
+B1045,"A high-water-mark record with a marker type of Other, located in Hancock County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1046,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1047,"A mud marker with label 'no_label' was recorded on July 9, 2016, at latitude 38.22299000000 and longitude -80.53284000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1048,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1049,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1050,"A high-water-mark record with a marker type of Other, located in Hancock County, WV at latitude 40.36665000000 and longitude -80.52519167000, sourced from USGS on 1979/08/01.",,,,,,,,,,,,
+B1051,"A high-water-mark record with a marker type of Other, located in Randolph County, WV at latitude 39.03971667000 and longitude -80.06834167000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1052,"A high-water-mark record with a marker type of Other, located in Taylor County, WV at latitude 39.26567778000 and longitude -80.13138056000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1053,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.13407500000 and longitude -80.23930278000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1054,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1055,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1056,"A high-water-mark record with a marker type of Other, located at latitude 40.04935000000 and longitude -80.71428889000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1057,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1058,"A high-water-mark record with a marker type of Other, located in Barbour County, WV at latitude 39.04140833000 and longitude -80.06754444000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1059,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1060,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.55615000000 and longitude -80.18301944000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B1061,"A high-water-mark record with a marker type of Other, located at latitude 39.09561944000 and longitude -79.66897500000 in Tucker County, WV, sourced from the USGS on January 1, 1996.",,,,,,,,,,,,
+B1062,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1063,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.55116944 and longitude -80.34845556 on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1064,"A high-water-mark record was observed on July 5, 2016, at a location with latitude 37.74094400000 and longitude -80.47719400000 in Greenbrier County, WV, near the Greenbrier River.",,,,,,,,,,,,
+B1065,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1066,"A mud marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the Greenbrier waterbody.",,,,,,,,,,,,
+B1067,"A high-water-mark record was observed on July 9, 2016, at a location with latitude 38.22056000000 and longitude -80.54444000000 in Nicholas County, WV, near Cherry River, sourced from the USGS.",,,,,,,,,,,,
+B1068,"A mud marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B1069,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1070,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1071,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1072,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1073,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1074,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1075,"A mud marker with label 'no_label' was recorded on July 9, 2016, at latitude 38.22594000000 and longitude -80.58256000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1076,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.43161000000 and longitude -81.11128000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1077,"A high-water-mark record with a marker type of Other, located in Randolph County, WV at latitude 38.63624722000 and longitude -80.00844444000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1078,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1079,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1080,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1081,"A mud marker was recorded on July 3, 2016, at the confluence of Howard Creek in Greenbrier County, West Virginia.",,,,,,,,,,,,
+B1082,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1083,"A high-water mark was recorded on Sewell Creek in Greenbrier County, WV at latitude 37.97331000000 and longitude -80.76452000000 on July 7, 2016, sourced from the USGS.",,,,,,,,,,,,
+B1084,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1085,"The marker type indicates a physical alteration on the record, but its significance and context are unknown. The absence of a label does not provide additional information. Spatial, temporal, waterbody, event, or provenance details cannot be determined.",,,,,,,,,,,,
+B1086,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at latitude 37.72556000000 and longitude -80.64125000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B1087,"A high-water-mark record with a marker type of Other, located at latitude 40.07698333000 and longitude -80.59130833000 in Ohio County, WV, on November 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B1088,"A high-water-mark record was observed on July 8, 2016, at a location with latitude 38.00242000000 and longitude -80.73983000000 in Greenbrier County, WV, near the Meadow River.",,,,,,,,,,,,
+B1089,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1090,"A high-water-mark record with a marker type of Other, located at latitude 39.63489722000 and longitude -79.92479444000 in Monongalia County, WV, on July 1, 1996, sourced from the USGS.",,,,,,,,,,,,
+B1091,"A high-water-mark record with a marker type of Other, located in Lewis County, WV, on May 1, 1989, sourced from the USGS.",,,,,,,,,,,,
+B1092,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1093,"A high-water-mark record with a Seed line marker label of no_label was recorded on July 5, 2016, at latitude 37.72696000000 and longitude -80.64678000000 in Greenbrier County, WV, near the Greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B1094,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1095,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1096,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1097,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1098,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1099,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1100,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1101,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1102,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04160556000 and longitude -80.47078889000, sourced from USGS on November 1st, 1985.",,,,,,,,,,,,
+B1103,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1104,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1105,"A high-water-mark record was observed on the Greenbrier River in Monroe County, WV at a location with latitude 37.72583000000 and longitude -80.64972000000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B1106,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1107,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1108,"A debris marker with no label was recorded on Sewell Creek in Greenbrier County, WV at latitude 37.94606000000 and longitude -80.79564000000 on 2016/07/06, sourced from the USGS.",,,,,,,,,,,,
+B1109,"A high-water-mark record with a marker type of Other, located at latitude 40.07556944000 and longitude -80.70565556000 in Ohio County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B1110,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B1111,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04613889000 and longitude -80.47543889000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1112,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1113,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36200000000 and longitude -80.60772000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B1114,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1115,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1116,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1117,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1118,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on 1967/03/01, sourced from USGS.",,,,,,,,,,,,
+B1119,"A high-water-mark record with a marker type of Other, located in Barbour County, WV at latitude 39.14209167000 and longitude -80.11290000000, sourced from USGS on 1986/11/01.",,,,,,,,,,,,
+B1120,"A high-water mark was recorded on the Meadow River in Greenbrier County, WV at a location with latitude 37.99515000000 and longitude -80.74944000000 on July 8, 2016, sourced from USGS.",,,,,,,,,,,,
+B1121,"A mud marker with no label was recorded on July 7, 2016, at a location in Greenbrier County, WV, near the Meadow River.",,,,,,,,,,,,
+B1122,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1123,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1124,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1125,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B1126,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.19243056000 and longitude -80.39811389000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B1127,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04737222000 and longitude -80.50959444000, sourced from USGS on November 1st, 1985.",,,,,,,,,,,,
+B1128,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1129,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at Sewell Creek in Greenbrier County, WV.",,,,,,,,,,,,
+B1130,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1131,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1132,"A high-water-mark record with a marker type of Other, located at latitude 40.05335278000 and longitude -80.66493056000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1133,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1134,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1986, sourced from the USGS.",,,,,,,,,,,,
+B1135,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1136,"A high-water-mark record with a marker type of Other, located at latitude 39.14022222000 and longitude -80.45657222000 in Harrison County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B1137,"A high-water-mark record with a marker type of Other, located at latitude 40.09264722000 and longitude -80.56011667000 in Ohio County, WV, sourced from USGS on 1976/11/01.",,,,,,,,,,,,
+B1138,"A high-water-mark record with a seed line marker label of no_label was recorded on July 5, 2016, at the Greenbrier River in Greenbrier County, WV.",,,,,,,,,,,,
+B1139,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1140,"A high-water-mark record with a marker type of Other, located at latitude 40.05723333000 and longitude -80.61924722000 in Ohio County, WV, sourced from USGS on 1976/11/01.",,,,,,,,,,,,
+B1141,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1142,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1143,"A high-water-mark record with a seed line marker label of no_label was recorded on July 9, 2016, at latitude 38.22049000000 and longitude -80.54907000000 in Nicholas County, WV, near Cherry River, sourced from the USGS.",,,,,,,,,,,,
+B1144,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1989, sourced from the USGS.",,,,,,,,,,,,
+B1145,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1146,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B1147,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1148,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1149,"A high-water-mark record was observed on July 2, 2016, at a location with latitude 38.40867000000 and longitude -81.51057000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1150,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1151,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1152,"A high-water-mark record was observed on Sewell Creek in Greenbrier County, WV at latitude 37.96217000000 and longitude -80.77767000000 on 2016/07/06, sourced from the USGS.",,,,,,,,,,,,
+B1153,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1154,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1155,"A high-water mark was observed on the Meadow River in Greenbrier County, WV at a location with latitude 38.00086000000 and longitude -80.75075000000 on July 8, 2016, according to data from the USGS.",,,,,,,,,,,,
+B1156,"A high-water-mark record was observed on July 5, 2016, at a location with latitude 37.74625 and longitude -80.464972 in Greenbrier County, WV, near the Greenbrier River.",,,,,,,,,,,,
+B1157,"A high-water-mark record with a marker type of Other, located at latitude 40.04968889000 and longitude -80.71460278000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B1158,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1159,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36278000000 and longitude -80.58944000000 on June 28, 2016, sourced from USGS.",,,,,,,,,,,,
+B1160,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 7, 2016, in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B1161,"A high-water-mark record with a marker type of Other, located in Randolph County, WV at latitude 38.91805278000 and longitude -80.08908611000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1162,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B1163,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1164,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1165,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1166,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1167,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1986, sourced from the USGS.",,,,,,,,,,,,
+B1168,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1169,"A mud marker was recorded on July 4, 2016, at a location with latitude 37.780228 and longitude -80.390083 in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1170,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1171,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1172,"A high-water-mark record with a marker type of Other, located at latitude 39.62632222000 and longitude -79.91552222000 in Monongalia County, WV, sourced from the USGS on 1996/07/01.",,,,,,,,,,,,
+B1173,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at latitude 37.72722000000 and longitude -80.64812000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B1174,"A high-water-mark record with a marker type of Other, located at latitude 39.58844444000 and longitude -79.97929444000 in Monongalia County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1175,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1176,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1177,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1178,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 7, 2016, at latitude 37.67500000000 and longitude -80.89589000000 in Raleigh County, WV, near the New River.",,,,,,,,,,,,
+B1179,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.65175000000, longitude -80.88914000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B1180,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1181,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.67931000000, longitude -80.88189000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B1182,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1183,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.44442500000 and longitude -80.27476667000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1184,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1185,"The marker type indicates a physical alteration on the record, but its significance and context are unknown. The absence of a label does not provide additional information. Spatial, temporal, waterbody, event, or provenance details cannot be determined.",,,,,,,,,,,,
+B1186,"A high-water-mark record with a Seed line marker labeled no_label was observed on 2016/07/03 at location (37.79321600000, -80.30347400000) in Greenbrier County, WV near Howard Creek, sourced from USGS.",,,,,,,,,,,,
+B1187,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1188,"A high-water-mark record was observed on the Greenbrier River in Greenbrier County, WV at latitude 37.73730600000 and longitude -80.48275000000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B1189,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1190,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.19203333000 and longitude -80.28083889000, sourced from USGS on 1986/11/01.",,,,,,,,,,,,
+B1191,"A debris marker with no label was recorded on July 3, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1192,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1193,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.34846111000 and longitude -80.32431111000, sourced from USGS on November 1, 1985.",,,,,,,,,,,,
+B1194,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1195,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1196,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1197,"A high-water-mark record with a marker type of Other, located at latitude 39.21071944000 and longitude -80.38369444000 in Harrison County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B1198,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1199,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B1200,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1201,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1202,"A high-water-mark record with a marker type of Other, located at latitude 40.11205833000 and longitude -80.66315000000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B1203,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1204,"A mud marker with no label was recorded on July 9, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1205,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1206,"A high-water-mark record was observed on July 8, 2016, at a location with latitude 37.72364 and longitude -80.49194 in Greenbrier County, WV, near the Greenbrier River.",,,,,,,,,,,,
+B1207,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1208,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1209,"A debris marker with no label was recorded on July 6, 2016, at a location in Summers County, WV, near the New River.",,,,,,,,,,,,
+B1210,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1211,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.68272000000, longitude -80.87728000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B1212,"A high-water mark was recorded on Sewell Creek in Greenbrier County, WV at latitude 37.97234000000 and longitude -80.76134000000 on July 7, 2016, sourced from the USGS.",,,,,,,,,,,,
+B1213,"A high-water-mark record with a marker type of Other, located at latitude 39.64281944000 and longitude -79.98381389000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1214,"A high-water-mark record with a marker type of Other, located in Randolph County, WV at latitude 38.65273333000 and longitude -80.21218889000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1215,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1216,"A high-water-mark record was observed on July 3, 2016, at a location with latitude 38.48218000000 and longitude -81.20526000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1217,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1218,"A high-water-mark record with a marker type of Other, located at latitude 39.49469167000 and longitude -79.64520278000 in Preston County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B1219,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1220,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1221,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1222,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1223,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1224,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1225,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1226,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1227,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.52964722000 and longitude -80.34716111000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B1228,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1229,"A debris marker with no label was recorded on July 6, 2016, at a location in Summers County, WV, near the New River.",,,,,,,,,,,,
+B1230,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.45191944000 and longitude -80.25496944000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1231,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1232,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1233,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1234,"A high-water-mark record with a marker type of Other, located at latitude 39.12262500000 and longitude -79.68132500000 in Tucker County, WV, sourced from the USGS on 1969/12/01.",,,,,,,,,,,,
+B1235,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1236,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1237,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1238,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1239,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1240,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1241,"A mud marker with label 'no_label' was recorded on July 9, 2016, at a location with latitude 38.23000000000 and longitude -80.58278000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1242,"A high-water-mark record with a Seed line marker label of no_label was observed on the Greenbrier River in Monroe County, WV at latitude 37.72361000000 and longitude -80.63889000000 on 2016/07/05, sourced from USGS.",,,,,,,,,,,,
+B1243,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1244,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.51783333000 and longitude -80.31880833000, sourced from the USGS, on March 1st, 1963.",,,,,,,,,,,,
+B1245,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.54558056000 and longitude -80.15116111000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B1246,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1247,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1248,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1249,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1250,"A mud marker was recorded on Howard Creek in Greenbrier County, WV at latitude 37.77954300000 and longitude -80.39217500000 on 2016/07/04, sourced from the USGS.",,,,,,,,,,,,
+B1251,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.16040833000 and longitude -80.25121111000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1252,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1253,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1254,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1255,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1256,"A mud marker was recorded on the Gauley River in Nicholas County, WV at a location with latitude 38.35922000000 and longitude -80.61004000000 on July 9, 2016, sourced from USGS.",,,,,,,,,,,,
+B1257,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1258,"A high-water-mark record with a marker type of Other, located at latitude 39.14512500000 and longitude -80.42911944000 in Harrison County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B1259,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04534167000 and longitude -80.46440000000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1260,"A high-water-mark record with a Seed line marker label of no_label was observed on the Greenbrier River in Monroe County, WV at latitude 37.72444000000 and longitude -80.64278000000 on 2016/07/05, sourced from USGS.",,,,,,,,,,,,
+B1261,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.47703000000 and longitude -81.19356000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1262,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1263,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1264,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1265,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1266,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1267,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1268,"A high-water-mark record was observed on July 5, 2016, at a location with latitude 37.729167 and longitude -80.485444 in Greenbrier County, WV, near the Greenbrier River.",,,,,,,,,,,,
+B1269,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1270,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1271,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1272,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1273,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1274,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1275,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1276,"A debris marker with no label was recorded on July 3, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1277,"A high-water-mark record with a marker type of Other, located in Ohio County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1278,"A high-water-mark record with a marker type of Other, located at latitude 39.66102500000 and longitude -80.00481944000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1279,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1280,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1281,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at latitude 38.22100000000 and longitude -80.55239000000 in Nicholas County, WV, near Cherry River, sourced from the USGS.",,,,,,,,,,,,
+B1282,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1283,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1284,"A high-water-mark record with a marker type of Other, located at latitude 39.26806111000 and longitude -80.17073611000 in Taylor County, WV, sourced from the USGS on November 1, 1985.",,,,,,,,,,,,
+B1285,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1286,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1287,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on Sewell Creek in Greenbrier County, WV at latitude 37.94344000000 and longitude -80.80050000000 on 2016/07/06, sourced from the USGS.",,,,,,,,,,,,
+B1288,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1289,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1290,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B1291,"A high-water-mark record with a marker type of Other, located in Tucker County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1292,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1293,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.48931000000 and longitude -81.34853000000 in Kanawha County, WV, near Elk River.",,,,,,,,,,,,
+B1294,"A high-water-mark record with a marker type of Other, located at latitude 40.06401944000 and longitude -80.64001389000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B1295,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1296,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1297,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1298,"A debris marker labeled LH-20 was recorded on the Greenbrier River in Summers County, WV at a location with latitude 37.73071300000 and longitude -80.66713000000 on July 6, 2016, according to the USGS.",,,,,,,,,,,,
+B1299,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1300,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1301,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1302,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1303,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1304,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.48753000000 and longitude -81.35289000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1305,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1306,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1307,"A high-water-mark record with a marker type of Other, located in Marshall County, WV at latitude 40.02147222000 and longitude -80.72739167000, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1308,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1309,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/05 at latitude 37.64956000000, longitude -80.88414000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B1310,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1311,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1312,"A high-water-mark record with a marker type of Other, located at latitude 40.08774167000 and longitude -80.57028333000 in Ohio County, WV, sourced from the USGS on 1976/11/01.",,,,,,,,,,,,
+B1313,"A high-water-mark record was observed on July 3, 2016, at a location with latitude 38.47703000000 and longitude -81.19356000000 in Clay County, WV, near Elk River, sourced from the USGS.",,,,,,,,,,,,
+B1314,"A high-water-mark record with a marker type of Other, located at latitude 40.10132500000 and longitude -80.67916111000 in Ohio County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B1315,"A high-water-mark record with a marker type of Other, located at latitude 40.08970833000 and longitude -80.56275000000 in Ohio County, WV, sourced from the USGS on 1976/11/01.",,,,,,,,,,,,
+B1316,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1317,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1318,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1319,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1320,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1321,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.03656111 and longitude -80.45932778, sourced from the USGS, on November 1, 1985.",,,,,,,,,,,,
+B1322,"A high-water-mark record with a marker type of Other, located at latitude 39.31983333000 and longitude -79.65662778000 in Preston County, WV, sourced from the USGS on 1963/03/01.",,,,,,,,,,,,
+B1323,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1324,"A high-water-mark record with a marker type of Other, located at latitude 39.34817222000 and longitude -79.66672778000 in Preston County, WV, sourced from the USGS on 1954/10/01.",,,,,,,,,,,,
+B1325,"A high-water-mark record with a Seed line marker label of no_label was recorded on July 8, 2016, at the Meadow River in Greenbrier County, WV.",,,,,,,,,,,,
+B1326,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1327,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1328,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1329,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1330,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1331,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.01960000000 and longitude -80.43034167000, sourced from USGS on May 1, 1989.",,,,,,,,,,,,
+B1332,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1333,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at latitude 37.72739000000 and longitude -80.64723000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B1334,"A high-water-mark record was observed on the Gauley River in Nicholas County, WV at a location with latitude 38.35528000000 and longitude -80.61004000000 on 2016/07/09, sourced from USGS.",,,,,,,,,,,,
+B1335,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1336,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.52424167000 and longitude -80.37024167000, sourced from the USGS on 1963/03/01.",,,,,,,,,,,,
+B1337,"A high-water-mark record with a marker type of Other, located at latitude 40.08886389000 and longitude -80.67138889000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1338,"A high-water-mark record with a seed line marker label of no_label was observed on 2016/07/06 at latitude 38.21828000000, longitude -80.55711000000 in Nicholas County, WV near Cherry River, sourced from USGS.",,,,,,,,,,,,
+B1339,"A high-water-mark record with a marker type of Other, located at latitude 40.04865556000 and longitude -80.63418889000 in Ohio County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1340,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1341,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1342,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.44953000000 and longitude -81.45649000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1343,"The marker type indicates the presence of debris, but its origin and significance are unknown. The lack of a label provides no additional information.",,,,,,,,,,,,
+B1344,"A high-water-mark record with a marker type of Other, located in Brooke County, WV at latitude 40.39081667000 and longitude -80.59454444000, sourced from USGS on 1979/08/01.",,,,,,,,,,,,
+B1345,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1346,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1347,"A high-water-mark record with a marker type of Other, located at latitude 40.08981111000 and longitude -80.63102500000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B1348,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1349,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on Sewell Creek in Greenbrier County, WV at latitude 37.97072000000 and longitude -80.76786000000 on 2016/07/07, sourced from the USGS.",,,,,,,,,,,,
+B1350,"The marker type 'Debris' indicates that the marker is associated with debris, but does not provide information about its origin or purpose. The marker label 'Z3-RB-41a' appears to be a unique identifier, but without additional context, it cannot be interpreted further. Spatial and temporal information are unavailable, making it impossible to determine the location or time of deployment.",,,,,,,,,,,,
+B1351,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1352,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1353,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1354,"A high-water-mark record with a marker type of Other, located at latitude 40.10993611000 and longitude -80.66577778000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1355,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36679000000 and longitude -80.60175000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B1356,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1357,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1358,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1359,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1360,"A mud marker was recorded on July 6, 2016, at a location with latitude 38.48893000000 and longitude -81.34822000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1361,"A mud marker was recorded on July 4, 2016, at a location with latitude 37.779905 and longitude -80.395458 in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1362,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1363,"A high-water mark record was observed on Sewell Creek in Greenbrier County, WV at latitude 37.97149000000 and longitude -80.76646000000 on 2016/07/07, sourced from the USGS.",,,,,,,,,,,,
+B1364,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1365,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1366,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1367,"A high-water-mark record with a seed line marker label 'no_label' was recorded on July 6, 2016, at latitude 37.75283000000 and longitude -80.44908000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B1368,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/05 at latitude 37.64394000000, longitude -80.88383000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B1369,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.29395278000 and longitude -80.48729444000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1370,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1371,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.29295556000 and longitude -80.51366389000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1372,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1373,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1374,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1375,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1376,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1377,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36017000000 and longitude -80.60803000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B1378,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1379,"A high-water-mark record with a Seed line marker label of no_label was observed on July 2, 2016, at the Elk River in Kanawha County, WV.",,,,,,,,,,,,
+B1380,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1381,"A high-water-mark record with a marker type of Other, located at latitude 39.12046944000 and longitude -80.20826944000 in Barbour County, WV, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1382,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1383,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1384,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1385,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1386,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1387,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1388,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1389,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1390,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1391,"A mud marker was recorded on July 3, 2017, at a location with latitude 38.49644000000 and longitude -81.20892000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1392,"A high-water-mark record was observed on the Greenbrier River in Monroe County, WV at latitude 37.72639000000 and longitude -80.65389000000 on 2016/07/08, sourced from USGS.",,,,,,,,,,,,
+B1393,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1394,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.31601667000 and longitude -80.47921667000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1395,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on July 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B1396,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36591000000 and longitude -80.59734000000 on July 7, 2016, sourced from USGS.",,,,,,,,,,,,
+B1397,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1398,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1399,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1400,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1401,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1402,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1403,"A high-water-mark record was observed on Sewell Creek in Greenbrier County, WV at latitude 37.97029000000 and longitude -80.76452000000 on 2016/07/07, sourced from the USGS.",,,,,,,,,,,,
+B1404,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1405,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1406,"A high-water-mark record was observed on July 5, 2016, at a location with latitude 37.72611100000 and longitude -80.49069400000 in Greenbrier County, WV, near the Greenbrier River.",,,,,,,,,,,,
+B1407,"A debris marker with no label was recorded on July 6, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1408,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1409,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at latitude 37.7535, longitude -80.44831, in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B1410,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on March 1, 1967, sourced from the USGS.",,,,,,,,,,,,
+B1411,"A high-water-mark record with a marker type of Other, located in Ohio County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B1412,"A high-water-mark record with a Seed line marker label of no_label was observed on July 7, 2016, at the Meadow River in Greenbrier County, WV.",,,,,,,,,,,,
+B1413,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1414,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1415,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1416,"A high-water-mark record with a marker type of Other, located at latitude 40.08138056000 and longitude -80.69215278000 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B1417,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B1418,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1419,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on July 7, 2016, at location (37.96814000000, -80.76164000000) in Greenbrier County, WV, near Little Sewell Creek, sourced from the USGS.",,,,,,,,,,,,
+B1420,"A high-water-mark record with a seed line marker located at latitude 37.95600000000, longitude -80.79060000000 in Greenbrier County, WV near SEWELL CREEK on 2016/07/06, sourced from USGS.",,,,,,,,,,,,
+B1421,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1422,"A high-water-mark record with a marker type of Other, located in Hancock County, WV, on August 1, 1979, sourced from the USGS.",,,,,,,,,,,,
+B1423,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1424,"A high-water-mark record with a marker type of Other, located at latitude 40.06369167000 and longitude -80.61366667000 in Ohio County, WV, sourced from USGS on 1976/11/01.",,,,,,,,,,,,
+B1425,"A high-water-mark record was observed on July 5, 2016, at a location with latitude 37.747667 and longitude -80.464 in Greenbrier County, WV, near the Greenbrier River.",,,,,,,,,,,,
+B1426,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1427,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1428,"A high-water-mark record was observed on July 3, 2016, at a location with latitude 38.49078000000 and longitude -81.25467000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1429,"A high-water mark was recorded on the Meadow River in Greenbrier County, WV at a location with latitude 37.99069000000 and longitude -80.74682000000 on July 8, 2016, according to data from the USGS.",,,,,,,,,,,,
+B1430,"A high-water-mark record with a marker type of Other, located at latitude 40.10381667000 and longitude -80.54814722000 in Ohio County, WV, on November 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B1431,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1432,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1433,"A high-water-mark record with a marker type of Other, located at latitude 40.07573056000 and longitude -80.59469722000 in Ohio County, WV, on November 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B1434,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1435,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1436,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.17323611 and longitude -80.23467778, sourced from the USGS on November 1, 1986.",,,,,,,,,,,,
+B1437,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1438,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1439,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1440,"A high-water-mark record with a marker type of Other, located at latitude 40.07892500000 and longitude -80.58991389000 in Ohio County, WV, sourced from the USGS on 1976/11/01.",,,,,,,,,,,,
+B1441,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1442,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1443,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1444,"A high-water-mark record with a Seed line marker label of no_label was observed on July 8, 2016, at the Meadow River in Greenbrier County, WV.",,,,,,,,,,,,
+B1445,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1446,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1447,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1448,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1449,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1450,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1451,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1452,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on March 1, 1982, sourced from the USGS.",,,,,,,,,,,,
+B1453,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1454,"A high-water-mark record with a marker type of Other, located at latitude 39.65861389000 and longitude -80.00826667000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1455,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1456,"A high-water-mark record with a marker type of Other, located at latitude 39.05123333000 and longitude -80.11476389000 in Barbour County, WV, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1457,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1458,"A mud marker with label 'no_label' was recorded on July 6, 2016, at a location in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B1459,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1460,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at the Greenbrier River in Greenbrier County, WV.",,,,,,,,,,,,
+B1461,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1462,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/05 at latitude 37.64464000000, longitude -80.88344000000 in Summers County, WV near the New River.",,,,,,,,,,,,
+B1463,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1464,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1465,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1466,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1467,"A debris marker with no label was recorded on July 5, 2016, at a location in Summers County, WV, near the New River.",,,,,,,,,,,,
+B1468,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.49044000000 and longitude -81.34874000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1469,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1470,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B1471,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1472,"A high-water-mark record with a seed line marker located at latitude 37.94789000000, longitude -80.79673000000 in Greenbrier County, WV near SEWELL CREEK on 2016/07/06, sourced from USGS.",,,,,,,,,,,,
+B1473,"A mud marker with no label was recorded on July 6, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1474,"A mud marker with no label was recorded on July 9, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1475,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1476,"A mud marker with label 'no_label' was recorded on July 6, 2016, at latitude 38.21919000000 and longitude -80.56022000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1477,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.4898 and longitude -81.27544 in Kanawha County, WV, near Elk River.",,,,,,,,,,,,
+B1478,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1479,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.67797000000, longitude -80.88661000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B1480,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.47159 and longitude -81.28233 in Clay County, WV, near Elk River.",,,,,,,,,,,,
+B1481,"A high-water-mark record with a marker type of Other, located at latitude 40.09171111 and longitude -80.66028333 in Ohio County, WV, sourced from the USGS on 1975/08/01.",,,,,,,,,,,,
+B1482,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label was recorded on November 1, 1985, at a location with latitude 39.39892222000, longitude -80.29823333000, in Harrison County, WV.",,,,,,,,,,,,
+B1483,"A high-water-mark record with a marker type of Other, located in Tucker County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1484,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1485,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1486,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1487,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.51637500000 and longitude -80.30423889000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B1488,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1489,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1490,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1491,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1492,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.50825 and longitude -81.24151 in Kanawha County, WV, near Elk River.",,,,,,,,,,,,
+B1493,"A high-water-mark record with a marker type of Other, located in Taylor County, WV at latitude 39.35620278000 and longitude -79.93358611000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1494,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1495,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1496,"A debris marker with no label was recorded on Sewell Creek in Greenbrier County, WV at latitude 37.94531000000 and longitude -80.79606000000 on 2016/07/06, sourced from the USGS.",,,,,,,,,,,,
+B1497,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1498,"A high-water-mark record with a Seed line marker label of no_label was recorded on July 5, 2016, at latitude 37.72721000000 and longitude -80.64666000000 in Greenbrier County, WV, near the Greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B1499,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at latitude 37.72730000000 and longitude -80.64766000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B1500,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1501,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1502,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.51050556000 and longitude -80.21594722000, sourced from the USGS, on March 1st, 1963.",,,,,,,,,,,,
+B1503,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1504,"A high-water-mark record was observed on Sewell Creek in Greenbrier County, WV at latitude 37.9685 and longitude -80.77014 on July 7, 2016, sourced from the USGS.",,,,,,,,,,,,
+B1505,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1506,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1507,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1508,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.50599444 and longitude -80.16793889, sourced from the USGS on August 1, 1980.",,,,,,,,,,,,
+B1509,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1510,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.54405833000 and longitude -80.14243889000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B1511,"A high-water-mark record with a marker type of Other, located at latitude 40.04627222000 and longitude -80.65456389000 in Ohio County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1512,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1513,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.34705833000 and longitude -80.31498333000, sourced from USGS on November 1st, 1985.",,,,,,,,,,,,
+B1514,"A mud marker was recorded on Sewell Creek in Greenbrier County, WV at latitude 37.97401000000 and longitude -80.76502000000 on 2016/07/07, sourced from the USGS.",,,,,,,,,,,,
+B1515,"A high-water-mark record with a marker type of Other, located at latitude 40.07098333000 and longitude -80.60025556000 in Ohio County, WV, sourced from the USGS on November 1, 1976.",,,,,,,,,,,,
+B1516,"A high-water-mark record with a marker type of Other, labeled no_label, located in Monongalia County, WV, on July 1, 1996, sourced from the USGS.",,,,,,,,,,,,
+B1517,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1518,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1519,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1520,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1521,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1522,"A debris marker with no label was recorded on the Greenbrier River in Monroe County, WV at latitude 37.72417000000 and longitude -80.64222000000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B1523,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1524,"A high-water-mark record with a marker type of Other, located at latitude 40.04441944 and longitude -80.71240833 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1525,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.68694000000, longitude -80.87528000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B1526,"A high-water-mark record with a marker type of Other, located at latitude 39.05443889000 and longitude -80.36171389000 in Lewis County, WV, sourced from the USGS on December 1, 1969.",,,,,,,,,,,,
+B1527,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1528,"A debris marker with no label was recorded on July 6, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1529,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1530,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1531,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1967, sourced from the USGS.",,,,,,,,,,,,
+B1532,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.66592000000, longitude -80.89869000000 in Summers County, WV near the New River.",,,,,,,,,,,,
+B1533,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1534,"The marker type indicates a physical alteration on the record, but its significance and context are unknown. The absence of a label does not provide additional information. Spatial, temporal, waterbody, event, or provenance details cannot be determined.",,,,,,,,,,,,
+B1535,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1536,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1537,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1538,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1539,"A mud marker with label 'no_label' was recorded on July 2, 2016, at a location in Kanawha County, WV, near the Elk River.",,,,,,,,,,,,
+B1540,"A high-water-mark record with a marker type of Other, located at latitude 40.10885000000 and longitude -80.66883611000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1541,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1542,"A high-water-mark record with a marker type of Other, located in Tucker County, WV at latitude 39.07221389000 and longitude -79.62295278000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1543,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1544,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1545,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.45000000000 and longitude -81.14597900000 in Clay County, WV, near Elk River.",,,,,,,,,,,,
+B1546,"A mud marker with no label was recorded on July 6, 2016, at a location with latitude 38.22819000000 and longitude -80.58464000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1547,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.40823000000 and longitude -81.51348000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1548,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1549,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1550,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.29325833000 and longitude -80.41201389000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1551,"A high-water-mark record with a marker type of Other, located at latitude 39.63466667000 and longitude -79.99371111000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1552,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1553,"A high-water-mark record with a marker type of Other, located in Hancock County, WV at latitude 40.399775 and longitude -80.587711, sourced from USGS on 1979/08/01.",,,,,,,,,,,,
+B1554,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1555,"A high-water-mark record with a marker type of Other, located in Hancock County, WV at latitude 40.42810556000 and longitude -80.53676667000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B1556,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1557,"A mud marker with label 'no_label' was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the Greenbrier waterbody.",,,,,,,,,,,,
+B1558,"A high-water-mark record with a marker type of Other, located at latitude 39.63086389000 and longitude -79.92957778000 in Monongalia County, WV, sourced from the USGS on 1996/07/01.",,,,,,,,,,,,
+B1559,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1560,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1561,"A high-water-mark record with a marker type of Other, located at latitude 39.66036389000 and longitude -79.99369167000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1562,"A high-water-mark record with a Seed line marker label of no_label was observed on 2016/07/06 at the New River in Summers County, WV.",,,,,,,,,,,,
+B1563,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at the SEWELL CREEK waterbody in Greenbrier County, WV.",,,,,,,,,,,,
+B1564,"A high-water-mark record with a marker type of Other, located at latitude 39.62335556000 and longitude -79.92605833000 in Monongalia County, WV, on July 1, 1996, sourced from the USGS.",,,,,,,,,,,,
+B1565,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1566,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1567,"A high-water-mark record with a marker type of Other, located at latitude 40.05553333000 and longitude -80.66181667000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1568,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.45983000000 and longitude -81.08491000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1569,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1570,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1571,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1572,"A high-water-mark record with a marker type of Other, located at latitude 39.37566111 and longitude -80.32173056 in Harrison County, WV, sourced from the USGS on 1963/03/01.",,,,,,,,,,,,
+B1573,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1574,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1575,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1576,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1577,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B1578,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1579,"A debris marker with no label was recorded on July 6, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1580,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1581,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1582,"A mud marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B1583,"A mud marker was recorded on SEWELL CREEK in Greenbrier County, WV at latitude 37.9585 and longitude -80.78698 on 2016/07/06, sourced from USGS.",,,,,,,,,,,,
+B1584,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1585,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1586,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1587,"A high-water-mark record was observed on July 9, 2016, at a location with latitude 38.22389000000 and longitude -80.52865000000 in Nicholas County, WV, near Cherry River, sourced from the USGS.",,,,,,,,,,,,
+B1588,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1589,"A mud marker with no label was recorded on July 6, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1590,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1591,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1592,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1593,"A high-water-mark record was observed on July 2, 2016, at a location with latitude 38.47699000000 and longitude -81.29681000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1594,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1595,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on March 1, 1967, sourced from the USGS.",,,,,,,,,,,,
+B1596,"A high-water-mark record with a marker type of Other, located at latitude 39.63078611000 and longitude -79.96009722000 in Monongalia County, WV, on March 1, 1967, sourced from the USGS.",,,,,,,,,,,,
+B1597,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1598,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1599,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on 1982/03/01, sourced from USGS.",,,,,,,,,,,,
+B1600,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1601,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B1602,"A high-water-mark record with a seed line marker label of no_label was recorded on July 6, 2016, at latitude 38.21881000000 and longitude -80.55603000000 in Nicholas County, WV, near Cherry River, sourced from the USGS.",,,,,,,,,,,,
+B1603,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1604,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1605,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1606,"A high-water-mark record with a marker type of Other, located in Hancock County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1607,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1608,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1609,"A mud marker was recorded on the Gauley River in Webster County, WV at a location with latitude 38.36083000000 and longitude -80.58673000000 on June 28, 2016, sourced from USGS.",,,,,,,,,,,,
+B1610,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.02671667000 and longitude -80.43071667000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1611,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1612,"A mud marker was recorded on July 7, 2016, at a location with latitude 38.00097000000 and longitude -80.75044000000 in Greenbrier County, WV, near the Meadow River.",,,,,,,,,,,,
+B1613,"A high-water-mark record was observed on July 3, 2016, at a location with latitude 37.795262 and longitude -80.30044 in Greenbrier County, WV, near Howard Creek, sourced from the USGS.",,,,,,,,,,,,
+B1614,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1615,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.67839000000, longitude -80.88564000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B1616,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1617,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1618,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1619,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1620,"A high-water-mark record with a marker type of Other, located at latitude 40.09095833000 and longitude -80.68826111000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1621,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1622,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.52383611 and longitude -80.33219722, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B1623,"A high-water-mark record with a marker type of Other, located at latitude 39.09561667000 and longitude -80.46615556000 in Lewis County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B1624,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1625,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1626,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1627,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1628,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1629,"A high-water-mark record with a marker type of Other, located in Hancock County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1630,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label was recorded on November 1, 1989, at a location with latitude 39.27329167000, longitude -80.36812222000, in Harrison County, WV.",,,,,,,,,,,,
+B1631,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1632,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on July 8, 2016, at the Meadow River in Greenbrier County, WV.",,,,,,,,,,,,
+B1633,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1634,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.03877222000 and longitude -80.46814722000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1635,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1636,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1637,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1638,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1639,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1640,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1641,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.52974167000 and longitude -80.35334167000, sourced from USGS on 1980/08/01.",,,,,,,,,,,,
+B1642,"A high-water-mark record with a marker type of Other, located at latitude 39.38020833000 and longitude -79.91600278000 in Taylor County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B1643,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1644,"A high-water-mark record with a marker type of Other, labeled no_label, located at latitude 39.70748889000 and longitude -80.14799722000 in Monongalia County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1645,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1646,"A high-water-mark record was observed on July 5, 2016, at a location with latitude 37.74594400000 and longitude -80.46800000000 in Greenbrier County, WV, near the Greenbrier River.",,,,,,,,,,,,
+B1647,"A high-water-mark record was observed on the Greenbrier River in Greenbrier County, WV at a location with latitude 37.73386000000 and longitude -80.48269000000 on July 8, 2016, sourced from USGS.",,,,,,,,,,,,
+B1648,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1649,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1650,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on July 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B1651,"A mud marker was recorded on July 4, 2016, at a location with latitude 37.779395 and longitude -80.393702 in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1652,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.03010000000 and longitude -80.47431389000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1653,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1654,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1655,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1656,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1657,"A mud marker with label 'no_label' was recorded on July 2, 2016, at a location in Kanawha County, WV, near the Elk River.",,,,,,,,,,,,
+B1658,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1659,"A debris marker with no label was recorded on July 5, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1660,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1661,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1662,"A high-water-mark record with a marker type of Other, located at latitude 39.42998611000 and longitude -79.68534167000 in Preston County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B1663,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1664,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1665,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1666,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1667,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1668,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1669,"A high-water-mark record with a marker type of Other, located in Barbour County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1670,"A mud marker with label 'no_label' was recorded on July 6, 2016, at a location in Greenbrier County, WV, near the greenbrier waterbody.",,,,,,,,,,,,
+B1671,"A high-water-mark record with a Seed line marker label of no_label was recorded on July 6, 2016, at latitude 37.73236000000 and longitude -80.66656000000 in Summers County, WV, near the Greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B1672,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1673,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1674,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1675,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1676,"A high-water-mark record with a marker type of Other, located at latitude 40.05491111 and longitude -80.66322222 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1677,"A high-water-mark record with a marker type of Other, located in Hancock County, WV, on August 1, 1979, sourced from the USGS.",,,,,,,,,,,,
+B1678,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1679,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.04862778000 and longitude -80.52182500000, sourced from USGS on 1963/03/01.",,,,,,,,,,,,
+B1680,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.48465 and longitude -81.35949 in Kanawha County, WV, near Elk River.",,,,,,,,,,,,
+B1681,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1682,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1683,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1684,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1685,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1686,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1687,"A high-water mark was observed on SEWELL CREEK in Greenbrier County, WV at latitude 37.96742000000 and longitude -80.77210000000 on 2016/07/06, sourced from the USGS.",,,,,,,,,,,,
+B1688,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1689,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1690,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1691,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1692,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1693,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on SEWELL CREEK in Greenbrier County, WV at latitude 37.96331000000 and longitude -80.77208000000 on 2016/07/05, sourced from the USGS.",,,,,,,,,,,,
+B1694,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1695,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1696,"A high-water-mark record with a marker type of Other, located at latitude 40.05450556000 and longitude -80.64416944000 in Ohio County, WV, sourced from USGS on 1975/08/01.",,,,,,,,,,,,
+B1697,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1698,"A high-water-mark record was observed on July 4, 2016, at a location with latitude 37.772085 and longitude -80.353332 in Greenbrier County, WV, near Howard Creek, sourced from the USGS.",,,,,,,,,,,,
+B1699,"A mud marker was recorded on SEWELL CREEK in Greenbrier County, WV at latitude 37.94425000000 and longitude -80.79881000000 on 2016/07/06, sourced from USGS.",,,,,,,,,,,,
+B1700,"A mud marker was recorded on July 3, 2016, at a location with latitude 38.43766000000 and longitude -81.17362000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1701,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1702,"A high-water-mark record with a Seed line marker label of no_label was observed on 2016/07/05 at latitude 37.66564000000, longitude -80.89536000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B1703,"A high-water mark record was observed on Sewell Creek in Greenbrier County, WV at latitude 37.94411000000 and longitude -80.79706000000 on 2016/07/06, sourced from the USGS.",,,,,,,,,,,,
+B1704,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1705,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1706,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1707,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 5, 2016, at the Greenbrier River in Greenbrier County, WV.",,,,,,,,,,,,
+B1708,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1709,"A high-water-mark record with a marker type of Other, located in Marion County, WV at latitude 39.46656111 and longitude -80.14770556, sourced from the USGS on 1963/03/01.",,,,,,,,,,,,
+B1710,"A high-water mark was recorded on Sewell Creek in Greenbrier County, WV at latitude 37.96885000000 and longitude -80.76692000000 on July 7, 2016, sourced from the USGS.",,,,,,,,,,,,
+B1711,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1712,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1713,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1714,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.37473611 and longitude -80.34296667, sourced from USGS on November 1, 1985.",,,,,,,,,,,,
+B1715,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label, located at latitude 38.74451667000, longitude -80.23558889000, in Upshur County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1716,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1717,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1718,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1719,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1720,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label, located at latitude 38.91488889000, longitude -80.22946111000, in Upshur County, WV, on 1985/11/01, sourced from USGS.",,,,,,,,,,,,
+B1721,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1722,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1723,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1724,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1725,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1726,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1727,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1728,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1729,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.48736000000 and longitude -81.28091000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1730,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1731,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1732,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.48885000000 and longitude -81.35315000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1733,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on July 8, 2016, at the Meadow River in Greenbrier County, WV.",,,,,,,,,,,,
+B1734,"A mud marker with label 'no_label' was recorded on July 9, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1735,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1736,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1737,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1738,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1739,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1740,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1741,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1, 1986, sourced from the USGS.",,,,,,,,,,,,
+B1742,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1743,"A high-water-mark record was observed on July 8, 2016, at a location with latitude 37.72483000000 and longitude -80.48892000000 in Greenbrier County, WV, near the Greenbrier River.",,,,,,,,,,,,
+B1744,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1745,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1746,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1747,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.00492778000 and longitude -80.39266111000, sourced from USGS on 1985/11/01.",,,,,,,,,,,,
+B1748,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1749,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B1750,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1751,"A high-water-mark record with a marker type of Other, located in Lewis County, WV at latitude 39.03627222000 and longitude -80.44858333000, sourced from USGS on November 1, 1985.",,,,,,,,,,,,
+B1752,"A debris marker with no label was recorded on July 3, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1753,"A mud marker with no label was recorded on July 6, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1754,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1755,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1756,"A high-water-mark record with a Seed line marker label of no_label was recorded on July 7, 2016, at the Meadow River in Greenbrier County, WV.",,,,,,,,,,,,
+B1757,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1758,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1759,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1760,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1761,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1762,"A high-water-mark record with a Seed line marker label of no_label was observed on July 2, 2016, at the Elk River in Kanawha County, WV.",,,,,,,,,,,,
+B1763,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1764,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.65044000000, longitude -80.88814000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B1765,"A debris marker with no label was recorded on July 3, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1766,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1767,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1768,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/05 at latitude 37.66978000000, longitude -80.89297000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B1769,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1770,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1771,"A high-water-mark record with a marker type of Other, located in Marshall County, WV at latitude 39.97755556000 and longitude -80.72807778000, sourced from USGS on 1976/07/01.",,,,,,,,,,,,
+B1772,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1773,"A high-water-mark record with a Seed line marker label of no_label was recorded on 2016/07/06 at latitude 37.65175000000, longitude -80.89131000000 in Summers County, WV near the New River waterbody, sourced from USGS.",,,,,,,,,,,,
+B1774,"The marker type indicates a physical alteration on the record, but its significance and context are unknown. The absence of a label does not provide additional information. Spatial, temporal, waterbody, event, or provenance details cannot be determined.",,,,,,,,,,,,
+B1775,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1776,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1777,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1778,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1779,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on August 1, 1975, sourced from the USGS.",,,,,,,,,,,,
+B1780,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1781,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1782,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1783,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at Sewell Creek in Greenbrier County, WV.",,,,,,,,,,,,
+B1784,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1785,"A mud marker was recorded on July 2, 2016, at a location with latitude 38.48905000000 and longitude -81.34693000000 in Kanawha County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1786,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1787,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1989, sourced from the USGS.",,,,,,,,,,,,
+B1788,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1789,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on July 7, 2016, at latitude 37.68158000000 and longitude -80.88889000000 in Raleigh County, WV, near the New River.",,,,,,,,,,,,
+B1790,"A high-water-mark record with a marker type of Other, located in Harrison County, WV at latitude 39.28109444 and longitude -80.57211667, sourced from the USGS on November 1, 1985.",,,,,,,,,,,,
+B1791,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1792,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1793,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at latitude 37.72353000000 and longitude -80.62911000000 in Greenbrier County, WV, near the greenbrier waterbody, sourced from USGS.",,,,,,,,,,,,
+B1794,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1795,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1796,"A high-water-mark record with a marker type of Other, located in Hancock County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1797,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1798,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B1799,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1800,"A debris marker with no label was recorded on July 4, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1801,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on March 1, 1963, sourced from the USGS.",,,,,,,,,,,,
+B1802,"A mud marker with label 'no_label' was recorded on July 6, 2016, at latitude 38.21844000000 and longitude -80.55858000000 in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1803,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1804,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1805,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1806,"A high-water-mark record with a marker type of Other (Note in Description box) and label no_label, located at latitude 39.65797500000, longitude -79.99295278000, in Monongalia County, WV, on November 1, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1807,"A debris marker with no label was recorded on July 6, 2016, at a location in Nicholas County, WV, near Cherry River.",,,,,,,,,,,,
+B1808,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1809,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1810,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1811,"A high-water-mark record with a marker type of Other, located in Marion County, WV, on August 1, 1980, sourced from the USGS.",,,,,,,,,,,,
+B1812,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1813,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1814,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1815,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1816,"A high-water-mark record was observed on July 3, 2016, at a location with latitude 38.44905000000 and longitude -81.18606000000 in Clay County, WV, near Elk River, sourced from USGS.",,,,,,,,,,,,
+B1817,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1818,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1819,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1820,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on July 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B1821,"A high-water-mark record with a marker type of Other, located in Harrison County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1822,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1823,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1824,"A mud marker with no label was recorded on the Greenbrier River in Greenbrier County, WV at latitude 37.74825000000 and longitude -80.46280600000 on July 5, 2016, sourced from USGS.",,,,,,,,,,,,
+B1825,"The marker type indicates a seed line, suggesting a possible biological or ecological context. However, without further information, the exact nature and location of this seed line remain uncertain. The marker label is blank, providing no additional clues about its purpose or significance.",,,,,,,,,,,,
+B1826,"A high-water-mark record with a seed line marker labeled 'no_label' was recorded on July 6, 2016, at the SEWELL CREEK waterbody in Greenbrier County, WV.",,,,,,,,,,,,
+B1827,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1828,"A high-water-mark record with a marker type of Other, located in Marshall County, WV, on July 1, 1976, sourced from the USGS.",,,,,,,,,,,,
+B1829,"A high-water-mark record with a marker type of Other, located at latitude 39.34825278000 and longitude -79.66628611000 in Preston County, WV, sourced from the USGS on 1985/11/01.",,,,,,,,,,,,
+B1830,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1831,"The marker type indicates a mud deposit, but the label 'no_label' does not provide any additional information. Without spatial context, it is uncertain where this marker was placed or what it marks. Similarly, without temporal context, it is unclear when this marker was deployed or its relevance to past events. The waterbody and provenance contexts are also unavailable, introducing further uncertainty about the marker's purpose and origin.",,,,,,,,,,,,
+B1832,"A high-water-mark record with a seed line marker labeled 'no_label' was observed on Sewell Creek in Greenbrier County, WV at latitude 37.94475000000 and longitude -80.79708000000 on 2016/07/06, sourced from the USGS.",,,,,,,,,,,,
+B1833,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1834,"A debris marker with no label was recorded on July 3, 2016, at a location in Greenbrier County, WV, near Howard Creek.",,,,,,,,,,,,
+B1835,"A high-water-mark record with a marker type of Other, located in Randolph County, WV, on November 1st, 1985, sourced from the USGS.",,,,,,,,,,,,
+B1836,"The marker type indicates the presence of debris, but its origin and significance are uncertain. The lack of a label does not provide additional context.",,,,,,,,,,,,
+B1837,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1838,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1839,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
+B1840,"A high-water-mark record with a marker type of Other, located in Upshur County, WV, on December 1, 1969, sourced from the USGS.",,,,,,,,,,,,
+B1841,"A high-water-mark record with a marker type of Other, located at latitude 39.66711111000 and longitude -80.03548889000 in Monongalia County, WV, sourced from the USGS on 1996/07/01.",,,,,,,,,,,,
+B1842,"The marker type indicates that the marker is of an unknown or miscellaneous category, and the description may provide additional context. The marker label is blank, providing no specific information about the event or occurrence it represents.",,,,,,,,,,,,
