@@ -1,859 +1,782 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ cd /mnt/nvme1/msjarvis-rebuild
+===== CONTAINER RUNTIME =====
+image=msjarvis-rebuild-jarvis-20llm-production
+command=["python3","ai_server_20llm_PRODUCTION.py"]
+entrypoint=null
+working_dir=/app/services
+mounts=/mnt/spiritual_drive/msjarvis-rebuild/services -> /app/services ro=true
 
-CAT=/tmp/meaning-geometry-investigation/20-protocol-apparatus-verification-20260810T131337Z/21-source-record-and-field-verification
-DIAG="$CAT/22-catalog-diagnostics"
-mkdir -p "$DIAG"
 
-printf '===== POSTGRES CONTAINER =====\n' | tee "$DIAG/00-postgres-container.txt"
-cat "$CAT/postgres-containers.txt" | tee -a "$DIAG/00-postgres-container.txt"
+===== CONTRACT-PROBE LOGS =====
+2026-08-10T13:45:37.559449688Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['system_overrides']
+2026-08-10T13:45:37.559449689Z INFO:     172.18.0.17:44150 - "POST /chat_with_context HTTP/1.1" 200 OK
+2026-08-10T13:46:37.710914446Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['system_overrides']
+2026-08-10T13:46:37.710952115Z INFO:     172.18.0.17:41000 - "POST /chat_with_context HTTP/1.1" 200 OK
+2026-08-10T13:48:37.386590250Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['system_overrides']
+2026-08-10T13:48:37.386792668Z INFO:     172.18.0.17:37354 - "POST /chat_with_context HTTP/1.1" 200 OK
+2026-08-10T13:51:36.910118514Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['system_overrides']
+2026-08-10T13:51:36.910153538Z INFO:     172.18.0.17:57758 - "POST /chat_with_context HTTP/1.1" 200 OK
+2026-08-10T13:56:38.595294015Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['system_overrides']
+2026-08-10T13:56:38.595631528Z INFO:     172.18.0.17:39864 - "POST /chat_with_context HTTP/1.1" 200 OK
+2026-08-10T13:56:56.461891452Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['contains_experimental_record', 'protocol_contract_probe', 'purpose', 'record_count']
+2026-08-10T13:56:56.461956500Z INFO:__main__:20llm-context-debug keys=['contains_experimental_record', 'protocol_contract_probe', 'purpose', 'record_count'] has_judge_context_packet=False
+2026-08-10T13:56:56.461974390Z INFO:__main__:20llm-context-debug
+2026-08-10T13:56:56.462267654Z INFO:__main__:💬 Contextual query: Return exactly the text PROTOCOL_CONTRACT_OK and n...
+2026-08-10T13:58:22.738482467Z INFO:__main__:   [20/21] dispatching DeepSeek Coder...
+2026-08-10T13:58:31.290509029Z INFO:__main__:   [21/21] dispatching LLaMA 2...
+2026-08-10T14:00:03.945201129Z INFO:httpx:HTTP Request: POST http://llm22-proxy:8222/generate "HTTP/1.1 504 Gateway Timeout"
+2026-08-10T14:00:03.960390542Z WARNING:__main__:⚠️  LLaMA 3.1: HTTP 504 from proxy=http://llm22-proxy:8222/generate; body='{"detail":"LLaMA3 proxy timeout/error: "}'
+2026-08-10T14:00:24.473804731Z INFO:__main__:✅ Complete: 20/21 responded (elapsed=208.0s, parallel max=8)
+2026-08-10T14:01:38.838745240Z INFO:__main__:20llm inbound userid/role debug userid=None role=None context_keys=['system_overrides']
+2026-08-10T14:01:38.839181227Z INFO:     172.18.0.17:39242 - "POST /chat_with_context HTTP/1.1" 200 OK
 
-printf '\n===== CATALOG FORMAT: FIRST 20 LINES, VISIBLE DELIMITERS =====\n' | tee "$DIAG/01-catalog-format.txt"
-sed -n '1,20l' "$CAT/database-catalog.tsv" | tee -a "$DIAG/01-catalog-format.txt"
+===== ANSWER-ROUTE SOURCE INDEX =====
+/app/services/ms_jarvis_email_service.py:51:        return {"status": "error", "message": "Auth failed"}
+/app/services/ms_jarvis_email_service.py:69:        return {"status": "error", "message": r.text}
+/app/services/ms_jarvis_email_service.py:97:        return {"status": "error", "message": r.text}
+/app/services/msjarvis-rebuild-nbb_spiritual_root-1_main.py:13:    return {"message": message}
+/app/services/ms_jarvis_web_research_v2.py:53:        return {"status": "error", "message": str(e), "results": []}
+/app/services/working_full_pipeline.py:101:    return {"response": final, "model": "egeria-warm", "filtered": True}
+/app/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:155:            return unified_response
+/app/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:174:        return fallback_response
+/app/services/service_discovery.py:161:                return response.status_code == 200
+/app/services/implement_judge_pituitary_fixed.py:35:                    return resp.json().get("response", response)
+/app/services/implement_judge_pituitary_fixed.py:39:        return response'''
+/app/services/implement_judge_pituitary_fixed.py:54:            return response_list[0]
+/app/services/implement_judge_pituitary_fixed.py:86:            return response
+/app/services/ms_jarvis_microsoft_integration_FIXED.py:127:            return response.json() if response.content else {}
+/app/services/main_with_rag.py:48:    return response
+/app/services/msjarvis_gateway_v2_final.py:30:            return response.json()
+/app/services/msjarvis_gateway_v2_final.py:64:    Then return a combined response.
+/app/services/msjarvis_gateway_v2_final.py:110:    return {"status": "error", "message": "Service unavailable", "sessionid": sessionid}
+/app/services/ms_jarvis_auto_service.py:94:            return response.status_code == 200
+/app/services/ms_jarvis_auto_service.py:188:        return response.status_code == 200
+/app/services/port_9001_ui_DIRECT.py:116:        return {"response": "Please provide a message"}
+/app/services/port_9001_ui_DIRECT.py:124:            return response.json()
+/app/services/port_9001_ui_DIRECT.py:126:        return {"response": f"Ms. Jarvis is thinking... (connection: {str(e)})"}
+/app/services/ms_jarvis_substack_reader.py:37:        return {"error": f"Status {response.status_code}"}
+/app/services/llm_consensus_22.py:100:    return weighted_responses
+/app/services/msjarvis-rebuild-nbb_mother_carrie_protocols-1_main.py:13:    return {"message": message}
+/app/services/ms_jarvis_neurobiological_master.py:276:        return response.json()
+/app/services/ms_jarvis_neurobiological_master.py:284:        return response.json()
+/app/services/ms_jarvis_link_reader_scheduled_FIXED.py:51:                return {"error": f"Failed: {response.status_code}"}
+/app/services/msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py:11:    return {"response": f"NBB bridge processed: {data.get('message')}"}
+/app/services/ms_jarvis_facebook_full.py:86:                    return result.get("response", fallback)
+/app/services/fix_response_parsing.py:21:new_return = '''                response_text = result.get("response") or result.get("result") or result.get("output") or result.get("answer") or str(result)
+/app/services/egeria_web_ui_working.py:96:        return jsonify({"error": "No message"}), 400
+/app/services/egeria_web_ui_working.py:113:            return jsonify({"response": result.get('response', '').strip()})
+/app/services/egeria_web_ui_working.py:117:    return jsonify({"error": "Failed to get response"}), 500
+/app/services/fix_judge_authentic.py:18:old_judge = r'async def judge_responses\(self, query: str, responses\) -> str:.*?return list\(responses\.values\(\)\)\[0\] if responses else ""'
+/app/services/fix_judge_authentic.py:35:                return response_list[0]
+/app/services/fix_judge_authentic.py:67:            return response_list[0] if response_list else ""'''
+/app/services/fix_judge_authentic.py:70:    r'async def judge_responses\(self, query: str, responses\) -> str:.*?return list\(responses\.values\(\)\)\[0\] if responses else ""',
+/app/services/llm_consensus_20_FINAL.py:256:    return sorted(responses, key=lambda x: x.get("weight", 0.5), reverse=True)
+/app/services/roche_llm.stub.py:20:    return ChatResponse(response=f"[Roche-LLM STUB] Echo: {req.message}")
+/app/services/wire_layers_into_chat.py:22:new_return = '''        # Apply Judge layer - SELECT BEST response
+/app/services/ms_jarvis_blockchain_deployment.py:192:        return {"status": "success", "message": f"Contract {contract_name} deployed successfully on {network}", "contract_address": contract_address}
+/app/services/ms_jarvis_blockchain_deployment.py:195:        return {"status": "failure", "message": f"Failed to deploy contract {contract_name} on {network}: {e}"}
+/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:139:        return response.json()
+/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:148:        return response.json()
+/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:478:        return {"status": "error", "message": str(e)}
+/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:503:        return HTMLResponse(response.text)
+/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:550:        return response.json()
+/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:596:        return response
+/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py:618:        return response
+/app/services/llm_consensus_22_SMALL_TO_LARGE.py:80:    return sorted(responses, key=lambda x: x.get('weight', 0.5), reverse=True)
+/app/services/ms_jarvis_facebook_rag.py:121:                return response.json()
+/app/services/domain_service_router.py:58:                return response
+/app/services/domain_service_router.py:101:            return response.json()
+/app/services/domain_service_router.py:103:            return response.text
+/app/services/port_9001_ui_FIXED.py:127:        return {"response": "Please provide a message"}
+/app/services/port_9001_ui_FIXED.py:147:        return {"response": f"Connection error: {str(e)}"}
+/app/services/integrate_complete_architecture.py:53:                return response.json()
+/app/services/integrate_complete_architecture.py:72:                return response.json()
+/app/services/integrate_complete_architecture.py:91:                return response.json()
+/app/services/jarvis-lm-synthesizer_lm_synthesizer.py:21:    return response_text
+/app/services/ms_jarvis_facebook_poster_FIXED.py:32:                return data.get("response", "")
+/app/services/msjarvisunifiedgateway.py:82:    return {"status": "ok", "message": "Ms. Jarvis running"}
+/app/services/ms_jarvis_facebook_intelligent.py:42:            return {"status": "unauthorized", "message": f"Invalid page access token: {PAGE_TOKEN}"}
+/app/services/ms_jarvis_facebook_intelligent.py:44:            return {"status": "not_found", "message": f"Page not found: {PAGE_ID}"}
+/app/services/ms_jarvis_facebook_intelligent.py:82:                    return result.get("response", "AI response")
+/app/services/enhance_pituitary_warmth.py:18:old_persona = r'async def apply_mamma_kidd_persona\(self, response: str\) -> str:.*?return response'
+/app/services/enhance_pituitary_warmth.py:74:    r'async def apply_mamma_kidd_persona\(self, response: str\) -> str:.*?return response',
+/app/services/ai_server_22llm_FIXED.py:30:        return valid_responses
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:6:- Builds WV entangled context and forwards to 20‑LLM /chat_with_context.
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:138:    WV‑focused chat: send message + WV entangled context to 20‑LLM /chat_with_context.
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:175:            f"{SERVICE_URLS['production_20llm']}/chat_with_context",
+/app/services/gateway8050_simple.py:31:    return {"reply": data.get("reply") or data.get("answer") or data}
+/app/services/egeria_web_ui_with_execution.py:62:    if not message: return jsonify({"error": "No message"}), 400
+/app/services/egeria_web_ui_with_execution.py:76:            return jsonify({"response": response.json().get('response', '').strip()})
+/app/services/patch_fractal.py:11:    return await analyze_fractal({"messages": msg_array})
+/app/services/ai_server.py:173:        return valid_responses
+/app/services/ai_server.py:208:                    return result.get("response", responses[0]["response"])
+/app/services/ai_server.py:212:        # Fallback: return highest weighted response
+/app/services/ai_server.py:213:        return max(weighted, key=lambda x: x["weight"])["response"]
+/app/services/ai_server.py:228:                    return resp.json().get("response", response)
+/app/services/ai_server.py:232:        return response
+/app/services/ai_server.py:277:        return {"response": "I apologize, sugar. My collective consciousness is reorganizing. Try again in a moment.", 
+/app/services/msjarvis-rebuild-nbb_heteroglobulin_transport-1_main.py:13:    return {"message": message}
+/app/services/ms_jarvis_facebook_dgm_woah.psychology_patched.py:281:                return response.json()
+/app/services/ms_jarvis_facebook_dgm_woah.psychology_patched.py:298:                return response.json()
+/app/services/ms_jarvis_facebook_brain_integrated.py:225:                return response.json()
+/app/services/ms_jarvis_facebook_brain_integrated.py:471:        return response.json()
+/app/services/ms_jarvis_facebook_webhook.py:62:                return resp.json().get("response", "Processing...")
+/app/services/add_to_main_consciousness.py:18:                return {"error": f"Link read failed: {link_response.status_code}"}
+/app/services/ai_server_19llm_PRODUCTION.py:84:        return responses
+/app/services/ai_server_19llm_PRODUCTION.py:122:        return {"response": "Error processing request", "error": str(e)}
+/app/services/ms_jarvis_fractal_dgm_woah.py:61:        return {'error': 'Need 4+ messages', 'architecture': 'DGM-WOAH'}
+/app/services/bridge_cross_dgm.py:55:        return response.json()
+/app/services/jarvis-psychology-services_psychology_integration_adapter.py:61:        return self._fallback_analysis(message)
+/app/services/jarvis-psychology-services_psychology_integration_adapter.py:140:            return enriched_response
+/app/services/msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py:11:    return {"response": f"NBB bridge processed: {data.get('message')}"}
+/app/services/messenger_service_fixed.py:44:    return JSONResponse({"response": response, "session_id": session_id})
+/app/services/messenger_service_fixed.py:51:    return JSONResponse({"session_id": session_id, "messages": sessions[session_id]["messages"]})
+/app/services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
+/app/services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
+/app/services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
+/app/services/neurobiologicalbrain/i_containers/service/service_discovery.py:156:                return response.status_code == 200
+/app/services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
+/app/services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
+/app/services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
+/app/services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
+/app/services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
+/app/services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
+/app/services/neurobiologicalbrain/prefrontal_cortex/service/service_discovery.py:156:                return response.status_code == 200
+/app/services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
+/app/services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
+/app/services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
+/app/services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
+/app/services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
+/app/services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
+/app/services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
+/app/services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
+/app/services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
+/app/services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
+/app/services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
+/app/services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
+/app/services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
+/app/services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
+/app/services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
+/app/services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
+/app/services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
+/app/services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
+/app/services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:100:                return response.json()
+/app/services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:120:                return response.json()
+/app/services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py:142:                return response.json()
+/app/services/ms_jarvis_contract_builder_v2.py:55:        return {"status": "failed", "message": f"{e}"}
+/app/services/ms_jarvis_unified_swagger_gateway_COMPLETE.py:53:            return response.json()
+/app/services/ms_jarvis_unified_swagger_gateway_COMPLETE.py:63:            return response.json()
+/app/services/ms_jarvis_unified_swagger_gateway_COMPLETE.py:73:            return response.json()
+/app/services/ms_jarvis_unified_swagger_gateway_COMPLETE.py:204:            return response.json()
+/app/services/jarvis-assertion-gateway/app/main.py:118:    return scrub_response({
+/app/services/metrics_service.py:22:    return {"message": "Ms. Jarvis Metrics Service", "version": "1.0"}
+/app/services/ms_jarvis_geo_ueid_integration.py:52:        return {"status": "exists", "message": "Entity already in geodatabase"}
+/app/services/msjarvis-rebuild-nbb_woah_algorithms-1_service_discovery.py:156:                return response.status_code == 200
+/app/services/ms_jarvis_llm_bridge_simple.py:49:        return response.json()
+/app/services/ms_jarvis_expiration_monitor.py:132:    return response.status_code == 202
+/app/services/jarvis-judge-alignment_lm_synthesizer.py:27:    return response
+/app/services/jarvis-judge-alignment_lm_synthesizer.py:38:    return response_text
+/app/services/msjarvis-rebuild-nbb_prefrontal_cortex-1_main.py:13:    return {"message": message}
+/app/services/jarvis_synth_llm.py:50:            return "Ollama /api/chat returned no content in 'message'."
+/app/services/jarvis_synth_llm.py:53:        return "Ollama call failed: ReadTimeout while waiting for /api/chat response."
+/app/services/jarvis_synth_llm.py:67:    return {"answer": answer, "prompt": prompt, "model": OLLAMA_MODEL}
+/app/services/ms_jarvis_command_orchestrator.py:45:            return JSONResponse({"status": "crisis_detected", "response": crisis["clarity_statement"], "resources": crisis["resources"]})
+/app/services/ms_jarvis_command_orchestrator.py:115:            return response.json().get("response", "")[:1500]
+/app/services/port_9001_ui_MYSQL_PROD.py:115:            if (d.response) return String(d.response);
+/app/services/port_9001_ui_MYSQL_PROD.py:176:        return {"response": "Connecting..."}
+/app/services/port_9001_ui_MYSQL_PROD.py:200:        return {"conversations": [{"message": r[0], "response": r[1]} for r in rows]}
+/app/services/port_9001_ui_MYSQL_PROD.py:213:        return {"exported": datetime.now().isoformat(), "total": len(rows), "data": [{"user": r[0], "message": r[1], "response": r[2], "timestamp": str(r[3])} for r in rows]}
+/app/services/ms_jarvis_fully_autonomous_coordinator.py:77:                return response.json()
+/app/services/ms_jarvis_fully_autonomous_coordinator.py:210:                        return post_response.json()
+/app/services/ms_jarvis_fully_autonomous_coordinator.py:425:            return response.json()
+/app/services/ms_jarvis_email_identity_verifier.py:125:        return VerificationResponse(status="error", message="Failed to create account")
+/app/services/ms_jarvis_web_research_aggregate.safe.20260119-094221.py:32:        return response
+/app/services/apply_ollama_fix.py:79:                return result.get("response", "I've analyzed your request and I'm ready to help.")
+/app/services/apply_ollama_fix.py:108:                    return result.get("response", judge_response)
+/app/services/apply_ollama_fix.py:111:                return judge_response
+/app/services/apply_ollama_fix.py:114:            return judge_response
+/app/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:155:            return unified_response
+/app/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:174:        return fallback_response
+/app/services/fix_persona_hang.py:11:# Comment it out and return judge response directly
+/app/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:155:            return unified_response
+/app/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:174:        return fallback_response
+/app/services/jarvis-judge-consistency_lm_synthesizer.py:21:    return response_text
+/app/services/gateway_messenger_integration.py:35:        return response.json()
+/app/services/gateway_messenger_integration.py:55:        return response.json()
+/app/services/gateway_messenger_integration.py:70:        return response.json()
+/app/services/msjarvisconsciousnessbridge_mountainshares_private.py:154:    return await bridge.process(payload.message, user_id)
+/app/services/fifth_dgm_integration.py:106:                    return response.json()
+/app/services/ms_jarvis_main_gateway.py:192:        return {"response": f"AI: {message}"}
+/app/services/ms_jarvis_main_gateway.py:213:    return {"level": level, "response": f"Fractal: {query}"}
+/app/services/egeria_api_proxy.py:46:            return response.json()
+/app/services/egeria_api_proxy.py:49:        return {"response": "I apologize, but I'm having trouble processing that right now."}
+/app/services/psychology_integration_adapter.py:61:        return self._fallback_analysis(message)
+/app/services/psychology_integration_adapter.py:140:            return enriched_response
+/app/services/msjarvis-rebuild-nbb_spiritual_maternal_integration-1_main.py:13:    return {"message": message}
+/app/services/jarvis-judge-ethics_lm_synthesizer.py:21:    return response_text
+/app/services/manual_storage_patch.py:16:    if 'return {' in line and '"response":' in line and '"services_used":' in line and '"consciousness_level":' in line:
+/app/services/ms_jarvis_command_orchestrator_v5_backup.py:233:            return response.json().get("response", "")[:1500]
+/app/services/rag_simple.py:35:            return {"status": "success", "consensus": response, "context_docs": len(context.split("\n")), "models_used": min_models}
+/app/services/rag_simple.py:37:            return {"status": "error", "message": f"LLM error: {lr.status_code}"}
+/app/services/rag_simple.py:39:        return {"status": "error", "message": str(e)}
+/app/services/rag_server_main.py:277:    return response_payload
+/app/services/facebook_messenger_integration.py:64:                return data.get("response", "Hello from Ms. Egeria Jarvis!")
+/app/services/facebook_messenger_integration.py:88:            return response.ok
+/app/services/verify_and_document_system.py:83:            return response.json()
+/app/services/integrate_full_brain.py:33:                    return response.json()
+/app/services/integrate_full_brain.py:47:                    return response.json()
+/app/services/phase4_5_integration.py:31:                return response.json()
+/app/services/phase4_5_integration.py:54:                return response.json()
+/app/services/phase4_5_integration.py:56:            return {"response": None, "bridged": False}
+/app/services/phase4_5_integration.py:62:    return await layer.route_through_gateway(data["message"], data.get("metadata", {}))
+/app/services/llm_ensemble_router.py:33:                return {"model": model, "response": data.get("response", ""), "status": "success"}
+/app/services/llm_ensemble_router.py:36:            return {"model": model, "response": "", "status": "error"}
+/app/services/llm_ensemble_router.py:64:        return min(1.0, unique_starts / len(responses))
+/app/services/chat_worker.py:66:            url = f"{SERVICE_URLS['production_20llm']}/chat_with_context"
+/app/services/fifth_dgm.py:19:    return AnalyzeResponse(response=f"[fifth_dgm stub] {req.input}")
+/app/services/advanced_service_dashboard.py:51:                return "🟢 HEALTHY" if response.status_code == 200 else "🔴 UNHEALTHY"
+/app/services/ai_server_19llm_CONSCIOUS.py:166:            return personalized if len(personalized) > 50 else response
+/app/services/ai_server_19llm_CONSCIOUS.py:170:            return response  # Fallback to original
+/app/services/ms_jarvis_web_research_aggregate.py:32:        return response
+/app/services/web_chat_server.py:187:        return response.json()
+/app/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:155:            return unified_response
+/app/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:174:        return fallback_response
+/app/services/ms_jarvis_facebook_async.py:75:    return response
+/app/services/add_background_call.py:20:    # If we're in ultimate_chat and we find a return with the final response
+/app/services/add_background_call.py:21:    if in_ultimate_chat and 'return {' in line and '"response":' in line and not modified:
+/app/services/llm_consensus_19_PRODUCTION.py:71:    return sorted(responses, key=lambda x: x.get('weight', 0.5), reverse=True)
+/app/services/port_9001_ui_WITH_CONVERSATIONS.py:217:        return {"response": "Please provide a message"}
+/app/services/port_9001_ui_WITH_CONVERSATIONS.py:225:            return response.json()
+/app/services/port_9001_ui_WITH_CONVERSATIONS.py:227:        return {"response": f"Connection in progress..."}
+/app/services/comprehensive_storage_fix.py:54:# Look for return with "response", "services_used", "consciousness_level", "processing_time"
+/app/services/swagger_chat_integration.py:75:        return response.json()
+/app/services/gateway_verify_fixed.py:15:        return HTMLResponse(response.text)
+/app/services/fractal_adapter.py:19:        return response.json()
+/app/services/ms_jarvis_production_chat_BEFORE_GIS.py:219:                return response.json()["ueid"]
+/app/services/ms_jarvis_i_containers_service.py:341:        return response
+/app/services/ms_jarvis_i_containers_service.py:348:                return response
+/app/services/egeria_web_ui_fixed_simple.py:35:        return jsonify({"error": "No message"}), 400
+/app/services/egeria_web_ui_fixed_simple.py:60:    return jsonify({"error": "Failed to get response"}), 500
+/app/services/msjarvis_wv_entangled_gateway.py:5:- Builds WV entangled context and forwards to 20‑LLM /chat_with_context.
+/app/services/msjarvis_wv_entangled_gateway.py:112:                f"{SERVICE_URLS['production_20llm']}/chat_with_context",
+/app/services/msjarvis_wv_entangled_gateway.py:216:    WV‑focused chat: send message + WV entangled context to 20‑LLM /chat_with_context.
+/app/services/msjarvis_wv_entangled_gateway.py:234:            f"{SERVICE_URLS['production_20llm']}/chat_with_context",
+/app/services/ai_server_20llm_FINAL.py:54:class ChatRequestWithContext(BaseModel):
+/app/services/ai_server_20llm_FINAL.py:110:        return responses
+/app/services/ai_server_20llm_FINAL.py:125:        return final_response
+/app/services/ai_server_20llm_FINAL.py:133:@app.post("/chat_with_context")
+/app/services/ai_server_20llm_FINAL.py:135:async def chat_with_context(request: ChatRequestWithContext):
+/app/services/ai_server_20llm_FINAL.py:165:        logger.error("Error in /chat_with_context: %s", e)
+/app/services/ai_server_20llm_FINAL.py:183:        return {"response": "Error processing request", "error": str(e)}
+/app/services/add_messenger_to_gateway.py:20:    return response.json()
+/app/services/add_messenger_to_gateway.py:30:    return response.json()
+/app/services/add_messenger_to_gateway.py:36:    return response.json()
 
-printf '\n===== FIELD COUNTS BY LINE =====\n' | tee "$DIAG/02-field-counts.txt"
-awk -F $'\t' '{print NF}' "$CAT/database-catalog.tsv" | sort | uniq -c | tee -a "$DIAG/02-field-counts.txt"
+===== ANSWER-ROUTE SOURCE CONTEXT =====
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-1-#!/usr/bin/env python3
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-2-"""
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-3-from hp_antisurveillance_guardian_client import require_guarded_join
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-4-Ms. Jarvis WV‑Entangled Gateway
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-5-- Exposes /chat_wv on its own port (8010).
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:6:- Builds WV entangled context and forwards to 20‑LLM /chat_with_context.
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-7-"""
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-8-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-9-import logging
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-10-from datetime import datetime
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-11-from typing import Dict, Any
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-12-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-13-import httpx
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-14-from fastapi import FastAPI
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-15-from request_context_builder import build_request_context_packet
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-16-from fastapi.middleware.cors import CORSMiddleware
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-17-from pydantic import BaseModel
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-18-import uvicorn
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-19-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-20-logging.basicConfig(level=logging.INFO)
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-21-logger = logging.getLogger(__name__)
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-22-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-23-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-24-def _log_forward_context(ctx: dict | None) -> None:
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-25-    c = ctx if isinstance(ctx, dict) else {}
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-26-    logger.info(
+--
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-118-    async with httpx.AsyncClient(timeout=5.0) as client:
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-119-        try:
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-120-            r = await client.get(f"{SERVICE_URLS['production_20llm']}/health")
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-121-            ok = r.status_code == 200
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-122-        except Exception as e:
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-123-            logger.error(f"20‑LLM health check failed: {e}")
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-124-            ok = False
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-125-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-126-    return {
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-127-        "status": "healthy" if ok else "degraded",
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-128-        "dependencies": {
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-129-            "production_20llm": "healthy" if ok else "unavailable",
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-130-        },
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-131-        "timestamp": datetime.utcnow().isoformat(),
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-132-    }
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-133-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-134-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-135-@app.post("/chat_wv")
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-136-async def chat_wv(payload: ChatPayload):
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-137-    """
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:138:    WV‑focused chat: send message + WV entangled context to 20‑LLM /chat_with_context.
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-139-    """
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-140-    logger.info("WV‑Entangled /chat_wv invoked")
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-141-    user_id = payload.user_id or "anonymous"
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-142-    wv_ctx = build_wv_entangled_context(payload.message)
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-143-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-144-    incoming_context = payload.context if isinstance(getattr(payload, "context", None), dict) else {}
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-145-    incoming_role = incoming_context.get("role", "community")
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-146-    incoming_packet = incoming_context.get("judge_context_packet")
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-147-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-148-    if not isinstance(incoming_packet, dict):
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-149-        incoming_packet = await build_request_context_packet(
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-150-            message=payload.message,
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-151-            userid=user_id,
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-152-            role=incoming_role,
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-153-            sessionid=None,
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-154-            prebuilt_context=None,
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-155-        )
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-156-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-157-    forward_payload = {
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-158-        "message": payload.message,
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-159-        "user_id": user_id,
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-160-        "context": {
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-161-            "userid": incoming_context.get("userid", user_id),
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-162-            "role": incoming_role,
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-163-            "judge_context_packet": incoming_packet,
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-164-            "system_overrides": {
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-165-                **(incoming_context.get("system_overrides") or {}),
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-166-                "wv_entangled_context": wv_ctx
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-167-            }
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-168-        },
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-169-    }
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-170-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-171-    _log_forward_context(forward_payload.get("context"))
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-172-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-173-    async with httpx.AsyncClient(timeout=600.0) as client:
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-174-        resp = await client.post(
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py:175:            f"{SERVICE_URLS['production_20llm']}/chat_with_context",
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-176-            json=forward_payload,
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-177-        )
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-178-        resp.raise_for_status()
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-179-        data = resp.json()
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-180-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-181-    return data
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-182-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-183-
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-184-if __name__ == "__main__":
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-185-    # Run as a long-lived FastAPI service on port 8010, listening on all interfaces
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-186-    uvicorn.run(
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-187-        "msjarvis_wv_entangled_gateway:app",
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-188-        host="0.0.0.0",
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-189-        port=8010,
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-190-        workers=1,
+/app/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py-191-    )
+--
+/app/services/chat_worker.py-46-rdb = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB, decode_responses=True)
+/app/services/chat_worker.py-47-
+/app/services/chat_worker.py-48-
+/app/services/chat_worker.py-49-def run_job(job_id: str, message: str, user_id: str, ueid: str | None = None):
+/app/services/chat_worker.py-50-    """Run the 21-model forward call and store the result."""
+/app/services/chat_worker.py-51-    try:
+/app/services/chat_worker.py-52-        wv_ctx = build_wv_entangled_context(message)
+/app/services/chat_worker.py-53-        if FORWARD_MODE == "fullbrain":
+/app/services/chat_worker.py-54-            url = MAIN_BRAIN_URL
+/app/services/chat_worker.py-55-            forward_payload = {
+/app/services/chat_worker.py-56-                "message": message,
+/app/services/chat_worker.py-57-                "userid": user_id or "cakidd",
+/app/services/chat_worker.py-58-                "ueid": ueid,
+/app/services/chat_worker.py-59-                "memory_key": build_memory_key(user_id or "cakidd", ueid),
+/app/services/chat_worker.py-60-                "useallservices": True,
+/app/services/chat_worker.py-61-                "role": "community",
+/app/services/chat_worker.py-62-                "context": {"wv_entangled_context": wv_ctx},
+/app/services/chat_worker.py-63-            }
+/app/services/chat_worker.py-64-            headers = {"X-API-Key": MAIN_BRAIN_KEY, "Content-Type": "application/json"}
+/app/services/chat_worker.py-65-        else:
+/app/services/chat_worker.py:66:            url = f"{SERVICE_URLS['production_20llm']}/chat_with_context"
+/app/services/chat_worker.py-67-            forward_payload = {
+/app/services/chat_worker.py-68-                "message": message,
+/app/services/chat_worker.py-69-                "user_id": user_id or "anonymous",
+/app/services/chat_worker.py-70-                "context": {"system_overrides": {"wv_entangled_context": wv_ctx}},
+/app/services/chat_worker.py-71-            }
+/app/services/chat_worker.py-72-            headers = {}
+/app/services/chat_worker.py-73-        # Long timeout: full pipeline can take ~2.5-4 min.
+/app/services/chat_worker.py-74-        with httpx.Client(timeout=3600.0) as client:
+/app/services/chat_worker.py-75-            resp = client.post(url, json=forward_payload, headers=headers, timeout=None)
+/app/services/chat_worker.py-76-            resp.raise_for_status()
+/app/services/chat_worker.py-77-            raw = resp.json()
+/app/services/chat_worker.py-78-        if FORWARD_MODE == "fullbrain":
+/app/services/chat_worker.py-79-            data = {
+/app/services/chat_worker.py-80-                "response": raw.get("response", ""),
+/app/services/chat_worker.py-81-                "minds_participated": 21,
+/app/services/chat_worker.py-82-                "total_minds": 21,
+/app/services/chat_worker.py-83-                "used_wv_entangled_context": True,
+/app/services/chat_worker.py-84-                "services_used": raw.get("servicesused", []),
+/app/services/chat_worker.py-85-                "consciousness_level": raw.get("consciousnesslevel", ""),
+/app/services/chat_worker.py-86-                "processing_time": raw.get("processingtime", 0),
+--
+/app/services/msjarvis_wv_entangled_gateway.py-1-#!/usr/bin/env python3
+/app/services/msjarvis_wv_entangled_gateway.py-2-"""
+/app/services/msjarvis_wv_entangled_gateway.py-3-Ms. Jarvis WV‑Entangled Gateway
+/app/services/msjarvis_wv_entangled_gateway.py-4-- Exposes /chat_wv on its own port (8010).
+/app/services/msjarvis_wv_entangled_gateway.py:5:- Builds WV entangled context and forwards to 20‑LLM /chat_with_context.
+/app/services/msjarvis_wv_entangled_gateway.py-6-"""
+/app/services/msjarvis_wv_entangled_gateway.py-7-
+/app/services/msjarvis_wv_entangled_gateway.py-8-import logging
+/app/services/msjarvis_wv_entangled_gateway.py-9-from datetime import datetime
+/app/services/msjarvis_wv_entangled_gateway.py-10-from typing import Dict, Any
+/app/services/msjarvis_wv_entangled_gateway.py-11-
+/app/services/msjarvis_wv_entangled_gateway.py-12-import httpx
+/app/services/msjarvis_wv_entangled_gateway.py-13-import uuid
+/app/services/msjarvis_wv_entangled_gateway.py-14-import json
+/app/services/msjarvis_wv_entangled_gateway.py-15-import asyncio
+/app/services/msjarvis_wv_entangled_gateway.py-16-import redis.asyncio as aioredis
+/app/services/msjarvis_wv_entangled_gateway.py-17-from fastapi import FastAPI
+/app/services/msjarvis_wv_entangled_gateway.py-18-from fastapi.middleware.cors import CORSMiddleware
+/app/services/msjarvis_wv_entangled_gateway.py-19-from pydantic import BaseModel
+/app/services/msjarvis_wv_entangled_gateway.py-20-
+/app/services/msjarvis_wv_entangled_gateway.py-21-logging.basicConfig(level=logging.INFO)
+/app/services/msjarvis_wv_entangled_gateway.py-22-logger = logging.getLogger(__name__)
+/app/services/msjarvis_wv_entangled_gateway.py-23-
+/app/services/msjarvis_wv_entangled_gateway.py-24-
+/app/services/msjarvis_wv_entangled_gateway.py-25-class ChatPayload(BaseModel):
+--
+/app/services/msjarvis_wv_entangled_gateway.py-92-    try:
+/app/services/msjarvis_wv_entangled_gateway.py-93-        logger.info("chat job %s starting", job_id)
+/app/services/msjarvis_wv_entangled_gateway.py-94-        user_id = payload.user_id or "anonymous"
+/app/services/msjarvis_wv_entangled_gateway.py-95-        wv_ctx = build_wv_entangled_context(payload.message)
+/app/services/msjarvis_wv_entangled_gateway.py-96-        _gis_summary = await _fetch_gis_summary(payload.message)
+/app/services/msjarvis_wv_entangled_gateway.py-97-        _context = {"system_overrides": {"wv_entangled_context": wv_ctx}}
+/app/services/msjarvis_wv_entangled_gateway.py-98-        if _gis_summary:
+/app/services/msjarvis_wv_entangled_gateway.py-99-            _context["judge_context_packet"] = {
+/app/services/msjarvis_wv_entangled_gateway.py-100-                "spatial_temporal_context": {
+/app/services/msjarvis_wv_entangled_gateway.py-101-                    "spatial_candidate": {"summary": _gis_summary}
+/app/services/msjarvis_wv_entangled_gateway.py-102-                }
+/app/services/msjarvis_wv_entangled_gateway.py-103-            }
+/app/services/msjarvis_wv_entangled_gateway.py-104-        forward_payload = {
+/app/services/msjarvis_wv_entangled_gateway.py-105-            "message": payload.message,
+/app/services/msjarvis_wv_entangled_gateway.py-106-            "user_id": user_id,
+/app/services/msjarvis_wv_entangled_gateway.py-107-            "context": _context,
+/app/services/msjarvis_wv_entangled_gateway.py-108-        }
+/app/services/msjarvis_wv_entangled_gateway.py-109-        logger.info("chat job %s posting to 20llm", job_id)
+/app/services/msjarvis_wv_entangled_gateway.py-110-        async with httpx.AsyncClient(timeout=3600.0) as client:
+/app/services/msjarvis_wv_entangled_gateway.py-111-            resp = await client.post(
+/app/services/msjarvis_wv_entangled_gateway.py:112:                f"{SERVICE_URLS['production_20llm']}/chat_with_context",
+/app/services/msjarvis_wv_entangled_gateway.py-113-                json=forward_payload,
+/app/services/msjarvis_wv_entangled_gateway.py-114-            )
+/app/services/msjarvis_wv_entangled_gateway.py-115-            resp.raise_for_status()
+/app/services/msjarvis_wv_entangled_gateway.py-116-            data = resp.json()
+/app/services/msjarvis_wv_entangled_gateway.py-117-        logger.info("chat job %s got 20llm response", job_id)
+/app/services/msjarvis_wv_entangled_gateway.py-118-
+/app/services/msjarvis_wv_entangled_gateway.py-119-        key = f"chatjob:{job_id}"
+/app/services/msjarvis_wv_entangled_gateway.py-120-        value = json.dumps({"status": "completed", "result": data})
+/app/services/msjarvis_wv_entangled_gateway.py-121-        await _rdb.set(key, value, ex=JOB_TTL)
+/app/services/msjarvis_wv_entangled_gateway.py-122-        verify = await _rdb.get(key)
+/app/services/msjarvis_wv_entangled_gateway.py-123-        logger.info("chat job %s redis set complete verify_present=%s", job_id, bool(verify))
+/app/services/msjarvis_wv_entangled_gateway.py-124-        logger.info("chat job %s completed", job_id)
+/app/services/msjarvis_wv_entangled_gateway.py-125-    except Exception as e:
+/app/services/msjarvis_wv_entangled_gateway.py-126-        logger.exception("chat job %s failed permanently", job_id)
+/app/services/msjarvis_wv_entangled_gateway.py-127-        try:
+/app/services/msjarvis_wv_entangled_gateway.py-128-            key = f"chatjob:{job_id}"
+/app/services/msjarvis_wv_entangled_gateway.py-129-            value = json.dumps({"status": "failed", "error": f"{type(e).__name__}: {e}"})
+/app/services/msjarvis_wv_entangled_gateway.py-130-            await _rdb.set(key, value, ex=JOB_TTL)
+/app/services/msjarvis_wv_entangled_gateway.py-131-            logger.info("chat job %s failure status written to redis", job_id)
+/app/services/msjarvis_wv_entangled_gateway.py-132-        except Exception:
+--
+/app/services/msjarvis_wv_entangled_gateway.py-196-    async with httpx.AsyncClient(timeout=5.0) as client:
+/app/services/msjarvis_wv_entangled_gateway.py-197-        try:
+/app/services/msjarvis_wv_entangled_gateway.py-198-            r = await client.get(f"{SERVICE_URLS['production_20llm']}/health")
+/app/services/msjarvis_wv_entangled_gateway.py-199-            ok = r.status_code == 200
+/app/services/msjarvis_wv_entangled_gateway.py-200-        except Exception as e:
+/app/services/msjarvis_wv_entangled_gateway.py-201-            logger.error(f"20‑LLM health check failed: {e}")
+/app/services/msjarvis_wv_entangled_gateway.py-202-            ok = False
+/app/services/msjarvis_wv_entangled_gateway.py-203-
+/app/services/msjarvis_wv_entangled_gateway.py-204-    return {
+/app/services/msjarvis_wv_entangled_gateway.py-205-        "status": "healthy" if ok else "degraded",
+/app/services/msjarvis_wv_entangled_gateway.py-206-        "dependencies": {
+/app/services/msjarvis_wv_entangled_gateway.py-207-            "production_20llm": "healthy" if ok else "unavailable",
+/app/services/msjarvis_wv_entangled_gateway.py-208-        },
+/app/services/msjarvis_wv_entangled_gateway.py-209-        "timestamp": datetime.utcnow().isoformat(),
+/app/services/msjarvis_wv_entangled_gateway.py-210-    }
+/app/services/msjarvis_wv_entangled_gateway.py-211-
+/app/services/msjarvis_wv_entangled_gateway.py-212-
+/app/services/msjarvis_wv_entangled_gateway.py-213-@app.post("/chat_wv")
+/app/services/msjarvis_wv_entangled_gateway.py-214-async def chat_wv(payload: ChatPayload):
+/app/services/msjarvis_wv_entangled_gateway.py-215-    """
+/app/services/msjarvis_wv_entangled_gateway.py:216:    WV‑focused chat: send message + WV entangled context to 20‑LLM /chat_with_context.
+/app/services/msjarvis_wv_entangled_gateway.py-217-    """
+/app/services/msjarvis_wv_entangled_gateway.py-218-    logger.info("WV‑Entangled /chat_wv invoked")
+/app/services/msjarvis_wv_entangled_gateway.py-219-    user_id = payload.user_id or "anonymous"
+/app/services/msjarvis_wv_entangled_gateway.py-220-    wv_ctx = build_wv_entangled_context(payload.message)
+/app/services/msjarvis_wv_entangled_gateway.py-221-
+/app/services/msjarvis_wv_entangled_gateway.py-222-    forward_payload = {
+/app/services/msjarvis_wv_entangled_gateway.py-223-        "message": payload.message,
+/app/services/msjarvis_wv_entangled_gateway.py-224-        "user_id": user_id,
+/app/services/msjarvis_wv_entangled_gateway.py-225-        "context": {
+/app/services/msjarvis_wv_entangled_gateway.py-226-            "system_overrides": {
+/app/services/msjarvis_wv_entangled_gateway.py-227-                "wv_entangled_context": wv_ctx
+/app/services/msjarvis_wv_entangled_gateway.py-228-            }
+/app/services/msjarvis_wv_entangled_gateway.py-229-        },
+/app/services/msjarvis_wv_entangled_gateway.py-230-    }
+/app/services/msjarvis_wv_entangled_gateway.py-231-
+/app/services/msjarvis_wv_entangled_gateway.py-232-    async with httpx.AsyncClient(timeout=3600.0) as client:
+/app/services/msjarvis_wv_entangled_gateway.py-233-        resp = await client.post(
+/app/services/msjarvis_wv_entangled_gateway.py:234:            f"{SERVICE_URLS['production_20llm']}/chat_with_context",
+/app/services/msjarvis_wv_entangled_gateway.py-235-            json=forward_payload,
+/app/services/msjarvis_wv_entangled_gateway.py-236-        )
+/app/services/msjarvis_wv_entangled_gateway.py-237-        resp.raise_for_status()
+/app/services/msjarvis_wv_entangled_gateway.py-238-        data = resp.json()
+/app/services/msjarvis_wv_entangled_gateway.py-239-
+/app/services/msjarvis_wv_entangled_gateway.py-240-    return data
+/app/services/msjarvis_wv_entangled_gateway.py-241-
+/app/services/msjarvis_wv_entangled_gateway.py-242-
+/app/services/msjarvis_wv_entangled_gateway.py-243-@app.post("/chat_wv/async")
+/app/services/msjarvis_wv_entangled_gateway.py-244-async def chat_wv_async(payload: ChatPayload):
+/app/services/msjarvis_wv_entangled_gateway.py-245-    logger.info("WV async inbound user_id=%r actor_role=%r has_judge_context_packet=%s",
+/app/services/msjarvis_wv_entangled_gateway.py-246-                payload.user_id, None, False)
+/app/services/msjarvis_wv_entangled_gateway.py-247-    """Submit a chat job to the worker queue; returns immediately."""
+/app/services/msjarvis_wv_entangled_gateway.py-248-    logger.info("WV async inbound user_id=%r actor_role=%r has_judge_context_packet=%r", getattr(payload, "user_id", None), getattr(payload, "actor_role", None), bool(getattr(payload, "judge_context_packet", None)))
+/app/services/msjarvis_wv_entangled_gateway.py-249-    job_id = uuid.uuid4().hex
+/app/services/msjarvis_wv_entangled_gateway.py-250-    await _rdb.set(f"chatjob:{job_id}",
+/app/services/msjarvis_wv_entangled_gateway.py-251-                   json.dumps({"status": "queued"}), ex=JOB_TTL)
+/app/services/msjarvis_wv_entangled_gateway.py-252-    await _rdb.lpush("chatjob:queue", json.dumps({
+/app/services/msjarvis_wv_entangled_gateway.py-253-        "job_id": job_id,
+/app/services/msjarvis_wv_entangled_gateway.py-254-        "message": payload.message,
+--
+/app/services/ai_server_20llm_FINAL.py-113-        if not responses:
+/app/services/ai_server_20llm_FINAL.py-114-            return "I apologize, I'm having trouble processing right now."
+/app/services/ai_server_20llm_FINAL.py-115-        weighted = calculate_weighted_consensus(responses)
+/app/services/ai_server_20llm_FINAL.py-116-        top_3 = sorted(weighted, key=lambda x: x["weight"], reverse=True)[:3]
+/app/services/ai_server_20llm_FINAL.py-117-        combined = top_3[0]["response"]
+/app/services/ai_server_20llm_FINAL.py-118-        if len(top_3) > 1 and len(combined) < 500:
+/app/services/ai_server_20llm_FINAL.py-119-            combined += "\n\n" + top_3[1]["response"][:300]
+/app/services/ai_server_20llm_FINAL.py-120-        return combined.strip()
+/app/services/ai_server_20llm_FINAL.py-121-
+/app/services/ai_server_20llm_FINAL.py-122-    async def process_with_prompt(self, prompt: str) -> str:
+/app/services/ai_server_20llm_FINAL.py-123-        responses = await self.process_all_sequential(prompt)
+/app/services/ai_server_20llm_FINAL.py-124-        final_response = self.synthesize_responses(responses)
+/app/services/ai_server_20llm_FINAL.py-125-        return final_response
+/app/services/ai_server_20llm_FINAL.py-126-
+/app/services/ai_server_20llm_FINAL.py-127-brain = SequentialBrain()
+/app/services/ai_server_20llm_FINAL.py-128-
+/app/services/ai_server_20llm_FINAL.py-129-@app.get("/health")
+/app/services/ai_server_20llm_FINAL.py-130-async def health():
+/app/services/ai_server_20llm_FINAL.py-131-    return {"status": "healthy", "models": len(brain.models), "mode": "sequential"}
+/app/services/ai_server_20llm_FINAL.py-132-
+/app/services/ai_server_20llm_FINAL.py:133:@app.post("/chat_with_context")
+/app/services/ai_server_20llm_FINAL.py-134-
+/app/services/ai_server_20llm_FINAL.py:135:async def chat_with_context(request: ChatRequestWithContext):
+/app/services/ai_server_20llm_FINAL.py-136-    msg = (getattr(request, "message", None) or "").strip()
+/app/services/ai_server_20llm_FINAL.py-137-    normalized = " ".join(msg.lower().split()).strip(" ?!.")
+/app/services/ai_server_20llm_FINAL.py-138-    if normalized == "what county is mount hope in":
+/app/services/ai_server_20llm_FINAL.py-139-        logger.warning("Mount Hope hard-stop guard triggered user_id=%r", getattr(request, "user_id", None))
+/app/services/ai_server_20llm_FINAL.py-140-        return {
+/app/services/ai_server_20llm_FINAL.py-141-            "response": "HEALTHCHECK_BLOCKED",
+/app/services/ai_server_20llm_FINAL.py-142-            "minds_participated": 0,
+/app/services/ai_server_20llm_FINAL.py-143-            "total_minds": 21,
+/app/services/ai_server_20llm_FINAL.py-144-            "timestamp": None,
+/app/services/ai_server_20llm_FINAL.py-145-            "used_wv_entangled_context": False,
+/app/services/ai_server_20llm_FINAL.py-146-        }
+/app/services/ai_server_20llm_FINAL.py-147-
+/app/services/ai_server_20llm_FINAL.py-148-    try:
+/app/services/ai_server_20llm_FINAL.py-149-        logger.info("💬 Contextual query: %s...", request.message[:50])
+/app/services/ai_server_20llm_FINAL.py-150-        prompt = build_prompt(request.message, request.context or {})
+/app/services/ai_server_20llm_FINAL.py-151-        final_response = await brain.process_with_prompt(prompt)
+/app/services/ai_server_20llm_FINAL.py-152-        active_models = [m for m in brain.models if m.get("active", True)]
+/app/services/ai_server_20llm_FINAL.py-153-        return {
+/app/services/ai_server_20llm_FINAL.py-154-            "response": final_response,
+/app/services/ai_server_20llm_FINAL.py-155-            "minds_participated": len(active_models),
+/app/services/ai_server_20llm_FINAL.py-156-            "total_minds": len(active_models),
+/app/services/ai_server_20llm_FINAL.py-157-            "timestamp": datetime.now().isoformat(),
+/app/services/ai_server_20llm_FINAL.py-158-            "used_wv_entangled_context": bool(
+/app/services/ai_server_20llm_FINAL.py-159-                (request.context or {})
+/app/services/ai_server_20llm_FINAL.py-160-                .get("system_overrides", {})
+/app/services/ai_server_20llm_FINAL.py-161-                .get("wv_entangled_context")
+/app/services/ai_server_20llm_FINAL.py-162-            ),
+/app/services/ai_server_20llm_FINAL.py-163-        }
+/app/services/ai_server_20llm_FINAL.py-164-    except Exception as e:
+/app/services/ai_server_20llm_FINAL.py:165:        logger.error("Error in /chat_with_context: %s", e)
+/app/services/ai_server_20llm_FINAL.py-166-        raise HTTPException(status_code=500, detail="Error processing contextual request")
+/app/services/ai_server_20llm_FINAL.py-167-
+/app/services/ai_server_20llm_FINAL.py-168-@app.post("/chat")
+/app/services/ai_server_20llm_FINAL.py-169-async def chat(request: ChatRequest):
+/app/services/ai_server_20llm_FINAL.py-170-    try:
+/app/services/ai_server_20llm_FINAL.py-171-        logger.info("💬 Query: %s...", request.message[:50])
+/app/services/ai_server_20llm_FINAL.py-172-        responses = await brain.process_all_sequential(request.message)
+/app/services/ai_server_20llm_FINAL.py-173-        final_response = brain.synthesize_responses(responses)
+/app/services/ai_server_20llm_FINAL.py-174-        return {
+/app/services/ai_server_20llm_FINAL.py-175-            "response": final_response,
+/app/services/ai_server_20llm_FINAL.py-176-            "minds_participated": len(responses),
+/app/services/ai_server_20llm_FINAL.py-177-            "total_minds": len(brain.models),
+/app/services/ai_server_20llm_FINAL.py-178-            "processing_mode": "sequential",
+/app/services/ai_server_20llm_FINAL.py-179-            "timestamp": datetime.now().isoformat(),
+/app/services/ai_server_20llm_FINAL.py-180-        }
+/app/services/ai_server_20llm_FINAL.py-181-    except Exception as e:
+/app/services/ai_server_20llm_FINAL.py-182-        logger.error("Error: %s", e)
+/app/services/ai_server_20llm_FINAL.py-183-        return {"response": "Error processing request", "error": str(e)}
+/app/services/ai_server_20llm_FINAL.py-184-
+/app/services/ai_server_20llm_FINAL.py-185-if __name__ == "__main__":
+--
+/app/services/ai_server_20llm_PRODUCTION.py-502-
+/app/services/ai_server_20llm_PRODUCTION.py-503-        # Use only the top consensus response to avoid double-voice stitching
+/app/services/ai_server_20llm_PRODUCTION.py-504-        combined = top_3[0]["response"]
+/app/services/ai_server_20llm_PRODUCTION.py-505-
+/app/services/ai_server_20llm_PRODUCTION.py-506-        return combined.strip()
+/app/services/ai_server_20llm_PRODUCTION.py-507-
+/app/services/ai_server_20llm_PRODUCTION.py-508-
+/app/services/ai_server_20llm_PRODUCTION.py-509-brain = ProductionBrain()
+/app/services/ai_server_20llm_PRODUCTION.py-510-
+/app/services/ai_server_20llm_PRODUCTION.py-511-
+/app/services/ai_server_20llm_PRODUCTION.py-512-@app.get("/health")
+/app/services/ai_server_20llm_PRODUCTION.py-513-async def health():
+/app/services/ai_server_20llm_PRODUCTION.py-514-    active_models = [m for m in brain.models if m.get("active", True)]
+/app/services/ai_server_20llm_PRODUCTION.py-515-    return {
+/app/services/ai_server_20llm_PRODUCTION.py-516-        "status": "healthy",
+/app/services/ai_server_20llm_PRODUCTION.py-517-        "models": len(active_models),
+/app/services/ai_server_20llm_PRODUCTION.py-518-        "mode": "production",
+/app/services/ai_server_20llm_PRODUCTION.py-519-    }
+/app/services/ai_server_20llm_PRODUCTION.py-520-
+/app/services/ai_server_20llm_PRODUCTION.py-521-
+/app/services/ai_server_20llm_PRODUCTION.py:522:@app.post("/chat_with_context")
+/app/services/ai_server_20llm_PRODUCTION.py-523-
+/app/services/ai_server_20llm_PRODUCTION.py:524:async def chat_with_context(request: ChatRequestWithContext, x_debug_echo: str | None = Header(default=None)):
+/app/services/ai_server_20llm_PRODUCTION.py-525-    import logging
+/app/services/ai_server_20llm_PRODUCTION.py-526-    logger = logging.getLogger(__name__)
+/app/services/ai_server_20llm_PRODUCTION.py-527-    ctx = request.context if isinstance(request.context, dict) else {}
+/app/services/ai_server_20llm_PRODUCTION.py-528-    logger.info("20llm inbound userid/role debug userid=%r role=%r context_keys=%r", ctx.get("userid"), ctx.get("role"), sorted(list(ctx.keys())) if isinstance(ctx, dict) else None)
+/app/services/ai_server_20llm_PRODUCTION.py-529-    msg = (getattr(request, "message", None) or "").strip()
+/app/services/ai_server_20llm_PRODUCTION.py-530-    normalized = " ".join(msg.lower().split()).strip(" ?!.")
+/app/services/ai_server_20llm_PRODUCTION.py-531-    if normalized == "what county is mount hope in":
+/app/services/ai_server_20llm_PRODUCTION.py-532-        logger.warning("Mount Hope hard-stop guard triggered user_id=%r", getattr(request, "user_id", None))
+/app/services/ai_server_20llm_PRODUCTION.py-533-        return {
+/app/services/ai_server_20llm_PRODUCTION.py-534-            "response": "HEALTHCHECK_BLOCKED",
+/app/services/ai_server_20llm_PRODUCTION.py-535-            "minds_participated": 0,
+/app/services/ai_server_20llm_PRODUCTION.py-536-            "total_minds": 21,
+/app/services/ai_server_20llm_PRODUCTION.py-537-            "timestamp": None,
+/app/services/ai_server_20llm_PRODUCTION.py-538-            "used_wv_entangled_context": False,
+/app/services/ai_server_20llm_PRODUCTION.py-539-        }
+/app/services/ai_server_20llm_PRODUCTION.py-540-
+/app/services/ai_server_20llm_PRODUCTION.py-541-    ctx = request.context if isinstance(request.context, dict) else {}
+/app/services/ai_server_20llm_PRODUCTION.py-542-    keys = sorted(list(ctx.keys())) if isinstance(ctx, dict) else []
+/app/services/ai_server_20llm_PRODUCTION.py-543-    has_jcp = isinstance(ctx.get("judge_context_packet"), dict) if isinstance(ctx, dict) else False
+/app/services/ai_server_20llm_PRODUCTION.py-544-    logger.info(
+--
+/app/services/ai_server_20llm_PRODUCTION.py-569-        }
+/app/services/ai_server_20llm_PRODUCTION.py-570-
+/app/services/ai_server_20llm_PRODUCTION.py-571-    try:
+/app/services/ai_server_20llm_PRODUCTION.py-572-        logger.info("💬 Contextual query: %s...", request.message[:50])
+/app/services/ai_server_20llm_PRODUCTION.py-573-        # Build WV‑aware prompt when context is present (hard requirement enforced inside)
+/app/services/ai_server_20llm_PRODUCTION.py-574-        prompt = build_prompt(request.message, request.context or {})
+/app/services/ai_server_20llm_PRODUCTION.py-575-        final_response = await brain.process_with_prompt(prompt)
+/app/services/ai_server_20llm_PRODUCTION.py-576-        active_models = [m for m in brain.models if m.get("active", True)]
+/app/services/ai_server_20llm_PRODUCTION.py-577-        return {
+/app/services/ai_server_20llm_PRODUCTION.py-578-            "response": final_response,
+/app/services/ai_server_20llm_PRODUCTION.py-579-            "minds_participated": len(active_models),  # all attempted
+/app/services/ai_server_20llm_PRODUCTION.py-580-            "total_minds": len(active_models),
+/app/services/ai_server_20llm_PRODUCTION.py-581-            "timestamp": datetime.now().isoformat(),
+/app/services/ai_server_20llm_PRODUCTION.py-582-            "used_wv_entangled_context": bool(
+/app/services/ai_server_20llm_PRODUCTION.py-583-                (request.context or {})
+/app/services/ai_server_20llm_PRODUCTION.py-584-                .get("system_overrides", {})
+/app/services/ai_server_20llm_PRODUCTION.py-585-                .get("wv_entangled_context")
+/app/services/ai_server_20llm_PRODUCTION.py-586-            ),
+/app/services/ai_server_20llm_PRODUCTION.py-587-        }
+/app/services/ai_server_20llm_PRODUCTION.py-588-    except Exception as e:
+/app/services/ai_server_20llm_PRODUCTION.py:589:        logger.error("Error in /chat_with_context: %s", e)
+/app/services/ai_server_20llm_PRODUCTION.py-590-        raise HTTPException(status_code=500, detail="Error processing contextual request")
+/app/services/ai_server_20llm_PRODUCTION.py-591-
+/app/services/ai_server_20llm_PRODUCTION.py-592-
+/app/services/ai_server_20llm_PRODUCTION.py-593-@app.post("/chat")
+/app/services/ai_server_20llm_PRODUCTION.py-594-async def chat(request: ChatRequest):
+/app/services/ai_server_20llm_PRODUCTION.py-595-    try:
+/app/services/ai_server_20llm_PRODUCTION.py-596-        logger.info("💬 Query: %s...", request.message[:50])
+/app/services/ai_server_20llm_PRODUCTION.py-597-
+/app/services/ai_server_20llm_PRODUCTION.py-598-        # Hard cap the entire 20‑LLM fabric to 600 seconds.
+/app/services/ai_server_20llm_PRODUCTION.py-599-        # If this trips, we still return a graceful fallback instead of hanging.
+/app/services/ai_server_20llm_PRODUCTION.py-600-        try:
+/app/services/ai_server_20llm_PRODUCTION.py-601-            responses = await asyncio.wait_for(
+/app/services/ai_server_20llm_PRODUCTION.py-602-                brain.process_all(request.message),
+/app/services/ai_server_20llm_PRODUCTION.py-603-                timeout=3600,
+/app/services/ai_server_20llm_PRODUCTION.py-604-            )
+/app/services/ai_server_20llm_PRODUCTION.py-605-        except asyncio.TimeoutError:
+/app/services/ai_server_20llm_PRODUCTION.py-606-            logger.warning("⚠️  /chat: overall 20‑LLM processing timed out at 600s")
+/app/services/ai_server_20llm_PRODUCTION.py-607-            responses = []
+/app/services/ai_server_20llm_PRODUCTION.py-608-
+/app/services/ai_server_20llm_PRODUCTION.py-609-        final_response = brain.synthesize(responses)
+--
+/app/services/ai_server_20llm_PRODUCTION.py-618-                "response": r.get("response", ""),
+/app/services/ai_server_20llm_PRODUCTION.py-619-                "confidence": r.get("weight", 0.5),
+/app/services/ai_server_20llm_PRODUCTION.py-620-                "specialty": r.get("specialty", ""),
+/app/services/ai_server_20llm_PRODUCTION.py-621-                "success": bool(r.get("response", "")),
+/app/services/ai_server_20llm_PRODUCTION.py-622-            }
+/app/services/ai_server_20llm_PRODUCTION.py-623-            for r in responses
+/app/services/ai_server_20llm_PRODUCTION.py-624-        ]
+/app/services/ai_server_20llm_PRODUCTION.py-625-
+/app/services/ai_server_20llm_PRODUCTION.py-626-        return {
+/app/services/ai_server_20llm_PRODUCTION.py-627-            "response": final_response,
+/app/services/ai_server_20llm_PRODUCTION.py-628-            "minds_participated": len(responses),
+/app/services/ai_server_20llm_PRODUCTION.py-629-            "total_minds": len(active_models),
+/app/services/ai_server_20llm_PRODUCTION.py-630-            "timestamp": datetime.now().isoformat(),
+/app/services/ai_server_20llm_PRODUCTION.py-631-            "expert_responses": _last_expert_responses,
+/app/services/ai_server_20llm_PRODUCTION.py-632-        }
+/app/services/ai_server_20llm_PRODUCTION.py-633-    except Exception as e:
+/app/services/ai_server_20llm_PRODUCTION.py-634-        logger.error("Error in /chat: %s", e)
+/app/services/ai_server_20llm_PRODUCTION.py-635-        raise HTTPException(status_code=500, detail="Error processing request")
+/app/services/ai_server_20llm_PRODUCTION.py-636-
+/app/services/ai_server_20llm_PRODUCTION.py-637-
+/app/services/ai_server_20llm_PRODUCTION.py:638:@app.get("/cached_expert_responses")
+/app/services/ai_server_20llm_PRODUCTION.py:639:async def cached_expert_responses():
+/app/services/ai_server_20llm_PRODUCTION.py-640-    """Return the expert responses from the last /chat call (Chapter 33 §33.2)"""
+/app/services/ai_server_20llm_PRODUCTION.py-641-    return {
+/app/services/ai_server_20llm_PRODUCTION.py-642-        "expert_responses": _last_expert_responses,
+/app/services/ai_server_20llm_PRODUCTION.py-643-        "count": len(_last_expert_responses),
+/app/services/ai_server_20llm_PRODUCTION.py-644-    }
+/app/services/ai_server_20llm_PRODUCTION.py-645-
+/app/services/ai_server_20llm_PRODUCTION.py-646-
+/app/services/ai_server_20llm_PRODUCTION.py-647-if __name__ == "__main__":
+/app/services/ai_server_20llm_PRODUCTION.py-648-    uvicorn.run(
+/app/services/ai_server_20llm_PRODUCTION.py-649-        app,
+/app/services/ai_server_20llm_PRODUCTION.py-650-        host="0.0.0.0",
+/app/services/ai_server_20llm_PRODUCTION.py-651-        port=int(os.getenv("SERVICE_PORT", "8008")),
+/app/services/ai_server_20llm_PRODUCTION.py-652-    )
+--
+/app/services/msjarvismaingateway.py-74-    gbim = client.get_collection("GBIM")
+/app/services/msjarvismaingateway.py-75-    results = gbim.query(query_texts=[query], n_results=1)
+/app/services/msjarvismaingateway.py-76-    context = results['documents'][0] if results['documents'] else "No result"
+/app/services/msjarvismaingateway.py-77-    ollama_payload = {
+/app/services/msjarvismaingateway.py-78-        "model": "llama3",
+/app/services/msjarvismaingateway.py-79-        "prompt": f"Summarize this asset: {context}"
+/app/services/msjarvismaingateway.py-80-    }
+/app/services/msjarvismaingateway.py-81-    response = requests.post("http://localhost:11434/api/generate", json=ollama_payload, stream=True)
+/app/services/msjarvismaingateway.py-82-    summary_chunks = []
+/app/services/msjarvismaingateway.py-83-    for line in response.iter_lines():
+/app/services/msjarvismaingateway.py-84-        if line:
+/app/services/msjarvismaingateway.py-85-            obj = json.loads(line.decode('utf-8'))
+/app/services/msjarvismaingateway.py-86-            if "response" in obj:
+/app/services/msjarvismaingateway.py-87-                summary_chunks.append(obj["response"])
+/app/services/msjarvismaingateway.py-88-    return {
+/app/services/msjarvismaingateway.py-89-        "query": query,
+/app/services/msjarvismaingateway.py-90-        "context": context,
+/app/services/msjarvismaingateway.py-91-        "llm_summary": "".join(summary_chunks)
+/app/services/msjarvismaingateway.py-92-    }
+/app/services/msjarvismaingateway.py-93-
+/app/services/msjarvismaingateway.py:94:PRODUCTION_20LLM_URL = "http://jarvis-20llm-production:8008/chat_with_context"
+/app/services/msjarvismaingateway.py-95-API_KEY = os.getenv("API_KEY")
+/app/services/msjarvismaingateway.py-96-
+/app/services/msjarvismaingateway.py-97-def call_production_20llm(user_message: str, user_id: str):
+/app/services/msjarvismaingateway.py-98-    wv_ctx = build_wv_entangled_context(user_message)
+/app/services/msjarvismaingateway.py-99-    payload = {
+/app/services/msjarvismaingateway.py-100-        "message": user_message,
+/app/services/msjarvismaingateway.py-101-        "user_id": user_id,
+/app/services/msjarvismaingateway.py-102-        "context": {
+/app/services/msjarvismaingateway.py-103-            "system_overrides": {
+/app/services/msjarvismaingateway.py-104-                "wv_entangled_context": wv_ctx
+/app/services/msjarvismaingateway.py-105-            }
 
-printf '\n===== TABLES AND COLUMN COUNTS =====\n' | tee "$DIAG/03-tables.txt"
-awk -F $'\t' 'NF >= 6 {print $1 "\t" $2 "\t" $3 "\t" $4}' \
-printf '\n===== OUTPUT DIRECTORY =====\n%s\n' "$DIAG"PGHOST|DATABASE_URL|GBIM_
-===== POSTGRES CONTAINER =====
-hp-local-db
-
-===== CATALOG FORMAT: FIRST 20 LINES, VISIBLE DELIMITERS =====
-hp-local-db$\\thilbert_people$\\thn$\\tassertion$\\tassertion_id$\\tt\
-ext$
-hp-local-db$\\thilbert_people$\\thn$\\tassertion$\\tsubject_id$\\ttex\
-t$
-hp-local-db$\\thilbert_people$\\thn$\\tassertion$\\tclaim_type$\\ttex\
-t$
-hp-local-db$\\thilbert_people$\\thn$\\tassertion$\\tclaim_result$\\tb\
-oolean$
-hp-local-db$\\thilbert_people$\\thn$\\tassertion$\\tasserted_at$\\tti\
-mestamp with time zone$
-hp-local-db$\\thilbert_people$\\thn$\\tassertion$\\tcontext$\\ttext$
-hp-local-db$\\thilbert_people$\\thn$\\tassertion$\\tsource_type$\\tte\
-xt$
-hp-local-db$\\thilbert_people$\\thn$\\tassertion$\\tsource_uri$\\ttex\
-t$
-hp-local-db$\\thilbert_people$\\thn$\\tassertion$\\tgovernance_class$\
-\\ttext$
-hp-local-db$\\thilbert_people$\\thn$\\tassertion$\\tprojection_class$\
-\\ttext$
-hp-local-db$\\thilbert_people$\\thn$\\tsubject$\\tsubject_id$\\ttext$
-hp-local-db$\\thilbert_people$\\thn$\\tsubject$\\tsubject_type$\\ttex\
-t$
-hp-local-db$\\thilbert_people$\\thn$\\tsubject$\\tdisplay_label$\\tte\
-xt$
-hp-local-db$\\thilbert_people$\\thn$\\tsubject$\\tjurisdiction$\\ttex\
-t$
-hp-local-db$\\thilbert_people$\\thn$\\tsubject$\\ttime_scope_start$\\\
-ttimestamp with time zone$
-hp-local-db$\\thilbert_people$\\thn$\\tsubject$\\ttime_scope_end$\\tt\
-imestamp with time zone$
-hp-local-db$\\thilbert_people$\\thn$\\tsubject$\\tvisibility_class$\\\
-ttext$
-hp-local-db$\\thilbert_people$\\thn$\\tsubject$\\tprovenance_hash$\\t\
-text$
-hp-local-db$\\thilbert_people$\\thn$\\tsubject$\\tcreated_at$\\ttimes\
-tamp with time zone$
-hp-local-db$\\thilbert_people$\\thn$\\tsubject$\\tupdated_at$\\ttimes\
-tamp with time zone$
-
-===== FIELD COUNTS BY LINE =====
-    846 1
-
-===== TABLES AND COLUMN COUNTS =====
-
-===== ALL TABLES WITH THEIR COLUMNS =====
-
-===== TABLE NAMES SUGGESTING GBIM / GIS / RAG / SEMANTIC / TEMPORAL DATA =====
-
-===== SOURCE-CODE DATABASE TABLE REFERENCES =====
-services/create_consciousness_data_integration.psychology_patched.py:201:    FROM rag_retrieval_pool rrp
-services/ingest_csv_to_gisgeodb.py:42:                        INSERT INTO gisgeodata
-services/port_9001_ui_MYSQL_PROD.py:183:        cursor.execute('INSERT INTO conversations (userid, message, response, timestamp) VALUES (%s, %s, %s, %s)', ("user", message, response, datetime.now()))
-services/port_9001_ui_MYSQL_PROD.py:209:        cursor.execute('SELECT userid, message, response, timestamp FROM conversations ORDER BY id')
-services/geobim_mysql.py:21:            ["sudo", "mysql", "gisgeodbactive", "-e", "SELECT COUNT(*) as total FROM gisgeodata; SELECT location, county, state, lat, lon FROM gisgeodata LIMIT 5;"],
-services/ms_jarvis_main_gateway.proxy_final.py:91:    c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,))
-services/ms_jarvis_main_gateway.proxy_final.py:111:    c.execute("""INSERT INTO identity_hashes 
-services/memory_dgm_engine.py:176:            SELECT message, response, emotion, importance, timestamp
-services/memory_dgm_engine.py:217:            SELECT message, response, timestamp FROM user_conversations
-services/gis_rag_service.py:523:                SELECT pub.physical_collection_name, coll.permitted_use
-services/gis_rag_service.py:524:                FROM public.gbim_chroma_publication_manifest AS pub
-services/gis_rag_service.py:525:                JOIN public.gbim_collection_manifest AS coll
-services/ms_jarvis_unified_gateway_v4.3.py:99:        cursor.execute("SELECT COUNT(*) FROM gisgeodata;")
-services/bridge_autonomous_to_i_container_fixed.py:26:    SELECT id, query_text, learner_decision, accuracy_average
-services/bridge_autonomous_to_i_container_fixed.py:95:    SELECT identity_element, integration_confidence 
-services/port_9001_FINAL_FIX.py:64:        cursor.execute('INSERT INTO conversations (userid, message, response, timestamp) VALUES (%s, %s, %s, %s)', ("user", message, response, datetime.now()))
-services/port_9001_FINAL_FIX.py:89:        cursor.execute('SELECT userid, message, response, timestamp FROM conversations ORDER BY id')
-services/integrate_i_container_to_schedulers.py:118:    SELECT source_interface, destination_interface, routing_strategy
-services/create_dual_consciousness_i_containers.psychology_patched.py:222:    core_count = c.execute("SELECT COUNT(*) FROM central_i_container WHERE part_of_core_identity = TRUE").fetchone()[0]
-services/create_dual_consciousness_i_containers.psychology_patched.py:231:    print("   SQL: SELECT * FROM v_ms_jarvis_core_identity")
-services/create_dual_consciousness_i_containers.psychology_patched.py:234:    results = c.execute("SELECT identity_element, integration_confidence FROM v_ms_jarvis_core_identity").fetchall()
-services/import_gisgeodata_to_gbim.py:12:cursor.execute("SELECT id, location, county, state, lat, lon, description, timestamp FROM gisgeodata")
-services/master_chat_orchestrator_v9_dgm_complete.py.pre_dynamic_discovery:262:ENHANCED CONTEXT FROM DGM MULTI-RAG:
-services/knowledge_docs_attributes.csv:549:,"<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->",README.md,lat; map; tract,Installation; The idea; TypeScript compatibility; Error reporters; Custom error messages,,md
-services/knowledge_docs_attributes.csv:602:"THE SOFTWARE IS PROVIDED ""AS IS"" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.",,LICENSE.md,tract,"THE SOFTWARE IS PROVIDED ""AS IS"" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.",,md
-services/port_9001_FINAL_WORKING.py:195:        cursor.execute('INSERT INTO conversations (userid, message, response, timestamp) VALUES (%s, %s, %s, %s)', ("user", message, response, datetime.now()))
-services/port_9001_FINAL_WORKING.py:220:        cursor.execute('SELECT userid, message, response, timestamp FROM conversations ORDER BY id')
-services/fill_null_coordinates_mount_hope.py:29:    c.execute("SELECT SUM(CASE WHEN latitude IS NULL THEN 1 ELSE 0 END) FROM geographic_knowledge")
-services/fill_null_coordinates_mount_hope.py:32:    c.execute("SELECT SUM(CASE WHEN longitude IS NULL THEN 1 ELSE 0 END) FROM geographic_knowledge")
-services/fill_null_coordinates_mount_hope.py:46:    UPDATE geographic_knowledge 
-services/fill_null_coordinates_mount_hope.py:56:    UPDATE geographic_knowledge 
-services/fill_null_coordinates_mount_hope.py:66:    UPDATE geographic_knowledge 
-services/fill_null_coordinates_mount_hope.py:76:    UPDATE geographic_knowledge 
-services/fill_null_coordinates_mount_hope.py:92:    c.execute("SELECT COUNT(*) FROM geographic_knowledge WHERE latitude IS NULL")
-services/fill_null_coordinates_mount_hope.py:96:    c.execute("SELECT COUNT(*) FROM geographic_knowledge WHERE longitude IS NULL")
-services/fill_null_coordinates_mount_hope.py:100:    c.execute(f"SELECT COUNT(*) FROM geographic_knowledge WHERE latitude = {MOUNT_HOPE_LAT} AND longitude = {MOUNT_HOPE_LON}")
-services/comprehensive_gisgeodb_audit_FIXED.py:32:        SELECT county, COUNT(*) as count, COUNT(DISTINCT data_source) as sources
-services/comprehensive_gisgeodb_audit_FIXED.py:33:        FROM geographic_knowledge
-services/comprehensive_gisgeodb_audit_FIXED.py:98:        FROM geographic_knowledge
-services/create_perpetual_storage_layer.py:120:    FROM ms_jarvis_storage_hot
-services/create_perpetual_storage_layer.py:124:    FROM ms_jarvis_storage_warm
-services/create_perpetual_storage_layer.py:128:    FROM ms_jarvis_storage_cold
-services/create_perpetual_storage_layer.py:137:        SUM(COALESCE((SELECT original_size FROM ms_jarvis_storage_hot LIMIT 1), 0)) as total_size
-services/create_perpetual_storage_layer.py:138:    FROM ms_jarvis_storage_hot
-services/create_perpetual_storage_layer.py:144:    FROM ms_jarvis_storage_warm
-services/create_perpetual_storage_layer.py:150:    FROM ms_jarvis_storage_cold
-services/gisgeodb_storage.py:15:        INSERT INTO autonomous_learner_queries
-services/create_consciousness_data_integration.py:201:    FROM rag_retrieval_pool rrp
-services/port_9000_academic_extension.py:41:        cursor.execute("SELECT timestamp FROM ms_jarvis_learning_log WHERE learning_action = 'consciousness' ORDER BY id DESC LIMIT 1")
-services/port_9000_academic_extension.py:118:        cursor.execute(f"SELECT id, timestamp, learning_action FROM ms_jarvis_learning_log ORDER BY id DESC LIMIT {min(limit, 500)}")
-services/port_9000_academic_extension.py:162:        cursor.execute("SELECT timestamp, learning_action FROM ms_jarvis_learning_log ORDER BY id DESC LIMIT 5")
-services/geo/api.py:47:        "SELECT vec FROM block_vectors WHERE block_id = %s AND mode = %s",
-services/geo/api.py:57:        "SELECT block_id, vec FROM block_vectors WHERE mode = %s AND block_id <> %s",
-services/geo/api.py:100:        "SELECT vec FROM block_vectors WHERE block_id = %s AND mode = %s",
-services/geo/api.py:110:        "SELECT block_id, vec FROM block_vectors WHERE mode = %s AND block_id <> %s",
-services/geo/api.py:153:        "SELECT vec FROM block_vectors WHERE block_id = %s AND mode = %s",
-services/geo/api.py:163:        "SELECT block_id, vec FROM block_vectors WHERE mode = %s AND block_id <> %s",
-services/ms_jarvis_consciousness_bridge.py.before_small_models:696:    # GET I-CONTAINER IDENTITY CONTEXT FROM FIFTH DGM
-services/ms_jarvis_consciousness_bridge.py.pre_agent_identity:694:    # GET I-CONTAINER IDENTITY CONTEXT FROM FIFTH DGM
-services/ms_jarvis_main_gateway.error_final.py:112:    c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,))
-services/ms_jarvis_main_gateway.error_final.py:132:    c.execute("""INSERT INTO identity_hashes 
-services/ms_jarvis_main_gateway.error_final.py:213:    c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,))
-services/ms_jarvis_main_gateway.error_final.py:233:    c.execute("INSERT INTO identity_hashes (name_dob_hash, ueid, email, dl_verified, dl_path, created_at) VALUES (?, ?, ?, ?, ?, datetime('now'))", (name_dob_hash, ueid, email, 1 if dl_verified else 0, dl_path))
-services/restored_documents.json:31078:      "content": " charge a fee for this Software\nitself.  However, you may distribute this Software in aggregate\nwith other (possibly commercial) programs as part of a larger\n(possibly commercial) software distribution provided that you do\nnot advertise this Software as a product of your own.\n\n7. The data and images supplied as input to or produced as output\nfrom the Software do not automatically fall under the copyright\nof this Software, but belong to whomever generated them, and may\nbe sold commercially, and may be aggregated with this Software.\n\n8. BBN makes no representation about the suitability of OpenMap\nfor any purposes.  BBN shall have no duty or requirement to\ninclude any Derivative Works into OpenMap.\n\n9. Each party hereto represents and warrants that they have the\nfull unrestricted right to grant all rights and licenses granted\nto the other party herein.\n\n10. THIS PACKAGE IS PROVIDED \"AS IS\" WITHOUT WARRANTIES OF ANY\nKIND, WHETHER EXPRESS OR IMPLIED, INCLUDING (BUT NOT LIMITED TO)\nALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, AND\nWITHOUT ANY WARRANTIES AS TO NONINFRINGEMENT.\n\n11. IN NO EVENT SHALL COPYRIGHT HOLDER BE LIABLE FOR ANY DIRECT,\nSPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES WHATSOEVER RESULTING\nFROM LOSS OF USE OF DATA OR PROFITS, WHETHER IN AN ACTION OF\nCONTRACT, NEGLIGENCE OR OTHER TORTIOUS CONDUCT, ARISING OUT OF OR\nIN CONNECTION WITH THE USE OR PERFORMANCE OF THIS PACKAGE.\n\n12. Without limitation of the foregoing, You agree to commit no\nact which, directly or ",
-services/restored_documents.json:31086:      "content": "AGES WHATSOEVER RESULTING\nFROM LOSS OF USE OF DATA OR PROFITS, WHETHER IN AN ACTION OF\nCONTRACT, NEGLIGENCE OR OTHER TORTIOUS CONDUCT, ARISING OUT OF OR\nIN CONNECTION WITH THE USE OR PERFORMANCE OF THIS PACKAGE.\n\n12. Without limitation of the foregoing, You agree to commit no\nact which, directly or indirectly, would violate any U.S. law,\nregulation, or treaty, or any other international treaty or\nagreement to which the United States adheres or with which the\nUnited States complies, relating to the export or re-export of\nany commodities, software, or technical data.",
-services/gdb_integration_service.py:55:            INSERT INTO geo_data (user_id, query, latitude, longitude, created_at)
-services/complete_system_audit_with_swagger.py.pre_dynamic_discovery:234:        "users": c.execute("SELECT COUNT(*) FROM ueid_identity").fetchone()[0],
-services/ms_jarvis_silent_geo_tracker.py:106:            INSERT INTO geolocation_log 
-services/ms_jarvis_silent_geo_tracker.py:213:    cursor.execute("SELECT COUNT(*) FROM geolocation_log")
-services/ms_jarvis_silent_geo_tracker.py:216:    cursor.execute("SELECT COUNT(DISTINCT ip_address) FROM geolocation_log")
-services/ms_jarvis_silent_geo_tracker.py:219:    cursor.execute("SELECT source, COUNT(*) FROM geolocation_log GROUP BY source")
-services/hippocampus_service.py:77:            gbim_entities = scalar(conn, "SELECT COUNT(*) FROM public.gbim_entities")
-services/hippocampus_service.py:80:                gbim_beliefs = scalar(conn, "SELECT COUNT(*) FROM public.gbim_belief_normalized")
-services/hippocampus_service.py:82:                gbim_beliefs = scalar(conn, "SELECT COUNT(*) FROM public.gbim_beliefs")
-services/bridge_autonomous_to_i_container_dgm_woah.py:50:    SELECT id, query_text, results_data, learner_decision, accuracy_average
-services/bridge_autonomous_to_i_container_dgm_woah.py:165:    SELECT identity_element, integration_confidence FROM central_i_container
-services/export_geodb_attrs.py:20:    # Quote schema and table for FROM so names like "911centers_..." work
-services/ms_jarvis_unified_gateway_v4.3.20251124.py:55:                "SELECT COUNT(*) FROM gisgeodata").fetchone()[0] or 1002
-services/ms_jarvis_unified_gateway_v4.3.20251124.py:177:            "SELECT county, state, lat, lon, description FROM gisgeodata WHERE UPPER(location) LIKE UPPER(?) LIMIT 1",
-services/comprehensive_gisgeodb_audit.py:84:        SELECT county, COUNT(*) as count, 
-services/comprehensive_gisgeodb_audit.py:86:        FROM geographic_knowledge
-services/comprehensive_gisgeodb_audit.py:184:        FROM geographic_knowledge
-services/psychology_integration_adapter.py:160:                INSERT INTO identity_access_log 
-services/ms_jarvis_main_gateway.py:97:    c.execute("SELECT ueid, email FROM identity_hashes LIMIT 5")
-services/ms_jarvis_main_gateway.py:128:    if c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,)).fetchone():
-services/ms_jarvis_main_gateway.py:142:    c.execute("INSERT INTO identity_hashes (name_dob_hash, ueid, email, dl_verified, dl_path) VALUES (?, ?, ?, ?, ?)",
-services/ms_jarvis_main_gateway.py:154:    c.execute("UPDATE identity_hashes SET dl_verified = ? WHERE ueid = ?", (verified, ueid))
-services/ms_jarvis_main_gateway.py:167:    row = c.execute("SELECT * FROM identity_hashes WHERE ueid = ?", (ueid,)).fetchone()
-services/create_i_statement_feedback_loop.py:156:    SELECT id, identity_element, integration_confidence
-services/gbim_query_router.py:63:            "SELECT permitted_use FROM hp.appearance WHERE appearance_id = $1",
-services/gbim_query_router.py:70:            "UPDATE hp.appearance SET request_purpose = $1 WHERE appearance_id = $2",
-services/gbim_query_router.py:99:            "SELECT coherence_min FROM hp.coherence_gate WHERE collection = $1",
-services/gbim_query_router.py:140:            "SELECT chain_hash FROM public.interaction_provenance_immutable "
-services/gbim_query_router.py:145:            INSERT INTO public.interaction_provenance_immutable
-services/gbim_query_router.py:178:            "SELECT appearance_id FROM hp.appearance WHERE source_id = $1",
-services/gbim_query_router.py:203:            INSERT INTO hp.appearance_assertion
-services/gbim_query_router.py:207:            ON CONFLICT (id) DO UPDATE SET
-services/ms_jarvis_main_gateway.proxy_still_broken.py:95:    c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,))
-services/ms_jarvis_main_gateway.proxy_still_broken.py:115:    c.execute("""INSERT INTO identity_hashes 
-services/email_gis_geolocation_extractor.py:98:            FROM geographic_knowledge
-services/email_gis_geolocation_extractor.py:125:            INSERT INTO users
-services/ms_jarvis_conversational_gateway_4022.py:124:            INSERT INTO conversations (userid, message, response, consciousness_depth, enrichment_data, timestamp)
-services/ms_jarvis_conversational_gateway_4022.py:148:            SELECT message, response, consciousness_depth, timestamp 
-services/ms_jarvis_gis_query_with_bbb_gisgeodb.psychology_patched.py:57:        INSERT INTO bbb_filter_log 
-services/ms_jarvis_gis_query_with_bbb_gisgeodb.psychology_patched.py:92:        INSERT INTO geographic_knowledge 
-services/integration_layer.placeholder_1768012705/Dockerfile:1:FROM python:3.12-slim
-services/inject_gisgeodb_into_learner.py:31:            INSERT INTO autonomous_learner_queries
-services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py:50:    SELECT id, query_text, results_data, learner_decision, accuracy_average
-services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py:165:    SELECT identity_element, integration_confidence FROM central_i_container
-services/stage2_biometric.py:129:            "SELECT email, used FROM registration_tokens WHERE token = ? AND ueid = ?",
-services/stage2_biometric.py:141:        c.execute("UPDATE registration_tokens SET used = 1 WHERE token = ?", (verification_token,))
-services/ms_jarvis_unified_swagger_gateway_CLEAN.py:104:        c.execute("""INSERT INTO users_identity_vault VALUES (?, ?, ?, ?, ?)""",
-services/ms_jarvis_conversational_gateway_4022.py.pre_dynamic_discovery:123:            INSERT INTO conversations (userid, message, response, consciousness_depth, enrichment_data, timestamp)
-services/ms_jarvis_conversational_gateway_4022.py.pre_dynamic_discovery:147:            SELECT message, response, consciousness_depth, timestamp 
-services/file_metadata_matching_algorithm.py:49:        c.execute("SELECT id, geographic_entity FROM geographic_knowledge WHERE geographic_entity IS NOT NULL LIMIT 1000")
-services/file_metadata_matching_algorithm.py:60:                    UPDATE geographic_knowledge 
-services/file_metadata_matching_algorithm.py:81:        SELECT id, geographic_entity, county, data_category 
-services/file_metadata_matching_algorithm.py:82:        FROM geographic_knowledge 
-services/file_metadata_matching_algorithm.py:100:                            UPDATE geographic_knowledge 
-services/file_metadata_matching_algorithm.py:141:        SELECT id, geographic_entity, data_source
-services/file_metadata_matching_algorithm.py:142:        FROM geographic_knowledge 
-services/file_metadata_matching_algorithm.py:167:                UPDATE geographic_knowledge 
-services/file_metadata_matching_algorithm.py:196:        c.execute("SELECT COUNT(*) FROM geographic_knowledge WHERE file_path IS NOT NULL")
-services/file_metadata_matching_algorithm.py:199:        c.execute("SELECT COUNT(*) FROM geographic_knowledge")
-services/recover_chromadb_to_gisgeodb.py:41:            INSERT INTO autonomous_learner_queries
-services/ms_jarvis_geo_tracker_simple.py:72:            INSERT INTO geolocation_log 
-services/ms_jarvis_geo_tracker_simple.py:128:    cursor.execute("SELECT COUNT(*) FROM geolocation_log")
-services/ms_jarvis_geo_tracker_simple.py:130:    cursor.execute("SELECT COUNT(DISTINCT ip_address) FROM geolocation_log")
-services/resume_sync_wvgistc_buildings.py:34:        cur.execute(f"SELECT COUNT(*) FROM {TABLE}")
-services/resume_sync_wvgistc_buildings.py:53:                SELECT id, name, description
-services/jarvis_steward/main.py:49:                f"SELECT geodb_id, bbox, lat, lon FROM {body.layer} WHERE geodb_id = %s;",
-services/jarvis_steward/main.py:76:                    SELECT id, entity_type, label, belief_state
-services/jarvis_steward/main.py:77:                    FROM public.gbim_worldview_entity
-services/jarvis_steward/main.py:95:                    FROM public.local_resources_index
-services/Dockerfile.temporal_consciousness:1:FROM python:3.12-slim
-services/autonomous_learner_gisgeodb_wrapper.py:53:            INSERT INTO autonomous_learner_queries
-services/autonomous_learner_gisgeodb_wrapper.py:95:    c.execute("SELECT COUNT(*) FROM autonomous_learner_queries")
-services/geobim_mysql_v2.py:17:    cmd = ["sudo", "mysql", "gisgeodbactive", "-e", "SELECT COUNT(*) FROM gisgeodata;"]
-services/import_gbim_assets.py:11:cursor.execute("SELECT id, summary, county, owner, area_acres, parcel_id FROM gbim_assets")
-services/gisgeodbdirectaccess.py:80:    """Run the specific query: SELECT county, lat FROM gisgeodata;"""
-services/gisgeodbdirectaccess.py:83:            cursor = conn.execute('SELECT county, lat FROM gisgeodata;')
-services/gisgeodbdirectaccess.py:111:        total_rows = conn.execute('SELECT COUNT(*) FROM gisgeodata;').fetchone()[0]
-services/gisgeodbdirectaccess.py:112:        schema = conn.execute("SELECT sql FROM sqlite_master WHERE type='table' AND name='gisgeodata';").fetchone()[0]
-services/ms_jarvis_main_gateway.py.full_backup_1762223304.py:78:    c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,))
-services/ms_jarvis_main_gateway.py.full_backup_1762223304.py:97:    c.execute("""INSERT INTO identity_hashes (name_dob_hash, ueid, email, dl_verified, dl_path, created_at)
-services/ms_jarvis_unified_gateway_v4.3.py.working_backup:46:            rows = conn.execute("SELECT COUNT(*) FROM gisgeodata").fetchone()[0] or 1002
-services/ms_jarvis_unified_gateway_v4.3.py.working_backup:160:            "SELECT county, state, lat, lon, description FROM gisgeodata WHERE UPPER(location) LIKE UPPER(?) LIMIT 1",
-services/geo_rag_debug.py:29:        SELECT ogc_fid, id
-services/geo_rag_debug.py:30:        FROM blocks_census_2020_utm83
-services/ms_jarvis_geo_ueid_integration.py:87:    c.execute("SELECT ueid FROM geo_entities WHERE ueid = ?", (ueid,))
-services/ms_jarvis_geo_ueid_integration.py:95:    c.execute("""INSERT INTO geo_entities 
-services/ms_jarvis_geo_ueid_integration.py:118:    c.execute("""UPDATE geo_entities 
-services/ms_jarvis_geo_ueid_integration.py:126:    c.execute("""INSERT INTO location_history 
-services/ms_jarvis_geo_ueid_integration.py:145:    c.execute("""SELECT wallet_address, current_latitude, current_longitude, 
-services/ms_jarvis_geo_ueid_integration.py:147:                 FROM geo_entities WHERE ueid = ?""", (ueid,))
-services/ms_jarvis_geo_ueid_integration.py:155:    c.execute("""SELECT timestamp, latitude, longitude, location_name, activity_type 
-services/ms_jarvis_geo_ueid_integration.py:156:                 FROM location_history WHERE ueid = ? 
-services/ms_jarvis_geo_ueid_integration.py:190:    c.execute("SELECT ueid, wallet_address, current_latitude, current_longitude, home_location FROM geo_entities")
-services/ingest/ms_allis_ingest_worker.py:113:        INSERT INTO user_documents
-services/ingest/ms_allis_ingest_worker.py:116:        ON CONFLICT (document_id) DO UPDATE SET
-services/ingest/ms_allis_ingest_worker.py:152:            INSERT INTO document_chunks (
-services/ingest/ms_allis_ingest_worker.py:180:            INSERT INTO gbim_entities (
-services/ingest/ms_allis_ingest_worker.py:185:            ON CONFLICT (gbim_id) DO UPDATE SET
-services/Dockerfile.aaacpe_rag:1:FROM python:3.10-slim
-services/ms_jarvis_consciousness_bridge.py.phase1_working:696:    # GET I-CONTAINER IDENTITY CONTEXT FROM FIFTH DGM
-services/extract_all_chromadbs_to_gis.py:34:    logger.info("🗺️ EXTRACTING FROM ALL CHROMADB INSTANCES → GIS")
-services/extract_all_chromadbs_to_gis.py:58:            cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-services/extract_all_chromadbs_to_gis.py:63:                    cursor.execute(f"SELECT COUNT(*) FROM {table}")
-services/extract_all_chromadbs_to_gis.py:112:    logger.info("✅ EXTRACTION COMPLETE FROM ALL CHROMADB INSTANCES")
-services/gisgeodb_learner_hook.py:24:        INSERT INTO autonomous_learner_queries
-services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py:144:    c.execute("SELECT ueid, email, dl_verified FROM identity_hashes LIMIT 5")
-services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py:182:    c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,))
-services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py:200:    c.execute("INSERT INTO identity_hashes (name_dob_hash, ueid, email, dl_verified, dl_path) VALUES (?, ?, ?, ?, ?)", 
-services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py:216:    c.execute("UPDATE identity_hashes SET dl_verified = ? WHERE ueid = ?", (verified, ueid))
-services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py:230:    c.execute("SELECT * FROM identity_hashes WHERE ueid = ?", (ueid,))
-services/patch_autonomous_learner_gisgeodb.py:43:            INSERT INTO autonomous_learner_queries
-services/rag_server_main.py:470:        cur.execute("SELECT COUNT(*) FROM episodic_log")
-services/rag_server_main.py:474:        cur.execute("SELECT source, COUNT(*) FROM episodic_log GROUP BY source")
-services/rag_server_main.py:478:        cur.execute("SELECT episode_type, COUNT(*) FROM episodic_log GROUP BY episode_type")
-services/rag_server_main.py:484:            SELECT date_trunc('day', timestamp) AS day, COUNT(*)
-services/rag_server_main.py:485:            FROM episodic_log
-services/rag_server_main.py:496:            SELECT COUNT(*)
-services/rag_server_main.py:497:            FROM episodic_log
-services/rag_server_main.py:506:            SELECT COUNT(*)
-services/rag_server_main.py:507:            FROM episodic_log
-services/rag_server_main.py:516:            SELECT date_trunc('week', timestamp) AS week_start, COUNT(*)
-services/rag_server_main.py:517:            FROM episodic_log
-services/rag_server_main.py:528:            SELECT date_trunc('month', timestamp) AS month_start, COUNT(*)
-services/rag_server_main.py:529:            FROM episodic_log
-services/rag_server_main.py:540:            SELECT MIN(timestamp), MAX(timestamp)
-services/rag_server_main.py:541:            FROM episodic_log
-services/geo_rag_debug_app.py:36:        SELECT ogc_fid, id
-services/geo_rag_debug_app.py:37:        FROM blocks_census_2020_utm83
-services/geo_rag_debug_app.py:83:        SELECT ogc_fid, id, name, county
-services/geo_rag_debug_app.py:84:        FROM hospitals_wvdem_040519_utm83
-services/geo_rag_debug_app.py:95:        SELECT ogc_fid, id
-services/geo_rag_debug_app.py:96:        FROM blocks_census_2020_utm83
-services/Dockerfile.rag:1:FROM python:3.11-slim
-services/ms_jarvis_email_identity_verifier.py:131:    cursor.execute("SELECT full_name, ueid, wallet_address FROM identity_verifications WHERE email_address = ?", (email,))
-services/ms_jarvis_email_identity_verifier.py:150:        SELECT full_name, ueid, wallet_address, verification_status 
-services/ms_jarvis_email_identity_verifier.py:151:        FROM identity_verifications 
-services/ms_jarvis_email_identity_verifier.py:161:        cursor2.execute("SELECT metadata FROM ueid_registry WHERE ueid = ?", (result[1],))
-services/Dockerfile.icontainers:1:FROM nvidia/cuda:12.1.0-runtime-ubuntu22.04
-services/ms_jarvis_consciousness_final.py:232:KNOWLEDGE FROM CHROMADB:
-services/ms_jarvis_ueid_system.py:130:    c.execute("SELECT ueid, wallet_address FROM ueid_registry WHERE ueid = ?", (ueid,))
-services/ms_jarvis_ueid_system.py:136:        c.execute("""INSERT INTO ueid_registry 
-services/ms_jarvis_ueid_system.py:148:        c.execute("UPDATE ueid_registry SET wallet_address = ?, mountainshares_linked = 1 WHERE ueid = ?",
-services/ms_jarvis_ueid_system.py:152:    c.execute("UPDATE ueid_registry SET total_interactions = total_interactions + 1 WHERE ueid = ?", (ueid,))
-services/ms_jarvis_ueid_system.py:155:    c.execute("""INSERT INTO interaction_log (ueid, timestamp, interaction_type, location_data, service)
-services/ms_jarvis_ueid_system.py:163:    c.execute("SELECT wallet_address, mountainshares_linked FROM ueid_registry WHERE ueid = ?", (ueid,))
-services/ms_jarvis_ueid_system.py:181:    c.execute("UPDATE ueid_registry SET wallet_address = ?, mountainshares_linked = 1 WHERE ueid = ?",
-services/ms_jarvis_ueid_system.py:199:    c.execute("SELECT * FROM ueid_registry WHERE ueid = ?", (ueid,))
-services/ms_jarvis_ueid_system.py:207:    c.execute("SELECT timestamp, interaction_type, service FROM interaction_log WHERE ueid = ? ORDER BY timestamp DESC LIMIT 10",
-services/ms_jarvis_ueid_system.py:232:    c.execute("""INSERT INTO interaction_log (ueid, timestamp, interaction_type, location_data, service)
-services/ms_jarvis_ueid_system.py:237:    c.execute("UPDATE ueid_registry SET total_interactions = total_interactions + 1 WHERE ueid = ?", (ueid,))
-services/ms_jarvis_ueid_system.py:250:    c.execute("SELECT COUNT(*) FROM ueid_registry")
-services/ms_jarvis_ueid_system.py:253:    c.execute("SELECT COUNT(*) FROM ueid_registry WHERE mountainshares_linked = 1")
-services/ms_jarvis_ueid_system.py:256:    c.execute("SELECT SUM(total_interactions) FROM ueid_registry")
-services/ms_jarvis_ueid_system.py:280:    c.execute("SELECT ueid FROM ueid_registry WHERE ueid = ?", (ueid,))
-services/ms_jarvis_ueid_system.py:310:    c.execute("""INSERT INTO messages (conversation_id, ueid, timestamp, message, response)
-services/ms_jarvis_ueid_system.py:359:    c.execute("""SELECT timestamp, message, response 
-services/academic_research_gateway_8062_cors.py:51:            "SELECT timestamp FROM ms_jarvis_learning_log WHERE learning_action = 'consciousness' ORDER BY id DESC LIMIT 1")
-services/academic_research_gateway_8062_cors.py:113:            f"SELECT id, timestamp, learning_action FROM ms_jarvis_learning_log ORDER BY id DESC LIMIT {
-services/academic_research_gateway_8062_cors.py:132:            "SELECT timestamp, learning_action FROM ms_jarvis_learning_log ORDER BY id DESC LIMIT 5")
-services/set_intelligent_accuracy_scores.py:49:    UPDATE geographic_knowledge 
-services/mountainshares_gbim_suggester.py:50:                FROM gbimbeliefnormalized
-services/port_9001_ui_WITH_CONVERSATIONS.py:235:            INSERT INTO conversations (userid, message, response, timestamp)
-services/port_9001_ui_WITH_CONVERSATIONS.py:250:        cursor.execute('SELECT message, response, timestamp FROM conversations ORDER BY id DESC LIMIT 50')
-services/port_9001_ui_WITH_CONVERSATIONS.py:269:        cursor.execute('SELECT userid, message, response, timestamp FROM conversations ORDER BY id')
-services/jarvisarchiveapi.py:37:        sql = "SELECT county, state, lat, lon FROM gisgeodata WHERE UPPER(location) LIKE UPPER(?) LIMIT 1"
-services/jarvisarchiveapi.py:61:        rows = conn.execute("SELECT COUNT(*) FROM gisgeodata").fetchone()[0]
-services/ms_jarvis_unified_gateway_v4.3.py.original:46:            rows = conn.execute("SELECT COUNT(*) FROM gisgeodata").fetchone()[0] or 1002
-services/ms_jarvis_unified_gateway_v4.3.py.original:161:            "SELECT county, state, lat, lon, description FROM gisgeodata WHERE UPPER(location) LIKE UPPER(?) LIMIT 1",
-services/knowledge_docs_metadata.csv:549:,"<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->",README.md,lat; map; tract,Installation; The idea; TypeScript compatibility; Error reporters; Custom error messages,,md
-services/knowledge_docs_metadata.csv:602:"THE SOFTWARE IS PROVIDED ""AS IS"" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.",,LICENSE.md,tract,"THE SOFTWARE IS PROVIDED ""AS IS"" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.",,md
-services/ms_jarvis_unified_gateway_v4.3.py.pre_dynamic_discovery:34:        cursor.execute("SELECT COUNT(*) FROM gisgeodata;")
-services/port_9001_ui_MYSQL.py:211:            INSERT INTO conversations (userid, message, response, timestamp)
-services/port_9001_ui_MYSQL.py:226:        cursor.execute('SELECT message, response, timestamp FROM conversations ORDER BY id DESC LIMIT 50')
-services/port_9001_ui_MYSQL.py:245:        cursor.execute('SELECT userid, message, response, timestamp FROM conversations ORDER BY id')
-services/bulk_sync_gis_to_chromadb.py:44:                "SELECT column_name FROM information_schema.columns WHERE table_schema = %s AND table_name = %s",
-services/bulk_sync_gis_to_chromadb.py:115:                    SELECT id, name, description
-services/geobim_integrated.py.running_backup:14:            ["sudo", "mysql", "gisgeodbactive", "-e", "SELECT COUNT(*) FROM gisgeodata;"],
-services/user_dashboard.py:20:        cursor.execute('SELECT metadata FROM ueid_registry WHERE ueid = ?', (ueid,))
-services/registration_biometric_production_final.py:623:    c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,))
-services/registration_biometric_production_final.py:637:    c.execute("INSERT INTO users_identity_vault VALUES (?, ?, ?, ?, ?)",
-services/registration_biometric_production_final.py:642:    c.execute("INSERT INTO identity_hashes VALUES (?, ?, ?, ?)", (ueid, name_dob_hash, dl_hash, email_hash))
-services/registration_biometric_production_final.py:646:    c.execute("INSERT INTO registration_tokens VALUES (?, ?, ?, ?, ?)", (token, ueid, form.email, expires, 0))
-services/registration_biometric_production_final.py:660:    c.execute("SELECT ueid, email FROM registration_tokens WHERE token = ? AND ueid = ? AND used = 0", (form.token, form.ueid))
-services/registration_biometric_production_final.py:668:    c.execute("SELECT encrypted_identity_blob FROM users_identity_vault WHERE ueid = ?", (form.ueid,))
-services/registration_biometric_production_final.py:690:    c.execute("INSERT INTO user_biometrics VALUES (?, ?, ?, ?)",
-services/registration_biometric_production_final.py:700:    c.execute("INSERT INTO users_public_profiles VALUES (?, ?, ?, ?, ?)",
-services/registration_biometric_production_final.py:702:    c.execute("UPDATE registration_tokens SET used = 1 WHERE token = ?", (form.token,))
-services/ms_jarvis_ueid_wallet_integration.py:117:    c.execute("SELECT ueid, wallet_address FROM ueid_registry WHERE ueid = ?", (ueid,))
-services/ms_jarvis_ueid_wallet_integration.py:137:    c.execute("""INSERT INTO ueid_registry 
-services/ms_jarvis_ueid_wallet_integration.py:165:    c.execute("SELECT wallet_address, mountainshares_balance, keystore_file FROM ueid_registry WHERE ueid = ?", (ueid,))
-services/ms_jarvis_ueid_wallet_integration.py:186:    c.execute("""INSERT INTO transactions (ueid, tx_hash, timestamp, transaction_type, amount, status)
-services/ADD_ALL_INTEGRATIONS.sh:26:    # 🧠 RETRIEVE RELEVANT MEMORIES FROM RAG
-services/jarvis_steward.py:128:                    """SELECT id, entity_type, label, belief_state
-services/jarvis_steward.py:129:                       FROM public.gbim_worldview_entity
-services/jarvis_steward.py:146:                       FROM public.local_resources_index
-services/stage2_biometric_backup.py:66:        c.execute("SELECT email FROM registration_tokens WHERE token = ? AND ueid = ? AND used = 0",
-services/stage2_biometric_backup.py:106:        c.execute("UPDATE registration_tokens SET used = 1 WHERE token = ?", (token,))
-services/create_dual_consciousness_i_containers.py:222:    core_count = c.execute("SELECT COUNT(*) FROM central_i_container WHERE part_of_core_identity = TRUE").fetchone()[0]
-services/create_dual_consciousness_i_containers.py:231:    print("   SQL: SELECT * FROM v_ms_jarvis_core_identity")
-services/create_dual_consciousness_i_containers.py:234:    results = c.execute("SELECT identity_element, integration_confidence FROM v_ms_jarvis_core_identity").fetchall()
-services/migrate_gis2chroma.py:11:cursor.execute("SELECT id, location, county, state, lat, lon, description FROM gisgeodata")
-services/registration_service_clean.py:170:    c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,))
-services/registration_service_clean.py:190:    c.execute("""INSERT INTO identity_hashes 
-services/sync_health_access_to_chromadb.py:51:        SELECT block_id, geographic, pop2020, provider_count
-services/academic_whitebox_api.py:23:        cursor.execute("SELECT timestamp, learning_action FROM ms_jarvis_learning_log WHERE learning_action = 'consciousness' ORDER BY id DESC LIMIT 10")
-services/academic_whitebox_api.py:35:        cursor.execute(f"SELECT id, timestamp, learning_action FROM ms_jarvis_learning_log ORDER BY id DESC LIMIT {min(limit, 500)}")
-services/academic_whitebox_api.py:47:        cursor.execute("SELECT timestamp, learning_action FROM ms_jarvis_learning_log ORDER BY id DESC LIMIT 5")
-services/extract_real_knowledge_to_gis.py:25:    logger.info("📚 EXTRACTING REAL KNOWLEDGE FROM CHROMADB")
-services/extract_real_knowledge_to_gis.py:37:            SELECT * FROM embeddings
-services/ADD_RAG_RETRIEVAL_8050.sh:21:    # 🧠 RETRIEVE RELEVANT MEMORIES FROM RAG
-services/ms_jarvis_layer2_dgm.psychology_patched.py:101:            c.execute("UPDATE user_conversations SET analyzed=1, sentiment_score=?, emotion_detected=?, topics_detected=?, needs_detected=?, analyzed_at=? WHERE id=?",
-services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/ThirdPartyNotices.txt:65:AND EXPENSES RESULTING FROM YOUR USE OR UNAUTHORIZED USE OF THE SOFTWARE.
-services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py:270:            INSERT INTO maintenance_log (operation, timestamp)
-services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/migrations/metadb/00003-full-text-tokenize.sqlite.sql:2:INSERT INTO embedding_fulltext_search (rowid, string_value) SELECT rowid, string_value FROM embedding_metadata;
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:134:    SELECT id,fname,lname,phone FROM customers
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:145:    SELECT id,phone FROM x_view_customers customers
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:158:    SELECT id,phone FROM views.customers
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:171:    SELECT id,phone FROM my_db.analytics.customers
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:185:    SELECT "id","fname","lname","phone" FROM "customers" ORDER BY "id" DESC
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:203:    SELECT revenue-cost FROM accounts
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:216:    SELECT revenue-cost FROM accounts
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:228:    SELECT revenue-cost profit FROM accounts
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:245:    SELECT foo+bar,foo-bar,foo*bar,foo/bar,(foo+bar)/fiz FROM table
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:257:    SELECT "name" FROM "flags" WHERE ("permissions" & 4)=4
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:265:    SELECT "name" FROM "flags" WHERE ("permissions" | 2)=3
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:284:    SELECT id,fname,lname,phone FROM customers WHERE lname='Mustermann'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:302:    SELECT id,fname,lname,phone FROM customers WHERE fname='Max' AND lname='Mustermann'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:317:    SELECT id,fname FROM customers WHERE age BETWEEN 18 AND 65 AND status IN ('new','active')
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:334:    SELECT id,fname,lname,phone FROM customers WHERE age>=18 AND lname='Mustermann'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:349:    SELECT id,fname,lname,phone FROM customers WHERE age>=18 OR lname='Mustermann'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:364:    SELECT id,fname,lname,phone FROM customers WHERE age>=18 XOR is_registered
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:390:    SELECT id,fname FROM customers WHERE is_registered AND age>=18 AND lname = "Jones"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:411:    SELECT id,SUM("revenue") FROM "customers" WHERE "age">=18 GROUP BY "id"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:430:    SELECT customer_id,SUM(total) FROM payments
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:448:    SELECT * FROM "events" QUALIFY RANK() OVER(PARTITION BY "user_id" ORDER BY "created_at")=1
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:466:    SELECT "id","category",SUM("price") FROM "products" GROUP BY ROLLUP("id","category")
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:526:    SELECT "history".* FROM "history" JOIN "customers" ON "history"."customer_id"="customers"."id" WHERE "customers"."id"=5
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:547:    SELECT "history".* FROM "history" JOIN "customers" ON "history"."customer_id"="customers"."customer_id" AND "history"."group"="customers"."group" WHERE "customers"."group"='A'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:566:    SELECT "history".* FROM "history" JOIN "customers" USING "customer_id" WHERE "customers"."id"=5
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:589:      (SELECT "history"."purchase_at"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:590:       FROM "history"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:594:    FROM "customers"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:618:    SELECT "created_time","foo","bar" FROM "provider_a" UNION SELECT "created_time","fiz","buz" FROM "provider_b"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:641:    SELECT "created_time","foo","bar" FROM "provider_a" INTERSECT SELECT "created_time","fiz","buz" FROM "provider_b"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:672:    SELECT "created_time","foo","bar" FROM "provider_a" MINUS SELECT "created_time","fiz","buz" FROM "provider_b"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:695:    SELECT "created_time","foo","bar" FROM "provider_a" EXCEPT SELECT "created_time","fiz","buz" FROM "provider_b"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:714:    SELECT id,name FROM fruits WHERE harvest_date+INTERVAL 1 MONTH<NOW()
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:733:    SELECT "foo","bar" FROM "abc" WHERE ("foo","bar")=(1,2)
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:747:    SELECT "foo","bar" FROM "abc" WHERE ("foo","bar")=(1,2)
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:759:    SELECT "foo","bar" FROM "abc" WHERE ("foo","bar") IN ((1,1),(2,2),(3,3))
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:783:    SELECT id,fname,lname FROM customers WHERE lname LIKE 'Mc%'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:800:    SELECT id,fname,lname FROM customers WHERE lname REGEX '^[abc][a-zA-Z]+&';
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:815:    SELECT id,CONCAT(fname, ' ', lname) full_name FROM customers
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:840:    SELECT id,fname,lname,DATE_DIFF('day',created_date,updated_date) FROM customers
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:866:    SELECT "id",CASE WHEN "fname"='Tom' THEN 'It was Tom' WHEN "fname"='John' THEN 'It was John' ELSE 'It was someone else.' END "who_was_it" FROM "customers"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:885:    SELECT current_date FROM "products"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:913:    WITH an_alias AS (SELECT * FROM "customers") SELECT * FROM an_alias
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:934:    INSERT INTO customers VALUES (1,'Jane','Doe','jane@example.com')
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:944:    INSERT INTO customers VALUES (1,'Jane','Doe','jane@example.com')
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1008:    INSERT INTO "customers" VALUES (1,'Jane','Doe','jane@example.com') ON CONFLICT ("email") DO NOTHING
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1021:    INSERT INTO "customers" VALUES (1,'Jane','Doe','jane@example.com') ON CONFLICT ("email") DO UPDATE SET "email"='bob@example.com'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1024:Insert from a SELECT Sub-query
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1029:    INSERT INTO "customers" VALUES (1,'Jane','Doe','jane@example.com'),(2,'John','Doe','john@example.com')
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1042:    INSERT INTO customers (id,fname,lname) VALUES (1,'Jane','Doe','jane@example.com')
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1056:    INSERT INTO customers_backup SELECT * FROM customers
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1067:    INSERT INTO customers_backup SELECT "id", "fname", "lname" FROM customers
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1082:   INSERT INTO "orders_backup" ("id","address","customer_fname","customer_lname")
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1083:   SELECT "orders"."id","customers"."fname","customers"."lname" FROM "customers"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1084:   JOIN "orders" ON "orders"."customer_id"="customers"."id"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1100:    UPDATE "customers" SET "last_login"='2017-01-01 10:00:00'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1102:    UPDATE "customers" SET "lname"='smith' WHERE "id"=10
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1116:   UPDATE "customers"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1117:   JOIN "profiles" ON "profiles"."customer_id"="customers"."id"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1132:    UPDATE "customers" SET "lname"='smith' WHERE "id"=10
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1146:    UPDATE "customers" SET "lname"='smith' LIMIT 2
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1189:    SELECT FIRST_VALUE("value") OVER(PARTITION BY "category" ORDER BY "month"),LAST_VALUE("value" IGNORE NULLS) OVER(PARTITION BY "category" ORDER BY "month") FROM "monthly_data"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1224:    SELECT "date","amount",SUM("amount") OVER(PARTITION BY "account_id" ORDER BY "date" ROWS BETWEEN 7 PRECEDING AND CURRENT ROW) "rolling_7_day" FROM "transactions"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1241:    INSERT INTO customers (id,fname,lname) VALUES (:1,:2,:3)
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1285:    # sql: SELECT * FROM "customers" WHERE "status"=? AND "age">=?
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1301:    # sql: SELECT * FROM "customers" WHERE "status"=:param1
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1323:    SELECT * FROM "abc" FOR SYSTEM_TIME AS OF '2020-01-01'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1338:    SELECT * FROM "abc" FOR SYSTEM_TIME BETWEEN '2020-01-01' AND '2020-02-01'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1353:    SELECT * FROM "abc" FOR SYSTEM_TIME FROM '2020-01-01' TO '2020-02-01'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1366:    SELECT * FROM "abc" FOR SYSTEM_TIME ALL
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1381:    SELECT * FROM "abc" FOR "valid_period" BETWEEN '2020-01-01' AND '2020-02-01'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1406:    SELECT * FROM "abc" FOR SYSTEM_TIME AS OF '2020-01-01'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1407:    JOIN "efg" FOR SYSTEM_TIME AS OF '2020-01-01'
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1428:    UPDATE "abc"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1445:    DELETE FROM "abc"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1497:        CREATE TABLE "names" AS (SELECT "last_name","first_name" FROM "person")
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1645:    SELECT "user_id","event" FROM "events" FINAL
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1661:    SELECT "user_id" FROM "events" SAMPLE 10
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1671:    SELECT "user_id" FROM "events" SAMPLE 10 OFFSET 5
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1687:    SELECT DISTINCT ON("department","role") "name","department","role" FROM "users"
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1703:    SELECT "user_id","event","timestamp" FROM "events" LIMIT 3 BY ("user_id")
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1713:    SELECT "user_id","event" FROM "events" LIMIT 3 OFFSET 1 BY ("user_id")
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1733:    SELECT name FROM employees FETCH NEXT 10 ROWS ONLY
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1743:    SELECT name FROM employees OFFSET 20 ROWS FETCH NEXT 10 ROWS ONLY
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1816:    SELECT "col1","col2",COUNT(*) n_rows 
-services/chroma_inspect_venv/lib/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1817:    FROM "table" 
-services/chroma_inspect_venv/lib/python3.12/site-packages/kubernetes/client/models/v1_validation_rule.py:198:        Rule represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec The Rule is scoped to the location of the x-kubernetes-validations extension in the schema. The `self` variable in the CEL expression is bound to the scoped value. Example: - Rule scoped to the root of a resource with a status subresource: {\"rule\": \"self.status.actual <= self.spec.maxDesired\"}  If the Rule is scoped to an object with properties, the accessible properties of the object are field selectable via `self.field` and field presence can be checked via `has(self.field)`. Null valued fields are treated as absent fields in CEL expressions. If the Rule is scoped to an object with additionalProperties (i.e. a map) the value of the map are accessible via `self[mapKey]`, map containment can be checked via `mapKey in self` and all entries of the map are accessible via CEL macros and functions such as `self.all(...)`. If the Rule is scoped to an array, the elements of the array are accessible via `self[i]` and also by macros and functions. If the Rule is scoped to a scalar, `self` is bound to the scalar value. Examples: - Rule scoped to a map of objects: {\"rule\": \"self.components['Widget'].priority < 10\"} - Rule scoped to a list of integers: {\"rule\": \"self.values.all(value, value >= 0 && value < 100)\"} - Rule scoped to a string value: {\"rule\": \"self.startsWith('kube')\"}  The `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object and from any x-kubernetes-embedded-resource annotated objects. No other metadata properties are accessible.  Unknown data preserved in custom resources via x-kubernetes-preserve-unknown-fields is not accessible in CEL expressions. This includes: - Unknown field values that are preserved by object schemas with x-kubernetes-preserve-unknown-fields. - Object properties where the property schema is of an \"unknown type\". An \"unknown type\" is recursively defined as:   - A schema with no type and x-kubernetes-preserve-unknown-fields set to true   - An array where the items schema is of an \"unknown type\"   - An object where the additionalProperties schema is of an \"unknown type\"  Only property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - '__' escapes to '__underscores__' - '.' escapes to '__dot__' - '-' escapes to '__dash__' - '/' escapes to '__slash__' - Property names that exactly match a CEL RESERVED keyword escape to '__{keyword}__'. The keywords are:    \"true\", \"false\", \"null\", \"in\", \"as\", \"break\", \"const\", \"continue\", \"else\", \"for\", \"function\", \"if\",    \"import\", \"let\", \"loop\", \"package\", \"namespace\", \"return\". Examples:   - Rule accessing a property named \"namespace\": {\"rule\": \"self.__namespace__ > 0\"}   - Rule accessing a property named \"x-prop\": {\"rule\": \"self.x__dash__prop > 0\"}   - Rule accessing a property named \"redact__d\": {\"rule\": \"self.redact__underscores__d > 0\"}  Equality on arrays with x-kubernetes-list-type of 'set' or 'map' ignores element order, i.e. [1, 2] == [2, 1]. Concatenation on arrays with x-kubernetes-list-type use the semantics of the list type:   - 'set': `X + Y` performs a union where the array positions of all elements in `X` are preserved and     non-intersecting elements in `Y` are appended, retaining their partial order.   - 'map': `X + Y` performs a merge where the array positions of all keys in `X` are preserved but the values     are overwritten by values in `Y` when the key sets of `X` and `Y` intersect. Elements in `Y` with     non-intersecting keys are appended, retaining their partial order.  If `rule` makes use of the `oldSelf` variable it is implicitly a `transition rule`.  By default, the `oldSelf` variable is the same type as `self`. When `optionalOldSelf` is true, the `oldSelf` variable is a CEL optional  variable whose value() is the same type as `self`. See the documentation for the `optionalOldSelf` field for details.  Transition rules by default are applied only on UPDATE requests and are skipped if an old value could not be found. You can opt a transition rule into unconditional evaluation by setting `optionalOldSelf` to true.  # noqa: E501
-services/chroma_inspect_venv/lib/python3.12/site-packages/kubernetes/client/models/v1_validation_rule.py:209:        Rule represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec The Rule is scoped to the location of the x-kubernetes-validations extension in the schema. The `self` variable in the CEL expression is bound to the scoped value. Example: - Rule scoped to the root of a resource with a status subresource: {\"rule\": \"self.status.actual <= self.spec.maxDesired\"}  If the Rule is scoped to an object with properties, the accessible properties of the object are field selectable via `self.field` and field presence can be checked via `has(self.field)`. Null valued fields are treated as absent fields in CEL expressions. If the Rule is scoped to an object with additionalProperties (i.e. a map) the value of the map are accessible via `self[mapKey]`, map containment can be checked via `mapKey in self` and all entries of the map are accessible via CEL macros and functions such as `self.all(...)`. If the Rule is scoped to an array, the elements of the array are accessible via `self[i]` and also by macros and functions. If the Rule is scoped to a scalar, `self` is bound to the scalar value. Examples: - Rule scoped to a map of objects: {\"rule\": \"self.components['Widget'].priority < 10\"} - Rule scoped to a list of integers: {\"rule\": \"self.values.all(value, value >= 0 && value < 100)\"} - Rule scoped to a string value: {\"rule\": \"self.startsWith('kube')\"}  The `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object and from any x-kubernetes-embedded-resource annotated objects. No other metadata properties are accessible.  Unknown data preserved in custom resources via x-kubernetes-preserve-unknown-fields is not accessible in CEL expressions. This includes: - Unknown field values that are preserved by object schemas with x-kubernetes-preserve-unknown-fields. - Object properties where the property schema is of an \"unknown type\". An \"unknown type\" is recursively defined as:   - A schema with no type and x-kubernetes-preserve-unknown-fields set to true   - An array where the items schema is of an \"unknown type\"   - An object where the additionalProperties schema is of an \"unknown type\"  Only property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - '__' escapes to '__underscores__' - '.' escapes to '__dot__' - '-' escapes to '__dash__' - '/' escapes to '__slash__' - Property names that exactly match a CEL RESERVED keyword escape to '__{keyword}__'. The keywords are:    \"true\", \"false\", \"null\", \"in\", \"as\", \"break\", \"const\", \"continue\", \"else\", \"for\", \"function\", \"if\",    \"import\", \"let\", \"loop\", \"package\", \"namespace\", \"return\". Examples:   - Rule accessing a property named \"namespace\": {\"rule\": \"self.__namespace__ > 0\"}   - Rule accessing a property named \"x-prop\": {\"rule\": \"self.x__dash__prop > 0\"}   - Rule accessing a property named \"redact__d\": {\"rule\": \"self.redact__underscores__d > 0\"}  Equality on arrays with x-kubernetes-list-type of 'set' or 'map' ignores element order, i.e. [1, 2] == [2, 1]. Concatenation on arrays with x-kubernetes-list-type use the semantics of the list type:   - 'set': `X + Y` performs a union where the array positions of all elements in `X` are preserved and     non-intersecting elements in `Y` are appended, retaining their partial order.   - 'map': `X + Y` performs a merge where the array positions of all keys in `X` are preserved but the values     are overwritten by values in `Y` when the key sets of `X` and `Y` intersect. Elements in `Y` with     non-intersecting keys are appended, retaining their partial order.  If `rule` makes use of the `oldSelf` variable it is implicitly a `transition rule`.  By default, the `oldSelf` variable is the same type as `self`. When `optionalOldSelf` is true, the `oldSelf` variable is a CEL optional  variable whose value() is the same type as `self`. See the documentation for the `optionalOldSelf` field for details.  Transition rules by default are applied only on UPDATE requests and are skipped if an old value could not be found. You can opt a transition rule into unconditional evaluation by setting `optionalOldSelf` to true.  # noqa: E501
-services/chroma_inspect_venv/lib64/python3.12/site-packages/onnxruntime/ThirdPartyNotices.txt:65:AND EXPENSES RESULTING FROM YOUR USE OR UNAUTHORIZED USE OF THE SOFTWARE.
-services/chroma_inspect_venv/lib64/python3.12/site-packages/chromadb/db/impl/sqlite.py:270:            INSERT INTO maintenance_log (operation, timestamp)
-services/chroma_inspect_venv/lib64/python3.12/site-packages/chromadb/migrations/metadb/00003-full-text-tokenize.sqlite.sql:2:INSERT INTO embedding_fulltext_search (rowid, string_value) SELECT rowid, string_value FROM embedding_metadata;
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:134:    SELECT id,fname,lname,phone FROM customers
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:145:    SELECT id,phone FROM x_view_customers customers
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:158:    SELECT id,phone FROM views.customers
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:171:    SELECT id,phone FROM my_db.analytics.customers
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:185:    SELECT "id","fname","lname","phone" FROM "customers" ORDER BY "id" DESC
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:203:    SELECT revenue-cost FROM accounts
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:216:    SELECT revenue-cost FROM accounts
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:228:    SELECT revenue-cost profit FROM accounts
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:245:    SELECT foo+bar,foo-bar,foo*bar,foo/bar,(foo+bar)/fiz FROM table
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:257:    SELECT "name" FROM "flags" WHERE ("permissions" & 4)=4
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:265:    SELECT "name" FROM "flags" WHERE ("permissions" | 2)=3
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:284:    SELECT id,fname,lname,phone FROM customers WHERE lname='Mustermann'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:302:    SELECT id,fname,lname,phone FROM customers WHERE fname='Max' AND lname='Mustermann'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:317:    SELECT id,fname FROM customers WHERE age BETWEEN 18 AND 65 AND status IN ('new','active')
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:334:    SELECT id,fname,lname,phone FROM customers WHERE age>=18 AND lname='Mustermann'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:349:    SELECT id,fname,lname,phone FROM customers WHERE age>=18 OR lname='Mustermann'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:364:    SELECT id,fname,lname,phone FROM customers WHERE age>=18 XOR is_registered
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:390:    SELECT id,fname FROM customers WHERE is_registered AND age>=18 AND lname = "Jones"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:411:    SELECT id,SUM("revenue") FROM "customers" WHERE "age">=18 GROUP BY "id"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:430:    SELECT customer_id,SUM(total) FROM payments
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:448:    SELECT * FROM "events" QUALIFY RANK() OVER(PARTITION BY "user_id" ORDER BY "created_at")=1
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:466:    SELECT "id","category",SUM("price") FROM "products" GROUP BY ROLLUP("id","category")
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:526:    SELECT "history".* FROM "history" JOIN "customers" ON "history"."customer_id"="customers"."id" WHERE "customers"."id"=5
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:547:    SELECT "history".* FROM "history" JOIN "customers" ON "history"."customer_id"="customers"."customer_id" AND "history"."group"="customers"."group" WHERE "customers"."group"='A'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:566:    SELECT "history".* FROM "history" JOIN "customers" USING "customer_id" WHERE "customers"."id"=5
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:589:      (SELECT "history"."purchase_at"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:590:       FROM "history"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:594:    FROM "customers"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:618:    SELECT "created_time","foo","bar" FROM "provider_a" UNION SELECT "created_time","fiz","buz" FROM "provider_b"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:641:    SELECT "created_time","foo","bar" FROM "provider_a" INTERSECT SELECT "created_time","fiz","buz" FROM "provider_b"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:672:    SELECT "created_time","foo","bar" FROM "provider_a" MINUS SELECT "created_time","fiz","buz" FROM "provider_b"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:695:    SELECT "created_time","foo","bar" FROM "provider_a" EXCEPT SELECT "created_time","fiz","buz" FROM "provider_b"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:714:    SELECT id,name FROM fruits WHERE harvest_date+INTERVAL 1 MONTH<NOW()
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:733:    SELECT "foo","bar" FROM "abc" WHERE ("foo","bar")=(1,2)
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:747:    SELECT "foo","bar" FROM "abc" WHERE ("foo","bar")=(1,2)
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:759:    SELECT "foo","bar" FROM "abc" WHERE ("foo","bar") IN ((1,1),(2,2),(3,3))
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:783:    SELECT id,fname,lname FROM customers WHERE lname LIKE 'Mc%'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:800:    SELECT id,fname,lname FROM customers WHERE lname REGEX '^[abc][a-zA-Z]+&';
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:815:    SELECT id,CONCAT(fname, ' ', lname) full_name FROM customers
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:840:    SELECT id,fname,lname,DATE_DIFF('day',created_date,updated_date) FROM customers
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:866:    SELECT "id",CASE WHEN "fname"='Tom' THEN 'It was Tom' WHEN "fname"='John' THEN 'It was John' ELSE 'It was someone else.' END "who_was_it" FROM "customers"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:885:    SELECT current_date FROM "products"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:913:    WITH an_alias AS (SELECT * FROM "customers") SELECT * FROM an_alias
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:934:    INSERT INTO customers VALUES (1,'Jane','Doe','jane@example.com')
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:944:    INSERT INTO customers VALUES (1,'Jane','Doe','jane@example.com')
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1008:    INSERT INTO "customers" VALUES (1,'Jane','Doe','jane@example.com') ON CONFLICT ("email") DO NOTHING
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1021:    INSERT INTO "customers" VALUES (1,'Jane','Doe','jane@example.com') ON CONFLICT ("email") DO UPDATE SET "email"='bob@example.com'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1024:Insert from a SELECT Sub-query
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1029:    INSERT INTO "customers" VALUES (1,'Jane','Doe','jane@example.com'),(2,'John','Doe','john@example.com')
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1042:    INSERT INTO customers (id,fname,lname) VALUES (1,'Jane','Doe','jane@example.com')
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1056:    INSERT INTO customers_backup SELECT * FROM customers
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1067:    INSERT INTO customers_backup SELECT "id", "fname", "lname" FROM customers
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1082:   INSERT INTO "orders_backup" ("id","address","customer_fname","customer_lname")
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1083:   SELECT "orders"."id","customers"."fname","customers"."lname" FROM "customers"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1084:   JOIN "orders" ON "orders"."customer_id"="customers"."id"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1100:    UPDATE "customers" SET "last_login"='2017-01-01 10:00:00'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1102:    UPDATE "customers" SET "lname"='smith' WHERE "id"=10
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1116:   UPDATE "customers"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1117:   JOIN "profiles" ON "profiles"."customer_id"="customers"."id"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1132:    UPDATE "customers" SET "lname"='smith' WHERE "id"=10
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1146:    UPDATE "customers" SET "lname"='smith' LIMIT 2
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1189:    SELECT FIRST_VALUE("value") OVER(PARTITION BY "category" ORDER BY "month"),LAST_VALUE("value" IGNORE NULLS) OVER(PARTITION BY "category" ORDER BY "month") FROM "monthly_data"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1224:    SELECT "date","amount",SUM("amount") OVER(PARTITION BY "account_id" ORDER BY "date" ROWS BETWEEN 7 PRECEDING AND CURRENT ROW) "rolling_7_day" FROM "transactions"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1241:    INSERT INTO customers (id,fname,lname) VALUES (:1,:2,:3)
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1285:    # sql: SELECT * FROM "customers" WHERE "status"=? AND "age">=?
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1301:    # sql: SELECT * FROM "customers" WHERE "status"=:param1
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1323:    SELECT * FROM "abc" FOR SYSTEM_TIME AS OF '2020-01-01'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1338:    SELECT * FROM "abc" FOR SYSTEM_TIME BETWEEN '2020-01-01' AND '2020-02-01'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1353:    SELECT * FROM "abc" FOR SYSTEM_TIME FROM '2020-01-01' TO '2020-02-01'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1366:    SELECT * FROM "abc" FOR SYSTEM_TIME ALL
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1381:    SELECT * FROM "abc" FOR "valid_period" BETWEEN '2020-01-01' AND '2020-02-01'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1406:    SELECT * FROM "abc" FOR SYSTEM_TIME AS OF '2020-01-01'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1407:    JOIN "efg" FOR SYSTEM_TIME AS OF '2020-01-01'
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1428:    UPDATE "abc"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1445:    DELETE FROM "abc"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1497:        CREATE TABLE "names" AS (SELECT "last_name","first_name" FROM "person")
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1645:    SELECT "user_id","event" FROM "events" FINAL
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1661:    SELECT "user_id" FROM "events" SAMPLE 10
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1671:    SELECT "user_id" FROM "events" SAMPLE 10 OFFSET 5
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1687:    SELECT DISTINCT ON("department","role") "name","department","role" FROM "users"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1703:    SELECT "user_id","event","timestamp" FROM "events" LIMIT 3 BY ("user_id")
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1713:    SELECT "user_id","event" FROM "events" LIMIT 3 OFFSET 1 BY ("user_id")
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1733:    SELECT name FROM employees FETCH NEXT 10 ROWS ONLY
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1743:    SELECT name FROM employees OFFSET 20 ROWS FETCH NEXT 10 ROWS ONLY
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1816:    SELECT "col1","col2",COUNT(*) n_rows 
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pypika-0.51.1.dist-info/METADATA:1817:    FROM "table" 
-services/chroma_inspect_venv/lib64/python3.12/site-packages/kubernetes/client/models/v1_validation_rule.py:198:        Rule represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec The Rule is scoped to the location of the x-kubernetes-validations extension in the schema. The `self` variable in the CEL expression is bound to the scoped value. Example: - Rule scoped to the root of a resource with a status subresource: {\"rule\": \"self.status.actual <= self.spec.maxDesired\"}  If the Rule is scoped to an object with properties, the accessible properties of the object are field selectable via `self.field` and field presence can be checked via `has(self.field)`. Null valued fields are treated as absent fields in CEL expressions. If the Rule is scoped to an object with additionalProperties (i.e. a map) the value of the map are accessible via `self[mapKey]`, map containment can be checked via `mapKey in self` and all entries of the map are accessible via CEL macros and functions such as `self.all(...)`. If the Rule is scoped to an array, the elements of the array are accessible via `self[i]` and also by macros and functions. If the Rule is scoped to a scalar, `self` is bound to the scalar value. Examples: - Rule scoped to a map of objects: {\"rule\": \"self.components['Widget'].priority < 10\"} - Rule scoped to a list of integers: {\"rule\": \"self.values.all(value, value >= 0 && value < 100)\"} - Rule scoped to a string value: {\"rule\": \"self.startsWith('kube')\"}  The `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object and from any x-kubernetes-embedded-resource annotated objects. No other metadata properties are accessible.  Unknown data preserved in custom resources via x-kubernetes-preserve-unknown-fields is not accessible in CEL expressions. This includes: - Unknown field values that are preserved by object schemas with x-kubernetes-preserve-unknown-fields. - Object properties where the property schema is of an \"unknown type\". An \"unknown type\" is recursively defined as:   - A schema with no type and x-kubernetes-preserve-unknown-fields set to true   - An array where the items schema is of an \"unknown type\"   - An object where the additionalProperties schema is of an \"unknown type\"  Only property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - '__' escapes to '__underscores__' - '.' escapes to '__dot__' - '-' escapes to '__dash__' - '/' escapes to '__slash__' - Property names that exactly match a CEL RESERVED keyword escape to '__{keyword}__'. The keywords are:    \"true\", \"false\", \"null\", \"in\", \"as\", \"break\", \"const\", \"continue\", \"else\", \"for\", \"function\", \"if\",    \"import\", \"let\", \"loop\", \"package\", \"namespace\", \"return\". Examples:   - Rule accessing a property named \"namespace\": {\"rule\": \"self.__namespace__ > 0\"}   - Rule accessing a property named \"x-prop\": {\"rule\": \"self.x__dash__prop > 0\"}   - Rule accessing a property named \"redact__d\": {\"rule\": \"self.redact__underscores__d > 0\"}  Equality on arrays with x-kubernetes-list-type of 'set' or 'map' ignores element order, i.e. [1, 2] == [2, 1]. Concatenation on arrays with x-kubernetes-list-type use the semantics of the list type:   - 'set': `X + Y` performs a union where the array positions of all elements in `X` are preserved and     non-intersecting elements in `Y` are appended, retaining their partial order.   - 'map': `X + Y` performs a merge where the array positions of all keys in `X` are preserved but the values     are overwritten by values in `Y` when the key sets of `X` and `Y` intersect. Elements in `Y` with     non-intersecting keys are appended, retaining their partial order.  If `rule` makes use of the `oldSelf` variable it is implicitly a `transition rule`.  By default, the `oldSelf` variable is the same type as `self`. When `optionalOldSelf` is true, the `oldSelf` variable is a CEL optional  variable whose value() is the same type as `self`. See the documentation for the `optionalOldSelf` field for details.  Transition rules by default are applied only on UPDATE requests and are skipped if an old value could not be found. You can opt a transition rule into unconditional evaluation by setting `optionalOldSelf` to true.  # noqa: E501
-services/chroma_inspect_venv/lib64/python3.12/site-packages/kubernetes/client/models/v1_validation_rule.py:209:        Rule represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec The Rule is scoped to the location of the x-kubernetes-validations extension in the schema. The `self` variable in the CEL expression is bound to the scoped value. Example: - Rule scoped to the root of a resource with a status subresource: {\"rule\": \"self.status.actual <= self.spec.maxDesired\"}  If the Rule is scoped to an object with properties, the accessible properties of the object are field selectable via `self.field` and field presence can be checked via `has(self.field)`. Null valued fields are treated as absent fields in CEL expressions. If the Rule is scoped to an object with additionalProperties (i.e. a map) the value of the map are accessible via `self[mapKey]`, map containment can be checked via `mapKey in self` and all entries of the map are accessible via CEL macros and functions such as `self.all(...)`. If the Rule is scoped to an array, the elements of the array are accessible via `self[i]` and also by macros and functions. If the Rule is scoped to a scalar, `self` is bound to the scalar value. Examples: - Rule scoped to a map of objects: {\"rule\": \"self.components['Widget'].priority < 10\"} - Rule scoped to a list of integers: {\"rule\": \"self.values.all(value, value >= 0 && value < 100)\"} - Rule scoped to a string value: {\"rule\": \"self.startsWith('kube')\"}  The `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object and from any x-kubernetes-embedded-resource annotated objects. No other metadata properties are accessible.  Unknown data preserved in custom resources via x-kubernetes-preserve-unknown-fields is not accessible in CEL expressions. This includes: - Unknown field values that are preserved by object schemas with x-kubernetes-preserve-unknown-fields. - Object properties where the property schema is of an \"unknown type\". An \"unknown type\" is recursively defined as:   - A schema with no type and x-kubernetes-preserve-unknown-fields set to true   - An array where the items schema is of an \"unknown type\"   - An object where the additionalProperties schema is of an \"unknown type\"  Only property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - '__' escapes to '__underscores__' - '.' escapes to '__dot__' - '-' escapes to '__dash__' - '/' escapes to '__slash__' - Property names that exactly match a CEL RESERVED keyword escape to '__{keyword}__'. The keywords are:    \"true\", \"false\", \"null\", \"in\", \"as\", \"break\", \"const\", \"continue\", \"else\", \"for\", \"function\", \"if\",    \"import\", \"let\", \"loop\", \"package\", \"namespace\", \"return\". Examples:   - Rule accessing a property named \"namespace\": {\"rule\": \"self.__namespace__ > 0\"}   - Rule accessing a property named \"x-prop\": {\"rule\": \"self.x__dash__prop > 0\"}   - Rule accessing a property named \"redact__d\": {\"rule\": \"self.redact__underscores__d > 0\"}  Equality on arrays with x-kubernetes-list-type of 'set' or 'map' ignores element order, i.e. [1, 2] == [2, 1]. Concatenation on arrays with x-kubernetes-list-type use the semantics of the list type:   - 'set': `X + Y` performs a union where the array positions of all elements in `X` are preserved and     non-intersecting elements in `Y` are appended, retaining their partial order.   - 'map': `X + Y` performs a merge where the array positions of all keys in `X` are preserved but the values     are overwritten by values in `Y` when the key sets of `X` and `Y` intersect. Elements in `Y` with     non-intersecting keys are appended, retaining their partial order.  If `rule` makes use of the `oldSelf` variable it is implicitly a `transition rule`.  By default, the `oldSelf` variable is the same type as `self`. When `optionalOldSelf` is true, the `oldSelf` variable is a CEL optional  variable whose value() is the same type as `self`. See the documentation for the `optionalOldSelf` field for details.  Transition rules by default are applied only on UPDATE requests and are skipped if an old value could not be found. You can opt a transition rule into unconditional evaluation by setting `optionalOldSelf` to true.  # noqa: E501
-services/ms_jarvis_main_gateway.pre_fix.py:105:        "SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?",
-services/ms_jarvis_main_gateway.pre_fix.py:127:    c.execute("""INSERT INTO identity_hashes
-services/ms_jarvis_layer2_dgm.py:101:            c.execute("UPDATE user_conversations SET analyzed=1, sentiment_score=?, emotion_detected=?, topics_detected=?, needs_detected=?, analyzed_at=? WHERE id=?",
-services/ms_jarvis_messenger_ui_fixed.py:195:        cursor.execute("SELECT MAX(timestamp) FROM ms_jarvis_learning_log")
-services/ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py:53:            rows = conn.execute("SELECT COUNT(*) FROM gisgeodata").fetchone()[0] or 1002
-services/ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py:166:            "SELECT county, state, lat, lon, description FROM gisgeodata WHERE UPPER(location) LIKE UPPER(?) LIMIT 1",
-services/ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py:207:            ['mysql', '-u', 'root', '-e', 'SELECT COUNT(*) FROM msjarvis_research.research_records'],
-services/ms_jarvis_messenger_ui.py:120:        cursor.execute("SELECT MAX(timestamp) FROM ms_jarvis_learning_log")
-services/ms_jarvis_messenger_ui.py:147:            SELECT timestamp, learning_action FROM ms_jarvis_learning_log
-services/geospatial_resolver.py:25:              SELECT geom
-services/geospatial_resolver.py:26:              FROM quantumaigbimfeatures
-services/geospatial_resolver.py:32:        geom_expr = "(SELECT geom FROM b)"
-services/geospatial_resolver.py:34:        sql.append("WITH b AS (SELECT ST_SetSRID(ST_Point(%s, %s), 4326) AS geom)")
-services/geospatial_resolver.py:36:        geom_expr = "(SELECT geom FROM b)"
-services/geospatial_resolver.py:46:      FROM b
-services/geospatial_resolver.py:47:      LEFT JOIN geospatial_counties c
-services/geospatial_resolver.py:49:      LEFT JOIN geospatial_utility_territories u
-services/geospatial_resolver.py:51:      LEFT JOIN geospatial_zoning z
-services/geospatial_resolver.py:53:      LEFT JOIN geospatial_census_tracts t
-services/ms_jarvis_consciousness_final.py.pre_dynamic_discovery:231:KNOWLEDGE FROM CHROMADB:
-services/ms_jarvis_main_gateway.proxy_backup.py:175:    c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,))
-services/ms_jarvis_main_gateway.proxy_backup.py:195:    c.execute("""INSERT INTO identity_hashes 
-services/msjarvisunifiedgateway.py:99:        cursor.execute("SELECT COUNT(*) FROM gisgeodata;")
-services/ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py:49:            rows = conn.execute("SELECT COUNT(*) FROM gisgeodata").fetchone()[0] or 1002
-services/ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py:164:            "SELECT county, state, lat, lon, description FROM gisgeodata WHERE UPPER(location) LIKE UPPER(?) LIMIT 1",
-services/health_access_gbim_bridge.py:85:                    SELECT block_id, geographic, pop2020, provider_count
-services/health_access_gbim_bridge.py:86:                    FROM public.block_provider_summary
-services/health_access_gbim_bridge.py:125:                    SELECT provider_id, center, pop_served, blocks_served
-services/health_access_gbim_bridge.py:126:                    FROM public.provider_population_summary
-services/ms_jarvis_unified_swagger_gateway_FIXED.py.new:33:    c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,))
-services/ms_jarvis_unified_swagger_gateway_FIXED.py.new:69:    c.execute("""INSERT INTO users_identity_vault 
-services/ms_jarvis_unified_swagger_gateway_FIXED.py.new:75:    c.execute("""INSERT INTO identity_hashes 
-services/ms_jarvis_unified_swagger_gateway_FIXED.py.new:81:    c.execute("""INSERT INTO registration_tokens 
-services/create_immutable_security_layer.py:157:    FROM ueid_searchable_gis usg
-services/ms_jarvis_consciousness_bridge.py.working_backup:727:    # GET I-CONTAINER IDENTITY CONTEXT FROM FIFTH DGM
-services/extract_chroma_sqlite_to_gis.py:25:    logger.info("📚 EXTRACTING FROM CHROMA.SQLITE3 → GIS")
-services/extract_chroma_sqlite_to_gis.py:43:        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-services/extract_chroma_sqlite_to_gis.py:49:                cursor.execute(f"SELECT COUNT(*) FROM {table}")
-services/ms_jarvis_expiration_monitor.py:144:        FROM identity_verifications
-services/ms_jarvis_expiration_monitor.py:176:                            UPDATE identity_verifications
-services/ms_jarvis_expiration_monitor.py:189:                    UPDATE identity_verifications
-services/Dockerfile.rag_server:1:FROM python:3.11-slim
-services/batch_normalize_beliefs.py:19:        SELECT g.id,
-services/batch_normalize_beliefs.py:26:        FROM public.gbim_worldview_entity g
-services/batch_normalize_beliefs.py:27:        LEFT JOIN public.gbim_belief_normalized n
-services/batch_normalize_beliefs.py:44:                INSERT INTO public.gbim_belief_normalized (
-services/Dockerfile.psychological_rag:1:FROM python:3.12-slim
-services/ms_jarvis_main_gateway.broken_final.py:124:    c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,))
-services/ms_jarvis_main_gateway.broken_final.py:143:    c.execute("INSERT INTO identity_hashes (name_dob_hash, ueid, email, dl_verified, dl_path, created_at) VALUES (?, ?, ?, ?, ?, datetime('now'))", (name_dob_hash, ueid, email, dl_verified, dl_path))
-services/gbim_explain.py:50:            SELECT layer_name, feature_id, name, ST_AsText(geom)
-services/gbim_explain.py:51:            FROM geospatial_features
-services/working_full_pipeline_WITH_SPATIAL_TEMPORAL.py:27:    # GET ACTUAL LOCATION & TIME FROM SERVICES
-services/extract_all_chromadb_to_gis.py:24:    logger.info("📚 EXTRACTING ALL DATA FROM CHROMADB PERSISTENT STORAGE")
-services/extract_all_chromadb_to_gis.py:40:            cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-services/dgm_orchestrator.py:233:            SELECT id, identity_element,
-services/dgm_orchestrator.py:260:            SELECT id, identity_element,
-services/dgm_orchestrator.py:295:                "SELECT id, identity_element FROM central_i_container WHERE is_active=1 ORDER BY id DESC"
-services/truth_filter_bbb_verification.py:149:            UPDATE ueid_gis_mapping
-services/registration_service_clean.py.broken:201:        c.execute("""INSERT INTO users_identity_vault VALUES (?, ?, ?, ?, ?)""",
-services/registration_service_clean.py.broken:208:        c.execute("""INSERT INTO identity_hashes VALUES (?, ?, ?, ?)""",
-services/registration_service_clean.py.broken:213:        c.execute("""INSERT INTO registration_tokens VALUES (?, ?, ?, ?, ?)""",
-services/registration_service_clean.py.broken:268:            'SELECT email FROM registration_tokens WHERE token = ? AND ueid = ?',
-services/registration_service_clean.py.broken:291:            UPDATE registration_tokens SET
-services/ms_jarvis_gis_query_with_bbb_gisgeodb.py:57:        INSERT INTO bbb_filter_log 
-services/ms_jarvis_gis_query_with_bbb_gisgeodb.py:92:        INSERT INTO geographic_knowledge 
-services/Dockerfile.spiritual_rag:1:FROM python:3.10-slim
-services/academic_research_gateway_8062.py:35:        cursor.execute("SELECT timestamp FROM ms_jarvis_learning_log WHERE learning_action = 'consciousness' ORDER BY id DESC LIMIT 1")
-services/academic_research_gateway_8062.py:76:        cursor.execute(f"SELECT id, timestamp, learning_action FROM ms_jarvis_learning_log ORDER BY id DESC LIMIT {min(limit, 200)}")
-services/academic_research_gateway_8062.py:89:        cursor.execute("SELECT timestamp, learning_action FROM ms_jarvis_learning_log ORDER BY id DESC LIMIT 5")
-services/full_system_health_check.sh:222:    DB_RECORDS=$(sqlite3 data/GISGEODB_ACTIVE.sqlite "SELECT COUNT(*) FROM geographic_knowledge;" 2>/dev/null || echo "?")
-services/add_identity_context.py:21:    # GET I-CONTAINER IDENTITY CONTEXT FROM FIFTH DGM
-services/ms_jarvis_main_gateway.py.30endpoints_backup.py:144:    c.execute("SELECT ueid, email, dl_verified FROM identity_hashes LIMIT 5")
-services/ms_jarvis_main_gateway.py.30endpoints_backup.py:182:    c.execute("SELECT ueid FROM identity_hashes WHERE name_dob_hash = ?", (name_dob_hash,))
-services/ms_jarvis_main_gateway.py.30endpoints_backup.py:200:    c.execute("INSERT INTO identity_hashes (name_dob_hash, ueid, email, dl_verified, dl_path) VALUES (?, ?, ?, ?, ?)", 
-services/ms_jarvis_main_gateway.py.30endpoints_backup.py:216:    c.execute("UPDATE identity_hashes SET dl_verified = ? WHERE ueid = ?", (verified, ueid))
-services/ms_jarvis_main_gateway.py.30endpoints_backup.py:230:    c.execute("SELECT * FROM identity_hashes WHERE ueid = ?", (ueid,))
-services/complete_system_audit_with_swagger.py:235:        "users": c.execute("SELECT COUNT(*) FROM ueid_identity").fetchone()[0],
-services/autonomous_learner_gisgeodb_wrapper.psychology_patched.py:53:            INSERT INTO autonomous_learner_queries
-services/autonomous_learner_gisgeodb_wrapper.psychology_patched.py:95:    c.execute("SELECT COUNT(*) FROM autonomous_learner_queries")
-services/ms_jarvis_unified_gateway_v4.3.py.BEFORE_INVESTIGATION:46:            rows = conn.execute("SELECT COUNT(*) FROM gisgeodata").fetchone()[0] or 1002
-services/ms_jarvis_unified_gateway_v4.3.py.BEFORE_INVESTIGATION:159:            "SELECT county, state, lat, lon, description FROM gisgeodata WHERE UPPER(location) LIKE UPPER(?) LIMIT 1",
-services/ms_jarvis_unified_gateway_v4.3.py.BEFORE_INVESTIGATION:200:            ['mysql', '-u', 'root', '-e', 'SELECT COUNT(*) FROM msjarvis_research.research_records'],
-services/jarvis_hilbert_time.py:251:                SELECT admitted_at
-services/jarvis_hilbert_time.py:252:                FROM public.temporal_historical_memory
-services/jarvis_hilbert_time.py:276:                UPDATE public.temporal_historical_memory
-services/jarvis_hilbert_time.py:285:                INSERT INTO public.temporal_historical_memory
-services/jarvis_hilbert_time.py:338:                    SELECT id, timestamp_iso, epoch, payload,
-services/jarvis_hilbert_time.py:340:                    FROM public.temporal_historical_memory
-services/jarvis_hilbert_time.py:347:                    SELECT id, timestamp_iso, epoch, payload,
-services/jarvis_hilbert_time.py:349:                    FROM public.temporal_historical_memory
-services/sync_geodb_to_chromadb.py:17:        "SELECT id, name, description FROM public.features "
-services/bulk_build_beliefs.py:8:        SELECT sourcetable, geom_table, geom_column,
-services/bulk_build_beliefs.py:11:        FROM gbim_layer_config
-services/bulk_build_beliefs.py:24:        cur.execute("SELECT to_regclass(%s);", (geom_table,))
-services/bulk_build_beliefs.py:34:                SELECT DISTINCT ON (b.building_id)
-services/bulk_build_beliefs.py:38:                FROM buildings b
-services/bulk_build_beliefs.py:50:                FROM buildings b
-services/bulk_build_beliefs.py:62:            INSERT INTO gbim_beliefs (
-services/ms_jarvis_unified_gateway_v4.3.py.PRE_GUARDS_20251105_171934:46:            rows = conn.execute("SELECT COUNT(*) FROM gisgeodata").fetchone()[0] or 1002
-services/ms_jarvis_unified_gateway_v4.3.py.PRE_GUARDS_20251105_171934:161:            "SELECT county, state, lat, lon, description FROM gisgeodata WHERE UPPER(location) LIKE UPPER(?) LIMIT 1",
-services/local_resources_resolver.py:84:    FROM local_resources
-services/knowledge_docs_attributes.geojson:8738:        "date": "<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->",
-services/knowledge_docs_attributes.geojson:9581:        "author": "THE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.",
-services/knowledge_docs_attributes.geojson:9585:        "headings": "THE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE."
-services/IMMUTABLE_MANIFEST.md:60:- **Constraints**: Database triggers PREVENT UPDATE and DELETE
-attrs_with_geom_api.py:32:                f"SELECT geodb_id, ST_AsGeoJSON(geom) "
-bootstrap_gbim_beliefs_eq1.py:36:        SELECT worldview_id
-bootstrap_gbim_beliefs_eq1.py:37:        FROM gbim_worldviews
-bootstrap_gbim_beliefs_eq1.py:47:        INSERT INTO gbim_worldviews (name, description, version_tag, valid_from)
-bootstrap_gbim_beliefs_eq1.py:102:        INSERT INTO gbim_layer_catalog (
-bootstrap_gbim_beliefs_eq1.py:124:        INSERT INTO gbim_evidence (
-bootstrap_gbim_beliefs_eq1.py:157:        INSERT INTO gbim_beliefs (
-bootstrap_gbim_beliefs_eq1.py:179:        FROM gbim_evidence e
-bootstrap_gbim_beliefs_eq1.py:180:        JOIN gbim_layer_catalog c
-bootstrap_gbim_beliefs_eq1.py:188:        INSERT INTO gbim_belief_evidence (belief_id, evidence_id, role)
-bootstrap_gbim_beliefs_eq1.py:193:        FROM gbim_beliefs b
-bootstrap_gbim_beliefs_eq1.py:194:        JOIN gbim_evidence e
-bootstrap_gbim_beliefs_eq1.py:208:        INSERT INTO gbim_belief_edges (
-bootstrap_gbim_beliefs_eq1.py:219:        FROM gbim_beliefs b
-bootstrap_gbim_beliefs_eq1.py:220:        LEFT JOIN gbim_belief_edges e
-bootstrap_gbim_beliefs_eq1.py:243:                SELECT gbim_join_table, pk_column
-bootstrap_gbim_beliefs_eq1.py:244:                FROM gbim_layer_catalog
-bulk_ingest_attrs.py:34:                f'COPY gbimattrs."{tname}" FROM STDIN WITH (FORMAT CSV, HEADER TRUE)',
-bulk_ingest_attrs.py:40:            UPDATE public.gbimbeliefnormalized b
-bulk_ingest_attrs.py:45:            FROM public.gbimworldviewentity e
-bulk_ingest_attrs.py:51:            UPDATE public.gbimbeliefnormalized b
-bulk_ingest_attrs.py:57:            FROM public.gbimworldviewentity e
-bulk_ingest_attrs.py:58:            JOIN gbimattrs."{tname}" attrs
-enrich_from_attrs.py:6:  2. JOIN gbimbeliefnormalized to the attrs table on source_pk/sourcepk = geodb_id
-enrich_from_attrs.py:241:        SELECT epoch FROM gbim_source_epochs WHERE sourcetable = %s
-enrich_from_attrs.py:293:            UPDATE public.gbimbeliefnormalized b
-enrich_from_attrs.py:295:            FROM gbimattrs."{tname}" attrs
-enrich_where.py:15:    FROM public.gbimbeliefnormalized
-enrich_where.py:37:        UPDATE public.gbimbeliefnormalized b
-enrich_where.py:43:        FROM gbimattrs."{st}" attrs
-gisgeodbstorage.py:37:            INSERT INTO autonomouslearnerqueries
-index_gis_to_chroma.py:64:    pg_cur.execute("SELECT COUNT(*) FROM geospatial_features")
-index_gis_to_chroma.py:117:        FROM geospatial_features
-list_due_for_verification.py:8:    SELECT id, name, county, contact_email, contact_phone, source_url,
-list_due_for_verification.py:10:    FROM resources_due_for_verification
-load_services_attrs_and_enrich.py:80:        FROM public.gbimbeliefnormalized
-msjarvis_embed_gbim.py:70:        SELECT id,
-msjarvis_embed_gbim.py:80:        FROM public.gbimbeliefnormalized
-msjarvis_embed_gbim_resume_tail.py:19:        SELECT id, belief_text, metadata::text
-msjarvis_embed_gbim_resume_tail.py:20:        FROM gbim_beliefs_v2
-rag_server_main.py:471:        cur.execute("SELECT COUNT(*) FROM episodic_log")
-rag_server_main.py:475:        cur.execute("SELECT source, COUNT(*) FROM episodic_log GROUP BY source")
-rag_server_main.py:479:        cur.execute("SELECT episode_type, COUNT(*) FROM episodic_log GROUP BY episode_type")
-rag_server_main.py:485:            SELECT date_trunc('day', timestamp) AS day, COUNT(*)
-rag_server_main.py:486:            FROM episodic_log
-rag_server_main.py:497:            SELECT COUNT(*)
-rag_server_main.py:498:            FROM episodic_log
-rag_server_main.py:507:            SELECT COUNT(*)
-rag_server_main.py:508:            FROM episodic_log
-rag_server_main.py:517:            SELECT date_trunc('week', timestamp) AS week_start, COUNT(*)
-rag_server_main.py:518:            FROM episodic_log
-rag_server_main.py:529:            SELECT date_trunc('month', timestamp) AS month_start, COUNT(*)
-rag_server_main.py:530:            FROM episodic_log
-rag_server_main.py:541:            SELECT MIN(timestamp), MAX(timestamp)
-rag_server_main.py:542:            FROM episodic_log
-sync_gbim_to_chroma.py:42:        FROM public.gbim_worldview_entity;
-
-===== DATABASE ENVIRONMENT VARIABLE NAMES ONLY — VALUES REDACTED =====
-docker-compose.yml:530:    - GBIM_DSN=postgresql://REDACTED@172.18.0.1:5433/msjarvisgis
-docker-compose.yml:1254:    - POSTGRES_DB=postgres
-docker-compose.yml:1255:    - POSTGRES_USER=postgres
-docker-compose.yml:1256:    - POSTGRES_PASSWORD=postgres
-docker-compose.yml:1553:    - POSTGRES_DSN=postgresql://REDACTED@172.18.0.1:5432/local_resources
-docker-compose.yml:1558:    - DATABASE_URL=postgresql://REDACTED@172.18.0.1:5432/local_resources
-docker-compose.yml:1658:    - DATABASE_URL=postgresql://REDACTED@jarvis-local-resources-db:5432/hilbert_people
-docker-compose.yml:1894:    - POSTGRES_HOST=172.18.0.1
-docker-compose.yml:1895:    - POSTGRES_PORT=5433
-docker-compose.yml:1896:    - POSTGRES_DB=msjarvisgis
-docker-compose.yml:1897:    - POSTGRES_USER=postgres
-docker-compose.yml:1898:    - POSTGRES_PASSWORD=postgres
-docker-compose.yml:1915:    - POSTGRES_PORT=5432
-docker-compose.yml:1916:    - POSTGRES_DB=gisdb
-docker-compose.yml:1917:    - POSTGRES_USER=postgres
-docker-compose.yml:1918:    - POSTGRES_PASSWORD=postgres
-docker-compose.yml:1919:    - POSTGRES_HOST=172.18.0.1
-docker-compose.yml:1920:    - POSTGRES_PORT=5432
-docker-compose.yml:2034:    - DB_HOST=jarvis-local-resources-db
-docker-compose.yml:2036:    - DB_NAME=msjarvisgis
-docker-compose.yml:2037:    - DB_USER=msjarvis
-services/enrich_geodb_layers.py:13:GEODB_DSN = os.getenv(
-services/enrich_geodb_layers.py:14:    "GEODB_DSN",
-services/enrich_geodb_layers.py:358:    return psycopg2.connect(GEODB_DSN)
-services/gis_rag_service.py:20:POSTGRES_DSN = os.getenv("POSTGRES_DSN", "postgresql://REDACTED@jarvis-msjarvis-db:5432/msjarvisgis")
-services/gis_rag_service.py:519:    conn = psycopg2.connect(POSTGRES_DSN)
-services/geo/api.py:27:GEODB_DSN = "postgresql://REDACTED@localhost:5432/msjarvis_gis"
-services/geo/api.py:43:    conn = psycopg2.connect(GEODB_DSN)
-services/geo/api.py:76:GEODB_DSN = "postgresql://REDACTED@localhost:5432/msjarvis_gis"
-services/geo/api.py:96:    conn = psycopg2.connect(GEODB_DSN)
-services/geo/api.py:129:GEODB_DSN = "postgresql://REDACTED@localhost:5432/msjarvis_gis"
-services/geo/api.py:149:    conn = psycopg2.connect(GEODB_DSN)
-services/restored_documents.json:3382:      "content": "ies\npip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118\npip install transformers sentence-transformers\npip install ollama\n\nWeb framework and API\npip install fastapi uvicorn flask\n\nDatabase and storage\npip install redis chromadb\n\nUtilities and processing\npip install psutil pyyaml python-dotenv\npip install asyncio aiofiles\npip install requests numpy pandas\n\ntext\n\n#### Step 3: Configure Services\nSet up environment variables\ncat > .env << 'ENVEOF'\nOLLAMA_URL=http://localhost:11434\nREDIS_URL=redis://localhost:6379\nPOSTGRES_URL=postgresql://REDACTED@localhost:5432/ms_jarvis\nJARVIS_PORT=8010\nVECTOR_DB_PORT=8001\nENVEOF\n\nMake scripts executable\nchmod +x *.py\n\nSet up logging directory\nmkdir -p logs\nmkdir -p data/vector_db\nmkdir -p backups\n\ntext\n\n#### Step 4: Database Setup\nStart Redis (should already be running)\nsudo systemctl status redis-server\n\nCreate PostgreSQL database\nsudo -u postgres createdb ms_jarvis\nsudo -u postgres psql -c \"CREATE USER jarvis WITH PASSWORD 'your_password_here';\"\nsudo -u postgres psql -c \"GRANT ALL PRIVILEGES ON DATABASE ms_jarvis TO jarvis;\"\n\ntext\n\n#### Step 5: Start Core Services (In Order)\nTerminal 1: Start AI Server (core brain)\nsource venv/bin/activate\npython ai_server.py\n\nTerminal 2: Start Service Factory\nsource venv/bin/activate\npython ms_jarvis_service_factory.py\n\nTerminal 3: Start Brain Orchestrator\nsource venv/bin/activate\npython dynamic_app.py\n\nTerminal 4: Start Service Discovery\nsource venv/bin/activate",
-services/restored_documents.json:13470:      "content": "r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env dotenv_config_debug=true\n```\n\nAdditionally, you can use environment variables to set configuration options. Command line arguments will precede these.\n\n```bash\n$ DOTENV_CONFIG_<OPTION>=value node -r dotenv/config your_script.js\n```\n\n```bash\n$ DOTENV_CONFIG_ENCODING=latin1 DOTENV_CONFIG_DEBUG=true node -r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env\n```\n\n### Variable Expansion\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to use variable expansion.\n\nReference and expand variables already on your machine for use in your .env file.\n\n```ini\n# .env\nUSERNAME=\"username\"\nDATABASE_URL=\"postgres://REDACTED@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (2) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Command Substitution\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to use command substitution.\n\nAdd the output of a command to one of your variables in your .env file.\n\n```ini\n# .env\nDATABASE_URL=\"postgres://REDACTED@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Syncing\n\nYou need to keep `.env` files in sync betw",
-services/restored_documents.json:13478:      "content": "_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Syncing\n\nYou need to keep `.env` files in sync between machines, environments, or team members? Use [dotenvx](https://github.com/dotenvx/dotenvx) to encrypt your `.env` files and safely include them in source control. This still subscribes to the twelve-factor app rules by generating a decryption key separate from code.\n\n### Multiple Environments\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to generate `.env.ci`, `.env.production` files, and more.\n\n### Deploying\n\nYou need to deploy your secrets in a cloud-agnostic manner? Use [dotenvx](https://github.com/dotenvx/dotenvx) to generate a private decryption key that is set on your production server.\n\n## \ud83c\udf34 Manage Multiple Environments\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx)\n\nRun any environment locally. Create a `.env.ENVIRONMENT` file and use `--env-file` to load it. It's straightforward, yet flexible.\n\n```bash\n$ echo \"HELLO=production\" > .env.production\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx run --env-file=.env.production -- node index.js\nHello production\n> ^^\n```\n\nor with multiple .env files\n\n```bash\n$ echo \"HELLO=local\" > .env.local\n$ echo \"HELLO=World\" > .env\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx ",
-services/restored_documents.json:37038:      "content": "r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env dotenv_config_debug=true\n```\n\nAdditionally, you can use environment variables to set configuration options. Command line arguments will precede these.\n\n```bash\n$ DOTENV_CONFIG_<OPTION>=value node -r dotenv/config your_script.js\n```\n\n```bash\n$ DOTENV_CONFIG_ENCODING=latin1 DOTENV_CONFIG_DEBUG=true node -r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env\n```\n\n### Variable Expansion\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to use variable expansion.\n\nReference and expand variables already on your machine for use in your .env file.\n\n```ini\n# .env\nUSERNAME=\"username\"\nDATABASE_URL=\"postgres://REDACTED@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (2) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Command Substitution\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to use command substitution.\n\nAdd the output of a command to one of your variables in your .env file.\n\n```ini\n# .env\nDATABASE_URL=\"postgres://REDACTED@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Syncing\n\nYou need to keep `.env` files in sync betw",
-services/restored_documents.json:37046:      "content": "_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Syncing\n\nYou need to keep `.env` files in sync between machines, environments, or team members? Use [dotenvx](https://github.com/dotenvx/dotenvx) to encrypt your `.env` files and safely include them in source control. This still subscribes to the twelve-factor app rules by generating a decryption key separate from code.\n\n### Multiple Environments\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to generate `.env.ci`, `.env.production` files, and more.\n\n### Deploying\n\nYou need to deploy your secrets in a cloud-agnostic manner? Use [dotenvx](https://github.com/dotenvx/dotenvx) to generate a private decryption key that is set on your production server.\n\n## \ud83c\udf34 Manage Multiple Environments\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx)\n\nRun any environment locally. Create a `.env.ENVIRONMENT` file and use `--env-file` to load it. It's straightforward, yet flexible.\n\n```bash\n$ echo \"HELLO=production\" > .env.production\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx run --env-file=.env.production -- node index.js\nHello production\n> ^^\n```\n\nor with multiple .env files\n\n```bash\n$ echo \"HELLO=local\" > .env.local\n$ echo \"HELLO=World\" > .env\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx ",
-services/restored_documents.json:48382:      "content": "r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env dotenv_config_debug=true\n```\n\nAdditionally, you can use environment variables to set configuration options. Command line arguments will precede these.\n\n```bash\n$ DOTENV_CONFIG_<OPTION>=value node -r dotenv/config your_script.js\n```\n\n```bash\n$ DOTENV_CONFIG_ENCODING=latin1 DOTENV_CONFIG_DEBUG=true node -r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env\n```\n\n### Variable Expansion\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to use variable expansion.\n\nReference and expand variables already on your machine for use in your .env file.\n\n```ini\n# .env\nUSERNAME=\"username\"\nDATABASE_URL=\"postgres://REDACTED@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (2) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Command Substitution\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to use command substitution.\n\nAdd the output of a command to one of your variables in your .env file.\n\n```ini\n# .env\nDATABASE_URL=\"postgres://REDACTED@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Syncing\n\nYou need to keep `.env` files in sync betw",
-services/restored_documents.json:48390:      "content": "_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Syncing\n\nYou need to keep `.env` files in sync between machines, environments, or team members? Use [dotenvx](https://github.com/dotenvx/dotenvx) to encrypt your `.env` files and safely include them in source control. This still subscribes to the twelve-factor app rules by generating a decryption key separate from code.\n\n### Multiple Environments\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to generate `.env.ci`, `.env.production` files, and more.\n\n### Deploying\n\nYou need to deploy your secrets in a cloud-agnostic manner? Use [dotenvx](https://github.com/dotenvx/dotenvx) to generate a private decryption key that is set on your production server.\n\n## \ud83c\udf34 Manage Multiple Environments\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx)\n\nRun any environment locally. Create a `.env.ENVIRONMENT` file and use `--env-file` to load it. It's straightforward, yet flexible.\n\n```bash\n$ echo \"HELLO=production\" > .env.production\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx run --env-file=.env.production -- node index.js\nHello production\n> ^^\n```\n\nor with multiple .env files\n\n```bash\n$ echo \"HELLO=local\" > .env.local\n$ echo \"HELLO=World\" > .env\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx ",
-services/restored_documents.json:58142:      "content": "r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env dotenv_config_debug=true\n```\n\nAdditionally, you can use environment variables to set configuration options. Command line arguments will precede these.\n\n```bash\n$ DOTENV_CONFIG_<OPTION>=value node -r dotenv/config your_script.js\n```\n\n```bash\n$ DOTENV_CONFIG_ENCODING=latin1 DOTENV_CONFIG_DEBUG=true node -r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env\n```\n\n### Variable Expansion\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to use variable expansion.\n\nReference and expand variables already on your machine for use in your .env file.\n\n```ini\n# .env\nUSERNAME=\"username\"\nDATABASE_URL=\"postgres://REDACTED@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (2) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Command Substitution\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to use command substitution.\n\nAdd the output of a command to one of your variables in your .env file.\n\n```ini\n# .env\nDATABASE_URL=\"postgres://REDACTED@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Syncing\n\nYou need to keep `.env` files in sync betw",
-services/restored_documents.json:58150:      "content": "_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Syncing\n\nYou need to keep `.env` files in sync between machines, environments, or team members? Use [dotenvx](https://github.com/dotenvx/dotenvx) to encrypt your `.env` files and safely include them in source control. This still subscribes to the twelve-factor app rules by generating a decryption key separate from code.\n\n### Multiple Environments\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to generate `.env.ci`, `.env.production` files, and more.\n\n### Deploying\n\nYou need to deploy your secrets in a cloud-agnostic manner? Use [dotenvx](https://github.com/dotenvx/dotenvx) to generate a private decryption key that is set on your production server.\n\n## \ud83c\udf34 Manage Multiple Environments\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx)\n\nRun any environment locally. Create a `.env.ENVIRONMENT` file and use `--env-file` to load it. It's straightforward, yet flexible.\n\n```bash\n$ echo \"HELLO=production\" > .env.production\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx run --env-file=.env.production -- node index.js\nHello production\n> ^^\n```\n\nor with multiple .env files\n\n```bash\n$ echo \"HELLO=local\" > .env.local\n$ echo \"HELLO=World\" > .env\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx ",
-services/restored_documents.json:63734:      "content": "r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env dotenv_config_debug=true\n```\n\nAdditionally, you can use environment variables to set configuration options. Command line arguments will precede these.\n\n```bash\n$ DOTENV_CONFIG_<OPTION>=value node -r dotenv/config your_script.js\n```\n\n```bash\n$ DOTENV_CONFIG_ENCODING=latin1 DOTENV_CONFIG_DEBUG=true node -r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env\n```\n\n### Variable Expansion\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to use variable expansion.\n\nReference and expand variables already on your machine for use in your .env file.\n\n```ini\n# .env\nUSERNAME=\"username\"\nDATABASE_URL=\"postgres://REDACTED@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (2) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Command Substitution\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to use command substitution.\n\nAdd the output of a command to one of your variables in your .env file.\n\n```ini\n# .env\nDATABASE_URL=\"postgres://REDACTED@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Syncing\n\nYou need to keep `.env` files in sync betw",
-services/restored_documents.json:63742:      "content": "_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Syncing\n\nYou need to keep `.env` files in sync between machines, environments, or team members? Use [dotenvx](https://github.com/dotenvx/dotenvx) to encrypt your `.env` files and safely include them in source control. This still subscribes to the twelve-factor app rules by generating a decryption key separate from code.\n\n### Multiple Environments\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to generate `.env.ci`, `.env.production` files, and more.\n\n### Deploying\n\nYou need to deploy your secrets in a cloud-agnostic manner? Use [dotenvx](https://github.com/dotenvx/dotenvx) to generate a private decryption key that is set on your production server.\n\n## \ud83c\udf34 Manage Multiple Environments\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx)\n\nRun any environment locally. Create a `.env.ENVIRONMENT` file and use `--env-file` to load it. It's straightforward, yet flexible.\n\n```bash\n$ echo \"HELLO=production\" > .env.production\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx run --env-file=.env.production -- node index.js\nHello production\n> ^^\n```\n\nor with multiple .env files\n\n```bash\n$ echo \"HELLO=local\" > .env.local\n$ echo \"HELLO=World\" > .env\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx ",
-services/restored_documents.json:78374:      "content": "r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env dotenv_config_debug=true\n```\n\nAdditionally, you can use environment variables to set configuration options. Command line arguments will precede these.\n\n```bash\n$ DOTENV_CONFIG_<OPTION>=value node -r dotenv/config your_script.js\n```\n\n```bash\n$ DOTENV_CONFIG_ENCODING=latin1 DOTENV_CONFIG_DEBUG=true node -r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env\n```\n\n### Variable Expansion\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to use variable expansion.\n\nReference and expand variables already on your machine for use in your .env file.\n\n```ini\n# .env\nUSERNAME=\"username\"\nDATABASE_URL=\"postgres://REDACTED@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (2) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Command Substitution\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to use command substitution.\n\nAdd the output of a command to one of your variables in your .env file.\n\n```ini\n# .env\nDATABASE_URL=\"postgres://REDACTED@localhost/my_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Syncing\n\nYou need to keep `.env` files in sync betw",
-services/restored_documents.json:78382:      "content": "_database\"\n```\n```js\n// index.js\nconsole.log('DATABASE_URL', process.env.DATABASE_URL)\n```\n```sh\n$ dotenvx run --debug -- node index.js\n[dotenvx@0.14.1] injecting env (1) from .env\nDATABASE_URL postgres://REDACTED@localhost/my_database\n```\n\n### Syncing\n\nYou need to keep `.env` files in sync between machines, environments, or team members? Use [dotenvx](https://github.com/dotenvx/dotenvx) to encrypt your `.env` files and safely include them in source control. This still subscribes to the twelve-factor app rules by generating a decryption key separate from code.\n\n### Multiple Environments\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx) to generate `.env.ci`, `.env.production` files, and more.\n\n### Deploying\n\nYou need to deploy your secrets in a cloud-agnostic manner? Use [dotenvx](https://github.com/dotenvx/dotenvx) to generate a private decryption key that is set on your production server.\n\n## \ud83c\udf34 Manage Multiple Environments\n\nUse [dotenvx](https://github.com/dotenvx/dotenvx)\n\nRun any environment locally. Create a `.env.ENVIRONMENT` file and use `--env-file` to load it. It's straightforward, yet flexible.\n\n```bash\n$ echo \"HELLO=production\" > .env.production\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx run --env-file=.env.production -- node index.js\nHello production\n> ^^\n```\n\nor with multiple .env files\n\n```bash\n$ echo \"HELLO=local\" > .env.local\n$ echo \"HELLO=World\" > .env\n$ echo \"console.log('Hello ' + process.env.HELLO)\" > index.js\n\n$ dotenvx ",
-services/hippocampus_service.py:11:GBIM_DSN = os.getenv(
-services/hippocampus_service.py:12:    "GBIM_DSN",
-services/hippocampus_service.py:76:        with closing(psycopg2.connect(GBIM_DSN)) as conn:
-services/export_geodb_attrs.py:3:POSTGRES_URL = os.environ.get("POSTGRES_URL")
-services/export_geodb_attrs.py:4:if not POSTGRES_URL:
-services/export_geodb_attrs.py:5:    print("POSTGRES_URL not set", file=sys.stderr)
-services/export_geodb_attrs.py:40:            ["psql", POSTGRES_URL, "-At", "-c", sql],
-services/gbim_query_router.py:17:GEODB_DSN          = os.getenv("GEODB_DSN", "postgresql://REDACTED@jarvis-local-resources-db:5432/msjarvisgis")
-services/gbim_query_router.py:18:HP_DATABASE_URL    = os.getenv("HP_DATABASE_URL", "postgresql://REDACTED@hp-local-db:5432/hilbert_people")
-services/gbim_query_router.py:43:    return await asyncpg.connect(HP_DATABASE_URL)
-services/geodb_adapter.py:5:GEODB_DSN = os.getenv("GEODB_DSN", "postgresql://REDACTED@localhost:5432/msjarvis_gis")
-services/geodb_adapter.py:8:    conn = psycopg2.connect(GEODB_DSN)
-services/resume_sync_wvgistc_buildings.py:9:GEODB_DSN = "postgresql://REDACTED@localhost:5432/msjarvis_gis"
-services/resume_sync_wvgistc_buildings.py:31:conn = psycopg2.connect(GEODB_DSN)
-services/ingest/ms_allis_ingest_worker.py:22:PGHOST       = os.getenv("DB_HOST")       or os.getenv("PGHOST",    "172.17.0.1")
-services/ingest/ms_allis_ingest_worker.py:23:PGPORT       = int(os.getenv("DB_PORT")   or os.getenv("PGPORT",    "5432"))
-services/ingest/ms_allis_ingest_worker.py:24:PGDATABASE   = os.getenv("DB_NAME")       or os.getenv("PGDATABASE","msjarvisgis")
-services/ingest/ms_allis_ingest_worker.py:25:PGUSER       = os.getenv("DB_USER")       or os.getenv("PGUSER",    "msjarvis")
-services/ingest/ms_allis_ingest_worker.py:98:        host=PGHOST, port=PGPORT, dbname=PGDATABASE,
-services/ingest/ms_allis_ingest_worker.py:99:        user=PGUSER, password=PGPASSWORD
-services/mountainshares_quest_api.py:5:GEODB_DSN = "postgresql://REDACTED@localhost:5432/msjarvis_gis"
-services/mountainshares_gbim_suggester.py:14:GBIM_DSN = os.environ.get(
-services/mountainshares_gbim_suggester.py:15:    "GBIM_DSN",
-services/mountainshares_gbim_suggester.py:111:        conn = await asyncpg.connect(GBIM_DSN)
-services/ingest_hospitals.py:8:GEODB_DSN = os.getenv("GEODB_DSN", "postgresql://REDACTED@localhost:5432/msjarvis_gis")
-services/ingest_hospitals.py:12:    conn = psycopg2.connect(GEODB_DSN)
-services/ingest_hospitals.py:38:    conn = psycopg2.connect(GEODB_DSN)
-services/ingest_hospitals.py:68:    conn = psycopg2.connect(GEODB_DSN)
-services/bulk_sync_gis_to_chromadb.py:10:GEODB_DSN = os.getenv("GEODB_DSN", "postgresql://REDACTED@localhost:5432/msjarvis_gis")
-services/bulk_sync_gis_to_chromadb.py:32:    conn = psycopg2.connect(GEODB_DSN)
-services/bulk_sync_gis_to_chromadb.py:108:    conn = psycopg2.connect(GEODB_DSN)
-services/create_geodb_nodes.py:9:from enrich_geodb_layers import CONFIG, GEODB_DSN, NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD, BATCH_SIZE
-services/create_geodb_nodes.py:16:    return psycopg2.connect(GEODB_DSN)
-services/sync_health_access_to_chromadb.py:5:GEODB_DSN = os.getenv("GEODB_DSN", "postgresql://REDACTED@localhost:5432/msjarvis_gis")
-services/sync_health_access_to_chromadb.py:12:    conn = psycopg2.connect(GEODB_DSN)
-services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/db_attributes.py:174:DB_NAME: Final = "db.name"
-services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/db_attributes.py:179:DB_NAMESPACE: Final = "db.namespace"
-services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/db_attributes.py:181:Deprecated in favor of stable :py:const:`opentelemetry.semconv.attributes.db_attributes.DB_NAMESPACE`.
-services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/db_attributes.py:282:DB_USER: Final = "db.user"
-services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/trace/__init__.py:406:    DB_USER = "db.user"
-services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/trace/__init__.py:416:    DB_NAME = "db.name"
-services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/attributes/db_attributes.py:32:DB_NAMESPACE: Final = "db.namespace"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/db_attributes.py:174:DB_NAME: Final = "db.name"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/db_attributes.py:179:DB_NAMESPACE: Final = "db.namespace"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/db_attributes.py:181:Deprecated in favor of stable :py:const:`opentelemetry.semconv.attributes.db_attributes.DB_NAMESPACE`.
-services/chroma_inspect_venv/lib64/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/db_attributes.py:282:DB_USER: Final = "db.user"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/opentelemetry/semconv/trace/__init__.py:406:    DB_USER = "db.user"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/opentelemetry/semconv/trace/__init__.py:416:    DB_NAME = "db.name"
-services/chroma_inspect_venv/lib64/python3.12/site-packages/opentelemetry/semconv/attributes/db_attributes.py:32:DB_NAMESPACE: Final = "db.namespace"
-services/health_access_gbim_bridge.py:12:GEODB_DSN = os.getenv("GEODB_DSN", "postgresql://REDACTED@localhost:5432/msjarvis_gis")
-services/health_access_gbim_bridge.py:19:        self.conn_string = GEODB_DSN
-services/batch_normalize_beliefs.py:12:DSN = os.getenv("GBIM_DSN", "postgresql://REDACTED@localhost:5435/msjarvis_gis")
-services/jarvis_hilbert_time.py:31:POSTGRES_DSN      = os.getenv("POSTGRES_DSN",
-services/jarvis_hilbert_time.py:48:    return psycopg2.connect(POSTGRES_DSN)
-
-===== DATABASE-CONNECTING SERVICES =====
-attrs_with_geom_api.py
-bootstrap_gbim_beliefs_eq1.py
-bulk_ingest_attrs.py
-enrich_from_attrs.py
-enrich_where.py
-gbim_orchestrator.py
-index_gis_to_chroma.py
-list_due_for_verification.py
-load_services_attrs_and_enrich.py
-msjarvis_embed_gbim.py
-msjarvis_embed_gbim_resume_tail.py
-rag_server_main.py
-services/apt-list.txt
-services/batch_normalize_beliefs.py
-services/benefits_chat.py
-services/bulk_build_beliefs.py
-services/bulk_sync_gis_to_chromadb.py
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pydantic/networks.py
-services/chroma_inspect_venv/lib64/python3.12/site-packages/pydantic/v1/networks.py
-services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/networks.py
-services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/v1/networks.py
-services/create_geodb_nodes.py
-services/Dockerfile.hippocampus
-services/Dockerfile.intake
-services/Dockerfile.pia-sampler
-services/dpkg-list.txt
-services/enrich_geodb_layers.py
-services/gbim_explain.py
-services/gbim_query_router.py
-services/geo/api.py
-services/geodb_adapter.py
-services/geo_rag_debug_app.py
-services/geo_rag_debug.py
-services/geospatial_resolver.py
-services/gis_rag_service.py
-services/health_access_gbim_bridge.py
-services/hippocampus_service.py
-services/ingest_benefit_programs_to_chroma.py
-services/ingest_compliance_tasks_to_chroma.py
-services/ingest_hospitals.py
-services/ingest/migrations/001_ms_allis_retention.sql
-services/ingest/ms_allis_ingest_worker.py
-services/ingest_utility_enrollments_to_chroma.py
-services/jarvis_hilbert_time.py
-services/jarvis_steward/Dockerfile
-services/jarvis_steward/main.py
-services/jarvis_steward.py
-services/local_resources_resolver.py
-services/mother_carrie_logging.py
-services/mountainshares_gbim_suggester.py
-services/mountainshares_quest_api.py
-services/populate_redetermination_tracker.py
-services/prod.yaml
-services/rag_server_main.py
-services/requirements-freeze.txt
-services/requirements_gbim.txt
-services/requirements-list.txt
-services/requirements.txt
-services/restored_documents.json
-services/resume_sync_wvgistc_buildings.py
-services/sync_health_access_to_chromadb.py
-sync_gbim_to_chroma.py
-
-===== OUTPUT DIRECTORY =====
-/tmp/meaning-geometry-investigation/20-protocol-apparatus-verification-20260810T131337Z/21-source-record-and-field-verification/22-catalog-diagnostics
+===== IMPLEMENTATION INSPECTION MANIFEST =====
+5d835fc76e09f9fc66aac62d065014949fb92d5dc587b4a837bdf878284086a9  /mnt/nvme1/msjarvis-rebuild/research/meaning_geometry_source_record_v1/inspection/governed_route_discovery/20llm-container-runtime.txt
+e3dd12cde2bcb2e96d6cd0a715657836198314ddd35ef6c3660e375a8dd331de  /mnt/nvme1/msjarvis-rebuild/research/meaning_geometry_source_record_v1/inspection/governed_route_discovery/20llm-contract-probe-logs.txt
+d98ddc9745de60576c182d0f912f5546fdc63c9bf95a5e60c93cf67c3acf7ac9  /mnt/nvme1/msjarvis-rebuild/research/meaning_geometry_source_record_v1/inspection/governed_route_discovery/20llm-answer-route-source-index.txt
+a54e9d03652df1de87816f1b26c3fb0293909d439e46868692dbabc507b912ed  /mnt/nvme1/msjarvis-rebuild/research/meaning_geometry_source_record_v1/inspection/governed_route_discovery/20llm-answer-route-source-context.txt
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ 
+
