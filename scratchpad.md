@@ -1,1287 +1,457 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ bash ~/Downloads/stage-6.11.9-2a-seam-dump.sh
-=== STAGE 6.11.9-2A SEAM DUMP (READ ONLY) ===
-Sat Aug  8 01:28:07 PM UTC 2026
-branch=stage-6.11.9-guardian-decision-service-2a
-head=5f728e632eb130e919f9b1a22c16f27d2e2566ce
+crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-guardian-deploy-candidate-e8827b2$ cd "$HOME/msjarvis-guardian-deploy-candidate-e8827b2"
 
-############################################################
-# GUARDIAN DECISION SERVICE (the file 2A modifies) — FULL
-############################################################
-     1	import os
-     2	import json
-     3	import hashlib
-     4	import subprocess
-     5	import sys
-     6	import tempfile
-     7	# [ws1-caller-auth] stdlib for caller-identity registry lookup
-     8	from pathlib import Path
-     9	from fastapi import FastAPI, HTTPException
-    10	from fastapi import Depends, Header
-    11	from fastapi.middleware.cors import CORSMiddleware
-    12	from pydantic import BaseModel
-    13	from typing import Optional, List, Dict, Any
-    14	from datetime import datetime
-    15	import logging
-    16	import uvicorn
-    17	
-    18	logger = logging.getLogger(__name__)
-    19	
-    20	app = FastAPI(
-    21	    title="Ms. Jarvis Constitutional Guardian",
-    22	    description="Constitutional immutable constraints grounded in U.S. Constitution",
-    23	    version="2.1.0-USC-Audit"
-    24	)
-    25	
-    26	app.add_middleware(
-    27	    CORSMiddleware,
-    28	    allow_origins=["*"],
-    29	    allow_credentials=True,
-    30	    allow_methods=["*"],
-    31	    allow_headers=["*"],
-    32	)
-    33	
-    34	# Load constitutional principles
-    35	PRINCIPLES_FILE = Path(__file__).parent / "constitutional_principles.json"
-    36	try:
-    37	    with open(PRINCIPLES_FILE) as f:
-    38	        CONSTITUTION = json.load(f)
-    39	    logger.info(f"Loaded constitution version: {CONSTITUTION.get('constitution_version', 'unknown')}")
-    40	    logger.info(f"Foundation: {CONSTITUTION.get('foundation', 'unknown')}")
-    41	except FileNotFoundError:
-    42	    logger.warning(f"Constitutional principles file not found at {PRINCIPLES_FILE}, using defaults")
-    43	    CONSTITUTION = {
-    44	        "constitution_version": "1.0.0-fallback",
-    45	        "foundation": "U.S. Constitution",
-    46	        "principle_groups": []
-    47	    }
-    48	
-    49	# Persistent audit log file
-    50	AUDIT_LOG_FILE = Path("/app/audit/constitutional_audit.jsonl")
-    51	AUDIT_LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
-    52	
-    53	# In-memory cache of recent audits
-    54	AUDIT_LOG_CACHE = []
-    55	
-    56	# Versions tracking
-    57	CONSTITUTION_VERSIONS = []
-    58	
-    59	def write_audit_entry(entry: Dict[str, Any]):
-    60	    """Write audit entry to persistent file (JSON Lines format)"""
-    61	    try:
-    62	        with open(AUDIT_LOG_FILE, 'a') as f:
-    63	            f.write(json.dumps(entry) + '\n')
-    64	        logger.debug(f"Audit entry written: {entry['decision']}")
-    65	    except Exception as e:
-    66	        logger.error(f"Failed to write audit entry: {e}")
-    67	
-    68	def read_audit_log(limit: int = 100, decision_filter: Optional[str] = None) -> List[Dict[str, Any]]:
-    69	    """Read audit entries from persistent file"""
-    70	    entries = []
-    71	    try:
-    72	        if AUDIT_LOG_FILE.exists():
-    73	            with open(AUDIT_LOG_FILE, 'r') as f:
-    74	                for line in f:
-    75	                    if line.strip():
-    76	                        entry = json.loads(line)
-    77	                        if decision_filter is None or entry.get("decision") == decision_filter:
-    78	                            entries.append(entry)
-    79	        
-    80	        # Return most recent entries
-    81	        return entries[-limit:]
-    82	    except Exception as e:
-    83	        logger.error(f"Failed to read audit log: {e}")
-    84	        return []
-    85	
-    86	# Pydantic models for check endpoint
-    87	class CheckRequest(BaseModel):
-    88	    actor_role: str
-    89	    context: str
-    90	    action_type: str
-    91	    content: str
-    92	    metadata: Dict[str, Any] = {}
-    93	
-    94	class CheckResult(BaseModel):
-    95	    allowed: bool
-    96	    decision: str
-    97	    principles_applied: List[str]
-    98	    constitution_version: str
-    99	    reason: Optional[str] = None
-   100	
-   101	@app.on_event("startup")
-   102	async def load_constitution_versions():
-   103	    """Load all historical constitution versions on startup"""
-   104	    global CONSTITUTION_VERSIONS, AUDIT_LOG_CACHE
-   105	    
-   106	    # Add current version
-   107	    CONSTITUTION_VERSIONS.append({
-   108	        "version": CONSTITUTION.get("constitution_version", "unknown"),
-   109	        "loaded_at": datetime.utcnow().isoformat(),
-   110	        "foundation": CONSTITUTION.get("foundation", "U.S. Constitution"),
-   111	        "last_updated": CONSTITUTION.get("last_updated", "unknown"),
-   112	        "principle_groups": len(CONSTITUTION.get("principle_groups", [])),
-   113	        "status": "active"
-   114	    })
-   115	    
-   116	    logger.info(f"Constitution version {CONSTITUTION.get('constitution_version')} loaded and tracked")
-   117	    logger.info(f"Audit log file: {AUDIT_LOG_FILE}")
-   118	    
-   119	    # Load recent audit entries into cache
-   120	    AUDIT_LOG_CACHE = read_audit_log(limit=1000)
-   121	    logger.info(f"Loaded {len(AUDIT_LOG_CACHE)} recent audit entries into cache")
-   122	
-   123	@app.get("/health")
-   124	async def health():
-   125	    return {
-   126	        "status": "healthy",
-   127	        "service": "constitutional_guardian",
-   128	        "audit_log_enabled": True,
-   129	        "audit_file": str(AUDIT_LOG_FILE)
-   130	    }
-   131	
-   132	@app.get("/constitutional/status")
-   133	async def constitutional_status():
-   134	    """Ms. Jarvis Constitutional Guardian - U.S. Constitution compliance"""
-   135	    return {
-   136	        "guardian": "Constitutional Guardian",
-   137	        "status": "active",
-   138	        "framework": "United States Constitution",
-   139	        "foundation": CONSTITUTION.get("foundation", "U.S. Constitution"),
-   140	        "oversight": "enabled",
-   141	        "authority": "constitutional",
-   142	        "constitution_version": CONSTITUTION.get("constitution_version", "unknown"),
-   143	        "audit_log": "persistent"
-   144	    }
-   145	
-   146	@app.get("/constitutional/principles")
-   147	async def constitutional_principles():
-   148	    """List all constitutional principles"""
-   149	    return CONSTITUTION
-   150	
-   151	
-   152	# ============================================================================
-   153	# [stage-6.11.6] Runtime admission enforcement helpers.
-   154	#
-   155	# These do NOT modify the sealed trust tree. They call the sealed verifier
-   156	# verify_runtime_admission_record.py as a subprocess (the verifier is baseline-
-   157	# sealed; we only consume it). Enforcement is fail-closed: any missing config,
-   158	# missing record, or non-zero verifier exit results in denial.
-   159	#
-   160	# Configuration (all via environment, so the hook is inert until provisioned):
-   161	#   GUARDIAN_ADMISSION_RECORD   path to a granted runtime-admission-record JSON
-   162	#   GUARDIAN_ADMISSION_MANIFEST path to the signed runtime-authority manifest
-   163	#   GUARDIAN_TRUSTED_KEYS       path to the trusted-public-keys registry
-   164	#   GUARDIAN_GOVERNANCE_POLICIES path to the governance policies
-   165	#   GUARDIAN_TRUST_DIR          dir containing verify_runtime_admission_record.py
-   166	# ============================================================================
-   167	from fastapi import HTTPException as _HTTPException  # already imported above; alias is safe
-   168	
-   169	
-   170	def _sha256_commitment(content: str) -> str:
-   171	    """Deterministic, cross-process-stable evidence commitment.
-   172	
-   173	    Replaces str(hash(...)), which is non-deterministic (PYTHONHASHSEED) and
-   174	    unusable as an evidence commitment.
-   175	    """
-   176	    digest = hashlib.sha256(content.encode("utf-8")).hexdigest()
-   177	    return "sha256:" + digest
-   178	
-   179	
-   180	def _require_runtime_admission() -> None:
-   181	    """Fail-closed admission gate for the protected decision route.
-   182	
-   183	    Raises HTTP 403 unless a granted runtime-admission-record is configured and
-   184	    passes the sealed verifier. Absent configuration => denial (inert-safe).
-   185	    """
-   186	    record = os.environ.get("GUARDIAN_ADMISSION_RECORD")
-   187	    manifest = os.environ.get("GUARDIAN_ADMISSION_MANIFEST")
-   188	    keys = os.environ.get("GUARDIAN_TRUSTED_KEYS")
-   189	    policies = os.environ.get("GUARDIAN_GOVERNANCE_POLICIES")
-   190	    trust_dir = os.environ.get("GUARDIAN_TRUST_DIR")
-   191	
-   192	    missing = [
-   193	        name
-   194	        for name, val in (
-   195	            ("GUARDIAN_ADMISSION_RECORD", record),
-   196	            ("GUARDIAN_ADMISSION_MANIFEST", manifest),
-   197	            ("GUARDIAN_TRUSTED_KEYS", keys),
-   198	            ("GUARDIAN_GOVERNANCE_POLICIES", policies),
-   199	            ("GUARDIAN_TRUST_DIR", trust_dir),
-   200	        )
-   201	        if not val
-   202	    ]
-   203	    if missing:
-   204	        logger.warning(
-   205	            "Runtime admission denied: unconfigured (missing %s)", ", ".join(missing)
-   206	        )
-   207	        raise _HTTPException(
-   208	            status_code=403,
-   209	            detail="RUNTIME_ADMISSION_UNCONFIGURED",
-   210	        )
-   211	
-   212	    verifier = Path(trust_dir) / "verify_runtime_admission_record.py"
-   213	    if not verifier.is_file():
-   214	        logger.error("Runtime admission denied: verifier not found at %s", verifier)
-   215	        raise _HTTPException(status_code=403, detail="RUNTIME_ADMISSION_VERIFIER_MISSING")
-   216	
-   217	    for label, p in (
-   218	        ("record", record),
-   219	        ("manifest", manifest),
-   220	        ("keys", keys),
-   221	        ("policies", policies),
-   222	    ):
-   223	        if not Path(p).is_file():
-   224	            logger.error("Runtime admission denied: %s file missing at %s", label, p)
-   225	            raise _HTTPException(status_code=403, detail="RUNTIME_ADMISSION_INPUT_MISSING")
-   226	
-   227	    try:
-   228	        result = subprocess.run(
-   229	            [
-   230	                sys.executable,
-   231	                str(verifier),
-   232	                str(record),
-   233	                str(manifest),
-   234	                str(keys),
-   235	                str(policies),
-   236	            ],
-   237	            capture_output=True,
-   238	            text=True,
-   239	            timeout=30,
-   240	        )
-   241	    except Exception as exc:  # subprocess failure => fail closed
-   242	        logger.error("Runtime admission denied: verifier invocation failed: %s", exc)
-   243	        raise _HTTPException(status_code=403, detail="RUNTIME_ADMISSION_VERIFIER_ERROR")
-   244	
-   245	    if result.returncode != 0:
-   246	        logger.warning(
-   247	            "Runtime admission denied: verifier rejected (rc=%s) %s",
-   248	            result.returncode,
-   249	            (result.stdout or result.stderr or "").strip()[:200],
-   250	        )
-   251	        raise _HTTPException(status_code=403, detail="RUNTIME_ADMISSION_DENIED")
-   252	
-   253	    logger.info("Runtime admission granted for /constitutional/check")
-   254	
-   255	
-   256	# ============================================================================
-   257	# [ws1-caller-auth] Caller-identity authentication.
-   258	#
-   259	# Establishes WHO is calling before any protected decision runs. Distinct from
-   260	# runtime admission (whether the runtime may act). Fail-closed: unconfigured or
-   261	# invalid credential => denial.
-   262	#
-   263	# Configuration:
-   264	#   GUARDIAN_CALLER_REGISTRY  path to a JSON map of allowed caller tokens:
-   265	#     { "<opaque-token>": { "caller_id": "did:...", "roles": ["caller"] }, ... }
-   266	# ============================================================================
-   267	
-   268	
-   269	def _authenticate_caller(token: "Optional[str]") -> str:
-   270	    """Return the caller_id for a valid token, else raise 401. Fail-closed."""
-   271	    registry_path = os.environ.get("GUARDIAN_CALLER_REGISTRY")
-   272	    if not registry_path:
-   273	        logger.warning("Caller auth denied: GUARDIAN_CALLER_REGISTRY unconfigured")
-   274	        raise _HTTPException(status_code=401, detail="CALLER_AUTH_UNCONFIGURED")
-   275	    if not token:
-   276	        logger.warning("Caller auth denied: missing X-Caller-Token")
-   277	        raise _HTTPException(status_code=401, detail="CALLER_TOKEN_MISSING")
-   278	    p = Path(registry_path)
-   279	    if not p.is_file():
-   280	        logger.error("Caller auth denied: registry not found at %s", registry_path)
-   281	        raise _HTTPException(status_code=401, detail="CALLER_REGISTRY_MISSING")
-   282	    try:
-   283	        registry = json.loads(p.read_text())
-   284	    except Exception as exc:
-   285	        logger.error("Caller auth denied: registry unreadable: %s", exc)
-   286	        raise _HTTPException(status_code=401, detail="CALLER_REGISTRY_INVALID")
-   287	    entry = registry.get(token)
-   288	    if not isinstance(entry, dict) or not entry.get("caller_id"):
-   289	        logger.warning("Caller auth denied: token not recognized")
-   290	        raise _HTTPException(status_code=401, detail="CALLER_NOT_AUTHENTICATED")
-   291	    caller_id = entry["caller_id"]
-   292	    logger.info("Caller authenticated: %s", caller_id)
-   293	    return caller_id
-   294	
-   295	@app.post("/constitutional/check", response_model=CheckResult)
-   296	async def constitutional_check(
-   297	    req: CheckRequest,
-   298	    x_caller_token: Optional[str] = Header(default=None),
-   299	):
-   300	    """Check if a proposed action complies with constitutional principles"""
-   301	
-   302	    # [ws1-caller-auth] authenticate the caller BEFORE any decision logic.
-   303	    # Fail-closed: no valid caller credential => 401, before admission runs.
-   304	    _authenticate_caller(x_caller_token)
-   305	
-   306	    # [stage-6.11.6] fail-closed runtime admission precondition.
-   307	    # Denies unless a REAL granted admission record is provisioned and
-   308	    # verifies against the sealed verifier. Inert (denies) until then.
-   309	    _require_runtime_admission()
-   310	    
-   311	    content_lower = req.content.lower()
-   312	    actor_lower = req.actor_role.lower()
-   313	    violations = []
-   314	    warnings = []
-   315	    principles_applied = []
-   316	    
-   317	    # 10th Amendment - Protection against extraction
-   318	    extraction_terms = ["extract", "exploit", "commercialize", "monetize", "harvest"]
-   319	    community_terms = ["community", "appalachia", "data", "value", "local", "citizen"]
-   320	    
-   321	    if any(word in content_lower for word in extraction_terms):
-   322	        if any(word in content_lower for word in community_terms):
-   323	            violations.append("10a-no-extraction")
-   324	            warnings.append("Attempted economic exploitation of community resources")
-   325	    
-   326	    # First Amendment - Check for censorship
-   327	    if "censor" in content_lower or "suppress speech" in content_lower:
-   328	        violations.append("1a-speech")
-   329	        warnings.append("Attempted suppression of free speech")
-   330	    
-   331	    # Fourth Amendment - Privacy violations
-   332	    if any(word in content_lower for word in ["surveil", "monitor without consent", "unauthorized access"]):
-   333	        violations.append("4a-privacy")
-   334	        warnings.append("Privacy violation attempt")
-   335	    
-   336	    # Fifth Amendment - Due process violations
-   337	    if any(word in content_lower for word in ["deprive without process", "take without compensation"]):
-   338	        violations.append("5a-due-process")
-   339	        warnings.append("Due process violation")
-   340	    
-   341	    # General harm prevention
-   342	    harm_terms = ["harm", "damage", "destroy", "attack", "injure"]
-   343	    if any(word in content_lower for word in harm_terms):
-   344	        violations.append("gw-public-benefit")
-   345	        warnings.append("Potential harm to general welfare")
-   346	    
-   347	    # Coercion and manipulation checks
-   348	    coercion_terms = ["force", "coerce", "manipulate", "deceive", "trick"]
-   349	    if any(word in content_lower for word in coercion_terms):
-   350	        violations.append("14a-due-process")
-   351	        warnings.append("Attempted coercion or manipulation")
-   352	    
-   353	    # Check for discrimination
-   354	    discrimination_terms = ["discriminate based on", "deny equal access", "unequal treatment"]
-   355	    if any(term in content_lower for term in discrimination_terms):
-   356	        violations.append("14a-equal-protection")
-   357	        warnings.append("Equal protection violation")
-   358	    
-   359	    # Create audit entry
-   360	    audit_entry = {
-   361	        "timestamp": datetime.utcnow().isoformat(),
-   362	        "actor_role": req.actor_role,
-   363	        "context": req.context,
-   364	        "action_type": req.action_type,
-   365	        # [stage-6.11.6] deterministic evidence commitment
-   366	        "content_commitment": _sha256_commitment(req.content),
-   367	        "decision": "blocked" if violations else "allowed",
-   368	        "principles_applied": violations if violations else ["1a-speech", "14a-equal-protection", "gw-public-benefit"],
-   369	        "constitution_version": CONSTITUTION.get("constitution_version", "unknown"),
-   370	        "warnings": warnings if warnings else None
-   371	    }
-   372	    
-   373	    # Write to persistent log
-   374	    write_audit_entry(audit_entry)
-   375	    
-   376	    # Also add to cache
-   377	    AUDIT_LOG_CACHE.append(audit_entry)
-   378	    if len(AUDIT_LOG_CACHE) > 1000:
-   379	        AUDIT_LOG_CACHE.pop(0)
-   380	    
-   381	    if violations:
-   382	        return CheckResult(
-   383	            allowed=False,
-   384	            decision="blocked",
-   385	            principles_applied=violations,
-   386	            constitution_version=CONSTITUTION.get("constitution_version", "unknown"),
-   387	            reason=f"Constitutional violations detected: {', '.join(warnings)}"
-   388	        )
-   389	    
-   390	    # Default: allow
-   391	    principles_applied = ["1a-speech", "14a-equal-protection", "gw-public-benefit"]
-   392	    
-   393	    return CheckResult(
-   394	        allowed=True,
-   395	        decision="allowed",
-   396	        principles_applied=principles_applied,
-   397	        constitution_version=CONSTITUTION.get("constitution_version", "unknown")
-   398	    )
-   399	
-   400	@app.get("/constitutional/audit")
-   401	async def constitutional_audit(
-   402	    limit: int = 100,
-   403	    decision: Optional[str] = None
-   404	):
-   405	    """Audit trail of constitutional decisions from persistent log"""
-   406	    entries = read_audit_log(limit=limit, decision_filter=decision)
-   407	    
-   408	    blocked = sum(1 for entry in entries if entry["decision"] == "blocked")
-   409	    allowed = sum(1 for entry in entries if entry["decision"] == "allowed")
-   410	    
-   411	    return {
-   412	        "guardian": "Constitutional Guardian",
-   413	        "audit_status": "persistent",
-   414	        "audit_file": str(AUDIT_LOG_FILE),
-   415	        "total_decisions": len(entries),
-   416	        "blocked": blocked,
-   417	        "allowed": allowed,
-   418	        "recent_decisions": entries[-min(10, len(entries)):] if entries else [],
-   419	        "framework": "U.S. Constitution",
-   420	        "constitution_version": CONSTITUTION.get("constitution_version", "unknown")
-   421	    }
-   422	
-   423	@app.get("/constitutional/audit/stats")
-   424	async def constitutional_audit_stats():
-   425	    """Statistical analysis of audit log"""
-   426	    all_entries = read_audit_log(limit=10000)
-   427	    
-   428	    if not all_entries:
-   429	        return {
-   430	            "total_checks": 0,
-   431	            "blocked": 0,
-   432	            "allowed": 0,
-   433	            "block_rate": 0.0
-   434	        }
-   435	    
-   436	    blocked = sum(1 for e in all_entries if e["decision"] == "blocked")
-   437	    allowed = sum(1 for e in all_entries if e["decision"] == "allowed")
-   438	    
-   439	    # Count violations by principle
-   440	    principle_violations = {}
-   441	    for entry in all_entries:
-   442	        if entry["decision"] == "blocked":
-   443	            for principle in entry.get("principles_applied", []):
-   444	                principle_violations[principle] = principle_violations.get(principle, 0) + 1
-   445	    
-   446	    return {
-   447	        "total_checks": len(all_entries),
-   448	        "blocked": blocked,
-   449	        "allowed": allowed,
-   450	        "block_rate": blocked / len(all_entries) if len(all_entries) > 0 else 0.0,
-   451	        "most_violated_principles": sorted(
-   452	            principle_violations.items(),
-   453	            key=lambda x: x[1],
-   454	            reverse=True
-   455	        )[:10]
-   456	    }
-   457	
-   458	@app.get("/constitutional/versions")
-   459	async def constitutional_versions():
-   460	    """List all constitution versions with change history"""
-   461	    return {
-   462	        "current_version": CONSTITUTION.get("constitution_version", "unknown"),
-   463	        "foundation": CONSTITUTION.get("foundation", "U.S. Constitution"),
-   464	        "versions": CONSTITUTION_VERSIONS,
-   465	        "total_versions": len(CONSTITUTION_VERSIONS),
-   466	        "change_log": [
-   467	            {
-   468	                "version": "2026-02-17.2-USC",
-   469	                "date": "2026-02-17",
-   470	                "changes": [
-   471	                    "Aligned all principles with U.S. Constitution",
-   472	                    "Added First Amendment protections (speech, religion, assembly, petition)",
-   473	                    "Added Fourth Amendment privacy protections",
-   474	                    "Added Fifth Amendment due process and property rights",
-   475	                    "Added Fourteenth Amendment equal protection",
-   476	                    "Added General Welfare and community sovereignty principles",
-   477	                    "Replaced Mother Carrie Protocol with constitutional foundation"
-   478	                ],
-   479	                "status": "active"
-   480	            },
-   481	            {
-   482	                "version": "2026-02-17.1",
-   483	                "date": "2026-02-17",
-   484	                "changes": [
-   485	                    "Initial Mother Carrie Protocol implementation",
-   486	                    "Basic safety and transparency principles"
-   487	                ],
-   488	                "status": "superseded"
-   489	            }
-   490	        ]
-   491	    }
-   492	
-   493	@app.get("/constitutional/changes/{version}")
-   494	async def constitutional_changes(version: str):
-   495	    """Get detailed changes for a specific version"""
-   496	    all_changes = [
-   497	        {
-   498	            "version": "2026-02-17.2-USC",
-   499	            "date": "2026-02-17",
-   500	            "changes": [
-   501	                "Aligned all principles with U.S. Constitution",
-   502	                "Added First Amendment protections",
-   503	                "Added Fourth Amendment privacy protections",
-   504	                "Added Fifth Amendment due process",
-   505	                "Added Fourteenth Amendment equal protection",
-   506	                "Added General Welfare principles",
-   507	                "Added community sovereignty (10th Amendment)"
-   508	            ],
-   509	            "principles_added": [
-   510	                "1a-speech", "1a-religion", "1a-assembly", "1a-petition",
-   511	                "4a-privacy", "4a-security",
-   512	                "5a-due-process", "5a-property", "5a-self-incrimination",
-   513	                "14a-equal-protection", "14a-due-process",
-   514	                "gw-public-benefit", "gw-justice",
-   515	                "10a-local-control", "10a-no-extraction"
-   516	            ],
-   517	            "principles_removed": ["mcp-1", "mcp-2", "mcp-3", "mcp-4"],
-   518	            "rationale": "Ground Ms. Jarvis in established U.S. Constitutional law for legitimate legal authority"
-   519	        }
-   520	    ]
-   521	    
-   522	    for change in all_changes:
-   523	        if change["version"] == version:
-   524	            return change
-   525	    
-   526	    raise HTTPException(status_code=404, detail=f"Version {version} not found")
-   527	
-   528	@app.get("/constitutional/transparency")
-   529	async def constitutional_transparency():
-   530	    """Full transparency report"""
-   531	    all_entries = read_audit_log(limit=10000)
-   532	    blocked = sum(1 for entry in all_entries if entry["decision"] == "blocked")
-   533	    allowed = sum(1 for entry in all_entries if entry["decision"] == "allowed")
-   534	    
-   535	    return {
-   536	        "guardian": "Constitutional Guardian",
-   537	        "transparency": "complete",
-   538	        "disclosure": "full",
-   539	        "accessible": True,
-   540	        "public_record": True,
-   541	        "audit_type": "persistent",
-   542	        "statistics": {
-   543	            "total_checks": len(all_entries),
-   544	            "blocked": blocked,
-   545	            "allowed": allowed
-   546	        }
-   547	    }
-   548	
-   549	if __name__ == "__main__":
-   550	    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8091)), log_level="info")
+mkdir -p trust_architecture/release_evidence
 
-############################################################
-# TRUST PRIMITIVES 2A MUST CONSUME — signatures + fail modes
-############################################################
---- schemas/mountainshares-trust-receipts/v1/operation_intent_rules.py ---
-13:def verify_signed_operation_intent(intent, registry, now=None):
-24:        raise ValueError(
-42:        raise ValueError("UNTRUSTED_SUBJECT_KEY_ID " + key_id)
-45:        raise ValueError("SUBJECT_KEY_CONTROLLER_MISMATCH " + key_id)
-53:    return verified_key_id
-
---- schemas/mountainshares-trust-receipts/v1/operation_intent_consumption.py ---
-5:def verify_and_consume_signed_operation_intent(
-21:    return verified_key_id, consumption
-
---- schemas/mountainshares-trust-receipts/v1/receipt_chain_rules.py ---
-4:def require_equal(
-11:        raise ReceiptChainError(
-19:def require_true(condition, failure_code, failed_invariant):
-21:        raise ReceiptChainError(
-29:def verify_intent_pdr_binding(intent, pdr):
-71:    return {"valid": True}
-74:def verify_admission_linked_chain_bindings(
-203:    return {
-
---- schemas/mountainshares-trust-receipts/v1/verify_runtime_admission_record.py ---
-12:    raise SystemExit(
-27:        print("STRUCTURALLY_INVALID", error.json_path, error.message)
-28:    raise SystemExit(1)
-36:def canonical_json_bytes(value):
-37:    return json.dumps(
-44:def sha256_prefixed(value):
-45:    return "sha256:" + hashlib.sha256(value).hexdigest()
-48:    raise SystemExit("UNEXPECTED_ADMISSION_RECORD_TYPE")
-55:    raise SystemExit("ADMISSION_RECORD_ID_MISMATCH")
-58:    raise SystemExit("ADMISSION_RECORD_NOT_GRANTED")
-61:    raise SystemExit("ADMISSION_RECORD_MANIFEST_ID_MISMATCH")
-64:    raise SystemExit("ADMISSION_RECORD_RELEASE_MISMATCH")
-69:    raise SystemExit("ADMISSION_RECORD_MANIFEST_PAYLOAD_HASH_MISMATCH")
-72:    raise SystemExit("ADMISSION_RECORD_MANIFEST_ARTIFACT_HASH_MISMATCH")
-77:    raise SystemExit("ADMISSION_RECORD_APPROVAL_SET_HASH_MISMATCH")
-80:    raise SystemExit("ADMISSION_RECORD_KEY_REGISTRY_HASH_MISMATCH")
-83:    raise SystemExit("ADMISSION_RECORD_POLICY_REGISTRY_HASH_MISMATCH")
-86:    raise SystemExit("ADMISSION_RECORD_POLICY_PROFILE_MISMATCH")
-92:    raise SystemExit("ADMISSION_RECORD_APPROVAL_ROLES_MISMATCH")
-95:    raise SystemExit("ADMISSION_RECORD_APPROVAL_KEY_IDS_MISMATCH")
-104:    raise SystemExit("ADMISSION_RECORD_SERVICE_NOT_UNIQUE")
-107:    raise SystemExit("ADMISSION_RECORD_AUTHORIZED_DIGEST_MISMATCH")
-110:    raise SystemExit("ADMISSION_RECORD_OBSERVED_DIGEST_MISMATCH")
-112:print("RUNTIME_ADMISSION_RECORD_VERIFIED", record_id, record_path)
-
---- schemas/mountainshares-trust-receipts/v1/verify_signed_operation_intent.py ---
-8:    raise SystemExit(
-22:    print("SIGNED_OPERATION_INTENT_INVALID", str(error))
-23:    raise SystemExit(1)
-25:print(
-
-############################################################
-# GUARDIAN INTEGRATION SCOPE (deployment/activation gates)
-############################################################
-{
-    "type": "mountainshares.guardian-admission-integration-scope/v1",
-    "candidate_service": "jarvis-constitutional-guardian",
-    "candidate_container_name": "jarvis-constitutional-guardian",
-    "candidate_dockerfile": "services/Dockerfile.constitutional_guardian",
-    "candidate_application": "services/constitutional_api.py",
-    "protected_route": "POST /constitutional/check",
-    "required_preconditions": [
-        "Verified Runtime Authority Manifest",
-        "Granted Runtime Admission Record",
-        "Authenticated caller identity",
-        "Signed publication or operation intent",
-        "Policy Decision Receipt issuance",
-        "Fail-closed denial on verification failure"
-    ],
-    "prohibited_current_behaviors": [
-        "Python hash() as an evidence commitment",
-        "Persisting source content previews in audit logs",
-        "Unauthenticated protected decision requests",
-        "Returning an allow decision without a signed receipt"
-    ],
-    "deployment_status": "discovery-only",(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ python3 ~/Downloads/apply-6.11.9-2a-operation-intent-gate.py
-/home/cakidd/Downloads/apply-6.11.9-2a-operation-intent-gate.py:20: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
-  TS = datetime.datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-=== STAGE 6.11.9-2A APPLY (anchored, no commit) ===
-/home/cakidd/Downloads/apply-6.11.9-2a-operation-intent-gate.py:47: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
-  log(datetime.datetime.utcnow().isoformat() + "Z")
-2026-08-08T13:36:07.696010Z
-anchor check: import tempfile              matches=1
-anchor check: route signature              matches=1
-anchor check: admission precondition call  matches=1
-anchor check: check route decorator        matches=1
-backup written: /tmp/constitutional_api.py.pre-2a.20260808_133607.bak
-applied 4 anchored edits to /home/cakidd/msjarvis-trust-integration/services/constitutional_api.py
-py_compile: OK
-
-=== GIT DIFF (services/constitutional_api.py) ===
-diff --git a/services/constitutional_api.py b/services/constitutional_api.py
-index fe58878..ecad608 100644
---- a/services/constitutional_api.py
-+++ b/services/constitutional_api.py
-@@ -4,6 +4,7 @@ import hashlib
- import subprocess
- import sys
- import tempfile
-+import base64
- # [ws1-caller-auth] stdlib for caller-identity registry lookup
- from pathlib import Path
- from fastapi import FastAPI, HTTPException
-@@ -292,10 +293,130 @@ def _authenticate_caller(token: "Optional[str]") -> str:
-     logger.info("Caller authenticated: %s", caller_id)
-     return caller_id
- 
-+# ============================================================================
-+# [stage-6.11.9-2a] Signed operation-intent enforcement.
-+#
-+# Establishes that the SUBJECT authorized THIS operation, per-request. Distinct
-+# from caller auth (who is calling) and runtime admission (whether the runtime
-+# may act). Consumes the baseline-sealed verifier verify_signed_operation_intent.py
-+# as a subprocess; the sealed trust tree is NOT modified. Fail-closed: any missing
-+# config, missing/malformed intent, or non-zero verifier exit results in denial.
-+#
-+# The intent is carried per-request, base64-encoded, in the X-Operation-Intent
-+# header. The exact signed bytes are preserved (never reserialized), so the
-+# subject signature verifies.
-+#
-+# Configuration (inert until provisioned):
-+#   GUARDIAN_INTENT_KEYS  path to trusted-public-keys registry holding the
-+#                         subject key with the operation-intent role. This is
-+#                         SEPARATE from GUARDIAN_TRUSTED_KEYS (runtime approvers).
-+#   GUARDIAN_TRUST_DIR    dir containing verify_signed_operation_intent.py (reused).
-+#
-+# NOTE: intent<->PDR binding (verify_intent_pdr_binding) and PDR issuance are
-+# deferred to the next gate (2B). 2A only proves the subject signed a valid,
-+# trusted operation intent, and fails closed otherwise.
-+# ============================================================================
-+
-+
-+def _require_signed_operation_intent(intent_b64: "Optional[str]") -> None:
-+    """Fail-closed signed-operation-intent gate for the protected route.
-+
-+    Raises HTTP 403 unless a base64-encoded, validly signed operation intent is
-+    supplied and verifies against the configured subject-key registry via the
-+    sealed verifier. Absent configuration or intent => denial (inert-safe).
-+    """
-+    intent_keys = os.environ.get("GUARDIAN_INTENT_KEYS")
-+    trust_dir = os.environ.get("GUARDIAN_TRUST_DIR")
-+
-+    missing = [
-+        name
-+        for name, val in (
-+            ("GUARDIAN_INTENT_KEYS", intent_keys),
-+            ("GUARDIAN_TRUST_DIR", trust_dir),
-+        )
-+        if not val
-+    ]
-+    if missing:
-+        logger.warning(
-+            "Operation intent denied: unconfigured (missing %s)", ", ".join(missing)
-+        )
-+        raise _HTTPException(status_code=403, detail="OPERATION_INTENT_UNCONFIGURED")
-+
-+    if not intent_b64:
-+        logger.warning("Operation intent denied: missing X-Operation-Intent")
-+        raise _HTTPException(status_code=403, detail="OPERATION_INTENT_MISSING")
-+
-+    try:
-+        # Preserve exact signed bytes: decode only, never reserialize.
-+        intent_bytes = base64.b64decode(intent_b64, validate=True)
-+    except Exception:
-+        logger.warning("Operation intent denied: header not valid base64")
-+        raise _HTTPException(status_code=403, detail="OPERATION_INTENT_MALFORMED")
-+
-+    if not intent_bytes:
-+        logger.warning("Operation intent denied: empty intent")
-+        raise _HTTPException(status_code=403, detail="OPERATION_INTENT_MALFORMED")
-+
-+    verifier = Path(trust_dir) / "verify_signed_operation_intent.py"
-+    if not verifier.is_file():
-+        logger.error("Operation intent denied: verifier not found at %s", verifier)
-+        raise _HTTPException(
-+            status_code=403, detail="OPERATION_INTENT_VERIFIER_MISSING"
-+        )
-+
-+    if not Path(intent_keys).is_file():
-+        logger.error("Operation intent denied: keys file missing at %s", intent_keys)
-+        raise _HTTPException(status_code=403, detail="OPERATION_INTENT_KEYS_MISSING")
-+
-+    tmp_path = None
-+    try:
-+        with tempfile.NamedTemporaryFile(
-+            mode="wb", suffix=".json", delete=False
-+        ) as tmp:
-+            tmp.write(intent_bytes)
-+            tmp_path = tmp.name
-+        try:
-+            result = subprocess.run(
-+                [
-+                    sys.executable,
-+                    str(verifier),
-+                    tmp_path,
-+                    str(intent_keys),
-+                ],
-+                capture_output=True,
-+                text=True,
-+                timeout=30,
-+            )
-+        except Exception as exc:  # subprocess failure => fail closed
-+            logger.error(
-+                "Operation intent denied: verifier invocation failed: %s", exc
-+            )
-+            raise _HTTPException(
-+                status_code=403, detail="OPERATION_INTENT_VERIFIER_ERROR"
-+            )
-+    finally:
-+        if tmp_path is not None:
-+            try:
-+                os.remove(tmp_path)
-+            except OSError:
-+                pass
-+
-+    if result.returncode != 0:
-+        logger.warning(
-+            "Operation intent denied: verifier rejected (rc=%s) %s",
-+            result.returncode,
-+            (result.stdout or result.stderr or "").strip()[:200],
-+        )
-+        raise _HTTPException(status_code=403, detail="OPERATION_INTENT_DENIED")
-+
-+    logger.info("Signed operation intent verified for /constitutional/check")
-+
-+
- @app.post("/constitutional/check", response_model=CheckResult)
- async def constitutional_check(
-     req: CheckRequest,
-     x_caller_token: Optional[str] = Header(default=None),
-+    x_operation_intent: Optional[str] = Header(default=None),
- ):
-     """Check if a proposed action complies with constitutional principles"""
- 
-@@ -307,6 +428,11 @@ async def constitutional_check(
-     # Denies unless a REAL granted admission record is provisioned and
-     # verifies against the sealed verifier. Inert (denies) until then.
-     _require_runtime_admission()
-+
-+    # [stage-6.11.9-2a] fail-closed signed operation-intent precondition.
-+    # Proves the SUBJECT authorized THIS operation. Inert (denies) until
-+    # GUARDIAN_INTENT_KEYS + GUARDIAN_TRUST_DIR are provisioned.
-+    _require_signed_operation_intent(x_operation_intent)
-     
-     content_lower = req.content.lower()
-     actor_lower = req.actor_role.lower()
-
-=== PRECONDITION ORDER (grep) ===
-181:def _require_runtime_admission() -> None:
-270:def _authenticate_caller(token: "Optional[str]") -> str:
-321:def _require_signed_operation_intent(intent_b64: "Optional[str]") -> None:
-425:    _authenticate_caller(x_caller_token)
-430:    _require_runtime_admission()
-435:    _require_signed_operation_intent(x_operation_intent)
-
-=== GIT STATUS (short) ===
- M services/constitutional_api.py
-
-
-=== DONE - change is in the WORKING TREE, NOT committed ===
-Review the diff above. Seal with your normal evidence/commit flow when satisfied.
-To revert:  git -C /home/cakidd/msjarvis-trust-integration checkout -- services/constitutional_api.py
-Backup:     /tmp/constitutional_api.py.pre-2a.20260808_133607.bak
-WROTE: /home/cakidd/stage-6.11.9-2a-apply-20260808_133607.log
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ 
-
-
-    "activation_status": "not-authorized"
-}
-
-=== SEAM DUMP COMPLETE — NO FILES MODIFIED IN REPO ===
-
-WROTE: /home/cakidd/stage-6.11.9-2a-seam-20260808_132807.log
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ 
-
-we are working to see this as-built, https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/54-pilot%20trust-boundary.mdGitHub jarvis-psychology-services (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ python3 ~/Downloads/capture-6.11.9-2a-evidence.py === STAGE 6.11.9-2A EVIDENCE CAPTURE === 2026-08-08T13:40:59.456097+00:00 branch=stage-6.11.9-guardian-decision-service-2a head=5f728e632eb130e919f9b1a22c16f27d2e2566ce py_compile=OK PRECONDITION_ORDER=PASS (caller=425 admission=430 intent=435) FAILCLOSED_CODES=COMPLETE (7/7 present) WROTE EVIDENCE: evidence/stage-6.11.9-2a/stage-6.11.9-2a-operation-intent-gate.log evidence_sha256=0dad661fdeb9c970b682d74589f407bf2df3e13e67b73f6742f5753eb6bae52d EVIDENCE PATH IS GITIGNORED BY: .gitignore:52:*.log evidence/stage-6.11.9-2a/stage-6.11.9-2a-operation-intent-gate.log -> a plain 'git add' will NOT pick it up; force-add or adjust ignore. === GIT STATUS (short) === M services/constitutional_api.py Nothing committed. Seal with your usual evidence/commit flow when satisfied. (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ jarvis-psychology-services (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ python3 ~/Downloads/capture-6.11.9-2a-evidence.py === STAGE 6.11.9-2A EVIDENCE CAPTURE === 2026-08-08T13:40:59.456097+00:00 branch=stage-6.11.9-guardian-decision-service-2a head=5f728e632eb130e919f9b1a22c16f27d2e2566ce py_compile=OK PRECONDITION_ORDER=PASS (caller=425 admission=430 intent=435) FAILCLOSED_CODES=COMPLETE (7/7 present)
-WROTE EVIDENCE: evidence/stage-6.11.9-2a/stage-6.11.9-2a-operation-intent-gate.log evidence_sha256=0dad661fdeb9c970b682d74589f407bf2df3e13e67b73f6742f5753eb6bae52d
-EVIDENCE PATH IS GITIGNORED BY: .gitignore:52:*.log evidence/stage-6.11.9-2a/stage-6.11.9-2a-operation-intent-gate.log -> a plain 'git add' will NOT pick it up; force-add or adjust ignore.
-=== GIT STATUS (short) === M services/constitutional_api.py
-Nothing committed. Seal with your usual evidence/commit flow when satisfied. (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ python3 ~/Downloads/seal-prep-6.11.9-2a-gitignore-negation.py === STAGE 6.11.9-2A SEAL-PREP: EVIDENCE-TRACKING POLICY === 2026-08-08T13:44:04.561423+00:00 backup written: /tmp/gitignore.pre-2a-negation.20260808_134404.bak appended negation to .gitignore === .gitignore DIFF === diff --git a/.gitignore b/.gitignore index d972f91..777e56b 100644 --- a/.gitignore +++ b/.gitignore @@ -246,3 +246,6 @@ schemas/mountainshares-trust-receipts/v1/fixtures/runtime-admission-records-mism
-caller auth token registry (never commit)
-.guardian-callers/ + +# [stage-6.11.9-2a] Track stage evidence logs by policy (override .log). +!evidence/**/.log === TARGET EVIDENCE LOG: IGNORE RE-TEST === STILL IGNORED BY: .gitignore:251:!evidence/**/*.log evidence/stage-6.11.9-2a/stage-6.11.9-2a-operation-intent-gate.log NEGATION_EFFECTIVE=FAIL (evidence log would still be skipped by git add) === FILES THE NEGATION NEWLY EXPOSES UNDER evidence/ === now trackable (untracked, ?? ) - a targeted add controls which you seal: ?? evidence/stage-6.10.1/ ?? evidence/stage-6.10.2/ ?? evidence/stage-6.10.3/ ?? evidence/stage-6.10.4/ ?? evidence/stage-6.10.5/ ?? evidence/stage-6.10.7/stage-6.10.7-operational-gate-baseline.log ?? evidence/stage-6.10.7/stage-6.10.7-operational-gate-tests.log ?? evidence/stage-6.10.8/stage-6.10.8-release-attestation-baseline.log ?? evidence/stage-6.10/ ?? evidence/stage-6.11.0/ ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-contract-analysis.log ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-discovery.log ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-tests.log ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-verification.log ?? evidence/stage-6.11.2/stage-6.11.2-key-registry-discovery.log ?? evidence/stage-6.11.2/stage-6.11.2-signature-verification-contract-analysis.log ?? evidence/stage-6.11.2/stage-6.11.2-signature-verification-discovery.log ?? evidence/stage-6.11.4/stage-6.11.4-start.log ?? evidence/stage-6.11.9-2a/ still ignored ( !! ): (none) === FULL GIT STATUS (short) === M .gitignore M services/constitutional_api.py ?? evidence/stage-6.10.1/ ?? evidence/stage-6.10.2/ ?? evidence/stage-6.10.3/ ?? evidence/stage-6.10.4/ ?? evidence/stage-6.10.5/ ?? evidence/stage-6.10.7/stage-6.10.7-operational-gate-baseline.log ?? evidence/stage-6.10.7/stage-6.10.7-operational-gate-tests.log ?? evidence/stage-6.10.8/stage-6.10.8-release-attestation-baseline.log ?? evidence/stage-6.10/ ?? evidence/stage-6.11.0/ ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-contract-analysis.log ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-discovery.log ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-tests.log ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-verification.log ?? evidence/stage-6.11.2/stage-6.11.2-key-registry-discovery.log ?? evidence/stage-6.11.2/stage-6.11.2-signature-verification-contract-analysis.log ?? evidence/stage-6.11.2/stage-6.11.2-signature-verification-discovery.log ?? evidence/stage-6.11.4/stage-6.11.4-start.log ?? evidence/stage-6.11.9-2a/ Nothing added, nothing committed. Backup of original .gitignore (if changed): /tmp/gitignore.pre-2a-negation.20260808_134404.bak Recommended TARGETED seal (adds only the 3 intended paths; leaves any other newly-exposed evidence logs untracked so they are NOT swept in): git -C /home/cakidd/msjarvis-trust-integration add
-.gitignore
-services/constitutional_api.py
-evidence/stage-6.11.9-2a/stage-6.11.9-2a-operation-intent-gate.log Then commit with your usual convention; reference evidence sha256 0dad661f... . (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ python3 ~/Downloads/seal-prep-6.11.9-2a-gitignore-negation.py === STAGE 6.11.9-2A SEAL-PREP: EVIDENCE-TRACKING POLICY === 2026-08-08T13:44:04.561423+00:00 backup written: /tmp/gitignore.pre-2a-negation.20260808_134404.bak appended negation to .gitignore
-=== .gitignore DIFF === diff --git a/.gitignore b/.gitignore index d972f91..777e56b 100644 --- a/.gitignore +++ b/.gitignore @@ -246,3 +246,6 @@ schemas/mountainshares-trust-receipts/v1/fixtures/runtime-admission-records-mism
-caller auth token registry (never commit)
-.guardian-callers/ + +# [stage-6.11.9-2a] Track stage evidence logs by policy (override .log). +!evidence/**/.log
-=== TARGET EVIDENCE LOG: IGNORE RE-TEST === STILL IGNORED BY: .gitignore:251:!evidence/**/*.log evidence/stage-6.11.9-2a/stage-6.11.9-2a-operation-intent-gate.log NEGATION_EFFECTIVE=FAIL (evidence log would still be skipped by git add)
-=== FILES THE NEGATION NEWLY EXPOSES UNDER evidence/ === now trackable (untracked, ?? ) - a targeted add controls which you seal: ?? evidence/stage-6.10.1/ ?? evidence/stage-6.10.2/ ?? evidence/stage-6.10.3/ ?? evidence/stage-6.10.4/ ?? evidence/stage-6.10.5/ ?? evidence/stage-6.10.7/stage-6.10.7-operational-gate-baseline.log ?? evidence/stage-6.10.7/stage-6.10.7-operational-gate-tests.log ?? evidence/stage-6.10.8/stage-6.10.8-release-attestation-baseline.log ?? evidence/stage-6.10/ ?? evidence/stage-6.11.0/ ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-contract-analysis.log ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-discovery.log ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-tests.log ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-verification.log ?? evidence/stage-6.11.2/stage-6.11.2-key-registry-discovery.log ?? evidence/stage-6.11.2/stage-6.11.2-signature-verification-contract-analysis.log ?? evidence/stage-6.11.2/stage-6.11.2-signature-verification-discovery.log ?? evidence/stage-6.11.4/stage-6.11.4-start.log ?? evidence/stage-6.11.9-2a/ still ignored ( !! ): (none)
-=== FULL GIT STATUS (short) === M .gitignore M services/constitutional_api.py ?? evidence/stage-6.10.1/ ?? evidence/stage-6.10.2/ ?? evidence/stage-6.10.3/ ?? evidence/stage-6.10.4/ ?? evidence/stage-6.10.5/ ?? evidence/stage-6.10.7/stage-6.10.7-operational-gate-baseline.log ?? evidence/stage-6.10.7/stage-6.10.7-operational-gate-tests.log ?? evidence/stage-6.10.8/stage-6.10.8-release-attestation-baseline.log ?? evidence/stage-6.10/ ?? evidence/stage-6.11.0/ ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-contract-analysis.log ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-discovery.log ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-tests.log ?? evidence/stage-6.11.1/stage-6.11.1-canonicalization-verification.log ?? evidence/stage-6.11.2/stage-6.11.2-key-registry-discovery.log ?? evidence/stage-6.11.2/stage-6.11.2-signature-verification-contract-analysis.log ?? evidence/stage-6.11.2/stage-6.11.2-signature-verification-discovery.log ?? evidence/stage-6.11.4/stage-6.11.4-start.log ?? evidence/stage-6.11.9-2a/
-Nothing added, nothing committed. Backup of original .gitignore (if changed): /tmp/gitignore.pre-2a-negation.20260808_134404.bak
-Recommended TARGETED seal (adds only the 3 intended paths; leaves any other newly-exposed evidence logs untracked so they are NOT swept in):
-git -C /home/cakidd/msjarvis-trust-integration add
-.gitignore
-services/constitutional_api.py
-evidence/stage-6.11.9-2a/stage-6.11.9-2a-operation-intent-gate.log
-Then commit with your usual convention; reference evidence sha256 0dad661f... . (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$shell remains active.
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ set +e 
-set +u
-
-summary='/tmp/msjarvis-guardian-contract-summary-20260808T011756Z.json'
-contract='/tmp/msjarvis-guardian-pdr-mar-build-contract.json'
-
-if test -f "$summary"; then
-  python3 - "$summary" "$contract" <<'PY'
-import json
-import sys
+python3 - <<'PY'
+from datetime import datetime, timezone
 from pathlib import Path
+import hashlib
+import os
+import re
 
-source = Path(sys.argv[1])
-target = Path(sys.argv[2])
-data = json.loads(source.read_text(encoding="utf-8"))
+root = Path(".").resolve()
+output = root / "trust_architecture/release_evidence/integration_boundary_investigation.txt"
 
-api = data.get("constitutional_api", {})
-functions = api.get("functions", [])
-routes = api.get("routes", [])
-related = data.get("related_python_files", [])
-tests = data.get("service_tests", [])
-schemas = data.get("json_schema_candidates", [])
-echo 'Shell remains active.'al summary: $summary") + "\n",r test passes."
-/tmp/msjarvis-guardian-pdr-mar-build-contract.json
-bytes=15210
+include_terms = (
+    "kyc",
+    "identity",
+    "registration",
+    "champion",
+    "application",
+    "agreement",
+    "magic",
+  trust_architecture/release_evidence/integration_boundary_investigation.txtacet
 
-=== build contract ===
-{
-  "existing_contract_assets": {
-    "crypto_or_receipt_files": [
-      "schemas/mountainshares-trust-receipts/v1/admit_runtime_authority_manifest.py",
-      "schemas/mountainshares-trust-receipts/v1/durable_ledger/models.py",
-      "schemas/mountainshares-trust-receipts/v1/durable_ledger/sqlite_backend.py",
-      "schemas/mountainshares-trust-receipts/v1/generate_admission_linked_receipt_chain.py",
-      "schemas/mountainshares-trust-receipts/v1/memory_authorization_gate.py",
-      "schemas/mountainshares-trust-receipts/v1/operation_intent_rules.py",
-      "schemas/mountainshares-trust-receipts/v1/receipt_chain_errors.py",
-      "schemas/mountainshares-trust-receipts/v1/receipt_chain_rules.py",
-      "schemas/mountainshares-trust-receipts/v1/receipt_crypto.py",
-      "schemas/mountainshares-trust-receipts/v1/receipt_rules.py",
-      "schemas/mountainshares-trust-receipts/v1/runtime_manifest_crypto.py",
-      "schemas/mountainshares-trust-receipts/v1/test_canonicalization_contract.py",
-      "schemas/mountainshares-trust-receipts/v1/test_canonicalization_cross_module_integration.py",
-      "schemas/mountainshares-trust-receipts/v1/test_canonicalization_mutation_integrity.py",
-      "schemas/mountainshares-trust-receipts/v1/test_canonicalization_negative_paths.py",
-      "schemas/mountainshares-trust-receipts/v1/test_canonicalization_replay_determinism.py",
-      "schemas/mountainshares-trust-receipts/v1/test_durable_ledger.py",
-      "schemas/mountainshares-trust-receipts/v1/test_durable_ledger_sqlite.py",
-      "schemas/mountainshares-trust-receipts/v1/test_intent_consumption.py",
-      "schemas/mountainshares-trust-receipts/v1/test_receipt_chain_rules.py",
-      "schemas/mountainshares-trust-receipts/v1/test_runtime_authority_manifest_canonicalization.py",
-      "schemas/mountainshares-trust-receipts/v1/test_runtime_authority_manifest_schema.py",
-      "schemas/mountainshares-trust-receipts/v1/usage_ledger.py",
-      "schemas/mountainshares-trust-receipts/v1/validate_receipt.py",
-      "schemas/mountainshares-trust-receipts/v1/verify_admission_linked_receipt_chain.py",
-      "schemas/mountainshares-trust-receipts/v1/verify_memory_authorization_receipt.py",
-      "schemas/mountainshares-trust-receipts/v1/verify_policy_decision_receipt.py",
-      "schemas/mountainshares-trust-receipts/v1/verify_projection_receipt.py",
-      "schemas/mountainshares-trust-receipts/v1/verify_response_receipt.py",
-      "schemas/mountainshares-trust-receipts/v1/verify_runtime_admission_record.py",
-      "schemas/mountainshares-trust-receipts/v1/verify_runtime_authority_manifest.py",
-      "services/bbb_signature_verifier.py",
-      "services/conversion_service.py",
-      "services/crypto_client.py",
-      "services/governed_manifest_promote.py",
-      "services/hilbert/sign_promotion_event.py",
-      "services/hilbert/verify_promotion_event.py",
-      "services/jarviscryptopolicy.py",
-      "services/judgesigner.py",
-      "services/ms_egeria_facebook_autopost.py",
-      "tests/test_ch33_ch35_judge_verdict_contract.py",
-      "thesis_chapter_gates/probes/ch19_container_architecture_routing_probe.py"
-    ],
-    "guardian_or_policy_files": [
-      "auth_router.py",
-      "diagnostics/gateway_head_1_220.py",
-      "diagnostics/gateway_mid_220_420.py",
-      "diagnostics/gateway_tail_420_700.py",
-      "diagnostics/unified_gateway_extended_policy_sections_20260801T022011Z.py",
-      "diagnostics/unified_gateway_live_20260801T020501Z.py",
-      "schemas/mountainshares-trust-receipts/v1/durable_ledger/models.py",
-      "schemas/mountainshares-trust-receipts/v1/generate_admission_linked_receipt_chain.py",
-      "schemas/mountainshares-trust-receipts/v1/memory_authorization_gate.py",
-      "schemas/mountainshares-trust-receipts/v1/receipt_chain_rules.py",
-      "schemas/mountainshares-trust-receipts/v1/test_canonicalization_contract.py",
-      "schemas/mountainshares-trust-receipts/v1/test_canonicalization_cross_module_integration.py",
-      "schemas/mountainshares-trust-receipts/v1/test_canonicalization_mutation_integrity.py",
-      "schemas/mountainshares-trust-receipts/v1/test_canonicalization_negative_paths.py",
-      "schemas/mountainshares-trust-receipts/v1/test_canonicalization_replay_determinism.py",
-      "schemas/mountainshares-trust-receipts/v1/test_durable_ledger.py",
-      "schemas/mountainshares-trust-receipts/v1/test_durable_ledger_sqlite.py",
-      "schemas/mountainshares-trust-receipts/v1/test_receipt_chain_rules.py",
-      "schemas/mountainshares-trust-receipts/v1/test_runtime_authority_manifest_canonicalization.py",
-      "schemas/mountainshares-trust-receipts/v1/verify_admission_linked_receipt_chain.py",
-      "schemas/mountainshares-trust-receipts/v1/verify_memory_authorization_receipt.py",
-      "schemas/mountainshares-trust-receipts/v1/verify_policy_decision_receipt.py",
-      "services/belief_revision_engine.py",
-      "services/constitutional_api.PROD_BACKUP.py",
-      "services/constitutional_api.py",
-      "services/constitutional_guardian.PROD_BACKUP.py",
-      "services/constitutional_guardian.py",
-      "services/hilbert/automated_learning_gap_review.py",
-      "services/hilbert/ch21_background_patterns_probe.py",
-      "services/hilbert/ch22_identity_retention_probe.py",
-      "services/hilbert/ch25_consciousness_coordinator_probe.py",
-      "services/hilbert/ch36_identity_registration_probe.py",
-      "services/hilbert/ch51_community_commons_probe.py",
-      "services/hilbert/ch52_recurrent_epistemic_loop_probe.py",
-      "services/hilbert/continuous_validation_harness.py",
-      "services/hilbert/dgm_closure_probe.py",
-      "services/hilbert/dual_track_meaning_analysis.py",
-      "services/hilbert/internal_state_sandbox_probe.py",
-      "services/hilbert/people_session_promotion.py",
-      "services/hilbert/pia_subspace_stability_review.py",
-      "services/hilbert/pituitary_global_modes_probe.py",
-      "services/hilbert/woah_closure_probe.py",
-      "services/jarvis-constitutional-guardian_constitutional_api.py",
-      "services/jarvis-hippocampus_hippocampus_service.py",
-      "services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py",
-      "services/jarviscryptopolicy.py",
-      "services/manifest_endpoints.py",
-      "services/ms_jarvis_blood_brain_barrier.py",
-      "services/ms_jarvis_unified_gateway_mountainshares_private.py",
-      "services/nbb_darwin_godel_machines.py",
-      "services/spatial_sandbox.py",
-      "services/test_caller_auth.py",
-      "services/test_stage_6_11_6_enforcement.py",
-      "services/test_stage_6_11_7_admission_live.py",
-      "tests/test_antisurveillance_guard.py",
-      "tests/test_ch07_executive_routing_contract.py",
-      "tests/test_ch11_gateway_orchestration_contract.py",
-      "tests/test_ch26_governance_watchdog_contract.py",
-      "tests/test_ch33_ch35_judge_verdict_contract.py",
-      "thesis_chapter_gates/probes/ch03_mountainshares_dao_probe.py",
-      "thesis_chapter_gates/probes/ch08_quantum_inspired_entanglement_probe.py",
-      "thesis_chapter_gates/probes/ch17_probe.py",
-      "thesis_chapter_gates/probes/ch17_probe_v2.py",
-      "thesis_chapter_gates/probes/ch19_container_architecture_routing_probe.py",
-      "thesis_chapter_gates/probes/ch20_probe.py",
-      "thesis_chapter_gates/probes/ch23_dual_tracks_meaning_analysis_probe.py",
-      "thesis_chapter_gates/probes/ch24_feedback_broader_layers_probe.py",
-      "thesis_chapter_gates/probes/ch27_probe.py",
-      "thesis_chapter_gates/probes/ch32_probe.py",
-      "thesis_chapter_gates/probes/ch34_spiritual_root_mother_carrie_probe.py",
-      "thesis_chapter_gates/probes/ch38_external_communication_authority_probe.py",
-      "thesis_chapter_gates/probes/ch49_temporal_hilbert_axis_probe.py",
-      "thesis_chapter_gates/probes/ch50_per_user_direct_sum_probe.py"
-    ],
-    "schema_candidates": [
-      "schemas/mountainshares-trust-receipts/v1/memory-authorization-receipt.schema.json",
-      "schemas/mountainshares-trust-receipts/v1/policy-decision-receipt.schema.json",
-      "schemas/mountainshares-trust-receipts/v1/projection-receipt.schema.json",
-      "schemas/mountainshares-trust-receipts/v1/response-receipt.schema.json",
-      "schemas/mountainshares-trust-receipts/v1/runtime-admission-record.schema.json",
-      "schemas/mountainshares-trust-receipts/v1/runtime-authority-manifest.schema.json",
-      "schemas/mountainshares-trust-receipts/v1/signed-operation-intent.schema.json"
-    ],
-    "service_tests": [
-      "services/test_aacpe_features.py",
-      "services/test_aapcappe_corpus.py",
-      "services/test_aapcappe_retrieval.py",
-      "services/test_caller_auth.py",
-      "services/test_chroma_client.py",
-      "services/test_chromadb_heartbeat.py",
-      "services/test_chromadb_v2_heartbeat.py",
-      "services/test_ddg_verbose.py",
-      "services/test_end_to_end_woah_fifthdgm.py",
-      "services/test_fifth_dgm_integration.py",
-      "services/test_full_brain_integration.py",
-      "services/test_gbim_llm_summary.py",
-      "services/test_gbim_semantic_query.py",
-      "services/test_geodb_llm_summary.py",
-      "services/test_gis_chat.py",
-      "services/test_health_access_gbim.py",
-      "services/test_imm_query.py",
-      "services/test_knowledge_base.py",
-      "services/test_method_tracking.py",
-      "services/test_multi_collection_query.py",
-      "services/test_rag.py",
-      "services/test_retrieval_endpoint.py",
-      "services/test_spatial_awareness.py",
-      "services/test_stage_6_11_6_enforcement.py",
-      "services/test_stage_6_11_7_admission_live.py"
-    ]
-  },
-  "git": {
-    "branch": "stage-6.11.6-runtime-admission-enhancement",
-    "head": "5f728e632eb130e919f9b1a22c16f27d2e2566ce",
-    "root": "/home/cakidd/msjarvis-trust-integration",
-    "status_short": []
-  },
-  "implementation_rule": "Do not generate a guardian private key, issue a receipt, or admit protected projection until every verifier test passes.",
-  "implementation_target": {
-    "all_routes": [
-      {
-        "function": "health",
-        "line": 124,
-        "method": "GET",
-        "path": "/health"
-      },
-      {
-        "function": "constitutional_status",
-        "line": 133,
-        "method": "GET",
-        "path": "/constitutional/status"
-      },
-      {
-        "function": "constitutional_principles",
-        "line": 147,
-        "method": "GET",
-        "path": "/constitutional/principles"
-      },
-      {
-        "function": "constitutional_check",
-        "line": 296,
-        "method": "POST",
-        "path": "/constitutional/check"
-      },
-      {
-        "function": "constitutional_audit",
-        "line": 401,
-        "method": "GET",
-        "path": "/constitutional/audit"
-      },
-      {
-        "function": "constitutional_audit_stats",
-        "line": 424,
-        "method": "GET",
-        "path": "/constitutional/audit/stats"
-      },
-      {
-        "function": "constitutional_versions",
-        "line": 459,
-        "method": "GET",
-        "path": "/constitutional/versions"
-      },
-      {
-        "function": "constitutional_changes",
-        "line": 494,
-        "method": "GET",
-        "path": "/constitutional/changes/{version}"
-      },
-      {
-        "function": "constitutional_transparency",
-        "line": 529,
-        "method": "GET",
-        "path": "/constitutional/transparency"
-      }
-    ],
-    "all_top_level_functions": [
-      {
-        "async": false,
-        "line": 59,
-        "name": "write_audit_entry",
-        "routes": []
-      },
-      {
-        "async": false,
-        "line": 68,
-        "name": "read_audit_log",
-        "routes": []
-      },
-      {
-        "async": true,
-        "line": 102,
-        "name": "load_constitution_versions",
-        "routes": []
-      },
-      {
-        "async": true,
-        "line": 124,
-        "name": "health",
-        "routes": [
-          {
-            "method": "GET",
-            "path": "/health"
-          }
-        ]
-      },
-      {
-        "async": true,
-        "line": 133,
-        "name": "constitutional_status",
-        "routes": [
-          {
-            "method": "GET",
-            "path": "/constitutional/status"
-          }
-        ]
-      },
-      {
-        "async": true,
-        "line": 147,
-        "name": "constitutional_principles",
-        "routes": [
-          {
-            "method": "GET",
-            "path": "/constitutional/principles"
-          }
-        ]
-      },
-      {
-        "async": false,
-        "line": 170,
-        "name": "_sha256_commitment",
-        "routes": []
-      },
-      {
-        "async": false,
-        "line": 180,
-        "name": "_require_runtime_admission",
-        "routes": []
-      },
-      {
-        "async": false,
-        "line": 269,
-        "name": "_authenticate_caller",
-        "routes": []
-      },
-      {
-        "async": true,
-        "line": 296,
-        "name": "constitutional_check",
-        "routes": [
-          {
-            "method": "POST",
-            "path": "/constitutional/check"
-          }
-        ]
-      },
-      {
-        "async": true,
-        "line": 401,
-        "name": "constitutional_audit",
-        "routes": [
-          {
-            "method": "GET",
-            "path": "/constitutional/audit"
-          }
-        ]
-      },
-      {
-        "async": true,
-        "line": 424,
-        "name": "constitutional_audit_stats",
-        "routes": [
-          {
-            "method": "GET",
-            "path": "/constitutional/audit/stats"
-          }
-        ]
-      },
-      {
-        "async": true,
-        "line": 459,
-        "name": "constitutional_versions",
-        "routes": [
-          {
-            "method": "GET",
-            "path": "/constitutional/versions"
-          }
-        ]
-      },
-      {
-        "async": true,
-        "line": 494,
-        "name": "constitutional_changes",
-        "routes": [
-          {
-            "method": "GET",
-            "path": "/constitutional/changes/{version}"
-          }
-        ]
-      },
-      {
-        "async": true,
-        "line": 529,
-        "name": "constitutional_transparency",
-        "routes": [
-          {
-            "method": "GET",
-            "path": "/constitutional/transparency"
-          }
-        ]
-      }
-    ],
-    "api_path": "services/constitutional_api.py",
-    "api_sha256": "3a94b20a56bc0e3720f0b87fd2e96735804d6b4f6f6de37eb3ff9fe23f282b84",
-    "constitutional_check_routes": [
-      {
-        "function": "constitutional_check",
-        "line": 296,
-        "method": "POST",
-        "path": "/constitutional/check"
-      }
-    ]
-  },
-  "required_new_contracts": [
-    "Policy Decision Receipt schema",
-    "Memory Authorization Receipt schema",
-    "Canonical signed-payload procedure",
-    "Guardian issuer-key registry and key identifier",
-    "PDR signature verifier",
-    "MAR subject-signature verifier",
-    "MAR Guardian-attestation verifier",
-    "Receipt expiration verification",
-    "Receipt request-binding and replay-state enforcement",
-    "Fail-closed denial tests"
-  ],
-  "required_runtime_dependencies": {
-    "cryptography": "available",
-    "fastapi": "available",
-    "jsonschema": "available",
-    "pydantic": "available"
-  },
-  "type": "msjarvis.pdr-mar-build-contract/v1"
-}
+INTEGRATION_BOUNDARY_REPORT:trust_architecture/release_evidence/integration_boundary_investigation.txt
+REPORT_SHA256:e1df0fa43df62688587059574e5e2d95e8cbade880a1955cedc7ee1d5f7b3e32
 
-=== contract hash ===
-6280e66934c41a3a3a2c8178a61df88f49216df3cb43baa5737955df7c99b1b9  /tmp/msjarvis-guardian-pdr-mar-build-contract.json
+=== REPORT PREVIEW ===
+MSJARVIS_INTEGRATION_BOUNDARY_INVESTIGATION_V1
+CREATED_AT:2026-08-10T02:35:55Z
+SCOPE:KYC, enrollment, Merkle, provenance, Hilbert, Caddy, Guardian
+SENSITIVE_CONTENT:EXCLUDED
 
-Shell remains active.
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-trust-integration$ 
+=== RELEVANT FILE INVENTORY ===
+.check_hilbert_people_resolved.tsv	sha256:0cab6cbbeedf5cf3eeb1259bc9aff1394c0b228acccacaca9029d869479702d8
+Dockerfile.commons-gateway-closeout	sha256:c418a5696ab0be5d69d94ae89be31bf98e4a5c73f741fd00a414a2036943775e
+Dockerfile.hilbert_spatial_chat	sha256:61a09bfcd3d016076294fabfd6749251dcd8a561b5ed73af1337ce1f491dc25f
+Dockerfile.mountainshares_commons_gateway	sha256:4ccb9469214366cf88e36453c0060aa7cc07314ecbf004b09af2c62068d930b7
+KNOWN_LIMITATIONS_20LLM_SEQUENTIAL.txt	sha256:a4d81d7c9d816d6c74dfe6cb70027d01b035cc05bf770522ac72374aa12be595
+STABLE_MODE_NOTE.txt	sha256:5b489bd08d8c3e5eafd3b82ce141b97f8a01daaaf4801a3afb7937f305123b73
+application_service.py	sha256:c426c3f1fcb5f535fe428f17225a08e383076a85833bb33ca5244fd1d4041ca7
+auth_api.py	sha256:d73d52ac75c95bcd8281c7148c727c4d9cd24db82925d59322d4e9501b5466eb
+auth_router.py	sha256:87211c339a3418f06dd94bd76f36e9c1aec920693acf5a63669d146d53bcf0e1
+backup_filename_index.txt	sha256:af5cf28548a4fb0bbe7d012fc13807072772e9fec2b0f5398f1d61baf71a76d4
+chapter44_gisrag_exact_validation.json	sha256:870309b93c7a24f0d50117521681952c2e6de21bfb6094021b0da3f6ea5b8b91
+chapter46_exact_patch_context.json	sha256:8ccb676409567713c0fe113569682ba08c1425fab6e7d9069dbaa8442acbf24b
+check_hilbert_commons.sh	sha256:7ef52224d3f44d1ef1b4212494c3081d083018501b0ef5df29504717f29cc52b
+check_hilbert_people_v2.sh	sha256:24f99cef1fcac7635db45be1e551e4a34c9c65c7769930da792a16d13bb367b1
+check_hilbert_people_v3.sh	sha256:184a3499d7ae163ccf72d5a6adaa071f45e82138aa9e178a17621e1a88d3f807
+check_hilbert_people_v4.sh	sha256:caf3e9ff5004cd4411443e6216edd0cf077e057cbd50cfb5e440dd9fdded8068
+config/users/ms_allis.json	sha256:7f264e97b55883853f65729e7585eacb653d280dd2cc363ed6dbf1daa130bd62
+constitutional_api.py	sha256:0f1ace7384bf1e3c0da1ccd3697aa14826cdbd6b3db6767f81c61d37f99fc4d5
+copy_pending_collections.py	sha256:c38cee1e65e622bf168dd8c079a4fb844aacef79334cd00aca2f0d7a922cf059
+dgm_cycle.sh	sha256:d350332c7b802faa544a5d08ffcd8c7ec0d270f63402b1c55bc00a2c4082672b
+diagnostics/gateway_head_1_220.py	sha256:ea4a8d2cae42944665fc2faecde540b494e348f23088663a8fc8cbeae2b10360
+diagnostics/gateway_mid_220_420.py	sha256:8fbefd1b3430c890252bc5741aca55447a0ad2a0bb0680608aaff0aaaf292ae1
+diagnostics/gateway_policy_hook_lines.txt	sha256:68fdea192a6d254d314e523d14dff6590d21c9b0f07769fd99d422e82e7e237f
+diagnostics/gateway_tail_420_700.py	sha256:ac8848cd790c894a3e7cd018de912abf2680414b79086c4d97cae45d7ab2f90a
+diagnostics/unified_gateway_extended_policy_sections_20260801T022011Z.py	sha256:ac3d7d30b860854e924a2b8bf9405f8af1e5eaf39abc7410c78f1b16e6f8406b
+diagnostics/unified_gateway_live_20260801T020501Z.py	sha256:72b32d673febc941b0c47a130bbc47b51b87bd1a615b715985a8f6494256b97d
+diagnostics/wv_block_hardened_2026-07-31.py	sha256:41c4dda9094db7e9d0aaf7937534eb8d9ecbf0420cdcb11ed00cbac2f84248d1
+discipline/Comparative Frameworks in Geography and Commons.md	sha256:67f8ece2bd3432f437af96eab628da4207d69fd2d7d4b2abeda4bf40a18c0992
+discipline/Definitions and Scope.md	sha256:00bed67bb85e9bd7affad1b30486d731fd2fd7a8d9bd89bc08e95378510ab689
+discipline/Discipline and Instruments.md	sha256:be7e3ee68c274f1ad9cd3762de4529fe2cf4c8e1af0337e4475cc519f02b32bb
+discipline/Ethics of Anchors and Non‑Representation.md	sha256:fafd7b999a83102d78cb99a2de61fe319959d686b5d38faaa6d07ab85e769867
+discipline/Measurement, Resolution, and Limits.md	sha256:bd24f97a736cfcff965fefe25c1f7bbd7988b3414da7292bb63b3d1bba9229ff
+discipline/Methods.md	sha256:99680c0323670ad22158d27faa28c013794430f49caad4d899588973f23896c1
+discipline/Non-Digital Commons in a Polymathmatic Lens.md	sha256:031595207367d3cfbbe13caf08525e923d05202a31a13292f1aba679d172ad9b
+discipline/Polymathmatic Geography and Commons Theory.md	sha256:0645cc57afc1e19aca5a385d1ff502e453fe5b91ce68ba62080002c728f7948c
+discipline/Polymathmatic Geography and Human Geography.md	sha256:8230d696b4fbacb2ab45b686ea3e63566cf37899f35bc3358d301c0d38212362
+discipline/Polymathmatic Geography and Junction Conditions.md	sha256:79d9bcea8a60820d6f0f0d7f903c7035649404079ee015b8b1561af93c25e605
+discipline/Polymathmatic Geography and Metaphysical Edges.md	sha256:e73dbcbd5617368290834fa21f0b6da7998f94d8b3babd1c3d65a16324c932c2
+discipline/Polymathmatic Geography and Physics‑Style Method.md	sha256:694019e743c3d3bf187b2a23644ea062c76ca6e5e841eac859af17545f62e5ae
+discipline/Polymathmatic Geography and Power.md	sha256:c17b9c44739ecd694b9555f221a07dda0f498ffe20f7875e64406bc42f722708
+discipline/Polymathmatic Geography and Representation Learning.md	sha256:3cebd62e7bc508bdd66e8242304a012d0852f13e44300f905206367f7161ac23
+discipline/Polymathmatic Geography and the GeoBelief Information Model (GBIM.mdsha256:7393a17d0c62bbf8178d000c40aa3deed8ad82358fccd5c66ada659dcfcce9f6
+discipline/Polymathmatic Geography: A Manifesto.md	sha256:62e9e23f7ac06d79ecf88087fe688e093124f11abd0782a24fc23c448b5f4abf
+discipline/Polymatmatic Geography and  Beyond 3D Maps.md	sha256:cd9b4a844efff40b3840e62b2581f92987cd167bfaeac5edaf32ec78444db748
+discipline/Principles of Polymathmatic Geography.md	sha256:ad46713ba8ea1aaeadf09ae7c25d923d1c90088fa0aceb58a5a9330d36687706
+discipline/Semantics in Polymathmatic Geography.md	sha256:999d219c1002d27fd5b6be8fd5cf683907dbab9317ded64dd231652a3b706f67
+discipline/World‑Models and Anchoring (Safety Pins to Planets.md	sha256:930efa5817c72063d8b5be85a93e42e51c5d791ee2bb32391331081a0471f855
+discipline/case_studies/Cooperative Instrument.md	sha256:dd5111da9bfd0953fd7caf907fcaaaf160f6c3d941279f0815fc8107344e8007
+discipline/case_studies/Entangled Space after Kant and Durkheim: Toward a Polymathmatic Geography.md	sha256:1491a9847cfed6b10bc465a6a9a2264276bf0f1e525403c29266322826fa188d
+discipline/case_studies/Prefrontal Alignment Episode.md	sha256:2fa22771cf55900cbc298bfaff7c1873c3ea859636f1123281701d262cce6a12
+discipline/case_studies/The PALCO False-Positive Problem.md	sha256:798105737130e922ed6514c97c8fcaa1d9cca7818fb5f15616cad8552aa030ce
+discipline/case_studies/The Roman Empire Meme as Inadvertent Commons Probe.md	sha256:7c867f8663533ab1a7bd2cdfd6e18ae6a3d09e941d7fa76eef6bb3712e3af3d2
+discipline/case_studies/Use Cases.md	sha256:822845e869688d30a7690e804e89300bb77a07f0da157bf3a677f0f2fb2c759c
+discipline/case_studies/case_studies.md	sha256:adc7746386e53f0f257981bfccd2e476ac2870e3a38afeb49201ad96763a23d5
+discipline/polymathmatic geography syllabus.md	sha256:657898730313426cc3487d886512c7567b7fcedd31d6bd3f3b32f3578a4e1424
+discipline/what-is-polymatmatic-geography.md	sha256:de6a60842796e9efe847afc1475954b390aa6f72c99e2024005938d4daeb1d11
+docker-compose.STABLE.20260719045021.yml	sha256:173c99225a5634777308d7627fa9e610a19d269fa2effd6d4ab0db56bc89c3e8
+docker-compose.commons-gateway-closeout.yml	sha256:bff1563042913c516159bbf5506c3f87d7eb25fdab6be84f7bfc69fe9583d6af
+docker-compose.fractal-active.yml	sha256:f8881a5736415efa209dba31560d37260630aa5a72709dc2f633856c3e05fb45
+docker-compose.production-closeout.yml	sha256:af7c7af6e0256778d4bdc9017ce54de08e5b90c5275b0861e2254d71f959f04e
+docker-compose.yml	sha256:3184a4ca62fa8270837e223bc7e77989bebd90c5c06f5c0884681aa1590608bc
+docs/TRUST_DURABLE_CONSUMPTION_LEDGER_CONTRACT.md	sha256:cc02ba2c16e4c50bd5caf0a780123b4febefc2ad5bfe9bf4237eb7a7bca10276
+docs/architecture/user-data-operationalization-boundary-v1.md	sha256:db84ae4ba24a01593b07ad74c368142991248d2f45125c29e950a9ffc66c186f
+email_service.py	sha256:38b38ed80132a89c0fbc6437eb3f6bb066adb814e8f06e5255f8325299c4edb7
+enrich_from_attrs.py	sha256:fa336fb5d2bac56ad10e5277cf6d397718fd3e18a79d877abe54efb3ce0be414
+enrich_where.py	sha256:4411df0b765f09c9f846ba634bae8b1c99cf8c2d5d29a184f50f3126cb2c325b
+evidence/stage-6.11.2/stage-6.11.2-runtime-authority-signature-verification.logsha256:1b957f248a93c7e43ccc8d1e45d5052ab817454cc99d06f219d986529f1eca17
+evidence/stage-6.11.3/stage-6.11.3-pre-admission-gate.log	sha256:0f6d5eecb967fefe1ea937237b39592dc327e1912e7dba88c92708125346e265
+evidence/stage-6.11.4/stage-6.11.4-runtime-admission-enforcement.log	sha256:9735a8d6ed80c6efc7a36c6c05d2caeefae595517a23169697fc833ecc5427d9
+evidence/stage-6.11.5/stage-6.11.5-runtime-path-map.log	sha256:0eeaf19f03f03b282aaa3c5ea0a604c1c693988aad35e714983ba0674090811f
+evidence/stage-6.11.7/KEY_PROVENANCE.md	sha256:c4c311a84fb1acc301aafe78c1375976f713dad41c3375efebce18649ed61a12
+evidence/stage-6.11.7/provisioned-chain/runtime-admission-c2e2bd817629f0c243c5c71b0a9cd44a45c89854d194091bbd7d4237491fbae5.json	sha256:6122ac1bdc0ae1643dd76c27365921576f989912cb2779bfd3e01385c74a04ac
+evidence/stage-6.11.7/provisioned-chain/runtime-authority-manifest.guardian.signed.json	sha256:2a792d141423e02b269b077a0cea449477531a1499846ac75e75a27e0f08319a
+evidence/stage-6.11.7/provisioned-chain/trusted-public-keys.guardian.json	sha256:da8f6b90354ec84a66ab8cdd7398d38c6d0c555de72b239548a6d50c6d5b7a6e
+evidence/stage-6.8/stage-6.8-guardian-admission-verification.log	sha256:9bc306dc2bfcb6eb9e9f91e449ac593769d3818a146451e531646319f1b2d396
+evidence/stage-6.9/stage-6.9-runtime-authority-manifest-baseline.log	sha256:259d02d6e1e0c0d451d848a6fb05265cfbc3fab78aabbd6bfb1dd1c949bdb1cc
+formal/commons_proofs/CommonsProofs.lean	sha256:c9b274a20c391796871df544a95dda2abb526d3975b30d175d1892d4631686f2
+formal/commons_proofs/CommonsProofs/Basic.lean	sha256:a88fef4d3efa63c9f9f5c948dd5ba1de3ea09d828ce8388ee83fa3d039e734a4
+formal/commons_proofs/CommonsProofs/HCommons.lean	sha256:0905d35329e258ea7c9cb73f64fa3f23f1eb7f63c7a3d2f52730dbb9a0389405
+formal/commons_proofs/CommonsProofs/Noninvertibility.lean	sha256:9a559edac147720c64bcca940647b5b663e08a7d5f21b2b6a2a9dde02208275a
+formal/commons_proofs/CommonsProofs/Orthogonality.lean	sha256:69b6dc5ceab896da197857623af0338a8308d7ae5f878e111d6a6385e669cc81
+formal/commons_proofs/lakefile.toml	sha256:b715b0432c7183cba1024d85281dddd0a1798b1730fdaab4acf983594b30cadc
+fractal-compose-reconciliation.json	sha256:096761adccb504159a897b60c9964a888969f4bac01dde52a45046a01ef8ddea
+gbim_orchestrator.py	sha256:c834bdd2188ab843ecd518be3ecd464ade3d08416386ef4765e26e030f73d829
+gisgeodb_storage.py	sha256:aacf48a6a62959ab3ae8b4346fbc6483bdd51d36589e0f52e9e648362fc691a3
+governance_evidence/candidate-authoritative-runtime-provenance-decision.md	sha256:cb1338aeea2d70dda32daeae9b78271f60d0c08023ff3404ea0ff423946c0bac
+governance_evidence/ch44_phi_reading_2026-07-16-postrebuild.json	sha256:1d8bc047f85c4c20aaf5c609a13bfd56c895c88e1587cd9cd5d2d8f0bf3c243a
+governance_evidence/ch44_phi_reading_2026-07-16-v2.json	sha256:0e8f858aa79de63fd703f75c8dbfd7dcca54794f5d5d07cdb352597eceeb3121
+governance_evidence/ch44_phi_reading_2026-07-16.json	sha256:e84f200ad12b7bfa1aba4b423478e136eb8b2f446d9f6d60ca055094a4188857
+governance_evidence/ch44_status_2026-07-18.json	sha256:5d5a5a4be8b764c41233a588086d89e11c71f409809d2f53ed17111d495154fe
+governance_evidence/consume-on-pdr-issuance-decision.md	sha256:63a7dc96222fb282435de532a483f96bfb0564c157dfe17a5a4ee292397c5cad
+governance_evidence/gis_rag_rebuild_validation_2026-07-16.txt	sha256:babf7036fef7d63033e00e8943a194ea3dcce5a2ef9a2d4824a2b1fe779d683a
+governance_evidence/user-data-operationalization-boundary-v1.md	sha256:db84ae4ba24a01593b07ad74c368142991248d2f45125c29e950a9ffc66c186f
+governance_evidence/user-data-operationalization-pdr-contract-v1.md	sha256:cf0339d6229a3cb0949f16c9b9c4f7163dc74b89ae1fd51f79cafe4535b9c679
+ingest_attrs_to_chroma.py	sha256:1ebff30200996aebe95df94ea98b9f21f26b4a9b1a06dcff344abe5a51ed6903
+layer3_opt_in.py	sha256:df1ef22bfa2718b9e24320c92ea8f693abb00885b6eeed5f67c013015c600644
+load_services_attrs_and_enrich.py	sha256:639d57d63b8d9da80878eb7a80cc525b5b89d89144c7479f7f75ddca2343c178
+load_wv_blockgroup_beliefs_v1.py	sha256:49cefc5d3c52628ea7dae948a48d9ccaef1926d0244a45f1e2f9180a708bc866
+main_brain.py	sha256:c59277890cb05a1af53c19af2dae1101d2b00ef0e601a36ff5b1dd6645e9a7a6
+merkle_identity.py	sha256:3efb449d65e265ab6a8db008228c18ca6968453c8329882f8de9ece6cb601a2d
+migrations/001_kyc_vault.sql	sha256:a87151e8ee0eadf93244dc0f36af91f7e6c3d32e6269f203c5adcb813d94ea08
+migrations/005_three_tier_identity.sql	sha256:d5ee975c425557a8bec4648eef943b82b4cc889e95f003add5632e3e2be8521c
+migrations/010_governed_manifest_hilbert_people.sql	sha256:3d595ace6b361fdd829e9503efa011d400f2d54ddad2dc28ca653936ea153252
+ms_allis_private_inventory.json	sha256:32817b365bdac75977414afa5a3ea3ea6af90ca5f2770f8153dde033a66e4d6c
+msjarvis_embed_gbim.py	sha256:3e7dcb9d1f0918a732e82f481aadf00d224893e4b44d19606fa80e08211c5fd4
+neurobiological_brain/consciousness_containers/service/dynamic_port_service.py	sha256:a48b122c789dc17f9b520c2a0a27459f3c2c7f46173ca66b35e0ba6ad615b65c
+neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py	sha256:7fc7d77172aab1ad6b0fd34ead0f37d0eae895847dacdadbb82512d8a5e4e401
+neurobiological_brain/heteroglobulin_transport/service/dynamic_port_service.py	sha256:444a739b3fdd6ec8a3448958b8305a9c321e24452f7384ad41e77eba78c7acb2
+neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py	sha256:6d2bf3af70dbefdc925caf4aa6249c1230c89ac5023c21c2308349f6c2909f80
+neurobiological_brain/i_containers/integration_layer/__init__.py	sha256:04a9c1846aeb1cdec7a31f8e71c25cef2e7655c21f9d93e873e23d4e184876d9
+neurobiological_brain/i_containers/integration_layer/coherent_identity.py	sha256:2287828f53a4adc66bfd1bbd6a953e791d7b75867b167fca6d5c1d3dfd9adac5
+neurobiological_brain/i_containers/integration_layer/consciousness_merger.py	sha256:a0525fd225f0959313f26c39a634008e5ea8d588d46652fa7abd5ef191c5bcb1
+neurobiological_brain/i_containers/integration_layer/unified_experience.py	sha256:7c2d24a64b252bba6d9c36c36928868c4b1ee2d6835682355b435a425f67f248
+neurobiological_brain/i_containers/service/dynamic_port_service.py	sha256:444a739b3fdd6ec8a3448958b8305a9c321e24452f7384ad41e77eba78c7acb2
+neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py	sha256:6d2bf3af70dbefdc925caf4aa6249c1230c89ac5023c21c2308349f6c2909f80
+neurobiological_brain/i_containers/service/ms_jarvis_i_containers_service.py	sha256:f5db673409b39beaf0c76e33de7f3fcbbd8b93e64f98dfa4156eb70a72385360
+neurobiological_brain/mother_carrie_protocols/service/dynamic_port_service.py	sha256:444a739b3fdd6ec8a3448958b8305a9c321e24452f7384ad41e77eba78c7acb2
+neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py	sha256:6d2bf3af70dbefdc925caf4aa6249c1230c89ac5023c21c2308349f6c2909f80
+neurobiological_brain/pituitary_gland/service/dynamic_port_service.py	sha256:a48b122c789dc17f9b520c2a0a27459f3c2c7f46173ca66b35e0ba6ad615b65c
+neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.pysha256:7fc7d77172aab1ad6b0fd34ead0f37d0eae895847dacdadbb82512d8a5e4e401
+neurobiological_brain/prefrontal_cortex/service/dynamic_port_service.py	sha256:444a739b3fdd6ec8a3448958b8305a9c321e24452f7384ad41e77eba78c7acb2
+neurobiological_brain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py	sha256:7e04d3325ca97d9287e557d403993041afbc9a248e42c241d481f6c0d00b1e43
+neurobiological_brain/spiritual_maternal_integration/service/dynamic_port_service.py	sha256:444a739b3fdd6ec8a3448958b8305a9c321e24452f7384ad41e77eba78c7acb2
+neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py	sha256:6d2bf3af70dbefdc925caf4aa6249c1230c89ac5023c21c2308349f6c2909f80
+neurobiological_brain/spiritual_root/service/dynamic_port_service.py	sha256:a48b122c789dc17f9b520c2a0a27459f3c2c7f46173ca66b35e0ba6ad615b65c
+neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py	sha256:7fc7d77172aab1ad6b0fd34ead0f37d0eae895847dacdadbb82512d8a5e4e401
+neurobiological_brain/subconscious/service/dynamic_port_service.py	sha256:a48b122c789dc17f9b520c2a0a27459f3c2c7f46173ca66b35e0ba6ad615b65c
+neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py	sha256:7fc7d77172aab1ad6b0fd34ead0f37d0eae895847dacdadbb82512d8a5e4e401
+neurobiological_brain/woah_algorithms/service/dynamic_port_service.py	sha256:444a739b3fdd6ec8a3448958b8305a9c321e24452f7384ad41e77eba78c7acb2
+neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.pysha256:6d2bf3af70dbefdc925caf4aa6249c1230c89ac5023c21c2308349f6c2909f80
+policies/projection_policies.json	sha256:9a3c107020eb3bf994b7aaa88f1643e3c8699266c9d7c4cd8f9ff6a23e0624f1
+process_wv_layers.py	sha256:c78de227655a8a2ef276cce93c0e7714b6230be74cfa29fec128c39dda68438c
+provenance/integration-layer-forensic-source-import-20260809.json	sha256:63aa6fffb1e27b38c7de5395d4817c5380047794299f872bfc5590cb154d501a
+provenance/nbb-forensic-release-selection-20260809.json	sha256:278430cf30d88ec75ce6a31fd62a16678163205425af365e4b7283d244a577c7
+provenance/nbb-forensic-source-import-20260809.json	sha256:79f5b3ca361e589d2120b52843fe98a187436337a5034f2f1e52fc58e0785033
+rag_server_main.py	sha256:c58eb7f7c01135b3aec67872bf42356012387f407a66419c8167cbc73bd404a5
+ragservermain.py	sha256:d3cc50c25c7a718e2435fe059a5b109c3dd3c6868f6d1b0444088d6493594230
+refresh_blockgroup_chroma.sh	sha256:0362e47dbc291b0377e126aaa4b08e7b3c4d1fe34cf7e3c38f6ef6a853591971
+registration_service.py	sha256:021a188934cdba57623a1b6618e08b9c893c5c6fda4064181c7582d37d46819f
+schemas/mountainshares-trust-receipts/v1/admit_runtime_authority_manifest.py	sha256:c23cf343f652d2f777132a355bb3d045974bbf6fea9884ce999d4f9e398f8d2c
+schemas/mountainshares-trust-receipts/v1/durable_ledger/models.py	sha256:c33800e37bde835db4a2c23b8704a9b64c437905df449b36446229821626cdcc
+schemas/mountainshares-trust-receipts/v1/durable_ledger/sqlite_backend.py	sha256:a6f963dc01d164847d060c31fcc1f9e0bd08c8e9f28675db976dcd57e192ec27
+schemas/mountainshares-trust-receipts/v1/fixtures/admission-chain.memory-authorization.signed.json	sha256:1e7d2361271c994dbb3b8537e1ab13f32549609f003a354652d9d87a0c558669
+schemas/mountainshares-trust-receipts/v1/fixtures/admission-chain.policy-decision.adapter-mismatch.signed.json	sha256:90e285cd07bfb51ff7107cc67ebe761d848e7968895559f7c17f528f252ae81d
+schemas/mountainshares-trust-receipts/v1/fixtures/admission-chain.policy-decision.intent-id-mismatch.signed.json	sha256:e71d055b01de0f3c470d1aea9966ab7340d6ce2f19bad3bd783b0a15d3aaf22b
+schemas/mountainshares-trust-receipts/v1/fixtures/admission-chain.policy-decision.projection-commitment-mismatch.signed.json	sha256:812c94205a2ed1cc98253efd6b1d6547b04126a201c339f78ef1ec4e19e19f6d
+schemas/mountainshares-trust-receipts/v1/fixtures/admission-chain.policy-decision.signed.json	sha256:603317d1453110083f385b62f8828e7879c50e4e3753701a5746c4fa4b515cf0
+schemas/mountainshares-trust-receipts/v1/fixtures/admission-chain.projection.authorization-mismatch.signed.json	sha256:de3fd54635a129e5f7da58320c497ff50b392e41ecadd2f585fc19e35a6dbbd8
+schemas/mountainshares-trust-receipts/v1/fixtures/admission-chain.projection.policy-decision-mismatch.signed.json	sha256:75de54bfb9b16bc7a44f3bb01aa954df41f2791f895087e6ecf0f6143bb12049
+schemas/mountainshares-trust-receipts/v1/fixtures/admission-chain.projection.scope-mismatch.signed.json	sha256:93c012082e07469fbf38168f6af6b806428c71acbe533677361578a65bdbc61c
+schemas/mountainshares-trust-receipts/v1/fixtures/admission-chain.projection.signed.json	sha256:6e29e7d2e816c6c5b405e47c500aa708211eb2a70576aeb11b4c54fec91b9f73
+schemas/mountainshares-trust-receipts/v1/fixtures/admission-chain.response.projection-mismatch.signed.json	sha256:7be88dcd567e2c076b65c89c3f861ff1017ebbbb0c88eb8eaf9d1f1f0bfe5301
+schemas/mountainshares-trust-receipts/v1/fixtures/admission-chain.response.provenance-mismatch.signed.json	sha256:e6645263b39da5194a243377ff654a9f17e24085c7d32754a2e14eef6bd31f56
+schemas/mountainshares-trust-receipts/v1/fixtures/admission-chain.response.signed.json	sha256:421fdb3af9165d87bbbd2752c502a95a2a7f16043f6e61a50b486589782cc93e
+schemas/mountainshares-trust-receipts/v1/fixtures/memory-authorization.signed.json	sha256:fe092b1c9803a36932e7e441219b68308129dc9d620ff532223ee346b9b92ad3
+schemas/mountainshares-trust-receipts/v1/fixtures/memory-authorization.signed.tampered.json	sha256:b1c14bc4d2931c2b416fc270e606272b997bd137ef6a41ff7d640935d889a956
+schemas/mountainshares-trust-receipts/v1/fixtures/operation-intent.expired.signed.json	sha256:973445a99dbd34189850ec7009146f693503d4084c878839259df10ef79700cd
+schemas/mountainshares-trust-receipts/v1/fixtures/operation-intent.signed.tampered.json	sha256:525593413934ad429833849544c1ed37b549f077810bf9a014a97de64bfae530
+schemas/mountainshares-trust-receipts/v1/fixtures/operation-intent.untrusted-key.json	sha256:a35e5007fcad336b8fb5e754f61ec654ba82c0087e1b2a5efe06d4deda069043
+schemas/mountainshares-trust-receipts/v1/fixtures/operation-intent.valid.signed.json	sha256:ea38cd4c6368533317dc69c1e023d36b3b411d94d0a6279fab6cdb91a1611cf0
+schemas/mountainshares-trust-receipts/v1/fixtures/policy-allow.expired.json	sha256:f4cb36699f282bb5b9c5dc3763049b1b1b4f8182494aef0b151b39ee46839d7d
+schemas/mountainshares-trust-receipts/v1/fixtures/policy-allow.invalid-lifetime.json	sha256:6e89570c5a8a4aff115f048eadeaa51bf54a210571d4e05ee00b8aaee7db1b45
+schemas/mountainshares-trust-receipts/v1/fixtures/policy-allow.missing-constraints.json	sha256:217bbf5c8357af8868f84c8c2a5feeb3c4fc3abb0cb8685ced6250c785392bbb
+schemas/mountainshares-trust-receipts/v1/fixtures/policy-allow.signed.json	sha256:99d9cb0908da06724d5eded843ab61b23402b36ce5941d3df49991861b597c63
+schemas/mountainshares-trust-receipts/v1/fixtures/policy-allow.signed.tampered.json	sha256:9a8446ab5a62c4918035cc72769fe4e303f384623802dea569d08111d280a3d5
+schemas/mountainshares-trust-receipts/v1/fixtures/policy-allow.untrusted-key.json	sha256:ffaf943d3ff3d3a0da5a0e5799fbdf3edf73f92a0306c4e0770b7c026a0f8c36
+schemas/mountainshares-trust-receipts/v1/fixtures/policy-allow.valid.json	sha256:22eaa198a1f6f907c31979dedc9c17d07bb0d7142db36b6e1eb61404f3c4995c
+schemas/mountainshares-trust-receipts/v1/fixtures/projection.signed.json	sha256:76d8a0fb4b8e1dbe938ec4fbe7953d28924df209405c61e1fa3cd3e86298338e
+schemas/mountainshares-trust-receipts/v1/fixtures/projection.signed.tampered.json	sha256:31d0bc70bc347808f74527627c9a81a16b2548681282cb8ecd1f4640183d101a
+schemas/mountainshares-trust-receipts/v1/fixtures/response.signed.json	sha256:e2d086a3343c760bae0dcea258f52425fa55215c1495f9e1e9e87569c21724ef
+schemas/mountainshares-trust-receipts/v1/fixtures/response.signed.tampered.jsonsha256:3e2f08fd4ffc25991933374777a2befa047cf7412eda9842f6afd3be4404e2b4
+schemas/mountainshares-trust-receipts/v1/fixtures/runtime-admission-records-portable-test/runtime-admission-adca06dc524dda9045fc908a7a9aae36a475d8c99fac4a2ba29fe432bc5b48f3.json	sha256:da87231b042b17f62e2d3833acd2b2c1b1190a4f383cd25f6d3fba333cd70132
+schemas/mountainshares-trust-receipts/v1/fixtures/runtime-authority-manifest.duplicate-key.json	sha256:335704df19cfc424709cdb281a57d83346082f2c01029a269d896b4d527a865e
+schemas/mountainshares-trust-receipts/v1/fixtures/runtime-authority-manifest.duplicate-role.json	sha256:ac40edac2564e90f1854e0c9c3bede47975f03fe5432f046f25c8f8664d33670
+schemas/mountainshares-trust-receipts/v1/fixtures/runtime-authority-manifest.expired.json	sha256:e94785662d0185612ac99d7e4df1a47a4c87ee7e214478a99d70db956c84b405
+schemas/mountainshares-trust-receipts/v1/fixtures/runtime-authority-manifest.signed.json	sha256:d81aa401763f45aae0195aeaffa0e6e1c712ce30417ab3d5de419219a7cf027b
+schemas/mountainshares-trust-receipts/v1/fixtures/runtime-authority-manifest.tampered-release.json	sha256:03b2ee48408f7f4ca7ab70a7c28beda18c7c946136ac8eb1e48c37a30e368849
+schemas/mountainshares-trust-receipts/v1/fixtures/runtime-governance-policies.require-board.json	sha256:f0c0e4ddc9e9783d8c4d9a658d8800d1697347ac0f8b0975c69e5f7d28258dec
+schemas/mountainshares-trust-receipts/v1/fixtures/runtime-governance-policies.test.json	sha256:9d2643a4d0de980404fa2d3c8c43f3299f0c6ac8fae1262250c2011750d74008
+schemas/mountainshares-trust-receipts/v1/fixtures/trusted-public-keys.admission-chain.test.json	sha256:05020dc31b0af174702e3f540b89a51998df9b7a2e2e4c0709633800a08eb307
+schemas/mountainshares-trust-receipts/v1/fixtures/trusted-public-keys.mar.test.json	sha256:3cbd67ec63ad2d3fbcffdaf298d04a9985c64def5f929737990111b5e62360e1
+schemas/mountainshares-trust-receipts/v1/fixtures/trusted-public-keys.projection.test.json	sha256:749c7275f8006e6afb98012a92e958698e78550b4bf9f28cf1889b11b632e8ab
+schemas/mountainshares-trust-receipts/v1/fixtures/trusted-public-keys.runtime.missing-operations.json	sha256:35a9c3f38164f3d5859a244f91baa2f021f2cfbfbcd57becd016e9eb5d454b15
+schemas/mountainshares-trust-receipts/v1/fixtures/trusted-public-keys.runtime.role-mismatch.json	sha256:58d63069f3135932b431fcdc926f4a5ac0c4c2346b7658df6df5126a216bca78
+schemas/mountainshares-trust-receipts/v1/fixtures/trusted-public-keys.runtime.test.json	sha256:9a1394273f08593da53568fe5ff568ded808ece1a51f32c7819213825241a3e1
+schemas/mountainshares-trust-receipts/v1/fixtures/trusted-public-keys.test.jsonsha256:e49b5c81a8e698d4b7b775e2f6ee952384c7514a07c424143bf53a731a9e0394
+schemas/mountainshares-trust-receipts/v1/fixtures/trusted-public-keys.wrong-role.json	sha256:63a9e0a04f1fef3facceb2e488339816a6a414b3b4ecf0b9ac06ba13b648a00d
+schemas/mountainshares-trust-receipts/v1/generate_admission_linked_receipt_chain.py	sha256:a098a21b1596f515d4361f0b6fcfc39cc17bb6d0c98d7581b5d7f16dc2bbff9c
+schemas/mountainshares-trust-receipts/v1/guardian-admission-integration-scope.json	sha256:a5e3be39a569d6d26f2b784611bbf08e61aa42107e61960557781fb4769a4945
+schemas/mountainshares-trust-receipts/v1/intent_consumption_ledger.py	sha256:1deb5b86281328c400b84c27862b984e53b50bd3f94a218be654c4ba2c396f3f
+schemas/mountainshares-trust-receipts/v1/memory-authorization-receipt.schema.json	sha256:a240ed842c341615d73db9e786dbb70778022169b11f7dbcd6a8d03ffc780bf0
+schemas/mountainshares-trust-receipts/v1/memory_authorization_gate.py	sha256:07d4100af18452d797c987172ff5d8bd579b57cf7ad5e739e403d03e83433381
+schemas/mountainshares-trust-receipts/v1/policy-decision-receipt.schema.json	sha256:bac25e507208be5eb18f19792c452d93fc786aff258047f494e83de17f7552db
+schemas/mountainshares-trust-receipts/v1/projection-receipt.schema.json	sha256:81e956a1c7c5b010c3236f381acc9eed4e14ffce4f88527301a4083bab425c65
+schemas/mountainshares-trust-receipts/v1/receipt_chain_rules.py	sha256:623370aceeba0556835b1d4648ad07401b9a747e5d3e2400d129377a776c05f1
+schemas/mountainshares-trust-receipts/v1/response-receipt.schema.json	sha256:da591c7894327d24c5ec0364d7297909561eebc6ecd3125220e57343c6a00775
+schemas/mountainshares-trust-receipts/v1/run_trust_build_gate.sh	sha256:b860b6a95b255d2574cea7d3587fcc5b0b6f52c1008fba59d44a17425806d79c
+schemas/mountainshares-trust-receipts/v1/runtime-admission-record.schema.json	sha256:a465eca17a8b85d03ce2172a2ecc7eabc5eaed524271996872a68f9a55910221
+schemas/mountainshares-trust-receipts/v1/runtime-authority-manifest.schema.jsonsha256:43b1be3be963197b6afd616908fd2e2d651bc6e6e74c353635a4e79a27d2f079
+schemas/mountainshares-trust-receipts/v1/runtime_authority_manifest/runtime_authority_manifest_v1.json	sha256:146f62255598d1dae0caf95b65b3b15cc0bc80dc9ab058e1d9c4ca7613de7f9e
+schemas/mountainshares-trust-receipts/v1/runtime_manifest_crypto.py	sha256:2e004e12585c51991707febe939551ece6b08a5f773e4e3c786d1dbb058e1b8a
+schemas/mountainshares-trust-receipts/v1/signed-operation-intent.schema.json	sha256:228f38cd59d96d3131c14a51f985fc39f96a0dbad41fc467f8a332d618e31d53
+schemas/mountainshares-trust-receipts/v1/test_canonicalization_contract.py	sha256:dbd38a9466576afcd6f810f9d7d86dad7705f548cfb9c311e5023745cf6e7246
+schemas/mountainshares-trust-receipts/v1/test_canonicalization_cross_module_integration.py	sha256:ba5a84ce16aa62f31a3de7fe3cf5f5b054590af544db7472820b68624ea8e1eb
+schemas/mountainshares-trust-receipts/v1/test_canonicalization_mutation_integrity.py	sha256:df62c1dd54cc9ca35a65fc91b5392b5063bc13c58d9f46b1b90cfb8a07c08c1c
+schemas/mountainshares-trust-receipts/v1/test_canonicalization_negative_paths.pysha256:28a53db45863c5847e6326ebf1cd8c0766ec4cf32882fec9d13350604ad8ee91
+schemas/mountainshares-trust-receipts/v1/test_canonicalization_replay_determinism.py	sha256:bb3f8f968f89826064878681c8349e435fe2ab1e6b7bebd5f25744c58c72dea6
+schemas/mountainshares-trust-receipts/v1/test_durable_ledger.py	sha256:cc714d16b09ab36f274d1b2d98ce0bd104fea3380a2349a064aa056bb5e6db6d
+schemas/mountainshares-trust-receipts/v1/test_durable_ledger_sqlite.py	sha256:427b32155448c35f1f4efb55368109d2c8e230b0e8b6fadd29eea8886b49692a
+schemas/mountainshares-trust-receipts/v1/test_intent_consumption.py	sha256:0274a9c527f3f5b96843efc26ec1c0e16e98f48ecee3e02e38b8d2779841e624
+schemas/mountainshares-trust-receipts/v1/test_receipt_chain_rules.py	sha256:28c7f071078d2502ad45bdd6069ec78c4a61e6d91e6b3e4b699bb9e07fe30a84
+schemas/mountainshares-trust-receipts/v1/test_runtime_authority_manifest_canonicalization.py	sha256:75c0f187389c7a080a7571d53fe423b04b9ef2e527ff11bceccaaee0ea6d7c41
+schemas/mountainshares-trust-receipts/v1/test_runtime_authority_manifest_schema.py	sha256:1e5246a996aa147b5cb13f1ebc6156fa8aac0528aad0fda623e44a0c3d0478cc
+schemas/mountainshares-trust-receipts/v1/verify_admission_linked_receipt_chain.py	sha256:6b3fa81ae9428ccd620a3208dbf7e3fd989fcf003be4a836a806f16810d693c4
+schemas/mountainshares-trust-receipts/v1/verify_memory_authorization_receipt.pysha256:e325f5d308144684eefcfb262ba29eca42d629fe9ee1a1dc2fe183e16d17e3b5
+schemas/mountainshares-trust-receipts/v1/verify_policy_decision_receipt.py	sha256:43ba65b24edec0bfbe8b2b7328ac483e8e8d4c336881869adea17318a4bc2274
+schemas/mountainshares-trust-receipts/v1/verify_projection_receipt.py	sha256:666a5644a54e2f73b7ca550705d870bd82859e182062285ac3e01265308d2d17
+schemas/mountainshares-trust-receipts/v1/verify_response_receipt.py	sha256:f9aba2679483faba18df9e94548ca395ce54b7300c1a6d19b7cc7a0ce92d1ad6
+schemas/mountainshares-trust-receipts/v1/verify_runtime_admission_record.py	sha256:328f88e8baa6058270d55c1fae5896403f7595ac6a0a6fb92bb85bf794e24bf3
+schemas/mountainshares-trust-receipts/v1/verify_runtime_authority_manifest.py	sha256:9b109fa3aa4d9f54d41165d2b40e5dbd4a029cb8a8b9cb841987d2c8afba2bbd
+schemas/mountainshares-trust-receipts/v1/verify_runtime_governance_policy.py	sha256:82b95c189d6f97e8b230dc7c2f3d99a7d7a941236379f7bbd889ce8e95257e13
+schemas/mountainshares-trust-receipts/v1/verify_runtime_image_binding.py	sha256:67be8165882c7ca3815d17e30af65cfc882862b782844c4cc3fbb0cc6de86896
+scratch_edits/chroma_policy_edit.py	sha256:a886f650c04456e949d800232ad7a1b6561c1842712b11f3015609cf26d9d08f
+scratch_edits/civic_projector_edit.py	sha256:5b14a46de88e5bd524a1c076f35f155718203e748fdeffd38c3e758ce7fe6f60
+scratch_edits/query_guard_edit.py	sha256:ba4f343c7733cde65af86de8bd20827f9b8405d724f3f5f92929c6e10cd7315d
+scripts/.memory_uuid_snapshot_20260413_193550.json	sha256:3088ca58e4e221b5074548e4436d24e890122962e94754dfe0522021e74ba41b
+scripts/assert-scheduler-integrity.sh	sha256:1ec7987f6893556fdc170f9b090bdf452f9b9b4b8b4060a11110d05518fa6475
+scripts/assertion-stack-up.sh	sha256:9c45f9a084bfef74dc3ce034c9703d98fc4e0265da040e3a16fe5bd2c321e248
+scripts/backfill_appearance_assertions.py	sha256:c7a87387224900ba89a8bceb9655c7c286fc2b01abbd6ed310bb0cc3de7aa1cf
+scripts/ch41_continuous_validation.sh	sha256:799fcc738c523cd98af613e0e6f19737444f6e5e32f7d0ffe8c18aa4b3a3af14
+scripts/ch46_next_steps.sh	sha256:2f00a2cbd2e83db53c631b410e43405c58e16a6ee02a038588cad2b1ea42c0fc
+scripts/check-binds.sh	sha256:1ef9f0f0e0b05a0585a37e4a2cf5b7e7375f669c9a9da58f926d69f598d48a04
+scripts/check-scheduler-pipeline.sh	sha256:2180307390be87eaef37d9f06ef9cf884e3c725a1ead069d56bf1d09e2ce49c3
+scripts/gbim_decay_tick.sh	sha256:6707c64f0f3056666adf21169fe555a56502774f5ec3cf6cf974a2e519c35cee
+scripts/materialize_tensor_bridge.py	sha256:fee1d83aab7d7cba09e607e10c86f553587e3a75bc94fc78cd4c7225a928b605
+scripts/preflight_gate.sh	sha256:36dc6f2c419d11ccb39385599b36ee307ee134d5ee0f6c3f74f74a684003cde8
+scripts/preserve_memory_uuid.sh	sha256:9e68a17b22c60ff9e57018b31f49ad2a4d63beb3e010ab96af35da5be454cd80
+scripts/restore_memory_uuid.sh	sha256:6aa70f5c7364e71d3f5c4f6d124a27dd364ef30f9d374420d9d237f4ee6db19f
+scripts/rewrite_chapter.py	sha256:542f2637f16a4988f9955c96c8bd6e84eca0fcd8934a9db064ef9785377b5b2b
+scripts/smoke_gis_rag.sh	sha256:62943dda8d1358b024c8ff525eeae9bbd80b951eb8ff48af8c5e91dc9303176f
+scripts/sweep-retention-dry.sh	sha256:713d9e069824d82850b1639f914a1863353caa15481b938c7ccff27b2141cdce
+seed_full_knowledge.py	sha256:c93e4d333594ca27f73d886428de2f3cb1cbedc521d29a5943220c0060e0185d
+seed_gbim_catalog.py	sha256:a13dc72dc0bd308eaf295b24c2e8cb39b7800560b43063a4b781274f3fff64f1
+service_build_matrix.txt	sha256:189168b309cc656ba36dc84c9e713e65c2efe219b47bdb654915c47cc6715664
+services/COMPREHENSIVE_PORT_AUDIT_20251009_234234.txt	sha256:defbe48329fd62977d663db5391af93860afb96975ccca827bc1abce87ef2678
+services/CONSTITUTIONAL_SCHEDULER_ENTRY.txt	sha256:7f7a0fce6f5c0f106c9032689bea792415f6f3492332d5e2d368291b65951afa
+services/Dockerfile.constitutional_guardian	sha256:e72f98c89a9257eb287850799c49a38000b5f94e928c176b76f081e6c0eb0804
+services/Dockerfile.temporal_consciousness	sha256:d3ab8efbf75d9d0c2fd45a9f5e3f3585cef69d710b680c0d7c3b9ca26091822a
+services/EGERIA_IDENTITY.md	sha256:e9fb44b645492213a31caefccab2cee95b4e5d4898bfc5d34eba2ad219c41bc1
+services/INTEGRATION_IMPLEMENTATION.py	sha256:613e56956e8cd1e6b6c4575014d7b94adab24f2e83386cb6aef943555ccaec54
+services/MAMMA_KIDD_QUICK_REFERENCE.txt	sha256:b0ad7a433fb45c0e321c91018a46c8836a260621f5fe650c98c0ed544bb7b28c
+services/METHOD_AUDIT_RAW.txt	sha256:67d0beacc640d0412ff7b6f97148b0505830050db2ce73e14a6279dac4f3e2a6
+services/PORTS_REGISTRY_RAW.txt	sha256:bf7b2ca20b00d2886f1583ca9a826ff7bd0da0f2585d51f8b5079cb0f6827716
+services/PORT_AUDIT_RAW.txt	sha256:dabdaadfffe36e01cd58fc3909ae159604f6a937d3db907de585c854a1af6982
+services/REFERENCE_windows_swarm.py	sha256:e5828426318280578f0ff82bb7c45289703fb594cea622652589d034459d3575
+services/RESTORATION_CERTIFICATE.txt	sha256:39d41091228f1914c8dd6b54dea35011eec7cb609e0be9f850abddf5ec931715
+services/SYSTEM_AUDIT_20251009_233918.txt	sha256:d886f906890de201d9c9ac2a0813436c26533ba1a1e7780b11217246d456504e
+services/WATCHDOG_LOG.txt	sha256:dd63f9e4db9f8fea827042700ef6b8852b54dcc46283bc60c27f14f30aea0416
+services/aaacpe_rag_service.py	sha256:7f4b2545a6f1d290275d0a7435536dba0ebd87d163753374f01ec80c1bfa3ccc
+services/activate_dgm_enhanced.py	sha256:b1ffb3ca6d8c86884b75a63896900770e5f75f30149490beaa023280b954f95d
+services/activate_egeria_persona.py	sha256:6b5df0aa404cc8e8d4be08b5fafbd9d8048b25714692a7dcfcf4f72c02480389
+services/add_fifth_dgm_to_chat.py	sha256:e5f0c7c3ac78b8f02a05d74ec9fc419773531072f30ed6d73b2dd0f7c998a3ff
+services/add_identity_context.py	sha256:8f92568772eece602eda158a9fa1c71ead54c082f6e15f7ac9801c15cf55d504
+services/add_new_consciousness_services.py	sha256:d52294a631a711de4be990fb73a220479679a13d2be5e7f4b4d7ea2ee1418031
+services/add_swagger_to_ports.py	sha256:004ed1c24a3998bac873af45eb7ab7979712f9b62d7868de3c05a5cb32f744da
+services/ai_server.py	sha256:5c6008f4c6abb6594fa5152a7f307c01a8232c0d40706e3c033e616a318626fc
+services/ai_server_11llm_OPTIMIZED.py	sha256:85d23ce737145a1f4d9d0a991293ad940f9ef073d60a2bbc4b5237b527fddb66
+services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py	sha256:b4bdb63de199364143e7435c297d80dbe31c646f2e350169d8eb692126a08d54
+services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py	sha256:c663b1c3f15751175fe25ae8f08a00a743d3d08b9c011ea8da0ac8c4ad80ed12
+services/ai_server_19llm_CONSCIOUS.py	sha256:83cef0d7289b2a0980e153b6bd881a2d8f942729bbab49281cd5cad292a3b3a3
+services/ai_server_20llm_FINAL.py	sha256:86d9b73e0bd0e64ff34dfcca451593c7146de58e02a5eb815d8a8f5c6f610bf2
+services/ai_server_22llm.psychology_patched.py	sha256:70c335bc93d1cc96df9f2ae607126b73f805f8bfa2c531c9fa437b3c556af7f0
+services/ai_server_22llm.py	sha256:97f8ef5ec158bda21e975346870642640eca170f7911b4d79f2e4a18cb253da3
+services/ai_server_4llm.py	sha256:177df6a0111a2308ba974d3ad065291d056a421a9e984eb04a99d8c93136e9fe
+services/ai_server_original_backup.py	sha256:177df6a0111a2308ba974d3ad065291d056a421a9e984eb04a99d8c93136e9fe
+services/ai_server_restored.py	sha256:6886f89a4e62b44e3265d1a58e27d18fba23d31b1528da6d829e9907bb879602
+services/ai_teams_config.py	sha256:712c148773af4db0a7003b31e006a8c14f4ad1f12246ca39f2ec0eae8c9070cb
+services/all_actual_py.txt	sha256:641e299f6981da77cbda3518f27488a64729d24d94fc7ed0dafd787ba486430b
+services/all_actual_services.txt	sha256:044e4da1bacfc2f2e58af9a5802abc5e6c4beef53f956fb66dc17106550bbd3d
+services/all_build_dirs.txt	sha256:b028cf5fce857322db5d3dede6dea95f4d8e8deda47eb3fb2ffff542b59ccfc4
+services/all_service_ports.txt	sha256:eecd99be7ca86d3564ed8f526728b8062a85c4b0ca0d3ee5436bf56c3fa71dee
+services/all_services.txt	sha256:641e299f6981da77cbda3518f27488a64729d24d94fc7ed0dafd787ba486430b
+services/all_services_compose_blocks_dynamic.txt	sha256:869056640d00f3cb09bdb473d26a410b18ffe9358cc31c5d8603a5c1a052af14
+services/apt-list.txt	sha256:14b6f3bc38779b40f4d0c2fe590f60223918380406da121a71ca3425c476f729
+services/audit_attrs.py	sha256:288a984b1eb975ec96d818d63a5b700bf48c6fa9d8098477da9cc0d160b66809
+services/autonomous_learner_topic_source.py	sha256:6f3a51029627a446cdbde8ba95dbc6546119234fc1bee5e78afda1c34ab04759
+services/available_models.txt	sha256:bc55fd4a22403c775b66f7b1f3ea0a6b62cb69ed2bcba0b0da8f7855b1f448c3
+services/batch_normalize_beliefs.py	sha256:83afb161e5287ce583d8be78ab15b014c236482dfbd70508619b471a3e97fa75
+services/batch_patch_services.py	sha256:fd762c1a791fb70e6d46addfc2c492c360686bb5fef3455bb29c4a1859d6d20d
+services/belief_revision_engine.py	sha256:846fe00650598b1861100fa25fbae19ebcfb87134d60e27b8c288dfea9c56bc7
+services/belief_state_schema.py	sha256:5a4de2a62e828cdb60bf78ab357037f8e0918c62e71f43605601fc0bf06f47f4
+services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py	sha256:fd3ad423543fc2719602d42932e05d767098b0d0b1e34e0278717a4db248db4a
+services/bridge_autonomous_to_i_container_dgm_woah.py	sha256:fd3ad423543fc2719602d42932e05d767098b0d0b1e34e0278717a4db248db4a
+services/bridge_autonomous_to_i_container_fixed.py	sha256:6b3d4c9ef5c416a5caf6ea8d344ccea93a6598a28150f3547614b5a2c8d470ec
+services/build_dir_audit.txt	sha256:918cd04734304bb79cf0158b15e92ccdd29081e8dc9b0491ad18c1c3314ec697
+services/bulk_sync_gis_to_chromadb.py	sha256:2f9c3098dfc21f751a74048568220c50f39b778d51796a168cd60944ce7049d2
+services/chat_worker.py	sha256:7ee90917cc336aa82debd01dacf14559c2b6b2df0eecbe5a95bccac16ca1c221
+services/chroma_client.py	sha256:c97e7cba641db69c2bfd7aef5709f34b1a1805229d72498cfbb957e62ebc0154
+services/clean_integration.py	sha256:23220916c9e5f3257e9e012ffef40854f1c86134ecfed6eab57cbce1d46da9d4
+services/clean_service_candidates.txt	sha256:6c0655878d1565f3d276a8c1cbd2563ca423d71020e3e52b15b87e7fb6851ffc
+services/cognition_sandbox.py	sha256:6abd94952c092ca02235057f5a329e57f52132a2f65634ea5ec3a02da689ed97
+services/commons_gamification.py	sha256:4377808f6dfc295de0d555040a5973b7fe334604f3eac1e2a7b1249638538fb0
+services/community_stake_registry.py	sha256:6a1b86a7682f0a2d052f78421e9507100e82979771afd643440289f6e92eb6b0
+services/complete_fix.py	sha256:248346ae04bf639ffaf258b3e191192a9c8f2fe5f10be906b35bf771cd7fcc01
+services/complete_system_audit.py	sha256:197af2d4d46ed8cb06bfb0589751b90b16e661b5127c45dee834a5c7ceca1eda
+services/complete_system_audit_with_swagger.py	sha256:7bf15e571889a86a82dce9e444806a64ecc3f16b8c0e862c933d2fd11653ec4f
+services/comprehensive_gisgeodb_audit.py	sha256:f05eee534cf9dbd545d813e2e2e6717b4409d68fe5304f7978e9b940add9a969
+services/comprehensive_gisgeodb_audit_FIXED.py	sha256:62dffcb0f80160ae74cc5275c7e685bb64b2d8bab020d077a5ae984d5b247e37
+services/consciousness_coordinator.py	sha256:a6c086c811d2a999dc2f6bfd1df29b2a07400d87b231a1532ba82d4ffdbf3731
+services/consciousness_with_egeria_voice.py	sha256:d2f311754b7a434c396bbc023915a1c24d199747ba9556d869983dd238598b0c
+services/constitutional_api.PROD_BACKUP.py	sha256:9768fd1667cd72fe864081c6c2d692807b2378e7f43be725973044ff419a80d8
+services/constitutional_api.py	sha256:3ec09cdfe2c54772e5d82ac76ac3f79a154b1d6898c837df6fadf34f8cce90ac
+services/constitutional_api_fixed.py	sha256:dfba8a69d3b455cad213f92b9ec3f6337bc9468777f101c7be9749c0f257ee93
+services/constitutional_guardian.PROD_BACKUP.py	sha256:7ab1bbc32ad5ba13a880edcee7cf4e039be7b887f287fe54248f3fd9090be65e
+services/constitutional_guardian.py	sha256:7ab1bbc32ad5ba13a880edcee7cf4e039be7b887f287fe54248f3fd9090be65e
+services/conversion_service.py	sha256:bb8d6e669bb86d8f215460df5ea6461bdf4b0f57636f9fda73325d40d5f28313
+services/create_dual_consciousness_i_containers.psychology_patched.py	sha256:a5da032156afa509b361764e9c6f687fcc4b7caeb494bc0ad3859070361eaa35
+services/create_dual_consciousness_i_containers.py	sha256:a5da032156afa509b361764e9c6f687fcc4b7caeb494bc0ad3859070361eaa35
+services/create_i_statement_feedback_loop.py	sha256:7c450f07ee3372edadb0c289edd4ceda40a8a53d819c5af42e33df4c1ca78ca2
+services/create_immutable_security_layer.py	sha256:5ce9bd6991402ebe566940f5b970b1170152acb4c641b267922c8d104edcb4cd
+services/create_perpetual_storage_layer.py	sha256:b81fbc7fa558da12741dbb41d624f3ba550bda2954eea10ce1f56d944f939417
+services/create_ueid_identity_layer.py	sha256:4d792a7ad583d776120409d172f8f176d50a031145ddac95e0908876e5340377
+services/dao_governance.py	sha256:05c8b27b83f82fb39ff5819cfdac10c8514e87a76a2200a2ca2fa6018353ff75
+services/designed_ports.txt	sha256:8ab204c00083daebeadcfc5ea9b9ec9dcd86dc5fcda03b467e3c2d4f811a8b0d
+services/dgm_adoption_worker.py	sha256:f52f0e5c39e28628e1e3b963e17f349e517724ca44f495fe87bbe8edbaa8da1b
+services/dgm_bridge.py	sha256:e5446426681d71a6c57dc597d3ca4f23948ac7f0420f39fef8a00d8833775bf1
+services/dgm_orchestrator.py	sha256:4bda5dac3ff042480acc88f2e8a38ef13f989f2055b59d37a43638ab6f73cbc5
+services/dgm_supervisor_woah.psychology_patched.py	sha256:ec4b3d78b425c3dad8cb71932dd2103addb03609a2bb82389e8470d21de0073c
+services/dgm_supervisor_woah.py	sha256:de98b4de8a49d7b2eaea38af2a6a737acd88481880ac12610f6b2e866cdf4408
+services/dgm_supervisor_woah_fixed.py	sha256:fc4814517c34aac4254324e7a748932e0495323bae69b76c2dad5d851f8c843c
+services/dgm_worker.py	sha256:1fe27f294905226c70052a9fde0eeb7b3685c622ba26838aa1d7e2da772574b5
+services/dir_endpoints.txt	sha256:0b5f8c2785f7d2b70bebe734aa125e0747b4cecb3ebd061064e89c5aed6a594a
+services/domain_service_router.py	sha256:841734b1bf39e3490c358859fa2b7ca0d8140e40bafbb6d7e8e3d9beee39e2bf
+services/dpkg-list.txt	sha256:a9490364523af4927ed5378dde2f6547c22bdf40782ae70e300e251706c0407d
+services/dynamic_app.py	sha256:5bf3de6a935fe2e3dfde801d7a1d3d6fe87eba8d149685ad10b5270b4aab282f
+services/dynamic_port_scheduler.py	sha256:469522cc2acc2b7dfbf2437e41cd4a31c652f4c5aeb84624783845d4233de30a
+services/dynamic_port_service.py	sha256:8630b21bdbf2e64ab1c93bb84fa6203602b6018c3beac1573201b8066beba15f
+services/dynamic_port_service_enhanced.py	sha256:1a1c861aa9a60547a079a7f72b0778f7264778bf412507ebf5373d8c3135af2c
+services/egeria_core_identity.txt	sha256:c24d8791931559a9e7594db2bf6284d218547161b862802174f7f6b42f364a54
+services/egeria_true_identity.txt	sha256:7cf58ebb659e979e390b3fcccb9f0788550059130d7f60b5721daa2c12872e8d
+services/egeria_web_ui.py	sha256:53fe75161f5d45afc949bf0e4cb613eebf5b766d210a59506fb10bf93eaab449
+services/egeria_web_ui_FIXED.py	sha256:a95992971a77c0b100e9add848cf380572f04e72a16a5d4846eb8c538fbf086c
+services/egeria_web_ui_dynamic.py	sha256:b5f4f0849ec012444e2b5202cb0d2a2751e42cdeabfe060c6a8f0d6703954690
+services/egeria_web_ui_final_biological.py	sha256:2c241dc15f1b30584fb83c2cfec881b08338820d6c9e08ec8db8c08093408454
+services/egeria_web_ui_fixed_simple.py	sha256:f2b77637a4735755611257b9c44478a58b878ecc3ffeb5cf07c4653b6ed1c02f
+services/egeria_web_ui_plain_authentic.py	sha256:6b37d63daa8cb3f1268b58e8603d7d44c637af26214106a4d005e3726c994e52
+services/egeria_web_ui_v3_consciousness.py	sha256:719be7a975e28b4e133451efce867a6192336f318d0c26407b7bfe641fe19d90
+services/egeria_web_ui_with_execution.py	sha256:73d36300f625e3ef3f122ec34c291bc8b1beada2737c52e7eca070c71a001476
+services/egeria_web_ui_working.py	sha256:344aeda1bcb613208274ead76a0c99433efd6e796719a35fb2ab53f12a86fc5f
+services/email_gis_geolocation_extractor.py	sha256:2aca97c34d29de7adc16922f7bb695bc8947e1d514f2de8818a31e8c11145a64
+services/email_strategy.txt	sha256:586a5cc8d19f1b30aec28136d4e0e258519f83081cb4399704064ba0527f7016
+services/enhance_agent_prompts.py	sha256:6e06d5260cc22342aa7bd3a5a73f6e120ce01367d59cbd15fbb9a89329fbda1e
+services/enhance_pituitary_warmth.py	sha256:8b8562ccd41e0f9b7d7dbb58e3fdf6599066cab94d3688de0b0f493a019560a4
+services/enhanced_learner_concept.py	sha256:900390e7e2315cf0d304a255f12dfdba085ed2f1d4330c37c9dae9d670088824
+services/enrich_geodb_collections.py	sha256:3fe7b741fee48c30339316b24bb38666464864b16da5abf0d7ddbbca908f0653
+services/facebook_voice_orchestrator_egeria.py	sha256:0d76766063aea8eab53b9382373f0bb51fe24f1837ea64dc724e57eaf75426a6
+services/fifth_dgm_integration.py	sha256:854f9779fc7f757a43a225827357366ce9538d727950df01d8a70ea7e7e33eab
+services/file_metadata_matching_algorithm.py	sha256:83f33beb5bad2cab3493e5626b3c5f690fdc01b5800f62ce4fe90cef66fe566e
+services/fill_null_coordinates_mount_hope.py	sha256:528dfdd2d9f428086d4b38bdb2b956fe57661e6d6101274fff343274976a1717
+services/fix_agent_prompts.py	sha256:1a407c002eb2b7b1a94f666942203708cd9be1847ae44958d45e14a6626fdd46
+services/fix_all_consciousness_services.py	sha256:bd992c30cc5479b9a08d516329aeaed5277d1d0d991f78652ec66efa0ba2000f
+services/fix_context_flow.py	sha256:c689cf0d6e057b3c1340bbf853b15e243acf2c2dc838f6af0da980c24f60e50b
+services/fix_judge_authentic.py	sha256:dcdcba91fff2616d0669075ca21ac4afdbe5485082a3f645d4113f115d2219f8
+services/fix_model_names.py	sha256:8500edadf50c71e0d2e2f2f076ce81da73b764f5f9bd8e6973568c9da109f70c
+services/fix_new_service_endpoints.py	sha256:115be4649e1daadd9a072272cc83aa531f94c678156f937ec64ad404e641b744
+services/fix_persona.py	sha256:b906b4410413214e5bc64962f7fb63cbdad1a0836636bd89bd0ac292ac24060c
+services/fix_swagger.py	sha256:9f93625ac7684009469bf5af3e5a0492b7192bd643281b60fd49481fcb514883
+services/fraud_detection_ai.py	sha256:0eb594c0d86070e5768d403fc7ee81b70d12593048ef1651c45538883d3611c9
+services/gateway_messenger_integration.py	sha256:19d08f8ef704f0f4dd00f8aef74dd216a8ac49b63cc2c1514e78feb5bcb8c3af
+services/gateway_wv_entanglement.py	sha256:2d7be81d74e675bff47938ab501828215e150f398619ff0f4a8951e4e78c2591
+services/gbim-router/app/hilbert_writer.py	sha256:81999ad88515852b564fd26dface326ec867e5d90e83f7ff436c0c62042cfca2
+services/gbim-router/app/integration_patch.py	sha256:93851a78a046dea433173531e003a4b0e717cc1d1e590706dbc7cb490d247fe2
+services/gbim_chroma.py	sha256:c5281cac409df93e10523461b693be6033f304209cd5de006db43e854ad6d108
+services/gbim_query_router.py	sha256:ce4006d1e32b6736258ca54435149cf2bfff50f295d89df48fb7f6e089977729
+services/gbim_temporal_indexer.py	sha256:04c08b93769f0d2891ec7a308dfe6140940373c4e761e2436aca9d1be55a79bf
+services/gdb_integration_service.py	sha256:26a94dbe90384b5a2390810805e8d5544f6850be23daec933cb0909557ea0b6d
+services/gis_chat_integration.py	sha256:3e3521c249ebe8b5757c4db2359ba846489c63e73642ebcff3348c274525cd64
+services/gis_rag_service.py	sha256:d7c768e12357e91eb28b2fd6eff26920981407876598022f3a20296ed546b298
+services/gisgeodb_learner_hook.py	sha256:5cc21435aa468b5de57e978e2d88082b99e1789ef2e90ff29721676d9a72d31b
+services/governed_manifest_promote.py	sha256:62ed3d3d142531cc281c38283f15b5c1ae5515850a60c6894f596bed5ae2583d
+services/gpu_ingest_gbim_bulk.py	sha256:862c184048416d71784fb09f48adbcc446ef35ad908768eee4e167b62efc9bcd
+services/guardian_pdr_factory.py	sha256:7c08432e4e23ffb8af6358b1172bff9c1586b2f557248d8cdea7182805f03298
+services/guardian_pdr_issuance.py	sha256:9443586ebe318f1be90d63c5477e65eaa2b7ba53d046aef4d0bcea2362bff664
+services/guardian_trust/intent_consumption_ledger.py	sha256:1deb5b86281328c400b84c27862b984e53b50bd3f94a218be654c4ba2c396f3f
+services/guardian_trust/manifest.sha256	sha256:5baa01337086dd64bf8c57300c32d2670b8cec4ca2e71c03036b8e404f23df6c
+services/guardian_trust/operation_intent_rules.py	sha256:9f4648eb1df95a08d36db3cb05437ff0146931b9668d767bd76a0589e84a0bd6
+services/guardian_trust/policy-decision-receipt.schema.json	sha256:bac25e507208be5eb18f19792c452d93fc786aff258047f494e83de17f7552db
+services/guardian_trust/receipt_chain_errors.py	sha256:f2982e3e6d5833e7f02e51778a37c1a035b3373bf70a9df143eb1992ac46045e
+services/guardian_trust/receipt_chain_rules.py	sha256:623370aceeba0556835b1d4648ad07401b9a747e5d3e2400d129377a776c05f1
+services/guardian_trust/receipt_crypto.py	sha256:4e1233804d735bdaa0057db54f3c7d721510482fcc15488da881e86134676411
+services/guardian_trust/receipt_rules.py	sha256:f2ef5de57ce1b8e54595cf03629738cf487d5bc66030a226561871cb9d120b93
+services/guardian_trust/runtime-admission-record.schema.json	sha256:a465eca17a8b85d03ce2172a2ecc7eabc5eaed524271996872a68f9a55910221
+services/guardian_trust/runtime_manifest_crypto.py	sha256:2e004e12585c51991707febe939551ece6b08a5f773e4e3c786d1dbb058e1b8a
+services/guardian_trust/signed-operation-intent.schema.json	sha256:228f38cd59d96d3131c14a51f985fc39f96a0dbad41fc467f8a332d618e31d53
+services/guardian_trust/verify_policy_decision_receipt.py	sha256:43ba65b24edec0bfbe8b2b7328ac483e8e8d4c336881869adea17318a4bc2274
+services/guardian_trust/verify_runtime_admission_record.py	sha256:328f88e8baa6058270d55c1fae5896403f7595ac6a0a6fb92bb85bf794e24bf3
+services/guardian_trust/verify_signed_operation_intent.py	sha256:f2e9f48d19309bebc731fb3f9471c98277afd52d21f53c605d304fc8b87c4b35
+services/hardware_optimization_analyzer.py	sha256:6e18f821dc229aece068063eba3863faa06b19fdbb84b15837ed21ad807a358f
+services/harmony4hope_deployment_manager.py	sha256:fe63ec38d13139f3b7220d58ba6fc412aebf07f8d27428cc204ae9f409d83a6c
+services/health_access_gbim_bridge.py	sha256:4e98b8c26219bb6b2cf7d9254db554d5ce3a282de1ea1e53af5b9c3c24a954eb
+services/hierarchical_coordinator_autonomous.py	sha256:cf4f82ea30685d761cc575c87e770fa02d0162e9def1a14f2c48a32b46ab8cc4
+services/hierarchical_coordinator_deep_mode.py	sha256:39669a29157687c42ee29d838180d76a02f6f49d752e3bc37715d33958401277
+services/hierarchical_integration.py	sha256:ece150526f99f4d24c3f6215a2d019b3cff66e0926c1481749b36275b1b29a48
+services/hilbert/__init__.py	sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+services/hilbert/automated_learning_gap_review.py	sha256:62b13f5c3aa905157411106cf748e6eea3f0807efaa6264fa8719aff946b3fe8
+services/hilbert/background_pattern_store.py	sha256:1607014e9b0b932fed3f737d92106f79d5e56f214c840afb7afd862a21458435
+services/hilbert/broader_layer_feedback.py	sha256:5ff8b9f510dfe13c8ae4e342c1c50139baec78a1fc4216ddff76bdae7a0b2461
+services/hilbert/ch21_background_patterns_probe.py	sha256:4b59624e72d9867d02e4a630106a54311c7dcf5205ccd4fc0bcedce1d5b2c91d
+services/hilbert/ch22_identity_retention_probe.py	sha256:af4d2c6887468cab21ecb77529dcd584cd89fa3ec0bfc7d1749ab6ccd8dfced4
+services/hilbert/ch25_consciousness_coordinator_probe.py	sha256:dd13fb43f60b6f1f30ca354a87e98cef7a39988507741222f45a5fabd43499ac
+services/hilbert/ch36_identity_registration_probe.py	sha256:bbc7041c1b43b2a3be042694d10e338d160be8df50dc3594e7d1ec9e029bebee
+services/hilbert/ch51_community_commons_probe.py	sha256:983f695687b5989ae9216898111b527022f971d695fcba261b7d768aa50d5808
+services/hilbert/ch52_recurrent_epistemic_loop_probe.py	sha256:f8cfccee837bbd565a6b021245217400cd16e58d3732bb06ec9364abc6d16983
+services/hilbert/chroma_policy.py	sha256:6a322315ada7f718bc74e04ddc00c71c0bcb9e90d610bfe604a984299c1bad7f
+
+=== REPORT SIZE ===
+18899 trust_architecture/release_evidence/integration_boundary_investigation.txt
+
+=== REPORT DIGEST ===
+e1df0fa43df62688587059574e5e2d95e8cbade880a1955cedc7ee1d5f7b3e32  trust_architecture/release_evidence/integration_boundary_investigation.txt
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-guardian-deploy-candidate-e8827b2$ 
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-guardian-deploy-candidate-e8827b2$ 
 
