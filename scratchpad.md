@@ -1,742 +1,210 @@
-=== SEARCH_DIR=/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2 ===
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/thesis_chapter_gates/fix_ch11_exact_gateway_runtime_file.sh:28:docker inspect jarvis-unified-gateway --format '{{range .Config.Env}}{{println .}}{{end}}' | sort | rg 'CONSCIOUSNESS|BRIDGE|GATEWAY|SERVICE_PORT' || true
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/thesis_chapter_gates/fix_ch11_exact_gateway_runtime_file.sh:29:docker exec jarvis-unified-gateway sh -lc 'env | sort | grep -E "CONSCIOUSNESS|BRIDGE|GATEWAY|SERVICE_PORT" || true'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/thesis_chapter_gates/next_after_ch12_ch13_select_ch07_gate.sh:169:    "rag_server": "http://127.0.0.1:8000/health",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/thesis_chapter_gates/probes/appendix_a_probe.py:67:    "interaction_logger":   "http://127.0.0.1:8000/health",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/thesis_chapter_gates/remediate_ch07_policy_tests_and_close.sh:307:    "rag_server": "http://127.0.0.1:8000/health",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/thesis_chapter_gates/remediate_ch14_sandbox_bridge_reachability.sh:28:  http://127.0.0.1:8018/health \
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/thesis_chapter_gates/remediate_ch14_sandbox_bridge_reachability.sh:29:  http://127.0.0.1:8018/status
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/thesis_chapter_gates/gate_ch02_gbim_as_built.sh:59:  http://127.0.0.1:8000/health \
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/thesis_chapter_gates/next_after_ch07_select_ch11_gate.sh:126:    "rag_server": "http://127.0.0.1:8000/health",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/.env:24:SERVICE_PORT=8091
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.fractal-closeout.yml:10:      SERVICE_PORT: "8027"
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/.ops/restart_auth_8097.sh:15:export SERVICE_PORT='8091'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:60:      SERVICE_PORT: '8008'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:115:      SERVICE_PORT: '8032'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:165:      SERVICE_PORT: '8005'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:191:      SERVICE_PORT: '8091'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:221:      SERVICE_PORT: '8020'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:293:      SERVICE_PORT: '7260'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:533:      SERVICE_PORT: '8020'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:565:      SERVICE_PORT: '8091'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:1575:      SERVICE_PORT: '7206'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:1607:      SERVICE_PORT: '7205'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:1738:      SERVICE_PORT: '8081'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:1865:      SERVICE_PORT: '8011'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2011:      SERVICE_PORT: '7232'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2028:      SERVICE_PORT: '7231'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2045:      SERVICE_PORT: '7233'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2083:      SERVICE_PORT: '7239'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2102:      SERVICE_PORT: '7230'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2146:      SERVICE_PORT: '8001'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2221:      SERVICE_PORT: '8050'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2489:      SERVICE_PORT: '8019'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2542:      SERVICE_PORT: '5001'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2569:      SERVICE_PORT: '8003'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2683:      SERVICE_PORT: '8005'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2709:      SERVICE_PORT: '8014'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2742:      SERVICE_PORT: '8079'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2773:      SERVICE_PORT: '8021'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2940:      SERVICE_PORT: '8001'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:2988:      SERVICE_PORT: '8008'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:3011:      SERVICE_PORT: '7012'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:3055:      SERVICE_PORT: '8010'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:3552:      SERVICE_PORT: '7300'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:3759:      SERVICE_PORT: '8010'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:3834:      SERVICE_PORT: '8010'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.yml:3855:      SERVICE_PORT: '8010'
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/trust_architecture/release_evidence/gateway_rollout_20260809/ms_jarvis_unified_gateway.py:327:                        f"{self.services['wv_ensemble']}/chat_wv/status/{_job_id}",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/trust_architecture/release_evidence/live_runtime_entrypoints/msjarvis_wv_entangled_gateway_live.py:262:@app.get("/chat_wv/status/{job_id}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/trust_architecture/release_evidence/live_runtime_entrypoints/kyc_vault_live.py:270:@app.get("/consent/status/{secret_uuid}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/trust_architecture/release_evidence/live_runtime_entrypoints/unified_gateway_live.py:295:                        f"{self.services['wv_ensemble']}/chat_wv/status/{_job_id}",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/trust_architecture/release_evidence/live_runtime_entrypoints/commons_gateway_live.py:27:SERVICE_PORT = int(os.getenv("SERVICE_PORT", "8055"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/trust_architecture/release_evidence/live_runtime_entrypoints/commons_gateway_live.py:76:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/trust_architecture/release_evidence/live_runtime_entrypoints/commons_gateway_live.py:180:                host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/trust_architecture/release_evidence/live_runtime_entrypoints/hilbert_state_live.py:96:        "port": os.getenv("SERVICE_PORT", "8081")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/trust_architecture/release_evidence/live_runtime_entrypoints/constitutional_api_live.py:389:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8091)), log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/tmp_rag_slice.py:39:@app.get("/chat/status/{job_id}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_jarvis_consciousness_unified_bridge.py:152:    port = int(os.getenv("SERVICE_PORT", 8020))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_jarvis_consciousness_unified_bridge.py:183:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_autonomous_inquiry.py:57:            """, ("egeria_inquiry", "internal_question", json.dumps(inquiry)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9000_academic_extension.py:183:    inquiry = "egeria_autonomous_inquiry" in result.stdout
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/memory_manager.py:14:SERVICE_PORT = int(os.getenv("MEMORY_MANAGER_PORT", "7255"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/memory_manager.py:26:            "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/memory_manager.py:44:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/memory_manager.py:120:    uvicorn.run("memory_manager:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_multimodal_fuser.py:5:SERVICE_PORT = 7262
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_multimodal_fuser.py:12:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_multimodal_fuser.py:30:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_multimodal_fuser.py:61:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_multimodal_fuser.py:68:    uvicorn.run("attention_multimodal_fuser:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/chat_server.py:20:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/working_full_pipeline.py:109:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8819)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/service_discovery.py:20:    def __init__(self, redis_host='localhost', redis_port=int(os.getenv("SERVICE_PORT", 8018))):
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_query_router.py:102:        "port": os.getenv("SERVICE_PORT", "5001"),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_query_router.py:388:    port = int(os.getenv("SERVICE_PORT", "5001"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/enhance_rag_knowledge.py:17:    client = chromadb.HttpClient(host="localhost", port=int(os.getenv("SERVICE_PORT", 8018)), 
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9000_69dgm_bridge.py:308:        port=int(os.getenv("SERVICE_PORT", "9000")),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_query_router.py:13:SERVICE_PORT  = 7205
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_query_router.py:28:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_query_router.py:228:    return {"service": SERVICE_NAME, "status": "ok", "port": SERVICE_PORT}
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_query_router.py:305:        "port":    SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_query_router.py:312:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/qualia_unified_orchestrator_69dgm.py:170:        port=int(os.getenv("SERVICE_PORT", 8300)),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_hilbert_state.py:96:        "port": os.getenv("SERVICE_PORT", "8081")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/web_research_main.py:10:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9001_ui_DIRECT.py:130:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_mountainshares_analytics.py:140:    port = int(os.getenv("SERVICE_PORT", "8141"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/qualia_unified_orchestrator_69dgm_ACTIVE.py:119:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8300)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_semantic_indexer.py:5:SERVICE_PORT = 7203
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_semantic_indexer.py:12:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_semantic_indexer.py:34:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_semantic_indexer.py:41:    uvicorn.run("gbim_semantic_indexer:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/pituitary_gland.py:20:    parser.add_argument('--port', type=int, default=int(os.getenv("SERVICE_PORT", "8010")))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dgm_supervisor_woah_fixed.py:131:        (8051, "egeria_web_ui", ["web", "interface"])
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dgm_supervisor_woah_fixed.py:270:    uvicorn.run(app, port=int(os.getenv("SERVICE_PORT", 8018)), port=int(os.getenv("SERVICE_PORT", 8018)), host="127.0.0.1", port=port)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/system_dashboard.py:35:    "Egeria Web UI": "http://localhost:8051",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/system_dashboard.py:262:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/add_full_brain_class.py:24:        self.neuro_url = "http://localhost:8018"
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_working.py:121:    return jsonify({"status": "healthy", "service": "egeria_web_ui", "port": 8051})
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_working.py:124:    app.run(host='127.0.0.1', port=int(os.getenv("SERVICE_PORT", 8051)), debug=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/qualiaunifiedorchestrator69dgm.py:170:        port=int(os.getenv("SERVICE_PORT", 8300)),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/consciousness_with_egeria_voice.py:95:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/woah_qualia_bridge.py:38:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8052)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dynamic_port_service_enhanced.py:26:    def __init__(self, redis_host='localhost', redis_port=int(os.getenv("SERVICE_PORT", 8000))):
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/fifth_dgm_main.py:10:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:60:SERVICE_PORT = 8050
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:454:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:473:        "port": SERVICE_PORT
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:478:    logger.info(f"🚀 Starting Egeria Jarvis Conscious Collective on port {SERVICE_PORT}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py:479:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_temporal_indexer.py:5:SERVICE_PORT = 7202
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_temporal_indexer.py:12:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_temporal_indexer.py:34:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_temporal_indexer.py:41:    uvicorn.run("gbim_temporal_indexer:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/domain_service_router.py:114:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9001_ui_FIXED.py:151:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/geobim_mysql_v2.py:27:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)), log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_jarvis_unified_gateway_mountainshares_private.py:523:                            f"{self.services['wv_ensemble']}/chat_wv/status/{_job_id}",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/aaacpe_scraper_service.py:125:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", "8033")))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_FIXED.py:284:                const res = await fetch("/status/" + queryId);
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_FIXED.py:340:                const res = await fetch("/submit", {
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_FIXED.py:381:@app.route('/submit', methods=['POST'])
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_FIXED.py:402:@app.route('/status/<query_id>')
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_FIXED.py:421:    return jsonify({"status": "healthy", "service": "egeria_web_ui_polling", "port": 8051})
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_FIXED.py:425:    print("📍 http://localhost:8051")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_FIXED.py:427:    app.run(host='127.0.0.1', port=int(os.getenv("SERVICE_PORT", 8018)), debug=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9000_chat_wrapper_69dgm.py:90:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/msjarvisunifiedgateway.py:57:        er = requests.get("http://localhost:9000/status/egeria", timeout=5)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/msjarvisunifiedgateway.py:165:        resp = requests.get("http://localhost:8051/health", timeout=2)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/msjarvisunifiedgateway.py:284:        port=int(os.getenv("SERVICE_PORT", 8000)),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/consciousness_gateway.py:59:    port = int(os.getenv("SERVICE_PORT", 8014))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_with_execution.py:86:    app.run(host='127.0.0.1', port=int(os.getenv("SERVICE_PORT", 8018)), debug=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server.py:70:            self.chroma_client = chromadb.HttpClient(host="localhost", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server.py:284:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", "9000")), log_level="warning")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dynamic_app.py:19:        self.redis_client = redis.Redis(host='localhost', port=int(os.getenv("SERVICE_PORT", 8018)), decode_responses=True)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_heartbeat_monitor.py:5:SERVICE_PORT = 7220
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_heartbeat_monitor.py:12:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_heartbeat_monitor.py:34:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_heartbeat_monitor.py:41:    uvicorn.run("rag_heartbeat_monitor:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_PRODUCTION.py:125:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/activate_dgm.py:59:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/mountainshares_registry.py:5:SERVICE_PORT = 8140
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/mountainshares_registry.py:10:    "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/sanctuary_construction_monitor_gateway.py:5:SERVICE_PORT = 9108
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/sanctuary_construction_monitor_gateway.py:11:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/sanctuary_construction_monitor_gateway.py:30:        "port": SERVICE_PORT
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/sanctuary_construction_monitor_gateway.py:35:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/bridge_cross_dgm.py:25:UPSTREAM_URL = args.upstream_url or f"http://localhost:8000"  # default, adjust as needed
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/messenger_service_fixed.py:59:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/woah_algorithms/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/woah_algorithms/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/woah_algorithms/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/woah_algorithms/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/woah_algorithms/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/i_containers/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/i_containers/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/i_containers/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/i_containers/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/i_containers/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/i_containers/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/i_containers/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_root/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_root/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_root/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_root/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_root/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/prefrontal_cortex/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/prefrontal_cortex/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/prefrontal_cortex/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/prefrontal_cortex/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/prefrontal_cortex/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/pituitary_gland/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/pituitary_gland/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/pituitary_gland/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/pituitary_gland/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/pituitary_gland/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/subconscious/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/subconscious/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/subconscious/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/subconscious/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/subconscious/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/subconscious/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/subconscious/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/mother_carrie_protocols/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/mother_carrie_protocols/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/mother_carrie_protocols/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/mother_carrie_protocols/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/mother_carrie_protocols/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_maternal_integration/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_maternal_integration/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_maternal_integration/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_maternal_integration/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/spiritual_maternal_integration/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/heteroglobulin_transport/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/heteroglobulin_transport/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/heteroglobulin_transport/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/heteroglobulin_transport/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/heteroglobulin_transport/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/consciousness_containers/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/consciousness_containers/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/consciousness_containers/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/consciousness_containers/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiologicalbrain/consciousness_containers/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/brain_orchestrator_main.py:40:    port = int(os.getenv("SERVICE_PORT", 4001))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_mountainshares_coordinator.py:163:@app.post("/proposal/submit")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_mountainshares_coordinator.py:209:    port = int(os.getenv("SERVICE_PORT", "8140"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/memory_dgm_gateway.py:5:SERVICE_PORT = 7007
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/memory_dgm_gateway.py:11:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/memory_dgm_gateway.py:29:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/metrics_service.py:25:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ADDITIONAL_SERVICES_FINAL.py:4:    {'name': 'ms_jarvis_facebook_full', 'url': 'http://localhost:8000/monitoring/status', 'method': 'GET'},
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_general.py:34:SERVICE_PORT = int(os.getenv("SERVICE_PORT", "5103"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_general.py:53:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_general.py:121:    uvicorn.run("rag_general:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py:20:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/conversation_memory_endpoints.py:92:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/facebook_poster.py:27:SERVICE_PORT = 9000
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/facebook_poster.py:30:CONSCIOUS_TICK_URL = "http://localhost:8018/tick"
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/facebook_poster.py:49:            "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/facebook_poster.py:68:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/facebook_poster.py:161:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/facebook_poster.py:167:    uvicorn.run("facebook_poster:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_synth_llm.py:6:SERVICE_PORT = 8112
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_synth_llm.py:17:            "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_synth_llm.py:74:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_synth_llm.py:82:    uvicorn.run("jarvis_synth_llm:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_dynamic.py:110:            fetch('/submit', {
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_dynamic.py:123:            fetch(`/status/${queryId}`)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_dynamic.py:160:@app.route('/submit', methods=['POST'])
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_dynamic.py:172:@app.route('/status/<query_id>')
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_dynamic.py:181:        'service': 'egeria_web_ui_dynamic',
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-spiritual-rag_spiritual_rag_domain.py:66:        "port": int(os.getenv("SERVICE_PORT", "8005")),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-spiritual-rag_spiritual_rag_domain.py:130:    port = int(os.getenv("SERVICE_PORT", "8005"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/interaction_logger.py:121:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8000)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/geodb_core.py:5:SERVICE_PORT = 7210
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/geodb_core.py:12:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/geodb_core.py:30:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/geodb_core.py:79:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/geodb_core.py:86:    uvicorn.run("geodb_core:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9001_ui_MYSQL_PROD.py:219:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/test_full_brain_integration.py:98:            response = await client.get("http://localhost:8018/health")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_final_biological.py:249:            fetch('/submit', {
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_final_biological.py:263:            fetch(`/status/${queryId}`)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_final_biological.py:328:@app.route('/submit', methods=['POST'])
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_final_biological.py:342:@app.route('/status/<query_id>')
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_final_biological.py:351:        'service': 'egeria_biological_consciousness_ui',
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_final_biological.py:362:    app.run(host='127.0.0.1', port=int(os.getenv("SERVICE_PORT", 8018)), debug=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_api_proxy.py:50:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/safe_integration.py:44:                    "http://localhost:8018/analyze",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/memory_dgm_engine.py:37:SERVICE_PORT = 7007
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/memory_dgm_engine.py:46:            "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/memory_dgm_engine.py:348:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/memory_dgm_engine.py:361:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/memory_dgm_engine.py:368:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/msjarvisunifiedswaggergatewayFIXED.py:309:@app.get("/status/egeria", tags=["Status"])
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/msjarvisunifiedswaggergatewayFIXED.py:327:    # Use SERVICE_PORT env with default 8020 to match container wiring
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/msjarvisunifiedswaggergatewayFIXED.py:328:    port = int(os.getenv("SERVICE_PORT", "8020"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/integrate_full_brain.py:20:        self.neuro_url = "http://localhost:8018"
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/phase4_5_integration.py:74:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_steward.py:192:    SERVICE_PORT = int(os.getenv("SERVICE_PORT", 8014))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_steward.py:193:    uvicorn.run("jarvis_steward:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/load_spiritual_library.py:16:client = chromadb.HttpClient(host="localhost", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_topic_router.py:5:SERVICE_PORT = 7221
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_topic_router.py:12:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_topic_router.py:56:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_topic_router.py:63:    uvicorn.run("rag_topic_router:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/advanced_service_dashboard.py:16:        self.redis_client = redis.Redis(host='localhost', port=int(os.getenv("SERVICE_PORT", 8018)), decode_responses=True)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/academic_research_gateway_8062.py:101:    inq = "egeria_autonomous_inquiry" in result.stdout
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/academic_research_gateway_8062.py:139:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.py:33:SERVICE_PORT = 8050
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.py:385:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.py:405:        "port": SERVICE_PORT
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.py:411:        f"🚀 Starting Egeria Jarvis Conscious Collective on port {SERVICE_PORT}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.py:412:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/web_chat_server.py:191:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/public_form_simplified.py:50:@app.post('/api/submit-public-data')
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/public_form_simplified.py:70:    uvicorn.run(app, host='0.0.0.0', port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/run_gateway_with_guards.py:20:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/user_dashboard.py:118:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_jarvis_fractal_consciousness.py:18:SERVICE_PORT = int(os.getenv("SERVICE_PORT", 8027))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_jarvis_fractal_consciousness.py:30:            'port': SERVICE_PORT, 'downstream_69dgm_bridge': bridge_status,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_jarvis_fractal_consciousness.py:45:    return {'status': 'ok', 'service': 'jarvis-fractal-consciousness', 'port': SERVICE_PORT, 'downstream_69dgm_bridge': r.json().get('status', 'ok'), 'timestamp': datetime.now().isoformat()}
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_jarvis_fractal_consciousness.py:187:    logger.info(f"Fractal Consciousness starting on port {SERVICE_PORT}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_jarvis_fractal_consciousness.py:188:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9001_ui_WITH_CONVERSATIONS.py:287:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_consistency_engine.py:12:SERVICE_PORT = int(os.getenv("SERVICE_PORT", "7231"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_consistency_engine.py:39:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_consistency_engine.py:119:    logger.info(f"Starting {SERVICE_NAME} on port {SERVICE_PORT}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_consistency_engine.py:120:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-hippocampus_hippocampus_service.py:63:SERVICE_PORT      = int(os.getenv("SERVICE_PORT", "8011"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-hippocampus_hippocampus_service.py:139:        "port":       SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-hippocampus_hippocampus_service.py:508:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/swagger_chat_integration.py:93:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/fractal_adapter.py:27:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gdb_integration_service.py:37:        "port": int(os.getenv("SERVICE_PORT", 8240)),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gdb_integration_service.py:122:    port = int(os.getenv("SERVICE_PORT", 8240))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/quantum_state_engine.py:12:SERVICE_PORT = 7360
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/quantum_state_engine.py:24:            "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/quantum_state_engine.py:43:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/quantum_state_engine.py:157:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/quantum_state_engine.py:163:    uvicorn.run("quantum_state_engine:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/aaacpe_scraper/aaacpe_scraper_service.py:125:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", "8033")))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/bbb_ethics_proxy.py:67:    port = int(os.getenv("SERVICE_PORT", 8100))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dgm_bridge.py:15:SERVICE_PORT = 9479
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dgm_bridge.py:26:            "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dgm_bridge.py:243:    uvicorn.run("dgm_bridge:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/swagger_gateway.py:87:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/academic_whitebox_api.py:58:    inq = "egeria_autonomous_inquiry" in result.stdout
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/academic_whitebox_api.py:63:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/master_unified_consciousness_scheduler_ENRICHED.py:224:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)), workers=1)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/wvu_ldap_auth.py:65:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_fixed_simple.py:26:    return render_template_string(open('/home/ms-jarvis/msjarvis-rebuild/services/egeria_web_ui_template.html').read())
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_fixed_simple.py:64:    return jsonify({"status": "healthy", "service": "egeria_web_ui", "port": 8051})
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_fixed_simple.py:67:    app.run(host='127.0.0.1', port=int(os.getenv("SERVICE_PORT", 8018)), debug=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui.py:284:                const res = await fetch("/status/" + queryId);
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui.py:340:                const res = await fetch("/submit", {
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui.py:381:@app.route('/submit', methods=['POST'])
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui.py:402:@app.route('/status/<query_id>')
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui.py:421:    return jsonify({"status": "healthy", "service": "egeria_web_ui_polling", "port": 8051})
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui.py:425:    print("📍 http://localhost:8051")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui.py:427:    app.run(host='127.0.0.1', port=int(os.getenv("SERVICE_PORT", 8000)), debug=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/msjarvis_wv_entangled_gateway.py:202:@app.get("/chat_wv/status/{job_id}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_20llm_FINAL.py:177:        port=int(os.getenv("SERVICE_PORT", 8018)),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/hippocampus_service.py:10:SERVICE_PORT = int(os.getenv("SERVICE_PORT", "8011"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/hippocampus_service.py:51:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/hippocampus_service.py:60:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/hippocampus_service.py:113:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/psychological_rag_domain_psychological_rag_domain.py:46:SERVICE_PORT = 8006  # matches your designed port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/psychological_rag_domain_psychological_rag_domain.py:106:            "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/psychological_rag_domain_psychological_rag_domain.py:114:            "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_router.py:5:SERVICE_PORT = 7260
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_router.py:12:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_router.py:30:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_router.py:65:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_router.py:72:    uvicorn.run("attention_router:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/performance_optimization_analyzer.py:43:            "Neurobiological_Master": {"url": "http://localhost:8018", "endpoint": "/health"},
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/performance_optimization_analyzer.py:46:            "Egeria_Web_UI": {"url": "http://localhost:8051", "endpoint": "/health"}
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_mountainshares_indexer.py:208:    port = int(os.getenv("SERVICE_PORT", "8143"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/master_chat_orchestrator_v8_spiritual_complete.py:86:    "consciousness_containers": "http://localhost:8018",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/registration_biometric_production_final.py:712:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_jarvis_consciousness_bridge.py:258:    port = int(os.environ.get("SERVICE_PORT", port_service.port))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-woah_dgm_supervisor_woah_fixed.py:129:        (8051, "egeria_web_ui", ["web", "interface"])
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/REFERENCE_windows_swarm.py:110:                port=int(os.getenv("SERVICE_PORT", 8018))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/REFERENCE_windows_swarm.py:594:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/quantum_insight_llm.py:7:SERVICE_PORT = 8113
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/quantum_insight_llm.py:20:            "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/quantum_insight_llm.py:38:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/quantum_insight_llm.py:120:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/quantum_insight_llm.py:126:    uvicorn.run("quantum_insight_llm:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_spatial_indexer.py:5:SERVICE_PORT = 7201
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_spatial_indexer.py:12:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_spatial_indexer.py:34:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_spatial_indexer.py:41:    uvicorn.run("gbim_spatial_indexer:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/web_connectivity_analyzer.py:154:        print(f"   1. LOCAL ACCESS: Already working - use http://localhost:8051")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_ensemble.py:5:SERVICE_PORT = 8120
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_ensemble.py:10:    "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/phase1_integration.py:88:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_plain_authentic.py:98:    app.run(host='127.0.0.1', port=int(os.getenv("SERVICE_PORT", 8018)), debug=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9001_ARCHITECTURE_CORRECT.py:44:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9001_ui_wrapper.py:140:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9001_ui_MYSQL.py:264:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/hilbert/jarvis_hilbert_state.py:96:        "port": os.getenv("SERVICE_PORT", "8081")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/belief_integrator.py:8:SERVICE_PORT = 7245
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/belief_integrator.py:24:            "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/belief_integrator.py:43:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/belief_integrator.py:97:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/belief_integrator.py:103:    uvicorn.run("belief_integrator:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ms_jarvis_web_research_simple.py:77:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/hierarchical_coordinator_autonomous.py:422:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/clean_integration.py:44:                    "http://localhost:8018/analyze",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/swarm_watchdog.py:6:    "http://localhost:8018/health",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9001_FINAL_FIX.py:99:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/complete_system_audit.py:104:    elif 'egeria_web_ui' in command:
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/hilbert_commons/mountainshares_commons_gateway.py:27:SERVICE_PORT = int(os.getenv("SERVICE_PORT", "8055"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/hilbert_commons/mountainshares_commons_gateway.py:76:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/hilbert_commons/mountainshares_commons_gateway.py:180:                host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/stage2_biometric.py:221:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_restored.py:101:                port=int(os.getenv("SERVICE_PORT", 8018))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_restored.py:493:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)), log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/method_tracking_service.py:241:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/swarm_intelligence_main.py:10:    app.run(host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/facebook_voice_orchestrator_egeria.py:129:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)), workers=1)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/consciousness_working.py:58:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_ethics_filter.py:12:SERVICE_PORT = int(os.getenv("SERVICE_PORT", "7233"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_ethics_filter.py:39:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_ethics_filter.py:104:    logger.info(f"Starting {SERVICE_NAME} on port {SERVICE_PORT}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_ethics_filter.py:105:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/web_research.py:5:SERVICE_PORT = 8130
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/web_research.py:10:    "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/oauth2_callback.py:49:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/integrate_all_services.py:102:                "http://localhost:8018/analyze",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neuro_adapter.py:18:            "http://localhost:8018/process",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neuro_adapter.py:29:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_temporal.py:43:SERVICE_PORT = int(os.getenv("SERVICE_PORT", "5101"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_temporal.py:65:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_temporal.py:219:    uvicorn.run("rag_temporal:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_original_backup.py:66:            self.chroma_client = chromadb.HttpClient(host="localhost", port=int(os.getenv("SERVICE_PORT", 8018)), settings=Settings(anonymized_telemetry=False))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_original_backup.py:265:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)), log_level="warning")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/qualia_unified_orchestrator_69dgm_REAL.py:175:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 9998)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/multi_model_consensus.py:268:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_alignment_filter.py:12:SERVICE_PORT = int(os.getenv("SERVICE_PORT", "7232"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_alignment_filter.py:39:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_alignment_filter.py:112:    logger.info(f"Starting {SERVICE_NAME} on port {SERVICE_PORT}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_alignment_filter.py:113:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/truth_filter_service.py:59:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/master_chat_orchestrator.py:305:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_pipeline.py:14:SERVICE_PORT = int(os.getenv("SERVICE_PORT", "7239"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_pipeline.py:71:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_pipeline.py:236:    logger.info(f"Starting {SERVICE_NAME} on port {SERVICE_PORT}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_pipeline.py:237:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/load_rag_knowledge.py:15:chroma = chromadb.HttpClient(host="localhost", port=int(os.getenv("SERVICE_PORT", 8018)), settings=Settings(anonymized_telemetry=False))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/registration_service_clean.backup_1762220206.py:231:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_22llm_SMALL_TO_LARGE.py:136:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-fifth-dgm_service_discovery.py:20:    def __init__(self, redis_host='localhost', redis_port=int(os.getenv("SERVICE_PORT", 8018))):
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_direct_debug.py:8:SERVICE_PORT = 8199
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_direct_debug.py:31:            "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_direct_debug.py:81:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_direct_debug.py:125:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_direct_debug.py:131:    uvicorn.run("rag_direct_debug:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/geobim_mysql.py:38:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/facebook_consciousness_daemon.py:24:CHAT_URL = "http://localhost:${SERVICE_PORT}/chat"
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/facebook_consciousness_daemon.py:28:    """Get response from Port ${SERVICE_PORT} consciousness with LONGER timeout"""
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/constitutional_api.PROD_BACKUP.py:38:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8000)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/belief_revision_engine.py:25:SERVICE_PORT = 7240
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/belief_revision_engine.py:56:                "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/belief_revision_engine.py:147:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/belief_revision_engine.py:380:        "port":    SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/belief_revision_engine.py:387:    uvicorn.run("belief_revision_engine:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/master_chat_orchestrator_v6_biologics.py:67:    "consciousness_containers": "http://localhost:8018",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/master_unified_consciousness_scheduler.py:138:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)), workers=1)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/main_brain.py:2424:        port=int(os.getenv("SERVICE_PORT", "8050")),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-judge-pipeline_judge_pipeline.py:14:SERVICE_PORT = int(os.getenv("SERVICE_PORT", "7239"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-judge-pipeline_judge_pipeline.py:73:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-judge-pipeline_judge_pipeline.py:207:    logger.info(f"Starting {SERVICE_NAME} on port {SERVICE_PORT}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-judge-pipeline_judge_pipeline.py:208:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/hilbert_spatial_chat.py:313:        "port": int(os.getenv("SERVICE_PORT", 5002)),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/hilbert_spatial_chat.py:414:    port = int(os.getenv("SERVICE_PORT", 8235))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_pipeline.py:7:SERVICE_PORT = 7265
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_pipeline.py:36:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_pipeline.py:54:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_pipeline.py:163:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_pipeline.py:171:    uvicorn.run("attention_pipeline:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/main_brain_legacy_backup.py:118:@app.get("/chat/status/{job_id}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/main_brain_legacy_backup.py:565:        port=int(os.getenv("SERVICE_PORT", "8050")),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_core.py:6:SERVICE_PORT = 7200
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_core.py:28:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_core.py:46:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_core.py:138:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_core.py:145:    uvicorn.run("gbim_core:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_geospatial.py:43:SERVICE_PORT = int(os.getenv("SERVICE_PORT", "5102"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_geospatial.py:67:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_geospatial.py:201:    uvicorn.run("rag_geospatial:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py:216:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/add_swagger_to_ports.py:23:    ${SERVICE_PORT}: "Main Brain",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_22llm_SEQUENTIAL.py:135:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_llm1.py:7:SERVICE_PORT = 8111
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_llm1.py:20:            "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_llm1.py:190:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis_llm1.py:200:    uvicorn.run("jarvis_llm1:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_evidence_aggregator.py:5:SERVICE_PORT = 7222
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_evidence_aggregator.py:12:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_evidence_aggregator.py:117:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_evidence_aggregator.py:124:    uvicorn.run("rag_evidence_aggregator:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/fix_port_8001_clean.py:72:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)), log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/qualia_unified_write_orchestrator_69dgm.py:259:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), workers=1)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_geospatial_context.py:5:SERVICE_PORT = 7224
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_geospatial_context.py:12:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_geospatial_context.py:34:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_geospatial_context.py:41:    uvicorn.run("rag_geospatial_context:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/cognition_sandbox.py:470:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", "8012")))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_gis_bridge.py:7:SERVICE_PORT = 7204
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_gis_bridge.py:14:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_gis_bridge.py:36:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gbim_gis_bridge.py:43:    port = int(os.getenv("SERVICE_PORT", 8052))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/spatial_sandbox.py:36:SERVICE_PORT     = int(os.getenv("SERVICE_PORT",  "8056"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/spatial_sandbox.py:72:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/spatial_sandbox.py:275:    uvicorn.run("spatial_sandbox:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/working_full_pipeline_WITH_SPATIAL_TEMPORAL.py:142:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py:139:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8000)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_code_execution_engine.py:52:    app.run(host='127.0.0.1', port=int(os.getenv("SERVICE_PORT", 8018)), debug=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/msjarvisicontainersservice.py:224:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8011)), log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/gateway_wv_entanglement.py:4:GBIM_API_URL = "http://localhost:8051/gbimentangledsummary"
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9001_ui_WORKING.py:158:                "SERVICE_PORT",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/phase6_integration.py:71:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/consciousness_coordinator.py:14:SERVICE_PORT = 8018
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/consciousness_coordinator.py:31:            "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/consciousness_coordinator.py:142:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/consciousness_coordinator.py:328:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/consciousness_coordinator.py:334:    uvicorn.run("consciousness_coordinator:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dgm_supervisor_woah_simple.py:30:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/start_gateway_with_guards.py:238:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9001_proxy_simple.py:47:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/llm_bridge_main.py:106:    port = int(os.getenv("SERVICE_PORT", "8006"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/reload_all_knowledge.py:18:client = chromadb.HttpClient(host="localhost", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_22llm.psychology_patched.py:93:            self.chroma_client = chromadb.HttpClient(host="localhost", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_22llm.psychology_patched.py:406:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)), log_level="warning")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/qualia_email_registration_orchestrator_69dgm.py:328:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), workers=1)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/constitutional_api_fixed.py:26:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_truth_filter.py:12:SERVICE_PORT = int(os.getenv("SERVICE_PORT", "7230"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_truth_filter.py:39:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_truth_filter.py:117:    logger.info(f"Starting {SERVICE_NAME} on port {SERVICE_PORT}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/judge_truth_filter.py:118:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/user_auth_service.py:74:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_4llm.py:66:            self.chroma_client = chromadb.HttpClient(host="localhost", port=int(os.getenv("SERVICE_PORT", 8018)), settings=Settings(anonymized_telemetry=False))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_4llm.py:265:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)), log_level="warning")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-aaacpe-rag_aaacpe_rag_service.py:125:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", "8032")))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/unifiedconsciousnessgatewayPRODUCTION.py:13:            port=int(os.getenv("SERVICE_PORT", 8000)),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/service_discovery_glassbox.py:94:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/roche_llm.py:619:        port=int(os.getenv("SERVICE_PORT", "8008")),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py:211:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/master_chat_orchestrator_v7_complete.py:79:    "consciousness_containers": "http://localhost:8018",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_integrated.py:64:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/port_9001_FINAL_WORKING.py:230:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)), reload=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:60:SERVICE_PORT = 8050
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:459:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:478:        "port": SERVICE_PORT
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:483:    logger.info(f"🚀 Starting Egeria Jarvis Conscious Collective on port {SERVICE_PORT}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py:484:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/qualia_adapter.py:35:                "SERVICE_PORT",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/activate_dgm_enhanced.py:165:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/i_containers/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/i_containers/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/i_containers/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/i_containers/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/i_containers/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/i_containers/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/i_containers/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/neurobiological_brain/i_containers/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/neurobiological_brain/i_containers/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/neurobiological_brain/i_containers/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/neurobiological_brain/i_containers/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/neurobiological_brain/i_containers/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/neurobiological_brain/i_containers/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/neurobiological_brain/i_containers/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/neurobiological_brain/darwin_godel_machines/service/ms_jarvis_darwin_godel_machine.py:738:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/neurobiological_brain/darwin_godel_machines/service/ms_jarvis_darwin_godel_machine.py:738:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/jarvisarchiveapi.py:68:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)), log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_priority_scheduler.py:5:SERVICE_PORT = 7261
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_priority_scheduler.py:12:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_priority_scheduler.py:30:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_priority_scheduler.py:65:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/attention_priority_scheduler.py:72:    uvicorn.run("attention_priority_scheduler:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_v3_consciousness.py:221:            fetch('/submit', {
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_v3_consciousness.py:235:            fetch(`/status/${queryId}`)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_v3_consciousness.py:282:@app.route('/submit', methods=['POST'])
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_v3_consciousness.py:296:@app.route('/status/<query_id>')
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_v3_consciousness.py:305:        'service': 'egeria_consciousness_ui',
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/egeria_web_ui_v3_consciousness.py:315:    app.run(host='127.0.0.1', port=int(os.getenv("SERVICE_PORT", 8018)), debug=False)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/fix_port_8051_handler.py:1:# Quick fix: Update the response handler in egeria_web_ui.py
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/fix_port_8051_handler.py:9:# Read current egeria_web_ui.py
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/fix_port_8051_handler.py:10:with open('~/msjarvis-rebuild/services/egeria_web_ui.py', 'r') as f:
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/fix_port_8051_handler.py:26:with open('~/msjarvis-rebuild/services/egeria_web_ui.py', 'w') as f:
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/chromadb_main.py:7:SERVICE_PORT = 8011
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/chromadb_main.py:21:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/chromadb_main.py:94:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/chromadb_main.py:102:    uvicorn.run("chromadb_main:app", host="127.0.0.1", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/stage2_biometric_backup.py:154:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_temporal_heartbeat.py:5:SERVICE_PORT = 7223
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_temporal_heartbeat.py:12:        "port": str(SERVICE_PORT),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_temporal_heartbeat.py:34:        "port": SERVICE_PORT,
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/rag_temporal_heartbeat.py:41:    uvicorn.run("rag_temporal_heartbeat:app", host="0.0.0.0", port=SERVICE_PORT)
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/hierarchical_coordinator_deep_mode.py:185:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_22llm.py:609:        port=int(os.getenv("SERVICE_PORT", "8008")),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/chat_endpoint_universal.py:55:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/phase7_integration.py:79:    "consciousness_containers": "http://localhost:8018",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/main.py:130:@app.get("/chat/status/{job_id}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/main.py:608:        port=int(os.getenv("SERVICE_PORT", "8017")),  # default now 8017
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/redirect_4015_to_4020.py:49:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/constitutional_api.py:878:    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("SERVICE_PORT", 8091)), log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/phase2_integration.py:70:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8000)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/academic_research_gateway_8062_cors.py:146:    inq = "egeria_autonomous_inquiry" in result.stdout
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/academic_research_gateway_8062_cors.py:206:                "SERVICE_PORT",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/aaacpe_rag_service.py:125:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", "8032")))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_11llm_OPTIMIZED.py:121:@app.get("/chat/status/{job_id}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/ai_server_11llm_OPTIMIZED.py:238:    "chroma": "http://localhost:8018",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/services/registration_service_clean.py:231:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8018)))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/main_brain.py:524:@app.get("/chat/status/{job_id}")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/main_brain.py:1358:        "port": int(os.getenv("SERVICE_PORT", "8050")),
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/main_brain.py:1365:    port = int(os.getenv("SERVICE_PORT", "8050"))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:76:      - SERVICE_PORT=8008
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:131:      - SERVICE_PORT=8032
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:183:      - SERVICE_PORT=8005
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:204:      SERVICE_PORT: "8047"
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:226:      - SERVICE_PORT=8091
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:262:      - SERVICE_PORT=8020
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:366:      - SERVICE_PORT=7260
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:613:      - SERVICE_PORT=8020
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:645:      - SERVICE_PORT=8091
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:1625:      - SERVICE_PORT=7206
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:1655:      - SERVICE_PORT=7205
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:1792:      - SERVICE_PORT=8081
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:1923:      - SERVICE_PORT=8011
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2079:      - SERVICE_PORT=7232
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2096:      - SERVICE_PORT=7231
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2113:      - SERVICE_PORT=7233
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2146:      - SERVICE_PORT=7239
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2168:      - SERVICE_PORT=7230
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2218:      - SERVICE_PORT=8001
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2298:      - SERVICE_PORT=8050
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2379:      SERVICE_PORT: "8055"
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2596:      - SERVICE_PORT=8019
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2650:      - SERVICE_PORT=5001
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2676:      - SERVICE_PORT=8003
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2791:      SERVICE_PORT: "8056"
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2820:      - SERVICE_PORT=8005
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2849:      - SERVICE_PORT=8014
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2881:      - SERVICE_PORT=8079
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:2914:      - SERVICE_PORT=8021
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:3079:      - SERVICE_PORT=8001
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:3128:      - SERVICE_PORT=8008
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:3152:      - SERVICE_PORT=7012
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:3197:      - SERVICE_PORT=8010
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:3688:      - SERVICE_PORT=7300
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:3898:      SERVICE_PORT: "8010"
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:3973:      SERVICE_PORT: "8010"
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.STABLE.20260719045021.yml:3994:      SERVICE_PORT: "8010"
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/diagnostics/unified_gateway_extended_policy_sections_20260801T022011Z.py:523:                            f"{self.services['wv_ensemble']}/chat_wv/status/{_job_id}",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/diagnostics/gateway_mid_220_420.py:105:                            f"{self.services['wv_ensemble']}/chat_wv/status/{_job_id}",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/diagnostics/unified_gateway_live_20260801T020501Z.py:482:                            f"{self.services['wv_ensemble']}/chat_wv/status/{_job_id}",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/diagnostics/wv_block_hardened_2026-07-31.py:35:                            f"{self.services['wv_ensemble']}/chat_wv/status/{_job_id}",
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/scripts/check-rag-stack.sh:45:curl -sS http://127.0.0.1:8000/ >/dev/null && \
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/scripts/check-rag-stack.sh:46:  echo "chroma root OK (127.0.0.1:8000)" || \
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/woah_algorithms/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/woah_algorithms/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/woah_algorithms/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/woah_algorithms/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/woah_algorithms/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/woah_algorithms/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/woah_algorithms/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/i_containers/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/i_containers/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/i_containers/service/ms_jarvis_i_containers_service.py:266:    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("SERVICE_PORT", 8015)), log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/i_containers/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/i_containers/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/i_containers/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/i_containers/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/i_containers/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_root/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_root/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_root/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_root/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_root/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_root/service/dynamic_port_service.py:153:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_root/service/dynamic_port_service.py:156:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/prefrontal_cortex/service/service_discovery.py:20:    def __init__(self, redis_host='localhost', redis_port=int(os.getenv("SERVICE_PORT", 8018))):
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/prefrontal_cortex/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/prefrontal_cortex/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/prefrontal_cortex/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/prefrontal_cortex/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/prefrontal_cortex/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/prefrontal_cortex/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/prefrontal_cortex/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/pituitary_gland/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/pituitary_gland/service/consciousness_bridge.py:13:    uvicorn.run(app, host="127.0.0.1", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/pituitary_gland/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/pituitary_gland/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/pituitary_gland/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/pituitary_gland/service/dynamic_port_service.py:153:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/pituitary_gland/service/dynamic_port_service.py:156:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/subconscious/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/subconscious/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/subconscious/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/subconscious/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/subconscious/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/subconscious/service/dynamic_port_service.py:153:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/subconscious/service/dynamic_port_service.py:156:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/mother_carrie_protocols/service/service_discovery.py:20:    def __init__(self, redis_host='localhost', redis_port=int(os.getenv("SERVICE_PORT", 8018))):
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/mother_carrie_protocols/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/mother_carrie_protocols/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/mother_carrie_protocols/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/mother_carrie_protocols/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/mother_carrie_protocols/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/mother_carrie_protocols/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/mother_carrie_protocols/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_maternal_integration/service/service_discovery.py:20:    def __init__(self, redis_host='localhost', redis_port=int(os.getenv("SERVICE_PORT", 8018))):
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_maternal_integration/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_maternal_integration/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_maternal_integration/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_maternal_integration/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_maternal_integration/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_maternal_integration/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/spiritual_maternal_integration/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/heteroglobulin_transport/service/service_discovery.py:20:    def __init__(self, redis_host='localhost', redis_port=int(os.getenv("SERVICE_PORT", 8018))):
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/heteroglobulin_transport/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/heteroglobulin_transport/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/heteroglobulin_transport/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/heteroglobulin_transport/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/heteroglobulin_transport/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/heteroglobulin_transport/service/dynamic_port_service.py:150:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/heteroglobulin_transport/service/dynamic_port_service.py:153:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/consciousness_containers/service/consciousness_bridge.py:12:    SERVICE_PORT = int(os.getenv('SERVICE_PORT', 8010))
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/consciousness_containers/service/consciousness_bridge.py:13:    uvicorn.run(app, host="0.0.0.0", port=SERVICE_PORT, log_level="info")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/consciousness_containers/service/dynamic_port_service.py:18:        # Prefer explicit SERVICE_PORT during development/testing; fall back to dynamic port
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/consciousness_containers/service/dynamic_port_service.py:19:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/consciousness_containers/service/dynamic_port_service.py:24:                # If SERVICE_PORT is invalid, fall back to dynamic allocation
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/consciousness_containers/service/dynamic_port_service.py:153:        Respects SERVICE_PORT if set; otherwise re-allocates a free port.
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/neurobiological_brain/consciousness_containers/service/dynamic_port_service.py:156:        env_port = os.getenv("SERVICE_PORT")
-/home/cakidd/msjarvis-guardian-deploy-candidate-e8827b2/docker-compose.commons-gateway-closeout.yml:21:      SERVICE_PORT: "8055"
-
-=== SEARCH_DIR=/home/cakidd/msjarvis-pilot-build-evidence-20260810 ===
-
-=== SEARCH_DIR=/home/cakidd/.config/systemd/user ===
-
-=== SEARCH_DIR=/etc/caddy ===
-
-=== SEARCH_DIR=/etc/systemd/system ===
-/etc/systemd/system/multi-user.target.wants/qualia-orchestrator.service:13:Environment=SERVICE_PORT=8300
-/etc/systemd/system/multi-user.target.wants/msjarvis-production-chat.service:12:Environment=SERVICE_PORT=8018
-/etc/systemd/system/qualia-orchestrator.service:13:Environment=SERVICE_PORT=8300
-/etc/systemd/system/egeria-ui.service:10:Environment="SERVICE_PORT=8052"
-/etc/systemd/system/msjarvis-production-chat.service:12:Environment=SERVICE_PORT=8018
-
-=== SEARCH_DIR=/lib/systemd/system ===
+container_id=002630ad7141bb641ddf46f4ec169d53144bd51d5c6a583b92397f313f983c87 name=43f524c3852a_jarvis-dgm-bridge-10 image=msjarvis-rebuild-jarvis-dgm-bridge-10:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=0040918f6e838f46c5894cbac2f6baec55a2e580494b009453ad8651bc49c290 name=22cb4468dbd5_llm8-proxy image=msjarvis-rebuild-llm8-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8208->8208/tcp command="python -m uvicorn llm8_health_proxy:app --host 0.0.0.0 --port 8208"
+container_id=016f57c94698f5eaa5ff9108073121f2357321a12727e74c7c310cf2d64ea3f6 name=588b015a5d92_jarvis-gbim-benefit-indexer image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Created created=2026-07-02 21:05:08 -0400 EDT ports= command="python3 gbim_benefit_indexer.py"
+container_id=032ac082d1a1d48066d0fab3de716d54290407ffe2aea23ae896813a7c1a558b name=jarvis-dgm-05 image=msjarvis-rebuild-jarvis-dgm-05 status=Exited (137) 6 days ago created=2026-07-28 22:39:39 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=0410a12c0f8784d8451fac6278e34088a0232e3290e51df9fe23f69c82ea0a2f name=eeb98757a243_llm21-proxy image=msjarvis-rebuild-llm21-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8221->8221/tcp command="python -m uvicorn llm21_health_proxy:app --host 0.0.0.0 --port 8221"
+container_id=04ff8fa47f63d0499459c15945d261b0fd1bd0d808dc327c35fe890505999fa9 name=jarvis-dgm-16 image=msjarvis-rebuild-jarvis-dgm-16 status=Exited (137) 6 days ago created=2026-07-28 22:43:19 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=07707c385a2e18cbded98b2597bcc5a8e36d095bf0c224102570cfd714060114 name=6e3371d9a45b_jarvis-dgm-bridge-13 image=msjarvis-rebuild-jarvis-dgm-bridge-13:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=082e7a2a1c41a9ef750ec2e0047b0d13d2455b1d031ed17b49eafcf6cdefe14d name=jarvis-dgm-03 image=msjarvis-rebuild-jarvis-dgm-03 status=Up 5 days created=2026-07-22 10:25:59 -0400 EDT ports=5103/tcp command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=08d54934c893b76db61f237250eea1e32a515db9c1b51956698321190aa4d907 name=jarvis-epistemic-runner image=jarvis-epistemic-runner:closeout-20260729 status=Up 5 days created=2026-07-29 14:42:58 -0400 EDT ports=127.0.0.1:8057->8057/tcp command="python3 hilbert_recurrent_epistemic_runner.py"
+container_id=09aca3cc6054736616a194d83b36e4a407f913ecb6136a2973f182a8edf9f955 name=jarvis-main-brain-pre-ollama-20260810140527 image=jarvis-main-brain:latest status=Exited (0) 24 hours ago created=2026-08-05 19:17:59 -0400 EDT ports= command="uvicorn ai_server_22llm:app --host 0.0.0.0 --port 8008"
+container_id=0b482fedf39c0e7ac5857ff706d5491e5e3a80828411b43d8709c0789002ee16 name=jarvis-judge-consistency image=msjarvis-rebuild-jarvis-judge-consistency status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=7231/tcp command="python judge_consistency_engine.py"
+container_id=0bd8ff067e8e748ee4cb9d9546a56ee76db7f6886a3f98e5ee4f406c4fc28ed1 name=fractal-listener-smoke-e8827b2-1988345 image=msjarvis-fractal-candidate:e8827b2-recovery status=Up 42 hours created=2026-08-09 20:52:16 -0400 EDT ports= command="python3 /app/ms_jarvis_fractal_consciousness.py"
+container_id=0f410deb2a1e33db0edacaf67986172607d09d48e5d603021bb4c89f74b66706 name=jarvis-rag-server image=msjarvis-rebuild-jarvis-rag-server status=Up 5 days created=2026-07-19 00:44:09 -0400 EDT ports=127.0.0.1:8003->8003/tcp command="python3 rag_server.py"
+container_id=1150428c1b2775b04fd092ab5174f4f7f7c12bcaf0703c905eb0048891bb763e name=jarvis-provenance image=msjarvis-rebuild-jarvis-provenance status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=127.0.0.1:8046->8046/tcp command="uvicorn app:app --host 0.0.0.0 --port 8046"
+container_id=12217e969e20b57fb97c8fc1c60314e2d2a19f67447381432967701a275d550a name=jarvis-dgm-20 image=msjarvis-rebuild-jarvis-dgm-20 status=Exited (137) 6 days ago created=2026-07-28 22:44:06 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=12241c7d9b5ef811ff2c3a7902ea5aec6eee3bd98cff4724be1ee14347170181 name=jarvis-dgm-10-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-10 status=Exited (137) 13 days ago created=2026-07-07 15:43:09 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=12f4ee393f59cdd00d757c93595a2552ab8aa1cc4ddd74cd14059b15b1f59ef3 name=hp-local-db image=postgis/postgis:15-3.4 status=Up 5 days created=2026-07-18 16:37:12 -0400 EDT ports=127.0.0.1:5435->5432/tcp command="docker-entrypoint.sh postgres"
+container_id=13d514ef3fdabbbfe7f5e9eb09f358fd00c5a993cd34e895dfdf953df0b4a8ea name=nbb_darwin_godel_machines image=nbb-darwin-godel-machines:asbuilt-20260728 status=Up 5 days created=2026-07-28 11:16:12 -0400 EDT ports=127.0.0.1:8302->8010/tcp command="python3 -c 'import uvicorn, os; uvicorn.run('ms_jarvis_darwin_godel_machine:app', host='0.0.0.0', port=int(os.getenv('SERVICE_PORT', 8010)))'"
+container_id=15b51087eaa7abe1ecfbb779de1b06cca1fcf7d34f8bb8fb26c084853cf80882 name=jarvis-intake-service image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Up 5 days created=2026-07-06 00:18:13 -0400 EDT ports=127.0.0.1:8007->8007/tcp command="uvicorn intake_service:app --host 0.0.0.0 --port 8007"
+container_id=16ea04409c5fb42d114b7482333d2db3416e6bae38e4b395277cc3bee9cb88cd name=cdb1cfcf3615_llm15-proxy image=msjarvis-rebuild-llm15-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8215->8215/tcp command="python -m uvicorn llm15_health_proxy:app --host 0.0.0.0 --port 8215"
+container_id=176b05c21680878b551a190a5fa4ceb9b2af9dc5785957f8bdc5f420afd8d7cf name=jarvis-chroma image=chromadb/chroma:0.6.3 status=Up 5 days (healthy) created=2026-07-22 10:03:10 -0400 EDT ports=127.0.0.1:8002->8000/tcp command="/docker_entrypoint.sh '--workers ${CHROMA_WORKERS} --host ${CHROMA_HOST_ADDR} --port ${CHROMA_HOST_PORT} --proxy-headers --log-config ${CHROMA_LOG_CONFIG} --timeout-keep-alive ${CHROMA_TIMEOUT_KEEP_ALIVE}'"
+container_id=197939bc14b07b1d8c8498e2b61a549054427c7d32177a17c87a82594d805d82 name=jarvis-gis-rag image=msjarvis-rebuild-jarvis-gis-rag status=Up 5 days created=2026-07-24 22:33:23 -0400 EDT ports=127.0.0.1:8004->8004/tcp, 8044/tcp command="uvicorn gis_rag_service:app --host 0.0.0.0 --port 8004"
+container_id=1ba9ea2e279798e965833af5f018747f707a9ed9aab32285b17b0e2647e99b9e name=jarvis-dgm-17 image=msjarvis-rebuild-jarvis-dgm-17 status=Exited (137) 6 days ago created=2026-07-28 22:43:31 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=1d2c138c7ed7bd5200780c03252cc5a60f2a4677572443e2bbb76486da024506 name=c1fb4544a3bd_jarvis-dao-governance image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Created created=2026-07-02 21:05:08 -0400 EDT ports= command="uvicorn dao_governance:app --host 0.0.0.0 --port 8082"
+container_id=1f5155f70c000c2515b030ca934e65dec84459db6b0a687c768e3574c298a93f name=7695786a2c17_jarvis-hilbert-commons image=msjarvis-rebuild-jarvis-hilbert-commons status=Created created=2026-07-03 10:44:56 -0400 EDT ports= command="sh -c 'while true; do python3 commons_aggregator.py; sleep 1800; done'"
+container_id=1f604d86e158a7fdf651c7877cc2f0f5e49d663a9553d0a0855f7500b69f3ae1 name=jarvis-dgm-23-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-23 status=Exited (137) 13 days ago created=2026-07-07 15:47:54 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=2146db5a358afff13118850f3cf5f3ede4dc5ee5c9bb52250c16c38b8086acf4 name=jarvis-gis-rag-tls image=nginx:stable status=Up 5 days created=2026-07-28 09:28:06 -0400 EDT ports=80/tcp, 127.0.0.1:8444->8444/tcp command="/docker-entrypoint.sh nginx -g 'daemon off;'"
+container_id=2151a6caeb4d53b393ba2604d8a1e821f18a4a8276db5d64b8fdb2cfc8a7de5e name=llm22-proxy.rollback-20260802T115010 image=msjarvis-rebuild-llm22-proxy status=Exited (0) 9 days ago created=2026-07-01 11:11:46 -0400 EDT ports= command="python -m uvicorn llm22_health_proxy:app --host 0.0.0.0 --port 8222"
+container_id=21f2705e481ebcb222db62074c854c6f9c3cecf2f86b6f47fc9a4a0ec05c7a6b name=jarvis-fractal-consciousness.original-quarantined-20260810T012240Z image=msjarvis-rebuild-jarvis-fractal-consciousness status=Created created=2026-08-09 21:22:40 -0400 EDT ports= command="python3 /app/ms_jarvis_fractal_consciousness.py"
+container_id=24173709208fbcb501ece75d31a288ef2beb49950e6f4a2715f1a63649a14445 name=jarvis-rag-router image=msjarvis-rebuild-jarvis-rag-router status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=8003/tcp, 127.0.0.1:5015->5001/tcp command="uvicorn rag_query_router:app --host 0.0.0.0 --port 5001"
+container_id=24c4290023de1b5eb8dd0dd7c224eb92eeea67bf642042f94bbdf2aaa13880e3 name=0fe048e236a2_jarvis-dgm-bridge-17 image=msjarvis-rebuild-jarvis-dgm-bridge-17:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=2620dac29ebb0668612f3a036c3e1edf599f0970bd56f5234fb305ec4d75402e name=nbb_qualia_engine image=msjarvis-rebuild-nbb_qualia_engine status=Up 5 days created=2026-07-05 17:39:31 -0400 EDT ports=127.0.0.1:8303->8010/tcp command="uvicorn ms_jarvis_consciousness_bridge:app --host 0.0.0.0 --port 8010"
+container_id=285ced2c9607963aa9c13281cddb11eac747e2b2fe70fe6fc02d440cdb9d44f7 name=jarvis-consciousness-bridge-temp image=python:3.11-slim status=Exited (137) 2 weeks ago created=2026-07-20 00:22:59 -0400 EDT ports= command="sh -lc 'python -m pip install --no-cache-dir --timeout 120 --retries 10 fastapi uvicorn httpx requests pydantic && python /app/ms_jarvis_consciousness_unified_bridge.py'"
+container_id=2874efd42da1defe4259d23029a673e37483c648b9392350ff11605e4c86fd03 name=jarvis-ms-coordinator image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Up 5 days created=2026-07-30 22:51:50 -0400 EDT ports=127.0.0.1:7300->7300/tcp command="sh -c 'cd /app/services && python3 ms_mountainshares_coordinator.py'"
+container_id=2d538adc61b815aa59c3eacb6c51a6360dff308cde26d6dca8c23db65531e350 name=jarvis-spiritual-rag image=msjarvis-rebuild-jarvis-spiritual-rag status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=127.0.0.1:8005->8005/tcp command="python spiritual_rag_domain.py"
+container_id=2f4e05f8a3dcef85813eb50bd63ed695b9e03c6550eb4483cdbeb16cdfdecc62 name=f970d6243de9_llm1-proxy image=msjarvis-rebuild-llm1-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8201->8201/tcp command="python -m uvicorn llm1_health_proxy:app --host 0.0.0.0 --port 8201"
+container_id=2f88be593aa8b238966eca8978a61915ad3de3ab4bb6e4f59e3b66338f224d06 name=jarvis-ingest-api image=python:3.11-slim status=Up 17 hours created=2026-07-01 09:26:17 -0400 EDT ports= command="python3 -c 'import time; print(\"jarvis-ingest-api: deprecated stub\"); time.sleep(86400)'"
+container_id=305d0a23596c1ac539ab91a367e37dbaae047f5833014d3fd572cf11a3eb0113 name=c3bc24fe5365_jarvis-dgm-bridge-04 image=msjarvis-rebuild-jarvis-dgm-bridge-04:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=3083694a57a479af26bda8c0e93420007448b3117aaf1434e7df83c81effc76c name=ee7caaa7707e_jarvis-dgm-bridge-20 image=msjarvis-rebuild-jarvis-dgm-bridge-20:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=32252489601f46ede949669ef5a9437611ffc38049313548a4cc3222f920e912 name=cacc76ea4643_nbb_blood_brain_barrier image=msjarvis-rebuild-nbb_blood_brain_barrier status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="uvicorn ms_jarvis_consciousness_bridge:app --host 0.0.0.0 --port 8010"
+container_id=33cc8c54665f623903babcfe551e3cb146b178562d38937aa9e4f69c407d2228 name=b91b3c2adba5_llm17-proxy image=msjarvis-rebuild-llm17-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8217->8217/tcp command="python -m uvicorn llm17_health_proxy:app --host 0.0.0.0 --port 8217"
+container_id=3bb8f7e2af17dc795ef0e0a4146f53b05fde2e2445e24df67edf9322412fc122 name=jarvis-agents-service image=msjarvis-rebuild-jarvis-agents-service status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=8005/tcp command="python3 ms_jarvis_agents_service.py"
+container_id=3cd94d7aafde85d687f5d2065e3e792ecac5374c0c721973e61f0a9c756fffb1 name=jarvis-dgm-20-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-20 status=Exited (137) 13 days ago created=2026-07-07 15:46:49 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=3e9f9e5eacd57d562d41fbaf464ddaab0684102a47bbdc7249622df28d3064a0 name=2d6c035dc9fe_llm20-proxy image=msjarvis-rebuild-llm20-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8220->8220/tcp command="python -m uvicorn llm20_health_proxy:app --host 0.0.0.0 --port 8220"
+container_id=3f68fcbda89c858007bd8d92720714e30a79298daa951981def89b94e7cb0b68 name=jarvis-judge-alignment image=msjarvis-rebuild-jarvis-judge-alignment status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=7232/tcp command="python judge_alignment_filter.py"
+container_id=406c478dedeb8c9dc787d48de7bcfa4844463480f869db019529c3ccdd33581d name=jarvis-hp-sidecar image=jarvis-hp-sidecar:local status=Up 5 days created=2026-07-03 00:27:57 -0400 EDT ports=127.0.0.1:8094->8094/tcp command="python hp_sidecar.py"
+container_id=43530be8d2db37bff02a740177d18b3695cbafeb10d9f4be3df321ae5692107b name=2deb1f7c2c97_jarvis-dgm-bridge-09 image=msjarvis-rebuild-jarvis-dgm-bridge-09:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=45c222470dcf83aab30ac183ab7d1837df3e4f3d17327975aa5a3df76f911299 name=bbd55aa39149_llm13-proxy image=msjarvis-rebuild-llm13-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8213->8213/tcp command="python -m uvicorn llm13_health_proxy:app --host 0.0.0.0 --port 8213"
+container_id=466acb2b5bdc95f2d9ef266b519d13170b67002fc017e9add51aaaec4c350953 name=1e1783a0cae3_jarvis-temporal-consciousness image=msjarvis-rebuild-jarvis-temporal-consciousness status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=7007/tcp command="python -m uvicorn temporal_consciousness:app --host 0.0.0.0 --port 7007"
+container_id=4711f2a3603e7d6034494d5fa5903fe8ce62744eef01261d59f7b727b0c32b0f name=jarvis-dgm-22-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-22 status=Exited (137) 13 days ago created=2026-07-07 15:47:33 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=48b476ca2355329f2aca65726cb35200d7c94a5d60371011f4a1a1c372e3756c name=qualia-real-9998-app image=python:3.11-slim status=Exited (137) 4 weeks ago created=2026-07-03 17:08:44 -0400 EDT ports= command="sh -lc 'set -eux; pip install --quiet fastapi uvicorn httpx pydantic; python -m py_compile services/qualia_unified_orchestrator_69dgm_REAL.py; python services/qualia_unified_orchestrator_69dgm_REAL.py'"
+container_id=4985ee0e2899ba8e313331f35db4a30d2fe211546b09e00d93172eac3bf8eabb name=jarvis-dgm-15-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-15 status=Exited (137) 13 days ago created=2026-07-07 15:44:59 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=4a9a3fb74af2cce8903ee66ea25886ba271f7ea9569ce8b5659ed0971112adfc name=jarvis-dgm-12-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-12 status=Exited (137) 13 days ago created=2026-07-07 15:43:53 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=4b5ad0424420c7e52abf5f093d0dc0fefd9bc626945d987d5c1845f41f55a6bf name=03da3490dbba_llm12-proxy image=msjarvis-rebuild-llm12-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8212->8212/tcp command="python -m uvicorn llm12_health_proxy:app --host 0.0.0.0 --port 8212"
+container_id=4cb9f9ab2244c6171562358591df73c3064b72d7e3e455a95d01fe8f5be8f7b1 name=jarvis-belief-revision image=jarvis-belief-revision:asbuilt-20260728 status=Up 5 days created=2026-07-28 10:55:39 -0400 EDT ports=127.0.0.1:7240->7240/tcp command="uvicorn belief_revision_engine:app --host 0.0.0.0 --port 7240"
+container_id=4cc77f3590b02d7e9724e19af9a3c2b0f5adee5576f76cb33cdbf386d95d783d name=jarvis-hilbert-gateway image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Up 5 days created=2026-07-28 09:28:12 -0400 EDT ports=127.0.0.1:18091->8081/tcp command="uvicorn jarvis_hilbert_semantic:app --host 0.0.0.0 --port 8081"
+container_id=4cea923f7ff4acca3e958b7ac153e0218497607873cecc3071ec54b2d83a8d6d name=317bdadaa740_jarvis-dgm-bridge-15 image=msjarvis-rebuild-jarvis-dgm-bridge-15:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=4d5bbc5d4275d7fd81b862db3e687a6baf3a7d75373ecce000f9b125f7fb9a1f name=jarvis-eeg-delta image=msjarvis-rebuild-jarvis-eeg-delta status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=127.0.0.1:8073->8073/tcp command="uvicorn jarvis_eeg_delta_30s:app --host 0.0.0.0 --port 8073"
+container_id=4ddea2d48dc5c1d63ba16d3841a08af814c93a4ed870791c9e441f5123fc14d7 name=fea7131a2e55_jarvis-commons-gamification image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Created created=2026-07-02 21:05:08 -0400 EDT ports= command="uvicorn commons_gamification:app --host 0.0.0.0 --port 8081"
+container_id=4f6a973dc7008a09b9a8b03986d8ea41dc89ff60d7c19304afdec674134eae17 name=jarvis-memory image=msjarvis-rebuild-jarvis-memory status=Up 5 days created=2026-07-22 11:55:36 -0400 EDT ports=127.0.0.1:8156->8056/tcp command="uvicorn ms_jarvis_memory_service:app --host 0.0.0.0 --port 8056"
+container_id=502f270952e9db5dfc4801952d84ca5995dfc60b6993f8f8e71f406cd245f285 name=be5c6613bca3_llm14-proxy image=msjarvis-rebuild-llm14-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8214->8214/tcp command="python -m uvicorn llm14_health_proxy:app --host 0.0.0.0 --port 8214"
+container_id=50953adbb68e5b8776540d4ffe4157f76f523325214c9c5ae2ade8bb497cbb07 name=374ec8ab07e5_jarvis-local-resources image=msjarvis-rebuild-jarvis-local-resources status=Created created=2026-07-02 12:21:46 -0400 EDT ports= command="uvicorn local_resources_resolver:app --host 0.0.0.0 --port 8006"
+container_id=50d7ae0f4f436c2012f17d4f82eb2a128c64005c046ae7408b257cc882080061 name=jarvis-i-containers image=msjarvis-rebuild-jarvis-i-containers status=Up 5 days created=2026-07-09 14:28:22 -0400 EDT ports=8015/tcp command="python -m uvicorn icontainers_fastapi:app --host 0.0.0.0 --port 8015"
+container_id=50f4b052ab1242f0fb2f3f10fec548b8ae0cd84410107e4eaef3c830572e95bc name=jarvis-spatial-sandbox image=python:3.11-slim status=Up 5 days created=2026-07-28 09:28:54 -0400 EDT ports=127.0.0.1:8056->8056/tcp command="sh -c 'pip install -q fastapi uvicorn redis httpx pydantic &&\n       python spatial_sandbox.py'"
+container_id=527a0fca691cdd70527503d43feb4ee9531e332078f3c69417ea6e019747d5a0 name=qualia-orchestrator-69dgm-real image=qualia-orchestrator:real status=Up 5 days (healthy) created=2026-07-03 17:16:32 -0400 EDT ports=127.0.0.1:9998->9998/tcp command="python /app/services/qualia_unified_orchestrator_69dgm_REAL.py"
+container_id=5321ebfd779735e281c58e09a9db7faf558a2c3ad98830da0974f6ba08fe5ead name=jarvis-dgm-14-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-14 status=Exited (137) 13 days ago created=2026-07-07 15:44:37 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=541c6a6710d400a0ee200113eb356ab5e12882b888a3f6bb102551b410359c54 name=jarvis-ms-indexer image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Restarting (1) 25 seconds ago created=2026-07-30 22:51:50 -0400 EDT ports= command="sh -c 'cd /app/services && python3 ms_mountainshares_indexer.py'"
+container_id=55be93b371b24cdf131d5a1bb7e29b5d3a5486a1be42d26922228ef89cdbf7e1 name=jarvis-psychology-services image=msjarvis-rebuild-jarvis-psychology-services status=Up 5 days created=2026-07-01 09:20:46 -0400 EDT ports=127.0.0.1:8019->8019/tcp command="python ms_jarvis_psychology_services.py"
+container_id=55df4a081751001b85ecf56bb5e6ebc518505898e14927371dd425aefdea9566 name=56c99d59f7a5_jarvis-session-sidecar image=jarvis-session-sidecar:latest status=Up 5 days created=2026-07-02 12:21:46 -0400 EDT ports=127.0.0.1:8060->8060/tcp, 8070/tcp command="uvicorn app:app --host 0.0.0.0 --port 8060"
+container_id=55e2824e1e9b0e910cba2a2b1e9dcab086ebaca6cb329d4e4841b560144a9c13 name=jarvis-neurobiological-master image=msjarvis-rebuild-jarvis-neurobiological-master status=Up 5 days created=2026-07-06 13:55:30 -0400 EDT ports=8018/tcp command="python3 ms_jarvis_neurobiological_master.py"
+container_id=567263a10ada850af80eea650416c02ecb631c805a0c3b40d8ee8116454d83e3 name=jarvis-dgm-17-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-17 status=Exited (137) 13 days ago created=2026-07-07 15:45:43 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=568f664a00848972a95554d10e2fe91a79cc9f9a2b09d3a56f691b888bb6b89d name=jarvis-dgm-06 image=msjarvis-rebuild-jarvis-dgm-06 status=Exited (137) 6 days ago created=2026-07-28 22:41:23 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=5e66d0c4156cde2099c02f02614ee318515f51c33923ceb554a61ca1b9c559b1 name=2c6d4b7ee36f_nbb-i-containers image=msjarvis-rebuild-nbb-i-containers status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="uvicorn services.icontainers_fastapi:app --host 0.0.0.0 --port 7005"
+container_id=5ed3e920ae8a68baac119934e1b1caa5deee7674c998083b7c11a87894912bfe name=jarvis-woah image=jarvis-woah:asbuilt-20260728 status=Up 5 days created=2026-07-28 09:48:04 -0400 EDT ports=127.0.0.1:7012->7012/tcp command="python3.10 /app/ms_jarvis_woah_algorithms.py"
+container_id=5f47fc7abd46d6fd18224e8149865975f98c5f5a9942506b1027f770683a183e name=jarvis-fractal-consciousness.candidate-pre-compose-20260810T011215Z image=msjarvis-fractal-candidate:e8827b2-recovery status=Exited (0) 41 hours ago created=2026-08-09 20:55:00 -0400 EDT ports= command="python3 /app/ms_jarvis_fractal_consciousness.py"
+container_id=615c4b783c3e18b6c4dbd4a4a3bf4ef99d2674212b60b1b1bb4d38c11869d27b name=jarvis-judge-truth image=msjarvis-rebuild-jarvis-judge-truth status=Up 5 days created=2026-07-22 15:01:50 -0400 EDT ports=127.0.0.1:8035->7230/tcp command="python judge_truth_filter.py"
+container_id=6a4faa23f50901216e870221e8b661336ab3199c913f1cc81dceffed55d81a1e name=jarvis-dgm-07 image=msjarvis-rebuild-jarvis-dgm-07 status=Exited (137) 6 days ago created=2026-07-28 22:41:35 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=6e004ce9af0967e5429b34235465d1c57e58a327b534ecc01fbab7c70af3f13e name=55e2824e1e9b_jarvis-neurobiological-master image=msjarvis-rebuild-jarvis-neurobiological-master status=Created created=2026-07-19 18:20:05 -0400 EDT ports= command="python3 ms_jarvis_neurobiological_master.py"
+container_id=6ffa201bc5cb469ea2be65e53929a66599c77d81f263283a849c4a4e15b8deca name=a8416407179c_nbb_spiritual_root image=msjarvis-rebuild-nbb_spiritual_root status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8103->8010/tcp command="python3 consciousness_bridge.py"
+container_id=7083466b0715d2d40f4f13aab30f0c2f3e6d6047d878b845ac2363aa3b2af99f name=llm22-proxy image=msjarvis-rebuild-llm22-proxy:timeoutfix-applied-20260802T115010 status=Up 5 days created=2026-08-02 11:54:08 -0400 EDT ports=127.0.0.1:8222->8222/tcp command="python -m uvicorn llm22_health_proxy:app --host 0.0.0.0 --port 8222"
+container_id=71a1cd5aa986521d0621253b2e1e67e8b40a36a670fabd8962ff7110222b6362 name=jarvis-dgm-19-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-19 status=Exited (137) 13 days ago created=2026-07-07 15:46:27 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=7239e08ad162ed9e2000bf9d922d74d597e5ec278554f9fc6dc405c6ac915949 name=jarvis-steward image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Up 5 days created=2026-07-28 09:29:10 -0400 EDT ports=127.0.0.1:8014->8014/tcp command="python3 jarvis_steward.py"
+container_id=726ffeb76526701f7c62ed046e6a5d8e5747e1ba3b3a4b0bce5bf9d4b35cb0f1 name=jarvis-hilbert-state image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Up 5 days created=2026-07-21 19:09:36 -0400 EDT ports=127.0.0.1:18092->8081/tcp command="uvicorn jarvis_hilbert_state:app --host 0.0.0.0 --port 8081"
+container_id=74b317576285fb31d01faccf07461fd463d9b53314434174b8422dd5b68e1551 name=neo4j image=neo4j:5.13-community status=Up 5 days created=2026-07-06 00:06:06 -0400 EDT ports=7473/tcp, 127.0.0.1:7687->7687/tcp, 127.0.0.1:7475->7474/tcp command="tini -g -- /startup/docker-entrypoint.sh neo4j"
+container_id=7547e26539d7d7d749d42a0954528ec222f641e0887b6632815647003d50021a name=b64d71635493_jarvis-dgm-bridge-21 image=msjarvis-rebuild-jarvis-dgm-bridge-21:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=76299ef2eabaa150cc0427ab8d77a2a727258f4c2e6bf9f10f88891fdcdec3e5 name=jarvis-civic-intake image=jarvis-civic-intake:closeout-20260728 status=Up 5 days created=2026-07-28 02:24:14 -0400 EDT ports=8100/tcp command="uvicorn hilbert.civic_intake:app --host 0.0.0.0 --port 8100 --app-dir /app/services"
+container_id=765f9b932cd7e6de23ad5078bd89e81424e6593e057a1a92322f795ba63d7de1 name=eb7041eefa81_mysql image=mysql:8.2 status=Created created=2026-07-16 18:44:06 -0400 EDT ports= command="docker-entrypoint.sh mysqld"
+container_id=77a6d8da8cfd914eff07724c7b3af2731f7bd40e4d988a2278ccdcfdb3ea175a name=1d653a8a0fcb_jarvis-mother-protocols image=msjarvis-rebuild-jarvis-mother-protocols status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=4000/tcp command="python -m uvicorn mother_protocols:app --host 0.0.0.0 --port 4000"
+container_id=781a11ee67e042e3ef5a389b9e0431cc13877328cbcf3a459b59d636ab6e8af4 name=jarvis-fractal-consciousness image=msjarvis-fractal-candidate:e8827b2-recovery status=Up 41 hours created=2026-08-09 21:12:16 -0400 EDT ports=8002/tcp command="python3 /app/ms_jarvis_fractal_consciousness.py"
+container_id=7907788e9cb72422126281b049a40069abd1ee1715f1e92b27d8e42bc3cbdf8b name=jarvis-dgm-18-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-18 status=Exited (137) 13 days ago created=2026-07-07 15:46:05 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=7a2030b63e13be4e43f29c3d52573aac1848ec76ac246dbb90b7907a6d74ac55 name=jarvis-dgm-04 image=msjarvis-rebuild-jarvis-dgm-04 status=Up 5 days created=2026-07-22 10:25:59 -0400 EDT ports=5104/tcp command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=7af7d2f419308269bba5d2ab8274274d760eaa388108dd1a1fb62abe8e1f5a0f name=0f40caf56e1e_nbb_mother_carrie_protocols image=msjarvis-rebuild-nbb_mother_carrie_protocols status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8107->8010/tcp command="python3 consciousness_bridge.py"
+container_id=7b8bfefe633a9f70bfd3050eb4c42fc403ce2cff24a0234cc0aebc1430c15c4d name=nbb_pituitary_gland image=msjarvis-rebuild-nbb_pituitary_gland status=Up 5 days created=2026-07-01 11:11:06 -0400 EDT ports=127.0.0.1:8108->80/tcp command="/start.sh"
+container_id=7bf6d5a10741bc247b9998400ddbac17b88a6866bf8b63e838064a0fc2b4562d name=msjarvis-db-5433-proxy image=alpine/socat status=Exited (143) 6 days ago created=2026-07-30 22:27:06 -0400 EDT ports= command="socat TCP-LISTEN:5433,fork,reuseaddr,bind=127.0.0.1 TCP:127.0.0.1:5432"
+container_id=7cf6540cb8d76f7362c2d65cb747477b838ad2870025967a05b829441cfa36ec name=b9f25945034e_llm6-proxy image=msjarvis-rebuild-llm6-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8206->8206/tcp command="python -m uvicorn llm6_health_proxy:app --host 0.0.0.0 --port 8206"
+container_id=7cf76aeeed6052e0817229a3d63f53c0262fdf5c954c4899aba4b45471ba807f name=09d31d2da8cf_jarvis-dgm-bridge-03 image=msjarvis-rebuild-jarvis-dgm-bridge-03:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=7d979ee4b19f2efcf4043bec5a1037846f75b3ba46013c8d9ec2999623ff45a5 name=jarvis-assertion-gateway image=msjarvis-rebuild-jarvis-assertion-gateway status=Exited (1) 11 days ago created=2026-07-30 22:43:41 -0400 EDT ports= command="uvicorn app.main:app --host 0.0.0.0 --port 8047"
+container_id=7eb26ef396764c97773c74a9c629d78bb9f8a8ce647266c18c207213351bfc46 name=34a411a13e56_jarvis-dgm-bridge-05 image=msjarvis-rebuild-jarvis-dgm-bridge-05:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=808b92a9611b8cc7d1515fc642f8b15f544e6b7abfc479154321bb7ab43f8af7 name=cd7a66d93ac6_jarvis-dgm-bridge-16 image=msjarvis-rebuild-jarvis-dgm-bridge-16:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=80e2aebfe30947176acd00ac8d8f26a8ef4ead633495d0c5f30db036be3038c9 name=jarvis-chat-worker image=msjarvis-rebuild-jarvis-chat-worker status=Up 25 hours created=2026-07-30 03:16:53 -0400 EDT ports= command="python chat_worker.py"
+container_id=81dc8f91368ecbecc000c61e28c8ad5d27fdcf61ba1cac3a5560b6fd18b8ba4a name=aae4a8928928_nbb_spiritual_maternal_integration image=msjarvis-rebuild-nbb_spiritual_maternal_integration status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8109->8010/tcp command="python3 consciousness_bridge.py"
+container_id=8a7b36c5a662b75039a8728121c3eba64038c73d0cfd3780391c3808d4409b92 name=jarvis-web-research image=msjarvis-rebuild-jarvis-web-research status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=8008/tcp command="python ms_jarvis_web_research_simple.py"
+container_id=8b13bbdfc71dfccda3cc49eef31ebe04fcba009690490c8d484c2fdfef21aa82 name=jarvis-constitutional-guardian image=msjarvis-rebuild-jarvis-constitutional-guardian status=Up 5 days created=2026-07-01 09:33:59 -0400 EDT ports=127.0.0.1:8091->8091/tcp command="python -m uvicorn constitutional_api:app --host 0.0.0.0 --port 8091 --log-level info"
+container_id=8bb7e22ef46a8fad7f47efacb3ce2e6e29b5e568e84dc9c6db6f334df392593e name=jarvis-auth-api image=msjarvis/jarvis-auth-api:patched status=Up 5 days created=2026-07-22 11:43:25 -0400 EDT ports=127.0.0.1:8096->8091/tcp command="python -m uvicorn auth_api:app --host 0.0.0.0 --port 8091"
+container_id=8bbb6068c565487f671cb8da3b1553da21d793961af017a2ef5ee6168d2d59c1 name=jarvis-crypto-policy image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Up 5 days created=2026-07-29 14:08:33 -0400 EDT ports=8099/tcp command="uvicorn jarviscryptopolicy:app --host 0.0.0.0 --port 8099 --app-dir /app/services"
+container_id=8e68631c3e88984d357e8c323788178f598b15755a9a7dce992bbce5124535ba name=jarvis-dgm-09 image=msjarvis-rebuild-jarvis-dgm-09 status=Exited (137) 6 days ago created=2026-07-28 22:41:58 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=91786e706452bd121c7c9da0beb4d8a1ef30899cfb75816114ca8c4e993e32d5 name=jarvis-eeg-beta image=msjarvis-rebuild-jarvis-eeg-beta status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=127.0.0.1:8075->8075/tcp command="uvicorn jarvis_eeg_beta_5m:app --host 0.0.0.0 --port 8075"
+container_id=91fe57655528c2740e58e071c452d652f90f2eefef4080c0318e9fa68079ad43 name=jarvis-dgm-11-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-11 status=Exited (137) 13 days ago created=2026-07-07 15:43:31 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=934bfec75dfa15bc90362e6c4144bc81d23c271e2aeafeb7dc50b692b1549251 name=jarvis-judge-pipeline image=msjarvis-rebuild-jarvis-judge-pipeline status=Up 5 days created=2026-07-01 09:26:56 -0400 EDT ports=7239/tcp command="python judge_pipeline.py"
+container_id=940dd621fb68d439db15391bea3d3b98507b503f2c4802400b9a60a5087b8514 name=jarvis-aaacpe-rag image=msjarvis-rebuild-jarvis-aaacpe-rag status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=127.0.0.1:8032->8032/tcp command="python -m uvicorn aaacpe_rag_service:app --host 0.0.0.0 --port 8032"
+container_id=94cd67df7830bdd15f961e0f9ec8870821a0f316a07466e639d4ee354fc27920 name=ipfs image=ipfs/kubo:latest status=Up 5 days (healthy) created=2026-08-03 11:28:44 -0400 EDT ports=4001/tcp, 8080-8081/tcp, 4001/udp, 127.0.0.1:5001->5001/tcp command="/sbin/tini -- /usr/local/bin/start_ipfs daemon --migrate=true --agent-version-suffix=docker"
+container_id=95a4b99f6a761763a929a679247dd1b95eac5fd3c0fe62fb25cf6d08fa5a22f7 name=jarvis-20llm-production image=msjarvis-rebuild-jarvis-20llm-production status=Up 5 days created=2026-07-30 03:16:52 -0400 EDT ports=127.0.0.1:8008->8008/tcp command="python3 ai_server_20llm_PRODUCTION.py"
+container_id=9732ba6ed16990d946b1d0c76a9e2fac13c190be0295949989c442e7668c88e2 name=a40eece620f3_nbb_woah_algorithms image=msjarvis-rebuild-nbb_woah_algorithms status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8104->8010/tcp command="python3 consciousness_bridge.py"
+container_id=999f1d562ba3314e5d1888275cf698db34117ddcea367c275f4b30366e065eb1 name=jarvis-dgm-13 image=msjarvis-rebuild-jarvis-dgm-13 status=Exited (137) 6 days ago created=2026-07-28 22:42:45 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=9ad23d5b47ae41897b51f9116685170f85c5b60b7f88c698d7eed15c0030328f name=jarvis-dgm-06-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-06 status=Exited (137) 13 days ago created=2026-07-07 15:41:41 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=9be7372670e9e70f6f1d11519ad02d288af7445c09cccb49b8c97613af2b379e name=541c6a6710d4_jarvis-ms-indexer image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Created created=2026-07-30 23:17:53 -0400 EDT ports= command="sh -c 'cd /app/services && python3 ms_mountainshares_indexer.py'"
+container_id=9d42544ab6616ef9715d0e4efd55459395b95990601dbf2e943655d2a5b0ccd0 name=8be7c5cb1820_jarvis-hippocampus image=msjarvis-rebuild-jarvis-hippocampus status=Created created=2026-07-02 12:21:46 -0400 EDT ports= command="uvicorn hippocampus_service:app --host 0.0.0.0 --port 8011"
+container_id=9e1ae987d0e778dbfc33ff4595872603c0f70cffc2fd4b78a91b685e6e634ab0 name=jarvis-unified-gateway image=msjarvis-rebuild-jarvis-unified-gateway:latest status=Up 39 hours created=2026-08-02 14:31:30 -0400 EDT ports=0.0.0.0:8093->8001/tcp, [::]:8093->8001/tcp command="/app/gateway-entrypoint.sh"
+container_id=9e8f38747f39bc31e32deaa2df8335eee8f9c0f6f23febb2e22d571273ef9209 name=jarvis-hilbert-time image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Up 5 days created=2026-07-28 09:28:19 -0400 EDT ports=127.0.0.1:18094->8092/tcp command="uvicorn jarvis_hilbert_time:app --host 0.0.0.0 --port 8092"
+container_id=a0e2a80080c67609b53107f97918632771e84fb167019ec24750629e8e55478b name=jarvis-main-brain image=jarvis-main-brain:ollama-host-20260810140527 status=Up 24 hours created=2026-08-10 14:05:36 -0400 EDT ports=8050/tcp command="uvicorn ai_server_22llm:app --host 0.0.0.0 --port 8008"
+container_id=a17a8059268028a41cefd23eb7fbdb1b358e946090b2b0eff7984cf68c186f1b name=jarvis-ms-analytics image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Up 5 days created=2026-07-30 22:51:50 -0400 EDT ports=127.0.0.1:8083->8083/tcp command="sh -c 'cd /app/services && python3 ms_mountainshares_analytics.py'"
+container_id=a1e575149721e7f5d6e9fdd02423e6db2ca046a505491d8f8d2696d443dcd988 name=0030c0c3bcf5_jarvis-dgm-bridge-02 image=msjarvis-rebuild-jarvis-dgm-bridge-02:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=a1f860a4cc901fc9a3f383cad4d9cbaee895d28edc4d8020e99bf50edd752159 name=jarvis-dgm-07-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-07 status=Exited (137) 13 days ago created=2026-07-07 15:42:03 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=a61d064d2901d6dc9a6d6578ef7b10035d5da8148645ab60dc36f60aa9e5dd83 name=jarvis-nbb-i-containers-2 image=nbb-i-containers:asbuilt-20260728-v3 status=Up 5 days created=2026-07-28 22:05:52 -0400 EDT ports=127.0.0.1:8015->8015/tcp command="sh -c 'ln -sfn /app/neurobiological_brain/i_containers /app/neurobiological_brain/neurobiologicalbrain/i_containers 2>/dev/null; python3 ms_jarvis_i_containers_service.py'"
+container_id=a7b6ad8cdac06af059ddc22b55ec4110c152c1de560d97648fcfa378c1918474 name=jarvis-dgm-14 image=msjarvis-rebuild-jarvis-dgm-14 status=Exited (137) 6 days ago created=2026-07-28 22:42:56 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=aa6da26825cbc766fd32476c5bf246f4a2d8d74d5a52bb4dd4913d1bd1b1d8cf name=jarvis-ollama image=ollama/ollama:latest status=Up 5 days created=2026-07-18 14:39:28 -0400 EDT ports=127.0.0.1:11434->11434/tcp command="/bin/ollama serve"
+container_id=ab983b25ea7da4e32db499b931794c9a2719ed36df60b01ddc13cbdc97f382a2 name=jarvis-ollama-tls image=nginx:stable status=Up 5 days created=2026-07-28 09:28:32 -0400 EDT ports=80/tcp, 127.0.0.1:11436->11436/tcp command="/docker-entrypoint.sh nginx -g 'daemon off;'"
+container_id=ae3ce17787a1eac7875b579beed54be31957d252b1afcef4fc0e1364f428bb67 name=jarvis-dgm-22 image=msjarvis-rebuild-jarvis-dgm-22 status=Exited (137) 6 days ago created=2026-07-28 22:44:29 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=aeb0fb8f5a5fee988c4d3f2e404f00b21a73c870fd1558474d47749c4af29e61 name=jarvis-qualia-engine image=msjarvis-rebuild-jarvis-qualia-engine status=Up 5 days created=2026-08-03 16:56:51 -0400 EDT ports=127.0.0.1:8017->8017/tcp command="/app/venv/bin/python -m uvicorn services.ms_jarvis_qualia_engine:app --host 0.0.0.0 --port 8017 --log-level info"
+container_id=b12c5d7844d5f1414807980f2981bf9b39294e383abcae5c5bf527f310811d13 name=32c012be1f39_jarvis-dgm-bridge-22 image=msjarvis-rebuild-jarvis-dgm-bridge-22:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=b13fddd3557da342512db6a03e84d6c2b48f200c6884e124cf667aa2a75d90d2 name=5583028e194d_nbb_heteroglobulin_transport image=msjarvis-rebuild-nbb_heteroglobulin_transport status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 consciousness_bridge.py"
+container_id=b1cf6a9ce368d1dc4582aba16573bf1156b92f059558e45f6b52fc3ab011191a name=c68db82137f8_llm9-proxy image=msjarvis-rebuild-llm9-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8209->8209/tcp command="python -m uvicorn llm9_health_proxy:app --host 0.0.0.0 --port 8209"
+container_id=b22197a3d613bc1bd2238ed9a8329d284848d0881402008838b5bc17a854b2bb name=f49af6a3d696_llm7-proxy image=msjarvis-rebuild-llm7-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8207->8207/tcp command="python -m uvicorn llm7_health_proxy:app --host 0.0.0.0 --port 8207"
+container_id=b287b0a25afde6311ff5ec1405bfc1b53671af651733cbe6d70ccd8a9c7ce2ad name=jarvis-aaacpe-scraper image=msjarvis-rebuild-jarvis-aaacpe-scraper status=Exited (0) 6 days ago created=2026-07-01 09:26:17 -0400 EDT ports= command="python -m uvicorn aaacpe_scraper_service:app --host 0.0.0.0 --port 8033"
+container_id=b30c2ae3811b946f51b8bcf61665940e0954a1bb5a40eb07be9e06cb8aa81f83 name=jarvis-dgm-05-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-05 status=Exited (137) 13 days ago created=2026-07-07 15:41:20 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=b34d3ab4c438069699128487a5eb7276038f5bdac5bc84edb95b5eaa2ae6bfce name=6063d2fd2b57_jarvis-dgm-bridge-07 image=msjarvis-rebuild-jarvis-dgm-bridge-07:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=b3ca0078b97b7237dd69f194ae04c29fb86be951bd5713e3d63974132dda9099 name=d726744ac7b6_nbb_subconscious image=msjarvis-rebuild-nbb_subconscious status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 consciousness_bridge.py"
+container_id=b51ec7f91617a3308c00c753cd402b22bfbae774b10df1448d384bf5d209644d name=jarvis-dgm-02 image=msjarvis-rebuild-jarvis-dgm-02 status=Up 5 days created=2026-07-22 10:25:59 -0400 EDT ports=5102/tcp command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=b644e17f480b9e69b594146b2d1fe2f9f26742bb3b176c14781cdccc36f197be name=jarvis-dgm-16-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-16 status=Exited (137) 13 days ago created=2026-07-07 15:45:21 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=b881413ee6103108ee192a140183e204e6024d720dde234204477ffcbf903b03 name=83107192806b_jarvis-dgm-bridge-23 image=msjarvis-rebuild-jarvis-dgm-bridge-23:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=b8fc26b8aa3ea9b992f8a202ac5ffe9fd53b1971f0cf8ad38b9b7f9322d13457 name=ms-allis-internal-sandbox image=msjarvis-rebuild-ms-allis-internal-sandbox status=Up 5 days created=2026-07-22 11:56:27 -0400 EDT ports=127.0.0.1:8042->8042/tcp command="uvicorn ms_allis_internal_sandbox:app --host 0.0.0.0 --port 8042"
+container_id=b91e71952587b557040490c8544c1b9f46e6a6f42a6ddaa08a01e0cb8524752e name=jarvis-blood-brain-barrier image=jarvis-blood-brain-barrier:asbuilt-20260728 status=Up 5 days created=2026-07-28 10:06:34 -0400 EDT ports=127.0.0.1:8016->8016/tcp command="python3 ms_jarvis_blood_brain_barrier.py"
+container_id=ba01a2bd26bff502a383118dadbcb90aa531250c97d8b480410f05ecd867b4d0 name=8dffd2f7b142_llm3-proxy image=msjarvis-rebuild-llm3-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8203->8203/tcp command="python -m uvicorn llm3_health_proxy:app --host 0.0.0.0 --port 8203"
+container_id=bac13513c016384a42863c99a90df771a8cdc227a847bbae179819d28172c34a name=ae475806a449_jarvis-dgm-bridge-08 image=msjarvis-rebuild-jarvis-dgm-bridge-08:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=bb5199581bf76c84bf27a28edf5d86d45122a83cc6dc722960790da47471856a name=b5a2b182f1b7_llm19-proxy image=msjarvis-rebuild-llm19-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8219->8219/tcp command="python -m uvicorn llm19_health_proxy:app --host 0.0.0.0 --port 8219"
+container_id=bb94fb6961881a508ac2dff5a21a6a46a9f851a7c75387aad601a8ac96802527 name=jarvis-pia-sampler image=python:3.11-slim status=Up 5 days created=2026-07-28 09:28:38 -0400 EDT ports=8076/tcp command="sh -c 'pip install fastapi uvicorn redis -q && python3 pia_sampler_service.py'"
+container_id=bba9a2a33bf04cb772a34def97553532f8dc791f625dede6575448427ad8d376 name=jarvis-policy-set-preopenapi-20260728 image=jarvis-civic-intake:closeout-20260728 status=Exited (0) 13 days ago created=2026-07-28 02:24:20 -0400 EDT ports= command="uvicorn policy_set_service_closeout:app --host 127.0.0.1 --port 8099 --app-dir /app/services"
+container_id=bf6b32fd56a6274372e46af370fc08894669d58b04b6cab9a0e16a97f1294e65 name=jarvis-swarm-intelligence image=msjarvis-rebuild-jarvis-swarm-intelligence status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=8021/tcp command="python3 ms_jarvis_swarm_intelligence.py"
+container_id=bfd56587c08f00b7b7cf9696ebee46b2b125145f504ece4bdad079f74b2bc394 name=jarvis-jaeger image=jaegertracing/all-in-one:1.52 status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=4317-4318/tcp, 5775/udp, 5778/tcp, 9411/tcp, 14250/tcp, 14268/tcp, 6831-6832/udp, 127.0.0.1:16686->16686/tcp command="/go/bin/all-in-one-linux"
+container_id=c0f034c275aa86b28a408e24813956f6aff332594a8421bdf029b2d918b9655f name=05cbdb9d8b63_llm18-proxy image=msjarvis-rebuild-llm18-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8218->8218/tcp command="python -m uvicorn llm18_health_proxy:app --host 0.0.0.0 --port 8218"
+container_id=c150a17e1ef929930f34b3059a1ab98051fad7a4ba2b2d4892aa6a455b7f94bd name=jarvis-dgm-01 image=msjarvis-rebuild-jarvis-dgm-01 status=Up 5 days created=2026-07-22 10:25:59 -0400 EDT ports=5101/tcp command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=c2ad608efe9eae6563697729816d85c67bb32f27e330c0a84c04f1335973a14a name=jarvis-dgm-21-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-21 status=Exited (137) 13 days ago created=2026-07-07 15:47:11 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=c3b8c5c2fc27d6f52a62eca9d982e86c8680ee63121648b524504acd6e29e03d name=jarvis-semaphore image=msjarvis-rebuild-jarvis-semaphore status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=127.0.0.1:8030->8030/tcp command="python -m uvicorn msjarvis_semaphore:app --host 0.0.0.0 --port 8030"
+container_id=c61d807c0648722b4e4bb2722dad202b33ebed4f8a7b7a57b6f1d9bb0398f868 name=jarvis-dgm-08-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-08 status=Exited (137) 13 days ago created=2026-07-07 15:42:25 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=c6e073aa0895e44918fee23f49480d675039e60e07a86b01e73cb19c392dd7b7 name=jarvis-dgm-12 image=msjarvis-rebuild-jarvis-dgm-12 status=Exited (137) 6 days ago created=2026-07-28 22:42:33 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=c78837fed3457dff88ba7a0c9e8895cd46fe30a4b92b10d63b14bdc5a66925f9 name=6c076127418c_llm4-proxy image=msjarvis-rebuild-llm4-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8204->8204/tcp command="python -m uvicorn llm4_health_proxy:app --host 0.0.0.0 --port 8204"
+container_id=c9161c3afa7fac4456d97c252b4b8e63184c3b5871a75178222526ae1e34b603 name=jarvis-dgm-15 image=msjarvis-rebuild-jarvis-dgm-15 status=Exited (137) 6 days ago created=2026-07-28 22:43:08 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=c99de0db41127dfbc59dab1907a3ecf5422af22ebc208b4754ab77b7e6b69877 name=f85353dc2357_jarvis-dgm-bridge-01 image=msjarvis-rebuild-jarvis-dgm-bridge-01:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=ca9f3938f31c79431452e005f2ab24170fc7fd244a2221af392863b5e062e4cd name=675f8bd43968_llm11-proxy image=msjarvis-rebuild-llm11-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8211->8211/tcp command="python -m uvicorn llm11_health_proxy:app --host 0.0.0.0 --port 8211"
+container_id=cccb50e0ee810f93af4b37b57eaf7328b2051445ac88cbe06181cb2f7b834ba8 name=jarvis-dgm-09-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-09 status=Exited (137) 13 days ago created=2026-07-07 15:42:47 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=ce480ed1f93b2b3289a8a2adbaceb34bd3f1a1e8333b48f979d999f30f57aeff name=6dd05bcbf535_llm5-proxy image=msjarvis-rebuild-llm5-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8205->8205/tcp command="python -m uvicorn llm5_health_proxy:app --host 0.0.0.0 --port 8205"
+container_id=d13b32b9e4549fc95036c35a153ed5405c5369df36f16689d2588249992fb5e8 name=jarvis-judge-ethics image=msjarvis-rebuild-jarvis-judge-ethics status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=7233/tcp command="python judge_ethics_filter.py"
+container_id=d3ea49ac57a7a89ee1a270079c4e6495f6b81f4fe3408356787fa4ab8845eeb1 name=jarvis-dgm-23 image=msjarvis-rebuild-jarvis-dgm-23 status=Exited (137) 6 days ago created=2026-07-28 22:44:41 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=d512340a41175494d20b04ce3ccef4758fb530e67fed7e410842f85bbdbbb672 name=jarvis-dgm-08 image=msjarvis-rebuild-jarvis-dgm-08 status=Exited (137) 6 days ago created=2026-07-28 22:41:46 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=d59440060ddf1d8daffb76db5f6fa125f7c27d56850e37fd2f3a87d851ac891d name=720606c93fb5_jarvis-dgm-bridge-18 image=msjarvis-rebuild-jarvis-dgm-bridge-18:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=d68ba2f392182a15b8db102514af1a2c622e5c0a17f1e1a52a5e15032d870d08 name=e665651c00d5_llm2-proxy image=msjarvis-rebuild-llm2-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8202->8202/tcp command="python -m uvicorn llm2_health_proxy:app --host 0.0.0.0 --port 8202"
+container_id=d706b75f559016fe1627ddc130d4b1dd55ad6440130220f846aa981b85db5173 name=nvme1-mysql-recovery image=mysql:8.2 status=Exited (0) 6 days ago created=2026-08-03 09:46:21 -0400 EDT ports= command="docker-entrypoint.sh --skip-grant-tables --innodb-force-recovery=1 --read-only=ON --super-read-only=ON"
+container_id=d74fd7b97159dabb6fee9809a620fefa5bb95736869f86ff7c8404dfa7648c62 name=07868f87c30f_llm10-proxy image=msjarvis-rebuild-llm10-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8210->8210/tcp command="python -m uvicorn llm10_health_proxy:app --host 0.0.0.0 --port 8210"
+container_id=d82b226b7f45b35831f703d1d6946fa210dff58ecc4900d1db3fbd6b10939340 name=jarvis-phi-probe image=msjarvis-rebuild-jarvis-phi-probe status=Up 5 days created=2026-07-21 21:22:28 -0400 EDT ports=127.0.0.1:8026->8025/tcp command="python3 ms_jarvis_phi_probe.py"
+container_id=d91ccf962dbf57d3ac94a6ce744f23d723e4acb71290e8381ba99454a08de46e name=jarvis-commons-optin-intake image=jarvis-commons-optin-intake:closeout-20260728-v2 status=Up 5 days created=2026-07-28 21:05:32 -0400 EDT ports=127.0.0.1:8061->8061/tcp command="python3 -m uvicorn commons_optin_intake:app --host 0.0.0.0 --port 8061"
+container_id=d9715beb5c898acf3403ed126ac18e601752a8aa457893b6a2721a9ab2d22b4e name=69ee8c1dadfb_llm16-proxy image=msjarvis-rebuild-llm16-proxy status=Up 5 days created=2026-07-01 11:11:46 -0400 EDT ports=127.0.0.1:8216->8216/tcp command="python -m uvicorn llm16_health_proxy:app --host 0.0.0.0 --port 8216"
+container_id=da6cf4c08b92e70767b4c5738a02ae86414a5b6a3f3528c32d90987564cecd18 name=msjarvis-mysql-recovery image=mysql:8.2 status=Exited (0) 6 days ago created=2026-08-02 22:42:56 -0400 EDT ports= command="docker-entrypoint.sh --skip-grant-tables --innodb-force-recovery=1 --read-only=ON --super-read-only=ON"
+container_id=dac640fca562c40b7c9d13d90d9f1530c1d25bed69660aef05f39ec15ab80d50 name=jarvis-gbim-query-router image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Exited (0) 3 weeks ago created=2026-07-19 00:44:09 -0400 EDT ports= command="python3 gbim_query_router.py"
+container_id=dc991af2835358aca1c1d848dd42140d08381c25671ff2453098d511a106b814 name=jarvis-dgm-18 image=msjarvis-rebuild-jarvis-dgm-18 status=Exited (137) 6 days ago created=2026-07-28 22:43:43 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=dcfe4ac54fa3feddeb6ce089446a04769c45340d179c84da6e57fb409f5c22d2 name=nbb_prefrontal_cortex image=msjarvis-rebuild-nbb_prefrontal_cortex status=Up 5 days created=2026-07-19 18:17:18 -0400 EDT ports=127.0.0.1:8105->7005/tcp command="/start.sh"
+container_id=dde859f5875781cb4465becb93ceaa0b7997c0f4b7fb0192a3042cebcce7088b name=016624f872e9_nbb_consciousness_containers image=msjarvis-rebuild-nbb_consciousness_containers status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 consciousness_bridge.py"
+container_id=def9fd16d39e6eb4c892c6ce6adfb268a64ec283ff5f396eb2189d760580ca70 name=jarvis-unified-gateway-authz-canary image=msjarvis-rebuild-jarvis-unified-gateway:authz-canary-20260809 status=Up 39 hours created=2026-08-09 23:58:45 -0400 EDT ports=127.0.0.1:18093->8001/tcp command="/app/gateway-entrypoint.sh"
+container_id=df896932f41d7f72585e2da59bc070e06cbb7bc481ebe112b66d1787f26a43a1 name=jarvis-mountainshares-commons-gateway image=msjarvis-rebuild-jarvis-mountainshares-commons-gateway status=Up 5 days created=2026-07-30 22:51:50 -0400 EDT ports= command="python3 -m uvicorn mountainshares_commons_gateway:app --host 0.0.0.0 --port 8055"
+container_id=e01adb28b5eca83bb7d0857db8a2d0e5703851708c3586d6430cfe17172801dc name=jarvis-dgm-11 image=msjarvis-rebuild-jarvis-dgm-11 status=Exited (137) 6 days ago created=2026-07-28 22:42:21 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=e11fc1f132c476e51b6ffb635cbd9123b9b29990c52f255111430b9a40de724b name=d143ecf04a83_jarvis-69dgm-bridge image=msjarvis-rebuild-jarvis-69dgm-bridge status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python -m uvicorn bridge_69dgm:app --host 0.0.0.0 --port 9000"
+container_id=e183780b8c5404f5c1a7c961fc0c14acc51df9624aed1e5bc067d2affa38aa0e name=jarvis-brain-orchestrator image=jarvis-brain-orchestrator:asbuilt-20260728 status=Up 5 days (healthy) created=2026-07-28 09:59:53 -0400 EDT ports=127.0.0.1:17260->7260/tcp command="python3 brain_orchestrator.py"
+container_id=e2e9c45697e2f3f1e04b17502e461a9b5595b5322eda41d9c57ea35c7219e452 name=88d6e6d22fc5_jarvis-dgm-bridge-14 image=msjarvis-rebuild-jarvis-dgm-bridge-14:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=e2fd255be02970149efb41562c961462e0f726d5dfd59152d17f9afefb8a0713 name=jarvis-dgm-13-preloopback-20260728 image=msjarvis-rebuild-jarvis-dgm-13 status=Exited (137) 13 days ago created=2026-07-07 15:44:15 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=e4a97e47a25688e4310d8d095f9b0d1e535cab7abc77369199e2210d9ca89b0a name=442313afede2_jarvis-community-stake-registry image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Created created=2026-07-02 21:05:08 -0400 EDT ports= command="uvicorn community_stake_registry:app --host 0.0.0.0 --port 8084"
+container_id=e4bf5640ad637ed69e5aa1a48a37ce285383f4322345a29ceacfb01408f9d089 name=llm22-proxy.reverted-12s-20260802T115010 image=msjarvis-rebuild-llm22-proxy:timeoutfix-20260802T115010 status=Exited (0) 9 days ago created=2026-08-02 11:51:01 -0400 EDT ports= command="python -m uvicorn llm22_health_proxy:app --host 0.0.0.0 --port 8222"
+container_id=e4d6dd1f05eb793e77602eadffde75df02679dc9524bb8bf883b405761dbd3af name=jarvis-eeg-theta image=msjarvis-rebuild-jarvis-eeg-theta status=Up 5 days created=2026-07-01 09:26:17 -0400 EDT ports=127.0.0.1:8074->8074/tcp command="uvicorn jarvis_eeg_theta_60s:app --host 0.0.0.0 --port 8074"
+container_id=e511a263b1962a49bd70edc907cf4c3fa14f5582441e6904d5757743828c292f name=jarvis-kyc-vault image=msjarvis-rebuild-jarvis-kyc-vault:patched-20260730-1931 status=Up 4 days created=2026-07-30 19:32:22 -0400 EDT ports=127.0.0.1:8045->8045/tcp command="uvicorn app:app --host 0.0.0.0 --port 8045"
+container_id=e59a183a8d4f2c2555ddbaaed374cd7619122eaab012a80e0c304af9a2b1a42a name=jarvis-stewardship-scheduler image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Up 5 days created=2026-07-28 09:40:16 -0400 EDT ports=127.0.0.1:8079->8079/tcp command="python3 /app/services/jarvis_stewardship_scheduler.py"
+container_id=e90bd70ea5bd270aabdfdfad7670cf6c21a6b59cb43d4237f2e93f02ffeb7840 name=9d78df19ad7b_jarvis-dgm-bridge-19 image=msjarvis-rebuild-jarvis-dgm-bridge-19:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=e98ee2594cc93f65ff85f8faaef83e1f37335532cf593ea9724397e41f14e6e5 name=0794da8eb926_jarvis-dgm-bridge-11 image=msjarvis-rebuild-jarvis-dgm-bridge-11:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=ea187019481c280f26499ceff29201a7e121a5a978e6dc99dd3eaec671a2027a name=8d56fc8a524b_jarvis-dgm-bridge-06 image=msjarvis-rebuild-jarvis-dgm-bridge-06:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=eb7041eefa814fd4d4099bcf8accc16735099514233f0d80c83eb129bea79644 name=90d8303bbc31_mysql image=mysql:8.2 status=Created created=2026-07-01 10:52:06 -0400 EDT ports= command="docker-entrypoint.sh mysqld"
+container_id=ec118dc0ff66a80ee3db15eb8c2078f093da0a499f82ac1bfa279e59ef8e670f name=jarvis-policy-set image=jarvis-civic-intake:closeout-20260728-policy-openapi status=Exited (0) 13 days ago created=2026-07-28 23:04:46 -0400 EDT ports= command="uvicorn policy_set_openapi_contract:app --host 127.0.0.1 --port 8099 --app-dir /app/services"
+container_id=ec5f2a8c855047439f6a964beaf8ee5bf19159fbe3e0f04071f3a6a9f49ee42d name=d5abcf6816b1_jarvis-dgm-bridge-12 image=msjarvis-rebuild-jarvis-dgm-bridge-12:latest status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python3 bridge_cross_dgm_10001.py"
+container_id=ed5bd62422aa640122edae3b04f1de841839c56896e6362404532afd78a3b656 name=83b469105701_jarvis-ingest-watcher image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f status=Created created=2026-07-03 19:33:04 -0400 EDT ports= command="python3 ingest_watcher.py"
+container_id=ee312ee236c86766b07fb63580c1e277dce598de3d090d9992cc7a857bc572c0 name=7450f93f1840_psychological_rag_domain image=msjarvis-rebuild-psychological_rag_domain status=Created created=2026-07-01 11:11:46 -0400 EDT ports= command="python psychological_rag_domain.py"
+container_id=f51ab5ec580e1fd718a3f8275a877f7ab7dafc3c44fb956fbb53c1d5624e3134 name=jarvis-redis image=redis:7-alpine status=Up 5 days (healthy) created=2026-07-02 11:29:47 -0400 EDT ports=127.0.0.1:6380->6379/tcp command="docker-entrypoint.sh redis-server"
+container_id=f57029960345b8dbf06175fc5f89623f0e7c1fe5e6c6a351b336b85e40465215 name=jarvis-toroidal image=msjarvis-toroidal:latest status=Up 5 days created=2026-07-01 09:22:53 -0400 EDT ports=127.0.0.1:8025->8025/tcp command="python -m uvicorn toroidal_service:app --host 0.0.0.0 --port 8025"
+container_id=f5b50ec523694068e37a61020162ff0ea7028c4a964bc12a5e5e574ba15c317c name=jarvis-lm-synthesizer image=jarvis-lm-synthesizer:asbuilt-20260728 status=Up 5 days created=2026-07-28 09:57:49 -0400 EDT ports=8001/tcp command="python /app/services/lm_synthesizer.py"
+container_id=f79a991133bd787103fe292040cb1dc9fda00f10caa9d20be343c744272a84f4 name=jarvis-dgm-21 image=msjarvis-rebuild-jarvis-dgm-21 status=Exited (137) 6 days ago created=2026-07-28 22:44:17 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=f8a77fee3e521b548a2ffd63fc584f750f35d8d27349d558fdd04bbc02cb55a7 name=jarvis-autonomous-learner image=msjarvis-rebuild-jarvis-rag-server:latest status=Up 5 days created=2026-07-28 09:27:43 -0400 EDT ports=127.0.0.1:8425->8425/tcp command="/bin/sh -c 'cd /app/services && python3 -m uvicorn ms_jarvis_autonomous_learner:app --host 0.0.0.0 --port 8425'"
+container_id=f9dabad05f772ef17d8979afdf43a1ad5108da22fa58dd76724534f53b7b5e8f name=jarvis-dgm-19 image=msjarvis-rebuild-jarvis-dgm-19 status=Exited (137) 6 days ago created=2026-07-28 22:43:54 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=f9dd224b0081790b1bfe1ff8f58b6f852ea5288a7beb4f8210b27d4ad0ace93b name=jarvis-dgm-10 image=msjarvis-rebuild-jarvis-dgm-10 status=Exited (137) 6 days ago created=2026-07-28 22:42:10 -0400 EDT ports= command="sh -c 'python3 -m uvicorn dgm_worker:app --host 0.0.0.0 --port ${DGM_PORT:-5100}'"
+container_id=fb38ab64bcb6f5b2df5e511a585dd19f3fbe641206aa87a5c8b5148c0cd97291 name=jarvis-wv-entangled-gateway image=msjarvis-wv-gateway-runtime:latest status=Up 5 days created=2026-08-02 13:33:17 -0400 EDT ports=0.0.0.0:8010->8010/tcp, [::]:8010->8010/tcp command="python wv_gateway_server.py"
+container_id=fb9121998db7485372d5a4fe086368ae4f684ff71e1137b51d94955d5b9c779c name=jarvis-chroma-tls image=nginx:stable status=Up 5 days created=2026-07-28 09:28:00 -0400 EDT ports=80/tcp, 127.0.0.1:8443->8443/tcp command="/docker-entrypoint.sh nginx -g 'daemon off;'"
+container_id=fe512ffd7deb027f0a98fe7f07ad493db11beb5cdbe23d77bd77339c15fbc711 name=jarvis-contracts image=msjarvis-rebuild-jarvis-contracts status=Up 5 days created=2026-08-03 11:28:45 -0400 EDT ports= command="docker-entrypoint.sh sleep infinity"
+container_id=ff0a3e021fd26b09537ae86238fb873c3be5cf18879241bd08a6d4dfc23c7533 name=jarvis-msjarvis-db image=postgis/postgis:16-3.4 status=Exited (0) 6 days ago created=2026-07-20 19:42:16 -0400 EDT ports= command="docker-entrypoint.sh postgres"
+container_id=ffa02fa63fd1af7536aaa384edcf8f809568b8ef6996074151ff7c6edcf3651e name=jarvis-fifth-dgm image=jarvis-fifth-dgm:asbuilt-20260728 status=Up 5 days created=2026-07-28 09:56:43 -0400 EDT ports=127.0.0.1:4002->4002/tcp command="python3 ms_jarvis_fifth_dgm_orchestrator.py"
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-guardian-deploy-candidate-e8827b2$ 
 
