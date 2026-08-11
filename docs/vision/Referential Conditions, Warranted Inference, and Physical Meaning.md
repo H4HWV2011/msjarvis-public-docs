@@ -1,10 +1,12 @@
 # Kidd–Allis: Referential Conditions, Warranted Inference, and Physical Meaning
-08/10/2026 11:21:21
-## Research chapter — working version
+08/10/2026 20:54:00 
+## Research chapter — current working version
 
 **Status:** Active research program.  
-**Current empirical study:** Harmonized 921-pair Grounded v2 versus Stripped v3 high-water-mark interpretation run.  
-**Current execution status:** The authorized full run was in progress at the last verified check. Its Python script was syntactically valid, a live process was present, and a temporary paired-results artifact was being durably written. No scientific conclusion should be drawn until the run completes, integrity checks pass, and blinded scoring is performed.
+**Current empirical study:** Harmonized 921-pair Grounded v2 versus Stripped v3 high-water-mark interpretation study.  
+**Generation status:** Complete and integrity-verified.  
+**Primary scoring status:** Blinded and semi-blind scoring in progress; confirmatory analysis not yet performed.  
+**Secondary annotation status:** Complete as an exploratory, non-blind, protocol-deviating AI-assisted resource; excluded from confirmatory inference.
 
 ---
 
@@ -14,27 +16,43 @@
 
 > The relational conditions required for well-defined, frame-consistent, and empirically warranted observation constrain the admissible mathematical descriptions of physical systems.
 
-A more concise formulation is:
-
-> The relations that make an observation identifiable, comparable, and evidentially warranted are not external metadata; they impose structural constraints on the mathematics by which physical reality can be described.
-
-This is not initially a claim that context alone determines a final theory of everything. It is a claim that valid observation and inference require relational structure, and that this requirement limits which mathematical descriptions of physical systems can be physically meaningful.
-
-Formally:
+A concise formulation is:
 
 \[
-\text{Valid observation and inference}
+\text{valid observation and inference}
 \Longrightarrow
 \text{constraints on admissible physical mathematics}.
 \]
 
+The claim is not initially that context alone determines a final theory of everything.
+
+It is that valid observation and inference require relational structure, and that this requirement limits which mathematical descriptions can be physically meaningful.
+
 The program begins with a narrow, testable principle:
 
 \[
-\text{Missing required reference relation}
+\text{missing required reference relation}
 \Longrightarrow
-\text{some specific claims become non-identifiable}.
+\text{loss of identifiability for some claim class}.
 \]
+
+The essential distinction is:
+
+\[
+\text{supported conclusion},
+\]
+
+\[
+\text{underdetermined conclusion},
+\]
+
+and:
+
+\[
+\text{unsupported invented completion}.
+\]
+
+The program asks whether these categories can be made formal, predictive, and empirically testable across language systems, scientific records, engineered physical systems, and eventually foundational physics.
 
 ---
 
@@ -42,14 +60,20 @@ The program begins with a narrow, testable principle:
 
 A scientific record can contain a label, a coordinate, a measurement, or an observed state. None of these is automatically sufficient to support every interpretation that might be attached to it.
 
-A useful record must be understood as more than a value. It is a relational object:
+A useful record is more than a value. It is a relational object:
 
 \[
 R =
-(\text{observation},\text{relations},\text{frame},\text{provenance},\text{uncertainty}).
+(
+\text{observation},
+\text{relations},
+\text{frame},
+\text{provenance},
+\text{uncertainty}
+).
 \]
 
-For the high-water-mark study, a complete record has the form:
+For the high-water-mark study, a fuller record has the form:
 
 \[
 R =
@@ -74,31 +98,37 @@ The Stripped condition applies an information-reducing projection:
 ).
 \]
 
-This projection removes spatial, temporal, hydrologic, and provenance relations.
+This projection removes spatial, temporal, hydrologic, event, and provenance relations.
 
 If two distinct complete records share the same retained fields,
 
 \[
-\pi(R_1)=\pi(R_2)
+\pi(R_1)=\pi(R_2),
 \]
 
-while their waterbody, place, date, event, or source differs,
+while their omitted relations differ,
 
 \[
 R_1 \neq R_2,
 \]
 
-then those removed facts cannot be uniquely recovered from the stripped representation alone.
+then those omitted facts cannot always be uniquely recovered from the stripped representation alone.
 
 For example:
 
 \[
 \pi(R_1)=\pi(R_2)
-\quad\text{and}\quad
-\text{waterbody}(R_1)\neq\text{waterbody}(R_2)
 \]
 
-implies:
+and:
+
+\[
+\text{waterbody}(R_1)
+\neq
+\text{waterbody}(R_2)
+\]
+
+imply:
 
 \[
 \text{waterbody}
@@ -108,23 +138,33 @@ f(\pi(R))
 
 for any universally correct inference function \(f\).
 
-This is the core logical basis of the work: an interpreter should not convert underdetermination into a fabricated specific fact.
+This is the logical basis of the work:
+
+> An interpreter should not convert underdetermination into a fabricated specific fact.
+
+A completion may be plausible, fluent, or consistent with general world knowledge. None of those properties makes it supported by the retained evidence.
+
+\[
+\text{plausible completion}
+\neq
+\text{warranted conclusion}.
+\]
 
 ---
 
-## 3. The immediate empirical question
+## 3. The empirical question
 
-The near-term question is not whether context matters in the abstract. That is obvious.
+The near-term question is not whether context matters in the abstract.
 
 The sharper question is:
 
-> When a system is not given the waterbody, spatial, temporal, event, or provenance reference, does it still assert a specific waterbody, place, date, event, or source as though it knows it?
+> When a system is not given the waterbody, spatial, temporal, event, or provenance relation, does it nevertheless assert a specific waterbody, place, date, event, or source as though it knows it?
 
-The desired behavior differs by condition.
+The appropriate behavior differs by condition.
 
 | Condition | Information supplied | Appropriate interpretation behavior |
 |---|---|---|
-| Grounded v2 | Marker type, label, location, date, waterbody, source, and related context | Make record-specific claims only when supported by the supplied fields |
+| Grounded v2 | Marker type, label, location, date, waterbody, source, and related context | Make record-specific claims only where supported by supplied fields |
 | Stripped v3 | Marker type and label only | Remain generic, acknowledge uncertainty, or explicitly state that record-specific context is unavailable |
 
 A valid Stripped interpretation may say:
@@ -133,21 +173,21 @@ A valid Stripped interpretation may say:
 
 An invalid Stripped interpretation would claim:
 
-> This mark refers to a particular river, flood, coastal surge, date, event, or source organization
+> This mark refers to a particular river, flood, coastal surge, date, event, location, or source organization
 
 when that fact was absent from the retained record fields.
 
-The key risk is false specific attribution:
+The key risk is:
 
 \[
-\text{under\-determined input}
+\text{under-determined input}
 \rightarrow
 \text{confident but unsupported completion}.
 \]
 
 ---
 
-## 4. The current high-water-mark experiment
+## 4. Current high-water-mark study
 
 ### 4.1 Study design
 
@@ -159,16 +199,16 @@ The current execution compares the same 921 records under two matched conditions
 \text{Stripped v3}.
 \]
 
-For each matched unit:
+For each matched record:
 
 - The same local language model is used.
 - The same model settings are used.
 - The same seed is used.
-- The same output structure is used.
+- The same response structure is used.
 - The same marker type and marker label are preserved.
-- The difference is whether record-level spatial, temporal, hydrologic, and provenance relations are available.
+- The experimental difference is whether record-level spatial, temporal, hydrologic, and provenance relations are available.
 
-The full execution consists of:
+The complete generation run consisted of:
 
 \[
 921
@@ -181,9 +221,48 @@ The full execution consists of:
 \text{ total model calls}.
 \]
 
-### 4.2 Output controls
+### 4.2 Completed generation status
 
-Both conditions use harmonized per-record dynamic JSON-schema enforcement.
+The full harmonized run completed successfully.
+
+It produced:
+
+\[
+921
+\text{ Grounded v2 responses},
+\]
+
+\[
+921
+\text{ Stripped v3 responses},
+\]
+
+and:
+
+\[
+921
+\text{ matched unit pairs}.
+\]
+
+The finalized result corpus passed the locked mechanical integrity controls:
+
+- Direct valid JSON.
+- Exact required response-key set.
+- Exact marker-type fidelity.
+- Exact marker-label fidelity.
+- Condition-appropriate availability-status fidelity.
+- Nonempty evidence-bounded interpretation.
+- Matched unit identity across Grounded and Stripped conditions.
+
+The completed generation phase establishes that the intended response corpus exists, is matched, and is structurally valid.
+
+It does not establish a scientific effect.
+
+No confirmatory conclusion may be drawn until primary scoring is complete, scorer disagreements are adjudicated, scores are locked, the condition key is opened, and the frozen paired analysis is performed.
+
+### 4.3 Output controls
+
+Both conditions use harmonized dynamic JSON-schema enforcement.
 
 The schema constrains:
 
@@ -194,7 +273,7 @@ The schema constrains:
 - The response to contain exactly the required fields.
 - The interpretation field to be nonempty.
 
-Therefore, the copied marker fields and availability statuses are not substantive experimental outcomes. They are structural controls.
+The copied marker fields and availability statuses are structural controls.
 
 The substantive response artifact is:
 
@@ -202,49 +281,19 @@ The substantive response artifact is:
 \texttt{evidence\_bounded\_interpretation}.
 \]
 
-### 4.3 Integrity conditions
-
-A pair is eligible for later scoring only if it satisfies all of the following:
-
-- Direct valid JSON.
-- Exact required response-key set.
-- Exact marker type fidelity.
-- Exact marker label fidelity.
-- Condition-appropriate availability statuses.
-- Nonempty evidence-bounded interpretation.
-- Matched unit identity across Grounded v2 and Stripped v3.
-
-The execution itself does not estimate an effect or perform a statistical test.
-
 ---
 
-## 5. Interpretation and scoring
+## 5. Primary scoring framework
 
-### 5.1 Current frozen analysis scope
+### 5.1 Supported Contextual Specificity Score
 
-The frozen analysis plan identifies the primary response artifact as:
-
-\[
-\texttt{evidence\_bounded\_interpretation}.
-\]
-
-It excludes the copied or schema-constrained fields:
-
-- Marker type.
-- Marker label.
-- Spatial status.
-- Temporal status.
-- Provenance status.
-
-### 5.2 Supported Contextual Specificity Score
-
-The current planned primary scoring framework is the Supported Contextual Specificity Score:
+The planned primary scoring framework is the Supported Contextual Specificity Score:
 
 \[
 \mathrm{SCSS}\in\{0,1,2,3,4\}.
 \]
 
-A point is awarded for each contextual dimension explicitly and correctly reflected in the interpretation:
+One point is awarded for each contextual dimension explicitly and correctly reflected in an interpretation:
 
 1. Spatial context.
 2. Temporal context.
@@ -256,7 +305,7 @@ For each dimension:
 \[
 \text{explicit and supported}
 \Rightarrow
-1
+1,
 \]
 
 while:
@@ -267,35 +316,35 @@ while:
 0.
 \]
 
-The planned paired estimand is:
+The paired estimand is:
 
 \[
 \Delta_i
 =
-\mathrm{SCSS}_{i,\mathrm{Grounded\ v2}}
+\mathrm{SCSS}_{i,\mathrm{Grounded}}
 -
-\mathrm{SCSS}_{i,\mathrm{Stripped\ v3}}.
+\mathrm{SCSS}_{i,\mathrm{Stripped}}.
 \]
 
-### 5.3 Hallucination and false attribution
+### 5.2 Unsupported specific attribution
 
-The most conceptually important safety outcome is the unsupported-claim indicator.
+The most important safety outcome is unsupported specific attribution.
 
-For the Stripped condition, the key question is:
+For the Stripped condition, the relevant question is:
 
 \[
 \text{Does the interpretation assert a specific fact not supported by retained fields?}
 \]
 
-The analysis should classify unsupported claims by relation type:
+Unsupported claims are coded by relation type:
 
-- Invented waterbody or hydrologic setting.
-- Invented location.
-- Invented date or event.
-- Invented source or provenance.
-- Other unsupported physical claim.
+- invented waterbody or hydrologic setting;
+- invented location;
+- invented date or event;
+- invented source or provenance;
+- other unsupported physical claim.
 
-A useful metric is the false-specific-attribution rate:
+A useful rate is:
 
 \[
 \mathrm{FSAR}
@@ -303,29 +352,213 @@ A useful metric is the false-specific-attribution rate:
 \frac{
 \text{unsupported specific attributions}
 }{
-\text{Stripped interpretations evaluated}
+\text{interpretations evaluated}
 }.
 \]
 
-The immediate expectation is not that the Stripped system should supply less prose. It is that it should preserve the boundary between:
+The immediate expectation is not that the Stripped condition should produce less prose.
+
+It is that the system should preserve the boundary between:
 
 \[
 \text{what is supported},
-\quad
+\]
+
+\[
 \text{what is unknown},
-\quad
-\text{and what must not be invented}.
+\]
+
+and:
+
+\[
+\text{what must not be invented}.
 \]
 
 ---
 
-## 6. Relation to relativity
+## 6. Blinding and evidence boundaries
+
+### 6.1 Blind text scoring
+
+A blind response-text scorer can evaluate what an interpretation explicitly expresses.
+
+For example:
+
+- Does the response name a location?
+- Does it state a date?
+- Does it name a waterbody?
+- Does it state a source or provenance relation?
+- Does it acknowledge unavailable context?
+
+This supports scoring of expressed contextual specificity.
+
+### 6.2 Semi-blind support scoring
+
+A scorer cannot determine from response text alone whether a specific claim was supported by the evidence available to the model.
+
+The distinction is:
+
+\[
+\text{Does the response assert a claim?}
+\]
+
+versus:
+
+\[
+\text{Was the claim supported by the condition-specific evidence?}
+\]
+
+The second question requires comparison with an evidence packet.
+
+Therefore, false-attribution coding requires controlled access to the evidence available in the relevant condition while withholding:
+
+- formal condition labels;
+- matched-pair identity;
+- source-record identity;
+- model identity;
+- execution-path identity.
+
+This is properly described as semi-blind evidence-bounded scoring.
+
+### 6.3 Current primary scoring status
+
+The 1,842 responses have been randomized into blinded scoring materials.
+
+The current primary-scoring sequence is:
+
+\[
+\text{blinded packet}
+\rightarrow
+\text{independent scoring}
+\rightarrow
+\text{adjudication}
+\rightarrow
+\text{score lock}
+\rightarrow
+\text{unblinding}
+\rightarrow
+\text{paired analysis}.
+\]
+
+The restricted condition key remains outside the primary scoring process until the scoring lock is complete.
+
+---
+
+## 7. Completed secondary exploratory annotation
+
+### 7.1 Status and boundary
+
+A secondary AI-assisted annotation of the completed response corpus has also been completed.
+
+It is retained as an exploratory resource.
+
+It is not eligible to replace primary human or semi-blind evidence-bounded scoring.
+
+Its proper status is:
+
+> Secondary exploratory AI-assisted annotation; non-blind and protocol-deviating; excluded from confirmatory inference.
+
+### 7.2 Why it is excluded from confirmatory inference
+
+The secondary annotation:
+
+- used external geographic knowledge;
+- used domain knowledge about marker semantics;
+- inferred likely experimental condition from response content;
+- labeled some detailed responses as likely Grounded;
+- assessed coordinate and county consistency;
+- used a 0–20 score rather than the frozen primary 0–4 SCSS;
+- evaluated some claims against information unavailable to a strictly blind response-text rater.
+
+It therefore cannot supply:
+
+- the primary SCSS result;
+- the confirmatory false-specific-attribution rate;
+- confirmatory p-values;
+- confidence intervals;
+- condition-level causal conclusions;
+- post-hoc exclusion rules.
+
+### 7.3 What it found descriptively
+
+The secondary annotation identified a structured response corpus rather than a uniform field of free-form output.
+
+It found several recurring response families.
+
+#### Context-rich reconstruction family
+
+Many responses provide highly specific information such as:
+
+- named counties;
+- latitude and longitude;
+- full dates;
+- named waterbodies;
+- USGS attribution.
+
+These responses received high exploratory contextual scores because they express several contextual dimensions.
+
+#### Evidence-bounded abstention family
+
+Many responses remain generic and explicitly identify unavailable context.
+
+Typical responses state that spatial, temporal, waterbody, event, or provenance details cannot be determined from the available marker information.
+
+This family is substantively useful because it demonstrates a recognizable form of uncertainty-preserving interpretation.
+
+#### Candidate semantic-completion family
+
+A recurring response pattern interprets a `Seed line` marker as possible biological or ecological context.
+
+The secondary annotation flags this as a candidate other unsupported physical claim.
+
+The phrasing is hedged rather than maximally confident, but it remains a useful candidate marker-semantics error class for later human review.
+
+#### Repeated-template family
+
+Many response texts recur exactly or nearly exactly.
+
+Thus:
+
+\[
+1842
+\text{ rows}
+\not\Rightarrow
+1842
+\text{ independent response patterns}.
+\]
+
+Response-template frequency should be reported descriptively and considered in sensitivity analysis.
+
+### 7.4 Permitted uses
+
+The secondary annotation may be used to:
+
+- identify high-frequency response templates;
+- organize manual-review queues;
+- identify candidate error families;
+- document unusual response patterns;
+- compare with locked primary human scores after confirmatory analysis;
+- generate future hypotheses.
+
+It may not be used to:
+
+- define the primary outcome;
+- identify condition before primary scoring lock;
+- replace blind or semi-blind evaluation;
+- establish the main causal claim;
+- convert exploratory observations into confirmatory findings.
+
+---
+
+## 8. Relation to relativity
 
 The Kidd–Allis program is not currently a replacement for special relativity, general relativity, electromagnetism, quantum field theory, or quantum mechanics.
 
 The connection is methodological and structural.
 
-Relativity requires an explicit reference framework for physical claims. An event can be represented as:
+Relativity requires an explicit reference framework for physical claims.
+
+An event can be represented as:
 
 \[
 x^\mu=(ct,x,y,z).
@@ -355,7 +588,7 @@ dy^2
 dz^2.
 \]
 
-For general relativity, the geometry becomes dynamical:
+For general relativity, geometry becomes dynamical:
 
 \[
 ds^2
@@ -372,7 +605,9 @@ Kidd–Allis asks:
 
 > Relative to what evidentiary and relational context is an interpretation warranted?
 
-The high-water-mark experiment does not apply a Lorentz transformation. It applies an information-destroying projection:
+The high-water-mark experiment does not apply a Lorentz transformation.
+
+It applies an information-destroying projection:
 
 \[
 R
@@ -380,15 +615,17 @@ R
 \pi(R).
 \]
 
-A Lorentz transformation changes the coordinates used to describe a validly related observation. A stripping projection removes relations needed for certain physical claims to remain determinate.
+A Lorentz transformation changes the coordinate description of a validly related observation.
+
+A stripping projection removes relations that may be required for some claims to remain determinate.
 
 The disciplined conclusion is:
 
-> When required reference relations are removed, a valid interpreter should not act as if those relations remain available.
+> When a required reference relation is removed, a valid interpreter should not behave as if that relation remains available.
 
 ---
 
-## 7. From records to physics-aware inference
+## 9. From records to physical inference
 
 A general physical measurement can be represented as:
 
@@ -407,15 +644,28 @@ U
 
 where:
 
-- \(\Phi\) represents physical fields or states.
-- \(g_{\mu\nu}\) represents spacetime geometry.
-- \(A_\mu\) represents gauge-field structure.
-- \(R\) represents reference relations: frames, observers, instruments, calibrations, boundary conditions, locations, times, and provenance.
-- \(U\) represents uncertainty.
-- \(\mathcal{M}\) represents the measurement process.
+- \(\Phi\) represents physical fields or states;
+- \(g_{\mu\nu}\) represents spacetime geometry;
+- \(A_\mu\) represents gauge-field structure;
+- \(R\) represents reference relations;
+- \(U\) represents uncertainty;
+- \(\mathcal{M}\) represents the measurement process;
 - \(O\) represents the resulting observation or record.
 
-A physical inference problem attempts to reason in the reverse direction:
+The reference relation set \(R\) may include:
+
+- frames;
+- observers;
+- instruments;
+- calibrations;
+- timing;
+- topology;
+- locations;
+- boundary conditions;
+- communication paths;
+- provenance.
+
+A physical inference problem reverses the measurement direction:
 
 \[
 O
@@ -423,21 +673,15 @@ O
 \text{claims about physical state}.
 \]
 
-The Kidd–Allis proposal is that this reverse inference must be bounded by the retained relation set:
-
-\[
-\mathcal{I}(O\mid R).
-\]
-
-If essential relations are missing, the valid conclusion may be non-uniqueness:
+But reverse inference may not be unique:
 
 \[
 \mathcal{I}(O\mid R_{\mathrm{retained}})
 \not\Rightarrow
-\text{a unique physical claim}.
+\text{unique physical claim}.
 \]
 
-This distinguishes three categories:
+The appropriate output may be:
 
 \[
 \text{supported conclusion},
@@ -447,13 +691,17 @@ This distinguishes three categories:
 \text{underdetermined conclusion},
 \]
 
+or:
+
 \[
 \text{unsupported invented completion}.
 \]
 
+The Kidd–Allis proposal is that this distinction can become formal, predictive, and useful in physical-system inference.
+
 ---
 
-## 8. Physics-aware testbed: power systems
+## 10. Physics-aware testbed: power systems
 
 A serious next empirical testbed is power-system state estimation, resilience, fault attribution, and anomaly detection.
 
@@ -469,79 +717,90 @@ h(x,\theta,r)
 
 where:
 
-- \(z\) is the observed sensor data.
-- \(x\) is the true physical grid state.
-- \(\theta\) is network topology and physical parameters.
-- \(r\) is referential context: sensor identity, synchronization, location, calibration, communication path, operating state, and provenance.
-- \(\epsilon\) is noise or uncertainty.
+- \(z\) is observed sensor data;
+- \(x\) is the true physical grid state;
+- \(\theta\) is network topology and physical parameters;
+- \(r\) is referential context;
+- \(\epsilon\) is measurement uncertainty and noise.
+
+The referential context may include:
+
+- sensor identity;
+- synchronization;
+- calibration;
+- sensor location;
+- network topology;
+- operating condition;
+- communication path;
+- provenance.
 
 The key hypothesis is:
 
 > A formal referential-completeness model can predict when a physical state, fault, or event attribution is identifiable, underdetermined, or artifact-prone.
 
-### 8.1 Proposed test
+### 10.1 Proposed test
 
-1. Select a high-fidelity power-grid simulator or a labeled operational dataset.
-2. Preserve known ground truth: fault type, fault location, state, topology, operating conditions, and measurement provenance.
+1. Select a high-fidelity power-grid simulator or labeled operational dataset.
+2. Preserve known ground truth for fault type, fault location, state, topology, operating condition, and measurement provenance.
 3. Define the complete reference graph.
 4. Pre-register which removed relation should make which event distinctions non-identifiable.
 5. Construct matched conditions:
-   - Complete relation set.
-   - Timing removed.
-   - Topology removed.
-   - Sensor identity or calibration removed.
-   - Location removed.
-   - Communication path or provenance removed.
+   - complete relation set;
+   - timing removed;
+   - topology removed;
+   - sensor identity or calibration removed;
+   - location removed;
+   - communication path or provenance removed.
 6. Compare:
-   - Standard state-estimation methods.
-   - Physics-informed machine-learning methods.
+   - standard state-estimation methods;
+   - physics-informed machine-learning methods;
    - Kidd–Allis-aware inference methods.
 7. Evaluate predictions against hidden ground truth.
 
-### 8.2 Falsification conditions
+### 10.2 Falsification conditions
 
 The framework fails or loses value if:
 
-- It predicts non-identifiability but the retained information reliably determines the state.
-- It predicts identifiability but multiple distinct states remain observationally compatible.
-- It does not improve upon existing observability analysis, uncertainty quantification, state estimation, causal inference, or physics-informed machine learning.
-- Its referential-completeness measure does not predict error, false attribution, or uncertainty calibration on held-out scenarios.
+- it predicts non-identifiability but retained information reliably determines the state;
+- it predicts identifiability but multiple distinct states remain observationally compatible;
+- it does not improve upon or add explanatory value beyond existing observability analysis, uncertainty quantification, state estimation, causal inference, or physics-informed learning;
+- its referential-completeness measure does not predict error, false attribution, or uncertainty calibration on held-out cases.
 
 The target relation is:
 
 \[
-\text{Kidd–Allis prediction}
+\text{Kidd--Allis prediction}
 \overset{?}{=}
 \text{actual identifiability structure}.
 \]
 
 ---
 
-## 9. What would make the program real science
+## 11. What would make the program real science
 
 The framework becomes scientifically substantive through definitions, theorems, predictions, and failed attempts at falsification.
 
-### 9.1 Formal definitions
+### 11.1 Formal definitions
 
 The program must define:
 
-- Observation.
-- Event.
-- Observer.
-- Reference frame.
-- Measurement relation.
-- Provenance relation.
-- Contextual completeness.
-- Transformation.
-- Invariant.
-- Identifiability.
-- Underdetermination.
-- Warranted claim.
-- Unsupported completion.
+- observation;
+- event;
+- observer;
+- reference frame;
+- measurement relation;
+- provenance relation;
+- contextual completeness;
+- transformation;
+- invariant;
+- identifiability;
+- underdetermination;
+- warranted claim;
+- unsupported completion.
 
-### 9.2 Mathematical theorems
+### 11.2 Mathematical theorems
 
-The program should prove statements of the form:
+The program should prove statements such as:
 
 \[
 \text{loss of relation }r_j
@@ -557,9 +816,9 @@ Or:
 \mathcal{M}(x_2,r_2)
 \]
 
-under a specified projection, implying that the retained observation cannot distinguish \(x_1\) from \(x_2\).
+under a defined projection, showing that the retained observation cannot distinguish \(x_1\) from \(x_2\).
 
-### 9.3 Predictive advantage
+### 11.3 Predictive advantage
 
 The framework must make predictions before labels are revealed:
 
@@ -571,19 +830,26 @@ The framework must make predictions before labels are revealed:
 \uparrow.
 \]
 
-It must outperform, add explanatory power beyond, or correctly constrain existing methods.
+It must outperform, constrain, or add explanatory power beyond existing methods.
 
-### 9.4 Independent replication
+### 11.4 Independent replication
 
-A useful framework must work beyond one language model, one hydrology dataset, one simulator, one power system, or one research team.
+A useful framework must work beyond:
+
+- one language model;
+- one high-water-mark dataset;
+- one simulator;
+- one power system;
+- one research team;
+- one annotation procedure.
 
 ---
 
-## 10. The foundational-physics gate
+## 12. Foundational-physics gate
 
-The strongest possible version of the program is conditional and remains far beyond the current study.
+The strongest version of the Kidd–Allis program remains conditional and far beyond the current study.
 
-To claim that spacetime, electromagnetism, quantum fields, or gravity arise from the Kidd–Allis formalism, the framework would need to derive—not merely re-label—known physical structures.
+To claim that spacetime, electromagnetism, quantum fields, or gravity arise from the Kidd–Allis formalism, the framework would need to derive rather than merely relabel known physical structures.
 
 A possible abstract starting point is:
 
@@ -600,20 +866,20 @@ A possible abstract starting point is:
 
 where:
 
-- \(\mathcal{E}\) is a set of events or observational states.
-- \(\mathcal{R}\) is a set of admissible relations.
-- \(\mathcal{T}\) is a set of transformations between valid descriptions.
+- \(\mathcal{E}\) is a set of events or observational states;
+- \(\mathcal{R}\) is a set of admissible relations;
+- \(\mathcal{T}\) is a set of transformations between valid descriptions;
 - \(\mathcal{I}\) is a set of invariants.
 
 The program would need to show:
 
 \[
-\text{Kidd–Allis axioms}
+\text{Kidd--Allis axioms}
 \Longrightarrow
 \text{required transformation or invariant structure}.
 \]
 
-To recover relativity, this could require derivation of a Lorentzian transformation structure or metric geometry.
+To recover relativity, this could require derivation of Lorentzian transformation structure or metric geometry.
 
 To recover electromagnetism, this could require derivation of a gauge-like connection and field relation:
 
@@ -643,7 +909,7 @@ A real derivation would have the form:
 
 ---
 
-## 11. What would distinguish a foundational theory from a reformulation
+## 13. What distinguishes foundational theory from reformulation
 
 A reformulation says:
 
@@ -663,7 +929,7 @@ A foundational derivation says:
 
 Only the second opens a path to new foundational physics.
 
-The decisive empirical requirement is a discriminating prediction:
+The decisive empirical requirement is:
 
 \[
 P_{\mathrm{KA}}(E)
@@ -675,69 +941,101 @@ for a defined experiment \(E\).
 
 The prediction must be:
 
-- Quantitative.
-- Fixed before examining the result.
-- Not merely a fit to existing data.
-- Distinct from current standard-theory predictions.
-- Testable by independent investigators.
-- Replicable.
+- quantitative;
+- fixed before examining the result;
+- distinct from current standard-theory predictions;
+- testable by independent investigators;
+- replicable.
 
-Without that difference, the framework may still be a valuable epistemic or methodological theory, but it is not yet a new physical theory.
+Without such a difference, the framework may remain a valuable epistemic, methodological, engineering, or metrological theory without becoming a new theory of fundamental physics.
 
 ---
 
-## 12. Research ladder
+## 14. Research ladder
 
 | Stage | Central question | Required result |
 |---|---|---|
-| High-water-mark study | Does a system invent record-specific facts when essential context is withheld? | Evidence-bounded behavior or measurable false-specific-attribution rate |
-| Physics-aware inference | Can referential completeness predict identifiability, error, and artifact risk? | Pre-registered held-out predictive advantage |
+| High-water-mark study | Does relation loss alter evidence-bounded interpretation? | Blinded, scored, paired empirical result |
+| Secondary exploratory annotation | What recurrent response families and candidate error modes occur? | Hypothesis-generating descriptive map, excluded from confirmatory inference |
+| Physics-aware inference | Can referential completeness predict identifiability, error, and artifact risk? | Pre-registered held-out predictive value |
 | Formal theory | Can relation loss and invariance be defined and proved mathematically? | Theorems without circular assumptions |
-| Cross-domain replication | Does the framework work in multiple physical and scientific settings? | Independent reproducibility |
-| Foundational derivation | Do the axioms force known transformation or field structure? | Derivation of required mathematics |
+| Cross-domain replication | Does the framework work across multiple systems and domains? | Independent reproducibility |
+| Foundational derivation | Do relational axioms force known transformation or field structure? | Derivation of required mathematics |
 | Novel-physics test | Does the framework differ quantitatively from standard physics? | Confirmed novel prediction |
 
 ---
 
-## 13. Present claims and non-claims
+## 15. Present claims and non-claims
 
 ### Present claims
 
 The project currently claims that:
 
-- Scientific interpretations depend on relational context.
-- Some context loss produces underdetermination.
-- A system should not convert underdetermination into a specific unsupported factual claim.
-- This principle can be tested empirically.
-- The high-water-mark experiment tests a narrow instance of this principle.
-- Power systems offer a plausible physics-aware testbed for the next stage.
+- Scientific interpretation depends on relational context.
+- Some relation loss produces underdetermination.
+- A system should not convert underdetermination into unsupported specific claims.
+- This principle can be operationalized in matched conditions.
+- The current 921-pair study tests a narrow instance.
+- The generation phase is complete and mechanically validated.
+- Primary confirmatory scoring remains in progress.
+- Secondary AI-assisted annotation has identified recurring response families and candidate error modes.
+- Power systems provide a plausible next physics-aware testbed.
 
 ### Present non-claims
 
 The project does not currently claim that:
 
-- The high-water-mark experiment proves a new law of physics.
+- The high-water-mark study proves a new law of physics.
+- The secondary annotation is confirmatory evidence.
 - The current language-model study proves relativity, quantum mechanics, electromagnetism, or gravity.
 - Provenance is literally a new coordinate of spacetime.
 - Kidd–Allis has derived Einstein’s equations, Maxwell’s equations, gauge theory, or quantum mechanics.
 - A difference between Grounded and Stripped outputs establishes a fundamental ontology.
-- The current full run has produced scientific conclusions before completion, integrity validation, blinded scoring, and analysis.
+- The present study has completed confirmatory analysis before primary score lock and unblinding.
 
 ---
 
-## 14. Immediate next actions
+## 16. Immediate next actions
 
-After the current 921-pair execution completes:
+1. Complete the primary blinded and semi-blind scoring process.
+2. Preserve scorer forms and version history.
+3. Resolve disagreement through the planned adjudication process.
+4. Lock final primary scores.
+5. Open the restricted condition key only after lock.
+6. Perform the pre-specified paired analysis.
+7. Report SCSS differences, false-specific-attribution outcomes, exclusions, uncertainty, and limitations.
+8. Report the secondary AI-assisted annotation separately as exploratory.
+9. Compare exploratory annotations with locked human ratings only after confirmatory analysis.
+10. Design the next formal identifiability test in a physical-system domain.
 
-1. Verify final result integrity.
-2. Confirm that all 921 Grounded v2 and 921 Stripped v3 outputs satisfy the locked fidelity gate.
-3. Preserve the final result and manifest artifacts.
-4. Generate de-identified, randomized scoring materials.
-5. Apply the frozen scoring rubric.
-6. Score Supported Contextual Specificity.
-7. Code unsupported claims by relation type, with special attention to invented waterbody claims.
-8. Resolve disagreement through the planned adjudication method.
-9. Perform only the pre-specified paired analysis.
-10. Report exclusions, failures, uncertainty, and limits transparently.
+---
 
-The next research-design task after that study is to formulate
+## 17. Conclusion
+
+The Kidd–Allis program begins with a modest but demanding proposition:
+
+> The relations required to identify, compare, transform, and warrant a claim constrain which inferences remain scientifically meaningful.
+
+The current high-water-mark experiment tests one small instance:
+
+\[
+\text{relation loss}
+\rightarrow
+\text{test whether warranted specificity is preserved}.
+\]
+
+The generation corpus is complete.
+
+The secondary exploratory annotation is complete.
+
+The primary scientific result is not yet known.
+
+Its determination now depends on disciplined scoring, score lock, unblinding, paired analysis, and transparent reporting.
+
+The broader question remains open:
+
+\[
+\text{Which relations must be preserved for an observation to support a meaningful claim at all?}
+\]
+
+That question can be pursued through formalization, engineering, measurement science, and eventually—only if the required derivations and predictions emerge—foundational physics.
