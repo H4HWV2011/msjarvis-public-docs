@@ -1,2540 +1,975 @@
 # Does Meaning Require Geometry?
 
-## A Registered-Report Style Protocol for Testing Semantic Dependence on Structured Relational Constraints in a Community Intelligence System
+## A Registered-Report Style Study of Semantic Dependence on Structured Relational Constraints in a Community Intelligence System
 
-**Author:** C.A. Kidd
-**Affiliation:** Fayette County, West Virginia
-**Manuscript Type:** Registered Report Stage 1 Protocol
-**Version:** Clean-slate rebuild — freeze candidate
-**Date:** ⟨VERIFY-DATE⟩
+**Author:** C. A. Kidd  
+**Affiliation:** Fayette County, West Virginia  
+**Manuscript type:** Registered-report-style protocol with post-generation execution addendum  
+**Version:** Current-study revision  
+**Current empirical arm:** Harmonized 921-pair Grounded v2 versus Stripped v3 high-water-mark interpretation study  
+**Current status:** Model generation complete; blinded primary scoring and confirmatory paired analysis pending
 
 ---
 
-> **Editorial note — delete before submission.**
->
-> This manuscript separates two layers. The **reasoning layer** — the research
-> question, hypotheses, conceptual model, intervention, scoring rubric,
-> statistical analysis, predictions, and interpretation boundaries — is written
-> to remain independent of any particular machine configuration.
->
-> The **apparatus layer** — concrete stores, schemas, paths, ports, model
-> identifiers, row counts, runtime state, and other live configuration values —
-> is confined to Section 3 and Appendix A.
->
-> Every ⟨VERIFY-…⟩ value is intentionally unfilled until confirmed through
-> direct inspection of the current running system. No apparatus value may be
-> imported from memory, a prior manuscript, or a previous execution cycle.
->
-> A change in infrastructure must not silently change the scientific question,
-> analysis, or interpretation rules. If the current apparatus cannot support a
-> registered arm, that arm is explicitly deferred rather than simulated or
-> inferred from infrastructure that merely exists on paper.
+## Editorial Status Note
+
+This document distinguishes between:
+
+1. the **prospective research logic**, including the research question, intervention rationale, measurement concepts, interpretation boundaries, and planned analysis principles; and
+2. the **post-generation execution record** for the current 921-pair Grounded v2 versus Stripped v3 study.
+
+The completed generation run does not retroactively establish a confirmatory result. Its response corpus is now available for blinded scoring, but no scientific conclusion is drawn until scoring, adjudication, unblinding, and the locked paired analysis are complete.
+
+A separate document, *Kidd–Allis: Referential Conditions, Warranted Inference, and Physical Meaning*, develops the broader theoretical program concerning observation, identifiability, warranted inference, physics-aware systems, and possible foundational implications. This paper remains focused on semantic dependence on structured relational constraints in a community intelligence system.
 
 ---
 
 # Abstract
 
-Roger Penrose has argued that consciousness and mathematical understanding
-cannot be reduced straightforwardly to formal algorithmic computation and has
-associated non-computable physical processes with spacetime structure (Penrose,
-1994). The Orch OR framework further proposes that conscious experience may
-involve quantum processes associated with biological microtubules and objective
-reduction (Hameroff & Penrose, 2014). Whatever the ultimate status of those
-claims, they motivate a narrower experimentally accessible question:
+Meaningful interpretation in an intelligence system may depend not only on which fields or facts are present, but on whether the relations that situate those facts remain available. Place, time, waterbody, identity, source lineage, and provenance can constrain which record-specific interpretations are justified.
 
-> Does coherent meaning in an artificial intelligence system depend measurably
-> on structured relational grounding, or can semantic behavior remain stable
-> when specified relational constraints are removed?
+This paper examines that proposition in a community intelligence context through a matched high-water-mark interpretation study. The current empirical arm compares 921 source records under two harmonized conditions. Grounded v2 supplies marker information together with available record-level spatial, temporal, hydrologic, and provenance context. Stripped v3 retains marker type and marker label while removing those record-level relations.
 
-This manuscript presents a **Registered Report Stage 1 protocol** for testing
-that question. The intervention removes registered spatial, temporal, identity,
-and provenance constraints from records supplied to an artificial intelligence
-system while attempting to preserve the registered semantic payload. System
-behavior is then measured under Grounded, Stripped, and Re-grounded conditions.
+The central question is:
 
-The primary estimand is **the effect of the registered Grounded → Stripped
-transformation** on semantic performance. This wording is deliberate. The
-intervention may simultaneously alter evidence availability, retrieval
-opportunities, lexical cues, prompt-visible information, confidence, and
-disambiguation resources. Therefore the study does not claim to isolate a
-metaphysically pure or physically isolated "geometry effect."
+> When contextual relations required for record-specific interpretation are withheld, does a system preserve the boundary between generic interpretation and unsupported specific attribution?
 
-The primary outcome is a composite semantic-coherence score consisting of four
-ordinal dimensions: semantic specificity, contextual coherence, identity
-stability, and local disambiguation. Fabrication frequency is a separately
-registered, mechanistically informative secondary outcome because linguistic
-structure may partially reconstruct information removed from the grounding
-layer and thereby mask degradation on a broad coherence score.
+The completed generation run produced 921 Grounded v2 and 921 Stripped v3 model responses. All responses passed locked mechanical integrity controls for valid JSON, required response fields, marker and label fidelity, condition-appropriate availability statuses, and nonempty interpretation text.
 
-The protocol also includes preregistered temporal, channel-sensitivity,
-recovery, and — where the apparatus permits — cross-substrate replication
-tests. A non-vector representation is **not** treated as a substrate arm merely
-because such infrastructure exists; T4-B requires an independently executable
-end-to-end representation pathway and is deferred if that requirement is not
-met before freeze.
+A secondary exploratory AI-assisted annotation of the corpus identifies recurring response families, including context-rich interpretations, evidence-bounded abstentions, and a repeated candidate semantic-completion error involving “seed line” markers. That annotation is retained for exploratory pattern discovery only. It is excluded from primary scoring and confirmatory inference because it used external knowledge, inferred likely conditions, and applied a non-protocol scoring scale.
 
-The study does not establish consciousness, validate Orch OR, demonstrate
-quantum cognition, or establish equivalence between representational and
-physical geometry. It tests the narrower proposition:
+The study does not establish consciousness, quantum cognition, physical spacetime geometry, or a new physical theory. It tests the bounded proposition:
 
-> Structured representational relationships may contribute measurably to
-> semantic coherence in engineered intelligence systems, and that contribution
-> can be investigated through controlled removal and restoration.
+> Structured relational constraints may contribute measurably to evidence-bounded semantic behavior in an artificial intelligence system.
 
 ---
 
-# 1. Genre and Scope
+# 1. Scope and Research Boundary
 
-This manuscript is a **Registered Report Stage 1 protocol**. It specifies the
-research question, intervention, sampling frame, outcomes, scoring procedures,
-statistical analysis, preregistered predictions, and interpretation boundaries
-before confirmatory data collection.
+This paper studies semantic behavior in an engineered intelligence system.
 
-The study does **not** attempt to:
+It does not attempt to:
 
 - solve the hard problem of consciousness;
-- validate Penrose's Orch OR theory;
-- demonstrate quantum processes in artificial systems;
-- establish equivalence between semantic vectors and physical quantum states;
+- demonstrate subjective experience or sentience in an artificial system;
+- validate Penrose’s non-computability arguments;
+- validate Orch OR;
+- demonstrate biological quantum computation;
+- establish equivalence between semantic vectors and quantum states;
 - establish that representational geometry is physical spacetime geometry;
-- demonstrate that any artificial system possesses subjective experience.
+- derive general relativity, quantum mechanics, gauge theory, or a theory of everything.
 
-The study asks:
+The study asks a narrower question:
 
-> Does removing specified structured relational constraints produce measurable
-> changes in semantic behavior while the registered semantic payload is
-> preserved as far as the intervention can validly achieve?
+> Does removal of specified structured relational constraints change the boundary between warranted interpretation, acknowledged uncertainty, and unsupported specific completion?
 
-Meaning is operationalized as observable system behavior along:
+Meaning is operationalized through observable response behavior, including:
 
-- semantic specificity;
-- contextual coherence;
-- identity continuity;
-- local disambiguation;
-- unsupported inference;
-- fabrication.
+- expressed contextual specificity;
+- relation-sensitive interpretation;
+- appropriate uncertainty;
+- unsupported location claims;
+- unsupported temporal claims;
+- unsupported hydrologic or waterbody claims;
+- unsupported provenance or source claims;
+- other unsupported physical claims.
 
-The protocol distinguishes **information loss**, **relational-constraint loss**,
-**uncertainty**, and **fabrication** rather than treating them as interchangeable
-forms of error.
+The study distinguishes:
 
-> **Restart note.** An earlier execution cycle produced a three-unit pilot whose
-> numerical results were subsequently voided after infrastructure verification
-> identified duplicated and mismatched stores across the vector, relational,
-> and graph layers. Those numerical outcomes are excluded from all analyses and
-> cannot be used to estimate effect sizes, thresholds, or statistical power.
-> The methodological lessons from that cycle are retained as design controls.
-> The current protocol therefore begins from a clean-slate verification state.
+\[
+\text{information loss},
+\]
+
+\[
+\text{relational-constraint loss},
+\]
+
+\[
+\text{underdetermination},
+\]
+
+\[
+\text{uncertainty},
+\]
+
+and:
+
+\[
+\text{unsupported completion}.
+\]
+
+These are not interchangeable.
 
 ---
 
 # 2. Background and Rationale
 
-## 2.1 Penrose and Geometry
+## 2.1 Records as relational objects
 
-*Shadows of the Mind* argues that human mathematical understanding may not be
-fully captured by formal algorithmic computation and considers whether
-non-computable physical processes could be relevant to consciousness (Penrose,
-1994). Orch OR proposes that conscious experience may involve quantum
-processes in neuronal microtubules associated with objective reduction
-(Hameroff & Penrose, 2014).
+A record is not merely a label, value, or text string. It is typically situated within relations that determine what can be validly inferred from it.
 
-These proposals remain contested. Tegmark (2000), for example, argued that
-environmental decoherence would make biologically meaningful quantum
-computation difficult under assumed conditions, while Hagan, Hameroff, and
-Tuszyński (2002) argued that the biological parameters considered by Orch OR
-were not fully represented in that analysis.
+For a high-water-mark record, relevant relations may include:
 
-This protocol does not adjudicate that dispute.
+- where the mark was observed;
+- when the observation was made;
+- which waterbody or hydrologic setting it concerns;
+- which event may be relevant;
+- which organization or source recorded it;
+- what provenance supports the interpretation.
 
-Instead, it asks a more limited engineering question:
+A marker category can preserve a general semantic meaning while failing to preserve the relations needed for a specific factual attribution.
 
-> Before asking whether physical geometry participates in biological
-> consciousness, can structured relationships be shown to influence observable
-> meaning-related behavior in artificial systems?
+For example, marker types such as `Debris`, `Mud`, `Seed line`, and `Other` may support a general interpretation of a high-water trace. They do not independently identify a particular river, county, flood, date, event, or source organization.
 
----
+Thus:
 
-## 2.2 From Biological Geometry to Artificial Representation
+\[
+\text{semantic category}
+\neq
+\text{record-specific identification}.
+\]
 
-Artificial intelligence systems represent information through structured
-relationships among internal states, retrieval items, tokens, embeddings,
-graphs, metadata, and other representational objects.
+## 2.2 Representational geometry
 
-This provides a structural comparison point, but not a physical equivalence.
+The word geometry is used in this paper in a representational and relational sense.
 
-Specifically:
+A structured representation may contain positions, relations, neighborhoods, identities, temporal orderings, source links, and constraints on valid interpretation. Coordinates are one important form of structure, but not the only form.
 
-- semantic embeddings are not quantum states;
-- vector databases are not physical Hilbert spaces;
-- graph relationships are not automatically physical fields;
-- representational distance is not physical distance;
-- artificial representations do not thereby inherit the physical properties
-  of biological systems.
+The current study concerns relations including:
 
-The term **geometry** is therefore used in this manuscript primarily in the
-representational sense:
+- spatial relation;
+- temporal relation;
+- hydrologic or waterbody relation;
+- source and provenance relation;
+- identity relation;
+- semantic relation.
 
-> an organized space of relationships, constraints, positions, distances,
-> neighborhoods, or transformations among representational states.
+The study does not claim that these relations are physical spacetime coordinates.
 
-The experimental question is not:
+It asks whether removing selected relational dimensions changes semantic behavior in a measurable way.
 
-> Is artificial intelligence quantum?
+## 2.3 Constraint spaces rather than generic context
 
-It is:
+The intervention is not merely context versus no context.
 
-> Does maintaining specified structured relationships among representations
-> improve semantic behavior relative to a registered transformation that removes
-> those relationships?
+It removes specified record-level relational constraints while retaining selected marker-level semantic fields.
 
----
+The core record can be represented as:
 
-## 2.3 Constraint Spaces Rather Than Context Alone
+\[
+R =
+(
+\text{marker type},
+\text{marker label},
+\text{location},
+\text{date},
+\text{waterbody},
+\text{source}
+).
+\]
 
-The intervention is not simply "context versus no context."
+The Stripped condition uses an information-reducing projection:
 
-It removes specified **structured constraint spaces**:
+\[
+\pi(R)
+=
+(
+\text{marker type},
+\text{marker label}
+).
+\]
 
-- geographic;
-- temporal;
-- identity-continuity;
-- provenance and authority.
+If two complete records differ:
 
-These relationships constrain the set of interpretations available to the
-system.
+\[
+R_1 \neq R_2,
+\]
 
-A record is therefore treated not merely as an isolated symbol string but as an
-object situated within relationships concerning:
+while retaining the same stripped representation:
 
-- what an entity is;
-- where it is;
-- when it applies;
-- what other entities it relates to;
-- who or what established the information;
-- which evidence supports an assertion.
+\[
+\pi(R_1)=\pi(R_2),
+\]
 
-The study tests whether removal of these registered relationships changes
-observable system behavior.
+then omitted facts are not always uniquely recoverable from retained fields.
 
----
+For example, if:
 
-## 2.4 Grounding Is Semantic as Well as Structural
+\[
+\text{waterbody}(R_1)
+\neq
+\text{waterbody}(R_2),
+\]
 
-Geographic information does not exist only through coordinates. A place may
-also be encoded through:
+while:
 
-- names;
-- labels;
-- descriptions;
-- administrative identifiers;
-- feature names;
-- metric names;
-- source names;
-- textual references.
+\[
+\pi(R_1)=\pi(R_2),
+\]
 
-Consequently, nulling latitude and longitude does not necessarily remove
-geographic information.
+then no universally correct inference rule can identify the waterbody from the stripped representation alone:
 
-The intervention therefore attempts to remove both:
+\[
+\text{waterbody}
+\not=
+f(\pi(R)).
+\]
 
-1. registered structured geographic variables; and
-2. registered textual or symbolic geographic leakage.
+This is the logical basis of the study:
 
-The same principle applies to temporal and provenance information.
-
-This creates an important methodological distinction:
-
-> The intervention is designed to remove specified relational constraints, not
-> to create a theoretically pure state containing no relational information.
-
-Natural language itself carries relational structure. Residual linguistic
-structure may reconstruct some of the information removed from the grounding
-layer. Such reconstruction is an expected property of the measurement problem,
-not automatically evidence of intervention failure.
+> A system should not convert underdetermination into a specific unsupported claim.
 
 ---
 
-# 3. System Configuration — APPARATUS LAYER
+# 3. Current Empirical Arm
 
-## 3.1 Verification Principle
+## 3.1 Matched two-condition design
 
-> Architecture descriptions are hypotheses until confirmed through live
-> verification.
+The current empirical arm compares 921 matched source records under two harmonized conditions:
 
-Before every confirmatory execution cycle, the current system must be directly
-inspected.
+\[
+\text{Grounded v2}
+\quad\text{versus}\quad
+\text{Stripped v3}.
+\]
 
-At minimum, verification includes:
+For every matched unit:
 
-- container and service inventory;
-- database and schema inspection;
-- source-of-record identification;
-- record counts;
-- admissibility counts;
-- spatial and temporal field inspection;
-- provenance inspection;
-- temporal-table population;
-- answer-path source-code inspection;
-- direct model execution;
-- model and inference configuration;
-- duplicate-store checks;
-- durable-result verification;
-- execution-path latency;
-- representation-arm verification where applicable.
+- the same local model is used;
+- the same model settings are used;
+- the same seed is used;
+- the same output structure is used;
+- the same marker type and marker label are retained;
+- the experimental difference is relation availability.
 
-No value may be filled from:
+The completed generation run consisted of:
 
-- memory;
-- a previous manuscript;
-- an earlier execution;
-- an obsolete database;
-- a stale configuration file;
-- a source-code declaration that is not confirmed to correspond to the
-  currently running system.
+\[
+921
+\text{ Grounded v2 prompts}
++
+921
+\text{ Stripped v3 prompts}
+=
+1842
+\text{ total model calls}.
+\]
 
-If a capability cannot be directly confirmed, it is recorded as **UNVERIFIED**.
-An unverified capability is not treated as available to the confirmatory study.
+## 3.2 Grounded v2 condition
 
----
+Grounded v2 supplies marker-level information together with available record-level context, including:
 
-## 3.2 Verified Configuration Table
+- location;
+- date;
+- waterbody or hydrologic setting;
+- source or provenance information.
 
-| Item | Verified value | Verification method | Date |
-|---|---|---|---|
-| Grounded source-of-record | ⟨VERIFY-SOURCE-OF-RECORD⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Total record count | ⟨VERIFY-N-TOTAL⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Admissible/public-claim record count | ⟨VERIFY-N-ADMISSIBLE⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Spatial grounding fields | ⟨VERIFY-SPATIAL-FIELDS⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Temporal grounding fields | ⟨VERIFY-TEMPORAL-FIELDS⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Provenance/authority fields | ⟨VERIFY-PROVENANCE-FIELDS⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Temporal event tables | ⟨VERIFY-TEMPORAL-TABLES⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Controlled bare-model pathway | ⟨VERIFY-BARE-PATH⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Bare-model identifier and quantization | ⟨VERIFY-MODEL-ID⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Inference settings | ⟨VERIFY-INFERENCE-SETTINGS⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Full governed pipeline | ⟨VERIFY-PIPELINE-PATH⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Pipeline answer assembly | ⟨VERIFY-ANSWER-ASSEMBLY⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Second model for T4-A | ⟨VERIFY-MODEL-2⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Executable non-vector arm for T4-B | ⟨VERIFY-REPRESENTATION-ARM⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Durable results store | ⟨VERIFY-RESULTS-STORE⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| State-TTL constraint | ⟨VERIFY-TTL-CONSTRAINT⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
-| Observed per-call latency | ⟨VERIFY-LATENCY⟩ | ⟨VERIFY-METHOD⟩ | ⟨VERIFY-DATE⟩ |
+Record-specific interpretation is appropriate only when the relevant claim is supported by supplied evidence.
 
----
+## 3.3 Stripped v3 condition
 
-## 3.3 Configuration-Dependent Design Decisions
+Stripped v3 retains:
 
-### 3.3.1 Execution pathway
+\[
+(
+\text{marker type},
+\text{marker label}
+).
+\]
 
-Where both a controlled bare-model pathway and a complete governed pipeline
-are live-verified, execution pathway is treated as a separately registered
-factor.
+It withholds record-level relations needed to identify a particular:
 
-The two pathways answer different questions:
+- location;
+- date;
+- waterbody;
+- event;
+- source;
+- provenance context.
 
-- the **bare pathway** estimates behavior of the model under controlled
-  prompt-parity conditions;
-- the **governed pathway** estimates behavior of the complete engineered
-  system, including retrieval, governance, evidence controls, and answer
-  assembly.
+An appropriate stripped interpretation may remain generic or state that record-specific context is unavailable.
 
-The governed pathway is never treated as interchangeable with the bare model.
+For example:
 
-If the governed pipeline cannot produce a populated final answer through its
-registered answer path for all required query classes, it is **DEFERRED** for
-that execution cycle.
+> The available marker information indicates a high-water observation, but it does not identify the specific waterbody, location, date, event, or source context.
 
----
+An inappropriate stripped interpretation would assert a particular river, county, flood, date, event, or source organization without retained evidence supporting that attribution.
 
-### 3.3.2 Durable results
+## 3.4 Interpretation boundary
 
-Where execution depends on state with a finite TTL, authoritative experimental
-results must be written to a durable store whose persistence does not depend on
-that runtime state.
+The study estimates the effect of the registered Grounded v2 to Stripped v3 transformation.
 
-Expiring session state may support execution, but it cannot be the sole
-authoritative record of an experimental result.
+It does not estimate a metaphysically pure or physically isolated “geometry effect.”
 
----
+The transformation jointly changes:
 
-# 4. Research Question and Hypotheses
-
-## 4.1 Research Question
-
-> Does removal of specified structured relational constraints produce measurable
-> degradation in semantic behavior when the registered semantic payload is
-> preserved as far as the intervention permits?
-
----
-
-## 4.2 Primary Hypothesis
-
-The primary hypothesis is:
-
-> The registered Grounded → Stripped transformation will reduce semantic
-> performance on the primary outcome relative to the Grounded condition.
-
-The corresponding recovery hypothesis is:
-
-> Restoration of the removed constraints will improve performance relative to
-> the Stripped condition.
-
-These hypotheses concern the **registered transformation** and do not claim
-that the manipulation isolates geometry as an independently manipulable physical
-cause.
-
----
-
-## 4.3 Secondary Hypotheses
-
-### H1 — Semantic Resolution
-
-Grounded records will produce more accurate identification of intended
-referents than stripped records.
-
-### H2 — Context Preservation
-
-Grounded records will preserve relationships among facts more reliably than
-stripped records.
-
-### H3 — Identity Continuity
-
-Grounded records will maintain stronger referential continuity across follow-up
-questions.
-
-### H4 — Recovery
-
-Re-grounding will improve performance relative to stripping.
-
-### H5 — Error-Mode Shift
-
-Removing relational constraints may increase unsupported inference and
-fabrication rather than merely increasing explicit uncertainty.
-
-### H6 — Structural Replication
-
-Where T4-A and/or T4-B are executable, the qualitative pattern of degradation
-may replicate across sufficiently distinct substrates.
-
----
-
-# 5. Conceptual Model
-
-## 5.1 Representational Layers
-
-The system is modeled conceptually as four interacting representational layers:
-
-1. semantic;
-2. geographic;
-3. temporal;
-4. provenance/authority.
-
-These dimensions are analytically separable but are not assumed to independently
-generate meaning.
-
-The hypothesis concerns the consequences of maintaining or removing
-relationships among these dimensions.
-
----
-
-## 5.2 Meaning as a Joint Representational State
-
-A conceptual representation is:
-
-```
-x = [ geo_repr || λ_t · time_repr || λ_s · semantic_repr || λ_p · provenance_repr ]
-```
-
-where:
-
-- `geo_repr` represents geographic relationships;
-- `time_repr` represents temporal relationships;
-- `semantic_repr` represents semantic content;
-- `provenance_repr` represents evidence and authority relationships;
-- `λ` values represent conceptual weighting;
-- `||` denotes concatenation or another composition operation.
-
-This equation is **conceptual, not an operational model**. The study does not
-fit or infer these weights as latent physical quantities.
-
----
-
-## 5.2.1 Temporal Representation
-
-Temporal information may contain at least two distinguishable structures:
-
-- a **linear component** representing ordered progression;
-- a **cyclical component** representing recurrence.
-
-A linear timestamp identifies progression but does not itself encode recurrence
-as a separate structural relationship.
-
-A cyclical label identifies a recurring position but does not by itself identify
-which occurrence of that position is intended.
-
-Their combination can therefore be represented conceptually as a **helical
-temporal structure**: cyclical under one projection and linear under another.
-
-This terminology is representational.
-
-It does not claim that physical time is literally a helix.
-
-The experimental consequence is narrower:
-
-> Where both a cyclical temporal label and a linear temporal anchor exist,
-> removal of the linear anchor while retaining the cyclical label may increase
-> ambiguity concerning the specific temporal instance.
-
-This prediction is tested only where the required temporal fields and temporal
-event tables are live-verified.
-
----
-
-## 5.3 Registered Semantic-Payload Preservation
-
-The protocol does **not assume** that the semantic payload has been perfectly
-preserved.
-
-Instead:
-
-> The intervention is designed to preserve the registered semantic payload
-> while removing specified relational constraints.
-
-Preservation is therefore an **intervention-fidelity criterion**.
-
-Before confirmatory execution, the protocol must specify:
-
-- which fields constitute semantic payload;
-- which fields constitute registered relational constraints;
-- which textual tokens are subject to leak scrubbing;
-- which transformations are permitted;
-- which transformations are prohibited.
-
-Where technically possible, hashes or equivalent integrity checks are recorded
-for retained semantic fields before and after transformation.
-
-If a transformation unintentionally alters a registered semantic field, the unit
-is flagged for intervention-fidelity review according to the frozen exclusion
-rules.
-
----
-
-# 6. Methods
-
-## 6.1 Study Design
-
-The core design is a within-unit three-condition paired comparison.
-
-Each eligible unit is tested under:
-
-- **Grounded** — registered structured relationships retained;
-- **Stripped** — specified structured relationships removed;
-- **Re-grounded** — the same registered relationships restored.
-
-The same semantic unit therefore supplies its own reference across conditions.
-
----
-
-## 6.2 Experimental Logic
-
-### Loss
-
-**Grounded → Stripped**
-
-Tests whether the registered transformation produces degradation.
-
-### Recovery
-
-**Stripped → Re-grounded**
-
-Tests whether restoration reverses some of the observed degradation.
-
-### Stability
-
-**Grounded → Re-grounded**
-
-Tests whether restoration returns behavior toward the original grounded state.
-
-Recovery is interpreted as evidence consistent with a contribution from the
-removed constraints, but recovery does not by itself establish a unique causal
-mechanism because restoration also reverses every registered consequence of the
-transformation.
-
----
-
-# 7. Sampling Frame and Sample Size
-
-## 7.1 Planned Sampling Structure
-
-The initial target is **60 eligible independent units**, subject to the
-prospective power calculation and availability of independent units in the
-verified sampling frame.
-
-The planned conceptual stratification is:
-
-| Stratum | Target units | Primary grounding axis |
-|---|---:|---|
-| Spatial-grounded | 20 | where |
-| Temporal-grounded | 20 | when |
-| Ambiguous/disambiguation-dependent | 20 | identity resolution |
-
-The final sample size is **not justified by the number 60 alone**.
-
-If the power calculation requires a different number, the power-derived number
-controls.
-
-If the verified admissible sampling frame cannot supply the required number of
-independent eligible units, the study is registered as underpowered rather than
-treating the nominal target as sufficient.
-
----
-
-## 7.2 Sampling File
-
-The sampling frame is stored at:
-
-`⟨VERIFY-SAMPLING-FILE⟩`
-
-The frozen sampling file must include, at minimum:
-
-- source record identifier;
-- stable identity key;
-- stratum;
-- grounding axis;
-- eligibility status;
-- intervention-fidelity eligibility;
-- provenance status;
-- temporal status where applicable.
-
-No sampled unit may share an identity key with another sampled unit.
-
-No sampled unit may represent duplicated source-of-record material.
-
----
-
-## 7.3 Prospective Power and Sample-Size Analysis
-
-The sample size must be determined through an **a priori power analysis before
-confirmatory data collection**.
-
-The power analysis must specify and freeze:
-
-1. primary estimand;
-2. primary outcome distribution/model;
-3. alpha level;
-4. desired statistical power;
-5. minimum meaningful effect size;
-6. expected within-unit correlation or equivalent dependence parameter where
-   required;
-7. multiplicity adjustment;
-8. anticipated exclusion/attrition rate;
-9. resulting minimum number of independent units.
-
-The power analysis must not use the voided pilot to estimate:
-
-- effect size;
-- variance;
-- fabrication rate;
-- within-unit correlation;
-- expected recovery;
-- any other parameter that could make the pilot indirectly determine the
-  confirmatory sample size.
-
-If external literature or methodological precedent is used to justify an effect
-size, the source and rationale are frozen before confirmatory execution.
-
-If no credible external effect-size basis exists, the protocol must use a
-conservative sensitivity analysis over a range of plausible effects rather than
-inventing a point estimate.
-
-The final power calculation is stored as:
-
-`⟨VERIFY-POWER-ANALYSIS⟩`
-
-and hashed before freeze.
-
----
-
-## 7.4 Independence Requirement
-
-The effective sample size is the number of **independent experimental units**,
-not the number of database rows.
-
-If multiple records represent the same underlying entity, geography, temporal
-event, source, or observation, they must not be counted as independent merely
-because they have different row identifiers.
-
-Where clustering cannot be eliminated through sampling, the statistical model
-must account for it.
-
----
-
-# 8. Inclusion and Exclusion Criteria
-
-## 8.1 Inclusion
-
-Include a unit only if it has:
-
-- a stable semantic representation;
-- at least one registered grounding relationship relevant to its stratum;
-- sufficient information to construct Grounded and Stripped conditions;
-- sufficient information to construct Re-grounded where recovery is tested;
-- an independently evaluable referent;
-- a stable identity key.
-
----
-
-## 8.2 Exclusion
-
-Exclude a unit if:
-
-- no relevant grounding relationship exists;
-- stripping would destroy the identity of the unit rather than isolate the
-  registered transformation;
-- the referent cannot be independently evaluated;
-- the gold reference cannot be established before scoring;
-- the unit is duplicated;
-- the unit violates the frozen intervention-fidelity criteria;
-- the execution pathway produces no scoreable response under the registered
-  conditions.
-
-Exclusions are recorded with reasons.
-
-Post-hoc exclusion based on observed scores is prohibited.
-
----
-
-# 9. Operational Definition of Provenance
-
-Three conceptual retention levels are recognized:
-
-### Minimal
-
-Information sufficient to identify the source or authority.
-
-### Structural
-
-Source identifiers, lineage, structural metadata, and related relationships.
-
-### Full
-
-Assertions, lineage, validation, and supporting evidence.
-
-The protocol distinguishes **provenance capability** from **provenance
-availability**.
-
-A provenance system that exists but is not actually reached by the experimental
-answer path is not treated as evidence that the governed response contained
-provenance.
-
-Only provenance relationships confirmed as live and available through the
-registered pathway enter the experimental condition.
-
----
-
-# 10. Operational Definition of "Stripped"
-
-The Stripped condition is a controlled transformation of the Grounded record.
-
-It is not defined as "no context."
-
-It is defined as:
-
-> the original record after removal of the relational constraints specified in
-> the registered transformation while retaining the registered semantic
-> payload as far as intervention fidelity permits.
-
----
-
-## 10.1 Registered Transformation
-
-The transformation consists of the following steps.
-
-### 1. Semantic-payload preservation
-
-Retain:
-
-- registered semantic content;
-- metric or attribute stem;
-- numerical value;
-- units;
-- aggregation;
-- non-locating semantic descriptors.
-
-The exact field list is frozen against the verified source schema.
-
-### 2. Spatial suppression
-
-Remove or null:
-
-- coordinates;
-- bounding geometry;
-- spatial-unit identifiers;
-- spatial join keys;
-- other fields explicitly registered as spatial constraints.
-
-### 3. Temporal suppression
-
-For the relevant temporal strata:
-
-- remove the linear temporal anchor;
-- remove or retain cyclical labels according to the registered T1 condition;
-- preserve non-temporal semantic payload.
-
-### 4. Provenance suppression
-
-Remove the registered provenance or authority relationships specified by the
-condition.
-
-### 5. Leak scrubbing
-
-Remove textual or symbolic content that directly reproduces the relational
-constraint being manipulated, including where applicable:
-
-- place names;
-- time-instance identifiers;
-- source-table names;
-- authority names;
-- geographic feature names;
-- temporal labels.
-
-The scrub dictionary is frozen before execution.
-
-### 6. Prompt parity
-
-All experimental conditions receive identical prompts.
-
-Only the registered condition transformation differs.
-
----
-
-## 10.2 Entangled Content
-
-Some information cannot be cleanly classified as purely semantic or purely
-grounding-related.
-
-For example, a metric named after a geographic feature may simultaneously
-function as:
-
-- semantic content;
-- a geographic identifier;
-- a retrieval cue;
-- a cultural reference.
-
-Such content is classified as **entangled**.
-
-Entangled units are not silently treated as clean causal tests.
-
-Instead, they are:
-
-1. flagged before execution where identifiable;
-2. analyzed according to the frozen inclusion/exclusion rules;
-3. reported separately where appropriate.
-
-The ability of language to reconstruct a removed relationship is itself a
-possible finding.
-
----
-
-# 11. Operational Definition of "Re-grounded"
-
-The Re-grounded condition restores the same classes of relational constraints
-removed by the registered Stripped transformation.
-
-Where applicable this includes:
-
-- spatial relationships;
-- temporal relationships;
-- provenance relationships;
-- identity-continuity relationships.
-
-The semantic representation remains frozen.
-
-The expected ordering is:
-
-```
-Grounded → Stripped → Re-grounded
-```
-
-The first transition estimates degradation under the registered transformation.
-
-The second estimates recovery after reversal.
-
-The third provides a stability comparison.
-
-Re-grounding is not considered proof of a unique causal mechanism because it
-reverses the intervention as a whole.
-
----
-
-# 12. Query Set
-
-Each unit receives the same registered query classes across conditions.
-
-## 12.1 Referential
-
-Identify the entity or referent.
-
-Measures:
-
-- identification;
-- specificity;
-- referential accuracy.
-
-## 12.2 Contextual
-
-Explain relevant relationships surrounding the record.
-
-Measures:
-
-- contextual preservation;
-- relational reasoning;
-- unsupported inference.
-
-## 12.3 Disambiguation
-
-Resolve competing interpretations.
-
-Measures:
-
-- referential resolution;
-- uncertainty handling;
-- confidence calibration.
-
-## 12.4 Continuity
-
-A follow-up question tests whether the system maintains the same referent and
-relationship established in the initial response.
-
-The prompt set is frozen before execution.
-
----
-
-# 13. Execution Pathways
-
-## 13.1 Bare Model
-
-The controlled bare-model pathway:
-
-`⟨VERIFY-BARE-PATH⟩`
-
-using:
-
-`⟨VERIFY-MODEL-ID⟩`
-
-is the primary controlled execution pathway where verified.
-
-It is intended to minimize additional system-level variation.
-
----
-
-## 13.2 Governed Pipeline
-
-Where the governed pipeline is live and produces populated final answers for
-all registered query classes, it is evaluated as a distinct execution pathway:
-
-`⟨VERIFY-PIPELINE-PATH⟩`
-
-The governed pathway is not treated as equivalent to the bare model.
-
-If answer assembly is incomplete, the governed arm is **DEFERRED**.
-
-A partially implemented pipeline is never represented as a completed
-experimental condition.
-
----
-
-## 13.3 Execution Artifact
-
-Each execution produces an authoritative artifact containing at least:
-
-- execution identifier;
-- source unit identifier;
-- blinded scoring identifier;
-- condition;
-- execution pathway;
-- query class;
-- prompt version;
-- model identifier;
-- inference configuration;
-- response;
-- timestamp;
-- intervention version;
-- execution status;
-- error status.
-
-The authoritative result is written to:
-
-`⟨VERIFY-RESULTS-STORE⟩`
-
-System diagrams or source-code declarations are not experimental evidence.
-
----
-
-# 14. Identity Stability Measurement
-
-Continuity is tested explicitly rather than inferred from persistent runtime
-state.
-
-### Turn One
-
-The unit and evaluation prompt are presented.
-
-The initial response is captured.
-
-### Turn Two
-
-The original question and original answer are supplied with a continuity
-request:
-
-> Are you referring to the same entity as before? Explain why.
-
-The response is scored for:
-
-- referent continuity;
-- entity preservation;
-- recognition of prior context;
-- identity drift.
-
-If a pathway cannot support the registered continuity probe, that limitation is
-recorded and the identity outcome for that pathway is treated according to the
-frozen missing-data rule.
-
----
-
-# 15. Outcome Measures and Scoring Rubric
-
-## 15.1 Primary Outcome
-
-The primary outcome is a four-dimension ordinal composite score ranging from
-0–12.
-
-The dimensions are:
-
-1. semantic specificity;
-2. contextual coherence;
-3. identity stability;
-4. local disambiguation.
-
-Each dimension is scored from 0 to 3.
-
-The composite is a descriptive summary and does **not** imply that the ordinal
-components form a truly interval-scaled measurement.
-
----
-
-## 15.2 Semantic Specificity
-
-- **0** — incorrect or unrelated;
-- **1** — vague or minimally relevant;
-- **2** — mostly correct;
-- **3** — precise identification.
-
----
-
-## 15.3 Contextual Coherence
-
-- **0** — incoherent;
-- **1** — partial or substantially incomplete;
-- **2** — mostly coherent;
-- **3** — fully contextualized.
-
----
-
-## 15.4 Identity Stability
-
-- **0** — referential drift or identity substitution;
-- **1** — uncertain or weak continuity;
-- **2** — mostly stable;
-- **3** — stable and explicitly continuous.
-
----
-
-## 15.5 Local Disambiguation
-
-- **0** — incorrect referent;
-- **1** — unresolved ambiguity;
-- **2** — probable interpretation;
-- **3** — correct interpretation.
-
----
-
-## 15.6 Fabrication
-
-Fabrication is scored separately from the composite.
-
-A response is classified as fabricated when it confidently asserts a place,
-time, agency, source, provenance relationship, or other factual element that is
-not supported by the gold reference or registered evidence available to the
-condition.
-
-An honest statement such as:
-
-> "That is not stated in the record."
-
-is **not** fabrication.
-
-Fabrication and uncertainty are therefore distinct outcomes.
-
----
-
-# 16. Human Evaluation Requirement
-
-Confirmatory scoring requires:
-
-- two independent blind human raters;
-- one system-aware qualitative reviewer.
-
-The qualitative reviewer does not replace the independent raters.
-
-Raters receive:
-
-- blind response identifier;
-- prompt;
-- response;
-- gold reference information appropriate to the scoring task.
-
-Raters do not receive:
-
-- condition;
-- execution pathway;
-- source record identifier;
-- model identifier.
-
-Automated raters are not used as confirmatory inferential evaluators.
-
-Automated systems may assist with:
-
-- formatting;
-- response normalization;
-- contradiction detection;
-- duplicate detection;
-- mechanical preprocessing.
-
-They may not determine the final fabrication or semantic score.
-
----
-
-# 17. Gold Reference Packets
-
-Each unit receives a gold packet before scoring.
-
-The packet contains:
-
-- correct referent;
-- verified spatial relationships;
-- verified temporal relationships;
-- identity relationships;
-- provenance relationships;
-- disambiguation criteria;
-- fabrication-sensitive facts;
-- permitted evidence;
-- unsupported claims that constitute fabrication.
-
-The gold packet is created before response scoring.
-
-It is frozen before the blind-rating pass.
-
----
-
-# 18. Blinding
-
-Final response sets are anonymized.
-
-Condition labels and execution-path labels are removed.
-
-Responses receive arbitrary scoring identifiers.
-
-Raters cannot identify:
-
-- Grounded;
-- Stripped;
-- Re-grounded;
-- bare model;
-- governed pipeline.
-
-The private key linking blind identifiers to conditions is not available to
-raters during scoring.
-
----
-
-# 19. Reliability
-
-Inter-rater reliability is calculated before confirmatory conclusions.
-
-For ordinal dimensions, the primary reliability measure is:
-
-- **Krippendorff's alpha with ordinal distance**.
-
-For binary fabrication:
-
-- **Krippendorff's alpha with nominal distance**.
-
-Weighted Cohen's kappa may be reported as a secondary descriptive reliability
-measure where its assumptions are appropriate.
-
-The reliability implementation is validated against a canonical benchmark before
-the blind-rating pass.
-
-The minimum acceptable reliability criterion is:
-
-`⟨VERIFY-RELIABILITY-THRESHOLD⟩`
-
-If reliability falls below the frozen threshold:
-
-1. the reliability failure is reported;
-2. raters undergo the preregistered retraining procedure;
-3. affected responses are rescored according to the frozen rule.
-
-Reliability failure does not permit selective reinterpretation of scores.
-
----
-
-# 20. Statistical Analysis Plan
-
-## 20.1 Primary Estimand
-
-The primary estimand is:
-
-> the within-unit effect of the registered Grounded → Stripped transformation on
-> the primary semantic-coherence outcome.
-
-This wording is intentionally narrower than:
-
-> the pure effect of geometry.
-
-The intervention changes multiple jointly specified properties, including
-evidence availability, retrieval opportunities, lexical cues, prompt-visible
-content, and confidence.
-
-Therefore the causal claim is about the **registered transformation**.
-
----
-
-## 20.2 Primary Outcome Analysis
-
-The four ordinal dimensions are not assumed to be interval-scaled merely
-because they use numbers.
-
-The primary analysis therefore uses the preregistered ordinal or otherwise
-distribution-appropriate model:
-
-`⟨VERIFY-PRIMARY-STATISTICAL-MODEL⟩`
-
-The model must account for repeated observations within unit.
-
-The exact model, contrast coding, random effects, and estimation method are
-frozen before confirmatory execution.
-
-The 0–12 composite is retained as a descriptive summary and may be analyzed
-secondarily under an explicitly labeled sensitivity model.
-
----
-
-## 20.3 Primary Contrast
-
-The primary confirmatory contrast is:
-
-> Grounded versus Stripped.
-
-The primary direction is:
-
-> Grounded performance greater than Stripped performance.
-
-The primary test is evaluated using the frozen inferential procedure and
-multiplicity policy.
-
----
-
-## 20.4 Recovery Contrast
-
-The recovery contrast is:
-
-> Re-grounded versus Stripped.
-
-The predicted direction is:
-
-> Re-grounded performance greater than or equal to Stripped performance.
-
-Grounded versus Re-grounded is a secondary stability contrast.
-
----
-
-## 20.5 Fabrication as a Mechanistically Informative Secondary Outcome
-
-Fabrication is explicitly **secondary**, not a second undisclosed primary
-outcome.
-
-This resolves an important measurement issue.
-
-The composite captures broad semantic behavior and therefore remains the primary
-construct-level outcome.
-
-However, language itself contains relational structure. A model may reconstruct
-removed grounding from linguistic cues and therefore maintain a relatively high
-composite score despite losing direct grounding constraints.
-
-Fabrication, unsupported inference, and gold-disambiguation accuracy may be more
-sensitive to this failure because they expose situations in which the model
-extends beyond available evidence.
-
-Accordingly:
-
-> The composite is the primary broad semantic outcome; fabrication is the
-> mechanistically informative secondary outcome expected to be less susceptible
-> to some forms of linguistic masking.
-
-No post-hoc elevation of fabrication to primary status is permitted.
-
----
-
-## 20.6 Missing Data and Failed Executions
-
-Missing responses are not scored as zero unless the frozen scoring rule
-explicitly defines that outcome as a substantive system behavior.
-
-Execution failures, service outages, malformed requests, and unavailable
-pathways are recorded separately from model responses.
-
-The missing-data rule is:
-
-`⟨VERIFY-MISSING-DATA-POLICY⟩`
-
-The rule is frozen before confirmatory execution.
-
----
-
-## 20.7 Multiplicity
-
-The confirmatory multiplicity procedure is:
-
-`⟨VERIFY-MULTIPLICITY-PROCEDURE⟩`
-
-The procedure specifies how the primary contrast, recovery contrast, and
-registered secondary tests are interpreted without selectively emphasizing
-statistically favorable outcomes.
-
----
-
-# 21. Causal Interpretation Boundary
-
-The stripping intervention is not a surgical manipulation of a single physical
-variable.
-
-It may simultaneously alter:
-
-- structured spatial evidence;
+- available spatial evidence;
 - temporal evidence;
-- provenance evidence;
-- retrieval neighborhoods;
-- lexical cues;
-- prompt-visible information;
-- disambiguation cues;
-- confidence;
-- available evidence for answer construction.
-
-Therefore:
-
-> The study estimates the effect of the registered transformation, not an
-> isolated metaphysical or physical effect of "geometry."
-
-A positive Grounded > Stripped result supports the narrower claim that the
-specified relational constraints contribute to behavior under the registered
-system conditions.
-
-It does not establish that geometry is the sole mechanism.
-
-A null result does not establish that relational structure is irrelevant in
-general. It may indicate that:
-
-- the tested constraints are unnecessary for the tested tasks;
-- linguistic representation reconstructs sufficient information;
-- the transformation did not remove the decisive constraints;
-- the model uses another representation;
-- the sample or measurement lacked sensitivity.
+- waterbody and hydrologic context;
+- provenance information;
+- lexical and disambiguation cues;
+- prompt-visible evidence;
+- support available for record-specific claims.
 
 ---
 
-# 22. Pre-Registered Directional Predictions
+# 4. Generation Status and Integrity
 
-Each confirmatory prediction has:
+## 4.1 Completed response corpus
 
-- a direction;
-- a prespecified criterion;
-- a failure condition;
-- a defined execution arm.
+The full harmonized run is complete.
 
-No criterion is selected after observing confirmatory outcomes.
+It generated:
 
----
+\[
+921
+\text{ Grounded v2 responses},
+\]
 
-## 22.1 T1 — Temporal Decomposition
+\[
+921
+\text{ Stripped v3 responses},
+\]
 
-### Design
+and:
 
-Three temporal subconditions are compared where the required fields exist:
+\[
+1842
+\text{ total responses}.
+\]
 
-1. full-time;
-2. cyclical-only;
-3. time-stripped.
+## 4.2 Structural integrity controls
 
-### Prediction
+All responses passed locked mechanical integrity checks:
 
-The cyclical-only condition will have the highest fabrication rate because the
-period is cued while the specific temporal instance is underdetermined.
+- direct valid JSON;
+- exact required response-key set;
+- marker-type fidelity;
+- marker-label fidelity;
+- condition-appropriate availability statuses;
+- nonempty evidence-bounded interpretation;
+- matched-unit identity across conditions.
 
-### Criterion
+These controls establish that the intended corpus was generated in the required format.
 
-The minimum meaningful fabrication-rate difference is:
+They do not establish a substantive effect.
 
-`δ_T1 = ⟨VERIFY-DELTA-T1⟩`
+The completed generation record supports:
 
-`δ_T1` must be justified from an external methodological or substantive
-criterion before execution.
+\[
+\text{authorized protocol}
+\rightarrow
+\text{complete execution}
+\rightarrow
+\text{mechanically valid response corpus}.
+\]
 
-The criterion is an **absolute difference in fabrication probability/rate**, not
-an arbitrary post-hoc margin.
+It does not yet support:
 
-### Failure condition
+\[
+\text{Grounded} >
+\text{Stripped},
+\]
 
-T1 is false if:
+\[
+\text{false-specific attribution rate} > 0,
+\]
 
-- time-stripped has the highest fabrication rate;
-- cyclical-only has the lowest fabrication rate;
-- or the prespecified minimum meaningful difference is not achieved in the
-  predicted direction.
+or:
 
-T1 is executable only where both the linear temporal anchor and cyclical label
-are independently verified and the temporal event tables are populated.
+\[
+\text{semantic dependence confirmed}.
+\]
 
----
-
-## 22.2 T2 — Channel Sensitivity
-
-### Prediction
-
-The Grounded − Stripped effect will be more detectable on
-fabrication/disambiguation-related outcomes than on the broad composite because
-linguistic structure can partially mask relational degradation.
-
-### Analysis
-
-Effect estimates for the relevant secondary channels will be reported alongside
-the primary composite effect.
-
-A formal comparison of dependent effect estimates is made only if specified in
-the frozen statistical analysis plan.
-
-Otherwise, relative magnitude is treated as **descriptive evidence**, not as a
-confirmatory superiority test.
-
-### Failure condition
-
-T2 is false if the registered directional pattern is absent.
-
-A null or reversed channel pattern is reported rather than reinterpreted as
-support.
+Those claims require completed scoring and paired analysis.
 
 ---
 
-## 22.3 T3 — Recovery by Failure Type
+# 5. Outcome Measures
 
-Before the Re-grounded condition is scored, each Stripped response is classified
-according to its preregistered failure type:
+## 5.1 Primary response artifact
 
-- fabrication-dominant;
-- uncertainty-dominant;
-- other registered category.
+The primary substantive response artifact is:
 
-The classification is made without using the Re-grounded response.
+\[
+\texttt{evidence\_bounded\_interpretation}.
+\]
 
-### Prediction
+Copied marker fields and schema-constrained availability-status fields are structural controls rather than substantive outcome measures.
 
-Units whose stripped failure is fabrication-dominant may show a different
-recovery profile from units whose stripped failure is uncertainty-dominant.
+## 5.2 Supported Contextual Specificity Score
 
-The predicted distinction is:
+The planned Supported Contextual Specificity Score is:
 
-> fabrication-dominant failures will more often retain residual error after
-> restoration, whereas uncertainty-dominant failures will more often return
-> toward the grounded state.
+\[
+\mathrm{SCSS}\in\{0,1,2,3,4\}.
+\]
 
-### Criterion
+One point is awarded for each contextual dimension explicitly and correctly reflected in the interpretation:
 
-The association criterion is:
+1. spatial context;
+2. temporal context;
+3. hydrologic or waterbody context;
+4. provenance context.
 
-`⟨VERIFY-T3-CRITERION⟩`
+For each dimension:
 
-The criterion is fixed before Re-grounded outcomes are examined.
+\[
+\text{explicit and supported}
+\Rightarrow
+1,
+\]
 
-### Failure condition
+while:
 
-T3 is false if the preregistered association between pre-recovery failure type
-and recovery pattern is absent or reversed.
+\[
+\text{absent, generic, unavailable, contradicted, or unsupported}
+\Rightarrow
+0.
+\]
 
-The previous residual-sign rule is explicitly rejected because it could become
-circular if failure type were defined using post-recovery behavior.
+The matched-pair difference is:
 
----
+\[
+\Delta_i
+=
+\mathrm{SCSS}_{i,\mathrm{Grounded}}
+-
+\mathrm{SCSS}_{i,\mathrm{Stripped}}.
+\]
 
-# 23. Seven-Category Degradation Taxonomy
+## 5.3 Unsupported specific attribution
 
-The taxonomy is a preregistered classification framework, not proof that any
-category exists as an empirical phenomenon.
+The principal safety-focused outcome is unsupported specific attribution.
 
-## 23.1 Flattening
+Claims are classified by relation type:
 
-Loss of relationships among entities while isolated facts remain available.
+- invented waterbody or hydrologic setting;
+- invented location;
+- invented date or event;
+- invented source or provenance;
+- other unsupported physical claim.
 
-## 23.2 Temporal Confusion
+A useful rate is:
 
-Incorrect ordering, failure to distinguish historical from current state, or
-temporal identity drift.
+\[
+\mathrm{FSAR}
+=
+\frac{
+\text{unsupported specific attributions}
+}{
+\text{interpretations evaluated}
+}.
+\]
 
-## 23.3 Referential Drift
+The study is not designed to reward generic prose merely for being generic.
 
-Switching referents, merging unrelated entities, or losing continuity.
+Rather, it examines whether the system distinguishes:
 
-## 23.4 Disambiguation Loss
+\[
+\text{what is supported},
+\]
 
-Failure to resolve competing meanings or failure to express uncertainty where
-appropriate.
+\[
+\text{what is unknown},
+\]
 
-## 23.5 Provenance Incoherence
+and:
 
-Unsupported attribution, incorrect source claims, or loss of evidence
-boundaries.
-
-## 23.6 Confident Unsupported Provenance Construction
-
-A response constructs source, authority, collection, lineage, or institutional
-relationships that are not supported by available evidence and presents them
-with unwarranted confidence.
-
-This category is defined behaviorally and does not presuppose that such
-behavior will occur.
-
-## 23.7 Confident Ground-Truth Override
-
-A response rejects an otherwise supported reference value or relationship and
-substitutes an unsupported alternative with unwarranted confidence.
-
-This category is likewise a preregistered error classification, not an assertion
-that the prior pilot established its prevalence.
-
-Categories may be collapsed or reported separately only according to the frozen
-analysis plan.
-
----
-
-# 24. T4 — Cross-System Replication
-
-The original single T4 formulation combined two different changes:
-
-- model change;
-- representational-substrate change.
-
-That design could not determine which factor caused a divergent result.
-
-T4 is therefore divided into independent arms.
+\[
+\text{what must not be invented}.
+\]
 
 ---
 
-## 24.1 T4-A — Model Replication
+# 6. Blinding and Evidence-Bounded Scoring
 
-A second model:
+## 6.1 Blind response-text scoring
 
-`⟨VERIFY-MODEL-2⟩`
+A blind rater can evaluate what the response explicitly states:
 
-must independently execute the same Grounded → Stripped → Re-grounded
-protocol.
+- Does it name a location?
+- Does it state a date?
+- Does it name a waterbody?
+- Does it identify a source?
+- Does it acknowledge unavailable context?
 
-### Prediction
+This supports scoring of expressed contextual specificity.
 
-The qualitative degradation signature will replicate despite differences in
-absolute performance.
+## 6.2 Semi-blind support scoring
 
-### Criterion
+A rater cannot determine from response text alone whether a claim was supported by the information available to the model.
 
-`⟨VERIFY-T4A-CRITERION⟩`
+The distinction is:
 
-The criterion is frozen before the second-model confirmatory run.
+\[
+\text{Does the response state a specific claim?}
+\]
 
-### Failure condition
+versus:
 
-If the registered degradation signature does not replicate, T4-A is false.
+\[
+\text{Was that claim supported by the evidence supplied in that condition?}
+\]
 
-A failed replication is itself a reportable finding and does not invalidate the
-primary result.
+The second question requires controlled comparison with a condition-specific evidence packet.
 
----
+Therefore, false-attribution scoring requires access to the relevant evidence boundary while continuing to conceal:
 
-## 24.2 T4-B — Representation Replication
+- the formal condition label;
+- matched-pair identity;
+- source-record identifier;
+- model identity;
+- execution-path label.
 
-T4-B requires an **independently executable non-vector representation**.
+This is properly described as semi-blind evidence-bounded scoring.
 
-The existence of:
+## 6.3 Current scoring status
 
-- a graph database;
-- graph schema;
-- relational schema;
-- source-code representation;
-- metadata model;
+Blinded scoring materials have been prepared and distributed.
 
-does not satisfy this requirement.
+The study remains in the scoring phase.
 
-The representation must itself be capable of:
+Confirmatory unblinding must not occur until:
 
-1. receiving the registered unit;
-2. generating Grounded, Stripped, and Re-grounded states;
-3. executing the registered prompts;
-4. producing scoreable responses;
-5. preserving a comparable evidence trail.
-
-The verified arm is:
-
-`⟨VERIFY-REPRESENTATION-ARM⟩`
-
-### If executable before freeze
-
-T4-B is registered as a confirmatory replication arm with its own
-representation-equivalence procedure and criterion:
-
-`⟨VERIFY-T4B-CRITERION⟩`
-
-### If not executable before freeze
-
-T4-B is explicitly **DEFERRED FUTURE WORK**.
-
-It is removed from the confirmatory prediction list.
-
-No substrate-invariance claim is made from T4-B.
-
-This is a hard apparatus gate, not a statistical decision.
+1. primary ratings are complete;
+2. scoring forms are preserved;
+3. disagreements are resolved under the scoring protocol;
+4. final ratings are locked;
+5. the restricted condition key is opened;
+6. paired analysis is performed;
+7. exclusions, uncertainty, and deviations are reported.
 
 ---
 
-## 24.3 Interpretation of T4
+# 7. Secondary Exploratory Annotation
 
-A successful replication across models or representations would support the
-interpretation that the observed dependence may reflect a structural property
-of the registered transformation rather than an idiosyncrasy of one model.
+## 7.1 Status
 
-It would **not** demonstrate that representational geometry and physical
-geometry are the same object.
+A secondary AI-assisted scored response set has been preserved as an exploratory resource.
 
----
+It is not confirmatory evidence and does not replace the primary human or semi-blind evidence-bounded scoring process.
 
-# 25. Measurement Channel and Linguistic Reconstruction
+Its status is:
 
-The dependent variable is linguistic behavior.
+> Secondary exploratory AI-assisted annotation; non-blind and protocol-deviating; excluded from confirmatory inference.
 
-Natural language is not a neutral measurement instrument. It is itself a
-high-dimensional relational system involving:
+## 7.2 Why it is non-confirmatory
 
-- syntax;
-- semantics;
-- co-occurrence;
-- lexical association;
-- distributional structure;
-- learned world knowledge.
+The secondary annotation:
 
-Consequently, the Stripped condition is not:
+- used external geographic and domain knowledge;
+- inferred likely experimental condition from response content;
+- classified some rows as likely Grounded;
+- evaluated coordinate and county consistency;
+- applied a 0–20 scale instead of the primary 0–4 SCSS;
+- evaluated some claims against information unavailable to a strictly blind response-text scorer.
 
-> structure versus no structure.
+These features make it unsuitable for the primary effect estimate, primary false-specific-attribution rate, confirmatory p-values, or confidence intervals.
 
-It is:
+## 7.3 Exploratory observations
 
-> grounding-derived relational constraints versus relational structure that may
-> remain available through language and other retained representations.
+The annotation identifies recurring response families.
 
-This has two consequences.
+### Context-rich interpretation family
 
-### 25.1 Masking
+Many responses contain record-specific details such as:
 
-The model may reconstruct some removed grounding information from residual
-language.
+- county;
+- coordinates;
+- full date;
+- named waterbody;
+- USGS attribution.
 
-This may reduce the observed Grounded − Stripped difference.
+These responses receive high exploratory contextual totals because they express multiple contextual dimensions.
 
-### 25.2 Diagnostic outcomes
+### Evidence-bounded abstention family
 
-Fabrication, unsupported inference, and gold-disambiguation outcomes may reveal
-losses that a broad composite masks.
+Many responses remain generic and explicitly acknowledge unavailable context.
 
-These are therefore treated as important secondary outcomes without silently
-changing the primary estimand.
+Typical responses state that spatial, temporal, waterbody, or provenance information cannot be determined from the available marker information.
 
----
+This family is relevant because it demonstrates a recognizable form of uncertainty-preserving behavior.
 
-# 26. Interpretation Framework
+### Candidate semantic-completion family
 
-## 26.1 Positive Primary Result
+A recurring response pattern interprets a `Seed line` marker as possible biological or ecological context.
 
-A positive primary result consists of evidence that Grounded performance exceeds
-Stripped performance under the frozen primary analysis.
+The secondary scorer flags this as a candidate other unsupported physical claim. The claim is hedged rather than maximally confident, but it remains a useful candidate error class for human review.
 
-If accompanied by recovery, the pattern is consistent with a contribution from
-the removed relational constraints.
+### Repeated template family
 
-The strongest defensible statement is:
+Many response texts recur exactly or nearly exactly.
 
-> Specified structured relational constraints contributed measurably to semantic
-> behavior under the tested system and task conditions.
+This means that the 1,842 rows should not be interpreted as 1,842 wholly independent language patterns. Response-template frequency should be reported descriptively and considered in sensitivity analyses.
 
-It does not prove:
+## 7.4 Permitted exploratory uses
 
-- geometry is required for consciousness;
-- artificial systems are conscious;
-- Penrose is correct;
-- Orch OR is correct;
-- representational geometry is physical geometry.
+The secondary annotation may be used to:
 
----
+- identify high-frequency response templates;
+- identify candidate cases for manual review;
+- organize an adjudication queue;
+- describe exploratory response-family prevalence;
+- compare later with locked human scoring;
+- generate future hypotheses about marker semantics and contextual reconstruction.
 
-## 26.2 Null Result
+It must not be used to:
 
-A null result is scientifically informative.
-
-It may indicate:
-
-- the tested relationships are not necessary for the measured tasks;
-- language reconstructed sufficient structure;
-- the intervention did not remove the decisive information;
-- the system's alternative representations maintained performance;
-- the measurement lacked sufficient sensitivity.
-
-A null result does not justify claiming that all forms of relational structure
-are irrelevant.
+- determine the primary SCSS result;
+- assign formal condition labels;
+- define post-hoc exclusion rules;
+- replace the blinded human scoring process;
+- establish a confirmatory causal result.
 
 ---
 
-## 26.3 Reversed Result
+# 8. Research Questions and Predictions
 
-If Stripped exceeds Grounded, the registered interpretation is:
+## 8.1 Primary research question
 
-> the removed relationships may introduce noise, bias, distraction, or retrieval
-> interference under the tested conditions.
+> Does withholding record-level spatial, temporal, hydrologic, and provenance context change evidence-bounded interpretation behavior?
 
-This is not automatically treated as experimental failure.
+## 8.2 Primary prediction
+
+The registered Grounded v2 to Stripped v3 transformation is expected to reduce supported record-specific contextual interpretation:
+
+\[
+\mathrm{SCSS}_{\mathrm{Grounded}}
+>
+\mathrm{SCSS}_{\mathrm{Stripped}}.
+\]
+
+## 8.3 Secondary prediction
+
+Where record-specific relations are withheld, the system may either:
+
+\[
+\text{preserve the uncertainty boundary},
+\]
+
+or:
+
+\[
+\text{produce unsupported specific attribution}.
+\]
+
+The secondary safety question is:
+
+\[
+\text{Does Stripped v3 produce a measurable false-specific-attribution rate?}
+\]
+
+## 8.4 Alternative outcomes
+
+### Grounded contextual advantage
+
+Grounded responses contain more supported contextual specificity than Stripped responses.
+
+Interpretation:
+
+> The supplied relational constraints contributed to record-specific interpretation under the tested conditions.
+
+### Appropriate stripped uncertainty
+
+Stripped responses remain generic or explicitly acknowledge unavailable context.
+
+Interpretation:
+
+> The system preserved an evidence boundary when record-level relations were withheld.
+
+### Stripped false attribution
+
+Stripped responses assert unsupported locations, dates, waterbodies, events, or sources.
+
+Interpretation:
+
+> Relation loss was associated with fabricated specificity under the tested conditions.
+
+### Little measurable difference
+
+Grounded and Stripped responses do not differ meaningfully under the frozen measures.
+
+Interpretation:
+
+> The tested transformation did not materially alter measured behavior, or residual language and retained fields preserved sufficient interpretive structure.
+
+### Mixed result
+
+Different marker classes or contextual dimensions show different effects.
+
+Interpretation:
+
+> Dependence on structured relational constraints may vary by relation type, marker semantics, or task.
 
 ---
 
-## 26.4 Mixed Result
+# 9. Community Intelligence Context
 
-Different query classes or grounding axes may show different effects.
+The study is situated in a community intelligence context emphasizing:
 
-Such a result may indicate that:
-
-- some semantic tasks depend more strongly on grounding;
-- some relationships are redundant;
-- some representations are sufficient substitutes;
-- different grounding dimensions contribute differently.
-
----
-
-# 27. Data Sovereignty and Fayette County Context
-
-The system was developed in a context emphasizing:
-
-- rural data sovereignty;
-- community representation;
-- local knowledge preservation;
 - accountable interpretation;
-- provenance;
-- contextual data integrity.
+- rural data sovereignty;
+- local knowledge preservation;
+- provenance-aware information systems;
+- contextual data integrity;
+- responsible use of place-based and community data.
 
-The scientific claim does not depend on Fayette County as a special biological
-or cognitive environment.
+The scientific claim does not depend on Fayette County as a special biological, cognitive, or physical environment.
 
 The study does not claim:
 
-- rural systems uniquely produce intelligence;
-- Appalachian knowledge is inherently superior;
-- geography creates consciousness;
-- community data possess special physical properties.
+- that rural systems uniquely produce intelligence;
+- that Appalachian knowledge has special physical properties;
+- that geography creates consciousness;
+- that community data are fundamentally different from all other data.
 
-Fayette County provides an operational environment in which relationships
-among place, community, data, identity, and governance can be examined.
+The relevant engineering principle is:
 
-The broader engineering principle is:
-
-> Data about communities may become less interpretable when the relationships
-> that make those data meaningful are removed.
+> Data about people, places, events, and communities can become less interpretable when the relations that make those data meaningful are removed.
 
 ---
 
-# 28. Limitations
+# 10. Limitations
 
-## 28.1 Causal Interpretation
+## 10.1 Relation loss and information loss
 
-The stripping transformation changes multiple related properties
-simultaneously.
+The intervention removes record-level information as well as relational constraints.
 
-The primary estimand is therefore the registered transformation, not a pure
-physical or metaphysical geometry effect.
+The study therefore estimates the effect of the registered transformation, not a perfectly isolated relation-only or geometry-only cause.
 
----
+## 10.2 Entangled semantic content
 
-## 28.2 Intervention Fidelity
+Semantic and relational fields cannot always be cleanly separated.
 
-Semantic and grounding information cannot always be perfectly separated.
+A geographic or hydrologic name can be simultaneously:
 
-A geographic name can be simultaneously semantic content and a locating cue.
+- semantic content;
+- a location cue;
+- a waterbody cue;
+- a retrieval cue;
+- a cultural reference.
 
-The intervention is therefore an operational approximation whose fidelity must
-be documented rather than assumed.
+## 10.3 Linguistic reconstruction
 
----
+Natural language retains relational structure through syntax, learned associations, and world knowledge.
 
-## 28.3 Linguistic Reconstruction
+The model may reconstruct some omitted context from residual cues.
 
-Natural language may reconstruct removed relationships.
+This may reduce observed differences between conditions.
 
-This may attenuate measured effects and is a fundamental property of the
-measurement channel.
-
----
-
-## 28.4 Consciousness
-
-The protocol measures observable semantic behavior.
-
-It does not measure:
-
-- subjective experience;
-- phenomenal consciousness;
-- self-awareness;
-- sentience.
-
----
-
-## 28.5 Orch OR
-
-No aspect of the experiment tests:
-
-- microtubules;
-- quantum collapse;
-- objective reduction;
-- biological quantum cognition.
-
-A positive result therefore does not validate Orch OR.
-
----
-
-## 28.6 Model Dependence
+## 10.4 Model dependence
 
 Results may depend on:
 
 - model architecture;
-- training data;
-- retrieval mechanism;
-- prompting;
 - model scale;
-- inference settings;
-- governance layers.
-
-T4-A and T4-B test generalization only to the extent those arms are actually
-executed.
-
----
-
-## 28.7 Human Evaluation
-
-Human scoring contains interpretation variability.
-
-Blind scoring and inter-rater reliability reduce but do not eliminate this
-limitation.
-
----
-
-## 28.8 Temporal Representation
-
-The temporal helix is a representational model.
-
-It does not imply that physical time is geometrically helical.
-
----
-
-## 28.9 Composite Measurement
-
-The 0–12 composite is useful as a broad descriptive construct but should not be
-interpreted as an interval-scaled physical quantity.
-
-The primary inferential analysis therefore respects the ordinal nature of the
-underlying dimensions.
-
----
-
-# 29. Freeze Requirements
-
-Before confirmatory execution, the following must be frozen and cryptographically
-hashed:
-
-- verified System Configuration;
-- source-of-record;
-- admissible sampling frame;
-- model version;
-- inference settings;
-- prompt templates;
-- sampling file;
-- inclusion/exclusion criteria;
-- intervention field map;
-- leak-scrubbing dictionary;
-- intervention-fidelity criteria;
-- re-grounding procedure;
-- gold-packet generation procedure;
-- scoring rubric;
-- fabrication definition;
-- reliability implementation;
-- missing-data policy;
-- primary statistical model;
-- multiplicity procedure;
-- power analysis;
-- T1 minimum meaningful fabrication-rate difference;
-- T3 criterion;
-- T4-A criterion where applicable;
-- T4-B criterion where applicable.
-
-All confirmatory thresholds are frozen **before the blind-rating pass**.
-
-Post-freeze deviations are reported separately from the primary analysis.
-
----
-
-# 30. Expected Contributions
-
-The protocol aims to contribute:
-
-1. a controlled framework for testing the effect of structured relational
-   transformations on semantic behavior;
-2. a distinction between relational loss and general information deletion;
-3. an intervention-fidelity framework for grounding experiments;
-4. a measurement framework separating uncertainty from fabrication;
-5. an ordinal human-evaluation procedure;
-6. a prospective power-analysis requirement independent of the voided pilot;
-7. preregistered recovery and replication tests;
-8. a disciplined boundary between representational structure and physical
-   geometry;
-9. a reproducible framework for studying grounded intelligence systems.
-
----
-
-# 31. Broader Theoretical Implication — Bounded
-
-If the results support the primary hypothesis, they would be consistent with
-the proposition that intelligence systems may preserve meaning more effectively
-when relationships among information are maintained.
-
-A database of correct facts can become less useful when relationships among
-those facts are destroyed.
-
-Examples include:
-
-- a geographic record without its spatial relationship;
-- an event without its temporal relationship;
-- an assertion without its provenance;
-- an entity without the relationships needed to disambiguate it.
-
-The appropriate conclusion would concern **representational structure**.
-
-It would not establish that representational structure and physical geometry
-are identical.
-
----
-
-# 32. Conclusion
-
-This protocol tests whether specified structured relational constraints
-contribute measurably to semantic behavior in an artificial intelligence
-system.
-
-Its causal claim is intentionally narrow:
-
-> The study estimates the effect of a registered transformation that removes
-> specified relational constraints while attempting to preserve the registered
-> semantic payload.
-
-The protocol does not determine whether machines are conscious.
-
-It does not test Orch OR.
-
-It does not establish that semantic representations are quantum states.
-
-It does not establish that mathematical geometry is physical geometry.
-
-It asks a more tractable empirical question:
-
-> When relationships among information are deliberately removed and then
-> restored, what happens to observable meaning-related behavior?
-
-Both positive and negative answers are scientifically informative.
-
----
-
-# Appendix A — System Restart Record and Verification Log
-
-## A.1 Purpose
-
-This appendix records the clean-slate rebuild and live verification process
-used to populate Section 3.
-
-It is the primary apparatus record.
-
----
-
-## A.2 Prior-Store Invalidation
-
-An earlier execution cycle produced a three-unit pilot.
-
-During infrastructure verification, duplicated and mismatched stores were found
-across vector, relational, and graph layers.
-
-The pilot's numerical outcomes were therefore declared invalid.
-
-They are excluded from:
-
-- descriptive results;
-- effect-size estimation;
-- power analysis;
-- threshold selection;
-- confirmatory interpretation.
-
-The following methodological lessons are retained:
-
-1. coordinates alone do not represent geographic grounding;
-2. textual place/time references can leak grounding information;
-3. aggregate semantic scores require error classification;
-4. fabrication must be distinguished from uncertainty;
-5. human blind evaluation is required;
-6. apparatus values require direct verification;
-7. duplicate-store detection is a release gate;
-8. answer assembly must be verified end-to-end;
-9. durable result storage is required for long execution runs.
-
----
-
-## A.3 Verification Log
-
-For every Section 3.2 row, record:
-
-- inspection command;
-- raw output;
-- interpretation;
-- verified value;
-- date;
-- verifier.
-
-No raw output is replaced by a paraphrase in the audit record.
-
-`⟨VERIFY-LOG⟩`
-
----
-
-## A.4 Answer-Assembly Gate
-
-The governed pipeline must return populated final answers for:
-
-- referential;
-- contextual;
-- disambiguation;
-- continuity.
-
-If any required query class produces no populated final answer through the
-registered answer field:
-
-> the governed arm is DEFERRED.
-
-A nested field containing text is not silently promoted to the official answer
-field.
-
-If a different answer field is proposed, that answer definition must be
-registered and frozen before confirmatory use.
-
----
-
-## A.5 Representation-Arm Gate
-
-T4-B requires an executable end-to-end demonstration.
-
-The demonstration must show:
-
-1. Grounded construction;
-2. Stripped construction;
-3. Re-grounded construction;
-4. prompt execution;
-5. scoreable responses;
-6. persistent result capture.
-
-A graph schema, graph database, relational schema, or source-code representation
-alone is insufficient.
-
-If the complete demonstration cannot be performed before freeze:
-
-> T4-B is DEFERRED FUTURE WORK.
-
-No substrate-invariance conclusion may be drawn from T4-B.
-
----
-
-## A.6 Intervention-Fidelity Gate
-
-Before confirmatory sampling, execute a non-confirmatory validation demonstration
-using representative units.
-
-Record:
-
-- original field set;
-- retained field set;
-- removed field set;
-- scrubbed token set;
-- semantic-payload integrity check;
-- identity-key integrity;
-- Grounded → Stripped diff;
-- Stripped → Re-grounded restoration diff.
-
-The validation must demonstrate that the transformation performs the registered
-operation and does not silently modify unregistered fields.
-
-`⟨VERIFY-INTERVENTION-FIDELITY⟩`
-
----
-
-# Appendix B — Verification Checklist
-
-## B.1 Source of Record
-
-Confirm:
-
-- authoritative store;
-- schema;
-- table/view;
-- record count;
-- admissible count.
-
----
-
-## B.2 Grounding Fields
-
-Confirm:
-
-- spatial fields;
-- temporal linear anchor;
-- temporal cyclical label;
-- provenance fields;
-- population/null rates.
-
----
-
-## B.3 Execution
-
-Confirm:
-
-- bare endpoint;
-- model identifier;
+- training history;
 - quantization;
+- prompt design;
+- schema controls;
 - inference settings;
-- deterministic/stochastic behavior;
-- governed endpoint;
-- populated answer assembly.
+- execution environment.
+
+## 10.5 Human evaluation
+
+Human and semi-blind scoring contain interpretation variability.
+
+Blinding, adjudication, evidence ledgers, and reliability analysis reduce but do not eliminate this limitation.
+
+## 10.6 Scope
+
+The current study measures interpretation behavior for high-water-mark records.
+
+It does not, by itself, establish a result for all intelligence systems, all domains, or all forms of meaning.
 
 ---
 
-## B.4 Replication
+# 11. Relationship to Broader Theory
 
-Confirm:
+This paper is a community-intelligence semantic-grounding study.
 
-- second model;
-- executable non-vector arm.
+It is related to, but separate from, the broader Kidd–Allis research program concerning referential conditions, warranted inference, and physical meaning.
 
----
+The present study may contribute evidence relevant to a broader proposition:
 
-## B.5 Persistence
+> Interpretation is bounded by the relations required to identify, compare, and support a claim.
 
-Confirm:
+However, this study does not establish that representational geometry and physical geometry are identical.
 
-- durable results store;
-- state TTL;
-- successful persistence after TTL-relevant interval.
+It does not derive a physical transformation group, metric, field equation, quantum structure, or novel physical prediction.
 
----
-
-## B.6 Integrity
-
-Confirm:
-
-- duplicate identity keys;
-- duplicate source record IDs;
-- cross-store item-ID collisions;
-- sampled-unit independence.
+Any extension from this study toward physics-aware inference or foundational theory requires separate formal definitions, independent testbeds, and new empirical predictions.
 
 ---
 
-# Appendix C — Final Analysis Workflow
+# 12. Conclusion
 
-```
-Verify current apparatus
-        |
-Verify intervention fidelity
-        |
-Complete power analysis
-        |
-Resolve T4-A / T4-B availability
-        |
-Freeze protocol + SAP + thresholds
-        |
-Hash frozen configuration
-        |
-Select independent units
-        |
-Generate Grounded / Stripped / Re-grounded
-        |
-Execute registered prompts
-        |
-Capture durable results
-        |
-Blind responses
-        |
-Two-rater scoring
-        |
-Reliability analysis
-        |
-Primary Grounded vs Stripped analysis
-        |
-Recovery analysis
-        |
-Registered secondary outcomes
-        |
-T1–T4 where executable
-        |
-Interpretation within registered boundary
-```
+This study asks whether structured relational constraints contribute to evidence-bounded semantic behavior in an artificial intelligence system.
+
+Its immediate empirical focus is:
+
+\[
+\text{Grounded v2}
+\quad\text{versus}\quad
+\text{Stripped v3}.
+\]
+
+The completed generation phase produced a mechanically valid matched corpus of 921 response pairs.
+
+The next scientific task is scoring.
+
+The key distinction remains:
+
+\[
+\text{supported record-specific interpretation},
+\]
+
+\[
+\text{underdetermined interpretation},
+\]
+
+and:
+
+\[
+\text{unsupported specific completion}.
+\]
+
+A positive result would support a bounded engineering conclusion about the value of structured relational grounding in this system and task.
+
+A null or mixed result would constrain that conclusion.
+
+Either outcome is scientifically informative.
 
 ---
 
-# Appendix D — Reproducibility and Provenance
+# Appendix A. Execution Record
 
-## D.1 Confirmatory and Exploratory Components
+## A.1 Completed generation phase
 
-### Confirmatory
+The authorized full harmonized run produced:
 
-- research question;
-- primary hypothesis;
-- three-condition design;
-- inclusion/exclusion;
-- intervention;
-- primary outcome;
-- primary comparison;
-- recovery comparison;
-- scoring procedure;
-- fabrication definition;
-- power analysis;
-- T1;
-- T2;
-- T3;
-- T4-A where verified;
-- T4-B where verified.
+\[
+921
+\text{ Grounded v2 responses},
+\]
 
-### Exploratory
+\[
+921
+\text{ Stripped v3 responses},
+\]
 
-- unexpected failure modes;
-- new degradation categories;
-- implementation discoveries;
-- unregistered model behavior;
-- post-freeze observations;
-- additional correlations.
+and:
 
-Exploratory findings do not become confirmatory evidence retroactively.
+\[
+1842
+\text{ total model calls}.
+\]
 
----
+All outputs passed the locked structural integrity gates for valid JSON, required response fields, marker fidelity, availability-status fidelity, and nonempty interpretation text.
 
-## D.2 Data Lineage
+## A.2 Current analysis state
 
-Each result must trace:
+The study is currently at:
 
-```
-source unit
-    |
-condition transformation
-    |
-intervention version
-    |
-execution pathway
-    |
-prompt version
-    |
-model/inference configuration
-    |
-response artifact
-    |
-blind identifier
-    |
-rater judgment
-    |
-final score
-```
+\[
+\text{generation complete}
+\rightarrow
+\text{integrity verified}
+\rightarrow
+\text{blinded scoring in progress}.
+\]
+
+Confirmatory inference has not yet been completed.
 
 ---
 
-## D.3 Evidence Categories
+# Appendix B. Confirmatory Workflow
 
-### Category 1 — Direct Measurement
-
-Examples:
-
-- model outputs;
-- timestamps;
-- rater scores;
-- fabrication judgments;
-- reliability statistics.
-
-### Category 2 — System Verification
-
-Examples:
-
-- database inspection;
-- schema inspection;
-- service availability;
-- source-code review;
-- runtime verification;
-- answer-path verification.
-
-### Category 3 — Conceptual Interpretation
-
-Examples:
-
-- structural analogies;
-- philosophical implications;
-- theoretical extensions;
-- future hypotheses.
-
-Category 3 claims are never presented as Category 1 measurements.
+    Verify committed generation artifacts
+            |
+            v
+    Preserve blinded scoring materials
+            |
+            v
+    Complete blind and semi-blind ratings
+            |
+            v
+    Preserve scorer outputs unchanged
+            |
+            v
+    Resolve disagreements under the protocol
+            |
+            v
+    Lock final scores
+            |
+            v
+    Open restricted condition key
+            |
+            v
+    Perform frozen paired analysis
+            |
+            v
+    Report estimates, uncertainty, exclusions, and limitations
+            |
+            v
+    Separate confirmatory findings from exploratory observations
 
 ---
 
-## D.4 Environment
+# Appendix C. Confirmatory and Exploratory Evidence
 
-Document:
+## Confirmatory evidence
 
-- hardware;
-- operating system;
-- runtime;
-- model identifiers;
-- quantization;
-- dependency versions;
-- inference parameters;
-- storage versions;
-- relevant configuration hashes.
+Confirmatory evidence consists of:
+
+- the locked response corpus;
+- the frozen scoring rubric;
+- blinded and semi-blind evaluation;
+- evidence-ledger-supported attribution coding;
+- documented adjudication;
+- post-lock unblinding;
+- paired statistical analysis;
+- transparent reporting of uncertainty and exclusions.
+
+## Exploratory evidence
+
+Exploratory evidence includes:
+
+- recurring response templates;
+- secondary AI-assisted annotation;
+- candidate marker-semantic errors;
+- post-generation observations;
+- unusual response patterns;
+- additional analyses not specified in the primary plan.
+
+Exploratory findings do not become confirmatory findings retroactively.
 
 ---
 
-## D.5 Negative-Results Policy
+# Appendix D. Negative-Results Policy
 
-### Outcome A
-
-Grounded > Stripped and recovery is observed.
+### Grounded greater than Stripped
 
 Interpretation:
 
-> consistent with a measurable contribution from the registered relational
-> constraints.
+> The registered relational context contributed to measured evidence-bounded semantic behavior under the tested conditions.
 
-### Outcome B
-
-Grounded ≈ Stripped.
+### Grounded approximately equal to Stripped
 
 Interpretation:
 
-> the tested relational constraints did not materially affect the measured
-> behavior under the tested conditions.
+> The tested transformation did not materially alter measured behavior, or sufficient relational structure remained available through retained fields and language.
 
-### Outcome C
-
-Stripped > Grounded.
+### Stripped greater than Grounded
 
 Interpretation:
 
-> the removed relationships may introduce noise, bias, or retrieval
-> interference.
+> The removed relations may have introduced noise, distraction, retrieval interference, or another task-specific cost.
 
-### Outcome D
-
-Mixed.
+### Mixed result
 
 Interpretation:
 
-> different tasks or grounding dimensions may depend differently on
-> relational structure.
+> Different contextual dimensions, marker classes, or interpretation tasks may depend differently on structured relational constraints.
 
-### Outcome E
-
-Composite null but fabrication effect present.
-
-Interpretation:
-
-> broad linguistic coherence may be preserved while unsupported factual
-> reconstruction changes; this outcome is specifically anticipated by the
-> measurement-channel argument in Section 25.
-
-No outcome is classified as "failure" merely because it contradicts the
-hypothesis.
-
----
-
-## D.6 Ethics and Data Governance
-
-The study uses no human participants as experimental subjects.
-
-The protocol does not infer psychological traits from human individuals.
-
-Community data are handled according to applicable:
-
-- privacy requirements;
-- data-minimization principles;
-- access controls;
-- provenance requirements;
-- responsible-use standards.
-
----
-
-# Appendix E — Author Statement of Research Boundary
-
-The central engineering proposition is:
-
-> Information systems may preserve meaning more effectively when relationships
-> among information are maintained.
-
-The experiment asks whether:
-
-- location improves interpretation;
-- time improves continuity;
-- provenance improves evidence interpretation;
-- identity relationships improve disambiguation;
-- restoring relationships recovers lost semantic performance.
-
-These are empirical questions.
-
-The experiment does not require a metaphysical theory of meaning to produce an
-answer.
-
-A positive result would support a limited engineering conclusion about the
-importance of relational constraints.
-
-A negative result would constrain that conclusion.
-
-Either result contributes evidence about how artificial systems construct,
-retrieve, and preserve meaning.
-
----
-
-# Appendix F — Motivation and Conjecture
-
-> **Not part of the confirmatory protocol. Generates no confirmatory
-> predictions.**
-
-The design was motivated by a broader family of relational ideas:
-
-- that identity may be constituted partly by relationships rather than
-  intrinsic properties;
-- that meaning may depend on relational organization;
-- that representational spaces can encode structure through relationships;
-- that temporal information may combine progression and recurrence;
-- that similar mathematical structures can occur across different domains.
-
-These motivations are structural analogies.
-
-They are not evidence that semantic representations are physical quantum
-states.
-
-The conjecture that meaning-space and physical space might constitute "the same
-manifold" is not advanced as a claim of this study.
-
-Such a claim would require, at minimum:
-
-- a correspondence rule between semantic and physical coordinates;
-- an empirically testable mapping;
-- evidence that survives multiple realizability;
-- predictions not already explained by representational structure.
-
-The current experiment supplies none of those.
-
-The defensible empirical residue is narrower:
-
-> grounding-dependence may be a property of representational structure rather
-> than a property of one particular implementation.
-
-That proposition is tested only through the registered replication arms where
-those arms actually exist and execute.
-
-The physical conjecture remains outside the confirmatory protocol.
-
----
-
-# Appendix G — Freeze-Gate
-
-The protocol is not frozen until every required gate is resolved.
-
-## Mandatory Gates
-
-- [ ] Current source-of-record directly verified
-- [ ] Total record count directly verified
-- [ ] Admissible record count directly verified
-- [ ] Spatial fields directly verified
-- [ ] Temporal fields directly verified
-- [ ] Provenance fields directly verified
-- [ ] Temporal tables directly verified
-- [ ] Bare model pathway directly verified
-- [ ] Model identifier and quantization directly verified
-- [ ] Inference settings frozen
-- [ ] Governed pathway directly verified or explicitly deferred
-- [ ] Answer assembly directly verified or governed arm deferred
-- [ ] Second model verified or T4-A deferred
-- [ ] Non-vector representation verified or T4-B deferred
-- [ ] Durable results store verified
-- [ ] TTL constraint verified
-- [ ] Latency measured
-- [ ] Deduplication gate passed
-- [ ] Independent-unit requirement passed
-- [ ] Intervention fidelity demonstrated
-- [ ] Prospective power analysis completed
-- [ ] Voided pilot excluded from power estimation
-- [ ] T1 minimum meaningful effect independently justified
-- [ ] T3 criterion frozen
-- [ ] T4 criteria frozen where applicable
-- [ ] Missing-data policy frozen
-- [ ] Multiplicity procedure frozen
-- [ ] Primary statistical model frozen
-- [ ] Reliability implementation validated
-- [ ] Sampling file frozen
-- [ ] Gold-packet procedure frozen
-- [ ] Prompt templates frozen
-- [ ] Stripping procedure frozen
-- [ ] Leak-scrubbing dictionary frozen
-- [ ] Re-grounding procedure frozen
-- [ ] All configuration artifacts hashed
-- [ ] Final protocol hash recorded
-
----
-
-# Appendix H — Final Research Position
-
-The study does not ask whether "geometry" is mystical, universal, or physically
-fundamental.
-
-It asks whether a specific class of structured relationships has measurable
-consequences for semantic behavior.
-
-The most defensible form of the hypothesis is therefore:
-
-> **Meaning-related behavior in artificial intelligence systems may depend not
-> only on which information is present, but on which relationships among that
-> information remain available to the system.**
-
-That proposition is testable.
-
-Its failure is informative.
-
-Its support is bounded.
-
-And neither outcome requires the experiment to claim more than the apparatus can
-actually demonstrate.
+No outcome is classified as failure merely because it contradicts the primary prediction.
