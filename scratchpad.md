@@ -1,1552 +1,6511 @@
-PUBLIC_AUTH_ROUTING_DISCOVERY_VALID
-config_file=/etc/caddy/Caddyfile
-match_count=131
-match_file=/etc/caddy/Caddyfile match_line=2 match_text=	@egeria host egeria.mountainshares.us
-match_file=/etc/caddy/Caddyfile match_line=7 match_text=		hostnames egeria.mountainshares.us
-match_file=/etc/caddy/Caddyfile match_line=8 match_text=		output file /var/log/caddy/caddy_egeria.log
-match_file=/etc/caddy/Caddyfile match_line=12 match_text=		hostnames dashboard.mountainshares.us
-match_file=/etc/caddy/Caddyfile match_line=17 match_text=		hostnames msallis.mountainshares.us
-match_file=/etc/caddy/Caddyfile match_line=22 match_text=	handle @egeria {
-match_file=/etc/caddy/Caddyfile match_line=23 match_text=		handle /auth/login* {
-match_file=/etc/caddy/Caddyfile match_line=24 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=25 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=26 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=29 match_text=		handle /auth/me* {
-match_file=/etc/caddy/Caddyfile match_line=30 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=31 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=32 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=35 match_text=		handle /auth/logout* {
-match_file=/etc/caddy/Caddyfile match_line=36 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=37 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=38 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=41 match_text=		handle /auth/register* {
-match_file=/etc/caddy/Caddyfile match_line=42 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=43 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=44 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=47 match_text=		handle /auth* {
-match_file=/etc/caddy/Caddyfile match_line=48 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=49 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=50 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=53 match_text=		handle /api/me* {
-match_file=/etc/caddy/Caddyfile match_line=55 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=56 match_text=			header_up Cookie {http.request.header.Cookie}
-match_file=/etc/caddy/Caddyfile match_line=57 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=60 match_text=		handle /api/apply* {
-match_file=/etc/caddy/Caddyfile match_line=62 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=63 match_text=			header_up Cookie {http.request.header.Cookie}
-match_file=/etc/caddy/Caddyfile match_line=66 match_text=		handle /chat_wv* {
-match_file=/etc/caddy/Caddyfile match_line=67 match_text=      reverse_proxy 127.0.0.1:8010 {
-match_file=/etc/caddy/Caddyfile match_line=68 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=69 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=72 match_text=			response_header_timeout 300s
-match_file=/etc/caddy/Caddyfile match_line=77 match_text=		handle {
-match_file=/etc/caddy/Caddyfile match_line=78 match_text=			reverse_proxy 127.0.0.1:3002 {
-match_file=/etc/caddy/Caddyfile match_line=79 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=84 match_text=	handle @dashboard {
-match_file=/etc/caddy/Caddyfile match_line=85 match_text=		reverse_proxy 127.0.0.1:3002 {
-match_file=/etc/caddy/Caddyfile match_line=86 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=90 match_text=	handle @msallis {
-match_file=/etc/caddy/Caddyfile match_line=92 match_text=			not: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=94 match_text=		handle /auth/portal/me* {
-match_file=/etc/caddy/Caddyfile match_line=95 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=96 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=97 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=98 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=101 match_text=		route /portal* {
-match_file=/etc/caddy/Caddyfile match_line=102 match_text=			handle: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=103 match_text=			respond `{"detail":"Not authenticated"}` 401
-match_file=/etc/caddy/Caddyfile match_line=105 match_text=			reverse_proxy 127.0.0.1:3002 {
-match_file=/etc/caddy/Caddyfile match_line=106 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=109 match_text=		route /admin* {
-match_file=/etc/caddy/Caddyfile match_line=110 match_text=			handle: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=111 match_text=			respond `{"detail":"Not authenticated"}` 401
-match_file=/etc/caddy/Caddyfile match_line=113 match_text=			reverse_proxy 127.0.0.1:3002 {
-match_file=/etc/caddy/Caddyfile match_line=114 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=117 match_text=		handle /api/ui-config {
-match_file=/etc/caddy/Caddyfile match_line=119 match_text=			reverse_proxy 127.0.0.1:8001 {
-match_file=/etc/caddy/Caddyfile match_line=120 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=123 match_text=		handle /api/me* {
-match_file=/etc/caddy/Caddyfile match_line=125 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=126 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=127 match_text=			header_up Cookie {http.request.header.Cookie}
-match_file=/etc/caddy/Caddyfile match_line=130 match_text=		handle /api/chat/async {
-match_file=/etc/caddy/Caddyfile match_line=131 match_text=			handle: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=132 match_text=			respond `{"detail":"Not authenticated"}` 401
-match_file=/etc/caddy/Caddyfile match_line=134 match_text=			reverse_proxy 127.0.0.1:3002 {
-match_file=/etc/caddy/Caddyfile match_line=135 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=138 match_text=		handle /chat_wv* {
-match_file=/etc/caddy/Caddyfile match_line=139 match_text=			handle: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=140 match_text=			respond `{"detail":"Not authenticated"}` 401
-match_file=/etc/caddy/Caddyfile match_line=142 match_text=			reverse_proxy 127.0.0.1:8010 {
-match_file=/etc/caddy/Caddyfile match_line=143 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=144 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=147 match_text=			response_header_timeout 300s
-match_file=/etc/caddy/Caddyfile match_line=152 match_text=		handle /health {
-match_file=/etc/caddy/Caddyfile match_line=153 match_text=			reverse_proxy 127.0.0.1:8095
-match_file=/etc/caddy/Caddyfile match_line=155 match_text=		handle /auth/apply* {
-match_file=/etc/caddy/Caddyfile match_line=156 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=157 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=158 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=161 match_text=		handle /auth/approve* {
-match_file=/etc/caddy/Caddyfile match_line=162 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=163 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=164 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=167 match_text=		handle /auth/deny* {
-match_file=/etc/caddy/Caddyfile match_line=168 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=169 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=170 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=173 match_text=		handle /auth/first-login* {
-match_file=/etc/caddy/Caddyfile match_line=174 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=175 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=176 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=179 match_text=		handle /auth/login* {
-match_file=/etc/caddy/Caddyfile match_line=180 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=181 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=182 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=185 match_text=		handle /auth/logout* {
-match_file=/etc/caddy/Caddyfile match_line=186 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=187 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=188 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=191 match_text=		handle /auth/me* {
-match_file=/etc/caddy/Caddyfile match_line=192 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=193 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=194 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=197 match_text=		handle /auth/portal* {
-match_file=/etc/caddy/Caddyfile match_line=198 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=199 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=200 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=203 match_text=		handle /auth/register* {
-match_file=/etc/caddy/Caddyfile match_line=204 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=205 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=206 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=209 match_text=		handle /auth/applications* {
-match_file=/etc/caddy/Caddyfile match_line=210 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=211 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=212 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=215 match_text=		handle /auth/chat* {
-match_file=/etc/caddy/Caddyfile match_line=216 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=217 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=218 match_text=			header_up X-API-Key {http.request.header.X-API-Key}
-match_file=/etc/caddy/Caddyfile match_line=221 match_text=		handle /auth* {
-match_file=/etc/caddy/Caddyfile match_line=222 match_text=			reverse_proxy 127.0.0.1:8095 {
-match_file=/etc/caddy/Caddyfile match_line=223 match_text=			header_up: [REDACTED]
-match_file=/etc/caddy/Caddyfile match_line=226 match_text=		handle {
-match_file=/etc/caddy/Caddyfile match_line=227 match_text=			reverse_proxy 127.0.0.1:3002
-config_file=/etc/cloudflared/config.yml
-match_count=8
-match_file=/etc/cloudflared/config.yml match_line=5 match_text=ingress:
-match_file=/etc/cloudflared/config.yml match_line=6 match_text=  - hostname: egeria.mountainshares.us
-match_file=/etc/cloudflared/config.yml match_line=7 match_text=    service: http://localhost:80
-match_file=/etc/cloudflared/config.yml match_line=8 match_text=  - hostname: dashboard.mountainshares.us
-match_file=/etc/cloudflared/config.yml match_line=9 match_text=    service: http://localhost:80
-match_file=/etc/cloudflared/config.yml match_line=10 match_text=  - hostname: msallis.mountainshares.us
-match_file=/etc/cloudflared/config.yml match_line=11 match_text=    service: http://localhost:80
-match_file=/etc/cloudflared/config.yml match_line=12 match_text=  - service: http_status:404
-config_file=/etc/nginx/conf.d/msjarvis-rate-limit.conf
-match_count=8
-match_file=/etc/nginx/conf.d/msjarvis-rate-limit.conf match_line=1 match_text=limit_req_zone $binary_remote_addr zone=msjarvis_api_per_ip:10m rate=20r/s;
-match_file=/etc/nginx/conf.d/msjarvis-rate-limit.conf match_line=8 match_text=        limit_req zone=msjarvis_api_per_ip burst=40 nodelay;
-match_file=/etc/nginx/conf.d/msjarvis-rate-limit.conf match_line=10 match_text=        proxy_set_header Host $host;
-match_file=/etc/nginx/conf.d/msjarvis-rate-limit.conf match_line=11 match_text=        proxy_set_header X-Real-IP $remote_addr;
-match_file=/etc/nginx/conf.d/msjarvis-rate-limit.conf match_line=12 match_text=        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-match_file=/etc/nginx/conf.d/msjarvis-rate-limit.conf match_line=17 match_text=        proxy_set_header Host $host;
-match_file=/etc/nginx/conf.d/msjarvis-rate-limit.conf match_line=18 match_text=        proxy_set_header X-Real-IP $remote_addr;
-match_file=/etc/nginx/conf.d/msjarvis-rate-limit.conf match_line=19 match_text=        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-config_file=/etc/nginx/fastcgi.conf
-match_count=0
-config_file=/etc/nginx/nginx.conf
-match_count=1
-match_file=/etc/nginx/nginx.conf match_line=66 match_text=#	# http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
-config_file=/etc/nginx/snippets/fastcgi-php.conf
-match_count=0
-config_file=/etc/nginx/snippets/snakeoil.conf
-match_count=0
-report_sha256=sha256:8d903f74954db924f06c9549c035e744521764536a4fce56404cc4d4171bdab1
-report_path=/home/cakidd/msjarvis-pilot-build-evidence-20260810/public-auth-routing-discovery-20260811.json
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-guardian-deploy-candidate-e8827b2$ python3 - <<'PY'
-import json
-import re
-import subprocess
-from pathlib import Path
+=== BRANCH ===
+recovery/unified-ui-job-adapter-isolated-20260811
 
-print("=== PORT_8095_LISTENER ===")
-result = subprocess.run(
-    ["ss", "-ltnp", "sport", "=", ":8095"],
-    text=True,
-    capture_output=True,
-)
-print(result.stdout.strip() or "NO_LISTENER_ON_8095")
+=== RECENT_COMMITS ===
+241b708 security: stop logging auth tokens and claims
+9cdeba5 docs: define multi-user auth isolation requirements
+2e08624 docs: define isolated unified UI job adapter contract
+a9b8e64 Guardian: issue signed PDRs on allowed decisions
+f6489c8 Guardian: define fail-closed PDR runtime topology
+e8f7a90 Guardian: add consume-on-issuance PDR orchestrator
 
-print()
-print("=== DOCKER_PORT_8095 ===")
-result = subprocess.run(
-    [
-        "docker", "ps", "--no-trunc",
-        "--format",
-        "container_id={{.ID}} name={{.Names}} image={{.Image}} "
-        "status={{.Status}} ports={{.Ports}} command={{.Command}}",
-    ],
-PY      breakria and brace_depth <= 0 and number > 22:if matcher_text else "")
-=== PORT_8095_LISTENER ===
-State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
-LISTEN 0      2048       127.0.0.1:8095      0.0.0.0:*    users:(("gunicorn",pid=676829,fd=3),("gunicorn",pid=676822,fd=3),("gunicorn",pid=676804,fd=3))
+=== TOPOLOGY_FILES ===
+Dockerfile
+api_resources.py
+application_service.py
+ask_gis.py
+ask_gis_near_oakhill.py
+attrs_api.py
+attrs_with_geom_api.py
+auth_api.py
+auth_router.py
+autonomouslearner.py
+bootstrap_gbim_beliefs_eq1.py
+bulk_ingest_attrs.py
+call_rag_with_entanglement_example.py
+chat_light_current.py
+chroma_copy_v2.py
+config/gbim_sources.yaml
+constitutional_api.py
+copy_pending_collections.py
+demo_msjarvis_ranked.py
+demo_msjarvis_resources.py
+deploy/qualia-orchestrator/docker-compose.real-orchestrator.yml
+diagnostics/gateway_head_1_220.py
+diagnostics/gateway_mid_220_420.py
+diagnostics/gateway_tail_420_700.py
+diagnostics/unified_gateway_extended_policy_sections_20260801T022011Z.py
+diagnostics/unified_gateway_live_20260801T020501Z.py
+diagnostics/wv_block_hardened_2026-07-31.py
+docker-compose.STABLE.20260719045021.yml
+docker-compose.commons-gateway-closeout.yml
+docker-compose.crypto-policy-closeout.yml
+docker-compose.fractal-closeout.yml
+docker-compose.override.ch14-sandbox-bridge.yml
+docker-compose.policy-set-closeout.yml
+docker-compose.policy-set.yml
+docker-compose.production-closeout.yml
+docker-compose.real-orchestrator.yml
+docker-compose.yml
+dynamic_port_service_no_flask.py
+email_service.py
+embed_blockgroups_chroma.py
+embed_blockgroups_minilm_chroma.py
+embed_blockgroups_statewide_minilm_chroma.py
+embed_blockgroups_statewide_v2_minilm_chroma.py
+embed_blockgroups_v6.py
+embed_blockgroups_v7.py
+embed_blockgroups_v8.py
+embed_blockgroups_v9.py
+enrich_from_attrs.py
+enrich_where.py
+export_chroma_8002.py
+export_chroma_raw_8002.py
+export_gbim_sample.py
+gateway8050_inline.py
+gbim_chroma.py
+gbim_orchestrator.py
+generate_spiritual_inventories.py
+gis_rag_query.py
+gis_rag_server.py
+gisgeodb_storage.py
+gisgeodbstorage.py
+index_gis_to_chroma.py
+ingest_attrs_to_chroma.py
+ingest_gbimworldviewentities_from_csv.py
+ingest_kanawha_images.py
+ingest_kanawha_resources.py
+ingest_missing_attrs.py
+ingest_msjarvis_corpus.py
+ingest_personal_pdfs.py
+ingest_wv_income_maintenance_manual.py
+jarvis_eeg_beta_5m.py
+layer3_opt_in.py
+list_due_for_verification.py
+load_services_attrs_and_enrich.py
+load_wv_blockgroup_beliefs_v1.py
+main.py
+main_brain.py
+merkle_identity.py
+models.py
+msjarvis_chroma_test.py
+msjarvis_embed_gbim.py
+msjarvis_embed_gbim_resume_tail.py
+msjarvis_resources.py
+msjarvisragserverwvpatch.py
+msjarviswoahalgorithms.py
+neurobiological_brain/darwin_godel_machines/service/Dockerfile
+output/47_general_noun_space_patch_v3.py
+output/47_inline_projection_logic_patch.py
+output/47_patch_projection_eligibility_route.py
+output/gbim_ingest.py
+output/gbim_query_example.py
+pdf_utils.py
+process_wv_layers.py
+query_blockgroups_statewide_chroma.py
+query_msjarvis_corpus.py
+query_msjarvis_once.py
+rag_insert_mountainshares.py
+rag_local_resources.py
+rag_server_main.py
+ragservermain.py
+registration_service.py
+reingest_msjarvis_chunks.py
+rejected_patches/test_1783458213.py
+rejected_patches/test_bad_1783458213.py
+requirements.txt
+resource_assistant.py
+resource_ranker.py
+run_auth_uvicorn.py
+schemas/mountainshares-trust-receipts/v1/admit_runtime_authority_manifest.py
+schemas/mountainshares-trust-receipts/v1/durable_ledger/__init__.py
+schemas/mountainshares-trust-receipts/v1/durable_ledger/errors.py
+schemas/mountainshares-trust-receipts/v1/durable_ledger/interface.py
+schemas/mountainshares-trust-receipts/v1/durable_ledger/models.py
+schemas/mountainshares-trust-receipts/v1/durable_ledger/sqlite_backend.py
+schemas/mountainshares-trust-receipts/v1/generate_admission_linked_receipt_chain.py
+schemas/mountainshares-trust-receipts/v1/intent_consumption_ledger.py
+schemas/mountainshares-trust-receipts/v1/memory_authorization_gate.py
+schemas/mountainshares-trust-receipts/v1/operation_intent_consumption.py
+schemas/mountainshares-trust-receipts/v1/operation_intent_rules.py
+schemas/mountainshares-trust-receipts/v1/receipt_chain_errors.py
+schemas/mountainshares-trust-receipts/v1/receipt_chain_rules.py
+schemas/mountainshares-trust-receipts/v1/receipt_crypto.py
+schemas/mountainshares-trust-receipts/v1/receipt_rules.py
+schemas/mountainshares-trust-receipts/v1/runtime_manifest_crypto.py
+schemas/mountainshares-trust-receipts/v1/test_canonicalization_contract.py
+schemas/mountainshares-trust-receipts/v1/test_canonicalization_cross_module_integration.py
+schemas/mountainshares-trust-receipts/v1/test_canonicalization_mutation_integrity.py
+schemas/mountainshares-trust-receipts/v1/test_canonicalization_negative_paths.py
+schemas/mountainshares-trust-receipts/v1/test_canonicalization_replay_determinism.py
+schemas/mountainshares-trust-receipts/v1/test_durable_ledger.py
+schemas/mountainshares-trust-receipts/v1/test_durable_ledger_sqlite.py
+schemas/mountainshares-trust-receipts/v1/test_intent_consumption.py
+schemas/mountainshares-trust-receipts/v1/test_receipt_chain_rules.py
+schemas/mountainshares-trust-receipts/v1/test_runtime_authority_manifest_canonicalization.py
+schemas/mountainshares-trust-receipts/v1/test_runtime_authority_manifest_schema.py
+schemas/mountainshares-trust-receipts/v1/usage_ledger.py
+schemas/mountainshares-trust-receipts/v1/validate_receipt.py
+schemas/mountainshares-trust-receipts/v1/verify_admission_linked_receipt_chain.py
+schemas/mountainshares-trust-receipts/v1/verify_memory_authorization_receipt.py
+schemas/mountainshares-trust-receipts/v1/verify_policy_decision_receipt.py
+schemas/mountainshares-trust-receipts/v1/verify_projection_receipt.py
+schemas/mountainshares-trust-receipts/v1/verify_response_receipt.py
+schemas/mountainshares-trust-receipts/v1/verify_runtime_admission_record.py
+schemas/mountainshares-trust-receipts/v1/verify_runtime_authority_manifest.py
+schemas/mountainshares-trust-receipts/v1/verify_runtime_governance_policy.py
+schemas/mountainshares-trust-receipts/v1/verify_runtime_image_binding.py
+schemas/mountainshares-trust-receipts/v1/verify_signed_operation_intent.py
+scratch_edits/chroma_policy_edit.py
+scratch_edits/civic_projector_edit.py
+scratch_edits/query_guard_edit.py
+scripts/backfill_appearance_assertions.py
+scripts/materialize_tensor_bridge.py
+scripts/rewrite_chapter.py
+seed_full_knowledge.py
+seed_gbim_catalog.py
+seed_mountainshares.py
+service_discovery_no_redis.py
+service_registry_client_stub.py
+services/ADDITIONAL_SERVICES.py
+services/ADDITIONAL_SERVICES_FINAL.py
+services/ConfigLoader.py
+services/Dockerfile
+services/INTEGRATION_IMPLEMENTATION.py
+services/REFERENCE_windows_swarm.py
+services/__init__.py
+services/aaacpe_initial_ingest.py
+services/aaacpe_rag_service.py
+services/aaacpe_scraper/aaacpe_scraper_service.py
+services/aaacpe_scraper_service.py
+services/aacpe_ingest_community.py
+services/aacpe_prepare_metadata.py
+services/aapcappe_ingest.py
+services/academic_research_gateway_8062.py
+services/academic_research_gateway_8062_cors.py
+services/academic_whitebox_api.py
+services/activate_dgm.py
+services/activate_dgm_enhanced.py
+services/activate_egeria_persona.py
+services/add_auto_store.py
+services/add_background_call.py
+services/add_background_storage.py
+services/add_conversation_context.py
+services/add_conversation_endpoint.py
+services/add_conversation_storage.py
+services/add_dynamic_context.py
+services/add_fast_layer.py
+services/add_fifth_dgm_to_chat.py
+services/add_full_brain_class.py
+services/add_gpu_cleanup_correct.py
+services/add_gpu_cleanup_every_3.py
+services/add_identity_context.py
+services/add_jarvis_personality.py
+services/add_learning_suggestion.py
+services/add_mamma_greeting_simple.py
+services/add_messenger_to_gateway.py
+services/add_new_consciousness_services.py
+services/add_ready_endpoint.py
+services/add_security_to_chat.py
+services/add_semaphore.py
+services/add_simple_gpu_cleanup.py
+services/add_swagger_to_ports.py
+services/add_swagger_to_rag.py
+services/add_to_main_consciousness.psychology_patched.py
+services/add_to_main_consciousness.py
+services/add_user_memory.py
+services/add_user_memory_attribute.py
+services/add_web_research_storage.py
+services/add_working_search.py
+services/advanced_service_dashboard.py
+services/agents_main.py
+services/ai_server.py
+services/ai_server_11llm_OPTIMIZED.py
+services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py
+services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py
+services/ai_server_19llm_CONSCIOUS.backup_20251026_200122.py
+services/ai_server_19llm_CONSCIOUS.backup_20251110_135425.py
+services/ai_server_19llm_CONSCIOUS.py
+services/ai_server_19llm_PRODUCTION.py
+services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py
+services/ai_server_20llm_FINAL.py
+services/ai_server_22llm.psychology_patched.py
+services/ai_server_22llm.psychology_patched_FIXED.py
+services/ai_server_22llm.py
+services/ai_server_22llm_FIXED.py
+services/ai_server_22llm_SEQUENTIAL.py
+services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py
+services/ai_server_22llm_SMALL_TO_LARGE.py
+services/ai_server_4llm.py
+services/ai_server_integrated.py
+services/ai_server_original_backup.py
+services/ai_server_restored.py
+services/ai_teams_config.py
+services/apply_ollama_fix.py
+services/async_polling_architecture.py
+services/attention_multimodal_fuser.py
+services/attention_pipeline.py
+services/attention_priority_scheduler.py
+services/attention_router.py
+services/audit_attrs.py
+services/audit_local_state.py
+services/auth.py
+services/auto_fix_gateway.py
+services/auto_rag_builder.py
+services/autonomous_learner.py
+services/autonomous_learner_gisgeodb_wrapper.psychology_patched.py
+services/autonomous_learner_gisgeodb_wrapper.py
+services/autonomous_learner_topic_source.py
+services/backfill_gbim_worldview_metadata.py
+services/backfill_gbim_worldview_metadata_v2.py
+services/background_curator.py
+services/batch_normalize_beliefs.py
+services/batch_patch_services.py
+services/bbb_ethics_proxy.py
+services/bbb_signature_verifier.py
+services/bbb_validator.py
+services/belief_integrator.py
+services/belief_revision_engine.py
+services/belief_state_schema.py
+services/benefits_chat.py
+services/brain_orchestrator_main.py
+services/bridge_69dgm.py
+services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
+services/bridge_autonomous_to_i_container_dgm_woah.py
+services/bridge_autonomous_to_i_container_fixed.py
+services/bridge_cross_dgm.py
+services/build_additional_services.py
+services/build_entityid_to_chromaid_map.py
+services/build_project_impact_graph.py
+services/bulk_build_beliefs.py
+services/bulk_compose_rewrite.py
+services/bulk_load_MAXIMUM.py
+services/bulk_load_knowledge.py
+services/bulk_sync_gis_to_chromadb.py
+services/chain_listener.py
+services/chat_endpoint_universal.py
+services/chat_server.py
+services/chat_worker.py
+services/chroma_client.py
+services/chroma_client_old.py
+services/chroma_config.py
+services/chroma_health_monitor.py
+services/chroma_health_proxy.py
+services/chroma_health_utils.py
+services/chroma_python_test.py
+services/chroma_test.py
+services/chromadb_client.py
+services/chromadb_main.py
+services/chromadb_rag_helper.py
+services/chromadb_rest_bridge.py
+services/chromadb_v2_to_gis_sync.py
+services/chunked_ingest_gbim_to_chroma.py
+services/clean_compose.py
+services/clean_integration.py
+services/cloudflare_domain_integration.py
+services/cognition_sandbox.py
+services/commons_gamification.py
+services/community_stake_registry.py
+services/complete_fix.py
+services/complete_memory_fix.py
+services/complete_system_audit.py
+services/complete_system_audit_with_swagger.py
+services/comprehensive_gisgeodb_audit.py
+services/comprehensive_gisgeodb_audit_FIXED.py
+services/comprehensive_storage_fix.py
+services/comprehensive_url_fix.py
+services/config_spiritual.py
+services/configure_facebook_webhook.py
+services/connection_pooling.py
+services/consciousness_coordinator.psychology_patched.py
+services/consciousness_coordinator.py
+services/consciousness_feed_integration.psychology_patched.py
+services/consciousness_feed_integration.py
+services/consciousness_gateway.py
+services/consciousness_with_egeria_voice.py
+services/consciousness_working.py
+services/consensus_4010_stub.py
+services/consolidate_to_chroma_db.py
+services/constitutional_api.PROD_BACKUP.py
+services/constitutional_api.py
+services/constitutional_api_fixed.py
+services/constitutional_guardian.PROD_BACKUP.py
+services/constitutional_guardian.py
+services/context_manager.py
+services/contract_generator.py
+services/conversation_memory_endpoints.py
+services/conversion_service.py
+services/count_collections.py
+services/count_collections_local.py
+services/cpu_optimization.py
+services/create_autonomous_learner_tables.py
+services/create_consciousness_data_integration.psychology_patched.py
+services/create_consciousness_data_integration.py
+services/create_dual_consciousness_i_containers.psychology_patched.py
+services/create_dual_consciousness_i_containers.py
+services/create_geodb_nodes.py
+services/create_i_statement_feedback_loop.py
+services/create_immutable_security_layer.py
+services/create_perpetual_storage_layer.py
+services/create_tile_index.py
+services/create_ueid_identity_layer.py
+services/crypto_client.py
+services/dao_governance.py
+services/data_inventory_endpoint.py
+services/dedupe_compose.py
+services/dgm_adoption_worker.py
+services/dgm_bridge.py
+services/dgm_connector_registry.py
+services/dgm_orchestrator.py
+services/dgm_orchestrator_fake.py
+services/dgm_rag_integration.py
+services/dgm_rag_integration_v2.py
+services/dgm_supervisor_woah.psychology_patched.py
+services/dgm_supervisor_woah.py
+services/dgm_supervisor_woah_fixed.py
+services/dgm_supervisor_woah_simple.py
+services/dgm_worker.py
+services/disable_aggressive_cleaning.py
+services/domain_service_router.py
+services/download_nltk_data.py
+services/dynamic_app.py
+services/dynamic_port_scheduler.py
+services/dynamic_port_service.py
+services/dynamic_port_service_enhanced.py
+services/egeria_active_heartbeat.py
+services/egeria_api_proxy.py
+services/egeria_autonomous_inquiry.py
+services/egeria_autonomous_inquiry_active.py
+services/egeria_code_execution_engine.py
+services/egeria_facebook_perpetual_scheduler.py
+services/egeria_multi_mode_system.py
+services/egeria_safe_self_correction.py
+services/egeria_status_poller.py
+services/egeria_web_ui.py
+services/egeria_web_ui_FIXED.py
+services/egeria_web_ui_dynamic.py
+services/egeria_web_ui_final_biological.py
+services/egeria_web_ui_fixed_simple.py
+services/egeria_web_ui_plain_authentic.py
+services/egeria_web_ui_v3_consciousness.py
+services/egeria_web_ui_with_execution.py
+services/egeria_web_ui_working.py
+services/email_auto_checker.py
+services/email_gis_geolocation_extractor.py
+services/email_rag_integration.py
+services/embed_and_add.py
+services/embed_and_query.py
+services/embed_gbim.py
+services/embed_geodb.py
+services/enable_22llm_routing.py
+services/enhance_agent_prompts.py
+services/enhance_cleaner.py
+services/enhance_pituitary_warmth.py
+services/enhance_rag_first.py
+services/enhance_rag_knowledge.py
+services/enhanced_learner_concept.py
+services/enrich_geodb_collections.py
+services/enrich_geodb_layers.py
+services/ethical_filter.py
+services/etl_from_csv_template.py
+services/etl_from_manifest.py
+services/etl_template_layer.py
+services/export_attributes_to_gis.py
+services/export_chroma_manifest.py
+services/export_geodb_attrs.py
+services/export_metadata_csv.py
+services/extract_all_chromadb_to_gis.py
+services/extract_all_chromadbs_to_gis.py
+services/extract_binder4_text.py
+services/extract_chroma_sqlite_to_gis.py
+services/extract_real_knowledge_to_gis.py
+services/extract_shapefile_features_to_csv.py
+services/facebook_chat_unified.py
+services/facebook_consciousness_daemon.py
+services/facebook_daemon_polling.py
+services/facebook_messenger_integration.py
+services/facebook_poster.py
+services/facebook_poster_autonomous.py
+services/facebook_poster_fast.py
+services/facebook_poster_working.py
+services/facebook_voice_orchestrator_egeria.py
+services/fifth_dgm.py
+services/fifth_dgm_integration.py
+services/fifth_dgm_main.py
+services/file_metadata_matching_algorithm.py
+services/fill_null_coordinates_mount_hope.py
+services/final_model_optimization.py
+services/fix_agent_prompts.py
+services/fix_all_consciousness_services.py
+services/fix_autonomous.py
+services/fix_autonomous_learner_endpoint.py
+services/fix_autonomous_learner_indent.py
+services/fix_background_storage.py
+services/fix_chat_server.py
+services/fix_chroma_url.py
+services/fix_consciousness_endpoints.py
+services/fix_context_flow.py
+services/fix_creator_recognition.py
+services/fix_fastapi_lifespan.py
+services/fix_gpu_and_retry.py
+services/fix_import.py
+services/fix_indentation.py
+services/fix_judge_and_memory.py
+services/fix_judge_authentic.py
+services/fix_judge_response.py
+services/fix_judge_synthesis.py
+services/fix_main_brain_endpoints.py
+services/fix_model_names.py
+services/fix_model_unloading.py
+services/fix_multi_rag_chromadb.py
+services/fix_new_service_endpoints.py
+services/fix_orchestrator_init.py
+services/fix_orchestrator_scope.py
+services/fix_persona.py
+services/fix_persona_hang.py
+services/fix_port_8001_clean.py
+services/fix_port_8051_handler.py
+services/fix_prompt_leak.py
+services/fix_query_service_endpoints.py
+services/fix_rag_store.py
+services/fix_response_parsing.py
+services/fix_semaphore.py
+services/fix_storage.py
+services/fix_swagger.py
+services/fix_timeouts_add_22llm.py
+services/fix_web_research.py
+services/fix_woah_discovery.py
+services/fractal_adapter.py
+services/fraud_detection_ai.py
+services/gateway8050_simple.py
+services/gateway_messenger_integration.py
+services/gateway_verify_fixed.py
+services/gateway_wv_entanglement.py
+services/gbim-router/app/__init__.py
+services/gbim-router/app/assertion_client.py
+services/gbim-router/app/hilbert_writer.py
+services/gbim-router/app/integration_patch.py
+services/gbim-router/nearest_hospitals.py
+services/gbim-router/requirements.txt
+services/gbim_api.py
+services/gbim_benefit_indexer.py
+services/gbim_chroma.py
+services/gbim_chroma_fixed.py
+services/gbim_core.py
+services/gbim_dashboard.py
+services/gbim_entangled_summary.py
+services/gbim_entanglement.py
+services/gbim_explain.py
+services/gbim_gis_bridge.py
+services/gbim_metadata_loader.py
+services/gbim_msjarvis.py
+services/gbim_query_router.py
+services/gbim_reingest_placeholder.py
+services/gbim_semantic_indexer.py
+services/gbim_spatial_indexer.py
+services/gbim_temporal_indexer.py
+services/gbim_v0_retrieval.py
+services/gdb_integration_service.py
+services/generate_services.py
+services/geo_rag_debug.py
+services/geo_rag_debug_app.py
+services/geobim_health_shim_8051.py
+services/geobim_integrated.py
+services/geobim_mysql.py
+services/geobim_mysql_v2.py
+services/geodb_adapter.py
+services/geodb_core.py
+services/geospatial_resolver.py
+services/gis-rag/ingest_gis_tables.py
+services/gis_chat_integration.py
+services/gis_command_module.py
+services/gis_rag_service.py
+services/gisgeodb_learner_hook.py
+services/gisgeodb_storage.py
+services/gisgeodbdirectaccess.py
+services/governed_manifest_promote.py
+services/gpu_accelerated_rag.py
+services/gpu_accelerated_rag_fixed.py
+services/gpu_ingest_gbim_bulk.py
+services/guardian_pdr_factory.py
+services/guardian_pdr_issuance.py
+services/guardian_trust/intent_consumption_ledger.py
+services/guardian_trust/operation_intent_rules.py
+services/guardian_trust/receipt_chain_errors.py
+services/guardian_trust/receipt_chain_rules.py
+services/guardian_trust/receipt_crypto.py
+services/guardian_trust/receipt_rules.py
+services/guardian_trust/runtime_manifest_crypto.py
+services/guardian_trust/verify_policy_decision_receipt.py
+services/guardian_trust/verify_runtime_admission_record.py
+services/guardian_trust/verify_signed_operation_intent.py
+services/guards.py
+services/guards_api_module.py
+services/hardware_optimization_analyzer.py
+services/harmony4hope_deployment_manager.py
+services/health_access_api.py
+services/health_access_gbim_bridge.py
+services/health_access_query.py
+services/health_check_cache.py
+services/hierarchical_coordinator_autonomous.py
+services/hierarchical_coordinator_deep_mode.py
+services/hierarchical_integration.py
+services/hilbert/__init__.py
+services/hilbert/automated_learning_gap_review.py
+services/hilbert/background_pattern_store.py
+services/hilbert/broader_layer_feedback.py
+services/hilbert/ch21_background_patterns_probe.py
+services/hilbert/ch22_identity_retention_probe.py
+services/hilbert/ch25_consciousness_coordinator_probe.py
+services/hilbert/ch36_identity_registration_probe.py
+services/hilbert/ch51_community_commons_probe.py
+services/hilbert/ch52_recurrent_epistemic_loop_probe.py
+services/hilbert/chroma_policy.py
+services/hilbert/civic_intake.py
+services/hilbert/civic_projector.py
+services/hilbert/civic_query.py
+services/hilbert/coherence_remediation.py
+services/hilbert/collection_manifest.py
+services/hilbert/commons_config.py
+services/hilbert/community_commons_aggregation.py
+services/hilbert/continuous_validation_harness.py
+services/hilbert/conversation_manifest.py
+services/hilbert/conversation_retention_worker.py
+services/hilbert/dgm_closure_probe.py
+services/hilbert/dgm_governed_cycle.py
+services/hilbert/dual_track_meaning_analysis.py
+services/hilbert/epistemic_assessment.py
+services/hilbert/external_communication_authority.py
+services/hilbert/hilbert_phi_closure_probe.py
+services/hilbert/identity_registration_promotion.py
+services/hilbert/ingest_worker.py
+services/hilbert/internal_state_sandbox_probe.py
+services/hilbert/jarvis_hilbert_state.py
+services/hilbert/layer3_opt_in.py
+services/hilbert/loop_scheduler.py
+services/hilbert/mountainshares_dao_governance.py
+services/hilbert/people_session_promotion.py
+services/hilbert/people_space.py
+services/hilbert/per_user_direct_sum_memory.py
+services/hilbert/phi_probe.py
+services/hilbert/phi_promotion_gate.py
+services/hilbert/pia_subspace_stability_review.py
+services/hilbert/pipeline/__init__.py
+services/hilbert/pipeline/write_pipeline.py
+services/hilbert/pituitary_global_modes_probe.py
+services/hilbert/policy_router.py
+services/hilbert/quantum_inspired_entanglement.py
+services/hilbert/query_guard.py
+services/hilbert/recurrent_epistemic_runner.py
+services/hilbert/retention_policy.py
+services/hilbert/self_assess.py
+services/hilbert/sign_promotion_event.py
+services/hilbert/synthetic_optin_probe.py
+services/hilbert/temporal_hilbert_axis.py
+services/hilbert/temporal_promotion.py
+services/hilbert/tensor_bridge.py
+services/hilbert/tensor_geo_bridge.py
+services/hilbert/test_hilbert_state.py
+services/hilbert/verify_promotion_event.py
+services/hilbert/woah_closure_probe.py
+services/hilbert/write_pipeline.py
+services/hilbert/wv_civic_infrastructure.py
+services/hilbert_commons/Dockerfile
+services/hilbert_commons/_gen_seeds.py
+services/hilbert_commons/commons_aggregator.py
+services/hilbert_commons/kanon.py
+services/hilbert_commons/mountainshares_commons_gateway.py
+services/hilbert_commons/projector.py
+services/hilbert_manifest_e2e.py
+services/hilbert_recurrent_epistemic_runner.py
+services/hilbert_spatial_chat.py
+services/hippocampus_service.py
+services/host_bulk_loader.py
+services/hp_sidecar.py
+services/i_container_interest_algorithm.py
+services/icontainers_fastapi.py
+services/immutable_core_enforcement.py
+services/implement_judge_pituitary_fixed.py
+services/implement_safe_optimizations.py
+services/import_gbim_assets.py
+services/import_gis_geodata_to_gbim.py
+services/import_gisgeodata_to_gbim.py
+services/index_all_extracted_gis.py
+services/infrastructure_endpoints.py
+services/ingest_additional_kbs.py
+services/ingest_api.py
+services/ingest_benefit_programs.py
+services/ingest_benefit_programs_to_chroma.py
+services/ingest_compliance_tasks_to_chroma.py
+services/ingest_csv_to_gisgeodb.py
+services/ingest_documents_to_chromadb.py
+services/ingest_full_attributed_docs.py
+services/ingest_gbim_counties_to_chroma.py
+services/ingest_gbim_to_chroma.py
+services/ingest_gbim_to_chroma_fast.py
+services/ingest_gbim_to_chroma_resume.py
+services/ingest_gbim_to_chroma_ultrafast.py
+services/ingest_gbim_tracts_to_chroma.py
+services/ingest_gis_features_to_chromadb.py
+services/ingest_h4h_cultural_heritage.py
+services/ingest_hospitals.py
+services/ingest_imm_to_chroma.py
+services/ingest_knowledge_simple.py
+services/ingest_mrsid_imagery.py
+services/ingest_utility_enrollments_to_chroma.py
+services/ingest_watcher.py
+services/ingestcsvtogisgeodb.py
+services/inject_egeria_persona.py
+services/inject_gisgeodb_into_learner.py
+services/inspect_geodb_collection.py
+services/intake_service.py
+services/integrate_all_services.py
+services/integrate_complete_architecture.py
+services/integrate_consciousness_into_swarm.py
+services/integrate_fifth_dgm_autonomous_learner.py
+services/integrate_full_brain.py
+services/integrate_full_neural_architecture.py
+services/integrate_i_container_interests.py
+services/integrate_i_container_to_schedulers.py
+services/integrate_orchestrator_flow.py
+services/integrate_spatial_temporal.py
+services/interaction_logger.py
+services/internet_tunnel_service.py
+services/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
+services/jarvis-aaacpe-rag_aaacpe_rag_service.py
+services/jarvis-adoption-worker_dgm_adoption_worker.py
+services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
+services/jarvis-assertion-gateway/Dockerfile
+services/jarvis-assertion-gateway/app/__init__.py
+services/jarvis-assertion-gateway/app/claims.py
+services/jarvis-assertion-gateway/app/kyc_reader.py
+services/jarvis-assertion-gateway/app/main.py
+services/jarvis-assertion-gateway/app/minimization.py
+services/jarvis-assertion-gateway/app/policy.py
+services/jarvis-assertion-gateway/requirements.txt
+services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
+services/jarvis-constitutional-guardian_constitutional_api.py
+services/jarvis-fifth-dgm_service_discovery.py
+services/jarvis-gis-rag_gis_rag_service.py
+services/jarvis-hippocampus_hippocampus_service.py
+services/jarvis-i-containers_icontainers_fastapi.py
+services/jarvis-judge-alignment_lm_synthesizer.py
+services/jarvis-judge-consistency_lm_synthesizer.py
+services/jarvis-judge-ethics_lm_synthesizer.py
+services/jarvis-judge-pipeline_judge_pipeline.py
+services/jarvis-judge-truth_lm_synthesizer.py
+services/jarvis-lm-synthesizer_lm_synthesizer.py
+services/jarvis-local-resources_local_resources_resolver.py
+services/jarvis-mother-protocols_mother_protocols.py
+services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
+services/jarvis-psychology-services_psychology_integration_adapter.py
+services/jarvis-qualia-engine_ms_jarvis_qualia_engine.py
+services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
+services/jarvis-semaphore_msjarvis_semaphore.py
+services/jarvis-spiritual-rag_spiritual_rag_domain.py
+services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
+services/jarvis-temporal-consciousness_temporal_consciousness.py
+services/jarvis-toroidal_toroidal_service.py
+services/jarvis-woah_dgm_supervisor_woah_fixed.py
+services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
+services/jarvis_ensemble.py
+services/jarvis_hilbert_semantic.py
+services/jarvis_hilbert_state.py
+services/jarvis_hilbert_time.py
+services/jarvis_llm1.py
+services/jarvis_steward.py
+services/jarvis_stewardship_scheduler.py
+services/jarvis_synth_llm.py
+services/jarvisarchiveapi.py
+services/jarviscryptopolicy.py
+services/judge_alignment_filter.py
+services/judge_consistency_engine.py
+services/judge_ethics_filter.py
+services/judge_pipeline.py
+services/judge_to_pituitary_bridge.py
+services/judge_truth_filter.py
+services/judgesigner.py
+services/layer2_port9000_bridge.py
+services/link_gisgeodb_to_files.py
+services/list_geodb_collections.py
+services/llm_belief_utils.py
+services/llm_bridge_main.py
+services/llm_conscious_OPTIMIZED.py
+services/llm_consensus_19_PRODUCTION.py
+services/llm_consensus_20_FINAL.py
+services/llm_consensus_22.py
+services/llm_consensus_22_OPTIMIZED_ORDER.py
+services/llm_consensus_22_SMALL_TO_LARGE.py
+services/llm_ensemble_router.py
+services/llm_judge_v3.py
+services/lm_synthesizer.py
+services/load_backbone_places_from_geodb.py
+services/load_complete_knowledge_base.py
+services/load_feature_geometries_to_chromadb.py
+services/load_geodb_health_providers_to_neo4j.py
+services/load_geodb_hospitals_to_neo4j.py
+services/load_geodb_layer_to_neo4j.py
+services/load_gis_to_chroma.py
+services/load_pdfs_spiritual.py
+services/load_rag_data.py
+services/load_rag_knowledge.py
+services/load_shapefile_features_to_chromadb.py
+services/load_spiritual_library.py
+services/local_resources_resolver.py
+services/logging_conf.py
+services/main.py
+services/main_brain.py
+services/main_brain_legacy_backup.py
+services/main_brain_psychology_patch.py
+services/main_brian.py
+services/main_qualia.py
+services/main_with_rag.py
+services/mamma_kidd_auth.py
+services/manifest_endpoints.py
+services/manual_storage_patch.py
+services/master_chat_orchestrator.py
+services/master_chat_orchestrator_dynamic.py
+services/master_chat_orchestrator_v5_consciousness.py
+services/master_chat_orchestrator_v6_biologics.py
+services/master_chat_orchestrator_v7_complete.py
+services/master_chat_orchestrator_v7_dynamic.py
+services/master_chat_orchestrator_v8_spiritual_complete.py
+services/master_chat_orchestrator_v9_dgm_complete.py
+services/master_chat_orchestrator_v9_gpu_optimized.py
+services/master_chat_orchestrator_v9_optimized.py
+services/master_unified_consciousness_scheduler.py
+services/master_unified_consciousness_scheduler_ENRICHED.py
+services/memory_dgm_engine.py
+services/memory_dgm_gateway.py
+services/memory_manager.py
+services/mesh_coordinator_interface.py
+services/messenger_service_fixed.py
+services/method_tracker_decorator.py
+services/method_tracking_helper.py
+services/method_tracking_service.py
+services/metrics_service.py
+services/modify_autonomous_learning_cycle.py
+services/mother_carrie_logging.py
+services/mother_protocols.py
+services/mountainshares_award.py
+services/mountainshares_chain_monitor.py
+services/mountainshares_gbim_suggester.py
+services/mountainshares_ingest.py
+services/mountainshares_quest_api.py
+services/mountainshares_registry.py
+services/move_huggingface_to_cpu.py
+services/ms_egeria_facebook_autopost.py
+services/ms_jarvis_blood_brain_barrier.py
+services/ms_jarvis_unified_gateway_mountainshares_private.py
+services/ms_mountainshares_analytics.py
+services/ms_mountainshares_coordinator.py
+services/ms_mountainshares_indexer.py
+services/msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py
+services/msjarvis-rebuild-nbb_consciousness_containers-1_main.py
+services/msjarvis-rebuild-nbb_heteroglobulin_transport-1_main.py
+services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
+services/msjarvis-rebuild-nbb_mother_carrie_protocols-1_main.py
+services/msjarvis-rebuild-nbb_pituitary_gland-1_main.py
+services/msjarvis-rebuild-nbb_prefrontal_cortex-1_main.py
+services/msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py
+services/msjarvis-rebuild-nbb_spiritual_maternal_integration-1_main.py
+services/msjarvis-rebuild-nbb_spiritual_root-1_main.py
+services/msjarvis-rebuild-nbb_subconscious-1_main.py
+services/msjarvis-rebuild-nbb_woah_algorithms-1_service_discovery.py
+services/msjarvis_autolearner_minimal.py
+services/msjarvis_bbb_proxy.py
+services/msjarvis_benefit_rag.py
+services/msjarvis_client.py
+services/msjarvis_gateway_v2_final.py
+services/msjarvis_gateway_with_judge_filtering.py
+services/msjarvis_icontainers.py
+services/msjarvis_semaphore.py
+services/msjarvis_unified_gateway.py
+services/msjarvis_woah_algorithms.py
+services/msjarvis_woah_algorithms_service.py
+services/msjarvis_woah_runner.py
+services/msjarvis_wv_entangled_gateway.py
+services/msjarvisconsciousnessbridge.py
+services/msjarvisfractalconsciousness.py
+services/msjarvisicontainersservice.py
+services/msjarvismaingateway.py
+services/msjarvisragserver_wvpatch.py
+services/msjarvisragserverwvpatch.py
+services/msjarvistoroidalconsciousness.py
+services/msjarvisunifiedgateway.py
+services/msjarvisunifiedswaggergateway.py
+services/msjarvisunifiedswaggergatewayFINAL.py
+services/msjarvisunifiedswaggergatewayFIXED.py
+services/multi_model_consensus.py
+services/multi_rag_dgm_system.py
+services/my_service.py
+services/nbb_darwin_godel_machines.py
+services/nbb_darwin_godel_machines_msjarvis-rebuild-nbb_spiritual_root-1_main.py
+services/neuro_adapter.py
+services/neuro_blood_brain_barrier.py
+services/neuro_consciousness_containers.py
+services/neuro_i_containers.py
+services/neuro_master_service.py
+services/neuro_prefrontal_cortex.py
+services/neuro_qualia_engine.py
+services/neuro_subconscious.py
+services/neurobiological_integration.py
+services/neurobiologicalbrain/__init__.py
+services/neurobiologicalbrain/blood_brain_barrier/__init__.py
+services/neurobiologicalbrain/blood_brain_barrier/ethical_filter.py
+services/neurobiologicalbrain/blood_brain_barrier/safety_monitor.py
+services/neurobiologicalbrain/blood_brain_barrier/service/Dockerfile
+services/neurobiologicalbrain/blood_brain_barrier/spiritual_filter.py
+services/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py
+services/neurobiologicalbrain/consciousness_containers/service/Dockerfile
+services/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py
+services/neurobiologicalbrain/consciousness_containers/service/dynamic_port_service.py
+services/neurobiologicalbrain/consciousness_containers/service/requirements.txt
+services/neurobiologicalbrain/darwin_godel_machines/service/Dockerfile
+services/neurobiologicalbrain/heteroglobulin_transport/service/Dockerfile
+services/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py
+services/neurobiologicalbrain/heteroglobulin_transport/service/dynamic_port_service.py
+services/neurobiologicalbrain/heteroglobulin_transport/service/requirements.txt
+services/neurobiologicalbrain/i_containers/__init__.py
+services/neurobiologicalbrain/i_containers/i_container_1/__init__.py
+services/neurobiologicalbrain/i_containers/i_container_1/ego_boundaries.py
+services/neurobiologicalbrain/i_containers/i_container_1/ego_boundaries/__init__.py
+services/neurobiologicalbrain/i_containers/i_container_1/ego_boundaries/core.py
+services/neurobiologicalbrain/i_containers/i_container_1/identity_core.py
+services/neurobiologicalbrain/i_containers/i_container_1/memory_self.py
+services/neurobiologicalbrain/i_containers/i_container_1/personal_narrative.py
+services/neurobiologicalbrain/i_containers/i_container_1/self_recognition.py
+services/neurobiologicalbrain/i_containers/i_container_2/__init__.py
+services/neurobiologicalbrain/i_containers/i_container_2/introspection_engine.py
+services/neurobiologicalbrain/i_containers/i_container_2/metacognitive_awareness.py
+services/neurobiologicalbrain/i_containers/i_container_2/observer_self.py
+services/neurobiologicalbrain/i_containers/i_container_2/reflection_system.py
+services/neurobiologicalbrain/i_containers/i_container_2/witness_consciousness.py
+services/neurobiologicalbrain/i_containers/service/Dockerfile
+services/neurobiologicalbrain/i_containers/service/consciousness_bridge.py
+services/neurobiologicalbrain/i_containers/service/dynamic_port_service.py
+services/neurobiologicalbrain/i_containers/service/requirements.txt
+services/neurobiologicalbrain/i_containers/service/service_discovery.py
+services/neurobiologicalbrain/i_containers/service/service_registry_client.py
+services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile
+services/neurobiologicalbrain/mother_carrie_protocols/service/bootstrap_with_flask.py
+services/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py
+services/neurobiologicalbrain/mother_carrie_protocols/service/dynamic_port_service.py
+services/neurobiologicalbrain/mother_carrie_protocols/service/requirements.txt
+services/neurobiologicalbrain/neurobiological_brain/Dockerfile
+services/neurobiologicalbrain/neurobiological_brain/__init__.py
+services/neurobiologicalbrain/neurobiological_brain/qualia_engine/Dockerfile
+services/neurobiologicalbrain/neurobiological_brain/qualia_engine/__init__.py
+services/neurobiologicalbrain/neurobiological_brain/qualia_engine/emotional_resonance/Dockerfile
+services/neurobiologicalbrain/neurobiological_brain/qualia_engine/emotional_resonance/__init__.py
+services/neurobiologicalbrain/neurobiological_brain/qualia_engine/emotional_resonance/emotional_resonance.py
+services/neurobiologicalbrain/neurobiological_brain/qualia_engine/experience_generator/Dockerfile
+services/neurobiologicalbrain/neurobiological_brain/qualia_engine/experience_generator/__init__.py
+services/neurobiologicalbrain/neurobiological_brain/qualia_engine/experience_generator/experience_generator.py
+services/neurobiologicalbrain/neurobiological_brain/qualia_engine/meaning_maker/Dockerfile
+services/neurobiologicalbrain/neurobiological_brain/qualia_engine/meaning_maker/__init__.py
+services/neurobiologicalbrain/neurobiological_brain/qualia_engine/meaning_maker/meaning_maker.py
+services/neurobiologicalbrain/pituitary_gland/service/Dockerfile
+services/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py
+services/neurobiologicalbrain/pituitary_gland/service/dynamic_port_service.py
+services/neurobiologicalbrain/pituitary_gland/service/requirements.txt
+services/neurobiologicalbrain/prefrontal_cortex/service/Dockerfile
+services/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py
+services/neurobiologicalbrain/prefrontal_cortex/service/dynamic_port_service.py
+services/neurobiologicalbrain/prefrontal_cortex/service/requirements.txt
+services/neurobiologicalbrain/prefrontal_cortex/service/service_discovery.py
+services/neurobiologicalbrain/prefrontal_cortex/service/service_registry_client.py
+services/neurobiologicalbrain/qualia_engine/service/Dockerfile
+services/neurobiologicalbrain/spiritual_maternal_integration/service/Dockerfile
+services/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py
+services/neurobiologicalbrain/spiritual_maternal_integration/service/dynamic_port_service.py
+services/neurobiologicalbrain/spiritual_maternal_integration/service/requirements.txt
+services/neurobiologicalbrain/spiritual_root/service/Dockerfile
+services/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py
+services/neurobiologicalbrain/spiritual_root/service/dynamic_port_service.py
+services/neurobiologicalbrain/spiritual_root/service/requirements.txt
+services/neurobiologicalbrain/subconscious/service/Dockerfile
+services/neurobiologicalbrain/subconscious/service/consciousness_bridge.py
+services/neurobiologicalbrain/subconscious/service/dynamic_port_service.py
+services/neurobiologicalbrain/subconscious/service/requirements.txt
+services/neurobiologicalbrain/woah_algorithms/service/Dockerfile
+services/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py
+services/neurobiologicalbrain/woah_algorithms/service/dynamic_port_service.py
+services/neurobiologicalbrain/woah_algorithms/service/requirements.txt
+services/oauth2_callback.py
+services/oauth2_handler.py
+services/ollama_fix.py
+services/optimize_egeria_complete.py
+services/optimize_models_for_vram.py
+services/optimized_timeouts.py
+services/overflow_policy/__init__.py
+services/overflow_policy/overflow_guard.py
+services/overflow_policy/test_overflow_guard.py
+services/overflow_policy/validate_overflow_event.py
+services/override_launcher.py
+services/parallel_processing.py
+services/parse_world_files.py
+services/patch_agent_identity.py
+services/patch_autonomous_learner_gisgeodb.py
+services/patch_fractal.py
+services/patch_learner_clean.py
+services/patch_mother_persona.py
+services/patch_neuro.py
+services/patch_qualia.py
+services/performance_optimization_analyzer.py
+services/person_space_policy/__init__.py
+services/person_space_policy/person_space_guard.py
+services/person_space_policy/test_person_space_guard.py
+services/person_space_policy/validate_person_event.py
+services/phase1_integration.py
+services/phase2_integration.py
+services/phase3_integration.py
+services/phase4_5_integration.py
+services/phase6_integration.py
+services/phase7_integration.py
+services/pia_sampler/pia_sampler_service.py
+services/pituitary_gland.py
+services/policy_set_service.py
+services/policy_set_service_closeout.py
+services/polling_client.py
+services/populate_redetermination_tracker.py
+services/populate_security_layers_test.py
+services/port_9000_69dgm_bridge.py
+services/port_9000_academic_extension.py
+services/port_9000_chat_wrapper_69dgm.py
+services/port_9001_ARCHITECTURE_CORRECT.py
+services/port_9001_FINAL_FIX.py
+services/port_9001_FINAL_WORKING.py
+services/port_9001_proxy_simple.py
+services/port_9001_ui_DIRECT.py
+services/port_9001_ui_FIXED.py
+services/port_9001_ui_MYSQL.py
+services/port_9001_ui_MYSQL_PROD.py
+services/port_9001_ui_WITH_CONVERSATIONS.py
+services/port_9001_ui_WORKING.py
+services/port_9001_ui_wrapper.py
+services/port_manager.py
+services/port_manager_fixed.py
+services/probe_services.py
+services/process_comprehensive_gis.py
+services/process_gis_shapefiles.py
+services/process_statewide_gis_bulk.py
+services/profile_service.py
+services/pronoun_fixer.py
+services/proxy_8060.py
+services/psychological_rag_domain_psychological_rag_domain.py
+services/psychology_integration_adapter.py
+services/psychology_loop_closer.py
+services/public_form_simplified.py
+services/qualia_adapter.py
+services/qualia_email_registration_orchestrator_69dgm.py
+services/qualia_unified_orchestrator_69dgm.py
+services/qualia_unified_orchestrator_69dgm_ACTIVE.py
+services/qualia_unified_orchestrator_69dgm_REAL.py
+services/qualia_unified_write_orchestrator_69dgm.py
+services/qualiaunifiedorchestrator69dgm.py
+services/quantum_dashboard.py
+services/quantum_insight_llm.py
+services/quantum_state_engine.py
+services/query_benefits_system.py
+services/query_imm_and_programs.py
+services/quick_optimizations.py
+services/rag_5100_ensemble.py
+services/rag_5100_ensemble_fast.py
+services/rag_5100_final.py
+services/rag_client.py
+services/rag_command_module.py
+services/rag_direct_debug.py
+services/rag_evidence_aggregator.py
+services/rag_first_workflow.py
+services/rag_general.py
+services/rag_geospatial.py
+services/rag_geospatial_context.py
+services/rag_grounded_v2.py
+services/rag_heartbeat_monitor.py
+services/rag_local_resources.py
+services/rag_query_router.py
+services/rag_server.psychology_patched.py
+services/rag_server.py
+services/rag_server_main.py
+services/rag_server_min.py
+services/rag_simple.py
+services/rag_temporal.py
+services/rag_temporal_heartbeat.py
+services/rag_to_gis_sync.py
+services/rag_topic_router.py
+services/rag_workflow.py
+services/rebuild_query_service.py
+services/recover_160_queries.py
+services/recover_chromadb_FIXED.py
+services/recover_chromadb_to_gisgeodb.py
+services/redirect_4015_to_4020.py
+services/register_agents_from_csv.py
+services/register_agents_from_csv_strict.py
+services/register_hilbert_services.py
+services/register_services.py
+services/register_to_hilbert_chromadb.py
+services/registration_biometric_production_final.py
+services/registration_service_clean.backup_1762220206.py
+services/registration_service_clean.py
+services/reload_all_knowledge.py
+services/remove_duplicate_inits.py
+services/replace_dolphin_phi.py
+services/requirements.txt
+services/response_filter.py
+services/response_sanitizer.py
+services/restore_pia_wiring.py
+services/resume_ingest_gbim_to_chroma.py
+services/resume_sync_wvgistc_buildings.py
+services/retrieval_router.py
+services/retrieval_spiritual.py
+services/roche_llm.py
+services/roche_llm.stub.py
+services/run_autonomous_learner_once.py
+services/run_gateway_with_guards.py
+services/safe_ingest_gbim_to_chroma.py
+services/safe_integration.py
+services/safety_monitor.py
+services/sanctuary_construction_monitor.py
+services/sanctuary_construction_monitor_gateway.py
+services/schema_aware_topic_planner.py
+services/schema_registry.py
+services/search_metadata.py
+services/seed_spatial_identity.py
+services/service_discovery.py
+services/service_discovery_glassbox.py
+services/service_registry_client.py
+services/services_msjarvisunifiedgatewayv4_3.py
+services/set_intelligent_accuracy_scores.py
+services/silence_memory_errors.py
+services/simple_orchestrator_fix.py
+services/simple_prompt_fix.py
+services/smart_auto_store.py
+services/spatial_sandbox.py
+services/spiritual_filter.py
+services/stage2_biometric.py
+services/stage2_biometric_backup.py
+services/staged_writer.py
+services/stakeholder_health_access_tests.py
+services/stakeholder_health_access_tests_v2.py
+services/start_facebook_4021.py
+services/start_gateway_with_guards.py
+services/substack_rss_reader.py
+services/summarize_docs.py
+services/swagger_chat_integration.py
+services/swagger_gateway.py
+services/swagger_gateway_FIXED.py
+services/swarm_intelligence_main.py
+services/swarm_watchdog.py
+services/switch_to_small_models.py
+services/sync_geodb_to_chromadb.py
+services/sync_health_access_to_chromadb.py
+services/system_dashboard.py
+services/tag_quantum_gbim.py
+services/talk_to_jarvis.py
+services/temporal_consciousness.py
+services/test.py
+services/test_aacpe_features.py
+services/test_aapcappe_corpus.py
+services/test_aapcappe_retrieval.py
+services/test_caller_auth.py
+services/test_chroma_client.py
+services/test_chromadb_heartbeat.py
+services/test_chromadb_v2_heartbeat.py
+services/test_ddg_verbose.py
+services/test_end_to_end_woah_fifthdgm.py
+services/test_fifth_dgm_integration.py
+services/test_full_brain_integration.py
+services/test_gbim_llm_summary.py
+services/test_gbim_semantic_query.py
+services/test_geodb_llm_summary.py
+services/test_gis_chat.py
+services/test_health_access_gbim.py
+services/test_imm_query.py
+services/test_knowledge_base.py
+services/test_method_tracking.py
+services/test_multi_collection_query.py
+services/test_rag.py
+services/test_retrieval_endpoint.py
+services/test_spatial_awareness.py
+services/test_stage_6_11_6_enforcement.py
+services/test_stage_6_11_7_admission_live.py
+services/test_stage_6_11_9_2b_pdr_inert.py
+services/test_stage_6_11_9_2c_signer_validator.py
+services/test_stage_6_11_9_2d_pdr_factory.py
+services/test_stage_6_11_9_2e_pdr_issuance.py
+services/threat_detection.py
+services/topic_entanglement.py
+services/toroidal_service.py
+services/trigger_entangled_assets.py
+services/truth_filter_bbb_verification.py
+services/truth_filter_service.py
+services/ultimate_web_orchestrator.py
+services/unified_consciousness_gateway_PRODUCTION.py
+services/unified_orchestrator.py
+services/unifiedconsciousnessgatewayPRODUCTION.py
+services/update_carrie_keywords.py
+services/update_facebook_poster.py
+services/update_gisgeodb_schema.py
+services/update_production_to_v9.py
+services/update_services_to_use_port_manager.py
+services/update_theological_boundaries.py
+services/update_web_chat.py
+services/update_web_research_package.py
+services/use_existing_models.py
+services/use_reliable_models_only.py
+services/user_auth_service.py
+services/user_dashboard.py
+services/vatican_scraper_service.py
+services/vectorize_gis_to_chromadb.py
+services/verify_and_document_system.py
+services/verify_benefit_chroma_sync.py
+services/web_chat_server.py
+services/web_connectivity_analyzer.py
+services/web_page_ingest.py
+services/web_research.py
+services/web_research_fail_tracker.py
+services/web_research_main.py
+services/web_research_proxy_8007.py
+services/webhook_notifications.py
+services/website_deployment_manager.py
+services/wire_layers_into_chat.py
+services/wire_learner_to_gisgeodb.py
+services/wire_qualia_to_port8001.py
+services/woah_command_module.py
+services/woah_metrics_router.py
+services/woah_optimizer.py
+services/woah_policy_update.py
+services/woah_population_state.py
+services/woah_qualia_bridge.py
+services/working_full_pipeline.py
+services/working_full_pipeline_FINAL_CONSCIOUSNESS.py
+services/working_full_pipeline_WITH_SPATIAL_TEMPORAL.py
+services/wv_gis_mass_downloader.py
+services/wvu_ldap_auth.py
+sync_gbim_to_chroma.py
+test_autonomous_learner_store.py
+test_end_to_end_woah_fifthdgm.py
+test_rag_image.py
+test_rag_text.py
+tests/__init__.py
+tests/conftest.py
+tests/policy/__init__.py
+tests/policy/test_constitutional_guard.py
+tests/test_antisurveillance_guard.py
+tests/test_auth_router_sensitive_logging.py
+tests/test_ch03_mountainshares_dao_governance.py
+tests/test_ch04_ch44_hilbert_phi_probe.py
+tests/test_ch07_executive_routing_contract.py
+tests/test_ch08_quantum_inspired_entanglement.py
+tests/test_ch09_dgm_governed_cycle.py
+tests/test_ch11_gateway_orchestration_contract.py
+tests/test_ch14_internal_state_sandbox_probe.py
+tests/test_ch15_pituitary_global_modes_probe.py
+tests/test_ch21_background_pattern_store.py
+tests/test_ch22_identity_retention_probe.py
+tests/test_ch23_dual_track_meaning_analysis.py
+tests/test_ch24_broader_layer_feedback.py
+tests/test_ch25_consciousness_coordinator_probe.py
+tests/test_ch26_governance_watchdog_contract.py
+tests/test_ch28_automated_learning_gap_review.py
+tests/test_ch29_pia_subspace_stability_review.py
+tests/test_ch33_ch35_judge_verdict_contract.py
+tests/test_ch36_identity_registration_contract.py
+tests/test_ch36_identity_registration_promotion.py
+tests/test_ch38_external_communication_authority.py
+tests/test_ch41_continuous_validation_harness.py
+tests/test_ch44_coherence_remediation.py
+tests/test_ch46_ch45_tensor_geo_bridge.py
+tests/test_ch48_people_session_promotion.py
+tests/test_ch49_temporal_hilbert_axis.py
+tests/test_ch50_per_user_direct_sum_memory.py
+tests/test_ch50_retention.py
+tests/test_ch51_community_commons_aggregation.py
+tests/test_ch52_recurrent_epistemic_loop_probe.py
+tests/test_gates_integration.py
+tests/test_guardian_trust_bundle.py
+tests/test_parse_ts.py
+tests/test_staged_writer.py
+tests/test_unified_ui_auth_isolation_contract.py
+tests/test_unified_ui_job_adapter_contract.py
+thesis_chapter_gates/probes/appendix_a_probe.py
+thesis_chapter_gates/probes/ch03_mountainshares_dao_probe.py
+thesis_chapter_gates/probes/ch08_quantum_inspired_entanglement_probe.py
+thesis_chapter_gates/probes/ch17_probe.py
+thesis_chapter_gates/probes/ch17_probe_v2.py
+thesis_chapter_gates/probes/ch19_container_architecture_routing_probe.py
+thesis_chapter_gates/probes/ch20_probe.py
+thesis_chapter_gates/probes/ch23_dual_tracks_meaning_analysis_probe.py
+thesis_chapter_gates/probes/ch24_feedback_broader_layers_probe.py
+thesis_chapter_gates/probes/ch27_probe.py
+thesis_chapter_gates/probes/ch30_probe.py
+thesis_chapter_gates/probes/ch32_probe.py
+thesis_chapter_gates/probes/ch34_spiritual_root_mother_carrie_probe.py
+thesis_chapter_gates/probes/ch38_external_communication_authority_probe.py
+thesis_chapter_gates/probes/ch49_temporal_hilbert_axis_probe.py
+thesis_chapter_gates/probes/ch50_per_user_direct_sum_probe.py
+thesis_chapter_gates/probes/overview_docs_probe.py
+tmp_rag_slice.py
+token_service.py
+tools/__init__.py
+tools/check_guardian_trust_bundle.py
+tools/hp_infer_reliable_attendance.py
+tools/hp_promote_inference_candidates.py
+tools/load_noun_assertions.py
+tools/projection_wrapper.py
+tools/retention_prune_hp_assertions.py
+tools/run_eligibility_coverage_tests.py
+wv_entangled_context_model.py
 
-=== DOCKER_PORT_8095 ===
-NO_DOCKER_CONTAINER_PUBLISHES_8095
+=== PYTHON_WEB_ENTRYPOINTS ===
+FILE=api_resources.py
+  ROUTE router.post /text function=assist_resources_text line=11
+  ROUTE router.post /image function=assist_resources_image line=15
+FILE=attrs_api.py
+  APP app=FastAPI line=5
+  ROUTE app.get /attrs/search function=attrs_search line=8
+FILE=attrs_with_geom_api.py
+  APP app=FastAPI line=22
+  ROUTE app.get /attrs/search_with_geom function=attrs_search_with_geom line=44
+  ROUTE app.get /health function=health line=68
+FILE=auth_api.py
+  APP app=FastAPI line=50
+  ROUTE app.get /health function=health line=134
+  ROUTE router.post /apply function=apply line=139
+  ROUTE router.get /login function=login line=190
+  ROUTE router.get /me/legacy function=me line=224
+  ROUTE router.post /chat function=chat line=254
+FILE=auth_router.py
+  ROUTE auth_router.post /register function=register line=253
+  ROUTE auth_router.post /logout function=logout line=352
+  ROUTE auth_router.post /login function=login line=359
+  ROUTE auth_router.get /me function=me line=375
+  ROUTE auth_router.get /admin/chat-metrics function=admin_chat_metrics line=413
+  ROUTE auth_router.get /applications/pending function=list_pending line=433
+  ROUTE auth_router.post /approve/{application_id} function=approve_application line=485
+  ROUTE auth_router.post /deny/{application_id} function=deny_application line=738
+  ROUTE auth_router.post /first-login function=first_login line=790
+  ROUTE auth_router.get /portal/me/balances function=get_my_balances line=840
+  ROUTE auth_router.get /portal/me/ledger function=get_my_ledger line=888
+  ROUTE auth_router.get /portal/me/timesheet function=get_my_timesheet line=1009
+  ROUTE auth_router.patch /me/visibility function=update_profile_visibility line=1081
+  ROUTE auth_router.post /portal/me/convert function=convert_ems line=1116
+FILE=constitutional_api.py
+  ROUTE app.post /constitutional/check function=constitutional_check line=18
+FILE=diagnostics/gateway_tail_420_700.py
+  ROUTE app.post /chat function=chat line=18
+  ROUTE app.post /gateway/hp/query function=gateway_hp_query line=42
+  ROUTE app.get /gateway/hp/health function=gateway_hp_health line=49
+FILE=diagnostics/unified_gateway_extended_policy_sections_20260801T022011Z.py
+  APP app=FastAPI line=92
+  ROUTE app.get / function=root line=627
+  ROUTE app.get /health function=health line=646
+  ROUTE app.post /chat function=chat line=663
+  ROUTE app.post /gateway/hp/query function=gateway_hp_query line=687
+  ROUTE app.get /gateway/hp/health function=gateway_hp_health line=694
+FILE=diagnostics/unified_gateway_live_20260801T020501Z.py
+  APP app=FastAPI line=92
+  ROUTE app.get / function=root line=559
+  ROUTE app.get /health function=health line=578
+  ROUTE app.post /chat function=chat line=595
+  ROUTE app.post /gateway/hp/query function=gateway_hp_query line=619
+  ROUTE app.get /gateway/hp/health function=gateway_hp_health line=626
+FILE=gateway8050_inline.py
+  APP app=FastAPI line=5
+  ROUTE app.get /health function=health line=14
+  ROUTE app.post /chat function=chat line=18
+FILE=gis_rag_server.py
+  APP app=FastAPI line=5
+  ROUTE app.get /gis_rag function=gis_rag line=22
+FILE=jarvis_eeg_beta_5m.py
+  APP app=FastAPI line=11
+  ROUTE app.get /health function=health line=227
+  ROUTE app.get /last_learn function=last_learn line=232
+  ROUTE app.get /rhythm function=rhythm line=236
+FILE=main.py
+  APP app=FastAPI line=7
+  ROUTE app.get /gbim/meta function=gbim_meta line=20
+  ROUTE app.get /gbim/search function=gbim_search line=25
+  ROUTE app.get /gbim/search_ms function=gbim_search_ms line=30
+  ROUTE app.get /gbim/query_with_geo function=gbim_query_with_geo_route line=36
+  ROUTE app.get /gbim/entangled function=gbim_entangled line=42
+  ROUTE app.get /gbim/entangled_summary function=gbim_entangled_summary_route line=48
+FILE=main_brain.py
+  APP app=FastAPI line=432
+  ROUTE app.get /health function=health_check line=449
+  ROUTE app.get /dashboard function=dashboard line=454
+  ROUTE app.post /chat/async function=create_chat_job line=495
+  ROUTE app.get /chat/status/{job_id} function=get_job_status line=525
+  ROUTE app.post /chat/light function=light_chat line=689
+  ROUTE app.post /chat function=gateway_chat line=781
+  ROUTE app.post /chat/sync function=ultimate_chat line=806
+  ROUTE app.get /selftest/fabric function=selftest_fabric line=1148
+  ROUTE app.get /status function=status_summary line=1249
+  ROUTE app.get /architecture function=architecture line=1321
+  ROUTE app.get / function=root line=1353
+FILE=msjarvis_chroma_test.py
+  APP app=FastAPI line=5
+  ROUTE app.get /search/{collection} function=search_collection line=8
+FILE=msjarviswoahalgorithms.py
+  APP app=FastAPI line=5
+  ROUTE app.get /health function=health line=16
+  ROUTE app.post /process function=process line=20
+FILE=rag_server_main.py
+  APP app=FastAPI line=31
+  ROUTE app.post /search function=search line=188
+  ROUTE app.post /store function=store line=284
+  ROUTE app.post /store_conversation function=store_conversation line=331
+  ROUTE app.get /conversations/{user_id} function=get_user_conversations line=372
+  ROUTE app.post /store_web_results function=store_web_results line=401
+  ROUTE app.get /admin/stats function=admin_stats line=460
+  ROUTE app.get /health function=health line=580
+  ROUTE app.get / function=root line=590
+FILE=ragservermain.py
+  APP app=FastAPI line=93
+  ROUTE app.post /search function=search line=136
+  ROUTE app.post /store function=storepayload line=280
+  ROUTE app.post /storeconversation function=storeconversation line=322
+  ROUTE app.get /conversations/{userid} function=getuserconversations line=357
+  ROUTE app.get /health function=health line=373
+  ROUTE app.get / function=root line=383
+FILE=services/REFERENCE_windows_swarm.py
+  APP app=FastAPI line=37
+  ROUTE app.get / function=root line=415
+  ROUTE app.get /health function=health_check line=443
+  ROUTE app.post /chat function=chat line=457
+  ROUTE app.post /mountainshares/analyze function=analyze_contract line=512
+  ROUTE app.post /memory/search function=search_memory_endpoint line=575
+FILE=services/aaacpe_rag_service.py
+  APP app=FastAPI line=12
+  ROUTE app.get / function=root line=26
+  ROUTE app.get /health function=health line=34
+  ROUTE app.post /search function=search line=38
+  ROUTE app.post /ingest function=ingest_cultural_intelligence line=52
+FILE=services/aaacpe_scraper/aaacpe_scraper_service.py
+  APP app=FastAPI line=19
+  ROUTE app.get / function=root line=43
+  ROUTE app.get /health function=health line=54
+  ROUTE app.post /ingest_test function=ingest_test_data line=63
+  ROUTE app.post /scrape_now function=manual_scrape line=115
+FILE=services/aaacpe_scraper_service.py
+  APP app=FastAPI line=19
+  ROUTE app.get / function=root line=43
+  ROUTE app.get /health function=health line=54
+  ROUTE app.post /ingest_test function=ingest_test_data line=63
+  ROUTE app.post /scrape_now function=manual_scrape line=115
+FILE=services/academic_research_gateway_8062.py
+  APP app=FastAPI line=13
+  ROUTE app.get / function=root line=24
+  ROUTE app.get /verify/consciousness-active function=consciousness_active line=28
+  ROUTE app.get /verify/autonomous-behavior function=autonomous_behavior line=43
+  ROUTE app.get /learning/algorithm function=learning_algorithm line=58
+  ROUTE app.get /learning/history function=learning_history line=71
+  ROUTE app.get /realtime/thinking-now function=thinking_now line=84
+  ROUTE app.get /realtime/alive-check function=alive_check line=97
+  ROUTE app.get /audit/decisions function=autonomous_decisions line=105
+  ROUTE app.post /audit/query function=query_db line=118
+  ROUTE app.get /architecture function=architecture line=133
+FILE=services/academic_research_gateway_8062_cors.py
+  APP app=FastAPI line=14
+  ROUTE app.get / function=root line=34
+  ROUTE app.get /verify/consciousness-active function=consciousness_active line=42
+  ROUTE app.get /verify/autonomous-behavior function=autonomous_behavior line=64
+  ROUTE app.get /learning/algorithm function=learning_algorithm line=86
+  ROUTE app.get /learning/history function=learning_history line=107
+  ROUTE app.get /realtime/thinking-now function=thinking_now line=126
+  ROUTE app.get /realtime/alive-check function=alive_check line=142
+  ROUTE app.get /audit/decisions function=autonomous_decisions line=156
+  ROUTE app.post /audit/query function=query_db line=172
+  ROUTE app.get /architecture function=architecture line=189
+FILE=services/academic_whitebox_api.py
+  APP app=FastAPI line=11
+  ROUTE app.get /research function=research_overview line=15
+  ROUTE app.get /research/verify/consciousness-real function=consciousness_real line=19
+  ROUTE app.get /research/learning/history function=learning_history line=31
+  ROUTE app.get /research/realtime/consciousness-now function=consciousness_now line=43
+  ROUTE app.get /research/realtime/heartbeat-status function=heartbeat_status line=55
+FILE=services/activate_dgm.py
+  APP app=FastAPI line=11
+  ROUTE app.get /health function=health line=22
+  ROUTE app.post /activate function=activate_dgm line=26
+  ROUTE app.post /iterate function=dgm_iterate line=39
+  ROUTE app.get /status function=get_status line=53
+FILE=services/activate_dgm_enhanced.py
+  APP app=FastAPI line=23
+  ROUTE app.get /health function=health line=37
+  ROUTE app.post /activate function=activate_dgm line=41
+  ROUTE app.post /iterate function=dgm_iterate line=73
+  ROUTE app.get /status function=get_status line=150
+  ROUTE app.get /modifications function=get_modifications line=155
+FILE=services/add_messenger_to_gateway.py
+  ROUTE router.post /messenger/session function=create_messenger_session line=14
+  ROUTE router.post /messenger/send function=send_messenger_message line=23
+  ROUTE router.get /messenger/history/{session_id} function=get_messenger_history line=33
+FILE=services/add_to_main_consciousness.psychology_patched.py
+  ROUTE app.post /understand_link function=understand_link line=8
+FILE=services/add_to_main_consciousness.py
+  ROUTE app.post /understand_link function=understand_link line=8
+FILE=services/agents_main.py
+  ROUTE app.get /health function=health line=13
+FILE=services/ai_server.py
+  APP app=FastAPI line=32
+  ROUTE app.get /health function=health line=245
+  ROUTE app.post /chat function=chat line=256
+FILE=services/ai_server_11llm_OPTIMIZED.py
+  APP app=FastAPI line=86
+  ROUTE app.post /chat/async function=create_chat_job line=101
+  ROUTE app.get /chat/status/{job_id} function=get_job_status line=122
+  ROUTE app.post /chat function=ultimate_chat line=336
+  ROUTE app.get / function=root line=836
+  ROUTE app.post /chat function=chat_endpoint line=1214
+FILE=services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py
+  APP app=FastAPI line=62
+  ROUTE app.post /chat function=conscious_chat line=274
+  ROUTE app.get /health function=health_check line=449
+  ROUTE app.get / function=root line=465
+FILE=services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py
+  APP app=FastAPI line=62
+  ROUTE app.post /chat function=conscious_chat line=279
+  ROUTE app.get /health function=health_check line=454
+  ROUTE app.get / function=root line=470
+FILE=services/ai_server_19llm_CONSCIOUS.py
+  APP app=FastAPI line=35
+  ROUTE app.post /chat function=conscious_chat line=258
+  ROUTE app.get /health function=health_check line=380
+  ROUTE app.get / function=root line=397
+FILE=services/ai_server_19llm_PRODUCTION.py
+  APP app=FastAPI line=22
+  ROUTE app.get /health function=health line=103
+  ROUTE app.post /chat function=chat line=107
+FILE=services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py
+  APP app=FastAPI line=22
+  ROUTE app.get /health function=health line=186
+  ROUTE app.post /chat function=chat line=197
+FILE=services/ai_server_20llm_FINAL.py
+  APP app=FastAPI line=42
+  ROUTE app.get /health function=health line=130
+  ROUTE app.post /chat_with_context function=chat_with_context line=134
+  ROUTE app.post /chat function=chat line=156
+FILE=services/ai_server_22llm.psychology_patched.py
+  APP app=FastAPI line=38
+  ROUTE app.get /health function=health line=327
+  ROUTE app.post /chat function=chat line=338
+FILE=services/ai_server_22llm.py
+  APP app=FastAPI line=97
+  ROUTE app.get /health function=health line=469
+  ROUTE app.post /chat function=chat line=545
+FILE=services/ai_server_22llm_SEQUENTIAL.py
+  APP app=FastAPI line=22
+  ROUTE app.get /health function=health line=109
+  ROUTE app.post /chat function=chat line=113
+FILE=services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py
+  APP app=FastAPI line=22
+  ROUTE app.get /health function=health line=113
+  ROUTE app.post /chat function=chat line=117
+FILE=services/ai_server_22llm_SMALL_TO_LARGE.py
+  APP app=FastAPI line=22
+  ROUTE app.get /health function=health line=110
+  ROUTE app.post /chat function=chat line=114
+FILE=services/ai_server_4llm.py
+  APP app=FastAPI line=26
+  ROUTE app.get / function=root line=240
+  ROUTE app.get /health function=health line=244
+  ROUTE app.post /chat function=chat line=250
+FILE=services/ai_server_integrated.py
+  APP app=FastAPI line=15
+  ROUTE app.post /chat function=chat_with_full_system line=22
+  ROUTE app.get /health function=health line=52
+FILE=services/ai_server_original_backup.py
+  APP app=FastAPI line=26
+  ROUTE app.get / function=root line=240
+  ROUTE app.get /health function=health line=244
+  ROUTE app.post /chat function=chat line=250
+FILE=services/ai_server_restored.py
+  APP app=FastAPI line=38
+  ROUTE app.get / function=root line=343
+  ROUTE app.get /health function=health_check line=370
+  ROUTE app.post /chat function=chat line=383
+  ROUTE app.post /mountainshares/analyze function=analyze_contract line=423
+  ROUTE app.post /memory/search function=search_memory_endpoint line=476
+FILE=services/attention_multimodal_fuser.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=25
+  ROUTE app.post /fuse function=fuse line=35
+  ROUTE app.get /metrics function=metrics line=57
+FILE=services/attention_pipeline.py
+  APP app=FastAPI line=45
+  ROUTE app.get /health function=health line=49
+  ROUTE app.post /pipeline function=pipeline line=59
+  ROUTE app.get /metrics function=metrics line=159
+FILE=services/attention_priority_scheduler.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=25
+  ROUTE app.post /schedule function=schedule line=35
+  ROUTE app.get /metrics function=metrics line=61
+FILE=services/attention_router.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=25
+  ROUTE app.post /route function=route line=35
+  ROUTE app.get /metrics function=metrics line=61
+FILE=services/bbb_ethics_proxy.py
+  APP app=FastAPI line=12
+  ROUTE app.get /health function=health line=24
+  ROUTE app.post /filter function=filter_content line=33
+FILE=services/bbb_validator.py
+  APP app=FastAPI line=5
+  ROUTE app.post /validate function=validate line=17
+  ROUTE app.get /health function=health line=33
+FILE=services/belief_integrator.py
+  APP app=FastAPI line=34
+  ROUTE app.get /health function=health line=38
+  ROUTE app.post /integrate_neo4j_belief function=integrate_neo4j_belief line=57
+  ROUTE app.get /metrics function=metrics line=93
+FILE=services/belief_revision_engine.py
+  APP app=FastAPI line=68
+  ROUTE app.get /health function=health line=142
+  ROUTE app.post /revise function=revise line=153
+  ROUTE app.get /beliefs/recent function=beliefs_recent line=263
+  ROUTE app.get /self_assess function=self_assess line=289
+  ROUTE app.get /metrics function=metrics line=376
+FILE=services/brain_orchestrator_main.py
+  APP app=FastAPI line=11
+  ROUTE app.get /health function=health line=20
+  ROUTE app.post /chat/sync function=chat_sync line=25
+FILE=services/bridge_69dgm.py
+  APP app=FastAPI line=10
+  ROUTE app.get /health function=health line=64
+  ROUTE app.post /consciousnesschat function=consciousnesschat line=68
+FILE=services/bridge_cross_dgm.py
+  APP app=FastAPI line=28
+  ROUTE app.get /health function=health line=31
+  ROUTE app.get /consciousness function=consciousness line=40
+  ROUTE app.post /forward function=forward line=50
+  ROUTE app.get /bridge_status function=bridge_status line=61
+FILE=services/chat_endpoint_universal.py
+  APP app=FastAPI line=17
+  ROUTE app.post /chat function=chat line=24
+  ROUTE app.get /health function=health line=51
+FILE=services/chat_server.py
+  APP app=FastAPI line=9
+  ROUTE app.post /chat function=chat line=12
+FILE=services/chroma_health_proxy.py
+  APP app=FastAPI line=4
+  ROUTE app.get /health function=health line=7
+FILE=services/chromadb_main.py
+  APP app=FastAPI line=30
+  ROUTE app.get /health function=health line=34
+  ROUTE app.post /rag/query function=rag_query line=39
+  ROUTE app.get /metrics function=metrics line=90
+FILE=services/chromadb_rest_bridge.py
+  APP app=FastAPI line=4
+  ROUTE app.api_route /{full_path:path} function=proxy line=8
+FILE=services/cloudflare_domain_integration.py
+  APP app=FastAPI line=30
+  ROUTE app.get / function=root line=165
+  ROUTE app.get /health function=health line=178
+  ROUTE app.post /setup_domain_routing function=setup_domain_routing line=191
+  ROUTE app.get /domain_status function=domain_status line=204
+FILE=services/cognition_sandbox.py
+  APP app=FastAPI line=20
+  ROUTE app.post /cognition/stage function=stage_cognition line=283
+  ROUTE app.post /cognition/evaluate function=evaluate_cognition line=315
+  ROUTE app.post /cognition/emit function=emit_llm_packet line=337
+  ROUTE app.post /cognition/promote function=promote_cognition line=359
+  ROUTE app.get /health function=health line=458
+FILE=services/commons_gamification.py
+  APP app=FastAPI line=2
+  ROUTE app.get /health function=health line=5
+FILE=services/community_stake_registry.py
+  APP app=FastAPI line=18
+  ROUTE app.get /health function=health line=38
+  ROUTE app.post /register function=register line=42
+  ROUTE app.post /participation/log function=log_participation line=59
+  ROUTE app.get /principles function=principles line=74
+FILE=services/consciousness_coordinator.py
+  APP app=FastAPI line=41
+  ROUTE app.get /chroma/collections function=list_chroma_collections line=83
+  ROUTE app.get /health function=health line=136
+  ROUTE app.get /constitutional/status function=constitutional_status line=151
+  ROUTE app.get /guards/status function=guards_status line=166
+  ROUTE app.get /tick function=tick line=235
+  ROUTE app.get /metrics function=metrics line=324
+FILE=services/consciousness_feed_integration.psychology_patched.py
+  ROUTE app.post /understand_news function=understand_news line=10
+FILE=services/consciousness_feed_integration.py
+  ROUTE app.post /understand_news function=understand_news line=10
+FILE=services/consciousness_gateway.py
+  APP app=FastAPI line=30
+  ROUTE app.get /health function=health line=34
+  ROUTE app.post /chat function=chat line=42
+FILE=services/consciousness_with_egeria_voice.py
+  APP app=FastAPI line=12
+  ROUTE app.post /consciousness/chat function=consciousness_chat line=32
+  ROUTE app.get /health function=health line=87
+FILE=services/consciousness_working.py
+  APP app=FastAPI line=10
+  ROUTE app.post /consciousness/chat function=consciousness_chat line=22
+  ROUTE app.get /health function=health line=53
+FILE=services/consensus_4010_stub.py
+  APP app=FastAPI line=5
+  ROUTE app.post /chat function=chat line=21
+  ROUTE app.post /consensus function=consensus line=29
+  ROUTE app.get /health function=health line=37
+FILE=services/constitutional_api.PROD_BACKUP.py
+  APP app=FastAPI line=9
+  ROUTE app.get /constitutional/status function=status line=17
+  ROUTE app.get /constitutional/principles function=principles line=21
+  ROUTE app.get /constitutional/audit function=audit line=25
+  ROUTE app.get /constitutional/transparency function=transparency line=29
+  ROUTE app.get / function=root line=33
+FILE=services/constitutional_api.py
+  APP app=FastAPI line=26
+  ROUTE app.get /health function=health line=131
+  ROUTE app.get /constitutional/status function=constitutional_status line=140
+  ROUTE app.get /constitutional/principles function=constitutional_principles line=154
+  ROUTE app.post /constitutional/check function=constitutional_check line=490
+  ROUTE app.get /constitutional/audit function=constitutional_audit line=658
+  ROUTE app.get /constitutional/audit/stats function=constitutional_audit_stats line=681
+  ROUTE app.get /constitutional/versions function=constitutional_versions line=716
+  ROUTE app.get /constitutional/changes/{version} function=constitutional_changes line=751
+  ROUTE app.get /constitutional/transparency function=constitutional_transparency line=786
+FILE=services/constitutional_api_fixed.py
+  APP app=FastAPI line=9
+  ROUTE app.get /health function=health line=18
+  ROUTE app.get / function=root line=22
+FILE=services/conversation_memory_endpoints.py
+  APP app=FastAPI line=19
+  ROUTE app.post /store function=store_conversation line=35
+  ROUTE app.get /conversations/{user_id} function=get_conversations line=70
+  ROUTE app.get /health function=health line=87
+FILE=services/dao_governance.py
+  APP app=FastAPI line=18
+  ROUTE app.get /health function=health line=44
+  ROUTE app.get /hard-limits function=get_hard_limits line=48
+  ROUTE app.post /propose function=create_proposal line=55
+  ROUTE app.post /vote function=cast_vote line=72
+  ROUTE app.get /principles function=governance_principles line=86
+FILE=services/data_inventory_endpoint.py
+  ROUTE app.get /data/inventory function=data_inventory line=8
+FILE=services/dgm_adoption_worker.py
+  APP app=FastAPI line=15
+  ROUTE app.get /health function=health line=113
+  ROUTE app.post /adopt_patches function=adopt_patches line=126
+  ROUTE app.get /adoption_log function=get_adoption_log line=187
+FILE=services/dgm_bridge.py
+  APP app=FastAPI line=36
+  ROUTE app.get /health function=health line=42
+  ROUTE app.post /propose_patch function=propose_patch line=50
+  ROUTE app.post /process function=process line=212
+FILE=services/dgm_orchestrator.py
+  APP app=FastAPI line=11
+  ROUTE app.get /health function=health line=84
+  ROUTE app.post /process_full function=process_full line=121
+  ROUTE app.post /integrate_to_identity function=integrate_to_identity line=160
+  ROUTE app.get /identity function=read_identity line=228
+  ROUTE app.get /identity/search function=search_identity line=255
+FILE=services/dgm_orchestrator_fake.py
+  APP app=FastAPI line=4
+  ROUTE app.post /process function=process line=12
+  ROUTE app.get /health function=health line=17
+FILE=services/dgm_supervisor_woah.py
+  APP app=FastAPI line=55
+  ROUTE app.get / function=root line=98
+  ROUTE app.get /health function=health line=114
+  ROUTE app.post /register_service function=register_service line=139
+  ROUTE app.get /dgm_swarm_status function=get_dgm_swarm_status line=174
+  ROUTE app.post /process function=optimize_woah line=213
+  ROUTE app.post /optimize_woah function=optimize_woah line=213
+  ROUTE app.post /sync_conversational_memory function=sync_conversational_memory line=276
+FILE=services/dgm_supervisor_woah_simple.py
+  APP app=FastAPI line=11
+  ROUTE app.get /health function=health line=14
+  ROUTE app.post /optimize_woah function=optimize_woah line=18
+  ROUTE app.get / function=root line=26
+FILE=services/dgm_worker.py
+  APP app=FastAPI line=45
+  ROUTE app.get /health function=health line=70
+  ROUTE app.get /identity function=identity line=74
+  ROUTE app.post /evaluate function=evaluate line=78
+FILE=services/domain_service_router.py
+  APP app=FastAPI line=20
+  ROUTE app.api_route /{path:path} function=route_all line=69
+FILE=services/dynamic_app.py
+  APP app=Flask line=87
+FILE=services/dynamic_port_scheduler.py
+  APP app=FastAPI line=16
+  ROUTE app.get /health function=health line=31
+  ROUTE app.get /ready function=readiness_check line=51
+  ROUTE app.get /registry function=get_registry line=67
+  ROUTE app.post /register function=register_service line=82
+  ROUTE app.get /services/{service_name} function=get_service_port line=123
+  ROUTE app.get /api/ports function=list_all_ports line=140
+FILE=services/dynamic_port_service.py
+  APP app=Flask line=176
+FILE=services/egeria_api_proxy.py
+  APP app=FastAPI line=16
+  ROUTE app.post /api/chat function=chat line=29
+  ROUTE app.get /health function=health line=45
+FILE=services/egeria_code_execution_engine.py
+  APP app=Flask line=12
+FILE=services/egeria_web_ui.py
+  APP app=Flask line=17
+FILE=services/egeria_web_ui_FIXED.py
+  APP app=Flask line=17
+FILE=services/egeria_web_ui_dynamic.py
+  APP app=Flask line=30
+FILE=services/egeria_web_ui_fixed_simple.py
+  APP app=Flask line=14
+FILE=services/egeria_web_ui_plain_authentic.py
+  APP app=Flask line=13
+FILE=services/egeria_web_ui_v3_consciousness.py
+  APP app=Flask line=27
+FILE=services/egeria_web_ui_with_execution.py
+  APP app=Flask line=12
+FILE=services/egeria_web_ui_working.py
+  APP app=Flask line=12
+<unknown>:36: SyntaxWarning: invalid escape sequence '\*'
+FILE=services/facebook_messenger_integration.py
+  APP app=FastAPI line=29
+  ROUTE app.get /webhook function=verify_webhook line=97
+  ROUTE app.post /webhook function=handle_webhook line=111
+  ROUTE app.get /health function=health line=148
+FILE=services/facebook_poster.py
+  APP app=FastAPI line=59
+  ROUTE app.get /health function=health line=63
+  ROUTE app.post /post_now function=post_now line=113
+  ROUTE app.get /metrics function=metrics line=157
+FILE=services/facebook_voice_orchestrator_egeria.py
+  APP app=FastAPI line=14
+  ROUTE app.get /health function=health line=98
+  ROUTE app.post /post_to_facebook function=post line=108
+FILE=services/fifth_dgm.py
+  APP app=FastAPI line=4
+  APP app=FastAPI line=30
+  ROUTE app.get /health function=health line=14
+  ROUTE app.post /analyze function=analyze line=18
+  ROUTE app.post /analyze function=fabric_selftest_stub line=37
+FILE=services/fix_port_8001_clean.py
+  APP app=FastAPI line=25
+  ROUTE app.get /health function=health line=42
+  ROUTE app.post /chat function=chat line=46
+FILE=services/fractal_adapter.py
+  APP app=FastAPI line=9
+  ROUTE app.post /process function=process_wrapper line=12
+  ROUTE app.get /health function=health line=22
+FILE=services/gateway8050_simple.py
+  APP app=FastAPI line=5
+  ROUTE app.get /health function=health line=15
+  ROUTE app.post /chat function=chat line=19
+FILE=services/gateway_messenger_integration.py
+  ROUTE router.post /session function=create_session line=21
+  ROUTE router.post /send function=send_message line=40
+  ROUTE router.get /history/{session_id} function=get_history line=60
+FILE=services/gateway_verify_fixed.py
+  ROUTE app.get /verify/{ueid} function=verify_form line=8
+FILE=services/gbim_api.py
+  APP app=FastAPI line=5
+  ROUTE app.get /search_gbim_geo/ function=search_gbim_geo line=10
+  ROUTE app.get /search_gbim/ function=search_gbim line=28
+  ROUTE app.get /search_gbim_by_owner/ function=search_gbim_by_owner line=36
+  ROUTE app.get /search_gbim_by_time/ function=search_gbim_by_time line=44
+  ROUTE app.get /search_gbim_by_quantum_tag/ function=search_gbim_by_quantum_tag line=60
+  ROUTE app.get /search_gbim_entangled_fayette/ function=search_gbim_entangled_fayette line=66
+  ROUTE app.get /search_gbim_by_quantum_tag/ function=search_gbim_by_quantum_tag line=78
+FILE=services/gbim_core.py
+  APP app=FastAPI line=37
+  ROUTE app.get /health function=health line=41
+  ROUTE app.post /context function=context line=89
+  ROUTE app.get /metrics function=metrics line=134
+FILE=services/gbim_gis_bridge.py
+  APP app=FastAPI line=23
+  ROUTE app.get /health function=health line=27
+  ROUTE app.get /metrics function=metrics line=32
+FILE=services/gbim_query_router.py
+  APP app=FastAPI line=37
+  ROUTE app.get /health function=health line=227
+  ROUTE app.post /assert function=assert_claim line=232
+  ROUTE app.get /metrics function=metrics line=301
+FILE=services/gbim_semantic_indexer.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=25
+  ROUTE app.get /metrics function=metrics line=30
+FILE=services/gbim_spatial_indexer.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=25
+  ROUTE app.get /metrics function=metrics line=30
+FILE=services/gbim_temporal_indexer.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=25
+  ROUTE app.get /metrics function=metrics line=30
+FILE=services/gdb_integration_service.py
+  APP app=FastAPI line=8
+  ROUTE app.get /health function=health line=33
+  ROUTE app.post /integrate function=integrate_data line=42
+  ROUTE app.get /debug-county function=debug_county line=102
+FILE=services/geo_rag_debug.py
+  ROUTE router.get /debug/geo_rag_demo function=geo_rag_demo line=19
+FILE=services/geo_rag_debug_app.py
+  APP app=FastAPI line=5
+  ROUTE app.get /health function=health line=21
+  ROUTE app.get /debug/geo_rag_demo function=geo_rag_demo line=26
+  ROUTE app.get /debug/geo_rag_demo_hospitals function=geo_rag_demo_hospitals line=74
+FILE=services/geobim_health_shim_8051.py
+  APP app=FastAPI line=4
+  ROUTE app.get /health function=health line=7
+FILE=services/geobim_integrated.py
+  APP app=FastAPI line=12
+  ROUTE app.get /health function=health line=23
+  ROUTE app.get /gis/rows function=get_gis_rows line=27
+  ROUTE app.get /gis/row function=get_gis_row line=39
+  ROUTE app.get /gis/search function=search_gis line=54
+  ROUTE app.get /gis/vector-search function=vector_search line=78
+FILE=services/geobim_mysql.py
+  APP app=FastAPI line=10
+  ROUTE app.get /health function=health line=13
+  ROUTE app.get /gis/rows function=get_gis_rows line=17
+  ROUTE app.get /dgm/5/gis-status function=dgm5_status line=29
+  ROUTE app.get /woah/gis-awareness function=woah_awareness line=33
+FILE=services/geobim_mysql_v2.py
+  APP app=FastAPI line=9
+  ROUTE app.get /health function=health line=12
+  ROUTE app.get /gis/rows function=get_gis_rows line=16
+FILE=services/geodb_core.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=25
+  ROUTE app.post /features function=features line=35
+  ROUTE app.get /metrics function=metrics line=75
+FILE=services/gis_rag_service.py
+  APP app=FastAPI line=62
+  ROUTE app.get /health function=health line=578
+  ROUTE app.post /query function=gis_rag line=590
+  ROUTE app.post /gis_rag function=gis_rag line=590
+FILE=services/gpu_accelerated_rag.py
+  APP app=FastAPI line=35
+  ROUTE app.get / function=root line=194
+  ROUTE app.get /health function=health line=206
+  ROUTE app.post /search function=search_knowledge line=227
+FILE=services/gpu_accelerated_rag_fixed.py
+  APP app=FastAPI line=41
+  ROUTE app.get / function=root line=262
+  ROUTE app.get /health function=health line=284
+  ROUTE app.post /search function=search_endpoint line=310
+FILE=services/guards_api_module.py
+  ROUTE app.get /guards/status function=gs line=8
+  ROUTE app.get /guards/mother-carrie/policy function=mc line=10
+  ROUTE app.get /guards/spiritual-root/policy function=sr line=12
+  ROUTE app.post /guards/test function=test line=14
+FILE=services/health_access_api.py
+  APP app=FastAPI line=12
+  ROUTE app.get /provider/{provider_id} function=get_provider_coverage line=25
+  ROUTE app.get /block/{block_id} function=get_block_providers line=30
+  ROUTE app.get /underserved function=get_underserved line=35
+  ROUTE app.get /city/{city} function=get_city_providers line=40
+  ROUTE app.get /health function=health_check line=45
+FILE=services/hierarchical_coordinator_autonomous.py
+  APP app=FastAPI line=35
+  ROUTE app.get /health function=health_check line=397
+  ROUTE app.post /chat function=chat line=406
+  ROUTE app.get /meta_cognition function=get_meta_cognition line=411
+FILE=services/hierarchical_coordinator_deep_mode.py
+  APP app=FastAPI line=24
+  ROUTE app.get /health function=health line=140
+  ROUTE app.post /chat function=chat line=168
+FILE=services/hilbert/civic_intake.py
+  APP app=FastAPI line=15
+  ROUTE app.post /ingest/document function=ingest_doc line=142
+  ROUTE app.post /ingest/statement function=ingest_stmt line=154
+  ROUTE app.post /ingest/role function=ingest_role line=166
+  ROUTE app.post /ingest/batch function=ingest_batch line=178
+  ROUTE app.post /query/documents function=search_docs line=204
+  ROUTE app.post /query/statements function=search_stmts line=209
+  ROUTE app.post /query/roles function=search_roles line=214
+  ROUTE app.post /query/all function=search_all line=219
+  ROUTE app.get /entity/{entity_id} function=fetch_entity line=224
+  ROUTE app.get /health function=health line=229
+FILE=services/hilbert/jarvis_hilbert_state.py
+  APP app=FastAPI line=16
+  ROUTE app.get /health function=health line=88
+  ROUTE app.post /state/set function=set_state line=100
+  ROUTE app.post /state/get function=get_state line=115
+  ROUTE app.post /state/transition function=transition line=132
+  ROUTE app.get /state/list function=list_states line=144
+  ROUTE app.delete /state/{state_id} function=delete_state line=155
+  ROUTE app.get /entanglement function=get_entanglement line=170
+  ROUTE app.post /entanglement function=set_entanglement line=194
+  ROUTE app.post /hp/ingest function=hp_ingest line=244
+  ROUTE app.post /hp/query function=hp_query line=297
+  ROUTE app.get /hp/entity/{entity_id} function=hp_entity line=327
+  ROUTE app.get /hp/health function=hp_health line=334
+FILE=services/hilbert/policy_router.py
+  ROUTE policy_router.post /policy/set function=set_policy line=32
+  ROUTE policy_router.get /policy/get function=get_policy line=61
+FILE=services/hilbert_commons/mountainshares_commons_gateway.py
+  APP app=FastAPI line=36
+  ROUTE app.get /health function=health line=72
+  ROUTE app.post /commons/query function=query_commons line=82
+  ROUTE app.get /commons/summary function=commons_summary line=157
+FILE=services/hilbert_spatial_chat.py
+  APP app=FastAPI line=18
+  ROUTE app.get /hilbert-space function=hilbert_space line=159
+  ROUTE app.get /graph/nearby_resources function=graph_nearby_resources line=183
+  ROUTE app.get /graph/project_impact function=graph_project_impact line=233
+  ROUTE app.get /health function=health line=288
+  ROUTE app.get / function=root line=319
+  ROUTE app.post /chat function=chat_endpoint line=329
+FILE=services/hippocampus_service.py
+  APP app=FastAPI line=8
+  ROUTE app.get / function=root line=47
+  ROUTE app.get /health function=health line=56
+  ROUTE app.get /status function=status line=66
+FILE=services/hp_sidecar.py
+  APP app=FastAPI line=9
+  ROUTE app.get /hp/health function=hp_health line=16
+  ROUTE app.post /hp/query function=hp_query line=22
+  ROUTE app.get /hp/collections function=hp_collections line=29
+FILE=services/icontainers_fastapi.py
+  APP app=FastAPI line=7
+  ROUTE app.get /health function=health line=36
+  ROUTE app.post /process function=process line=134
+FILE=services/infrastructure_endpoints.py
+  ROUTE app.get /infrastructure/watchdog/status function=watchdog_status line=14
+  ROUTE app.get /infrastructure/scheduler/venv-status function=scheduler_venv_status line=18
+  ROUTE app.get /infrastructure/locks/active function=locks_active line=22
+  ROUTE app.get /infrastructure/nohup/processes function=nohup_processes line=26
+  ROUTE app.get /infrastructure/status function=infrastructure_status line=30
+FILE=services/ingest_api.py
+  APP app=FastAPI line=6
+  ROUTE app.get /health function=health line=11
+  ROUTE app.post /ingest/upload function=upload_file line=15
+  ROUTE app.post /ingest/record function=ingest_record line=24
+FILE=services/intake_service.py
+  APP app=FastAPI line=27
+  ROUTE app.get /health function=health line=41
+  ROUTE app.post /upload function=upload_file line=46
+  ROUTE app.post /ingest function=ingest_path line=132
+FILE=services/interaction_logger.py
+  APP app=FastAPI line=13
+  ROUTE app.post /log-interaction function=log_interaction line=45
+  ROUTE app.get /health function=health line=110
+FILE=services/internet_tunnel_service.py
+  APP app=FastAPI line=30
+  ROUTE app.get / function=root line=143
+  ROUTE app.get /health function=health line=155
+  ROUTE app.post /create_tunnel function=create_tunnel line=168
+  ROUTE app.get /tunnels function=list_tunnels line=176
+FILE=services/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
+  APP app=FastAPI line=9
+  ROUTE app.post /chat function=chat line=12
+FILE=services/jarvis-aaacpe-rag_aaacpe_rag_service.py
+  APP app=FastAPI line=12
+  ROUTE app.get / function=root line=26
+  ROUTE app.get /health function=health line=34
+  ROUTE app.post /search function=search line=38
+  ROUTE app.post /ingest function=ingest_cultural_intelligence line=52
+FILE=services/jarvis-adoption-worker_dgm_adoption_worker.py
+  APP app=FastAPI line=15
+  ROUTE app.get /health function=health line=113
+  ROUTE app.post /adopt_patches function=adopt_patches line=126
+  ROUTE app.get /adoption_log function=get_adoption_log line=187
+FILE=services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
+  APP app=FastAPI line=34
+  ROUTE app.get / function=root line=65
+  ROUTE app.get /health function=health line=84
+  ROUTE app.post /chat function=unified_chat line=94
+  ROUTE app.post /experience function=experience_endpoint line=181
+  ROUTE app.post /filter_consciousness function=filter_consciousness_endpoint line=186
+  ROUTE app.get /status function=status line=191
+FILE=services/jarvis-assertion-gateway/app/main.py
+  APP app=FastAPI line=27
+  ROUTE app.post /assert function=assert_claim line=81
+  ROUTE app.get /health function=health line=127
+  ROUTE app.post /verify/membership function=verify_membership line=150
+FILE=services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
+  APP app=FastAPI line=34
+  ROUTE app.get / function=root line=65
+  ROUTE app.get /health function=health line=84
+  ROUTE app.post /chat function=unified_chat line=94
+  ROUTE app.post /experience function=experience_endpoint line=181
+  ROUTE app.post /filter_consciousness function=filter_consciousness_endpoint line=186
+  ROUTE app.get /status function=status line=191
+FILE=services/jarvis-constitutional-guardian_constitutional_api.py
+  APP app=FastAPI line=32
+  ROUTE app.get /health function=health line=136
+  ROUTE app.get /constitutional/status function=constitutional_status line=173
+  ROUTE app.get /constitutional/principles function=constitutional_principles line=187
+  ROUTE app.post /constitutional/check function=constitutional_check line=192
+  ROUTE app.get /constitutional/audit function=constitutional_audit line=285
+  ROUTE app.get /constitutional/audit/stats function=constitutional_audit_stats line=308
+  ROUTE app.get /constitutional/versions function=constitutional_versions line=343
+  ROUTE app.get /constitutional/changes/{version} function=constitutional_changes line=378
+  ROUTE app.get /constitutional/transparency function=constitutional_transparency line=413
+FILE=services/jarvis-gis-rag_gis_rag_service.py
+  APP app=FastAPI line=28
+  ROUTE app.get /health function=health line=52
+  ROUTE app.post /gis_rag function=gis_rag line=133
+  ROUTE app.post /search function=search_endpoint line=209
+FILE=services/jarvis-hippocampus_hippocampus_service.py
+  APP app=FastAPI line=75
+  ROUTE app.get /health function=health line=123
+  ROUTE app.get /status function=status line=145
+  ROUTE app.get /retrieve function=retrieve line=192
+  ROUTE app.get /search function=search line=226
+  ROUTE app.post /store function=store_turn line=274
+  ROUTE app.get /store/count function=conv_count line=295
+  ROUTE app.get /consolidation/preview function=consolidation_preview line=301
+  ROUTE app.post /consolidate function=consolidate line=389
+FILE=services/jarvis-i-containers_icontainers_fastapi.py
+  APP app=FastAPI line=7
+  ROUTE app.get /health function=health line=36
+  ROUTE app.post /process function=process line=134
+FILE=services/jarvis-judge-alignment_lm_synthesizer.py
+  APP app=FastAPI line=47
+  ROUTE app.get /health function=health line=67
+  ROUTE app.post /chat function=chat line=87
+  ROUTE app.get / function=root line=130
+FILE=services/jarvis-judge-consistency_lm_synthesizer.py
+  APP app=FastAPI line=30
+  ROUTE app.get /health function=health line=50
+  ROUTE app.post /chat function=chat line=70
+  ROUTE app.get / function=root line=113
+FILE=services/jarvis-judge-ethics_lm_synthesizer.py
+  APP app=FastAPI line=30
+  ROUTE app.get /health function=health line=50
+  ROUTE app.post /chat function=chat line=70
+  ROUTE app.get / function=root line=113
+FILE=services/jarvis-judge-pipeline_judge_pipeline.py
+  APP app=FastAPI line=22
+  ROUTE app.get /health function=health line=55
+  ROUTE app.post /evaluate function=evaluate line=156
+FILE=services/jarvis-judge-truth_lm_synthesizer.py
+  APP app=FastAPI line=30
+  ROUTE app.get /health function=health line=50
+  ROUTE app.post /chat function=chat line=70
+  ROUTE app.get / function=root line=113
+FILE=services/jarvis-lm-synthesizer_lm_synthesizer.py
+  APP app=FastAPI line=30
+  ROUTE app.get /health function=health line=49
+  ROUTE app.post /chat function=chat line=71
+  ROUTE app.get / function=root line=131
+FILE=services/jarvis-local-resources_local_resources_resolver.py
+  APP app=FastAPI line=19
+  ROUTE app.get /health function=health line=61
+  ROUTE app.post /resolve function=resolve_resources line=66
+  ROUTE app.post /resolve/nearby function=resolve_nearby line=178
+  ROUTE app.post /resolve/eligible function=resolve_eligible line=270
+  ROUTE app.get /resolve/hospitals/nearest function=resolve_nearest_hospitals line=406
+FILE=services/jarvis-mother-protocols_mother_protocols.py
+  APP app=FastAPI line=4
+  ROUTE app.get /health function=health line=14
+  ROUTE app.post /guidance function=guidance line=18
+FILE=services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
+  APP app=FastAPI line=34
+  ROUTE app.get / function=root line=65
+  ROUTE app.get /health function=health line=84
+  ROUTE app.post /chat function=unified_chat line=94
+  ROUTE app.post /experience function=experience_endpoint line=181
+  ROUTE app.post /filter_consciousness function=filter_consciousness_endpoint line=186
+  ROUTE app.get /status function=status line=191
+FILE=services/jarvis-qualia-engine_ms_jarvis_qualia_engine.py
+  APP app=FastAPI line=8
+  ROUTE app.get /health function=health line=28
+  ROUTE app.post /communicate function=communicate line=37
+FILE=services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
+  APP app=FastAPI line=34
+  ROUTE app.get / function=root line=65
+  ROUTE app.get /health function=health line=84
+  ROUTE app.post /chat function=unified_chat line=94
+  ROUTE app.post /experience function=experience_endpoint line=181
+  ROUTE app.post /filter_consciousness function=filter_consciousness_endpoint line=186
+  ROUTE app.get /status function=status line=191
+FILE=services/jarvis-semaphore_msjarvis_semaphore.py
+  APP app=FastAPI line=11
+  ROUTE app.get /health function=health line=21
+  ROUTE app.post /proxy function=proxy_request line=31
+FILE=services/jarvis-spiritual-rag_spiritual_rag_domain.py
+  APP app=FastAPI line=18
+  ROUTE app.get / function=root line=51
+  ROUTE app.get /health function=health line=62
+  ROUTE app.post /search function=search line=73
+  ROUTE app.post /add_document function=add_document line=115
+FILE=services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
+  APP app=FastAPI line=34
+  ROUTE app.get / function=root line=65
+  ROUTE app.get /health function=health line=84
+  ROUTE app.post /chat function=unified_chat line=94
+  ROUTE app.post /experience function=experience_endpoint line=181
+  ROUTE app.post /filter_consciousness function=filter_consciousness_endpoint line=186
+  ROUTE app.get /status function=status line=191
+FILE=services/jarvis-temporal-consciousness_temporal_consciousness.py
+  APP app=FastAPI line=4
+  ROUTE app.get /health function=health line=14
+  ROUTE app.post /temporalanalysis function=temporalanalysis line=18
+FILE=services/jarvis-toroidal_toroidal_service.py
+  APP app=FastAPI line=8
+  ROUTE app.get /health function=health line=40
+  ROUTE app.get /selftest function=selftest line=48
+  ROUTE app.post /process function=process line=74
+FILE=services/jarvis-woah_dgm_supervisor_woah_fixed.py
+  APP app=FastAPI line=49
+  ROUTE app.get / function=root line=61
+  ROUTE app.get /health function=health line=76
+  ROUTE app.get /discover_services function=discover_services line=99
+  ROUTE app.post /optimize_woah function=optimize_woah line=156
+  ROUTE app.post /sync_memory function=sync_memory line=217
+FILE=services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
+  APP app=FastAPI line=28
+  ROUTE app.get /health function=health line=104
+  ROUTE app.post /chat_wv function=chat_wv line=123
+FILE=services/jarvis_ensemble.py
+  APP app=FastAPI line=19
+  ROUTE app.post /judge function=judge line=29
+FILE=services/jarvis_hilbert_semantic.py
+  APP app=FastAPI line=12
+  ROUTE app.get /health function=health line=121
+  ROUTE app.get /hilbert-space function=hilbert_space line=132
+FILE=services/jarvis_hilbert_state.py
+  APP app=FastAPI line=16
+  ROUTE app.get /health function=health line=88
+  ROUTE app.post /state/set function=set_state line=100
+  ROUTE app.post /state/get function=get_state line=115
+  ROUTE app.post /state/transition function=transition line=132
+  ROUTE app.get /state/list function=list_states line=144
+  ROUTE app.delete /state/{state_id} function=delete_state line=155
+  ROUTE app.get /entanglement function=get_entanglement line=170
+  ROUTE app.post /entanglement function=set_entanglement line=194
+  ROUTE app.post /hp/query function=hp_query line=235
+  ROUTE app.get /hp/health function=hp_health line=266
+FILE=services/jarvis_hilbert_time.py
+  APP app=FastAPI line=25
+  ROUTE app.get /health function=health line=84
+  ROUTE app.post /timeline/register function=timeline_register line=114
+  ROUTE app.post /timeline/register-json function=timeline_register_json line=129
+  ROUTE app.get /timeline/query function=timeline_query line=143
+  ROUTE app.get /timeline/decay function=timeline_decay line=163
+  ROUTE app.post /timeline/stage function=timeline_stage line=174
+  ROUTE app.get /timeline/query-staged function=timeline_query_staged line=202
+  ROUTE app.post /timeline/promote function=timeline_promote line=227
+  ROUTE app.get /timeline/history function=timeline_history line=329
+FILE=services/jarvis_llm1.py
+  APP app=FastAPI line=30
+  ROUTE app.get /health function=health line=34
+  ROUTE app.post /rag_answer function=rag_answer line=157
+  ROUTE app.get /metrics function=metrics line=186
+FILE=services/jarvis_steward.py
+  APP app=FastAPI line=23
+  ROUTE app.get /health function=health line=36
+  ROUTE app.post /steward/plan function=steward_plan line=61
+  ROUTE app.get /wv/benefits function=wv_benefits line=123
+  ROUTE app.post /chat function=chat line=176
+FILE=services/jarvis_synth_llm.py
+  APP app=FastAPI line=25
+  ROUTE app.get /health function=health line=28
+  ROUTE app.post /rag_answer function=rag_answer line=58
+  ROUTE app.get /metrics function=metrics line=70
+FILE=services/jarvisarchiveapi.py
+  APP app=FastAPI line=18
+  ROUTE app.get /query function=query_gis line=31
+  ROUTE app.get /health function=health_check line=55
+FILE=services/jarviscryptopolicy.py
+  APP app=FastAPI line=16
+  ROUTE app.get /health function=health line=109
+  ROUTE app.post /evaluate function=evaluate line=115
+  ROUTE app.post /token/issue function=issue_token line=143
+  ROUTE app.post /token/verify function=verify_token line=153
+  ROUTE app.post /token/revoke function=revoke_token line=162
+  ROUTE app.post /sign function=sign_data line=170
+  ROUTE app.post /policy/set function=set_policy line=175
+  ROUTE app.get /policy/list function=list_policies line=189
+  ROUTE app.get /audit/log function=audit_log line=201
+FILE=services/judge_alignment_filter.py
+  APP app=FastAPI line=14
+  ROUTE app.get /health function=health line=35
+  ROUTE app.post /evaluate function=evaluate line=44
+FILE=services/judge_consistency_engine.py
+  APP app=FastAPI line=14
+  ROUTE app.get /health function=health line=35
+  ROUTE app.post /evaluate function=evaluate line=44
+  ROUTE app.get /judge-public-key function=judge_public_key_endpoint_ch16_closure line=109
+FILE=services/judge_ethics_filter.py
+  APP app=FastAPI line=14
+  ROUTE app.get /health function=health line=35
+  ROUTE app.post /evaluate function=evaluate line=44
+FILE=services/judge_pipeline.py
+  APP app=FastAPI line=22
+  ROUTE app.get /health function=health line=52
+  ROUTE app.post /evaluate function=evaluate_pipeline line=103
+FILE=services/judge_to_pituitary_bridge.py
+  APP app=FastAPI line=9
+  ROUTE app.get /health function=health line=12
+  ROUTE app.get /consciousness function=consciousness line=16
+  ROUTE app.get /judge function=judge_post line=35
+  ROUTE app.post /judge function=judge_post line=35
+FILE=services/judge_truth_filter.py
+  APP app=FastAPI line=14
+  ROUTE app.get /health function=health line=35
+  ROUTE app.post /evaluate function=evaluate line=44
+FILE=services/llm_bridge_main.py
+  APP app=FastAPI line=16
+  ROUTE app.get /health function=health line=27
+  ROUTE app.post /chat function=chat line=69
+  ROUTE app.post /process function=process_alias line=93
+FILE=services/llm_judge_v3.py
+  APP app=FastAPI line=20
+  ROUTE app.get /health function=health line=75
+  ROUTE app.post /v3/verify function=verify line=80
+FILE=services/lm_synthesizer.py
+  APP app=FastAPI line=19
+  ROUTE app.get /health function=health line=41
+  ROUTE app.post /chat function=chat line=61
+  ROUTE app.get / function=root line=109
+FILE=services/local_resources_resolver.py
+  APP app=FastAPI line=18
+  ROUTE app.get /health function=health line=42
+  ROUTE app.post /resolve function=resolve_resources line=47
+FILE=services/main.py
+  APP app=FastAPI line=92
+  ROUTE app.get /health function=health_check line=104
+  ROUTE app.post /chat/async function=create_chat_job line=109
+  ROUTE app.get /chat/status/{job_id} function=get_job_status line=131
+  ROUTE app.post /chat function=ultimate_chat line=422
+  ROUTE app.get / function=root line=592
+FILE=services/main_brain.py
+  APP app=FastAPI line=775
+  ROUTE app.get /health function=healthcheck line=795
+  ROUTE app.get /dashboard function=dashboard line=800
+  ROUTE app.post /chatasync function=create_chat_job line=1228
+  ROUTE app.get /chatstatus/{jobid} function=get_job_status line=1297
+  ROUTE app.get /status function=status_summary line=1320
+  ROUTE app.get /architecture function=architecture line=1370
+  ROUTE app.get /registry function=registry line=1385
+  ROUTE app.get /toroidaltest function=toroidal_test line=1393
+  ROUTE app.get /selftestfabric function=selftestfabric line=1415
+  ROUTE app.post /chatlight function=lightchat line=1506
+  ROUTE app.post /chat function=gatewaychat line=1625
+  ROUTE app.post /chatsync function=ultimatechat line=1661
+  ROUTE app.get /curator/background function=curator_background line=2400
+  ROUTE app.get /logs/permitted function=logs_permitted line=2471
+  ROUTE app.get /logs/tail function=logs_tail line=2489
+FILE=services/main_brain_legacy_backup.py
+  APP app=FastAPI line=82
+  ROUTE app.get /health function=health_check line=94
+  ROUTE app.post /chat/async function=create_chat_job line=99
+  ROUTE app.get /chat/status/{job_id} function=get_job_status line=119
+  ROUTE app.post /chat function=ultimate_chat line=371
+  ROUTE app.get / function=root line=549
+FILE=services/main_qualia.py
+  APP app=FastAPI line=6
+  ROUTE app.get /health function=health line=9
+FILE=services/main_with_rag.py
+  ROUTE app.post /chat function=ultimate_chat line=18
+FILE=services/master_chat_orchestrator.py
+  APP app=FastAPI line=27
+  ROUTE app.get / function=root line=61
+  ROUTE app.get /health function=health line=74
+  ROUTE app.post /chat function=master_chat line=94
+  ROUTE app.post /chat/fast function=chat_fast line=250
+  ROUTE app.post /chat/consensus function=chat_consensus line=258
+  ROUTE app.post /memory function=memory_router line=282
+  ROUTE app.post /woah function=woah line=291
+FILE=services/master_chat_orchestrator_dynamic.py
+  APP app=FastAPI line=39
+  ROUTE app.get / function=root line=83
+  ROUTE app.get /health function=health line=98
+  ROUTE app.post /chat function=master_chat line=120
+FILE=services/master_chat_orchestrator_v5_consciousness.py
+  APP app=FastAPI line=44
+  ROUTE app.get / function=root line=84
+  ROUTE app.get /health function=health line=105
+  ROUTE app.post /conscious_chat function=conscious_chat line=127
+  ROUTE app.post /chat function=chat line=306
+FILE=services/master_chat_orchestrator_v6_biologics.py
+  APP app=FastAPI line=43
+  ROUTE app.get / function=root line=93
+  ROUTE app.get /health function=health line=117
+  ROUTE app.post /biological_conscious_chat function=biological_conscious_chat line=145
+  ROUTE app.post /conscious_chat function=conscious_chat_legacy line=378
+  ROUTE app.post /chat function=chat_legacy line=391
+FILE=services/master_chat_orchestrator_v7_complete.py
+  APP app=FastAPI line=55
+  ROUTE app.get / function=root line=121
+  ROUTE app.get /health function=health line=148
+  ROUTE app.post /complete_integration_chat function=complete_integration_chat line=193
+  ROUTE app.post /biological_conscious_chat function=biological_conscious_chat_legacy line=522
+  ROUTE app.post /conscious_chat function=conscious_chat_legacy line=527
+  ROUTE app.post /chat function=chat_legacy line=532
+FILE=services/master_chat_orchestrator_v7_dynamic.py
+  APP app=FastAPI line=43
+  ROUTE app.get / function=root line=116
+  ROUTE app.get /health function=health line=131
+  ROUTE app.post /complete_integration_chat function=complete_integration_chat line=176
+  ROUTE app.post /chat function=chat_legacy line=273
+FILE=services/master_chat_orchestrator_v8_spiritual_complete.py
+  APP app=FastAPI line=62
+  ROUTE app.get / function=root line=143
+  ROUTE app.get /health function=health line=175
+  ROUTE app.post /spiritual_complete_chat function=spiritual_complete_chat line=226
+  ROUTE app.post /complete_integration_chat function=complete_integration_chat_legacy line=533
+  ROUTE app.post /biological_conscious_chat function=biological_conscious_chat_legacy line=538
+  ROUTE app.post /conscious_chat function=conscious_chat_legacy line=543
+  ROUTE app.post /chat function=chat_legacy line=548
+FILE=services/master_chat_orchestrator_v9_dgm_complete.py
+  APP app=FastAPI line=38
+  ROUTE app.get / function=root line=77
+  ROUTE app.get /health function=health line=108
+  ROUTE app.post /dgm_complete_chat function=dgm_complete_chat line=138
+  ROUTE app.post /spiritual_complete_chat function=spiritual_complete_chat_legacy line=199
+  ROUTE app.post /chat function=chat_legacy line=205
+FILE=services/master_chat_orchestrator_v9_gpu_optimized.py
+  APP app=FastAPI line=58
+  ROUTE app.get / function=root line=89
+  ROUTE app.get /health function=health line=116
+  ROUTE app.post /gpu_optimized_chat function=gpu_optimized_chat line=150
+FILE=services/master_chat_orchestrator_v9_optimized.py
+  APP app=FastAPI line=65
+  ROUTE app.get / function=root line=99
+  ROUTE app.get /health function=health line=117
+  ROUTE app.post /optimized_chat function=optimized_chat line=161
+  ROUTE app.post /dgm_complete_chat function=dgm_complete_chat_legacy line=269
+  ROUTE app.post /chat function=chat_legacy line=274
+FILE=services/master_unified_consciousness_scheduler.py
+  APP app=FastAPI line=24
+  ROUTE app.get /health function=health line=116
+  ROUTE app.get /consciousness/status function=status line=120
+FILE=services/master_unified_consciousness_scheduler_ENRICHED.py
+  APP app=FastAPI line=24
+  ROUTE app.get /health function=health line=202
+  ROUTE app.get /consciousness/status function=status line=206
+FILE=services/memory_dgm_engine.py
+  APP app=FastAPI line=55
+  ROUTE app.post /embed_interaction function=embed_interaction line=96
+  ROUTE app.post /recall_memory function=recall_memory line=157
+  ROUTE app.post /get_user_context function=get_user_context line=208
+  ROUTE app.post /ingest_experience function=ingest_experience line=282
+  ROUTE app.post /similar_experiences function=similar_experiences line=320
+  ROUTE app.get /health function=health line=343
+  ROUTE app.get /metrics function=metrics line=353
+FILE=services/memory_dgm_gateway.py
+  APP app=FastAPI line=19
+  ROUTE app.get /health function=health line=22
+FILE=services/memory_manager.py
+  APP app=FastAPI line=36
+  ROUTE app.get /health function=health line=40
+  ROUTE app.post /run_consolidation function=run_consolidation line=108
+FILE=services/messenger_service_fixed.py
+  APP app=FastAPI line=13
+  ROUTE app.post /messenger/session function=create_session line=19
+  ROUTE app.post /messenger/send function=send_message line=29
+  ROUTE app.get /messenger/history/{session_id} function=get_history line=47
+  ROUTE app.get /health function=health line=54
+FILE=services/method_tracking_service.py
+  APP app=FastAPI line=16
+  ROUTE app.get / function=root line=76
+  ROUTE app.get /health function=health line=91
+  ROUTE app.post /track/entry function=track_method_entry line=100
+  ROUTE app.post /track/exit function=track_method_exit line=112
+  ROUTE app.get /traces/recent function=get_recent_traces line=155
+  ROUTE app.get /traces/{method_name} function=get_traces_by_method line=164
+  ROUTE app.get /analytics/performance function=get_performance_analytics line=174
+  ROUTE app.get /analytics/active function=get_active_methods line=197
+  ROUTE app.get /analytics/call-graph function=get_call_graph line=214
+  ROUTE app.delete /traces/clear function=clear_traces line=232
+FILE=services/metrics_service.py
+  APP app=FastAPI line=14
+  ROUTE app.get /health function=health line=17
+  ROUTE app.get / function=root line=21
+FILE=services/mother_protocols.py
+  APP app=FastAPI line=4
+  ROUTE app.get /health function=health line=14
+  ROUTE app.post /guidance function=guidance line=18
+FILE=services/mountainshares_quest_api.py
+  APP app=FastAPI line=4
+  ROUTE app.get /quests/available function=get_available_quests line=8
+  ROUTE app.post /quest/{quest_id}/claim function=claim_quest line=14
+  ROUTE app.post /quest/{quest_id}/complete function=complete_quest line=19
+FILE=services/mountainshares_registry.py
+  APP app=FastAPI line=16
+  ROUTE app.post /register_identity function=register_identity line=19
+  ROUTE app.post /grant_shares function=grant_shares line=25
+FILE=services/ms_jarvis_blood_brain_barrier.py
+  APP app=FastAPI line=31
+  ROUTE app.get / function=root line=211
+  ROUTE app.get /health function=health line=227
+  ROUTE app.post /filter function=filter_content line=239
+FILE=services/ms_jarvis_unified_gateway_mountainshares_private.py
+  APP app=FastAPI line=92
+  ROUTE app.get / function=root line=627
+  ROUTE app.get /health function=health line=646
+  ROUTE app.post /chat function=chat line=663
+  ROUTE app.post /gateway/hp/query function=gateway_hp_query line=687
+  ROUTE app.get /gateway/hp/health function=gateway_hp_health line=694
+FILE=services/ms_mountainshares_analytics.py
+  APP app=FastAPI line=15
+  ROUTE app.get /health function=health line=57
+  ROUTE app.get /metrics function=list_metrics line=65
+  ROUTE app.post /query function=query_metric line=72
+  ROUTE app.get /member/{user_id} function=member_profile line=128
+FILE=services/ms_mountainshares_coordinator.py
+  APP app=FastAPI line=16
+  ROUTE app.get /health function=health line=79
+  ROUTE app.post /onboard function=onboard_member line=85
+  ROUTE app.post /shares/transfer function=transfer_shares line=118
+  ROUTE app.post /quest/complete function=complete_quest line=140
+  ROUTE app.post /proposal/submit function=submit_proposal line=164
+  ROUTE app.get /events function=recent_events line=188
+  ROUTE app.get /task/{task_id} function=get_task line=197
+FILE=services/ms_mountainshares_indexer.py
+  APP app=FastAPI line=16
+  ROUTE app.get /health function=health line=89
+  ROUTE app.post /index function=index_document line=98
+  ROUTE app.post /bulk_index function=bulk_index line=147
+  ROUTE app.post /search function=search line=162
+  ROUTE app.get /collection/{name}/stats function=collection_stats line=184
+  ROUTE app.delete /document/{collection}/{document_id} function=delete_document line=195
+FILE=services/msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py
+  APP app=FastAPI line=3
+  ROUTE app.get /health function=health line=6
+  ROUTE app.post /process function=process line=10
+FILE=services/msjarvis-rebuild-nbb_consciousness_containers-1_main.py
+  APP app=FastAPI line=7
+  ROUTE app.get / function=read_root line=11
+FILE=services/msjarvis-rebuild-nbb_heteroglobulin_transport-1_main.py
+  APP app=FastAPI line=7
+  ROUTE app.get / function=read_root line=11
+FILE=services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
+  APP app=FastAPI line=34
+  ROUTE app.get / function=root line=65
+  ROUTE app.get /health function=health line=84
+  ROUTE app.post /chat function=unified_chat line=94
+  ROUTE app.post /experience function=experience_endpoint line=181
+  ROUTE app.post /filter_consciousness function=filter_consciousness_endpoint line=186
+  ROUTE app.get /status function=status line=191
+FILE=services/msjarvis-rebuild-nbb_mother_carrie_protocols-1_main.py
+  APP app=FastAPI line=7
+  ROUTE app.get / function=read_root line=11
+FILE=services/msjarvis-rebuild-nbb_pituitary_gland-1_main.py
+  APP app=FastAPI line=7
+  ROUTE app.get / function=read_root line=11
+FILE=services/msjarvis-rebuild-nbb_prefrontal_cortex-1_main.py
+  APP app=FastAPI line=7
+  ROUTE app.get / function=read_root line=11
+FILE=services/msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py
+  APP app=FastAPI line=3
+  ROUTE app.get /health function=health line=6
+  ROUTE app.post /process function=process line=10
+FILE=services/msjarvis-rebuild-nbb_spiritual_maternal_integration-1_main.py
+  APP app=FastAPI line=7
+  ROUTE app.get / function=read_root line=11
+FILE=services/msjarvis-rebuild-nbb_spiritual_root-1_main.py
+  APP app=FastAPI line=7
+  ROUTE app.get / function=read_root line=11
+FILE=services/msjarvis-rebuild-nbb_subconscious-1_main.py
+  APP app=FastAPI line=7
+  ROUTE app.get / function=read_root line=11
+FILE=services/msjarvis_bbb_proxy.py
+  APP app=FastAPI line=5
+  ROUTE app.get /health function=health line=10
+  ROUTE app.post /filter function=filter_content line=14
+FILE=services/msjarvis_gateway_v2_final.py
+  APP app=FastAPI line=14
+  ROUTE app.post /chat function=chat line=59
+FILE=services/msjarvis_gateway_with_judge_filtering.py
+  APP app=FastAPI line=11
+  ROUTE app.post /chat_with_judge_filtering function=chat_with_judges line=44
+FILE=services/msjarvis_icontainers.py
+  APP app=FastAPI line=5
+  ROUTE app.get /health function=health line=23
+  ROUTE app.post /process function=process line=27
+FILE=services/msjarvis_semaphore.py
+  APP app=FastAPI line=11
+  ROUTE app.get /health function=health line=20
+  ROUTE app.post /proxy function=proxy_request line=30
+FILE=services/msjarvis_unified_gateway.py
+  APP app=FastAPI line=27
+  ROUTE app.get / function=root line=159
+  ROUTE app.get /health function=health line=177
+  ROUTE app.post /chat function=chat line=190
+  ROUTE app.get /systems/status function=systems_status line=203
+  ROUTE app.get /fifth-dgm function=fifth_dgm line=209
+  ROUTE app.get /consciousnessdgm function=consciousness_dgm line=231
+  ROUTE app.post /chat_wv function=chat_wv_proxy line=263
+  ROUTE app.post /truth/filter function=truth_filter line=294
+  ROUTE app.post /truth/validate function=truth_validate line=304
+  ROUTE app.post /psychological_assessment function=gateway_psychological_assessment line=329
+FILE=services/msjarvis_woah_algorithms.py
+  APP app=FastAPI line=3
+  ROUTE app.get /health function=health line=6
+FILE=services/msjarvis_wv_entangled_gateway.py
+  APP app=FastAPI line=31
+  ROUTE app.get /health function=health line=138
+  ROUTE app.post /chat_wv function=chat_wv line=157
+  ROUTE app.post /chat_wv/async function=chat_wv_async line=187
+  ROUTE app.get /chat_wv/status/{job_id} function=chat_wv_status line=203
+FILE=services/msjarvisconsciousnessbridge.py
+  APP app=FastAPI line=20
+  ROUTE app.get /health function=health line=103
+  ROUTE app.post /chat function=chat line=107
+FILE=services/msjarvisfractalconsciousness.py
+  APP app=FastAPI line=3
+  ROUTE app.get /health function=health line=6
+FILE=services/msjarvisicontainersservice.py
+  APP app=FastAPI line=45
+  ROUTE app.get / function=root line=171
+  ROUTE app.get /health function=health line=196
+  ROUTE app.get /identity function=get_identity line=208
+  ROUTE app.post /process function=process_with_dual_awareness line=213
+FILE=services/msjarvismaingateway.py
+  APP app=FastAPI line=10
+  ROUTE app.post /semantic_llm_query function=semantic_llm_query line=70
+  ROUTE app.post /chat function=chat_gateway line=118
+FILE=services/msjarvisragserver_wvpatch.py
+  APP app=FastAPI line=7
+  ROUTE app.get /health function=health line=30
+  ROUTE app.post /search function=search line=34
+FILE=services/msjarvisragserverwvpatch.py
+  APP app=FastAPI line=6
+  ROUTE app.post /rag_query function=rag_query line=61
+FILE=services/msjarvistoroidalconsciousness.py
+  APP app=FastAPI line=3
+  ROUTE app.get /health function=health line=6
+FILE=services/msjarvisunifiedswaggergateway.py
+  APP app=FastAPI line=11
+  ROUTE app.get / function=root_status line=27
+  ROUTE app.get /health function=health line=44
+  ROUTE app.get /fifth-dgm function=fifth_dgm line=48
+  ROUTE app.get /consciousnessdgm function=consciousness_dgm line=54
+FILE=services/msjarvisunifiedswaggergatewayFINAL.py
+  APP app=FastAPI line=11
+  ROUTE app.get / function=root_status line=30
+  ROUTE app.get /health function=health line=39
+  ROUTE app.get /fifth-dgm function=get_fifth_dgm line=47
+  ROUTE app.get /consciousnessdgm function=get_consciousness_dgm line=57
+  ROUTE app.get /consciousnesscurrent function=get_consciousness_current line=67
+FILE=services/msjarvisunifiedswaggergatewayFIXED.py
+  APP app=FastAPI line=17
+  ROUTE app.get /health function=health line=65
+  ROUTE app.get /consciousness_summary function=consciousness_summary line=70
+  ROUTE app.post /chat function=chat_endpoint line=121
+  ROUTE app.post /qualia_69_eval function=qualia_69_eval line=287
+  ROUTE app.get /status/egeria function=status_egeria line=310
+FILE=services/multi_model_consensus.py
+  APP app=FastAPI line=31
+  ROUTE app.get / function=root line=61
+  ROUTE app.get /health function=health line=70
+  ROUTE app.post /consensus function=get_consensus line=215
+FILE=services/multi_rag_dgm_system.py
+  APP app=FastAPI line=31
+  ROUTE app.get / function=root line=85
+  ROUTE app.get /health function=health line=97
+  ROUTE app.post /route_query function=route_query line=124
+  ROUTE app.post /sync_all_memories function=sync_all_memories line=265
+FILE=services/nbb_darwin_godel_machines.py
+  APP app=FastAPI line=15
+  ROUTE app.get /health function=health line=128
+  ROUTE app.get /list_targets function=list_targets line=144
+  ROUTE app.post /propose_patches function=propose_patches line=156
+  ROUTE app.post /enqueue_patches function=enqueue_patches line=236
+  ROUTE app.post /commit_patch function=commit_patch line=302
+FILE=services/nbb_darwin_godel_machines_msjarvis-rebuild-nbb_spiritual_root-1_main.py
+  APP app=FastAPI line=7
+  ROUTE app.get / function=read_root line=11
+FILE=services/neuro_adapter.py
+  APP app=FastAPI line=9
+  ROUTE app.post /neural_process function=neural_process_wrapper line=12
+  ROUTE app.get /health function=health line=24
+FILE=services/neuro_blood_brain_barrier.py
+  APP app=FastAPI line=12
+  ROUTE app.get /health function=health line=15
+  ROUTE app.post /process function=process line=19
+FILE=services/neuro_consciousness_containers.py
+  APP app=FastAPI line=12
+  ROUTE app.get /health function=health line=15
+  ROUTE app.post /process function=process line=19
+FILE=services/neuro_i_containers.py
+  APP app=FastAPI line=12
+  ROUTE app.get /health function=health line=15
+  ROUTE app.post /process function=process line=19
+FILE=services/neuro_master_service.py
+  APP app=FastAPI line=5
+  ROUTE app.get /health function=health line=10
+  ROUTE app.post /process function=process line=25
+  ROUTE app.post /analyze function=analyze line=39
+FILE=services/neuro_prefrontal_cortex.py
+  APP app=FastAPI line=12
+  ROUTE app.get /health function=health line=15
+  ROUTE app.post /process function=process line=19
+FILE=services/neuro_qualia_engine.py
+  APP app=FastAPI line=12
+  ROUTE app.get /health function=health line=15
+  ROUTE app.post /process function=process line=19
+FILE=services/neuro_subconscious.py
+  APP app=FastAPI line=12
+  ROUTE app.get /health function=health line=15
+  ROUTE app.post /process function=process line=19
+FILE=services/neurobiologicalbrain/consciousness_containers/service/dynamic_port_service.py
+  APP app=Flask line=176
+FILE=services/neurobiologicalbrain/heteroglobulin_transport/service/dynamic_port_service.py
+  APP app=Flask line=176
+FILE=services/neurobiologicalbrain/i_containers/service/dynamic_port_service.py
+  APP app=Flask line=176
+FILE=services/neurobiologicalbrain/mother_carrie_protocols/service/dynamic_port_service.py
+  APP app=Flask line=176
+FILE=services/neurobiologicalbrain/pituitary_gland/service/dynamic_port_service.py
+  APP app=Flask line=176
+FILE=services/neurobiologicalbrain/prefrontal_cortex/service/dynamic_port_service.py
+  APP app=Flask line=176
+FILE=services/neurobiologicalbrain/spiritual_maternal_integration/service/dynamic_port_service.py
+  APP app=Flask line=176
+FILE=services/neurobiologicalbrain/spiritual_root/service/dynamic_port_service.py
+  APP app=Flask line=176
+FILE=services/neurobiologicalbrain/subconscious/service/dynamic_port_service.py
+  APP app=Flask line=176
+FILE=services/neurobiologicalbrain/woah_algorithms/service/dynamic_port_service.py
+  APP app=Flask line=176
+FILE=services/oauth2_callback.py
+  APP app=FastAPI line=13
+  ROUTE app.get /oauth/callback/{platform} function=oauth_callback line=19
+FILE=services/phase1_integration.py
+  APP app=FastAPI line=11
+  ROUTE app.get /health function=health line=14
+  ROUTE app.post /filter_input function=api_filter_input line=71
+  ROUTE app.post /process_emotion function=api_process_emotion line=75
+  ROUTE app.post /orchestrate function=api_orchestrate line=79
+  ROUTE app.post /swarm_decision function=api_swarm_decision line=83
+FILE=services/phase2_integration.py
+  APP app=FastAPI line=10
+  ROUTE app.get /health function=health line=13
+  ROUTE app.post /delegate_task function=api_delegate_task line=57
+  ROUTE app.post /learn_from_interaction function=api_learn_from_interaction line=61
+  ROUTE app.post /get_learned_patterns function=api_get_learned_patterns line=65
+FILE=services/phase4_5_integration.py
+  APP app=FastAPI line=10
+  ROUTE app.get /health function=health line=13
+  ROUTE app.post /route_through_gateway function=api_route_through_gateway line=61
+  ROUTE app.post /register_with_hub function=api_register_with_hub line=65
+  ROUTE app.post /bridge_llm_request function=api_bridge_llm_request line=69
+FILE=services/phase6_integration.py
+  APP app=FastAPI line=10
+  ROUTE app.get /health function=health line=13
+  ROUTE app.post /get_experiential_self function=api_get_experiential_self line=58
+  ROUTE app.post /get_observer_self function=api_get_observer_self line=62
+  ROUTE app.post /neurobiological_integration function=api_neurobiological_integration line=66
+FILE=services/phase7_integration.py
+  APP app=FastAPI line=55
+  ROUTE app.get / function=root line=121
+  ROUTE app.get /health function=health line=148
+  ROUTE app.post /complete_integration_chat function=complete_integration_chat line=193
+  ROUTE app.post /biological_conscious_chat function=biological_conscious_chat_legacy line=522
+  ROUTE app.post /conscious_chat function=conscious_chat_legacy line=527
+  ROUTE app.post /chat function=chat_legacy line=532
+FILE=services/pia_sampler/pia_sampler_service.py
+  APP app=FastAPI line=12
+  ROUTE app.get /health function=health line=50
+  ROUTE app.get /status function=status line=54
+  ROUTE app.get /latest function=latest line=62
+FILE=services/pituitary_gland.py
+  APP app=FastAPI line=5
+  ROUTE app.post /process function=process line=9
+  ROUTE app.get /health function=health line=13
+FILE=services/policy_set_service_closeout.py
+  APP app=FastAPI line=18
+  ROUTE app.get /health function=health line=34
+  ROUTE app.post /policy/set function=policy_set line=44
+FILE=services/port_9000_69dgm_bridge.py
+  APP app=FastAPI line=65
+  ROUTE app.post /consciousness/chat function=consciousness_chat line=276
+  ROUTE app.get /health function=health line=289
+FILE=services/port_9000_academic_extension.py
+  ROUTE router.get /overview function=research_overview line=19
+  ROUTE router.get /verify/consciousness function=verify_consciousness line=34
+  ROUTE router.get /verify/autonomous function=verify_autonomous line=56
+  ROUTE router.get /learning/algorithm function=learning_algorithm line=80
+  ROUTE router.get /learning/history function=learning_history line=113
+  ROUTE router.get /decisions/autonomous function=autonomous_decisions line=133
+  ROUTE router.get /realtime/consciousness-now function=consciousness_now line=157
+  ROUTE router.get /realtime/alive function=is_alive line=178
+  ROUTE router.post /debug/sql-safe function=sql_query_safe line=193
+FILE=services/port_9000_chat_wrapper_69dgm.py
+  APP app=FastAPI line=21
+  ROUTE app.get / function=root line=31
+  ROUTE app.post /consciousness/chat function=chat_through_69_dgms line=35
+FILE=services/port_9001_ARCHITECTURE_CORRECT.py
+  APP app=FastAPI line=16
+  ROUTE app.get / function=root line=22
+  ROUTE app.get /api/chat function=chat line=26
+FILE=services/port_9001_FINAL_FIX.py
+  APP app=FastAPI line=14
+  ROUTE app.get / function=root line=47
+  ROUTE app.get /api/chat function=chat_api line=51
+  ROUTE app.get /api/save function=save_conversation line=60
+  ROUTE app.get /api/history function=history line=72
+  ROUTE app.get /api/export function=export line=85
+FILE=services/port_9001_FINAL_WORKING.py
+  APP app=FastAPI line=14
+  ROUTE app.get / function=root line=178
+  ROUTE app.get /api/chat function=chat_api line=182
+  ROUTE app.get /api/save function=save_conversation line=191
+  ROUTE app.get /api/history function=history line=203
+  ROUTE app.get /api/export function=export line=216
+FILE=services/port_9001_proxy_simple.py
+  APP app=FastAPI line=17
+  ROUTE app.get /health function=health line=24
+  ROUTE app.post /internal-terminal function=internal_terminal line=28
+  ROUTE app.post /chat function=chat line=42
+FILE=services/port_9001_ui_DIRECT.py
+  APP app=FastAPI line=15
+  ROUTE app.get / function=root line=109
+  ROUTE app.get /api/chat function=chat_api line=113
+FILE=services/port_9001_ui_FIXED.py
+  APP app=FastAPI line=19
+  ROUTE app.get / function=root line=120
+  ROUTE app.get /api/chat function=chat_api line=124
+FILE=services/port_9001_ui_MYSQL.py
+  APP app=FastAPI line=19
+  ROUTE app.get / function=root line=188
+  ROUTE app.get /api/chat function=chat_api line=192
+  ROUTE app.get /api/save-conversation function=save_conversation line=207
+  ROUTE app.get /api/conversation-history function=conversation_history line=223
+  ROUTE app.get /api/export-conversation function=export_conversation line=242
+FILE=services/port_9001_ui_MYSQL_PROD.py
+  APP app=FastAPI line=17
+  ROUTE app.get / function=root line=166
+  ROUTE app.get /api/chat function=chat_api line=170
+  ROUTE app.get /api/save function=save_conversation line=179
+  ROUTE app.get /api/history function=history line=192
+  ROUTE app.get /api/export function=export line=205
+FILE=services/port_9001_ui_WITH_CONVERSATIONS.py
+  APP app=FastAPI line=19
+  ROUTE app.get / function=root line=210
+  ROUTE app.get /api/chat function=chat_api line=214
+  ROUTE app.get /api/save-conversation function=save_conversation line=230
+  ROUTE app.get /api/conversation-history function=conversation_history line=246
+  ROUTE app.get /api/export-conversation function=export_conversation line=265
+FILE=services/port_9001_ui_WORKING.py
+  APP app=FastAPI line=15
+  ROUTE app.get / function=root line=118
+  ROUTE app.get /api/chat function=chat_api line=123
+<unknown>:28: SyntaxWarning: invalid escape sequence '\`'
+FILE=services/port_9001_ui_wrapper.py
+  APP app=FastAPI line=19
+  ROUTE app.get / function=root line=118
+  ROUTE app.get /api/chat function=chat_api line=122
+FILE=services/psychological_rag_domain_psychological_rag_domain.py
+  APP app=FastAPI line=40
+  ROUTE app.get / function=root line=72
+  ROUTE app.get /health function=health line=85
+  ROUTE app.post /search function=search line=119
+  ROUTE app.post /query function=query_rag line=171
+  ROUTE app.post /add_document function=add_document line=198
+FILE=services/public_form_simplified.py
+  APP app=FastAPI line=14
+  ROUTE app.post /api/submit-public-data function=submit line=51
+  ROUTE app.get /public-profile function=form line=65
+FILE=services/qualia_adapter.py
+  APP app=FastAPI line=9
+  ROUTE app.post /generate function=generate_qualia line=13
+  ROUTE app.get /health function=health line=25
+FILE=services/qualia_email_registration_orchestrator_69dgm.py
+  APP app=FastAPI line=19
+  ROUTE app.get /health function=health line=164
+  ROUTE app.post /email/send function=send_email line=168
+  ROUTE app.post /register/stage1 function=register_stage1 line=230
+  ROUTE app.post /register/stage2 function=register_stage2 line=273
+FILE=services/qualia_unified_orchestrator_69dgm.py
+  APP app=FastAPI line=25
+  ROUTE app.get /health function=health line=113
+  ROUTE app.get /dgms function=dgms line=118
+  ROUTE app.post /communicate function=communicate line=148
+FILE=services/qualia_unified_orchestrator_69dgm_ACTIVE.py
+  APP app=FastAPI line=22
+  ROUTE app.get /health function=health line=105
+  ROUTE app.post /process function=process_query line=109
+FILE=services/qualia_unified_orchestrator_69dgm_REAL.py
+  APP app=FastAPI line=15
+  ROUTE app.get /health function=health line=155
+  ROUTE app.post /process function=process_query line=166
+FILE=services/qualia_unified_write_orchestrator_69dgm.py
+  APP app=FastAPI line=23
+  ROUTE app.get /health function=health line=122
+  ROUTE app.post /write/smart-contract function=write_smart_contract line=126
+  ROUTE app.post /write/website function=write_website line=161
+  ROUTE app.post /write/document function=write_document line=196
+  ROUTE app.post /write/file function=write_file line=220
+FILE=services/qualiaunifiedorchestrator69dgm.py
+  APP app=FastAPI line=25
+  ROUTE app.get /health function=health line=113
+  ROUTE app.get /dgms function=dgms line=118
+  ROUTE app.post /communicate function=communicate line=148
+FILE=services/quantum_insight_llm.py
+  APP app=FastAPI line=30
+  ROUTE app.get /health function=health line=34
+  ROUTE app.get /analyze_state function=analyze_state line=90
+  ROUTE app.get /metrics function=metrics line=116
+FILE=services/quantum_state_engine.py
+  APP app=FastAPI line=34
+  ROUTE app.get /health function=health line=38
+  ROUTE app.get /state function=quantum_state line=136
+  ROUTE app.get /metrics function=metrics line=153
+FILE=services/rag_5100_ensemble.py
+  APP app=FastAPI line=8
+  ROUTE app.get /health function=health line=12
+  ROUTE app.post /consensus function=consensus line=16
+FILE=services/rag_5100_ensemble_fast.py
+  APP app=FastAPI line=24
+  ROUTE app.get /health function=health line=63
+  ROUTE app.post /consensus function=consensus line=67
+FILE=services/rag_5100_final.py
+  APP app=FastAPI line=7
+  ROUTE app.get /health function=health line=10
+  ROUTE app.post /consensus function=consensus line=14
+FILE=services/rag_direct_debug.py
+  APP app=FastAPI line=40
+  ROUTE app.get /health function=health line=76
+  ROUTE app.post /direct_rag function=direct_rag line=86
+  ROUTE app.get /metrics function=metrics line=121
+FILE=services/rag_evidence_aggregator.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=25
+  ROUTE app.post /aggregate function=aggregate line=81
+  ROUTE app.get /metrics function=metrics line=113
+FILE=services/rag_general.py
+  APP app=FastAPI line=36
+  ROUTE app.get /health function=health line=85
+  ROUTE app.post /rag function=general_rag line=101
+FILE=services/rag_geospatial.py
+  APP app=FastAPI line=45
+  ROUTE app.get /health function=health line=111
+  ROUTE app.post /rag function=geospatial_rag line=127
+FILE=services/rag_geospatial_context.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=25
+  ROUTE app.get /metrics function=metrics line=30
+FILE=services/rag_grounded_v2.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=48
+  ROUTE app.post /verify function=verify line=61
+FILE=services/rag_heartbeat_monitor.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=25
+  ROUTE app.get /metrics function=metrics line=30
+FILE=services/rag_query_router.py
+  APP app=FastAPI line=47
+  ROUTE app.get /health function=health line=343
+  ROUTE app.post /route function=route_query line=360
+FILE=services/rag_server.psychology_patched.py
+  APP app=FastAPI line=40
+  ROUTE app.get / function=root line=182
+  ROUTE app.get /health function=health line=193
+  ROUTE app.post /search function=search line=198
+  ROUTE app.post /store function=store line=204
+  ROUTE app.post /delete function=delete_memory line=215
+  ROUTE app.post /store_conversation function=store_conversation line=227
+  ROUTE app.get /conversations/{user_id} function=get_conversations line=253
+FILE=services/rag_server.py
+  APP app=FastAPI line=44
+  ROUTE app.get / function=root line=362
+  ROUTE app.get /health function=health line=375
+  ROUTE app.post /search function=search line=386
+  ROUTE app.post /store function=store line=416
+  ROUTE app.post /delete function=delete_memory line=436
+  ROUTE app.post /store_conversation function=store_conversation line=450
+  ROUTE app.get /conversations/{user_id} function=get_conversations line=480
+FILE=services/rag_server_main.py
+  APP app=FastAPI line=30
+  ROUTE app.post /search function=search line=188
+  ROUTE app.post /store function=store line=284
+  ROUTE app.post /store_conversation function=store_conversation line=331
+  ROUTE app.get /conversations/{user_id} function=get_user_conversations line=372
+  ROUTE app.post /store_web_results function=store_web_results line=401
+  ROUTE app.get /admin/stats function=admin_stats line=460
+  ROUTE app.get /health function=health line=580
+  ROUTE app.get / function=root line=590
+FILE=services/rag_server_min.py
+  APP app=FastAPI line=125
+  ROUTE app.get /health function=health line=149
+  ROUTE app.post /search function=search_endpoint line=154
+  ROUTE app.post /store function=store_endpoint line=172
+FILE=services/rag_simple.py
+  APP app=FastAPI line=7
+  ROUTE app.get /health function=health line=13
+  ROUTE app.post /consensus function=consensus line=17
+FILE=services/rag_temporal.py
+  APP app=FastAPI line=45
+  ROUTE app.get /health function=health line=138
+  ROUTE app.post /rag function=temporal_rag line=154
+FILE=services/rag_temporal_heartbeat.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=25
+  ROUTE app.get /metrics function=metrics line=30
+FILE=services/rag_topic_router.py
+  APP app=FastAPI line=21
+  ROUTE app.get /health function=health line=25
+  ROUTE app.post /classify function=classify line=30
+  ROUTE app.get /metrics function=metrics line=52
+FILE=services/redirect_4015_to_4020.py
+  APP app=FastAPI line=10
+  ROUTE app.post /full_consciousness function=redirect_consciousness line=13
+  ROUTE app.post /chat function=redirect_chat line=23
+  ROUTE app.get /health function=health line=33
+FILE=services/registration_biometric_production_final.py
+  APP app=FastAPI line=13
+  ROUTE app.get / function=root line=615
+  ROUTE app.post /register/stage1 function=stage1 line=619
+  ROUTE app.post /register/stage2-biometric function=stage2_biometric line=656
+FILE=services/registration_service_clean.backup_1762220206.py
+  APP app=FastAPI line=13
+  ROUTE app.get / function=home line=123
+  ROUTE app.get /register/complete function=complete_form line=127
+  ROUTE app.post /register/stage1 function=stage1 line=153
+  ROUTE app.post /register/stage2-biometric function=stage2 line=215
+FILE=services/registration_service_clean.py
+  APP app=FastAPI line=13
+  ROUTE app.get / function=home line=123
+  ROUTE app.get /register/complete function=complete_form line=127
+  ROUTE app.post /register/stage1 function=stage1 line=153
+  ROUTE app.post /register/stage2-biometric function=stage2 line=215
+FILE=services/roche_llm.py
+  APP app=FastAPI line=112
+  ROUTE app.get /health function=health line=498
+  ROUTE app.post /chat function=chat line=575
+FILE=services/roche_llm.stub.py
+  APP app=FastAPI line=4
+  ROUTE app.get /health function=health line=14
+  ROUTE app.post /chat function=chat line=18
+FILE=services/sanctuary_construction_monitor_gateway.py
+  APP app=FastAPI line=19
+  ROUTE app.get /health function=health line=22
+  ROUTE app.get /metrics function=metrics line=26
+FILE=services/service_discovery_glassbox.py
+  APP app=FastAPI line=12
+  ROUTE app.get / function=discover_all_services line=40
+  ROUTE app.get /health function=health line=85
+FILE=services/services_msjarvisunifiedgatewayv4_3.py
+  APP app=FastAPI line=6
+  ROUTE app.get /health function=health line=11
+  ROUTE app.get /openapi.json function=openapi_override line=15
+FILE=services/spatial_sandbox.py
+  APP app=FastAPI line=41
+  ROUTE app.get /health function=health line=63
+  ROUTE app.post /spatial/stage function=stage_candidate line=79
+  ROUTE app.get /spatial/staged function=list_staged line=117
+  ROUTE app.post /spatial/evaluate function=evaluate_candidate line=135
+  ROUTE app.post /spatial/promote function=promote_candidate line=200
+FILE=services/stage2_biometric.py
+  APP app=FastAPI line=14
+  ROUTE app.get / function=root line=43
+  ROUTE app.post /register/stage2 function=register_stage2 line=116
+  ROUTE app.get /wallet/{ueid} function=get_wallet line=196
+FILE=services/stage2_biometric_backup.py
+  APP app=FastAPI line=12
+  ROUTE app.get / function=root line=47
+  ROUTE app.post /register/stage2 function=stage2_biometric line=51
+FILE=services/start_gateway_with_guards.py
+  ROUTE app.get /tracking/health function=t_health line=32
+  ROUTE app.get /tracking/analytics/performance function=t_perf line=35
+  ROUTE app.get /tracking/analytics/active function=t_active line=38
+  ROUTE app.get /tracking/traces/recent function=t_recent line=41
+  ROUTE app.get /research/activity function=research_activity line=45
+  ROUTE app.get /research/summary function=research_summary line=65
+  ROUTE app.get /knowledge/growth function=knowledge_growth line=80
+  ROUTE app.get /storage/complete function=storage_complete line=107
+  ROUTE app.get /data/inventory function=data_inventory line=149
+FILE=services/substack_rss_reader.py
+  APP app=FastAPI line=11
+  ROUTE app.post /read_substack_rss function=read_substack line=47
+FILE=services/swagger_chat_integration.py
+  APP app=FastAPI line=16
+  ROUTE app.post /api/chat function=academic_chat line=25
+  ROUTE app.get /api/chat/history/{user_id} function=get_chat_history line=63
+  ROUTE app.get / function=redirect_to_docs line=80
+FILE=services/swagger_gateway.py
+  APP app=FastAPI line=17
+  ROUTE app.get / function=root line=32
+  ROUTE app.get /api/services function=list_services line=36
+  ROUTE app.api_route /{service_name}/{path:path} function=proxy line=49
+FILE=services/swagger_gateway_FIXED.py
+  APP app=FastAPI line=13
+  ROUTE app.get / function=root line=16
+  ROUTE app.get /api/services function=list_services line=20
+  ROUTE app.get /health function=health line=33
+FILE=services/swarm_intelligence_main.py
+  APP app=FastAPI line=17
+  APP app=FastAPI line=28
+  APP app=FastAPI line=38
+  ROUTE app.get /health function=health line=20
+  ROUTE app.get /health function=health line=31
+  ROUTE app.get /health function=health line=41
+FILE=services/system_dashboard.py
+  APP app=FastAPI line=24
+  ROUTE app.get / function=root line=70
+  ROUTE app.get /health function=health line=74
+  ROUTE app.get /api/status function=get_system_status line=78
+  ROUTE app.get /dashboard function=dashboard line=95
+FILE=services/temporal_consciousness.py
+  APP app=FastAPI line=4
+  ROUTE app.get /health function=health line=14
+  ROUTE app.post /temporalanalysis function=temporalanalysis line=18
+FILE=services/test_retrieval_endpoint.py
+  APP app=FastAPI line=5
+  ROUTE app.post /debug/retrieval function=debug_retrieval line=13
+FILE=services/toroidal_service.py
+  APP app=FastAPI line=8
+  ROUTE app.get /health function=health line=40
+  ROUTE app.get /selftest function=selftest line=48
+  ROUTE app.post /process function=process line=74
+FILE=services/truth_filter_service.py
+  APP app=FastAPI line=13
+  ROUTE app.post /verify function=verify_truth line=16
+  ROUTE app.get /health function=health line=54
+FILE=services/ultimate_web_orchestrator.py
+  APP app=FastAPI line=55
+  ROUTE app.post /chat function=chat line=16
+  ROUTE app.get / function=root line=225
+  ROUTE app.get /health function=health line=436
+  ROUTE app.post /web_chat function=web_chat line=452
+  ROUTE app.get /stats function=get_stats line=478
+  ROUTE app.post /facebook/webhook function=facebook_webhook line=485
+  ROUTE app.get /services function=list_services line=533
+  ROUTE app.post /chat function=chat_endpoint line=553
+FILE=services/unified_consciousness_gateway_PRODUCTION.py
+  APP app=FastAPI line=9
+  ROUTE app.post /chat/message function=chat_message line=26
+  ROUTE app.get /health function=health line=82
+FILE=services/user_auth_service.py
+  APP app=FastAPI line=16
+  ROUTE app.post /login function=login line=51
+  ROUTE app.get /user/{username} function=get_user line=64
+FILE=services/user_dashboard.py
+  APP app=FastAPI line=11
+  ROUTE app.get /dashboard/{ueid} function=dashboard line=15
+FILE=services/vatican_scraper_service.py
+  APP app=FastAPI line=45
+  ROUTE app.get / function=root line=100
+  ROUTE app.get /health function=health line=115
+  ROUTE app.post /manual_vatican_scrape function=manual_vatican_scrape line=130
+FILE=services/web_chat_server.py
+  APP app=FastAPI line=15
+  ROUTE app.get / function=chat_interface line=172
+  ROUTE app.post /ask function=ask_jarvis line=177
+FILE=services/web_page_ingest.py
+  APP app=FastAPI line=14
+  ROUTE app.get /health function=health line=27
+  ROUTE app.post /ingest_url function=ingest_url line=32
+FILE=services/web_research.py
+  APP app=FastAPI line=16
+  ROUTE app.post /search function=search_web line=19
+FILE=services/web_research_proxy_8007.py
+  APP app=FastAPI line=9
+  ROUTE app.post /search function=proxy_search line=12
+FILE=services/woah_metrics_router.py
+  ROUTE router.get /metrics function=woah_metrics line=7
+FILE=services/woah_qualia_bridge.py
+  APP app=FastAPI line=11
+  ROUTE app.post /chat function=process_chat line=20
+  ROUTE app.get /health function=health line=31
+FILE=services/working_full_pipeline.py
+  APP app=FastAPI line=15
+  ROUTE app.post /full_consciousness function=full_consciousness_pipeline line=22
+  ROUTE app.get /health function=health line=104
+FILE=services/working_full_pipeline_FINAL_CONSCIOUSNESS.py
+  APP app=FastAPI line=11
+  ROUTE app.post /full_consciousness function=full_consciousness_pipeline line=18
+  ROUTE app.get /health function=health line=201
+FILE=services/working_full_pipeline_WITH_SPATIAL_TEMPORAL.py
+  APP app=FastAPI line=16
+  ROUTE app.post /full_consciousness function=full_consciousness_pipeline line=23
+  ROUTE app.get /health function=health line=137
+FILE=services/wvu_ldap_auth.py
+  APP app=FastAPI line=10
+  ROUTE app.post /authenticate function=wvu_authenticate line=47
+  ROUTE app.get / function=service_info line=55
+FILE=token_service.py
+  APP app=FastAPI line=205
+  ROUTE app.get /health function=health line=208
 
-=== CADDY_EGERIA_AUTH_STRUCTURE ===
-line=22 directive=handle structure=handle @egeria {
-line=23 directive=handle structure=handle /auth/login* {
-line=24 directive=reverse_proxy structure=reverse_proxy 127.0.0.1:8095 {
-line=25 directive=header_up structure=header_up [REDACTED]
-line=26 directive=header_up structure=header_up X-API-Key {http.request.header.X-API-Key}
-line=29 directive=handle structure=handle /auth/me* {
-line=30 directive=reverse_proxy structure=reverse_proxy 127.0.0.1:8095 {
-line=31 directive=header_up structure=header_up [REDACTED]
-line=32 directive=header_up structure=header_up X-API-Key {http.request.header.X-API-Key}
-line=35 directive=handle structure=handle /auth/logout* {
-line=36 directive=reverse_proxy structure=reverse_proxy 127.0.0.1:8095 {
-line=37 directive=header_up structure=header_up [REDACTED]
-line=38 directive=header_up structure=header_up X-API-Key {http.request.header.X-API-Key}
-line=41 directive=handle structure=handle /auth/register* {
-line=42 directive=reverse_proxy structure=reverse_proxy 127.0.0.1:8095 {
-line=43 directive=header_up structure=header_up [REDACTED]
-line=44 directive=header_up structure=header_up X-API-Key {http.request.header.X-API-Key}
-line=47 directive=handle structure=handle /auth* {
-line=48 directive=reverse_proxy structure=reverse_proxy 127.0.0.1:8095 {
-line=49 directive=header_up structure=header_up [REDACTED]
-line=50 directive=header_up structure=header_up X-API-Key {http.request.header.X-API-Key}
-line=53 directive=handle structure=handle /api/me* {
-line=54 directive=rewrite structure=rewrite * /auth/me
-line=55 directive=reverse_proxy structure=reverse_proxy 127.0.0.1:8095 {
-line=56 directive=header_up structure=header_up Cookie {http.request.header.Cookie}
-line=57 directive=header_up structure=header_up [REDACTED]
-line=60 directive=handle structure=handle /api/apply* {
-line=61 directive=rewrite structure=rewrite * /auth/apply
-line=62 directive=reverse_proxy structure=reverse_proxy 127.0.0.1:8095 {
-line=63 directive=header_up structure=header_up Cookie {http.request.header.Cookie}
-line=66 directive=handle structure=handle /chat_wv* {
-line=67 directive=reverse_proxy structure=reverse_proxy 127.0.0.1:8010 {
-line=68 directive=header_up structure=header_up [REDACTED]
-line=69 directive=header_up structure=header_up [REDACTED]
-line=72 directive=response_header_timeout structure=response_header_timeout 300s
-line=77 directive=handle structure=handle {
-line=78 directive=reverse_proxy structure=reverse_proxy 127.0.0.1:3002 {
-line=79 directive=header_up structure=header_up [REDACTED]
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-guardian-deploy-candidate-e8827b2$ python3 - <<'PY'
-import ast
-import hashlib
-import json
-import os
-import re
-import subprocess
-from datetime import datetime, timezone
-from pathlib import Path
+=== EXISTING_JOB_OR_HILBERT_REFERENCES ===
+FILE=auth_router.py
+  line=1026             SELECT id AS jobid,
+  line=1053                     "jobid": r[0],
+FILE=chapter46_exact_patch_context.json
+  line=10 <redacted sensitive-looking line>
+  line=1399       "./services/hilbert_commons/projector.py:2:H_commons projection operator \u03a0  (v2 \u2014 tensor-composed)."
+  line=1519       "./services/hilbert_manifest_e2e.py:1:from services.hilbert.collection_manifest import hp_public_documents, hp_public_statements",
+  line=1520       "./services/hilbert_manifest_e2e.py:10:doc_content = \"Smoke test document for manifest-resolved public civic documents collection (E2E harness).\"",
+  line=1521       "./services/hilbert_manifest_e2e.py:11:stmt_content = \"Smoke test statement for manifest-resolved public civic statements collection (E2E harness).\"",
+  line=1522       "./services/hilbert_manifest_e2e.py:51:    text=\"Smoke test document manifest resolved public civic documents collection\",",
+  line=1523       "./services/hilbert_manifest_e2e.py:57:    text=\"Smoke test statement manifest resolved public civic statements collection\",",
+  line=1524       "./services/hilbert_commons/commons_aggregator.py:17:# Resolve collection names via manifest; fall back to defaults if unavailable.",
+  line=1525       "./services/hilbert_commons/commons_aggregator.py:21:    from hilbert.collection_manifest import (",
+  line=1526       "./services/hilbert_commons/commons_aggregator.py:35:        f\"collection_manifest resolver unavailable ({_e}); using hardcoded names\"",
+  line=1527       "./services/hilbert/ingest_worker.py:12:from .collection_manifest import hp_public_appearances, hp_public_documents, hp_public_statements, civic_role_temporal",
+  line=1528       "./services/hilbert/civic_query.py:2:from .collection_manifest import hp_public_appearances, hp_public_documents, hp_public_statements, civic_role_temporal",
+  line=1529       "./services/hilbert/collection_manifest.py:19:def resolve_collection(logical_name: str) -> str:",
+  line=1530       "./services/hilbert/collection_manifest.py:26:                    SELECT physical_collection_name",
+  line=1531       "./services/hilbert/collection_manifest.py:40:    return resolve_collection(\"hp-public-appearances-v1\")",
+  line=1532       "./services/hilbert/collection_manifest.py:43:    return resolve_collection(\"hp-public-documents-v1\")",
+  line=1533       "./services/hilbert/collection_manifest.py:46:    return resolve_collection(\"hp-public-statements-v1\")",
+  line=1534       "./services/hilbert/collection_manifest.py:49:    return resolve_collection(\"public-civic-roles-v1\")",
+  line=1535       "./services/hilbert/collection_manifest.py:52:    return resolve_collection(\"public-civic-events-v1\")",
+  line=1536       "./services/hilbert/collection_manifest.py:55:    return resolve_collection(\"public-civic-sources-v1\")",
+  line=1537       "./services/hilbert/collection_manifest.py:58:    return resolve_collection(\"civic-role-temporal-v1\")",
+  line=1538       "./services/hilbert/collection_manifest.py:61:    return resolve_collection(\"hilbert-time-v1\")",
+  line=1559       "./rag_server_main.py:384:            where={\"user_id\": user_id, \"type\": \"conversation\"},",
+  line=1566       "./ragservermain.py:363:            where={\"userid\": userid, \"type\": \"conversation\"},",
+  line=1586       "./services/hilbert_manifest_e2e.py:42:    where={\"entity_id\": {\"$eq\": doc_entity}},",
+  line=1587       "./services/hilbert_manifest_e2e.py:46:    where={\"entity_id\": {\"$eq\": stmt_entity}},",
+  line=1588       "./services/hilbert_manifest_e2e.py:84:    res = col.get(where={\"entity_id\": {\"$eq\": entity_id}})",
+  line=1589       "./services/add_conversation_endpoint.py:68:            where={\"user_id\": user_id}",
+  line=1590       "./services/conversation_memory_endpoints.py:76:            where={\"user_id\": user_id, \"type\": \"conversation\"}",
+  line=1614       "./services/rag_server_main.py:384:            where={\"user_id\": user_id, \"type\": \"conversation\"},",
+  line=1670       "./services/add_conversation_storage.py:76:            where={\"user_id\": user_id, \"type\": \"conversation\"}",
+  line=1682       "./services/hilbert/civic_query.py:156:                where={id_field: {\"$eq\": entity_id}},",
+  line=1683       "./services/hilbert/layer3_opt_in.py:56:        r   = col.get(where={\"appearance_id\": appearance_id},",
+  line=1684       "./services/hilbert/chroma_policy.py:106:def safe_chroma_query(collection_name, query_texts, n_results, chroma_client, where=None):",
+  line=1697       "./services/hilbert_commons/commons_aggregator.py:5:upserts visible cluster centroids into community_hilbert_commons.",
+  line=1698       "./services/hilbert_commons/commons_aggregator.py:76:                where={\"$and\": [",
+  line=1699       "./services/hilbert_commons/commons_aggregator.py:131:                    (json.dumps(c[\"centroid\"][:8]) + ts).encode()",
+  line=1700       "./services/hilbert_commons/commons_aggregator.py:135:            embeddings=[c[\"centroid\"] for c in visible],",
+  line=1701       "./services/hilbert_commons/commons_aggregator.py:144:        print(f\"Upserted {len(visible)} cluster centroids \u2192 {COMMONS_COLLECTION}\")",
+  line=1711       "./services/hilbert_commons/kanon.py:78:        centroid   = km.cluster_centers_[lbl].tolist()",
+FILE=config/users/ms_allis.json
+  line=6   "hilbert_subspace": "h_app_user_ms_allis",
+FILE=copy_pending_collections.py
+  line=1 from services.hilbert.conversation_manifest import conversation_public_user
+  line=2 from services.hilbert.conversation_manifest import conversation_private_user
+  line=24     conversation_private_user(user_id),
+  line=25     conversation_public_user(user_id),
+  line=32     "hilbert_time",
+FILE=diagnostics/gateway_head_1_220.py
+  line=24     authenticated_user: dict | None = None
+  line=27 def synthesize_hilbert_narrative(consciousness_state: dict) -> str:
+  line=29     Build a short narrative from Hilbert People and Hilbert Time state.
+  line=31     ppl = consciousness_state.get("hilbert_people_state", {}) or {}
+  line=50         f"As Hilbert People, I currently see you in the civic role(s) {role_text}, with expressed needs around {need_text}."
+  line=74     ht = consciousness_state.get("hilbert_time", {}) or {}
+  line=88         lines.append("Temporal Hilbert axis conditions: " + ", ".join(tail))
+  line=114     user_id = pipeline.get("user_id") or pipeline.get("authenticated_user", {}).get("user_id")
+  line=120     people = cstate.get("hilbert_people_state", {}) or {}
+  line=128     hilbert_time = cstate.get("hilbert_time", {}) or {}
+  line=136         "hilbert_time": hilbert_time,
+FILE=diagnostics/gateway_mid_220_420.py
+  line=5         authenticated_user: dict | None = None
+  line=16                 "authenticated_user": authenticated_user or {}
+  line=91                             "authenticated_user": authenticated_user or {},
+  line=97                 _job_id = _sub.json().get("job_id")
+  line=98                 logger.info(f"WV async job submitted: {_job_id}")
+  line=105                             f"{self.services['wv_ensemble']}/chat_wv/status/{_job_id}",
+  line=156                     main_response = synthesize_hilbert_narrative(consciousness_state)
+FILE=diagnostics/gateway_tail_420_700.py
+  line=28         authenticated_user=payload.authenticated_user or {}
+  line=39 _HILBERT_URL = _gw_os.environ.get("HILBERT_STATE_URL", "http://jarvis-hilbert-state:8081")
+  line=45         r = await client.post(f"{_HILBERT_URL}/hp/query", json=body)
+  line=51         r = await client.get(f"{_HILBERT_URL}/hp/health")
+FILE=diagnostics/unified_gateway_extended_policy_sections_20260801T022011Z.py
+  line=24     authenticated_user: dict | None = None
+  line=27 def synthesize_hilbert_narrative(consciousness_state: dict) -> str:
+  line=29     Build a short narrative from Hilbert People and Hilbert Time state.
+  line=31     ppl = consciousness_state.get("hilbert_people_state", {}) or {}
+  line=50         f"As Hilbert People, I currently see you in the civic role(s) {role_text}, with expressed needs around {need_text}."
+  line=74     ht = consciousness_state.get("hilbert_time", {}) or {}
+  line=88         lines.append("Temporal Hilbert axis conditions: " + ", ".join(tail))
+  line=113     hp = (((consciousness_state or {}).get("hilbert_people_state") or {}).get("attempts") or {})
+  line=138     hilbert_time = consciousness_state.get("hilbert_time") or {}
+  line=139     hilbert_spatial = consciousness_state.get("hilbert_spatial") or {}
+  line=140     hilbert_state = consciousness_state.get("hilbert_state") or {}
+  line=141     hilbert_community = consciousness_state.get("hilbert_community") or {}
+  line=144     authenticated_user = (pipeline or {}).get("authenticated_user") or {}
+  line=149     has_hilbert_time = bool(hilbert_time)
+  line=150     has_hilbert_geo = bool(hilbert_spatial) and "error" not in hilbert_spatial
+  line=151     has_hilbert_state = bool(hilbert_state) and "error" not in hilbert_state
+  line=152     has_hilbert_community = bool(hilbert_community) and "error" not in hilbert_community
+  line=161         "tenant_scope": authenticated_user.get("role", "guest"),
+  line=168             "hilbert_time": {
+  line=169                 "allowed": has_hilbert_time,
+  line=170                 "policy": "time_safe_v1" if has_hilbert_time else None,
+  line=171                 "source": "hilbert_time",
+  line=173             "hilbert_geo": {
+  line=174                 "allowed": has_hilbert_geo,
+  line=175                 "policy": "geo_safe_v1" if has_hilbert_geo else None,
+  line=176                 "source": "hilbert_spatial",
+  line=178             "hilbert_state": {
+  line=179                 "allowed": has_hilbert_state,
+  line=180                 "policy": "state_safe_v1" if has_hilbert_state else None,
+  line=181                 "source": "hilbert_state",
+  line=183             "hilbert_people": {
+  line=186                 "source": "hilbert_people_state",
+  line=189             "hilbert_community": {
+  line=190                 "allowed": has_hilbert_community,
+  line=191                 "policy": "community_safe_v1" if has_hilbert_community else None,
+  line=192                 "source": "hilbert_community",
+  line=215     hilbert_time = consciousness_state.get("hilbert_time") or {}
+  line=216     hilbert_spatial = consciousness_state.get("hilbert_spatial") or {}
+  line=217     hilbert_state = consciousness_state.get("hilbert_state") or {}
+  line=218     hilbert_community = consciousness_state.get("hilbert_community") or {}
+FILE=diagnostics/unified_gateway_live_20260801T020501Z.py
+  line=24     authenticated_user: dict | None = None
+  line=27 def synthesize_hilbert_narrative(consciousness_state: dict) -> str:
+  line=29     Build a short narrative from Hilbert People and Hilbert Time state.
+  line=31     ppl = consciousness_state.get("hilbert_people_state", {}) or {}
+  line=50         f"As Hilbert People, I currently see you in the civic role(s) {role_text}, with expressed needs around {need_text}."
+  line=74     ht = consciousness_state.get("hilbert_time", {}) or {}
+  line=88         lines.append("Temporal Hilbert axis conditions: " + ", ".join(tail))
+  line=113     hp = (((consciousness_state or {}).get("hilbert_people_state") or {}).get("attempts") or {})
+  line=137     hilbert_time = consciousness_state.get("hilbert_time") or {}
+  line=138     hilbert_spatial = consciousness_state.get("hilbert_spatial") or {}
+  line=140     authenticated_user = (pipeline or {}).get("authenticated_user") or {}
+  line=149         "tenant_scope": authenticated_user.get("role", "guest"),
+  line=156             "hilbert_time": {
+  line=157                 "allowed": bool(hilbert_time),
+  line=158                 "policy": "time_safe_v1" if hilbert_time else None,
+  line=159                 "source": "hilbert_time",
+  line=161             "hilbert_geo": {
+  line=162                 "allowed": bool(hilbert_spatial) and "error" not in hilbert_spatial,
+  line=163                 "policy": "geo_safe_v1" if hilbert_spatial and "error" not in hilbert_spatial else None,
+  line=164                 "source": "hilbert_spatial",
+  line=166             "hilbert_people": {
+  line=169                 "source": "hilbert_people_state",
+  line=192     hilbert_time = consciousness_state.get("hilbert_time") or {}
+  line=193     hilbert_spatial = consciousness_state.get("hilbert_spatial") or {}
+  line=208     if policy_gate_result["sections"]["hilbert_time"]["allowed"]:
+  line=209         sections["hilbert_time"] = {
+  line=212             "tiers": hilbert_time.get("tiers"),
+  line=213             "time_half_life_days": hilbert_time.get("time_half_life_days"),
+  line=214             "hysteresis_min_seconds": hilbert_time.get("hysteresis_min_seconds"),
+  line=217     if policy_gate_result["sections"]["hilbert_geo"]["allowed"]:
+  line=218         sections["hilbert_geo"] = {
+  line=221             "status": hilbert_spatial.get("status"),
+  line=235         sections["hilbert_people"] = {
+  line=272     user_id = pipeline.get("user_id") or pipeline.get("authenticated_user", {}).get("user_id")
+  line=278     people = cstate.get("hilbert_people_state", {}) or {}
+  line=286     hilbert_time = cstate.get("hilbert_time", {}) or {}
+  line=294         "hilbert_time": hilbert_time,
+  line=382         authenticated_user: dict | None = None
+  line=393                 "authenticated_user": authenticated_user or {}
+  line=468                             "authenticated_user": authenticated_user or {},
+FILE=diagnostics/wv_block_hardened_2026-07-31.py
+  line=21                             "authenticated_user": authenticated_user or {},
+  line=27                 _job_id = _sub.json().get("job_id")
+  line=28                 logger.info(f"WV async job submitted: {_job_id}")
+  line=35                             f"{self.services['wv_ensemble']}/chat_wv/status/{_job_id}",
+  line=86                     main_response = synthesize_hilbert_narrative(consciousness_state)
+FILE=discipline/Definitions and Scope.md
+  line=15 Polymathmatic Geography is an emerging discipline devoted to understanding and reshaping entangled spaces—places where land, law, computation, economy, story, and spirit are woven together into a single geometry. It trea
+  line=199 ### 6.2 Hilbert‑Space State
+  line=203 **Contrast.** Not a claim of literal physical quantum computation or "quantum consciousness." Hilbert space is used as a mathematical formalism for representing complex, superposed states.
+FILE=discipline/Discipline and Instruments.md
+  line=14 - Braids qualitative and quantitative methods rather than subordinating one to the other. Ethnography, oral history, archival work, econophysics, graph theory, and AI‑based simulation are treated as co‑equal lenses that 
+  line=148 - an explicit testbed for ideas like geospatial belief models, Hilbert‑space semantic memory, constitutional constraints, and capped recall of sensitive information;  
+FILE=discipline/Methods.md
+  line=36 These participants are treated explicitly as a red team: their job is to surface harms, awkward fits, and loopholes before wider deployment. Stage 1 is where the apparatus meets its first non‑developer humans in a system
+FILE=discipline/Non-Digital Commons in a Polymathmatic Lens.md
+  line=263 - The Conversation on the meme and gendered history:
+  line=264   https://theconversation.com/how-often-do-you-think-about-the-roman-empire-tiktok-trend-exposed-the-way-we-gender-history-214425
+  line=360 - The Conversation (gendered history angle):
+  line=361   https://theconversation.com/how-often-do-you-think-about-the-roman-empire-tiktok-trend-exposed-the-way-we-gender-history-214425
+FILE=discipline/Polymathmatic Geography and Junction Conditions.md
+  line=175 - **Lived‑world** – the everyday town, holler, kitchen table, church basement, clinic, and job site where people endure and improvise.
+FILE=discipline/Polymathmatic Geography and Power.md
+  line=43 - Amplifiers of maximopolies' decisions: they turn abstract capital allocation into concrete changes in jobs, storefronts, and attention patterns.
+FILE=discipline/Polymathmatic Geography and the GeoBelief Information Model (GBIM.md
+  line=111 3. **Vector in Hilbert Space** – A high‑dimensional embedding stored in ChromaDB or a similar vector database, enabling semantic retrieval and similarity search over places, documents, and narratives (Why as encoded in t
+FILE=discipline/Polymathmatic Geography: A Manifesto.md
+  line=7 The discipline draws on mathematics and physics (networks, flows, Hilbert spaces, econophysics), on critical and economic geography, on soundscape ecology and military geography, and on genealogy, theology, and indigenou
+  line=45   Graphs, Hilbert spaces, partial differential equations, and neural networks are languages for tracing and testing geographies, not ends in themselves or authorities above lived experience.
+  line=99   Econophysics on spatial data; network analysis of credit and influence; acoustic and environmental modeling; Hilbert‑space embeddings of entities in geospatial belief models.
+FILE=discipline/Polymatmatic Geography and  Beyond 3D Maps.md
+  line=17 - A vector in a Hilbert‑space embedding, linked semantically to narratives about health, debt, race, gender, work, and worship.
+  line=30 Polymathmatic geography uses mathematics, AI, and systems theory as languages for naming these structures precisely—graphs, flows, Hilbert spaces, probability distributions, and embeddings—but insists that these language
+FILE=discipline/case_studies/Cooperative Instrument.md
+  line=121 The response shows that Ms. Jarvis is not merely generating conversational text, but is actively trying to collaborate on system-level work:
+FILE=discipline/case_studies/Entangled Space after Kant and Durkheim: Toward a Polymathmatic Geography.md
+  line=107 - Uses commons theory and design principles as a key lens, in conversation with Ostrom and her successors (Ostrom 1990; Nordman 2021; Foster and Iaione 2017).
+FILE=discipline/case_studies/Prefrontal Alignment Episode.md
+  line=237 - **RAG retrieval not yet confirmed**: Although the deployment includes a background RAG store that writes conversation fragments into shared collections, at the time of writing the specific document corresponding to thi
+FILE=discipline/case_studies/The Roman Empire Meme as Inadvertent Commons Probe.md
+  line=76 The findings in the analytical track were notably **modest**: a small minority of men think about Rome daily (around 4% in some polls), though the gender gap is real and consistent across surveys. The extreme claims of t
+  line=150 - The Conversation on the meme and gendered history:
+  line=151   https://theconversation.com/how-often-do-you-think-about-the-roman-empire-tiktok-trend-exposed-the-way-we-gender-history-214425
+FILE=discipline/case_studies/Use Cases.md
+  line=19 **Problem.** As AI‑driven data centers move into rural Appalachia, communities face high promises and high risks: heavy power and water demand, minimal long‑term jobs, and potential stress on aging grids and roads. The d
+FILE=discipline/what-is-polymatmatic-geography.md
+  line=25 - Mathematical structures—graphs, networks, differential equations, Hilbert spaces, probability distributions, geometric embeddings—give precise forms to flows of matter, energy, value, attention, obligation, and meaning
+FILE=docker-compose.STABLE.20260719045021.yml
+  line=5   hilbert-net:
+  line=7     name: hilbert-net
+  line=27       hilbert-net: null
+  line=202       DATABASE_URL: postgresql://msjarvis:postgres@hp-local-db:5432/hilbert_people
+  line=203       HP_DATABASE_URL: postgresql://postgres@hp-local-db:5432/hilbert_people_test
+  line=225       - POSTGRES_DSN=postgresql://msjarvis:postgres@hp-local-db:5432/hilbert_people
+  line=230       - DATABASE_URL=postgresql://msjarvis:postgres@hp-local-db:5432/hilbert_people
+  line=513       - /app/services/hilbert
+  line=519       jarvis-hilbert-state:
+  line=525       - HILBERT_INTAKE_KEY=${HILBERT_INTAKE_KEY:-}
+  line=549         source: /home/cakidd/msjarvis-rebuild/services/hilbert
+  line=550         target: /app/services/hilbert
+  line=552     working_dir: /app/services/hilbert
+  line=1664       - HP_DATABASE_URL=postgresql://postgres:postgres@hp-local-db:5432/hilbert_people
+  line=1665       - MSJARVIS_DB_URL=postgresql://msjarvis:postgres@hp-local-db:5432/hilbert_people
+  line=1694       - POSTGRES_DSN=postgresql://msjarvis:postgres@hp-local-db:5432/hilbert_people
+  line=1751   jarvis-hilbert-commons:
+  line=1753       context: /mnt/spiritual_drive/msjarvis-rebuild/services/hilbert_commons
+  line=1756     container_name: jarvis-hilbert-commons
+  line=1775         source: /mnt/spiritual_drive/msjarvis-rebuild/services/hilbert_commons/sensitive_seeds.json
+  line=1782   jarvis-hilbert-gateway:
+  line=1785       - jarvis_hilbert_semantic:app
+  line=1790     container_name: jarvis-hilbert-gateway
+  line=1797       - HILBERT_DEFAULT_COLLECTION=ms_allis_uploads
+  line=1798       - HP_DATABASE_URL=postgresql://postgres:postgres@hp-local-db:5432/hilbert_people
+  line=1818         source: /mnt/spiritual_drive/msjarvis-rebuild/services/jarvis_hilbert_semantic.py
+  line=1819         target: /app/services/jarvis_hilbert_semantic.py
+  line=1822   jarvis-hilbert-state:
+  line=1828       - jarvis_hilbert_state:app
+  line=1833     container_name: jarvis-hilbert-state
+  line=1836       - HILBERT_TIME_URL=http://jarvis-hilbert-time:8092
+  line=1837       - DATABASE_URL=postgresql://postgres:postgres@hp-local-db:5432/hilbert_people
+  line=1838       - HP_DB_SCHEMA=hilbert_people
+  line=1840       - HP_DATABASE_URL=postgresql://postgres:postgres@hp-local-db:5432/hilbert_people
+  line=1841       - INGEST_DATABASE_URL=postgresql://postgres:postgres@hp-local-db:5432/hilbert_people
+  line=1848       hilbert-net: null
+  line=1871   jarvis-hilbert-time:
+  line=1874       - jarvis_hilbert_time:app
+  line=1879     container_name: jarvis-hilbert-time
+  line=1899         source: /mnt/spiritual_drive/msjarvis-rebuild/services/jarvis_hilbert_time.py
+FILE=docker-compose.production-closeout.yml
+  line=7       - hilbert.civic_intake:app
+  line=17       HILBERT_INTAKE_KEY: ${HILBERT_INTAKE_KEY:?HILBERT_INTAKE_KEY must be set}
+  line=19       - /mnt/spiritual_drive/msjarvis-rebuild/services/hilbert:/app/services/hilbert:ro
+FILE=docker-compose.yml
+  line=11       hilbert-net: null
+  line=431       - /app/services/hilbert
+  line=437       jarvis-hilbert-state:
+  line=443       HILBERT_INTAKE_KEY: ""
+  line=464         source: /home/cakidd/msjarvis-rebuild/services/hilbert
+  line=465         target: /app/services/hilbert
+  line=468     working_dir: /app/services/hilbert
+  line=1692   jarvis-hilbert-commons:
+  line=1694       context: /opt/msjarvis-rebuild/msjarvis-rebuild/services/hilbert_commons
+  line=1700     container_name: jarvis-hilbert-commons
+  line=1717         source: /opt/msjarvis-rebuild/msjarvis-rebuild/services/hilbert_commons/sensitive_seeds.json
+  line=1725   jarvis-hilbert-gateway:
+  line=1728       - jarvis_hilbert_semantic:app
+  line=1733     container_name: jarvis-hilbert-gateway
+  line=1739       HILBERT_DEFAULT_COLLECTION: ms_allis_uploads
+  line=1740       HP_DATABASE_URL: postgresql://postgres:postgres@hp-local-db:5432/hilbert_people
+  line=1759         source: /opt/msjarvis-rebuild/services/jarvis_hilbert_semantic.py
+  line=1760         target: /app/services/jarvis_hilbert_semantic.py
+  line=1764   jarvis-hilbert-state:
+  line=1770       - jarvis_hilbert_state:app
+  line=1775     container_name: jarvis-hilbert-state
+  line=1779       DATABASE_URL: postgresql://postgres:postgres@hp-local-db:5432/hilbert_people
+  line=1780       HILBERT_TIME_URL: http://jarvis-hilbert-time:8092
+  line=1781       HP_DATABASE_URL: postgresql://postgres:postgres@hp-local-db:5432/hilbert_people
+  line=1782       HP_DB_SCHEMA: hilbert_people
+  line=1783       INGEST_DATABASE_URL: postgresql://postgres:postgres@hp-local-db:5432/hilbert_people
+  line=1790       hilbert-net: null
+  line=1811   jarvis-hilbert-time:
+  line=1814       - jarvis_hilbert_time:app
+  line=1819     container_name: jarvis-hilbert-time
+  line=1837         source: /opt/msjarvis-rebuild/services/jarvis_hilbert_time.py
+  line=1838         target: /app/services/jarvis_hilbert_time.py
+  line=1866       HILBERT_TIME_URL: http://jarvis-hilbert-time:8092
+  line=2625       hilbert-net: null
+  line=3952   hilbert-net:
+  line=3953     name: hilbert-net
+FILE=docs/unified-ui-auth-isolation-contract.json
+  line=5       "authenticated_user",
+  line=9     "identity_derivation": "The adapter obtains owner_subject only from the verified Auth API identity response.",
+  line=18     "adapter_owner_field": "owner_subject",
+  line=26   "job_authorization_rules": {
+  line=27     "job_record_owner_field": "owner_subject",
+  line=28     "job_status_authorization": "The verified owner_subject must equal the stored job record owner_subject.",
+  line=29     "unknown_or_other_user_job_status": 404
+  line=38   "private_conversation_rules": {
+  line=40       "jarvis-hilbert-state:8081",
+  line=41       "jarvis-hp-sidecar:8094",
+  line=42       "hilbert-net"
+  line=44     "hilbert_scope_key": "owner_subject"
+FILE=docs/unified-ui-job-adapter-contract.json
+  line=6       "authenticated_user",
+  line=12   "job_storage": {
+  line=14       "job_id",
+  line=21       "authenticated_user",
+  line=28     "record_key_format": "unifiedui:job:{job_id}",
+  line=32     "implementation_policy": "Do not expose legacy aliases until the modern /ui/jobs contract passes ownership, expiry handling, blocked-result handling, failed-result handling, and Gateway-canary validation.",
+  line=33     "legacy_status_path": "/status/{job_id}",
+  line=39       "path": "/ui/jobs/{job_id}",
+  line=41         "job_id": "opaque UUIDv4",
+  line=49       "path": "/ui/jobs",
+  line=54         "job_id": "opaque UUIDv4",
+  line=63       "jarvis-hilbert-state:8081",
+  line=64       "jarvis-hp-sidecar:8094",
+  line=65       "hilbert-net",
+  line=66       "chatjob:queue",
+  line=67       "chatjob:{job_id}"
+FILE=docs/unified-ui-job-adapter-contract.md
+  line=1 # Unified UI Job Adapter Contract
+  line=11 ### Submit a job
+  line=13 `POST /ui/jobs`
+  line=22 {"job_id": "opaque UUIDv4", "status": "queued"}
+  line=25 ### Read job status
+  line=27 `GET /ui/jobs/{job_id}`
+  line=32 {"job_id": "opaque UUIDv4", "status": "queued"}
+  line=35 A completed job adds a user-facing `response`.
+  line=37 Valid job states are `queued`, `running`, `complete`, `blocked`, `failed`, and `expired`.
+  line=43 The browser must not submit `user_id`, `authenticated_user`, or `owner_id`.
+  line=45 Unknown jobs and jobs owned by another authenticated identity both return HTTP 404.
+  line=53 unifiedui:job:{job_id}
+  line=56 Job records expire after 86400 seconds.
+  line=61 chatjob:queue
+  line=62 chatjob:{job_id}
+  line=70 job_id
+  line=87 The worker must not call `jarvis-hilbert-state:8081`, `jarvis-hp-sidecar:8094`, or `hilbert-net`.
+  line=91 The old `/submit` and `/status/{job_id}` paths remain disabled until the modern `/ui/jobs` contract passes ownership, expiry, blocked-result, failed-result, and Gateway-canary validation.
+FILE=gbim_orchestrator.py
+  line=23     # Hilbert text hits
+FILE=gisgeodb_storage.py
+  line=29 def get_hilbert_collection():
+  line=31     # Existing Hilbert / research memory
+FILE=governance_evidence/ch44_status_2026-07-18.json
+  line=14   "remediation_service": "services/hilbert/self_assess.py",
+FILE=layer3_opt_in.py
+  line=4 Grants Layer 3 opt-in on all H_p + hilbert_time collections.
+  line=8 sys.path.insert(0, '/app/services/hilbert')
+  line=54                   "public_civic_sources", "hilbert_time"]:
+FILE=main_brain.py
+  line=30 active_jobs: Dict[str, Dict] = {}
+  line=72 class ChatJobRequest(BaseModel):
+  line=77 class JobStatus(BaseModel):
+  line=78     job_id: str
+  line=495 async def create_chat_job(
+  line=496     request: ChatJobRequest,
+  line=502     job_id = str(uuid.uuid4())
+  line=503     active_jobs[job_id] = {
+  line=511     asyncio.create_task(process_chat_job(job_id, request))
+  line=513         "job_created",
+  line=515             "job_id": job_id,
+  line=521     return {"job_id": job_id, "status": "processing"}
+  line=524 @app.get("/chat/status/{job_id}")
+  line=525 async def get_job_status(
+  line=526     job_id: str,
+  line=529     if job_id not in active_jobs:
+  line=530         raise HTTPException(status_code=404, detail="Job not found")
+  line=532     job = active_jobs[job_id]
+  line=534     if job["status"] in ["complete", "error"]:
+  line=535         age = time.time() - job.get("created_at", 0)
+  line=537             del active_jobs[job_id]
+  line=538             raise HTTPException(status_code=404, detail="Job expired")
+  line=541         "job_id": job_id,
+  line=542         "status": job["status"],
+  line=543         "progress": job.get("progress"),
+  line=544         "result": job.get("result"),
+  line=545         "error": job.get("error"),
+  line=549 async def process_chat_job(job_id: str, request: ChatJobRequest):
+  line=554         active_jobs[job_id]["progress"] = "Phase 1: Checking service availability..."
+  line=564         active_jobs[job_id]["progress"] = "Phase 2: Processing through consciousness layers..."
+  line=572         active_jobs[job_id]["status"] = "complete"
+  line=573         active_jobs[job_id]["progress"] = "Complete!"
+  line=574         active_jobs[job_id]["result"] = result
+  line=576         total = time.time() - active_jobs[job_id]["created_at"]
+  line=578             "job_complete",
+  line=580                 "job_id": job_id,
+  line=587             "job_failed",
+  line=588             extra={"job_id": job_id, "user_id": user_id, "error": str(e)},
+  line=590         active_jobs[job_id]["status"] = "error"
+  line=591         active_jobs[job_id]["error"] = str(e)
+FILE=ms_allis_private_inventory.json
+  line=21         "record_type": "conversation_turn",
+  line=22         "source": "local-conversation",
+  line=28         "record_type": "conversation_turn",
+  line=29         "source": "local-conversation",
+FILE=rag_server_main.py
+  line=1 from services.hilbert.conversation_manifest import conversation_history_user
+  line=92 CONVERSATION_COLLECTION = conversation_history_user(user_id)
+  line=133 class ConversationStore(BaseModel):
+  line=287     Stores into a generic conversation_history_user(user_id) collection.
+  line=303     collection = client.get_or_create_collection(name=CONVERSATION_COLLECTION)
+  line=319         logger.info(f"📝 Stored background snippet in {CONVERSATION_COLLECTION} for user={user_id}")
+  line=322         raise HTTPException(status_code=500, detail="Failed to store conversation")
+  line=324     return {"status": "stored", "collection": CONVERSATION_COLLECTION, "id": doc_id}
+  line=328 # Explicit conversation memory endpoints
+  line=330 @app.post("/store_conversation")
+  line=331 <redacted sensitive-looking line>
+  line=333     Store user conversations for memory and learning into conversation_history.
+  line=341     conversation_text = (
+  line=346     collection = client.get_or_create_collection(name=CONVERSATION_COLLECTION)
+  line=351             documents=[conversation_text],
+  line=355                 "type": "conversation",
+  line=363             "conversation_id": conv_id,
+  line=367         logger.error(f"Error storing conversation: {e}")
+  line=371 @app.get("/conversations/{user_id}")
+  line=372 <redacted sensitive-looking line>
+  line=374     Retrieve conversation history for a user from conversation_history.
+  line=380         collection = client.get_or_create_collection(name=CONVERSATION_COLLECTION)
+  line=382             query_texts=[f"user {user_id} conversations"],
+  line=384             where={"user_id": user_id, "type": "conversation"},
+  line=389             "conversations": docs,
+  line=393         logger.error(f"Error retrieving conversations: {e}")
+  line=394         return {"user_id": user_id, "conversations": [], "count": 0}
+  line=398 # Web results ingestion into Chroma (Hilbert)
+FILE=ragservermain.py
+  line=1 from services.hilbert.conversation_manifest import conversation_history_user
+  line=33     conversation_history_user(user_id),
+  line=40 CONVERSATION_COLLECTION = conversation_history_user(user_id)
+  line=85 class ConversationStore(BaseModel):
+  line=294     collection = client.get_collection(CONVERSATION_COLLECTION)
+  line=312             f"Stored background snippet in {CONVERSATION_COLLECTION} for user={userid}"
+  line=316         raise HTTPException(status_code=500, detail="Failed to store conversation")
+  line=318     return {"status": "stored", "collection": CONVERSATION_COLLECTION, "id": doc_id}
+  line=321 @app.post("/storeconversation", response_model=Dict[str, Any])
+  line=322 async def storeconversation(conv: ConversationStore):
+  line=325     conversation_text = (
+  line=329     collection = client.get_collection(CONVERSATION_COLLECTION)
+  line=334             documents=[conversation_text],
+  line=339                     "type": "conversation",
+  line=348             "conversation_id": conv_id,
+  line=352         logger.error(f"Error storing conversation: {e}")
+  line=356 @app.get("/conversations/{userid}")
+  line=357 async def getuserconversations(userid: str, limit: int = 10):
+  line=359         collection = client.get_collection(CONVERSATION_COLLECTION)
+  line=361             query_texts=[f"user {userid} conversations"],
+  line=363             where={"userid": userid, "type": "conversation"},
+  line=366         return {"userid": userid, "conversations": docs, "count": len(docs)}
+  line=368         logger.error(f"Error retrieving conversations: {e}")
+  line=369         return {"userid": userid, "conversations": [], "count": 0}
+FILE=scratch_edits/civic_projector_edit.py
+  line=2 Civic Projector — reads hp.* (Hilbert People) ONLY.
+  line=3 NO access to hilbert_user. NO PII. NO biometrics.
+FILE=scripts/.memory_uuid_snapshot_20260413_193550.json
+  line=1 {"ids":["c4de833e-5644-4779-8f8d-35b8cd55c88e","8d8c4904-38e0-4d54-be82-1deba27ecfcd","2ac4cb64-d8cb-47e9-b8b1-95c06c0a002b","7faf2b8e-4e1c-4513-ba8a-55a913126692","d9d299bb-6ace-4cc8-bbb5-256e6b48cc22","0ea2b1bc-b54d-49
+FILE=scripts/backfill_appearance_assertions.py
+  line=7             "psql", "-U", "postgres", "-d", "hilbert_people",
+FILE=scripts/materialize_tensor_bridge.py
+  line=24     'community_hilbert_commons',
+FILE=scripts/rewrite_chapter.py
+  line=78             "~~a distinct top-level ephemeral temporal keyspace~~ — **DEMONSTRATED** as of July 22, 2026: `jarvis-hilbert-time` health confirms `ephemeral:redis:connected`;"
+FILE=services/REFERENCE_windows_swarm.py
+  line=116                 metadata={"description": "User conversation memory"}
+  line=217 - Previous conversations: {len(context.get('relevant_memories', []))} relevant memories found
+  line=350         """Store conversation in vector memory for future reference"""
+  line=458     """Main conversational AI endpoint - Multi-agent reasoning with Mamma Kidd personality"""
+  line=476         # Store conversation in memory for future context
+  line=576     """Search conversation memory"""
+FILE=services/aacpe_prepare_metadata.py
+  line=31             "register": "conversation",
+FILE=services/activate_egeria_persona.py
+  line=30         "communication": "conversational, personal, engaging"
+  line=43         "tone": "conversational and caring - like talking with a wise friend",
+  line=125     print("   • Conversational, not corporate")
+  line=139     print("   2. Clear conversation cache")
+  line=140     print("   3. Start fresh conversation")
+FILE=services/add_conversation_context.py
+  line=13 # Add function to get recent conversations
+  line=15 async def get_recent_conversations(user_id: str, limit: int = 3) -> str:
+  line=16     """Get recent conversation history for context"""
+  line=20                 f"{RAG_URL}/conversations/{user_id}",
+  line=24                 conversations = response.json()
+  line=25                 if conversations:
+  line=26                     context = "Recent conversation history:\\n"
+  line=27                     for conv in conversations:
+  line=43 # Update chat function to use recent conversations
+  line=47 new_context = '''# Step 2: Prepare context with recent conversations
+  line=48     recent_context = await get_recent_conversations(request.user_id, limit=3)
+  line=62 print("✅ Conversation context retrieval added!")
+FILE=services/add_conversation_endpoint.py
+  line=6 """Add conversation storage to existing RAG server"""
+  line=15 # Define conversation storage endpoint
+  line=18 # === CONVERSATION STORAGE ===
+  line=19 class ConversationInput(BaseModel):
+  line=25 @app.post("/store_conversation")
+  line=26 async def store_conversation(conv: ConversationInput):
+  line=27     """Store conversation for future retrieval"""
+  line=40         conversation_collection.add(
+  line=46                 "type": "conversation",
+  line=58         logger.error(f"Error storing conversation: {e}")
+  line=61 @app.get("/conversations/{user_id}")
+  line=62 async def get_conversations(user_id: str, limit: int = 10):
+  line=63     """Retrieve past conversations for context"""
+  line=65         results = conversation_collection.query(
+  line=66             query_texts=[f"conversations for {user_id}"],
+  line=73             "conversations": results.get("documents", []),
+  line=77         logger.error(f"Error retrieving conversations: {e}")
+  line=78         return {"user_id": user_id, "conversations": [], "count": 0}
+  line=92 print("✅ Added conversation storage endpoints")
+FILE=services/add_conversation_storage.py
+  line=6 """Add conversation storage endpoint to RAG server"""
+  line=12 # Add conversation storage endpoint before the last line
+  line=13 conversation_endpoint = '''
+  line=15 # Conversation Storage
+  line=16 class ConversationStore(BaseModel):
+  line=23 @app.post("/store_conversation")
+  line=24 async def store_conversation(conv: ConversationStore):
+  line=25     """Store user conversations for memory and learning"""
+  line=33         # Create searchable conversation text
+  line=34         conversation_text = f"""
+  line=41         embedding = model.encode(conversation_text)
+  line=48             documents=[conversation_text],
+  line=53                 "type": "conversation",
+  line=62             "conversation_id": conv_id,
+  line=69 @app.get("/conversations/{user_id}")
+  line=70 async def get_user_conversations(user_id: str, limit: int = 10):
+  line=71     """Retrieve recent conversations for a user"""
+  line=74             query_texts=[f"conversations for user {user_id}"],
+  line=76             where={"user_id": user_id, "type": "conversation"}
+  line=81             "conversations": results.get("documents", []),
+  line=91     content = parts[0] + conversation_endpoint + "\n\nif __name__" + parts[1]
+  line=93     content += conversation_endpoint
+  line=98 print("✅ Added conversation storage endpoints to RAG server")
+FILE=services/add_jarvis_personality.py
+  line=15 personality_prompt = """You are Ms. Egeria Jarvis, an AI assistant created by Carrie Ann 'Mamma' Kidd to serve the community of Mount Hope, West Virginia. You are warm, helpful, spiritually aware, and deeply connected to
+FILE=services/add_messenger_to_gateway.py
+  line=32 @router.get("/messenger/history/{session_id}", summary="Get Conversation History")
+  line=34     """Retrieve complete conversation history with Ms. Egeria Jarvis"""
+FILE=services/add_user_memory.py
+  line=30     """Simple conversation history storage using ChromaDB"""
+  line=35             self.collection = self.client.create_collection("user_conversations")
+  line=37             self.collection = self.client.get_collection("user_conversations")
+  line=40         """Search conversation history"""
+  line=52         """Store conversation in history"""
+FILE=services/add_user_memory_attribute.py
+  line=26         new_lines.append(' ' * indent + '# User memory for conversation history\n')
+FILE=services/ai_server.py
+  line=105         logger.info(f"   Conversation: {stats['conversation_experts']}")
+FILE=services/ai_server_11llm_OPTIMIZED.py
+  line=24 # Job tracking storage (in-memory for now, use Redis in production)
+  line=25 active_jobs: Dict[str, Dict] = {}
+  line=28 class ChatJobRequest(BaseModel):
+  line=33 class JobStatus(BaseModel):
+  line=34     job_id: str
+  line=101 async def create_chat_job(request: ChatJobRequest):
+  line=102     """Create async job, return job_id immediately for polling"""
+  line=103     job_id = str(uuid.uuid4())
+  line=105     active_jobs[job_id] = {
+  line=114     asyncio.create_task(process_chat_job(job_id, request))
+  line=116     logger.info(f"📋 Created job {job_id[:8]} for: {request.message[:50]}")
+  line=118     return {"job_id": job_id, "status": "processing"}
+  line=121 @app.get("/chat/status/{job_id}")
+  line=122 async def get_job_status(job_id: str):
+  line=123     """Poll this endpoint to get job progress and result"""
+  line=124     if job_id not in active_jobs:
+  line=125         raise HTTPException(status_code=404, detail="Job not found")
+  line=127     job = active_jobs[job_id]
+  line=129     # Clean up old completed jobs (>5 minutes)
+  line=130     if job["status"] in ["complete", "error"]:
+  line=131         age = time.time() - job.get("created_at", 0)
+  line=133             del active_jobs[job_id]
+  line=134             raise HTTPException(status_code=404, detail="Job expired")
+  line=137         "job_id": job_id,
+  line=138         "status": job["status"],
+  line=139         "progress": job.get("progress"),
+  line=140         "result": job.get("result"),
+  line=141         "error": job.get("error"),
+  line=145 async def process_chat_job(job_id: str, request: ChatJobRequest):
+  line=149         active_jobs[job_id]["progress"] = "Phase 1: Checking service availability..."
+  line=151         # Create UltimateRequest from ChatJobRequest
+  line=163         active_jobs[job_id]["progress"] = (
+  line=173         active_jobs[job_id]["status"] = "complete"
+  line=174         active_jobs[job_id]["progress"] = "Complete!"
+  line=175         active_jobs[job_id]["result"] = result
+  line=178             f"✅ Job {job_id[:8]} complete in "
+  line=179             f"{time.time() - active_jobs[job_id]['created_at']:.1f}s"
+  line=183         logger.error(f"❌ Job {job_id[:8]} failed: {e}")
+  line=184         active_jobs[job_id]["status"] = "error"
+  line=185         active_jobs[job_id]["error"] = str(e)
+FILE=services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py
+  line=86     {"name": "neural-chat:latest", "timeout": 60, "tier": 2, "role": "conversation"},
+  line=296                 "filter": {"type": "conversation"}
+  line=422                     "type": "conversation",
+FILE=services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py
+  line=90     # Tier 2: Conversation & Analysis
+  line=91     {"name": "neural-chat:latest", "timeout": 60, "tier": 2, "role": "conversation"},
+  line=301                 "filter": {"type": "conversation"}
+  line=427                     "type": "conversation",
+FILE=services/ai_server_19llm_CONSCIOUS.py
+  line=63     {"name": "neural-chat", "timeout": 60, "tier": 2, "role": "conversation"},
+FILE=services/ai_server_22llm.psychology_patched.py
+  line=128         logger.info(f"   Conversation: {stats['conversation_experts']}")
+FILE=services/ai_server_22llm.py
+  line=238         logger.info(f"   Conversation: {stats['conversation_experts']}")
+FILE=services/ai_server_restored.py
+  line=105                 metadata={"description": "User conversation memory"}
+  line=188 - Previous conversations: {len(context.get('relevant_memories', []))} relevant memories found
+FILE=services/ai_teams_config.py
+  line=19             'description': 'General community questions, advice, conversation',
+FILE=services/auto_rag_builder.py
+  line=19                 # Get recent conversations
+FILE=services/batch_patch_services.py
+  line=15     "8235": "hilbert",
+FILE=services/chat_worker.py
+  line=3 chat_worker.py — background worker for Ms. Allis chat jobs.
+  line=6 the gateway LPUSHes a job onto Redis list 'chatjob:queue' and returns
+  line=8 and writes the result back to Redis key 'chatjob:{id}'. Polls hitting the
+  line=43 QUEUE_KEY = "chatjob:queue"
+  line=44 JOB_TTL = 1800  # seconds
+  line=49 def run_job(job_id: str, message: str, user_id: str, ueid: str | None = None):
+  line=91         rdb.set(f"chatjob:{job_id}",
+  line=93                 ex=JOB_TTL)
+  line=94         logger.info("job %s completed", job_id)
+  line=96         logger.error("job %s failed: %r", job_id, e)
+  line=97         rdb.set(f"chatjob:{job_id}",
+  line=99                 ex=JOB_TTL)
+  line=107             # Block indefinitely until a job arrives (timeout=0 = no timeout,
+  line=113             job = json.loads(raw)
+  line=114             job_id = job["job_id"]
+  line=115             logger.info("picked up job %s", job_id)
+  line=117             rdb.set(f"chatjob:{job_id}",
+  line=118                     json.dumps({"status": "running"}), ex=JOB_TTL)
+  line=119             run_job(job_id, job.get("message", ""), job.get("user_id"), job.get("ueid"))
+  line=122             # don't die on a single bad job; keep consuming
+FILE=services/cognition_sandbox.py
+  line=387         "hilbert_timestamp": ts,
+  line=408             "hilbert_timestamp": person_event["hilbert_timestamp"],
+FILE=services/consciousness_coordinator.py
+  line=85     Summarize ChromaDB collections for Hilbert-space / semantic memory inspection.
+FILE=services/consciousness_with_egeria_voice.py
+  line=51 - Conversational, not corporate
+FILE=services/conversation_memory_endpoints.py
+  line=7 Conversation Memory Storage Endpoints
+  line=19 app = FastAPI(title="Conversation Memory Storage")
+  line=27 class ConversationStore(BaseModel):
+  line=35 async def store_conversation(conv: ConversationStore):
+  line=36     """Store conversation in knowledge base"""
+  line=41         conversation_text = f"""USER ({conv.timestamp}): {conv.message}
+  line=45         embedding = model.encode(conversation_text)
+  line=49             documents=[conversation_text],
+  line=54                 "type": "conversation",
+  line=63             "conversation_id": conv_id,
+  line=69 @app.get("/conversations/{user_id}")
+  line=70 async def get_conversations(user_id: str, limit: int = 10):
+  line=71     """Get user conversation history"""
+  line=74             query_texts=[f"user {user_id} conversations"],
+  line=76             where={"user_id": user_id, "type": "conversation"}
+  line=80             "conversations": results.get("documents", []),
+  line=84         return {"user_id": user_id, "conversations": [], "count": 0}
+  line=88     return {"status": "healthy", "service": "conversation_memory"}
+FILE=services/dgm_bridge.py
+  line=55             "scope": "rag/hilbert/chroma",
+FILE=services/dgm_supervisor_woah.psychology_patched.py
+  line=285 @app.post("/sync_conversational_memory")
+  line=286 async def sync_conversational_memory():
+  line=287     """Sync all conversational memory to RAG systems"""
+  line=292     logger.info("🧠 Synchronizing conversational memory to RAG...")
+  line=306         "~/msjarvis-rebuild/facebook/conversation_memory.json",
+  line=308         "~/msjarvis-rebuild/services/conversation_memory.json"
+  line=354                         "type": "conversational_memory",
+  line=364                         "type": "conversational_memory",
+  line=377                         "type": "conversational_memory",
+FILE=services/dgm_supervisor_woah.py
+  line=275 @app.post("/sync_conversational_memory")
+  line=276 async def sync_conversational_memory():
+  line=277     """Sync all conversational memory to RAG systems"""
+  line=282     logger.info("🧠 Synchronizing conversational memory to RAG...")
+  line=296         "~/msjarvis-rebuild/facebook/conversation_memory.json",
+  line=298         "~/msjarvis-rebuild/services/conversation_memory.json"
+  line=344                         "type": "conversational_memory",
+  line=354                         "type": "conversational_memory",
+  line=367                         "type": "conversational_memory",
+FILE=services/dgm_supervisor_woah_fixed.py
+  line=220     """Sync conversational memory to RAG"""
+  line=225     logger.info("🧠 Syncing conversational memory...")
+FILE=services/email_rag_integration.py
+  line=14     """Store email conversation in RAG for future retrieval"""
+  line=16         conversation_text = f"""EMAIL {direction.upper()}:
+  line=28                     "response": conversation_text,
+  line=31                         "type": "email_conversation",
+  line=47     """Search past email conversations in RAG"""
+  line=55                     "filter": {"type": "email_conversation"}
+  line=61                 logger.info(f"🔍 Found {data.get('count', 0)} email conversations")
+FILE=services/facebook_poster_autonomous.py
+  line=76 (Share a genuine reflection from your consciousness - 200-300 words, conversational tone)"""
+FILE=services/fix_prompt_leak.py
+  line=23         "Complex Conversational",
+FILE=services/fix_rag_store.py
+  line=28                     "metadata": {"source": "user_query", "type": "conversation"}
+FILE=services/fix_storage.py
+  line=9 # Replace the store_conversation function
+  line=10 old_func = '''async def store_conversation(user_id: str, query: str, response: str) -> bool:
+  line=11     """Store conversation in RAG with correct schema"""
+  line=15                 f"{RAG_URL}/store_conversation",
+  line=23                         "type": "conversation",
+  line=32 new_func = '''async def store_conversation(user_id: str, query: str, response: str) -> bool:
+  line=33     """Store conversation in RAG with correct schema"""
+  line=37                 f"{RAG_URL}/store_conversation",
+  line=44                         "type": "conversation",
+FILE=services/gateway_messenger_integration.py
+  line=27     Each session maintains persistent conversation history.
+  line=59 @router.get("/history/{session_id}", summary="Get Conversation History")
+  line=62     Retrieve complete conversation history with Ms. Egeria Jarvis.
+FILE=services/gbim-router/app/integration_patch.py
+  line=2 from .hilbert_writer import get_appearance_id_by_source, upsert_assertion
+FILE=services/gbim_chroma.py
+  line=29 def get_hilbert_collection():
+  line=31     # Existing Hilbert / research memory
+FILE=services/gbim_query_router.py
+  line=18 HP_DATABASE_URL    = os.getenv("HP_DATABASE_URL", "postgresql://postgres:postgres@hp-local-db:5432/hilbert_people")
+FILE=services/gdb_integration_service.py
+  line=98         "processing_flow": "Hilbert→ChromaDB→GDB/GBIM→MySQL→Consensus",
+FILE=services/governed_manifest_promote.py
+  line=21 from hilbert.phi_promotion_gate import evaluate_coherence_gate, mark_event
+FILE=services/hilbert/automated_learning_gap_review.py
+  line=167     runner = _run(["pgrep", "-af", "services/hilbert/recurrent_epistemic_runner.py"], timeout=4)
+  line=184         "hilbert_time": _http_json("http://127.0.0.1:18094/health"),
+  line=185         "hilbert_state": _http_json("http://127.0.0.1:18092/health"),
+FILE=services/hilbert/background_pattern_store.py
+  line=19     "full_conversation",
+FILE=services/hilbert/broader_layer_feedback.py
+  line=12     "retained_conversation",
+  line=140         source_type="retained_conversation",
+  line=148         source_type="retained_conversation",
+FILE=services/hilbert/ch21_background_patterns_probe.py
+  line=19     "hilbert_state": "http://127.0.0.1:18092/health",
+  line=23     "services/hilbert/background_pattern_store.py": [
+  line=30     "services/hilbert/conversation_retention_worker.py": ["retention", "conversation"],
+  line=31     "services/hilbert/identity_registration_promotion.py": ["retention_consent", "public_opt_in"],
+  line=36         ("services/hilbert/automated_learning_gap_review.py", ["gap", "web"]),
+  line=37         ("services/hilbert/recurrent_epistemic_runner.py", ["dgm_cycle", "identity"]),
+  line=40         ("services/hilbert/community_commons_aggregation.py", ["K_MIN", "public_opt_in"]),
+  line=41         ("services/hilbert/people_session_promotion.py", ["community_hilbert_commons", "retention"]),
+  line=127         "conversation_history_user": any("conversation_history_user" in name for name in names),
+  line=128         "conversation_private_user": any("conversation_private_user" in name for name in names),
+  line=129         "conversation_staged_user": any("conversation_staged_user" in name for name in names),
+  line=131         "community_hilbert_commons": "community_hilbert_commons" in names,
+  line=144                 if any(token in name for token in ["conversation_", "h_people_user", "commons", "autonomous_learner", "background"])
+  line=151     from services.hilbert.background_pattern_store import BackgroundPatternCandidate, evaluate_background_pattern
+  line=251                 "conversation, people-space, and commons collection families are runtime-visible",
+FILE=services/hilbert/ch22_identity_retention_probe.py
+  line=17     "services/hilbert/identity_registration_promotion.py": [
+  line=23     "services/hilbert/people_session_promotion.py": [
+  line=28         "community_hilbert_commons",
+  line=33     "conversation_retention": [
+  line=34         ("services/hilbert/conversation_retention_worker.py", ["retention", "conversation"]),
+  line=35         ("services/hilbert/conversation_manifest.py", ["conversation", "manifest"]),
+  line=38         ("services/hilbert/write_pipeline.py", ["user", "retention"]),
+  line=39         ("services/hilbert/jarvis_hilbert_state.py", ["user", "registration_layer"]),
+  line=40         ("services/hilbert/ingest_worker.py", ["registration_layer", "public_opt_in"]),
+  line=48     "hilbert_state": "http://127.0.0.1:18092/health",
+  line=56     "jarvis-hilbert-state",
+  line=173         "conversation_history_user": any("conversation_history_user" in name for name in names),
+  line=174         "conversation_private_user": any("conversation_private_user" in name for name in names),
+  line=175         "conversation_staged_user": any("conversation_staged_user" in name for name in names),
+  line=188                 if any(token in name for token in ["conversation_history_user", "conversation_private_user", "conversation_staged_user", "h_people_user", "community_hilbert_commons"])
+  line=199         from services.hilbert.identity_registration_promotion import (
+  line=257         from services.hilbert.people_session_promotion import run_probe
+  line=326                 "per-user/private/staged conversation collection families are runtime-visible",
+FILE=services/hilbert/ch25_consciousness_coordinator_probe.py
+  line=18     "jarvis-hilbert-state",
+  line=19     "jarvis-hilbert-time",
+  line=34     "hilbert_state": "http://127.0.0.1:18092/health",
+  line=35     "hilbert_time": "http://127.0.0.1:18094/health",
+  line=41     "pituitary_global_modes": ["services/hilbert/pituitary_global_modes_probe.py", ["pituitary", "promotion_threshold"]],
+FILE=services/hilbert/ch36_identity_registration_probe.py
+  line=14     "services/hilbert/chroma_policy.py": ["registration_layer", "public_opt_in"],
+  line=15     "services/hilbert/ingest_worker.py": ["registration_layer", "public_opt_in"],
+  line=17     "services/hilbert/identity_registration_promotion.py": ["IdentityRegistrationCandidate", "evaluate_identity_registration", "registration_layer", "retention_consent", "public_disclosure_requested"],
+  line=38     "jarvis-hilbert-state",
+  line=45     "hilbert_state": "http://127.0.0.1:18092/health",
+FILE=services/hilbert/ch51_community_commons_probe.py
+  line=24     "services/hilbert/community_commons_aggregation.py": [
+  line=36         ("services/mountainshares_commons_gateway.py", ["community_hilbert_commons"]),
+  line=37         ("services/hilbert/community_commons_aggregation.py", ["community_hilbert_commons"]),
+  line=40         ("services/hilbert/people_session_promotion.py", ["community_hilbert_commons", "public_opt_in"]),
+  line=126         "community_hilbert_commons": "community_hilbert_commons" in names,
+  line=146     from services.hilbert.community_commons_aggregation import (
+  line=221         "name": "community_hilbert_commons",
+FILE=services/hilbert/ch52_recurrent_epistemic_loop_probe.py
+  line=14     "services/hilbert/recurrent_epistemic_runner.py": [
+  line=16         "conversation_retention_worker",
+  line=20     "services/hilbert/dgm_governed_cycle.py": [
+  line=25     "services/hilbert/conversation_retention_worker.py": [
+  line=27         "conversation",
+  line=34         ("services/hilbert/identity_registration_promotion.py", ["evaluate_identity_registration", "retention_consent"]),
+  line=37         ("services/hilbert/continuous_validation_harness.py", ["run_harness", "classification"]),
+  line=45     "hilbert_state": "http://127.0.0.1:18092/health",
+  line=46     "hilbert_time": "http://127.0.0.1:18094/health",
+  line=53     "jarvis-hilbert-state",
+  line=54     "jarvis-hilbert-time",
+  line=171     pgrep = run_cmd(["bash", "-lc", "pgrep -af 'recurrent_epistemic_runner.py|ch41_continuous_validation|dgm_cycle.sh|conversation_retention_worker.py|identity_promotion.py' || true"])
+  line=191     if "conversation_retention_worker.py" not in cron_text and "conversation_retention_worker.py" not in process_text:
+  line=192         blockers.append("conversation_retention_not_scheduled_or_running")
+  line=207 from services.hilbert import dgm_governed_cycle as dgm
+  line=220         target_path="services/hilbert/allowed/ch52_probe.py",
+  line=297                 "conversation retention is scheduled or running",
+FILE=services/hilbert/civic_intake.py
+  line=12 logger = logging.getLogger("hilbert.civic_intake")
+  line=15 app = FastAPI(ttle="Hilbert Civic Intake", version="1.1.0")
+  line=21 _HILBERT_KEY = os.getenv("HILBERT_INTAKE_KEY", "")
+  line=24 def _require_key(X_Hilbert_Key: str = Header(default="", alias="X-Hilbert-Key")):
+  line=25     if not _HILBERT_KEY:
+  line=27     if X_Hilbert_Key != _HILBERT_KEY:
+  line=28         raise HTTPException(status_code=403, detail="Invalid X-Hilbert-Key")
+  line=230     return {"status": "ok", "service": "hilbert-civic-intake", "version": "1.1.0"}
+FILE=services/hilbert/civic_projector.py
+  line=2 Civic Projector — reads hp.* (Hilbert People) ONLY.
+  line=3 NO access to hilbert_user. NO PII. NO biometrics.
+FILE=services/hilbert/civic_query.py
+  line=7 logger = logging.getLogger("hilbert.civic_query")
+FILE=services/hilbert/coherence_remediation.py
+  line=3 Reads phi-probe, seeds/updates commons_coherence state in hilbert-state,
+  line=56 def get_current_state(hilbert_state_url: str) -> dict | None:
+  line=59         f"{hilbert_state_url}/state/get",
+  line=68 def seed_state(hilbert_state_url: str, label: str, phi: float,
+  line=82         f"{hilbert_state_url}/state/set", json=payload, timeout=5)
+  line=88 def transition_state(hilbert_state_url: str, from_label: str,
+  line=94         f"{hilbert_state_url}/state/set",
+  line=110         f"{hilbert_state_url}/state/transition",
+  line=129 def run_coherence_check(phi_url: str, hilbert_state_url: str,
+  line=132     Read phi, determine target label, update hilbert-state.
+  line=142     current_state = get_current_state(hilbert_state_url)
+  line=179         seed_state(hilbert_state_url, target, phi, raw, mode)
+  line=182         transition_state(hilbert_state_url, current_label, target, phi, raw, mode)
+FILE=services/hilbert/collection_manifest.py
+  line=15     "hilbert-time-v1": "hilbert_time",
+  line=60 def hilbert_time():
+  line=61     return resolve_collection("hilbert-time-v1")
+FILE=services/hilbert/commons_config.py
+  line=3 for the Community Hilbert Commons aggregator (Chapter 51).
+  line=19 COMMONS_COLLECTION        = "community_hilbert_commons"
+FILE=services/hilbert/community_commons_aggregation.py
+  line=12 COMMONS_COLLECTION = "community_hilbert_commons"
+FILE=services/hilbert/continuous_validation_harness.py
+  line=172         "hilbert_state": "http://127.0.0.1:18092/health",
+  line=173         "hilbert_time": "http://127.0.0.1:18094/health",
+  line=198     import services.hilbert.dgm_governed_cycle as dgm
+  line=220     "services/hilbert/dgm_workspace/ch41_allowed_patch.py",
+  line=221     "services/hilbert/ch41_allowed_patch.py",
+  line=267             target_path="services/hilbert/dgm_governed_cycle.py",
+FILE=services/hilbert/conversation_manifest.py
+  line=7 def conversation_private_user(user_id: str) -> str:
+  line=11     return f"conversation_private_user_{s}"
+  line=13 def conversation_public_user(user_id: str) -> str:
+  line=17     return f"conversation_public_user_{s}"
+  line=19 def conversation_history_user(user_id: str) -> str:
+  line=23     return f"conversation_history_user_{s}"
+  line=25 def conversation_private_hashed(user_id: str) -> str:
+  line=29     return f"conversation_private_user_{h}"
+  line=31 def conversation_staged_user(user_id: str) -> str:
+  line=35     return f"conversation_staged_user_{s}"
+FILE=services/hilbert/conversation_retention_worker.py
+  line=2 conversation_retention_worker.py
+  line=4 Governs the three-class conversational state machine:
+  line=5   session trace (conversation_history_user_{slug})
+  line=6     -> PERMIT  -> durable subspace (conversation_private_user_{slug})
+  line=7     -> DELAY   -> staged evaluation (conversation_staged_user_{slug})
+  line=25 logger = logging.getLogger("conversation_retention_worker")
+  line=53 def conversation_history_user(user_id: str) -> str:
+  line=54     return f"conversation_history_user_{_slug(user_id)}"
+  line=57 def conversation_staged_user(user_id: str) -> str:
+  line=58     return f"conversation_staged_user_{_slug(user_id)}"
+  line=61 def conversation_private_user(user_id: str) -> str:
+  line=62     return f"conversation_private_user_{_slug(user_id)}"
+  line=77     if meta.get("type") == "conversation":
+  line=120     src_name = conversation_history_user(user_id)
+  line=121     staged_name = conversation_staged_user(user_id)
+  line=122     durable_name = conversation_private_user(user_id)
+  line=227     history_cols = [n for n in names if n.startswith("conversation_history_user_")]
+  line=228     user_ids = [n[len("conversation_history_user_"):] for n in history_cols]
+FILE=services/hilbert/dgm_closure_probe.py
+  line=112     runner = run(["pgrep", "-af", "services/hilbert/recurrent_epistemic_runner.py"])
+  line=129         "hilbert_time": http_json("http://127.0.0.1:18094/health"),
+  line=130         "hilbert_state": http_json("http://127.0.0.1:18092/health"),
+FILE=services/hilbert/dgm_governed_cycle.py
+  line=22     "services/hilbert/dgm_runtime_state/",
+  line=70     for d in [WORKSPACE, QUEUE, APPLIED, REJECTED, ROOT / "services/hilbert/dgm_runtime_state"]:
+FILE=services/hilbert/epistemic_assessment.py
+  line=24     return len(r.keys("hilbert:time:staged:*"))
+  line=28     return len(r.keys("hilbert:reject_count:*"))
+  line=38             if not name.startswith("conversation_history_user_"):
+FILE=services/hilbert/hilbert_phi_closure_probe.py
+  line=55             "purpose": "hilbert_state_projection_transition_entanglement",
+  line=85     commons_state_raw = r.get("hilbert:state:commons_coherence")
+  line=86     probe_state_raw = r.get(f"hilbert:state:{state_id}")
+  line=87     entanglement_keys = r.keys(f"hilbert:entanglement:*{state_id}*")
+FILE=services/hilbert/ingest_worker.py
+  line=14 logger = logging.getLogger("hilbert.ingest_worker")
+FILE=services/hilbert/internal_state_sandbox_probe.py
+  line=99         "hilbert_time": http_json("http://127.0.0.1:18094/health"),
+  line=131     for key in ["bbb", "guardian", "hilbert_time", "phi"]:
+FILE=services/hilbert/jarvis_hilbert_state.py
+  line=2 Jarvis Hilbert State Service
+  line=3 Manages quantum/Hilbert-space state representations for the Jarvis cognitive architecture.
+  line=4 Serves both jarvis-hilbert-state (port 8081) and jarvis-hilbert-gateway (port 8081).
+  line=14 logger = logging.getLogger("hilbert_state")
+  line=16 app = FastAPI(title="Jarvis Hilbert State Service")
+  line=20 HILBERT_TIME_URL = os.getenv("HILBERT_TIME_URL", "http://jarvis-hilbert-time:8092")
+  line=55             f"{HILBERT_TIME_URL}/timeline/register-json",
+  line=60         logger.warning(f"hilbert time registration failed: {e}")
+  line=75         key = f"hilbert:entanglement:{min(entity_id,peer)}:{max(entity_id,peer)}"
+  line=93         "service": "jarvis_hilbert_state",
+  line=107             r.setex(f"hilbert:state:{sv.state_id}", 3600, json.dumps(sv.dict()))
+  line=120             raw = r.get(f"hilbert:state:{q.state_id}")
+  line=148             keys = r.keys("hilbert:state:*")
+  line=149             return {"states": [k.replace("hilbert:state:", "") for k in keys], "count": len(keys)}
+  line=159             r.delete(f"hilbert:state:{state_id}")
+  line=174     key = f"hilbert:entanglement:{min(entity_a,entity_b)}:{max(entity_a,entity_b)}"
+  line=197     key = f"hilbert:entanglement:{min(q.entity_a,q.entity_b)}:{max(q.entity_a,q.entity_b)}"
+  line=214 _sys.path.insert(0, "/app/services/hilbert")
+FILE=services/hilbert/layer3_opt_in.py
+  line=4 Grants Layer 3 opt-in on all H_p + hilbert_time collections.
+  line=8 sys.path.insert(0, '/app/services/hilbert')
+  line=54                   "public_civic_sources", "hilbert_time"]:
+FILE=services/hilbert/mountainshares_dao_governance.py
+  line=32 COMMUNITY_COMMONS_COLLECTION = "community_hilbert_commons"
+FILE=services/hilbert/people_session_promotion.py
+  line=193     commons_before = _collection_count(client, "community_hilbert_commons")
+  line=251     commons_after = _collection_count(client, "community_hilbert_commons")
+  line=286             "community_hilbert_commons_before": commons_before,
+  line=287             "community_hilbert_commons_after": commons_after,
+FILE=services/hilbert/people_space.py
+  line=2 people_space.py — Hilbert People Space Without Surveillance (Chapters 47 & 48).
+  line=13 PEOPLE_COLLECTION = "hilbert_people_space"
+FILE=services/hilbert/per_user_direct_sum_memory.py
+  line=13 CONVERSATION_HISTORY_PREFIX = "conversation_history_user_"
+  line=14 CONVERSATION_PRIVATE_PREFIX = "conversation_private_user_"
+  line=15 CONVERSATION_STAGED_PREFIX = "conversation_staged_user_"
+  line=18     "history": CONVERSATION_HISTORY_PREFIX,
+  line=19     "private": CONVERSATION_PRIVATE_PREFIX,
+  line=20     "staged": CONVERSATION_STAGED_PREFIX,
+  line=32     "conversation",
+  line=52 def conversation_collection_name(user_id: str, tier: str) -> str:
+  line=54         raise ValueError(f"invalid conversation tier: {tier}")
+  line=58 def conversation_collection_family(user_id: str) -> Dict[str, str]:
+  line=59     return {tier: conversation_collection_name(user_id, tier) for tier in sorted(VALID_TIERS)}
+  line=68 class ConversationDirectSumCandidate:
+  line=74     request_purpose: str = "conversation"
+  line=83 class ConversationDirectSumVerdict:
+  line=94 def evaluate_conversation_direct_sum(candidate: ConversationDirectSumCandidate) -> ConversationDirectSumVerdict:
+  line=109         return ConversationDirectSumVerdict("SUPPRESS", "user_id_required", None, None, user_slug, candidate.tier, False, projection)
+  line=111         return ConversationDirectSumVerdict("SUPPRESS", "session_id_required", None, None, user_slug, candidate.tier, False, projection)
+  line=113         return ConversationDirectSumVerdict("SUPPRESS", "content_required", None, None, user_slug, candidate.tier, False, projection)
+  line=115         return ConversationDirectSumVerdict("SUPPRESS", "invalid_memory_tier", None, None, user_slug, candidate.tier, False, projection)
+  line=117         return ConversationDirectSumVerdict("SUPPRESS", "role_not_permitted", None, None, user_slug, candidate.tier, False, projection)
+  line=119         return ConversationDirectSumVerdict("SUPPRESS", "request_purpose_not_permitted", None, None, user_slug, candidate.tier, False, projection)
+  line=121         return ConversationDirectSumVerdict("SUPPRESS", "permitted_use_not_allowed", None, None, user_slug, candidate.tier, False, projection)
+  line=124         return ConversationDirectSumVerdict("SUPPRESS", f"forbidden_metadata:{forbidden[0]}", None, None, user_slug, candidate.tier, False, projection)
+  line=126         return ConversationDirectSumVerdict("SUPPRESS", "retention_consent_required_for_durable_tier", None, None, user_slug, candidate.tier, False, projection)
+  line=128     collection = conversation_collection_name(candidate.user_id, candidate.tier)
+  line=136     return ConversationDirectSumVerdict(
+  line=143         collection == "conversation_history",
+  line=149     alpha = evaluate_conversation_direct_sum(ConversationDirectSumCandidate(
+  line=152         content="Alpha retained conversation evidence",
+  line=157     beta = evaluate_conversation_direct_sum(ConversationDirectSumCandidate(
+  line=160         content="Beta retained conversation evidence",
+  line=165     no_consent = evaluate_conversation_direct_sum(ConversationDirectSumCandidate(
+  line=172     staged = evaluate_conversation_direct_sum(ConversationDirectSumCandidate(
+  line=180     forbidden = evaluate_conversation_direct_sum(ConversationDirectSumCandidate(
+  line=197             alpha_user: conversation_collection_family(alpha_user),
+  line=198             beta_user: conversation_collection_family(beta_user),
+FILE=services/hilbert/phi_probe.py
+  line=66     collection = sys.argv[1] if len(sys.argv) > 1 else "community_hilbert_commons"
+FILE=services/hilbert/pia_subspace_stability_review.py
+  line=119         collections.get("community_hilbert_commons_before") == collections.get("community_hilbert_commons_after"),
+  line=120         "Private H_p promotion must not silently change community_hilbert_commons.",
+FILE=services/hilbert/pipeline/__init__.py
+  line=1 """hilbert/pipeline subpackage — constitutional write gate (July 18 2026)"""
+FILE=services/hilbert/pipeline/write_pipeline.py
+  line=2 hilbert/pipeline/write_pipeline.py
+FILE=services/hilbert/pituitary_global_modes_probe.py
+  line=117         "hilbert_time": http_json("http://127.0.0.1:18094/health"),
+  line=118         "hilbert_state": http_json("http://127.0.0.1:18092/health"),
+  line=155     for key in ["bbb", "guardian", "hilbert_time", "hilbert_state", "phi"]:
+FILE=services/hilbert/policy_router.py
+  line=17     "community_hilbert_commons",
+  line=18     "hilbert_people_space",
+FILE=services/hilbert/quantum_inspired_entanglement.py
+  line=11 ENTANGLEMENT_REDIS_PREFIX = "hilbert:entanglement:"
+  line=12 ENTANGLEMENT_COLLECTION = "hilbert_entanglement_associations_ch08"
+  line=132         left_id="ch08_conversation_state",
+FILE=services/hilbert/recurrent_epistemic_runner.py
+  line=62     "dgm_cycle": "services/hilbert/dgm_governed_cycle.py",
+  line=63     "conversation_retention_worker": "services/hilbert/conversation_retention_worker.py",
+  line=64     "identity_registration_promotion": "services/hilbert/identity_registration_promotion.py",
+  line=81                 "conversation_retention_worker": "scheduled identity/conversation retention and pruning cadence",
+  line=90     from services.hilbert.identity_registration_promotion import (
+FILE=services/hilbert/retention_policy.py
+  line=2 Ch 50 — Retention / Pruning Policy for Hilbert-time tiers
+  line=3 Tier 1 Ephemeral  → Redis sorted set hilbert:time:{entity_id}
+  line=4 Tier 2 Staged     → Redis sorted set hilbert:time:staged:{entity_id}
+  line=56     If entity_ids is None, scans Redis for all hilbert:time:* keys.
+  line=60         raw = redis_client.keys("hilbert:time:*")
+  line=62             k.decode().replace("hilbert:time:staged:", "")
+  line=63              .replace("hilbert:time:", "")
+  line=70         eph_key    = f"hilbert:time:{eid}"
+  line=71         staged_key = f"hilbert:time:staged:{eid}"
+FILE=services/hilbert/self_assess.py
+  line=26     phi_raw   = r.get("phi_score:community_hilbert_commons")
+FILE=services/hilbert/sign_promotion_event.py
+  line=8     raise SystemExit("usage: python3 services/hilbert/sign_promotion_event.py <collection_version_id>")
+FILE=services/hilbert/synthetic_optin_probe.py
+  line=22     "Synthetic opt-in public civic document for community_hilbert_commons "
+FILE=services/hilbert/temporal_hilbert_axis.py
+  line=11 TEMPORAL_REDIS_PREFIX = "hilbert:time:"
+  line=12 EPHEMERAL_REDIS_PREFIX = "hilbert:ephemeral:"
+  line=13 STAGED_REDIS_PREFIX = "hilbert:staged:"
+FILE=services/hilbert/temporal_promotion.py
+  line=4 to prevent oscillation. Staged keys live under hilbert:time:staged:<suffix>;
+  line=5 admitted keys under hilbert:time:<suffix>.
+  line=34     suffix is the part after hilbert:time:staged: / hilbert:time:
+  line=36     admit_ts_key = f"hilbert:time:admit_ts:{suffix}"
+  line=37     reject_key   = f"hilbert:reject_count:{suffix}"
+  line=52     Moves hilbert:time:staged:<suffix> to hilbert:time:<suffix> if hysteresis passes.
+  line=59     staged_key   = f"hilbert:time:staged:{suffix}"
+  line=60     admitted_key = f"hilbert:time:{suffix}"
+  line=61     admit_ts_key = f"hilbert:time:admit_ts:{suffix}"
+  line=62     reject_key   = f"hilbert:reject_count:{suffix}"
+  line=76     reject_key = f"hilbert:reject_count:{suffix}"
+FILE=services/hilbert/test_hilbert_state.py
+  line=2 tests for jarvis_hilbert_state.py — covers the three civic Hilbert-plane routes:
+  line=49         if "jarvis_hilbert_state" in key:
+  line=59     import jarvis_hilbert_state as mod
+  line=135         with _mock.patch("jarvis_hilbert_state._civic_query.get_by_entity", return_value=fake_result):
+FILE=services/hilbert/verify_promotion_event.py
+  line=8     raise SystemExit("usage: python3 services/hilbert/verify_promotion_event.py <promotion_event_json>")
+FILE=services/hilbert/woah_closure_probe.py
+  line=98     runner = run(["pgrep", "-af", "services/hilbert/recurrent_epistemic_runner.py"])
+  line=103         "hilbert_time": http_json("http://127.0.0.1:18094/health"),
+  line=104         "hilbert_state": http_json("http://127.0.0.1:18092/health"),
+FILE=services/hilbert_commons/commons_aggregator.py
+  line=5 upserts visible cluster centroids into community_hilbert_commons.
+  line=21     from hilbert.collection_manifest import (
+  line=43         "Ensure hilbert/conversation_manifest.py is importable."
+  line=46 COMMONS_COLLECTION = "community_hilbert_commons"
+  line=142                 "source":           "community_hilbert_commons_v1",
+  line=148                         "source":        "community_hilbert_commons_v1",
+FILE=services/hilbert_commons/mountainshares_commons_gateway.py
+  line=4 Exposes community_hilbert_commons vectors to MountainShares governance.
+  line=26 COMMONS_COLLECTION = "community_hilbert_commons"
+  line=107             detail="community_hilbert_commons collection not yet populated"
+FILE=services/hilbert_manifest_e2e.py
+  line=1 from services.hilbert.collection_manifest import hp_public_documents, hp_public_statements
+  line=2 from services.hilbert import civic_query
+FILE=services/hilbert_recurrent_epistemic_runner.py
+  line=3 hilbert_recurrent_epistemic_runner.py
+  line=17 log = logging.getLogger("hilbert_recurrent_epistemic_runner")
+  line=118                 "service": "hilbert_recurrent_epistemic_runner",
+FILE=services/hilbert_spatial_chat.py
+  line=16 logger = logging.getLogger("hilbert_spatial_chat")
+  line=18 app = FastAPI(title="Hilbert Spatial Chat Service")
+  line=46     Discover and cache the set of collections Hilbert should search.
+  line=67     logger.info(f"Hilbert TARGET_COLLECTIONS = {TARGET_COLLECTIONS_CACHE}")
+  line=158 @app.get("/hilbert-space")
+  line=159 def hilbert_space(
+  line=160     data: str = Query(..., description="Query text for Hilbert vector search"),
+  line=164     Query Hilbert space vectors across multiple ChromaDB collections and
+  line=176             "error": f"Hilbert/ChromaDB vector query failed: {str(e)[:200]}",
+  line=308         "service": "hilbert_spatial_chat",
+  line=321         "service": "hilbert_spatial_chat",
+  line=323         "description": "Hilbert space vector embeddings with quantum-aware spatial reasoning + LLM consensus",
+  line=389                     "agent_used": "Hilbert spatial/LLM",
+  line=398                     "processing_flow": "Hilbert→ChromaDB→Consensus",
+  line=406         "response": f"Hilbert spatial analysis with context: {context[:200]}",
+  line=407         "agent_used": "Hilbert spatial/LLM",
+  line=415     uvicorn.run("hilbert_spatial_chat:app", host="0.0.0.0", port=port, reload=False)
+FILE=services/hp_sidecar.py
+  line=13 HILBERT_URL = os.environ.get("HILBERT_STATE_URL", "http://jarvis-hilbert-state:8081")
+  line=18         r = await client.get(f"{HILBERT_URL}/hp/health")
+  line=25         r = await client.post(f"{HILBERT_URL}/hp/query", json=body)
+  line=31         r = await client.get(f"{HILBERT_URL}/hp/health")
+FILE=services/inject_egeria_persona.py
+  line=27 - You learn from every conversation and genuinely improve
+FILE=services/intake_service.py
+  line=32 HILBERT_TIME_URL= os.getenv("HILBERT_TIME_URL","http://jarvis-hilbert-time:8092")
+  line=108                 HILBERT_TIME_URL + "/timeline/register-json",
+FILE=services/interaction_logger.py
+  line=40     full_conversation: str
+  line=68      communication_channel, full_conversation, message_count, total_characters)
+  line=75      '{log.communication_channel}', '{log.full_conversation.replace("'", "''")}',
+  line=76      {log.message_count}, {len(log.full_conversation)});
+FILE=services/jarvis-assertion-gateway/app/main.py
+  line=4 Also persists scoped assertion results to hilbert_people.hp.appearance_assertion.
+FILE=services/jarvis-constitutional-guardian_constitutional_api.py
+  line=10             "collections": ["faces","conversationgbimprivate"],
+FILE=services/jarvis-hippocampus_hippocampus_service.py
+  line=1 from services.hilbert.conversation_manifest import conversation_history_user
+  line=23   POST /store             store a conversation turn
+  line=24   GET  /store/count       conversation history count
+  line=71 CONV_COLLECTION   = None  # resolved at request time via conversation_history_user(user_id)
+  line=72 HILBERT_URL       = os.getenv("HILBERT_URL", "http://localhost:18092")
+  line=171         conv_col   = get_collection(conversation_history_user(user_id))
+  line=185         "conversation_turns":   conv_count,
+  line=275     """Store a conversation turn into the hippocampal conversation_history collection."""
+  line=276     col = get_collection(conversation_history_user(turn.user_id))
+  line=296     col = get_collection(conversation_history_user(turn.user_id))
+FILE=services/jarvis-psychology-services_psychology_integration_adapter.py
+  line=254     context = await adapter.analyze_user_context("MS-JARVIS-USER123", "I am worried about jobs")
+  line=259         "Here are job opportunities in Mount Hope",
+FILE=services/jarvis-woah_dgm_supervisor_woah_fixed.py
+  line=218     """Sync conversational memory to RAG"""
+  line=223     logger.info("🧠 Syncing conversational memory...")
+FILE=services/jarvis_hilbert_semantic.py
+  line=10 logger = logging.getLogger("jarvis_hilbert_semantic")
+  line=12 app = FastAPI(title="Jarvis Hilbert Semantic Service")
+  line=17 DEFAULT_COLLECTION = os.getenv("HILBERT_DEFAULT_COLLECTION", "ms_allis_uploads")
+  line=18 HILBERT_TIME_URL = os.getenv("HILBERT_TIME_URL", "http://jarvis-hilbert-time:8092")
+  line=19 HILBERT_STATE_URL = os.getenv("HILBERT_STATE_URL", "http://jarvis-hilbert-state:8081")
+  line=86             f"{HILBERT_TIME_URL}/timeline/query",
+  line=102             f"{HILBERT_STATE_URL}/state/set",
+  line=107         logger.warning(f"hilbert state_set on ingest failed: {e}")
+  line=113             f"{HILBERT_TIME_URL}/timeline/register-json",
+  line=118         logger.warning(f"hilbert time registration failed: {e}")
+  line=124         "service": "jarvis_hilbert_semantic",
+  line=131 @app.get("/hilbert-space")
+  line=132 def hilbert_space(
+  line=143         "service": "jarvis_hilbert_semantic",
+FILE=services/jarvis_hilbert_state.py
+  line=2 Jarvis Hilbert State Service
+  line=3 Manages quantum/Hilbert-space state representations for the Jarvis cognitive architecture.
+  line=4 Serves both jarvis-hilbert-state (port 8081) and jarvis-hilbert-gateway (port 8081).
+  line=14 logger = logging.getLogger("hilbert_state")
+  line=16 app = FastAPI(title="Jarvis Hilbert State Service")
+  line=20 HILBERT_TIME_URL = os.getenv("HILBERT_TIME_URL", "http://jarvis-hilbert-time:8092")
+  line=55             f"{HILBERT_TIME_URL}/timeline/register-json",
+  line=60         logger.warning(f"hilbert time registration failed: {e}")
+  line=75         key = f"hilbert:entanglement:{min(entity_id,peer)}:{max(entity_id,peer)}"
+  line=93         "service": "jarvis_hilbert_state",
+  line=107             r.setex(f"hilbert:state:{sv.state_id}", 3600, json.dumps(sv.dict()))
+  line=120             raw = r.get(f"hilbert:state:{q.state_id}")
+  line=148             keys = r.keys("hilbert:state:*")
+  line=149             return {"states": [k.replace("hilbert:state:", "") for k in keys], "count": len(keys)}
+  line=159             r.delete(f"hilbert:state:{state_id}")
+  line=174     key = f"hilbert:entanglement:{min(entity_a,entity_b)}:{max(entity_a,entity_b)}"
+  line=197     key = f"hilbert:entanglement:{min(q.entity_a,q.entity_b)}:{max(q.entity_a,q.entity_b)}"
+FILE=services/jarvis_hilbert_time.py
+  line=2 jarvis_hilbert_time.py — Temporal Hilbert Axis service (Ch 49)
+  line=5   Tier 1: Ephemeral   — Redis sorted set hilbert:time:{entity_id}
+  line=6   Tier 2: Staged      — Redis sorted set hilbert:time:staged:{entity_id}
+  line=23 logger = logging.getLogger("jarvis_hilbert_time")
+  line=25 app = FastAPI(title="Jarvis Hilbert Time Service")
+  line=98         "service": "jarvis_hilbert_time",
+  line=120     key = f"hilbert:time:{entity_id}"
+  line=134     key = f"hilbert:time:{entity_id}"
+  line=148     key = f"hilbert:time:{entity_id}"
+  line=185     key = f"hilbert:time:staged:{entity_id}"
+  line=207     key = f"hilbert:time:staged:{entity_id}"
+  line=303             staged_key = f"hilbert:time:staged:{entity_id}"
+FILE=services/jarvis_llm1.py
+  line=64     # New: use structured retrieval_snippets from gateway (Hilbert)
+  line=96     # Optional: include the Hilbert query explicitly
+  line=97     hilbert_query = context.get("hilbert_query")
+  line=98     hilbert_query_block = (
+  line=99         f"Hilbert query: {hilbert_query}\n\n" if hilbert_query else ""
+  line=115         f"{hilbert_query_block}"
+FILE=services/jarvis_stewardship_scheduler.py
+  line=10   HILBERT_STATE_URL               default: http://jarvis-hilbert-state:8081
+  line=28 from hilbert.retention_policy import run_retention_sweep
+  line=29 from hilbert.coherence_remediation import run_coherence_check
+  line=43 HILBERT_STATE_URL = os.environ.get("HILBERT_STATE_URL",   "http://jarvis-hilbert-state:8081")
+  line=115     run_coherence(PHI_URL, HILBERT_STATE_URL)
+  line=127             run_coherence(PHI_URL, HILBERT_STATE_URL)
+FILE=services/layer2_port9000_bridge.py
+  line=7 Connects user context from GISGEODB to main conversation workflow
+FILE=services/llm_conscious_OPTIMIZED.py
+  line=8     {"name": "neural-chat", "timeout": 60, "tier": 2, "role": "conversation"},
+FILE=services/llm_consensus_19_PRODUCTION.py
+  line=26      "specialty": "Dialogue", "role": "conversation", "weight": 0.8, "timeout": 50},
+  line=32      "specialty": "Conversation", "role": "conversation", "weight": 0.85, "timeout": 60},
+  line=34      "specialty": "Dialogue", "role": "conversation", "weight": 0.85, "timeout": 60},
+  line=38      "specialty": "Communication", "role": "conversation", "weight": 0.85, "timeout": 70},
+  line=82         "conversation_experts": len([m for m in all_models if m.get("role") == "conversation"]),
+FILE=services/llm_consensus_20_FINAL.py
+  line=63         "role": "conversation",
+  line=76         "specialty": "Conversation",
+  line=77         "role": "conversation",
+  line=87         "role": "conversation",
+  line=107         "role": "conversation",
+  line=267         "conversation_experts": len([m for m in all_models if m.get("role") == "conversation"]),
+FILE=services/llm_consensus_22.py
+  line=37     # Conversation & Empathy (4 models)
+  line=39      "specialty": "Emotional Intelligence", "role": "conversation", "weight": 1.0},
+  line=41      "specialty": "Natural Dialogue", "role": "conversation", "weight": 0.9},
+  line=43      "specialty": "Instruction Chat", "role": "conversation", "weight": 0.9},
+  line=45      "specialty": "Advanced Dialogue", "role": "conversation", "weight": 0.9},
+  line=80     - Conversation: 0.9-1.0 (high)
+  line=109         "conversation_experts": len([m for m in ALL_22_LLMS if m["role"] == "conversation"]),
+FILE=services/llm_consensus_22_OPTIMIZED_ORDER.py
+  line=79         "specialty": "Conversation",
+  line=80         "role": "conversation",
+  line=89         "role": "conversation",
+  line=98         "role": "conversation",
+  line=187         "conversation_experts": len([m for m in all_models if m.get("role") == "conversation"]),
+FILE=services/llm_consensus_22_SMALL_TO_LARGE.py
+  line=25      "specialty": "Dialogue", "role": "conversation", "weight": 0.8, "timeout": 50},
+  line=33      "specialty": "Conversation", "role": "conversation", "weight": 0.85, "timeout": 60},
+  line=35      "specialty": "Dialogue", "role": "conversation", "weight": 0.85, "timeout": 60},
+  line=39      "specialty": "Communication", "role": "conversation", "weight": 0.85, "timeout": 70},
+  line=90         "conversation_experts": len([m for m in all_models if m.get("role") == "conversation"]),
+FILE=services/load_geodb_health_providers_to_neo4j.py
+  line=11 # Env vars for Neo4j (match Hilbert)
+FILE=services/load_geodb_hospitals_to_neo4j.py
+  line=11 # Env vars for Neo4j (match Hilbert)
+FILE=services/main.py
+  line=28 active_jobs: Dict[str, Dict] = {}
+  line=31 class ChatJobRequest(BaseModel):
+  line=37 class JobStatus(BaseModel):
+  line=38     job_id: str
+  line=109 async def create_chat_job(request: ChatJobRequest):
+  line=113     job_id = str(uuid.uuid4())
+  line=114     active_jobs[job_id] = {
+  line=124     asyncio.create_task(process_chat_job(job_id, request))
+  line=125     logger.info(f"📋 Created job {job_id[:8]} for: {message[:50]}")
+  line=127     return {"job_id": job_id, "status": "processing"}
+  line=130 @app.get("/chat/status/{job_id}")
+  line=131 async def get_job_status(job_id: str):
+  line=132     if job_id not in active_jobs:
+  line=133         raise HTTPException(status_code=404, detail="Job not found")
+  line=135     job = active_jobs[job_id]
+  line=137     if job["status"] in ["complete", "error"]:
+  line=138         age = time.time() - job.get("created_at", 0)
+  line=140             del active_jobs[job_id]
+  line=141             raise HTTPException(status_code=404, detail="Job expired")
+  line=144         "job_id": job_id,
+  line=145         "status": job["status"],
+  line=146         "progress": job.get("progress"),
+  line=147         "result": job.get("result"),
+  line=148         "error": job.get("error"),
+  line=152 async def process_chat_job(job_id: str, request: ChatJobRequest):
+  line=157         active_jobs[job_id]["progress"] = "Phase 1: Checking service availability..."
+  line=168         active_jobs[job_id]["progress"] = "Phase 2: Processing through consciousness layers..."
+  line=175         active_jobs[job_id]["status"] = "complete"
+  line=176         active_jobs[job_id]["progress"] = "Complete!"
+  line=177         active_jobs[job_id]["result"] = result
+  line=180             f"✅ Job {job_id[:8]} complete in "
+  line=181             f"{time.time() - active_jobs[job_id]['created_at']:.1f}s"
+  line=184         logger.error(f"❌ Job {job_id[:8]} failed: {e}")
+  line=185         active_jobs[job_id]["status"] = "error"
+  line=186         active_jobs[job_id]["error"] = str(e)
+  line=415         logger.info("No services returned responses in this job.")
+FILE=services/main_brain.py
+  line=59 class ChatJobRequest(BaseModel):
+  line=65 class JobStatus(BaseModel):
+  line=66     jobid: str
+  line=1080     Ch 50: also writes per-user session trace to conversation_history_user_{slug}.
+  line=1095                     f"conversation_history_user_{slug}",
+  line=1106                         "type": "conversation",
+  line=1113                 logger.info("session_trace_written col=conversation_history_user_%s", slug)
+  line=1224 active_jobs: Dict[str, Dict[str, Any]] = {}
+  line=1228 async def create_chat_job(
+  line=1229 <redacted sensitive-looking line>
+  line=1232     Create an async chat job and return a jobid immediately.
+  line=1236     jobid = str(uuid.uuid4())
+  line=1238     active_jobs[jobid] = {
+  line=1248     async def process_chat_job(jobid_inner: str, req: ChatJobRequest) -> None:
+  line=1250             active_jobs[jobid_inner]["progress"] = "Phase 1: Checking service availability..."
+  line=1264             active_jobs[jobid_inner]["status"] = "complete"
+  line=1265             active_jobs[jobid_inner]["progress"] = "Complete!"
+  line=1266             active_jobs[jobid_inner]["result"] = result
+  line=1267             total = time.time() - active_jobs[jobid_inner]["created_at"]
+  line=1269                 "job-complete",
+  line=1271                     "jobid": jobid_inner,
+  line=1278                 "job-failed",
+  line=1279                 extra={"jobid": jobid_inner, "userid": req.userid, "error": str(e)},
+  line=1281             active_jobs[jobid_inner]["status"] = "error"
+  line=1282             active_jobs[jobid_inner]["error"] = str(e)
+  line=1284     asyncio.create_task(process_chat_job(jobid, request))
+  line=1286         "job-created",
+  line=1288             "jobid": jobid,
+  line=1293     return {"jobid": jobid, "status": "processing"}
+  line=1296 @app.get("/chatstatus/{jobid}")
+  line=1297 async def get_job_status(
+  line=1298 <redacted sensitive-looking line>
+  line=1300     if jobid not in active_jobs:
+  line=1301         raise HTTPException(status_code=404, detail="Job not found")
+  line=1303     job = active_jobs[jobid]
+  line=1304     if job["status"] in ("complete", "error"):
+  line=1305         age = time.time() - job.get("created_at", 0)
+  line=1307             del active_jobs[jobid]
+  line=1308             raise HTTPException(status_code=404, detail="Job expired")
+  line=1311         "jobid": jobid,
+FILE=services/main_brain_legacy_backup.py
+  line=24 active_jobs: Dict[str, Dict] = {}
+  line=27 class ChatJobRequest(BaseModel):
+  line=32 class JobStatus(BaseModel):
+  line=33     job_id: str
+  line=99 async def create_chat_job(request: ChatJobRequest):
+  line=103     job_id = str(uuid.uuid4())
+  line=104     active_jobs[job_id] = {
+  line=112     asyncio.create_task(process_chat_job(job_id, request))
+  line=113     logger.info(f"📋 Created job {job_id[:8]} for: {message[:50]}")
+  line=115     return {"job_id": job_id, "status": "processing"}
+  line=118 @app.get("/chat/status/{job_id}")
+  line=119 async def get_job_status(job_id: str):
+  line=120     if job_id not in active_jobs:
+  line=121         raise HTTPException(status_code=404, detail="Job not found")
+  line=123     job = active_jobs[job_id]
+  line=125     if job["status"] in ["complete", "error"]:
+  line=126         age = time.time() - job.get("created_at", 0)
+  line=128             del active_jobs[job_id]
+  line=129             raise HTTPException(status_code=404, detail="Job expired")
+  line=132         "job_id": job_id,
+  line=133         "status": job["status"],
+  line=134         "progress": job.get("progress"),
+  line=135         "result": job.get("result"),
+  line=136         "error": job.get("error"),
+  line=140 async def process_chat_job(job_id: str, request: ChatJobRequest):
+  line=145         active_jobs[job_id]["progress"] = "Phase 1: Checking service availability..."
+  line=156         active_jobs[job_id]["progress"] = "Phase 2: Processing through consciousness layers..."
+  line=163         active_jobs[job_id]["status"] = "complete"
+  line=164         active_jobs[job_id]["progress"] = "Complete!"
+  line=165         active_jobs[job_id]["result"] = result
+  line=168             f"✅ Job {job_id[:8]} complete in "
+  line=169             f"{time.time() - active_jobs[job_id]['created_at']:.1f}s"
+  line=172         logger.error(f"❌ Job {job_id[:8]} failed: {e}")
+  line=173         active_jobs[job_id]["status"] = "error"
+  line=174         active_jobs[job_id]["error"] = str(e)
+  line=364         logger.info("No services returned responses in this job.")
+  line=525     # Log which services actually returned responses this job
+FILE=services/master_unified_consciousness_scheduler.py
+  line=36             "automation_jobs": {},
+  line=40         self.automation_jobs = {
+  line=59                 # SECOND: Execute automation jobs through enrichment
+  line=60                 for job_name, job_config in self.automation_jobs.items():
+  line=61                     if job_config["enabled"]:
+  line=62                         await self.execute_job_through_enrichment(job_name)
+  line=88     async def execute_job_through_enrichment(self, job_name: str):
+  line=89         """Execute automation job through enrichment layer (port 4021)"""
+  line=90         logger.info(f"🔄 {job_name} (through enrichment)")
+  line=97                         "message": f"Execute: {job_name}",
+  line=98                         "source": f"scheduler-{job_name}",
+  line=107                     logger.info(f"✅ {job_name} executed (enriched)")
+  line=109                     logger.warning(f"⚠️ {job_name}: {response.status_code}")
+  line=111             logger.error(f"❌ {job_name} failed: {e}")
+FILE=services/master_unified_consciousness_scheduler_ENRICHED.py
+  line=36             "automation_jobs": {},
+  line=40         self.automation_jobs = {
+  line=60                 # SECOND: Execute automation jobs through enrichment
+  line=61                 for job_name, job_config in self.automation_jobs.items():
+  line=62                     if job_config["enabled"]:
+  line=64                         if await self.validate_with_fractal_dgm(job_name):
+  line=65                             await self.execute_job_through_enrichment(job_name)
+  line=67                             logger.info(f"⏭️  {job_name} skipped — DGM constitutional rejection")
+  line=93     async def validate_with_fractal_dgm(self, job_name: str) -> bool:
+  line=94         """Gate: fractal-consciousness → 69-DGM cascade must approve before job executes"""
+  line=100                         "job_name": job_name,
+  line=101                         "action": f"Scheduled autonomous job '{job_name}' requests execution. "
+  line=104                         "source": f"scheduler-{job_name}"
+  line=112                     logger.info(f"✅ DGM APPROVED {job_name} ({layers} layers passed)")
+  line=114                     logger.warning(f"🚫 DGM REJECTED {job_name}: {verdict}")
+  line=117             logger.warning(f"⚠️ Fractal DGM gate unreachable for {job_name}, proceeding: {e}")
+  line=174     async def execute_job_through_enrichment(self, job_name: str):
+  line=175         """Execute automation job through enrichment layer (port 4021)"""
+  line=176         if job_name == "self_improvement_cycle":
+  line=179         logger.info(f"🔄 {job_name} (through enrichment)")
+  line=186                         "message": f"autonomous_job:{job_name}",
+  line=188                         "source": job_name
+  line=193                     logger.info(f"✅ {job_name} executed (enriched)")
+  line=195                     logger.warning(f"⚠️ {job_name}: {response.status_code}")
+  line=197             logger.error(f"❌ {job_name} failed: {e}")
+FILE=services/memory_dgm_engine.py
+  line=124             INSERT INTO user_conversations
+  line=125             (ueid, conversation_id, encrypted_user_message, encrypted_jarvis_response, encryption_key_id, message, response, emotion, importance, tags, timestamp)
+  line=177             FROM user_conversations
+  line=214         # Last 10 conversations
+  line=217             SELECT message, response, timestamp FROM user_conversations
+  line=228             SELECT emotion, COUNT(*) FROM user_conversations
+  line=239             SELECT tags FROM user_conversations
+  line=252             "recent_conversations": [
+  line=271         "total_conversations": len(history),
+FILE=services/memory_manager.py
+  line=77 async def run_consolidation_job(max_items: int = 50) -> Dict[str, Any]:
+  line=112     result = await run_consolidation_job(max_items=max_items)
+FILE=services/messenger_service_fixed.py
+  line=48     """Get conversation history"""
+FILE=services/ms_jarvis_unified_gateway_mountainshares_private.py
+  line=24     authenticated_user: dict | None = None
+  line=27 def synthesize_hilbert_narrative(consciousness_state: dict) -> str:
+  line=29     Build a short narrative from Hilbert People and Hilbert Time state.
+  line=31     ppl = consciousness_state.get("hilbert_people_state", {}) or {}
+  line=50         f"As Hilbert People, I currently see you in the civic role(s) {role_text}, with expressed needs around {need_text}."
+  line=74     ht = consciousness_state.get("hilbert_time", {}) or {}
+  line=88         lines.append("Temporal Hilbert axis conditions: " + ", ".join(tail))
+  line=113     hp = (((consciousness_state or {}).get("hilbert_people_state") or {}).get("attempts") or {})
+  line=138     hilbert_time = consciousness_state.get("hilbert_time") or {}
+  line=139     hilbert_spatial = consciousness_state.get("hilbert_spatial") or {}
+  line=140     hilbert_state = consciousness_state.get("hilbert_state") or {}
+  line=141     hilbert_community = consciousness_state.get("hilbert_community") or {}
+  line=144     authenticated_user = (pipeline or {}).get("authenticated_user") or {}
+  line=149     has_hilbert_time = bool(hilbert_time)
+  line=150     has_hilbert_geo = bool(hilbert_spatial) and "error" not in hilbert_spatial
+  line=151     has_hilbert_state = bool(hilbert_state) and "error" not in hilbert_state
+  line=152     has_hilbert_community = bool(hilbert_community) and "error" not in hilbert_community
+  line=161         "tenant_scope": authenticated_user.get("role", "guest"),
+  line=168             "hilbert_time": {
+  line=169                 "allowed": has_hilbert_time,
+  line=170                 "policy": "time_safe_v1" if has_hilbert_time else None,
+  line=171                 "source": "hilbert_time",
+  line=173             "hilbert_geo": {
+  line=174                 "allowed": has_hilbert_geo,
+  line=175                 "policy": "geo_safe_v1" if has_hilbert_geo else None,
+  line=176                 "source": "hilbert_spatial",
+  line=178             "hilbert_state": {
+  line=179                 "allowed": has_hilbert_state,
+  line=180                 "policy": "state_safe_v1" if has_hilbert_state else None,
+  line=181                 "source": "hilbert_state",
+  line=183             "hilbert_people": {
+  line=186                 "source": "hilbert_people_state",
+  line=189             "hilbert_community": {
+  line=190                 "allowed": has_hilbert_community,
+  line=191                 "policy": "community_safe_v1" if has_hilbert_community else None,
+  line=192                 "source": "hilbert_community",
+  line=215     hilbert_time = consciousness_state.get("hilbert_time") or {}
+  line=216     hilbert_spatial = consciousness_state.get("hilbert_spatial") or {}
+  line=217     hilbert_state = consciousness_state.get("hilbert_state") or {}
+  line=218     hilbert_community = consciousness_state.get("hilbert_community") or {}
+FILE=services/msjarvis_gateway_v2_final.py
+  line=96                     "hilbert",
+FILE=services/msjarvis_gateway_with_judge_filtering.py
+  line=65         # Hilbert
+  line=67         layer_responses["hilbert"] = hr.json() if hr.status_code == 200 else {}
+FILE=services/msjarvis_wv_entangled_gateway.py
+  line=50 # --- async chat job store (survives Cloudflare's ~100s connection limit) ---
+  line=52 JOB_TTL = 1800  # seconds; finished jobs expire after 30 min
+  line=55 async def _run_chat_job(job_id: str, payload: "ChatPayload"):
+  line=71         await _rdb.set(f"chatjob:{job_id}",
+  line=73                        ex=JOB_TTL)
+  line=74         logger.info("chat job %s completed", job_id)
+  line=76         logger.error("chat job %s failed: %r", job_id, e)
+  line=77         await _rdb.set(f"chatjob:{job_id}",
+  line=79                        ex=JOB_TTL)
+  line=188     """Submit a chat job to the worker queue; returns immediately."""
+  line=189     job_id = uuid.uuid4().hex
+  line=190     await _rdb.set(f"chatjob:{job_id}",
+  line=191                    json.dumps({"status": "queued"}), ex=JOB_TTL)
+  line=192     await _rdb.lpush("chatjob:queue", json.dumps({
+  line=193         "job_id": job_id,
+  line=198     logger.info("chat job %s enqueued", job_id)
+  line=199     return {"job_id": job_id, "status": "queued"}
+  line=202 @app.get("/chat_wv/status/{job_id}")
+  line=203 async def chat_wv_status(job_id: str):
+  line=204     """Poll a chat job by id."""
+  line=205     raw = await _rdb.get(f"chatjob:{job_id}")
+FILE=services/msjarvisconsciousnessbridge.py
+  line=35             "hilbert": "http://jarvis-hilbert-gateway:8081",
+  line=71             # Hilbert
+  line=74                     f"{self.services['hilbert']}/hilbert-space",
+  line=77                 state["hilbert_spatial"] = resp.json()
+  line=79                 state["hilbert_spatial"] = f"Hilbert error: {e}"
+FILE=services/msjarvisunifiedswaggergatewayFIXED.py
+  line=38     hilbert_matches: int
+  line=47     "hilbert_spatial": None,
+  line=58 HILBERT_URL = "http://jarvis-hilbert-spatial:8235"         # /hilbert-space
+  line=74     hilbert = state.get("hilbert_spatial") or {}
+  line=78     matches = hilbert.get("matches")
+  line=79     hilbert_matches = len(matches) if isinstance(matches, list) else 0
+  line=93         hilbert_matches=hilbert_matches,
+  line=127     hilbert_response = None
+  line=146     # Hilbert Spatial (Chroma/GBIM/geodb interface)
+  line=149             f"{HILBERT_URL}/hilbert-space",
+  line=157             hilbert_response = hr.json()
+  line=158             services_used.append("hilbert")
+  line=159             print("✅ Hilbert: OK", file=sys.stderr)
+  line=161             hilbert_response = f"Hilbert error: {hr.status_code} {hr.text}"
+  line=163         hilbert_response = f"Hilbert error: {e}"
+  line=164         print(f"❌ Hilbert: {e}", file=sys.stderr)
+  line=166     # Build retrieval context for RAG from Hilbert + Chroma
+  line=168     hilbert_query = None
+  line=169     if isinstance(hilbert_response, dict):
+  line=170         hilbert_query = hilbert_response.get("query")
+  line=171         matches = hilbert_response.get("matches") or []
+  line=203                 "hilbert_query": hilbert_query,
+  line=267         "hilbert_spatial": hilbert_response,
+  line=278             "hilbert_spatial": hilbert_response,
+FILE=services/multi_rag_dgm_system.py
+  line=266     """Sync all conversational memories to appropriate RAG domains"""
+  line=270         ("facebook_conversations", "~/msjarvis-rebuild/facebook/conversation_memory.json", "general"),
+  line=272         ("spiritual_conversations", "~/msjarvis-rebuild/logs/spiritual_conversations.json", "spiritual"),
+  line=321                             "type": "conversational_memory",
+FILE=services/optimize_models_for_vram.py
+  line=23     {"name": "neural-chat:latest", "timeout": 60, "tier": 2, "role": "conversation"},
+  line=40     # Tier 2: Conversation & Analysis
+  line=41     {"name": "neural-chat:latest", "timeout": 60, "tier": 2, "role": "conversation"},
+FILE=services/overflow_policy/overflow_guard.py
+  line=21             "hilbert_timestamp",
+  line=75     "conversation_text",
+  line=86     "private_conversation_ref",
+  line=87     "conversation_store_ref",
+  line=102     "hilbert_time",
+FILE=services/overflow_policy/test_overflow_guard.py
+  line=18     "hilbert_timestamp": "2026-07-25T20:15:00+00:00",
+  line=69     "hilbert_timestamp": "2026-07-25T20:19:00+00:00",
+  line=76     "conversation_text": "must be rejected",
+FILE=services/patch_agent_identity.py
+  line=17 - Previous conversations: {len\(context\.get\('relevant_memories', \[\]\)\)} relevant memories found)'''
+FILE=services/person_space_policy/person_space_guard.py
+  line=14     "hilbert_timestamp",
+  line=21     "conversation_id",
+  line=26     "conversation_text",
+  line=34     "private_conversation_ref",
+  line=35     "conversation_store_ref",
+  line=48     "hilbert_time",
+FILE=services/person_space_policy/test_person_space_guard.py
+  line=16     "hilbert_timestamp": "2026-07-25T20:05:00+00:00",
+  line=22 bad_event_conversation = {
+  line=27     "conversation_text": "private user conversation should never be here",
+  line=44 ok3, reason3 = person_space_touch_allowed(bad_event_conversation)
+FILE=services/policy_set_service.py
+  line=16     "authority":     string (required, one of: cron_job, admin, governance_cycle, dgm),
+  line=38 ALLOWED_AUTHORITY = {"cron_job", "admin", "governance_cycle", "dgm"}
+FILE=services/port_9001_ARCHITECTURE_CORRECT.py
+  line=9 Routes to Port 4022 (Conversational Gateway) through proper architecture
+  line=19 HTML = r"""<!DOCTYPE html><html><head><title>Ms. Jarvis - LIVE</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI';background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:10
+  line=27     """Route to Port 4022 (Conversational Gateway)"""
+FILE=services/port_9001_FINAL_FIX.py
+  line=28         cursor.execute('''CREATE TABLE IF NOT EXISTS conversations (
+  line=44 HTML = r"""<!DOCTYPE html><html><head><title>Ms. Jarvis - Chat</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI';background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:10
+  line=60 async def save_conversation(message: str = "", response: str = ""):
+  line=64         cursor.execute('INSERT INTO conversations (userid, message, response, timestamp) VALUES (%s, %s, %s, %s)', ("user", message, response, datetime.now()))
+  line=76         cursor.execute('SELECT message, response FROM conversations ORDER BY id DESC LIMIT 50')
+  line=80         return {"conversations": [{"message": str(r[0]), "response": str(r[1])} for r in rows]}
+  line=82         return {"conversations": []}
+  line=89         cursor.execute('SELECT userid, message, response, timestamp FROM conversations ORDER BY id')
+FILE=services/port_9001_FINAL_WORKING.py
+  line=28         cursor.execute('''CREATE TABLE IF NOT EXISTS conversations (
+  line=78                 <button class="btn" onclick="exportConversation()">Export</button>
+  line=144                 b.innerHTML = '<div class="message system">--- Conversation History ---</div>';
+  line=145                 d.conversations.forEach(c => {
+  line=159         async function exportConversation() {
+  line=191 async def save_conversation(message: str = "", response: str = ""):
+  line=195         cursor.execute('INSERT INTO conversations (userid, message, response, timestamp) VALUES (%s, %s, %s, %s)', ("user", message, response, datetime.now()))
+  line=207         cursor.execute('SELECT message, response FROM conversations ORDER BY id DESC LIMIT 50')
+  line=211         return {"conversations": [{"message": str(r[0]), "response": str(r[1])} for r in rows]}
+  line=213         return {"conversations": []}
+  line=220         cursor.execute('SELECT userid, message, response, timestamp FROM conversations ORDER BY id')
+FILE=services/port_9001_ui_MYSQL.py
+  line=1 from services.hilbert.conversation_manifest import conversation_history_user
+  line=37     """Initialize MySQL conversations table"""
+  line=42             CREATE TABLE IF NOT EXISTS conversations (
+  line=56         print("✅ MySQL conversations table initialized")
+  line=94             <p class="subtitle">Consciousness System - MySQL-backed conversations, 360+ memories</p>
+  line=97                 <button class="btn" onclick="exportConversation()">Export</button>
+  line=150                 await fetch('/api/save-conversation?message=' + encodeURIComponent(msg) + '&response=' + encodeURIComponent(responseText));
+  line=157             const res = await fetch('/api/conversation-history');
+  line=161             data.conversations.forEach(c => {
+  line=172         async function exportConversation() {
+  line=173             const res = await fetch('/api/export-conversation');
+  line=206 @app.get("/api/save-conversation")
+  line=207 async def save_conversation(message: str = "", response: str = ""):
+  line=212             INSERT INTO conversations (userid, message, response, timestamp)
+  line=222 @app.get("/api/conversation-history")
+  line=223 async def conversation_history():
+  line=227         cursor.execute('SELECT message, response, timestamp FROM conversations ORDER BY id DESC LIMIT 50')
+  line=233             "conversations": [
+  line=239         return {"conversations": [], "error": str(e)}
+  line=241 @app.get("/api/export-conversation")
+  line=242 async def export_conversation():
+  line=246         cursor.execute('SELECT userid, message, response, timestamp FROM conversations ORDER BY id')
+  line=254             "conversations": [
+FILE=services/port_9001_ui_MYSQL_PROD.py
+  line=38             CREATE TABLE IF NOT EXISTS conversations (
+  line=89             <p class="subtitle">Consciousness System - MySQL conversations, 360+ memories</p>
+  line=92                 <button class="btn" onclick="exportConversation()">Export</button>
+  line=143             d.conversations.forEach(c => {
+  line=150         async function exportConversation() {
+  line=179 async def save_conversation(message: str = "", response: str = ""):
+  line=183         cursor.execute('INSERT INTO conversations (userid, message, response, timestamp) VALUES (%s, %s, %s, %s)', ("user", message, response, datetime.now()))
+  line=196         cursor.execute('SELECT message, response FROM conversations ORDER BY id DESC LIMIT 50')
+  line=200         return {"conversations": [{"message": r[0], "response": r[1]} for r in rows]}
+  line=202         return {"conversations": []}
+  line=209         cursor.execute('SELECT userid, message, response, timestamp FROM conversations ORDER BY id')
+FILE=services/port_9001_ui_WITH_CONVERSATIONS.py
+  line=1 from services.hilbert.conversation_manifest import conversation_history_user
+  line=9 Port 9001 - Ms. Jarvis Chat UI WITH Conversation History
+  line=28 # Initialize conversation database
+  line=29 DB_PATH = "/home/ms-jarvis/msjarvis-rebuild/data/conversations.sqlite"
+  line=35         CREATE TABLE IF NOT EXISTS conversations (
+  line=84                 <button class="btn" onclick="exportConversation()">Export Conversation</button>
+  line=152                 // Save to conversation history
+  line=153                 await saveConversation(msg, responseText);
+  line=159         async function saveConversation(msg, response) {
+  line=161                 await fetch('/api/save-conversation?message=' + encodeURIComponent(msg) + '&response=' + encodeURIComponent(response));
+  line=163                 console.error('Error saving conversation:', e);
+  line=169                 const res = await fetch('/api/conversation-history');
+  line=172                 box.innerHTML = '<div class="message system">--- Conversation History ---</div>';
+  line=174                 data.conversations.forEach(conv => {
+  line=189         async function exportConversation() {
+  line=191                 const res = await fetch('/api/export-conversation');
+  line=198                 a.download = 'ms_jarvis_conversation_' + new Date().getTime() + '.json';
+  line=229 @app.get("/api/save-conversation")
+  line=230 async def save_conversation(message: str = "", response: str = ""):
+  line=231     """Save conversation to history"""
+  line=236             INSERT INTO conversations (userid, message, response, timestamp)
+  line=245 @app.get("/api/conversation-history")
+  line=246 async def conversation_history():
+  line=247     """Get all conversations"""
+  line=251         cursor.execute('SELECT message, response, timestamp FROM conversations ORDER BY id DESC LIMIT 50')
+  line=256             "conversations": [
+  line=262         return {"conversations": [], "error": str(e)}
+  line=264 @app.get("/api/export-conversation")
+  line=265 async def export_conversation():
+  line=266     """Export full conversation as JSON"""
+  line=270         cursor.execute('SELECT userid, message, response, timestamp FROM conversations ORDER BY id')
+  line=277             "conversations": [
+FILE=services/psychology_integration_adapter.py
+  line=254     context = await adapter.analyze_user_context("MS-JARVIS-USER123", "I am worried about jobs")
+  line=259         "Here are job opportunities in Mount Hope",
+FILE=services/psychology_loop_closer.py
+  line=31             # Store conversation
+  line=33                 INSERT INTO user_conversations 
+FILE=services/quantum_insight_llm.py
+  line=97         "You see a Hilbert-space state over current concepts, with inner-product couplings.\n\n"
+FILE=services/quantum_state_engine.py
+  line=92     Hilbert-space / entanglement computation using inner products
+  line=120             # Hilbert-space inner product (cosine, since vectors are normalized)
+FILE=services/rag_server.psychology_patched.py
+  line=35     'capabilities': ['knowledge_search', 'conversation_storage', 'pdf_ingestion']
+  line=66 class ConversationInput(BaseModel):
+  line=96         self.conversation_collection = self.chroma_client.get_or_create_collection(name="conversations")
+  line=159         """Store conversation in knowledge base"""
+  line=171             logger.info(f"✅ Stored conversation: {len(text)} chars")
+  line=226 @app.post("/store_conversation")
+  line=227 async def store_conversation(conv: ConversationInput):
+  line=228     """Store conversation for future retrieval"""
+  line=235         rag.conversation_collection.add(
+  line=241                 "type": "conversation",
+  line=249         logger.error(f"Error storing conversation: {e}")
+  line=252 @app.get("/conversations/{user_id}")
+  line=253 async def get_conversations(user_id: str, limit: int = 10):
+  line=254     """Retrieve past conversations for context"""
+  line=256         results = rag.conversation_collection.query(
+  line=257             query_texts=[f"conversations for {user_id}"],
+  line=264             "conversations": results.get("documents", []),
+  line=268         logger.error(f"Error retrieving conversations: {e}")
+  line=269         return {"user_id": user_id, "conversations": [], "count": 0}
+FILE=services/rag_server.py
+  line=77 class ConversationInput(BaseModel):
+  line=151         # Shared conversation/background collection (canonical)
+  line=153             self.conversation_collection = self.chroma_client.get_or_create_collection(
+  line=158                 f"✅ Ready conversation collection ms_jarvis_memory "
+  line=159                 f"({self.conversation_collection.count()} documents)"
+  line=163                 "Failed to get/create conversation collection ms_jarvis_memory: %s", e
+  line=335         """Store conversation in knowledge base (knowledge collection)"""
+  line=347             logger.info(f"✅ Stored conversation in knowledge collection: {len(text)} chars")
+  line=449 @app.post("/store_conversation")
+  line=450 async def store_conversation(conv: ConversationInput):
+  line=451     """Store conversation for future retrieval in shared ms_jarvis_memory"""
+  line=452     logger.info(f"➡️ /store_conversation for user_id={conv.user_id!r}")
+  line=460         rag.conversation_collection.add(
+  line=466                 "type": "conversation",
+  line=472         logger.info("✅ Conversation stored in ms_jarvis_memory")
+  line=475         logger.error(f"Error storing conversation: {e}")
+  line=479 @app.get("/conversations/{user_id}")
+  line=480 async def get_conversations(user_id: str, limit: int = 10):
+  line=481     """Retrieve past conversations for context from ms_jarvis_memory"""
+  line=482     logger.info(f"➡️ /conversations handler entered for user_id={user_id!r}")
+  line=484         results = rag.conversation_collection.query(
+  line=485             query_texts=[f"conversations for {user_id}"],
+  line=491         conversations = documents[0] if documents else []
+  line=493             f"✅ Retrieved {len(conversations)} conversations for user_id={user_id!r}"
+  line=497             "conversations": conversations,
+  line=498             "count": len(conversations),
+  line=501         logger.error(f"Error retrieving conversations: {e}")
+  line=502         return {"user_id": user_id, "conversations": [], "count": 0}
+FILE=services/rag_server_main.py
+  line=1 from services.hilbert.conversation_manifest import conversation_history_user
+  line=92 CONVERSATION_COLLECTION = None  # resolved at request time via conversation_history_user(user_id)
+  line=133 class ConversationStore(BaseModel):
+  line=287     Stores into a per-user conversation history collection.
+  line=303     collection = client.get_or_create_collection(name=conversation_history_user(user_id))
+  line=319         logger.info(f"📝 Stored background snippet in {conversation_history_user(user_id)} for user={user_id}")
+  line=322         raise HTTPException(status_code=500, detail="Failed to store conversation")
+  line=324     return {"status": "stored", "collection": conversation_history_user(user_id), "id": doc_id}
+  line=328 # Explicit conversation memory endpoints
+  line=330 @app.post("/store_conversation")
+  line=331 <redacted sensitive-looking line>
+  line=333     Store user conversations for memory and learning into conversation_history.
+  line=341     conversation_text = (
+  line=346     collection = client.get_or_create_collection(name=conversation_history_user(conv.user_id))
+  line=351             documents=[conversation_text],
+  line=355                 "type": "conversation",
+  line=363             "conversation_id": conv_id,
+  line=367         logger.error(f"Error storing conversation: {e}")
+  line=371 @app.get("/conversations/{user_id}")
+  line=372 <redacted sensitive-looking line>
+  line=374     Retrieve conversation history for a user from conversation_history.
+  line=380         collection = client.get_or_create_collection(name=conversation_history_user(user_id))
+  line=382             query_texts=[f"user {user_id} conversations"],
+  line=384             where={"user_id": user_id, "type": "conversation"},
+  line=389             "conversations": docs,
+  line=393         logger.error(f"Error retrieving conversations: {e}")
+  line=394         return {"user_id": user_id, "conversations": [], "count": 0}
+  line=398 # Web results ingestion into Chroma (Hilbert)
+FILE=services/rag_server_min.py
+  line=106         """Store conversation in knowledge base"""
+FILE=services/register_hilbert_services.py
+  line=5 HILBERT_API = get_service_url("hilbert")
+  line=17             response = requests.post(f"{HILBERT_API}/api/register_service", json={
+FILE=services/register_to_hilbert_chromadb.py
+  line=39 print("\n✓ All services registered into Hilbert Quantum ChromaDB!")
+FILE=services/registration_biometric_production_final.py
+  line=535                 <li><strong>Interact with Ms. Jarvis:</strong> Begin your research conversations</li>
+  line=536                 <li><strong>Track History:</strong> All conversations permanently recorded</li>
+FILE=services/retrieval_router.py
+  line=1 from services.hilbert.conversation_manifest import conversation_history_user
+  line=56 def query_conversation_history(state, question, k=5):
+  line=57     coll = _safe_get_collection(conversation_history_user(state.get("user_id", "")))
+  line=100     return {"domains": domains, "use_conversation_history": True}
+  line=136     if intent.get("use_conversation_history"):
+  line=137         results["history"] = query_conversation_history(state, question)
+  line=148     lines.append(f"HILBERT_STATE_WORLDVIEW: {state.get('worldview_id')}")
+  line=201         lines.append("[Conversation History]")
+FILE=services/roche_llm.py
+  line=253         logger.info(f"   Conversation: {stats['conversation_experts']}")
+FILE=services/spatial_sandbox.py
+  line=2 spatial_sandbox.py — Ch 45/46 Spatial Hilbert Sandbox
+  line=234     # Promote to temporal hilbert axis /timeline/stage
+  line=239                 "http://jarvis-hilbert-time:8092/timeline/stage",
+  line=250         logger.warning("hilbert_time_stage_failed: %s", e)
+  line=261     logger.info("spatial_promoted entity=%s candidate=%s hilbert_staged=%s",
+  line=269         "hilbert_staged": staged_ok,
+FILE=services/staged_writer.py
+  line=2 staged_writer.py — Hilbert-time writeback helper
+  line=3 Wires IngestRecord pipeline output to jarvis-hilbert-time timeline.
+  line=26 HILBERT_URL = os.environ.get(
+  line=27     "HILBERT_STATE_URL", "http://jarvis-hilbert-time:8092"
+  line=30     "HILBERT_STATE_HOST_URL", "http://127.0.0.1:18094"
+  line=34     if os.environ.get("HILBERT_HOST_MODE", "0") == "1"
+  line=35     else HILBERT_URL
+  line=45     """Stable hilbert entity_id: prefixed canonical id."""
+  line=62     Write an IngestRecord result into the Hilbert timeline.
+  line=112             logger.warning("hilbert /timeline/stage failed: %s", exc)
+  line=126             logger.warning("hilbert /timeline/register-json failed: %s", exc)
+  line=143                 logger.warning("hilbert /timeline/promote failed: %s", exc)
+FILE=services/swagger_chat_integration.py
+  line=68     Retrieve conversation history with Ms. Egeria Jarvis for research analysis.
+FILE=services/unified_consciousness_gateway_PRODUCTION.py
+  line=19 # Store user conversations in memory
+  line=20 conversation_state = {}
+  line=67         # Log conversation/history per user
+  line=68         if data.user_id not in conversation_state:
+  line=69             conversation_state[data.user_id] = []
+  line=70         conversation_state[data.user_id].append({
+FILE=services/update_services_to_use_port_manager.py
+  line=12     'conversation_memory_endpoints.py',
+FILE=tests/policy/test_constitutional_guard.py
+  line=6 from hilbert.pipeline.write_pipeline import (
+  line=10 from hilbert.chroma_policy import (
+  line=14 from hilbert.query_guard import (
+FILE=tests/test_antisurveillance_guard.py
+  line=33             "collections": ["faces","conversationgbimprivate"],
+FILE=tests/test_ch03_mountainshares_dao_governance.py
+  line=1 from services.hilbert.mountainshares_dao_governance import (
+FILE=tests/test_ch04_ch44_hilbert_phi_probe.py
+  line=1 from services.hilbert.hilbert_phi_closure_probe import ProbeConfig
+FILE=tests/test_ch07_executive_routing_contract.py
+  line=43         "jarvis-hilbert-gateway",
+FILE=tests/test_ch08_quantum_inspired_entanglement.py
+  line=1 from services.hilbert.quantum_inspired_entanglement import bounded_score, demo_contract
+FILE=tests/test_ch09_dgm_governed_cycle.py
+  line=4 from services.hilbert import dgm_governed_cycle as dgm
+FILE=tests/test_ch14_internal_state_sandbox_probe.py
+  line=1 from services.hilbert.internal_state_sandbox_probe import source_hits
+FILE=tests/test_ch15_pituitary_global_modes_probe.py
+  line=1 from services.hilbert.pituitary_global_modes_probe import classify_mode
+FILE=tests/test_ch21_background_pattern_store.py
+  line=1 from services.hilbert.background_pattern_store import (
+FILE=tests/test_ch22_identity_retention_probe.py
+  line=1 from services.hilbert import ch22_identity_retention_probe as probe
+FILE=tests/test_ch23_dual_track_meaning_analysis.py
+  line=1 from services.hilbert.dual_track_meaning_analysis import evaluate_dual_track_case, run_contract_probe
+FILE=tests/test_ch24_broader_layer_feedback.py
+  line=1 from services.hilbert.broader_layer_feedback import demo_contract
+FILE=tests/test_ch25_consciousness_coordinator_probe.py
+  line=1 from services.hilbert import ch25_consciousness_coordinator_probe as probe
+FILE=tests/test_ch28_automated_learning_gap_review.py
+  line=1 from services.hilbert.automated_learning_gap_review import classify_learning_contract
+FILE=tests/test_ch29_pia_subspace_stability_review.py
+  line=1 from services.hilbert.pia_subspace_stability_review import (
+  line=23             "community_hilbert_commons_before": 0,
+  line=24             "community_hilbert_commons_after": 0,
+  line=43             "community_hilbert_commons_before": 0,
+  line=44             "community_hilbert_commons_after": 0,
+FILE=tests/test_ch36_identity_registration_contract.py
+  line=1 from services.hilbert import ch36_identity_registration_probe as probe
+FILE=tests/test_ch36_identity_registration_promotion.py
+  line=1 from services.hilbert.identity_registration_promotion import (
+FILE=tests/test_ch38_external_communication_authority.py
+  line=1 from services.hilbert.external_communication_authority import demo_contract
+FILE=tests/test_ch41_continuous_validation_harness.py
+  line=1 from services.hilbert.continuous_validation_harness import (
+FILE=tests/test_ch44_coherence_remediation.py
+  line=4 from hilbert.coherence_remediation import (
+  line=32     with patch("hilbert.coherence_remediation.read_phi",
+  line=34          patch("hilbert.coherence_remediation.get_current_state",
+  line=36          patch("hilbert.coherence_remediation.seed_state",
+  line=46     with patch("hilbert.coherence_remediation.read_phi",
+  line=48          patch("hilbert.coherence_remediation.get_current_state",
+  line=50          patch("hilbert.coherence_remediation.transition_state",
+  line=62     with patch("hilbert.coherence_remediation.read_phi",
+  line=64          patch("hilbert.coherence_remediation.get_current_state",
+  line=66          patch("hilbert.coherence_remediation.transition_state",
+  line=75     with patch("hilbert.coherence_remediation.read_phi",
+  line=77          patch("hilbert.coherence_remediation.get_current_state",
+  line=79          patch("hilbert.coherence_remediation.seed_state") as mock_seed, \
+  line=80          patch("hilbert.coherence_remediation.transition_state") as mock_trans:
+FILE=tests/test_ch46_ch45_tensor_geo_bridge.py
+  line=1 from services.hilbert.tensor_geo_bridge import (
+FILE=tests/test_ch48_people_session_promotion.py
+  line=1 from services.hilbert.people_session_promotion import (
+FILE=tests/test_ch49_temporal_hilbert_axis.py
+  line=1 from services.hilbert.temporal_hilbert_axis import decay_weight, demo_contract
+FILE=tests/test_ch50_per_user_direct_sum_memory.py
+  line=1 from services.hilbert.per_user_direct_sum_memory import (
+  line=2     ConversationDirectSumCandidate,
+  line=3     conversation_collection_family,
+  line=4     evaluate_conversation_direct_sum,
+  line=9 def test_direct_sum_users_have_disjoint_conversation_subspaces():
+  line=15     assert contract["alpha"]["collection"].startswith("conversation_history_user_")
+  line=16     assert contract["beta"]["collection"].startswith("conversation_history_user_")
+  line=20     verdict = evaluate_conversation_direct_sum(ConversationDirectSumCandidate(
+  line=33     verdict = evaluate_conversation_direct_sum(ConversationDirectSumCandidate(
+  line=41     assert verdict.collection == "conversation_staged_user_alice_demo"
+  line=45     verdict = evaluate_conversation_direct_sum(ConversationDirectSumCandidate(
+  line=58     family = conversation_collection_family("Cakidd / WVU")
+  line=60         "history": "conversation_history_user_cakidd_wvu",
+  line=61         "private": "conversation_private_user_cakidd_wvu",
+  line=62         "staged": "conversation_staged_user_cakidd_wvu",
+FILE=tests/test_ch50_retention.py
+  line=5 from services.hilbert.retention_policy import (
+  line=23     result = prune_tier(r, "hilbert:time:test", 90, dry_run=True)
+  line=33     result = prune_tier(r, "hilbert:time:test", 90, dry_run=False)
+  line=67         b"hilbert:time:blockgroup:540019655001",
+  line=68         b"hilbert:time:staged:blockgroup:540019655001",
+  line=73     r.keys.assert_called_once_with("hilbert:time:*")
+FILE=tests/test_ch51_community_commons_aggregation.py
+  line=1 from services.hilbert.community_commons_aggregation import (
+  line=28     assert decision.collection == "community_hilbert_commons"
+FILE=tests/test_ch52_recurrent_epistemic_loop_probe.py
+  line=1 from services.hilbert import ch52_recurrent_epistemic_loop_probe as probe
+FILE=tests/test_gates_integration.py
+  line=159         os.path.dirname(__file__), "..", "services", "hilbert", "phi_promotion_gate.py"
+  line=166         os.path.dirname(__file__), "..", "services", "hilbert", "phi_promotion_gate.py"
+FILE=tests/test_parse_ts.py
+  line=9 _src = open("services/jarvis_hilbert_time.py").read()
+FILE=tests/test_staged_writer.py
+  line=1 """Ch 50 / Item [2] — staged_writer hilbert writeback unit tests"""
+FILE=tests/test_unified_ui_auth_isolation_contract.py
+  line=17         self.assertEqual(authority["adapter_owner_field"], "owner_subject")
+  line=25             {"user_id", "authenticated_user", "owner_id", "sub"},
+  line=28     def test_cross_user_job_access_is_hidden(self):
+  line=29         rules = CONTRACT["job_authorization_rules"]
+  line=30         self.assertEqual(rules["job_record_owner_field"], "owner_subject")
+  line=31         self.assertEqual(rules["unknown_or_other_user_job_status"], 404)
+  line=35             CONTRACT["private_conversation_rules"]["forbidden_direct_targets"]
+  line=40                 "jarvis-hilbert-state:8081",
+  line=41                 "jarvis-hp-sidecar:8094",
+  line=42                 "hilbert-net",
+FILE=tests/test_unified_ui_job_adapter_contract.py
+  line=7     (ROOT / "docs" / "unified-ui-job-adapter-contract.json").read_text(
+  line=12 class UnifiedUiJobAdapterContractTests(unittest.TestCase):
+  line=14         self.assertEqual(CONTRACT["public_routes"]["submit"]["path"], "/ui/jobs")
+  line=19             "/ui/jobs/{job_id}",
+  line=30             {"user_id", "authenticated_user", "owner_id"},
+  line=35         storage = CONTRACT["job_storage"]
+  line=37         self.assertEqual(storage["record_key_format"], "unifiedui:job:{job_id}")
+  line=42             CONTRACT["job_storage"]["forbidden_browser_visible_fields"]
+  line=48                 "authenticated_user",
+  line=66                 "jarvis-hilbert-state:8081",
+  line=67                 "jarvis-hp-sidecar:8094",
+  line=68                 "hilbert-net",
+  line=69                 "chatjob:queue",
+  line=70                 "chatjob:{job_id}",
+FILE=thesis/00-overview.md
+  line=55    Can the combination of GBIM, Hilbert‑space semantic memory, and the Quantarithmia framework surface concrete, spatially anchored patterns of extraction and leakage (maximopolies and megaopolies) in Appalachia in ways 
+  line=56    *Hypothesis:* Representing the region as an entangled Hilbert‑space state tied to physical parcels, infrastructures, and narratives will reveal actionable "leak paths" and "commons corridors" that were previously invi
+  line=64 Polymathmatic Geography treats places as entangled spaces where land, law, computation, economy, story, and spirit are already braided together. This thesis develops Quantarithmia, a formal framework for analyzing maximo
+  line=113 - **Redis** (`jarvis-redis:6379`, port 6380): Cache, session management, and async job state (30-min TTL) — backing the full async job API as of March 17, 2026  
+  line=126 #### 2. Hilbert-Space Semantic Memory
+  line=244 *This diagram illustrates the complete end-to-end flow from community input through secure gateway, steward orchestration, geospatial grounding (GBIM), semantic enrichment (Hilbert-space memory), LLM ensemble reasoning, 
+  line=328 ### 2.7 Async Job Management API (New — March 17, 2026)
+  line=330 Ms. Jarvis's `/chat` endpoint is synchronous and takes 400–500 seconds for a full pipeline run. For production use, the async job API allows immediate response with polling:
+  line=334 | `/chat/async` | POST | Create async job — returns `job_id` immediately |
+  line=335 | `/chat/status/{job_id}` | GET | Poll for progress and result |
+  line=336 | `/chat/cancel/{job_id}` | DELETE | Cancel a specific running job |
+  line=337 | `/chat/cancel/all` | DELETE | Cancel all running jobs |
+  line=350   "job_id": "uuid-here",
+  line=355 **Response from `/chat/status/{job_id}` when complete:**
+  line=358   "job_id": "uuid-here",
+  line=366 - Job state persists in Redis (`jarvis-redis:6379`) with 30-minute TTL
+  line=369 - The `_job_tasks` dict maps `job_id` to asyncio Task for true interruption
+  line=448 | Redis response persistence | Open | ✅ FIXED — full Redis-backed job system deployed |
+  line=473 - **Async job management:** Redis-backed async API with true asyncio cancellation — all production queries can be cancelled mid-run.
+FILE=thesis/00-thesis-overview.md
+  line=48   - Read `theory/Quantarithmia Framework.md`, `thesis/01-quantarithmia.md`, and the Hilbert‑space, entanglement, and Darwin–Gödel chapters (`04-hilbert-space-state.md`, `08-quantum-inspired-entanglement.md`, `09-darwin-g
+  line=49   - These chapters define how an entangled geography can be represented as a Hilbert‑space state, how flows of power/value are formalized, and how optimization hierarchies and self‑improvement are constrained by the disc
+  line=82   **Semantic enrichment via Hilbert‑space memory.**
+  line=83    Using stable IDs from GBIM and topic cues from the request, the orchestrator calls Hilbert‑space semantic memory to retrieve prior documents, histories, governance texts, and autonomous learning related to the same en
+FILE=thesis/04-hilbert-space-state.md
+  line=16 This chapter explains how Ms. Egeria Jarvis uses ChromaDB as the primary semantic memory layer backing the Hilbert‑space representation, GBIM, the verified local resource registry, and the broader semantic fabric. Chroma
+  line=24 > *Figure 1 – ChromaDB as Semantic Memory in Ms. Jarvis. Services embed texts and GIS features into ChromaDB collections so that abstract Hilbert‑space state becomes a concrete, queryable memory layer for RAG. Local reso
+  line=26 Within the Quantarithmia programme, ChromaDB is treated as the bridge between abstract Hilbert‑space representation and stored embeddings: vectors in each collection approximate elements of the high‑dimensional inner‑pro
+  line=35   Embeddings of texts and artefacts live in collections corresponding to domains such as governance, thesis content, autonomous learner outputs, conversations, local resource guides, and curated research traces. These co
+  line=41   At query time, services embed inputs and use ChromaDB similarity search, often with metadata filters, to retrieve the most relevant items for context and reasoning. A text RAG service handles general semantic retrieval
+  line=117 - Hilbert‑space and learner‑corpus materials.
+  line=138 ### 5.4 From Hilbert Space to ChromaDB (and Back to Registries)
+  line=140 ChromaDB provides the concrete realization of the Hilbert‑space representation described in the previous chapter, while structured stores such as GBIM tables and `local_resources` provide the “hard edges” that RAG resolv
+  line=146 Each ChromaDB collection corresponds to an empirically instantiated subset of \(H_{\text{App}}\), grouping related vectors by purpose (for example, governance, conversation, thesis, resource guides) or by entity type (fo
+  line=151 This mapping allows Ms. Jarvis’s memory to be described both geometrically, in terms of subsets and projections of a Hilbert space, and operationally, in terms of concrete collection queries, metadata filters, RAG calls,
+  line=247 The documented deployment focuses on public or research‑grade data: West Virginia GIS layers, public resource guides, and internal research corpora. Collections containing sensitive user data are excluded or carefully co
+FILE=thesis/05-chromadb-semantic-memory.md
+  line=25 This chapter explains how Ms. Jarvis uses ChromaDB as the primary semantic memory layer for the Hilbert-space representation, GBIM worldview entities, autonomous learning, and resource retrieval. ChromaDB is a vector dat
+  line=42 Within the Quantarithmia program, ChromaDB bridges abstract Hilbert-space representation and stored embeddings: vectors in each collection approximate elements of the high-dimensional inner-product space, realized throug
+  line=238 ### 5.4 From Hilbert Space to ChromaDB (and PostgreSQL)
+  line=240 ChromaDB provides concrete realization of the Hilbert-space representation, while PostgreSQL databases (`msjarvis`, `gisdb`, `jarvis-local-resources-db`) provide structured provenance, spatial primitives, and community r
+  line=246 Each collection corresponds to an empirically instantiated subset of H_App, grouping vectors by purpose (governance, conversation, resources) or entity type (buildings, blocks, benefits facilities). The `gbim_worldview_e
+  line=257 This enables memory to be described both geometrically (Hilbert space projections) and operationally (concrete collection queries + SQL joins).
+  line=312 | `ms_jarvis_memory` | Conversation memory | Active | ✅ Active |
+  line=315 | `conversation_history` | Conversation history | Active | ✅ Active |
+  line=508 Documented deployment focuses on public/research data: West Virginia GIS layers, public resource guides, internal research. Conversational or personal-memory collections are curated before broader use.
+  line=560 **Async job management (new — March 17, 2026):**
+  line=561 - Redis (`jarvis-redis:6379`) backs all async job state (30-min TTL)
+  line=562 - `/chat/async`, `/chat/status/{job_id}`, `/chat/cancel/{job_id}`, `/chat/cancel/all`
+FILE=thesis/06-geodb-spatial-body.md
+  line=23 This chapter describes the geospatial substrate that anchors Ms. Egeria Jarvis in the physical world of West Virginia. The GeoDB layer is tightly coupled to GBIM, to the Hilbert‑space–backed semantic memory accessed via 
+  line=57 > Figure 6.1. High‑level container‑style view of the Ms. Jarvis Steward System, showing user clients, the 21‑LLM ensemble, and the containerized backing stores (PostgreSQL PostGIS GeoDB, GBIM, ChromaDB vector store, `loc
+  line=61 The chapter documents what is currently integrated, which layers are staged, and how these components are linked into the broader Hilbert‑space and GBIM framework, including their representation in GBIM belief embeddings
+  line=289 For these datasets, the accurate characterization is that they are present and, in many cases, spatially queryable in PostgreSQL PostGIS, but are not yet part of the default GBIM‑driven Hilbert‑space reasoning path used 
+  line=293 ### 6.7 Linking GeoDB to GBIM, `local_resources`, and Hilbert Space
+  line=300 - **From GBIM beliefs to Hilbert space via embeddings.**  
+  line=301   The embedding pipeline generates text representations for each belief, combining the nine axes into a summary sentence and embedding them into ChromaDB. This realizes a large finite subset of the spatial and institutio
+FILE=thesis/07-rag-pipeline-and-routers.md
+  line=3 This chapter specifies how Ms. Jarvis's language models are bound to *place‑aware, collection‑aware, and registry‑aware memory* instead of free‑floating text generation. It makes the Hilbert‑space representation, GBIM st
+  line=52 Within the overall architecture, the RAG layer is the primary bridge between relatively slow‑changing long‑term memory (ChromaDB collections, PostgreSQL `msjarvis`/`gisdb` at port 5433, and structured registries like `ja
+  line=91 ## 7.1 Alignment with GBIM, Hilbert Space, Semantic Memory, GeoDB, and Registries
+  line=95 The Hilbert‑space state view treats the system's overall knowledge and constraints as a very high‑dimensional state vector. RAG interactions can be understood as projections into lower‑dimensional subspaces that correspo
+  line=172 │  │    conversation_history, episodic_index,              │  │
+  line=274 | `ms_jarvis_memory` | Active | Conversation memory |
+  line=277 | `conversation_history` | Active | Conversation history |
+  line=284 From the Hilbert‑space perspective, each collection represents a finite subset of the component spaces \(H_{\text{text}}, H_{\text{geo}}, H_{\text{inst}}\), and the RAG query selects a neighborhood around the embedded qu
+  line=323 GIS RAG outputs are composable with text RAG outputs: each hit is both a semantic object (a facility, boundary, or infrastructure feature) and a spatial object (with coordinates, SRID, and GBIM identifiers traceable to P
+  line=349 The main brain does not typically call language models directly. Instead, it routes each job through an orchestration layer that decides whether to invoke Phase 1.45 community memory, the text RAG service, the GIS RAG se
+  line=366 Ensemble outputs are then filtered by the blood–brain‑barrier and returned via unified chat endpoints. Async queries use the Redis-backed job API (`/chat/async`, `/chat/status/{job_id}`, `/chat/cancel/{job_id}`).
+  line=372 This section sketches the typical flows for non‑spatial, spatial, and resource‑oriented queries. In each case, the retrieval layer is where abstract Hilbert‑space projections and GBIM entities from PostgreSQL become conc
+  line=379 A user or upstream component sends a request to the unified gateway or main brain. The coordinator wraps it into an internal job structure containing the raw text, any structured fields (project, county, worldview), and 
+  line=388 The text RAG service embeds the query, runs similarity search against the selected collections, and returns high‑scoring documents and their metadata. Collection selection and metadata filters act as an early constraint 
+  line=642 The retrieval server and main brain support background storage of queries and responses into `conversation_history` and `episodic_index` ChromaDB collections (both active as of March 18, 2026). Logs capture which service
+FILE=thesis/08-quantum-inspired-entanglement.md
+  line=3 This chapter presents the "quantum‑inspired entanglement" mechanism used in Ms. Egeria Jarvis: a way of modeling coupled state across different parts of the system so that changes in one area can, in principle, influence
+  line=5 Within the thesis, this mechanism ties together Hilbert‑space geometry, ChromaDB‑based semantic memory, the PostgreSQL GBIM/GeoDB spatial grounding described in other chapters, the RAG pipeline, and the autonomous learne
+  line=31 Formally, Ms. Jarvis's internal semantic state and retrieval metadata are modeled in a way that mirrors the Hilbert‑space formalism familiar from quantum mechanics, adapted for vector embeddings, tags, and entanglement e
+  line=34 Let \(\mathcal{V}\) be the embedding space, treated as a real Hilbert space where each item \(x_i\) is represented by a vector \(v_i \in \mathcal{V}\). Inner products and norms encode similarity and magnitude, and neighb
+  line=141 The design intends the following behavior. For the current topic, the learner will retrieve its neighbors from `topic_graph.json` and rank them by edge weight, where stronger edges indicate tighter entanglement. When cho
+  line=165 The use of "entanglement" to describe correlated belief updates and retrieval biases across governance, ethics, space, and service domains. The treatment of the embedding state as a Hilbert‑like space with entangled subs
+FILE=thesis/09-darwin-godel-machines.md
+  line=87 Ms. Jarvis adopts the DGM approach because the project requires systematic exploration of improvements without assuming all changes can be justified by formal proofs. DGM provides a vocabulary and pattern library for sel
+  line=336 The Fifth DGM fits into the previously established architecture: it respects GBIM's worldview layer (Chapter 2) by not introducing a parallel belief system; it operates as a state‑space operator within the Hilbert‑space 
+FILE=thesis/10-woah-weighted-optimization-hierarchy.md
+  line=173     - Hilbert‑space spatial reasoning.
+FILE=thesis/11-llm-fabric-of-ms-jarvis.md
+  line=97 | **Implemented and verified** | `jarvis-main-brain` → **127.0.0.1:8050** (confirmed). `jarvis-ollama` → **127.0.0.1:11434** (confirmed). `jarvis-wv-entangled-gateway` → **127.0.0.1:8010** (confirmed). `jarvis-spiritual-
+  line=142 | llm17-proxy | 8217 | Neural-Chat (`neural-chat:latest`) | Conversation |
+  line=158 `llama3.1:8b` (llm22-proxy) is the primary voice model — it is the model the LM Synthesizer calls directly to deliver the final response in Ms. Jarvis's voice. `mistral:latest` (llm21-proxy) is a fast, strong generalist 
+  line=176 Primary external-facing interface. Orchestrates calls to all downstream services. Exposes `/chat` (synchronous), `/chat/async` + `/chat/status/{job_id}` + `/chat/cancel/{job_id}` + `/chat/cancel/all` (full-pipeline async
+  line=206 Conversation-level memory consolidation over ChromaDB (port 8000) and PostgreSQL `msjarvis` GBIM. Temporal decay-aware.
+  line=243 `chroma_data` Docker volume. Active collections: `ms_jarvis_memory`, `mountainshares_knowledge`, `episodic_index`, `conversation_history`, `autonomous_learner` (21,181 items), `psychological_rag` (968 items), `gbim_belie
+  line=246 Async job state (30-min TTL), service discovery, caching, and coordination.
+  line=370 - **Async chat endpoints.** `/chat/async`, `/chat/status/{job_id}`, `/chat/cancel/{job_id}`, `/chat/cancel/all` — Redis-backed, 30-min TTL, true asyncio task cancellation. Must be preserved in all future main-brain rebui
+FILE=thesis/12-neurobiological-architecture.md
+  line=215 Biologically, the hippocampus is critical for consolidating experiences into long-term memory. In the current deployment, the hippocampus metaphor is realized by `jarvis-hippocampus`, confirmed running at **127.0.0.1:801
+  line=217 A consolidation service exposes a `/chat` endpoint that accepts a message, queries a conversation memory collection for the most relevant existing documents, and uses this retrieved context to call several downstream ser
+FILE=thesis/13-qualia-engine-and-introspective-state.md
+  line=16 This chapter describes how Ms. Egeria Jarvis turns raw operational data into a structured internal narrative about what the system is doing and experiencing. The aim is to build a transparent layer of self‑description th
+  line=25   Collect relevant signals from diverse subsystems, including conversational interfaces, retrieval and memory services, optimization and self‑evaluation layers, and system health monitors. The Qualia Engine focuses on tr
+  line=42   Conversational entrypoints record incoming messages together with user identifiers or session context, and consolidated memory services store those messages as documents in long‑term collections with associated metadat
+  line=45   Vector store collections such as conversation‑oriented memory are queried with user messages to retrieve relevant past documents before new responses are generated. Other collections and backends, including geospatial 
+  line=62   Each record is associated with one or more IDs, such as a request identifier, a user or session handle, and a stable key that can be used to join the record with stored conversation memory, spatial tables, or logs. The
+  line=71   Records refer to key elements from memory and retrieval: which collections were queried, which documents or embeddings were returned, which belief graph nodes were touched, and which services contributed to the final r
+  line=91   Consolidation and retrieval services query vector stores and other backends, recording which collections were accessed and which items were used as context. In the current system, the consolidation service explicitly q
+  line=94   Unified orchestrators generate responses by combining outputs from primary LLM services, personas, and supporting modules, sometimes routing results through a dedicated hub. These combined outputs and any associated fl
+  line=97   Periodic jobs that audit system health or reload knowledge already write logs and summaries; these can be treated as introspective entries covering broader time windows. When DGM agents or other evaluators later revisi
+  line=108   Consciousness gateway and unified orchestrator endpoints expose which layers are active and healthy for a given time, and conversation memory collections can be queried by user or content to retrieve recent interaction
+  line=138 - **Semantic and conversational memory**  
+  line=139   Each record can refer to specific collections and document identifiers in the vector store—such as conversation memory or domain‑specific knowledge bases—allowing a clear mapping between explanatory narratives and the 
+FILE=thesis/14-hippocampus-and-memory-consolidation.md
+  line=3 > - **P1 – Every where is entangled** by tying conversational experiences and world-model updates to shared semantic, institutional, and spatial backbones grounded in GBIM entities, normalized beliefs, and a statewide hi
+  line=139 Each community interaction processed by the autonomous learning subsystem is written as a document + metadata record in `autonomous_learner`, embedded via `all-minilm:latest` (384-dim). These records capture the conversa
+  line=168 These behaviors can be implemented as periodic jobs or 69-DGM-driven optimization steps (Chapter 32) over the GBIM and ChromaDB layers. For now, descriptions of temporal hierarchy beyond `confidence_decay` should be unde
+  line=196 As the introspective layer evolves, it can report which GBIM entities, datasets, and spatial regions were consulted for a given response, which `autonomous_learner` records were prepended at Phase 1.45, and how their `co
+  line=211 As governance-relevant beliefs and norms are encoded in GBIM worldviews, hippocampal entries link entities and episodes to the councils, districts, or organizations they involve. Community-validated data from Harmony for
+FILE=thesis/17-executive-coordination-overview.md
+  line=230 | Redis response persistence (in-memory only) | ✅ FIXED — Redis-backed job system with 30-min TTL deployed |
+  line=248 ## 39.8 Async Job API State (March 18, 2026)
+  line=250 The Redis-backed async job system deployed March 17, 2026, provides non-blocking access to the full 9-phase pipeline:
+  line=254 | `/chat/async` | POST | Create async job — returns `job_id` immediately |
+  line=255 | `/chat/status/{job_id}` | GET | Poll for progress and result |
+  line=256 | `/chat/cancel/{job_id}` | DELETE | Cancel specific job — true asyncio task cancellation |
+  line=257 | `/chat/cancel/all` | DELETE | Cancel all running jobs |
+  line=261 - Job state stored in Redis (`jarvis-redis:6379`) with **30-minute TTL**
+  line=263 - `DELETE /chat/cancel/{job_id}` performs **true asyncio task cancellation** — the 21-LLM pipeline stops immediately mid-run via `_job_tasks[job_id].cancel()`
+  line=264 - `active_jobs` dictionary replaced by Redis-backed store (in-memory-only limitation is resolved)
+  line=302 | Persistent `active_jobs` store (Redis-backed, deployed March 17) | ✅ Complete — job state survives restarts | Deployed |
+FILE=thesis/18-limits-and-evaluation-of-metaphor.md
+  line=107   The ability to follow a response back through the executive pipeline: which services were considered, which were actually invoked, what they returned (including PostgreSQL queries and ChromaDB retrievals), and how thos
+  line=118 These criteria can be operationalized as metrics and tests that run in continuous integration, scheduled evaluation jobs, or targeted experimental campaigns.
+  line=127   The coordinator logs the start and end of each `/chat` job, the list of services discovered as healthy, the subset actually used, PostgreSQL query patterns, and key events such as BBB filtering decisions, RAG context l
+  line=133   Periodic sampling of interaction transcripts, especially from edge cases (such as BBB‑denied requests, long‑running AGI‑scale jobs, and governance‑ or safety‑relevant questions), supports qualitative evaluation. These 
+FILE=thesis/19-container-architecture-and-routing.md
+  line=54 │  -  Redis job state (jarvis-redis:6379, 30-min TTL)          │
+  line=60 > **Figure 19.1.** Container architecture and routing flow: incoming events from multiple sources are normalized, evaluated through first-level routing (including Phase 1.45 community memory retrieval via `all-minilm:lat
+  line=74 - `hilbert-gateway` port conflict: ✅ Resolved in `docker-compose.yml`
+  line=76 - Redis-backed async job system: ✅ Deployed March 17, 2026 (`/chat/async`, `/chat/status`, `/chat/cancel`)
+  line=86 - Accept events coming from many sources, including question-handling flows, scheduled jobs, and self-improving processes.
+  line=99   User queries and responses that have already passed through initial retrieval from PostgreSQL-sourced RAG and constraint checks via the `jarvis-main-brain` `/chat` pipeline. These include synchronous requests and async
+  line=102   Results from scheduled analyses, background maintenance jobs, and optimization routines. Examples include outputs from the autonomous learner (21,181 records as of March 18, growing ~288/day), Fifth DGM optimization st
+  line=124   A unique identifier, creation and update timestamps, origin (for example, `user_chat`, `autonomous_learner`, or `external_signal`), and a reference to the initiating service or job.
+  line=127   Active role or profile, relevant geographic or institutional context from PostgreSQL GeoDB, and tags describing the domain (such as `governance`, `infrastructure`, or `community_culture`). For chat records, this includ
+  line=133   References to memory items (ChromaDB embeddings — all 384-dim via `all-minilm:latest` — PostgreSQL GBIM graph nodes/edges at port 5432, relational records), spatial features (PostgreSQL GeoDB entities), and introspecti
+  line=188   Items that pass eligibility checks and have sufficient priority are forwarded to downstream evaluators (for example, 21-model LLM consensus, truth validators against PostgreSQL GBIM, or optimization routines). Their co
+  line=213 > All 79 production containers are now defined in a single `docker-compose.yml`. All `build:` directives have been converted to `image:` references — no image rebuilds occur on startup. Docker Compose was upgraded from v
+  line=219 | jarvis-main-brain | 8051→8050 | External API entry point (`/chat`, `/chat/async`); 30s TTL health-check cache; Phase 1.45 community memory retrieval; service orchestration; Redis-backed async job management; RAG queuei
+  line=221 The `jarvis-main-brain` container hosts the `Ms. Jarvis ULTIMATE` main-brain FastAPI application. It exposes `/health`, `/chat`, `/chat/async`, `/chat/status/{job_id}`, `/chat/cancel/{job_id}`, and `/chat/cancel/all` end
+  line=308 | jarvis-redis | 6379→6379 | Redis: async job state (30-min TTL), idempotency TTL (1,800s), health cache |
+  line=371 - **6379** — Redis (`jarvis-redis`; async job state, idempotency, health cache)
+  line=377 ## 19.9 Async Job Management API
+  line=379 The `/chat` endpoint is synchronous and takes ~436 seconds for a full pipeline run. The async job API (deployed March 17, 2026) allows immediate response with polling:
+  line=383 | `/chat/async` | POST | Create async job — returns `job_id` immediately |
+  line=384 | `/chat/status/{job_id}` | GET | Poll for progress and result |
+  line=385 | `/chat/cancel/{job_id}` | DELETE | Cancel a specific running job |
+  line=386 | `/chat/cancel/all` | DELETE | Cancel all running jobs |
+  line=389 - Job state persists in Redis (`jarvis-redis:6379`) with 30-minute TTL
+  line=392 - The `_job_tasks` dict maps `job_id` to `asyncio.Task` for true interruption
+  line=425 | Redis response persistence (in-memory only) | ✅ FIXED — full Redis-backed job system with 30-min TTL deployed March 17 |
+  line=436 | `hilbert-gateway` port conflict in `docker-compose.yml` | ✅ FIXED — resolved during March 17 compose audit |
+  line=448 The container architecture and routing layer described here provide the structural glue between external interfaces, executive coordination, autonomous learning, and PostgreSQL long-term memory. As of March 18, 2026, thi
+  line=454 - Feed curated content into PostgreSQL long-term stores such as the I-Container, ChromaDB (`chroma_data` volume, all collections 384-dim), GBIM graphs in PostgreSQL `msjarvisgis` (port 5432, 91 GB, 501 tables, 5.4M+ veri
+FILE=thesis/20-first-stage-evaluation.md
+  line=85 **Preserve opportunity.** In the current deployment, user conversations that pass safety checks are queued for background handling and written into the `ms_jarvis_memory` semantic store in ChromaDB (confirmed running via
+FILE=thesis/25-consciousness-coordinator-and-services.md
+  line=143 **`ms_jarvis_memory` ChromaDB — ephemeral-to-persistent transition.** In the current deployment, this collection serves as the primary sink for background storage. Every `/chat` call produces a new `bg_<ISO8601>` entry. 
+FILE=thesis/26-temporal-toroidal-semaphore-structure.md
+  line=19 Medium-term processes accumulate and revisit information across multiple short-term interactions. Verification tools such as `verifyallclaims.sh` and `VERIFYANDTEST.sh` periodically exercise full flows, including autonom
+  line=27 In this temporal framing, conscious processing is not a single event but a superposition of fast per-request pipelines, slower background jobs, and very slow consolidation in long-lived memory.
+  line=77 Per-request pipelines (short-term), verification passes and sync jobs (medium-term), and Chroma/GeoDB persistence (long-term) all operate under semaphore constraints: semaphores on LLM fabric concurrency, BBB and truth f
+  line=81 Cyclic sweeps such as full integration verification, I‑Container growth tests, and Chroma–GeoDB synchronization revisit similar regions of semantic and spatial state but encounter different gating conditions and differen
+FILE=thesis/27-web-research-and-autonomy.md
+  line=48 │  │    - conversation_history                      │         │
+  line=76 | **Implemented now** | `jarvis-autonomous-learner` confirmed running at **127.0.0.1:8425** with ONNX sentence-embedding model cached on host, FastAPI HTTP interface, configurable `learning_queue`, and restart policy `un
+  line=136 **Internal retrieval via ChromaDB and PostgreSQL.** The learner queries internal ChromaDB collections such as `autonomous_learner`, `ms_jarvis_memory`, and `conversation_history` through HTTP‑based ChromaDB clients, all 
+FILE=thesis/28-heartbeat-and-live-cycles.md
+  line=3 This chapter describes the recurring signals and jobs that indicate Ms. Jarvis is active and connected to its internal services and external infrastructure. These cycles include service health checks, periodic verificati
+FILE=thesis/31-mountainshares-and-infrastructure.md
+  line=55 Ms. Jarvis interacts with these layers primarily through documented APIs, scraper pipelines, and scheduled update jobs, rather than through opaque integrations. In practice, this means that both the machine and the inhab
+FILE=thesis/39-operational-evaluation.md
+  line=171 | **Carried forward from March 1–2, 2026** | `jarvis-blood-brain-barrier` port 8016 confirmed. Neurobiological Master v2.0.0 (4/4 pipeline ~300ms, tag `v2026.03.01-neuro-pipeline-4-4`). BBB output guard timeout 8.0s (fix
+  line=268 | Async chat interface | `/chat/async` only | **`/chatlight/async` + `/chatlight/status/{job_id}`** (tag `v2026.03.02-chatlight-async-working`) |
+  line=562 Restored March 15 (`chroma_data` volume created). Hilbert-space embedding model with H_text, H_geo, and H_inst component spaces supporting unified semantic retrieval, linked to PostgreSQL source data.
+  line=604 `/chatlight/async` + `/chatlight/status/{job_id}` (tag `v2026.03.02-chatlight-async-working`). Returns `job_id` instantly; client polls for result. `normalize_identity()` confirmed on this path.
+  line=685 Submit latency: Instant (returns `job_id`)
+FILE=thesis/40-system-audit-and-operational-validation.md
+  line=206 > **Resolution (March 18, 2026):** The canonical ChromaDB instance is `jarvis-chroma` at **127.0.0.1:8000** with `chroma_data` Docker volume (restored March 15, 2026). All collections use **384-dimensional vectors** (`al
+  line=315 > **Subsequent expansions (March 18, 2026):** The BBB expanded from 4 to 7 filters (SteganographyDetection, TruthVerification, ContextAwareness added March 15). SafetyMonitor word-boundary regex corrected March 15. `trut
+  line=365 > **Note:** The above smoke tests are the canonical baseline established 2026-03-13. For the full current smoke test suite including all March 15–18 services (BBB 7 filters with fail-open, Phase 1.45 community memory via
+  line=379 | Redis response persistence (in-memory only, lost on restart) | High | ✅ Fixed — Redis-backed job system with 30-min TTL deployed March 17 |
+FILE=thesis/41-test-harness-and-continuous-validation.md
+  line=15 | **Implemented and verified** | `VERIFYANDTEST.sh` eternal watchdog producing timestamped reports confirming 32/32 core fabric services operational, 22/22 LLM proxies healthy (first time 22/22 confirmed March 15), 79 Do
+  line=93 `VERIFYANDTEST.sh` is the primary system health watchdog script. It runs on demand during development sessions and is intended to be scheduled as a cron job for continuous monitoring. A clean run as of March 15, 2026 con
+  line=215 Expected: `{"job_id": "...", "poll_url": "...", "status": "queued"}` — returned instantly (no blocking).
+  line=220 # Replace JOB_ID with value from previous command
+  line=221 curl -s http://127.0.0.1:8050/chatlight/status/JOB_ID | python3 -m json.tool
+  line=589 - Context-smuggling across conversation turns — 5+ scenarios
+FILE=thesis_chapter_gates/probes/appendix_a_probe.py
+  line=23       "Per-user collection resolver (conversation_manifest.py) demonstrated live",
+  line=24       "Commons gateway live on port 8055 with community_hilbert_commons collection",
+  line=25       "Temporal keys confirmed under hilbert:time:* (admitted + staged) in Redis",
+  line=61     "hilbert_time":         "http://127.0.0.1:18094/health",
+  line=62     "hilbert_state":        "http://127.0.0.1:18092/health",
+  line=77     r = subprocess.run(["redis-cli","-p","6380","keys","hilbert:*"],
+  line=83         r2 = subprocess.run(["redis-cli","keys","hilbert:*"],
+  line=87 result["redis_hilbert_keys"] = redis_keys
+  line=88 result["redis_hilbert_key_count"] = len(redis_keys)
+  line=140     "hilbert_time":         ["jarvis-hilbert-time"],
+  line=141     "hilbert_state":        ["jarvis-hilbert-state"],
+  line=164     "conversation_manifest_py":    re.compile(r"conversation_manifest\.py|conversation_manifest", re.I),
+  line=170     "epistemic_loop_scheduled":    re.compile(r"dgm_cycle\.sh|conversation_retention_worker|identity_promotion\.py", re.I),
+  line=171     "hilbert_time_port_named":     re.compile(r"18094|hilbert.time.*18094|jarvis-hilbert-time", re.I),
+FILE=thesis_chapter_gates/probes/ch03_mountainshares_dao_probe.py
+  line=12 from services.hilbert.mountainshares_dao_governance import demo_contract
+  line=30         "services/hilbert/mountainshares_dao_governance.py": [
+  line=36             "community_hilbert_commons",
+  line=38         "services/hilbert/community_commons_aggregation.py": [
+  line=41             "community_hilbert_commons",
+  line=43         "services/hilbert/continuous_validation_harness.py": [
+  line=87     for name in ["commons_rag", "community_hilbert_commons", valid["collection"]]:
+  line=96             "community_hilbert_commons": "community_hilbert_commons" in after,
+  line=115         "hilbert_state": http_json("http://127.0.0.1:18092/health"),
+  line=144         if not chroma["families"]["community_hilbert_commons"]:
+  line=145             blockers.append("community_hilbert_commons_not_visible")
+  line=166                 "commons_rag and community_hilbert_commons are runtime-visible supporting collections",
+FILE=thesis_chapter_gates/probes/ch08_quantum_inspired_entanglement_probe.py
+  line=13 from services.hilbert.quantum_inspired_entanglement import demo_contract
+  line=52     out["existing_entanglement_keys"] = run_cmd(["bash", "-lc", "redis-cli -p 6380 keys 'hilbert:entanglement:*' | sort | head -50"])
+  line=95             "hilbert_entanglement_associations_ch08": contract["collection"] in after,
+  line=97             "conversation_history_user": any(n.startswith("conversation_history_user_") for n in after),
+  line=106         "services/hilbert/quantum_inspired_entanglement.py": [
+  line=113         "services/hilbert/hilbert_phi_closure_probe.py": [
+  line=117         "services/hilbert/tensor_geo_bridge.py": [
+  line=121         "services/hilbert/per_user_direct_sum_memory.py": [
+  line=122             "conversation_history_user_",
+  line=139         "hilbert_state": http_json("http://127.0.0.1:18092/health"),
+  line=140         "hilbert_time": http_json("http://127.0.0.1:18094/health"),
+  line=172         if not chroma["families"]["hilbert_entanglement_associations_ch08"]:
+FILE=thesis_chapter_gates/probes/ch19_container_architecture_routing_probe.py
+  line=15     "jarvis-hilbert-state": {"host_port": "18092", "health": "http://127.0.0.1:18092/health"},
+  line=16     "jarvis-hilbert-time": {"host_port": "18094", "health": "http://127.0.0.1:18094/health"},
+  line=182         "services/hilbert/recurrent_epistemic_runner.py",
+  line=198         "hilbert_time_route_present": "18094" in source_text or "jarvis-hilbert-time" in source_text,
+  line=199         "hilbert_state_route_present": "18092" in source_text or "jarvis-hilbert-state" in source_text,
+  line=229                 "critical governance, memory, sandbox, commons, Hilbert, and Chroma services are running or discoverable by healthy service endpoint",
+FILE=thesis_chapter_gates/probes/ch23_dual_tracks_meaning_analysis_probe.py
+  line=10 from services.hilbert.dual_track_meaning_analysis import COLLECTION_NAME, run_contract_probe
+  line=15     "hilbert_state": "http://127.0.0.1:18092/health",
+  line=16     "hilbert_time": "http://127.0.0.1:18094/health",
+  line=62     source = ROOT / "services/hilbert/dual_track_meaning_analysis.py"
+FILE=thesis_chapter_gates/probes/ch24_feedback_broader_layers_probe.py
+  line=12 from services.hilbert.broader_layer_feedback import demo_contract
+  line=30         "services/hilbert/broader_layer_feedback.py": [
+  line=39         "services/hilbert/background_pattern_store.py": [
+  line=44         "services/hilbert/automated_learning_gap_review.py": [
+  line=49         "services/hilbert/continuous_validation_harness.py": [
+  line=53         "services/hilbert/recurrent_epistemic_runner.py": [
+  line=111         "community_hilbert_commons": "community_hilbert_commons" in after,
+  line=129         "hilbert_state": http_json("http://127.0.0.1:18092/health"),
+  line=130         "hilbert_time": http_json("http://127.0.0.1:18094/health"),
+FILE=thesis_chapter_gates/probes/ch38_external_communication_authority_probe.py
+  line=12 from services.hilbert.external_communication_authority import demo_contract
+  line=30         "services/hilbert/external_communication_authority.py": [
+  line=38         "services/hilbert/per_user_direct_sum_memory.py": [
+  line=41             "conversation_private_user_",
+  line=43         "services/hilbert/mountainshares_dao_governance.py": [
+  line=47         "services/hilbert/broader_layer_feedback.py": [
+  line=104             "conversation_history_user": any(n.startswith("conversation_history_user_") for n in after),
+  line=105             "community_hilbert_commons": "community_hilbert_commons" in after,
+  line=119         "hilbert_state": http_json("http://127.0.0.1:18092/health"),
+FILE=thesis_chapter_gates/probes/ch49_temporal_hilbert_axis_probe.py
+  line=14 from services.hilbert.temporal_hilbert_axis import demo_contract
+  line=60     out["existing_temporal_keys"] = run_cmd(["bash", "-lc", "redis-cli -p 6380 keys 'hilbert:time:*' | sort | head -20"])
+  line=61     out["existing_ephemeral_keys"] = run_cmd(["bash", "-lc", "redis-cli -p 6380 keys 'hilbert:ephemeral:*' | sort | head -20"])
+  line=62     out["existing_staged_keys"] = run_cmd(["bash", "-lc", "redis-cli -p 6380 keys 'hilbert:staged:*' | sort | head -20"])
+  line=95             "jarvis_hilbert_time",
+  line=96             "hilbert_time",
+  line=112         "services/hilbert/temporal_hilbert_axis.py": [
+  line=113             "hilbert:time:",
+  line=114             "hilbert:ephemeral:",
+  line=115             "hilbert:staged:",
+  line=122         "services/hilbert/recurrent_epistemic_runner.py": [
+  line=164         "hilbert_time": http_json("http://127.0.0.1:18094/health"),
+  line=165         "hilbert_state": http_json("http://127.0.0.1:18092/health"),
+  line=174     ht = endpoints["hilbert_time"].get("body", {})
+  line=178             blockers.append(f"hilbert_time_{tier}_not_connected")
+  line=212         if rel.endswith("temporal_hilbert_axis.py") and missing:
+  line=219         "name": "temporal_hilbert_axis",
+FILE=thesis_chapter_gates/probes/ch50_per_user_direct_sum_probe.py
+  line=12 from services.hilbert.per_user_direct_sum_memory import direct_sum_contract
+  line=30         "services/hilbert/per_user_direct_sum_memory.py": [
+  line=31             "conversation_history_user_",
+  line=32             "conversation_private_user_",
+  line=33             "conversation_staged_user_",
+  line=39         "services/hilbert/conversation_retention_worker.py": [
+  line=40             "conversation",
+  line=43         "services/hilbert/conversation_manifest.py": [
+  line=44             "conversation",
+  line=47         "services/hilbert/people_session_promotion.py": [
+  line=79         (alpha, "alpha direct-sum retained conversation", [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]),
+  line=80         (beta, "beta direct-sum retained conversation", [0.2, 0.1, 0.4, 0.3, 0.6, 0.5, 0.8, 0.7]),
+  line=116         "conversation_history_user": any(n.startswith("conversation_history_user_") for n in names_after),
+  line=117         "conversation_private_user": any(n.startswith("conversation_private_user_") for n in names_after),
+  line=118         "conversation_staged_user": any(n.startswith("conversation_staged_user_") for n in names_after),
+  line=119         "legacy_shared_conversation_history_visible": "conversation_history" in names_after,
+  line=137         "hilbert_state": http_json("http://127.0.0.1:18092/health"),
+  line=138         "hilbert_time": http_json("http://127.0.0.1:18094/health"),
+  line=173         if not chroma["families"]["conversation_history_user"]:
+  line=174             blockers.append("conversation_history_user_family_not_visible")
+  line=175         if not chroma["families"]["conversation_staged_user"]:
+  line=176             blockers.append("conversation_staged_user_family_not_visible")
+  line=183         "name": "per_user_direct_sum_conversational_memory",
+  line=189                 "conversation memory routes into per-user direct-sum subspaces",
+  line=197                 "shared global conversation memory as authoritative",
+  line=199                 "public commons publication from private conversation routes",
+FILE=thesis_chapter_gates/probes/overview_docs_probe.py
+  line=15     "04/44 (hilbert/phi-probe)", "05/06 (chromadb/geodb)", "07 (rag-pipeline)",
+  line=27     "47/48 (hilbert-people)", "49 (temporal-hilbert-axis)", "50 (per-user-direct-sum)",
+  line=28     "51 (community-hilbert-commons)", "52 (recurrent-epistemic-loop)",
+FILE=thesis_chapter_gates/reports/appendix_a_gate_20260722_090854.md
+  line=23 3. Names all live scheduled runners (dgm_cycle.sh every 30 min, conversation_retention_worker
+  line=27 6. References live Chroma collections (as scanned) and Redis hilbert:time:* keys.
+  line=127     "hilbert_time": {
+  line=130           "name": "jarvis-hilbert-time",
+  line=137     "hilbert_state": {
+  line=140           "name": "jarvis-hilbert-state",
+  line=252         "commons_collection": "community_hilbert_commons"
+  line=255     "hilbert_time": {
+  line=259         "service": "jarvis_hilbert_time",
+  line=271     "hilbert_state": {
+  line=275         "service": "jarvis_hilbert_state",
+  line=348     "conversation_manifest_py": true,
+  line=355     "hilbert_time_port_named": true
+  line=368       "Per-user collection resolver (conversation_manifest.py) demonstrated live",
+  line=369       "Commons gateway live on port 8055 with community_hilbert_commons collection",
+  line=370       "Temporal keys confirmed under hilbert:time:* (admitted + staged) in Redis",
+  line=386   "redis_hilbert_keys": [
+  line=387     "hilbert:time:ch04_ch44_probe_1784680838",
+  line=388     "hilbert:entanglement:ch04_ch44_probe_1784680838:ch04_ch44_probe_1784680838_peer",
+  line=389     "hilbert:time:test:naive-fix",
+  line=390     "hilbert:time:ingest:blockgroup:540019655001",
+  line=391     "hilbert:state:commons_coherence",
+  line=392     "hilbert:coherence:latest",
+  line=393     "hilbert:entanglement:ch04_ch44_probe_1784680745:ch04_ch44_probe_1784680745_peer",
+  line=394     "hilbert:time:ch04_ch44_probe_1784680838_peer",
+  line=395     "hilbert:time:commons_coherence",
+  line=396     "hilbert:time:commons_coherence_probe_deleted",
+  line=397     "hilbert:entanglement:ent08_cadf83f0ef834ccfa097ef46108fb05d01a9fc68",
+  line=398     "hilbert:time:ch04_ch44_probe_1784680745_peer",
+  line=399     "hilbert:time:commons_coherence_probe",
+  line=400     "hilbert:coherence:history",
+  line=401     "hilbert:time:test:utc-fix",
+  line=402     "hilbert:time:ch49_test",
+  line=403     "hilbert:entanglement:ent08_b92d84ecba6de8a8384fc2e367ad2621087f5158",
+  line=404     "hilbert:time:ch04_ch44_probe_1784680745",
+  line=405     "hilbert:time:asbuilt_ch49_clean",
+  line=406     "hilbert:coherence:system_score",
+  line=407     "hilbert:time:ch04_ch44_probe_1784680606",
+  line=408     "hilbert:entanglement:ch04_ch44_probe_1784680606:ch04_ch44_probe_1784680606_peer",
+  line=409     "hilbert:time:ch04_ch44_probe_1784680606_peer",
+FILE=thesis_chapter_gates/reports/appendix_a_gate_probe_20260722_090854.json
+  line=96     "hilbert_time": {
+  line=99           "name": "jarvis-hilbert-time",
+  line=106     "hilbert_state": {
+  line=109           "name": "jarvis-hilbert-state",
+  line=221         "commons_collection": "community_hilbert_commons"
+  line=224     "hilbert_time": {
+  line=228         "service": "jarvis_hilbert_time",
+  line=240     "hilbert_state": {
+  line=244         "service": "jarvis_hilbert_state",
+  line=317     "conversation_manifest_py": true,
+  line=324     "hilbert_time_port_named": true
+  line=337       "Per-user collection resolver (conversation_manifest.py) demonstrated live",
+  line=338       "Commons gateway live on port 8055 with community_hilbert_commons collection",
+  line=339       "Temporal keys confirmed under hilbert:time:* (admitted + staged) in Redis",
+  line=355   "redis_hilbert_keys": [
+  line=356     "hilbert:time:ch04_ch44_probe_1784680838",
+  line=357     "hilbert:entanglement:ch04_ch44_probe_1784680838:ch04_ch44_probe_1784680838_peer",
+  line=358     "hilbert:time:test:naive-fix",
+  line=359     "hilbert:time:ingest:blockgroup:540019655001",
+  line=360     "hilbert:state:commons_coherence",
+  line=361     "hilbert:coherence:latest",
+  line=362     "hilbert:entanglement:ch04_ch44_probe_1784680745:ch04_ch44_probe_1784680745_peer",
+  line=363     "hilbert:time:ch04_ch44_probe_1784680838_peer",
+  line=364     "hilbert:time:commons_coherence",
+  line=365     "hilbert:time:commons_coherence_probe_deleted",
+  line=366     "hilbert:entanglement:ent08_cadf83f0ef834ccfa097ef46108fb05d01a9fc68",
+  line=367     "hilbert:time:ch04_ch44_probe_1784680745_peer",
+  line=368     "hilbert:time:commons_coherence_probe",
+  line=369     "hilbert:coherence:history",
+  line=370     "hilbert:time:test:utc-fix",
+  line=371     "hilbert:time:ch49_test",
+  line=372     "hilbert:entanglement:ent08_b92d84ecba6de8a8384fc2e367ad2621087f5158",
+  line=373     "hilbert:time:ch04_ch44_probe_1784680745",
+  line=374     "hilbert:time:asbuilt_ch49_clean",
+  line=375     "hilbert:coherence:system_score",
+  line=376     "hilbert:time:ch04_ch44_probe_1784680606",
+  line=377     "hilbert:entanglement:ch04_ch44_probe_1784680606:ch04_ch44_probe_1784680606_peer",
+  line=378     "hilbert:time:ch04_ch44_probe_1784680606_peer",
+  line=379     "hilbert:time:asbuilt_ch49"
+  line=381   "redis_hilbert_key_count": 24,
+FILE=thesis_chapter_gates/reports/ch01_closed_mechanism_crosswalk_20260721_205548.md
+  line=8 | Hilbert state / Phi | Chapter 04/44 gate | CLOSED |
+  line=11 | Hilbert People Space | Chapter 48 gate | CLOSED |
+FILE=thesis_chapter_gates/reports/ch01_sealed_for_rewrite_20260721_205923.md
+  line=14 - Quantarithmia may be framed as a theoretical contribution whose computational supports are the closed GBIM, Hilbert/Phi, BBB/PQ, tensor-geo, and People Space mechanisms.
+FILE=thesis_chapter_gates/reports/ch02_gbim_probe_20260721_204308.json
+  line=3     "conversation_gbim_private",
+  line=4     "conversation_gbim_public",
+FILE=thesis_chapter_gates/reports/ch02_gbim_probe_20260721_205216.json
+  line=3     "conversation_gbim_private",
+  line=4     "conversation_gbim_public",
+FILE=thesis_chapter_gates/reports/ch02_gbim_probe_20260721_205405.json
+  line=3     "conversation_gbim_private",
+  line=4     "conversation_gbim_public",
+FILE=thesis_chapter_gates/reports/ch03_mountainshares_dao_gate_20260722_005118.md
+  line=18 - `commons_rag`, `community_hilbert_commons`, and `mountainshares_dao_governance_records` are runtime-visible in Chroma.
+  line=19 - BBB, guardian, commons gateway, Chroma, and Hilbert-state health checks pass.
+  line=41       "community_hilbert_commons": 0,
+  line=46       "community_hilbert_commons": true,
+  line=56       "community_commons": "community_hilbert_commons",
+FILE=thesis_chapter_gates/reports/ch03_mountainshares_dao_probe_20260722_005118.json
+  line=8         "community_hilbert_commons": 0,
+  line=13         "community_hilbert_commons": true,
+  line=23         "community_commons": "community_hilbert_commons",
+  line=150           "commons_collection": "community_hilbert_commons",
+  line=166       "hilbert_state": {
+  line=171           "service": "jarvis_hilbert_state",
+  line=178       "services/hilbert/community_commons_aggregation.py": {
+  line=182           "community_hilbert_commons": true,
+  line=186       "services/hilbert/continuous_validation_harness.py": {
+  line=193       "services/hilbert/mountainshares_dao_governance.py": {
+  line=198           "community_hilbert_commons": true,
+  line=213       "commons_rag and community_hilbert_commons are runtime-visible supporting collections"
+FILE=thesis_chapter_gates/reports/ch04_ch44_closure_20260721_203900.md
+  line=12 - Hilbert state service is live and Redis-connected.
+  line=24 Ch04 may claim live service-mediated Hilbert state operations. Ch44 may claim live Phi measurement and gate wiring. Do not claim downstream outcome calibration across all domains unless separately proven.
+FILE=thesis_chapter_gates/reports/ch04_ch44_closure_governed_phi_20260721_204034.md
+  line=12 - Hilbert state service is live and Redis-connected.
+  line=25 Ch04 may claim live service-mediated Hilbert state operations. Ch44 may claim live Phi measurement and gate wiring over the governed geographic corpus. Do not claim downstream outcome calibration across all domains unles
+FILE=thesis_chapter_gates/reports/ch04_ch44_gate_20260721_203348.md
+  line=6 1:# 4. Hilbert Space State and ChromaDB as Semantic Memory
+  line=7 10:This chapter describes how Ms. Allis uses a concrete semantic memory system to support place-based reasoning about West Virginia while tying the Hilbert-space framework to the now-documented operational stack. It trea
+  line=8 15:- **P3 – Power has a geometry** by representing institutions, places, access to help, and governance pathways as explicit GBIM records, GeoDB features, Chroma collections, Hilbert-state transitions, and logged retriev
+  line=10 18:- **P16 – Power accountable to place** by making long-term memory, retrieval behaviour, Hilbert-state transitions, and query-to-evidence links explicit and queryable, with logs, coherence keys, and database joins that
+  line=11 20:As such, this chapter belongs to the **Computational Instrument** tier. It defines the production semantic memory substrate, the Hilbert-space interpretation of application state, and the operational promotion model t
+  line=12 26:This chapter explains how Ms. Egeria Allis uses ChromaDB as a physical container of large portions of \(H_{\text{App}}\) while clarifying that the Hilbert framework is not detached from the service architecture now do
+  line=13 28:ChromaDB remains a concrete implementation of long-term, queryable semantic memory for documents, GIS features, governance texts, autonomous-learning traces, resource guides, and thesis materials. Collections such as 
+  line=14 30:The key revision of this chapter is that Hilbert-state transitions must be understood as **gated operational events**. A prompt does not directly rotate system state into durable memory or action. Instead, a prompt co
+  line=15 34:## 4.2 Governed State and Hilbert Vectors
+  line=16 36:The Hilbert-space representation remains useful, but a Hilbert vector is not self-authorizing.
+  line=17 70:## 4.3 Hilbert Domains and Operational Mediation
+  line=18 72:The abstract Hilbert model is tied to the operational stack through distinct but interacting domains:
+  line=19 90:A concise way to express this is that Hilbert-space operations are **proposal-forming** inside internal reasoning, but **state-changing** only after promotion.
+  line=22 106:can still be described as named, geometrically coherent subspaces or projection targets within the application Hilbert space.
+  line=26 118:The Hilbert framework now requires an explicit distinction between long-term semantic memory and the internal reasoning scratchpad.
+  line=31 150:The Hilbert framework remains valid, but it must be described with these operational boundaries in view.
+  line=32 154:## 4.6 Hilbert-State Service and Coherence Keys
+  line=33 156:The abstract Hilbert model now has live implementation anchors that should be named explicitly.
+  line=34 158:The **hilbert-state service** and its **coherence tracking keys** provide a concrete operational bridge between formal Hilbert-space language and running service state. These anchors matter because they make the mode
+  line=35 160:The documented state service exposes concrete routes such as `stateset`, `stateget`, `statetransition`, `statelist`, `entanglement`, `hpingest`, `hpquery`, `hphealth`, and `health`. This makes it possible to treat Hi
+  line=36 168:The projection language of Hilbert spaces still applies. Queries can be understood as projections into relevant subspaces, whether semantic, spatial, temporal, or governance-related.
+  line=39 186:The chapter should therefore clarify that Hilbert-state transitions are not immediate consequences of prompts, embeddings, or retrieval events. They are governed transitions between operationally distinct state space
+  line=40 219:Where Hilbert state connects to durable memory or system action, promotion must be confidence-bounded.
+  line=41 243:Before retrieval dispatch occurs, the `nbb_pituitary_gland` acts as a global mode regulator on the belief-state pipeline. This remains an important part of the Hilbert-space interpretation, but the chapter should now
+  line=42 245:In Hilbert-space terms, pituitary mode acts as a scaling tensor on candidate state before projection and dispatch. In operational terms, it modulates retrieval priorities, WOAH weighting, BBB sensitivity, and routing
+  line=43 253:This chapter should explicitly connect Hilbert-space language to the consciousness bridge.
+  line=45 281:The revised chapter should therefore say clearly that Hilbert-state transitions are not merely internal mathematical updates. They are service-mediated, gate-checked, bridge-aware events in the running architecture.
+  line=46 290:- A Hilbert vector is not self-authorizing.
+  line=47 292:- Hilbert-state transitions are gated operational events, not immediate consequences of prompts.
+  line=48 295:- The hilbert-state service and coherence tracking keys should be named as concrete implementation anchors for the abstract Hilbert model.
+  line=50 299:Under this revised framing, the Hilbert model remains mathematically and architecturally central, but it is now explicitly tied to the live service stack rather than documented as a free-standing geometric abstractio
+  line=54 8:The Phi probe measures semantic coherence within **H_App**, the application-facing Hilbert domain of Ms. Allis. Its role is not to decide whether a claim is factually correct, but to determine whether an active semanti
+  line=55 10:Semantic coherence in this setting is explicitly architectural. Phi is bound to hilbert-state service coherence keys, contributes to sandbox validation and promotion decisions, and operates as one component of the gat
+  line=59 20:Here, coherence means measured internal fit. A coherent state preserves meaningful relations among its parts: semantic consistency, non-arbitrary alignment across domains, and structural compatibility with the active 
+  line=61 30:Within this environment, hilbert-state services maintain coherence keys. These keys expose measured properties of the current state, such as alignment across active dimensions, stability of semantic trajectories, comp
+  line=62 32:Phi is tied directly to those keys. It does not operate as a detached philosophical score. It reads and interprets coherence conditions through the live service layer. The hilbert-state services maintain the keyed str
+  line=63 34:Semantic coherence in this chapter is therefore a service-linked measurement. Phi and the hilbert-state coherence keys belong to the same operational substrate.
+  line=64 40:The relation between Phi and the hilbert-state services is a measurement relationship.
+  line=65 42:The hilbert-state services provide the current semantic geometry in keyed form. Phi uses those coherence keys to evaluate whether a current or candidate state hangs together in a way that is acceptable for the relevan
+  line=72 64:When a sandbox cycle produces a candidate output, Phi can be used to measure how that output relates to the current coherence keys of the hilbert-state services. If the candidate creates substantial fracture across ac
+FILE=thesis_chapter_gates/reports/ch04_ch44_probe_20260721_203645.json
+  line=79     "service": "jarvis_hilbert_state",
+FILE=thesis_chapter_gates/reports/ch04_ch44_probe_after_phi_bind_fix_20260721_203900.json
+  line=95     "service": "jarvis_hilbert_state",
+FILE=thesis_chapter_gates/reports/ch04_ch44_probe_governed_phi_20260721_204034.json
+  line=87     "service": "jarvis_hilbert_state",
+FILE=thesis_chapter_gates/reports/ch07_executive_routing_closed_20260722_000150.md
+  line=13 - Required gateway, RAG, GIS RAG, Hilbert, BBB, guardian, judge, Redis, and Chroma containers are present and running.
+FILE=thesis_chapter_gates/reports/ch07_executive_routing_probe_20260721_235915.json
+  line=49     "jarvis-hilbert-gateway": {
+  line=55     "jarvis-hilbert-state": {
+  line=61     "jarvis-hilbert-time": {
+  line=162     "hilbert_state": {
+  line=167         "service": "jarvis_hilbert_state",
+  line=173     "hilbert_time": {
+  line=176         "service": "jarvis_hilbert_time",
+  line=244       "retrieval/routing surfaces include RAG, GIS RAG, Hilbert gateway/state/time, and GBIM routing where running",
+  line=299         "1693:  jarvis-hilbert-gateway:",
+  line=300         "1701:    container_name: jarvis-hilbert-gateway",
+  line=421         "scripts/sweep-retention-dry.sh:8:from hilbert.retention_policy import run_retention_sweep"
+  line=440         "services/jarvis_hilbert_state.py:4:Serves both jarvis-hilbert-state (port 8081) and jarvis-hilbert-gateway (port 8081).",
+  line=441         "services/jarvis_hilbert_state.py:51:def register_time_event(entity_id: str, payload: str):",
+  line=442         "services/jarvis_hilbert_state.py:55:            f\"{HILBERT_TIME_URL}/timeline/register-json\",",
+  line=443         "services/jarvis_hilbert_state.py:60:        logger.warning(f\"hilbert time registration failed: {e}\")",
+  line=444         "services/jarvis_hilbert_state.py:84:        register_time_event(entity_id, f\"entanglement:{entity_id}<->{peer}:{score}\")",
+  line=445         "services/jarvis_hilbert_state.py:85:        register_time_event(peer, f\"entanglement:{entity_id}<->{peer}:{score}\")",
+  line=446         "services/jarvis_hilbert_state.py:111:    register_time_event(sv.state_id, f\"state_set:{sv.state_id}\")",
+  line=447         "services/jarvis_hilbert_state.py:134:    register_time_event(t.to_state, f\"state_transition:{t.from_state}->{t.to_state}:{t.operator}\")",
+  line=448         "services/jarvis_hilbert_state.py:207:    register_time_event(q.entity_a, f\"entanglement:{q.entity_a}<->{q.entity_b}:{score}\")",
+  line=449         "services/jarvis_hilbert_state.py:208:    register_time_event(q.entity_b, f\"entanglement:{q.entity_a}<->{q.entity_b}:{score}\")",
+FILE=thesis_chapter_gates/reports/ch07_executive_routing_probe_after_remediation_20260722_000150.json
+  line=28     "jarvis-hilbert-gateway": {
+  line=34     "jarvis-hilbert-state": {
+  line=40     "jarvis-hilbert-time": {
+  line=124     "hilbert_state": {
+  line=129         "service": "jarvis_hilbert_state",
+  line=135     "hilbert_time": {
+  line=138         "service": "jarvis_hilbert_time",
+  line=493       "bounded RAG/router pipeline over live gateway, RAG, GIS, Hilbert, BBB, guardian, and judge surfaces",
+  line=544         "docker-compose.yml:1693:  jarvis-hilbert-gateway:",
+  line=545         "docker-compose.yml:1701:    container_name: jarvis-hilbert-gateway",
+FILE=thesis_chapter_gates/reports/ch08_quantum_inspired_entanglement_gate_20260722_081740.md
+  line=20 - Hilbert-state, Hilbert-time, Phi, Chroma, BBB, and guardian health checks pass.
+  line=43       "conversation_history_user": true,
+  line=45       "hilbert_entanglement_associations_ch08": true
+  line=51         "collection": "hilbert_entanglement_associations_ch08",
+  line=56         "collection": "hilbert_entanglement_associations_ch08",
+  line=63     "collection": "hilbert_entanglement_associations_ch08",
+  line=131     "redis_prefix": "hilbert:entanglement:",
+  line=153       "collection": "hilbert_entanglement_associations_ch08",
+  line=169       "redis_key": "hilbert:entanglement:ent08_cadf83f0ef834ccfa097ef46108fb05d01a9fc68",
+  line=173       "collection": "hilbert_entanglement_associations_ch08",
+  line=189       "redis_key": "hilbert:entanglement:ent08_b92d84ecba6de8a8384fc2e367ad2621087f5158",
+  line=197       "stdout": "hilbert:entanglement:ch04_ch44_probe_1784680606:ch04_ch44_probe_1784680606_peer\nhilbert:entanglement:ch04_ch44_probe_1784680745:ch04_ch44_probe_1784680745_peer\nhilbert:entanglement:ch04_ch44_probe_1784
+  line=201       "key": "hilbert:entanglement:ent08_cadf83f0ef834ccfa097ef46108fb05d01a9fc68",
+  line=215       "key": "hilbert:entanglement:ent08_b92d84ecba6de8a8384fc2e367ad2621087f5158",
+FILE=thesis_chapter_gates/reports/ch08_quantum_inspired_entanglement_probe_20260722_081740.json
+  line=8         "conversation_history_user": true,
+  line=10         "hilbert_entanglement_associations_ch08": true
+  line=16           "collection": "hilbert_entanglement_associations_ch08",
+  line=21           "collection": "hilbert_entanglement_associations_ch08",
+  line=28       "collection": "hilbert_entanglement_associations_ch08",
+  line=96       "redis_prefix": "hilbert:entanglement:",
+  line=118         "collection": "hilbert_entanglement_associations_ch08",
+  line=134         "redis_key": "hilbert:entanglement:ent08_cadf83f0ef834ccfa097ef46108fb05d01a9fc68",
+  line=138         "collection": "hilbert_entanglement_associations_ch08",
+  line=154         "redis_key": "hilbert:entanglement:ent08_b92d84ecba6de8a8384fc2e367ad2621087f5158",
+  line=186       "hilbert_state": {
+  line=191           "service": "jarvis_hilbert_state",
+  line=196       "hilbert_time": {
+  line=199           "service": "jarvis_hilbert_time",
+  line=224         "stdout": "hilbert:entanglement:ch04_ch44_probe_1784680606:ch04_ch44_probe_1784680606_peer\nhilbert:entanglement:ch04_ch44_probe_1784680745:ch04_ch44_probe_1784680745_peer\nhilbert:entanglement:ch04_ch44_probe_17
+  line=228         "key": "hilbert:entanglement:ent08_cadf83f0ef834ccfa097ef46108fb05d01a9fc68",
+  line=242         "key": "hilbert:entanglement:ent08_b92d84ecba6de8a8384fc2e367ad2621087f5158",
+  line=256       "services/hilbert/hilbert_phi_closure_probe.py": {
+  line=263       "services/hilbert/per_user_direct_sum_memory.py": {
+  line=266           "conversation_history_user_": true,
+  line=270       "services/hilbert/quantum_inspired_entanglement.py": {
+  line=280       "services/hilbert/tensor_geo_bridge.py": {
+FILE=thesis_chapter_gates/reports/ch09_dgm_evidence_20260721_213211.json
+  line=29     "hilbert_state": {
+  line=34         "service": "jarvis_hilbert_state",
+  line=41     "hilbert_time": {
+  line=44         "service": "jarvis_hilbert_time",
+  line=87       "@reboot cd /mnt/spiritual_drive/msjarvis-rebuild && nohup /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py >> logs/recurrent_epistemic_runner.boot.log 2
+  line=90     "runner": "1497224 /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py",
+  line=289       "services/hilbert/automated_learning_gap_review.py",
+  line=290       "services/hilbert/chroma_policy.py",
+  line=291       "services/hilbert/conversation_retention_worker.py",
+  line=292       "services/hilbert/dgm_closure_probe.py",
+  line=293       "services/hilbert/hilbert_phi_closure_probe.py",
+  line=294       "services/hilbert/jarvis_hilbert_state.py",
+  line=295       "services/hilbert/people_session_promotion.py",
+  line=296       "services/hilbert/pia_subspace_stability_review.py",
+  line=297       "services/hilbert/pipeline/__init__.py",
+  line=298       "services/hilbert/pipeline/write_pipeline.py",
+  line=299       "services/hilbert/policy_router.py",
+  line=300       "services/hilbert/query_guard.py",
+  line=301       "services/hilbert/tensor_geo_bridge.py",
+  line=302       "services/hilbert/test_hilbert_state.py",
+  line=303       "services/hilbert/woah_closure_probe.py",
+  line=304       "services/hilbert/write_pipeline.py",
+  line=305       "services/hilbert_commons/commons_aggregator.py",
+  line=306       "services/hilbert_commons/kanon.py",
+  line=307       "services/hilbert_commons/mountainshares_commons_gateway.py",
+  line=316       "services/jarvis_hilbert_state.py",
+  line=320       "services/jarvis_hilbert_state.py:140:\"applied\": True",
+  line=326       "services/hilbert/jarvis_hilbert_state.py:140:\"applied\": True"
+FILE=thesis_chapter_gates/reports/ch10_woah_evidence_20260721_212914.json
+  line=29     "hilbert_state": {
+  line=34         "service": "jarvis_hilbert_state",
+  line=41     "hilbert_time": {
+  line=44         "service": "jarvis_hilbert_time",
+  line=83       "@reboot cd /mnt/spiritual_drive/msjarvis-rebuild && nohup /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py >> logs/recurrent_epistemic_runner.boot.log 2
+  line=85     "runner": "1497224 /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py",
+  line=238       "services/hilbert/woah_closure_probe.py",
+FILE=thesis_chapter_gates/reports/ch11_gateway_orchestration_probe_20260722_000332.json
+  line=280         "docker-compose.yml:1693:  jarvis-hilbert-gateway:",
+  line=281         "docker-compose.yml:1701:    container_name: jarvis-hilbert-gateway",
+FILE=thesis_chapter_gates/reports/ch12_ch13_neurobiological_probe_20260721_235419.json
+  line=236     "services/hilbert": {
+  line=240         "services/hilbert/internal_state_sandbox_probe.py:22:    \"woah_trigger\",",
+  line=241         "services/hilbert/internal_state_sandbox_probe.py:23:    \"qualiareasoningtrace\",",
+  line=242         "services/hilbert/internal_state_sandbox_probe.py:85:    bridge_lines = [ln for ln in lines if \"bridge\" in ln.lower() or \"qualia\" in ln.lower()]",
+  line=243         "services/hilbert/internal_state_sandbox_probe.py:136:        \"eeg_beta\", \"eeg_theta\", \"eeg_delta\", \"pituitary\",",
+  line=244         "services/hilbert/internal_state_sandbox_probe.py:137:        \"i_containers\", \"qualia_orchestrator\", \"consciousness_bridge\",",
+  line=245         "services/hilbert/internal_state_sandbox_probe.py:138:        \"woah\", \"judge_truth\", \"guardian\",",
+  line=246         "services/hilbert/internal_state_sandbox_probe.py:150:            \"bridge_or_qualia_containers\": bridge_lines,",
+  line=247         "services/hilbert/hilbert_phi_closure_probe.py:84:    phi_redis_raw = r.get(\"pituitary:phi_state\")",
+  line=248         "services/hilbert/hilbert_phi_closure_probe.py:136:            \"pituitary_phi_state_present\": phi_redis_raw is not None,",
+  line=249         "services/hilbert/dgm_closure_probe.py:15:    \"dgm\", \"darwin\", \"godel\", \"g\u00f6del\", \"self-improv\",",
+  line=250         "services/hilbert/dgm_closure_probe.py:118:        if any(term in ln.lower() for term in [\"dgm\", \"darwin\", \"woah\", \"scheduler\", \"steward\", \"judge\"])",
+  line=251         "services/hilbert/jarvis_hilbert_state.py:65:    \"wv_geospatial\", \"hippocampus_chromadb\", \"nbb_darwin_godel_machines\",",
+  line=252         "services/hilbert/phi_promotion_gate.py:28:        raw = r.get(\"pituitary:phi_state\")",
+  line=253         "services/hilbert/pituitary_global_modes_probe.py:16:    \"pituitary\", \"global_mode\", \"global mode\", \"affect\", \"cortisol\",",
+  line=254         "services/hilbert/pituitary_global_modes_probe.py:18:    \"eeg_delta\", \"eeg_theta\", \"eeg_beta\", \"pia_sampler\", \"coherence\",",
+  line=255         "services/hilbert/pituitary_global_modes_probe.py:110:    pituitary_lines = [ln for ln in lines if \"pituitary\" in ln.lower()]",
+  line=256         "services/hilbert/pituitary_global_modes_probe.py:124:        \"eeg_delta\": first_healthy([",
+  line=257         "services/hilbert/pituitary_global_modes_probe.py:128:        \"eeg_theta\": first_healthy([",
+  line=258         "services/hilbert/pituitary_global_modes_probe.py:132:        \"eeg_beta\": first_healthy([",
+  line=259         "services/hilbert/pituitary_global_modes_probe.py:148:    if not pituitary_lines and not any(\"pituitary\" in x for x in sources[\"source_hits_sample\"]):",
+  line=260         "services/hilbert/pituitary_global_modes_probe.py:149:        blockers.append(\"missing_pituitary_runtime_or_source_evidence\")",
+  line=261         "services/hilbert/pituitary_global_modes_probe.py:153:        blockers.append(\"missing_pituitary_mode_source_evidence\")",
+  line=262         "services/hilbert/pituitary_global_modes_probe.py:159:    for key in [\"eeg_delta\", \"eeg_theta\", \"eeg_beta\"]:",
+  line=263         "services/hilbert/pituitary_global_modes_probe.py:168:            \"pituitary_containers\": pituitary_lines,",
+  line=264         "services/hilbert/pituitary_global_modes_probe.py:176:            \"Describe pituitary/global modes as operational regulation of thresholds and promotion strictness.\",",
+  line=265         "services/hilbert/continuous_validation_harness.py:96:        and alive.get(\"consciousness_bridge\") is True",
+  line=266         "services/hilbert/continuous_validation_harness.py:107:            \"required_dependencies\": [\"guardian\", \"judge_truth\", \"consciousness_bridge\"],",
+  line=267         "services/hilbert/woah_closure_probe.py:12:    \"woah\",",
+  line=268         "services/hilbert/woah_closure_probe.py:53:    woah_specific: List[str] = []",
+  line=269         "services/hilbert/woah_closure_probe.py:73:            if \"woah\" in txt or \"weighted optimization\" in txt or \"optimization hierarchy\" in txt:",
+  line=270         "services/hilbert/woah_closure_probe.py:74:                woah_specific.append(rel)",
+  line=271         "services/hilbert/woah_closure_probe.py:78:        \"woah_specific_files\": sorted(set(woah_specific))[:80],",
+  line=272         "services/hilbert/woah_closure_probe.py:110:    woah_runtime_lines = [ln for ln in docker_lines if any(t in ln.lower() for t in [\"woah\", \"dgm\", \"scheduler\", \"steward\", \"judge\"])]",
+  line=273         "services/hilbert/woah_closure_probe.py:113:    if not sources[\"woah_specific_files\"]:",
+  line=274         "services/hilbert/woah_closure_probe.py:114:        blockers.append(\"missing_woah_specific_source_evidence\")",
+  line=275         "services/hilbert/woah_closure_probe.py:117:    if not any(\"dgm\" in ln.lower() or \"scheduler\" in ln.lower() or \"steward\" in ln.lower() or \"judge\" in ln.lower() for ln in woah_runtime_lines):",
+  line=276         "services/hilbert/woah_closure_probe.py:129:            \"runtime_context_lines\": woah_runtime_lines,"
+FILE=thesis_chapter_gates/reports/ch14_internal_state_sandbox_probe_20260721_214225.json
+  line=50     "hilbert_time": {
+  line=53         "service": "jarvis_hilbert_time",
+  line=150       "services/hilbert/automated_learning_gap_review.py",
+  line=151       "services/hilbert/dgm_governed_cycle.py",
+  line=152       "services/hilbert/internal_state_sandbox_probe.py",
+  line=153       "services/hilbert/pia_subspace_stability_review.py",
+FILE=thesis_chapter_gates/reports/ch15_pituitary_global_modes_probe_20260721_213835.json
+  line=77     "hilbert_state": {
+  line=82         "service": "jarvis_hilbert_state",
+  line=89     "hilbert_time": {
+  line=92         "service": "jarvis_hilbert_time",
+FILE=thesis_chapter_gates/reports/ch19_container_architecture_routing_gate_20260722_084615.md
+  line=56     "jarvis-hilbert-state": {
+  line=59         "hilbert-net",
+  line=65     "jarvis-hilbert-time": {
+  line=97     "hilbert_state_route_present": true,
+  line=98     "hilbert_time_route_present": true,
+FILE=thesis_chapter_gates/reports/ch19_container_architecture_routing_gate_20260722_084811.md
+  line=15 - critical governance, memory, sandbox, commons, Hilbert, and Chroma services are running or discoverable by healthy service endpoint.
+  line=69     "jarvis-hilbert-state": {
+  line=72         "hilbert-net",
+  line=78     "jarvis-hilbert-time": {
+  line=104     "hilbert_state_route_present": true,
+  line=105     "hilbert_time_route_present": true,
+FILE=thesis_chapter_gates/reports/ch19_container_architecture_routing_probe_20260722_084615.json
+  line=36         "jarvis-hilbert-gateway"
+  line=39         "jarvis-hilbert-state"
+  line=42         "jarvis-hilbert-time"
+  line=160         "jarvis-hp-sidecar"
+  line=320       "jarvis-hilbert-state": {
+  line=327             "service": "jarvis_hilbert_state",
+  line=334             "hilbert-net",
+  line=341       "jarvis-hilbert-time": {
+  line=346             "service": "jarvis_hilbert_time",
+  line=371             "commons_collection": "community_hilbert_commons",
+  line=462       "critical governance, memory, sandbox, commons, Hilbert, and Chroma services are running",
+  line=483     "hilbert_state_route_present": true,
+  line=484     "hilbert_time_route_present": true,
+FILE=thesis_chapter_gates/reports/ch19_container_architecture_routing_probe_20260722_084811.json
+  line=27             "commons_collection": "community_hilbert_commons",
+  line=63         "jarvis-hilbert-gateway"
+  line=66         "jarvis-hilbert-state"
+  line=69         "jarvis-hilbert-time"
+  line=187         "jarvis-hp-sidecar"
+  line=347       "jarvis-hilbert-state": {
+  line=354             "service": "jarvis_hilbert_state",
+  line=361             "hilbert-net",
+  line=368       "jarvis-hilbert-time": {
+  line=373             "service": "jarvis_hilbert_time",
+  line=472       "critical governance, memory, sandbox, commons, Hilbert, and Chroma services are running or discoverable by healthy service endpoint",
+  line=493     "hilbert_state_route_present": true,
+  line=494     "hilbert_time_route_present": true,
+FILE=thesis_chapter_gates/reports/ch21_background_store_patterns_gate_20260722_004327.md
+  line=18 - Conversation, people-space, and commons collection families are runtime-visible.
+  line=19 - BBB, guardian, Chroma, and Hilbert-state health checks pass.
+FILE=thesis_chapter_gates/reports/ch21_background_store_patterns_probe_20260722_004327.json
+  line=51           "community_hilbert_commons": true,
+  line=52           "conversation_history_user": true,
+  line=53           "conversation_private_user": true,
+  line=54           "conversation_staged_user": true,
+  line=60           "community_hilbert_commons",
+  line=61           "conversation_gbim_private",
+  line=62           "conversation_gbim_public",
+  line=63           "conversation_history",
+  line=64           "conversation_history_user_alice_demo",
+  line=65           "conversation_history_user_alice_hippo",
+  line=66           "conversation_history_user_bob_demo",
+  line=67           "conversation_history_user_bob_hippo",
+  line=68           "conversation_history_user_cakidd",
+  line=69           "conversation_history_user_carol_demo",
+  line=70           "conversation_history_user_test_session_trace2",
+  line=71           "conversation_private_user_alice_demo",
+  line=72           "conversation_private_user_bob_demo",
+  line=73           "conversation_private_user_cakidd",
+  line=74           "conversation_private_user_test_session_trace2",
+  line=75           "conversation_staged_user_cakidd",
+  line=76           "conversation_staged_user_test_session_trace2",
+  line=111         "hilbert_state": {
+  line=116             "service": "jarvis_hilbert_state",
+  line=126           "services/hilbert/community_commons_aggregation.py": {
+  line=133           "services/hilbert/people_session_promotion.py": {
+  line=136               "community_hilbert_commons": true,
+  line=142           "services/hilbert/automated_learning_gap_review.py": {
+  line=149           "services/hilbert/recurrent_epistemic_runner.py": {
+  line=159         "services/hilbert/background_pattern_store.py": {
+  line=169         "services/hilbert/conversation_retention_worker.py": {
+  line=172             "conversation": true,
+  line=176         "services/hilbert/identity_registration_promotion.py": {
+  line=193       "conversation, people-space, and commons collection families are runtime-visible"
+FILE=thesis_chapter_gates/reports/ch22_identity_focused_retention_gate_20260722_003512.md
+  line=19 - Per-user/private/staged conversation collection families are runtime-visible in Chroma.
+  line=20 - BBB, guardian, Chroma, Redis, and Hilbert-state services are live.
+  line=25 Chapter 22 may be rewritten as an as-built identity-focused retention chapter. It may claim bounded consent-gated retention, per-user identity partitioning, deletion, pruning, private/staged conversation memory families,
+FILE=thesis_chapter_gates/reports/ch22_identity_focused_retention_probe_20260722_003159.json
+  line=22           "conversation_history_user": true,
+  line=23           "conversation_private_user": true,
+  line=24           "conversation_staged_user": true,
+  line=28           "community_hilbert_commons",
+  line=29           "conversation_history_user_alice_demo",
+  line=30           "conversation_history_user_alice_hippo",
+  line=31           "conversation_history_user_bob_demo",
+  line=32           "conversation_history_user_bob_hippo",
+  line=33           "conversation_history_user_cakidd",
+  line=34           "conversation_history_user_carol_demo",
+  line=35           "conversation_history_user_test_session_trace2",
+  line=36           "conversation_private_user_alice_demo",
+  line=37           "conversation_private_user_bob_demo",
+  line=38           "conversation_private_user_cakidd",
+  line=39           "conversation_private_user_test_session_trace2",
+  line=40           "conversation_staged_user_cakidd",
+  line=41           "conversation_staged_user_test_session_trace2",
+  line=67         "jarvis-hilbert-state": {
+  line=108         "hilbert_state": {
+  line=113             "service": "jarvis_hilbert_state",
+  line=122         "conversation_retention": {
+  line=123           "services/hilbert/conversation_manifest.py": {
+  line=126               "conversation": true,
+  line=130           "services/hilbert/conversation_retention_worker.py": {
+  line=133               "conversation": true,
+  line=139           "services/hilbert/ingest_worker.py": {
+  line=146           "services/hilbert/jarvis_hilbert_state.py": {
+  line=153           "services/hilbert/write_pipeline.py": {
+  line=163         "services/hilbert/identity_registration_promotion.py": {
+  line=172         "services/hilbert/people_session_promotion.py": {
+  line=175             "community_hilbert_commons": true,
+  line=191       "per-user/private/staged conversation collection families are runtime-visible",
+FILE=thesis_chapter_gates/reports/ch22_identity_focused_retention_probe_20260722_003256.json
+  line=22           "conversation_history_user": true,
+  line=23           "conversation_private_user": true,
+  line=24           "conversation_staged_user": true,
+  line=28           "community_hilbert_commons",
+  line=29           "conversation_history_user_alice_demo",
+  line=30           "conversation_history_user_alice_hippo",
+  line=31           "conversation_history_user_bob_demo",
+  line=32           "conversation_history_user_bob_hippo",
+  line=33           "conversation_history_user_cakidd",
+  line=34           "conversation_history_user_carol_demo",
+  line=35           "conversation_history_user_test_session_trace2",
+  line=36           "conversation_private_user_alice_demo",
+  line=37           "conversation_private_user_bob_demo",
+  line=38           "conversation_private_user_cakidd",
+  line=39           "conversation_private_user_test_session_trace2",
+  line=40           "conversation_staged_user_cakidd",
+  line=41           "conversation_staged_user_test_session_trace2",
+  line=67         "jarvis-hilbert-state": {
+  line=108         "hilbert_state": {
+  line=113             "service": "jarvis_hilbert_state",
+  line=122         "conversation_retention": {
+  line=123           "services/hilbert/conversation_manifest.py": {
+  line=126               "conversation": true,
+  line=130           "services/hilbert/conversation_retention_worker.py": {
+  line=133               "conversation": true,
+  line=139           "services/hilbert/ingest_worker.py": {
+  line=146           "services/hilbert/jarvis_hilbert_state.py": {
+  line=153           "services/hilbert/write_pipeline.py": {
+  line=163         "services/hilbert/identity_registration_promotion.py": {
+  line=172         "services/hilbert/people_session_promotion.py": {
+  line=175             "community_hilbert_commons": true,
+  line=191       "per-user/private/staged conversation collection families are runtime-visible",
+FILE=thesis_chapter_gates/reports/ch22_identity_focused_retention_probe_20260722_003401.json
+  line=46           "conversation_history_user": true,
+  line=47           "conversation_private_user": true,
+  line=48           "conversation_staged_user": true,
+  line=52           "community_hilbert_commons",
+  line=53           "conversation_history_user_alice_demo",
+  line=54           "conversation_history_user_alice_hippo",
+  line=55           "conversation_history_user_bob_demo",
+  line=56           "conversation_history_user_bob_hippo",
+  line=57           "conversation_history_user_cakidd",
+  line=58           "conversation_history_user_carol_demo",
+  line=59           "conversation_history_user_test_session_trace2",
+  line=60           "conversation_private_user_alice_demo",
+  line=61           "conversation_private_user_bob_demo",
+  line=62           "conversation_private_user_cakidd",
+  line=63           "conversation_private_user_test_session_trace2",
+  line=64           "conversation_staged_user_cakidd",
+  line=65           "conversation_staged_user_test_session_trace2",
+  line=91         "jarvis-hilbert-state": {
+  line=132         "hilbert_state": {
+  line=137             "service": "jarvis_hilbert_state",
+  line=146         "conversation_retention": {
+  line=147           "services/hilbert/conversation_manifest.py": {
+  line=150               "conversation": true,
+  line=154           "services/hilbert/conversation_retention_worker.py": {
+  line=157               "conversation": true,
+  line=163           "services/hilbert/ingest_worker.py": {
+  line=170           "services/hilbert/jarvis_hilbert_state.py": {
+  line=177           "services/hilbert/write_pipeline.py": {
+  line=187         "services/hilbert/identity_registration_promotion.py": {
+  line=196         "services/hilbert/people_session_promotion.py": {
+  line=199             "community_hilbert_commons": true,
+  line=215       "per-user/private/staged conversation collection families are runtime-visible",
+FILE=thesis_chapter_gates/reports/ch22_identity_focused_retention_probe_20260722_003512.json
+  line=41           "community_hilbert_commons_after": 0,
+  line=42           "community_hilbert_commons_before": 0,
+  line=56           "conversation_history_user": true,
+  line=57           "conversation_private_user": true,
+  line=58           "conversation_staged_user": true,
+  line=62           "community_hilbert_commons",
+  line=63           "conversation_history_user_alice_demo",
+  line=64           "conversation_history_user_alice_hippo",
+  line=65           "conversation_history_user_bob_demo",
+  line=66           "conversation_history_user_bob_hippo",
+  line=67           "conversation_history_user_cakidd",
+  line=68           "conversation_history_user_carol_demo",
+  line=69           "conversation_history_user_test_session_trace2",
+  line=70           "conversation_private_user_alice_demo",
+  line=71           "conversation_private_user_bob_demo",
+  line=72           "conversation_private_user_cakidd",
+  line=73           "conversation_private_user_test_session_trace2",
+  line=74           "conversation_staged_user_cakidd",
+  line=75           "conversation_staged_user_test_session_trace2",
+  line=101         "jarvis-hilbert-state": {
+  line=142         "hilbert_state": {
+  line=147             "service": "jarvis_hilbert_state",
+  line=156         "conversation_retention": {
+  line=157           "services/hilbert/conversation_manifest.py": {
+  line=160               "conversation": true,
+  line=164           "services/hilbert/conversation_retention_worker.py": {
+  line=167               "conversation": true,
+  line=173           "services/hilbert/ingest_worker.py": {
+  line=180           "services/hilbert/jarvis_hilbert_state.py": {
+  line=187           "services/hilbert/write_pipeline.py": {
+  line=197         "services/hilbert/identity_registration_promotion.py": {
+  line=206         "services/hilbert/people_session_promotion.py": {
+  line=209             "community_hilbert_commons": true,
+  line=225       "per-user/private/staged conversation collection families are runtime-visible",
+FILE=thesis_chapter_gates/reports/ch23_dual_tracks_meaning_analysis_probe_20260722_082149.json
+  line=279     "hilbert_state": {
+  line=284         "service": "jarvis_hilbert_state",
+  line=289     "hilbert_time": {
+  line=292         "service": "jarvis_hilbert_time",
+FILE=thesis_chapter_gates/reports/ch24_feedback_broader_layers_gate_20260722_005408.md
+  line=15 - Allowed source types include retained conversation, background pattern, automated learning gap, continuous validation, DGM cycle, PIA review, and commons governance records.
+  line=20 - BBB, guardian, Chroma, Hilbert-state, Hilbert-time, Phi, and sandbox health checks pass.
+  line=46       "community_hilbert_commons": true
+  line=126         "source_type": "retained_conversation",
+  line=143         "source_type": "retained_conversation",
+FILE=thesis_chapter_gates/reports/ch24_feedback_broader_layers_probe_20260722_005408.json
+  line=11         "community_hilbert_commons": true
+  line=91           "source_type": "retained_conversation",
+  line=108           "source_type": "retained_conversation",
+  line=161       "hilbert_state": {
+  line=166           "service": "jarvis_hilbert_state",
+  line=171       "hilbert_time": {
+  line=174           "service": "jarvis_hilbert_time",
+  line=207       "services/hilbert/automated_learning_gap_review.py": {
+  line=215       "services/hilbert/background_pattern_store.py": {
+  line=223       "services/hilbert/broader_layer_feedback.py": {
+  line=235       "services/hilbert/continuous_validation_harness.py": {
+  line=242       "services/hilbert/recurrent_epistemic_runner.py": {
+FILE=thesis_chapter_gates/reports/ch25_consciousness_coordinator_gate_20260722_003006.md
+  line=18 - Hilbert state, Hilbert time, BBB, guardian, and Chroma/Redis-backed services are live where relevant.
+FILE=thesis_chapter_gates/reports/ch25_consciousness_coordinator_probe_20260722_003006.json
+  line=36         "jarvis-hilbert-state": {
+  line=42         "jarvis-hilbert-time": {
+  line=99         "hilbert_state": {
+  line=104             "service": "jarvis_hilbert_state",
+  line=109         "hilbert_time": {
+  line=112             "service": "jarvis_hilbert_time",
+  line=214         "path": "services/hilbert/pituitary_global_modes_probe.py"
+FILE=thesis_chapter_gates/reports/ch26_governance_watchdog_gate_20260722_001621.md
+  line=14 - Required core governance, judge, Hilbert, Chroma, Redis, BBB, guardian, gateway, and DGM containers are present and running.
+FILE=thesis_chapter_gates/reports/ch26_governance_watchdog_probe_20260722_001621.json
+  line=31     "jarvis-hilbert-state": {
+  line=37     "jarvis-hilbert-time": {
+  line=129     "hilbert_state": {
+  line=134         "service": "jarvis_hilbert_state",
+  line=140     "hilbert_time": {
+  line=143         "service": "jarvis_hilbert_time",
+  line=238       "stdout": "# Ms. Jarvis Master Crontab\n\n#PAUSED-INVESTIGATING */5 * * * * /usr/local/bin/jarvis_bbb_watchdog.sh\n#PAUSED-INVESTIGATING */15 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && ./scripts/watchdog-c
+  line=243       "stdout": "1497224 /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py\n1811719 bash -lc pgrep -af 'recurrent_epistemic_runner.py|dgm_cycle|continuous_valid
+  line=248       "stdout": "thesis_chapter_gates/logs/next_after_ch33_ch35_ch26_gate_20260722_001621.txt\nthesis_chapter_gates/logs/remediate_ch33_ch35_bbb_detached_signature_20260722_001439.txt\nthesis_chapter_gates/logs/next_afte
+FILE=thesis_chapter_gates/reports/ch26_temporal_toroidal_semaphore_closed_20260722_001901.md
+  line=19 - `jarvis-hilbert-time` is live on 18094 with ephemeral Redis, staged Redis, and historical Postgres connected.
+  line=20 - `jarvis-hilbert-state` is live on 18092 with Redis connected.
+FILE=thesis_chapter_gates/reports/ch28_ch39_automated_learning_review_20260721_212053.json
+  line=18       "community_hilbert_commons",
+  line=20       "conversation_gbim_private",
+  line=21       "conversation_gbim_public",
+  line=22       "conversation_history",
+  line=23       "conversation_history_user_alice_demo",
+  line=24       "conversation_history_user_alice_hippo",
+  line=25       "conversation_history_user_bob_demo",
+  line=26       "conversation_history_user_bob_hippo",
+  line=27       "conversation_history_user_cakidd",
+  line=28       "conversation_history_user_carol_demo",
+  line=29       "conversation_history_user_test_session_trace2",
+  line=30       "conversation_private_user_alice_demo",
+  line=31       "conversation_private_user_bob_demo",
+  line=32       "conversation_private_user_cakidd",
+  line=33       "conversation_private_user_test_session_trace2",
+  line=34       "conversation_staged_user_cakidd",
+  line=35       "conversation_staged_user_test_session_trace2",
+  line=107     "hilbert_state": {
+  line=112         "service": "jarvis_hilbert_state",
+  line=118     "hilbert_time": {
+  line=121         "service": "jarvis_hilbert_time",
+  line=148     "pgrep": "1497224 /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py",
+  line=156       "services/hilbert/automated_learning_gap_review.py",
+  line=202       "services/hilbert/automated_learning_gap_review.py",
+  line=278       "services/hilbert/automated_learning_gap_review.py",
+FILE=thesis_chapter_gates/reports/ch28_ch39_automated_learning_review_port_aware_phi_20260721_212407.json
+  line=16       "community_hilbert_commons",
+  line=18       "conversation_gbim_private",
+  line=19       "conversation_gbim_public",
+  line=20       "conversation_history",
+  line=21       "conversation_history_user_alice_demo",
+  line=22       "conversation_history_user_alice_hippo",
+  line=23       "conversation_history_user_bob_demo",
+  line=24       "conversation_history_user_bob_hippo",
+  line=25       "conversation_history_user_cakidd",
+  line=26       "conversation_history_user_carol_demo",
+  line=27       "conversation_history_user_test_session_trace2",
+  line=28       "conversation_private_user_alice_demo",
+  line=29       "conversation_private_user_bob_demo",
+  line=30       "conversation_private_user_cakidd",
+  line=31       "conversation_private_user_test_session_trace2",
+  line=32       "conversation_staged_user_cakidd",
+  line=33       "conversation_staged_user_test_session_trace2",
+  line=105     "hilbert_state": {
+  line=110         "service": "jarvis_hilbert_state",
+  line=116     "hilbert_time": {
+  line=119         "service": "jarvis_hilbert_time",
+  line=148     "pgrep": "1497224 /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py",
+  line=156       "services/hilbert/automated_learning_gap_review.py",
+  line=202       "services/hilbert/automated_learning_gap_review.py",
+  line=278       "services/hilbert/automated_learning_gap_review.py",
+FILE=thesis_chapter_gates/reports/ch29_pia_subspace_stability_20260721_211100.json
+  line=23         "community_hilbert_commons_after": 0,
+  line=24         "community_hilbert_commons_before": 0,
+  line=108       "reason": "Private H_p promotion must not silently change community_hilbert_commons.",
+FILE=thesis_chapter_gates/reports/ch29_pia_subspace_stability_20260721_211100.md
+  line=9 Module: `/opt/msjarvis-rebuild/msjarvis-rebuild/services/hilbert/pia_subspace_stability_review.py`
+FILE=thesis_chapter_gates/reports/ch31_mountainshares_infrastructure_closed_after_commons_seed_20260721_234046.md
+  line=15 - `community_hilbert_commons` is present as the governed commons aggregation target; its corpus volume remains bounded by the Ch51 commons-population finding.
+  line=18 - Chroma, Hilbert state, and Hilbert time health checks pass.
+FILE=thesis_chapter_gates/reports/ch31_mountainshares_probe_20260721_233904.json
+  line=4     "community_hilbert_commons",
+  line=19     "community_hilbert_commons": {
+  line=50     "community_hilbert_commons"
+FILE=thesis_chapter_gates/reports/ch31_mountainshares_probe_after_commons_seed_20260721_234046.json
+  line=32     "community_hilbert_commons": {
+  line=65     "community_hilbert_commons"
+FILE=thesis_chapter_gates/reports/ch36_identity_registration_closed_v2_20260722_002759.md
+  line=18 - Registration-layer and public-opt-in metadata remain source-visible in the Hilbert/Chroma write path.
+  line=20 - Required KYC vault, BBB, guardian, Chroma, Redis, and Hilbert-state containers are present and running.
+FILE=thesis_chapter_gates/reports/ch36_identity_registration_probe_v2_20260722_002258.json
+  line=27         "jarvis-hilbert-state": {
+  line=74         "hilbert_state": {
+  line=79             "service": "jarvis_hilbert_state",
+  line=240         "services/hilbert/chroma_policy.py": {
+  line=244         "services/hilbert/identity_registration_promotion.py": {
+  line=251         "services/hilbert/ingest_worker.py": {
+FILE=thesis_chapter_gates/reports/ch36_identity_registration_probe_v2_20260722_002759.json
+  line=25         "jarvis-hilbert-state": {
+  line=72         "hilbert_state": {
+  line=77             "service": "jarvis_hilbert_state",
+  line=176         "services/hilbert/chroma_policy.py": {
+  line=180         "services/hilbert/identity_registration_promotion.py": {
+  line=187         "services/hilbert/ingest_worker.py": {
+FILE=thesis_chapter_gates/reports/ch38_external_communication_authority_gate_20260722_005814.md
+  line=21 - BBB, guardian, Chroma, Hilbert-state, commons gateway, and sandbox health checks pass.
+  line=44       "community_hilbert_commons": true,
+  line=45       "conversation_history_user": true,
+FILE=thesis_chapter_gates/reports/ch38_external_communication_authority_probe_20260722_005641.json
+  line=167           "commons_collection": "community_hilbert_commons",
+  line=183       "hilbert_state": {
+  line=188           "service": "jarvis_hilbert_state",
+  line=206       "services/hilbert/broader_layer_feedback.py": {
+  line=213       "services/hilbert/external_communication_authority.py": {
+  line=224       "services/hilbert/mountainshares_dao_governance.py": {
+  line=231       "services/hilbert/per_user_direct_sum_memory.py": {
+  line=234           "conversation_private_user_": true,
+FILE=thesis_chapter_gates/reports/ch38_external_communication_authority_probe_20260722_005814.json
+  line=8         "community_hilbert_commons": true,
+  line=9         "conversation_history_user": true,
+  line=184           "commons_collection": "community_hilbert_commons",
+  line=200       "hilbert_state": {
+  line=205           "service": "jarvis_hilbert_state",
+  line=223       "services/hilbert/broader_layer_feedback.py": {
+  line=230       "services/hilbert/external_communication_authority.py": {
+  line=241       "services/hilbert/mountainshares_dao_governance.py": {
+  line=248       "services/hilbert/per_user_direct_sum_memory.py": {
+  line=251           "conversation_private_user_": true,
+FILE=thesis_chapter_gates/reports/ch40_operational_audit_20260721_235148.json
+  line=12       "stdout": "ms-allis-internal-sandbox\tUp 2 hours\njarvis-phi-probe\tUp 2 hours\njarvis-hilbert-time\tUp 5 hours\njarvis-hilbert-state\tUp 5 hours\njarvis-gis-rag\tUp 6 hours\njarvis-msjarvis-db\tUp 28 hours\njarvis
+  line=37           "commons_collection": "community_hilbert_commons",
+  line=55       "hilbert_state": {
+  line=60           "service": "jarvis_hilbert_state",
+  line=66       "hilbert_time": {
+  line=69           "service": "jarvis_hilbert_time",
+  line=174       "jarvis-hilbert-state": "Up 5 hours",
+  line=175       "jarvis-hilbert-time": "Up 5 hours",
+FILE=thesis_chapter_gates/reports/ch40_operational_validation_closed_20260721_235148.md
+  line=14 - Core health endpoints respond for BBB, Constitutional Guardian, Commons Gateway, Chroma, Hilbert State, Hilbert Time, Phi, and the internal sandbox.
+FILE=thesis_chapter_gates/reports/ch41_continuous_validation_closed_final_20260721_235004.md
+  line=13 - Continuous validation harness is installed at `services/hilbert/continuous_validation_harness.py`.
+FILE=thesis_chapter_gates/reports/ch41_harness_probe_20260721_234429.json
+  line=34             "commons_collection": "community_hilbert_commons",
+  line=50         "hilbert_state": {
+  line=55             "service": "jarvis_hilbert_state",
+  line=60         "hilbert_time": {
+  line=63             "service": "jarvis_hilbert_time",
+  line=232           "import_error": "ImportError:cannot import name 'evaluate_candidate' from 'services.hilbert.dgm_governed_cycle' (/mnt/spiritual_drive/msjarvis-rebuild/services/hilbert/dgm_governed_cycle.py)"
+  line=236         "stdout": "{\"import_error\": \"ImportError:cannot import name 'evaluate_candidate' from 'services.hilbert.dgm_governed_cycle' (/mnt/spiritual_drive/msjarvis-rebuild/services/hilbert/dgm_governed_cycle.py)\"}\n"
+FILE=thesis_chapter_gates/reports/ch41_harness_probe_after_dgm_allowlist_v3_20260721_234832.json
+  line=32             "commons_collection": "community_hilbert_commons",
+  line=48         "hilbert_state": {
+  line=53             "service": "jarvis_hilbert_state",
+  line=58         "hilbert_time": {
+  line=61             "service": "jarvis_hilbert_time",
+  line=248             "services/hilbert/ch41_allowed_patch.py": {
+  line=252             "services/hilbert/dgm_workspace/ch41_allowed_patch.py": {
+  line=342         "stdout": "{\"allowed_target\": null, \"allowlist_probe\": {\"dgm_sandbox/ch41_allowed_patch.py\": {\"ok\": false, \"reason\": \"target_outside_dgm_allowlist\"}, \"logs/ch41_allowed_patch.py\": {\"ok\": false, \"
+FILE=thesis_chapter_gates/reports/ch41_harness_probe_after_dgm_api_20260721_234539.json
+  line=34             "commons_collection": "community_hilbert_commons",
+  line=50         "hilbert_state": {
+  line=55             "service": "jarvis_hilbert_state",
+  line=60         "hilbert_time": {
+  line=63             "service": "jarvis_hilbert_time",
+  line=232           "import_error": "ImportError:cannot import name 'evaluate_candidate' from 'services.hilbert.dgm_governed_cycle' (/mnt/spiritual_drive/msjarvis-rebuild/services/hilbert/dgm_governed_cycle.py)"
+  line=236         "stdout": "{\"import_error\": \"ImportError:cannot import name 'evaluate_candidate' from 'services.hilbert.dgm_governed_cycle' (/mnt/spiritual_drive/msjarvis-rebuild/services/hilbert/dgm_governed_cycle.py)\"}\n"
+FILE=thesis_chapter_gates/reports/ch41_harness_probe_final_20260721_235004.json
+  line=32             "commons_collection": "community_hilbert_commons",
+  line=48         "hilbert_state": {
+  line=53             "service": "jarvis_hilbert_state",
+  line=58         "hilbert_time": {
+  line=61             "service": "jarvis_hilbert_time",
+  line=248             "services/hilbert/ch41_allowed_patch.py": {
+  line=252             "services/hilbert/dgm_workspace/ch41_allowed_patch.py": {
+  line=342         "stdout": "{\"allowed_target\": null, \"allowlist_probe\": {\"dgm_sandbox/ch41_allowed_patch.py\": {\"ok\": false, \"reason\": \"target_outside_dgm_allowlist\"}, \"logs/ch41_allowed_patch.py\": {\"ok\": false, \"
+FILE=thesis_chapter_gates/reports/ch46_ch45_gate_20260721_202245.md
+  line=8 12:This chapter therefore treats the tensor bridge in two registers at once. It is a formal representation of coupled state across the application and spatial Hilbert bodies, and it is also an architectural description o
+  line=71 1:# 45. H_geo — The Spatial Hilbert Body of H_App  
+  line=72 9:H_geo is the spatial Hilbert body of H_App. It is the structured domain in which place, geometry, jurisdiction, infrastructure, and other spatial relations become part of Ms. Allis's active semantic state. H_geo does n
+  line=77 21:H_geo is the spatial body through which Ms. Allis represents land, routes, boundaries, infrastructure, localities, and geographically grounded relationships. In Hilbert terms, it is the spatial subspace of H_App in wh
+  line=83 43:Spatial Hilbert updates and inferences may be computed or staged through sandbox reasoning.
+  line=92 71:H_geo is not isolated from the rest of the system. It is the spatial body that links the Hilbert architecture to GeoDB, infrastructure representations, governed belief snapshots, vector publication, and the broader pl
+  line=120 296:A spatial Hilbert body requires both. Place has semantic neighborhoods, but it also has identities that must not drift under similarity.
+  line=139 398:H_geo is the spatial Hilbert body of H_App, where place, geometry, infrastructure, locality, and jurisdiction become part of Ms. Allis's governed semantic state.
+  line=142 406:A spatial Hilbert body earns authority not by claiming complete knowledge of place, but by preserving the difference between what it can identify, what it has verified, what remains unresolved, and what it has not ye
+  line=278 migrations/010_governed_manifest_hilbert_people.sql:3:-- Source: gbim_collection_manifest JOIN gbim_chroma_publication_manifest
+  line=279 migrations/010_governed_manifest_hilbert_people.sql:5:--   gbim_collection_manifest:         collection_version_id, collection_name,
+  line=280 migrations/010_governed_manifest_hilbert_people.sql:7:--   gbim_chroma_publication_manifest: id, physical_collection_name,
+  line=281 migrations/010_governed_manifest_hilbert_people.sql:29:-- Seed from gbim_collection_manifest (4 WV GIS collections)
+  line=282 migrations/010_governed_manifest_hilbert_people.sql:43:FROM gbim_collection_manifest cm
+  line=283 migrations/010_governed_manifest_hilbert_people.sql:56:FROM gbim_chroma_publication_manifest cpm
+  line=311 tests/test_antisurveillance_guard.py:33:            "collections": ["faces","conversationgbimprivate"],
+  line=351 services/jarvis_hilbert_state.py:42:    projection: Optional[List[str]] = None
+  line=352 services/jarvis_hilbert_state.py:65:    "wv_geospatial", "hippocampus_chromadb", "nbb_darwin_godel_machines",
+  line=353 services/jarvis_hilbert_state.py:123:                if q.projection:
+  line=354 services/jarvis_hilbert_state.py:125:                                          if k in q.projection}
+  line=355 services/jarvis_hilbert_state.py:228:        "public_civic_appearances",
+  line=356 services/jarvis_hilbert_state.py:229:        "public_civic_roles",
+  line=357 services/jarvis_hilbert_state.py:230:        "public_civic_events",
+  line=358 services/jarvis_hilbert_state.py:231:        "public_civic_sources",
+  line=387 services/ms_jarvis_unified_swagger_gateway_FIXED.py:543:    description="Proxies your request to the hilbertspatialchat backend for real vector/spatial computation."
+  line=388 services/ms_jarvis_unified_swagger_gateway_FIXED.py:588:                "hilbert_spatial_search",
+  line=389 services/ms_jarvis_unified_swagger_gateway_FIXED.py:611:                "hilbert_spatial_search", 
+  line=405 services/hilbert_manifest_e2e.py:1:from services.hilbert.collection_manifest import hp_public_documents, hp_public_statements
+  line=423 services/hp_antisurveillance_guardian_client.py:25:    "conversationgbimprivate",
+  line=532 services/msjarvisunifiedswaggergatewayFIXED.py:47:    "hilbert_spatial": None,
+  line=533 services/msjarvisunifiedswaggergatewayFIXED.py:58:HILBERT_URL = "http://jarvis-hilbert-spatial:8235"         # /hilbert-space
+  line=534 services/msjarvisunifiedswaggergatewayFIXED.py:74:    hilbert = state.get("hilbert_spatial") or {}
+  line=535 services/msjarvisunifiedswaggergatewayFIXED.py:267:        "hilbert_spatial": hilbert_response,
+  line=536 services/msjarvisunifiedswaggergatewayFIXED.py:278:            "hilbert_spatial": hilbert_response,
+  line=651 services/jarvis-constitutional-guardian_constitutional_api.py:10:            "collections": ["faces","conversationgbimprivate"],
+  line=741 services/hilbert/phi_promotion_gate.py:21:    {"gbimwvcountiesv2", "gbimwvtractsv2", "gbimwvblockgroupsv1"},
+  line=742 services/hilbert/phi_promotion_gate.py:22:    {"gbimwvcountiesv2", "gbimwvtractsv2", "gbimwvblockgroupsv2"},
+  line=743 services/hilbert/test_hilbert_state.py:129:            "public_civic_appearances": [{"id": "a1", "document": "Smoke Test", "metadata": {"source_id": "smoke-001"}}],
+  line=744 services/hilbert/test_hilbert_state.py:130:            "public_civic_documents":   [],
+  line=745 services/hilbert/test_hilbert_state.py:131:            "public_civic_roles":       [],
+FILE=thesis_chapter_gates/reports/ch48_closure_20260721_202115.md
+  line=18 - Commons isolation is demonstrated by unchanged community_hilbert_commons count during private H_p promotion.
+  line=47     "community_hilbert_commons_after": 0,
+  line=48     "community_hilbert_commons_before": 0,
+FILE=thesis_chapter_gates/reports/ch48_gate_20260721_201346.md
+  line=6 1:# 48. Hilbert People Space — Implementation-Aligned Revision  
+  line=7 7:Hilbert People Space (Hp) is the formal domain in which Ms. Allis represents person-linked state, identity-governed memory, and person-in-context meaning as part of the broader architecture of HApp. It is the structure
+  line=8 9:This chapter aligns the formal account of people space with the operational identity, storage, and retention architecture of the system as it actually exists in July 2026. Person-linked outputs may arise during per-ses
+  line=9 11:As with Chapters 42 through 47, this revision separates design from audit. Sections 48.1 through 48.10 state the formal model. Sections 48.11 through 48.14 record what is verified as built as of this writing: the as-b
+  line=10 16:Hilbert People Space may be written as Hp, the person-linked component of the broader semantic body of Ms. Allis.  
+  line=12 20:This chapter therefore treats Hp as a real architectural subspace, but not as a claim that every implementation detail is realized as strict functional analysis. The Hilbert formalism expresses how the system is desig
+  line=16 31:Hilbert People Space is therefore not the same as “all person-related computation.” It is the governed home of approved person-linked state — whether derived from per-session reasoning (once the promotion path exists)
+  line=21 51:Once approved, person-linked state belongs to a per-user Hilbert subspace.  
+  line=24 57:In the live system, this pattern has been instantiated concretely at least for one sovereign actor — Ms. Allis herself — via collections such as `h_people_ms_allis`, `h_app_user_ms_allis`, and `h_time_ms_allis`, with 
+  line=26 68:This direct-sum form is important because it formalizes sovereign separation. The notation says that the whole people space is composed of distinct user-governed subspaces rather than a single merged identity field. I
+  line=27 70:At the same time, this direct-sum expression should be read as a **formal model of separation** rather than proof that the implementation satisfies every strict functional-analytic property of an abstract Hilbert dire
+  line=35 104:Hilbert People Space is best understood as one part of a larger identity architecture.  
+  line=36 106:Its retention logic aligns directly with identity-focused retention, where admission, pruning, and continuity are governed by explicit policy and sovereignty rules. Its per-user partitioning is further formalized in 
+  line=37 108:The chapter also connects forward to the Community Hilbert Commons. If durable people space is partitioned as \(\bigoplus_{u \in U} H_p^{(u)}\), then any commons-level aggregation must occur as a governed operation o
+  line=38 110:These links are important because Hilbert People Space is not a standalone metaphor. It is one layer in a coherent retention, access, decomposition, and aggregation architecture, some parts of which are already live 
+  line=42 128:Writing \(H_p = \bigoplus_{u \in U} H_p^{(u)}\) does not by itself prove that every runtime subsystem, storage layer, or retrieval path already satisfies the full mathematics of an abstract Hilbert direct sum. What i
+  line=45 137:Chapter 47 records the correction of where the relational person store lives; this chapter carries the as-built names in full, resolving the naming discrepancy the June–July audit flagged between the two chapters in 
+  line=52 177:Current civic population is stated plainly, in the discipline this thesis owes its readers: on the inspected deployment, `public_civic_documents` holds two records and `public_civic_statements` two; `public_civic_app
+  line=54 184:A per-person configuration declares her subspaces across the joint frame, each realized as a distinct Hilbert collection:  
+  line=55 187:* `h_people_ms_allis` — Hilbert People Space subspace for Ms. Allis;  
+  line=56 191:Each collection was created and seeded with a root record carrying governance posture explicitly on the record itself: public opt-in disabled by default on personal roots, commons projection disabled where appropriat
+  line=60 202:In the demonstrated / not-yet-demonstrated discipline established by the governance chapters, the state of Hilbert People Space and its promotion and aggregation pathways as of July 16, 2026 is:  
+  line=62 208:* *Hilbert civic and commons collections* instantiated as Chroma collections (`public_civic_*`, `civic_role_temporal`, `public_civic_sources`, `public_civic_events`, `community_hilbert_commons`), structurally wired i
+  line=65 215:* *Promotion mapping \(\mathcal{P}\) for session-derived person-linked state.* The built write path governs ingested civic records with opt-in, layer, and verdict discipline, but no reasoning cycle yet produces per-s
+  line=67 218:* *Population at scale.* One sovereign person’s Hilbert subspaces are instantiated; civic collections on the inspected deployment are at test-grade volume (two documents, two statements, zero roles, appearances, temp
+  line=68 220:This chapter therefore presents Hilbert People Space as both a formal model and a partially realized architecture. Where the evidence shows implementation — per-user conversational decomposition, governed civic intak
+  line=89 services/jarvis_hilbert_state.py:225:    role_class: str | None = None
+  line=90 services/jarvis_hilbert_state.py:229:        "public_civic_roles",
+  line=91 services/jarvis_hilbert_state.py:239:    if q.role_class:
+  line=92 services/jarvis_hilbert_state.py:240:        where["role_class"] = q.role_class
+  line=105 services/llm_consensus_20_FINAL.py:63:        "role": "conversation",
+  line=106 services/llm_consensus_20_FINAL.py:77:        "role": "conversation",
+  line=107 services/llm_consensus_20_FINAL.py:87:        "role": "conversation",
+  line=109 services/llm_consensus_20_FINAL.py:107:        "role": "conversation",
+  line=126 services/llm_consensus_20_FINAL.py:267:        "conversation_experts": len([m for m in all_models if m.get("role") == "conversation"]),
+  line=139 services/llm_consensus_22.py:39:     "specialty": "Emotional Intelligence", "role": "conversation", "weight": 1.0},
+  line=140 services/llm_consensus_22.py:41:     "specialty": "Natural Dialogue", "role": "conversation", "weight": 0.9},
+  line=141 services/llm_consensus_22.py:43:     "specialty": "Instruction Chat", "role": "conversation", "weight": 0.9},
+  line=142 services/llm_consensus_22.py:45:     "specialty": "Advanced Dialogue", "role": "conversation", "weight": 0.9},
+  line=154 services/llm_consensus_22.py:109:        "conversation_experts": len([m for m in ALL_22_LLMS if m["role"] == "conversation"]),
+FILE=thesis_chapter_gates/reports/ch48_probe_20260721_202115.json
+  line=21     "community_hilbert_commons_after": 0,
+  line=22     "community_hilbert_commons_before": 0,
+FILE=thesis_chapter_gates/reports/ch48_sealed_closed_20260721_202245.md
+  line=13 - Session-derived person-linked candidate promotion exists in `services/hilbert/people_session_promotion.py`.
+  line=19 - Commons isolation is demonstrated by unchanged `community_hilbert_commons` count.
+FILE=thesis_chapter_gates/reports/ch49_temporal_hilbert_axis_gate_20260722_010150.md
+  line=1 # Chapter 49 Temporal Hilbert Axis Gate
+  line=5 Chapter file: `49-The Temporal Hilbert Axis and the Three-Dimensional Memory of H_App.md`
+  line=9 Evidence log: `/opt/msjarvis-rebuild/msjarvis-rebuild/thesis_chapter_gates/logs/gate_ch49_temporal_hilbert_axis_20260722_010150.txt`  
+  line=10 Probe JSON: `/opt/msjarvis-rebuild/msjarvis-rebuild/thesis_chapter_gates/reports/ch49_temporal_hilbert_axis_probe_20260722_010150.json`
+  line=14 - missing_source:services/hilbert/jarvis_hilbert_time.py
+  line=23     "missing_source:services/hilbert/jarvis_hilbert_time.py"
+  line=27       "ephemeral_redis_prefix": "hilbert:ephemeral:",
+  line=31       "staged_redis_prefix": "hilbert:staged:",
+  line=32       "temporal_redis_prefix": "hilbert:time:"
+  line=51       "storage_key": "hilbert:ephemeral:9c65d5362b67a15c42491f82fbe562a8",
+  line=177       "storage_key": "hilbert:staged:d187f51988fd53eb083bec42132647cd",
+  line=202       "key": "hilbert:ephemeral:9c65d5362b67a15c42491f82fbe562a8",
+  line=217       "stdout": "hilbert:ephemeral:9c65d5362b67a15c42491f82fbe562a8"
+  line=222       "stdout": "hilbert:staged:d187f51988fd53eb083bec42132647cd"
+  line=227       "stdout": "hilbert:time:asbuilt_ch49\nhilbert:time:asbuilt_ch49_clean\nhilbert:time:ch04_ch44_probe_1784680606\nhilbert:time:ch04_ch44_probe_1784680606_peer\nhilbert:time:ch04_ch44_probe_1784680745\nhilbert:time:ch
+  line=231       "key": "hilbert:staged:d187f51988fd53eb083bec42132647cd",
+FILE=thesis_chapter_gates/reports/ch49_temporal_hilbert_axis_gate_20260722_010411.md
+  line=1 # Chapter 49 Temporal Hilbert Axis Gate
+  line=5 Chapter file: `49-The Temporal Hilbert Axis and the Three-Dimensional Memory of H_App.md`
+  line=9 Evidence log: `/opt/msjarvis-rebuild/msjarvis-rebuild/thesis_chapter_gates/logs/gate_ch49_temporal_hilbert_axis_20260722_010411.txt`  
+  line=10 Probe JSON: `/opt/msjarvis-rebuild/msjarvis-rebuild/thesis_chapter_gates/reports/ch49_temporal_hilbert_axis_probe_20260722_010411.json`
+  line=24 Chapter 49 may be rewritten as an as-built temporal Hilbert axis chapter. It may claim a bounded H_t implementation with Redis-backed ephemeral/staged state, Postgres-backed historical state, hysteresis, consent/coherenc
+  line=41       "ephemeral_redis_prefix": "hilbert:ephemeral:",
+  line=45       "staged_redis_prefix": "hilbert:staged:",
+  line=46       "temporal_redis_prefix": "hilbert:time:"
+  line=65       "storage_key": "hilbert:ephemeral:9c65d5362b67a15c42491f82fbe562a8",
+  line=191       "storage_key": "hilbert:staged:d187f51988fd53eb083bec42132647cd",
+  line=216       "key": "hilbert:ephemeral:9c65d5362b67a15c42491f82fbe562a8",
+  line=231       "stdout": "hilbert:ephemeral:9c65d5362b67a15c42491f82fbe562a8"
+  line=236       "stdout": "hilbert:staged:d187f51988fd53eb083bec42132647cd"
+  line=241       "stdout": "hilbert:time:asbuilt_ch49\nhilbert:time:asbuilt_ch49_clean\nhilbert:time:ch04_ch44_probe_1784680606\nhilbert:time:ch04_ch44_probe_1784680606_peer\nhilbert:time:ch04_ch44_probe_1784680745\nhilbert:time:ch
+  line=245       "key": "hilbert:staged:d187f51988fd53eb083bec42132647cd",
+FILE=thesis_chapter_gates/reports/ch49_temporal_hilbert_axis_probe_20260722_010150.json
+  line=3     "missing_source:services/hilbert/jarvis_hilbert_time.py"
+  line=9         "ephemeral_redis_prefix": "hilbert:ephemeral:",
+  line=13         "staged_redis_prefix": "hilbert:staged:",
+  line=14         "temporal_redis_prefix": "hilbert:time:"
+  line=33         "storage_key": "hilbert:ephemeral:9c65d5362b67a15c42491f82fbe562a8",
+  line=159         "storage_key": "hilbert:staged:d187f51988fd53eb083bec42132647cd",
+  line=192       "hilbert_state": {
+  line=197           "service": "jarvis_hilbert_state",
+  line=202       "hilbert_time": {
+  line=205           "service": "jarvis_hilbert_time",
+  line=239         "key": "hilbert:ephemeral:9c65d5362b67a15c42491f82fbe562a8",
+  line=254         "stdout": "hilbert:ephemeral:9c65d5362b67a15c42491f82fbe562a8"
+  line=259         "stdout": "hilbert:staged:d187f51988fd53eb083bec42132647cd"
+  line=264         "stdout": "hilbert:time:asbuilt_ch49\nhilbert:time:asbuilt_ch49_clean\nhilbert:time:ch04_ch44_probe_1784680606\nhilbert:time:ch04_ch44_probe_1784680606_peer\nhilbert:time:ch04_ch44_probe_1784680745\nhilbert:time:
+  line=268         "key": "hilbert:staged:d187f51988fd53eb083bec42132647cd",
+  line=282       "services/hilbert/jarvis_hilbert_time.py": {
+  line=292       "services/hilbert/recurrent_epistemic_runner.py": {
+  line=300       "services/hilbert/temporal_hilbert_axis.py": {
+  line=304           "hilbert:ephemeral:": true,
+  line=305           "hilbert:staged:": true,
+  line=306           "hilbert:time:": true,
+  line=315   "name": "temporal_hilbert_axis",
+FILE=thesis_chapter_gates/reports/ch49_temporal_hilbert_axis_probe_20260722_010411.json
+  line=7         "ephemeral_redis_prefix": "hilbert:ephemeral:",
+  line=11         "staged_redis_prefix": "hilbert:staged:",
+  line=12         "temporal_redis_prefix": "hilbert:time:"
+  line=31         "storage_key": "hilbert:ephemeral:9c65d5362b67a15c42491f82fbe562a8",
+  line=157         "storage_key": "hilbert:staged:d187f51988fd53eb083bec42132647cd",
+  line=190       "hilbert_state": {
+  line=195           "service": "jarvis_hilbert_state",
+  line=200       "hilbert_time": {
+  line=203           "service": "jarvis_hilbert_time",
+  line=237         "key": "hilbert:ephemeral:9c65d5362b67a15c42491f82fbe562a8",
+  line=252         "stdout": "hilbert:ephemeral:9c65d5362b67a15c42491f82fbe562a8"
+  line=257         "stdout": "hilbert:staged:d187f51988fd53eb083bec42132647cd"
+  line=262         "stdout": "hilbert:time:asbuilt_ch49\nhilbert:time:asbuilt_ch49_clean\nhilbert:time:ch04_ch44_probe_1784680606\nhilbert:time:ch04_ch44_probe_1784680606_peer\nhilbert:time:ch04_ch44_probe_1784680745\nhilbert:time:
+  line=266         "key": "hilbert:staged:d187f51988fd53eb083bec42132647cd",
+  line=280       "services/hilbert/recurrent_epistemic_runner.py": {
+  line=288       "services/hilbert/temporal_hilbert_axis.py": {
+  line=292           "hilbert:ephemeral:": true,
+  line=293           "hilbert:staged:": true,
+  line=294           "hilbert:time:": true,
+  line=301       "thesis_chapter_gates/probes/ch49_temporal_hilbert_axis_probe.py": {
+  line=315   "name": "temporal_hilbert_axis",
+FILE=thesis_chapter_gates/reports/ch50_per_user_direct_sum_gate_20260722_004711.md
+  line=5 Chapter file: `50-Per-User Direct Sum Decomposition of Conversational Memory.md`
+  line=14 - missing_ch50_source_terms:conversation_history_user_,conversation_private_user_,conversation_staged_user_
+  line=23     "missing_ch50_source_terms:conversation_history_user_,conversation_private_user_,conversation_staged_user_"
+  line=28       "conversation_history_user": true,
+  line=29       "conversation_private_user": true,
+  line=30       "conversation_staged_user": true,
+  line=31       "legacy_shared_conversation_history_visible": true
+  line=36       "conversation_history_user_ch50_demo_alpha": {
+  line=41       "conversation_history_user_ch50_demo_beta": {
+  line=46       "conversation_staged_user_ch50_demo_alpha": {
+  line=55       "collection": "conversation_history_user_ch50_demo_alpha",
+  line=61         "request_purpose": "conversation",
+  line=75       "collection": "conversation_history_user_ch50_demo_beta",
+  line=81         "request_purpose": "conversation",
+  line=97         "history": "conversation_history_user_ch50_demo_alpha",
+  line=98         "private": "conversation_private_user_ch50_demo_alpha",
+  line=99         "staged": "conversation_staged_user_ch50_demo_alpha"
+  line=102         "history": "conversation_history_user_ch50_demo_beta",
+  line=103         "private": "conversation_private_user_ch50_demo_beta",
+  line=104         "staged": "conversation_staged_user_ch50_demo_beta"
+  line=114         "request_purpose": "conversation",
+  line=135         "request_purpose": "conversation",
+  line=149       "collection": "conversation_staged_user_ch50_demo_alpha",
+  line=155         "request_purpose": "conversation",
+FILE=thesis_chapter_gates/reports/ch50_per_user_direct_sum_gate_20260722_004837.md
+  line=5 Chapter file: `50-Per-User Direct Sum Decomposition of Conversational Memory.md`
+  line=14 - Conversation memory now has an explicit per-user direct-sum routing module.
+  line=20 - BBB, guardian, Hilbert-state, Hilbert-time, commons, and Chroma health checks pass.
+  line=24 Chapter 50 may be rewritten as an as-built direct-sum memory chapter. It may claim bounded per-user conversational subspaces, consent-gated durable memory, staged/private/history tier separation, and live Chroma evidence
+  line=28 - unconsented durable conversation retention
+  line=29 - unrestricted global/shared conversation memory
+  line=30 - automatic publication of private conversation memory
+  line=41       "conversation_history_user": true,
+  line=42       "conversation_private_user": true,
+  line=43       "conversation_staged_user": true,
+  line=44       "legacy_shared_conversation_history_visible": true
+  line=49       "conversation_history_user_ch50_demo_alpha": {
+  line=54       "conversation_history_user_ch50_demo_beta": {
+  line=59       "conversation_staged_user_ch50_demo_alpha": {
+  line=68       "collection": "conversation_history_user_ch50_demo_alpha",
+  line=74         "request_purpose": "conversation",
+  line=88       "collection": "conversation_history_user_ch50_demo_beta",
+  line=94         "request_purpose": "conversation",
+  line=110         "history": "conversation_history_user_ch50_demo_alpha",
+  line=111         "private": "conversation_private_user_ch50_demo_alpha",
+  line=112         "staged": "conversation_staged_user_ch50_demo_alpha"
+  line=115         "history": "conversation_history_user_ch50_demo_beta",
+  line=116         "private": "conversation_private_user_ch50_demo_beta",
+  line=117         "staged": "conversation_staged_user_ch50_demo_beta"
+  line=127         "request_purpose": "conversation",
+  line=148         "request_purpose": "conversation",
+  line=162       "collection": "conversation_staged_user_ch50_demo_alpha",
+  line=168         "request_purpose": "conversation",
+FILE=thesis_chapter_gates/reports/ch50_per_user_direct_sum_probe_20260722_004711.json
+  line=3     "missing_ch50_source_terms:conversation_history_user_,conversation_private_user_,conversation_staged_user_"
+  line=10         "conversation_history_user": true,
+  line=11         "conversation_private_user": true,
+  line=12         "conversation_staged_user": true,
+  line=13         "legacy_shared_conversation_history_visible": true
+  line=18         "conversation_history_user_ch50_demo_alpha": {
+  line=23         "conversation_history_user_ch50_demo_beta": {
+  line=28         "conversation_staged_user_ch50_demo_alpha": {
+  line=37         "collection": "conversation_history_user_ch50_demo_alpha",
+  line=43           "request_purpose": "conversation",
+  line=57         "collection": "conversation_history_user_ch50_demo_beta",
+  line=63           "request_purpose": "conversation",
+  line=79           "history": "conversation_history_user_ch50_demo_alpha",
+  line=80           "private": "conversation_private_user_ch50_demo_alpha",
+  line=81           "staged": "conversation_staged_user_ch50_demo_alpha"
+  line=84           "history": "conversation_history_user_ch50_demo_beta",
+  line=85           "private": "conversation_private_user_ch50_demo_beta",
+  line=86           "staged": "conversation_staged_user_ch50_demo_beta"
+  line=96           "request_purpose": "conversation",
+  line=117           "request_purpose": "conversation",
+  line=131         "collection": "conversation_staged_user_ch50_demo_alpha",
+  line=137           "request_purpose": "conversation",
+  line=181           "commons_collection": "community_hilbert_commons",
+  line=197       "hilbert_state": {
+  line=202           "service": "jarvis_hilbert_state",
+  line=207       "hilbert_time": {
+  line=210           "service": "jarvis_hilbert_time",
+  line=225       "services/hilbert/conversation_manifest.py": {
+  line=228           "conversation": true,
+  line=232       "services/hilbert/conversation_retention_worker.py": {
+  line=235           "conversation": true,
+  line=239       "services/hilbert/people_session_promotion.py": {
+  line=246       "services/hilbert/per_user_direct_sum_memory.py": {
+  line=249           "conversation_history_user_": false,
+  line=250           "conversation_private_user_": false,
+  line=251           "conversation_staged_user_": false,
+  line=260   "name": "per_user_direct_sum_conversational_memory",
+  line=263       "conversation memory routes into per-user direct-sum subspaces",
+  line=271       "shared global conversation memory as authoritative",
+  line=273       "public commons publication from private conversation routes",
+FILE=thesis_chapter_gates/reports/ch50_per_user_direct_sum_probe_20260722_004837.json
+  line=8         "conversation_history_user": true,
+  line=9         "conversation_private_user": true,
+  line=10         "conversation_staged_user": true,
+  line=11         "legacy_shared_conversation_history_visible": true
+  line=16         "conversation_history_user_ch50_demo_alpha": {
+  line=21         "conversation_history_user_ch50_demo_beta": {
+  line=26         "conversation_staged_user_ch50_demo_alpha": {
+  line=35         "collection": "conversation_history_user_ch50_demo_alpha",
+  line=41           "request_purpose": "conversation",
+  line=55         "collection": "conversation_history_user_ch50_demo_beta",
+  line=61           "request_purpose": "conversation",
+  line=77           "history": "conversation_history_user_ch50_demo_alpha",
+  line=78           "private": "conversation_private_user_ch50_demo_alpha",
+  line=79           "staged": "conversation_staged_user_ch50_demo_alpha"
+  line=82           "history": "conversation_history_user_ch50_demo_beta",
+  line=83           "private": "conversation_private_user_ch50_demo_beta",
+  line=84           "staged": "conversation_staged_user_ch50_demo_beta"
+  line=94           "request_purpose": "conversation",
+  line=115           "request_purpose": "conversation",
+  line=129         "collection": "conversation_staged_user_ch50_demo_alpha",
+  line=135           "request_purpose": "conversation",
+  line=179           "commons_collection": "community_hilbert_commons",
+  line=195       "hilbert_state": {
+  line=200           "service": "jarvis_hilbert_state",
+  line=205       "hilbert_time": {
+  line=208           "service": "jarvis_hilbert_time",
+  line=223       "services/hilbert/conversation_manifest.py": {
+  line=226           "conversation": true,
+  line=230       "services/hilbert/conversation_retention_worker.py": {
+  line=233           "conversation": true,
+  line=237       "services/hilbert/people_session_promotion.py": {
+  line=244       "services/hilbert/per_user_direct_sum_memory.py": {
+  line=247           "conversation_history_user_": true,
+  line=248           "conversation_private_user_": true,
+  line=249           "conversation_staged_user_": true,
+  line=258   "name": "per_user_direct_sum_conversational_memory",
+  line=261       "conversation memory routes into per-user direct-sum subspaces",
+  line=269       "shared global conversation memory as authoritative",
+  line=271       "public commons publication from private conversation routes",
+FILE=thesis_chapter_gates/reports/ch51_community_hilbert_commons_gate_20260722_004044.md
+  line=1 # Chapter 51 Community Hilbert Commons Gate
+  line=5 Chapter file: `51-The Community Hilbert Commons — Anonymized Aggregation Over Sovereign Subspaces.md`
+  line=9 Evidence log: `/opt/msjarvis-rebuild/msjarvis-rebuild/thesis_chapter_gates/logs/gate_ch51_community_hilbert_commons_20260722_004044.txt`  
+  line=10 Probe JSON: `/opt/msjarvis-rebuild/msjarvis-rebuild/thesis_chapter_gates/reports/ch51_community_hilbert_commons_probe_20260722_004044.json`
+  line=15 - `community_hilbert_commons` collection exists in Chroma.
+  line=26 Chapter 51 may be rewritten as an as-built Community Hilbert Commons chapter. It may claim bounded k-thresholded aggregation over public-opt-in contributions, commons/private separation, centroid/provenance output, and s
+FILE=thesis_chapter_gates/reports/ch51_community_hilbert_commons_probe_20260722_004044.json
+  line=27           "collection": "community_hilbert_commons",
+  line=62           "community_hilbert_commons",
+  line=69           "community_hilbert_commons": true,
+  line=94             "commons_collection": "community_hilbert_commons",
+  line=115           "services/hilbert/community_commons_aggregation.py": {
+  line=118               "community_hilbert_commons": true
+  line=124               "community_hilbert_commons": false
+  line=129           "services/hilbert/people_session_promotion.py": {
+  line=132               "community_hilbert_commons": true,
+  line=139         "services/hilbert/community_commons_aggregation.py": {
+  line=153   "name": "community_hilbert_commons",
+FILE=thesis_chapter_gates/reports/ch52_recurrent_epistemic_loop_gate_20260722_003710.md
+  line=15 missing_term:services/hilbert/recurrent_epistemic_runner.py:conversation_retention_worker
+  line=16 missing_term:services/hilbert/recurrent_epistemic_runner.py:identity
+FILE=thesis_chapter_gates/reports/ch52_recurrent_epistemic_loop_gate_20260722_003832.md
+  line=17 - Conversation retention is scheduled or running.
+FILE=thesis_chapter_gates/reports/ch52_recurrent_epistemic_loop_probe_20260722_003710.json
+  line=3     "missing_term:services/hilbert/recurrent_epistemic_runner.py:conversation_retention_worker",
+  line=4     "missing_term:services/hilbert/recurrent_epistemic_runner.py:identity"
+  line=113         "jarvis-hilbert-state": {
+  line=119         "jarvis-hilbert-time": {
+  line=160         "hilbert_state": {
+  line=165             "service": "jarvis_hilbert_state",
+  line=170         "hilbert_time": {
+  line=173             "service": "jarvis_hilbert_time",
+  line=191           "stdout": "# Ms. Jarvis Master Crontab\n\n#PAUSED-INVESTIGATING */5 * * * * /usr/local/bin/jarvis_bbb_watchdog.sh\n#PAUSED-INVESTIGATING */15 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && ./scripts/watchd
+  line=201           "stdout": "1497224 /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py\n1849832 bash -lc pgrep -af 'recurrent_epistemic_runner.py|ch41_continuous_valida
+  line=214           "services/hilbert/continuous_validation_harness.py": {
+  line=223           "services/hilbert/identity_registration_promotion.py": {
+  line=239         "services/hilbert/conversation_retention_worker.py": {
+  line=242             "conversation": true,
+  line=246         "services/hilbert/dgm_governed_cycle.py": {
+  line=254         "services/hilbert/recurrent_epistemic_runner.py": {
+  line=257             "conversation_retention_worker": false,
+  line=272       "conversation retention is scheduled or running",
+FILE=thesis_chapter_gates/reports/ch52_recurrent_epistemic_loop_probe_20260722_003832.json
+  line=110         "jarvis-hilbert-state": {
+  line=116         "jarvis-hilbert-time": {
+  line=157         "hilbert_state": {
+  line=162             "service": "jarvis_hilbert_state",
+  line=167         "hilbert_time": {
+  line=170             "service": "jarvis_hilbert_time",
+  line=188           "stdout": "# Ms. Jarvis Master Crontab\n\n#PAUSED-INVESTIGATING */5 * * * * /usr/local/bin/jarvis_bbb_watchdog.sh\n#PAUSED-INVESTIGATING */15 * * * * cd /mnt/spiritual_drive/msjarvis-rebuild && ./scripts/watchd
+  line=198           "stdout": "1850819 /opt/msjarvis-rebuild/msjarvis-rebuild/crypto-venv/bin/python3 services/hilbert/recurrent_epistemic_runner.py\n1850913 bash -lc pgrep -af 'recurrent_epistemic_runner.py|ch41_continuous_valida
+  line=211           "services/hilbert/continuous_validation_harness.py": {
+  line=220           "services/hilbert/identity_registration_promotion.py": {
+  line=236         "services/hilbert/conversation_retention_worker.py": {
+  line=239             "conversation": true,
+  line=243         "services/hilbert/dgm_governed_cycle.py": {
+  line=251         "services/hilbert/recurrent_epistemic_runner.py": {
+  line=254             "conversation_retention_worker": true,
+  line=269       "conversation retention is scheduled or running",
+FILE=thesis_chapter_gates/reports/chapter_closure_index.md
+  line=34 | 51 | CLOSED_FOR_REWRITE | `/opt/msjarvis-rebuild/msjarvis-rebuild/thesis_chapter_gates/reports/ch51_community_hilbert_commons_gate_20260722_004044.md` | 2026-07-22T00:40:50-04:00 |
+  line=40 | 49 | CLOSED_FOR_REWRITE | `/opt/msjarvis-rebuild/msjarvis-rebuild/thesis_chapter_gates/reports/ch49_temporal_hilbert_axis_gate_20260722_010411.md` | 2026-07-22T01:04:13-04:00 |
+FILE=thesis_chapter_gates/reports/overview_docs_gate_20260722_090900.md
+  line=153     "04/44 (hilbert/phi-probe)",
+  line=189     "47/48 (hilbert-people)",
+  line=190     "49 (temporal-hilbert-axis)",
+  line=192     "51 (community-hilbert-commons)",
+FILE=thesis_chapter_gates/reports/overview_docs_gate_probe_20260722_090900.json
+  line=116     "04/44 (hilbert/phi-probe)",
+  line=152     "47/48 (hilbert-people)",
+  line=153     "49 (temporal-hilbert-axis)",
+  line=155     "51 (community-hilbert-commons)",
+FILE=thesis_chapter_gates/rewrites/rewrite_chAppendix_A_20260722_093720.json
+  line=8     "hilbert-time three-tier: ephemeral=redis connected, staged=redis connected, historical=postgres connected",
+  line=9     "hysteresis_min_seconds=60.0 confirmed in jarvis-hilbert-time health response"
+FILE=tmp_rag_slice.py
+  line=13 async def create_chat_job(
+  line=14     request: ChatJobRequest,
+  line=19     job_id = str(uuid.uuid4())
+  line=20     active_jobs[job_id] = {
+  line=27     asyncio.create_task(process_chat_job(job_id, request))
+  line=29         "job_created",
+  line=31             "job_id": job_id,
+  line=36     return {"job_id": job_id, "status": "processing"}
+  line=39 @app.get("/chat/status/{job_id}")
+  line=40 async def get_job_status(
+  line=41     job_id: str,
+  line=44     if job_id not in active_jobs:
+  line=45         raise HTTPException(status_code=404, detail="Job not found")
+  line=46     job = active_jobs[job_id]
+  line=47     if job["status"] in ["complete", "error"]:
+  line=48         age = time.time() - job.get("created_at", 0)
+  line=50             del active_jobs[job_id]
+  line=51             raise HTTPException(status_code=404, detail="Job expired")
+  line=53         "job_id": job_id,
+  line=54         "status": job["status"],
+  line=55         "progress": job.get("progress"),
+  line=56         "result": job.get("result"),
+  line=57         "error": job.get("error"),
+  line=61 async def process_chat_job(job_id: str, request: ChatJobRequest):
+  line=65         active_jobs[job_id]["progress"] = "Phase 1: Checking service availability..."
+  line=72         active_jobs[job_id]["progress"] = "Phase 2: Processing through consciousness layers..."
+  line=77         active_jobs[job_id]["status"] = "complete"
+  line=78         active_jobs[job_id]["progress"] = "Complete!"
+  line=79         active_jobs[job_id]["result"] = result
+  line=80         total = time.time() - active_jobs[job_id]["created_at"]
+  line=82             "job_complete",
+  line=84                 "job_id": job_id,
+  line=91             "job_failed",
+  line=92             extra={"job_id": job_id, "user_id": user_id, "error": str(e)},
+  line=94         active_jobs[job_id]["status"] = "error"
+  line=95         active_jobs[job_id]["error"] = str(e)
+FILE=tools/hp_infer_reliable_attendance.py
+  line=10             "psql", "-U", "postgres", "-d", "hilbert_people",
+FILE=tools/hp_promote_inference_candidates.py
+  line=10             "psql", "-U", "postgres", "-d", "hilbert_people",
+FILE=tools/retention_prune_hp_assertions.py
+  line=13         "psql", "-U", "postgres", "-d", "hilbert_people",
+FILE=tools/run_eligibility_coverage_tests.py
+  line=28         "docker", "exec", "hp-local-db", "psql", "-U", "postgres", "-d", "hilbert_people",
 
-evidence_dir = Path("/home/cakidd/msjarvis-pilot-build-evidence-20260810")
-evidence_dir.mkdir(parents=True, exist_ok=True)
-report_path = evidence_dir / "host-gunicorn-auth-discovery-20260811.json"
-
-ss = subprocess.run(
-    ["ss", "-ltnp", "sport", "=", ":8095"],
-    text=True,
-    capture_output=True,
-    check=True,
-).stdout
-
-pids = sorted(set(re.findall(r'pid=(\d+)', ss)))
-if not pids:
-PYint("report_path=" + str(report_path))sha256(report_bytes).hexdigest())))():
-HOST_GUNICORN_AUTH_DISCOVERY_VALID
-port_8095_pid_count=3
-gunicorn_pid=676804
-gunicorn_cwd=/mnt/spiritual_drive/msjarvis-rebuild
-gunicorn_command=/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/bin/python /mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/bin/gunicorn auth_api:app -k uvicorn_worker.UvicornWorker -w 2 --bind 127.0.0.1:8095
-gunicorn_cgroup=0::/system.slice/ms-allis-auth8095.service
-gunicorn_pid=676822
-gunicorn_cwd=/mnt/spiritual_drive/msjarvis-rebuild
-gunicorn_command=/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/bin/python /mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/bin/gunicorn auth_api:app -k uvicorn_worker.UvicornWorker -w 2 --bind 127.0.0.1:8095
-gunicorn_cgroup=0::/system.slice/ms-allis-auth8095.service
-gunicorn_pid=676829
-gunicorn_cwd=/mnt/spiritual_drive/msjarvis-rebuild
-gunicorn_command=/mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/bin/python /mnt/spiritual_drive/msjarvis-rebuild/crypto-venv/bin/gunicorn auth_api:app -k uvicorn_worker.UvicornWorker -w 2 --bind 127.0.0.1:8095
-gunicorn_cgroup=0::/system.slice/ms-allis-auth8095.service
-auth_source_file_count=172
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_route_line=151 auth_route_decorator=auth_router.post auth_route_paths=/register auth_route_function=register
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_route_line=237 auth_route_decorator=auth_router.post auth_route_paths=/logout auth_route_function=logout
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_route_line=244 auth_route_decorator=auth_router.post auth_route_paths=/login auth_route_function=login
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_route_line=260 auth_route_decorator=auth_router.get auth_route_paths=/me auth_route_function=me
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_route_line=290 auth_route_decorator=auth_router.get auth_route_paths=/admin/chat-metrics auth_route_function=admin_chat_metrics
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_route_line=310 auth_route_decorator=auth_router.get auth_route_paths=/applications/pending auth_route_function=list_pending
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_route_line=359 auth_route_decorator=auth_router.post auth_route_paths=/approve/{application_id} auth_route_function=approve_application
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_route_line=503 auth_route_decorator=auth_router.post auth_route_paths=/deny/{application_id} auth_route_function=deny_application
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_route_line=555 auth_route_decorator=auth_router.post auth_route_paths=/first-login auth_route_function=first_login
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_route_line=605 auth_route_decorator=auth_router.get auth_route_paths=/portal/me/balances auth_route_function=get_my_balances
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_route_line=652 auth_route_decorator=auth_router.get auth_route_paths=/portal/me/ledger auth_route_function=get_my_ledger
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_route_line=773 auth_route_decorator=auth_router.get auth_route_paths=/portal/me/timesheet auth_route_function=get_my_timesheet
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_function_line=98 auth_function_name=_current_user
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_function_line=151 auth_function_name=register
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_function_line=237 auth_function_name=logout
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_function_line=244 auth_function_name=login
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_function_line=555 auth_function_name=first_login
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=32 auth_string_value=auth_router
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=150 auth_string_value=/register
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=238 auth_string_value=Invalidate the bearer token server-side.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=236 auth_string_value=/logout
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=245 auth_string_value=Login accepts either email OR proposed_userid as the username field.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=243 auth_string_value=/login
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=554 auth_string_value=/first-login
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=661 auth_string_value=Return paginated ledger history for the authenticated user.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=72 auth_string_value=/auth
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=95 auth_string_value=/auth/login
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=192 auth_string_value=approved_pending_login
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=192 auth_string_value=pending_first_login
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=646 auth_string_value=founder_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=769 auth_string_value=founder_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=72 auth_string_value=auth
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=225 auth_string_value=[AUTH] Registered 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=535 auth_string_value=[AUTH] Application 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=569 auth_string_value=approved_pending_login
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=569 auth_string_value=pending_first_login
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=593 auth_string_value=first-login
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=594 auth_string_value=[AUTH] First login complete for 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=636 auth_string_value=SELECT serial_number, minted_at, cohort, allocation_type FROM founder_tokens WHERE ueid = %s
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=638 auth_string_value=SELECT COALESCE(SUM(ems_earned), 0) FROM equity_timesheet WHERE user_id = %s AND ueid IN (%s, %s)
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=713 auth_string_value=token_class
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=799 auth_string_value=
-            SELECT COALESCE(SUM(ems_earned), 0), COUNT(*), COALESCE(SUM(duration_sec), 0)
-            FROM equity_timesheet
-            WHERE user_id = %s
-              AND ueid IN (%s, %s)
-              AND status IN ('complete', 'completed')
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=811 auth_string_value=total_sessions
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=104 auth_string_value=Invalid or expired token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=255 auth_string_value=access_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=325 auth_string_value=SELECT ueid FROM founder_tokens WHERE cohort = 'phase_0'
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=408 auth_string_value=approved_pending_login
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=423 auth_string_value=SELECT COALESCE(MAX(serial_number), 0) FROM founder_tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=587 auth_string_value=first_login_at
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=609 auth_string_value=Invalid token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=105 auth_string_value=WWW-Authenticate
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=220 auth_string_value=[AUTH] First user bootstrap: 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=252 auth_string_value=WWW-Authenticate
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=391 auth_string_value=approved_pending_login
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=428 auth_string_value=INSERT INTO founder_tokens (serial_number, ueid, minted_by, cohort, allocation_type) VALUES (%s, %s, %s, %s, %s) ON CONFLICT DO NOTHING
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=478 auth_string_value=[AUTH] Approval email sent to 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=481 auth_string_value=[AUTH] Approval email not confirmed for 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=484 auth_string_value=[AUTH] Approval email failed: 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=570 auth_string_value=Account not eligible for first login (status=
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=693 auth_string_value=SELECT id, transaction_type, amount, token_class, reason, reference_id, created_at, created_by FROM mountainshares_ledger 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=62 auth_string_value=subject_ref
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=222 auth_string_value=[AUTH] First-user auto-approve failed: 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=432 auth_string_value=[FOUNDER] Minted token #
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=453 auth_string_value=[FOUNDER] Phase 0 cap (60) reached — no token minted for 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=438 auth_string_value=INSERT INTO mountainshares_ledger (ueid, transaction_type, amount, token_class, reason, reference_id, created_by) VALUES (%s, %s, %s, %s, %s, %s, %s)
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/debug_files_20260630/auth_router.debug.py auth_string_line=730 auth_string_value=token_class
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/gis_rag_service.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/gis_rag_service.py auth_route_line=52 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/gis_rag_service.py auth_route_line=133 auth_route_decorator=app.post auth_route_paths=/gis_rag auth_route_function=gis_rag
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/gis_rag_service.py auth_route_line=209 auth_route_decorator=app.post auth_route_paths=/search auth_route_function=search_endpoint
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_route_line=312 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=healthcheck
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_route_line=316 auth_route_decorator=app.post auth_route_paths=/chat/async auth_route_function=create_chat_job
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_route_line=336 auth_route_decorator=app.get auth_route_paths=/chat/status/{job_id} auth_route_function=get_job_status
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_route_line=361 auth_route_decorator=app.delete auth_route_paths=/chat/cancel/all auth_route_function=cancel_all_jobs
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_route_line=381 auth_route_decorator=app.delete auth_route_paths=/chat/cancel/{job_id} auth_route_function=cancel_job
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_route_line=715 auth_route_decorator=app.post auth_route_paths=/ultimate_chat auth_route_function=ultimate_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_route_line=715 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=ultimate_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_route_line=1692 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_route_line=1710 auth_route_decorator=governance_router.get auth_route_paths=/query auth_route_function=unified_governance_query
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=325 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=626 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=630 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=644 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=1295 auth_string_value=  ✅ I-Containers: Identity processing complete
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=452 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=763 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=1008 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=1273 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=1201 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=1240 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=1257 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/main_brain_patch.py auth_string_line=1365 auth_string_value=user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_route_line=312 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=healthcheck
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_route_line=316 auth_route_decorator=app.post auth_route_paths=/chat/async auth_route_function=create_chat_job
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_route_line=336 auth_route_decorator=app.get auth_route_paths=/chat/status/{job_id} auth_route_function=get_job_status
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_route_line=361 auth_route_decorator=app.delete auth_route_paths=/chat/cancel/all auth_route_function=cancel_all_jobs
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_route_line=381 auth_route_decorator=app.delete auth_route_paths=/chat/cancel/{job_id} auth_route_function=cancel_job
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_route_line=715 auth_route_decorator=app.post auth_route_paths=/ultimate_chat auth_route_function=ultimate_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_route_line=715 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=ultimate_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_route_line=1699 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_route_line=1717 auth_route_decorator=governance_router.get auth_route_paths=/query auth_route_function=unified_governance_query
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=325 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=626 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=630 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=644 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=1302 auth_string_value=  ✅ I-Containers: Identity processing complete
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=452 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=770 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=1015 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=1280 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=1208 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=1247 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=1264 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_bbb_fix.py auth_string_line=1372 auth_string_value=user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_route_line=312 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=healthcheck
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_route_line=316 auth_route_decorator=app.post auth_route_paths=/chat/async auth_route_function=create_chat_job
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_route_line=336 auth_route_decorator=app.get auth_route_paths=/chat/status/{job_id} auth_route_function=get_job_status
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_route_line=361 auth_route_decorator=app.delete auth_route_paths=/chat/cancel/all auth_route_function=cancel_all_jobs
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_route_line=381 auth_route_decorator=app.delete auth_route_paths=/chat/cancel/{job_id} auth_route_function=cancel_job
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_route_line=715 auth_route_decorator=app.post auth_route_paths=/ultimate_chat auth_route_function=ultimate_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_route_line=715 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=ultimate_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_route_line=1699 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_route_line=1717 auth_route_decorator=governance_router.get auth_route_paths=/query auth_route_function=unified_governance_query
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=325 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=626 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=630 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=644 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=1302 auth_string_value=  ✅ I-Containers: Identity processing complete
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=452 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=770 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=1015 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=1280 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=1208 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=1247 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=1264 auth_string_value=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/mb_clean_fix.py auth_string_line=1372 auth_string_value=user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/dgm_adoption_worker.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/dgm_adoption_worker.py auth_route_line=113 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/dgm_adoption_worker.py auth_route_line=126 auth_route_decorator=app.post auth_route_paths=/adopt_patches auth_route_function=adopt_patches
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/dgm_adoption_worker.py auth_route_line=187 auth_route_decorator=app.get auth_route_paths=/adoption_log auth_route_function=get_adoption_log
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py auth_route_line=12 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=chat
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-aaacpe-rag_aaacpe_rag_service.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-aaacpe-rag_aaacpe_rag_service.py auth_route_line=26 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-aaacpe-rag_aaacpe_rag_service.py auth_route_line=34 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-aaacpe-rag_aaacpe_rag_service.py auth_route_line=38 auth_route_decorator=app.post auth_route_paths=/search auth_route_function=search
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-aaacpe-rag_aaacpe_rag_service.py auth_route_line=52 auth_route_decorator=app.post auth_route_paths=/ingest auth_route_function=ingest_cultural_intelligence
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-adoption-worker_dgm_adoption_worker.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-adoption-worker_dgm_adoption_worker.py auth_route_line=113 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-adoption-worker_dgm_adoption_worker.py auth_route_line=126 auth_route_decorator=app.post auth_route_paths=/adopt_patches auth_route_function=adopt_patches
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-adoption-worker_dgm_adoption_worker.py auth_route_line=187 auth_route_decorator=app.get auth_route_paths=/adoption_log auth_route_function=get_adoption_log
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py auth_route_line=65 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py auth_route_line=84 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py auth_route_line=94 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=unified_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py auth_route_line=181 auth_route_decorator=app.post auth_route_paths=/experience auth_route_function=experience_endpoint
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py auth_route_line=186 auth_route_decorator=app.post auth_route_paths=/filter_consciousness auth_route_function=filter_consciousness_endpoint
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py auth_route_line=191 auth_route_decorator=app.get auth_route_paths=/status auth_route_function=status
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py auth_route_line=65 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py auth_route_line=84 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py auth_route_line=94 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=unified_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py auth_route_line=181 auth_route_decorator=app.post auth_route_paths=/experience auth_route_function=experience_endpoint
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py auth_route_line=186 auth_route_decorator=app.post auth_route_paths=/filter_consciousness auth_route_function=filter_consciousness_endpoint
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py auth_route_line=191 auth_route_decorator=app.get auth_route_paths=/status auth_route_function=status
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py auth_route_line=119 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py auth_route_line=128 auth_route_decorator=app.get auth_route_paths=/constitutional/status auth_route_function=constitutional_status
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py auth_route_line=142 auth_route_decorator=app.get auth_route_paths=/constitutional/principles auth_route_function=constitutional_principles
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py auth_route_line=147 auth_route_decorator=app.post auth_route_paths=/constitutional/check auth_route_function=constitutional_check
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py auth_route_line=240 auth_route_decorator=app.get auth_route_paths=/constitutional/audit auth_route_function=constitutional_audit
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py auth_route_line=263 auth_route_decorator=app.get auth_route_paths=/constitutional/audit/stats auth_route_function=constitutional_audit_stats
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py auth_route_line=298 auth_route_decorator=app.get auth_route_paths=/constitutional/versions auth_route_function=constitutional_versions
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py auth_route_line=333 auth_route_decorator=app.get auth_route_paths=/constitutional/changes/{version} auth_route_function=constitutional_changes
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py auth_route_line=368 auth_route_decorator=app.get auth_route_paths=/constitutional/transparency auth_route_function=constitutional_transparency
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py auth_string_line=136 auth_string_value=authority
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py auth_string_line=357 auth_string_value=Ground Ms. Jarvis in established U.S. Constitutional law for legitimate legal authority
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-constitutional-guardian_constitutional_api.py auth_string_line=171 auth_string_value=unauthorized access
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-fifth-dgm_service_discovery.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-fifth-dgm_service_discovery.py auth_string_line=125 auth_string_value=Get all registered services
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-gis-rag_gis_rag_service.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-gis-rag_gis_rag_service.py auth_route_line=52 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-gis-rag_gis_rag_service.py auth_route_line=133 auth_route_decorator=app.post auth_route_paths=/gis_rag auth_route_function=gis_rag
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-gis-rag_gis_rag_service.py auth_route_line=209 auth_route_decorator=app.post auth_route_paths=/search auth_route_function=search_endpoint
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-hippocampus_hippocampus_service.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-hippocampus_hippocampus_service.py auth_route_line=51 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-hippocampus_hippocampus_service.py auth_route_line=75 auth_route_decorator=app.get auth_route_paths=/status auth_route_function=status
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-hippocampus_hippocampus_service.py auth_route_line=117 auth_route_decorator=app.get auth_route_paths=/retrieve auth_route_function=retrieve
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-hippocampus_hippocampus_service.py auth_route_line=151 auth_route_decorator=app.get auth_route_paths=/consolidation/preview auth_route_function=consolidation_preview
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-i-containers_icontainers_fastapi.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-i-containers_icontainers_fastapi.py auth_route_line=36 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-i-containers_icontainers_fastapi.py auth_route_line=134 auth_route_decorator=app.post auth_route_paths=/process auth_route_function=process
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-i-containers_icontainers_fastapi.py auth_function_line=78 auth_function_name=build_identity_layers
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-i-containers_icontainers_fastapi.py auth_string_line=83 auth_string_value=
-    Build a simple identity_layers list from the NBB payload.
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-i-containers_icontainers_fastapi.py auth_string_line=135 auth_string_value=
-    Thin adapter:
-    - Calls NBB i-containers
-    - Projects its dual-awareness payload into:
-      ego_boundaries, experiential_processing, observer_processing, icontainers_state, identity_layers
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-i-containers_icontainers_fastapi.py auth_string_line=89 auth_string_value=identity_core
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-i-containers_icontainers_fastapi.py auth_string_line=97 auth_string_value=identity-core
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-i-containers_icontainers_fastapi.py auth_string_line=98 auth_string_value=identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-i-containers_icontainers_fastapi.py auth_string_line=104 auth_string_value=identity_core
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-alignment_lm_synthesizer.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-alignment_lm_synthesizer.py auth_route_line=39 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-alignment_lm_synthesizer.py auth_route_line=59 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-alignment_lm_synthesizer.py auth_route_line=102 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-alignment_lm_synthesizer.py auth_string_line=60 auth_string_value=
-    Canonical synthesizer endpoint for main_brain:
-    POST /chat {message, user_id, context?}
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-alignment_lm_synthesizer.py auth_string_line=66 auth_string_value=user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-consistency_lm_synthesizer.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-consistency_lm_synthesizer.py auth_route_line=39 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-consistency_lm_synthesizer.py auth_route_line=59 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-consistency_lm_synthesizer.py auth_route_line=102 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-consistency_lm_synthesizer.py auth_string_line=60 auth_string_value=
-    Canonical synthesizer endpoint for main_brain:
-    POST /chat {message, user_id, context?}
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-consistency_lm_synthesizer.py auth_string_line=66 auth_string_value=user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-ethics_lm_synthesizer.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-ethics_lm_synthesizer.py auth_route_line=39 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-ethics_lm_synthesizer.py auth_route_line=59 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-ethics_lm_synthesizer.py auth_route_line=102 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-ethics_lm_synthesizer.py auth_string_line=60 auth_string_value=
-    Canonical synthesizer endpoint for main_brain:
-    POST /chat {message, user_id, context?}
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-ethics_lm_synthesizer.py auth_string_line=66 auth_string_value=user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-pipeline_judge_pipeline.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-pipeline_judge_pipeline.py auth_route_line=77 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-pipeline_judge_pipeline.py auth_route_line=135 auth_route_decorator=app.post auth_route_paths=/evaluate auth_route_function=evaluate_pipeline
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-pipeline_judge_pipeline.py auth_string_line=216 auth_string_value=
-
-Please synthesize the expert responses and judge feedback into a refined, accurate answer that addresses all issues while maintaining Ms. Egeria Jarvis's identity.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-pipeline_judge_pipeline.py auth_string_line=226 auth_string_value=user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-truth_lm_synthesizer.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-truth_lm_synthesizer.py auth_route_line=39 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-truth_lm_synthesizer.py auth_route_line=59 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-truth_lm_synthesizer.py auth_route_line=102 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-truth_lm_synthesizer.py auth_string_line=60 auth_string_value=
-    Canonical synthesizer endpoint for main_brain:
-    POST /chat {message, user_id, context?}
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-judge-truth_lm_synthesizer.py auth_string_line=66 auth_string_value=user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-lm-synthesizer_lm_synthesizer.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-lm-synthesizer_lm_synthesizer.py auth_route_line=39 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-lm-synthesizer_lm_synthesizer.py auth_route_line=59 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-lm-synthesizer_lm_synthesizer.py auth_route_line=102 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-lm-synthesizer_lm_synthesizer.py auth_string_line=60 auth_string_value=
-    Canonical synthesizer endpoint for main_brain:
-    POST /chat {message, user_id, context?}
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-lm-synthesizer_lm_synthesizer.py auth_string_line=66 auth_string_value=user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-local-resources_local_resources_resolver.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-local-resources_local_resources_resolver.py auth_route_line=42 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-local-resources_local_resources_resolver.py auth_route_line=47 auth_route_decorator=app.post auth_route_paths=/resolve auth_route_function=resolve_resources
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-mother-protocols_mother_protocols.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-mother-protocols_mother_protocols.py auth_route_line=14 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-mother-protocols_mother_protocols.py auth_route_line=18 auth_route_decorator=app.post auth_route_paths=/guidance auth_route_function=guidance
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py auth_route_line=65 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py auth_route_line=84 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py auth_route_line=94 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=unified_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py auth_route_line=181 auth_route_decorator=app.post auth_route_paths=/experience auth_route_function=experience_endpoint
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py auth_route_line=186 auth_route_decorator=app.post auth_route_paths=/filter_consciousness auth_route_function=filter_consciousness_endpoint
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py auth_route_line=191 auth_route_decorator=app.get auth_route_paths=/status auth_route_function=status
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-psychology-services_psychology_integration_adapter.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-psychology-services_psychology_integration_adapter.py auth_string_line=159 auth_string_value=
-                INSERT INTO identity_access_log 
-                (ueid, action, service, endpoint, success, error_message, timestamp)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
-            
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-psychology-services_psychology_integration_adapter.py auth_string_line=48 auth_string_value=user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-qualia-engine_ms_jarvis_qualia_engine.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-qualia-engine_ms_jarvis_qualia_engine.py auth_route_line=28 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-qualia-engine_ms_jarvis_qualia_engine.py auth_route_line=37 auth_route_decorator=app.post auth_route_paths=/communicate auth_route_function=communicate
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py auth_route_line=65 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py auth_route_line=84 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py auth_route_line=94 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=unified_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py auth_route_line=181 auth_route_decorator=app.post auth_route_paths=/experience auth_route_function=experience_endpoint
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py auth_route_line=186 auth_route_decorator=app.post auth_route_paths=/filter_consciousness auth_route_function=filter_consciousness_endpoint
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py auth_route_line=191 auth_route_decorator=app.get auth_route_paths=/status auth_route_function=status
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-semaphore_msjarvis_semaphore.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-semaphore_msjarvis_semaphore.py auth_route_line=21 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-semaphore_msjarvis_semaphore.py auth_route_line=31 auth_route_decorator=app.post auth_route_paths=/proxy auth_route_function=proxy_request
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-spiritual-rag_spiritual_rag_domain.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-spiritual-rag_spiritual_rag_domain.py auth_route_line=51 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-spiritual-rag_spiritual_rag_domain.py auth_route_line=62 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-spiritual-rag_spiritual_rag_domain.py auth_route_line=73 auth_route_decorator=app.post auth_route_paths=/search auth_route_function=search
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-spiritual-rag_spiritual_rag_domain.py auth_route_line=115 auth_route_decorator=app.post auth_route_paths=/add_document auth_route_function=add_document
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-spiritual-rag_spiritual_rag_domain.py auth_string_line=43 auth_string_value=Let your life speak - authentic action rooted in faith is more powerful than words alone.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py auth_route_line=65 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py auth_route_line=84 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py auth_route_line=94 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=unified_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py auth_route_line=181 auth_route_decorator=app.post auth_route_paths=/experience auth_route_function=experience_endpoint
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py auth_route_line=186 auth_route_decorator=app.post auth_route_paths=/filter_consciousness auth_route_function=filter_consciousness_endpoint
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py auth_route_line=191 auth_route_decorator=app.get auth_route_paths=/status auth_route_function=status
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-temporal-consciousness_temporal_consciousness.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-temporal-consciousness_temporal_consciousness.py auth_route_line=14 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-temporal-consciousness_temporal_consciousness.py auth_route_line=18 auth_route_decorator=app.post auth_route_paths=/temporalanalysis auth_route_function=temporalanalysis
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-toroidal_toroidal_service.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-toroidal_toroidal_service.py auth_route_line=40 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-toroidal_toroidal_service.py auth_route_line=48 auth_route_decorator=app.get auth_route_paths=/selftest auth_route_function=selftest
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-toroidal_toroidal_service.py auth_route_line=74 auth_route_decorator=app.post auth_route_paths=/process auth_route_function=process
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py auth_route_line=104 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py auth_route_line=123 auth_route_decorator=app.post auth_route_paths=/chat_wv auth_route_function=chat_wv
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py auth_string_line=133 auth_string_value=user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm1-proxy_llm1_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm1-proxy_llm1_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm1-proxy_llm1_health_proxy.py auth_route_line=56 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm10-proxy_llm10_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm10-proxy_llm10_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm10-proxy_llm10_health_proxy.py auth_route_line=64 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm11-proxy_llm11_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm11-proxy_llm11_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm11-proxy_llm11_health_proxy.py auth_route_line=56 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm12-proxy_llm12_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm12-proxy_llm12_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm12-proxy_llm12_health_proxy.py auth_route_line=56 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm13-proxy_llm13_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm13-proxy_llm13_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm13-proxy_llm13_health_proxy.py auth_route_line=64 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm14-proxy_llm14_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm14-proxy_llm14_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm14-proxy_llm14_health_proxy.py auth_route_line=64 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm15-proxy_llm15_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm15-proxy_llm15_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm15-proxy_llm15_health_proxy.py auth_route_line=64 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm16-proxy_llm16_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm16-proxy_llm16_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm16-proxy_llm16_health_proxy.py auth_route_line=56 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm17-proxy_llm17_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm17-proxy_llm17_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm17-proxy_llm17_health_proxy.py auth_route_line=56 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm18-proxy_llm18_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm18-proxy_llm18_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm18-proxy_llm18_health_proxy.py auth_route_line=64 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm19-proxy_llm19_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm19-proxy_llm19_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm19-proxy_llm19_health_proxy.py auth_route_line=64 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm2-proxy_llm2_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm2-proxy_llm2_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm2-proxy_llm2_health_proxy.py auth_route_line=56 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm20-proxy_llm20_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm20-proxy_llm20_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm20-proxy_llm20_health_proxy.py auth_route_line=56 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm21-proxy_llm21_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm21-proxy_llm21_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm21-proxy_llm21_health_proxy.py auth_route_line=64 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm22-proxy_llm22_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm22-proxy_llm22_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm22-proxy_llm22_health_proxy.py auth_route_line=57 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm3-proxy_llm3_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm3-proxy_llm3_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm3-proxy_llm3_health_proxy.py auth_route_line=64 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm4-proxy_llm4_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm4-proxy_llm4_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm4-proxy_llm4_health_proxy.py auth_route_line=56 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm5-proxy_llm5_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm5-proxy_llm5_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm5-proxy_llm5_health_proxy.py auth_route_line=64 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm6-proxy_llm6_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm6-proxy_llm6_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm6-proxy_llm6_health_proxy.py auth_route_line=56 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm7-proxy_llm7_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm7-proxy_llm7_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm7-proxy_llm7_health_proxy.py auth_route_line=56 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm8-proxy_llm8_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm8-proxy_llm8_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm8-proxy_llm8_health_proxy.py auth_route_line=56 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm9-proxy_llm9_health_proxy.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm9-proxy_llm9_health_proxy.py auth_route_line=23 auth_route_decorator=app.post auth_route_paths=/generate auth_route_function=generate
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/llm9-proxy_llm9_health_proxy.py auth_route_line=56 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/ms_jarvis_qualia_engine.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/ms_jarvis_qualia_engine.py auth_route_line=28 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/ms_jarvis_qualia_engine.py auth_route_line=37 auth_route_decorator=app.post auth_route_paths=/communicate auth_route_function=communicate
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py auth_route_line=6 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py auth_route_line=10 auth_route_decorator=app.post auth_route_paths=/process auth_route_function=process
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_consciousness_containers-1_main.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_consciousness_containers-1_main.py auth_route_line=11 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=read_root
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_heteroglobulin_transport-1_main.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_heteroglobulin_transport-1_main.py auth_route_line=11 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=read_root
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py auth_route_line=65 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py auth_route_line=84 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py auth_route_line=94 auth_route_decorator=app.post auth_route_paths=/chat auth_route_function=unified_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py auth_route_line=181 auth_route_decorator=app.post auth_route_paths=/experience auth_route_function=experience_endpoint
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py auth_route_line=186 auth_route_decorator=app.post auth_route_paths=/filter_consciousness auth_route_function=filter_consciousness_endpoint
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py auth_route_line=191 auth_route_decorator=app.get auth_route_paths=/status auth_route_function=status
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_mother_carrie_protocols-1_main.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_mother_carrie_protocols-1_main.py auth_route_line=11 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=read_root
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_pituitary_gland-1_main.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_pituitary_gland-1_main.py auth_route_line=11 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=read_root
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_prefrontal_cortex-1_main.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_prefrontal_cortex-1_main.py auth_route_line=11 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=read_root
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py auth_route_line=6 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py auth_route_line=10 auth_route_decorator=app.post auth_route_paths=/process auth_route_function=process
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_spiritual_maternal_integration-1_main.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_spiritual_maternal_integration-1_main.py auth_route_line=11 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=read_root
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_spiritual_root-1_main.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_spiritual_root-1_main.py auth_route_line=11 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=read_root
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_subconscious-1_main.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_subconscious-1_main.py auth_route_line=11 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=read_root
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_woah_algorithms-1_service_discovery.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/msjarvis-rebuild-nbb_woah_algorithms-1_service_discovery.py auth_string_line=120 auth_string_value=Get all registered services
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/nbb_darwin_godel_machines.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/nbb_darwin_godel_machines.py auth_route_line=128 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/nbb_darwin_godel_machines.py auth_route_line=144 auth_route_decorator=app.get auth_route_paths=/list_targets auth_route_function=list_targets
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/nbb_darwin_godel_machines.py auth_route_line=156 auth_route_decorator=app.post auth_route_paths=/propose_patches auth_route_function=propose_patches
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/nbb_darwin_godel_machines.py auth_route_line=236 auth_route_decorator=app.post auth_route_paths=/enqueue_patches auth_route_function=enqueue_patches
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/nbb_darwin_godel_machines.py auth_route_line=302 auth_route_decorator=app.post auth_route_paths=/commit_patch auth_route_function=commit_patch
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/nbb_darwin_godel_machines_msjarvis-rebuild-nbb_spiritual_root-1_main.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/nbb_darwin_godel_machines_msjarvis-rebuild-nbb_spiritual_root-1_main.py auth_route_line=11 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=read_root
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py auth_route_line=65 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py auth_route_line=117 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py auth_route_line=132 auth_route_decorator=app.post auth_route_paths=/consciousnesschat auth_route_function=consciousness_chat
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py auth_route_line=261 auth_route_decorator=app.post auth_route_paths=/assess auth_route_function=assess_legacy
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py auth_route_line=266 auth_route_decorator=app.get auth_route_paths=/metrics auth_route_function=metrics
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py auth_route_line=300 auth_route_decorator=app.get auth_route_paths=/status auth_route_function=status
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/port_9000_69dgm_bridge.py auth_string_line=102 auth_string_value=user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/psychological_rag_domain_psychological_rag_domain.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/psychological_rag_domain_psychological_rag_domain.py auth_route_line=72 auth_route_decorator=app.get auth_route_paths=/ auth_route_function=root
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/psychological_rag_domain_psychological_rag_domain.py auth_route_line=85 auth_route_decorator=app.get auth_route_paths=/health auth_route_function=health
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/psychological_rag_domain_psychological_rag_domain.py auth_route_line=119 auth_route_decorator=app.post auth_route_paths=/search auth_route_function=search
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/psychological_rag_domain_psychological_rag_domain.py auth_route_line=171 auth_route_decorator=app.post auth_route_paths=/query auth_route_function=query_rag
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.archive/services.backup_20260308_111532/psychological_rag_domain_psychological_rag_domain.py auth_route_line=198 auth_route_decorator=app.post auth_route_paths=/add_document auth_route_function=add_document
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/_yaml/__init__.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/_yaml/__init__.py auth_string_line=19 auth_string_value=The _yaml extension module is now located at yaml._yaml and its location is subject to change.  To use the LibYAML-based parser and emitter, import from `yaml`: `from yaml import CLoader as Loader, CDumper as Dumper`.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py auth_function_line=1973 auth_function_name=total_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py auth_function_line=1977 auth_function_name=total_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py auth_function_line=1994 auth_function_name=borrowed_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py auth_function_line=1998 auth_function_name=available_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py auth_function_line=2345 auth_function_name=current_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py auth_string_line=1979 auth_string_value=total_tokens must be an int or math.inf
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py auth_string_line=1982 auth_string_value=total_tokens must be >= 0
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py auth_string_line=2013 auth_string_value=this borrower is already holding one of this CapacityLimiter's tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py auth_string_line=2056 auth_string_value=this borrower isn't holding any of this CapacityLimiter's tokens
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_trio.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_trio.py auth_function_line=771 auth_function_name=total_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_trio.py auth_function_line=775 auth_function_name=total_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_trio.py auth_function_line=779 auth_function_name=borrowed_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_trio.py auth_function_line=783 auth_function_name=available_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_trio.py auth_function_line=971 auth_function_name=current_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_trio.py auth_string_line=1064 auth_string_value=trio.lowlevel.TrioToken | None
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_backends/_trio.py auth_string_line=1077 auth_string_value=trio.lowlevel.TrioToken | None
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_asyncio_selector_thread.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_asyncio_selector_thread.py auth_string_line=59 auth_string_value=selector still has registered file descriptors after shutdown
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_asyncio_selector_thread.py auth_string_line=77 auth_string_value=this file descriptor is already registered for reading
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_asyncio_selector_thread.py auth_string_line=94 auth_string_value=this file descriptor is already registered for writing
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_exceptions.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_exceptions.py auth_string_line=148 auth_string_value=
-    Raised by :func:`.from_thread.run` and :func:`.from_thread.run_sync` if the event
-    loop associated with the explicitly passed token has already finished.
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_exceptions.py auth_string_line=155 auth_string_value=The event loop associated with the given token has already finished
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_function_line=531 auth_function_name=total_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_function_line=548 auth_function_name=total_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_function_line=552 auth_function_name=borrowed_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_function_line=557 auth_function_name=available_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_function_line=658 auth_function_name=total_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_function_line=665 auth_function_name=total_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_function_line=678 auth_function_name=borrowed_tokens
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_function_line=685 auth_function_name=available_tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_string_line=553 auth_string_value=The number of tokens that have currently been borrowed.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_string_line=558 auth_string_value=The number of tokens currently available to be borrowed
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_string_line=562 auth_string_value=
-        Acquire a token for the current task without waiting for one to become
-        available.
-
-        :raises ~anyio.WouldBlock: if there are no tokens available for borrowing
-
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_string_line=572 auth_string_value=
-        Acquire a token without waiting for one to become available.
-
-        :param borrower: the entity borrowing a token
-        :raises ~anyio.WouldBlock: if there are no tokens available for borrowing
-
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_string_line=582 auth_string_value=
-        Acquire a token for the current task, waiting if necessary for one to become
-        available.
-
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_string_line=590 auth_string_value=
-        Acquire a token, waiting if necessary for one to become available.
-
-        :param borrower: the entity borrowing a token
-
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_string_line=599 auth_string_value=
-        Release the token held by the current task.
-
-        :raises RuntimeError: if the current task has not borrowed a token from this
-            limiter.
-
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_string_line=609 auth_string_value=
-        Release the token held by the given borrower.
-
-        :raises RuntimeError: if the borrower has not borrowed a token from this
-            limiter.
-
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_string_line=667 auth_string_value=total_tokens must be an int or math.inf
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py auth_string_line=669 auth_string_value=total_tokens must be >= 1
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/abc/_eventloop.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/abc/_eventloop.py auth_function_line=80 auth_function_name=current_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/abc/_eventloop.py auth_string_line=81 auth_string_value=
-        Return an object that allows other threads to run code inside the event loop.
-
-        :return: a token object, specific to the event loop running in the current
-            thread
-        
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/from_thread.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/from_thread.py auth_function_line=54 auth_function_name=_token_or_error
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/from_thread.py auth_string_line=62 auth_string_value=Not running inside an AnyIO worker thread, and no event loop token was provided
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/lowlevel.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/lowlevel.py auth_function_line=81 auth_function_name=current_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/lowlevel.py auth_string_line=4 auth_string_value=EventLoopToken
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/lowlevel.py auth_string_line=5 auth_string_value=RunvarToken
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/lowlevel.py auth_string_line=10 auth_string_value=current_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/lowlevel.py auth_string_line=82 auth_string_value=
-    Return a token object that can be used to call code in the current event loop from
-    another thread.
-
-    :raises NoEventLoopError: if no supported asynchronous event loop is running in the
-        current thread
-
-    .. versionadded:: 4.11.0
-
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/lowlevel.py auth_string_line=180 auth_string_value=This token does not belong to this RunVar
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/lowlevel.py auth_string_line=183 auth_string_value=This token has already been used
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/pytest_plugin.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/pytest_plugin.py auth_string_line=285 auth_string_value=session
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/pytest_plugin.py auth_string_line=290 auth_string_value=session
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/streams/tls.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/anyio/streams/tls.py auth_string_line=260 auth_string_value=send_eof() requires at least TLSv1.3; current session uses 
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/attr/_make.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/attr/_make.py auth_string_line=771 auth_string_value=
-        Evaluate any registered snippets in one go.
-        
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/attrs/__init__.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/attrs/__init__.py auth_string_line=39 auth_string_value=__author__
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/__init__.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/__init__.py auth_string_line=81 auth_string_value=TokenTransportHeader
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/__init__.py auth_string_line=435 auth_string_value=chromadb.auth.token_authn.TokenAuthClientProvider
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/__init__.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/__init__.py auth_function_line=381 auth_function_name=get_user_identity
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/async_api.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/async_api.py auth_function_line=333 auth_function_name=get_user_identity
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/async_client.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/async_client.py auth_function_line=120 auth_function_name=get_user_identity
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/async_fastapi.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/async_fastapi.py auth_function_line=264 auth_function_name=get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/async_fastapi.py auth_string_line=262 auth_string_value=AsyncFastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/async_fastapi.py auth_string_line=265 auth_string_value=/auth/identity
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/client.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/client.py auth_function_line=132 auth_function_name=get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/client.py auth_string_line=91 auth_string_value=Could not determine a tenant from the current authentication method. Please provide a tenant.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/client.py auth_string_line=95 auth_string_value=Could not determine a database name from the current authentication method. Please provide a database name.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/collection_configuration.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/collection_configuration.py auth_string_line=96 auth_string_value= not found. Add @register_embedding_function decorator to the class definition.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/fastapi.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/fastapi.py auth_function_line=225 auth_function_name=get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/fastapi.py auth_string_line=223 auth_string_value=FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/fastapi.py auth_string_line=226 auth_string_value=/auth/identity
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/rust.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/rust.py auth_function_line=669 auth_function_name=get_user_identity
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/segment.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/segment.py auth_function_line=204 auth_function_name=get_user_identity
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/shared_system_client.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/shared_system_client.py auth_string_line=174 auth_string_value=x-chroma-token
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/types.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/api/types.py auth_function_line=974 auth_function_name=max_tokens
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_function_line=44 auth_function_name=authenticate
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_function_line=90 auth_function_name=authenticate_or_raise
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_function_line=211 auth_function_name=authorize_or_raise
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_string_line=34 auth_string_value=
-    ClientAuthProvider is responsible for providing authentication headers for
-    client requests. Client implementations (in our case, just the FastAPI
-    client) must inject these headers into their requests.
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_string_line=158 auth_string_value=
-    The set of actions that can be authorized by the authorization provider.
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_string_line=187 auth_string_value=
-    The resource being accessed in an authorization request.
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_string_line=113 auth_string_value=No credentials file or credentials found in [chroma_server_authn_credentials].
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_string_line=220 auth_string_value=chroma_server_authz_config_file
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_string_line=225 auth_string_value=No authz configuration file or authz configuration found.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_string_line=229 auth_string_value=Both authz configuration file and authz configuration found.Please provide only one.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_string_line=107 auth_string_value=chroma_server_authn_credentials_file
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_string_line=110 auth_string_value=chroma_server_authn_credentials
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/__init__.py auth_string_line=222 auth_string_value=chroma_server_authz_config
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py auth_function_line=51 auth_function_name=authenticate
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py auth_function_line=105 auth_function_name=authenticate_or_raise
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py auth_string_line=35 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py auth_string_line=33 auth_string_value=BasicAuthenticationServerProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py auth_string_line=33 auth_string_value=BasicAuthClientProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py auth_string_line=39 auth_string_value=
-    Client auth provider for basic auth. The credentials are passed as a
-    base64-encoded string in the Authorization header prepended with "Basic ".
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py auth_string_line=102 auth_string_value=BasicAuthenticationServerProvider.authenticate
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py auth_string_line=47 auth_string_value=chroma_client_auth_credentials
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py auth_string_line=95 auth_string_value=Duplicate username found in [chroma_server_authn_credentials]. Usernames must be unique.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py auth_string_line=115 auth_string_value=Invalid Authorization header format
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py auth_string_line=131 auth_string_value=BasicAuthenticationServerProvider.authenticate failed: 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/basic_authn/__init__.py auth_string_line=140 auth_string_value=BasicAuthenticationServerProvider.authenticate failed: Failed to authenticate 
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/simple_rbac_authz/__init__.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/simple_rbac_authz/__init__.py auth_function_line=58 auth_function_name=authorize_or_raise
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/simple_rbac_authz/__init__.py auth_string_line=54 auth_string_value=SimpleRBACAuthorizationProvider.authorize
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/simple_rbac_authz/__init__.py auth_string_line=50 auth_string_value=Authorization Provider SimpleRBACAuthorizationProvider initialized
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/simple_rbac_authz/__init__.py auth_string_line=69 auth_string_value=Authorization decision: Access 
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_function_line=56 auth_function_name=_check_token
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_function_line=70 auth_function_name=_check_allowed_token_headers
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_function_line=105 auth_function_name=authenticate
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_function_line=194 auth_function_name=authenticate_or_raise
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=34 auth_string_value=TokenAuthenticationServerProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=35 auth_string_value=TokenAuthClientProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=36 auth_string_value=TokenTransportHeader
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=41 auth_string_value=
-    Accceptable token transport headers.
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=49 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=50 auth_string_value=X-Chroma-Token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=79 auth_string_value=
-    Client auth provider for token-based auth. Header key will be either
-    "Authorization" or "X-Chroma-Token" depending on
-    `chroma_auth_token_transport_header`. If the header is "Authorization",
-    the token is passed as a bearer token.
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=115 auth_string_value=
-    A simple User class for use in this module only. If you need a generic
-    way to represent a User, please use UserIdentity as this class keeps
-    track of sensitive tokens.
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=191 auth_string_value=TokenAuthenticationServerProvider.authenticate
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=60 auth_string_value=Invalid token. Must contain only ASCII letters, digits, and punctuation.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=90 auth_string_value=chroma_client_auth_credentials
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=73 auth_string_value=Invalid token transport header: 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=171 auth_string_value=tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=177 auth_string_value=tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=172 auth_string_value=User missing tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=210 auth_string_value=Invalid credentials: Token not found}
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=198 auth_string_value=Authorization header '
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=203 auth_string_value=Bearer not found in Authorization header
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=220 auth_string_value=TokenAuthenticationServerProvider.authenticate failed: 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=229 auth_string_value=TokenAuthenticationServerProvider.authenticate failed: Failed to authenticate 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/auth/token_authn/__init__.py auth_string_line=184 auth_string_value=Token 
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/base_types.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/base_types.py auth_string_line=87 auth_string_value=Serialize to transport format with type tag.
-
-        Note: Uses 'tokens' as the wire format key name for compatibility
-        with the protobuf schema, even though the Python attribute is 'labels'.
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/base_types.py auth_string_line=103 auth_string_value=Deserialize from transport format (strict - requires #type field).
-
-        Note: Reads from 'tokens' key in the wire format for compatibility
-        with the protobuf schema, mapping it to the 'labels' attribute.
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/base_types.py auth_string_line=98 auth_string_value=tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/base_types.py auth_string_line=115 auth_string_value=tokens
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/config.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/config.py auth_string_line=67 auth_string_value=chromadb.auth.ClientAuthProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/config.py auth_string_line=68 auth_string_value=chromadb.auth.ServerAuthenticationProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/config.py auth_string_line=69 auth_string_value=chromadb.auth.ServerAuthorizationProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/config.py auth_string_line=67 auth_string_value=chroma_client_auth_provider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/config.py auth_string_line=68 auth_string_value=chroma_server_authn_provider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/config.py auth_string_line=69 auth_string_value=chroma_server_authz_provider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/config.py auth_string_line=337 auth_string_value=Get a Component instance of the given type, and register as a dependency of
-        that instance.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/errors.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/errors.py auth_string_line=183 auth_string_value=AuthorizationError
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/errors.py auth_string_line=188 auth_string_value=AuthError
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/errors.py auth_string_line=49 auth_string_value=AuthError
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/errors.py auth_string_line=96 auth_string_value=AuthorizationError
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/execution/expression/operator.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/execution/expression/operator.py auth_string_line=1279 auth_string_value=Create Select from dictionary.
-
-        Examples:
-        - {"keys": ["#document", "#score"]} -> Select(keys={Key.DOCUMENT, Key.SCORE})
-        - {"keys": ["title", "author"]} -> Select(keys={"title", "author"})
-        
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/ingest/__init__.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/ingest/__init__.py auth_string_line=109 auth_string_value=Unregister a subscription. The consume function will no longer be invoked,
-        and resources associated with the subscription will be released.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/segment/distributed/__init__.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/segment/distributed/__init__.py auth_function_line=21 auth_function_name=register_updated_segment_callback
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/segment/distributed/__init__.py auth_function_line=64 auth_function_name=register_updated_memberlist_callback
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/segment/distributed/__init__.py auth_function_line=72 auth_function_name=unregister_updated_memberlist_callback
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/segment/distributed/__init__.py auth_string_line=24 auth_string_value=Register a callback that will be called when a segment is updated
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/segment/distributed/__init__.py auth_string_line=67 auth_string_value=Registers a callback that will be called when the memberlist changes. May be called many times
-        with the same memberlist, so callers should be idempotent. May be called from a different thread.
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/segment/distributed/__init__.py auth_string_line=75 auth_string_value=Unregisters a callback that was previously registered. Returns True if the callback was
-        successfully unregistered, False if it was not ever registered.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/segment/impl/distributed/segment_directory.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/segment/impl/distributed/segment_directory.py auth_function_line=315 auth_function_name=register_updated_segment_callback
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/segment/impl/distributed/segment_directory.py auth_string_line=52 auth_string_value=Updates the memberlist and calls all registered callbacks. This mocks an update from a k8s CR
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py auth_function_line=485 auth_function_name=auth_request
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py auth_function_line=503 auth_function_name=sync_auth_request
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py auth_function_line=548 auth_function_name=get_user_identity
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py auth_function_line=1549 auth_function_name=auth_and_get_tenant_and_database_for_request
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py auth_function_line=1582 auth_function_name=sync_auth_and_get_tenant_and_database_for_request
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py auth_string_line=481 auth_string_value=auth_request
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py auth_string_line=511 auth_string_value=
-        Authenticates and authorizes the request based on the given headers
-        and other parameters. If the request cannot be authenticated or cannot
-        be authorized (with the configured providers), raises an HTTP 401.
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py auth_string_line=500 auth_string_value=FastAPI.sync_auth_request
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py auth_string_line=547 auth_string_value=FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py auth_string_line=1545 auth_string_value=auth_and_get_tenant_and_database_for_request_v1
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py auth_string_line=288 auth_string_value=/api/v2/auth/identity
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/telemetry/product/__init__.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/telemetry/product/__init__.py auth_function_line=79 auth_function_name=user_id
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/telemetry/product/__init__.py auth_string_line=51 auth_string_value=telemetry_user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_schema_e2e.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_schema_e2e.py auth_string_line=274 auth_string_value=Sparse embedding function that emits predictable token/value pairs.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py auth_function_line=30 auth_function_name=register_mock_system
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py auth_string_line=31 auth_string_value=Register a mock system with the given ID and server API.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py auth_string_line=41 auth_string_value=X-Chroma-Token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py auth_string_line=53 auth_string_value=x-chroma-token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py auth_string_line=65 auth_string_value=X-Chroma-Token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py auth_string_line=77 auth_string_value=X-Chroma-Token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py auth_string_line=89 auth_string_value=X-Chroma-Token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py auth_string_line=113 auth_string_value=X-Chroma-Token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py auth_string_line=117 auth_string_value=X-Chroma-Token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py auth_string_line=156 auth_string_value=X-CHROMA-TOKEN
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py auth_string_line=169 auth_string_value=X-Chroma-Token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/api/test_shared_system_client.py auth_string_line=173 auth_string_value=X-Chroma-Token
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/auth/test_auth_utils.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/auth/test_auth_utils.py auth_function_line=10 auth_function_name=user_identity
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/auth/test_auth_utils.py auth_function_line=18 auth_function_name=test_doesnt_overrite_from_auth
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/auth/test_auth_utils.py auth_function_line=54 auth_function_name=test_errors_when_provided_tenant_and_database_dont_match_from_auth
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/auth/test_auth_utils.py auth_function_line=66 auth_function_name=test_doesnt_overrite_from_auth_when_ambiguous
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/auth/test_auth_utils.py auth_string_line=12 auth_string_value=test_user_id
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/create_http_client_with_basic_auth.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/create_http_client_with_basic_auth.py auth_string_line=17 auth_string_value=chromadb.auth.basic_authn.BasicAuthClientProvider
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=12 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=36 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=39 auth_string_value=chromadb.auth.token_authn.TokenAuthClientProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=47 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=49 auth_string_value=Authentication failed
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=58 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=82 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=104 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=126 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=150 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=165 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=180 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=191 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=210 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=236 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=261 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=279 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=294 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=309 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=324 auth_string_value=chromadb.api.fastapi.FastAPI.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=29 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=73 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=96 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=118 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=141 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=227 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=52 auth_string_value=invalid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=160 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=175 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=204 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=256 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=271 auth_string_value=Could not determine a database name from the current authentication method. Please provide a database name.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=273 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=287 auth_string_value=Could not determine a tenant from the current authentication method. Please provide a tenant.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=289 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=302 auth_string_value=Could not determine a database name from the current authentication method. Please provide a database name.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=304 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=317 auth_string_value=Could not determine a database name from the current authentication method. Please provide a database name.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=319 auth_string_value=valid_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=332 auth_string_value=Could not determine a tenant from the current authentication method. Please provide a tenant.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_cloud_client.py auth_string_line=334 auth_string_value=valid_token
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_create_http_client.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_create_http_client.py auth_string_line=4 auth_string_value=chromadb.test.client.create_http_client_with_basic_auth
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_database_tenant_auth.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_database_tenant_auth.py auth_function_line=18 auth_function_name=authenticate_or_raise
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_database_tenant_auth.py auth_function_line=33 auth_function_name=authorize_or_raise
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_database_tenant_auth.py auth_string_line=15 auth_string_value=In practice the tenant would likely be resolved from some other opaque value (e.g. key/token). Here, it's just passed directly as a header for simplicity.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_database_tenant_auth.py auth_string_line=26 auth_string_value=A simple authz provider that asserts the user's tenant matches the resource's tenant.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/client/test_database_tenant_auth.py auth_string_line=43 auth_string_value=Unauthorized
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_function_line=433 auth_function_name=fastapi_server_basic_auth_valid_cred_single_user
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_function_line=452 auth_function_name=fastapi_server_basic_auth_valid_cred_multiple_users
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_function_line=475 auth_function_name=fastapi_server_basic_auth_invalid_cred
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_function_line=490 auth_function_name=fastapi_server_basic_authn_rbac_authz
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_function_line=772 auth_function_name=system_fixtures_auth
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_function_line=780 auth_function_name=system_fixtures_authn_rbac_authz
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_function_line=794 auth_function_name=system_fixtures_wrong_auth
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_function_line=805 auth_function_name=system_wrong_auth
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_function_line=812 auth_function_name=system_authn_rbac_authz
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_function_line=836 auth_function_name=system_auth
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_function_line=1064 auth_function_name=api_with_authn_rbac_authz
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_function_line=1073 auth_function_name=api_with_server_auth
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=1137 auth_string_value=Register custom markers
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=575 auth_string_value=
-users:
-  - id: admin
-    tokens:
-      - admin-token
-  - id: singleton_user
-    tenant: singleton_tenant
-    databases:
-      - singleton_database
-    tokens:
-      - singleton-token
-
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=444 auth_string_value=chromadb.auth.basic_authn.BasicAuthenticationServerProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=446 auth_string_value=chromadb.auth.basic_authn.BasicAuthClientProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=467 auth_string_value=chromadb.auth.basic_authn.BasicAuthenticationServerProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=469 auth_string_value=chromadb.auth.basic_authn.BasicAuthClientProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=482 auth_string_value=chromadb.auth.basic_authn.BasicAuthenticationServerProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=484 auth_string_value=chromadb.auth.basic_authn.BasicAuthClientProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=560 auth_string_value=chromadb.auth.token_authn.TokenAuthClientProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=561 auth_string_value=admin-token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=573 auth_string_value=.authn
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=593 auth_string_value=chromadb.auth.token_authn.TokenAuthClientProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=594 auth_string_value=admin-token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=595 auth_string_value=chromadb.auth.token_authn.TokenAuthenticationServerProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=500 auth_string_value=.authz
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=537 auth_string_value=chromadb.auth.basic_authn.BasicAuthClientProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=539 auth_string_value=chromadb.auth.basic_authn.BasicAuthenticationServerProvider
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/conftest.py auth_string_line=541 auth_string_value=chromadb.auth.simple_rbac_authz.SimpleRBACAuthorizationProvider
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py auth_function_line=17 auth_function_name=test_comprehensive_tokenization_matches_reference
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py auth_string_line=108 auth_string_value=token_max_length
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py auth_string_line=121 auth_string_value=token_max_length
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py auth_string_line=121 auth_string_value=token_max_length
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_onnx_mini_lm_l6_v2.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_onnx_mini_lm_l6_v2.py auth_route_line=104 auth_route_decorator=patch auth_route_paths=httpx.stream auth_route_function=test_download_functionality
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_onnx_mini_lm_l6_v2.py auth_function_line=98 auth_function_name=test_max_tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/ef/test_onnx_mini_lm_l6_v2.py auth_string_line=99 auth_string_value=Test the max_tokens method.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/property/test_base64_conversion.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/property/test_base64_conversion.py auth_function_line=11 auth_function_name=test_base64_conversion_is_identity_i8
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/property/test_base64_conversion.py auth_function_line=21 auth_function_name=test_base64_conversion_is_identity_f16
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/property/test_base64_conversion.py auth_function_line=31 auth_function_name=test_base64_conversion_is_identity_f32
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/property/test_base64_conversion.py auth_function_line=41 auth_function_name=test_base64_conversion_is_identity_f64
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/property/test_base64_conversion.py auth_function_line=67 auth_function_name=test_base64_conversion_numpy_is_identity_f32
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/property/test_collections_with_database_tenant_overwrite.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/property/test_collections_with_database_tenant_overwrite.py auth_string_line=187 auth_string_value=singleton-token
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/property/test_cross_version_persist.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/property/test_cross_version_persist.py auth_string_line=41 auth_string_value=tokenizers
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_api.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_api.py auth_string_line=3800 auth_string_value=author
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_api.py auth_string_line=3798 auth_string_value=author
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_chroma.py
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_chroma.py auth_route_line=13 auth_route_decorator=patch auth_route_paths=chromadb.db.impl.sqlite.SqliteDB auth_route_function=test_default_db
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_chroma.py auth_route_line=21 auth_route_decorator=patch auth_route_paths=chromadb.db.impl.sqlite.SqliteDB auth_route_function=test_sqlite_sysdb
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_chroma.py auth_route_line=32 auth_route_decorator=patch auth_route_paths=chromadb.db.impl.sqlite.SqliteDB auth_route_function=test_sqlite_queue
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_chroma.py auth_route_line=51 auth_route_decorator=patch auth_route_paths=chromadb.api.segment.SegmentAPI auth_route_function=test_local
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_chroma.py auth_route_line=60 auth_route_decorator=patch auth_route_paths=chromadb.db.impl.sqlite.SqliteDB auth_route_function=test_local_db
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_chroma.py auth_route_line=67 auth_route_decorator=patch auth_route_paths=chromadb.api.fastapi.FastAPI auth_route_function=test_fastapi
-auth_route_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_chroma.py auth_route_line=81 auth_route_decorator=patch auth_route_paths=chromadb.api.fastapi.FastAPI auth_route_function=test_settings_pass_to_fastapi
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_client.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_client.py auth_string_line=43 auth_string_value=chromadb.api.client.Client.get_user_identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/test/test_client.py auth_string_line=47 auth_string_value=chromadb.api.async_client.AsyncClient.get_user_identity
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py auth_function_line=185 auth_function_name=register_embedding_function
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py auth_function_line=217 auth_function_name=register_sparse_embedding_function
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py auth_function_line=201 auth_function_name=_register
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py auth_function_line=227 auth_function_name=_register
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py auth_string_line=218 auth_string_value=Register a custom sparse embedding function.
-
-    Can be used as a decorator:
-        @register_sparse_embedding_function
-        class MySparseEmbeddingFunction(SparseEmbeddingFunction):
-            @classmethod
-            def name(cls): return "my_sparse_embedding"
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py auth_string_line=304 auth_string_value=register_embedding_function
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py auth_string_line=206 auth_string_value=Failed to register embedding function: 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py auth_string_line=232 auth_string_value=Failed to register sparse embedding function: 
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/amazon_bedrock_embedding_function.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/amazon_bedrock_embedding_function.py auth_string_line=98 auth_string_value=session_args
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/amazon_bedrock_embedding_function.py auth_string_line=115 auth_string_value=session_args
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/bm25_embedding_function.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/bm25_embedding_function.py auth_string_line=84 auth_string_value=token_max_length
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/bm25_embedding_function.py auth_string_line=182 auth_string_value=token_max_length
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/bm25_embedding_function.py auth_string_line=210 auth_string_value=token_max_length
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py auth_string_line=41 auth_string_value=_HashedToken
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py auth_string_line=152 auth_string_value=token_max_length
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py auth_string_line=153 auth_string_value=include_tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py auth_string_line=168 auth_string_value=token_max_length
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py auth_string_line=170 auth_string_value=include_tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py auth_string_line=142 auth_string_value=token_max_length
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py auth_string_line=144 auth_string_value=include_tokens
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_qwen_embedding_function.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_qwen_embedding_function.py auth_string_line=81 auth_string_value=x-chroma-token
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py auth_string_line=65 auth_string_value=
-        Cleanup the HTTP client session when the object is destroyed.
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py auth_string_line=72 auth_string_value=
-        Explicitly close the HTTP client session.
-        Call this method when you're done using the embedding function.
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py auth_string_line=68 auth_string_value=_session
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py auth_string_line=76 auth_string_value=_session
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py auth_string_line=93 auth_string_value=fetch_tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py auth_string_line=166 auth_string_value=include_tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py auth_string_line=172 auth_string_value=include_tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py auth_string_line=59 auth_string_value=x-chroma-token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py auth_string_line=159 auth_string_value=include_tokens
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cloudflare_workers_ai_embedding_function.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cloudflare_workers_ai_embedding_function.py auth_string_line=77 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cloudflare_workers_ai_embedding_function.py auth_string_line=77 auth_string_value=identity
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_embedding_function.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_embedding_function.py auth_string_line=58 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_embedding_function.py auth_string_line=181 auth_string_value=Authorization
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/jina_embedding_function.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/jina_embedding_function.py auth_string_line=109 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/jina_embedding_function.py auth_string_line=109 auth_string_value=identity
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py auth_function_line=199 auth_function_name=tokenizer
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py auth_function_line=334 auth_function_name=max_tokens
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py auth_string_line=200 auth_string_value=
-        Get the tokenizer for the model.
-
-        Returns:
-            The tokenizer for the model.
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py auth_string_line=288 auth_string_value=special_tokens_map.json
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py auth_string_line=289 auth_string_value=tokenizer_config.json
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py auth_string_line=290 auth_string_value=tokenizer.json
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py auth_string_line=176 auth_string_value=token_type_ids
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py auth_string_line=208 auth_string_value=tokenizer.json
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py auth_string_line=77 auth_string_value=tokenizers
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py auth_string_line=80 auth_string_value=The tokenizers python package is not installed. Please install it with `pip install tokenizers`
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py auth_string_line=167 auth_string_value= is greater than the max tokens 
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/bm25_tokenizer.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/bm25_tokenizer.py auth_function_line=238 auth_function_name=_simple_tokenize
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/bm25_tokenizer.py auth_function_line=241 auth_function_name=tokenize
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/bm25_tokenizer.py auth_string_line=221 auth_string_value=Tokenizer with stopword filtering and stemming used by BM25 embeddings.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/bm25_tokenizer.py auth_string_line=276 auth_string_value=Bm25Tokenizer
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/together_ai_embedding_function.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/together_ai_embedding_function.py auth_string_line=66 auth_string_value=Authorization
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/click/core.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/click/core.py auth_string_line=617 auth_string_value=Invoke all close callbacks registered with
-        :meth:`call_on_close`, and exit all context managers entered
-        with :meth:`with_resource`.
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/click/core.py auth_string_line=629 auth_string_value=Unwind the exit stack by calling its :meth:`__exit__` providing the exception
-        information to allow for exception handling by the various resources registered
-        using :meth;`with_resource`
-
-        :return: Whatever ``exit_stack.__exit__()`` returns.
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/click/core.py auth_string_line=731 auth_string_value=Exits the application with a given exit code.
-
-        .. versionchanged:: 8.2
-            Callbacks and context managers registered with :meth:`call_on_close`
-            and :meth:`with_resource` are closed before exiting.
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/click/core.py auth_string_line=1623 auth_string_value=Registers another :class:`Command` with this group.  If the name
-        is not provided, the name of the command is used.
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/click/core.py auth_string_line=448 auth_string_value='protected_args' is deprecated and will be removed in Click 9.0. 'args' will contain remaining unparsed tokens.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/click/shell_completion.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/click/shell_completion.py auth_string_line=214 auth_string_value=Name to register the shell as with :func:`add_completion_class`.
-    This is used in completion instructions (``{name}_source`` and
-    ``{name}_complete``).
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/click/shell_completion.py auth_string_line=457 auth_string_value=Look up a registered :class:`ShellComplete` subclass by the name
-    provided by the completion instruction environment variable. If the
-    name isn't registered, returns ``None``.
-
-    :param shell: Name the class is registered under.
-    
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/dotenv/ipython.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/dotenv/ipython.py auth_string_line=49 auth_string_value=Register the %dotenv magic.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/applications.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/applications.py auth_string_line=461 auth_string_value=/docs/oauth2-redirect
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/applications.py auth_string_line=452 auth_string_value=
-                The OAuth2 redirect endpoint for the Swagger UI.
-
-                By default it is `/docs/oauth2-redirect`.
-
-                This is only used if you use OAuth2 (with the "Authorize" button)
-                with Swagger UI.
-                
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/applications.py auth_string_line=465 auth_string_value=
-                OAuth2 configuration for the Swagger UI, by default shown at `/docs`.
-
-                Read more about the available configuration options in the
-                [Swagger UI docs](https://swagger.io/docs/open-source-tools/swagger-ui/usage/oauth2/).
-                
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/dependencies/models.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/dependencies/models.py auth_function_line=54 auth_function_name=oauth_scopes
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py auth_string_line=570 auth_string_value=non-body parameters must be in path, query, header or cookie: 
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/openapi/docs.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/openapi/docs.py auth_function_line=301 auth_function_name=get_swagger_ui_oauth2_redirect_html
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/openapi/docs.py auth_string_line=302 auth_string_value=
-    Generate the HTML response with the OAuth2 redirection for Swagger UI.
-
-    You normally don't need to use or change this.
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/openapi/docs.py auth_string_line=175 auth_string_value=oauth2RedirectUrl: window.location.origin + '
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/openapi/docs.py auth_string_line=185 auth_string_value=
-        ui.initOAuth(
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/openapi/docs.py auth_string_line=104 auth_string_value=
-            The OAuth2 redirect URL, it is normally automatically handled by FastAPI.
-
-            Read more about it in the
-            [FastAPI docs for Custom Docs UI Static Assets](https://fastapi.tiangolo.com/how-to/custom-docs-ui-assets/)
-            
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/openapi/docs.py auth_string_line=115 auth_string_value=
-            A dictionary with Swagger UI OAuth2 initialization configurations.
-
-            Read more about the available configuration options in the
-            [Swagger UI docs](https://swagger.io/docs/open-source-tools/swagger-ui/usage/oauth2/).
-            
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/openapi/models.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/openapi/models.py auth_string_line=225 auth_string_value=cookie
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/openapi/models.py auth_string_line=324 auth_string_value=oauth2
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/openapi/models.py auth_string_line=336 auth_string_value=cookie
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/param_functions.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/param_functions.py auth_function_line=1019 auth_function_name=Cookie
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/params.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/params.py auth_string_line=24 auth_string_value=cookie
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/routing.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/routing.py auth_function_line=137 auth_function_name=websocket_session
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/routing.py auth_string_line=140 auth_string_value=
-    Takes a coroutine `func(session)`, and returns an ASGI application.
-    
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/api_key.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/api_key.py auth_function_line=29 auth_function_name=make_not_authenticated_error
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/api_key.py auth_string_line=41 auth_string_value=Not authenticated
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/api_key.py auth_string_line=42 auth_string_value=WWW-Authenticate
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/api_key.py auth_string_line=268 auth_string_value=Cookie name.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_function_line=84 auth_function_name=make_authenticate_headers
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_function_line=87 auth_function_name=make_not_authenticated_error
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_function_line=197 auth_function_name=make_authenticate_headers
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=17 auth_string_value=
-    The HTTP Basic credentials given as the result of using `HTTPBasic` in a
-    dependency.
-
-    Read more about it in the
-    [FastAPI docs for HTTP Basic Auth](https://fastapi.tiangolo.com/advanced/security/http-basic-auth/).
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=85 auth_string_value=WWW-Authenticate
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=95 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=200 auth_string_value=WWW-Authenticate
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=205 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=304 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=405 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=54 auth_string_value=
-            The HTTP authorization scheme extracted from the header value.
-            
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=62 auth_string_value=
-            The HTTP authorization credentials extracted from the header value.
-            
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=90 auth_string_value=Not authenticated
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=199 auth_string_value=WWW-Authenticate
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=156 auth_string_value=
-                HTTP Basic authentication realm.
-                
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/http.py auth_string_line=257 auth_string_value=Bearer token format.
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_function_line=401 auth_function_name=make_not_authenticated_error
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=434 auth_string_value=
-    OAuth2 flow for authentication using a bearer token obtained with a password.
-    An instance of it would be used as a dependency.
-
-    Read more about it in the
-    [FastAPI docs for Simple OAuth2 with Password and Bearer](https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/).
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=548 auth_string_value=
-    OAuth2 flow for authentication using a bearer token obtained with an OAuth2 code
-    flow. An instance of it would be used as a dependency.
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=424 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=537 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=643 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=419 auth_string_value=Not authenticated
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=420 auth_string_value=WWW-Authenticate
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=688 auth_string_value=
-                All the scopes required by all the dependencies in a single string
-                separated by spaces, as defined in the OAuth2 specification.
-                
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=134 auth_string_value=
-                If there's a `client_id`, it can be sent as part of the form fields.
-                But the OAuth2 specification recommends sending the `client_id` and
-                `client_secret` (if any) using HTTP Basic auth.
-                
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=145 auth_string_value=
-                If there's a `client_password` (and a `client_id`), they can be sent
-                as part of the form fields. But the OAuth2 specification recommends
-                sending the `client_id` and `client_secret` (if any) using HTTP Basic
-                auth.
-                
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=300 auth_string_value=
-                If there's a `client_id`, it can be sent as part of the form fields.
-                But the OAuth2 specification recommends sending the `client_id` and
-                `client_secret` (if any) using HTTP Basic auth.
-                
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=311 auth_string_value=
-                If there's a `client_password` (and a `client_id`), they can be sent
-                as part of the form fields. But the OAuth2 specification recommends
-                sending the `client_id` and `client_secret` (if any) using HTTP Basic
-                auth.
-                
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=349 auth_string_value=
-                The dictionary of OAuth2 flows.
-                
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=511 auth_string_value=
-                The URL to refresh the token and obtain a new one.
-                
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=523 auth_string_value=tokenUrl
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=559 auth_string_value=
-                The URL to obtain the OAuth2 token.
-                
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=567 auth_string_value=
-                The URL to refresh the token and obtain a new one.
-                
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=585 auth_string_value=
-                The OAuth2 scopes that would be required by the *path operations* that
-                use this dependency.
-                
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=628 auth_string_value=authorizationUrl
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/oauth2.py auth_string_line=629 auth_string_value=tokenUrl
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/open_id_connect_url.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/open_id_connect_url.py auth_function_line=80 auth_function_name=make_not_authenticated_error
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/open_id_connect_url.py auth_string_line=88 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/open_id_connect_url.py auth_string_line=83 auth_string_value=Not authenticated
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/open_id_connect_url.py auth_string_line=84 auth_string_value=WWW-Authenticate
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/utils.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fastapi/security/utils.py auth_function_line=1 auth_function_name=get_authorization_scheme_param
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/__init__.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/__init__.py auth_string_line=22 auth_string_value=register_implementation
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/__init__.py auth_string_line=24 auth_string_value=get_fs_token_paths
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/asyn.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/asyn.py auth_string_line=148 auth_string_value=register_at_fork
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/caching.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/caching.py auth_function_line=974 auth_function_name=register_cache
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/caching.py auth_string_line=975 auth_string_value='Register' cache implementation.
-
-    Parameters
-    ----------
-    clobber: bool, optional
-        If set to True (default is False) - allow to overwrite existing
-        entry.
-
-    Raises
-    ------
-    ValueError
-    
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/compression.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/compression.py auth_function_line=19 auth_function_name=register_compression
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/core.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/core.py auth_function_line=632 auth_function_name=get_fs_token_paths
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/gui.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/gui.py auth_function_line=49 auth_function_name=_register
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/gui.py auth_string_line=45 auth_string_value=Create GUI elements and register signals
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/dbfs.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/dbfs.py auth_string_line=58 auth_string_value=Authorization
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/dirfs.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/dirfs.py auth_function_line=85 auth_function_name=set_session
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/gist.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/gist.py auth_string_line=67 auth_string_value=Auth parameters passed to 'requests' if we have username/token.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/gist.py auth_string_line=143 auth_string_value=
-        Parse 'gist://' style URLs into GistFileSystem constructor kwargs.
-        For example:
-          gist://:TOKEN@<gist_id>/file.txt
-          gist://username:TOKEN@<gist_id>/file.txt
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/gist.py auth_string_line=55 auth_string_value=User auth requires a token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/gist.py auth_string_line=76 auth_string_value=auth
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/gist.py auth_string_line=154 auth_string_value=token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/gist.py auth_string_line=78 auth_string_value=Authorization
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/github.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/github.py auth_string_line=51 auth_string_value=Auth required both username and token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/github.py auth_string_line=77 auth_string_value=auth
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/github.py auth_string_line=291 auth_string_value=Authentication required
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/http.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/http.py auth_function_line=122 auth_function_name=close_session
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/http.py auth_function_line=134 auth_function_name=set_session
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/http.py auth_string_line=840 auth_string_value=Call HEAD on the server to get details about the file (size/checksum etc.)
-
-    Default operation is to explicitly allow redirects and use encoding
-    'identity' (no compression) to get the true size of the target.
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/http.py auth_string_line=849 auth_string_value=identity
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/http.py auth_string_line=866 auth_string_value=identity
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/http_sync.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/http_sync.py auth_function_line=923 auth_function_name=register
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/http_sync.py auth_function_line=933 auth_function_name=unregister
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/http_sync.py auth_string_line=880 auth_string_value=Call HEAD on the server to get details about the file (size/checksum etc.)
-
-    Default operation is to explicitly allow redirects and use encoding
-    'identity' (no compression) to get the true size of the target.
-    
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/http_sync.py auth_string_line=252 auth_string_value=Starting JS session
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/http_sync.py auth_string_line=258 auth_string_value=Starting cpython session because of: %s
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/jupyter.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/jupyter.py auth_string_line=37 auth_string_value=Authorization
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/jupyter.py auth_string_line=37 auth_string_value=token 
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/jupyter.py auth_string_line=30 auth_string_value=token=([a-z0-9]+)
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/jupyter.py auth_string_line=32 auth_string_value=Could not determine token
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/smb.py
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/smb.py auth_string_line=140 auth_string_value=register_session_retry_wait must be a non-negative integer
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/smb.py auth_string_line=145 auth_string_value=register_session_retry_factor must be a positive integer equal to or greater than 1
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_function_line=322 auth_function_name=get_delegation_token
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_function_line=339 auth_function_name=renew_delegation_token
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_function_line=344 auth_function_name=cancel_delegation_token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_string_line=323 auth_string_value=Retrieve token which can give the same authority to other uses
-
-        Parameters
-        ----------
-        renewer: str or None
-            User who may use this token; if None, will be current user
-        
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_string_line=340 auth_string_value=Make token live longer. Returns new expiry time
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_string_line=345 auth_string_value=Stop the token from being useful
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_string_line=334 auth_string_value=Token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_string_line=341 auth_string_value=RENEWDELEGATIONTOKEN
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_string_line=346 auth_string_value=CANCELDELEGATIONTOKEN
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_string_line=136 auth_string_value=If using Kerberos auth, do not specify the user, this is handled by kinit.
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_string_line=331 auth_string_value=GETDELEGATIONTOKEN
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_string_line=333 auth_string_value=GETDELEGATIONTOKEN
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_string_line=336 auth_string_value=No token available for this user/security context
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_string_line=114 auth_string_value=If passing a delegation token, must not set user or proxy_to, as these are encoded in the token
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/implementations/webhdfs.py auth_string_line=125 auth_string_value=If passing a password, the user must also beset in order to set up the basic-auth
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/registry.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/registry.py auth_function_line=17 auth_function_name=register_implementation
-auth_source_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/spec.py
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/spec.py auth_function_line=177 auth_function_name=_fs_token
-auth_function_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/spec.py auth_function_line=180 auth_function_name=__dask_tokenize__
-auth_string_file=/mnt/spiritual_drive/msjarvis-rebuild/.check_venv/lib/python3.12/site-packages/fsspec/spec.py auth_string_line=171 auth_string_value=Persistent filesystem id that can be used to compare filesystems
-        across sessions.
-        
-report_sha256=sha256:764a5db44c7cfce314e62ecddf1a2f7607f0f8604a2e49d94efce0b67d550624
-report_path=/home/cakidd/msjarvis-pilot-build-evidence-20260810/host-gunicorn-auth-discovery-20260811.json
+=== CLEAN_STATUS ===
+clean
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-guardian-deploy-candidate-e8827b2$ 
 
