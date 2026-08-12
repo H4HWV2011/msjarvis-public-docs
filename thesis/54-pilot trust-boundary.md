@@ -1,26 +1,36 @@
-# MountainShares / Ms. Jarvis Trust Architecture v1.2
+# MountainShares / Ms. Jarvis Trust Architecture v1.3
 
-**Status:** Architecture Freeze Candidate — Implementation and Verification Update (Revision v1.2)  
+**Status:** Architecture Freeze Candidate — Runtime-Isolation and Production-Closure Update  
 **Authority:** Canonical design reference for pilot trust-boundary work  
-**Date:** 2026-08-11  
-**Supersedes:** v1.1 (same date)  
-**Scope:** Software provenance, runtime authority, user sovereignty, Commons integrity, policy-governed AI projections, receipt-based authorization, and fail-closed governance boundaries.
+**Date:** 2026-08-12  
+**Supersedes:** v1.2 (2026-08-11)  
+**Scope:** Software provenance, runtime authority, user sovereignty, Commons integrity, policy-governed AI projections, receipt-based authorization, runtime isolation, and fail-closed governance boundaries.
 
 ---
 
-## Revision Note (v1.1 → v1.2)
+## Revision Note (v1.2 → v1.3)
 
-This revision records verification and implementation progress made after the v1.1 snapshot. It does not change the governing principle or any non-goal. It advances several "current state" descriptions from *implemented* toward *verified*, introduces one new governance construct, and leaves every production-authorization gate exactly where v1.1 left it.
+This revision incorporates the verified privacy-gateway runtime-isolation pilot into the architecture’s implementation and release-boundary record.
 
-Concrete changes in this revision:
+It does not activate production authority, authorize protected-memory access, establish production governance, or change the architecture’s non-goals. It records a verified local runtime baseline and clarifies that production progress now depends primarily on governance authority, signer enrollment, governed release provenance, approved secret delivery, and completion of the protected-memory projection chain.
 
-1. **Guardian Authority Bundle introduced (§4).** Caller identities, subject keys, and revocation state are now carried in a single governance-signed authority bundle gated by a three-role threshold, replacing the earlier separately configured caller, subject-key, and revocation registries.
-2. **PDR issuance verified end-to-end (§9, §14, §15).** The issue → durable-consume → replay-deny path has been demonstrated under a provisioned Guardian signer. Production signer enrollment in the production trusted registry remains the outstanding gate.
-3. **Revocation enforced at the decision boundary (§7, §11, §14, §15).** Subject and intent revocation are checked in the request path via the signed authority bundle and fail closed. Projection-path revocation integration remains pending.
-4. **Adversarial verification matrix partially closed (§14).** Decision-boundary cases are verified; expiration, policy-version mismatch, unapproved-image, Guardian-outage, and the full projection chain remain.
-5. **Custodian ceremony initiated (§16, §17).** The activation ceremony has begun; it is not complete and grants no authority.
+Concrete updates in this revision:
 
-No capability is upgraded to *production-authorized* by this revision. The system remains a tested, evidence-backed, fail-closed release candidate.
+1. **Runtime-isolation pilot verified.** A pilot Redis, egress, admission API, and privacy-worker runtime was deployed and verified with non-root execution, read-only root filesystems, `no-new-privileges`, dropped Linux capabilities, scoped writable tmpfs mounts, Redis authentication, and Nginx configuration validation.
+
+2. **Egress policy verified.** The pilot egress gateway accepts only `POST /chat`, rejects requests without its required shared-secret header with HTTP 403, rejects non-POST requests with HTTP 405, and strips selected inbound credentials and client-identity headers before proxying.
+
+3. **Pilot credentials rotated.** Previously exposed pilot egress and Redis credentials were retired and replaced. Runtime evidence was revised to avoid capturing rendered configuration or active secret values.
+
+4. **Secret-management boundary clarified.** Restricted local environment files remain a temporary pilot mechanism. They are not a production secret-management design. Local file-backed Compose secrets are not accepted as the target production mechanism for the mixed non-root runtime identity model.
+
+5. **Docker Swarm excluded as a pilot-only secret migration.** The current Jarvis deployment uses a large local bridge-network topology. Moving only the pilot egress service to Swarm would break its network path to `jarvis-main-brain`; a Swarm conversion would be a broader coordinated infrastructure migration, not a secrets-only change.
+
+6. **Production closure order updated.** The next practical work is production governance and signer enrollment, followed by an approved external secret-management implementation and completion of the protected-memory authorization and projection chain.
+
+No capability is upgraded to `production-authorized` by this revision.
+
+The system remains a tested, evidence-backed, fail-closed release candidate.
 
 ---
 
@@ -30,13 +40,13 @@ No capability is upgraded to *production-authorized* by this revision. The syste
 
 Merkle structures provide tamper-evident integrity evidence. Cryptographic keys and signatures establish attributable authority. The Constitutional Guardian evaluates applicable policy. A runtime may act on protected data only when it can verify the applicable authorization chain and any required unexpired authorization receipt.
 
-A hash, CID, file, image, container, record, or service does not become authoritative merely because it exists or can be referenced.
+A hash, CID, file, image, container, record, service, source tree, or repository branch does not become authoritative merely because it exists or can be referenced.
 
 A Merkle root without a valid controlling signature, timestamp context, and governance interpretation is only an integrity commitment. It has no authority value on its own.
 
-The implementation work completed through the Stage 6 trust-development sequence reinforces this separation. Runtime admission, caller authentication, signed operation-intent verification, policy evaluation, receipt issuance, and production activation are separate authority boundaries.
+The implementation work completed through the trust-development sequence reinforces this separation. Runtime admission, caller authentication, signed operation-intent verification, policy evaluation, receipt issuance, runtime isolation, secret delivery, and production activation are separate boundaries.
 
-A successful test, an existing artifact, or a valid cryptographic commitment does not by itself authorize deployment or protected-data access.
+A successful test, existing artifact, valid cryptographic commitment, running container, or verified pilot configuration does not independently authorize deployment or protected-data access.
 
 ---
 
@@ -59,74 +69,73 @@ This architecture does not attempt to:
 - Treat an OpenPGP release-signing key as interchangeable with a raw Ed25519 Guardian signing key.
 - Treat a governance-signed authority bundle validated with test or ephemeral governance keys as equivalent to a production authority bundle signed by the established production governance board.
 - Treat a technically deployable topology as authorized merely because it can be deployed.
+- Treat pilot secret rotation or Docker hardening as a substitute for governed production secret custody.
 - Treat interaction with Ms. Jarvis as authorization to contribute private information to the Commons.
 
 The architecture intentionally preserves the distinction between:
 
-1. evidence of correctness;
-2. authority to act;
-3. authorization to perform a particular operation; and
-4. production activation.
+1. Evidence of correctness.
+2. Authority to act.
+3. Authorization to perform a particular operation.
+4. Runtime isolation.
+5. Production activation.
 
 ---
 
 ## 3. Trust Domains
 
-```
-                          GOVERNANCE PLANE
-       Keys - Roles - Policies - Threshold Approvals - Revocation
-                                 |
-                                 v
-                      POLICY DECISION ENGINE
+    GOVERNANCE PLANE
+    Keys — Roles — Policies — Threshold Approvals — Revocation
+                              |
+                              v
+                    POLICY DECISION ENGINE
 
-      -----------------------------------------------------------
-      |                         |                               |
-      v                         v                               v
-SOFTWARE PROVENANCE       USER SOVEREIGNTY              COMMONS INTEGRITY
-Build Merkle Tree         Vault Merkle Tree             Epoch Merkle Tree
-Runtime Authority         Authorization Receipts       Contribution Receipts
-Admission Records         Projection Receipts          Transformation Receipts
-```
+    -------------------------------------------------------------
+    |                           |                               |
+    v                           v                               v
+
+    SOFTWARE PROVENANCE     USER SOVEREIGNTY              COMMONS INTEGRITY
+    Build Evidence          Vault Authority               Aggregate Authority
+    Runtime Authority       Authorization Receipts         Contribution Receipts
+    Admission Records       Projection Receipts            Transformation Receipts
 
 The domains may reference each other through signed receipts, but no domain inherits authority merely from a reference.
 
 The operational trust chain is:
 
-```
-Source / Build Evidence
-        |
-        v
-Runtime Authority
-        |
-        v
-Runtime Admission
-        |
-        v
-Authenticated Caller
-        |
-        v
-Signed Operation Intent
-        |
-        v
-Policy Decision
-        |
-        v
-Policy Decision Receipt
-        |
-        v
-Memory Authorization Receipt
-        |
-        v
-Projection Authorization
-        |
-        v
-Bounded Context
-        |
-        v
-Reasoning Runtime
-```
+    Source / Build Evidence
+             |
+             v
+    Runtime Authority
+             |
+             v
+    Runtime Admission
+             |
+             v
+    Authenticated Caller
+             |
+             v
+    Signed Operation Intent
+             |
+             v
+    Policy Decision
+             |
+             v
+    Policy Decision Receipt
+             |
+             v
+    Memory Authorization Receipt
+             |
+             v
+    Projection Authorization
+             |
+             v
+    Bounded Context
+             |
+             v
+    Reasoning Runtime
 
-Not every stage in this chain is currently production-activated. The chain is deliberately designed so that a missing downstream authority does not cause an upstream component to silently grant access.
+Not every stage in this chain is currently production-activated. A missing downstream authority must not cause an upstream component to silently grant access.
 
 ---
 
@@ -146,85 +155,74 @@ A Merkle root is evidence. Governance keys, role assignments, policies, and veri
 
 The Policy Decision Engine evaluates requests against the active policy set. It does not replace human governance. It applies the policies and delegations established by governance.
 
-The current trust-development model distinguishes operational approval from Guardian authority and from governance-board authority. These roles are not interchangeable.
+The current trust-development model distinguishes operational approval, Guardian authority, release authority, and governance-board authority. These roles are not interchangeable.
 
-The production governance model requires the relevant roles, policies, registries, and signing authorities to be independently established before production activation.
-
-The existing release-signing mechanism is likewise distinct from the raw Ed25519 Guardian PDR signing authority. Possession or verification of a release-signing key does not create Guardian authorization.
+The production governance model requires the relevant roles, policies, registries, custody procedures, and signing authorities to be independently established before production activation.
 
 ### Guardian Authority Bundle
 
-The governance plane's concrete authority carrier at the decision boundary is the Guardian Authority Bundle. Rather than sourcing caller identities, subject keys, and revocation state from separately configured, individually trusted files, the Guardian consumes one governance-signed bundle that carries all three together and is only accepted when it satisfies a governance threshold.
+The Guardian Authority Bundle is the concrete authority carrier at the decision boundary. Rather than sourcing caller identities, subject keys, and revocation state from separately trusted files, the Guardian consumes one governance-signed bundle that carries all three together and is accepted only when it satisfies the required governance threshold.
 
-```
-{
-  "type": "mountainshares.guardian-authority-bundle/v1",
-  "bundle_id": "<bundle-id>",
-  "release": "<release-profile>",
+The bundle carries:
 
-  "issued_at": "RFC3339 timestamp",
-  "expires_at": "RFC3339 timestamp",
+- A versioned bundle identifier and release profile.
+- Issued and expiration timestamps.
+- Caller-token commitments mapped to active caller identities and roles.
+- Subject signing keys, controllers, statuses, and roles.
+- Revoked subjects, intent identifiers, and receipt identifiers.
+- Threshold approvals from the required governance roles.
 
-  "callers": {
-    "sha256:<caller-token-commitment>": {
-      "caller_id": "did:mountainshares:<caller>",
-      "roles": ["caller"],
-      "status": "active"
-    }
-  },
-
-  "subject_keys": {
-    "<subject-key-id>": {
-      "public_key": "<base64-ed25519-public-key>",
-      "roles": ["subject"],
-      "controller": "did:mountainshares:<subject>",
-      "status": "active"
-    }
-  },
-
-  "revocations": {
-    "revoked_subjects": [],
-    "revoked_intent_ids": [],
-    "revoked_receipt_ids": []
-  },
-
-  "approvals": [
-    { "role": "operations-approver", "key_id": "<id>", "algorithm": "Ed25519", "value": "<signature>" },
-    { "role": "security-approver",   "key_id": "<id>", "algorithm": "Ed25519", "value": "<signature>" },
-    { "role": "governance-board",    "key_id": "<id>", "algorithm": "Ed25519", "value": "<signature>" }
-  ]
-}
-```
-
-The Guardian MUST verify, before trusting any field in the bundle:
+Before trusting any bundle field, the Guardian must verify:
 
 - The canonical bundle payload against each declared approval signature.
-- Each approver key against the governance public-key registry, including its role.
-- That the set of approvals satisfies the active policy's `minimum_approvals` and `required_roles` threshold for the declared release.
-- Bundle expiration.
-- That caller authentication, subject-key lookup, and revocation checks are drawn only from this verified bundle — never from an unsigned or separately configured source.
+- Each approver key against the governance public-key registry and required role.
+- The active policy’s required roles and minimum approval threshold.
+- Bundle lifetime and expiry.
+- That caller authentication, subject-key lookup, and revocation checks are drawn only from the verified bundle.
 
-Caller tokens are matched by commitment, not by storing the raw token. Subject keys carry an explicit `controller` and `status`, so an inactive subject key is rejected even when structurally present. Revocation of a subject, an intent, or a prior receipt is expressed inside the same signed bundle, so revocation state inherits the bundle's governance signature rather than being a separately trusted input.
+Caller tokens are matched by commitment rather than stored as raw authority data. Subject keys carry explicit controller and status fields. Revocation state inherits the governance signature of the bundle rather than becoming an independent unsigned input.
 
-#### Current state
+### Current state
 
-The Guardian Authority Bundle schema, canonical-payload verifier, and three-role threshold enforcement are implemented and verified end-to-end at the decision boundary. Verification has been demonstrated against governance keys and a policy requiring `operations-approver`, `security-approver`, and `governance-board` approvals, using ephemeral test governance keys.
+The Guardian Authority Bundle schema, canonical-payload verifier, three-role threshold enforcement, caller sourcing, subject-key sourcing, and decision-boundary revocation checks are implemented and verified using test-provisioned governance keys.
 
-This establishes the mechanism. It does not establish production authority. A production authority bundle signed by the *established* production governance board — including a real, enrolled `governance-board` key — remains outstanding. Verification with ephemeral governance keys demonstrates the code path; it is not equivalent to a governance-approved production bundle (see §2).
+This establishes the mechanism. It does not establish production authority.
+
+A production authority bundle signed by the established production governance board, including a real enrolled governance-board signer and valid production policy threshold, remains outstanding.
 
 ---
 
-## 5. Software Provenance Domain
+## 5. Software Provenance and Runtime Isolation
 
 The software provenance domain establishes which artifacts are approved to execute.
 
-```
-Source -> Commit -> Build Recipe -> SBOM -> Image Digest
-      -> Runtime Authority Manifest -> Deployment Approval
-      -> Runtime Admission -> Running Service
-```
+    Source
+      |
+      v
+    Commit
+      |
+      v
+    Build Recipe
+      |
+      v
+    SBOM
+      |
+      v
+    Immutable Image Digest
+      |
+      v
+    Runtime Authority Manifest
+      |
+      v
+    Deployment Approval
+      |
+      v
+    Runtime Admission
+      |
+      v
+    Running Service
 
-A Runtime Authority Manifest MUST:
+A Runtime Authority Manifest must:
 
 - Pin immutable container image digests.
 - Enumerate required services, health contracts, and network dependencies.
@@ -234,45 +232,105 @@ A Runtime Authority Manifest MUST:
 - Identify approved configuration references.
 - Carry required release and governance signatures.
 - Identify rollback targets and revocation procedures.
+- Identify the approved secret-delivery mechanism without embedding plaintext secret values.
 
-`latest` tags, filenames, backup status, container existence, and source-tree location are not authority assertions.
+`latest` tags, filenames, backup status, container existence, source-tree location, local image presence, and compose-project status are not authority assertions.
 
 A file existing in a repository is historical evidence unless an approved build and signed Runtime Authority Manifest declare it part of the current runtime.
 
-### Current implementation and verification state
+### Current runtime-isolation pilot
 
-Runtime-authority verification has progressed beyond the original architecture-only definition.
+The current pilot runtime contains:
 
-The Stage 6.11 runtime-authority work established signature-verification infrastructure and produced evidence for verification of the applicable runtime-authority manifest. The resulting verification evidence was subsequently preserved through the project's evidence-sealing process.
+- Redis.
+- A non-root Nginx egress gateway.
+- An admission API.
+- A privacy worker.
+- A private pilot network.
+- An egress path to the existing `jarvis-main-brain` service on the local Jarvis network.
 
-Runtime admission was also advanced from a conceptual boundary to an implemented fail-closed enforcement mechanism. The runtime must satisfy the applicable authority conditions before protected operations can proceed.
+The verified pilot baseline includes:
 
-The existing Guardian runtime has been associated with a specific immutable image digest rather than an unrestricted mutable image tag.
+- Non-root Nginx execution.
+- Redis running under its non-root image identity.
+- Read-only root filesystems for Redis, egress, admission API, and privacy worker.
+- `no-new-privileges:true`.
+- `cap_drop: ALL`.
+- Scoped writable tmpfs mounts only where runtime operation requires them.
+- A Redis password-bearing configuration restricted to owner-readable permissions.
+- Redis authenticated health verification.
+- Nginx syntax validation.
+- Running-state verification for Redis, egress, admission API, and privacy worker.
+- Egress enforcement requiring `POST /chat`.
+- HTTP 403 rejection for `/chat` requests without the required egress secret.
+- HTTP 405 rejection for non-POST `/chat` requests.
+- Removal of selected inbound authorization, cookie, session-token, and client-address headers before egress proxying.
+- Rotation of previously exposed pilot egress and Redis credentials.
+- Redacted, checksum-backed verification evidence.
 
-A candidate deployment topology for the provisioned Guardian exists but is intentionally not deployable as written: it references a Guardian PDR signer that is absent from the trusted signer registry, and the currently running topology is deliberately unprovisioned. The current deployment therefore fails closed. This is a concrete instance of the non-goal that a technically deployable topology is not authorized merely because it can be deployed.
+The accepted pilot marker is:
 
-These results establish meaningful runtime-authority and admission evidence.
+    PILOT_RUNTIME_FINAL_VERIFICATION_PASS
 
-They do not, by themselves, establish final production deployment authority.
+This marker proves the pilot runtime controls were active at verification time. It does not establish production runtime authority, production release approval, protected-memory authorization, or a production secret-management architecture.
 
-Production activation remains dependent on the outstanding governance, signer-registry, policy, and release conditions described later in this document.
+### Secret-delivery boundary
+
+The current `.pilot-*.env` files are a temporary pilot secret-delivery mechanism. Their restricted host permissions reduce exposure but do not create the identity-separated custody, auditable rotation, or production secret-delivery guarantees required for production activation.
+
+Before production activation:
+
+- Secret values must be removed from local environment-file delivery.
+- Secret values must not be embedded in Compose YAML, source, images, shell history, rendered configuration captures, logs, or evidence.
+- Each service must receive only the secret material it requires.
+- Secret rotation, revocation, recovery, and incident response must be governed and auditable.
+- An approved external secret-management system must support the non-root runtime identities without broadening host-file permissions.
+- All pilot and pre-production credentials must be rotated during the production cutover.
+
+Local file-backed Compose secrets are not accepted as the target production mechanism for this mixed non-root runtime identity model.
+
+Docker Swarm secrets are not a pilot-only migration path for the current host topology. The existing Jarvis environment uses a broad local bridge-network deployment, and the pilot egress service currently reaches `jarvis-main-brain` through that local network. Moving only the pilot gateway to Swarm would remove that path. A Swarm conversion, if ever selected, must be planned as a coordinated infrastructure migration.
+
+### Current provenance and admission state
+
+Runtime-authority signature verification and fail-closed runtime admission are implemented in the trust-development boundary.
+
+The existing Guardian runtime has been associated with an immutable image digest rather than an unrestricted mutable image tag.
+
+A candidate deployment topology for a provisioned Guardian exists but is intentionally not active as production authority. The current production-signing and governance conditions are not yet complete, and the system must fail closed rather than manufacture authority from a technically deployable configuration.
+
+These results establish meaningful runtime-authority, runtime-admission, and runtime-isolation evidence.
+
+They do not establish final production deployment authority.
 
 ---
 
 ## 6. User Sovereignty Domain
 
-```
-Private User Vault -> Signed Vault Root -> Authorization Receipt
-                  -> Projection Service -> Ms. Jarvis Reasoning
-                  -> Response Receipt
-```
+    Private User Vault
+            |
+            v
+    Signed Vault Root
+            |
+            v
+    Authorization Receipt
+            |
+            v
+    Projection Service
+            |
+            v
+    Ms. Jarvis Reasoning
+            |
+            v
+    Response Receipt
+
 > Ms. Jarvis does not possess user memory. Ms. Jarvis receives authorized projections of user memory.
 
-Private records MUST be encrypted before content-addressed storage. Vault roots SHOULD be private by default.
+Private records must be encrypted before content-addressed storage. Vault roots should be private by default.
 
-Public commitments MUST contain no plaintext private memory, predictable identifiers, wallet addresses, social handles, or other correlatable low-entropy values.
+Public commitments must contain no plaintext private memory, predictable identifiers, wallet addresses, social handles, or other correlatable low-entropy values.
 
-The reasoning system MUST NOT receive long-lived vault keys or unrestricted semantic-store access. It receives the minimum projection necessary for the approved purpose.
+The reasoning system must not receive long-lived vault keys or unrestricted semantic-store access. It receives the minimum projection necessary for the approved purpose.
 
 A projection may be:
 
@@ -284,78 +342,76 @@ A projection may be:
 - An anonymized contribution.
 - A selective-disclosure proof.
 
-The system MUST use the least powerful representation sufficient for the authorized task.
+The system must use the least powerful representation sufficient for the authorized task.
 
-The existence of a semantic-memory system does not itself authorize that system to expose the underlying private corpus.
+The existence of a semantic-memory system does not authorize that system to expose the underlying private corpus.
 
 ---
 
 ## 7. Operational Trust Boundary
 
-```
-             USER REQUEST
-                  |
-                  v
-        Caller Authentication
-                  |
-                  v
-         Runtime Admission
-                  |
-                  v
-       Signed Operation Intent
-                  |
-                  v
-        Constitutional Guardian
-                  |
-                  v
-        Policy Decision Receipt
-                  |
-                  v
-       Memory Authorization Receipt
-                  |
-                  v
-          Projection Service
-                  |
-       +----------+----------+
-       |                     |
-       v                     v
-Encrypted User Vault     Audit Receipts
-       |
-       v
-Minimal Context Projection
-       |
-       v
-    Ms. Jarvis
-       |
-       v
- Auditable Response
-```
+    User Request
+         |
+         v
+    Caller Authentication
+         |
+         v
+    Runtime Admission
+         |
+         v
+    Signed Operation Intent
+         |
+         v
+    Constitutional Guardian
+         |
+         v
+    Policy Decision Receipt
+         |
+         v
+    Memory Authorization Receipt
+         |
+         v
+    Projection Service
+         |
+         +--------------------------+
+         |                          |
+         v                          v
+    Encrypted User Vault       Audit Receipts
+         |
+         v
+    Minimal Context Projection
+         |
+         v
+    Ms. Jarvis Reasoning
+         |
+         v
+    Auditable Response
 
 The Guardian evaluates whether a protected operation is permitted.
 
-The Projection Service verifies the resulting authorization and creates the bounded context available to Ms. Jarvis.
+The Projection Service verifies resulting authorization and creates the bounded context available to Ms. Jarvis.
 
 The reasoning layer is not an authority oracle. It cannot expand the scope of a valid authorization receipt.
 
 ### Current implementation state
 
-The front portion of this trust boundary has been materially implemented and, in several respects, verified end-to-end at the decision boundary.
+The front portion of this trust boundary is materially implemented and, in several respects, verified at the decision boundary.
 
 The remediation history establishes:
 
-- caller-identity authentication before protected decision logic;
-- fail-closed `401` behavior for missing or invalid caller credentials;
-- runtime admission enforcement;
-- fail-closed admission when required authority configuration is absent or invalid;
-- signed operation-intent verification, including denial of tampered or untrusted-signature intents;
-- binding between the authenticated caller and signed intent subject;
-- binding between the signed intent and requested operation;
-- caller identity, subject keys, and revocation state sourced from the verified governance-signed Guardian Authority Bundle rather than from separately configured inputs;
-- subject and intent revocation checked in the request path, failing closed;
-- protected operation handling that does not silently fall back to unrestricted behavior;
-- Policy Decision Receipt issuance verified end-to-end under a provisioned Guardian signer, including durable consumption and replay denial.
+- Caller authentication before protected decision logic.
+- Fail-closed HTTP 401 behavior for missing or invalid caller credentials.
+- Runtime-admission enforcement.
+- Fail-closed denial when required authority configuration is absent or invalid.
+- Signed operation-intent verification.
+- Denial of tampered, malformed, expired, untrusted, revoked, inactive-key, caller-subject-mismatched, and request-operation-mismatched intent conditions.
+- Caller identity, subject keys, and revocation state sourced from the verified governance-signed Guardian Authority Bundle.
+- Subject and intent revocation checks in the request path.
+- Protected-operation routing that does not silently fall back to unrestricted behavior.
+- PDR issuance verified under provisioned non-production signer material, including durable consumption and replay denial.
+- A separate hardened runtime-isolation pilot for the egress, Redis, admission API, and privacy worker boundary.
 
-The complete private-memory projection chain is not yet production-complete, and production Guardian signer enrollment remains outstanding (see §9).
+The complete private-memory projection chain is not yet production-complete.
 
 ---
 
@@ -363,49 +419,35 @@ The complete private-memory projection chain is not yet production-complete, and
 
 A Memory Authorization Receipt, or MAR, binds user authority, Guardian policy approval, authorized scope, and approved runtime identity.
 
-```
-{
-  "type": "mountainshares.memory-authorization-receipt/v1",
-  "receipt_id": "urn:uuid:<receipt-id>",
+A MAR must identify:
 
-  "subject": "did:mountainshares:<user>",
-  "recipient": "did:mountainshares:service:<service>",
-  "audience_instance": "sha256:<approved-runtime-image-digest>",
+- A schema version and immutable receipt identifier.
+- Subject identity.
+- Recipient service identity.
+- Recipient runtime digest.
+- Purpose and operation.
+- Projection policy.
+- Vault-root commitment.
+- Authorized record references or approved scope commitment.
+- Applicable policy and PDR identifiers.
+- Issue and expiry times.
+- Use limit.
+- Subject signature.
+- Guardian attestation.
 
-  "purpose": "personal-assistant-context",
-  "operation": "semantic-retrieval",
-  "projection_policy": "redacted-semantic-context",
-
-  "vault_root": "sha256:<signed-vault-root>",
-  "authorized_record_refs": [
-    "opaque-encrypted-record-reference"
-  ],
-
-  "policy_id": "guardian-policy-v1",
-  "policy_decision_id": "urn:uuid:<policy-decision-id>",
-
-  "issued_at": "RFC3339 timestamp",
-  "expires_at": "RFC3339 timestamp",
-  "max_uses": 1,
-
-  "subject_signature": "<user-signature>",
-  "guardian_attestation": "<guardian-signature>"
-}
-```
-
-The Projection Service MUST verify:
+The Projection Service must verify:
 
 - Subject authority.
 - Guardian attestation.
 - Recipient identity.
-- Approved runtime-image binding.
+- Approved recipient-runtime binding.
 - Purpose and operation scope.
 - Projection-policy constraints.
 - Expiration.
 - Use count.
 - Vault-root match.
 - Current revocation state.
-- Referenced policy and Policy Decision Receipt validity.
+- Referenced PDR validity.
 
 Revocation prevents future authorization and decryption. It cannot erase plaintext already disclosed to a recipient.
 
@@ -413,11 +455,11 @@ Short-lived receipts, narrow scopes, minimal projections, and limited plaintext 
 
 ### Current state
 
-The MAR is a defined authorization layer and receipt infrastructure component.
+MAR is a defined authorization layer supported by receipt infrastructure.
 
-The remediation history does not establish a fully activated production protected-memory path in which MAR issuance, validation, projection, and recipient runtime admission are all operating as one complete production chain.
+The current record does not establish a fully activated production protected-memory path in which MAR issuance, validation, projection, recipient runtime admission, revocation, scope enforcement, and durable use control operate as one complete production chain.
 
-Therefore MAR remains part of the remaining closure work even though its surrounding receipt and authorization infrastructure has advanced substantially.
+MAR remains part of the remaining closure work.
 
 ---
 
@@ -425,46 +467,21 @@ Therefore MAR remains part of the remaining closure work even though its surroun
 
 The Policy Decision Receipt records the Constitutional Guardian evaluation that authorizes, denies, or marks an operation as indeterminate.
 
-The receipt provides provenance for the decision itself. It MUST NOT store unnecessary plaintext private context. Sensitive policy inputs MUST be represented through encrypted references, redacted fields, or cryptographic commitments.
+It provides provenance for the decision itself. It must not store unnecessary plaintext private context. Sensitive policy inputs must be represented through encrypted references, redacted fields, or cryptographic commitments.
 
-```
-{
-  "type": "mountainshares.policy-decision-receipt/v1",
-  "decision_id": "urn:uuid:<decision-id>",
-  "request_id": "urn:uuid:<request-id>",
+A PDR must identify:
 
-  "subject": "did:mountainshares:<user>",
-  "recipient": "did:mountainshares:service:<service>",
-
-  "requested_operation": "semantic-retrieval",
-  "purpose": "personal-assistant-context",
-
-  "policy_id": "guardian-policy-v1",
-  "policy_version": "1.0.0",
-
-  "evaluated_context_commitment":
-    "sha256:<canonical-redacted-or-encrypted-context>",
-
-  "decision": "allow",
-  "decision_reason": "authorized-purpose-and-valid-subject-consent",
-
-  "constraints": {
-    "projection_policy": "redacted-semantic-context",
-    "max_uses": 1,
-    "expires_at": "RFC3339 timestamp",
-    "allowed_record_scope_commitment":
-      "sha256:<authorized-scope>"
-  },
-
-  "guardian_runtime_digest":
-    "sha256:<approved-guardian-image-digest>",
-
-  "issued_at": "RFC3339 timestamp",
-  "expires_at": "RFC3339 timestamp",
-
-  "guardian_signature": "<guardian-signature>"
-}
-```
+- A schema version and immutable decision identifier.
+- Request identifier.
+- Subject and recipient.
+- Requested operation and purpose.
+- Policy identifier and policy version.
+- Evaluated context commitment.
+- Decision and decision reason.
+- Scope, projection, use-count, and expiry constraints.
+- Approved Guardian runtime digest.
+- Issued and expiration timestamps.
+- Guardian signature.
 
 Valid decision values are:
 
@@ -472,92 +489,70 @@ Valid decision values are:
 - `deny`
 - `indeterminate`
 
-A decision marked `indeterminate` MUST NOT authorize protected data projection.
+A decision marked `indeterminate` must not authorize protected data projection.
 
-The `request_id` binds the decision to one request and supports replay detection.
-
-A MAR derived from a Policy Decision Receipt MUST NOT exceed the scope, lifetime, or use count established by that receipt.
+A MAR derived from a PDR must not exceed the PDR’s scope, lifetime, policy constraints, or use count.
 
 ### Current implementation state
 
-The PDR architecture has progressed substantially beyond the original conceptual state, and the issuance path is now verified end-to-end under a provisioned Guardian signer.
+The PDR architecture has progressed beyond a conceptual state.
 
-The trust-receipt work established:
+The trust-receipt work establishes:
 
-- PDR schema and validation infrastructure;
-- receipt verification and binding requirements;
-- issuance infrastructure;
-- durable consumption/ledger mechanisms;
-- fail-closed behavior when required signer authority is unavailable;
-- negative security validation around invalid or untrusted signer conditions.
+- PDR schema and validation infrastructure.
+- Receipt verification and binding requirements.
+- PDR factory and issuance infrastructure.
+- Durable consumption-ledger mechanisms.
+- Replay-denial behavior.
+- Fail-closed behavior when signer authority is absent, invalid, untrusted, or wrong-role.
+- Negative security validation for invalid and untrusted signer conditions.
+- Canonical receipt-chain verification modules.
 
-Verification has additionally demonstrated the complete decision-boundary path: on a valid, authorized request the Guardian issues a schema-valid, cryptographically signed PDR bound to the verified operation intent; the issued receipt is durably consumed; and a replay of the same intent is denied. This was demonstrated with a provisioned (ephemeral, test) Guardian signer whose public key carried the `guardian` role in the trusted registry.
+End-to-end PDR issuance, durable consumption, and replay denial have been demonstrated under provisioned non-production Guardian signer material.
 
-The Guardian therefore does not treat a policy `allow` as sufficient by itself to authorize a protected operation.
-
-A valid PDR must be cryptographically issued under the required Guardian authority.
+A policy `allow` is not sufficient by itself to authorize a protected operation. A valid PDR must be cryptographically issued under the required Guardian authority.
 
 ### Production authority remains incomplete
 
-The remediation history explicitly preserves a distinction between a verified PDR issuance path and a production Guardian signing *authority*.
+The production Guardian PDR signer is not yet established as a trusted production authority in the required signer registry.
 
-The production Guardian PDR signer is not yet established as a trusted production authority in the required signer registry. The production trusted-key registry currently contains only the operations-approver and security-approver runtime approval identities; the `guardian-pdr-ed25519-v1` signer is not enrolled, so a live production request would correctly fail closed with an untrusted-signer denial.
+The production trusted registry does not yet contain an enrolled production Guardian signer with the required `guardian` role and governance authorization.
 
-The correct behavior is therefore fail closed rather than manufacturing or accepting an unauthorized PDR.
+The correct current behavior is fail closed rather than manufacturing or accepting unauthorized PDRs.
 
-Accordingly:
-> The PDR issuance path is implemented and verified end-to-end under a provisioned signer; enrolling a production Guardian signer in the production trusted registry remains the outstanding activation requirement.
 ---
 
 ## 10. Projection Receipt
 
-A Projection Receipt records the transformation from an authorized data scope into the context supplied to a reasoning system.
+A Projection Receipt records the transformation from an authorized data scope into the bounded context supplied to a reasoning system.
 
-It answers the question:
-> What information actually crossed the protected vault boundary into the reasoning boundary?
+It answers:
 
-A Projection Receipt MUST be created whenever protected vault material is transformed into a reasoning-context projection.
+> What information crossed the protected vault boundary into the reasoning boundary?
 
-```
-{
-  "type": "mountainshares.projection-receipt/v1",
+A Projection Receipt must be created whenever protected vault material is transformed into reasoning-context material.
 
-  "projection_id": "urn:uuid:<projection-id>",
-  "mar_id": "urn:uuid:<memory-authorization-receipt-id>",
-  "policy_decision_id": "urn:uuid:<policy-decision-id>",
+A Projection Receipt must identify:
 
-  "source_vault_root": "sha256:<signed-vault-root>",
-  "source_scope_commitment": "sha256:<authorized-record-set>",
+- A schema version and immutable projection identifier.
+- MAR and PDR identifiers.
+- Source vault-root and scope commitments.
+- Projection type and minimization policy.
+- Released record and token limits where applicable.
+- Recipient runtime digest.
+- Projection-service runtime digest.
+- Issue and expiry timestamps.
+- Projection output commitment.
+- Projection-service signature.
 
-  "projection_type": "redacted-semantic-context",
-  "projection_policy": "redacted-semantic-context",
-
-  "records_released": 3,
-  "tokens_released": 1200,
-
-  "recipient_runtime_digest":
-    "sha256:<approved-jarvis-runtime-image>",
-  "projection_runtime_digest":
-    "sha256:<approved-projection-service-image>",
-
-  "created_at": "RFC3339 timestamp",
-  "expires_at": "RFC3339 timestamp",
-
-  "projection_output_commitment":
-    "sha256:<canonical-projection-output>",
-
-  "projection_signature": "<projection-service-signature>"
-}
-```
-
-The Projection Receipt MUST:
+The Projection Receipt must:
 
 - Reference a valid, unexpired MAR.
-- Bind the released projection to the MAR's approved vault root and scope.
-- Identify the approved runtime that received the projection.
-- Identify the approved projection-service runtime that generated it.
-- Record the projection type and minimization policy.
-- Commit to the canonical projection output without requiring publication of its plaintext.
+- Bind the projection to the authorized vault root and scope.
+- Identify the approved recipient runtime.
+- Identify the approved Projection Service runtime.
+- Record the applicable minimization policy.
+- Commit to canonical output without publishing unnecessary plaintext.
 - Expire no later than the associated MAR.
 - Be auditable without becoming a second plaintext memory store.
 
@@ -565,17 +560,18 @@ The Projection Receipt MUST:
 
 Projection Receipt architecture remains defined.
 
-The remediation history does not establish complete production activation of:
+The remediation record does not establish complete production activation of:
 
-- the Projection Service;
-- its runtime-authority chain;
-- protected retrieval;
-- complete MAR validation at the projection boundary;
-- recipient-runtime binding;
-- projection-output commitment;
-- full protected-memory isolation from unrestricted reasoning access.
+- Projection Service deployment.
+- Projection Service runtime authority.
+- Protected retrieval.
+- Complete MAR validation at the projection boundary.
+- Recipient-runtime binding.
+- Projection output commitment.
+- Revocation checks at the projection boundary.
+- Full protected-memory isolation from unrestricted reasoning access.
 
-These remain explicit Chapter 54 closure requirements.
+These remain explicit production closure requirements.
 
 ---
 
@@ -583,7 +579,7 @@ These remain explicit Chapter 54 closure requirements.
 
 The Constitutional Guardian decides whether a protected capability may be exercised.
 
-The following capabilities MUST fail closed when no valid Policy Decision Receipt or authorization receipt exists:
+The following capabilities must fail closed when no valid PDR or required authorization receipt exists:
 
 - Protected data projection.
 - Private-memory retrieval.
@@ -594,48 +590,48 @@ The following capabilities MUST fail closed when no valid Policy Decision Receip
 - Protected citizen or member data access.
 - Release approval and runtime admission.
 
-A general chat interface may remain available during a Guardian outage only if it does not access protected user memory, protected identity data, protected Commons functions, or governance capabilities.
+    Guardian available + policy approves
+        -> issue PDR
+        -> issue MAR
+        -> permit bounded projection
 
-```
-Guardian available + policy approves -> issue Policy Decision Receipt
-                                      -> issue MAR
-                                      -> permit bounded projection
+    Guardian denies
+        -> disclose nothing
 
-Guardian denies                      -> disclose nothing
+    Guardian indeterminate
+        -> disclose nothing
 
-Guardian indeterminate               -> disclose nothing
+    Guardian unavailable
+        -> no receipt
+        -> protected capability unavailable
 
-Guardian unavailable                 -> no receipt
-                                      -> protected capability unavailable
-```
+A general chat interface may remain available during Guardian outage only if it cannot access protected user memory, protected identity data, protected Commons functions, or governance capabilities.
 
-The system MAY provide a clearly labeled, non-personalized response when protected capabilities are unavailable.
+The system may provide a clearly labeled, non-personalized response when protected capabilities are unavailable.
 
-It MUST NOT silently degrade into unauthorized private-memory access.
+It must not silently degrade into unauthorized private-memory access.
 
 ### Current implementation state
 
-The Guardian boundary is no longer merely conceptual.
+The Guardian is a materially implemented and tested trust boundary.
 
-The remediation history establishes implementation and verification of:
+The remediation history establishes:
 
-- runtime admission;
-- caller authentication;
-- signed operation-intent verification, including tampered- and untrusted-signature denial;
-- caller/subject binding;
-- request/operation binding;
-- fail-closed admission;
-- caller, subject-key, and revocation authority sourced from the verified governance-signed Guardian Authority Bundle;
-- subject and intent revocation enforcement at the decision boundary;
-- protected operation routing;
-- PDR issuance verified end-to-end under a provisioned signer, with durable consumption and replay denial;
-- negative security cases in which required trust conditions are absent.
+- Runtime admission.
+- Caller authentication.
+- Signed operation-intent verification.
+- Caller-subject binding.
+- Request-operation binding.
+- Authority-bundle sourcing.
+- Subject and intent revocation enforcement at the decision boundary.
+- Fail-closed protected decision routing.
+- PDR issuance verified under provisioned non-production signer material.
+- Durable PDR consumption and replay denial.
+- Negative security tests for required trust-condition failures.
 
-The Guardian therefore represents a materially implemented and tested trust boundary.
+The Guardian is not yet a fully activated production authority for the complete protected-memory architecture.
 
-However, the Guardian is not yet a fully activated production authority for the complete protected-memory architecture.
-
-Production PDR signer enrollment, production governance-board authority, a production authority bundle, complete projection admission, and the remaining Chapter 54 closure requirements remain outstanding.
+Production governance-board authority, production Guardian signer enrollment, production Authority Bundle approval, production policy activation, complete projection admission, and full protected-memory closure remain outstanding.
 
 ---
 
@@ -643,13 +639,27 @@ Production PDR signer enrollment, production governance-board authority, a produ
 
 The Commons receives explicitly authorized transformations, not raw private-vault graphs.
 
-```
-Private Vault -> User-approved transformation -> Contribution Receipt
-              -> Transformation Receipt -> Aggregation
-              -> Commons Epoch Root -> Governance Decision
-```
+    Private Vault
+         |
+         v
+    User-Approved Transformation
+         |
+         v
+    Contribution Receipt
+         |
+         v
+    Transformation Receipt
+         |
+         v
+    Aggregation
+         |
+         v
+    Commons Epoch Root
+         |
+         v
+    Governance Decision
 
-Each Commons Transformation Receipt MUST identify:
+Each Commons Transformation Receipt must identify:
 
 - Authorized input commitment.
 - Output aggregate commitment.
@@ -664,29 +674,30 @@ Each Commons Transformation Receipt MUST identify:
 
 A Commons Merkle root proves a committed aggregate history.
 
-It does not itself prove anonymization, non-discrimination, legal compliance, or ethical legitimacy.
+It does not independently prove anonymization, non-discrimination, legal compliance, or ethical legitimacy.
 
-Those require a specified transformation, policy decision, privacy control, and reviewable governance process.
+The Commons must not ingest raw private-vault graphs merely because a user has interacted with Ms. Jarvis.
 
-The Commons MUST NOT ingest raw private-vault graphs merely because a user has interacted with Ms. Jarvis.
 > Interaction history with Ms. Jarvis is not itself a contribution authorization event.
 
 ### Current state
 
-The Commons architecture remains defined, but the remediation history does not establish full production implementation and authorization of:
+The Commons architecture remains defined.
 
-- Contribution Receipts;
-- Transformation Receipts;
-- Commons Epoch Root governance;
-- privacy attestations;
-- complete contribution authorization;
-- production governance approval of Commons transformations.
+The current implementation record does not establish full production implementation and authorization of:
+
+- Contribution Receipts.
+- Transformation Receipts.
+- Commons Epoch Root governance.
+- Privacy attestations.
+- Complete contribution authorization.
+- Production governance approval of Commons transformations.
 
 These remain outstanding.
 
 ---
 
-## 13. Receipts and Audit
+## 13. Receipts, Audit, and Evidence
 
 Required receipt and governance-authority classes include:
 
@@ -701,7 +712,7 @@ Required receipt and governance-authority classes include:
 - Commons Epoch Root Record.
 - Revocation Receipt.
 
-Each receipt or authority artifact MUST have:
+Each receipt or authority artifact must have:
 
 - A schema version.
 - An immutable identifier.
@@ -712,29 +723,37 @@ Each receipt or authority artifact MUST have:
 - A verifiable signature or attestation.
 - Clear retention and revocation semantics.
 
-The Guardian Authority Bundle additionally carries a threshold set of governance approvals rather than a single issuer signature, and expresses revocation state inline so that revocation inherits the same governance signature as the authority it governs.
-
-Audit records MUST minimize personal data.
+Audit records must minimize personal data.
 
 Auditability is not permission to create a parallel surveillance database.
 
 ### Evidence and sealing
 
-The Stage 6 development process has established evidence capture, reproducibility capture, trust gates, review gates, promotion seals, and durable evidence artifacts as part of the project's development discipline.
+The trust-development process establishes evidence capture, reproducibility capture, trust gates, review gates, promotion seals, runtime verification artifacts, and durable evidence records.
 
-This means that verification claims should be tied to preserved evidence rather than to an unrecorded statement that a test once passed.
+Verification claims must be tied to preserved evidence rather than an unrecorded statement that a test once passed.
 
-The same principle applies to architecture documentation:
-> A documented capability MUST NOT be described as production-authorized merely because an implementation or test exists.
+Runtime evidence must not contain:
 
-A capability may instead be described as:
+- Private keys.
+- Passphrases.
+- Seeds.
+- Runtime secrets.
+- Full secret-bearing environment files.
+- Redis connection URLs containing credentials.
+- Rendered Nginx configuration containing active shared secrets.
+- Raw authorization headers.
+- Session tokens.
+- Plaintext protected user content.
 
-- defined;
-- implemented;
-- verified;
-- sealed;
-- promoted;
-- production-authorized.
+A capability may be described as:
+
+- Defined.
+- Implemented.
+- Verified.
+- Sealed.
+- Promoted.
+- Production-authorized.
 
 These are distinct states.
 
@@ -742,164 +761,229 @@ These are distinct states.
 
 ## 14. Current Implementation and Verification Alignment
 
-| Component                            | Current state                                                                                                                                                                                            |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Constitutional Guardian              | **Implemented and materially hardened.** Runtime admission, caller authentication, signed operation-intent enforcement, authority-bundle sourcing, revocation enforcement, and fail-closed protected decision boundaries are implemented. |
-| Guardian Authority Bundle            | **Implemented and verified at the decision boundary.** Three-role threshold verification and caller/subject-key/revocation sourcing demonstrated under test-provisioned governance keys. A production bundle signed by the established governance board remains pending. |
-| Runtime Authority Manifest           | **Implemented and cryptographically verified in the trust-development chain.** Evidence has been preserved/sealed. Final production authorization remains gated.                                         |
-| Runtime Admission                    | **Implemented and verified.** The protected runtime boundary fails closed when required authority conditions are absent or invalid.                                                                      |
-| Caller Identity Authentication       | **Implemented and verified.** `/constitutional/check` authenticates the caller before protected decision logic and fails closed on missing/invalid caller credentials. Caller identities are sourced from the verified authority bundle. |
-| Signed Operation Intent              | **Implemented and verified at the protected decision boundary.** Caller, subject, request, and operation bindings are enforced; tampered- and untrusted-signature and inactive-subject-key intents are denied. |
-| Policy Decision Receipt schema       | **Implemented.** Trust-receipt schema and validation infrastructure exist.                                                                                                                               |
-| Policy Decision Receipt verification | **Implemented.** Cryptographic and structural verification/binding infrastructure exists.                                                                                                                |
-| Policy Decision Receipt issuance     | **Implemented and verified end-to-end under a provisioned signer.** Issue, durable-consume, and replay-deny demonstrated. Production issuance remains dependent on a trusted production Guardian signer. |
-| Guardian PDR signing authority       | **Not production-authorized.** The issuance path is verified; a production Guardian signer enrolled in the production trusted registry (with the `guardian` role) remains the outstanding activation gate. |
-| Existing runtime approver keys       | **Verified.** Existing security and operations approval identities have been validated against their registered public-key material.                                                                     |
-| Runtime approval chain               | **Verified for the implemented development/release boundary.** The stronger final production governance boundary remains outstanding.                                                                    |
-| Production governance policy         | **Not yet fully established as production authority.** Existing policy artifacts must not be mistaken for final production governance activation.                                                        |
-| Governance-board authority           | **Not yet established for final production activation.** No production `governance-board` signer has been enrolled.                                                                                       |
-| Memory Authorization Receipt         | **Defined and supported by receipt infrastructure; complete protected-memory production path remains pending.**                                                                                          |
-| Projection Receipt                   | **Defined; complete production projection boundary remains pending.**                                                                                                                                    |
-| Projection Service                   | **Not production-activated.** Runtime admission and protected retrieval integration remain outstanding.                                                                                                  |
-| Chroma / semantic memory             | **Existing semantic-memory capability.** Protected data must remain behind the authorization/projection boundary.                                                                                        |
-| Hilbert People Space                 | **Existing implementation/conceptual layer.** It must operate as a bounded projection/indexing layer rather than unrestricted private-memory authority.                                                  |
-| BBB / disclosure boundary            | **Existing safety/disclosure boundary.** Full receipt-aware protected-memory integration remains part of the closure path.                                                                               |
-| Commons Contribution Receipts        | **Defined; production implementation remains pending.**                                                                                                                                                  |
-| Commons Transformation Receipts      | **Defined; production implementation remains pending.**                                                                                                                                                  |
-| Commons Epoch Roots                  | **Defined; production governance integration remains pending.**                                                                                                                                          |
-| Revocation                           | **Implemented and verified at the decision boundary.** Subject and intent revocation are sourced from the signed authority bundle and fail closed. Integration into the protected-memory/projection path remains pending. |
-| Durable receipt/consumption ledger   | **Implemented and verified.** Durable consumption and replay denial demonstrated within the trust-receipt development work.                                                                              |
-| Trust gates                          | **Implemented and exercised.**                                                                                                                                                                           |
-| Reproducibility capture              | **Completed for the applicable development stage.**                                                                                                                                                      |
-| Promotion seals                      | **Completed for applicable completed stages.**                                                                                                                                                           |
-| Negative security cases              | **Validated for the completed trust-boundary work.**                                                                                                                                                     |
-| Adversarial verification matrix      | **Partially closed.** Decision-boundary cases verified (unregistered caller, missing/tampered/mismatched intent, inactive subject key, subject and intent revocation, PDR replay). Remaining cells — expiration, policy-version mismatch, unapproved-image, Guardian outage — and the full projection chain remain. |
-| Custodian ceremony                   | **Started; not complete.** Custodian 1 has enrolled 4 of 11 required public enrollment records. At least two independent custodians, the remaining records, and a threshold-signed production authority/governance registry remain. Grants no authority. |
-| Release-candidate evidence           | **Completed as a tested, evidence-backed, fail-closed package.** Commitment `sha256:f805a817…`; `AUTHORITY_STATUS: INACTIVE`; `DEPLOYMENT_ADMISSION: BLOCKED`; no private keys in the package.            |
-| Live authority system                | **Not active.** Deployment remains intentionally blocked pending governance, signing, projection, and final activation prerequisites.                                                                    |
-
-This table distinguishes architecture, implementation, verification, evidence, promotion, and production authority.
-
-A declared component is not automatically running.
+| Component | Current state |
+|---|---|
+| Constitutional Guardian | Implemented and materially hardened at the decision boundary. Runtime admission, caller authentication, signed operation-intent enforcement, Authority Bundle sourcing, revocation enforcement, and fail-closed protected decision boundaries are implemented. |
+| Guardian Authority Bundle | Implemented and verified with test-provisioned governance keys. Production governance-board authority and a genuine production bundle remain pending. |
+| Runtime Authority Manifest | Implemented and cryptographically verified in the trust-development boundary. Final production release authority remains gated. |
+| Runtime Admission | Implemented and verified. Protected runtime boundaries fail closed when required authority conditions are absent or invalid. |
+| Caller authentication | Implemented and verified fail closed. |
+| Signed operation intent | Implemented and verified at the protected decision boundary, including mismatch, tampering, trust, status, and revocation denial paths. |
+| PDR schema and verification | Implemented. Structural, cryptographic, lifetime, and binding infrastructure exists. |
+| PDR factory and issuance | Implemented and verified under provisioned non-production signer material. Production signer enrollment remains outstanding. |
+| Guardian PDR signing authority | Not production-authorized. A dedicated production signer with the required registry role and governance authorization remains required. |
+| Durable receipt ledger | Implemented and verified for consumption and replay denial in the trust-development boundary. |
+| Runtime-isolation pilot | Verified. Redis, egress, admission API, and privacy worker passed final runtime checks with read-only roots, dropped capabilities, non-root execution where configured, Redis authentication, Nginx validation, and egress enforcement. |
+| Egress boundary | Verified for `/chat`: unauthenticated POST rejection with HTTP 403 and non-POST rejection with HTTP 405. |
+| Pilot secret rotation | Egress and Redis credentials previously exposed during remediation were rotated. Current local environment-file delivery is temporary and not production-ready. |
+| External secret manager | Not yet implemented. Required before production activation. |
+| Docker Swarm migration | Not approved as a pilot-only secret migration because the current local bridge-network topology would require coordinated broader infrastructure migration. |
+| MAR | Defined and supported by receipt infrastructure; complete protected-memory production path remains pending. |
+| Projection Receipt | Defined; complete production projection boundary remains pending. |
+| Projection Service | Not production-activated. |
+| Reasoning isolation | Existing semantic-memory and reasoning capabilities must remain behind the authorization and projection boundary. |
+| Commons receipts and governance | Defined; production implementation remains pending. |
+| Revocation | Verified at the Guardian decision boundary; projection-path integration remains pending. |
+| Adversarial matrix | Partially closed. Decision-boundary cases are verified; expiration, policy mismatch, unapproved-image, outage, secret-manager failure, and full projection-chain cases remain. |
+| Custodian ceremony | Started but incomplete. It grants no authority until the required independent custodians, remaining enrollment records, and threshold-signed governance registry are complete. |
+| Release-candidate evidence | Completed as a tested, evidence-backed, fail-closed package. It is not an active authority system. |
+| Live authority system | Not active. Production activation remains blocked pending governance, signer, secret-management, projection, release, and final authorization prerequisites. |
 
 An implemented component is not automatically production-authorized.
 
-A verified component is not automatically production-authorized.
+A verified pilot is not automatically a production release.
 
-A sealed evidence artifact is not automatically production-authorized.
-
-A release candidate is not automatically an active authority system.
+A sealed evidence artifact is not automatically an active authority system.
 
 ---
 
 ## 15. Verification Requirements
 
-| Capability                  | Required proof                                                                                                      | Current status                                                                                      |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| Approved production service | Pinned digest, SBOM, runtime manifest, release approvals, health checks, contract checks                            | **Partially demonstrated; final production release closure remains**                                |
-| Runtime authority           | Valid signed manifest, trusted signers, policy compatibility, image binding                                         | **Signature verification and admission evidence demonstrated; final production governance remains** |
-| Guardian authority bundle   | Governance-signed bundle meeting `minimum_approvals` and `required_roles`, verified approver keys, valid expiry     | **Threshold verification demonstrated under test-provisioned governance keys; production bundle remains** |
-| Caller authenticity         | Valid caller credential (bundle-sourced) before protected decision logic                                            | **Implemented and verified fail-closed**                                                            |
-| Signed operation intent     | Valid subject signature, trusted subject key, operation binding, caller/subject binding                             | **Implemented and verified fail-closed; tampered/mismatched/inactive-key denials verified**         |
-| PDR issuance                | Valid Guardian signer, trusted registry entry, policy binding, durable consumption, cryptographic signature         | **End-to-end issuance, durable consumption, and replay denial verified under a provisioned signer; production signer enrollment remains blocked** |
-| Private-memory access       | Valid MAR, valid PDR, vault-root match, recipient/runtime binding, unexpired scope                                  | **Not fully production-closed**                                                                     |
-| Semantic projection         | Projection Receipt with source commitments, purpose, minimization policy, expiry, output commitment, and use record | **Not fully production-closed**                                                                     |
-| Commons contribution        | User authorization, valid Contribution Receipt, applicable PDR                                                      | **Pending**                                                                                         |
-| Commons transformation      | Transformation Receipt, approved runtime digest, privacy mechanism, cohort threshold, required attestations         | **Pending**                                                                                         |
-| Governance decision         | Epoch root, approved aggregation method, policy record, required signatures                                         | **Pending full production integration**                                                             |
-| Revocation                  | Current revocation-state check before every new protected projection                                                | **Subject and intent revocation verified at the decision boundary via the signed bundle; projection-path integration pending** |
-| Guardian outage             | Protected capability denial; no fallback to unapproved data access                                                  | **Fail-closed behavior implemented in the applicable trust path**                                   |
-| Unapproved runtime          | Receipt verification failure and denial of protected projection                                                     | **Runtime admission boundary implemented; full protected projection path remains**                  |
-| Receipt replay              | Request binding, expiry, use-count enforcement, replay detection                                                    | **Replay denial verified end-to-end via durable PDR consumption; full production-chain closure remains** |
+| Capability | Required proof | Current status |
+|---|---|---|
+| Approved production service | Pinned digest, SBOM, Runtime Authority Manifest, governance approval, health checks, contract checks, rollback evidence | Partially demonstrated; final production release closure remains |
+| Runtime authority | Valid signed manifest, trusted signers, policy compatibility, image binding | Signature and admission evidence demonstrated; final production governance remains |
+| Guardian Authority Bundle | Production-signed bundle satisfying required roles, threshold, expiry, key validity, and revocation state | Test-provisioned mechanism verified; production bundle remains |
+| Caller authenticity | Valid bundle-sourced caller credential before protected decision logic | Implemented and verified fail closed |
+| Signed operation intent | Valid signature, trusted active subject key, caller-subject binding, request-operation binding, revocation enforcement | Implemented and verified fail closed |
+| PDR issuance | Valid production Guardian signer, trusted registry entry, policy binding, durable consumption, cryptographic signature | Verified under provisioned non-production signer; production enrollment remains blocked |
+| Secret delivery | Approved external manager, least privilege, non-root compatibility, auditable rotation and recovery | Not complete |
+| Runtime isolation | Read-only roots, least privilege, scoped writable paths, tested egress enforcement, authenticated dependencies | Verified for the pilot baseline |
+| Private-memory access | Valid MAR, valid PDR, vault-root match, recipient-runtime binding, unexpired scope, use-count and revocation enforcement | Not production-closed |
+| Semantic projection | Valid Projection Receipt, minimization policy, output commitment, recipient binding, expiry, use controls | Not production-closed |
+| Commons contribution | User authorization, valid Contribution Receipt, applicable PDR | Pending |
+| Commons transformation | Transformation Receipt, approved runtime digest, privacy mechanism, cohort threshold, required attestations | Pending |
+| Governance decision | Epoch root, approved aggregation method, policy record, required signatures | Pending |
+| Revocation | Current revocation-state check before every protected projection | Decision-boundary verification complete; projection-path integration pending |
+| Guardian outage | Protected capability denial; no fallback to unapproved access | Applicable trust path fails closed; full protected-memory path remains pending |
+| Secret-manager outage | Protected capability denial and safe recovery without secret disclosure | Pending |
+| Unapproved runtime | Verification failure and denial of protected projection | Runtime admission implemented; full projection path remains pending |
+| Receipt replay | Binding, expiry, use count, durable replay detection | PDR replay denial verified; full chain remains pending |
+| Multi-replica ledger | Durable shared-ledger conformance | Pending before multi-replica production deployment |
 
 ---
 
-## 16. Pilot Implementation and Closure Order
+## 16. Pilot Implementation and Production Closure Order
 
-The original architecture remains the governing roadmap, but the starting point has advanced substantially because several foundational stages are now implemented and verified.
+### 16.1 Purpose and status
 
-### Completed or materially advanced
+This section records the current implementation boundary and the remaining closure work required before any component may be represented as production-authorized.
 
-1. Define governance roles, keys, policy versions, threshold requirements, and failure-mode requirements.
-2. Define runtime-authority structures.
-3. Implement runtime-authority signature verification.
-4. Establish runtime admission enforcement.
-5. Establish Guardian admission evidence.
-6. Establish trust gates and reproducibility capture.
-7. Establish evidence sealing and applicable promotion gates.
-8. Implement caller authentication.
-9. Implement signed operation-intent verification and binding, including tampered/mismatched/inactive-key denial.
-10. Implement trust-receipt schemas and verification infrastructure.
-11. Implement durable receipt/consumption ledger behavior and verify replay denial.
-12. Implement and verify the end-to-end PDR issuance path under a provisioned signer.
-13. Implement the governance-signed Guardian Authority Bundle, its three-role threshold verification, and bundle-sourced caller/subject-key/revocation authority.
-14. Enforce subject and intent revocation at the decision boundary.
-15. Validate decision-boundary adversarial cases (unregistered caller, missing/tampered/mismatched intent, inactive subject key, subject and intent revocation, PDR replay).
-16. Validate negative security cases around the completed trust boundaries.
-17. Initiate the human custodian ceremony (Custodian 1 enrollment) without activating any authority.
-18. Produce evidence-backed release-candidate artifacts without activating production authority.
+The system has progressed beyond an architecture-only design. It now includes meaningful, evidence-backed implementation and verification of trust-boundary controls, receipt infrastructure, Guardian decision-boundary controls, and a hardened privacy-gateway runtime pilot.
 
-### Remaining closure work
+Those accomplishments are real and operationally valuable. They do not activate production authority, authorize protected-memory access, establish governance approval, or permit a live authority system.
 
-The remaining work MUST preserve the same fail-closed discipline.
+The present status is:
+
+    RELEASE STATE: tested, evidence-backed, fail-closed release candidate
+    AUTHORITY STATUS: inactive
+    DEPLOYMENT ADMISSION: blocked pending production governance, signing,
+    runtime-authority, protected-memory, projection, secret-management,
+    and activation conditions
+
+The verified privacy-gateway pilot is a runtime-isolation baseline. It is not the completion of the MountainShares / Ms. Jarvis production trust architecture.
+
+### 16.2 Completed or materially advanced work
+
+The following work has been implemented, materially hardened, or verified:
+
+1. Governance-role, policy, threshold, and failure-mode architecture has been defined.
+2. Runtime-authority structures have been defined and verification infrastructure implemented.
+3. Runtime admission has been implemented as a fail-closed boundary.
+4. Guardian admission evidence, trust gates, reproducibility capture, evidence sealing, and applicable promotion records have been established.
+5. Caller authentication has been implemented before protected decision logic.
+6. Signed operation-intent verification and caller-subject-request-operation binding have been implemented.
+7. Tampered, untrusted, inactive-key, malformed, mismatched, and revoked intent conditions are denied fail closed.
+8. Guardian Authority Bundle verification, threshold approval checks, and bundle-sourced caller, subject-key, and revocation authority have been implemented and verified with test governance material.
+9. Subject and intent revocation are enforced at the Guardian decision boundary.
+10. Trust-receipt schemas, canonical verification modules, PDR factory infrastructure, and receipt-chain checks have been implemented.
+11. Durable PDR consumption and replay denial have been implemented and verified under provisioned non-production signer material.
+12. Negative security cases have been validated around completed decision-boundary controls.
+13. Custodian enrollment has begun without activating authority.
+14. Evidence-backed release-candidate artifacts have been produced without private keys or production authority activation.
+15. The runtime-isolation pilot has been deployed and verified.
+16. Pilot egress and Redis credentials exposed during remediation were rotated.
+17. Final pilot verification confirms operational Redis, egress, admission API, and privacy worker services with intended runtime controls.
+
+### 16.3 Remaining closure work
+
+The remaining work must preserve the same fail-closed discipline.
+
+#### Governance and authority
 
 1. Establish the authorized production governance decision and corresponding production policy registry.
-2. Establish the required production governance-board authority and enroll a real `governance-board` signer.
-3. Establish dedicated Guardian PDR signing authority and enroll it, with the `guardian` role, in the production trusted signer registry.
-4. Produce a production Guardian Authority Bundle carrying a genuine three-role threshold of production approvals.
-5. Complete production Guardian authority activation and demonstrate a live, cryptographically valid PDR issuance path against production authority.
-6. Establish signed runtime-admission chains for the Projection Service and reasoning recipient.
-7. Implement and verify MAR issuance and validation in the protected-memory path.
-8. Implement Projection Service verification before protected retrieval.
-9. Remove unrestricted private-memory access from reasoning paths.
-10. Implement and verify Projection Receipts and their output commitments.
-11. Implement Contribution and Transformation Receipts before publishing Commons aggregates.
-12. Establish Commons Epoch Root and governance integration.
-13. Integrate revocation state into the protected-memory/projection authorization checks (beyond the decision boundary already covered).
-14. Close the remaining adversarial verification cells across the complete production chain:
-  - expiration;
-  - policy-version mismatch;
-  - unapproved-image access;
-  - Guardian outage;
-  - and the full projection/MAR chain for the cases already closed at the decision boundary.
-15. Build and verify one reproducible pilot release from a fully governed signed Runtime Authority Manifest.
-16. Complete the human governance and custodian ceremony for actual activation — at least two independent custodians and the remaining public enrollment records (7 of 11 outstanding), culminating in a threshold-signed active governance registry.
-17. Demonstrate durable shared-ledger conformance before multi-replica deployment where required by the final release boundary.
+2. Establish the required production governance-board authority and enroll a real governance-board signer.
+3. Complete the independent-custodian enrollment and governance activation ceremony.
+4. Produce a threshold-signed active production governance registry.
+5. Establish production key-rotation, revocation, incident-response, and emergency-suspension procedures.
 
-These remaining requirements MUST NOT be inferred to be complete merely because their supporting infrastructure exists.
+#### Guardian signer and PDR activation
+
+6. Establish dedicated Guardian PDR signing authority in approved secure custody.
+7. Enroll its public key, with the required `guardian` role, in the production trusted signer registry.
+8. Produce a production Guardian Authority Bundle carrying genuine production approvals and valid expiry.
+9. Demonstrate a live, cryptographically valid PDR issuance path against production authority.
+10. Demonstrate durable production receipt consumption and replay denial.
+11. Ensure Guardian outage and signer failure deny protected capabilities rather than creating fallback authorization.
+
+#### Runtime authority and secrets
+
+12. Build and verify one reproducible pilot release from a fully governed signed Runtime Authority Manifest.
+13. Pin exact production image digests, SBOMs, dependencies, policies, health contracts, rollback targets, and release approvals.
+14. Implement approved external secret management compatible with the non-root runtime.
+15. Replace temporary local environment-file secret delivery.
+16. Rotate all pre-production credentials during the governed production cutover.
+17. Verify that no secret values appear in source, Compose configuration, rendered configuration output, evidence, logs, shell history, or repository history.
+18. Define and test secret-manager outage, recovery, rotation, and revocation behavior.
+
+#### Protected memory and projection
+
+19. Establish signed runtime-admission chains for the Projection Service and reasoning recipient.
+20. Implement and verify MAR issuance and validation in the protected-memory path.
+21. Implement Projection Service verification before protected retrieval.
+22. Remove unrestricted private-memory access from reasoning paths.
+23. Implement and verify Projection Receipts and their output commitments.
+24. Bind recipient runtime identity, projection scope, purpose, policy, expiry, and use count before reasoning-context release.
+25. Integrate revocation into protected-memory and projection authorization checks before every new projection.
+
+#### Commons and full-chain verification
+
+26. Implement Contribution and Transformation Receipts before publishing Commons aggregates.
+27. Establish Commons Epoch Root governance and required privacy attestations.
+28. Close the remaining adversarial verification cells:
+    - Authority and receipt expiration.
+    - Policy-version mismatch.
+    - Unapproved-image access.
+    - Guardian outage.
+    - Secret-manager outage.
+    - PDR, MAR, projection, and response replay.
+    - Full protected-memory projection chain.
+29. Demonstrate durable shared-ledger conformance before any multi-replica deployment requiring shared receipt consumption.
+30. Exercise backup recovery, rollback, incident response, observability, and evidence-retention procedures.
+
+### 16.4 Production acceptance criteria
+
+The system may be described as production-authorized only when all of the following are true for the exact immutable release in operation:
+
+- Required governance authority is active and valid.
+- Required production signers are securely provisioned, enrolled, role-authorized, non-revoked, and governed.
+- A valid production Guardian Authority Bundle satisfies the required approval threshold.
+- Runtime Authority Manifest verification succeeds for the exact running image digests.
+- Approved external secret delivery is active and no plaintext secret values are exposed through disallowed channels.
+- Protected operations require valid caller authority, signed operation intent, runtime admission, PDR, MAR, and projection authorization as applicable.
+- Protected-memory retrieval is bounded by valid authorization, scope, expiry, recipient binding, and revocation controls.
+- The reasoning recipient is runtime-approved and receives only authorized minimal context.
+- Receipt consumption and replay prevention operate durably at the intended deployment scale.
+- Required negative, outage, rollback, and recovery tests pass.
+- Commons contribution controls are active before contribution or publication paths are enabled.
+- The release is reproducible, evidenced, approved, observable, recoverable, and reversible.
+- Required governance authority has approved activation of that exact release.
+
+Until these conditions are satisfied, the correct description remains:
+
+    A tested, evidence-backed, fail-closed release candidate with a verified
+    runtime-isolation pilot baseline; not a production-authorized live authority system.
+
+### 16.5 Immediate practical next project
+
+The immediate next project is:
+
+1. Production governance and signer enrollment.
+2. Approved external secret-manager implementation.
+3. Governed Runtime Authority Manifest and reproducible release closure.
+4. Protected-memory MAR and Projection Service activation.
+5. End-to-end production-chain adversarial verification.
+
+The immediate next project is not another emergency Docker hardening change. The pilot has established a hardened runtime baseline. Production progress now depends on legitimate authority, signer custody, governed secret delivery, immutable release authority, and completion of the protected-memory authorization and projection chain.
 
 ---
 
 ## 17. Current Release Boundary
 
-The current system state MUST be described as:
-> **A tested, evidence-backed, fail-closed release candidate rather than a live authority system.**
+The current system state must be described as:
 
-The remediation history establishes an intentionally inactive production authority boundary. The final release-candidate evidence package records this explicitly:
+> A tested, evidence-backed, fail-closed release candidate rather than a live authority system.
 
-- Release-candidate commitment: `sha256:f805a817…`
-- `AUTHORITY_STATUS: INACTIVE`
-- `DEPLOYMENT_ADMISSION: BLOCKED`
-- Private keys in the package: none.
+The release boundary is intentionally inactive.
 
-The custodian ceremony has begun but is not complete: Custodian 1 has enrolled four public records (emergency-revoker, governance-steward, policy-approver, release-approver); at least two independent custodians and seven further enrollment records remain before an active governance registry can be threshold-signed. Beginning the ceremony grants no authority.
+The current public or shareable evidence package must exclude:
 
-A candidate Guardian deployment topology exists but is intentionally not deployable: it references a Guardian PDR signer absent from the trusted registry, and the running topology is deliberately unprovisioned, so the current deployment fails closed.
+- Private keys.
+- Passphrases.
+- Seeds.
+- Runtime secrets.
+- Signer private material.
+- Full secret-bearing configuration.
+- Plaintext protected data.
+- Other sensitive authority material.
 
-The public evidence package is designed to contain the relevant non-secret evidence while excluding:
+The current pilot verification evidence demonstrates runtime isolation, service health, credential rotation, egress enforcement, Redis authentication, and fail-closed boundary controls without granting production authority.
 
-- private keys;
-- passphrases;
-- seeds;
-- runtime secrets;
-- signer material;
-- other sensitive authority material.
+The custodian ceremony has begun but is incomplete. Partial enrollment grants no authority.
 
-The release-candidate evidence therefore demonstrates implementation, testing, provenance, and fail-closed behavior without granting production authority.
+A candidate Guardian deployment topology may be technically deployable but remains unauthorized until the required governance, signer, authority-bundle, runtime-manifest, secret-management, and protected-memory conditions are complete.
 
-This distinction is deliberate.
-
-The architecture is designed to stop before live authority is granted when required governance, signing, registry, runtime, or projection conditions are absent.
+The architecture is designed to stop before live authority is granted when required governance, signing, registry, runtime, secret-delivery, or projection conditions are absent.
 
 ---
 
@@ -921,7 +1005,7 @@ The implementation has produced evidence demonstrating the required behavior or 
 
 ### Sealed
 
-The relevant evidence has been preserved as an identifiable, integrity-bound artifact in the development history.
+Relevant evidence has been preserved as an identifiable, integrity-bound artifact.
 
 ### Promoted
 
@@ -929,18 +1013,16 @@ The relevant stage has passed its defined promotion gate and has been recorded a
 
 ### Production-authorized
 
-The required governance authority, signing authority, runtime admission, policy, and activation conditions exist and have been explicitly authorized.
+The required governance authority, signing authority, runtime admission, policy, secret-management, release, and activation conditions exist and have been explicitly authorized.
 
-These states MUST NOT be conflated.
+These states must not be conflated.
 
-In particular:
-> **Implemented does not mean production-authorized.**
-> **Verified does not mean production-authorized.**
-> **Sealed evidence does not mean production-authorized.**
-> **Promoted does not mean production-authorized.**
-> **A release candidate does not mean an active authority system.**
-
-This distinction is fundamental to the MountainShares / Ms. Jarvis trust architecture.
+> Implemented does not mean production-authorized.  
+> Verified does not mean production-authorized.  
+> Sealed evidence does not mean production-authorized.  
+> Promoted does not mean production-authorized.  
+> A hardened pilot does not mean production-authorized.  
+> A release candidate does not mean an active authority system.
 
 ---
 
@@ -948,54 +1030,61 @@ This distinction is fundamental to the MountainShares / Ms. Jarvis trust archite
 
 The architecture has progressed beyond a purely conceptual trust model.
 
-The current system contains meaningful, evidence-backed implementation of the trust boundary around:
+The current system contains meaningful, evidence-backed implementation of:
 
-- runtime authority;
-- signed runtime admission;
-- Guardian admission enforcement;
-- caller authentication;
-- signed operation-intent verification, including tampered/mismatched/inactive-key denial;
-- the governance-signed Guardian Authority Bundle and its three-role threshold verification;
-- subject and intent revocation enforcement at the decision boundary;
-- fail-closed protected decision paths;
-- Policy Decision Receipt schema, verification infrastructure, and end-to-end issuance verified under a provisioned signer with replay denial;
-- durable receipt-consumption infrastructure;
-- trust gates;
-- reproducibility capture;
-- evidence sealing;
-- applicable stage promotion;
-- negative security validation;
-- non-authorizing release-candidate packaging.
+- Runtime authority.
+- Signed runtime admission.
+- Guardian admission enforcement.
+- Caller authentication.
+- Signed operation-intent verification.
+- Caller-subject and request-operation binding.
+- Governance-signed Guardian Authority Bundle verification.
+- Subject and intent revocation enforcement at the decision boundary.
+- Fail-closed protected decision paths.
+- PDR schema, factory, verification infrastructure, issuance under provisioned non-production signer material, durable consumption, and replay denial.
+- Runtime-isolation pilot controls.
+- Non-root service operation where configured.
+- Read-only roots, dropped capabilities, and no-new-privileges controls.
+- Scoped writable runtime paths.
+- Redis authentication and protected configuration permissions.
+- Egress method and shared-secret enforcement.
+- Credential rotation after pilot exposure.
+- Trust gates, reproducibility capture, evidence sealing, and applicable stage promotion.
+- Negative security validation.
+- Non-authorizing release-candidate packaging.
 
-These accomplishments materially change the implementation status from the original architecture snapshot.
+These accomplishments materially advance the implementation state.
 
 However, the architecture deliberately preserves the remaining boundaries around:
 
-- final production governance authority;
-- a production governance-board signer;
-- a production Guardian PDR signer enrolled in the production trusted registry;
-- a production Guardian Authority Bundle carrying genuine three-role approvals;
-- production policy registries;
-- Projection Service admission;
-- reasoning-runtime admission;
-- complete MAR activation;
-- protected semantic projection;
-- unrestricted-memory removal;
-- Commons contribution and transformation receipts;
-- revocation integration into the protected-memory/projection path;
-- the remaining adversarial verification cells;
-- final reproducible pilot-release authorization;
-- completion of the human custodian/governance activation ceremony.
+- Final production governance authority.
+- A production governance-board signer.
+- A production Guardian PDR signer enrolled in the production trusted registry.
+- A production Guardian Authority Bundle carrying genuine threshold approvals.
+- Production policy registries.
+- Approved external secret management.
+- Governed immutable release authority.
+- Projection Service admission.
+- Reasoning-recipient admission.
+- Complete MAR activation.
+- Protected semantic projection.
+- Removal of unrestricted private-memory access.
+- Contribution and Transformation Receipts.
+- Commons Epoch Root governance.
+- Revocation integration into the protected-memory and projection path.
+- Remaining adversarial verification cells.
+- Durable shared-ledger verification at production scale.
+- Final reproducible release authorization.
+- Completion of human custodian and governance activation.
 
 The result is not an architecture claiming completion prematurely.
 
-It is an architecture in which the remaining work can now be expressed as explicit authority, implementation, and verification gates rather than unspecified future architecture.
+It is an architecture in which remaining work is expressed as explicit authority, implementation, operational, and verification gates rather than unspecified future work.
 
 The governing principle remains unchanged:
-> **Integrity proves what happened. Authority proves who may cause it. Policy proves whether it was allowed.**
 
-The documentation therefore records both sides of the current state:
+> Integrity proves what happened. Authority proves who may cause it. Policy proves whether it was allowed.
 
-**What has actually been built, tested, verified, sealed, and promoted; and what remains deliberately blocked because the required authority has not yet been established.**
+The documentation records both sides of the current state:
 
-That distinction is itself part of the trust architecture.
+> What has actually been built, tested, verified, sealed, and promoted; and what remains deliberately blocked because the required authority has not yet been established.
