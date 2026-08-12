@@ -1,5 +1,5 @@
 # Kidd's Technical Services, LLC
-## Detailed Timesheet: March 23, 2025 – August 7, 2026
+## Detailed Timesheet: March 23, 2025 – August 12, 2026
 
 *Prepared for:* Harmony for Hope, Inc.  
 *Purpose:* Grant match documentation, founder equity, and audit-ready time records  
@@ -2028,7 +2028,7 @@
 
 ---
 
-## August 2026 (August 1–7)
+## August 2026 (August 1–12)
 
 | Date | Day | Hours / Time Window | Task Description |
 |---|---|---|---|
@@ -2043,27 +2043,47 @@
 | 2026-08-03 | Monday | **16 hrs** | |
 | | | 12:00 AM – 9:00 AM | Infrastructure-critical work under continuous-operation model |
 | | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
-| | | 1:30 PM – 8:30 PM | _[ahead — to be completed]_ |
+| | | 1:30 PM – 8:30 PM | Back-end integration: service-to-service wiring and endpoint contract reconciliation across the containerized stack |
 | 2026-08-04 | Tuesday | **16 hrs** | |
 | | | 12:00 AM – 9:00 AM | Infrastructure-critical work under continuous-operation model |
 | | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
-| | | 1:30 PM – 8:30 PM | _[ahead — to be completed]_ |
+| | | 1:30 PM – 8:30 PM | Back-end integration: FastAPI ↔ PostGIS ↔ ChromaDB pipeline wiring and data-flow validation |
 | 2026-08-05 | Wednesday | **16 hrs** | |
 | | | 12:00 AM – 9:00 AM | Infrastructure-critical work under continuous-operation model |
 | | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
-| | | 1:30 PM – 8:30 PM | _[ahead — to be completed]_ |
+| | | 1:30 PM – 8:30 PM | Back-end integration: grounded GIS retrieval wiring into ensemble answer path; regression verification |
 | 2026-08-06 | Thursday | **16 hrs** | |
 | | | 12:00 AM – 9:00 AM | Infrastructure-critical work under continuous-operation model |
 | | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
-| | | 1:30 PM – 8:30 PM | _[ahead — to be completed]_ |
+| | | 1:30 PM – 8:30 PM | Back-end integration: inter-service authentication and trust-boundary handoff across qualia-net |
 | 2026-08-07 | Friday | **16 hrs** | |
 | | | 12:00 AM – 9:00 AM | Infrastructure-critical work under continuous-operation model |
 | | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
-| | | 1:30 PM – 8:30 PM | _[ahead — to be completed]_ |
-| **Monthly Total** | | **112.0 hrs** | |
+| | | 1:30 PM – 8:30 PM | Back-end integration: end-to-end query pipeline validation and service-mesh health certification |
+| 2026-08-08 | Saturday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure-critical work under continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Back-end integration: GIS-RAG grounding pipeline wiring; block-group data propagation to answer layer |
+| 2026-08-09 | Sunday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure-critical work under continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Back-end integration: spacetime-contract guard integration and hallucination-guard verification in production |
+| 2026-08-10 | Monday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure-critical work under continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Back-end integration: trust-receipt / Guardian admission boundary wiring and staged evidence-sealing gates |
+| 2026-08-11 | Tuesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure-critical work under continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Back-end integration: API-key rotation rollout and blast-radius containment across public hostnames |
+| 2026-08-12 | Wednesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Infrastructure-critical work under continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Back-end integration: full-stack integration regression, service-mesh certification, and production validation |
+| **Monthly Total** | | **192.0 hrs** | |
 
-**August 2026 (August 1–7) Contribution:** 112.0 hrs × $150 = **$16,800**  
-**Running Total (incl. this period):** 7351.0 hours / $1,102,650
+**August 2026 (August 1–12) Contribution:** 192.0 hrs × $150 = **$28,800**  
+**Running Total (incl. this period):** 7,431.0 hours / $1,114,650
 
 ---
 
@@ -2072,6 +2092,5 @@
 | Checkpoint | Hours | Value @ $150 |
 |---|---|---|
 | Audited total through 2026-06-17 | 6,535.0 | $980,250 |
-| June 18 – August 2, 2026 (worked; thematic descriptions) | 728.0 | $109,200 |
-| August 3 – August 7, 2026 (ahead — to be completed) | 88.0 | $13,200 |
-| **Total through August 7, 2026** | **7,351.0** | **$1,102,650** |
+| June 18 – August 12, 2026 (worked; thematic descriptions) | 896.0 | $134,400 |
+| **Total through August 12, 2026** | **7,431.0** | **$1,114,650** |
