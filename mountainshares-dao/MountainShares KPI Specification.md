@@ -91,7 +91,7 @@ This KPI is the single most critical metric in the entire specification. All pha
 
 This document defines Version 3.1 Key Performance Indicators for the MountainShares rollout across all four operational phases. The metrics are designed to:
 
-- Monitor the economic health of the currency at each scale of operation.
+- Monitor the economic health of rewrads at each scale of operation.
 - Track adoption and retention of participants and organizations as the system grows.
 - Measure the usefulness of the system for commons work and local economic life at each phase.
 - Provide early signals of equity and structural impact in line with the MountainShares thesis.
@@ -124,7 +124,7 @@ The inner-core threshold of approximately 315,800 active participants is the lev
 
 Monetary health KPIs assess whether MountainShares circulate actively within the local economy and whether transaction activity is broadly distributed, rather than concentrated in a small number of accounts.
 
-### 1.1 Currency Velocity (Monthly)
+### 1.1 Reward Velocity (Monthly)
 
 **Definition.** Average number of times each unit of MountainShares changes hands per month in the live region. Formally: Velocity = (Total transaction value in month) ÷ (Average circulating supply during that month).
 
