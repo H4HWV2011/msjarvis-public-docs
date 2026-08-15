@@ -1,1940 +1,2443 @@
-# MountainShares / Ms. Jarvis Trust Architecture v1.5
+# Chapter 54 — Pilot Trust Boundary
 
-**Status:** Architecture Freeze Candidate — Runtime-Isolation, Controlled Email Pilot, and Administrative Recovery Update  
-**Authority:** Canonical design reference for pilot trust-boundary work  
-**Date:** 2026-08-15  
-**Supersedes:** v1.4 (2026-08-14)  
-**Scope:** Software provenance, runtime authority, user sovereignty, Commons integrity, policy-governed AI projections, receipt-based authorization, runtime isolation, controlled email delivery, administrative runtime recovery, and fail-closed governance boundaries.
+## 54.1 Purpose and Scope
 
----
+This chapter defines the trust boundary governing the relationship between the MountainShares / Ms. Jarvis controlled-pilot environment and the administrative-production environment.
 
-## Revision Note (v1.4 → v1.5)
+Its purpose is to prevent an operational, recovered, experimental, historical, or partially governed runtime from being represented as administrative production merely because selected services are healthy, reachable, responsive, or currently useful.
 
-This revision incorporates the verified administrative recovery of the two critical Jarvis runtime services:
+The chapter establishes the following governing principle:
 
-- `jarvis-main-brain`
-- `jarvis-hilbert-state`
+> A recovered runtime is evidence of current behavior. It is not, by itself, an approved administrative-production authority.
 
-The recovery establishes a bounded, declaratively owned runtime contract for those services under the dedicated Docker Compose project:
+The distinction is material. A service may be live, a dependency may return a health response, a model pipeline may complete, and a portal may render an answer while the surrounding environment remains outside administrative-production closure. Administrative production requires declared authority, reproducibility, immutable release binding, governed secret delivery, owned state, operational ownership, change control, and evidence that the live state conforms to the approved contract.
 
-    jarvis-legacy-recovery
+This chapter applies to:
 
-The recovery does not activate production authority, authorize protected-memory access, complete the broad Jarvis stack consolidation, establish an institutional multi-user service, enable unrestricted live email delivery, or convert the current release candidate into a production-authorized authority system.
+- the recovered administrative core pair;
+- all services and dependencies necessary to operate that pair;
+- the Ms. Allis authenticated portal and asynchronous chat path;
+- persistent stores used by retained administrative services;
+- Docker containers, images, volumes, networks, ports, Compose projects, systemd units, scripts, scheduled tasks, and host-level automation;
+- the historical `msjarvis-rebuild` aggregate environment;
+- controlled pilots, candidates, recovery artifacts, and historical remnants that could affect administrative operation;
+- all future promotion, migration, containment, decommissioning, rollback, and evidence activities.
 
-It records an important administrative fact:
+This chapter does not establish that all listed components are approved for production. It defines the conditions under which they may be evaluated, retained, promoted, contained, migrated, or decommissioned.
 
-> A service can be running, reachable, and recovered without yet being production-authorized.
+## 54.2 Boundary Statement
 
-Concrete updates in this revision:
+The controlled pilot and administrative-production environments are separate trust domains.
 
-1. **Critical service recovery recorded.** `jarvis-main-brain` and `jarvis-hilbert-state` are operating under the dedicated `jarvis-legacy-recovery` Compose project rather than being managed through the broad historical aggregate stack.
+The controlled pilot exists to conduct bounded evaluation, exercise selected capabilities, establish technical evidence, verify interfaces, observe failure behavior, and identify unresolved governance requirements. Pilot services, candidate images, temporary credentials, experimental routing, recovery procedures, and pilot-state data do not become administrative-production assets by continued operation or successful test results.
 
-2. **Main Brain runtime boundary clarified.** The recovered Main Brain uses the legacy-compatible candidate image and is exposed only on loopback through `127.0.0.1:18058` to container port `8008`. Its Chroma dependency is explicitly addressed through the internal service endpoint `jarvis-chroma:8000`.
+Administrative production exists to deliver approved capabilities through an explicit declarative lifecycle authority. It must be reproducible from approved manifests, bound to immutable releases, operated with governed secrets, supported by documented contracts, and recoverable through tested procedures.
 
-3. **Hilbert State runtime boundary clarified.** The recovered Hilbert State is exposed only on loopback through `127.0.0.1:18092` to container port `8081`. Its expected network and read-only mount requirements remain part of its declared runtime contract.
+The boundary is therefore not a label applied to a host or repository. It is an enforceable difference in authority and evidence.
 
-4. **Health evidence recorded.** At recovery verification time, both services were running and externally reachable through their defined local health paths. This is operational evidence, not production authorization.
+A component belongs to administrative production only when all applicable requirements are satisfied:
 
-5. **Administrative ownership boundary recorded.** The historical `msjarvis-rebuild` aggregate remains a broad, mixed-origin environment containing many additional services and layered Compose inputs. It must not be treated as the lifecycle owner of the recovered Main Brain and Hilbert State services.
+1. Its purpose and classification are formally recorded.
+2. Its lifecycle authority is explicit and singular.
+3. Its release is bound to an approved immutable artifact.
+4. Its dependencies and interfaces are declared.
+5. Its secrets are delivered through an approved governed mechanism.
+6. Its persistent data is owned and recoverable.
+7. Its health, readiness, restart, and failure behavior are declared.
+8. Its operators, escalation paths, and maintenance duties are assigned.
+9. Its live state can be compared with the approved declared state using redacted evidence.
+10. Its promotion has received the required approval.
 
-6. **Administrative-production status clarified.** The recovered pair is administratively improved and operationally stable, but the wider stack is not yet an as-built administrative-production deployment. Full closure still requires authoritative service inventory, one approved declarative owner per production service, immutable release binding, governed secret delivery, explicit health contracts, rollback procedures, and change governance.
+No other condition substitutes for these requirements.
 
-7. **Secret-handling boundary reinforced.** Recovery artifacts, rendered configuration, local environment files, terminal history, and verification evidence must not disclose secret values. Any credentials exposed during earlier recovery or rendered-configuration work must be treated as candidates for rotation.
+In particular, the following do not independently establish administrative-production status:
 
-No capability is upgraded to `production-authorized` by this revision.
+- a container being in a running state;
+- a service responding on an expected port;
+- an HTTP health endpoint returning success;
+- a successful manual test;
+- a completed multi-model response;
+- a recovered service surviving a restart;
+- an image being present on a host;
+- a mutable image tag resolving successfully;
+- a local environment file supplying required values;
+- a historical Compose project continuing to run;
+- a prior pilot approval;
+- an undocumented manual recovery procedure.
 
-The system remains a tested, evidence-backed, fail-closed release candidate with a recovered administrative core.
+## 54.3 Trust-Domain Definitions
 
----
+### 54.3.1 Administrative Production
 
-## 1. Core Principle
+Administrative production is the governed runtime domain used to operate approved MountainShares / Ms. Jarvis administrative capabilities.
 
-> Integrity proves what happened. Authority proves who may cause it. Policy proves whether it was allowed.
+Administrative-production services must be under an approved declarative lifecycle owner and must satisfy the production-closure gates in this chapter.
 
-Merkle structures provide tamper-evident integrity evidence. Cryptographic keys and signatures establish attributable authority. The Constitutional Guardian evaluates applicable policy. A runtime may act on protected data only when it can verify the applicable authorization chain and any required unexpired authorization receipt.
+Administrative production is responsible for:
 
-A hash, CID, file, image, container, record, service, source tree, repository branch, successful test, locally available secret, healthy endpoint, or recovered Compose deployment does not become authoritative merely because it exists or can be referenced.
+- controlled operation of retained services;
+- authorized administrative workflows;
+- governed change and release management;
+- security-boundary enforcement;
+- persistent-state protection and recovery;
+- evidence generation;
+- incident response and rollback;
+- protection against accidental control by historical, candidate, pilot, or unmanaged runtime authorities.
 
-A Merkle root without a valid controlling signature, timestamp context, and governance interpretation is only an integrity commitment. It has no authority value on its own.
+### 54.3.2 Controlled Pilot
 
-A running container without an approved Runtime Authority Manifest, valid deployment approval, governed secret-delivery path, applicable policy, and required operating authorization is only evidence that software is running.
+The controlled pilot is an intentionally bounded domain for evaluating capabilities and collecting evidence without automatically granting production authority.
 
-The implementation work completed through the trust-development sequence reinforces this separation. Runtime admission, caller authentication, signed operation-intent verification, policy evaluation, receipt issuance, runtime isolation, secret delivery, controlled email processing, administrative recovery, and production activation are separate boundaries.
+A pilot may include:
 
-A successful test, existing artifact, valid cryptographic commitment, running container, verified pilot configuration, healthy endpoint, or recovered local service does not independently authorize deployment, protected-data access, contribution to the Commons, or live email delivery.
+- candidate services;
+- temporary integrations;
+- experimental routing;
+- prototype user experiences;
+- non-production credentials;
+- isolated datasets;
+- manual interventions;
+- test-only infrastructure;
+- trial release artifacts;
+- evidence-gathering workflows.
 
----
+A controlled pilot may be useful, reliable, or operationally valuable. Those characteristics do not remove its pilot classification.
 
-## 2. Non-Goals
+Promotion from pilot to administrative production requires explicit approval against the administrative-production requirements. Pilot success supplies evidence for promotion review; it does not constitute promotion.
 
-This architecture does not attempt to:
+### 54.3.3 Candidate
 
-- Create a universal public memory graph.
-- Make all user information globally discoverable.
-- Treat hashes as identity.
-- Treat AI inference as authority.
-- Replace human governance with automated decisions.
-- Guarantee deletion of information already disclosed to another recipient.
-- Claim anonymization solely from a cryptographic commitment.
-- Treat the existence of a container, file, service, image, repository branch, or Compose project as proof that it is canonical or authorized.
-- Treat a healthy endpoint as proof that the service is approved to access protected data or perform governed actions.
-- Give a reasoning model unrestricted access to personal memory, private identity data, or long-lived decryption keys.
-- Treat successful software tests as equivalent to production authorization.
-- Treat a release-candidate evidence bundle as an active authority system.
-- Treat an available signing key as sufficient authority without the corresponding governance policy, role, registry, runtime, and authorization conditions.
-- Treat an OpenPGP release-signing key as interchangeable with a raw Ed25519 Guardian signing key.
-- Treat a governance-signed authority bundle validated with test or ephemeral governance keys as equivalent to a production authority bundle signed by the established production governance board.
-- Treat a technically deployable topology as authorized merely because it can be deployed.
-- Treat pilot secret rotation, local environment files, or Docker hardening as a substitute for governed production secret custody.
-- Treat interaction with Ms. Jarvis as authorization to contribute private information to the Commons.
-- Treat a dry-run audit event as proof of email delivery.
-- Treat a working provider credential as approval to send email.
-- Treat a one-shot stdin-driven worker as a persistent, multi-user job-processing system.
-- Treat a local Docker Compose configuration as a complete institutional-production deployment platform.
-- Treat local file-backed secrets, even when mounted with effective least-privilege permissions, as the final production secret-management architecture.
-- Treat the recovery of Main Brain and Hilbert State as proof that the full historical Jarvis stack has been consolidated or production-authorized.
-- Treat the broad `msjarvis-rebuild` aggregate as an approved authoritative deployment definition merely because many containers remain running under it.
-- Treat an email-delivery pilot as evidence that institutional SSO, tenant isolation, role-based authorization, privacy governance, support workflows, or operational readiness have been completed.
-
-The architecture intentionally preserves the distinction between:
-
-1. Evidence of correctness.
-2. Authority to act.
-3. Authorization to perform a particular operation.
-4. Runtime isolation.
-5. Controlled pilot operation.
-6. Administrative recovery.
-7. As-built administrative production.
-8. Production activation.
-
----
-
-## 3. Trust Domains
-
-    GOVERNANCE PLANE
-    Keys — Roles — Policies — Threshold Approvals — Revocation
-                              |
-                              v
-                    POLICY DECISION ENGINE
-
-    -------------------------------------------------------------
-    |                           |                               |
-    v                           v                               v
-
-    SOFTWARE PROVENANCE     USER SOVEREIGNTY              COMMONS INTEGRITY
-    Build Evidence          Vault Authority               Aggregate Authority
-    Runtime Authority       Authorization Receipts         Contribution Receipts
-    Admission Records       Projection Receipts            Transformation Receipts
-
-The domains may reference each other through signed receipts, but no domain inherits authority merely from a reference.
-
-The operational trust chain is:
-
-    Source / Build Evidence
-             |
-             v
-    Runtime Authority
-             |
-             v
-    Runtime Admission
-             |
-             v
-    Authenticated Caller
-             |
-             v
-    Signed Operation Intent
-             |
-             v
-    Policy Decision
-             |
-             v
-    Policy Decision Receipt
-             |
-             v
-    Memory Authorization Receipt
-             |
-             v
-    Projection Authorization
-             |
-             v
-    Bounded Context
-             |
-             v
-    Reasoning Runtime
-
-The administrative recovery path is separate from protected-data authorization:
-
-    Preserved Runtime Evidence
-             |
-             v
-    Reconstructed Compose Contract
-             |
-             v
-    Scoped Recovery Project
-             |
-             v
-    Local Network and Dependency Verification
-             |
-             v
-    Health Verification
-             |
-             v
-    Recovery Evidence Capture
-             |
-             v
-    Administrative Review
-             |
-             v
-    Production Closure Decision
-
-The recovery path establishes operational control and evidence. It does not bypass runtime authority, governance approval, secret-management requirements, receipt validation, or protected-memory policy.
-
-The controlled email pilot is a separate, narrower operational path:
-
-    Approved One-Shot Request
-             |
-             v
-    Email Worker
-             |
-             v
-    Dry-Run Gate
-             |
-             +----------------------------+
-             |                            |
-             v                            v
-    Redacted Audit and Exit        Live-Forwarding Path
-                                   (disabled by default)
-                                          |
-                                          v
-                               Egress Authentication Proxy
-                                          |
-                                          v
-                                Egress Gateway / Provider
-
-In the verified default mode, the dry-run gate terminates processing before the worker reads its shared authentication token or forwards an HTTP request. Therefore, neither the authentication proxy nor the egress gateway is required for a one-shot dry-run worker invocation.
-
-Not every stage in these chains is currently production-activated. A missing downstream authority must not cause an upstream component to silently grant access.
-
----
-
-## 4. Governance Plane
-
-The governance plane defines:
-
-- Authorized signing identities and key-rotation rules.
-- Roles, delegation limits, and threshold-approval requirements.
-- Versioned policies and policy-decision semantics.
-- Revocation, incident-response, and audit-retention rules.
-- Required review procedures for high-impact actions.
-- Which protected capabilities fail closed.
-- The authority required to approve a runtime, policy, transformation, Commons governance action, transition from controlled email dry run to live email delivery, or promotion from administrative recovery to production operation.
-- The institutional roles and governance approvals required before any multi-user support workflow is represented as production-authorized.
-- The administrative authority responsible for approving as-built service contracts, rollback definitions, change windows, and operational ownership.
-
-A Merkle root is evidence. Governance keys, role assignments, policies, and verified signatures are the authority layer.
-
-The Policy Decision Engine evaluates requests against the active policy set. It does not replace human governance. It applies the policies and delegations established by governance.
-
-The current trust-development model distinguishes operational approval, Guardian authority, release authority, email-delivery authorization, administrative recovery approval, and governance-board authority. These roles are not interchangeable.
-
-The production governance model requires the relevant roles, policies, registries, custody procedures, signing authorities, and institutional operating approvals to be independently established before production activation.
-
-### Guardian Authority Bundle
-
-The Guardian Authority Bundle is the concrete authority carrier at the decision boundary. Rather than sourcing caller identities, subject keys, and revocation state from separately trusted files, the Guardian consumes one governance-signed bundle that carries all three together and is accepted only when it satisfies the required governance threshold.
-
-The bundle carries:
-
-- A versioned bundle identifier and release profile.
-- Issued and expiration timestamps.
-- Caller-token commitments mapped to active caller identities and roles.
-- Subject signing keys, controllers, statuses, and roles.
-- Revoked subjects, intent identifiers, and receipt identifiers.
-- Threshold approvals from the required governance roles.
-
-Before trusting any bundle field, the Guardian must verify:
-
-- The canonical bundle payload against each declared approval signature.
-- Each approver key against the governance public-key registry and required role.
-- The active policy’s required roles and minimum approval threshold.
-- Bundle lifetime and expiry.
-- That caller authentication, subject-key lookup, and revocation checks are drawn only from the verified bundle.
-
-Caller tokens are matched by commitment rather than stored as raw authority data. Subject keys carry explicit controller and status fields. Revocation state inherits the governance signature of the bundle rather than becoming an independent unsigned input.
-
-### Current state
-
-The Guardian Authority Bundle schema, canonical-payload verifier, three-role threshold enforcement, caller sourcing, subject-key sourcing, and decision-boundary revocation checks are implemented and verified using test-provisioned governance keys.
-
-This establishes the mechanism. It does not establish production authority.
-
-A production authority bundle signed by the established production governance board, including a real enrolled governance-board signer and valid production policy threshold, remains outstanding.
-
----
-
-## 5. Software Provenance, Runtime Isolation, and Administrative Recovery
-
-The software provenance domain establishes which artifacts are approved to execute.
-
-    Source
-      |
-      v
-    Commit
-      |
-      v
-    Build Recipe
-      |
-      v
-    SBOM
-      |
-      v
-    Immutable Image Digest
-      |
-      v
-    Runtime Authority Manifest
-      |
-      v
-    Deployment Approval
-      |
-      v
-    Runtime Admission
-      |
-      v
-    Running Service
-
-A Runtime Authority Manifest must:
-
-- Pin immutable container image digests.
-- Enumerate required services, health contracts, and network dependencies.
-- Identify approved policy versions.
-- Include or reference SBOMs.
-- Define dependency failure modes.
-- Identify approved configuration references.
-- Carry required release and governance signatures.
-- Identify rollback targets and revocation procedures.
-- Identify the approved secret-delivery mechanism without embedding plaintext secret values.
-- Define whether a component is a one-shot job, a controlled pilot service, an administratively recovered service, or an approved persistent production workload.
-- Define the approved transition conditions between dry-run and live behavior.
-- Define the authoritative lifecycle owner for each service.
-- Define the approved networks, ports, mounts, dependency endpoints, and health contracts.
-- Define how live-state conformance is checked against the approved contract.
-
-`latest` tags, filenames, backup status, container existence, source-tree location, local image presence, Compose-project status, successful local builds, and successful recovery are not authority assertions.
-
-A file existing in a repository is historical evidence unless an approved build and signed Runtime Authority Manifest declare it part of the current runtime.
-
-### Administrative recovery boundary
-
-The critical recovered services are declared under the dedicated administrative recovery project:
+A candidate is a component, image, manifest, configuration, dependency, or operational procedure under evaluation for possible retention or promotion.
+
+Candidate status means the item is not yet an approved lifecycle authority. It must not become the implicit owner of an administrative-production service.
+
+Candidates may be deployed only within approved scope and must remain identifiable as candidates in inventories, manifests, labels, evidence, and operational records.
+
+### 54.3.4 Historical Remnant
+
+A historical remnant is a component, image, volume, network, service definition, script, environment file, archive, or host configuration retained from prior work but not currently approved as a lifecycle authority for administrative production.
+
+Historical remnants are particularly important because they may retain hidden control paths, old credentials, mutable tags, implicit host dependencies, or conflicting service definitions.
+
+The broad `msjarvis-rebuild` aggregate environment must be treated as a historical environment until each retained component has been individually classified and assigned a disposition.
+
+### 54.3.5 Recovered Baseline
+
+A recovered baseline is a runtime state restored or stabilized from an existing environment so that it can be inspected, tested, and brought under governance.
+
+A recovered baseline may establish a useful operational starting point. It does not establish that the running configuration is reproducible, approved, immutable, secret-governed, or complete.
+
+The recovered administrative baseline currently includes the core pair:
 
 ```text
-jarvis-legacy-recovery
+jarvis-main-brain
+jarvis-hilbert-state
 ```
 
-The project uses the legacy-compatible recovery manifest:
+This pair is treated as recovered administrative state pending full administrative-production closure.
+
+## 54.4 Governing Promotion Rule
+
+The promotion rule is:
+
+> Production authority is declared, reviewed, and evidenced. It is never inferred from recovery, availability, convenience, or historical operation.
+
+Before a component can be promoted into administrative production, the approving authority must be able to answer all of the following:
 
 ```text
-/mnt/nvme1/msjarvis-rebuild/jarvis-legacy-compatible.chroma.yml
+What is this component?
+Why is it retained?
+Who owns its lifecycle?
+Which manifest declares it?
+Which immutable release artifact is approved?
+Which dependencies does it require?
+Which interfaces does it expose or consume?
+How are its secrets delivered?
+Who owns its persistent data?
+How is it backed up and restored?
+How is it monitored?
+How does it fail?
+How is it restarted?
+How is it rolled back?
+What evidence demonstrates that live state matches the approved contract?
 ```
 
-The recovered service state at verification was:
+If any answer is unavailable, incomplete, unreviewed, or dependent on undocumented host state, the component is not fully closed as administrative production.
 
-| Service | Image | Local exposure | Operational condition |
-|---|---|---|---|
-| `jarvis-main-brain` | `jarvis-main-brain:timeout-none-candidate-20260815` | `127.0.0.1:18058 -> 8008/tcp` | Running and health-reachable |
-| `jarvis-hilbert-state` | `jarvis-main-brain:latest` | `127.0.0.1:18092 -> 8081/tcp` | Running and health-reachable |
+A component may remain operational while it is being assessed, but its classification and limitations must remain explicit.
 
-The current contract is intentionally local-only at the host boundary. Neither recovered service is presented as a public internet-facing production endpoint by this recovery definition.
+## 54.5 Administrative Recovery Status
 
-The Main Brain recovery contract includes:
+The administrative environment has established a recovered local baseline for `jarvis-main-brain` and `jarvis-hilbert-state`.
 
-- The legacy-compatible Main Brain image reference.
-- Internal application port `8008`.
-- Loopback-only host publication at `127.0.0.1:18058`.
-- Access to required Jarvis internal networking.
-- Explicit Chroma service addressing through `jarvis-chroma:8000`.
-- No assumption that a host loopback dependency is reachable from within the container.
-- Recovery evidence and rendered configuration sufficient to reproduce the verified local operating state.
+This recovery establishes the following limited but meaningful facts:
 
-The Hilbert State recovery contract includes:
+- the identified core pair can run in the current administrative environment;
+- the core pair can be inspected as live runtime evidence;
+- the environment supports targeted health and dependency assessment;
+- the recovered pair can serve as a starting point for declarative reconstruction;
+- administrative closure work can proceed without treating the broad historical aggregate as automatically authoritative.
 
-- The currently running service image reference.
-- Internal application port `8081`.
-- Loopback-only host publication at `127.0.0.1:18092`.
-- Required network attachments.
-- Required read-only model and intake mounts.
-- Recovery evidence and rendered configuration sufficient to reproduce the verified local operating state.
+The recovery does not establish the following claims:
 
-The recovered pair is not owned by the broad historical aggregate stack merely because those services may depend on networks and companion services created elsewhere.
+- that all dependencies are approved for administrative production;
+- that all images are bound to approved immutable digests;
+- that all runtime configuration is represented in source-controlled manifests;
+- that secret delivery is fully governed;
+- that all persistent stores have approved ownership and recovery procedures;
+- that the broad `msjarvis-rebuild` environment has been safely decomposed or contained;
+- that all legacy automation has been identified;
+- that all service-to-service contracts are documented;
+- that complete operational ownership is assigned;
+- that all rollback procedures have been exercised.
 
-The historical aggregate environment remains operationally distinct:
+The recovered baseline must therefore be described precisely as:
 
 ```text
-msjarvis-rebuild
+Recovered administrative core baseline pending full production-closure governance.
 ```
 
-It contains a broad mixed-origin service population, historical Compose layers, candidate material, legacy configurations, and additional dependencies. It is not yet a clean authoritative production deployment definition.
+It must not be described as fully closed administrative production until the gates in this chapter are satisfied.
 
-The following rule is therefore normative:
+## 54.6 Service Inventory Requirement
 
-> Do not use the broad aggregate Compose project to recreate, tear down, or modify the recovered Main Brain and Hilbert State pair without an explicit reviewed migration plan.
+Administrative-production closure begins with a complete authoritative inventory.
 
-Recovery procedure, evidence capture, and future operational work must preserve this ownership boundary.
-
-### Current administrative-production state
-
-The recovered Main Brain and Hilbert State pair is:
-
-- Declaratively scoped.
-- Locally reachable through loopback-only published ports.
-- Running under a dedicated Compose project.
-- Connected to its required known dependencies.
-- Supported by recovery evidence.
-- Operationally healthier and more administratively legible than before recovery.
-
-The recovered pair is not yet fully as-built administrative production because:
-
-- The complete authoritative inventory of all production-required services is not yet closed.
-- The broad aggregate environment has not yet been decomposed into approved service ownership boundaries.
-- The Hilbert State image reference remains mutable and must be replaced with an immutable release binding.
-- Docker-native health contracts are not yet uniformly declared for the recovered services.
-- Dependency readiness, restart, failure, and recovery semantics require formal definition.
-- Secret rotation and migration to governed external secret delivery remain incomplete.
-- Complete release manifests, SBOM bindings, rollback artifacts, and change-control procedures remain pending.
-- The boundary between core production services, platform dependencies, experiments, candidates, and historical remnants remains to be formally recorded.
-
-The proper current description is:
-
-> A recovered and administratively bounded core runtime, operating as a release-candidate environment, not yet a complete as-built administrative-production stack.
-
-### Core recovery inventory target
-
-The next authoritative administrative inventory must classify at least the following services:
-
-| Service class | Expected examples | Required administrative record |
-|---|---|---|
-| Core application | Main Brain, Hilbert State | Image binding, ports, mounts, networks, health, owner, rollback |
-| Platform dependencies | Chroma, Redis, Ollama, Hilbert Time | Dependency contract, persistence, health, ownership, failure mode |
-| Data services | Local databases and persistent stores | Data owner, backup, restore, credentials, network scope |
-| Security and policy services | Guardian, admission boundary, egress controls | Runtime authority, policies, signer dependencies, failure behavior |
-| Pilot services | Privacy gateway and controlled email components | Explicit pilot status, no production implication, activation gate |
-| Candidate or historical services | Legacy, experimental, abandoned, or duplicate containers | Classification, evidence retention, decommission or migration plan |
-
-No service should be considered administratively production-ready until it has one approved declarative lifecycle owner.
-
-### Runtime-isolation pilot
-
-The current privacy-gateway pilot runtime contains:
-
-- Redis.
-- A non-root Nginx egress gateway.
-- An admission API.
-- A privacy worker.
-- A private pilot network.
-- An egress path to the existing `jarvis-main-brain` service on the local Jarvis network.
-
-The verified pilot baseline includes:
-
-- Non-root Nginx execution.
-- Redis running under its non-root image identity.
-- Read-only root filesystems for Redis, egress, admission API, and privacy worker.
-- `no-new-privileges:true`.
-- `cap_drop: ALL`.
-- Scoped writable tmpfs mounts only where runtime operation requires them.
-- A Redis password-bearing configuration restricted to owner-readable permissions.
-- Redis authenticated health verification.
-- Nginx syntax validation.
-- Running-state verification for Redis, egress, admission API, and privacy worker.
-- Egress enforcement requiring `POST /chat`.
-- HTTP 403 rejection for `/chat` requests without the required egress secret.
-- HTTP 405 rejection for non-POST `/chat` requests.
-- Removal of selected inbound authorization, cookie, session-token, and client-address headers before egress proxying.
-- Rotation of previously exposed pilot egress and Redis credentials.
-- Redacted, checksum-backed verification evidence.
-
-The accepted pilot marker is:
+The inventory must include every relevant runtime object in the broad historical and current environment, including:
 
 ```text
-PILOT_RUNTIME_FINAL_VERIFICATION_PASS
+containers
+images
+image digests
+volumes
+networks
+ports
+Compose projects
+systemd units
+service files
+environment files
+secrets references
+mounts
+restart policies
+health checks
+scheduled tasks
+cron entries
+startup scripts
+deployment scripts
+CI/CD workflows
+host-level reverse proxies
+runtime labels
+dependency references
+persistent data stores
+historical artifacts that can influence runtime behavior
 ```
 
-This marker proves the pilot runtime controls were active at verification time. It does not establish production runtime authority, production release approval, protected-memory authorization, institutional multi-user authorization, or a production secret-management architecture.
+The inventory must be captured before broad destructive, migratory, or decommissioning actions are performed.
 
-### Controlled email runtime boundary
+The inventory is not merely a list of active containers. It is a map of every object capable of affecting lifecycle control, network reachability, persistence, credential delivery, startup, restart, deployment, recovery, or removal.
 
-The controlled email-delivery pilot is a separate, bounded runtime path:
+The inventory must identify whether an object is:
 
 ```text
-email-worker
-    |
-    | internal HTTP only when dry run is disabled
-    v
-email-egress-auth
-    |
-    | internal HTTP only
-    v
-email-egress
-    |
-    | designated outbound HTTPS path
-    v
-email provider
+running
+stopped
+referenced by a manifest
+referenced by a systemd unit
+referenced by a scheduled task
+referenced by a script
+referenced by a reverse proxy
+bound to a host port
+attached to a network
+mounted to persistent state
+using a mutable image reference
+using a local secret source
+dependent on a historical authority
 ```
 
-The verified Compose topology contains three services:
+## 54.7 Classification Requirement
 
-| Service | Purpose | Runtime identity | Secret access | Networks |
-|---|---|---:|---|---|
-| `email-worker` | One-shot request validation, permitted-template rendering, redacted audit emission, and controlled forwarding only when dry run is disabled | `10001:10001` | Worker authentication token only | `email_worker_auth` |
-| `email-egress-auth` | Validates the worker authentication header using constant-time comparison and forwards only authorized requests | `10002:10002` | Worker authentication token only | `email_worker_auth`, `email_auth_egress` |
-| `email-egress` | Receives authorized email payloads and, only on an authorized live path, performs the outbound provider request | `10003:10003` | Provider API key only | `email_auth_egress`, `email_egress_outbound` |
+Every inventoried object must receive one primary classification.
 
-The worker is intentionally excluded from the egress-gateway network. It cannot directly reach the egress service or designated external email endpoint through the approved topology.
-
-The worker does not receive the provider API key. The authentication proxy does not receive the provider API key. The egress gateway does not receive the worker-authentication token.
-
-This separation is a trust-boundary control. It is not by itself a complete institutional authorization model.
-
-### Email runtime hardening controls
-
-The verified Compose design applies the following controls to the email services:
-
-- `read_only: true`.
-- Numeric non-root `user` identities.
-- `security_opt: no-new-privileges:true`.
-- `cap_drop: ALL`.
-- Scoped `/tmp` tmpfs mounts with service-specific UIDs and GIDs.
-- Per-service CPU and memory limits.
-- Internal networks for worker-to-auth and auth-to-egress paths.
-- A separate designated outbound network for the egress gateway.
-- Docker secret mounts scoped to the service that requires the corresponding secret.
-
-The auth and egress proxies were verified to initialize under read-only roots, dropped capabilities, `no-new-privileges`, and offline import conditions without persistent secret disclosure.
-
-Controlled runtime verification confirmed that both proxies initialized with their intended mounted secrets and returned HTTP 200 health responses. Verification captured only access metadata and did not preserve secret values.
-
-These checks verify a bounded runtime configuration. They do not authorize live email delivery.
-
-### One-shot worker operating model
-
-The worker is intentionally not a daemon, queue consumer, or persistent service. Its execution model is:
+The approved classification vocabulary is:
 
 ```text
-One JSON object on stdin
-         |
-         v
-Validate allowed request schema
-         |
-         v
-Render approved template
-         |
-         v
-Emit redacted audit event
-         |
-         v
-Evaluate MSJARVIS_EMAIL_DRY_RUN
-     +----+----+
-     |         |
-     v         v
-  true       false
-     |         |
-     v         v
-Audit and    Read worker token
-exit         Forward to auth proxy
-              |
-              v
-          Exit after outcome
+core-production
+platform-dependency
+data-service
+security-boundary
+controlled-pilot
+candidate
+historical-remnant
+decommissioned
 ```
 
-The worker’s `main()` function reads one JSON object using standard input, processes it once, and exits. It is therefore not correctly deployed as a detached persistent container with no supplied request payload.
+The classification must be recorded in the administrative service-classification ledger.
 
-The controlled invocation pattern is:
+No retained production component may remain classified as `UNCLASSIFIED`.
+
+A working ledger must include at least:
+
+```csv
+service_or_object,object_type,runtime_identifier,compose_project,image_reference,image_digest,classification,approved_lifecycle_owner,authority_manifest,network_exposure,persistent_state,secret_delivery,health_contract,dependency_contract,disposition,evidence_reference,review_status
+```
+
+The classification process must not assume that all currently running components should be retained. The purpose is to make retention, migration, containment, and decommissioning decisions explicit.
+
+A classification is not itself a production approval. It is a prerequisite to approval.
+
+## 54.8 Historical Aggregate Boundary
+
+The historical `msjarvis-rebuild` aggregate environment must not retain implicit authority over the recovered administrative core or over any future retained production service.
+
+The aggregate may contain valuable implementations, operational evidence, data dependencies, images, networks, persistent volumes, scripts, and service definitions. It may also contain conflicting lifecycle authorities, experimental dependencies, mutable images, pilot credentials, stale configuration, or implicit host-state assumptions.
+
+Accordingly, the aggregate must be decomposed into individual components and classified before it is changed broadly.
+
+The following actions are prohibited until dependency and rollback review is complete:
+
+```text
+docker compose down
+docker rm
+docker system prune
+docker volume prune
+broad network removal
+bulk image deletion
+bulk credential rotation without dependency mapping
+migration of persistent volumes without tested restoration
+replacement of shared network configuration without interface review
+```
+
+Each retained component must be assigned one of the following dispositions:
+
+```text
+retain under a new approved declarative owner
+migrate to an approved administrative-production authority
+contain as a controlled pilot or candidate
+archive as historical evidence
+decommission after approved rollback and state disposition
+```
+
+No component may be silently retained merely because it is difficult to classify.
+
+## 54.9 Lifecycle Ownership Requirement
+
+Every retained administrative-production service must have exactly one approved declarative lifecycle owner.
+
+A lifecycle owner is the approved source of truth that defines how a service is created, configured, started, stopped, updated, monitored, recovered, and retired.
+
+Acceptable lifecycle-owner forms include:
+
+```text
+runtime-authority/admin-production-compose
+runtime-authority/admin-production-systemd
+kubernetes/namespace-msjarvis-production
+approved infrastructure repository and controlled deployment pipeline
+```
+
+Unacceptable lifecycle-owner forms include:
+
+```text
+a developer shell history
+a manually started container
+an undocumented host procedure
+a historical Compose project with unclear scope
+a recovery command copied from a terminal transcript
+an image tag without an approved manifest
+a stale environment file
+an informal operator memory
+```
+
+The lifecycle authority must be source controlled and reviewed. It must specify the approved manifest path, release binding, configuration inputs, secret references, state dependencies, health contract, restart policy, interface contract, and rollback procedure.
+
+Competing lifecycle authorities are prohibited. A retained service must not be simultaneously controlled by multiple Compose projects, systemd units, scripts, scheduled jobs, or manual recovery procedures.
+
+The service-classification ledger must record the approved lifecycle owner for every retained production service.
+
+## 54.10 Administrative Core Recovery and As-Built Status
+
+The administrative environment has recovered and validated a limited operational baseline for the core pair:
+
+```text
+jarvis-main-brain
+jarvis-hilbert-state
+```
+
+This recovery establishes a local administrative baseline from which the environment can be inventoried, assessed, governed, and progressively reconstructed under approved declarative authority.
+
+The recovery must not be interpreted as a declaration that the complete historical stack is administrative production.
+
+### 54.10.1 What Has Been Established
+
+The recovered administrative baseline establishes the following operational facts:
+
+- The identified core pair can run in the current administrative environment.
+- The core pair can be inspected as live-state evidence.
+- The environment supports targeted service health and dependency assessment.
+- Administrative recovery work can proceed without treating the broad historical aggregate as automatically authoritative.
+- The administrative portal can authenticate a session and submit an owned asynchronous Ms. Allis chat job.
+- The job is persisted in Redis and scoped to the authenticated owner.
+- The unified processing path can complete the full 21-model stage and return a synthesized result.
+- The portal can wait for completion-aware job state rather than converting an extended request into a terminal browser timeout.
+- The Next.js standalone frontend deployment has a defined static-asset synchronization procedure, and public portal script assets can be verified after deployment.
+
+These facts are evidence of recovered capability. They are not substitutes for release approval, lifecycle ownership, immutable binding, governed secrets, state ownership, or complete operational readiness.
+
+### 54.10.2 Ms. Allis As-Built Recovery
+
+The recovered Ms. Allis administrative path operates as an authenticated asynchronous workflow.
+
+The request flow is:
+
+```text
+Authenticated portal session
+        |
+        v
+Administrative auth service
+        |
+        +--> Validate authenticated session
+        +--> Create owner-scoped job identifier
+        +--> Persist queued job state
+        |
+        v
+Background unified-gateway request
+        |
+        v
+Redis-backed running, completed, or failed job state
+        |
+        v
+Authenticated portal status polling
+        |
+        v
+Completed response rendered in the originating conversation
+```
+
+The administrative auth service creates a unique job identifier and records the authenticated owner before the background pipeline begins.
+
+The job record is retained for a bounded operational period and contains a lifecycle state such as:
+
+```text
+queued
+running
+completed
+failed
+```
+
+The status endpoint validates that the requester is the authenticated owner of the requested job before returning state or a completed result.
+
+This prevents a job identifier from becoming a standalone bearer credential for another user’s conversation result.
+
+### 54.10.3 Long-Running Completion Behavior
+
+The recovered pipeline has demonstrated that a complete request may require several minutes to pass through the bounded 21-model workflow and final synthesis.
+
+The browser-facing frontend must therefore not equate elapsed client wait time with job failure.
+
+The current operational contract is:
+
+```text
+A browser submits a request and receives a job identifier quickly.
+
+The server continues the work asynchronously.
+
+The portal polls the owner-scoped status endpoint.
+
+A queued or running job remains nonterminal.
+
+A final response is rendered only after completed status is stored.
+
+An error is shown only after explicit failed status is stored.
+```
+
+The portal polling implementation is completion-aware and no longer uses a terminal five-minute client timeout. It polls at a bounded interval while the job remains queued or running, may provide a nonterminal extended-processing notice, and continues until the server reports either `completed` or `failed`.
+
+This behavior is required because a completed long-running job must not be represented as a failed request merely because the browser would otherwise stop waiting.
+
+### 54.10.4 Frontend As-Built Deployment Control
+
+The Ms. Allis portal is served as a Next.js standalone runtime.
+
+Administrative recovery identified that a successful application build alone does not guarantee that the runtime serves all generated frontend assets. The standalone runtime must include the matching `.next/static` asset tree. If it does not, the public portal may reference a hashed JavaScript chunk that returns `404`, causing browser `ChunkLoadError` and MIME-type refusal.
+
+The required frontend deployment sequence is:
 
 ```bash
-docker compose \
-  --profile email-worker-disabled \
-  -f "$HOME/msjarvis-resend-email-pilot/docker-compose.email-worker.design.yml" \
-  run --rm --no-deps --no-TTY -T email-worker < approved-request.json
+cd /opt/msjarvis-rebuild/ms-allis-frontend-tsx
+
+rm -rf .next
+npm run build
+
+mkdir -p .next/standalone/.next
+rsync -a --delete .next/static/ .next/standalone/.next/static/
+
+if [ -d public ]; then
+  rsync -a --delete public/ .next/standalone/public/
+fi
+
+sudo systemctl restart ms-allis-frontend.service
 ```
 
-The profile name is retained for deliberate activation control. It does not by itself establish production approval.
-
-In the verified configuration, `MSJARVIS_EMAIL_DRY_RUN=true`. The worker therefore audits the allowed request and exits before it loads the worker token or sends a request to the authentication proxy.
-
-### Secret-delivery boundary
-
-The current local Compose secret mounts are an evidence-backed pilot mechanism for controlled email services. They are not the final production secret-management architecture.
-
-Before production activation:
-
-- Secret values must not be embedded in source, images, Compose YAML, shell history, rendered configuration captures, logs, or evidence.
-- Each service must receive only the secret material it requires.
-- Secret rotation, revocation, recovery, access review, and incident response must be governed and auditable.
-- Production secret delivery must support intended non-root runtime identities without broadening access.
-- All pilot, recovery, and pre-production credentials must be rotated during any approved production cutover.
-- A secret-management outage must fail protected capabilities safely and must have a tested recovery procedure.
-- The production system must not rely on undocumented host-file ownership behavior.
-- Recovery evidence must not contain full secret-bearing environment files, raw connection strings, provider keys, or authorization tokens.
-
-Local file-backed Compose secrets are not accepted as the target production mechanism for the complete MountainShares / Ms. Jarvis architecture or for an institutional multi-user email-support system.
-
-### Current provenance and admission state
-
-Runtime-authority signature verification and fail-closed runtime admission are implemented in the trust-development boundary.
-
-The recovered Main Brain and Hilbert State services demonstrate that legacy runtime reconstruction can be brought under a scoped declarative ownership model. That operational achievement does not substitute for:
-
-- A signed production Runtime Authority Manifest.
-- Immutable image-digest pinning for every service.
-- Governed SBOM review.
-- Approved deployment authority.
-- Production-grade secret delivery.
-- Institutional operations approval.
-- Complete dependency ownership and failure contracts.
-
-These results establish meaningful runtime-authority, runtime-admission, runtime-isolation, controlled-email-pilot, and administrative-recovery evidence.
-
-They do not establish final production deployment authority.
-
----
-
-## 6. User Sovereignty Domain
+Post-deployment verification must establish:
 
 ```text
-Private User Vault
-        |
-        v
-Signed Vault Root
-        |
-        v
-Authorization Receipt
-        |
-        v
-Projection Service
-        |
-        v
-Ms. Jarvis Reasoning
-        |
-        v
-Response Receipt
+The frontend systemd service is active.
+
+The public portal HTML is served by the current runtime.
+
+Every JavaScript chunk referenced in the public portal HTML returns HTTP 200.
+
+Every referenced JavaScript chunk has an executable JavaScript content type.
+
+A fresh browser session loads the portal without a missing-chunk, MIME-type, or ChunkLoadError condition.
 ```
 
-> Ms. Jarvis does not possess user memory. Ms. Jarvis receives authorized projections of user memory.
+This procedure is an as-built operational control for the recovered frontend. It does not replace the need to place the frontend service, its image or build artifact, its runtime configuration, and its deployment process under approved administrative lifecycle authority.
 
-Private records must be encrypted before content-addressed storage. Vault roots should be private by default.
+### 54.10.5 What Recovery Has Not Established
 
-Public commitments must contain no plaintext private memory, predictable identifiers, wallet addresses, social handles, or other correlatable low-entropy values.
-
-The reasoning system must not receive long-lived vault keys or unrestricted semantic-store access. It receives the minimum projection necessary for the approved purpose.
-
-A projection may be:
-
-- A selected set of decrypted records.
-- A redacted summary.
-- A semantic retrieval result.
-- A computed feature vector.
-- A policy answer.
-- An anonymized contribution.
-- A selective-disclosure proof.
-
-The system must use the least powerful representation sufficient for the authorized task.
-
-The existence of a semantic-memory system does not authorize that system to expose the underlying private corpus.
-
-The controlled email-delivery pilot and administrative recovery work do not alter user-sovereignty requirements. A request to render, audit, or eventually deliver an email must be separately authorized under applicable institutional, user, and policy controls.
-
-The current dry-run worker accepts only an explicit limited test template and does not establish a general-purpose user messaging authority.
-
-The recovered Main Brain must not be interpreted as having unrestricted authority to retrieve or expose private-memory material merely because the service is healthy and reachable.
-
----
-
-## 7. Operational Trust Boundary
+The recovered administrative core and Ms. Allis path do not establish any of the following without separate evidence and approval:
 
 ```text
-User Request
-     |
-     v
-Caller Authentication
-     |
-     v
-Runtime Admission
-     |
-     v
-Signed Operation Intent
-     |
-     v
-Constitutional Guardian
-     |
-     v
-Policy Decision Receipt
-     |
-     v
-Memory Authorization Receipt
-     |
-     v
-Projection Service
-     |
-     +--------------------------+
-     |                          |
-     v                          v
-Encrypted User Vault       Audit Receipts
-     |
-     v
-Minimal Context Projection
-     |
-     v
-Ms. Jarvis Reasoning
-     |
-     v
-Auditable Response
+Complete inventory of the broad historical environment.
+
+Formal classification of every container, volume, network, image, port, service, script, and host-level authority.
+
+A single approved declarative lifecycle owner for every retained production service.
+
+Immutable approved image digest bindings for the recovered core pair and dependencies.
+
+Complete version-controlled runtime authority manifests.
+
+Declared health, readiness, restart, dependency, and failure contracts for all retained services.
+
+Governed external production secret delivery.
+
+Rotation of pilot, recovery, temporary, and pre-production credentials.
+
+Documented ownership and tested recovery procedures for all persistent state.
+
+Approved rollback procedures for containment, migration, or decommissioning.
+
+Assigned operational ownership, incident response, and maintenance responsibilities.
+
+A completed redacted contract-versus-live-state verification record.
 ```
 
-The Guardian evaluates whether a protected operation is permitted.
-
-The Projection Service verifies resulting authorization and creates the bounded context available to Ms. Jarvis.
-
-The reasoning layer is not an authority oracle. It cannot expand the scope of a valid authorization receipt.
-
-The recovered Main Brain is an application-runtime component within this boundary. Its operational recovery does not make it the authority for caller authentication, policy evaluation, receipt issuance, private-memory projection, governance decisions, or Commons contribution.
-
-A healthy Main Brain service must not bypass the Guardian, substitute a runtime-local configuration for verified authorization, or silently degrade into unrestricted private-memory access if an authorization dependency is absent.
-
-### Administrative core operational boundary
-
-The current administrative core operates within a narrower service relationship:
+The correct status statement is therefore:
 
 ```text
-Local Administrator
-        |
-        v
-Scoped Recovery Manifest
-        |
-        v
+Recovered administrative operational baseline with validated asynchronous portal completion behavior; administrative-production closure remains subject to the requirements of this chapter.
+```
+
+### 54.10.6 Recovery Evidence Use
+
+Recovery evidence must be preserved and used for assessment, not treated as a replacement for governance.
+
+Appropriate recovery evidence includes:
+
+```text
+redacted container inspection records
+redacted image inspection records
+service logs
+health and readiness observations
+public frontend asset checks
+authenticated asynchronous job lifecycle records
+Redis job-state evidence
+interface request and response evidence
+runtime network and port inventory
+systemd service definitions
+Compose and manifest discovery results
+```
+
+Any raw evidence containing secrets, bearer tokens, API keys, database credentials, private material, or sensitive user information must remain protected and must not be published without review and redaction.
+
+Recovery evidence supports the transition from unknown live state to governed declared state. It does not create authority by itself.
+
+## 54.11 Immutable Image and Manifest Binding
+
+Administrative-production services must be bound to approved immutable release artifacts.
+
+A mutable image reference may be operationally convenient during development, pilot work, recovery, or candidate testing, but it does not provide sufficient release identity for administrative production. Tags can be changed, reused, retargeted, locally shadowed, or resolved differently across environments.
+
+The authoritative production reference form is:
+
+```yaml
+image: registry.example.org/msjarvis/service-name@sha256:<approved-image-digest>
+```
+
+The digest must be approved in association with:
+
+- the source revision;
+- the build record;
+- the software bill of materials;
+- signature or attestation verification;
+- the applicable policy revision;
+- the release approval record;
+- the runtime authority manifest revision;
+- known operational constraints and dependency compatibility.
+
+The following references are not sufficient as final administrative-production bindings:
+
+```text
+latest
+main
+stable
+candidate
+recovery
+release without a digest
+an image ID copied from a live host
+a locally tagged image
+an unqualified image name
+```
+
+A recovered image digest is evidence about the currently running artifact. It does not, by itself, establish that the artifact is approved for retention or promotion.
+
+### 54.11.1 Recovered Core Pair
+
+The recovered core pair must be inspected and represented in the authoritative inventory as it currently exists:
+
+```text
 jarvis-main-brain
+jarvis-hilbert-state
+```
+
+The inspection record must capture at least:
+
+```text
+container name
+container identifier
+configured image reference
+resolved image identifier
+repository digest, if available
+repository tags, if available
+creation timestamp
+runtime command
+entrypoint
+environment-variable names only
+mounts
+networks
+published ports
+restart policy
+health configuration
+labels
+dependency references
+```
+
+The current image configuration must then be compared with the approved release manifest.
+
+For `jarvis-hilbert-state`, any mutable image reference must be replaced during approved cutover with an immutable approved digest. The digest must be selected through the release-approval process, not inferred solely from the image currently running on the recovery host.
+
+### 54.11.2 Runtime Authority Manifest
+
+The core pair and every required retained dependency must be represented in version-controlled runtime authority manifests.
+
+The manifest is the approved declaration of intended operation. It must be capable of recreating the intended service configuration without reliance on undocumented host state, interactive recovery commands, stale local files, or operator memory.
+
+Each retained service manifest must include or reference:
+
+```text
+service identity
+service classification
+approved lifecycle owner
+immutable image digest
+source revision and build provenance reference
+runtime command and entrypoint
+non-root runtime identity
+declared configuration inputs
+secret references, never secret values
+network attachments
+published ports and internal ports
+mounts and persistent-state references
+health and readiness configuration
+restart policy
+resource constraints where required
+dependency declarations
+interface contracts
+logging destination
+observability endpoints
+backup and restore references
+rollback target
+approval metadata
+```
+
+The manifest repository and deployment pipeline must be identified as part of the lifecycle ownership record.
+
+A service is not declaratively governed if its required configuration exists only in:
+
+```text
+a shell command
+a recovery transcript
+a Docker inspect record
+a local .env file
+a manually edited container
+a hidden host directory
+an untracked Compose file
+an ad hoc service override
+```
+
+### 54.11.3 Runtime Authority Is Distinct From Discovery
+
+Docker inspection, running-container configuration, logs, and host state are discovery sources. They are not runtime authority manifests.
+
+The administrative closure process must use live inspection to discover the current state, identify unknown dependencies, and produce a migration plan. It must then express the approved retained state in source-controlled manifests.
+
+The required direction is:
+
+```text
+live recovered state
         |
-        +------------------------+
-        |                        |
-        v                        v
-jarvis-chroma              jarvis-hilbert-state
-        |                        |
-        v                        v
-Vector-state dependency     Hilbert state interface
+        v
+redacted inventory and evidence
+        |
+        v
+reviewed classification and ownership
+        |
+        v
+approved declarative runtime manifest
+        |
+        v
+reproducible governed deployment
+        |
+        v
+contract-versus-live verification
 ```
 
-The intended recovery boundary is:
+The direction must not be reversed. A live host must not become authoritative merely because it is difficult to reconstruct.
 
-- Main Brain receives local traffic only through its loopback-bound host port.
-- Hilbert State receives local traffic only through its loopback-bound host port.
-- Main Brain uses the declared internal Chroma service endpoint rather than assuming host-loopback reachability from inside the container.
-- Required inter-service communication remains limited to explicitly attached networks.
-- Main Brain and Hilbert State retain their scoped service ownership under `jarvis-legacy-recovery`.
-- Shared dependencies may remain separately owned during recovery, but their interfaces, names, ports, networks, health conditions, and failure modes must be documented before administrative-production promotion.
-- A broad aggregate Compose invocation must not silently alter the recovered pair.
+## 54.12 Declared Health, Readiness, and Dependency Contracts
 
-The operational recovery path must preserve the distinction between:
+Every retained administrative-production service must have declared health, readiness, restart, dependency, and failure contracts.
+
+A service is not fully governed merely because it has a process ID, an open TCP port, or an HTTP endpoint that returns success.
+
+The contract must distinguish at least:
 
 ```text
-Service reachable
-    !=
-Service healthy under a declared contract
-    !=
-Service approved for protected operations
-    !=
-Service production-authorized
+startup
+readiness
+liveness
+degraded operation
+dependency loss
+transient failure
+terminal failure
+restart eligibility
+operator intervention threshold
+safe shutdown
+recovery condition
 ```
 
-### Controlled email operational boundary
+### 54.12.1 Docker-Native Health Contracts
 
-The controlled email component has a narrower and separate operational boundary:
+Where Docker is the runtime, retained services must define Docker-native health checks or an equivalent explicitly declared health mechanism appropriate to their runtime.
+
+The health contract must identify:
 
 ```text
-Approved Request Payload
-     |
-     v
-Request Schema Validation
-     |
-     v
-Approved Template Rendering
-     |
-     v
-Redacted Audit Event
-     |
-     v
-Dry-Run Policy Gate
-     |
-+----+---------------------------+
-|                                |
-v                                v
-Dry-run enabled                 Dry-run disabled
-|                                |
-v                                v
-Audit and exit                 Worker token validation
-                                     |
-                                     v
-                              Auth-proxy verification
-                                     |
-                                     v
-                              Egress-gateway request
-                                     |
-                                     v
-                         Authorized external provider request
+health command or endpoint
+expected response
+check interval
+timeout
+retry count
+start period
+unhealthy behavior
+restart relationship
+external alert condition
+dependency assumptions
 ```
 
-The currently verified default path ends at `Audit and exit`.
+A service must not be marked healthy solely because a generic endpoint responds if the declared contract requires additional dependency checks.
 
-The current worker supports only the defined `email_delivery_test` template. Its allowed request fields are constrained to:
-
-- `template`.
-- `recipient`.
-- `idempotency_key`.
-- `template_data`.
-
-The worker validates the request before rendering. The current stage permits only empty `template_data` for the allowed template.
-
-The worker’s audit output is intentionally redacted. It records event type, template identifier, UTC time, and SHA-256 commitments for relevant request and rendered-output values rather than raw recipient, subject, body, or idempotency values.
-
-### Current implementation state
-
-The front portion of the primary trust boundary is materially implemented and, in several respects, verified at the decision boundary.
-
-The remediation history establishes:
-
-- Caller authentication before protected decision logic.
-- Fail-closed HTTP 401 behavior for missing or invalid caller credentials.
-- Runtime-admission enforcement.
-- Fail-closed denial when required authority configuration is absent or invalid.
-- Signed operation-intent verification.
-- Denial of tampered, malformed, expired, untrusted, revoked, inactive-key, caller-subject-mismatched, and request-operation-mismatched intent conditions.
-- Caller identity, subject keys, and revocation state sourced from the verified governance-signed Guardian Authority Bundle.
-- Subject and intent revocation checks in the request path.
-- Protected-operation routing that does not silently fall back to unrestricted behavior.
-- PDR issuance verified under provisioned non-production signer material, including durable consumption and replay denial.
-- A separate hardened runtime-isolation pilot for the egress, Redis, admission API, and privacy-worker boundary.
-- A separate controlled email pilot with one-shot worker validation, non-root proxy isolation, narrow secret placement, and verified default dry-run behavior.
-- Administrative recovery and loopback-only operation of the Main Brain and Hilbert State core pair under the dedicated `jarvis-legacy-recovery` project.
-
-The complete private-memory projection chain is not yet production-complete.
-
-The controlled email component is also not a complete production workflow. It currently lacks institutional caller authentication, durable job handling, tenant-aware authorization, and an approved transition to live delivery.
-
-The recovered administrative core is not yet a complete as-built administrative-production stack. It currently lacks a fully consolidated authoritative dependency inventory, immutable binding for all service images, universal declared health contracts, governed production secret delivery, and complete release/rollback governance.
-
----
-
-## 8. Memory Authorization Receipt
-
-A Memory Authorization Receipt, or MAR, binds user authority, Guardian policy approval, authorized scope, and approved runtime identity.
-
-A MAR must identify:
-
-- A schema version and immutable receipt identifier.
-- Subject identity.
-- Recipient service identity.
-- Recipient runtime digest.
-- Purpose and operation.
-- Projection policy.
-- Vault-root commitment.
-- Authorized record references or approved scope commitment.
-- Applicable policy and PDR identifiers.
-- Issue and expiry times.
-- Use limit.
-- Subject signature.
-- Guardian attestation.
-
-The Projection Service must verify:
-
-- Subject authority.
-- Guardian attestation.
-- Recipient identity.
-- Approved recipient-runtime binding.
-- Purpose and operation scope.
-- Projection-policy constraints.
-- Expiration.
-- Use count.
-- Vault-root match.
-- Current revocation state.
-- Referenced PDR validity.
-
-Revocation prevents future authorization and decryption. It cannot erase plaintext already disclosed to a recipient.
-
-Short-lived receipts, narrow scopes, minimal projections, and limited plaintext retention reduce exposure.
-
-### Current state
-
-MAR is a defined authorization layer supported by receipt infrastructure.
-
-The current record does not establish a fully activated production protected-memory path in which MAR issuance, validation, projection, recipient runtime admission, revocation, scope enforcement, and durable use control operate as one complete production chain.
-
-MAR remains part of the remaining closure work.
-
-The controlled email pilot does not bypass MAR requirements for any future protected-memory-derived message. If a future email workflow uses private-memory context, recipient identity, or protected institutional records, the relevant MAR, PDR, projection, tenant, and policy controls must be validated before that context may be released to the email-rendering path.
-
-The recovery of Main Brain and Hilbert State likewise does not bypass MAR requirements. A recovered application runtime may receive protected context only when it is the approved recipient runtime identified by a valid receipt chain and when all required scope, expiry, policy, and revocation checks succeed.
-
----
-
-## 9. Policy Decision Receipt
-
-The Policy Decision Receipt records the Constitutional Guardian evaluation that authorizes, denies, or marks an operation as indeterminate.
-
-It provides provenance for the decision itself. It must not store unnecessary plaintext private context. Sensitive policy inputs must be represented through encrypted references, redacted fields, or cryptographic commitments.
-
-A PDR must identify:
-
-- A schema version and immutable decision identifier.
-- Request identifier.
-- Subject and recipient.
-- Requested operation and purpose.
-- Policy identifier and policy version.
-- Evaluated context commitment.
-- Decision and decision reason.
-- Scope, projection, use-count, and expiry constraints.
-- Approved Guardian runtime digest.
-- Issued and expiration timestamps.
-- Guardian signature.
-
-Valid decision values are:
-
-- `allow`
-- `deny`
-- `indeterminate`
-
-A decision marked `indeterminate` must not authorize protected data projection.
-
-A MAR derived from a PDR must not exceed the PDR’s scope, lifetime, policy constraints, or use count.
-
-### Current implementation state
-
-The PDR architecture has progressed beyond a conceptual state.
-
-The trust-receipt work establishes:
-
-- PDR schema and validation infrastructure.
-- Receipt verification and binding requirements.
-- PDR factory and issuance infrastructure.
-- Durable consumption-ledger mechanisms.
-- Replay-denial behavior.
-- Fail-closed behavior when signer authority is absent, invalid, untrusted, or wrong-role.
-- Negative security validation for invalid and untrusted signer conditions.
-- Canonical receipt-chain verification modules.
-
-End-to-end PDR issuance, durable consumption, and replay denial have been demonstrated under provisioned non-production Guardian signer material.
-
-A policy `allow` is not sufficient by itself to authorize a protected operation. A valid PDR must be cryptographically issued under the required Guardian authority.
-
-### Production authority remains incomplete
-
-The production Guardian PDR signer is not yet established as a trusted production authority in the required signer registry.
-
-The production trusted registry does not yet contain an enrolled production Guardian signer with the required `guardian` role and governance authorization.
-
-The correct current behavior is fail closed rather than manufacturing or accepting unauthorized PDRs.
-
-The controlled email dry run does not issue or consume a PDR because it does not access protected-memory material, invoke a protected capability, or initiate a live delivery request.
-
-A future live email workflow that uses protected data or constitutes a governed institutional action must not treat a generic dry-run result as a replacement for the applicable PDR and authorization chain.
-
-The recovered Main Brain and Hilbert State services do not obtain independent policy authority from administrative recovery. Any future protected operation through either service must validate the required PDR and related authorization chain.
-
----
-
-## 10. Projection Receipt
-
-A Projection Receipt records the transformation from an authorized data scope into the bounded context supplied to a reasoning system.
-
-It answers:
-
-> What information crossed the protected vault boundary into the reasoning boundary?
-
-A Projection Receipt must be created whenever protected vault material is transformed into reasoning-context material.
-
-A Projection Receipt must identify:
-
-- A schema version and immutable projection identifier.
-- MAR and PDR identifiers.
-- Source vault-root and scope commitments.
-- Projection type and minimization policy.
-- Released record and token limits where applicable.
-- Recipient runtime digest.
-- Projection-service runtime digest.
-- Issue and expiry timestamps.
-- Projection output commitment.
-- Projection-service signature.
-
-The Projection Receipt must:
-
-- Reference a valid, unexpired MAR.
-- Bind the projection to the authorized vault root and scope.
-- Identify the approved recipient runtime.
-- Identify the approved Projection Service runtime.
-- Record the applicable minimization policy.
-- Commit to canonical output without publishing unnecessary plaintext.
-- Expire no later than the associated MAR.
-- Be auditable without becoming a second plaintext memory store.
-
-### Current state
-
-Projection Receipt architecture remains defined.
-
-The remediation record does not establish complete production activation of:
-
-- Projection Service deployment.
-- Projection Service runtime authority.
-- Protected retrieval.
-- Complete MAR validation at the projection boundary.
-- Recipient-runtime binding.
-- Projection output commitment.
-- Revocation checks at the projection boundary.
-- Full protected-memory isolation from unrestricted reasoning access.
-
-These remain explicit production closure requirements.
-
-The controlled email pilot does not create a Projection Receipt because its verified dry-run request uses a fixed permitted test template with no private-memory projection. This is a deliberate limitation.
-
-It must not be generalized into a claim that email rendering is approved to consume unrestricted reasoning context, user records, or institutional data.
-
-The recovered Main Brain and Hilbert State services do not create authority to bypass the projection boundary. If either becomes a recipient of protected context, its exact immutable runtime identity, approved service role, receipt binding, policy scope, and revocation state must be verified before release of that context.
-
----
-
-## 11. Constitutional Guardian Contract
-
-The Constitutional Guardian decides whether a protected capability may be exercised.
-
-The following capabilities must fail closed when no valid PDR or required authorization receipt exists:
-
-- Protected data projection.
-- Private-memory retrieval.
-- Identity verification.
-- Signature verification.
-- Commons contribution.
-- Governance action.
-- Protected citizen or member data access.
-- Release approval and runtime admission.
-- Any future live email delivery that is classified by active policy as a protected, high-impact, tenant-scoped, or institutionally governed action.
-- Any release of protected context to a recovered or newly deployed application runtime.
+For example, a service whose purpose depends on a state store, security policy service, model gateway, or required secret must define whether health means:
 
 ```text
-Guardian available + policy approves
-    -> issue PDR
-    -> issue MAR
-    -> permit bounded projection
-
-Guardian denies
-    -> disclose nothing
-
-Guardian indeterminate
-    -> disclose nothing
-
-Guardian unavailable
-    -> no receipt
-    -> protected capability unavailable
+process is alive
+port is reachable
+application accepts requests
+required dependencies are reachable
+required credentials are available
+required policy material is loaded
+required persistent state is available
+full intended capability is available
 ```
 
-A general chat interface may remain available during Guardian outage only if it cannot access protected user memory, protected identity data, protected Commons functions, governance capabilities, or governed delivery functions.
+These meanings must not be conflated.
 
-The system may provide a clearly labeled, non-personalized response when protected capabilities are unavailable.
+### 54.12.2 Readiness Contracts
 
-It must not silently degrade into unauthorized private-memory access or an unauthorized delivery path.
+Readiness determines whether a service is prepared to receive production traffic or accept dependency calls.
 
-### Current implementation state
-
-The Guardian is a materially implemented and tested trust boundary.
-
-The remediation history establishes:
-
-- Runtime admission.
-- Caller authentication.
-- Signed operation-intent verification.
-- Caller-subject binding.
-- Request-operation binding.
-- Authority-bundle sourcing.
-- Subject and intent revocation enforcement at the decision boundary.
-- Fail-closed protected decision routing.
-- PDR issuance verified under provisioned non-production signer material.
-- Durable PDR consumption and replay denial.
-- Negative security tests for required trust-condition failures.
-
-The Guardian is not yet a fully activated production authority for the complete protected-memory architecture.
-
-Production governance-board authority, production Guardian signer enrollment, production Authority Bundle approval, production policy activation, complete projection admission, and full protected-memory closure remain outstanding.
-
-The current controlled email worker does not claim to be a Guardian-authorized institutional support workflow. It is a fixed-scope, manually invoked dry-run component.
-
-Any expansion to user-initiated, administrator-initiated, support-initiated, or automated live messaging must first define the relevant policy classification and enforce the applicable Guardian, identity, authorization, tenant, and approval controls.
-
-The recovered Main Brain and Hilbert State pair is likewise not a Guardian-authorized replacement for governance. The pair may provide application and state functions within an approved runtime boundary, but it may not independently issue, interpret, broaden, or override authority receipts.
-
-### Guardian and recovered-runtime requirements
-
-Before a recovered service can participate in a protected production workflow, all of the following must be true:
-
-- Its image is pinned to an approved immutable digest.
-- Its approved service identity is recorded in the Runtime Authority Manifest.
-- Its required networks, dependencies, ports, mounts, and health contract are declared.
-- Its deployment is authorized for the exact runtime configuration in use.
-- Its secret-delivery path is approved and auditable.
-- Its role in the receipt chain is explicitly defined.
-- It receives only the minimum protected context permitted by an applicable MAR and Projection Receipt.
-- Its admission and runtime identity are verified before protected context is released.
-- Its failure behavior is fail closed for protected capabilities.
-- Its recovery, rollback, and incident procedures are defined and tested.
-
-Administrative recovery may establish the conditions for this work. It does not satisfy them automatically.
-
----
-
-## 12. Commons Contribution Domain
-
-The Commons receives explicitly authorized transformations, not raw private-vault graphs.
+Readiness must account for initialization that can occur after a process begins, including:
 
 ```text
-Private Vault
-     |
-     v
-User-Approved Transformation
-     |
-     v
-Contribution Receipt
-     |
-     v
-Transformation Receipt
-     |
-     v
-Aggregation
-     |
-     v
-Commons Epoch Root
-     |
-     v
-Governance Decision
+configuration loading
+secret retrieval
+database connection
+state migration
+policy loading
+model discovery
+cache warming
+dependency registration
+message-bus subscription
+index availability
+network attachment
+certificate availability
 ```
 
-Each Commons Transformation Receipt must identify:
+A service may be live but not ready. Routing traffic to a live-but-not-ready service is not an acceptable substitute for a declared readiness contract.
 
-- Authorized input commitment.
-- Output aggregate commitment.
-- Approved transformation algorithm and version.
-- Applicable data schema.
-- Privacy mechanism.
-- Minimum cohort threshold.
-- Applicable policy.
-- Approved executing runtime.
-- Timestamp.
-- Required governance and privacy attestations.
+### 54.12.3 Restart and Failure Contracts
 
-A Commons Merkle root proves a committed aggregate history.
+Each retained service must define:
 
-It does not independently prove anonymization, non-discrimination, legal compliance, or ethical legitimacy.
+```text
+restart policy
+restart trigger
+restart limit
+restart delay
+dependency restart behavior
+operator alert threshold
+persistent-failure behavior
+safe degradation behavior
+manual intervention conditions
+rollback trigger
+```
 
-The Commons must not ingest raw private-vault graphs merely because a user has interacted with Ms. Jarvis.
+The service contract must explain whether a dependency failure causes the service to:
 
-> Interaction history with Ms. Jarvis is not itself a contribution authorization event.
+```text
+fail closed
+return a bounded degraded response
+queue work for later completion
+retry with a bounded backoff
+reject new work
+continue with explicitly declared reduced capability
+stop and require operator intervention
+```
 
-### Current state
+The declared behavior must be consistent with the service’s classification and security role.
 
-The Commons architecture remains defined.
+Security-boundary services must not silently fail open.
 
-The current implementation record does not establish full production implementation and authorization of:
+## 54.13 Administrative Interface Contracts
 
-- Contribution Receipts.
-- Transformation Receipts.
-- Commons Epoch Root governance.
-- Privacy attestations.
-- Complete contribution authorization.
-- Production governance approval of Commons transformations.
+Every retained service-to-service path must be documented as an interface contract.
 
-These remain outstanding.
+The contract must identify:
 
-The controlled email pilot is not a Commons-contribution path. Its redacted local audit events are operational evidence for a bounded test workflow and must not be repurposed as Commons data, user-profile data, institutional analytics, or contribution evidence without a separate authorized transformation and applicable governance approval.
+```text
+caller
+callee
+purpose
+network path
+DNS or host reference
+port
+protocol
+request method
+request shape
+response shape
+authentication mechanism
+authorization expectation
+timeout
+retry policy
+circuit-breaker or failure behavior
+rate limit where applicable
+data classification
+logging behavior
+audit behavior
+health dependency
+owner of each endpoint
+```
 
-The administrative recovery of Main Brain and Hilbert State is not a Commons-contribution event. Recovery logs, health checks, runtime metadata, Compose configurations, and evidence packages must not be repurposed as Commons inputs unless a separate authorized transformation, retention policy, privacy review, and governance approval permit that use.
+Internal reachability is not equivalent to authorization. A service may be reachable through an internal Docker network while still requiring authentication, policy enforcement, or a constrained caller identity.
 
----
+The administrative environment must not rely on undocumented paths such as:
 
-## 13. Receipts, Audit, and Evidence
+```text
+an assumed localhost port
+an implicit container name
+an inherited Docker network
+a stale proxy route
+an ad hoc host alias
+an environment variable with no manifest declaration
+a manually inserted firewall rule
+```
 
-Required receipt and governance-authority classes include:
+### 54.13.1 Recovered Ms. Allis Chat Path
 
-- Guardian Authority Bundle.
-- Runtime Authority Manifest.
-- Memory Authorization Receipt.
-- Policy Decision Receipt.
-- Projection Receipt.
-- Response Receipt.
-- Contribution Receipt.
-- Commons Transformation Receipt.
-- Commons Epoch Root Record.
-- Revocation Receipt.
-- Administrative Recovery Record.
-- As-Built Runtime Contract Record.
-- Deployment Approval Record.
-- Rollback Authorization Record.
+The recovered Ms. Allis path is an administrative interface whose boundary must remain explicit.
 
-Each receipt or authority artifact must have:
+The intended administrative request path is:
 
-- A schema version.
-- An immutable identifier.
-- An issuer identity.
-- A timestamp.
-- A policy reference where applicable.
-- An integrity commitment.
-- A verifiable signature or attestation.
-- Clear retention and revocation semantics.
+```text
+authenticated portal
+        |
+        v
+administrative auth service
+        |
+        v
+owned asynchronous job record
+        |
+        v
+internal unified gateway
+        |
+        v
+declared downstream processing stages
+        |
+        v
+owned authenticated job-status retrieval
+        |
+        v
+portal rendering of completed result
+```
 
-Audit records must minimize personal data.
+The browser does not receive direct authority to invoke the internal unified gateway as an unbounded public orchestration endpoint.
 
-Auditability is not permission to create a parallel surveillance database.
+The administrative auth service is responsible for:
 
-### Administrative recovery evidence
+```text
+session validation
+user identification
+quota or request-policy enforcement where configured
+job identifier generation
+job ownership persistence
+job-state persistence
+internal gateway invocation
+safe terminal-state handling
+status authorization
+```
 
-Administrative recovery is only credible when it is supported by evidence adequate to reconstruct and review the operating claim without exposing credentials or protected information.
+The unified gateway is responsible for pipeline processing within its declared administrative interface. It must not be treated as the authority for browser session validation.
 
-The recovery record for a service must include, as appropriate:
+### 54.13.2 Owner-Scoped Asynchronous Job Contract
 
-- Source and configuration provenance.
-- Original observed runtime identity.
-- Reconstructed Compose or deployment contract.
-- Container image reference and, where available, immutable digest.
-- Network membership and dependency endpoints.
-- Published-port scope.
-- Mounts, including read-only and writable requirements.
-- Runtime user, capability, and filesystem-hardening settings where applicable.
-- Environment-variable names and configuration references, excluding values.
-- Health-check method and observed result.
-- Dependency connectivity verification.
-- Pre-change and post-change runtime evidence.
-- Rendered configuration checksums after secret redaction.
-- Rollback image and manifest references.
-- Administrative reviewer and approval record.
+The recovered asynchronous job model establishes an important boundary control.
 
-The recovery record must not include:
+The administrative auth service creates an owned job mapping before background execution begins.
 
-- Private keys.
-- Passphrases.
-- Seeds.
-- Raw bearer tokens.
-- API keys.
-- Passwords.
-- Unredacted database URLs.
-- Full secret-bearing environment files.
-- Raw authorization headers.
-- Session tokens.
-- Plaintext protected user content.
-- Unredacted email recipients, message bodies, worker tokens, or provider keys.
-- Any other material whose retention would expand access beyond the approved evidence purpose.
+The logical key form is:
 
-A recovered service may be described as **verified operationally recovered** only when its declared recovery contract has been checked against observed live state and its required local health behavior has been verified.
+```text
+auth:unified_chat:job:<job_id>
+auth:unified_chat:job_owner:<job_id>
+```
 
-It may be described as **as-built administratively governed** only when it also has a named lifecycle owner, approved release contract, defined rollback procedure, dependency ownership record, change-control process, and an auditable secret-delivery path.
+The owner mapping binds the generated job identifier to the authenticated user identity recorded at submission time.
 
-### Controlled email audit boundary
+The job-status endpoint must validate that the current authenticated identity matches the stored owner before it returns job state or result data.
 
-The controlled email worker emits limited audit events:
+A requester with a job identifier but without the matching authenticated identity must not receive the job result.
 
-- `email_dispatch_requested`
-- `email_dispatch_dry_run`
-- `email_dispatch_forwarded_to_auth` only when dry run is disabled and a forwarding attempt succeeds
+The lifecycle states are:
 
-The verified dry-run path emitted:
+```text
+queued
+running
+completed
+failed
+```
 
-- `email_dispatch_requested`
-- `email_dispatch_dry_run`
+A representative queued record is:
 
-It did not emit the forwarding event.
+```json
+{
+  "status": "queued",
+  "job_id": "<job-id>",
+  "owner": "<authenticated-user-id>",
+  "queued_at": "<UTC timestamp>"
+}
+```
 
-For the current permitted template, audit events include:
+A representative running record is:
 
-- Event name.
-- UTC timestamp.
-- Template identifier.
-- SHA-256 commitment of the recipient.
-- SHA-256 commitment of the idempotency key.
-- SHA-256 commitment of the rendered subject.
-- SHA-256 commitment of the rendered body.
+```json
+{
+  "status": "running",
+  "job_id": "<job-id>",
+  "owner": "<authenticated-user-id>",
+  "started_at": "<UTC timestamp>"
+}
+```
 
-They do not intentionally include:
+A representative completed record is:
 
-- Raw recipient address.
-- Raw idempotency key.
-- Raw subject.
-- Raw message body.
-- Worker authentication token.
-- Provider API key.
-- Authorization header values.
+```json
+{
+  "status": "completed",
+  "job_id": "<job-id>",
+  "owner": "<authenticated-user-id>",
+  "completed_at": "<UTC timestamp>",
+  "result": {
+    "status": "complete",
+    "response": "<final grounded response>"
+  }
+}
+```
 
-Hashing reduces direct disclosure but does not automatically make a value anonymous. Low-entropy or predictable inputs may remain susceptible to correlation or guessing. Audit retention, access, aggregation, and disclosure rules must therefore remain governed.
+A representative failed record is:
 
-### Evidence and sealing
+```json
+{
+  "status": "failed",
+  "job_id": "<job-id>",
+  "owner": "<authenticated-user-id>",
+  "error": "<safe user-facing failure description>",
+  "failed_at": "<UTC timestamp>"
+}
+```
 
-The trust-development process establishes evidence capture, reproducibility capture, trust gates, review gates, promotion seals, runtime verification artifacts, and durable evidence records.
+The durable job record allows a long-running request to complete after the original browser interaction would otherwise have expired.
 
-Verification claims must be tied to preserved evidence rather than an unrecorded statement that a test once passed.
+### 54.13.3 Long-Running Processing Boundary
 
-Runtime evidence must not contain:
+The full unified pipeline can run for several minutes. This is expected behavior for the current bounded multi-model processing path and cannot be safely represented as a single short-lived synchronous browser request.
 
-- Private keys.
-- Passphrases.
-- Seeds.
-- Runtime secrets.
-- Full secret-bearing environment files.
-- Database connection URLs containing credentials.
-- Rendered proxy configuration containing active shared secrets.
-- Raw authorization headers.
-- Session tokens.
-- Plaintext protected user content.
-- Raw worker-authentication tokens.
-- Raw provider API keys.
-- Secret-bearing Compose-rendered content.
-- Raw recipient information, message bodies, or unredacted institutional support records unless such retention is separately approved and governed.
-- Host-specific recovery material that unnecessarily reveals private network topology, personal filesystem layouts, or unrelated service credentials.
+The recovered workflow has demonstrated successful completion of all 21 model responses in long-running requests. The portal must therefore distinguish between:
 
-A capability may be described as:
+```text
+the browser waiting for a result
+the asynchronous job continuing to run
+the job reaching an explicit completed state
+the job reaching an explicit failed state
+```
 
-- Defined.
-- Implemented.
-- Verified.
-- Sealed.
-- Promoted.
-- Administratively recovered.
-- As-built administratively governed.
-- Production-authorized.
+A browser-side wait limit, reverse-proxy deadline, temporary network interruption, or page reload must not be treated as proof that the server-side durable job failed.
 
-These are distinct states.
+The portal polling contract is:
 
-### Controlled email evidence record
+```text
+submit request
+receive job identifier
+poll authenticated owned job status
+continue while queued or running
+render final result only when completed
+render explicit error only when failed
+```
 
-The current email pilot generated evidence for:
+The polling implementation has been updated to use completion-aware polling rather than a terminal fixed-duration client timeout.
 
-| Verification activity | Result |
+The active behavior is:
+
+```text
+poll at a bounded interval
+continue while the job remains queued or running
+emit a nonterminal extended-processing notice when appropriate
+continue polling after that notice
+return the actual final response when the job becomes completed
+stop with an error only when the job is explicitly failed
+```
+
+This ensures that a pipeline which completes after several minutes is represented as a completed request rather than as a false browser timeout.
+
+## 54.14 Grounded Output and Administrative Claims
+
+The completion of an asynchronous request does not authorize unsupported output.
+
+The multi-model pipeline must remain grounded in authorized context, approved policy material, and permitted retrieval sources.
+
+The recovered administrative behavior has demonstrated that when a requested fact is absent from the available Judge Context Packet or authorized grounded source, the response may state that the information is unavailable rather than inventing a policy, role, authority, or commitment.
+
+This behavior is required.
+
+The system must distinguish:
+
+| Condition | Required behavior |
 |---|---|
-| Distroless auth and egress image build | Passed |
-| Auth and egress offline import with synthetic tmpfs credentials | Passed |
-| Proxy health checks with real mounted Docker secrets | Passed |
-| Effective in-container secret metadata check | Passed; intended non-root ownership and mode `0400` observed |
-| Worker image offline import | Passed after inclusion of `email_templates.py` |
-| Full-stack dry-run request | Passed |
-| Worker request audit event | Emitted |
-| Worker dry-run audit event | Emitted |
-| Worker forwarding indicator during dry run | Not observed |
-| Intentional provider contact during dry run | Not performed |
-| Intentional email send during dry run | Not performed |
+| Authorized grounded information is available | Provide only the supported answer |
+| Available information is incomplete | State the limitation and avoid extrapolation |
+| No authorized grounded information is available | Do not invent policy, roles, authority, or facts |
+| Session identity is available | Report only authorized session claims |
+| Real-world identity is not independently verified | Do not claim independent real-world identity verification |
 
-The full-stack dry run used the only currently permitted template, `email_delivery_test`, with a synthetic `.invalid` recipient. Audit output recorded commitments rather than raw recipient, subject, body, or idempotency material.
+The absence of authoritative data is a data-governance gap. It is not permission to relax the grounding boundary.
 
-These artifacts are local implementation evidence. They are not independently signed production authority artifacts unless and until they are incorporated into an approved, governed evidence and release process.
+The administrative-production closure process must preserve this behavior even when operational pressure favors a more fluent but unsupported answer.
 
-### Administrative core evidence record
+## 54.15 Governed Production Secret Delivery
 
-The current Main Brain and Hilbert State recovery record includes evidence that:
+Administrative production requires a governed secret-delivery model that is distinct from pilot, recovery, development, and local-host convenience mechanisms.
 
-| Recovery activity | Result |
-|---|---|
-| Dedicated recovery project created | Verified as `jarvis-legacy-recovery` |
-| Main Brain legacy-compatible service started | Running |
-| Hilbert State service started | Running |
-| Main Brain local port scope verified | Loopback-only `127.0.0.1:18058 -> 8008` |
-| Hilbert State local port scope verified | Loopback-only `127.0.0.1:18092 -> 8081` |
-| Main Brain Chroma endpoint corrected | Declared as internal `jarvis-chroma:8000` |
-| Main Brain health behavior | Verified reachable at recovery time |
-| Hilbert State health behavior | Verified reachable at recovery time |
-| Recovery manifest retained | Available as legacy-compatible recovery contract |
-| Broad aggregate project ownership | Explicitly not accepted as recovered-pair lifecycle owner |
-| Full administrative-production closure | Pending |
+A secret may be necessary for a service to operate, but possession of a secret does not authorize an environment, image, container, script, or operator to be treated as production.
 
-The current record demonstrates a controlled recovery boundary. It does not establish immutable release closure, governance activation, final secret-management architecture, or complete production operations.
+The administrative-production secret model must preserve the trust boundary by ensuring that sensitive values are delivered only to approved workloads, through approved identities, for approved purposes, with auditable rotation and recovery procedures.
 
----
+The target state is governed external secret management compatible with non-root runtime identities.
 
-## 14. Current Implementation and Verification Alignment
-
-| Component | Current state |
-|---|---|
-| Constitutional Guardian | Implemented and materially hardened at the decision boundary. Runtime admission, caller authentication, signed operation-intent enforcement, Authority Bundle sourcing, revocation enforcement, and fail-closed protected decision boundaries are implemented. |
-| Guardian Authority Bundle | Implemented and verified with test-provisioned governance keys. Production governance-board authority and a genuine production bundle remain pending. |
-| Runtime Authority Manifest | Implemented and cryptographically verified in the trust-development boundary. Final production release authority remains gated. |
-| Runtime Admission | Implemented and verified. Protected runtime boundaries fail closed when required authority conditions are absent or invalid. |
-| Caller authentication | Implemented and verified fail closed. |
-| Signed operation intent | Implemented and verified at the protected decision boundary, including mismatch, tampering, trust, status, and revocation denial paths. |
-| PDR schema and verification | Implemented. Structural, cryptographic, lifetime, and binding infrastructure exists. |
-| PDR factory and issuance | Implemented and verified under provisioned non-production signer material. Production signer enrollment remains outstanding. |
-| Guardian PDR signing authority | Not production-authorized. A dedicated production signer with the required registry role and governance authorization remains required. |
-| Durable receipt ledger | Implemented and verified for consumption and replay denial in the trust-development boundary. |
-| Privacy-gateway runtime-isolation pilot | Verified. Redis, egress, admission API, and privacy worker passed final runtime checks with read-only roots, dropped capabilities, non-root execution where configured, Redis authentication, proxy validation, and egress enforcement. |
-| Egress boundary | Verified for `/chat`: unauthenticated POST rejection with HTTP 403 and non-POST rejection with HTTP 405. |
-| Pilot secret rotation | Egress and Redis credentials previously exposed during remediation were rotated. Current local environment-file delivery is temporary and not production-ready. |
-| Controlled email topology | Verified for one-shot worker, authentication proxy, and egress-gateway separation. The worker does not receive the provider key; the authentication proxy does not receive the provider key; the egress gateway does not receive the worker token. |
-| Email auth proxy | Verified as a pinned distroless Python runtime running under a dedicated non-root identity, with explicit Python entrypoint, read-only root filesystem, dropped capabilities, no-new-privileges, and restricted secret access. |
-| Email egress gateway | Verified as a pinned distroless Python runtime running under a dedicated non-root identity, with explicit Python entrypoint, read-only root filesystem, dropped capabilities, no-new-privileges, and restricted provider-key access. |
-| Email secret mount metadata | Verified during controlled runtime checks with service-specific ownership and mode `0400`; values were not read or logged. |
-| Email worker image | Verified after packaging correction. `email_worker.py` and `email_templates.py` import successfully under the worker image’s dry-run configuration. |
-| Email worker dry run | Verified. A permitted one-shot request generated `email_dispatch_requested` and `email_dispatch_dry_run` audit events and exited without a forwarding event. |
-| Email worker persistence | Not implemented by design. The worker is stdin-driven and exits after one request; it is not a queue consumer, daemon, or persistent service. |
-| Live email delivery | Not enabled or production-authorized. The verified default is `MSJARVIS_EMAIL_DRY_RUN=true`. |
-| Institutional multi-user support workflow | Not implemented or production-authorized. Institutional identity, tenant isolation, roles, durable work orchestration, operational support controls, and live-send governance remain pending. |
-| Main Brain recovery | Verified operationally recovered under `jarvis-legacy-recovery`, using loopback-only host exposure and an explicit internal Chroma endpoint. It is not yet a complete immutable production release. |
-| Hilbert State recovery | Verified operationally recovered under `jarvis-legacy-recovery`, with loopback-only host exposure and retained network/mount contract. Its image binding must be made immutable before production promotion. |
-| Core-pair lifecycle owner | Defined for recovery as `jarvis-legacy-recovery`. Broader dependency ownership and full-stack as-built authority remain incomplete. |
-| Broad aggregate stack | Operationally present but not accepted as the authoritative lifecycle owner for the recovered Main Brain and Hilbert State pair. Its layered historical definitions require inventory and classification. |
-| Docker health contracts for recovered core | External health reachability verified; complete declarative Docker health checks and dependency-readiness policy remain pending. |
-| External secret manager | Not yet implemented. Required before production activation. |
-| MAR | Defined and supported by receipt infrastructure; complete protected-memory production path remains pending. |
-| Projection Receipt | Defined; complete production projection boundary remains pending. |
-| Projection Service | Not production-activated. |
-| Reasoning isolation | Existing semantic-memory and reasoning capabilities must remain behind the authorization and projection boundary. |
-| Commons receipts and governance | Defined; production implementation remains pending. |
-| Revocation | Verified at the Guardian decision boundary; projection-path integration remains pending. |
-| Adversarial matrix | Partially closed. Decision-boundary cases are verified; expiration, policy mismatch, unapproved-image, outage, secret-manager failure, full projection-chain, multi-user email-policy, and complete administrative-recovery cases remain. |
-| Custodian ceremony | Started but incomplete. It grants no authority until the required independent custodians, remaining enrollment records, and threshold-signed governance registry are complete. |
-| Release-candidate evidence | Completed as a tested, evidence-backed, fail-closed package. It is not an active authority system. |
-| Live authority system | Not active. Production activation remains blocked pending governance, signer, secret-management, projection, release, institutional operating, and final authorization prerequisites. |
-
-An implemented component is not automatically production-authorized.
-
-A verified pilot is not automatically a production release.
-
-A sealed evidence artifact is not automatically an active authority system.
-
-A healthy service is not automatically an authorized service.
-
-A recovered service is not automatically an as-built production service.
-
-A successful dry run is not an approved live action.
-
----
-
-## 15. Verification Requirements
-
-| Capability | Required proof | Current status |
-|---|---|---|
-| Approved production service | Pinned digest, SBOM, Runtime Authority Manifest, governance approval, health checks, contract checks, rollback evidence | Partially demonstrated; final production release closure remains |
-| Recovered administrative service | Reconstructed manifest, scoped lifecycle owner, observed network/port/mount contract, dependency checks, health evidence, rollback reference, redacted evidence | Demonstrated for Main Brain and Hilbert State recovery pair |
-| As-built administrative production service | Approved declarative owner, immutable image, dependency ownership, health and readiness contract, secret-delivery record, change control, rollback procedure, operational owner | Not yet complete for the core pair or the broader stack |
-| Runtime authority | Valid signed manifest, trusted signers, policy compatibility, image binding | Signature and admission evidence demonstrated; final production governance remains |
-| Guardian Authority Bundle | Production-signed bundle satisfying required roles, threshold, expiry, key validity, and revocation state | Test-provisioned mechanism verified; production bundle remains |
-| Caller authenticity | Valid bundle-sourced caller credential before protected decision logic | Implemented and verified fail closed |
-| Signed operation intent | Valid signature, trusted active subject key, caller-subject binding, request-operation binding, revocation enforcement | Implemented and verified fail closed |
-| PDR issuance | Valid production Guardian signer, trusted registry entry, policy binding, durable consumption, cryptographic signature | Verified under provisioned non-production signer; production enrollment remains blocked |
-| Secret delivery | Approved external manager, least privilege, non-root compatibility, auditable rotation and recovery | Pilot secret isolation verified; production mechanism not complete |
-| Runtime isolation | Read-only roots, least privilege, scoped writable paths, tested egress enforcement, authenticated dependencies | Verified for the privacy-gateway pilot baseline and controlled email proxy pair |
-| Recovered core service health | Explicit endpoint or Docker health check, dependency connectivity, expected local port scope, evidence capture | Local health behavior and loopback publication verified; declarative Docker health contracts remain pending |
-| Main Brain dependency binding | Explicit Chroma service endpoint, required networks, dependency health behavior, defined failure mode | Internal Chroma endpoint verified as `jarvis-chroma:8000`; full dependency contract pending |
-| Hilbert State runtime binding | Immutable image, required network attachments, read-only mounts, health contract, rollback reference | Recovered runtime contract established; immutable image binding and full production contract pending |
-| Aggregate-stack governance | Inventory, classification, approved lifecycle owner for each retained service, decommission plan for orphans | Pending |
-| Email dry run | Approved fixed template, schema validation, dry-run policy enabled, redacted audit evidence, no forwarding event | Verified for one-shot controlled invocation |
-| Email live send | Explicit governance approval, approved sender/domain, recipient controls, rate limits, policy enforcement, audit, kill switch, authorized secrets, and controlled egress | Not authorized or verified |
-| Persistent email processing | Durable queue or service contract, idempotency persistence, retry/backoff, dead-letter process, observability, concurrency limits, recovery tests | Not implemented |
-| Institutional multi-user support | Institutional SSO/MFA, tenant isolation, server-side authorization, support roles, privacy review, operational ownership, incident and retention controls | Not implemented |
-| Private-memory access | Valid MAR, valid PDR, vault-root match, recipient-runtime binding, unexpired scope, use-count and revocation enforcement | Not production-closed |
-| Semantic projection | Valid Projection Receipt, minimization policy, output commitment, recipient binding, expiry, use controls | Not production-closed |
-| Commons contribution | User authorization, valid Contribution Receipt, applicable PDR | Pending |
-| Commons transformation | Transformation Receipt, approved runtime digest, privacy mechanism, cohort threshold, required attestations | Pending |
-| Governance decision | Epoch root, approved aggregation method, policy record, required signatures | Pending |
-| Revocation | Current revocation-state check before every protected projection | Decision-boundary verification complete; projection-path integration pending |
-| Guardian outage | Protected capability denial; no fallback to unapproved access | Applicable trust path fails closed; full protected-memory path remains pending |
-| Secret-manager outage | Protected capability denial and safe recovery without secret disclosure | Pending |
-| Unapproved runtime | Verification failure and denial of protected projection | Runtime admission implemented; full projection path remains pending |
-| Receipt replay | Binding, expiry, use count, durable replay detection | PDR replay denial verified; full chain remains pending |
-| Multi-replica ledger | Durable shared-ledger conformance | Pending before multi-replica production deployment |
-| Production observability | Centralized redacted logging, metrics, tracing, alerting, retention, incident ownership, and tested recovery | Pending |
-| Recovery rollback | Exact prior image/manifest reference, data-impact assessment, local health verification, approved rollback procedure | Recovery evidence partially available; formal rollback procedure pending |
-| Change governance | Reviewed release manifest, preflight, approval, scoped apply, post-change verification, retained evidence | Informally applied during recovery; formal production process pending |
-
-## 16. Pilot Implementation and Production Closure Order
-
-### 16.1 Purpose and status
-
-This section records the current implementation boundary and the remaining closure work required before any component may be represented as production-authorized.
-
-The system has progressed beyond an architecture-only design. It now includes meaningful, evidence-backed implementation and verification of trust-boundary controls, receipt infrastructure, Guardian decision-boundary controls, a hardened privacy-gateway runtime pilot, a controlled email-processing pilot, and the administrative recovery of the Main Brain and Hilbert State core runtime pair.
-
-Those accomplishments are real and operationally valuable. They do not activate production authority, authorize protected-memory access, establish governance approval, permit a live authority system, authorize live email delivery, establish an institutional multi-user support platform, or complete the broader Jarvis stack’s administrative-production closure.
-
-The present status is:
+The target state is not:
 
 ```text
-RELEASE STATE:
-tested, evidence-backed, fail-closed release candidate
-
-AUTHORITY STATUS:
-inactive
-
-DEPLOYMENT ADMISSION:
-blocked pending production governance, signing, runtime authority,
-protected-memory, projection, secret-management, institutional operating,
-and activation conditions
-
-ADMINISTRATIVE CORE STATE:
-Main Brain and Hilbert State recovered under a dedicated scoped project
-
-CORE-PAIR OPERATING STATE:
-locally running, loopback-bound, dependency-connected, health-verified
-
-AS-BUILT ADMINISTRATIVE PRODUCTION:
-not complete
-
-CONTROLLED EMAIL STATE:
-verified one-shot dry-run pilot
-
-LIVE EMAIL STATE:
-disabled and not production-authorized
-
-EMAIL WORKER MODE:
-stdin-driven single-request process; not persistent
+an untracked .env file
+a plaintext credential in a Compose file
+a secret copied into a Docker image
+a value embedded in a shell command
+a token retained in shell history
+a credential exposed in Docker inspect output
+a secret placed in a repository
+a local file treated as permanent production authority
+a credential inherited from pilot or recovery work
 ```
 
-The verified privacy-gateway pilot is a runtime-isolation baseline.
+### 54.15.1 Secret Classes
 
-The verified email pilot is a bounded dry-run processing baseline.
+The administrative inventory must identify each secret-bearing input by class and intended scope.
 
-The recovered Main Brain and Hilbert State pair is an administrative recovery baseline.
-
-None of these independently completes the MountainShares / Ms. Jarvis production trust architecture.
-
-### 16.2 Completed or materially advanced work
-
-The following work has been implemented, materially hardened, or verified:
-
-1. Governance-role, policy, threshold, and failure-mode architecture has been defined.
-2. Runtime-authority structures have been defined and verification infrastructure implemented.
-3. Runtime admission has been implemented as a fail-closed boundary.
-4. Guardian admission evidence, trust gates, reproducibility capture, evidence sealing, and applicable promotion records have been established.
-5. Caller authentication has been implemented before protected decision logic.
-6. Signed operation-intent verification and caller-subject-request-operation binding have been implemented.
-7. Tampered, untrusted, inactive-key, malformed, mismatched, and revoked intent conditions are denied fail closed.
-8. Guardian Authority Bundle verification, threshold approval checks, and bundle-sourced caller, subject-key, and revocation authority have been implemented and verified with test governance material.
-9. Subject and intent revocation are enforced at the Guardian decision boundary.
-10. Trust-receipt schemas, canonical verification modules, PDR factory infrastructure, and receipt-chain checks have been implemented.
-11. Durable PDR consumption and replay denial have been implemented and verified under provisioned non-production signer material.
-12. Negative security cases have been validated around completed decision-boundary controls.
-13. Custodian enrollment has begun without activating authority.
-14. Evidence-backed release-candidate artifacts have been produced without private keys or production authority activation.
-15. The privacy-gateway runtime-isolation pilot has been deployed and verified.
-16. Pilot egress and Redis credentials exposed during remediation were rotated.
-17. Final privacy-gateway pilot verification confirms operational Redis, egress, admission API, and privacy worker services with intended runtime controls.
-18. A controlled three-service email boundary has been implemented: worker to authentication proxy to egress gateway.
-19. Email proxy images have been rebuilt as pinned distroless runtimes with numeric non-root identities, explicit entrypoints, read-only roots, dropped capabilities, no-new-privileges, and scoped writable temporary storage.
-20. The worker authentication secret and provider API key have been separated so that each is mounted only into its respective service boundary.
-21. Offline authentication-proxy and egress-proxy initialization was verified with synthetic credentials created only in ephemeral tmpfs and no network access.
-22. Controlled health verification confirmed that both proxies initialize with their existing Docker secret mounts and return successful health responses.
-23. Controlled metadata verification observed effective service-specific secret ownership and mode `0400` without reading secret contents.
-24. The worker image packaging defect was corrected by including `email_templates.py` with `email_worker.py`.
-25. The corrected worker imported successfully offline with `MSJARVIS_EMAIL_DRY_RUN=true`, no network, and no mounted secrets.
-26. A full-stack one-shot dry run produced the expected request and dry-run audit events without forwarding to the authentication proxy, intentionally contacting the provider, or sending email.
-27. Controlled Compose image references now retain verified release-tagged worker, authentication, and egress images.
-28. The Main Brain was recovered under the dedicated `jarvis-legacy-recovery` project using the legacy-compatible recovery manifest.
-29. The recovered Main Brain is locally exposed only through `127.0.0.1:18058` to its internal application port.
-30. The Main Brain Chroma dependency was explicitly corrected to use the internal service endpoint `jarvis-chroma:8000`.
-31. Hilbert State was recovered under the same dedicated project and is locally exposed only through `127.0.0.1:18092` to its internal application port.
-32. Main Brain and Hilbert State were both observed running and health-reachable at recovery verification time.
-33. The recovered pair has been separated administratively from the broad `msjarvis-rebuild` aggregate stack for lifecycle-control purposes.
-34. Recovery evidence, runtime inspection material, manifests, and verification records were preserved without making the recovery equivalent to production authorization.
-
-### 16.3 Remaining closure work
-
-The remaining work must preserve the same fail-closed discipline.
-
-#### Governance and authority
-
-1. Establish the authorized production governance decision and corresponding production policy registry.
-2. Establish the required production governance-board authority and enroll a real governance-board signer.
-3. Complete the independent-custodian enrollment and governance activation ceremony.
-4. Produce a threshold-signed active production governance registry.
-5. Establish production key-rotation, revocation, incident-response, and emergency-suspension procedures.
-6. Define the institutional authority authorized to approve multi-user support workflows, protected messaging functions, and any transition from dry run to live email delivery.
-7. Define sender, recipient, template, retention, escalation, and emergency-stop policy for every live delivery workflow.
-8. Define the administrative authority authorized to promote a recovered service from recovery status to an as-built production service.
-9. Define required review and approval thresholds for core service changes, rollback, dependency migration, and stack decommissioning.
-
-#### Guardian signer and PDR activation
-
-10. Establish dedicated Guardian PDR signing authority in approved secure custody.
-11. Enroll its public key, with the required `guardian` role, in the production trusted signer registry.
-12. Produce a production Guardian Authority Bundle carrying genuine production approvals and valid expiry.
-13. Demonstrate a live, cryptographically valid PDR issuance path against production authority.
-14. Demonstrate durable production receipt consumption and replay denial.
-15. Ensure Guardian outage and signer failure deny protected capabilities rather than creating fallback authorization.
-16. Determine and enforce which institutional support and live email actions require a PDR, MAR, additional approval receipt, or all of these controls.
-
-#### Runtime authority and secrets
-
-17. Build and verify one reproducible pilot release from a fully governed signed Runtime Authority Manifest.
-18. Pin exact production image digests, SBOMs, dependencies, policies, health contracts, rollback targets, and release approvals.
-19. Replace mutable image references in recovered services, including the current Hilbert State image reference, with approved immutable release bindings.
-20. Define a canonical release manifest for the recovered Main Brain and Hilbert State pair that supersedes recovery-only naming while preserving its verified contract.
-21. Define Docker health checks, readiness contracts, failure modes, restart behavior, and dependency ordering for the recovered core pair.
-22. Implement approved external secret management compatible with the non-root runtime.
-23. Replace temporary local environment-file and local file-backed Compose secret delivery.
-24. Rotate all pre-production credentials during the governed production cutover.
-25. Verify that no secret values appear in source, Compose configuration, rendered configuration output, evidence, logs, shell history, or repository history.
-26. Define and test secret-manager outage, recovery, rotation, revocation, and break-glass behavior.
-27. Establish vulnerability management, SBOM review, image scanning, patch cadence, and release-dependency review processes.
-
-#### As-built administrative stack closure
-
-28. Inventory every running service, container, image, volume, network, port, mount, label, and dependency relationship in the broad Jarvis environment.
-29. Classify each running component as core production, platform dependency, data service, security boundary, controlled pilot, candidate, historical artifact, or orphan.
-30. Assign each retained production service exactly one approved declarative lifecycle owner.
-31. Record the approved project boundary for Main Brain and Hilbert State and prevent broad aggregate Compose actions from unintentionally changing the pair.
-32. Identify every external network, volume, database, local path, and shared dependency required by the core pair.
-33. Define service-to-service DNS, port, protocol, authentication, health, readiness, timeout, and failure semantics for each core dependency.
-34. Define persistent-data ownership, backup, restore, migration, retention, and rollback procedures for each production-relevant state store.
-35. Create a decommission, migration, or containment plan for duplicate, abandoned, experimental, historical, and orphaned services.
-36. Establish a rendered-manifest review process that redacts secrets and compares expected contract state with live runtime state.
-37. Define pre-change, change, post-change, and rollback evidence requirements.
-38. Establish formal production change governance for scoped service operations, including explicit approval before destructive or broad lifecycle actions.
-39. Demonstrate that the complete core service set can be recreated from approved manifests and governed dependencies without reliance on undocumented host state or emergency reconstruction steps.
-40. Retain recovery artifacts as historical evidence while ensuring that no recovery-only files become accidental permanent production authority.
-
-#### Institutional multi-user support readiness
-
-41. Implement institutional single sign-on using the approved identity provider and required multifactor-authentication policy.
-42. Define and enforce server-side roles and permissions, including least-privilege support, administrator, auditor, and governance roles as applicable.
-43. Define a tenant or organizational-boundary model and ensure every protected query, request, receipt, audit event, and workflow is scoped and enforced server-side.
-44. Implement user lifecycle controls: account provisioning, deprovisioning, suspension, access review, role change, and session revocation.
-45. Define data classification, consent, retention, deletion, disclosure, and support-record handling requirements.
-46. Complete institutional privacy, security, accessibility, procurement, legal, and records-management review as applicable to the intended deployment.
-47. Establish support ownership, incident escalation, on-call responsibility, operational runbooks, and service-level objectives.
-48. Establish centralized redacted logging, monitoring, metrics, tracing, alerting, retention, and audit access controls.
-
-#### Persistent email processing and live-send controls
-
-49. Do not deploy the current stdin-driven worker as a persistent service. It is a one-shot process by design.
-50. If persistent processing is required, design and implement a durable input mechanism, such as an authenticated API plus durable queue, with clear command ownership and authorization.
-51. Implement durable idempotency storage rather than relying solely on caller-provided request values.
-52. Implement retry, backoff, timeout, failure classification, dead-letter, replay-review, and recovery procedures.
-53. Implement concurrency limits, quota enforcement, rate limits, recipient-domain policy, template allowlists, sender-domain controls, and abuse prevention.
-54. Implement a live-send control plane with environment isolation, explicit change approval, runtime policy check, audit trail, and immediate kill switch.
-55. Verify that `MSJARVIS_EMAIL_DRY_RUN=true` remains the default and that disabling it requires an approved, recorded, policy-governed activation process.
-56. Conduct controlled live-send testing only after all required governance, operational, and provider-side sender-domain prerequisites are complete, using an approved test recipient and an explicit, auditable authorization.
-57. Verify external-provider failure handling, delivery-status processing, bounce and complaint handling, revocation behavior, and recipient suppression controls before live institutional use.
-
-#### Protected memory and projection
-
-58. Establish signed runtime-admission chains for the Projection Service and reasoning recipient.
-59. Implement and verify MAR issuance and validation in the protected-memory path.
-60. Implement Projection Service verification before protected retrieval.
-61. Remove unrestricted private-memory access from reasoning paths.
-62. Implement and verify Projection Receipts and their output commitments.
-63. Bind recipient runtime identity, projection scope, purpose, policy, expiry, and use count before reasoning-context release.
-64. Integrate revocation into protected-memory and projection authorization checks before every new projection.
-65. Ensure that any email generated from protected-memory or institutional data receives only an authorized minimum context projection and remains within the relevant scope, purpose, recipient, and retention constraints.
-66. Ensure that recovered or newly promoted core application services can receive protected context only through approved recipient-runtime and receipt bindings.
-
-#### Commons and full-chain verification
-
-67. Implement Contribution and Transformation Receipts before publishing Commons aggregates.
-68. Establish Commons Epoch Root governance and required privacy attestations.
-69. Close the remaining adversarial verification cells:
-- Authority and receipt expiration.
-- Policy-version mismatch.
-- Unapproved-image access.
-- Guardian outage.
-- Secret-manager outage.
-- PDR, MAR, projection, and response replay.
-- Full protected-memory projection chain.
-- Tenant-isolation failure.
-- Role-escalation attempt.
-- Cross-tenant audit disclosure.
-- Email request duplication.
-- Unauthorized live-send attempt.
-- Recipient-policy failure.
-- Queue, retry, and dead-letter recovery.
-- Recovery manifest drift.
-- Unapproved core-service image substitution.
-- Aggregate-stack lifecycle interference.
-- Dependency-health or network-contract failure.
-70. Demonstrate durable shared-ledger conformance before any multi-replica deployment requiring shared receipt consumption.
-71. Exercise backup recovery, rollback, incident response, observability, evidence-retention, and core-stack recreation procedures.
-
-### 16.4 Production acceptance criteria
-
-The system may be described as production-authorized only when all of the following are true for the exact immutable release in operation:
-
-- Required governance authority is active and valid.
-- Required production signers are securely provisioned, enrolled, role-authorized, non-revoked, and governed.
-- A valid production Guardian Authority Bundle satisfies the required approval threshold.
-- Runtime Authority Manifest verification succeeds for the exact running image digests.
-- Approved external secret delivery is active and no plaintext secret values are exposed through disallowed channels.
-- Protected operations require valid caller authority, signed operation intent, runtime admission, PDR, MAR, and projection authorization as applicable.
-- Protected-memory retrieval is bounded by valid authorization, scope, expiry, recipient binding, and revocation controls.
-- The reasoning recipient is runtime-approved and receives only authorized minimal context.
-- Receipt consumption and replay prevention operate durably at the intended deployment scale.
-- Required negative, outage, rollback, and recovery tests pass.
-- Commons contribution controls are active before contribution or publication paths are enabled.
-- The release is reproducible, evidenced, approved, observable, recoverable, and reversible.
-- Required governance authority has approved activation of that exact release.
-
-For an as-built administrative-production core stack, all of the following must also be true:
-
-- Every retained core service has one approved declarative lifecycle owner.
-- Main Brain, Hilbert State, and all required dependencies are represented by approved version-controlled manifests.
-- All production-relevant image references are immutable and bound to approved SBOM and release records.
-- Service networks, ports, mounts, volumes, external dependencies, and data stores are explicitly documented.
-- Health checks, readiness checks, dependency failure behavior, restart policy, and rollback procedures are declared and tested.
-- Secrets are supplied by an approved governed mechanism and are absent from public documentation, evidence, logs, shell history, and rendered manifests.
-- Persistent data has documented ownership, backup, restore, retention, and migration procedures.
-- The production core can be recreated from approved artifacts without reconstructing undocumented legacy host state.
-- Broad aggregate Compose operations cannot unintentionally take control of or destroy scoped core services.
-- Operational ownership, incident response, change approval, and maintenance responsibilities are assigned.
-- A contract-versus-live-state verification process is available and produces redacted evidence.
-
-For a multi-user institutional-support deployment, all of the following must also be true:
-
-- Institutional authentication, session management, and required multifactor controls are active.
-- Tenant or organizational boundaries are enforced by trusted server-side identity and authorization controls.
-- Roles, permissions, support workflows, and administrative boundaries are reviewed and tested.
-- Privacy, retention, accessibility, and institutional operating requirements are approved.
-- Centralized redacted observability, alerting, audit access, incident response, and operational ownership are active.
-- Persistent workflow processing has a durable queue or equivalent controlled mechanism, idempotency storage, retries, dead-letter handling, and tested recovery.
-- Live email is disabled by default and can be enabled only through an explicit, governed, auditable activation process.
-- Sender identity, provider configuration, recipient safeguards, rate limits, suppression handling, and emergency kill-switch controls have been verified.
-- Live delivery has been separately approved for the exact production release, configuration, and operating environment.
-
-Until these conditions are satisfied, the correct description remains:
+The minimum classification includes:
 
 ```text
-A tested, evidence-backed, fail-closed release candidate with a verified
-runtime-isolation pilot baseline, a verified controlled one-shot email
-dry-run capability, and an administratively recovered Main Brain and
-Hilbert State core pair; not a production-authorized live authority,
-complete as-built administrative-production stack, multi-user
-institutional-support platform, or live email-delivery system.
+service-to-service credentials
+API keys
+database credentials
+message-bus credentials
+bearer tokens
+session-signing material
+encryption keys
+TLS private keys
+third-party integration credentials
+registry credentials
+backup-encryption material
+break-glass credentials
+operator credentials
+pilot-only credentials
+recovery-only credentials
 ```
 
-### 16.5 Immediate practical next project
+Each secret record must identify:
+
+```text
+secret name or opaque identifier
+owning service or authority
+consuming workload
+environment classification
+delivery mechanism
+rotation requirement
+revocation method
+expiry behavior
+audit location
+break-glass policy
+recovery dependency
+migration status
+```
+
+The record must not contain the secret value.
+
+### 54.15.2 Non-Root Workload Identity
+
+Retained administrative-production workloads must use non-root runtime identities unless a narrowly documented exception is approved.
+
+Secret delivery must be compatible with those identities.
+
+A valid production secret mechanism must support:
+
+```text
+least-privilege access
+service-specific identity
+non-root file or API access
+time-bounded or renewable credentials where applicable
+revocation
+rotation without undocumented manual changes
+auditability
+separation between operator identity and workload identity
+```
 
-The immediate next project is:
+A secret file that is readable only by root does not satisfy the requirement if the retained workload is expected to run as a non-root user. Conversely, granting broad host-level permissions merely to make secret access work is not an acceptable production solution.
 
-1. Production governance and signer enrollment.
-2. Approved external secret-manager implementation.
-3. Governed Runtime Authority Manifest and reproducible release closure.
-4. Core-stack administrative inventory, ownership assignment, and immutable runtime binding.
-5. Declarative health, readiness, rollback, data-ownership, and change-governance closure for Main Brain, Hilbert State, and their required dependencies.
-6. Protected-memory MAR and Projection Service activation.
-7. Institutional identity, authorization, and tenant-boundary design.
-8. Durable, policy-governed email work orchestration if persistent processing is required.
-9. End-to-end production-chain and administrative-stack adversarial verification.
-
-The immediate next project is not another emergency Docker hardening change.
-
-The privacy-gateway and controlled-email pilots have established hardened runtime baselines.
-
-The Main Brain and Hilbert State recovery has established an administratively scoped core runtime baseline.
-
-Production progress now depends on legitimate authority, signer custody, governed secret delivery, immutable release authority, complete core service ownership, protected-memory authorization and projection closure, institutional operating controls, and a deliberately designed live-delivery control plane.
-
----
-
-## 17. Current Release Boundary
-
-The current system state must be described as:
-
-> A tested, evidence-backed, fail-closed release candidate with an administratively recovered core runtime, rather than a live authority system or complete as-built administrative-production stack.
-
-The release boundary is intentionally inactive.
-
-The recovered Main Brain and Hilbert State pair is operationally useful and locally stable. It remains within a bounded recovery scope and must not be represented as final production activation.
-
-The current public or shareable evidence package must exclude:
-
-- Private keys.
-- Passphrases.
-- Seeds.
-- Runtime secrets.
-- Signer private material.
-- Full secret-bearing configuration.
-- Plaintext protected data.
-- Other sensitive authority material.
-- Raw email recipients, message bodies, worker tokens, provider keys, or institution-specific support content unless explicitly approved under a separate governed retention process.
-- Unredacted local host paths where they reveal sensitive infrastructure layout without an approved documentation purpose.
-- Full container-inspection outputs when they include environment values, mount contents, access tokens, or unrelated dependency details.
-- Unredacted Compose-rendered output when it contains secret values or credentials.
-- Local recovery environment files and shell-history content.
-
-The current pilot verification evidence demonstrates runtime isolation, service health, credential rotation, egress enforcement, Redis authentication, controlled email secret placement, proxy readiness, worker dry-run behavior, and fail-closed boundary controls without granting production authority.
-
-The current recovery evidence demonstrates that the Main Brain and Hilbert State services can operate under a dedicated recovery project with loopback-only host exposure, explicit dependency addressing, and preserved runtime-contract evidence.
-
-The custodian ceremony has begun but is incomplete. Partial enrollment grants no authority.
-
-A candidate Guardian deployment topology may be technically deployable but remains unauthorized until the required governance, signer, authority-bundle, runtime-manifest, secret-management, institutional identity, operational, and protected-memory conditions are complete.
-
-The controlled email topology may be technically runnable but remains restricted to verified one-shot dry-run behavior. It must not be represented as an authorized live email system or persistent support service until the relevant production controls are complete.
-
-The recovered Main Brain and Hilbert State topology may be technically runnable and locally healthy but remains an administrative recovery boundary until immutable release binding, formal health and readiness contracts, dependency ownership, governed secrets, rollback governance, and core-stack closure are complete.
-
-The architecture is designed to stop before live authority is granted when required governance, signing, registry, runtime, secret-delivery, identity, authorization, tenant, operational, delivery-policy, or projection conditions are absent.
-
-It is also designed to stop before an emergency recovery configuration is silently reclassified as production merely because it remains running.
-
-### Recovery-boundary operating rules
-
-The following rules are normative for the current recovered core:
-
-1. `jarvis-main-brain` and `jarvis-hilbert-state` remain lifecycle-owned by the dedicated `jarvis-legacy-recovery` project until a reviewed and approved migration establishes a successor owner.
-
-2. Broad aggregate Compose operations must not be used to recreate, stop, remove, or modify the recovered pair unless the exact implications have been reviewed and an explicit change authorization exists.
-
-3. The current loopback-only published ports are part of the recovery boundary. Any expansion of network exposure requires a separate reviewed security, policy, and operations decision.
-
-4. Main Brain must use the declared internal Chroma service endpoint rather than relying on implicit host-loopback behavior from within a container.
-
-5. A health response is operational evidence only. It does not authorize protected data access, policy decisions, Commons actions, or live email delivery.
-
-6. Any image replacement, dependency relocation, network modification, mount change, secret change, port exposure, or runtime-configuration change must be treated as a scoped deployment change and must preserve rollback evidence.
-
-7. Recovery manifests, local runtime configuration, and evidence must be treated as sensitive operational artifacts even when they contain no direct secret values.
-
-8. The current recovery state must not be used to justify an unreviewed full-stack `up`, `down`, pruning, rebuild, or migration action against the broad historical environment.
-
-9. The recovery boundary must remain fail closed for protected capabilities while production authority, projection controls, and institutional operating requirements remain incomplete.
-
-10. Promotion from recovered status to as-built administrative production requires affirmative evidence against the administrative-production acceptance criteria in this document.
-
----
-
-## 18. Status Interpretation
-
-For documentation and future audit purposes, the following terminology is normative.
-
-### Defined
-
-The architecture, schema, contract, or requirement has been specified.
-
-### Implemented
-
-A concrete software or artifact mechanism exists in the system.
-
-### Verified
-
-The implementation has produced evidence demonstrating the required behavior or cryptographic property.
-
-### Sealed
-
-Relevant evidence has been preserved as an identifiable, integrity-bound artifact.
-
-### Promoted
-
-The relevant stage has passed its defined promotion gate and has been recorded as such.
-
-### Administratively recovered
-
-A previously unavailable, ambiguous, or unmanaged runtime component has been reconstructed into a scoped operating contract; its observed service state, essential dependencies, network exposure, and local health behavior have been verified; and recovery evidence has been retained.
-
-Administrative recovery does not imply an immutable release, complete service ownership, secret-management closure, production governance, or authority to perform protected operations.
-
-### As-built administratively governed
-
-A service or stack has an approved declarative lifecycle owner, immutable release binding, explicit dependency and data ownership, health and readiness contract, governed secret delivery, approved rollback procedure, operational ownership, documented change process, and evidence that the approved contract matches the live runtime.
-
-As-built administrative governance is necessary but not sufficient for production authorization of protected capabilities.
-
-### Production-authorized
-
-The required governance authority, signing authority, runtime admission, policy, secret-management, release, institutional operating, and activation conditions exist and have been explicitly authorized.
-
-These states must not be conflated.
-
-> Implemented does not mean production-authorized.  
-> Verified does not mean production-authorized.  
-> Sealed evidence does not mean production-authorized.  
-> Promoted does not mean production-authorized.  
-> A hardened pilot does not mean production-authorized.  
-> A recovered service does not mean as-built administratively governed.  
-> An as-built administratively governed service does not automatically mean it is authorized for protected operations.  
-> A release candidate does not mean an active authority system.  
-> A successful dry run does not mean live delivery is authorized.  
-> A running container does not mean a persistent service design is complete.  
-> A healthy endpoint does not mean the service is authorized.  
-> A valid provider key does not mean an institution has approved the action it could enable.  
-> A broad Compose project does not mean its configuration is the approved source of truth.
-
----
-
-## 19. Final Architectural Position
-
-The architecture has progressed beyond a purely conceptual trust model.
-
-The current system contains meaningful, evidence-backed implementation of:
-
-- Runtime authority.
-- Signed runtime admission.
-- Guardian admission enforcement.
-- Caller authentication.
-- Signed operation-intent verification.
-- Caller-subject and request-operation binding.
-- Governance-signed Guardian Authority Bundle verification.
-- Subject and intent revocation enforcement at the decision boundary.
-- Fail-closed protected decision paths.
-- PDR schema, factory, verification infrastructure, issuance under provisioned non-production signer material, durable consumption, and replay denial.
-- Runtime-isolation pilot controls.
-- Non-root service operation where configured.
-- Read-only roots, dropped capabilities, and no-new-privileges controls.
-- Scoped writable runtime paths.
-- Redis authentication and protected configuration permissions.
-- Egress method and shared-secret enforcement.
-- Credential rotation after pilot exposure.
-- Trust gates, reproducibility capture, evidence sealing, and applicable stage promotion.
-- Negative security validation.
-- Non-authorizing release-candidate packaging.
-- A controlled three-service email topology that separates worker authentication from external-provider credentials.
-- Distroless, pinned, numeric-non-root authentication and egress proxy runtimes.
-- Controlled secret-mount metadata verification without secret disclosure.
-- Corrected worker packaging and offline import verification.
-- A verified one-shot dry-run email workflow that renders only the approved test template, emits redacted audit events, and exits without forwarding or sending.
-- Administrative recovery of Main Brain and Hilbert State under a dedicated scoped Compose project.
-- Loopback-only host publication for the recovered Main Brain and Hilbert State services.
-- Explicit Main Brain Chroma dependency addressing through the internal service endpoint.
-- Preserved recovery manifests, runtime observations, health evidence, and administrative boundary records.
-- Explicit separation of the recovered core pair from the broad historical aggregate stack for lifecycle-control purposes.
-
-These accomplishments materially advance the implementation state.
-
-However, the architecture deliberately preserves the remaining boundaries around:
-
-- Final production governance authority.
-- A production governance-board signer.
-- A production Guardian PDR signer enrolled in the production trusted registry.
-- A production Guardian Authority Bundle carrying genuine threshold approvals.
-- Production policy registries.
-- Approved external secret management.
-- Governed immutable release authority.
-- Immutable production image binding for every recovered core service.
-- Canonical as-built manifests for Main Brain, Hilbert State, and all required dependencies.
-- Declarative health, readiness, failure, restart, and rollback contracts.
-- Complete service, dependency, network, volume, data, and lifecycle ownership inventory.
-- Separation, containment, migration, or decommissioning of historical and orphaned aggregate-stack components.
-- Persistent-data ownership, backup, restoration, retention, and migration controls.
-- Production change governance and contract-versus-live-state verification.
-- Projection Service admission.
-- Reasoning-recipient admission.
-- Complete MAR activation.
-- Protected semantic projection.
-- Removal of unrestricted private-memory access.
-- Contribution and Transformation Receipts.
-- Commons Epoch Root governance.
-- Revocation integration into the protected-memory and projection path.
-- Institutional authentication, multifactor controls, and account lifecycle management.
-- Tenant isolation and server-side role-based or attribute-based authorization.
-- Institutional privacy, retention, accessibility, security, and operational review.
-- Durable multi-user work processing.
-- Idempotency, retry, dead-letter, and recovery controls for persistent delivery work.
-- Live email delivery governance, sender policy, recipient safeguards, rate controls, suppression handling, and emergency-stop capability.
-- Centralized observability, incident response, backup recovery, and operating ownership.
-- Remaining adversarial verification cells.
-- Durable shared-ledger verification at production scale.
-- Final reproducible release authorization.
-- Completion of human custodian and governance activation.
-
-The result is not an architecture claiming completion prematurely.
-
-It is an architecture in which remaining work is expressed as explicit authority, implementation, administrative, operational, institutional, and verification gates rather than unspecified future work.
-
-The governing principle remains unchanged:
-
-> Integrity proves what happened. Authority proves who may cause it. Policy proves whether it was allowed.
-
-The documentation records both sides of the current state:
-
-> What has actually been built, tested, verified, sealed, promoted, and administratively recovered; and what remains deliberately blocked because the required authority, administrative closure, and production conditions have not yet been established.
+### 54.15.3 Migration From Local Recovery Delivery
+
+The administrative recovery environment may contain temporary local secret delivery through environment files, local secret files, systemd environment overrides, Docker secrets, or host configuration.
+
+These sources must be inventoried as discovery evidence and classified as temporary, transitional, pilot, recovery, or approved production mechanisms.
+
+Before administrative-production closure:
+
+1. Each retained secret consumer must be identified.
+2. Each local or temporary secret source must be mapped to a governed replacement.
+3. Workload identities and access policies must be defined.
+4. The replacement delivery path must be tested without exposing values in evidence.
+5. Required credentials must be rotated.
+6. The previous secret source must be revoked, removed, or retained only under a documented time-bounded exception.
+7. Logs, manifests, shell history, and evidence artifacts must be checked for accidental exposure.
+
+The migration must not be performed as an unreviewed bulk replacement. Secret delivery often affects service startup, database connectivity, inter-service authentication, TLS, backup access, and recovery procedures.
+
+### 54.15.4 Credential Rotation
+
+All pilot, recovery, pre-production, temporary, and locally delivered credentials used by retained administrative-production services must be rotated during approved production cutover.
+
+Rotation must include, as applicable:
+
+```text
+application API keys
+service bearer tokens
+database usernames and passwords
+session-signing keys
+encryption keys
+registry credentials
+third-party integration credentials
+TLS private material
+backup credentials
+operator access credentials
+break-glass credentials
+```
+
+A rotation plan must define:
+
+```text
+credential owner
+affected consumers
+rotation sequence
+dual-read or overlap behavior where necessary
+validation steps
+revocation timing
+rollback conditions
+post-rotation evidence
+incident response if rotation fails
+```
+
+No credential rotation is complete until the prior credential is revoked or its continuing exception is documented and approved.
+
+### 54.15.5 Secret-Manager Outage and Recovery
+
+The secret-management design must define expected behavior when the secret manager is unavailable.
+
+The design must specify:
+
+```text
+startup behavior during secret-manager outage
+runtime renewal behavior
+cached-secret policy
+maximum acceptable cached lifetime
+failure mode
+fail-open or fail-closed decision
+operator notification
+break-glass procedure
+break-glass authorization
+break-glass audit record
+return-to-normal procedure
+post-incident credential review
+```
+
+Security-boundary services must not silently fall back to broad static credentials or uncontrolled local files.
+
+A break-glass procedure may exist, but it must be narrow, time bounded, auditable, and subject to post-use review.
+
+## 54.16 Secret Exposure Prevention and Evidence Redaction
+
+Administrative-production evidence must be useful for review without becoming a secret-distribution mechanism.
+
+Raw runtime evidence may contain sensitive information, including environment variables, command arguments, container labels, mounted paths, connection strings, bearer tokens, database credentials, API keys, private material, user identifiers, and internal infrastructure details.
+
+Raw evidence must remain protected.
+
+Only reviewed redacted evidence may be shared outside the approved evidence boundary.
+
+### 54.16.1 Prohibited Secret Locations
+
+Secret values must not appear in:
+
+```text
+public repositories
+public documentation
+unredacted architecture diagrams
+Dockerfiles
+container image layers
+Compose manifests
+Kubernetes manifests
+systemd unit files
+shell history
+terminal screenshots
+chat transcripts
+application logs
+reverse-proxy logs
+exception traces
+evidence bundles
+rendered CI logs
+issue comments
+pull-request descriptions
+release notes
+static frontend bundles
+client-side source code
+```
+
+A reference to a secret identifier, secret path, or secret-management policy may be documented where necessary. The value itself must not be documented.
+
+### 54.16.2 Redacted Evidence Workflow
+
+The evidence workflow must separate raw capture from redacted publication.
+
+The minimum process is:
+
+```text
+capture raw evidence in restricted storage
+identify files that may contain secret material
+produce redacted copies
+scan redacted copies for likely secret indicators
+review all scanner findings
+correct redaction where necessary
+hash the final redacted evidence set
+publish or review only the redacted set
+retain raw evidence according to restricted retention policy
+```
+
+A representative protected evidence structure is:
+
+```text
+evidence-root/
+  raw/
+  redacted/
+  hashes/
+  notes/
+```
+
+The raw directory must not be committed, published, attached to public issues, or copied into general documentation.
+
+### 54.16.3 Redaction Stop Conditions
+
+The following are stop conditions for evidence publication until reviewed and corrected:
+
+```text
+private-key headers
+bearer tokens
+API-key assignments
+password assignments
+database connection strings with embedded credentials
+session-signing material
+cloud-access key patterns
+registry credentials
+unredacted authorization headers
+secret-manager recovery values
+unredacted encrypted backup credentials
+```
+
+Suppressing scanner output is not remediation.
+
+A publication candidate that contains a suspected secret must be manually reviewed, sanitized, and re-hashed before it is used as closure evidence.
+
+## 54.17 Persistent-Data Governance
+
+Persistent data must have explicit ownership, classification, recovery, retention, and migration governance.
+
+A retained service is not administratively closed if its data depends on an undocumented host directory, an unmanaged Docker volume, an unowned database, a recovery-only snapshot, or an untested restoration procedure.
+
+Every persistent store must have a record identifying:
+
+```text
+state-store name
+service or organizational owner
+data classification
+physical or logical location
+runtime consumer
+backup mechanism
+backup frequency
+retention period
+encryption requirement
+restore procedure
+restore test cadence
+migration procedure
+rollback procedure
+decommission disposition
+evidence reference
+```
+
+### 54.17.1 State Categories
+
+The administrative inventory must distinguish among at least:
+
+```text
+authoritative business data
+identity and authentication state
+session state
+application configuration state
+job and queue state
+audit state
+policy state
+model or retrieval indexes
+cache state
+derived analytics state
+ephemeral runtime state
+recovery artifacts
+pilot-only data
+historical data pending classification
+```
+
+The retention and recovery obligations for these categories differ. A cache may be reconstructable; an authoritative record may not be. A job-state store may be operationally temporary but still contain user-associated content requiring classification and retention controls.
+
+### 54.17.2 Redis-Backed Job State
+
+The recovered Ms. Allis asynchronous chat workflow uses Redis-backed job state.
+
+The operational job keys include owner-scoped job records and owner mappings. These records permit a completed result to be retrieved after extended processing and after a browser-side request would otherwise have expired.
+
+The Redis operational-state contract must define:
+
+```text
+Redis service owner
+Redis runtime authority
+network exposure
+authentication requirement
+encryption expectations
+persistence mode
+durability expectations
+job retention period
+key-expiration behavior
+backup requirement
+restore behavior
+privacy classification of stored job content
+access-control boundary
+incident response for job-state loss
+```
+
+The current job retention behavior must not be confused with a complete data-retention policy. A time-to-live value is an implementation detail. The approved retention policy must define why the period exists, what it covers, and how it aligns with the data classification.
+
+### 54.17.3 Recreate Without Undocumented Host State
+
+The retained administrative core must be capable of recreation from approved manifests, approved artifacts, governed configuration, approved secret references, and documented state-recovery procedures.
+
+The following must not be required for normal recreation:
+
+```text
+an undocumented host directory
+a manually copied local image
+a shell history command
+a hidden environment file
+a manually edited container
+an undocumented network
+a stale mounted volume
+a recovery-only service override
+an untracked generated configuration file
+an operator's memory of a prior repair
+```
+
+If any such dependency is found, it must be added to the inventory and assigned one of these dispositions:
+
+```text
+formalize into the approved runtime authority
+migrate into governed state
+replace with an approved mechanism
+contain as transitional recovery state
+decommission after safe migration
+```
+
+### 54.17.4 Backup, Restore, and Migration Testing
+
+Backup existence is not sufficient evidence of recoverability.
+
+Each retained persistent store must have tested procedures for:
+
+```text
+backup creation
+backup integrity validation
+restricted backup access
+backup retention
+restore to an isolated target
+application-level validation after restore
+migration to an approved target
+rollback from a failed migration
+decommission of the prior store
+```
+
+The restoration test must produce redacted evidence and must not expose sensitive payloads in public records.
+
+## 54.18 Change Governance
+
+Administrative-production changes require explicit governance before mutable operations are performed.
+
+A change record must identify:
+
+```text
+change objective
+scope
+affected services
+affected interfaces
+affected secrets
+affected persistent stores
+approved manifest revision
+approved image digest
+pre-change evidence
+implementation steps
+success criteria
+failure criteria
+rollback procedure
+rollback owner
+approval threshold
+maintenance window where applicable
+post-change verification
+evidence retention location
+```
+
+The change process must distinguish between:
+
+```text
+read-only discovery
+evidence capture
+candidate testing
+controlled pilot modification
+administrative recovery
+approved production change
+emergency break-glass action
+decommissioning
+```
+
+These categories have different approval, evidence, and rollback expectations.
+
+### 54.18.1 Pre-Change Evidence
+
+Before a mutable change, capture sufficient redacted evidence to establish:
+
+```text
+current running state
+current image binding
+current network attachment
+current ports
+current mounts
+current health state
+current dependency state
+current secret-delivery method
+current persistent-state references
+current lifecycle owner
+current rollback position
+```
+
+The evidence must be adequate to distinguish a successful change from an accidental drift or partial rollback.
+
+### 54.18.2 Post-Change Evidence
+
+After a mutable change, the operator must verify:
+
+```text
+the intended declarative authority is active
+the intended immutable artifact is running
+the expected non-root identity is in use
+the expected health and readiness contracts pass
+approved interfaces function as declared
+unapproved interfaces remain unavailable
+state stores remain accessible and consistent
+secret delivery works through the approved mechanism
+no historical authority reclaimed control
+rollback remains available
+redacted evidence has been captured and integrity-bound
+```
+
+A successful service start is not sufficient post-change evidence.
+
+### 54.18.3 Rollback Requirement
+
+Every approved production change must have a tested or testable rollback path before it is made irreversible.
+
+The rollback record must identify:
+
+```text
+rollback trigger
+rollback authority
+rollback artifact or manifest revision
+state compatibility assumptions
+data-loss risk
+secret compatibility requirements
+network compatibility requirements
+validation steps after rollback
+conditions requiring incident declaration
+```
+
+A rollback that depends on an undocumented host state is not a valid production rollback.
+
+## 54.19 Operational Readiness and Administrative Ownership
+
+Administrative-production closure requires named operational ownership. Technical operation without identified responsibility is not a closed production condition.
+
+For every retained administrative-production service, the administrative record must identify:
+
+```text
+service owner
+technical operator
+platform owner
+security owner
+data owner
+release approver
+rollback authority
+incident commander
+on-call or escalation contact
+maintenance owner
+backup and restore owner
+secret-rotation owner
+evidence-review owner
+```
+
+One individual or team may hold more than one role where approved, but each responsibility must be explicit.
+
+The ownership model must distinguish between:
+
+```text
+the person or team that operates a service
+the authority that approves changes
+the authority that owns data
+the authority that owns the runtime platform
+the authority that accepts residual risk
+the authority that may authorize break-glass actions
+```
+
+These distinctions matter especially where a recovered environment is being brought under administrative control. The person who recovered a component is not automatically the ongoing production owner, and the team operating an infrastructure dependency is not automatically the owner of every workload that depends on it.
+
+### 54.19.1 Incident Response
+
+Every retained service must have an incident response path proportionate to its classification.
+
+The incident record must define:
+
+```text
+detection source
+severity criteria
+initial responder
+escalation path
+service owner
+security escalation path
+data-owner notification requirement
+containment options
+rollback options
+communication responsibility
+evidence capture requirement
+post-incident review requirement
+```
+
+Security-boundary services, identity services, secret-delivery systems, policy-enforcement services, and authoritative state stores require heightened incident handling because failures may affect authorization, confidentiality, integrity, or availability across multiple services.
+
+### 54.19.2 Maintenance Responsibilities
+
+Maintenance responsibilities must include:
+
+```text
+patch cadence
+dependency update process
+image refresh policy
+artifact approval process
+certificate renewal
+secret rotation
+backup verification
+restore testing
+capacity review
+health-contract review
+interface-contract review
+log-retention review
+evidence-retention review
+decommission review
+```
+
+A component that has no named maintenance responsibility must not be retained as administrative production merely because it is currently working.
+
+### 54.19.3 Administrative Readiness Record
+
+Administrative readiness should be recorded for each retained production service using a structured record.
+
+A minimum record is:
+
+```text
+service:
+classification:
+lifecycle owner:
+manifest path:
+approved image digest:
+service owner:
+platform owner:
+security owner:
+data owner:
+on-call or escalation path:
+health contract:
+readiness contract:
+dependency contract:
+secret-delivery mechanism:
+persistent-state owner:
+backup procedure:
+restore-test evidence:
+rollback procedure:
+last contract-versus-live verification:
+open exceptions:
+approval status:
+```
+
+The readiness record must be updated as part of approved changes, not only during initial promotion.
+
+## 54.20 Contract-Versus-Live-State Verification
+
+Administrative production requires a repeatable method to compare approved declared state with the live runtime state.
+
+The purpose is to identify drift, undisclosed dependencies, unexpected exposure, stale artifacts, conflicting lifecycle ownership, and recovery-state assumptions before they become production incidents.
+
+The verification process must be able to produce redacted evidence suitable for administrative review.
+
+### 54.20.1 Required Comparison Categories
+
+The approved manifest and the live runtime must be compared for each retained service across, at minimum:
+
+```text
+service identity
+classification
+lifecycle owner
+image reference
+image digest
+entrypoint
+command
+runtime identity
+environment input names
+secret references
+network attachments
+published ports
+internal ports
+reverse-proxy routes
+mounts
+persistent volumes
+restart policy
+health checks
+readiness behavior
+dependency references
+resource controls where declared
+labels
+log destination
+observability endpoint
+backup references
+rollback reference
+```
+
+The comparison must identify whether the live object is:
+
+```text
+conformant
+drifted
+unknown
+partially conformant
+temporarily excepted
+not applicable
+decommissioned
+```
+
+A conformity result must be attributable to specific redacted evidence.
+
+### 54.20.2 Live-State Discovery Sources
+
+Live-state verification may draw on:
+
+```text
+docker container inspection
+docker image inspection
+docker volume inspection
+docker network inspection
+Docker Compose project inventory
+systemd unit definitions
+systemd runtime state
+listening-port inventory
+reverse-proxy configuration
+service health endpoints
+service readiness endpoints
+service logs
+manifest repository state
+approved release metadata
+secret-manager audit records
+backup-system records
+network-policy records
+runtime labels
+host mount information
+```
+
+Live discovery sources are evidence sources. They do not become authoritative configuration merely because they reveal current behavior.
+
+### 54.20.3 Drift Handling
+
+A detected difference between live state and declared state must be handled explicitly.
+
+The permitted outcomes are:
+
+```text
+remediate the runtime to match the approved manifest
+update the manifest through approved change control
+contain the component as candidate or recovery state
+record a time-bounded approved exception
+decommission the component
+```
+
+Silent drift acceptance is prohibited.
+
+The verification record must identify:
+
+```text
+the drifted field
+the expected value or condition
+the observed value or condition
+the impact assessment
+the responsible owner
+the remediation or exception decision
+the due date
+the approval reference
+the follow-up evidence
+```
+
+### 54.20.4 Redacted Verification Evidence
+
+The contract-versus-live comparison must produce evidence without exposing secret values or unnecessary sensitive infrastructure detail.
+
+A useful evidence package includes:
+
+```text
+inventory snapshot
+classification ledger
+manifest revision identifier
+image-digest comparison
+service and dependency matrix
+network and port comparison
+mount and state comparison
+health-contract comparison
+secret-delivery mechanism comparison
+open drift and exception register
+integrity hash manifest
+```
+
+Raw inspection output may be retained in restricted storage. The redacted comparison output is the reviewable administrative artifact.
+
+## 54.21 Historical Aggregate Containment
+
+The broad historical `msjarvis-rebuild` environment must be treated as an aggregate requiring controlled decomposition and containment.
+
+It must not be assumed that the aggregate is a valid production lifecycle owner. It may contain overlapping service definitions, recovery artifacts, outdated images, candidate workloads, pilot configuration, unmanaged volumes, stale networks, or automation that can interfere with recovered administrative services.
+
+The containment objective is:
+
+```text
+Prevent historical aggregate state from unintentionally creating,
+restarting, modifying, routing to, credentialing, or otherwise
+reclaiming control of retained administrative-production services.
+```
+
+### 54.21.1 Dependency Mapping Before Change
+
+Before a historical component is stopped, removed, migrated, or isolated, the administrative team must identify:
+
+```text
+dependent services
+dependent networks
+persistent volumes
+shared mounts
+shared secrets
+reverse-proxy routes
+published ports
+scheduled jobs
+systemd dependencies
+Compose-project references
+image dependencies
+external clients
+backup dependencies
+recovery dependencies
+rollback dependencies
+```
+
+A component may not be decommissioned safely merely because it appears unused in a short container listing.
+
+### 54.21.2 Containment Options
+
+A historical component may be handled through one of the following approved dispositions:
+
+```text
+retain and formalize under an approved administrative lifecycle owner
+migrate to an approved production manifest and state contract
+contain as a controlled pilot
+contain as a candidate
+archive as historical evidence
+decommission after approved dependency, state, and rollback review
+```
+
+Containment must be deliberate. A component that remains running but has no production owner must be visible in the classification ledger as controlled pilot, candidate, or historical remnant.
+
+### 54.21.3 Prohibited Broad Actions
+
+The following actions are prohibited until required inventory, dependency analysis, state disposition, approval, and rollback conditions are satisfied:
+
+```text
+docker compose down against a broad historical project
+docker system prune
+docker volume prune
+bulk container removal
+bulk image removal
+bulk network removal
+bulk credential revocation
+bulk host-path deletion
+replacement of shared reverse-proxy configuration
+mass migration of persistent volumes
+undeclared host reboot as a decommissioning substitute
+```
+
+These actions can destroy recovery evidence, break undeclared dependencies, remove rollback paths, expose data-loss conditions, or allow a historical authority to reappear unpredictably during recovery.
+
+### 54.21.4 Historical Authority References
+
+The administrative inventory must locate potential lifecycle authorities and control paths, including:
+
+```text
+Compose files
+Docker Compose project labels
+systemd units
+systemd drop-ins
+cron jobs
+at jobs
+shell scripts
+deployment scripts
+CI/CD configuration
+environment files
+reverse-proxy configuration
+host startup files
+user-level services
+Docker restart policies
+volume mounts
+network definitions
+image build scripts
+registry pull scripts
+backup scripts
+recovery scripts
+```
+
+References to the historical aggregate must be recorded for review.
+
+A component cannot be considered contained until the team can explain whether historical automation can still alter it.
+
+## 54.22 Evidence Baseline and Inventory Procedure
+
+Administrative-production closure requires a complete, protected, redacted evidence baseline before significant mutable changes are made.
+
+The evidence baseline creates a factual starting point for classification, manifest creation, release binding, change control, and rollback planning.
+
+The initial evidence workspace should be separate from public repositories and should use restrictive permissions.
+
+A representative capture context includes:
+
+```text
+as-built identifier
+capture time in UTC
+host identifier
+operator identity
+operator identifier
+applicable documentation revision
+manifest repository revision
+change-record identifier
+```
+
+### 54.22.1 Required Inventory Artifacts
+
+The inventory must capture, at minimum:
+
+```text
+Docker engine version
+Docker engine information
+container inventory
+image inventory
+volume inventory
+network inventory
+Compose project inventory
+Docker disk usage
+listening-port inventory
+container inspection output
+image inspection output
+volume inspection output
+network inspection output
+container ledger
+systemd service inventory
+systemd service runtime state
+candidate runtime files
+runtime-authority references
+historical aggregate membership
+targeted core-service inspection
+targeted core-service logs
+targeted core-image bindings
+```
+
+The inventory process must be read-only unless a separately approved change is underway.
+
+### 54.22.2 Container Ledger
+
+The container ledger must provide an initial concise view suitable for classification.
+
+A representative ledger includes:
+
+```text
+container identifier
+container name
+image reference
+runtime status
+published ports
+Compose project label
+other relevant labels
+classification
+lifecycle owner
+manifest reference
+disposition
+review status
+```
+
+The ledger is an administrative working artifact. It must be updated as classifications and dispositions are approved.
+
+### 54.22.3 Targeted Core Evidence
+
+The recovered core pair requires targeted evidence capture because it is the current administrative baseline.
+
+Targeted evidence for `jarvis-main-brain` and `jarvis-hilbert-state` must include:
+
+```text
+container inspection
+tail logs with timestamps
+configured image reference
+resolved image identifier
+repository digests where available
+repository tags where available
+network attachments
+mounts
+published ports
+restart policy
+health configuration
+labels
+dependency references
+```
+
+The resulting evidence supports the move from recovered state to approved manifest binding. It does not itself authorize the running state as production.
+
+### 54.22.4 Evidence Integrity Binding
+
+The redacted evidence set must be integrity-bound.
+
+A cryptographic hash manifest must be generated over the final redacted files after redaction review is complete.
+
+The hash manifest must be retained with the associated change or closure record.
+
+If evidence is updated, it must receive a new capture identifier and hash manifest. Historical evidence must not be silently overwritten.
+
+## 54.23 Administrative Production Closure Gates
+
+Administrative production is not closed until every required gate is approved or an explicit documented exception is accepted by the appropriate authority.
+
+The required closure gates are:
+
+1. The authoritative inventory is complete.
+2. Every relevant runtime object has a recorded classification.
+3. Every retained production service has exactly one approved declarative lifecycle owner.
+4. The historical aggregate has an approved containment, migration, archival, or decommissioning plan.
+5. The recovered core pair and required dependencies are represented by approved version-controlled manifests.
+6. Each retained service is bound to an approved immutable image digest.
+7. Required SBOM, provenance, signature, or attestation evidence is available for retained images.
+8. Health, readiness, restart, dependency, and failure contracts are declared.
+9. Service-to-service interfaces are documented and tested.
+10. Network exposure and reverse-proxy routing are approved and documented.
+11. External governed secret delivery is implemented for retained production workloads.
+12. Pilot, recovery, temporary, and pre-production credentials have been rotated or explicitly excepted.
+13. Persistent-state ownership, backup, restoration, retention, migration, and rollback procedures are approved and tested.
+14. Operational ownership, on-call, maintenance, and incident response responsibilities are assigned.
+15. Contract-versus-live verification produces redacted evidence.
+16. Change-control and rollback procedures have been established and exercised.
+17. Historical automation cannot unintentionally reclaim authority over retained production services.
+18. Open exceptions have named owners, risk acceptance, remediation dates, and review requirements.
+
+The existence of an open gate means the environment must be described accurately as recovered, transitional, candidate, pilot, or partially governed according to its recorded classification.
+
+It must not be described as fully closed administrative production.
+
+## 54.24 Administrative As-Built Status Statement
+
+The MountainShares / Ms. Jarvis administrative environment has established a recovered operational baseline. It has not yet established complete administrative-production closure for the broad historical environment.
+
+The current status must be stated accurately:
+
+```text
+Recovered administrative operational baseline with validated core-pair recovery,
+authenticated owner-scoped asynchronous chat execution, durable job-state retrieval,
+completion-aware long-running portal polling, and verified standalone frontend asset delivery.
+
+Administrative-production closure remains conditional on completion of the governance,
+manifest, immutable-release, secret, state, operational-ownership, and
+contract-versus-live verification requirements defined in this chapter.
+```
+
+This statement recognizes completed recovery work without overstating the maturity or governance status of the environment.
+
+### 54.24.1 Verified Recovered Capabilities
+
+The following capabilities have been established and may be represented as verified recovered administrative functionality:
+
+```text
+Recovered local baseline for jarvis-main-brain and jarvis-hilbert-state.
+
+Authenticated portal access through the administrative Ms. Allis path.
+
+Administrative auth-service ownership of asynchronous Ms. Allis job creation.
+
+Unique job identifiers bound to the authenticated submitting user.
+
+Redis-backed queued, running, completed, and failed job-state persistence.
+
+Authenticated owner validation before chat-job status or result retrieval.
+
+Internal asynchronous submission from the auth service to the unified gateway.
+
+Long-running processing through the declared multi-model pipeline.
+
+Observed completion of all 21 model responses in the active processing stage.
+
+Completion-aware frontend polling that does not end the job because a fixed
+five-minute client deadline has elapsed.
+
+Nonterminal extended-processing status behavior while a durable job remains active.
+
+Return of the final completed response to the originating portal conversation.
+
+Next.js standalone frontend asset synchronization after build.
+
+Verification that JavaScript assets referenced by the public portal are available
+from the active standalone frontend runtime with executable JavaScript content types.
+
+Grounded-response behavior that does not invent unsupported policy or role claims
+when the authorized context does not contain the required information.
+```
+
+These verified capabilities do not waive any remaining administrative-production closure requirement.
+
+### 54.24.2 Explicit Non-Claims
+
+The following claims must not be made until separate evidence and approvals are complete:
+
+```text
+The entire historical msjarvis-rebuild aggregate is administrative production.
+
+All current containers are approved retained services.
+
+All running images are approved immutable releases.
+
+All lifecycle authority has been consolidated under one approved declarative owner.
+
+All secrets are governed through an external production secret manager.
+
+All pilot, recovery, temporary, and pre-production credentials have been rotated.
+
+All persistent data has named ownership and tested backup, restore, migration,
+retention, and rollback procedures.
+
+All inter-service interfaces have approved, tested contracts.
+
+All health, readiness, restart, dependency, and failure behaviors are declared.
+
+All operational roles, on-call duties, incident procedures, and maintenance
+responsibilities have been assigned.
+
+All historical automation has been located and prevented from reclaiming authority.
+
+A full contract-versus-live-state evidence package has been reviewed and approved.
+
+Administrative-production closure has been completed.
+```
+
+A recovered capability must not be used to imply completion of a broader governance requirement.
+
+## 54.25 Required Closure Evidence
+
+The final administrative-production closure decision must be supported by a redacted evidence package.
+
+The evidence package must be sufficient for an independent authorized reviewer to determine:
+
+```text
+what is retained
+what is decommissioned
+who owns each retained service
+which manifests are authoritative
+which immutable artifacts are approved
+how secrets are delivered
+how data is recovered
+how services are monitored and operated
+how interfaces are secured
+how rollback occurs
+how live state conforms to declared state
+which exceptions remain
+who accepted each exception
+```
+
+### 54.25.1 Minimum Evidence Set
+
+The minimum closure evidence set includes:
+
+```text
+authoritative inventory snapshot
+service-classification ledger
+lifecycle-owner mapping
+approved runtime authority manifest inventory
+immutable image-digest binding record
+release provenance, SBOM, signature, or attestation references
+network and interface contract matrix
+health, readiness, restart, and failure-contract matrix
+secret-delivery architecture and rotation record
+persistent-state ownership and recovery matrix
+backup and restore test evidence
+migration and rollback evidence
+operational ownership and incident-response record
+contract-versus-live comparison report
+drift and exception register
+historical aggregate containment or decommissioning record
+redaction review record
+hash manifest for redacted evidence
+final approval record
+```
+
+The evidence package may reference restricted internal records where necessary, but it must not include secret values or unnecessary sensitive operational details.
+
+### 54.25.2 Evidence Currency
+
+Evidence must be current enough to support the decision being made.
+
+A stale inventory, old image-digest record, expired health result, prior secret rotation record, or historical backup test cannot establish the condition of a newly changed environment without an explicit approved rationale.
+
+The closure record must identify:
+
+```text
+evidence capture period
+applicable manifest revisions
+applicable image digests
+applicable policy versions
+applicable secret-rotation state
+applicable state-store versions
+applicable approval record
+```
+
+### 54.25.3 Evidence Integrity
+
+All redacted evidence submitted for closure must be integrity-bound.
+
+The evidence package must include:
+
+```text
+file inventory
+cryptographic hash manifest
+capture identifier
+capture timestamp
+operator identity
+host or environment identifier
+redaction review record
+revision references
+```
+
+If any material evidence is changed after hashing, the package must be re-hashed and its supersession recorded.
+
+## 54.26 Exception Management
+
+An exception does not erase a production requirement. It records a temporary, reviewed deviation while preserving accountability for remediation.
+
+An exception may be used only when:
+
+```text
+the affected requirement is identified
+the reason for nonconformance is documented
+the risk is assessed
+compensating controls are defined
+an accountable owner is named
+an expiration date is recorded
+a remediation plan exists
+the appropriate approval authority accepts the risk
+the exception is included in the contract-versus-live report
+```
+
+The exception register must contain:
+
+```text
+exception identifier
+affected service or object
+affected requirement
+observed condition
+risk description
+compensating controls
+owner
+approval authority
+approval date
+expiration date
+remediation milestone
+verification method
+closure condition
+status
+```
+
+Exceptions must not be used to permanently normalize:
+
+```text
+unowned services
+mutable production images
+plaintext secret delivery
+untested restore procedures
+undocumented dependencies
+unreviewed network exposure
+unknown lifecycle authority
+unbounded historical aggregate control
+unapproved persistent state
+missing rollback paths
+```
+
+Expired exceptions must be treated as nonconformances until renewed through the appropriate approval process or remediated.
+
+## 54.27 Promotion Decision Record
+
+Promotion of a service, dependency, or recovered baseline into administrative production requires an explicit decision record.
+
+The decision record must state:
+
+```text
+promotion scope
+service or component identifiers
+classification
+approved lifecycle owner
+authoritative manifest revision
+approved immutable image digest
+approved interfaces
+approved secret-delivery mechanism
+approved persistent-state contract
+health and readiness contract
+dependency and failure contract
+operational ownership
+evidence package identifier
+open exceptions
+rollback plan
+approval authorities
+effective date
+review date
+```
+
+The decision must use one of the following outcomes:
+
+```text
+approved for administrative production
+approved with time-bounded exceptions
+retained as controlled pilot
+retained as candidate
+retained as historical remnant
+requires remediation before approval
+approved for decommissioning
+decommissioned
+```
+
+The decision record must not use ambiguous outcomes such as:
+
+```text
+probably production
+working well enough
+operational for now
+assumed approved
+legacy but required
+temporary forever
+```
+
+## 54.28 Administrative Closure Sequence
+
+The recommended administrative-production closure sequence is:
+
+```text
+1. Capture protected raw inventory and evidence.
+
+2. Produce reviewed redacted inventory artifacts and integrity hashes.
+
+3. Classify every object in the historical and current environment.
+
+4. Identify every lifecycle authority and conflicting control path.
+
+5. Assign one approved declarative lifecycle owner to each retained production service.
+
+6. Define retained, migrated, contained, archived, and decommissioned dispositions.
+
+7. Create or approve version-controlled runtime authority manifests.
+
+8. Bind retained images to approved immutable digests.
+
+9. Declare service health, readiness, restart, dependency, interface, and failure contracts.
+
+10. Implement governed external secret delivery and rotate pre-production,
+    pilot, recovery, and temporary credentials.
+
+11. Define persistent-state ownership, backup, restoration, retention,
+    migration, and rollback procedures.
+
+12. Assign operational roles, incident ownership, maintenance duties,
+    and on-call escalation.
+
+13. Perform redacted contract-versus-live verification.
+
+14. Resolve drift or record time-bounded approved exceptions.
+
+15. Test rollback and restoration procedures.
+
+16. Contain, migrate, archive, or decommission historical aggregate components
+    only after their dependencies and rollback paths are understood.
+
+17. Assemble and integrity-bind the final closure evidence package.
+
+18. Obtain the required approval decision.
+
+19. Continue recurring verification after approval.
+```
+
+The sequence may be iterated as new dependencies or drift are discovered. Iteration is not a failure; it is an expected outcome of moving from recovered state to governed declared state.
+
+## 54.29 Final Boundary Rule
+
+The final administrative-production boundary rule is:
+
+> No service, image, volume, network, secret, state store, script, workflow, or host configuration becomes administrative production by implication.
+
+It becomes administrative production only through explicit classification, declared lifecycle ownership, immutable release binding, governed secret delivery, owned state, documented operational contracts, verified live-state conformity, and authorized approval.
+
+The inverse rule is equally important:
+
+> A recovered, pilot, candidate, or historical component remains outside administrative production until it has been explicitly promoted.
+
+This rule protects the MountainShares / Ms. Jarvis administrative environment from accidental authority transfer, hidden historical dependencies, undeclared state, mutable releases, secret exposure, and unsupported production claims.
+
+## 54.30 Continuing Obligations
+
+Administrative production is not a one-time state achieved only at initial closure.
+
+After approval, the environment must continue to enforce:
+
+```text
+immutable release review
+manifest review
+secret rotation
+credential revocation
+backup verification
+restore testing
+health-contract review
+dependency-contract review
+interface review
+network exposure review
+drift detection
+exception review
+incident review
+rollback testing
+operational ownership review
+decommission review
+evidence refresh
+```
+
+A service may lose administrative-production conformity through drift, expired credentials, obsolete dependencies, unsupported images, missing backups, changed interfaces, unreviewed configuration, or ownership changes.
+
+The closure model therefore requires recurring verification, not a permanent assumption of compliance.
+
+## 54.31 Closing Statement
+
+The MountainShares / Ms. Jarvis administrative environment may operate from a recovered baseline while it is being brought under full governance.
+
+The recovered baseline is valuable because it provides concrete evidence of current behavior, including authenticated asynchronous job ownership, durable result retrieval, long-running completion-aware portal behavior, and verified frontend asset delivery.
+
+Those accomplishments must be preserved.
+
+They must also be described accurately.
+
+They do not replace the remaining work required to establish complete administrative production:
+
+```text
+authoritative inventory
+classification
+single declarative lifecycle ownership
+immutable release binding
+approved manifests
+declared interfaces and health contracts
+governed secret delivery
+credential rotation
+persistent-state governance
+backup and restore testing
+rollback governance
+operational ownership
+redacted contract-versus-live verification
+historical aggregate containment or decommissioning
+formal approval
+```
+
+The trust boundary remains intact only when recovery evidence is used to build governed authority rather than being mistaken for governed authority itself.
