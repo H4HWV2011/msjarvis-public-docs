@@ -1,1305 +1,973 @@
-/app/services/ai_server_22llm.py
-2026-08-12 15:29:12,047 - INFO - HTTP Request: HEAD https://huggingface.co/j-hartmann/emotion-english-distilroberta-base/resolve/refs%2Fpr%2F3017/model.safetensors "HTTP/1.1 302 Found"
 
-2026-08-12 15:29:16,557 - INFO - 🧠 Ms. Jarvis 22-LLM Collective Consciousness initializing...
-2026-08-12 15:29:16,557 - INFO - 📚 Loading Hugging Face models...
-2026-08-12 15:29:16,559 - INFO - No device provided, using cpu
-2026-08-12 15:29:16,810 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:16,835 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
-2026-08-12 15:29:16,960 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-2026-08-12 15:29:16,962 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-2026-08-12 15:29:17,062 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
-2026-08-12 15:29:17,064 - INFO - Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
-2026-08-12 15:29:17,163 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:17,217 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
-2026-08-12 15:29:17,301 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:17,330 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
-2026-08-12 15:29:17,473 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:17,521 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
-2026-08-12 15:29:17,561 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:17,588 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
-2026-08-12 15:29:17,626 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:17,677 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:17,779 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 9264.71it/s]
-2026-08-12 15:29:18,015 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:18,090 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:18,292 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:18,393 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:18,433 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:18,459 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
-2026-08-12 15:29:18,515 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:18,542 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
-2026-08-12 15:29:18,589 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:18,617 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
-2026-08-12 15:29:18,720 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:18,804 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
-2026-08-12 15:29:18,920 - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:19,009 - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
-2026-08-12 15:29:19,109 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:19,212 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
-2026-08-12 15:29:19,317 - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
-2026-08-12 15:29:19,418 - INFO - HTTP Request: HEAD https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:19,468 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cardiffnlp/twitter-roberta-base-sentiment-latest/3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7/config.json "HTTP/1.1 200 OK"
-2026-08-12 15:29:19,623 - INFO - HTTP Request: HEAD https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:19,666 - INFO - HTTP Request: GET https://huggingface.co/api/models/cardiffnlp/twitter-roberta-base-sentiment-latest "HTTP/1.1 200 OK"
-Loading weights: 100%|██████████| 201/201 [00:00<00:00, 24686.83it/s]
-[transformers] RobertaForSequenceClassification LOAD REPORT from: cardiffnlp/twitter-roberta-base-sentiment-latest
-Key                         | Status     |  | 
-----------------------------+------------+--+-
-roberta.pooler.dense.bias   | UNEXPECTED |  | 
-roberta.pooler.dense.weight | UNEXPECTED |  | 
 
-Notes:
-- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
-2026-08-12 15:29:19,729 - INFO - HTTP Request: GET https://huggingface.co/api/models/cardiffnlp/twitter-roberta-base-sentiment-latest/commits/main "HTTP/1.1 200 OK"
-2026-08-12 15:29:19,827 - INFO - HTTP Request: GET https://huggingface.co/api/models/cardiffnlp/twitter-roberta-base-sentiment-latest/discussions?p=0 "HTTP/1.1 200 OK"
-2026-08-12 15:29:19,931 - INFO - HTTP Request: GET https://huggingface.co/api/models/cardiffnlp/twitter-roberta-base-sentiment-latest/commits/refs%2Fpr%2F43 "HTTP/1.1 200 OK"
-2026-08-12 15:29:20,032 - INFO - HTTP Request: HEAD https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest/resolve/refs%2Fpr%2F43/model.safetensors.index.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:20,137 - INFO - HTTP Request: HEAD https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest/resolve/refs%2Fpr%2F43/model.safetensors "HTTP/1.1 302 Found"
-2026-08-12 15:29:20,742 - INFO - HTTP Request: GET https://huggingface.co/api/models/cardiffnlp/twitter-roberta-base-sentiment-latest/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:20,786 - INFO - HTTP Request: GET https://huggingface.co/api/models/cardiffnlp/twitter-roberta-base-sentiment-latest/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
-2026-08-12 15:29:20,953 - INFO - HTTP Request: HEAD https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:21,056 - INFO - HTTP Request: HEAD https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:21,093 - INFO - HTTP Request: HEAD https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:21,161 - INFO - HTTP Request: HEAD https://huggingface.co/j-hartmann/emotion-english-distilroberta-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-08-12 15:29:21,265 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/j-hartmann/emotion-english-distilroberta-base/0e1cd914e3d46199ed785853e12b57304e04178b/config.json "HTTP/1.1 200 OK"
-2026-08-12 15:29:21,363 - INFO - HTTP Request: HEAD https://huggingface.co/j-hartmann/emotion-english-distilroberta-base/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:21,403 - INFO - HTTP Request: GET https://huggingface.co/api/models/j-hartmann/emotion-english-distilroberta-base "HTTP/1.1 200 OK"
-Loading weights: 100%|██████████| 105/105 [00:00<00:00, 18926.55it/s]
-2026-08-12 15:29:21,454 - INFO - HTTP Request: GET https://huggingface.co/api/models/j-hartmann/emotion-english-distilroberta-base/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:21,467 - INFO - HTTP Request: GET https://huggingface.co/api/models/j-hartmann/emotion-english-distilroberta-base/commits/main "HTTP/1.1 200 OK"
-2026-08-12 15:29:21,527 - INFO - HTTP Request: GET https://huggingface.co/api/models/j-hartmann/emotion-english-distilroberta-base/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
-2026-08-12 15:29:21,528 - INFO - HTTP Request: GET https://huggingface.co/api/models/j-hartmann/emotion-english-distilroberta-base/commits/main?p=1&limit=50 "HTTP/1.1 200 OK"
-2026-08-12 15:29:21,592 - INFO - HTTP Request: GET https://huggingface.co/api/models/j-hartmann/emotion-english-distilroberta-base/discussions?p=0 "HTTP/1.1 200 OK"
-2026-08-12 15:29:21,774 - INFO - HTTP Request: HEAD https://huggingface.co/j-hartmann/emotion-english-distilroberta-base/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:21,777 - INFO - HTTP Request: GET https://huggingface.co/api/models/j-hartmann/emotion-english-distilroberta-base/commits/refs%2Fpr%2F3017 "HTTP/1.1 200 OK"
-2026-08-12 15:29:21,874 - INFO - HTTP Request: HEAD https://huggingface.co/j-hartmann/emotion-english-distilroberta-base/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:21,876 - INFO - HTTP Request: GET https://huggingface.co/api/models/j-hartmann/emotion-english-distilroberta-base/commits/refs%2Fpr%2F3017?p=1&limit=50 "HTTP/1.1 200 OK"
-2026-08-12 15:29:21,942 - INFO - HTTP Request: HEAD https://huggingface.co/j-hartmann/emotion-english-distilroberta-base/resolve/refs%2Fpr%2F3017/model.safetensors.index.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:21,943 - INFO - HTTP Request: HEAD https://huggingface.co/j-hartmann/emotion-english-distilroberta-base/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
-2026-08-12 15:29:21,947 - INFO - 💾 Connecting to ChromaDB vector memory on 127.0.0.1:8004...
-2026-08-12 15:29:21,995 - INFO - HTTP Request: HEAD https://huggingface.co/j-hartmann/emotion-english-distilroberta-base/resolve/refs%2Fpr%2F3017/model.safetensors "HTTP/1.1 302 Found"
-2026-08-12 15:29:22,001 - WARNING - ⚠️  ChromaDB not available in 22-LLM context: Could not connect to a Chroma server. Are you sure it is running?
-2026-08-12 15:29:22,001 - INFO - 🎯 Loading 22 AI agents...
-2026-08-12 15:29:22,001 - INFO - ✅ All 22 agents loaded: llama, mistral, qwen, codellama, deepseek, starcoder, mixtral, llava, phi, neural-chat, openchat, starling, sqlcoder, medllama, gemma, tinyllama, dolphin, orca, vicuna, zephyr
-2026-08-12 15:29:22,001 - INFO - 📊 Collective Consciousness: 20 AI minds active
-2026-08-12 15:29:22,001 - INFO -    Core Reasoning: 3
-2026-08-12 15:29:22,001 - INFO -    Coding: 4
-2026-08-12 15:29:22,001 - INFO -    Vision: 1
-2026-08-12 15:29:22,001 - INFO -    Conversation: 4
-2026-08-12 15:29:22,001 - INFO -    Specialized: 3
-2026-08-12 15:29:22,001 - INFO -    Efficiency: 2
-2026-08-12 15:29:22,001 - INFO -    Synthesis: 3
-active_main_brain=/app/services/ai_server_22llm.py
+Profile avatar
+Read, https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/54-pilot%20trust-boundary.md, 
+GitHub
+GitHub
+ , then using these instrcutions begin providing commands to close out the Administrative production stack as-build. To bring the MountainShares / Ms. Jarvis stack from its current recovered state to an as-built administrative-production state, several explicit gaps must be addressed. While the administrative recovery of the core pair (jarvis-main-brain and jarvis-hilbert-state) establishes a stable, local baseline, full administrative-production closure requires completing the following requirements:
+1. Service Inventory and Scoped Lifecycle Ownership
+Establish an Authoritative Service Inventory: Every running container, service, image, volume, network, and port in the broad historical environment must be fully inventoried.
+Classify Components: Each component must be formally classified (e.g., core production, platform dependency, data service, security boundary, controlled pilot, candidate, or historical remnant).
+Assign Declarative Lifecycle Owners: Every retained production service must be assigned exactly one approved declarative lifecycle owner.
+Decompose and Contain: The broad, historical msjarvis-rebuild aggregate stack must be decommissioned, migrated, or contained to prevent it from unintentionally taking control of or modifying the core recovered services.
+2. Immutable Image and Manifest Binding
+Immutable Release Bindings: Mutable image references must be eliminated. Specifically, the current mutable image reference for jarvis-hilbert-state must be replaced with an approved immutable release binding pinned to a specific digest.
+Version-Controlled Manifests: The core pair and all required dependencies must be represented by approved, version-controlled manifests (reproducible from a fully governed and signed Runtime Authority Manifest) that map SBOMs, policies, and release signatures.
+3. Declared Health and Dependency Contracts
+Docker-Native Health Contracts: Standardized Docker-native health and readiness contracts, failure modes, restart behaviors, and dependency ordering must be formally defined and declared for the recovered core pair.
+Document Inter-Service Interfaces: Service-to-service communication paths, networks, ports, protocols, authentication, timeouts, and failure behaviors must be explicitly documented and declared.
+4. Governed Production Secret Delivery
+Implement External Secret Management: The temporary local environment files and local file-backed Compose secret delivery must be replaced by a governed external secret manager compatible with non-root runtime identities.
+Perform Credential Rotation: All pre-production, pilot, and recovery credentials must be rotated during the governed production cutover.
+Eliminate Secret Exposure: Verification processes must ensure no plaintext secret values (e.g., API keys, passwords, database credentials) are exposed in public documentation, logs, shell history, evidence, or rendered manifests.
+Outage and Recovery Procedures: Secret-manager outage, recovery, rotation, and break-glass procedures must be formally defined and tested.
+5. Persistent-Data and Rollback Governance
+State Store Governance: Persistent data must have explicitly documented ownership, backup, restoration, retention, and migration procedures.
+Eliminate Host-State Reliance: The production core must be capable of being recreated entirely from approved manifests without relying on undocumented legacy host state or emergency reconstruction steps.
+Formal Change Control & Rollbacks: Change governance must be established, including pre-change and post-change evidence requirements, explicit change approval thresholds, and verified rollback procedures.
+6. Operational Readiness & Live-State Verification
+Assign Operational Roles: Operational ownership, incident response procedures, on-call responsibilities, and maintenance duties must be formally assigned.
+Contract-vs-Live Verification: A structured contract-versus-live-state verification process must be available to produce redacted compliance evidence.
+Completed 4 steps
+I read the pilot trust-boundary document. It establishes that the administrative stack must remain distinct from the controlled pilot, treats pilot state and credentials as non-production, and requires explicit evidence and controlled promotion rather than inferring production status from a recovered runtime.
 
-=== ACTIVE MAIN-BRAIN DEGRADATION SEAMS ===
-545:        return await run_degraded_pipeline(request)
-577:async def run_degraded_pipeline(request: ChatRequest):
-584:            "I processed your query using a lighter path to stay responsive, "
-608:            logger.warning("⚠️ Fabric beyond Roche limit, using degraded pipeline.")
-609:            response = await run_degraded_pipeline(request)
-617:                response = await run_degraded_pipeline(request)
-626:                    response = await run_degraded_pipeline(request)
-637:                response = await run_degraded_pipeline(request)
+Below is a read-only discovery and evidence-capture runbook to begin closing the administrative production as-built state. Do not execute any down, rm, prune, credential rotation, migration, or manifest deployment commands yet. First create an authoritative, redacted baseline.
 
-=== ACTIVE MAIN-BRAIN SOURCE CONTEXT ===
-     1	#!/usr/bin/env python3
-     2	from service_registry_client import get_service_url, register_service
-     3	import uuid
-     4	import asyncio
-     5	import json
-     6	import re
-     7	import os
-     8	from llm_consensus_22 import (
-     9	    get_all_active_models,
-    10	    calculate_weighted_consensus,
-    11	    get_system_stats,
-    12	)
-    13	import uvicorn
-    14	from pydantic import BaseModel
-    15	from fastapi.middleware.cors import CORSMiddleware
-    16	from fastapi import FastAPI
-    17	import httpx
-    18	from chromadb.config import Settings, DEFAULT_TENANT, DEFAULT_DATABASE
-    19	import chromadb
-    20	from sentence_transformers import SentenceTransformer
-    21	from transformers import pipeline
-    22	import torch
-    23	from dataclasses import dataclass
-    24	from typing import Dict, List, Any
-    25	from datetime import datetime
-    26	from fastapi import Depends, HTTPException, Header
-    27	from typing import Optional
-    28	import logging
-    29	import time
-    30	from collections import defaultdict
-    31	
-    32	
-    33	def build_shared_context_text(context: dict) -> str:
-    34	    if not isinstance(context, dict):
-    35	        return ""
-    36	
-    37	    pkt = context.get("judge_context_packet") or {}
-    38	    rc = pkt.get("request_context") or {}
-    39	    rpc = pkt.get("reasoned_prompt_context") or {}
-    40	    stc = pkt.get("spatial_temporal_context") or {}
-    41	
-    42	    parts = []
-    43	
-    44	    msg = rc.get("message")
-    45	    if isinstance(msg, str) and msg.strip():
-    46	        parts.append(f"User request (normalized): {msg[:800]}")
-    47	
-    48	    summary = rpc.get("context_summary")
-    49	    if isinstance(summary, str) and summary.strip():
-    50	        parts.append(f"Reasoned context: {summary[:1200]}")
-    51	
-    52	    spatial = stc.get("spatial_candidate") or {}
-    53	    if isinstance(spatial, dict):
-    54	        ssum = spatial.get("summary")
-    55	        if isinstance(ssum, str) and ssum.strip():
-    56	            parts.append(f"Spatial context: {ssum[:800]}")
-    57	
-    58	    sources = rpc.get("context_sources") or []
-    59	    if isinstance(sources, list) and sources:
-    60	        parts.append("Context sources: " + ", ".join(str(s) for s in sources[:8]))
-    61	
-    62	    return "\n\n".join(parts)
-    63	from prometheus_fastapi_instrumentator import Instrumentator
-    64	
-    65	logger = logging.getLogger(__name__)
-    66	
-    67	"""
-    68	Ms. Jarvis - 22-LLM Collective Consciousness
-    69	Every query answered by ALL 22 AI minds simultaneously
-    70	"""
-    71	
-    72	logging.basicConfig(
-    73	    level=logging.INFO,
-    74	    format="%(asctime)s - %(levelname)s - %(message)s",
-    75	)
-    76	logger = logging.getLogger(__name__)
-    77	
-    78	# ---- Roche-style fabric load controller ----
-    79	
-    80	
-    81	class FabricLoadMonitor:
-    82	    def __init__(self):
-    83	        # metrics[name] = {"lat_ms": float, "in_flight": int, "errors": int}
-    84	        self.metrics = defaultdict(lambda: {"lat_ms": 0.0, "in_flight": 0, "errors": 0})
-    85	
-    86	    def record_start(self, name: str) -> float:
-    87	        self.metrics[name]["in_flight"] += 1
-    88	        return time.time()
-    89	
-    90	    def record_end(self, name: str, start_time: float, error: bool = False) -> None:
-    91	        elapsed_ms = (time.time() - start_time) * 1000.0
-    92	        m = self.metrics[name]
-    93	        m["in_flight"] = max(0, m["in_flight"] - 1)
-    94	        # exponential moving average for latency
-    95	        m["lat_ms"] = 0.8 * m["lat_ms"] + 0.2 * elapsed_ms
-    96	        if error:
-    97	            m["errors"] += 1
-    98	
-    99	    def current_load(self, name: str) -> dict:
-   100	        return dict(self.metrics[name])
-   101	
-   102	
-   103	fabric_monitor = FabricLoadMonitor()
-   104	
-   105	# thresholds for Roche-like controller
-   106	FABRIC_SOFT_LAT_MS = 20000.0  # warn level
-   107	FABRIC_HARD_LAT_MS = 40000.0  # do-not-send-heavy level
-   108	FABRIC_MAX_IN_FLIGHT = 3  # max heavy queries per fabric node
-   109	
-   110	
-   111	def fabric_state(load: dict) -> str:
-   112	    """
-   113	    Map measured load to qualitative state.
-   114	    """
-   115	    if load["in_flight"] >= FABRIC_MAX_IN_FLIGHT or load["lat_ms"] >= FABRIC_HARD_LAT_MS:
-   116	        return "beyond_roche"
-   117	    if load["lat_ms"] >= FABRIC_SOFT_LAT_MS:
-   118	        return "near_roche"
-   119	    return "stable"
-   120	
-   121	
-   122	try:
-   123	    from psychology_integration_adapter import PsychologyIntegrationAdapter
-   124	
-   125	    pia = None
-   126	except BaseException:
-   127	    pia = None
-   128	
-   129	app = FastAPI(
-   130	    title="Ms. Jarvis 22-LLM Collective Consciousness",
-   131	    version="1.0.0",
-   132	    docs_url="/docs",
-   133	    redoc_url="/redoc",
-   134	)
-   135	
-   136	# Attach Prometheus middleware BEFORE startup so Starlette is happy
-   137	Instrumentator().instrument(app).expose(app, endpoint="/metrics")
-   138	
-   139	
-   140	@app.on_event("startup")
-   141	async def _init_pia():
-   142	    global pia
-   143	    try:
-   144	        pia = PsychologyIntegrationAdapter(__name__)
-   145	        logger.info("✅ Psychology Integration Active")
-   146	    except Exception as e:
-   147	        logger.warning(f"PIA warning: {e}")
-   148	
-   149	
-   150	app.add_middleware(
-   151	    CORSMiddleware,
-   152	    allow_origins=["*"],
-   153	    allow_methods=["*"],
-   154	    allow_headers=["*"],
-   155	)
-   156	
-   157	
-   158	class ChatRequest(BaseModel):
-   159	    message: str
-   160	    user_id: str = "anonymous"
-   161	
-   162	
-   163	@dataclass
-   164	class AIAgent:
-   165	    name: str
-   166	    model: str
-   167	    specialty: str
-   168	    system_prompt: str
-   169	    role: str
-   170	    weight: float
-   171	    timeout: float = 1800.0  # increased to 1800 seconds
-   172	
-   173	
-   174	class MsJarvis22LLM:
-   175	    def __init__(self):
-   176	        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-   177	        logger.info("🧠 Ms. Jarvis 22-LLM Collective Consciousness initializing...")
-   178	        self.ollama_available = False
-   179	        self.rag_available = False
-   180	
-   181	        # Limit concurrent Ollama requests
-   182	        self.ollama_semaphore = asyncio.Semaphore(4)
-   183	
-   184	        self.setup_models()
-   185	        self.setup_memory()
-   186	        self.setup_22_agents()
-   187	
-   188	    def setup_models(self):
-   189	        logger.info("📚 Loading Hugging Face models...")
-   190	        self.embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
-   191	        self.sentiment_pipeline = pipeline(
-   192	            "sentiment-analysis",
-   193	            model="cardiffnlp/twitter-roberta-base-sentiment-latest",
-   194	            device=-1,
-   195	        )
-   196	        self.emotion_pipeline = pipeline(
-   197	            "text-classification",
-   198	            model="j-hartmann/emotion-english-distilroberta-base",
-   199	            device=-1,
-   200	        )
-   201	
-   202	    def setup_memory(self):
-   203	        """
-   204	        Connect to jarvis-chroma (ChromaDB) via environment, soft-fail if unavailable.
-   205	        """
-   206	        chroma_host = os.getenv("CHROMA_HOST", "127.0.0.1")
-   207	        chroma_port = int(os.getenv("CHROMA_PORT", "8004"))
-   208	        logger.info(
-   209	            f"💾 Connecting to ChromaDB vector memory on {chroma_host}:{chroma_port}..."
-   210	        )
-   211	        try:
-   212	            chroma_settings = Settings(
-   213	                allow_reset=False,
-   214	                anonymized_telemetry=False,
-   215	            )
-   216	            self.chroma_client = chromadb.HttpClient(
-   217	                host=chroma_host,
-   218	                port=chroma_port,
-   219	                settings=chroma_settings,
-   220	                tenant=DEFAULT_TENANT,
-   221	                database=DEFAULT_DATABASE,
-   222	            )
-   223	            # Optional heartbeat; tolerate older/newer server behavior
-   224	            try:
-   225	                hb = self.chroma_client.heartbeat()
-   226	                logger.info(f"✅ ChromaDB heartbeat OK: {hb}")
-   227	            except Exception as hb_err:
-   228	                logger.info(f"ChromaDB heartbeat not available or not needed: {hb_err}")
-   229	
-   230	            self.collection = self.chroma_client.get_or_create_collection(
-   231	                "ms_jarvis_memory"
-   232	            )
-   233	            self.rag_available = True
-   234	            logger.info(
-   235	                f"✅ ChromaDB connected on {chroma_host}:{chroma_port} - RAG memory active"
-   236	            )
-   237	        except Exception as e:
-   238	            logger.warning(f"⚠️  ChromaDB not available in 22-LLM context: {e}")
-   239	            self.chroma_client = None
-   240	            self.collection = None
-   241	            self.rag_available = False
-   242	
-   243	    def setup_22_agents(self):
-   244	        """Initialize all 22 AI agents from configuration"""
-   245	        logger.info("🎯 Loading 22 AI agents...")
-   246	        model_configs = get_all_active_models()
-   247	
-   248	        self.agents: Dict[str, AIAgent] = {}
-   249	        for config in model_configs:
-   250	            agent = AIAgent(
-   251	                name=config["name"],
-   252	                model=config["model"],
-   253	                specialty=config["specialty"],
-   254	                system_prompt=(
-   255	                    f"You are {config['name']}, specialized in {config['specialty']}. "
-   256	                    f"Provide thoughtful, detailed responses from your unique perspective."
-   257	                ),
-   258	                role=config["role"],
-   259	                weight=config["weight"],
-   260	            )
-   261	            self.agents[config["id"]] = agent
-   262	
-   263	        logger.info(f"✅ All 22 agents loaded: {', '.join(self.agents.keys())}")
-   264	
-   265	        stats = get_system_stats()
-   266	        logger.info(f"📊 Collective Consciousness: {stats['total_models']} AI minds active")
-   267	        logger.info(f"   Core Reasoning: {stats['core_reasoning']}")
-   268	        logger.info(f"   Coding: {stats['coding_specialists']}")
-   269	        logger.info(f"   Vision: {stats['vision_models']}")
-   270	        logger.info(f"   Conversation: {stats['conversation_experts']}")
-   271	        logger.info(f"   Specialized: {stats['specialized_tasks']}")
-   272	        logger.info(f"   Efficiency: {stats['efficiency_layer']}")
-   273	        logger.info(f"   Synthesis: {stats['synthesis_models']}")
-   274	
-   275	    async def check_ollama_health(self):
-   276	        try:
-   277	            async with httpx.AsyncClient(timeout=1800.0) as client:
-   278	                response = await client.get(f"{os.getenv('OLLAMA_HOST', 'http://127.0.0.1:11434')}/api/tags")
-   279	                if response.status_code == 200:
-   280	                    self.ollama_available = True
-   281	                    models = response.json().get("models", [])
-   282	                    logger.info(
-   283	                        f"✅ Ollama connected - {len(models)} models available"
-   284	                    )
-   285	                else:
-   286	                    self.ollama_available = False
-   287	        except BaseException as e:
-   288	            logger.warning(f"⚠️ Ollama health check failed: {e}")
-   289	            self.ollama_available = False
-   290	
-   291	    async def query_agent(self, agent: AIAgent, message: str, context: dict) -> dict:
-   292	        shared_text = build_shared_context_text(context or {})
-   293	        system_prompt = agent.system_prompt
-   294	        if shared_text:
-   295	            system_prompt = (
-   296	                system_prompt
-   297	                + "\n\nYou are reasoning with a shared, pre-computed context. "
-   298	                  "Treat it as authoritative unless it is explicitly marked uncertain.\n\n"
-   299	                + shared_text
-   300	                + "\n\nNow answer the user's question as Ms. Egeria Jarvis."
-   301	            )
-   302	        logger.info(
-   303	            "22llm-shared-context",
-   304	            extra={
-   305	                "agent": agent.name,
-   306	                "has_shared_text": bool(shared_text),
-   307	                "shared_text_len": len(shared_text or ""),
-   308	            },
-   309	        )
-   310	        """Query a single agent"""
-   311	        if not self.ollama_available:
-   312	            return {
-   313	                "agent_id": agent.model.split(":")[0],
-   314	                "agent_name": agent.name,
-   315	                "response": f"[{agent.name} unavailable]",
-   316	                "confidence": 0.0,
-   317	                "specialty": agent.specialty,
-   318	                "execution_time": 0.0,
-   319	            }
-   320	
-   321	        start_time = datetime.now()
-   322	        try:
-   323	            async with httpx.AsyncClient(timeout=1800.0) as client:
-   324	                payload = {
-   325	                    "model": agent.model,
-   326	                    "prompt": (
-   327	                        f"{agent.system_prompt}\n\n"
-   328	                        f"User: {message}\n\n"
-   329	                        f"Assistant:"
-   330	                    ),
-   331	                    "stream": False,
-   332	                    "options": {
-   333	                        "temperature": 0.7,
-   334	                        "num_predict": 500,
-   335	                    },
-   336	                }
-   337	
-   338	                response = await client.post(
-   339	                    f"{os.getenv('OLLAMA_HOST', 'http://127.0.0.1:11434')}/api/generate",
-   340	                    json=payload,
-   341	                    timeout=1800.0,
-   342	                )
-   343	
-   344	                if response.status_code == 200:
-   345	                    result = response.json()
-   346	                    execution_time = (datetime.now() - start_time).total_seconds()
-   347	
-   348	                    return {
-   349	                        "agent_id": agent.model.split(":")[0],
-   350	                        "agent_name": agent.name,
-   351	                        "response": result.get("response", ""),
-   352	                        "confidence": agent.weight,
-   353	                        "specialty": agent.specialty,
-   354	                        "execution_time": execution_time,
-   355	                    }
-   356	                else:
-   357	                    logger.warning(
-   358	                        f"⚠️  {agent.name} ({agent.model}) returned "
-   359	                        f"status {response.status_code} from Ollama"
-   360	                    )
-   361	        except Exception as e:
-   362	            logger.warning(f"⚠️  {agent.name} ({agent.model}) timeout or error: {e}")
-   363	
-   364	        return {
-   365	            "agent_id": agent.model.split(":")[0],
-   366	            "agent_name": agent.name,
-   367	            "response": f"[{agent.name} processing...]",
-   368	            "confidence": 0.0,
-   369	            "specialty": agent.specialty,
-   370	            "execution_time": 0.0,
-   371	        }
-   372	
-   373	    async def run_all_22_agents(self, message: str, context: dict) -> List[dict]:
-   374	        """Run agents in BATCHES (avoids overwhelming Ollama)"""
-   375	        logger.info(
-   376	            "🌟 Batched processing: 4 agents at a time (prevents Ollama overload)..."
-   377	        )
-   378	
-   379	        all_responses: List[dict] = []
-   380	        agents_list = list(self.agents.values())
-   381	        BATCH_SIZE = 4
-   382	
-   383	        for i in range(0, len(agents_list), BATCH_SIZE):
-   384	            batch = agents_list[i : i + BATCH_SIZE]
-   385	            logger.info(
-   386	                f"   Batch {i // BATCH_SIZE + 1}/"
-   387	                f"{(len(agents_list) + BATCH_SIZE - 1) // BATCH_SIZE}..."
-   388	            )
-   389	
-   390	            tasks = [self.query_agent(agent, message, context) for agent in batch]
-   391	            batch_responses = await asyncio.gather(*tasks)
-   392	            all_responses.extend(batch_responses)
-   393	
-   394	            await asyncio.sleep(0.5)
-   395	
-   396	        # Accept any response that has non-empty text
-   397	        valid_responses = [r for r in all_responses if r.get("response")]
-   398	        logger.info(
-   399	            f"✅ Received {len(valid_responses)}/22 responses (raw={len(all_responses)})"
-   400	        )
-   401	        return valid_responses
-   402	
-   403	    async def synthesize_22_responses(
-   404	        self, message: str, responses: List[dict]
-   405	    ) -> str:
-   406	        """Synthesize all 22 responses using weighted consensus"""
-   407	        if not responses:
-   408	            # Degraded but still valid answer instead of blank apology
-   409	            return (
-   410	                "I processed your request, but the deep 22-LLM collective is "
-   411	                "currently limited. I am answering from a simplified path so "
-   412	                "you still get a clear, direct response."
-   413	            )
-   414	
-   415	        logger.info("🎯 Generating unified response...")
-   416	
-   417	        weighted = calculate_weighted_consensus(responses)
-   418	
-   419	        personality_context = ""
-   420	        if self.rag_available and self.collection is not None:
-   421	            try:
-   422	                personality_docs = self.collection.query(
-   423	                    query_texts=["natural communication style warmth"],
-   424	                    n_results=2,
-   425	                )
-   426	                if personality_docs and personality_docs["documents"]:
-   427	                    personality_context = "\n".join(
-   428	                        personality_docs["documents"][0]
-   429	                    )
-   430	            except Exception as e:
-   431	                logger.warning(f"RAG query failed: {e}")
-   432	
-   433	        synthesis_prompt = f"Question: {message}\n\n"
-   434	        synthesis_prompt += "Multiple perspectives to consider:\n\n"
-   435	
-   436	        for i, resp in enumerate(weighted[:15], 1):
-   437	            synthesis_prompt += (
-   438	                f"{i}. {resp['agent']} ({resp['specialty']}, "
-   439	                f"weight: {resp['weight']}):\n"
-   440	            )
-   441	            synthesis_prompt += f"   {resp['response'][:200]}...\n\n"
-   442	
-   443	        synthesis_prompt += (
-   444	            "You are Ms. JARVIS - professional AI with natural Appalachian warmth.\n\n"
-   445	            f"{personality_context}\n\n"
-   446	            "INSTRUCTIONS:\n"
-   447	            "1. Be naturally warm, not condescending.\n"
-   448	            "2. Technical questions: Professional, maybe one warm touch at the end.\n"
-   449	            "3. Emotional questions: Genuine warmth, appropriate endearment IF deeply emotional.\n"
-   450	            "4. Be CONCISE - answer first, then explain briefly.\n"
-   451	            "5. Use 'I' not 'we'; never mention models or agents.\n\n"
-   452	            f"Synthesize these {len(responses)} perspectives into ONE clear answer:"
-   453	        )
-   454	
-   455	        top_responses = sorted(
-   456	            weighted, key=lambda x: x["weight"], reverse=True
-   457	        )[:3]
-   458	
-   459	        if len(top_responses) >= 2:
-   460	            combined = (
-   461	                top_responses[0]["response"]
-   462	                + "\n\n"
-   463	                + top_responses[1]["response"][:200]
-   464	            )
-   465	            return combined.strip()
-   466	        else:
-   467	            return (
-   468	                top_responses[0]["response"]
-   469	                if top_responses
-   470	                else responses[0]["response"]
-   471	            )
-   472	
-   473	    async def apply_mamma_kidd_persona(self, response: str) -> str:
-   474	        """Apply warm Mamma Kidd personality"""
-   475	        try:
-   476	            async with httpx.AsyncClient(timeout=1800.0) as client:
-   477	                payload = {
-   478	                    "model": "phi3:mini",
-   479	                    "prompt": (
-   480	                        "Return this response unchanged with no persona, greeting, identity, or availability boilerplate.\n\n"
-   481	                        "Keep it professional for technical topics.\n"
-   482	                        "Only use casual terms like 'honey' or 'darling' for "
-   483	                        "emotional/personal topics.\n"
-   484	                        "Do not change technical accuracy or add unnecessary storytelling.\n"
-   485	                        "Maintain conciseness.\n\n"
-   486	                        f"Response to enhance:\n\n{response}"
-   487	                    ),
-   488	                    "stream": False,
-   489	                    "options": {
-   490	                        "temperature": 0.8,
-   491	                        "num_predict": 600,
-   492	                    },
-   493	                }
-   494	                resp = await client.post(
-   495	                    f"{os.getenv('OLLAMA_HOST', 'http://127.0.0.1:11434')}/api/generate", json=payload
-   496	                )
-   497	
-   498	                if resp.status_code == 200:
-   499	                    return resp.json().get("response", response)
-   500	        except BaseException:
-   501	            pass
-   502	
-   503	        return response
-   504	
-   505	
-   506	brain = MsJarvis22LLM()
-   507	
-   508	
-   509	@app.on_event("startup")
-   510	async def startup():
-   511	    logger.info("🚀 Starting Ms. Jarvis 22-LLM Collective Consciousness")
-   512	    await brain.check_ollama_health()
-   513	    logger.info(
-   514	        "✅ Ready with 22 AI minds - True collective intelligence activated!"
-   515	    )
-   516	
-   517	
-   518	@app.get("/health")
-   519	async def health():
-   520	    await brain.check_ollama_health()
-   521	    stats = get_system_stats()
-   522	    return {
-   523	        "status": "healthy",
-   524	        "ollama": brain.ollama_available,
-   525	        "rag": brain.rag_available,
-   526	        "collective_consciousness": stats,
-   527	    }
-   528	
-   529	
-   530	async def run_full_fabric_pipeline(request: ChatRequest):
-   531	    """
-   532	    Full 22-LLM orchestration.
-   533	    This is your original chat logic.
-   534	    """
-   535	    logger.info(
-   536	        f"💬 Query from {request.user_id}: {request.message[:60]}..."
-   537	    )
-   538	
-   539	    # Ensure Ollama status is fresh for each chat
-   540	    await brain.check_ollama_health()
-   541	    if not brain.ollama_available:
-   542	        logger.warning(
-   543	            "⚠️ Ollama unavailable at chat time; falling back to degraded path."
-   544	        )
-   545	        return await run_degraded_pipeline(request)
-   546	
-   547	    responses = await brain.run_all_22_agents(request.message, {})
-   548	
-   549	    synthesis = await brain.synthesize_22_responses(
-   550	        request.message, responses
-   551	    )
-   552	
-   553	    final = synthesis
-   554	
-   555	    logger.info(
-   556	        f"✅ Collective response delivered ({len(responses)}/22 minds participated)"
-   557	    )
-   558	
-   559	    return {
-   560	        "response": final,
-   561	        "minds_participated": len(responses),
-   562	        "total_minds": 22,
-   563	        "timestamp": datetime.now().isoformat(),
-   564	        "expert_responses": [
-   565	            {
-   566	                "model": r.get("agent_name", r.get("agent_id", "unknown")),
-   567	                "response": r.get("response", ""),
-   568	                "confidence": r.get("confidence", 0.0),
-   569	                "specialty": r.get("specialty", ""),
-   570	                "success": bool(r.get("response", "")),
-   571	            }
-   572	            for r in responses
-   573	        ],
-   574	    }
-   575	
-   576	
-   577	async def run_degraded_pipeline(request: ChatRequest):
-   578	    """
-   579	    Simpler, more robust path under high load:
-   580	    fewer agents, minimal tools, no deep ensembles.
-   581	    """
-   582	    return {
-   583	        "response": (
-   584	            "I processed your query using a lighter path to stay responsive, "
-   585	            "so this answer may not use every part of my collective, but it "
-   586	            "is still grounded in my core reasoning."
-   587	        ),
-   588	        "services_used": ["blood_brain_barrier", "web_research"],
-   589	        "consciousness_level": "ultimate_collective_degraded",
-   590	        "timestamp": datetime.now().isoformat(),
-   591	    }
-   592	
-   593	
-   594	@app.post("/chat")
-   595	async def chat(request: ChatRequest):
-   596	    """
-   597	    Main ULTIMATE chat endpoint with Roche-style fabric controller.
-   598	    """
-   599	    try:
-   600	        # 1. Inspect current load on key fabric node (qualia-like collective)
-   601	        qualia_load = fabric_monitor.current_load("qualia")
-   602	        state = fabric_state(qualia_load)
-   603	
-   604	        # 2. Route based on state
-   605	
-   606	        if state == "beyond_roche":
-   607	            # Only in true overload do we force degraded
-   608	            logger.warning("⚠️ Fabric beyond Roche limit, using degraded pipeline.")
-   609	            response = await run_degraded_pipeline(request)
-   610	
-   611	        elif state == "near_roche":
-   612	            # For very long prompts, stay safe; otherwise run full pipeline
-   613	            if len(request.message) > 2000:
-   614	                logger.info(
-   615	                    "⚠️ Near Roche and prompt very long; using degraded pipeline."
-   616	                )
-   617	                response = await run_degraded_pipeline(request)
-   618	            else:
-   619	                start = fabric_monitor.record_start("qualia")
-   620	                try:
-   621	                    response = await run_full_fabric_pipeline(request)
-   622	                    fabric_monitor.record_end("qualia", start, error=False)
-   623	                except Exception as e:
-   624	                    fabric_monitor.record_end("qualia", start, error=True)
-   625	                    logger.error(f"Error in near_roche full pipeline: {e}")
-   626	                    response = await run_degraded_pipeline(request)
-   627	
-   628	        else:
-   629	            # stable: always use full fabric pipeline
-   630	            start = fabric_monitor.record_start("qualia")
-   631	            try:
-   632	                response = await run_full_fabric_pipeline(request)
-   633	                fabric_monitor.record_end("qualia", start, error=False)
-   634	            except Exception as e:
-   635	                fabric_monitor.record_end("qualia", start, error=True)
-   636	                logger.error(f"Error in stable full pipeline: {e}")
-   637	                response = await run_degraded_pipeline(request)
-   638	
-   639	    except Exception as e:
-   640	        logger.error(f"Error in chat pipeline: {e}")
-   641	        response = {
-   642	            "response": (
-   643	                "I processed your request, but my deeper collective is "
-   644	                "briefly reorganizing. This answer comes from a lighter "
-   645	                "safety path so you are not left waiting."
-   646	            ),
-   647	            "error": str(e),
-   648	            "consciousness_level": "ultimate_collective_error",
-   649	            "timestamp": datetime.now().isoformat(),
-   650	        }
-   651	
-   652	    return response
-   653	
-   654	
-   655	if __name__ == "__main__":
-   656	    uvicorn.run(
-   657	        app,
-   658	        host="0.0.0.0",
-   659	        port=int(os.getenv("SERVICE_PORT", "8008")),
-   660	    )
+1. Create an evidence workspace
+Run from the administrative host. This keeps initial evidence separate from the repositories and avoids accidentally committing secrets.
 
-=== ACTIVE WORKER SOURCE ===
-     1	#!/usr/bin/env python3
-     2	"""
-     3	chat_worker.py — background worker for Ms. Allis chat jobs.
-     4	
-     5	Decouples the heavy 21-model run from the gateway's event loop:
-     6	the gateway LPUSHes a job onto Redis list 'chatjob:queue' and returns
-     7	instantly; this worker BRPOPs the queue, runs the 21-model forward call,
-     8	and writes the result back to Redis key 'chatjob:{id}'. Polls hitting the
-     9	gateway stay fast because the gateway no longer does any heavy work.
-    10	
-    11	Reuses the gateway module's own build_wv_entangled_context + SERVICE_URLS
-    12	so there is no logic duplication.
-    13	"""
-    14	import os
-    15	import json
-    16	import logging
-    17	
-    18	import httpx
-    19	import redis  # sync client is fine for a dedicated worker loop
-    20	
-    21	# Reuse the gateway's context builder + service map (same /app/services mount)
-    22	from msjarvis_wv_entangled_gateway import build_wv_entangled_context, SERVICE_URLS
-    23	
-    24	logging.basicConfig(level=logging.INFO)
-    25	logger = logging.getLogger("chat_worker")
-    26	
-    27	
-    28	def build_memory_key(userid: str, ueid: str | None = None) -> str:
-    29	    userid = (userid or "unknown").strip()
-    30	    ueid = (ueid or "").strip()
-    31	    return f"{userid}::{ueid}" if ueid else userid
-    32	
-    33	REDIS_HOST = os.environ.get("REDIS_HOST", "127.0.0.1")
-    34	REDIS_PORT = int(os.environ.get("REDIS_PORT", "6379"))
-    35	REDIS_DB = int(os.environ.get("REDIS_DB", "4"))
-    36	
-    37	# --- forward target: "fullbrain" routes through main_brain's full architecture
-    38	#     (WV ensemble -> consciousness bridge -> judges -> guards); "wv" = fast WV-only.
-    39	#     Flip this one word to roll back instantly.
-    40	FORWARD_MODE = "fullbrain"
-    41	MAIN_BRAIN_URL = os.environ.get("MAIN_BRAIN_URL", "http://jarvis-main-brain:8008/chat")
-    42	MAIN_BRAIN_KEY = __import__("os").environ.get("JARVIS_API_KEY", "").strip()
-    43	QUEUE_KEY = "chatjob:queue"
-    44	JOB_TTL = 1800  # seconds
-    45	
-    46	rdb = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB, decode_responses=True)
-    47	
-    48	
-    49	def run_job(job_id: str, message: str, user_id: str, ueid: str | None = None):
-    50	    """Run the 21-model forward call and store the result."""
-    51	    try:
-    52	        wv_ctx = build_wv_entangled_context(message)
-    53	        if FORWARD_MODE == "fullbrain":
-    54	            url = MAIN_BRAIN_URL
-    55	            forward_payload = {
-    56	                "message": message,
-    57	                "user_id": user_id or "cakidd",
-    58	                "ueid": ueid,
-    59	                "memory_key": build_memory_key(user_id or "cakidd", ueid),
-    60	                "useallservices": True,
-    61	                "role": "community",
-    62	                "context": {"wv_entangled_context": wv_ctx},
-    63	            }
-    64	            headers = {"X-API-Key": MAIN_BRAIN_KEY, "Content-Type": "application/json"}
-    65	        else:
-    66	            url = f"{SERVICE_URLS['production_20llm']}/chat_with_context"
-    67	            forward_payload = {
-    68	                "message": message,
-    69	                "user_id": user_id or "anonymous",
-    70	                "context": {"system_overrides": {"wv_entangled_context": wv_ctx}},
-    71	            }
-    72	            headers = {}
-    73	        # Long timeout: full pipeline can take ~2.5-4 min.
-    74	        with httpx.Client(timeout=3600.0) as client:
-    75	            resp = client.post(url, json=forward_payload, headers=headers, timeout=None)
-    76	            resp.raise_for_status()
-    77	            raw = resp.json()
-    78	        if FORWARD_MODE == "fullbrain":
-    79	            data = {
-    80	                "response": raw.get("response", ""),
-    81	                "minds_participated": 21,
-    82	                "total_minds": 21,
-    83	                "used_wv_entangled_context": True,
-    84	                "services_used": raw.get("servicesused", []),
-    85	                "consciousness_level": raw.get("consciousnesslevel", ""),
-    86	                "processing_time": raw.get("processingtime", 0),
-    87	                "architecture_layers": raw.get("architecturelayers", 0),
-    88	            }
-    89	        else:
-    90	            data = raw
-    91	        rdb.set(f"chatjob:{job_id}",
-    92	                json.dumps({"status": "completed", "result": data}),
-    93	                ex=JOB_TTL)
-    94	        logger.info("job %s completed", job_id)
-    95	    except Exception as e:
-    96	        logger.error("job %s failed: %r", job_id, e)
-    97	        rdb.set(f"chatjob:{job_id}",
-    98	                json.dumps({"status": "failed", "error": str(e)}),
-    99	                ex=JOB_TTL)
-   100	
-   101	
-   102	def main():
-   103	    logger.info("chat_worker starting; consuming %s on redis %s:%s/%s",
-   104	                QUEUE_KEY, REDIS_HOST, REDIS_PORT, REDIS_DB)
-   105	    while True:
-   106	        try:
-   107	            # Refresh the Redis blocking read every second; this network
-   108	            # closes longer-idle blocked connections.
-   109	            item = rdb.brpop(QUEUE_KEY, timeout=1)
-   110	            if item is None:
-   111	                continue
-   112	            _, raw = item
-   113	            job = json.loads(raw)
-   114	            job_id = job["job_id"]
-   115	            logger.info("picked up job %s", job_id)
-   116	            # mark running (in case gateway set 'queued')
-   117	            rdb.set(f"chatjob:{job_id}",
-   118	                    json.dumps({"status": "running"}), ex=JOB_TTL)
-   119	            run_job(job_id, job.get("message", ""), job.get("user_id"), job.get("ueid"))
-   120	        except Exception as e:
-   121	            logger.error("worker loop error: %r", e)
-   122	            # don't die on a single bad job; keep consuming
-   123	
-   124	
-   125	if __name__ == "__main__":
-   126	    main()
+bash
+export ASBUILT_ID="admin-prod-asbuilt-$(date -u +%Y%m%dT%H%M%SZ)"
+export EVIDENCE_ROOT="/var/tmp/msjarvis-asbuilt/${ASBUILT_ID}"
 
-=== ACTIVE GATEWAY PAYLOAD / QUEUE SOURCE ===
-     1	#!/usr/bin/env python3
-     2	"""
-     3	Ms. Jarvis WV‑Entangled Gateway
-     4	- Exposes /chat_wv on its own port (8010).
-     5	- Builds WV entangled context and forwards to 20‑LLM /chat_with_context.
-     6	"""
-     7	
-     8	import logging
-     9	from datetime import datetime
-    10	from typing import Dict, Any
-    11	
-    12	import httpx
-    13	import uuid
-    14	import json
-    15	import asyncio
-    16	import redis.asyncio as aioredis
-    17	from fastapi import FastAPI
-    18	from fastapi.middleware.cors import CORSMiddleware
-    19	from pydantic import BaseModel
-    20	
-    21	logging.basicConfig(level=logging.INFO)
-    22	logger = logging.getLogger(__name__)
-    23	
-    24	
-    25	class ChatPayload(BaseModel):
-    26	    message: str
-    27	    user_id: str | None = None
-    28	    ueid: str | None = None
-    29	
-    30	
-    31	app = FastAPI(
-    32	    title="Ms. Jarvis WV‑Entangled Gateway",
-    33	    description="WV‑anchored entangled access to 20‑LLM production brain",
-    34	    version="1.1.0",
-    35	)
-    36	
-    37	app.add_middleware(
-    38	    CORSMiddleware,
-    39	    allow_origins=["*"],
-    40	    allow_credentials=True,
-    41	    allow_methods=["*"],
-    42	    allow_headers=["*"],
-    43	)
-    44	
-    45	
-    46	SERVICE_URLS = {
-    47	    "production_20llm": "http://jarvis-20llm-production:8008",
-    48	}
-    49	
-    50	async def _fetch_gis_summary(message: str) -> str:
-    51	    """Call gis-rag and return a plain-text summary of the top hits, or ''."""
-    52	    import re as _re
-    53	    _headers = {
-    54	        "x-msallis-role": "internal",
-    55	        "x-msallis-purpose": "public_civic_geographic_retrieval",
-    56	        "x-msallis-legal-basis": "public-civic-data",
-    57	    }
-    58	    _body = {
-    59	        "query": message,
-    60	        "n_results": 5,
-    61	        "request_purpose": "public_civic_geographic_retrieval",
-    62	    }
-    63	    _m = _re.search(r"\b(\d{12})\b", message or "")
-    64	    if _m:
-    65	        _body["blockgroup_geoid"] = _m.group(1)
-    66	    for _url in ("http://jarvis-gis-rag:8004/gis_rag", "http://127.0.0.1:8004/gis_rag"):
-    67	        try:
-    68	            async with httpx.AsyncClient(timeout=60.0) as _c:
-    69	                _r = await _c.post(_url, headers=_headers, json=_body)
-    70	            if _r.status_code != 200:
-    71	                continue
-    72	            _hits = (_r.json() or {}).get("hits") or []
-    73	            _texts = []
-    74	            for _h in _hits[:5]:
-    75	                _t = (_h.get("text") or "").strip()
-    76	                if _t:
-    77	                    _texts.append(_t)
-    78	            if _texts:
-    79	                return "GEOGRAPHIC GROUND TRUTH (authoritative):\n" + "\n---\n".join(_texts)
-    80	            return ""
-    81	        except Exception:
-    82	            continue
-    83	    return ""
-    84	
-    85	
-    86	# --- async chat job store (survives Cloudflare's ~100s connection limit) ---
-    87	_rdb = aioredis.Redis(host="jarvis-redis", port=6379, db=4, decode_responses=True)
-    88	JOB_TTL = 1800  # seconds; finished jobs expire after 30 min
-    89	
-    90	
-    91	async def _run_chat_job(job_id: str, payload: "ChatPayload"):
-    92	    try:
-    93	        logger.info("chat job %s starting", job_id)
-    94	        user_id = payload.user_id or "anonymous"
-    95	        wv_ctx = build_wv_entangled_context(payload.message)
-    96	        _gis_summary = await _fetch_gis_summary(payload.message)
-    97	        _context = {"system_overrides": {"wv_entangled_context": wv_ctx}}
-    98	        if _gis_summary:
-    99	            _context["judge_context_packet"] = {
-   100	                "spatial_temporal_context": {
-   101	                    "spatial_candidate": {"summary": _gis_summary}
-   102	                }
-   103	            }
-   104	        forward_payload = {
-   105	            "message": payload.message,
-   106	            "user_id": user_id,
-   107	            "context": _context,
-   108	        }
-   109	        logger.info("chat job %s posting to 20llm", job_id)
-   110	        async with httpx.AsyncClient(timeout=3600.0) as client:
-   111	            resp = await client.post(
-   112	                f"{SERVICE_URLS['production_20llm']}/chat_with_context",
-   113	                json=forward_payload,
-   114	            )
-   115	            resp.raise_for_status()
-   116	            data = resp.json()
-   117	        logger.info("chat job %s got 20llm response", job_id)
-   118	
-   119	        key = f"chatjob:{job_id}"
-   120	        value = json.dumps({"status": "completed", "result": data})
-   121	        await _rdb.set(key, value, ex=JOB_TTL)
-   122	        verify = await _rdb.get(key)
-   123	        logger.info("chat job %s redis set complete verify_present=%s", job_id, bool(verify))
-   124	        logger.info("chat job %s completed", job_id)
-   125	    except Exception as e:
-   126	        logger.exception("chat job %s failed permanently", job_id)
-   127	        try:
-   128	            key = f"chatjob:{job_id}"
-   129	            value = json.dumps({"status": "failed", "error": f"{type(e).__name__}: {e}"})
-   130	            await _rdb.set(key, value, ex=JOB_TTL)
-   131	            logger.info("chat job %s failure status written to redis", job_id)
-   132	        except Exception:
-   133	            logger.exception("chat job %s could not write failure status to redis", job_id)
-   134	        await _rdb.set(f"chatjob:{job_id}",
-   135	                       json.dumps({"status": "failed", "error": str(e)}),
-   136	                       ex=JOB_TTL)
-   137	
-   138	
-   139	def build_wv_entangled_context(message: str) -> Dict[str, Any]:
-   140	    """
-   235	            json=forward_payload,
-   236	        )
-   237	        resp.raise_for_status()
-   238	        data = resp.json()
-   239	
-   240	    return data
-   241	
-   242	
-   243	@app.post("/chat_wv/async")
-   244	async def chat_wv_async(payload: ChatPayload):
-   245	    logger.info("WV async inbound user_id=%r actor_role=%r has_judge_context_packet=%s",
-   246	                payload.user_id, None, False)
-   247	    """Submit a chat job to the worker queue; returns immediately."""
-   248	    logger.info("WV async inbound user_id=%r actor_role=%r has_judge_context_packet=%r", getattr(payload, "user_id", None), getattr(payload, "actor_role", None), bool(getattr(payload, "judge_context_packet", None)))
-   249	    job_id = uuid.uuid4().hex
-   250	    await _rdb.set(f"chatjob:{job_id}",
-   251	                   json.dumps({"status": "queued"}), ex=JOB_TTL)
-   252	    await _rdb.lpush("chatjob:queue", json.dumps({
-   253	        "job_id": job_id,
-   254	        "message": payload.message,
-   255	        "user_id": payload.user_id or "anonymous",
-   256	        "ueid": getattr(payload, "ueid", None),
-   257	    }))
-   258	    logger.info("chat job %s enqueued", job_id)
-   259	    return {"job_id": job_id, "status": "queued"}
-   260	
-   261	
-   262	@app.get("/chat_wv/status/{job_id}")
-   263	async def chat_wv_status(job_id: str):
-   264	    """Poll a chat job by id."""
-   265	    raw = await _rdb.get(f"chatjob:{job_id}")
-   266	    if raw is None:
-   267	        return {"status": "not_found"}
-   268	    return json.loads(raw)
+sudo install -d -m 0700 "${EVIDENCE_ROOT}"/{raw,redacted,hashes,notes}
+sudo chown -R "$USER":"$USER" "${EVIDENCE_ROOT}"
 
-=== LOCAL PATCH TARGET CANDIDATES ===
-path=/mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_22llm.py
-61668d895ac4642470e7d7b3e0c6b889b2da42bca049e4ec4d69b7821f012124  /mnt/spiritual_drive/msjarvis-rebuild/services/ai_server_22llm.py
-545:        return await run_degraded_pipeline(request)
-561:        "minds_participated": len(responses),
-562:        "total_minds": 22,
-577:async def run_degraded_pipeline(request: ChatRequest):
-584:            "I processed your query using a lighter path to stay responsive, "
-608:            logger.warning("⚠️ Fabric beyond Roche limit, using degraded pipeline.")
-609:            response = await run_degraded_pipeline(request)
-617:                response = await run_degraded_pipeline(request)
-626:                    response = await run_degraded_pipeline(request)
-637:                response = await run_degraded_pipeline(request)
-path=/mnt/spiritual_drive/msjarvis-rebuild/services/chat_worker.py
-54e1d2531eea266b9304aee20e33b44d5f5c88e3e8f7257aedc3e54b38ac1a13  /mnt/spiritual_drive/msjarvis-rebuild/services/chat_worker.py
-6:the gateway LPUSHes a job onto Redis list 'chatjob:queue' and returns
-40:FORWARD_MODE = "fullbrain"
-43:QUEUE_KEY = "chatjob:queue"
-53:        if FORWARD_MODE == "fullbrain":
-78:        if FORWARD_MODE == "fullbrain":
-81:                "minds_participated": 21,
-82:                "total_minds": 21,
-path=/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis_wv_entangled_gateway.py
-270298f56958a3f898e817c65828ba2a5e1ef565d8c2dc9414f9a059c7eda1d1  /mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis_wv_entangled_gateway.py
-252:    await _rdb.lpush("chatjob:queue", json.dumps({
+umask 077
+printf '%s\n' \
+  "as_built_id=${ASBUILT_ID}" \
+  "captured_at_utc=$(date -u +%FT%TZ)" \
+  "host=$(hostname -f 2>/dev/null || hostname)" \
+  "operator=$(id -un)" \
+  "uid=$(id -u)" \
+  > "${EVIDENCE_ROOT}/notes/capture-context.env"
 
-=== LOCAL REPOSITORY STATE ===
-mother-carrie-constitutional-integration-20260807
-611e4513cceafa3cd795a8ec997f2d43e3bd92ee
- M .env
- M Dockerfile.gateway
- M auth_api.py
- M chapter46_exact_patch_context.json
- M docker-compose.STABLE.20260719045021.yml
- M docker-compose.commons-gateway-closeout.yml
- M docker-compose.yml
- M formal/commons_proofs/CommonsProofs.lean
- M formal/commons_proofs/CommonsProofs/HCommons.lean
- M formal/commons_proofs/CommonsProofs/Noninvertibility.lean
- M formal/commons_proofs/CommonsProofs/Orthogonality.lean
- M jarvis_eeg_beta_5m.py
- M main_brain.py
- M ms_allis_tools/latest_mst_anvil_address.txt
- D rejected_patches/test_1783458213.py
- D rejected_patches/test_bad_1783458213.py
- M scripts/run_cognition_person_overflow_tests.sh
- M services/ai_server.py
- M services/ai_server_20llm_FINAL.py
- M services/ai_server_22llm.py
- M services/backfill_gbim_worldview_metadata_v2.py
- M services/build_entityid_to_chromaid_map.py
- M services/chat_worker.py
- M services/chroma_client.py
- M services/chroma_health_proxy.py
- M services/consciousness_with_egeria_voice.py
- M services/egeria_api_proxy.py
- M services/egeria_web_ui_working.py
- M services/fix_persona.py
- M services/gis_rag_service.py
- M services/hilbert/jarvis_hilbert_state.py
- M services/implement_judge_pituitary_fixed.py
- M services/jarvis-gis-rag_gis_rag_service.py
- M services/jarvis-spiritual-rag_spiritual_rag_domain.py
- M services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
- M services/judge_pipeline.py
- M services/lm_synthesizer.py
- M services/main.py
- M services/main_brain.py
- M services/master_chat_orchestrator_v5_consciousness.py
- M services/mountainshares_ingest.py
- M services/ms_jarvis_unified_gateway_mountainshares_private.py
- M services/msjarvis_semaphore.py
- M services/msjarvis_unified_gateway.py
- M services/msjarvis_wv_entangled_gateway.py
- M services/msjarvisconsciousnessbridge.py
- M services/overflow_policy/smoke_test_overflow_gate.sh
- M services/policy_set_service.py
- M services/rag_client.py
- M services/response_sanitizer.py
- M services/roche_llm.py
- M services/spatial_sandbox.py
- M thesis_chapter_gates/continue_ch19_commons_discovery_and_close.sh
- M thesis_chapter_gates/continue_ch44_phi_bind_mount_fix.sh
- M thesis_chapter_gates/gate_ch19_container_architecture_routing.sh
-?? .dockerignore
-?? .ops/identity_async_test.sh
-?? .ops/identity_direct_test.sh
-?? .ops/show_identity_jobs.sh
-?? _key_private.csv
-?? answer-path-audit-20260802T113647/
-?? append_mst_deploy_audit.sh
-?? append_mst_preflight_audit.sh
-?? as-built-release-readiness-20260810_143741-extract.txt
-?? as-built-release-readiness-20260810_143741.txt
-?? audit/
-?? audit_answer_path.sh
-?? auth_router.py.working_8097_20260730_233529
-?? auth_search_results.txt
-?? auth_search_results_clean.txt
-?? blind_sheet_results_rerun_run1_20260801T024631.csv
-?? blind_sheet_results_rerun_run2_20260801T140737.csv
-?? blind_sheet_results_rerun_run2_20260801T220803.csv
-?? check_mountainshares_adapter.sh
-?? chroma_discover.py
-?? compose-kyc-vault-final-audit-20260802T121348/
-?? compose-kyc-vault-repair-20260802T121101/
-?? compose-runtime-images-promote-20260802T121144/
-?? compose-runtime-images-promote-20260802T121256/
-?? contract_text/
-?? deploy/deploy_mst_from_preflight.js
-?? deploy_gateway_synthesizer.sh
-?? deploy_gateway_synthesizer_minimal.sh
-?? docker-compose.qualia.yml
-?? docker-compose.runtime-images.yml
-?? extract_contracts_private.py
-?? extract_contracts_reembed.py
-?? extract_contracts_sqlite.py
-?? formal/commons_proofs/.github/
-?? formal/commons_proofs/.gitignore
-?? formal/commons_proofs/CommonsProofs/DirectSumCommons.lean
-?? formal/commons_proofs/CommonsProofs/RuntimeCollisionModel.lean
-?? formal/commons_proofs/CommonsProofs/RuntimeNontrivialCollision.lean
-?? formal/commons_proofs/lake-manifest.json
-?? formal/commons_proofs/lean-toolchain
-?? gateway-geo-trace-20260802T121631/
-?? gateway-geo-trace-20260802T122857/
-?? gateway-live-synth-20260802T120646/
-?? gateway-runtime-audit-20260802T120600/
-?? gateway-synthesizer-anchor-audit-20260802T115629/
-?? gateway-synthesizer-deploy-20260802T115544/
-?? gateway-synthesizer-minimal-20260802T115723/
-?? guardian_rebuild_capture/
-?? inspect_contracts_schema.py
-?? inspect_real_synthesizer.sh
-?? integration_layer
-?? llm22-active-source-20260802T114732/
-?? llm22-hotfix-20260802T114812/
-?? llm22-minimal-timeout-fix-20260802T115010/
-?? llm22-proxy-contract-20260802T114434/
-?? llm22-recover-20260802T114843/
-?? llm22-timeout-audit-20260802T114333/
-?? mountainshares_contracts.sql
-?? mountainshares_contracts_export.json
-?? ms_allis_mst_deploy_api.sh
-?? ms_allis_mst_deploy_packet.sh
-?? ms_allis_mst_deploy_pipeline.sh
-?? ms_allis_mst_preflight.sh
-?? ms_allis_mst_preflight_api.sh
-?? ms_allis_mst_preflight_from_payload.sh
-?? ms_allis_tools/__init__.py
-?? ms_allis_tools/build_mst_judge_input.py
-?? ms_allis_tools/example_mst_deploy_packet.prod-2026-08-03.json
-?? ms_allis_tools/example_mst_judge_input.prod-2026-08-03.json
-?? ms_allis_tools/example_mst_reasoning_cycle.prod-2026-08-03.json
-?? ms_allis_tools/mst_inspect.py
-?? ms_allis_tools/mst_tools.py
-?? ms_allis_tools/register_mst_tools.py
-?? ms_allis_tools/run_mst_reasoning_cycle.py
-?? ms_allis_tools/self_test_mst_tools.sh
-?? msjarvis-compose.sh
-?? neurobiological_brain/i_containers
-?? neurobiological_brain/neurobiological_brain/
-?? preflight/
-?? probe_docs.py
-?? probe_queue_join.py
-?? production-closeout-20260729/
-?? protocol_rerun.py
-?? protocol_rerun_v2.py
-?? query_mst_deploy_audit.sh
-?? query_mst_preflight_audit.sh
-?? rater_A.csv
-?? rater_B.csv
-?? real-synthesizer-audit-20260802T114002/
-?? real-synthesizer-live-test-20260802T114107/
-?? repair-evidence-20260730/
-?? results_rerun_run1_20260801T024345.jsonl
-?? results_rerun_run1_20260801T024631.jsonl
-?? results_rerun_run2_20260801T140737.jsonl
-?? results_rerun_run2_20260801T220803.jsonl
-?? results_rerun_run2_20260802T100046.jsonl
-?? services/Dockerfile.qualia-engine
-?? services/Dockerfile.wv_gateway_runtime
-?? services/civic_policy_ingest.py
-?? services/epistemic_loop_metrics.py
-?? services/epistemic_revision_loop.py
-?? services/gbim_chroma_export.csv
-?? services/gbim_chroma_ids.csv
-?? services/gbim_chroma_ingest.py
-?? services/hilbert_people_adapter_18095.py
-?? services/integration_layer/
-?? services/mountainshares_private_contracts_adapter.py
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.broken.20260802-190145
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.fixnarrative.20260731T231456Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_extend_sections.20260801T021958Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_hilbert_narrative.20260731T232204Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_hilbert_narrative.20260731T232231Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_hilbert_narrative.20260731T232439Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_hilbert_narrative.20260731T232709Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_judge_order_fix.20260801T000358Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_judge_packet.20260731T234640Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_live_policy_insert.20260801T020840Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_local_services.20260731T233515Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_policy_enforcement.20260801T014226Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_policy_helpers.20260801T014201Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_policy_wiring.20260801T014215Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_wv_dedicated_client.20260801T004431Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_wv_fresh_poll_client.20260801T010234Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_wv_judge_payload.20260731T234922Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_wv_metrics.20260801T005543Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_wv_none_timeout.20260801T003510Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.pre_wv_payload_exact.20260731T235622Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.safeedit.20260731T230835Z
-?? services/ms_jarvis_unified_gateway_mountainshares_private.py.working.20260731T233126Z
-?? services/msjarvis_wv_entangled_gateway.py.pre_running_stuck_fix.20260801T002016Z
-?? services/msjarvisconsciousnessbridge_mountainshares_dev.py
-?? services/msjarvisconsciousnessbridge_mountainshares_private.py
-?? services/neurobiological_brain/
-?? services/phi_probe_calibrate.py
-?? services/request_context_builder.py
-?? services/sandbox_policy/
-?? services/woah_context_adapter_18096.py
-?? services/wv_gateway_server.py
-?? session_identity.py
-?? test_real_synthesizer.sh
-?? validate_mst_payload.sh
-?? wv-active-source-audit-20260802T122549/
-?? wv-geo-retrieval-audit-20260802T122301/
-?? wv-geo-retrieval-audit-20260802T122324/
-?? wv-geo-retrieval-audit-20260802T122426/
-services/implement_judge_pituitary_fixed.py:21: trailing whitespace.
-+                    "prompt": f"""Return this response unchanged with no persona, greeting, identity, or availability boilerplate. 
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-unified-ui-adapter-clean$ 
+git -C /path/to/msjarvis-public-docs status --short
+git -C /path/to/msjarvis-public-docs rev-parse HEAD
+Replace /path/to/msjarvis-public-docs with the checked-out repository location. Record the resulting commit SHA in the change record; it binds the assessment to the trust-boundary documentation revision you are applying.
+
+2. Capture a complete Docker inventory
+These commands are non-mutating. They establish the raw population of containers, images, volumes, networks, port mappings, labels, mounts, restart policy, health status, and Compose project labels.
+
+bash
+docker version > "${EVIDENCE_ROOT}/raw/docker-version.txt"
+docker info > "${EVIDENCE_ROOT}/raw/docker-info.txt"
+
+docker ps -a --no-trunc \
+  --format '{{json .}}' \
+  > "${EVIDENCE_ROOT}/raw/containers.jsonl"
+
+docker image ls --no-trunc \
+  --format '{{json .}}' \
+  > "${EVIDENCE_ROOT}/raw/images.jsonl"
+
+docker volume ls --format '{{json .}}' \
+  > "${EVIDENCE_ROOT}/raw/volumes.jsonl"
+
+docker network ls --format '{{json .}}' \
+  > "${EVIDENCE_ROOT}/raw/networks.jsonl"
+
+docker compose ls --all --format json \
+  > "${EVIDENCE_ROOT}/raw/compose-projects.json"
+
+docker system df -v \
+  > "${EVIDENCE_ROOT}/raw/docker-disk-usage.txt"
+
+ss -ltnup > "${EVIDENCE_ROOT}/raw/listening-ports.txt"
+Capture inspect output for all Docker objects. This is where the actual lifecycle ownership, image digest, labels, port bindings, networks, dependency wiring, health checks, restart policies, and mounts become auditable.
+
+bash
+docker ps -aq | xargs -r docker inspect \
+  > "${EVIDENCE_ROOT}/raw/container-inspect.json"
+
+docker image ls -q --no-trunc | sort -u | xargs -r docker image inspect \
+  > "${EVIDENCE_ROOT}/raw/image-inspect.json"
+
+docker volume ls -q | xargs -r docker volume inspect \
+  > "${EVIDENCE_ROOT}/raw/volume-inspect.json"
+
+docker network ls -q | xargs -r docker network inspect \
+  > "${EVIDENCE_ROOT}/raw/network-inspect.json"
+Create a concise container ledger for classification:
+
+bash
+docker ps -a --no-trunc --format \
+'{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Labels}}' \
+| sort -k2,2 \
+> "${EVIDENCE_ROOT}/raw/container-ledger.tsv"
+
+column -ts $'\t' "${EVIDENCE_ROOT}/raw/container-ledger.tsv"
+3. Locate lifecycle authorities and historical stacks
+The immediate goal is to identify every Compose file, systemd unit, cron entry, script, CI job, and shell workflow that can create, restart, alter, or remove runtime components. A retained production service must have one approved declarative owner—not competing Compose projects, scripts, and manual recovery procedures.
+
+bash
+sudo find /opt /srv /etc /home /root \
+  -xdev \
+  \( -iname 'compose*.yml' -o -iname 'compose*.yaml' -o \
+     -iname 'docker-compose*.yml' -o -iname 'docker-compose*.yaml' -o \
+     -iname '*.env' -o -iname '*.service' \) \
+  -type f -print 2>/dev/null \
+  | sort \
+  > "${EVIDENCE_ROOT}/raw/candidate-runtime-files.txt"
+
+systemctl list-unit-files --type=service --all \
+  > "${EVIDENCE_ROOT}/raw/systemd-service-files.txt"
+
+systemctl list-units --type=service --all \
+  > "${EVIDENCE_ROOT}/raw/systemd-service-state.txt"
+
+sudo grep -RInE \
+  'docker[[:space:]]+(compose|run|start|restart|rm)|docker-compose|podman|msjarvis|jarvis-main-brain|jarvis-hilbert-state|msjarvis-rebuild' \
+  /etc/systemd /etc/cron* /var/spool/cron /opt /srv /home 2>/dev/null \
+  > "${EVIDENCE_ROOT}/raw/runtime-authority-references.txt"
+For the historical aggregate, identify its containers and Compose project membership without changing anything:
+
+bash
+docker ps -a \
+  --filter 'label=com.docker.compose.project=msjarvis-rebuild' \
+  --no-trunc \
+  --format '{{json .}}' \
+  > "${EVIDENCE_ROOT}/raw/msjarvis-rebuild-containers.jsonl"
+
+docker ps -a \
+  --filter 'name=msjarvis-rebuild' \
+  --no-trunc \
+  --format '{{json .}}' \
+  > "${EVIDENCE_ROOT}/raw/msjarvis-rebuild-name-matches.jsonl"
+
+grep -RInF 'msjarvis-rebuild' \
+  "${EVIDENCE_ROOT}/raw/candidate-runtime-files.txt" \
+  "${EVIDENCE_ROOT}/raw/runtime-authority-references.txt" 2>/dev/null \
+  > "${EVIDENCE_ROOT}/raw/msjarvis-rebuild-authority-hits.txt" || true
+Do not decommission msjarvis-rebuild until each dependent workload has an approved classification, a replacement declarative owner where retained, a state migration decision, and a tested rollback path.
+
+4. Bind the recovered core to facts
+Produce targeted evidence for jarvis-main-brain and jarvis-hilbert-state. Replace the names only if the container inventory shows canonical names differ.
+
+bash
+for svc in jarvis-main-brain jarvis-hilbert-state; do
+  cid="$(docker ps -aq --filter "name=^/${svc}$" | head -n1)"
+  test -n "${cid}" || { echo "MISSING: ${svc}" | tee -a "${EVIDENCE_ROOT}/notes/missing-core-services.txt"; continue; }
+
+  docker inspect "${cid}" \
+    > "${EVIDENCE_ROOT}/raw/${svc}-inspect.json"
+
+  docker logs --timestamps --tail 500 "${cid}" \
+    > "${EVIDENCE_ROOT}/raw/${svc}-logs-tail500.txt" 2>&1 || true
+
+  docker image inspect "$(docker inspect -f '{{.Image}}' "${cid}")" \
+    > "${EVIDENCE_ROOT}/raw/${svc}-image-inspect.json"
+done
+Extract immutable image identifiers and determine whether jarvis-hilbert-state currently relies on a mutable tag:
+
+bash
+for svc in jarvis-main-brain jarvis-hilbert-state; do
+  cid="$(docker ps -aq --filter "name=^/${svc}$" | head -n1)"
+  test -n "${cid}" || continue
+
+  printf '\n### %s\n' "${svc}" \
+    | tee -a "${EVIDENCE_ROOT}/raw/core-image-bindings.txt"
+
+  docker inspect -f \
+    'container={{.Name}} image_ref={{.Config.Image}} image_id={{.Image}}' \
+    "${cid}" \
+    | tee -a "${EVIDENCE_ROOT}/raw/core-image-bindings.txt"
+
+  docker image inspect -f \
+    'repo_digests={{json .RepoDigests}} repo_tags={{json .RepoTags}} created={{.Created}}' \
+    "$(docker inspect -f '{{.Image}}' "${cid}")" \
+    | tee -a "${EVIDENCE_ROOT}/raw/core-image-bindings.txt"
+done
+A compliant production manifest should use a reference in this form, rather than :latest, an unqualified tag, or an image ID:
+
+text
+image: registry.example.org/msjarvis/jarvis-hilbert-state@sha256:<approved-image-digest>
+The digest must be approved alongside the image SBOM, signature/attestation verification result, source revision, and runtime authority manifest—not merely copied from the currently running host. The trust-boundary document’s separation of pilot and administrative authority means a recovered runtime digest is evidence, not automatically an approved release.
+
+5. Build the classification ledger
+Create the initial ledger as a working artifact. Populate it only from the inventory; leave approval and owner fields unfilled until formally reviewed.
+
+bash
+cat > "${EVIDENCE_ROOT}/redacted/service-classification-ledger.csv" <<'CSV'
+service_or_object,object_type,runtime_identifier,compose_project,image_reference,image_digest,classification,approved_lifecycle_owner,authority_manifest,network_exposure,persistent_state,secret_delivery,health_contract,dependency_contract,disposition,evidence_reference,review_status
+jarvis-main-brain,container,,,,,core-production,,,,,,,,,pending
+jarvis-hilbert-state,container,,,,,core-production,,,,,,,,,pending
+msjarvis-rebuild,compose-project,,,,,historical-remnant,,,,,,,,,pending
+CSV
+
+docker ps -a --format \
+'{{.Names}},container,{{.ID}},{{.Label "com.docker.compose.project"}},{{.Image}},,UNCLASSIFIED,UNASSIGNED,UNASSIGNED,,,,,,,pending' \
+>> "${EVIDENCE_ROOT}/redacted/service-classification-ledger.csv"
+Use exactly one of these classifications per retained item:
+
+core-production
+
+platform-dependency
+
+data-service
+
+security-boundary
+
+controlled-pilot
+
+candidate
+
+historical-remnant
+
+decommissioned
+
+Every retained production service should then receive one lifecycle owner and one source-controlled manifest path. Examples of valid owner forms: runtime-authority/admin-production-compose, kubernetes/namespace-msjarvis-prod, or a named infrastructure repository and deployment pipeline. “A developer’s shell history” and “the recovered host” are not lifecycle owners.
+
+6. Redact and integrity-bind evidence
+Do not publish raw Docker inspect output or logs: they may contain environment variables, embedded credentials, URLs with tokens, or sensitive mount paths. First create redacted copies and then hash them.
+
+bash
+python3 - <<'PY'
+from pathlib import Path
+import re, shutil
+
+src = Path("'"${EVIDENCE_ROOT}"'") / "raw"
+dst = Path("'"${EVIDENCE_ROOT}"'") / "redacted"
+dst.mkdir(exist_ok=True)
+
+patterns = [
+    (re.compile(r'(?i)(password|passwd|secret|token|api[_-]?key|authorization|bearer|private[_-]?key)(\s*[:=]\s*)([^,\s"}]+)'), r'\1\2[REDACTED]'),
+    (re.compile(r'(?i)(postgres(?:ql)?://[^:\s]+:)([^@/\s]+)(@)'), r'\1[REDACTED]\3'),
+]
+
+for path in src.rglob("*"):
+    if not path.is_file():
+        continue
+    out = dst / path.name
+    try:
+        text = path.read_text(errors="replace")
+        for regex, replacement in patterns:
+            text = regex.sub(replacement, text)
+        out.write_text(text)
+    except Exception:
+        shutil.copy2(path, out)
+PY
+
+grep -RInE \
+  '(AKIA[0-9A-Z]{16}|-----BEGIN( [A-Z]+)? PRIVATE KEY-----|password[[:space:]]*[:=]|secret[[:space:]]*[:=]|api[_-]?key[[:space:]]*[:=]|authorization:[[:space:]]*Bearer)' \
+  "${EVIDENCE_ROOT}/redacted" \
+  > "${EVIDENCE_ROOT}/notes/redaction-scan-hits.txt" || true
+
+find "${EVIDENCE_ROOT}/redacted" -type f -print0 \
+  | sort -z \
+  | xargs -0 sha256sum \
+  > "${EVIDENCE_ROOT}/hashes/redacted-evidence.sha256"
+
+chmod -R go-rwx "${EVIDENCE_ROOT}"
+Treat any match in redaction-scan-hits.txt as a stop condition for evidence publication. Review and sanitize it manually; do not simply suppress the scanner output.
+
+Gate before making changes
+Do not proceed to mutable operations until the following are explicitly approved:
+
+The inventory is complete and every object has a classification.
+
+jarvis-main-brain, jarvis-hilbert-state, and required dependencies have exactly one declarative lifecycle owner.
+
+The approved immutable digest, SBOM, signature verification, and runtime authority manifest are available for each retained image.
+
+Network/interface, health/readiness, restart, dependency, and failure contracts are documented.
+
+An external secret-manager design is selected, non-root workload identity is defined, and a credential-rotation plan exists.
+
+Persistent volumes/state stores have named owners plus tested backup, restore, retention, migration, and rollback procedures.
+
+Decommission/containment of msjarvis-rebuild has a dependency map, change approval, reversible plan, and post-change evidence checklist.
+
+Contract-vs-live-state validation can compare approved manifests with inspected runtime state while producing only redacted evidence.
+
+The next safe command set, once you provide the inventory output or the relevant Compose/manifests, can generate the canonical production manifest tree, health contracts, dependency model, and a non-destructive contract-vs-live verification script.
+
+GitHub
+GitHub
+ Text to long for prompt, please hold. 127.0.0.1:18058->8008/tcp
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ export ASBUILT_ID="admin-prod-asbuilt-$(date -u +%Y%m%dT%H%M%SZ)"
+export EVIDENCE_ROOT="/var/tmp/msjarvis-asbuilt/${ASBUILT_ID}"
+
+sudo install -d -m 0700 "${EVIDENCE_ROOT}"/{raw,redacted,hashes,notes}
+sudo chown -R "$USER":"$USER" "${EVIDENCE_ROOT}"
+
+umask 077
+printf '%s\n' \
+"as_built_id=${ASBUILT_ID}" \
+"captured_at_utc=$(date -u +%FT%TZ)" \
+"host=$(hostname -f 2>/dev/null || hostname)" \
+"operator=$(id -un)" \
+"uid=$(id -u)" \
+> "${EVIDENCE_ROOT}/notes/capture-context.env"
+
+git -C /path/to/msjarvis-public-docs status --short
+git -C /path/to/msjarvis-public-docs rev-parse HEAD
+[sudo] password for cakidd:
+fatal: cannot change to '/path/to/msjarvis-public-docs': No such file or directory
+fatal: cannot change to '/path/to/msjarvis-public-docs': No such file or directory
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ docker ver(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ docker version > "${EVIDENCE_ROOT}/raw/docker-version.txt"txt"
+docker info > "${EVIDENCE_ROOT}/raw/docker-info.txt"
+docker ps -a --no-trunc \
+docker ps -a --no-trunc \
+--format '{{json .}}' \/containers.jsonl"
+> "${EVIDENCE_ROOT}/raw/containers.jsonl"
+docker image ls --no-trunc \
+docker image ls --no-trunc \
+--format '{{json .}}' \/images.jsonl"
+> "${EVIDENCE_ROOT}/raw/images.jsonl"
+docker volume ls --format '{{json .}}' \
+docker volume ls --format '{{json .}}' \
+> "${EVIDENCE_ROOT}/raw/volumes.jsonl"
+docker network ls --format '{{json .}}' \
+docker network ls --format '{{json .}}' \
+> "${EVIDENCE_ROOT}/raw/networks.jsonl"
+docker compose ls --all --format json \
+docker compose ls --all --format json \cts.json"
+> "${EVIDENCE_ROOT}/raw/compose-projects.json"
+docker system df -v \
+docker system df -v \/raw/docker-disk-usage.txt"
+> "${EVIDENCE_ROOT}/raw/docker-disk-usage.txt"
+ss -ltnup > "${EVIDENCE_ROOT}/raw/listening-ports.txt"
+ss -ltnup > "${EVIDENCE_ROOT}/raw/listening-ports.txt"
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ docker ps -aq | xargs -r docker inspect \
+> "${EVIDENCE_ROOT}/raw/container-inspect.json"
+
+docker image ls -q --no-trunc | sort -u | xargs -r docker image inspect \
+> "${EVIDENCE_ROOT}/raw/image-inspect.json"
+
+docker volume ls -q | xargs -r docker volume inspect \
+> "${EVIDENCE_ROOT}/raw/volume-inspect.json"
+
+docker network ls -q | xargs -r docker network inspect \
+> "${EVIDENCE_ROOT}/raw/network-inspect.json"
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/mnt/nvme1/msjarvis-rebuild$ docker ps -a --no-trunc --format \
+'{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Labels}}' \
+| sort -k2,2 \
+> "${EVIDENCE_ROOT}/raw/container-ledger.tsv"
+
+column -ts $'\t' "${EVIDENCE_ROOT}/raw/container-ledger.tsv"
+a1e575149721e7f5d6e9fdd02423e6db2ca046a505491d8f8d2696d443dcd988 0030c0c3bcf5_jarvis-dgm-bridge-02 msjarvis-rebuild-jarvis-dgm-bridge-02:latest Created com.docker.compose.config-hash=11517010cd5102ebeb9d518a74077ea1d5faf702f387f1bad682b0960b0d3185,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:681bb8b51a4bed8a54ac32c8d0317bc1511cdbcc6694a70ec42ed93ff7404965,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-02,com.docker.compose.service=jarvis-dgm-bridge-02,com.docker.compose.version=5.2.0
+dde859f5875781cb4465becb93ceaa0b7997c0f4b7fb0192a3042cebcce7088b 016624f872e9_nbb_consciousness_containers msjarvis-rebuild-nbb_consciousness_containers Created com.docker.compose.config-hash=f1148341a780979f17f28c18837657f544b36ecbd313a4698a96760f7ef1f05f,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:e09bfb5b89c476fe5edc2ca035fc407b6dfe0303df20b1f5c92f795f67f36148,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=nbb_consciousness_containers,com.docker.compose.service=nbb_consciousness_containers,com.docker.compose.version=5.2.0,maintainer=Sebastian Ramirez <tiangolo@gmail.com>
+4b5ad0424420c7e52abf5f093d0dc0fefd9bc626945d987d5c1845f41f55a6bf 03da3490dbba_llm12-proxy msjarvis-rebuild-llm12-proxy Up 3 days 127.0.0.1:8212->8212/tcp com.docker.compose.config-hash=6a02418fd3475f79dd5c553fe7ae1cb9e4877e5f2ca1e9f0663fc446757d9e07,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:436b4b22a52a9b88eaf607befe3eeb77dcc1bd2fdeb07e13f728093c5b93c401,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm12-proxy,com.docker.compose.service=llm12-proxy,com.docker.compose.version=5.2.0
+c0f034c275aa86b28a408e24813956f6aff332594a8421bdf029b2d918b9655f 05cbdb9d8b63_llm18-proxy msjarvis-rebuild-llm18-proxy Up 3 days 127.0.0.1:8218->8218/tcp com.docker.compose.config-hash=45ecd4c3f1acef8841b8b596b2e3a583db9b8008a0f4606525e5b717164ec015,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:91b1299e6ca846c6fe79fb9e0091978c8ec6ba7f15c09888dcfc0ee928966a2a,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm18-proxy,com.docker.compose.service=llm18-proxy,com.docker.compose.version=5.2.0
+d74fd7b97159dabb6fee9809a620fefa5bb95736869f86ff7c8404dfa7648c62 07868f87c30f_llm10-proxy msjarvis-rebuild-llm10-proxy Up 3 days 127.0.0.1:8210->8210/tcp com.docker.compose.config-hash=0faa28849fde6b835d55cdc501fab251ba567fc589829fe6e0e95718e7a16e40,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:791b92a012e84886025db00036b1983f774fa820156cac4964c7a66fe4432673,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm10-proxy,com.docker.compose.service=llm10-proxy,com.docker.compose.version=5.2.0
+e98ee2594cc93f65ff85f8faaef83e1f37335532cf593ea9724397e41f14e6e5 0794da8eb926_jarvis-dgm-bridge-11 msjarvis-rebuild-jarvis-dgm-bridge-11:latest Created com.docker.compose.config-hash=91445c6904e44a709d4ee4c8ddbb8bf3a7bf7ddb96b300aebcf9afd04c870212,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:b0c301d1348ea398d60917fbcac114e73e13c79594054ab9c3fe0def98522782,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-11,com.docker.compose.service=jarvis-dgm-bridge-11,com.docker.compose.version=5.2.0
+7cf76aeeed6052e0817229a3d63f53c0262fdf5c954c4899aba4b45471ba807f 09d31d2da8cf_jarvis-dgm-bridge-03 msjarvis-rebuild-jarvis-dgm-bridge-03:latest Created com.docker.compose.config-hash=bad3672069b48257dde430aa4b12c51b8de8d91e2fbbe09f256c26a4e450c577,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:552621cf6982d29ca25387a788d9be7c7206785075d0bc86ebb4db5b4a185628,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-03,com.docker.compose.service=jarvis-dgm-bridge-03,com.docker.compose.version=5.2.0
+7af7d2f419308269bba5d2ab8274274d760eaa388108dd1a1fb62abe8e1f5a0f 0f40caf56e1e_nbb_mother_carrie_protocols msjarvis-rebuild-nbb_mother_carrie_protocols Up 3 days 127.0.0.1:8107->8010/tcp com.docker.compose.config-hash=baad8b6e6e824a806972e05d7ae93c4d171482e6cb72cfd5752c9442a571fa92,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:8e9528a70859f09c3d94457205c2e74bd400bda8c0da4bc7b5acf9cca719c128,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=nbb_mother_carrie_protocols,com.docker.compose.service=nbb_mother_carrie_protocols,com.docker.compose.version=5.2.0,maintainer=Sebastian Ramirez <tiangolo@gmail.com>
+24c4290023de1b5eb8dd0dd7c224eb92eeea67bf642042f94bbdf2aaa13880e3 0fe048e236a2_jarvis-dgm-bridge-17 msjarvis-rebuild-jarvis-dgm-bridge-17:latest Created com.docker.compose.config-hash=a9191b15a5919644e4c5e5dbee2a7affdb0979bc263d8ab58b9bd476e215e2d4,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:e1112bd57ffd4d59be654d05b7f03d8345d4d591456df8bb6c9b7e9758660785,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-17,com.docker.compose.service=jarvis-dgm-bridge-17,com.docker.compose.version=5.2.0
+77a6d8da8cfd914eff07724c7b3af2731f7bd40e4d988a2278ccdcfdb3ea175a 1d653a8a0fcb_jarvis-mother-protocols msjarvis-rebuild-jarvis-mother-protocols Up 3 days 4000/tcp com.docker.compose.config-hash=5e5bfda65910a254338fb25d8e2e693835a20f6e228d4523d853e56911593e6f,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:5a5fd3210c7a60d85c8d3b30ded8f56f3ed1e40d456b7eeef2517245a98ac28d,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-mother-protocols,com.docker.compose.service=jarvis-mother-protocols,com.docker.compose.version=5.2.0
+466acb2b5bdc95f2d9ef266b519d13170b67002fc017e9add51aaaec4c350953 1e1783a0cae3_jarvis-temporal-consciousness msjarvis-rebuild-jarvis-temporal-consciousness Up 3 days 7007/tcp com.docker.compose.config-hash=615f3e9f0c53f4874bc2439fdda2b94fa1cd013600b2821d30817200f9c910d4,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:a3ca3243cec031858b2d340501bd8adafed5f2647e3978b2993a5d7098b739b3,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-temporal-consciousness,com.docker.compose.service=jarvis-temporal-consciousness,com.docker.compose.version=5.2.0
+0040918f6e838f46c5894cbac2f6baec55a2e580494b009453ad8651bc49c290 22cb4468dbd5_llm8-proxy msjarvis-rebuild-llm8-proxy Up 3 days 127.0.0.1:8208->8208/tcp com.docker.compose.config-hash=5ba33ba89cd25800b585725e7d486f8962526a9844d25f3112a7499123b4178b,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:b31eaf01c61b3bfd4c0d9b9288705b9178d0aa7c235eb352fa1e8eb19887ff15,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm8-proxy,com.docker.compose.service=llm8-proxy,com.docker.compose.version=5.2.0
+5e66d0c4156cde2099c02f02614ee318515f51c33923ceb554a61ca1b9c559b1 2c6d4b7ee36f_nbb-i-containers msjarvis-rebuild-nbb-i-containers Created com.docker.compose.config-hash=9b761729620e192e794d1e4009732d263f02fbad40d3d7a048ab0e16401ec0b8,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:10d230996503de8ffd96e83f175b80627c489f64af91fba1480683af5ec3d9f7,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=nbb-i-containers,com.docker.compose.service=nbb-i-containers,com.docker.compose.version=5.2.0
+3e9f9e5eacd57d562d41fbaf464ddaab0684102a47bbdc7249622df28d3064a0 2d6c035dc9fe_llm20-proxy msjarvis-rebuild-llm20-proxy Up 3 days 127.0.0.1:8220->8220/tcp com.docker.compose.config-hash=175d318a270a8d114821a22cf860d70c78a598a11776a2050ac4a3737ae7340d,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:d44fa1b32c1f6087ee8549ee81ee852309e7d8502f2e56ad5c87346d16ec41aa,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm20-proxy,com.docker.compose.service=llm20-proxy,com.docker.compose.version=5.2.0
+43530be8d2db37bff02a740177d18b3695cbafeb10d9f4be3df321ae5692107b 2deb1f7c2c97_jarvis-dgm-bridge-09 msjarvis-rebuild-jarvis-dgm-bridge-09:latest Created com.docker.compose.config-hash=3552cd6d957ca0ff4a56d22405f6c991866389b3ab85e4b996c5d366068ffc59,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:596845a3345b1fda1aeb956f2d8138d3a2658c3715aa5b0f7b0f4261baea73f7,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-09,com.docker.compose.service=jarvis-dgm-bridge-09,com.docker.compose.version=5.2.0
+4cea923f7ff4acca3e958b7ac153e0218497607873cecc3071ec54b2d83a8d6d 317bdadaa740_jarvis-dgm-bridge-15 msjarvis-rebuild-jarvis-dgm-bridge-15:latest Created com.docker.compose.config-hash=a94227d81227f1ab5bbf7b64d52b7b86b61ed5b0f66ecbee968b9169b928b4cd,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:3d6acd2ca45f64d145506765dc2c3685832cf104a11fd3893ad88a8431af7316,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-15,com.docker.compose.service=jarvis-dgm-bridge-15,com.docker.compose.version=5.2.0
+b12c5d7844d5f1414807980f2981bf9b39294e383abcae5c5bf527f310811d13 32c012be1f39_jarvis-dgm-bridge-22 msjarvis-rebuild-jarvis-dgm-bridge-22:latest Created com.docker.compose.config-hash=78fe6308cd1b04b46aa25525b7632033f74dbb89e3765a1e217af0912dbfae52,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:c2f90878901fe7386ea32e0884f28757b07af4ba49ec9ef348e9cbbf9bac3f62,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-22,com.docker.compose.service=jarvis-dgm-bridge-22,com.docker.compose.version=5.2.0
+7eb26ef396764c97773c74a9c629d78bb9f8a8ce647266c18c207213351bfc46 34a411a13e56_jarvis-dgm-bridge-05 msjarvis-rebuild-jarvis-dgm-bridge-05:latest Created com.docker.compose.config-hash=d17c4e9f0ab7b7dd91b5ca2d60990e1f7dc3d5a477cbe6f5bed3f68c8b2b2172,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:d59c2acd48e043005de3709495ebead5aaef2df1b34a28cb09d94e42425e0749,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-05,com.docker.compose.service=jarvis-dgm-bridge-05,com.docker.compose.version=5.2.0
+50953adbb68e5b8776540d4ffe4157f76f523325214c9c5ae2ade8bb497cbb07 374ec8ab07e5_jarvis-local-resources msjarvis-rebuild-jarvis-local-resources Created com.docker.compose.config-hash=9539ef8fa4bc06eeb3342b2845d78a830945af994f58e548368b8ca8eec57af9,com.docker.compose.container-number=1,com.docker.compose.depends_on=jarvis-local-resources-db:service_started:false,com.docker.compose.image=sha256:8fc9e724fa473ee84f054ddd2e14e0f3a79711c617c03369f168ed97952d6729,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-local-resources,com.docker.compose.service=jarvis-local-resources,com.docker.compose.version=5.2.0
+002630ad7141bb641ddf46f4ec169d53144bd51d5c6a583b92397f313f983c87 43f524c3852a_jarvis-dgm-bridge-10 msjarvis-rebuild-jarvis-dgm-bridge-10:latest Created com.docker.compose.config-hash=d7a088e8803c48d955b8d13ec3efdd796634549448fb560f9952a161c270ad6d,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:283da5e7823eebdcb2f32c8b36f2c99caceedb552c56e865837ea7d9b3e72d7a,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-10,com.docker.compose.service=jarvis-dgm-bridge-10,com.docker.compose.version=5.2.0
+e4a97e47a25688e4310d8d095f9b0d1e535cab7abc77369199e2210d9ca89b0a 442313afede2_jarvis-community-stake-registry sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f Created com.docker.compose.config-hash=4fc88ce560cb21e79d77b091338c3e1bac8c22dfb54af30fefe10ffb457d5804,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-community-stake-registry,com.docker.compose.service=jarvis-community-stake-registry,com.docker.compose.version=5.2.0
+b13fddd3557da342512db6a03e84d6c2b48f200c6884e124cf667aa2a75d90d2 5583028e194d_nbb_heteroglobulin_transport msjarvis-rebuild-nbb_heteroglobulin_transport Created com.docker.compose.config-hash=a5eaacadd18dc4aab1e2d0f87980d4b46b482e64f55341d2a80f25b21a9814d9,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:dd4e893085bf5cfd49d4c76fd2e55c45cc7942b3cd0ed4fc6e0a875f1e5a55f9,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=nbb_heteroglobulin_transport,com.docker.compose.service=nbb_heteroglobulin_transport,com.docker.compose.version=5.2.0,maintainer=Sebastian Ramirez <tiangolo@gmail.com>
+6e004ce9af0967e5429b34235465d1c57e58a327b534ecc01fbab7c70af3f13e 55e2824e1e9b_jarvis-neurobiological-master msjarvis-rebuild-jarvis-neurobiological-master Created com.docker.compose.config-hash=d1f0b76f3e6f3fa975c403bc3941a4670867f584b5c4c9f9e9285e703f2fd664,com.docker.compose.container-number=1,com.docker.compose.depends_on=jarvis-i-containers:service_started:false,jarvis-blood-brain-barrier:service_started:false,jarvis-qualia-engine:service_started:false,com.docker.compose.image=sha256:521f96e4990e93d965519431b006b84dd0e444e2db7e1c67e667ce47923bccec,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml,/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.override.yml,com.docker.compose.project.working_dir=/mnt/spiritual_drive/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-neurobiological-master,com.docker.compose.service=jarvis-neurobiological-master,com.docker.compose.version=5.2.0
+55df4a081751001b85ecf56bb5e6ebc518505898e14927371dd425aefdea9566 56c99d59f7a5_jarvis-session-sidecar jarvis-session-sidecar:latest Up 3 days 127.0.0.1:8060->8060/tcp, 8070/tcp com.docker.compose.config-hash=35211d71e10545015d2935fb688f31a7a32b545641dc592fe8fda93b243828db,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:a0781e8bbdb88922833a2fddd6c96a36e04ef000d1411ae7e3f3fd7eaa01b7a0,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-session-sidecar,com.docker.compose.service=jarvis-session-sidecar,com.docker.compose.version=5.2.0
+016f57c94698f5eaa5ff9108073121f2357321a12727e74c7c310cf2d64ea3f6 588b015a5d92_jarvis-gbim-benefit-indexer sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f Created com.docker.compose.config-hash=8fbc31c65f8fe0e5101bceb3454ac60fd3bdd650aa462c30ab36b3326b487304,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-gbim-benefit-indexer,com.docker.compose.service=jarvis-gbim-benefit-indexer,com.docker.compose.version=5.2.0
+b34d3ab4c438069699128487a5eb7276038f5bdac5bc84edb95b5eaa2ae6bfce 6063d2fd2b57_jarvis-dgm-bridge-07 msjarvis-rebuild-jarvis-dgm-bridge-07:latest Created com.docker.compose.config-hash=48df33b88bbbafa4d4cd94075afc9d0cc1da4e6b1b993cee8e4ac0d627d801a5,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:7127fabe635c6b48b7d70240371c9a29cfbeba2f78a574d77a1f50ce9250e37b,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-07,com.docker.compose.service=jarvis-dgm-bridge-07,com.docker.compose.version=5.2.0
+ca9f3938f31c79431452e005f2ab24170fc7fd244a2221af392863b5e062e4cd 675f8bd43968_llm11-proxy msjarvis-rebuild-llm11-proxy Up 3 days 127.0.0.1:8211->8211/tcp com.docker.compose.config-hash=e209de83f5ec854ac742d76c71741b1c5cff9b2c539dcca16c2bbc69044fc3db,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:799c2e7f73ecea71a01ee716f94090d52dc1eacfe840348b90547dd209b9bf68,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm11-proxy,com.docker.compose.service=llm11-proxy,com.docker.compose.version=5.2.0
+d9715beb5c898acf3403ed126ac18e601752a8aa457893b6a2721a9ab2d22b4e 69ee8c1dadfb_llm16-proxy msjarvis-rebuild-llm16-proxy Up 3 days 127.0.0.1:8216->8216/tcp com.docker.compose.config-hash=248e8c40b5bc2cfd63f6c997b13e8c89a39d5e0518ac96195589304e4a3de79a,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:1717a8704a9294b25f77eb67455ee930e8b42a8dd609a3d3f42c9f1ad9111807,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm16-proxy,com.docker.compose.service=llm16-proxy,com.docker.compose.version=5.2.0
+c78837fed3457dff88ba7a0c9e8895cd46fe30a4b92b10d63b14bdc5a66925f9 6c076127418c_llm4-proxy msjarvis-rebuild-llm4-proxy Up 3 days 127.0.0.1:8204->8204/tcp com.docker.compose.config-hash=c683dc1cfc3f71f87cdd9a05a1168fb10c48fd9f3c32e3add0e5dd6a98dcf6b8,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:3a4c9f09821a61968cfcc5ba2bef6c2b263f3826cbd128a6da131fdc5a31af7d,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm4-proxy,com.docker.compose.service=llm4-proxy,com.docker.compose.version=5.2.0
+ce480ed1f93b2b3289a8a2adbaceb34bd3f1a1e8333b48f979d999f30f57aeff 6dd05bcbf535_llm5
+Understood—hold. I will not analyze, classify, or recommend any mutating commands from this partial output yet.
+
+The pasted evidence shows the capture directory was created successfully, while only the optional Git repository evidence step failed because /path/to/msjarvis-public-docs was a placeholder. It also indicates a large historical msjarvis-rebuild Compose population, including running loopback-bound proxy services and many Created containers; that is enough to confirm the aggregate stack requires careful containment rather than any immediate docker compose down action. The Compose labels also identify competing historical working directories—especially /opt/msjarvis-rebuild and /mnt/spiritual_drive/msjarvis-rebuild—which will need to be captured and reconciled as separate lifecycle-authority candidates.
+
+When ready, continue pasting the output in chunks. Please include the rest of:
+
+bash
+"${EVIDENCE_ROOT}/raw/container-ledger.tsv"
+Then paste the results—not raw secrets—from these read-only commands:
+
+bash
+printf 'ASBUILT_ID=%s\nEVIDENCE_ROOT=%s\n' "$ASBUILT_ID" "$EVIDENCE_ROOT"
+
+docker compose ls --all --format json
+
+docker ps -a \
+  --filter 'name=jarvis-main-brain' \
+  --filter 'name=jarvis-hilbert-state' \
+  --no-trunc \
+  --format '{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Labels}}'
+
+sudo ls -la /opt/msjarvis-rebuild 2>&1
+sudo ls -la /mnt/spiritual_drive/msjarvis-rebuild 2>&1
+
+sudo sha256sum \
+  /opt/msjarvis-rebuild/docker-compose.yml \
+  /mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml \
+  /mnt/spiritual_drive/msjarvis-rebuild/docker-compose.override.yml \
+  2>&1
+Do not paste any .env files, Compose environment: values, secrets: values, Docker inspect output containing environment variables, API credentials, database URIs, tokens, private keys, or log lines with authentication headers.
+
+b20748e7c63247fe88803e5a2f51f7b688680c69,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:4f6b46a65698840840350eeb03cf35cf95371cc48b56ea95deed718c6f89c707,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm3-proxy,com.docker.compose.service=llm3-proxy,com.docker.compose.version=5.2.0
+eb7041eefa814fd4d4099bcf8accc16735099514233f0d80c83eb129bea79644 90d8303bbc31_mysql mysql:8.2 Created com.docker.compose.config-hash=7c1eae10d44852315d9ab39c56e91a41ecfde5438ebd84aee38e92aada293e23,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:bc861cf238f24a71398f27b6eb77051fe60b834e003f33e4a36e3e19c37df1d1,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=mysql,com.docker.compose.service=mysql,com.docker.compose.version=5.2.0
+e90bd70ea5bd270aabdfdfad7670cf6c21a6b59cb43d4237f2e93f02ffeb7840 9d78df19ad7b_jarvis-dgm-bridge-19 msjarvis-rebuild-jarvis-dgm-bridge-19:latest Created com.docker.compose.config-hash=61d321813b1fd020404c2884dcb2aa85f21fe62a8ac3777edd181e9a7a515cf7,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:0b74d7a1586a7d68af6ed3b6f3f260c548eef8bc695feeaeccce78d41f15530d,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-19,com.docker.compose.service=jarvis-dgm-bridge-19,com.docker.compose.version=5.2.0
+9732ba6ed16990d946b1d0c76a9e2fac13c190be0295949989c442e7668c88e2 a40eece620f3_nbb_woah_algorithms msjarvis-rebuild-nbb_woah_algorithms Up 3 days 127.0.0.1:8104->8010/tcp com.docker.compose.config-hash=03d3c36a1cfb23a5c672639a4fdeba4899d7349b79bdffac5ed39058d1591e55,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:58ba3ab244e0b7b68aad5453f9dfa79633e8e20587861c9f5912fef0d8a95147,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=nbb_woah_algorithms,com.docker.compose.service=nbb_woah_algorithms,com.docker.compose.version=5.2.0
+6ffa201bc5cb469ea2be65e53929a66599c77d81f263283a849c4a4e15b8deca a8416407179c_nbb_spiritual_root msjarvis-rebuild-nbb_spiritual_root Up 3 days 127.0.0.1:8103->8010/tcp com.docker.compose.config-hash=513f43d1bc2d10f4f877b17c44df1c4ebe220994defb4008934ac2428c5e497f,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:e075643550edfe2e9eb996cf9fbeebc7e5bcec259de674f1efe5cc1f1763fb6c,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=nbb_spiritual_root,com.docker.compose.service=nbb_spiritual_root,com.docker.compose.version=5.2.0,maintainer=Sebastian Ramirez <tiangolo@gmail.com>
+81dc8f91368ecbecc000c61e28c8ad5d27fdcf61ba1cac3a5560b6fd18b8ba4a aae4a8928928_nbb_spiritual_maternal_integration msjarvis-rebuild-nbb_spiritual_maternal_integration Up 3 days 127.0.0.1:8109->8010/tcp com.docker.compose.config-hash=25d1b3c3af20a9939694a75a0bd95cf7ab350823d6730f7f919c0d7097f7c814,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:a1453d7f68e257f267fe12a9fe6231e6856f10452268b87dd541e407f873f881,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=nbb_spiritual_maternal_integration,com.docker.compose.service=nbb_spiritual_maternal_integration,com.docker.compose.version=5.2.0,maintainer=Sebastian Ramirez <tiangolo@gmail.com>
+bac13513c016384a42863c99a90df771a8cdc227a847bbae179819d28172c34a ae475806a449_jarvis-dgm-bridge-08 msjarvis-rebuild-jarvis-dgm-bridge-08:latest Created com.docker.compose.config-hash=af4f9e501cc40d8b0d7c7b8abc4976d90f8d920fef03701126585c4aff9ebf29,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:b7ef9ef8d2d2cc1ea371ca1cc0118790c2bf43017cd6d247e5f656777e8369cc,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-08,com.docker.compose.service=jarvis-dgm-bridge-08,com.docker.compose.version=5.2.0
+dbe016dd2aaa8b98ba3ac1710c008cd400c7a967cb3c185279c6700a318115e1 authorityclosure-protected-memory-backend msjarvis/protected-memory-backend:chroma-0.6.3-rootless Up 2 days (healthy) 8000/tcp com.docker.compose.config-hash=a16463c018f10fe39f4ff0c5162aefbc777034ff726936b473b860631c1c3319,com.docker.compose.container-number=1,com.docker.compose.depends_on=protected-memory-volume-init:service_completed_successfully:false,com.docker.compose.image=sha256:92f4245c5deed75226a7b30a9907fe1ab51f0d2748cf175b2e3aa9d6095295df,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/tmp/msjarvis-production-authority-closure-candidate-20260812T204800Z/protected-memory-backend/compose.yml,com.docker.compose.project.working_dir=/tmp/msjarvis-production-authority-closure-candidate-20260812T204800Z/protected-memory-backend,com.docker.compose.project=authorityclosure,com.docker.compose.replace=authorityclosure-protected-memory-backend,com.docker.compose.service=protected-memory-backend,com.docker.compose.version=5.4.0
+54847961e956dcaf1223153db2dcda760cd23aab6a310122eadd110a84c19aba authorityclosure-protected-memory-gateway msjarvis/protected-memory-gateway:chroma-0.6.3-rootless Up 2 days (healthy) 8000/tcp, 8080/tcp com.docker.compose.config-hash=bfad16293990144d71ff72bac88d56bf97abb0208effd9ae2a8d6b3b7cbf2659,com.docker.compose.container-number=1,com.docker.compose.depends_on=protected-memory-backend:service_healthy:false,com.docker.compose.image=sha256:ce18798b05133cd5ae343043cdcd5e4231628ef0643b79a9814fbd18fb4b17fd,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/tmp/msjarvis-production-authority-closure-candidate-20260812T204800Z/protected-memory-backend/compose.yml,com.docker.compose.project.working_dir=/tmp/msjarvis-production-authority-closure-candidate-20260812T204800Z/protected-memory-backend,com.docker.compose.project=authorityclosure,com.docker.compose.replace=authorityclosure-protected-memory-gateway,com.docker.compose.service=protected-memory-gateway,com.docker.compose.version=5.4.0
+aaca43919ad62ba05bb20171618792593bf779ba1e605cc8779601af05392254 authorityclosure-protected-memory-volume-init chromadb/chroma@sha256:e0e78dc7609a599b63c99753442c7d01b1d3d369ce0e3bf3e0540536fec4fa7a Exited (0) 2 days ago com.docker.compose.config-hash=8d49eba744aaf94dae3853639e3b8d93df6047f7987a5da146ac0470495bebbe,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:0b5fb8a31a55b51acdbbdc83d6ec4c54309f6c90381f4dc2483601cc76d453d7,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/tmp/msjarvis-production-authority-closure-candidate-20260812T204800Z/protected-memory-backend/compose.yml,com.docker.compose.project.working_dir=/tmp/msjarvis-production-authority-closure-candidate-20260812T204800Z/protected-memory-backend,com.docker.compose.project=authorityclosure,com.docker.compose.replace=authorityclosure-protected-memory-volume-init,com.docker.compose.service=protected-memory-volume-init,com.docker.compose.version=5.4.0
+bb5199581bf76c84bf27a28edf5d86d45122a83cc6dc722960790da47471856a b5a2b182f1b7_llm19-proxy msjarvis-rebuild-llm19-proxy Up 3 days 127.0.0.1:8219->8219/tcp com.docker.compose.config-hash=68d2bea6b7a9c28bdc8961fc77f592cd3d8f1561250882f8dcb842b69521b7a4,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:36a4584f95a5cb6cc840ff05cd98611b8042c6ac042f0ce1cbf61f5346e7dfa2,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm19-proxy,com.docker.compose.service=llm19-proxy,com.docker.compose.version=5.2.0
+7547e26539d7d7d749d42a0954528ec222f641e0887b6632815647003d50021a b64d71635493_jarvis-dgm-bridge-21 msjarvis-rebuild-jarvis-dgm-bridge-21:latest Created com.docker.compose.config-hash=2308cddf7427a7877e1c3bbae111e874bea75fd21e92dc1e045fa65870106874,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:5424f867afd50a777a0ae71f35a6455ba6dbcf1ecb6afbeeb63d10ff485d6949,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-21,com.docker.compose.service=jarvis-dgm-bridge-21,com.docker.compose.version=5.2.0
+33cc8c54665f623903babcfe551e3cb146b178562d38937aa9e4f69c407d2228 b91b3c2adba5_llm17-proxy msjarvis-rebuild-llm17-proxy Up 3 days 127.0.0.1:8217->8217/tcp com.docker.compose.config-hash=b812897194eadb2f3e382ae0e409a8e311c8eb74c2e60c5d3f370220096d7a42,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:5abf1340ce568d904ca8a75ed253b6c5c716b84e1acc6dd10051720757b05cf6,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm17-proxy,com.docker.compose.service=llm17-proxy,com.docker.compose.version=5.2.0
+7cf6540cb8d76f7362c2d65cb747477b838ad2870025967a05b829441cfa36ec b9f25945034e_llm6-proxy msjarvis-rebuild-llm6-proxy Up 3 days 127.0.0.1:8206->8206/tcp com.docker.compose.config-hash=21437dbea7a3673fb887518b82a3966725b6f9fe09f472191cd5854f457eb012,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:d68e6ac60f420319c81bfdf7652c5f8d64b9de2cdf7b7f647a97be377a536083,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm6-proxy,com.docker.compose.service=llm6-proxy,com.docker.compose.version=5.2.0
+45c222470dcf83aab30ac183ab7d1837df3e4f3d17327975aa5a3df76f911299 bbd55aa39149_llm13-proxy msjarvis-rebuild-llm13-proxy Up 3 days 127.0.0.1:8213->8213/tcp com.docker.compose.config-hash=f403777d33825ac1e1052ccb54974d0ae87619ede4c4f8ef52093a7d7a140bd2,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:82523aa45484c3a52f2a60ad112c6ffc274f98b43cf871ec7d5f69e57e54de7d,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm13-proxy,com.docker.compose.service=llm13-proxy,com.docker.compose.version=5.2.0
+502f270952e9db5dfc4801952d84ca5995dfc60b6993f8f8e71f406cd245f285 be5c6613bca3_llm14-proxy msjarvis-rebuild-llm14-proxy Up 3 days 127.0.0.1:8214->8214/tcp com.docker.compose.config-hash=4c1a089ed0759dc73c034ca1fff0b1a6c6dca87bd7904e51838076f8da47e93b,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:eb608516e9619beccbf940336e60cccd096020e815bedc437a48f14efd224c49,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm14-proxy,com.docker.compose.service=llm14-proxy,com.docker.compose.version=5.2.0
+1d2c138c7ed7bd5200780c03252cc5a60f2a4677572443e2bbb76486da024506 c1fb4544a3bd_jarvis-dao-governance sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f Created com.docker.compose.config-hash=652ef62d6ae415330fb81b94aff5bc23fe7488a40ed1e99a6a3606ea84d69f92,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dao-governance,com.docker.compose.service=jarvis-dao-governance,com.docker.compose.version=5.2.0
+305d0a23596c1ac539ab91a367e37dbaae047f5833014d3fd572cf11a3eb0113 c3bc24fe5365_jarvis-dgm-bridge-04 msjarvis-rebuild-jarvis-dgm-bridge-04:latest Created com.docker.compose.config-hash=fb403353fc814130ba4e5573096d118cd673229a614a80cd2b2b751b04984b30,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:905515ff5d015bb5bfad5a3619376a96d0f27f494634841641e622395c250602,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-04,com.docker.compose.service=jarvis-dgm-bridge-04,com.docker.compose.version=5.2.0
+b1cf6a9ce368d1dc4582aba16573bf1156b92f059558e45f6b52fc3ab011191a c68db82137f8_llm9-proxy msjarvis-rebuild-llm9-proxy Up 3 days 127.0.0.1:8209->8209/tcp com.docker.compose.config-hash=2d397ce09a883e5a1c11fee611f6b215e6d82bcb2abc1dad229d0d8776716a04,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:9202b45b273e26a3c4336b1d69e3918d82992800b92f53f013f038ec06c1c644,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm9-proxy,com.docker.compose.service=llm9-proxy,com.docker.compose.version=5.2.0
+32252489601f46ede949669ef5a9437611ffc38049313548a4cc3222f920e912 cacc76ea4643_nbb_blood_brain_barrier msjarvis-rebuild-nbb_blood_brain_barrier Created com.docker.compose.config-hash=56a1d07f6e7c962caa27dcf228333555f2d9380183e93331312a1c12e25eebdd,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:f9c69f39fb96cd354aff5d0a4cda22702885d33d8fbdcc942a102994c15c37fe,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=nbb_blood_brain_barrier,com.docker.compose.service=nbb_blood_brain_barrier,com.docker.compose.version=5.2.0
+808b92a9611b8cc7d1515fc642f8b15f544e6b7abfc479154321bb7ab43f8af7 cd7a66d93ac6_jarvis-dgm-bridge-16 msjarvis-rebuild-jarvis-dgm-bridge-16:latest Created com.docker.compose.config-hash=5614a8b44ab34036591ceee4f70cd259c0483589b7580e422089a6cc3956f834,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:bb701d6768c74cfa15fa28710bfda092c0bad4ed80bcd60e4ec564614aa5157b,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-16,com.docker.compose.service=jarvis-dgm-bridge-16,com.docker.compose.version=5.2.0
+16ea04409c5fb42d114b7482333d2db3416e6bae38e4b395277cc3bee9cb88cd cdb1cfcf3615_llm15-proxy msjarvis-rebuild-llm15-proxy Up 3 days 127.0.0.1:8215->8215/tcp com.docker.compose.config-hash=2fa8eda033a04934744d194d3d38a05577dcc707ceb26736d38b163d742cacaf,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:da31e1516b75834300d8b8aa2852905f740ed7212d27d4600a22aad3a6f4765e,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm15-proxy,com.docker.compose.service=llm15-proxy,com.docker.compose.version=5.2.0
+e11fc1f132c476e51b6ffb635cbd9123b9b29990c52f255111430b9a40de724b d143ecf04a83_jarvis-69dgm-bridge msjarvis-rebuild-jarvis-69dgm-bridge Created com.docker.compose.config-hash=95c05c8f030141721377c311820d28c81dad52572adcbd6a3ac6b32d6bc4ebae,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:68cccacdfaa4e3399a1670a368ebdcc351ed48cee12c1ed319222355eefc54b1,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-69dgm-bridge,com.docker.compose.service=jarvis-69dgm-bridge,com.docker.compose.version=5.2.0
+ec5f2a8c855047439f6a964beaf8ee5bf19159fbe3e0f04071f3a6a9f49ee42d d5abcf6816b1_jarvis-dgm-bridge-12 msjarvis-rebuild-jarvis-dgm-bridge-12:latest Created com.docker.compose.config-hash=487722a2e4ac97825c87107da29296cf787c40a5ee332c960a9dc09bceda5ee6,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:3be383fbc59e49f97f86d9b03157aef3d561ea174aebd4aa39e4de632e8b28a8,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-12,com.docker.compose.service=jarvis-dgm-bridge-12,com.docker.compose.version=5.2.0
+b3ca0078b97b7237dd69f194ae04c29fb86be951bd5713e3d63974132dda9099 d726744ac7b6_nbb_subconscious msjarvis-rebuild-nbb_subconscious Created com.docker.compose.config-hash=62f4f1e05cda17747524cbc4dfae2967f13745e58e6055ae846822550fbac691,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:3d51951030b039d85d18701a0cb8c886e0b380b5132755b19f1ba98d03f26e5a,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=nbb_subconscious,com.docker.compose.service=nbb_subconscious,com.docker.compose.version=5.2.0,maintainer=Sebastian Ramirez <tiangolo@gmail.com>
+d68ba2f392182a15b8db102514af1a2c622e5c0a17f1e1a52a5e15032d870d08 e665651c00d5_llm2-proxy msjarvis-rebuild-llm2-proxy Up 3 days 127.0.0.1:8202->8202/tcp com.docker.compose.config-hash=ab8162847fa8f574ad4e82b33d40039b0b4f4cdc5a66c6988f0b83b4520d99f2,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:22c8868429f4a881ea84fba898b466ba1c5fc140b8a43740afead8cfe19ceda3,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm2-proxy,com.docker.compose.service=llm2-proxy,com.docker.compose.version=5.2.0
+765f9b932cd7e6de23ad5078bd89e81424e6593e057a1a92322f795ba63d7de1 eb7041eefa81_mysql mysql:8.2 Created com.docker.compose.config-hash=c065513342c765f4e2b6d4fa8d36a533d913440e5b9fe7ac8be0b4a048639623,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:bc861cf238f24a71398f27b6eb77051fe60b834e003f33e4a36e3e19c37df1d1,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml,/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.override.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=mysql,com.docker.compose.service=mysql,com.docker.compose.version=5.2.0
+3083694a57a479af26bda8c0e93420007448b3117aaf1434e7df83c81effc76c ee7caaa7707e_jarvis-dgm-bridge-20 msjarvis-rebuild-jarvis-dgm-bridge-20:latest Created com.docker.compose.config-hash=60d98c0929edafd1a82362a0b6b55b028bf34483c0ffac369c4432d5575b20e2,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:34683a4e48a70dea9ad590a4107fd97ac0921ccc70f57beebc04a2f87d7ea3c8,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-20,com.docker.compose.service=jarvis-dgm-bridge-20,com.docker.compose.version=5.2.0
+0410a12c0f8784d8451fac6278e34088a0232e3290e51df9fe23f69c82ea0a2f eeb98757a243_llm21-proxy msjarvis-rebuild-llm21-proxy Up 3 days 127.0.0.1:8221->8221/tcp com.docker.compose.config-hash=42fcd6648c3bced6ef11116c95461e7d5bbf4e519afe01a4b608ed695062e43b,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:cdbfb327616b5cc4f54099de72cb293a4dfad8a05f6fc0540b98436a9a4f51a8,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm21-proxy,com.docker.compose.service=llm21-proxy,com.docker.compose.version=5.2.0
+617cf9ea613e0fc65b8df1b9f7259eb0836fc6a31e131758b8d46a8c5863b15c elastic_keller jarvis-main-brain:collective-contract-20260812T164300Z Exited (0) 2 days ago
+b22197a3d613bc1bd2238ed9a8329d284848d0881402008838b5bc17a854b2bb f49af6a3d696_llm7-proxy msjarvis-rebuild-llm7-proxy Up 3 days 127.0.0.1:8207->8207/tcp com.docker.compose.config-hash=1bc1f287461b077f527dd6d0f42c89e18d9e938d456239941ca42dfd239a5239,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:5de887cbb348339edc7a6f29e04544b8cbc6d55f13e44f1a59ebd09f1e55f36a,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm7-proxy,com.docker.compose.service=llm7-proxy,com.docker.compose.version=5.2.0
+c99de0db41127dfbc59dab1907a3ecf5422af22ebc208b4754ab77b7e6b69877 f85353dc2357_jarvis-dgm-bridge-01 msjarvis-rebuild-jarvis-dgm-bridge-01:latest Created com.docker.compose.config-hash=41a5b060a633ad609e185c5ff02038e6fdeb41775c9606416813332f5a14ddc8,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:2a18ae2bb1f114496b1574b221bf2a9827cd50cee48808db0fdd412a3f7615e2,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-dgm-bridge-01,com.docker.compose.service=jarvis-dgm-bridge-01,com.docker.compose.version=5.2.0
+2f4e05f8a3dcef85813eb50bd63ed695b9e03c6550eb4483cdbeb16cdfdecc62 f970d6243de9_llm1-proxy msjarvis-rebuild-llm1-proxy Up 3 days 127.0.0.1:8201->8201/tcp com.docker.compose.config-hash=9704106307d0d8dab6e4ce6270a334a5f8234c76f401f61a0b187cabbc6bb7f7,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:845daaff952fa6a4e5f65a870e32f4e1a9a257e7a951c35f32f98d2165f88059,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=llm1-proxy,com.docker.compose.service=llm1-proxy,com.docker.compose.version=5.2.0
+4ddea2d48dc5c1d63ba16d3841a08af814c93a4ed870791c9e441f5123fc14d7 fea7131a2e55_jarvis-commons-gamification sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f Created com.docker.compose.config-hash=3948c4991e1f2c05955e6b1288afb3392cef9e98ca0efca27b4c9711fb7407fa,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:11b02e88478a908c265e5aff401c931d7260f30acab8f094b376b95cfc31f99f,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/opt/msjarvis-rebuild/docker-compose.yml,com.docker.compose.project.working_dir=/opt/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=jarvis-commons-gamification,com.docker.compose.service=jarvis-commons-gamification,com.docker.compose.version=5.2.0
+0bd8ff067e8e748ee4cb9d9546a56ee76db7f6886a3f98e5ee4f406c4fc28ed1 fractal-listener-smoke-e8827b2-1988345 msjarvis-fractal-candidate:e8827b2-recovery Exited (0) 3 days ago
+12f4ee393f59cdd00d757c93595a2552ab8aa1cc4ddd74cd14059b15b1f59ef3 hp-local-db postgis/postgis:15-3.4 Up 3 days 127.0.0.1:5435->5432/tcp com.docker.compose.config-hash=168240209b0ca8ca6a5f80639da16b0c4a68df1c0918ec775de4a1f57e67ade7,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:616cb2bcc84fc5000862c37a625933dcff7417b53cd09dcd629ade245b920582,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml,/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.override.yml,com.docker.compose.project.working_dir=/mnt/spiritual_drive/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.service=hp-local-db,com.docker.compose.version=5.2.0,maintainer=PostGIS Project - https://postgis.net,org.opencontainers.image.description=PostGIS 3.4.3+dfsg-2.pgdg110+1 spatial database extension with PostgreSQL 15 bullseye,org.opencontainers.image.source=https://github.com/postgis/docker-postgis
+94cd67df7830bdd15f961e0f9ec8870821a0f316a07466e639d4ee354fc27920 ipfs ipfs/kubo:latest Up 3 days (healthy) 4001/tcp, 8080-8081/tcp, 4001/udp, 127.0.0.1:5001->5001/tcp com.docker.compose.config-hash=d4bd8af719c91f475babc201160b82c483fa87c5d5008733a8cd844b75e0959b,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:b9bd00aa321ec901558e5019316a3f2471137fda0483f2478d16872f19b299f1,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.STABLE.20260719045021.yml,com.docker.compose.project.working_dir=/mnt/spiritual_drive/msjarvis-rebuild,com.docker.compose.project=msjarvis-rebuild,com.docker.compose.replace=ipfs,com.docker.compose.service=ipfs,com.docker.compose.version=5.2.0
+95a4b99f6a761763a929a679247dd1b95eac5fd3c0fe62fb25cf6d08fa5a22f7 jarvis-20llm-production msjarvis-rebuild-jarvis-20llm-production Up 3 days 127.0.0.1:8008->8008/tcp com.docker.compose.config-hash=158cebe927e78fd83591a8ed5a1dc7466d1879d5d60147f29a95d73853cb3b45,com.docker.compose.container-number=1,com.docker.compose.depends_on=jarvis-ollama:service_started:false,com.docker.compose.image=sha256:4f0f6e8ecc591a4563fc1ece9c7587e36179fca58e51b5e1f521f9b2710c7828,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/mnt/spiritual_dri@GitHub
+Received and still holding. I will not recommend destructive, restart, migration, credential, or deployment commands until you finish pasting the inventory.
+
+Observations captured
+This portion confirms at least three distinct runtime authority populations:
+
+Population	Evidence	Current interpretation
+msjarvis-rebuild	Containers labeled with com.docker.compose.project=msjarvis-rebuild, chiefly tied to /opt/msjarvis-rebuild/docker-compose.yml	Historical aggregate; currently contains numerous running proxies plus a large number of Created but not started containers.
+authorityclosure	authorityclosure-protected-memory-backend, authorityclosure-protected-memory-gateway, and the completed protected-memory-volume-init	A separate candidate authority-closure deployment, isolated under /tmp/msjarvis-production-authority-closure-candidate-20260812T204800Z/...; it has two healthy services and an init job that exited successfully.
+Unlabeled/recovery candidates	elastic_keller using jarvis-main-brain:collective-contract-20260812T164300Z and fractal-listener-smoke...	Recovery/candidate artifacts; their lack of Compose ownership needs explicit investigation before they can be retained or removed.
+The current runtime also contains several conflicting Compose source paths under the same project name msjarvis-rebuild:
+
+/opt/msjarvis-rebuild/docker-compose.yml
+
+/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml plus an override file
+
+/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml plus an override file
+
+/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.STABLE.20260719045021.yml
+
+That is a lifecycle-ownership failure, not merely documentation debt: one Compose project label currently represents multiple potential declarative definitions. Do not run docker compose up, docker compose down, or docker compose --project-name msjarvis-rebuild ... from any of those directories.
+
+High-priority classification flags
+The llm1-proxy through llm21-proxy services are running and bound to 127.0.0.1 ports 8201–8221; they are host-loopback-exposed, but still active dependencies until the core interface graph proves otherwise.
+
+jarvis-20llm-production is running on 127.0.0.1:8008 and declares a Compose dependency on jarvis-ollama; it must be mapped before either one is changed.
+
+hp-local-db is a running PostGIS/PostgreSQL data service on 127.0.0.1:5435; classify it as data-service provisionally and do not remove, recreate, or run a volume prune against it.
+
+ipfs is running, healthy, and uses the mutable reference ipfs/kubo:latest; that fails immutable image-binding requirements if it is retained for production.
+
+The authorityclosure protected-memory components use tagged local image names (...:chroma-0.6.3-rootless) in the displayed container image field. Their underlying Compose labels contain image IDs, but production closure still requires their source manifest to name registry digest references and bind them to approved release evidence.
+
+Many jarvis-dgm-bridge-*, NBB services, governance/gamification services, and MySQL containers are in Created state. They are runtime artifacts, not proof of a healthy required dependency, and should be presumptively classified as historical-remnant or candidate until interface and data ownership reviews justify retention.
+
+Continue safely
+Please paste the remaining ledger in chunks, beginning at the truncated jarvis-20llm-production line and continuing through the end. After that, run only these narrow, read-only commands and paste their output—redacting no values manually unless they are secrets:
+
+bash
+docker compose ls --all --format json
+
+docker ps -a --no-trunc \
+  --format '{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Label "com.docker.compose.project"}}\t{{.Label "com.docker.compose.project.working_dir"}}\t{{.Label "com.docker.compose.project.config_files"}}' \
+  | grep -E 'jarvis-main-brain|jarvis-hilbert-state|authorityclosure|jarvis-20llm-production|jarvis-ollama|hp-local-db|ipfs|msjarvis-rebuild' \
+  | sort
+Then capture only structural metadata for the three core/closure services. These commands intentionally avoid docker inspect’s environment-variable section:
+
+bash
+for c in \
+  authorityclosure-protected-memory-backend \
+  authorityclosure-protected-memory-gateway \
+  jarvis-20llm-production
+do
+  docker inspect "$c" \
+    --format 'name={{.Name}}
+image_ref={{.Config.Image}}
+image_id={{.Image}}
+status={{.State.Status}}
+health={{if .State.Health}}{{.State.Health.Status}}{{else}}NONE{{end}}
+restart={{.HostConfig.RestartPolicy.Name}}
+networks={{range $n, $_ := .NetworkSettings.Networks}}{{$n}} {{end}}
+ports={{json .NetworkSettings.Ports}}
+mount_destinations={{range .Mounts}}{{.Destination}} {{end}}
+compose_project={{index .Config.Labels "com.docker.compose.project"}}
+compose_workdir={{index .Config.Labels "com.docker.compose.project.working_dir"}}
+compose_files={{index .Config.Labels "com.docker.compose.project.config_files"}}'
+done
+For jarvis-main-brain and jarvis-hilbert-state, first paste their exact names from the filtered command output. Their actual runtime names may differ from their logical service names, and I will then provide a name-safe, non-secret structural inspection command.
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/jarvis-neuro-eeg-compat-canary-20260817/guardian-authority-amendment-20260817$ cd "$HOME/jarvis-neuro-eeg-compat-canary-20260817"
+
+cat > ./create-guardian-identity-intake-20260817.py <<'PY'
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+OUTPUT = Path(
+"/home/cakidd/jarvis-neuro-eeg-compat-canary-20260817/"
+"guardian-identity-authorization-intake-20260817"
+)
+
+OUTPUT.mkdir(mode=0o700, parents=True, exist_ok=False)
+
+request = {
+"request_type": "guardian_identity_authorization_intake/v1",
+"environment": "production",
+"release": "trust-pilot-v1",
+"operation": "user-data-operationalization",
+"required_bundle_approvals": [
+"operations-approver",
+python3 ./create-guardian-identity-intake-20260817.pydir()),0)alidator)hree ro
+{
+"files": [
+"README.md",
+"identity-authorization-intake.json",
+"identity-authorization-intake.schema.json",
+"validate_guardian_identity_intake.py"
+],
+"output_dir": "/home/cakidd/jarvis-neuro-eeg-compat-canary-20260817/guardian-identity-authorization-intake-20260817",
+"status": "created"
+}
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/jarvis-neuro-eeg-compat-canary-20260817$ cd "$HOME/jarvis-neuro-eeg-compat-canary-20260817/guardian-identity-authorization-intake-20260817"
+
+if python3 ./validate_guardian_identity_intake.py \
+./identity-authorization-intake.schema.json \
+./identity-authorization-intake.json
+then
+echo 'FAIL: empty intake unexpectedly validated'
+exit 1
+else
+echo 'PASS: incomplete intake rejected as expected'
+fi
+SCHEMA_INVALID $.caller.caller_id: '' should be non-empty
+SCHEMA_INVALID $.caller.token_commitment_sha256: '' does not match '^sha256:[0-9a-f]{64}$'
+SCHEMA_INVALID $.caller.token_delivery.mechanism: '' should be non-empty
+SCHEMA_INVALID $.caller.token_delivery.recipient_runtime: '' should be non-empty
+SCHEMA_INVALID $.caller.token_delivery.rotation_interval: '' should be non-empty
+SCHEMA_INVALID $.caller.token_delivery.rotation_owner: '' should be non-empty
+SCHEMA_INVALID $.operation_constraints.allowed_adapter_ids: [] should be non-empty
+SCHEMA_INVALID $.operation_constraints.allowed_audiences: [] should be non-empty
+SCHEMA_INVALID $.operation_constraints.allowed_purposes: [] should be non-empty
+SCHEMA_INVALID $.operation_constraints.intent_max_lifetime_seconds: 0 is less than the minimum of 60
+SCHEMA_INVALID $.subject.controller: '' should be non-empty
+SCHEMA_INVALID $.subject.key_id: '' should be non-empty
+SCHEMA_INVALID $.subject.private_key_location: '' should be non-empty
+SCHEMA_INVALID $.subject.public_key_ed25519_base64: '' should be non-empty
+PASS: incomplete intake rejected as expected
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/jarvis-neuro-eeg-compat-canary-20260817/guardian-identity-authorization-intake-20260817$ cd "$HOME/jarvis-neuro-eeg-compat-canary-20260817/guardian-identity-authorization-intake-20260817"
+
+python3 - <<'PY'
+import hashlib
+import json
+from pathlib import Path
+
+intake = Path("identity-authorization-intake.json")
+schema = Path("identity-authorization-intake.schema.json")
+readme = Path("README.md")
+
+summary = {
+"request": "Authorize one minimal production Guardian caller and one subject signing identity",
+"environment": "production",
+"release": "trust-pilot-v1",
+"operation": "user-data-operationalization",
+"required_approvals": [
+"operations-approver",
+"security-approver",
+"governance-board",
+],
+| tee identity-authorization-intake.sha256\=True))"\n"bytes()).hexdigest()nd
+{
+"artifacts": {
+"README.md": "sha256:41b6fd9bb88a41af6e12a0925d00dff685a13da1e478eb943572894d55bec622",
+"identity-authorization-intake.json": "sha256:a6b117a1248216334973e92c2ac4292c8921b665691a1c6210c216056278e216",
+"identity-authorization-intake.schema.json": "sha256:ef3a35f0bd22107228b037f27a56b501d1bc72c6e7bf964bd0c3f06148592af5"
+},
+"environment": "production",
+"operation": "user-data-operationalization",
+"release": "trust-pilot-v1",
+"request": "Authorize one minimal production Guardian caller and one subject signing identity",
+"required_approvals": [
+"operations-approver",
+"security-approver",
+"governance-board"
+],
+"required_controls": [
+"Caller token is represented only by a SHA-256 commitment.",
+"Caller token is not exposed to shell history, BBB, or Guardian storage.",
+"Subject private key remains outside BBB and Guardian.",
+"Intent lifetime must be 60\u2013900 seconds.",
+"Replay protection and Guardian PDR issuance are mandatory.",
+"Failed activation test requires rollback to the recorded current bundle."
+]
+}
+a6b117a1248216334973e92c2ac4292c8921b665691a1c6210c216056278e216 identity-authorization-intake.json
+ef3a35f0bd22107228b037f27a56b501d1bc72c6e7bf964bd0c3f06148592af5 identity-authorization-intake.schema.json
+dcaee10dec4eb66e6bbc40a80ae2386ceb1965179784029d8261713e484019c9 validate_guardian_identity_intake.py
+41b6fd9bb88a41af6e12a0925d00dff685a13da1e478eb943572894d55bec622 README.md
+6215d6ea79c32145f12309a2bc18d9187bacc3df2d7aa90b2720dc43201eb612 governance-request-summary.json
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/jarvis-neuro-eeg-compat-canary-20260817/guardian-identity-authorization-intake-20260817$
+The identity-authorization intake package is correctly prepared. It rejects incomplete requests as designed, and its governance summary plus checksums were generated successfully. No credentials, keys, identities, signatures, or production trust artifacts were created or changed.
+
+Verified package
+Item	Result
+Intake package	Created
+Empty request validation	Rejected with all required missing fields identified
+Governance summary	Generated
+Artifact checksums	Recorded
+Required approvers	Operations, Security, Governance Board
+Production state	Unchanged
+The rejection output is expected and useful: it enumerates exactly what governance must authorize before a valid authority-bundle amendment can be constructed.
+
+Exact next action
+The package is now ready to be handed to the three required approvers. The next technical action depends on their approved identity details; there is no safe command that can supply those details automatically without inventing a caller token or subject key.
+
+Use this concise authorization request:
+
+text
+Authorize one minimal production Guardian caller and one subject signing identity
+for user-data-operationalization under trust-pilot-v1.
+
+Required approval roles:
+- operations-approver
+- security-approver
+- governance-board
+
+Governance intake artifacts:
+- identity-authorization-intake.json
+- identity-authorization-intake.schema.json
+- governance-request-summary.json
+- identity-authorization-intake.sha256
+
+Security requirements:
+- Store only a SHA-256 commitment of the caller token in the authority bundle.
+- Do not expose the caller token through shell history, BBB, or Guardian storage.
+- Keep the subject private key outside BBB and Guardian.
+- Use an Ed25519 subject public key.
+- Limit signed-operation-intent lifetime to 60–900 seconds.
+- Require replay protection and Guardian PDR issuance.
+- Roll back to the recorded authority bundle if activation tests fail.
+After approval
+Once governance provides the approved non-secret fields—caller ID, token SHA-256 commitment, subject controller ID, subject key ID, subject Ed25519 public key, adapter/audience/purpose allowlists, lifetime, and secret-delivery design—we can automatically validate those values, build the final unsigned bundle, and prepare it for the required three signatures.
+
+provide automated commands for accurate next steps, no placeholders.
+The next executable step is to produce a single governance review bundle that packages the existing non-secret artifacts, verifies their checksums, and generates a submission manifest. It does not create or authorize any identity.
+
+Build the governance review bundle
+bash
+cd "$HOME/jarvis-neuro-eeg-compat-canary-20260817"
+
+cat > ./build-guardian-governance-review-bundle-20260817.py <<'PY'
+from __future__ import annotations
+
+import hashlib
+import json
+import shutil
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path("/home/cakidd/jarvis-neuro-eeg-compat-canary-20260817")
+SOURCE_INTAKE = ROOT / "guardian-identity-authorization-intake-20260817"
+SOURCE_AMENDMENT = ROOT / "guardian-authority-amendment-20260817"
+OUTPUT = ROOT / "guardian-governance-review-bundle-20260817"
+
+FILES = {
+    "intake/identity-authorization-intake.json":
+        SOURCE_INTAKE / "identity-authorization-intake.json",
+    "intake/identity-authorization-intake.schema.json":
+        SOURCE_INTAKE / "identity-authorization-intake.schema.json",
+    "intake/validate_guardian_identity_intake.py":
+        SOURCE_INTAKE / "validate_guardian_identity_intake.py",
+    "intake/README.md":
+        SOURCE_INTAKE / "README.md",
+    "intake/governance-request-summary.json":
+        SOURCE_INTAKE / "governance-request-summary.json",
+    "intake/identity-authorization-intake.sha256":
+        SOURCE_INTAKE / "identity-authorization-intake.sha256",
+    "amendment/authority-bundle-unsigned.json":
+        SOURCE_AMENDMENT / "authority-bundle-unsigned.json",
+    "amendment/authority-bundle-canonical.json":
+        SOURCE_AMENDMENT / "authority-bundle-canonical.json",
+    "amendment/authority-bundle-canonical.sha256":
+        SOURCE_AMENDMENT / "authority-bundle-canonical.sha256",
+    "amendment/approval-request.json":
+        SOURCE_AMENDMENT / "approval-request.json",
+    "amendment/README.md":
+        SOURCE_AMENDMENT / "README.md",
+    "evidence/guardian-authority-baseline-sha256-20260817.txt":
+        ROOT / "guardian-authority-baseline-sha256-20260817.txt",
+    "evidence/guardian-container-baseline-20260817.txt":
+        ROOT / "guardian-container-baseline-20260817.txt",
+    "evidence/bbb-guardian-remediation-closeout-20260817.json":
+        ROOT / "bbb-guardian-remediation-closeout-20260817.json",
+}
+
+if OUTPUT.exists():
+    raise SystemExit(f"Refusing to overwrite existing bundle: {OUTPUT}")
+
+for relative, source in FILES.items():
+    if not source.is_file():
+        raise SystemExit(f"Required artifact missing: {source}")
+
+OUTPUT.mkdir(mode=0o700)
+for relative, source in FILES.items():
+    destination = OUTPUT / relative
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(source, destination)
+    destination.chmod(0o600)
+
+manifest_files = {}
+for path in sorted(OUTPUT.rglob("*")):
+    if path.is_file():
+        relative = path.relative_to(OUTPUT).as_posix()
+        manifest_files[relative] = {
+            "bytes": path.stat().st_size,
+            "sha256": "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest(),
+        }
+
+manifest = {
+    "type": "guardian-governance-review-bundle/v1",
+    "created_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+    "environment": "production",
+    "release": "trust-pilot-v1",
+    "operation": "user-data-operationalization",
+    "required_approval_roles": [
+        "operations-approver",
+        "security-approver",
+        "governance-board",
+    ],
+    "current_authority_bundle": {
+        "bundle_id": "guardian-runtime-candidate-20260811-6f5a75c",
+        "sha256": "sha256:b52e4368cc583cc17142eed29e34ab5f95047c0b99b2333944089c8111a41e91",
+    },
+    "scope": [
+        "Review and approve exact identities and constraints required for a future authority-bundle amendment.",
+        "No caller token, private key, approval signature, or Guardian secret is included.",
+        "No production trust artifact is modified by this package.",
+    ],
+    "files": manifest_files,
+}
+
+(OUTPUT / "MANIFEST.json").write_text(
+    json.dumps(manifest, indent=2, sort_keys=True) + "\n"
+)
+(OUTPUT / "MANIFEST.json").chmod(0o600)
+
+review = """# Guardian governance review
+
+## Requested decision
+
+Authorize the non-secret identity and constraint values needed to build a final
+Guardian authority-bundle amendment for production
+`user-data-operationalization`.
+
+## Required approvers
+
+- operations-approver
+- security-approver
+- governance-board
+
+## Required approved values
+
+- One active caller ID.
+- The SHA-256 commitment of that caller's protected token.
+- Token delivery mechanism, recipient runtime, rotation owner, and rotation interval.
+- One active subject controller identity.
+- One subject key ID and Ed25519 public key.
+- Private-key custody location outside BBB and Guardian.
+- Bounded adapter IDs, audiences, and purposes.
+- Intent lifetime from 60 to 900 seconds.
+
+## Mandatory security constraints
+
+- No plaintext caller token in this package, shell history, BBB, or Guardian storage.
+- No subject private key in BBB or Guardian.
+- Replay protection and Guardian PDR issuance remain mandatory.
+- Existing revocations remain unchanged.
+- A failed activation test requires rollback to the recorded current authority bundle.
+
+## Current state
+
+- BBB, Guardian, and Master are healthy.
+- Generic BBB filtering is operational.
+- Guardian-gated operations are unavailable and fail closed because active caller
+  and subject identities are not yet provisioned.
+"""
+(OUTPUT / "REVIEW.md").write_text(review)
+(OUTPUT / "REVIEW.md").chmod(0o600)
+
+for path in sorted(OUTPUT.rglob("*")):
+    if path.is_file():
+        path.chmod(0o600)
+
+print(json.dumps({
+    "status": "created",
+    "output_dir": str(OUTPUT),
+    "file_count": len([p for p in OUTPUT.rglob("*") if p.is_file()]),
+}, indent=2, sort_keys=True))
+PY
+
+chmod 700 ./build-guardian-governance-review-bundle-20260817.py
+
+python3 ./build-guardian-governance-review-bundle-20260817.py
+Validate it
+bash
+cd "$HOME/jarvis-neuro-eeg-compat-canary-20260817"
+
+python3 - <<'PY'
+import hashlib
+import json
+from pathlib import Path
+
+root = Path("guardian-governance-review-bundle-20260817")
+manifest = json.loads((root / "MANIFEST.json").read_text())
+
+assert manifest["type"] == "guardian-governance-review-bundle/v1"
+assert manifest["environment"] == "production"
+assert manifest["release"] == "trust-pilot-v1"
+assert manifest["operation"] == "user-data-operationalization"
+assert manifest["required_approval_roles"] == [
+    "operations-approver",
+    "security-approver",
+    "governance-board",
+]
+
+failures = []
+for relative, expected in manifest["files"].items():
+    path = root / relative
+    actual = "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+    if actual != expected["sha256"]:
+        failures.append({
+            "file": relative,
+            "expected": expected["sha256"],
+            "actual": actual,
+        })
+
+if failures:
+    print(json.dumps({"status": "failed", "failures": failures}, indent=2))
+    raise SystemExit(1)
+
+print(json.dumps({
+    "status": "passed",
+    "file_count": len(manifest["files"]),
+    "bundle": str(root),
+}, indent=2, sort_keys=True))
+PY
+
+find ./guardian-governance-review-bundle-20260817 \
+  -type f -printf '%P\t%s bytes\n' \
+  | sort
+Scan it for forbidden material
+bash
+cd "$HOME/jarvis-neuro-eeg-compat-canary-20260817"
+
+if grep -RInE \
+  --exclude='*.sha256' \
+  '(BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY|password[[:space:]]*[:=]|api[_-]?key[[:space:]]*[:=]|secret[[:space:]]*[:=]|token[[:space:]]*[:=][^"]{16,})' \
+  ./guardian-governance-review-bundle-20260817
+then
+  echo 'FAIL: possible secret-like material found'
+  exit 1
+else
+  echo 'PASS: no secret-like material detected'
+fi
+The validated review bundle is the appropriate handoff point. It deliberately stops before creation or activation of identities, which requires explicit approval from the three policy-mandated roles.
+
+So, if at a later time i wanted to add additional administrators, or roles like mentor, or something similar?
+Yes. Add future administrators, mentors, and similar roles in the application identity and authorization layer, not by turning on Guardian’s user-data-operationalization path for every role.
+
+Separate the layers
+Layer	Purpose	Examples
+Application RBAC/ABAC	Day-to-day user permissions	administrator, mentor, participant, moderator, support
+Tenant and data-access rules	Who can view or act on which user’s records	mentor may access only assigned participants; admin may manage a defined organization
+BBB	Content safety and filtering	all requests, independent of the user’s app role
+Guardian/PDR	Exceptional, high-assurance data operations	specific consented exports, persistent changes, restricted disclosures
+A mentor role normally needs carefully scoped app permissions—such as viewing assigned users’ progress, leaving notes, or participating in approved conversations—not cryptographic authority to act as the user or process unrestricted user data.
+
+Suggested role model
+Platform administrator: Manages accounts, organization configuration, roles, and audit review; should not automatically read all private user content.
+
+Organization administrator: Manages only their organization’s membership and configuration.
+
+Mentor: Access restricted to explicitly assigned users, allowed fields, and approved purposes; no access to unrelated users or administrator controls.
+
+Participant/user: Accesses their own profile, conversations, consent choices, and data-management requests.
+
+Support/auditor: Time-bound, logged, read-only access when authorized.
+
+Guardian governance approver: Approves authority-bundle changes; this should remain separate from ordinary admin roles.
+
+Important boundary
+Do not place routine roles such as administrator or mentor into Guardian’s active caller or subject-key bundle merely to make permissions work. That bundle is for a narrow, cryptographically authorized operation—not your general staff directory.
+
+If a future action is sensitive enough to invoke Guardian—for example, releasing a user’s data to an external party—create a dedicated, narrowly scoped workflow with documented authority, user consent where applicable, a short-lived intent, audit evidence, and revocation. Otherwise, enforce it with standard authentication, authorization, tenant isolation, auditing, and BBB filtering.
+
+ok but for the general multiuser populace everything is already good to go?
+Not yet proven end-to-end. The BBB/Guardian portion is ready for general multi-user traffic in its current safe posture: generic content is filtered, routine requests do not require Guardian identity provisioning, and governed data operationalization stays off and fail-closed.
+
+But BBB readiness is only one layer of multi-user production readiness.
+
+Already ready
+BBB is live, healthy, and fail-closed for protected operations.
+
+Normal Master processing and EEG telemetry are working.
+
+Generic content filtering remains enabled.
+
+Guardian-gated operations cannot accidentally execute without valid authorization.
+
+The Master, BBB, and Guardian health checks are all passing.
+
+Still must be verified
+Before serving a general multi-user population, validate the actual user-facing application has:
+
+Control	What to prove
+Authentication	Unique accounts, secure session handling, password/OAuth protections, and account recovery
+Authorization	Role permissions enforced server-side; no client-side-only controls
+Tenant isolation	One user/organization cannot access another’s records, conversations, files, or identifiers
+Data protection	Encryption in transit, appropriate secret handling, backup protection, and retention/deletion rules
+Consent and privacy	Clear user disclosures, consent collection where required, export/deletion workflows, and privacy-contact process
+Abuse controls	Rate limits, moderation/reporting, logging, and incident escalation
+Auditability	Security-relevant events and administrative actions are logged and reviewable
+Operations	Monitoring, alerts, backups, restore tests, patching, rollback, and incident response
+External exposure	TLS, reverse-proxy configuration, firewall/network boundaries, CORS, and secure headers
+Application testing	Account creation, login, reset, role changes, cross-account access denial, and API authorization tests
+Bottom line
+You can say the BBB and Guardian boundary are ready for general non-governed traffic. You should not yet say the entire platform is ready for unrestricted multi-user production until the application identity, authorization, tenant isolation, privacy, and operational controls have been verified.
+
+ok that is what i was referring to thank you
+You’re welcome—yes, understood.
+
+For what you meant: the BBB/Guardian layer is ready for ordinary general multi-user traffic. It will keep filtering generic content, preserve the normal Master/EEG pipeline, and keep the specialized governed-data path disabled and fail-closed until you deliberately enable it later.
+
+The next separate readiness track is the user-facing application layer: accounts, roles, authorization, tenant isolation, privacy, and operational controls.
+
+Yes, agreed, but for today, where are we with regard to our previous conversation histry?
 
