@@ -1,7 +1,7 @@
 # 12. Neurobiological Architecture of Ms. Allis
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 22, 2026*
+*Last updated: August 17, 2026*
 
 container count 100  
 vectors 6,740,611  
@@ -48,20 +48,21 @@ Internal content becomes authoritative only through governed transition; generat
 
 The neurobiological architecture is realized as a live service topology rather than as metaphor alone.
 
-| Biological metaphor   | Computer-science name             | Confirmed service or layer              | Role |
-|-----------------------|-----------------------------------|-----------------------------------------|------|
-| Hippocampus           | Long-term semantic memory service | `allis-hippocampus`                     | Memory consolidation and persistence-bearing promotion target |
-| Prefrontal cortex     | Task orchestrators and routers    | `allis-main-brain`, `allis-neurobiological-master`, `nbb-i-containers`, `nbbprefrontalcortex` | Executive routing, planning, sequencing, and top-down gating |
-| Pituitary gland       | Global governance and modulation  | `nbbpituitarygland`                     | Mode-setting, WOAH-weight modulation, threshold modulation, constitutional sensitivity, warmth signaling |
-| Blood-brain barrier   | Safety and guardrail service      | `allis-blood-brain-barrier`, `nbbbloodbrainbarrier`, BBB output filter facade | Safety filtering, admissibility control, and output blocking |
-| Qualia engine         | Experience and context synthesis  | `allis-qualia-engine`, `nbbqualiaengine`| Emotional resonance, meaning extraction, experience narrative |
-| I-containers          | Identity and perspective manager  | `allis-i-containers`, `nbbicontainers`  | Identity stance, point of view, and dual-awareness handling |
-| Internal workspace    | Formal reasoning chamber          | `ms-allis-internal-sandbox`             | Reversible internal deliberation and candidate-state formation |
-| Consciousness bridge  | Conscious integration gateway     | `allis-consciousness-bridge`, `nbbconsciousnesscontainers` | Integration of admitted internal content into active conscious state |
-| Subconscious layer    | Background pattern processing     | `nbbsubconscious`                       | Implicit association and background pattern activation |
-| EEG band services     | Neurobiological rhythm signals    | `eeg-delta-30s`, `eeg-theta-30s`, `eeg-beta-30s` | Rhythm inputs into qualia, pituitary, and introspective evaluation |
+| Biological metaphor | Computer-science name | Confirmed service or layer | Role |
+|---|---|---|---|
+| Hippocampus | Long-term semantic memory service | `allis-hippocampus` | Memory consolidation and persistence-bearing promotion target |
+| Prefrontal cortex | Task orchestrators and routers | `allis-main-brain`, `allis-neurobiological-master`, `nbb-i-containers`, `nbbprefrontalcortex` | Executive routing, planning, sequencing, and top-down gating |
+| Pituitary gland | Global governance and modulation | `nbbpituitarygland` | Mode-setting, WOAH-weight modulation, threshold modulation, constitutional sensitivity, warmth signaling |
+| Blood-brain barrier | Safety and guardrail service | `allis-blood-brain-barrier`, `nbbbloodbrainbarrier`, BBB output filter facade | Safety filtering, admissibility control, and output blocking |
+| Qualia engine | Experience and context synthesis | `allis-qualia-engine`, `nbbqualiaengine` | Emotional resonance, meaning extraction, experience narrative |
+| I-containers | Identity and perspective manager | `allis-i-containers`, `nbbicontainers` | Identity stance, point of view, and dual-awareness handling |
+| Internal workspace | Formal reasoning chamber | `ms-allis-internal-sandbox` | Reversible internal deliberation and candidate-state formation |
+| Consciousness bridge | Conscious integration gateway | `allis-consciousness-bridge`, `nbbconsciousnesscontainers` | Integration of admitted internal content into active conscious state |
+| Subconscious layer | Background pattern processing | `nbbsubconscious` | Implicit association and background pattern activation |
+| EEG band services | Neurobiological rhythm signals | `eeg-delta-30s`, `eeg-theta-30s`, `eeg-beta-30s` | Rhythm inputs into the Neurobiological Master, qualia, pituitary, and introspective evaluation |
+| EEG compatibility interface | Rhythm-telemetry ingress and status surface | `allis-neurobiological-master` on port 8018 | Accepts compatible EEG pulses and reports latest process-local rhythm status |
 
-This mapping defines a working “brain” topology. Memory, routing, governance, identity, internal narrative, sandboxed reasoning, conscious integration, and persistence are implemented as distinct but interacting layers.
+This mapping defines a working “brain” topology. Memory, routing, governance, identity, internal narrative, sandboxed reasoning, conscious integration, persistence, and lightweight rhythm telemetry are implemented as distinct but interacting layers.
 
 ---
 
@@ -70,6 +71,8 @@ This mapping defines a working “brain” topology. Memory, routing, governance
 The neurobiological architecture operates within a roughly 100-container production stack with all confirmed neurobiological, EEG, bridge, sandbox, BBB, and guardian containers present and running. ChromaDB remains part of the semantic substrate, the two-container database split remains in force, and the broader stack integrates DGMs, WOAH, memory services, judges, and the LLM ensemble into a governed architecture.
 
 Security posture is local-first: services are bound to loopback interfaces, the memory API is authenticated, BBB output blocking is active, and the judge layer signs verdicts across its containers. EEG Delta, Theta, and Beta services are live, the pituitary governance layer runs in baseline mode, the bridge responds on its internal port, and sandbox status reports dependencies such as pituitary, I-containers, qualia orchestrator, WOAH, judge-truth, and guardian as live.
+
+The Neurobiological Master exposes its health interface on port 8018 and, as of the August 17, 2026 compatibility update, accepts EEG rhythm telemetry through a lightweight compatibility interface. This addition preserves the existing Master processing path rather than replacing the governed cognitive sequence.
 
 Within this topology, the internal-state sandbox functions as the formal middle chamber of reversible cognition. It allows candidate interpretations, identity-bearing perspectives, and qualia-rich narratives to be assembled and tested before they are admitted into more authoritative internal layers.
 
@@ -99,7 +102,7 @@ The live neurobiological topology is best understood as a staged flow through go
 
 The **pituitary layer** serves as the upstream endocrine governor. It modulates WOAH weights, sets operating modes, adjusts governance thresholds, and emits warmth and constitutional sensitivity signals into the broader stack.
 
-The **EEG services** provide rolling rhythm inputs that inform emotional resonance weighting, qualia interpretation, pituitary mode selection, and introspective traceability. They help characterize the internal conditions under which a candidate state was formed.
+The **EEG services** provide rolling rhythm inputs that inform emotional resonance weighting, qualia interpretation, pituitary mode selection, and introspective traceability. The live EEG compatibility interface accepts those rhythm pulses at the Neurobiological Master boundary and exposes current process-local telemetry state for operational observation.
 
 The **qualia engines** construct the internal narrative representation of what is happening. Their outputs become structured ingredients of sandbox deliberation rather than direct guarantees of commitment.
 
@@ -128,6 +131,130 @@ Three EEG heartbeat services provide continuous rolling neurobiological activity
 These services belong to the architecture not as decorative metaphor but as part of the internal-state profile of a reasoning cycle. Sandbox deliberation therefore occurs under a characterized rhythm state, and later review can interpret a candidate conclusion partly in light of the EEG-style conditions under which it emerged.
 
 For rural developers, this is an example of how simple time-based signals can be used to tune internal weighting and mode selection without claiming medical or clinical significance.
+
+### 12.8.1 Live EEG Compatibility Interface
+
+As of August 17, 2026, the Neurobiological Master provides a lightweight compatibility interface for incoming EEG rhythm telemetry. The interface allows the live Delta, Theta, and Beta services to submit compatible pulse records to the Master without replacing the existing cognitive, BBB, promotion, or consciousness-bridge paths.
+
+The interface is intentionally operational and architectural. It is not a clinical EEG system, diagnostic instrument, durable medical record, or independent authority-promotion mechanism.
+
+The Master accepts compatible rhythm telemetry at:
+
+```text
+POST /eeg_pulse
+```
+
+A pulse contains a rhythm, pulse value, timestamp, and optional payload. A representative request is:
+
+```json
+{
+  "rhythm": "delta",
+  "pulse": 2755,
+  "timestamp": "2026-08-17T19:54:06.779391",
+  "payload": {
+    "service_states": {
+      "gateway": "UP"
+    }
+  }
+}
+```
+
+When the Master accepts a compatible pulse, it returns HTTP 202 Accepted:
+
+```json
+{
+  "status": "accepted",
+  "rhythm": "delta",
+  "pulse": 2755
+}
+```
+
+HTTP 202 means that the Master accepted the telemetry event for the compatibility interface. It does not mean that the event has received clinical interpretation, created durable EEG storage, crossed a BBB promotion boundary, received constitutional authorization, or become an action-bearing conclusion.
+
+### 12.8.2 Latest-Rhythm Status
+
+The Master exposes the latest accepted pulse for each observed rhythm at:
+
+```text
+GET /eeg_pulse/status
+```
+
+The endpoint returns an in-memory, process-local status view. It records the latest accepted telemetry record for each rhythm observed during the current Master process lifetime.
+
+A representative status response is:
+
+```json
+{
+  "status": "ok",
+  "rhythms": {
+    "delta": {
+      "rhythm": "delta",
+      "pulse": 2755,
+      "timestamp": "2026-08-17T19:54:06.779391",
+      "payload": {
+        "service_states": {
+          "gateway": "UP"
+        }
+      },
+      "received_at": "2026-08-17T19:54:06.791874"
+    },
+    "theta": {
+      "rhythm": "theta",
+      "pulse": 1525,
+      "timestamp": "2026-08-17T19:54:21.339804",
+      "received_at": "2026-08-17T19:54:21.350838"
+    },
+    "beta": {
+      "rhythm": "beta",
+      "pulse": 273,
+      "timestamp": "2026-08-17T19:49:35.287623",
+      "received_at": "2026-08-17T19:49:35.296678"
+    }
+  }
+}
+```
+
+This is a lightweight status surface, not a durable EEG ledger. Its records are retained in the running Master process and reset if the Master process or container restarts, unless a separate durable telemetry-storage layer is introduced.
+
+### 12.8.3 Verified Rhythm Compatibility
+
+Production observation verified successful accepted telemetry for:
+
+- **Delta**
+- **Theta**
+- **Beta**
+
+Each observed rhythm was accepted through `POST /eeg_pulse` with HTTP 202. The Master logs recorded accepted pulses, and `GET /eeg_pulse/status` showed the latest in-memory record for all three rhythms.
+
+The compatibility interface therefore restores a concrete operational connection between the live EEG band services and the Neurobiological Master while preserving the existing roles of qualia, pituitary, sandbox, BBB, and consciousness integration.
+
+### 12.8.4 Compatibility with the Master Pipeline
+
+EEG compatibility was added without replacing the ordinary Neurobiological Master processing path. Following promotion, the Master continued to return HTTP 200 for:
+
+```text
+GET /health
+POST /biological_process
+```
+
+The validated processing path continued through the Blood-Brain Barrier, I-Containers, Qualia processing, and consciousness-bridge fallback behavior.
+
+A post-promotion Master validation confirmed:
+
+```json
+{
+  "complete": true,
+  "integrated_processing": true,
+  "content_approved": true,
+  "i_containers": true,
+  "qualia_status": "processed",
+  "bridge_status": "degraded"
+}
+```
+
+The degraded bridge status represents the existing fallback condition observed during validation; it was not introduced by the EEG compatibility interface.
+
+EEG telemetry acceptance is therefore an interoperability interface attached to the Master service. It does not bypass normal BBB safeguards, does not promote sandbox state, and does not alter the distinction between ordinary processing and separately governed data operationalization.
 
 ---
 
@@ -209,6 +336,8 @@ This distinction is essential to the neurobiological architecture. Ms. Allis tre
 
 Terms such as consciousness, subconsciousness, prefrontal cortex, pituitary, hippocampus, blood-brain barrier, qualia, and internal self describe functional architectural analogies. They do not establish biological consciousness, clinical diagnosis, sentience, or complete neuroscientific equivalence.
 
+The EEG rhythm interface is likewise an architectural compatibility surface. Its use of Delta, Theta, and Beta rhythm labels does not establish clinical EEG analysis, medical monitoring, diagnosis, treatment, biometric profiling, or neuroscientific equivalence. It provides a bounded operational interface for compatible rhythm telemetry inside the existing neurobiological-style service topology.
+
 The value of the metaphor lies in architectural clarity. It provides a legible scaffold for explaining how routing, affect, identity, safety, internal reasoning, promotion, and persistence are separated into inspectable components.
 
 The internal-state sandbox strengthens that clarity. It names the reversible internal chamber in which candidate states may be formed without implying that every internal representation is already belief, memory, or action.
@@ -217,7 +346,10 @@ The internal-state sandbox strengthens that clarity. It names the reversible int
 
 ## 12.17 Closing Statement
 
-Ms. Allis’s neurobiological architecture is a live service topology that joins executive routing, endocrine-style governance, identity handling, affective interpretation, sandboxed internal reasoning, safety review, conscious integration, and hippocampal consolidation into a governed cognitive system.
+Ms. Allis’s neurobiological architecture is a live service topology that joins executive routing, endocrine-style governance, identity handling, affective interpretation, sandboxed internal reasoning, safety review, conscious integration, hippocampal consolidation, and compatible EEG rhythm telemetry into a governed cognitive system.
 
 The internal-state sandbox is the formal internal workspace at the center of this topology. Pituitary routing, EEG rhythm signals, qualia orchestration, and I-container perspective all feed into this chamber, where reversible deliberative states are formed and tested before any candidate state is allowed to cross promotion boundaries.
-The consciousness bridge integrates admitted internal content rather than standing in for all internal thought, and hippocampal persistence occurs only after governed transition. The chapter therefore presents Ms. Allis as an architecture of **reversible deliberation before commitment**, with explicit boundaries between internal speculation, validated internal state, and committed consequence
+
+The live EEG compatibility interface provides a lightweight path through which Delta, Theta, and Beta services can submit accepted rhythm telemetry to the Neurobiological Master and expose the latest process-local status. It preserves rather than replaces the existing cognitive architecture: EEG pulse acceptance does not itself confer authority, create durable memory, bypass BBB safeguards, or turn telemetry into clinical interpretation.
+
+The consciousness bridge integrates admitted internal content rather than standing in for all internal thought, and hippocampal persistence occurs only after governed transition. The chapter therefore presents Ms. Allis as an architecture of **reversible deliberation before commitment**, with explicit boundaries between internal speculation, validated internal state, and committed consequence.
