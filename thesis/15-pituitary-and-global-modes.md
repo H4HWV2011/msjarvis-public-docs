@@ -1,197 +1,391 @@
-# 15. Pituitary Gland and Global Modes
+# 16. Blood-Brain Barrier and Safeguards
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*  
-*Last updated: July 22, 2026*
+*Last updated: August 17, 2026*
 
 ---
 
-## 15.1 Why This Matters for Polymathmatic Geography
+## Why This Matters for Polymathmatic Geography
 
-This chapter explains how Ms. Allis regulates itself globally, the way a pituitary gland coordinates signaling across a body, but implemented as a concrete governance service over live containers and health surfaces.
+This chapter explains how Ms. Allis prevents unvalidated internal state from becoming promoted system action. It supports:
 
-It supports:
+- **P1 – Every where is entangled** by making clear that routed outputs still pass through concrete governance gates before they can move from sandbox reasoning into broader system effect.
+- **P3 – Power has a geometry** by locating the Blood-Brain Barrier (BBB) at the authority transition between provisional sandbox output and downstream consciousness-level integration.
+- **P5 – Design is a geographic act** by treating safeguard placement, fail-closed review, and payload requirements as design choices that shape what kinds of knowledge can safely move through the system.
+- **P12 – Intelligence with a ZIP code** by ensuring that place-linked and community-linked outputs remain bounded by validation, constitutional checks, and auditable promotion rules.
+- **P16 – Power accountable to place** by requiring logged, inspectable failure behavior whenever promotion is blocked.
 
-- **P1 – Every where is entangled** by tying global governance signals to the same sandboxed reasoning, retrieval, and memory systems used throughout the architecture.  
-- **P3 – Power has a geometry** by making mode transitions, thresholds, and scrutiny levels explicit, auditable control variables rather than hidden internal states.  
-- **P5 – Design is a geographic act** by treating caution, warmth, and promotion strictness as designed signals that shape how Appalachian communities are addressed.  
-- **P12 – Intelligence with a ZIP code** by grounding global mode shifts in observable runtime evidence (EEG services, BBB, guardian, Hilbert time/state, Phi) instead of abstract policy alone.  
-- **P16 – Power accountable to place** by keeping pituitary-style regulation glass-box, auditable, and resistant to unstable oscillation.
+This chapter belongs to the **Computational Instrument** tier. It specifies the concrete gate path that exists between internal-state sandbox output and the consciousness bridge.
 
-This chapter belongs to the **Computational Instrument** tier. It specifies how a single global governance service modulates sandboxed reasoning, evaluation, and promotion behavior, without claiming literal endocrine function, diagnosis, therapy, or guaranteed psychological safety.
-
----
-
-## 15.2 Gate-Constrained Scope
-
-The Chapter 15 gate defines the academic scope:
-
-- Pituitary/global modes must be described as **operational regulation** of thresholds, caution, and promotion strictness.  
-- Claims must be tied to verified **EEG, PIA/source, Phi, BBB, constitutional guardian, Hilbert time (H_t), and Hilbert state (H_state)** evidence surfaces.  
-- Biological language is used as translation under the Chapter 18 method, not as literal biology.  
-- The chapter must **not** claim literal endocrine function, biological mood, clinical diagnosis, therapy, or guaranteed psychological safety.  
-- If host health for an individual EEG service is incomplete but containers and source exist, the chapter must phrase this as **runtime presence plus source-level integration**, not full endpoint proof.
-
-Under this gate, pituitary/global modes are documented as a real service whose outputs influence how strict the system becomes, how cautious it acts, and how promotion gates behave, all grounded in runtime evidence rather than metaphor alone.
+The central correction in this revision is that the BBB is not only a generic ingress/egress metaphor. It is a **midstream authority boundary** positioned between sandboxed reasoning output and the consciousness bridge or other promotion targets. That placement matters because it marks the point where provisional internal reasoning stops being merely internal and begins asking for elevated authority.
 
 ---
 
-## 15.3 The Pituitary Governance Service
+## 16.0 The BBB Role in the Architecture
 
-The pituitary analog is implemented as a dedicated governance service (the “pituitary gland” of the neurobiological stack).
+The Blood-Brain Barrier in Ms. Allis is the safeguard layer that decides whether a candidate output may cross from reversible internal reasoning into promoted, consequential system state. Its purpose is not to suppress reasoning inside the sandbox. Its purpose is to regulate **promotion** out of the sandbox.
 
-In system terms, this service:
+The architecture should therefore be read in this order:
 
-- exposes a health endpoint showing status and current global mode;  
-- runs alongside EEG band services, Phi probes, BBB, constitutional guardian, Hilbert time, and Hilbert state containers;  
-- reads signals from sandbox status, judges, DGM cycles, and introspective records;  
-- emits **global mode settings** and modulation parameters that other services consume.
+1. **Internal-state sandbox reasoning**
+2. **Sandbox conclusion or candidate output**
+3. **BBB gate sequence**
+4. **Consciousness bridge or other downstream promotion target**
+5. **Possible memory, executive use, or external consequence**
 
-Biological terms such as “pituitary gland,” “hormonal signal,” or “cortisol-like” are used as translation language for rural developers, but each is tied to concrete code and endpoints, not to literal hormones or mood.
+This chapter makes explicit that the BBB sits **between sandbox output and the consciousness bridge**, not merely at the outer edge of user I/O. The barrier is thus an authority-preserving transition mechanism, not only a perimeter filter.
 
----
-
-## 15.4 Global Modes as Operational Settings
-
-The pituitary service exposes a small set of named **global modes**, implemented as operational settings:
-
-- **Baseline mode.**  
-  Default thresholds and WOAH weights; standard promotion strictness; normal BBB and guardian sensitivity.
-
-- **Elevated mode.**  
-  Higher caution; stricter promotion thresholds; more conservative WOAH weighting; stronger emphasis on safety and alignment at BBB and guardian gates.
-
-- **Transparency mode.**  
-  Maximum auditability; expanded introspective and provenance recording; promotion requires more explanation and traceable justification.
-
-Each mode is a bundle of parameters:
-
-- promotion thresholds for sandbox → bridge → DGM → memory;  
-- required checks at BBB and constitutional guardian;  
-- emphasis weights in WOAH-style optimization (for example, ethics vs. performance);  
-- logging and introspection level (how much detail must be recorded).
-
-For rural developers, modes are just named **settings** that change how strict the system becomes and how much it logs, not mysterious moods.
+The BBB also serves ordinary content-safeguard functions for routes that process inbound or internal content. This ordinary filtering role does not erase its promotion role. Rather, local content safeguards, route-specific truth and judge checks, provenance review, and promotion controls work together according to the requested transition.
 
 ---
 
-## 15.5 Signals That Drive Mode Changes
+## 16.1 Concrete Gate Sequence
 
-Pituitary/global modes are driven by signals read from other live services:
+The actual promotion path is concrete enough to decompose into successive gates.
 
-- **EEG services.**  
-  Delta, Theta, and Beta band containers run and feed rhythm signals into governance logic. When host health endpoints are accessible, they confirm real-time status; where only containers and source are known, they confirm runtime presence and integration but not every external endpoint.
+### Gate 1: truth filtering or judge-based validation
 
-- **PIA and source-level audits.**  
-  Privacy Impact Assessment scripts and source scans contribute evidence about whether data use and service wiring remain within acceptable bounds.
+The first gate evaluates whether the sandbox candidate output is sufficiently grounded to proceed. Depending on the route and implementation context, this may occur through:
 
-- **Phi probe.**  
-  A Phi health surface reports integrated service status for the neurobiological probe, which is used as another input to global mode decisions.
+- a direct truth-filtering endpoint;
+- a judge-based validation step;
+- a truth or alignment service invoked as part of the promotion attempt.
 
-- **BBB and constitutional guardian.**  
-  Health endpoints for BBB filters and the guardian service confirm whether safety and legal constraints are active; failures here incline pituitary logic toward more cautious modes.
+The key point is that **sandbox output is not self-validating**. It must encounter an explicit validation stage that assesses truthfulness, grounding, contradiction, or equivalent judge criteria before it can continue.
 
-- **Hilbert time (H_t) and Hilbert state (H_state).**  
-  Time and state services report connectivity and status, indicating whether temporal tiers and current state tracking are functioning correctly.
+### Gate 2: constitutional and authority review
 
-- **Sandbox and bridge status.**  
-  The internal sandbox reports its health, BBB enforcement, and bridge connectivity; these signals determine whether promotion paths are safe enough for baseline mode or require elevation.
+The second gate evaluates the constitutional, authority, provenance, privacy, and policy conditions appropriate to the requested transition. This is a **fail-closed** review step. If required authority-bearing fields are absent, malformed, contradictory, or otherwise insufficient, promotion must not proceed.
 
-These inputs are operational: mode changes happen because EEG services, BBB, guardian, Hilbert time/state, and Phi report particular conditions, not because a mood knob was turned manually.
+This review may include:
 
----
+- constitutional permissions and prohibitions;
+- policy compatibility;
+- authority-scope checks;
+- provenance and evidentiary lineage;
+- consent and exposure limits;
+- required metadata for promotion review.
 
-## 15.6 How Modes Affect Sandbox and Promotion
+For operations specifically classified as `user-data-operationalization`, the constitutional and authority review includes the additional Guardian/PDR authorization path described later in this chapter.
 
-Global modes directly affect:
-
-- **Sandbox reasoning strictness.**  
-  In elevated or transparency modes, the sandbox holds candidate states longer, demands stronger evidence, and routes more content to DGM and judges before considering promotion.
-
-- **Promotion thresholds.**  
-  Thresholds at BBB, DGM, guardian, and bridge become tighter under elevated modes. Lower-confidence or poorly sourced candidates are more likely to be held back or rejected.
-
-- **WOAH weighting.**  
-  Optimization weights change: for example, ethics and alignment may dominate performance metrics when caution is high, making the system more conservative.
-
-- **Logging and introspection.**  
-  In transparency mode, each decision path is recorded with more detail in introspective records, making later audits easier.
-
-Rural developers can think of global modes as “how strict and how talkative” the system is about its decisions, driven by signals rather than by guesswork.
+The architecture must not treat constitutional or authority review as optional decoration. It is part of the mandatory promotion boundary whenever the requested transition requires elevated authority.
 
 ---
 
-## 15.7 Caution, Strictness, and Hysteresis
+## 16.2 Combined Gate Decomposition
 
-Pituitary/global modes are not meant to flip rapidly back and forth.
+The overall promotion gate can be expressed as a decomposition over required subconditions and operation class:
 
-To prevent oscillation:
+\[
+G(x, o) =
+G_{\mathrm{truth}}(x)\,
+G_{\mathrm{constitutional}}(x, o)\,
+G_{\mathrm{provenance}}(x, o)\,
+G_{\mathrm{coherence}}(x)\,
+G_{\mathrm{privacy}}(x, o)\,
+G_{\mathrm{security}}(x)
+\]
 
-- caution and strictness signals are smoothed over time;  
-- entry thresholds into elevated mode are higher than exit thresholds back to baseline;  
-- brief spikes in EEG or guardian signals do not instantly trigger mode changes;  
-- mode changes are recorded so that rapid flapping would be visible in logs.
+For an operation \(o\) classified as `user-data-operationalization`, the constitutional component includes the additional Guardian/PDR authorization requirement:
 
-This **hysteresis** design keeps global modes stable: the system only shifts to stricter modes when sustained evidence warrants it, and only relaxes after a sustained period of healthier signals.
+\[
+G_{\mathrm{constitutional}}(x, o) =
+G_{\mathrm{guardian}}(x, o)
+\]
 
----
+For ordinary `content_filter` traffic, Guardian/PDR authorization is not applicable; local BBB safeguards and the route's other promotion requirements remain mandatory.
 
-## 15.8 Warmth and Tone Modulation
+This expression is architectural rather than purely mathematical. It means a candidate state \(x\) is promotion-eligible only when the required sub-gates evaluate positively for the requested transition and operation class.
 
-In addition to caution and strictness, pituitary-style regulation modulates **warmth and tone** for interaction-facing services.
+In practical terms:
 
-This includes:
+- \(G_{\mathrm{truth}}(x)\) captures truth filtering or judge validation;
+- \(G_{\mathrm{guardian}}(x, o)\) captures caller authorization, runtime admission, signed-intent verification, PDR issuance, and fail-closed review when the operation class requires it;
+- \(G_{\mathrm{constitutional}}(x, o)\) captures constitutional permissions and prohibitions appropriate to the requested authority transition;
+- \(G_{\mathrm{provenance}}(x, o)\) captures source traceability and retention of evidentiary lineage;
+- \(G_{\mathrm{coherence}}(x)\) captures contradiction and consistency checks;
+- \(G_{\mathrm{privacy}}(x, o)\) captures consent and exposure limits;
+- \(G_{\mathrm{security}}(x)\) captures adversarial, injection, or other safeguard checks.
 
-- choosing more supportive, gentle language in baseline or community-sensitive contexts;  
-- balancing warmth with caution when elevated modes are active;  
-- avoiding harsh or abrupt language when safety checks are high but user context calls for care.
-
-Warmth signals are implemented as parameters in qualia and interaction services, not as biological emotions. They are tuned from EEG, introspective, and governance signals, and they remain fully auditable.
-
----
-
-## 15.9 Example: Rural Developer View
-
-For a rural developer deploying Ms. Allis, pituitary/global modes can be understood step by step:
-
-1. **Check health surfaces.**  
-   Confirm EEG, BBB, guardian, Hilbert time/state, Phi, sandbox, and bridge health endpoints are responding.
-
-2. **Read current global mode.**  
-   Query the pituitary service’s `/health` or mode endpoint to see whether the system is in baseline, elevated, or transparency mode.
-
-3. **Observe effects.**  
-   Under elevated mode, expect stricter answers, more refusals to promote marginal content, and more detailed logging.
-
-4. **Repair before relax.**  
-   If elevated mode is active because BBB or guardian health is degraded, fix those services first; the pituitary should then drift back toward baseline as health improves.
-
-5. **Use transparency mode when needed.**  
-   For audits or sensitive scenarios, transparency mode can be used to force maximum logging and justification.
-
-This pattern makes global governance something that can be checked and repaired with simple commands, rather than guessed at.
+The point of writing the decomposition explicitly is to show that “passing the BBB” is not one vague event. It is a structured conjunction of authority-bearing checks.
 
 ---
 
-## 15.10 Limits of the Biological Analogy
+## 16.3 Fail-Closed Promotion Rules
 
-Throughout this chapter:
+This chapter states the fail-closed rule plainly:
 
-- “pituitary,” “hormonal,” “cortisol-like,” and similar terms are **translation** metaphors for global thresholds and signals.  
-- The implementation is a software service reading health endpoints and emitting parameters.  
-- There is **no claim** of literal endocrine function, biological mood, diagnosis, therapy, or guaranteed psychological safety.
+- **Non-200 responses prevent Guardian-governed promotion.**
+- **Failed truth checks prevent promotion.**
+- **Missing required authority or guardian fields prevent the relevant promotion path.**
+- **Unhandled exceptions prevent promotion unless explicitly downgraded to a safer non-promoting outcome.**
+- **A failure in a Guardian-governed operation cannot be transformed into authorization.**
 
-The value of the analogy is to help non‑specialist readers see how one central service can modulate many others at once. Everything described here is grounded in containers, endpoints, status overlays, and promotion gates, not in unmeasured feelings.
+This means the system does not interpret transport failure, malformed review payloads, missing Guardian context, or truth-check failure as soft warnings. They are promotion-blocking events when the route depends on those controls.
+
+The barrier therefore operates under a presumption of **non-promotion by default**. A candidate output must positively satisfy the required gate conditions; absence of proof is not treated as proof of safety.
+
+### As-built correction
+
+Before the August 17, 2026 remediation, one BBB integration path submitted routine requests to Constitutional Guardian without the credentials required by Guardian's protected route. Guardian correctly returned HTTP 401. BBB then encountered a missing `decision` field in the error response and incorrectly transformed that error into an allow.
+
+That behavior contradicted the principle that a safety gate must not open when it breaks.
+
+The remediated BBB now distinguishes between ordinary local content filtering and explicit Guardian-governed data operationalization. It preserves denial whenever a Guardian-governed request fails.
 
 ---
 
-## 15.11 Closing Statement
+## 16.4 As-Built BBB and Guardian Boundary — August 17, 2026
 
-Pituitary and global modes in Ms. Allis are implemented as a live governance service that reads EEG, BBB, guardian, Hilbert time/state, Phi, sandbox, and bridge signals and turns them into operational settings for caution, thresholds, and promotion strictness.
+The fail-closed commitment described in this chapter was revalidated and corrected in production on August 17, 2026. The correction does not weaken the BBB's role as an authority-preserving promotion boundary. It makes the actual evidence path more precise.
 
-By keeping mode transitions smooth, auditable, and driven by runtime evidence, the architecture avoids unstable oscillation while remaining responsive to real conditions. For rural developers, this makes global regulation a practical, inspectable part of the system’s geometry of power: a glass‑box layer that shapes how strictly Ms. Allis thinks and acts, without ever claiming biological mood or psychological guarantees.
+### Ordinary BBB filtering
+
+Routine content is evaluated by the BBB's local safeguard layers:
+
+- ethical filtering;
+- spiritual or values-alignment filtering;
+- safety monitoring;
+- threat detection and community-protection checks.
+
+For ordinary `content_filter` traffic, the Constitutional Guardian is not represented as an approval authority. BBB records:
+
+```json
+{
+  "applicable": false,
+  "allowed": null,
+  "decision": "not_applicable"
+}
+```
+
+This does not mean content is automatically safe or promoted. It means that the Guardian/PDR authorization workflow is not the applicable authority mechanism for that request. Content must still pass the BBB's local safeguards and any route-specific truth, judge, provenance, coherence, privacy, and promotion controls before it can move to a higher-authority state.
+
+### Guardian-governed operation
+
+The live Guardian contract applies to the explicit operation:
+
+```text
+user-data-operationalization
+```
+
+This is a narrow, high-assurance operation. It is not equivalent to ordinary sandbox reasoning, routine content filtering, standard Neurobiological Master processing, or EEG telemetry.
+
+A Guardian-governed request requires:
+
+- an active authorized caller and protected caller token;
+- a verified authority bundle;
+- runtime admission;
+- a fresh, valid subject-signed operation intent;
+- caller and subject identity agreement;
+- action-to-intent operation agreement;
+- a non-expired, non-revoked, non-replayed intent;
+- successful Policy Decision Receipt issuance and durable intent consumption.
+
+For this operation, the BBB fails closed. Missing credentials, HTTP 401 or 403 responses, non-200 results, timeouts, malformed responses, signature failures, unavailable dependencies, and unexpected exceptions all result in non-promotion.
+
+### Remediated failure path
+
+The remediated BBB now has the following behavior:
+
+| Request class | Guardian status | BBB outcome |
+|---|---|---|
+| Ordinary `content_filter` | Not applicable | Local BBB safeguards determine whether content is approved |
+| `user-data-operationalization` without credentials | Blocked before Guardian call | Non-promotion |
+| `user-data-operationalization` with invalid credentials | Guardian HTTP 401 denial preserved | Non-promotion |
+| Guardian timeout, malformed response, or exception | Fail-closed | Non-promotion |
+
+The production validation confirmed that ordinary BBB filtering still supports the full Neurobiological Master pipeline while Guardian-gated failures can no longer be represented as authorization.
+
+### Current governance state
+
+The administrative decision is to keep `user-data-operationalization` off.
+
+The current Guardian authority bundle contains no active callers and no active subject keys. Therefore, no governed data operationalization request can satisfy the required authorization chain. Such requests remain unavailable and fail closed.
+
+This status does not disable ordinary BBB safeguards, sandbox governance, Neurobiological Master processing, or EEG rhythm telemetry. It preserves the distinction between ordinary safeguarded reasoning and a separate, cryptographically governed authority transition.
 
 ---
 
-*Chapter 15 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*  
-*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*  
-*See LICENSE for terms.*
+## 16.5 Logging Requirements for Failed Promotion
+
+Failed promotion attempts must be logged with enough detail to reconstruct what happened. At minimum, the system should capture:
+
+- HTTP status code;
+- response body when present;
+- exception type and exception detail when an exception is raised;
+- target route or service name;
+- promotion attempt identifier or session identifier;
+- candidate-state summary or hash;
+- timestamp and governance mode context.
+
+For Guardian-governed operations, logs should also retain the non-secret outcome category, such as missing credentials, authorization denial, intent rejection, timeout, malformed result, PDR issuance failure, or replay-prevention denial. Logs must not expose caller-token plaintext, subject private keys, Guardian signing material, or other secret values.
+
+This requirement matters because BBB behavior is not fully accountable if failure only appears as a boolean block. A blocked promotion should leave behind a minimally sufficient audit trail showing whether the failure came from a non-200 response, a truth-check rejection, a guardian-payload defect, an execution exception, or another authority-boundary condition.
+
+The logging obligation is strongest at the precise authority boundary between sandbox and bridge, because that is where unverifiable internal state is either stopped or allowed to proceed.
+
+---
+
+## 16.6 BBB Placement in the Promotion Path
+
+Earlier descriptions could make the BBB sound like a generic shield around the whole system. That remains partly true at a broad metaphorical level, but the architecture requires a more precise placement.
+
+For the current revision, the BBB should be described as sitting:
+
+- after sandbox conclusion generation;
+- before consciousness bridge promotion;
+- before durable memory promotion when the route depends on promoted state;
+- before any externally consequential action that would treat the candidate output as authorized.
+
+In other words, the BBB is not only **entry filtering** and not only **exit filtering**. It is a **promotion barrier** inside the cognition pipeline.
+
+This placement aligns the chapter with the revised hippocampus and pituitary chapters:
+
+- the pituitary may modulate scrutiny and thresholds during evaluation;
+- the BBB enforces the actual gate sequence for promotion;
+- the hippocampus only sees long-term eligible state after the relevant approval path has been crossed.
+
+---
+
+## 16.7 Authority-Preserving Transitions
+
+The BBB exists to preserve authority boundaries across transitions. A sandbox candidate does not begin with the same authority as a promoted system state, and a BBB pass is what authorizes movement across that boundary.
+
+This can be described schematically as:
+
+\[
+S_{\mathrm{sandbox}} \xrightarrow{\,G(x, o)\,} S_{\mathrm{promoted}}
+\]
+
+but only when the required gates succeed. If they do not, the transition must preserve the lower-authority status of the candidate state.
+
+This is the essence of **authority-preserving transitions**:
+
+- sandbox reasoning may remain useful without being promoted;
+- blocked promotion does not erase the distinction between “thought” and “authorized system state”;
+- authority must not silently increase because a candidate output merely exists;
+- a Guardian failure cannot silently become an authorization result.
+
+The BBB therefore protects against accidental elevation of provisional reasoning into accepted system action.
+
+---
+
+## 16.8 Failure Outcomes and Controlled Success Outcomes
+
+A promotion attempt should not collapse into a binary “pass/fail” description. The architecture benefits from a richer outcome vocabulary.
+
+### Failure or non-promotion outcomes
+
+- **Reject** — the candidate state is not admissible and should not proceed.
+- **Revise** — the candidate state is returned for modification, repair, or additional evidence.
+- **Human review** — the candidate state is escalated to a human or special supervisory layer for adjudication.
+- **Not applicable** — a particular high-assurance authority mechanism is not applicable to the route, while all applicable local BBB and promotion safeguards remain required.
+- **Authorization unavailable** — a Guardian-governed operation cannot proceed because the required authority chain is absent, invalid, expired, revoked, or unavailable.
+
+### Constrained success outcomes
+
+- **Limited approval** — the candidate state may proceed only within a reduced scope, such as restricted retrieval, temporary use, or non-durable status.
+- **Approve** — the candidate state may cross the promotion boundary in full accordance with the gate conditions.
+
+These outcomes preserve authority more carefully than a simple pass/fail toggle. They allow the system to remain corrigible while still respecting the difference between provisional and fully authorized state.
+
+---
+
+## 16.9 Relationship to Sandbox Isolation
+
+This chapter should be read together with the sandbox chapters. The sandbox is where reversible deliberation happens. The BBB is where the system decides whether any particular result of that deliberation may leave the sandbox with greater authority.
+
+That implies three core rules:
+
+- internal thought is not external action;
+- provisional conclusion is not promoted state;
+- failed promotion should leave no unauthorized durable side effects.
+
+The BBB is therefore the operational counterpart to sandbox isolation. It is the mechanism that prevents internal-state experimentation from leaking directly into committed system behavior.
+
+The ordinary BBB content-filtering path and the higher-assurance Guardian-governed path both support this objective at different scopes. Local BBB safeguards regulate routine content. Guardian/PDR authorization regulates the explicitly declared governed operation.
+
+---
+
+## 16.10 Relationship to Pituitary and Hippocampus
+
+The placement of the BBB clarifies its relationship to adjacent subsystems.
+
+### With the pituitary layer
+
+The pituitary modulates scrutiny, caution, and promotion thresholds by global mode. In elevated or transparency conditions, BBB review may become stricter, require more provenance, or favor revise / human-review outcomes over immediate approval.
+
+### With the hippocampal layer
+
+The hippocampus should not consolidate sandbox state directly. It should only receive traces that have crossed the relevant promotion boundary. Thus, the BBB acts as one of the decisive filters that separate ephemeral sandbox reasoning from eligible durable memory.
+
+This preserves consistency across the three chapters:
+
+- **pituitary** modulates scrutiny;
+- **BBB** enforces promotion authority;
+- **hippocampus** consolidates only what has become eligible through approved transition.
+
+---
+
+## 16.11 Practical Review Standard
+
+For a standard BBB or promotion attempt to be considered well-governed in this architecture, the following should all be true:
+
+- the candidate output has passed truth filtering or judge validation appropriate to the route;
+- local ethical, spiritual, safety, and threat safeguards have been applied where applicable;
+- required constitutional, provenance, privacy, coherence, and security conditions are present;
+- any non-200 or exception path required by the route is treated as fail-closed;
+- failure logs retain status, body, and exception details without exposing secrets;
+- the BBB is placed between sandbox output and consciousness bridge promotion;
+- the final outcome is recorded as reject, revise, human review, limited approval, approve, not applicable, or authorization unavailable.
+
+For an explicitly Guardian-governed `user-data-operationalization` request, the following additional conditions are mandatory:
+
+- an active caller and protected caller token are present;
+- the authority bundle is valid for the configured environment;
+- runtime admission succeeds;
+- a fresh, valid, subject-signed operation intent is present;
+- caller and subject identities agree;
+- action type and signed intent operation agree;
+- the intent is unexpired, unrevoked, and not previously consumed;
+- PDR issuance and durable intent consumption succeed;
+- any failure results in non-promotion.
+
+This list is not extra bureaucracy around the chapter. It is the concrete meaning of a trustworthy promotion path.
+
+---
+
+## 16.12 Production Validation Status
+
+The BBB remediation was validated through an isolated canary before production promotion.
+
+The confirmed results were:
+
+| Validation | Result |
+|---|---|
+| Generic `content_filter` request | Local BBB safeguards passed; Guardian truthfully recorded as `not_applicable` |
+| Guardian-governed request without credentials | Blocked locally as `guardian_credentials_missing` |
+| Guardian-governed request with invalid credentials | Guardian HTTP 401 preserved as denial; no fail-open authorization |
+| Production BBB promotion | Completed successfully with the fail-closed image |
+| Post-promotion Master pipeline | Completed successfully with BBB approval, I-Containers present, and Qualia processed |
+| EEG compatibility | Delta, Theta, and Beta rhythm pulses accepted through the Neurobiological Master |
+
+The current live configuration therefore supports ordinary BBB filtering and normal Neurobiological Master processing while keeping the specialized governed-data operation unavailable and fail closed.
+
+---
+
+## 16.13 Closing Statement
+
+The Blood-Brain Barrier is a concrete architectural boundary between sandbox output and promoted system state. It regulates authority transition through truth filtering, judge-based validation, local BBB safeguards, constitutional and provenance review, privacy and security controls, and fail-closed handling of any required authority mechanism.
+
+The revised chapter makes explicit:
+
+- BBB placement between sandbox and bridge;
+- combined gate decomposition by candidate state and operation class;
+- fail-closed blocking on non-200 responses, missing required fields, invalid authority, and exceptions;
+- detailed logging expectations for failed promotion;
+- authority-preserving outcomes such as reject, revise, human review, limited approval, and approve;
+- the distinction between ordinary BBB filtering and Guardian/PDR authorization;
+- the current administrative decision to keep governed data operationalization off.
+
+Together, these rules convert the BBB from a general metaphor into an operational safeguard for controlled authority transition. Truth filtering and judge-based validation evaluate candidate state; local BBB safeguards regulate ordinary content; and Guardian/PDR authorization provides an additional fail-closed constitutional control only for explicitly governed `user-data-operationalization` requests.
