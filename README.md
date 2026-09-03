@@ -45,7 +45,7 @@ The daily-life interface where Mount Hope residents interact with the system, pa
 
 The system has mapped the existing physical assets across West Virginia's 9th District — schools, clinics, arts and community centers, municipal buildings, small business hubs, and annexed corridors around Mount Hope — as an infrastructure network showing concentrations of demand, access, and public expectations for construction, water, power, and permitting.
 
-The anchor building for this work is the **Miner's Academy** in Mount Hope — a historic structure being positioned as the physical home of the Ms. Allis infrastructure node, a community technology center, and a demonstration site for Appalachian AI governance. This work is being developed for planned coordination with community partners and framed around Mount Hope revitalization and state innovation goals.
+The anchor building for this work is the **Fayette County Community Arts Center* in Mount Hope — a historic structure being positioned as the physical home of the Ms. Allis infrastructure node, a community technology center, and a demonstration site for Appalachian AI governance. This work is being developed for planned coordination with community partners and framed around Mount Hope revitalization and state innovation goals.
 
 The physical infrastructure strategy includes:
 
