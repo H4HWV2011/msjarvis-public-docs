@@ -1,6 +1,5 @@
 # MountainShares ROI and Return Framework
 
-**Status:** Final Draft  
 **Applies to:** MountainShares-related participation, operations, community-value measurement, and any future private-capital discussion  
 **Does not apply to:** A current securities offering, promise of investment return, charitable solicitation, or binding distribution agreement
 
