@@ -10,7 +10,7 @@ The work began in and around Mount Hope, West Virginia, but the underlying probl
 
 The guiding development logic can be stated as:
 
-\[
+$$
 \text{local knowledge}
 +
 \text{local identity}
@@ -20,15 +20,9 @@ The guiding development logic can be stated as:
 \text{technical capacity}
 +
 \text{economic participation}
-\]
-
-\[
 \Longrightarrow
-\]
-
-\[
 \boxed{\text{external participation without local surrender}}
-\]
+$$
 
 In plain language, the same idea has long been expressed in Mount Hope as:
 
