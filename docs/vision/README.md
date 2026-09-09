@@ -163,21 +163,21 @@ That distinction is central.
 
 The desired direction is:
 
-\[
+$$
 \text{community knowledge}
 \rightarrow
 \text{collective evidence}
 \rightarrow
 \text{institutional legibility}
-\]
+$$
 
 without requiring:
 
-\[
+$$
 \text{private person}
 \rightarrow
-\text{surveillance profile}.
-\]
+\text{surveillance profile}
+$$
 
 Likewise, the economic objective is not simply to generate more transactions.
 
@@ -212,15 +212,15 @@ The research and architecture ask whether privacy, consent, aggregation, identit
 
 This is why the vision distinguishes:
 
-\[
+$$
 \text{community-level pattern}
-\]
+$$
 
 from:
 
-\[
-\text{individual behavioral profile}.
-\]
+$$
+\text{individual behavioral profile}
+$$
 
 A community may need to know that many residents are asking about flood risk, heating assistance, emergency access, transportation, or another shared concern.
 
