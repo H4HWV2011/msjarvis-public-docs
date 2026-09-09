@@ -20,7 +20,13 @@ $$
 \text{technical capacity}
 +
 \text{economic participation}
+$$
+
+$$
 \Longrightarrow
+$$
+
+$$
 \boxed{\text{external participation without local surrender}}
 $$
 
@@ -176,7 +182,7 @@ without requiring:
 $$
 \text{private person}
 \rightarrow
-\text{surveillance profile}
+\text{surveillance profile}.
 $$
 
 Likewise, the economic objective is not simply to generate more transactions.
@@ -219,7 +225,7 @@ $$
 from:
 
 $$
-\text{individual behavioral profile}
+\text{individual behavioral profile}.
 $$
 
 A community may need to know that many residents are asking about flood risk, heating assistance, emergency access, transportation, or another shared concern.
@@ -255,15 +261,15 @@ Projected KPIs remain projections until replaced by observed financial and opera
 
 The research and development program should therefore distinguish:
 
-\[
+$$
 \text{projected economics}
-\]
+$$
 
 from:
 
-\[
+$$
 \text{observed unit economics}
-\]
+$$
 
 and should treat future claims about revenue, margin, growth, retention, deployment cost, or community return as empirical questions requiring real operating data.
 
@@ -275,7 +281,7 @@ The vision does not begin from the premise that a system must become globally do
 
 Its preferred scaling logic is closer to:
 
-\[
+$$
 \text{bounded deployment}
 \rightarrow
 \text{measurement}
@@ -287,7 +293,7 @@ Its preferred scaling logic is closer to:
 \text{replication}
 \rightarrow
 \text{federation}.
-\]
+$$
 
 This is a deliberate alternative to treating scale as immediate centralization.
 
@@ -301,15 +307,15 @@ A successful model would therefore preserve local variation while sharing techni
 
 In that sense, the desired form of scale is:
 
-\[
+$$
 \boxed{\text{shared infrastructure without forced sameness}}
-\]
+$$
 
 and:
 
-\[
+$$
 \boxed{\text{federation without automatic central control}}.
-\]
+$$
 
 ---
 
@@ -338,35 +344,35 @@ The project should preserve clear boundaries among:
 
 These categories are not interchangeable.
 
-\[
+$$
 \text{vision}
 \neq
 \text{implementation}
-\]
+$$
 
-\[
+$$
 \text{implementation}
 \neq
 \text{validation}
-\]
+$$
 
-\[
+$$
 \text{empirical result}
 \neq
 \text{formal proof}
-\]
+$$
 
-\[
+$$
 \text{formal proof}
 \neq
 \text{implementation correspondence}
-\]
+$$
 
-\[
+$$
 \text{mathematical analogy}
 \neq
 \text{physical equivalence}.
-\]
+$$
 
 The directory includes documents at several of these levels. Their individual status labels should control how they are interpreted.
 
@@ -386,7 +392,7 @@ Where an earlier conceptual claim becomes too broad, the claim should be narrowe
 
 A useful general cycle is:
 
-\[
+$$
 \text{claim}
 \rightarrow
 \text{formalization or measurement}
@@ -398,7 +404,7 @@ A useful general cycle is:
 \text{repair or revision}
 \rightarrow
 \text{re-test}.
-\]
+$$
 
 The original failure should remain legible after the repair.
 
@@ -505,7 +511,7 @@ The present directory has since expanded beyond that original sequence.
 
 The addition of empirical and theoretical research manuscripts shows an important transition:
 
-\[
+$$
 \text{vision}
 \rightarrow
 \text{operational question}
@@ -513,7 +519,7 @@ The addition of empirical and theoretical research manuscripts shows an importan
 \text{measurement}
 \rightarrow
 \text{formalization}.
-\]
+$$
 
 This README does not rewrite the historical order.
 
@@ -680,21 +686,21 @@ It is a community made more capable of representing itself.
 
 Not:
 
-\[
+$$
 \text{rural community}
 \rightarrow
 \text{raw material for outside systems}.
-\]
+$$
 
 But:
 
-\[
+$$
 \boxed{
 \text{rural community}
 \rightarrow
 \text{sovereign participant in larger systems}
 }
-\]
+$$
 
 The technology should serve that transition.
 
