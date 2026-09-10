@@ -2262,9 +2262,9 @@ This Thurmond allocation is tracked as community-capacity and relationship-build
 
 | Category | Hours | Treatment |
 |---|---:|---|
-| Continued Ms. Allis / ALLIS development supporting the H4H MountainShares / community-infrastructure environment | **18.0** | Included in donated KTS technical contribution totals. |
 | Capacity building with the Thurmond community | **14.0** | Included in donated KTS contribution totals and separately identified as H4H MountainShares/community-field work because it supports community relationships, field learning, and platform growth. |
-| **Total, Sept. 9–10** | **32.0** | **No double counting.** |
+September 10, 2026 — Distribution: Thurmond Historic District Economic Outlook and Preservation Investment Case distributed by Kidd’s Technical Services to New River Gorge National Park and Preserve, Town of Thurmond, Preservation Thurmond, and Preservation Alliance of West Virginia. Same report version supplied to each recipient; no commissioned client relationship represented.
+| **Total, Sept. 9–10** | **14.0** | **No double counting.** |
 
 ### Current Record Totals
 
