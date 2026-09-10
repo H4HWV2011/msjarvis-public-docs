@@ -1,9 +1,23 @@
-# Kidd's Technical Services, LLC
-## Detailed Timesheet: March 23, 2025 – August 12, 2026
+# Kidd's Technical Services
+## Donated Technical Contribution Record for Harmony for Hope, Inc.
+### MountainShares / ALLIS Community Infrastructure
+#### Detailed Timesheet: March 23, 2025 – September 10, 2026
 
 *Prepared for:* Harmony for Hope, Inc.  
-*Purpose:* Grant match documentation, founder equity, and audit-ready time records  
-*Rate:* $150/hour
+*Contributed by:* Carrie Ann Kidd d/b/a Kidd's Technical Services  
+*Project context:* MountainShares / ALLIS community infrastructure and related field-development work  
+*Purpose:* Documentation of donated KTS technical services, potential grant-match support where an applicable funder permits the contribution, MountainShares earned-time provenance, and audit-ready time records  
+*Rate:* $150/hour documented charitable/in-kind technical-services valuation
+
+> **Contribution treatment**
+>
+> This record documents professional and technical time contributed by Carrie Ann Kidd d/b/a Kidd's Technical Services to Harmony for Hope, Inc. for the MountainShares / ALLIS community-infrastructure project and its supporting research, development, documentation, community-capacity, and field-development work.
+>
+> The recorded value represents donated/in-kind professional effort. It is not a customer invoice, current KTS revenue, an account receivable, a cash contribution, payroll owed by Harmony for Hope, or a guarantee of future payment.
+>
+> MountainShares-related time may later be recognized under the applicable MountainShares governance, issuance, valuation, or accounting rules. No current MountainShares cash value, revenue, receivable, or guaranteed consideration is recognized by this record. The same hours must not be counted twice under separate funding, match, compensation, or MountainShares claims.
+>
+> Use of any portion of this record as grant match or cost share remains subject to the specific funding program's eligibility rules, approved performance period, valuation requirements, and documentary standards.
 
 ---
 
@@ -2085,12 +2099,178 @@
 **August 2026 (August 1–12) Contribution:** 192.0 hrs × $150 = **$28,800**  
 **Running Total (incl. this period):** 7,431.0 hours / $1,114,650
 
+
+---
+
+## August 2026 (August 13–31)
+
+| Date | Day | Hours / Time Window | Task Description |
+|---|---|---|---|
+| 2026-08-13 | Thursday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-14 | Friday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-15 | Saturday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-16 | Sunday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-17 | Monday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-18 | Tuesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-19 | Wednesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-20 | Thursday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-21 | Friday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-22 | Saturday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-23 | Sunday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-24 | Monday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-25 | Tuesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-26 | Wednesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-27 | Thursday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-28 | Friday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-29 | Saturday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-30 | Sunday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-08-31 | Monday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS production hardening, trust-boundary integration, evidence-sealing, documentation alignment, and research-program development supporting the H4H MountainShares / community-infrastructure environment |
+| **Monthly Total (Aug. 13–31)** | | **304.0 hrs** | |
+
+**August 2026 (August 13–31) Donated KTS Contribution to H4H:** 304.0 hrs × $150 = **$45,600**  
+**Running Total (through August 31, 2026):** 7,735.0 hours / **$1,160,250**
+
+---
+
+## September 2026 (September 1–10)
+
+| Date | Day | Hours / Time Window | Task Description |
+|---|---|---|---|
+| 2026-09-01 | Tuesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS active-source remediation, authentication/identity hardening, governance evidence, repository alignment, and production-readiness work supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-09-02 | Wednesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS active-source remediation, authentication/identity hardening, governance evidence, repository alignment, and production-readiness work supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-09-03 | Thursday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS active-source remediation, authentication/identity hardening, governance evidence, repository alignment, and production-readiness work supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-09-04 | Friday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS active-source remediation, authentication/identity hardening, governance evidence, repository alignment, and production-readiness work supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-09-05 | Saturday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS active-source remediation, authentication/identity hardening, governance evidence, repository alignment, and production-readiness work supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-09-06 | Sunday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS active-source remediation, authentication/identity hardening, governance evidence, repository alignment, and production-readiness work supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-09-07 | Monday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS active-source remediation, authentication/identity hardening, governance evidence, repository alignment, and production-readiness work supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-09-08 | Tuesday | **16 hrs** | |
+| | | 12:00 AM – 9:00 AM | Continued Ms. Allis / ALLIS infrastructure-critical development, production hardening, validation, governance, and remediation under the continuous-operation model |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable* |
+| | | 1:30 PM – 8:30 PM | Continued Ms. Allis / ALLIS active-source remediation, authentication/identity hardening, governance evidence, repository alignment, and production-readiness work supporting the H4H MountainShares / community-infrastructure environment |
+| 2026-09-09 | Wednesday | **16 hrs total** | **7.0 hrs — continued Ms. Allis / ALLIS development; 9.0 hrs — capacity building with the Thurmond community** |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable; the 16-hour work total remains outside the protected care window* |
+| | | Allocation note | Capacity-building work with the Thurmond community included preservation-record review, economic-development research, community relationship development, and preparation of supporting analysis. These 9.0 hours are included within the 16-hour daily total and are documented as H4H MountainShares/community-capacity field work. |
+| 2026-09-10 | Thursday | **16 hrs total** | **11.0 hrs — continued Ms. Allis / ALLIS development; 5.0 hrs — capacity building with the Thurmond community** |
+| | | *9:00 AM – 1:30 PM* | *Medicaid Waiver care — non-billable; the 16-hour work total remains outside the protected care window* |
+| | | Allocation note | Capacity-building work with the Thurmond community included continued economic analysis, preservation-finance research, report preparation, and community relationship development connected to the New River Gorge field environment. These 5.0 hours are included within the 16-hour daily total and are documented as H4H MountainShares/community-capacity field work. |
+| **Period Total (Sept. 1–10)** | | **160.0 hrs** | **146.0 hrs continued Ms. Allis / ALLIS work + 14.0 hrs Thurmond community capacity-building allocation** |
+
+**September 2026 (September 1–10) Donated KTS Contribution to H4H:** 160.0 hrs × $150 = **$24,000**  
+**Running Total (through September 10, 2026):** 7,895.0 hours / **$1,184,250**
+
+### Thurmond Community Capacity-Building / MountainShares Field-Time Tag — September 9–10, 2026
+
+| Date | Capacity-building hours | H4H / MountainShares treatment |
+|---|---:|---|
+| 2026-09-09 | **9.0 hrs** | Donated KTS time for capacity building with the Thurmond community; included within the recorded 16-hour workday and documented as MountainShares/community-field work for H4H. |
+| 2026-09-10 | **5.0 hrs** | Donated KTS time for capacity building with the Thurmond community; included within the recorded 16-hour workday and documented as MountainShares/community-field work for H4H. |
+| **Total** | **14.0 hrs** | **Included within total donated KTS hours. No double counting and no current MountainShares cash/revenue/receivable recognized.** |
+
+This Thurmond allocation is tracked as community-capacity and relationship-building work within the broader H4H MountainShares / ALLIS field environment. It is not treated as unrelated outside activity. The work supports community networking, preservation/economic-development understanding, field validation, and the growth of the community relationships through which MountainShares and related infrastructure are intended to operate. The 14.0 hours are included within, not added on top of, the 32.0 total working hours recorded for September 9–10.
+
 ---
 
 ## Summary
 
-| Checkpoint | Hours | Value @ $150 |
-|---|---|---|
+| Checkpoint | Donated KTS Hours to H4H | Value @ $150 |
+|---|---:|---:|
 | Audited total through 2026-06-17 | 6,535.0 | $980,250 |
 | June 18 – August 12, 2026 (worked; thematic descriptions) | 896.0 | $134,400 |
-| **Total through August 12, 2026** | **7,431.0** | **$1,114,650** |
+| August 13 – August 31, 2026 (continued Ms. Allis / ALLIS and H4H MountainShares-supporting development) | 304.0 | $45,600 |
+| September 1 – September 10, 2026 (continued development plus explicit Thurmond community-capacity allocation) | 160.0 | $24,000 |
+| **Total through September 10, 2026** | **7,895.0** | **$1,184,250** |
+
+### September 9–10 Allocation Detail
+
+| Category | Hours | Treatment |
+|---|---:|---|
+| Continued Ms. Allis / ALLIS development supporting the H4H MountainShares / community-infrastructure environment | **18.0** | Included in donated KTS technical contribution totals. |
+| Capacity building with the Thurmond community | **14.0** | Included in donated KTS contribution totals and separately identified as H4H MountainShares/community-field work because it supports community relationships, field learning, and platform growth. |
+| **Total, Sept. 9–10** | **32.0** | **No double counting.** |
+
+### Current Record Totals
+
+- **Total documented KTS hours donated to Harmony for Hope through September 10, 2026:** 7,895.0 hours.
+- **Documented in-kind professional value at the existing $150/hour record rate:** $1,184,250.
+- **Thurmond community capacity-building hours separately identified within the total:** 14.0 hours (9.0 hours on September 9; 5.0 hours on September 10).
+- **Current MountainShares cash/revenue/receivable recognized from those hours:** $0.00.
+- Any later MountainShares recognition, issuance, conversion, accounting, or payment must follow the applicable governance terms and must not duplicate recognition of the same contributed time.
+- Any use of these hours as grant match or cost share is subject to the specific funder's rules, approved project period, valuation requirements, and acceptance of third-party in-kind professional services.
